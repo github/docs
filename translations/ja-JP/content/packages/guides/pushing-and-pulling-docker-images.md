@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-Organization が所有するコンテナイメージをプッシュまたはプルするには、{% data variables.product.prodname_github_container_registry %} を Organization に対して有効化する必要があります。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
+Organization が所有するコンテナイメージをプッシュまたはプルするには、{% data variables.product.prodname_github_container_registry %} を Organization に対して有効化する必要があります。 詳しい情報については、「[改善されたコンテナサポートを有効化する](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)」を参照してください。
 
 ### {% data variables.product.prodname_github_container_registry %} への認証を行う
 

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 ### 概述和宗旨

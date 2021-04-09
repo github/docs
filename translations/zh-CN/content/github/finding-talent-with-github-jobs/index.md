@@ -6,6 +6,8 @@ redirect_from:
   - /categories/finding-talent-with-github-jobs
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 

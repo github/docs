@@ -12,6 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
+  - 仓库
 ---
 
 {% data reusables.user_settings.access_settings %}

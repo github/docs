@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfil
+  - solicitudes de extracción
+  - propuestas
+  - notifications
+  - cuentas
 ---
 
 Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".

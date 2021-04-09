@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 具有管理员权限的人员可以管理组织成员和外部协作者对组织仓库的访问。

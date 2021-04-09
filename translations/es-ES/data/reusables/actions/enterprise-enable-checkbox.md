@@ -1,1 +1,1 @@
-1. Select **Enable GitHub Actions**. ![Checkbox to Enable GitHub Actions](/assets/images/enterprise/management-console/enable-github-actions.png)
+1. Selecciona **Habilitar las GitHub Actions**. ![Casilla de verificación para habilitar las GitHub Actions](/assets/images/enterprise/management-console/enable-github-actions.png)

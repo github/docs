@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - выставление счетов
 ---
 
 ### Setting your personal account's billing email

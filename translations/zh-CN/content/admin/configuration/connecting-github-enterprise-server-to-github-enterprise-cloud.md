@@ -10,6 +10,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以启用 {% data variables.product.prodname_github_connect %}。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于 {% data variables.product.prodname_github_connect %}

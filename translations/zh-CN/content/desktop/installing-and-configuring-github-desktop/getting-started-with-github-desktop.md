@@ -13,7 +13,7 @@ versions:
 
 您可能会发现，在开始使用 {% data variables.product.prodname_dotcom %} 之前，基本了解 Git 和 {% data variables.product.prodname_desktop %} 会有帮助。 更多信息请参阅以下文章。
 
-- [[了解 Git](/github/using-git/learning-about-git)]
+- "[使用 Git](/github/getting-started-with-github/using-git)"
 - "[了解 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
 

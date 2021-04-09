@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - comunidad
 ---
 
 Si incluyes una licencia detectable en tu repositorio, las personas que visiten tu repositorio la verán en la parte superior de la página del repositorio. Para leer el archivo de licencia completa, haz clic en el nombre de la licencia.
@@ -45,6 +47,6 @@ Las licencias de código abierto permiten que otras personas usen, cambien y dis
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)"

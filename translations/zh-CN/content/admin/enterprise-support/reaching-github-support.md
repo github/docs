@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/reaching-github-support
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 使用自动事件单系统

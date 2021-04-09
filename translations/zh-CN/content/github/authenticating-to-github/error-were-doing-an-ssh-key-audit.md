@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 使用一个未验证的密钥执行 Git 操作时，系统会提示您执行 SSH 密钥审核。

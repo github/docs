@@ -5,6 +5,10 @@ redirect_from:
   - /articles/removing-a-billing-manager-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
+  - 计费，帐单
 ---
 
 {% warning %}

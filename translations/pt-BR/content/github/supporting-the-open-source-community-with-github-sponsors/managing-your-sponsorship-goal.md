@@ -3,6 +3,8 @@ title: Gerenciando sua meta de patrocínio
 intro: Você pode definir uma meta para o seu desenvolvedor patrocinado ou conta da organização patrocinada para ajudar a comunidade a entender o impacto de patrocinar você.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre metas de patrocínio
@@ -10,6 +12,12 @@ versions:
 Você pode definir uma meta de financiamento para a sua conta patrocinada e compartilhar o objetivo com sua comunidade. Metas ajudam você a entender o impacto que você tem na comunidade de código aberto e construir sua presença no programa {% data variables.product.prodname_sponsors %}.
 
 Sua meta pode definir um objetivo para o número de patrocinadores que você deseja ter ou a quantidade de dinheiro que você quer ganhar a cada mês. Você só pode definir em uma meta de cada vez. Depois de atingir uma meta, você pode definir outra meta.
+
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
 
 ### Definir uma meta
 

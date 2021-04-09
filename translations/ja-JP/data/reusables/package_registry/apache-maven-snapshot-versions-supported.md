@@ -1,1 +1,1 @@
-{% data variables.product.prodname_registry %}はApache Mavenの`SNAPSHOT`バージョンをサポートしています。  このタイプの成果物のダウンロードのためにリポジトリを使うには、*~/.m2/settings.xml*ファイル中でSNAPSHOTSを有効化しなければなりません。
+{% data variables.product.prodname_registry %}はApache Mavenの`SNAPSHOT`バージョンをサポートしています。 `SNAPSHOT`成果物をダウンロードするために{% data variables.product.prodname_registry %}リポジトリを使うには、使用するプロジェクトのPOM中もしくは*~/.m2/settings.xml*ファイルでSNAPSHOTSを有効にしてください。

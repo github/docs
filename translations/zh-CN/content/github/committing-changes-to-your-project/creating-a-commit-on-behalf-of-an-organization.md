@@ -47,7 +47,7 @@ versions:
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/articles/pushing-commits-to-a-remote-repository/)”。
+在下次推送时，新的提交、消息和徽章将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)”。
 
 ### 在 {% data variables.product.product_name %} 上使用 `on-behalf-of` 徽章创建提交
 

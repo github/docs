@@ -1,7 +1,7 @@
 ---
 title: Utilizar comandos de Git avanzados
 intro: ''
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /categories/52/articles/
   - /categories/advanced-git/

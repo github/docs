@@ -43,14 +43,14 @@ versions:
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
+8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
+9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
   $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -81,14 +81,14 @@ versions:
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In the Command prompt, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
+8. In the Command prompt, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
+9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
   $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -119,14 +119,14 @@ versions:
   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
 7. At the top of your {% data variables.product.product_name %} repository's Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL. ![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
-8. In Terminal, [add the URL for the remote repository](/articles/adding-a-remote) where your local repository will be pushed.
+8. In Terminal, [add the URL for the remote repository](/github/getting-started-with-github/managing-remote-repositories) where your local repository will be pushed.
   ```shell
-  $ git remote add origin <em>remote repository URL</em>
+  $ git remote add origin <em> &lt;REMOTE_URL> </em>
   # Sets the new remote
   $ git remote -v
   # Verifies the new remote URL
   ```
-9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
+9. [Push the changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
   $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin

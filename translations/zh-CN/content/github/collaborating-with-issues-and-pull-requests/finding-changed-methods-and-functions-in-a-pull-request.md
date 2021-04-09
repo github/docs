@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 对仓库有读取权限的任何人都可以查看拉取请求的某些文件中函数和方法更改的摘要列表。

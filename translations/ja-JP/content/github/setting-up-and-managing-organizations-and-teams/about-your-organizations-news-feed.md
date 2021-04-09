@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization のニュースフィードは、その Organization が所有しているリポジトリ上での他の人々のアクティビティを知らせます。 Organization のニュースフィードを使って、誰かによる Issue あるいはプルリクエストのオープン、クローズ、マージや、ブランチの作成や削除、タグあるいはリリースの作成、Issue、プルリクエスト、コミットへのコメント、あるいは新しいコミットの {% data variables.product.product_name %}へのプッシュを知ることができます。

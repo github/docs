@@ -10,14 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de la sintaxis de YAML para flujos de trabajo
 
-Los archivos de flujo de trabajo usan la sintaxis YAML y deben tener una extensión de archivo `.yml` o `.yaml`. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
+Los archivos de flujo de trabajo usan la sintaxis YAML y deben tener una extensión de archivo `.yml` o `.yaml`. {% data reusables.actions.learn-more-about-yaml %}
 
 Debes almacenar los archivos de flujos de trabajo en el directorio `.github/workflows` en tu repositorio.
 
@@ -27,7 +29,7 @@ El nombre de tu flujo de trabajo. {% data variables.product.prodname_dotcom %} m
 
 ### `on`
 
-**Obligatorio** El nombre del evento {% data variables.product.prodname_dotcom %} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
+**Requerido**. El nombre del evento de {% data variables.product.prodname_dotcom %} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -120,7 +122,7 @@ Las palabras clave `paths-ignore` y `paths` aceptan los patrones globales que us
 
 #### Ejemplo de ignorar rutas
 
-Cada vez que un nombre de ruta coincida con `paths-ignore`, no se ejecutará el flujo de trabajo. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
 ```yaml
 on:
@@ -286,8 +288,22 @@ En este ejemplo, `job3` utiliza la expresión condicional `always()` para que si
 
 ### `jobs.<job_id>.runs-on`
 
-**Obligatorio** El tipo de máquina en la que se ejecuta el trabajo. La máquina puede ser un ejecutor alojado {% data variables.product.prodname_dotcom %} o un ejecutor autoalojado.
+**Requerido**. El tipo de máquina en la cual se ejecutará el job. La máquina puede ser un ejecutor alojado {% data variables.product.prodname_dotcom %} o un ejecutor autoalojado.
 
+{% if currentVersion == "github-ae@latest" %}
+#### {% data variables.actions.hosted_runner %}s
+
+Si utilizas un {% data variables.actions.hosted_runner %}, cada job se ejecutará en una instancia nueva de un ambiente virtual que especifique `runs-on`.
+
+##### Ejemplo
+
+```yaml
+runs-on: [AE-runner-for-CI]
+```
+
+Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+
+{% else %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### Ejecutores alojados {% data variables.product.prodname_dotcom %}
@@ -298,7 +314,7 @@ Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} di
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### Ejemplo
 
@@ -307,8 +323,11 @@ runs-on: ubuntu-latest
 ```
 
 Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados de {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+{% endif %}
 
 #### Ejecutores autoalojados
+
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
@@ -320,7 +339,7 @@ runs-on: [self-hosted, linux]
 
 Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" y "[Usar ejecutores autoalojados en un flujo de trabajo](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
 El ambiente que referencia el job. Todas las reglas de protección del ambiente deben pasar antes de que un job que referencie dicho ambiente se envie a un ejecutor. Para obtener más información, consulta la sección "[Ambientes](/actions/reference/environments)".
@@ -518,7 +537,7 @@ Las acciones son archivos JavaScript o contenedores Docker. Si la acción que es
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
@@ -589,11 +608,26 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-#### Ejemplo usando una acción de registro público de Docker
+{% if currentVersion == "free-pro-team@latest" %}
+##### Ejemplo de uso del {% data variables.product.prodname_github_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-Una imagen de Docker en un registro público.
+Una imagen de Docker en el {% data variables.product.prodname_github_container_registry %}.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### Ejemplo usando una acción de registro público de Docker
+
+`docker://{host}/{image}:{tag}`
+
+Una imagen de Docker en un registro público. Este ejemplo utiliza el Registro del Contenedor de Google en `gcr.io`.
 
 ```yaml
 jobs:
@@ -602,6 +636,27 @@ jobs:
       - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
+
+#### Ejemplo de cómo utilizar una acción dentro de un repositorio privado diferente al flujo de trabajo
+
+Tu flujo de trabajo debe registrar el repositorio privado y referenciar la acción de forma local.
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -700,12 +755,30 @@ steps:
 
 Puede establecer el valor `shell` en una cadena de plantilla utilizando el comando `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interpreta la primera palabra delimitada por espacios en blanco de la cadena como el comando, e inserta el nombre del archivo para el script temporal en `{0}`.
 
+Por ejemplo:
+
+```yaml
+steps:
+  - name: Display the environment variables and their values
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+El comando que se utiliza, (en este ejemplo, `perl`) debe instalarse en el ejecutor.
+
+
+{% if currentVersion == "github-ae@latest" %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}
+Para obtener más información sobre el software que se incluye en los ejecutores hospedados en GitHub, consulta la sección "[Especificaciones para los ejecutores hospedados en GitHub](/actions/reference/specifications-for-github-hosted-runners#supported-software)".
+{% endif %}
+
 #### Códigos de salida y preferencia de acción de error
 
 Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutores alojados {% data variables.product.prodname_dotcom %}. Deberías usar estos lineamientos al ejecutar scripts shell.
 
 - `bash`/`sh`:
-  - Comportamiento a prueba de fallos utilizando `set -e o pipefail`: valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
+  - Comportamiento a prueba de fallos utilizando `set -eo pipefail`: Valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
   - Puedes excluir la función de falla rápida y tomar el control total al proporcionar una cadena de plantilla a las opciones del shell. Por ejemplo, `bash {0}`.
   - Los shells tipo sh salen con el código de salida del último comando ejecutado en un script, que también es el comportamiento predeterminado para las acciones. El ejecutor informará el estado del paso como fallido o exitoso según este código de salida.
 
@@ -869,7 +942,9 @@ steps:
 ```
 {% endraw %}
 
-Para encontrar opciones de configuración compatibles para ejecutores alojados {% data variables.product.prodname_dotcom %}, consulta "[Entornos virtuales para ejecutores alojados {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+{% if currentVersion == "github-ae@latest" %}Para encontrar las opciones de configuración compatibles para los {% data variables.actions.hosted_runner %}, consulta las "[Especificaciones de software](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)".
+{% else %}Para encontrar las opciones de la configuración compatible para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+{% endif %}
 
 #### Ejemplo que incluye valores adicionales en combinaciones
 
@@ -1011,7 +1086,7 @@ jobs:
 
 La imagen de Docker para usar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen de Docker Hub o un {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %} nombre de registro público{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.container.credentials`
 
@@ -1095,7 +1170,7 @@ services:
 
 La imagen de Docker para usar como el contenedor de servicios para ejecutar la acción. El valor puede ser el nombre de la imagen de Docker Hub o un {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %} nombre de registro público{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1186,7 +1261,7 @@ Para obtener más información acerca de la sintaxis de filtro de ramas, de etiq
 | `'**'`                                                 | Encuentra todos los nombres de rama y de etiqueta. Este es el comportamiento predeterminado cuando no usas un filtro de `ramas` o `etiquetas`.                                            | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                           | El caracter `*` es un caracter especial en YAML. Cuando comiences un patrón con `*`, debes usar comillas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                  | Encuentra los nombres de rama y de etiqueta que comienzan con `v2`.                                                                                                                       | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                  | Encuentra todas las etiquetas de versión semántica con las versiones principales 1 o 2                                                                                                    | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                  | Coincide con todas las etiquetas y ramas de versionamiento semántico con una versión principal 1 o 2                                                                                      | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### Patrones para encontrar rutas de archivos
 

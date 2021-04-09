@@ -1,5 +1,9 @@
 name: site-policy-sync
 
+# **What it does**: Updates our site policy docs when changes happen to site policy.
+# **Why we have it**: We want up to date site policy docs.
+# **Who does it impact**: Site policy team.
+
 # Controls when the action will run.
 on:
   # Triggers the workflow pull requests merged to the main branch
@@ -18,7 +22,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   copy-file:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: github.repository == 'github/docs-internal'
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 

@@ -65,6 +65,6 @@ También puedes acceder a los repositorios en
 {% data variables.product.prodname_dotcom %} desde los clientes de Subversion. Para obtener más información, consulta la sección "[Soporte para clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
 {% endif %}
 
-### Further reading
+### Leer más
 
 - [Trabajar con URL Remotas](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes) del sitio del libro de _Pro Git_

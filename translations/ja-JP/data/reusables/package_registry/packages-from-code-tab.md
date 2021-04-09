@@ -1,4 +1,4 @@
-1. To the right of the list of files, click **Packages**.
+1. ファイルのリストの右で、**Packages**をクリックしてください。
   {% if currentVersion == "free-pro-team@latest" %}
   ![概要ページのパッケージリンク](/assets/images/help/package-registry/packages-link.png)
   {% else %}

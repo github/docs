@@ -7,5 +7,8 @@ redirect_from:
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 

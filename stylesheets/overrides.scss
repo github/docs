@@ -65,7 +65,7 @@
   color: $text-gray-dark;
 }
 
-.product-callout p {
+.product-callout p, .contributor-callout p {
   margin: 0;
 }
 
@@ -172,3 +172,12 @@ pre .bluebox {
     fill: $white;
   }
 }
+
+.markdown-body li img {
+  max-width: calc(100% - 32px);
+}
+
+.markdown-body img {
+  max-height: 600px;
+}
+

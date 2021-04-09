@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Passphrase aus Ihrer Schlüsseldatei entfernen

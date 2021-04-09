@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 Beim Ausführen von Remote-Git-Befehlen oder SSH kann es bei Deiner Verbindung zu einer Zeitüberschreitung kommen:
@@ -24,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### HTTPS verwenden
 
-Oft besteht die einfachste Lösung darin, SSH einfach ganz zu vermeiden. Die meisten Firewalls und Proxys lassen HTTPS-Datenverkehr problemlos zu. Um dies zu nutzen, ändere [die Remote-URL](/articles/which-remote-url-should-i-use), die Du verwendest:
+Oft besteht die einfachste Lösung darin, SSH einfach ganz zu vermeiden. Die meisten Firewalls und Proxys lassen HTTPS-Datenverkehr problemlos zu. Um dies zu nutzen, ändere [die Remote-URL](/github/getting-started-with-github/about-remote-repositories), die Du verwendest:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

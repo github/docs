@@ -4,6 +4,9 @@ intro: You can choose the permission levels that members require to create discu
 permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.discussions.beta %}

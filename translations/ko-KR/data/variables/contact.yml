@@ -24,9 +24,12 @@ contact_enterprise_portal: '[GitHub Enterprise Support portal](https://enterpris
 #Azure support (GitHub AE) portal
 ae_azure_portal: 'Azure Support portal'
 contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
-#GitHub Support portal (for dotcom)
+#GitHub Support portal (for dotcom - this sends users to a contact form)
 support_portal: 'GitHub Support portal'
 contact_support_portal: '[GitHub Support portal](https://support.github.com/contact)'
+#GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'GitHub Support portal'
+contact_landing_page_portal: '[GitHub Support portal](https://support.github.com/)'
 #The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
 community_support: 'GitHub Community Support'
 #The GitHub Community forum

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization で [SAML シングルサインオンを強制](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)すると、アイデンティティプロバイダ (IdP) を介して認証していないメンバーは Organization から削除され、削除について知らせるメールが届きます。

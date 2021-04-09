@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

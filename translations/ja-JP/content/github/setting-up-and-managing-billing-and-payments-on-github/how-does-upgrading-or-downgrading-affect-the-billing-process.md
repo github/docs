@@ -5,6 +5,8 @@ redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 有料ユーザアカウントまたは Organization のプランを変更しても、{% data variables.large_files.product_name_long %} など他の有料 {% data variables.product.prodname_dotcom %} 機能や、{% data variables.product.prodname_marketplace %} で購入した有料アプリケーションには影響しません。

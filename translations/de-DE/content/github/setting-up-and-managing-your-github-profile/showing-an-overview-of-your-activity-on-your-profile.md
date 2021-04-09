@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - profile
 ---
 
 {% data reusables.profile.activity-overview-summary %} Weitere Informationen findest Du unter „[Beiträge in Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile).“

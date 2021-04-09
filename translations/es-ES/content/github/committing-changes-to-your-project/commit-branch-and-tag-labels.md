@@ -17,7 +17,7 @@ Una vez que la confirmación está en la rama por defecto, todas las etiquetas q
 
 ![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
-### Further reading
+### Leer más
 
 * "[Firmar confirmaciones](/articles/signing-commits)"
 * "[Firmar etiquetas](/articles/signing-tags)"

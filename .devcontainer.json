@@ -2,13 +2,12 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json 
 {
     "name": "docs.github.com",
-    "service": "container-doc",
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.language": ",en"
     },
-    // Install pre-requisites, and start to serve docs.github.com locally
-    "postCreateCommand": "npm install && npm start",
+    // Install pre-requisites and run a build to ensure we are ready to start serving docs.github.com locally (via `npm start`)
+    "postCreateCommand": "npm ci && npm run build",
     "forwardPorts": [4000],
     // Visual Studio Code extensions which help authoring for docs.github.com.
     "extensions": [

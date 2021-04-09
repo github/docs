@@ -2,19 +2,20 @@
 date: '2020-06-23'
 sections:
   security_fixes:
-    - 'Packages have been updated to the latest security versions. {% comment %} https://github.com/github/enterprise2/pull/20747, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/20747, https://github.com/github/enterprise2/pull/20727 {% endcomment %}'
   bugs:
-    - 'Excessively large log events could lead to log forwarding instability when UDP was used as the transport mechanism. {% comment %} https://github.com/github/enterprise2/pull/20458, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
-    - 'The internal communication service used to access MySQL could restart more often than required, including part way through the upgrade process, which could cause the upgrade to partially fail. We have reduced the rate of restarts and made the code more robust. {% comment %} https://github.com/github/enterprise2/pull/20957, https://github.com/github/enterprise2/pull/20972, https://github.com/github/github/pull/146974 {% endcomment %}'
-    - "Automatic unsuspension of a user through SSO did not complete if the SSH keys attribute had keys already associated with the user's account. {% comment %} https://github.com/github/github/pull/143475, https://github.com/github/github/pull/142927 {% endcomment %}"
-    - 'The repository permission hash from the REST API indicated no access for business members who have pull access to internal repositories. {% comment %} https://github.com/github/github/pull/144756, https://github.com/github/github/pull/144292 {% endcomment %}'
-    - 'The "Repository issue deletion" Enterprise account policy did not reflect the currently saved setting. {% comment %} https://github.com/github/github/pull/145218, https://github.com/github/github/pull/145067 {% endcomment %}'
-    - 'The audit log did not include branch protection changes events. {% comment %} https://github.com/github/github/pull/145998, https://github.com/github/github/pull/145014 {% endcomment %}'
+    - '当使用 UDP 作为传输机制时，过大的日志事件可能导致日志转发不稳定。{% comment %} https://github.com/github/enterprise2/pull/20458, https://github.com/github/enterprise2/pull/20445 {% endcomment %}'
+    - '用于访问 MySQL 的内部通信服务可能比所需更频繁地重新启动，包括部分通过升级过程的重新启动，这可能导致升级部分失败。我们降低了重新启动速度，使代码更加稳健。 {% comment %} https://github.com/github/enterprise2/pull/20957, https://github.com/github/enterprise2/pull/20972, https://github.com/github/github/pull/146974 {% endcomment %}'
+    - "如果 SSH 密钥属性具有已与用户帐户关联的密钥，则用户通过 SSO 自动取消暂停未完成。 {% comment %} https://github.com/github/github/pull/143475, https://github.com/github/github/pull/142927 {% endcomment %}"
+    - '来自 REST API 的仓库权限哈希表示，对于可拉取访问内部仓库的业务成员，无法访问仓库。 {% comment %} https://github.com/github/github/pull/144756, https://github.com/github/github/pull/144292 {% endcomment %}'
+    - '“仓库议题删除”企业帐户政策没有反映当前保存的设置。{% comment %} https://github.com/github/github/pull/145218, https://github.com/github/github/pull/145067 {% endcomment %}'
+    - '审核日志不包括分支保护更改事件。 {% comment %} https://github.com/github/github/pull/145998, https://github.com/github/github/pull/145014 {% endcomment %}'
   known_issues:
-    - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
-    - 'Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
-    - 'Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
-    - 'Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
-    - 'When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
-    - 'Security alerts are not reported when pushing to a repository on the command line. {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
-    - 'Audit logs may be attributed to 127.0.0.1 instead of the actual source IP address. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - '在没有任何用户的新建 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '自定义防火墙规则在升级期间没有维护。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '议题若是包含同一仓库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - '在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '推送到命令行上的仓库时，不会报告安全警报。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '审核日志可归因于 127.0.0.1，而不是实际源 IP 地址。（更新于 2020-11-02） {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "配置仓库的权限到“分类”或“维护”失败，且显示错误消息。"

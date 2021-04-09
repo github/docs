@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. List the current configured remote repository for your fork.

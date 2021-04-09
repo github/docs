@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - empresa
 ---
 
 Para obtener más información acerca de los tipos de tableros de proyecto, consulta "[Acerca de los tableros de proyecto](/articles/about-project-boards)."

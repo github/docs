@@ -4,5 +4,7 @@ intro: 'You can list free and paid tools for developers to use in {% data variab
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Antes de [habilitar SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) en tu organización {% data variables.product.product_name %}, deberás conectar tu proveedor de identidad (IdP) con tu organización.
@@ -24,7 +27,7 @@ Puedes buscar los detalles de la implementación de SAML y SCIM para tu IdP en s
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
 - "[Implementar el inicio de sesión único de SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)"

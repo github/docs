@@ -5,6 +5,8 @@ redirect_from:
   - /articles/managing-your-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %} 

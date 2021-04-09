@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 Organization からユーザのブロックを解除すると、そのユーザは Organization のリポジトリにコントリビュートできるようになります。

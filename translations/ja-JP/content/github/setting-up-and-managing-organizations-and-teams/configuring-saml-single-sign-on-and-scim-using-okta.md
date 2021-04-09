@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: Organization のオーナーは、Okta を使う Organization に SAML SSO および SCIM を設定できます。
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Okta での SAML と SCIM について

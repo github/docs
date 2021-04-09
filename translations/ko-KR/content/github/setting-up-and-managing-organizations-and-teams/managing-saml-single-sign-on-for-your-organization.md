@@ -7,5 +7,8 @@ redirect_from:
   - /articles/managing-saml-single-sign-on-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 

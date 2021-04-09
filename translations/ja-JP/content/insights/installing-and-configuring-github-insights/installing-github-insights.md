@@ -16,6 +16,7 @@ versions:
 - アプリケーションサーバーに依存関係をインストールしなければなりません。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
+  - [netcat](http://netcat.sourceforge.net/), available via apt for [Debian](https://packages.debian.org/search?keywords=netcat) and [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
 
   {% note %}
 
@@ -32,17 +33,17 @@ versions:
 {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-5. **New {% data variables.product.prodname_github_app %}（新規{% data variables.product.prodname_github_app %}）**をクリックしてください。 ![新規GitHub Appボタン](/assets/images/help/apps/github_apps_new.png)
-6. "{% data variables.product.prodname_github_app %} name（{% data variables.product.prodname_github_app %}名）"の下で、アプリケーションの名前を入力してください。 アプリケーションの名前は、その名前があなた自身のユーザ名やOrganization名でないかぎり、既存のユーザやOrganizationと同じ名前になってはいけません。 ![GitHub App名フィールド](/assets/images/help/apps/github_apps_app_name.png)
-7. "Homepage URL（ホームページのURL）"の下に、{% data variables.product.prodname_insights %}のアプリケーションサーバーのURLを入力してください。 詳しい情報については「[{% data variables.product.prodname_insights %}のシステム概要](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)」を参照してください。 ![ホームページのURLフィールド](/assets/images/help/apps/github_apps_homepage_url.png)
+5. **New {% data variables.product.prodname_github_app %}（新規{% data variables.product.prodname_github_app %}）**をクリックしてください。 ![新規GitHub Appボタン](/assets/images/github-apps/github_apps_new.png)
+6. "{% data variables.product.prodname_github_app %} name（{% data variables.product.prodname_github_app %}名）"の下で、アプリケーションの名前を入力してください。 アプリケーションの名前は、その名前があなた自身のユーザ名やOrganization名でないかぎり、既存のユーザやOrganizationと同じ名前になってはいけません。 ![GitHub App名フィールド](/assets/images/github-apps/github_apps_app_name.png)
+7. "Homepage URL（ホームページのURL）"の下に、{% data variables.product.prodname_insights %}のアプリケーションサーバーのURLを入力してください。 詳しい情報については「[{% data variables.product.prodname_insights %}のシステム概要](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)」を参照してください。 ![ホームページのURLフィールド](/assets/images/github-apps/github_apps_homepage_url.png)
 8. ""User authorization callback URL（ユーザ認証のコールバックURL）"の下で、以下の`<application-server-url>`をアプリケーションサーバーのURLで置き換えて入力してください。
    ```
    <application-server-url>/public/applogin
    ```
-   ![ユーザ認可のコールバックフィールド](/assets/images/help/apps/github_apps_user_authorization.png)
+   ![ユーザ認可のコールバックフィールド](/assets/images/github-apps/github_apps_user_authorization.png)
 9. "Setup URL（セットアップURL）"の下で、`<application-server-url>/public/setup`と入力してください。 ![セットアップURLフィールド](/assets/images/help/apps/github-apps-setup-url.png)
-9. "Webhook URL"の下で、 `<application-server-url>/webhooks`と入力してください。 ![webhookのURLフィールド](/assets/images/help/apps/github_apps_webhook_url.png)
-10. "Webhook secret（Webhookのシークレット）"の下で、シークレットを入力し、後に参照するためにそのシークレットを記録しておいてください。 ![Webhookのシークレットフィールド](/assets/images/help/apps/github_apps_webhook_secret.png)
+9. "Webhook URL"の下で、 `<application-server-url>/webhooks`と入力してください。 ![webhookのURLフィールド](/assets/images/github-apps/github_apps_webhook_url.png)
+10. "Webhook secret（Webhookのシークレット）"の下で、シークレットを入力し、後に参照するためにそのシークレットを記録しておいてください。 ![Webhookのシークレットフィールド](/assets/images/github-apps/github_apps_webhook_secret.png)
 11. "Permissions（権限）"の下で、ドロップダウンメニューを使ってアプリケーションに以下の権限を設定してください。
     - リポジトリ:
       - Contents: **Read-only**
@@ -62,7 +63,7 @@ versions:
     - Team ![イベントへのサブスクライブチェックボックス](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
 13. {% data variables.product.product_location %}内の任意のユーザあるいはOrganizationからのデータに{% data variables.product.prodname_github_app %}がアクセスできるようにするために、"Where can this {% data variables.product.prodname_github_app %} be installed?（この{% data variables.product.prodname_github_app %}はどこにインストールできますか？）"の下で、**Any account（任意のアカウント）**を選択してください。 ![任意のアカウントへのアクセスを有効化するラジオボタン](/assets/images/help/apps/github_apps_installation_options_any_account.png)
-14. **Create {% data variables.product.prodname_github_app %}（{% data variables.product.prodname_github_app %}の作成）**をクリックしてください。 ![GitHub Appの作成ボタン](/assets/images/help/apps/github_apps_create_github_app.png)
+14. **Create {% data variables.product.prodname_github_app %}（{% data variables.product.prodname_github_app %}の作成）**をクリックしてください。 ![GitHub Appの作成ボタン](/assets/images/github-apps/github_apps_create_github_app.png)
 15. アプリケーションの設定をレビューしてください。
 16. "Private keys（秘密鍵）"の下で、**Generate a private key（秘密鍵の生成）**をクリックしてください。 ![秘密鍵の生成ボタン](/assets/images/help/apps/generate-private-key.png)
 17. 生成されたPEMファイルを、後で使うために保存してください。

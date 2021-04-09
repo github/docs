@@ -1,0 +1,1 @@
+Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts, or seats, that can use these features. Each active committer to at least one repository with the feature enabled uses one seat. An active committer is someone who authored at least one commit that was pushed to the repository in the last 90 days.

@@ -11,5 +11,7 @@ redirect_from:
   - /enterprise/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 

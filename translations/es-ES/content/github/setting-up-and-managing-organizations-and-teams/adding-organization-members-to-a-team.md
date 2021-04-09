@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% data reusables.organizations.team-synchronization %}
@@ -22,7 +25,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Administrar el acceso del equipo al repositorio de una organización](/articles/managing-team-access-to-an-organization-repository)"

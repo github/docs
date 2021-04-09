@@ -7,6 +7,8 @@ redirect_from:
 permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - enterprise
 ---
 
 ### About internal repositories

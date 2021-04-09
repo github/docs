@@ -1,20 +1,20 @@
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 {% note %}
 
-**Note**: If you enable {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}, your instance requires additional hardware resources. Minimum requirements for an instance with {% if currentVersion == "enterprise-server@2.22" %}beta{% else %}optional{% endif %} features enabled are **bold** in the following table. For more information, see "{% if currentVersion == "enterprise-server@2.22" %}[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% else %}[Optional features](#optional-features){% endif %}."
+**Nota**: Si te uniste al beta para las {% data variables.product.prodname_actions %} o el {% data variables.product.prodname_registry %} y habilitaste las características, tu instancia requiere recursos adicionales de hardware. Los requisitos mínimos para una instancia con características beta habilitadas se muestran en **negritas** en la siguiente tabla. Para obtener más informaci´n, consulta la sección "[Características beta en {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)".
 
 {% endnote %}
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-| Licencias de usuario                     |                                        vCPU |                                             Memoria |                            Almacenamiento conectado | Almacenamiento raíz |
-|:---------------------------------------- | -------------------------------------------:| ---------------------------------------------------:| ---------------------------------------------------:| -------------------:|
-| Prueba, Demo o 10 usuarios no frecuentes |   2<br/>o [**4**](#optional-features) |   16 GB<br/>o [**32 GB**](#optional-features) | 100 GB<br/>o [**150 GB**](#optional-features) |              200 GB |
-| 10-3000                                  |   4<br/>o [**8**](#optional-features) |   32 GB<br/>o [**48 GB**](#optional-features) | 250 GB<br/>o [**300 GB**](#optional-features) |              200 GB |
-| 3000-5000                                |  8<br/>o [**12**](#optional-features) |                                               64 GB |                                              500 GB |              200 GB |
-| 5000-8000                                | 12<br/>o [**16**](#optional-features) |                                               96 GB |                                              750 GB |              200 GB |
-| 8000-10000+                              | 16<br/>o [**20**](#optional-features) | 128 GB<br/>o [**160 GB**](#optional-features) |                                             1000 GB |              200 GB |
+| Licencias de usuario                     | vCPU | Memoria | Almacenamiento conectado | Almacenamiento raíz |
+|:---------------------------------------- | ----:| -------:| ------------------------:| -------------------:|
+| Prueba, Demo o 10 usuarios no frecuentes |    4 |   32 GB |                   150 GB |              200 GB |
+| 10-3000                                  |    8 |   48 GB |                   300 GB |              200 GB |
+| 3000-5000                                |   12 |   64 GB |                   500 GB |              200 GB |
+| 5000-8000                                |   16 |   96 GB |                   750 GB |              200 GB |
+| 8000-10000+                              |   20 |  160 GB |                  1000 GB |              200 GB |
 
 {% else %}
 
@@ -28,22 +28,22 @@
 
 {% endif %}
 
-Para obtener más información sobre el ajuste de recursos para una instancia existente, consulta las secciones "[Incrementar la capacidad de almacenamiento](/enterprise/admin/installation/increasing-storage-capacity)" e "[Incrementar los recursos de memoria o de CPU](/enterprise/admin/installation/increasing-cpu-or-memory-resources)".
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+
+Si planeas habilitar las {% data variables.product.prodname_actions %} para los usuarios de tu instancia, revisa los requisitos de hardware, almacenamiento externo y ejecutores que se encuentran en "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
+
+{% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
 #### Características beta en {% data variables.product.prodname_ghe_server %} 2.22
 
-Puedes registrarte para las características del beta disponibles en {% data variables.product.prodname_ghe_server %} 2.22 tales como las {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %}, y el {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta las [notas de lanzamiento para la serie 2.22](https://enterprise.github.com/releases/series/2.22#release-2.22.0) en el sitio web de {% data variables.product.prodname_enterprise %}.
+{% data variables.product.prodname_ghe_server %} 2.22 ofreció cracterísticas beta, tales como las {% data variables.product.prodname_actions %}, el {% data variables.product.prodname_registry %}, y el {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta las [notas de lanzamiento de {% data variables.product.prodname_ghe_server %} 2.22](/enterprise-server@2.22/admin/release-notes#2.22.0).
 
-Si habilitas las características beta para {% data variables.product.prodname_ghe_server %} 2.22, tu instancia requerirá de recursos de hardware adicionales. Para obtener más información, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+Si habilitas las características beta de {% data variables.product.prodname_ghe_server %} 2.22, tu instancia requiere recursos de hardware adicionales. Para obtener más información sobre los requisitos mínimos, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
-{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
-
-#### Optional features
-
-You can enable optional features for {% data variables.product.prodname_ghe_server %}, such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)" or "[Getting started with {% data variables.product.prodname_registry %} for your enterprise](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
-
-If you enable optional features, your instance requires additional hardware resources. Para obtener más información, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
+Para obtener más información acerca de los requisitos de hardware para las {% data variables.product.prodname_actions %}, consulta la sección "[Comenzar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
 
 {% endif %}

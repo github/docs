@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Site-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber der angeschlossenen Organisation oder des angeschlossenen Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können die automatische Synchronisation von Benutzerlizenzen aktivieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Informationen zur Lizenzsynchronisierung

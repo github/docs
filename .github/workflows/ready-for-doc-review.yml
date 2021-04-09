@@ -1,0 +1,22 @@
+name: Ready for docs-content review
+
+# **What it does**: Adds pull requests in the docs-internal repository to the docs-content first responder project board
+# **Why we have it**: So that other GitHub teams can easily request reviews from the docs-content team, and so that writers can see when a PR is ready for review
+# **Who does it impact**: Writers working in the docs-internal repository
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  request_doc_review:
+    name: Request a review from the docs-content team
+    if: github.event.label.name == 'ready-for-doc-review' && github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add pull request to FR project board
+        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
+        with:
+          action-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          project-url: 'https://github.com/orgs/github/projects/1367'
+          column-name: 'Docs-internal external contributor PRs'

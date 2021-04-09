@@ -1,1 +1,1 @@
-When you search for a date, you can use greater than, less than, and range qualifiers to further filter results. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".
+Ao pesquisar uma data, você pode usar qualificadores de maior que, menor que e intervalo para filtrar os resultados ainda mais. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/github/searching-for-information-on-github/understanding-the-search-syntax)".

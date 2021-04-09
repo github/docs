@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 ### About billing for {% data variables.large_files.product_name_long %}

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/approving-oauth-apps-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员必须向组织所有者[申请批准](/articles/requesting-organization-approval-for-oauth-apps)，然后才可授权对组织资源具有访问权限的 {% data variables.product.prodname_oauth_app %}。

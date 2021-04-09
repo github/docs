@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### {% data variables.product.prodname_sponsors %} に参加する
@@ -22,7 +24,9 @@ versions:
 
 ### スポンサーシップ層
 
-{% data reusables.sponsors.tier-details %} 詳細は、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」、「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)」、および「[スポンサーシップのレベルを変更する](/articles/changing-your-sponsorship-tiers)」を参照してください。
+{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)."
+
+It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 
 ### スポンサーシップの支払い
 
@@ -31,6 +35,10 @@ versions:
 {% data reusables.sponsors.payout-info %}
 
 詳しい情報については、「[{% data variables.product.prodname_sponsors %}からの支払いを管理する](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors)」を参照してください。
+
+### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
+
+{% data reusables.sponsors.feedback %}
 
 ### 参考リンク
 - {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」

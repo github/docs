@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-and-managing-your-active-saml-sessions
 versions:
   free-pro-team: '*'
+topics:
+  - sso
 ---
 
 {% data reusables.user_settings.access_settings %}

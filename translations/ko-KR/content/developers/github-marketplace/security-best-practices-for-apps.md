@@ -8,6 +8,8 @@ redirect_from:
 shortTitle: Security best practice
 versions:
   free-pro-team: '*'
+topics:
+  - 마켓플레이스
 ---
 
 If you follow these best practices it will help you to provide a secure user experience.

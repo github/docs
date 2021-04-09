@@ -15,7 +15,7 @@ Utilizar una URL remota de tipo HTTPS tiene algunas ventajas comparadas con el u
 
 Puedes evitar que se te solicite tu contraseña si configuras Git para que [almacene tus credenciales en el caché](/github/using-git/caching-your-github-credentials-in-git). Ya que hayas configurado el almacenamiento de credenciales en caché, Git utilizará to token de acceso personal almacenado en caché automáticamente cada que extraigas o subas información a un repositorio utilizando HTTPS.
 
-### Further reading
+### Leer más
 
 * "[¿Qué URL remota debería utilizar?](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)"
 * "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"

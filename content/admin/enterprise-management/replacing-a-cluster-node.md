@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/replacing-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% warning %}

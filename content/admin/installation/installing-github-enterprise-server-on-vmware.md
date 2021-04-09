@@ -9,6 +9,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Prerequisites

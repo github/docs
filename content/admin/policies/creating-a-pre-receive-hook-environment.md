@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 A pre-receive environment for {% data variables.product.prodname_ghe_server %} is a Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) environment. Because pre-receive hooks execute on every push event, they should be fast and lightweight. The environment needed for such checks will typically be minimal.

@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 ### Acerca de los errores de compilación de Jekyll
@@ -17,7 +19,7 @@ versions:
 Algunas veces, {% data variables.product.prodname_pages %} no intentará compilar tu sitio después de que subas cambios a la fuente de publicación del mismo.{% if currentVersion == "free-pro-team@latest" %}
 - La persona que subió los cambios no ha verificado su dirección de correo electrónico. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".{% endif %}
 - Estás subiendo con una llave de despliegue. Si deseas automatizar las subidas al repositorio de tu sitio, puedes configurar un usuario de máquina en su lugar. Para obtener más información, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys#machine-users)".
-- Estás usando un servicio CI que no está configurado para compilar tu fuente de publicación. Por ejemplo, Travis CI no compilará la rama `gh-pages` a menos que añadas la rama a una lista de seguridad. Para obtener más información, consulta "[Personalizar la compilación](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" en Travis CI o en la documentación del servicio de CI.
+- Estás usando un servicio CI que no está configurado para compilar tu fuente de publicación. Por ejemplo, Travis CI no creará la rama `gh-pages` a menos de que agregues la rama a una lista de seguridad. Para obtener más información, consulta "[Personalizar la compilación](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" en Travis CI o en la documentación del servicio de CI.
 
 {% note %}
 
@@ -44,13 +46,13 @@ Puedes ver errores de compilación (pero no advertencias de compilación) para t
 Puedes configurar un servicio externo como [Travis CI](https://travis-ci.org/) para que muestre mensajes de error después de cada confirmación.
 
 1. Si no lo has hecho, agrega un archivo denominado _Gemfile_ en la raíz de tu fuente de publicación, con el siguiente contenido:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Configura el repositorio de tu sitio para el servicio de comprobación que elijas. Por ejemplo, para usar [Travis CI](https://travis-ci.org/), agrega un archivo denominado _.travis.yml_ en la raíz de tu fuente de publicación, con el siguiente contenido:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

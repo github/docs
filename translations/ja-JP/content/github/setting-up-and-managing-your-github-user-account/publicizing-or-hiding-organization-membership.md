@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アカウント
 ---
 
 ![[Profile organizations] ボックス](/assets/images/help/profile/profile_orgs_box.png)

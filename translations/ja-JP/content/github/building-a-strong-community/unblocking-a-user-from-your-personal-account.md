@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 ユーザのブロックを解除した場合、そのユーザはあなたをリポジトリのコラボレーターに招待できます。 もしそのユーザがあなたを GitHub のどこかで [@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)した場合、あなたは通知を受け取ります。

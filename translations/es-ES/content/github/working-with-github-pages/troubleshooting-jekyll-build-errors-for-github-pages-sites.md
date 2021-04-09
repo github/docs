@@ -29,6 +29,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 ### Solucionar problemas de errores de compilación
@@ -78,7 +80,7 @@ Este error significa que tu código hace referencia a un archivo simbólico que 
 Este error significa que usaste caracteres no latinos, como `日本語`, sin decirle a la computadora que esperara estos símbolos.
 
 Para solucionar el problema, fuerza la codificación en UTF-8 agregando la siguiente línea a tu archivo *_config.yml*:
-```
+```yaml
 codificación: UTF-8
 ```
 

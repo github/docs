@@ -20,6 +20,12 @@
         </div>
       </div>
 
+      {% if page.contributor %}
+        <div class="contributor-callout border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
+          <p><span class="mr-2">{% octicon "info" %}</span>{% data ui.contributor_callout %} <a href="{{ page.contributor.URL }}">{{ page.contributor.name }}</a>.</p>
+        </div>
+      {% endif %}
+
       {% if page.intro %}
         <div class="lead-mktg">{{ page.intro }}</div>
       {% endif %}
@@ -69,8 +75,6 @@
       {% if currentLearningTrack and currentLearningTrack.trackName %}
         {% include learning-track-nav %}
       {% endif %}
-      {% include helpfulness %}
-      {% unless page.hidden %}{% include contribution %}{% endunless %}
     </div>
   </article>
 </div>

@@ -5,6 +5,8 @@ redirect_from:
   - /forum
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 

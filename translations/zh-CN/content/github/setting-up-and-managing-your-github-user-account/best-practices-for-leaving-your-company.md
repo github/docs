@@ -5,6 +5,8 @@ redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
 ---
 
 在离开公司之前，请确保在用户帐户中更新以下信息：

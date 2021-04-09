@@ -44,7 +44,6 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
   ```
   {% danger %}
 
-  {{#danger}}
  **セキュリティの警告:** パスフレーズを持たない SSH キーは、ホストへの完全なアクセスを承認されていた場合、セキュリティリスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
 
   {% enddanger %}

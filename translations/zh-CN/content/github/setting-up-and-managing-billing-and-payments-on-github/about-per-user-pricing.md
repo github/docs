@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-per-user-pricing
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 新组织可以使用 {% data variables.product.prodname_free_team %} 构建公共和开源项目，或者[升级]({% data variables.product.pricing_url %})至采用每用户定价的付费产品。

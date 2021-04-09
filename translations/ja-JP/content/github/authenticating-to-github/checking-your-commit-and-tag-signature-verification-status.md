@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 ### コミットの署名検証のステータスの確認

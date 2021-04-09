@@ -4,6 +4,9 @@ intro: 'Puedes gestionar si {% data variables.product.prodname_dotcom %} incluye
 permissions: 'Las personas con permisos administrativos a un repositorio público puede acepar o rechazar el ingreso al {% data variables.product.prodname_archive %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - política
+  - legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} Para obtener más información, consulta la sección "[Acerca de archivar contenido y datos en {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
@@ -14,5 +17,5 @@ Si rechazas el ingreso de un repositorio al {% data variables.product.prodname_a
 {% data reusables.repositories.sidebar-settings %}
 3. Debajo de "Características", selecciona o deselecciona **Preservar este repositorio**. ![Casilla para permitir a {% data variables.product.prodname_dotcom %} incluir tu código en el {% data variables.product.prodname_archive %}](/assets/images/help/repository/github-archive-program-checkbox.png)
 
-### Further reading
+### Leer más
 - [{% data variables.product.prodname_archive %} Preguntas Frecuentes](https://archiveprogram.github.com/faq/)

@@ -38,7 +38,7 @@ versions:
    - [Description] はオプションのフィールドで、リポジトリの目的に関する情報を提供するために使うことができます。
    - [Local path] は、お手元のコンピューターにおけるリポジトリの場所を設定します。 デフォルトでは、{% data variables.product.prodname_desktop %} は _Documents_ フォルダの中に_GitHub_ フォルダを作成して、そこにリポジトリを保存しますが、保存するフォルダは任意の場所に設定可能です。 新しいリポジトリは、選択した場所の中のフォルダになります。 たとえば、リポジトリに `Tutorial` と名付けた場合、選択したローカルパスのフォルダの中に _Tutorial_ という名前のフォルダが作成されます。 {% data variables.product.prodname_desktop %} は、次に新しいリポジトリをクローンするか作成するときに、選択した場所を記憶します。
    - [**Initialize this repository with a README**] は、最初のコミットを _README.md_ ファイル付きで作成します。 README は、人々がプロジェクトの目的を理解するために役立つので、これを選択して、README に役立つ情報を記載することをおすすめします。 {% data variables.product.product_name %} でリポジトリにアクセスした人は、まず README を読んで、そのプロジェクトについて知ります。 詳細は「[README について](/articles/about-readmes)」を参照してください。
-   - [**Git ignore**] ドロップダウンメニューは、バージョン管理で保存したくない、ローカルリポジトリ内で無視するファイルを指定するためのカスタムファイルを追加します。 特定の言語またはフレームワークを使用する場合、利用できるリストからオプションを選択できます。 まだ始めたばかりの場合は、この選択について無視して構いません。 詳細は「[ファイルを無視する](/articles/ignoring-files)」を参照してください。
+   - [**Git ignore**] ドロップダウンメニューは、バージョン管理で保存したくない、ローカルリポジトリ内で無視するファイルを指定するためのカスタムファイルを追加します。 特定の言語またはフレームワークを使用する場合、利用できるリストからオプションを選択できます。 まだ始めたばかりの場合は、この選択について無視して構いません。 詳細は「[ファイルを無視する](/github/getting-started-with-github/ignoring-files)」を参照してください。
    - [**License**] ドロップダウンメニューは、リポジトリの _LICENSE_ ファイルにオープンソースライセンスを追加します。 ライセンスをすぐに追加する必要はありません。 利用可能なオープンソースライセンスと、それらをリポジトリに追加する方法についての詳細は「[リポジトリのライセンス](/articles/licensing-a-repository)」を参照してください。
 3. [**Create repository**] をクリックします。
 
@@ -92,6 +92,6 @@ versions:
 これで、リポジトリの作成、{% data variables.product.product_name %} へのリポジトリの公開、コミットの実行、{% data variables.product.product_name %} への変更のプッシュが完了しました。 作成やコラボレーションを行う他のプロジェクトに貢献するときに、これと同じワークフローを使用することができます。
 
 ### 参考リンク
-- 「[Git について学ぶ](/github/using-git/learning-about-git)」
+- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
 - 「[{% data variables.product.prodname_dotcom %} について学ぶ](/github/getting-started-with-github/learning-about-github)」
 - 「[{% data variables.product.prodname_dotcom %} を使ってみる](/github/getting-started-with-github)」

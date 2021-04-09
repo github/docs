@@ -7,6 +7,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 页面
 ---
 
 如果 {% data variables.product.prodname_pages %} 站点的仓库包含子模块，则在构建站点时会自动拉取其内容。

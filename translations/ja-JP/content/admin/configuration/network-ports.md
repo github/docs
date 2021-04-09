@@ -10,6 +10,8 @@ redirect_from:
 intro: 'オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### 管理ポート

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-username-policy
 versions:
   free-pro-team: '*'
+topics:
+  - política
+  - legal
 ---
 
 Los nombres de cuentas de GitHub se proporcionan dependiendo de quién los reclame primero, y se pretende que se comiencen a utilizar activamente de inmediato.

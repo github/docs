@@ -11,6 +11,8 @@ versions:
 type: 'how_to'
 ---
 
+{% data reusables.actions.ae-beta %}
+
 Debes aceptar los términos de servicio para publicar acciones en {% data variables.product.prodname_marketplace %}.
 
 ### Acerca de la publicación de acciones

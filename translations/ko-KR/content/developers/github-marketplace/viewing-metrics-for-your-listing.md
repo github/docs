@@ -8,6 +8,8 @@ redirect_from:
   - /marketplace/github-marketplace-insights
 versions:
   free-pro-team: '*'
+topics:
+  - 마켓플레이스
 ---
 
 

@@ -17,6 +17,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 2fa
+  - identidad
+  - administración de accesos
+  - nombres de usuario
+  - verificación de dispositivo
 ---
 
 

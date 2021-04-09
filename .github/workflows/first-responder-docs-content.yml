@@ -1,4 +1,9 @@
 name: First responder docs-content
+
+# **What it does**: New pull requests automatically add to the content first responder board.
+# **Why we have it**: So we don't lose track of new pull reuqests for docs-content to review.
+# **Who does it impact**: Docs content.
+
 on:
   pull_request:
     types:
@@ -31,7 +36,7 @@ jobs:
               issue_number: issueNumber
             })
             const teamMembers = await github.request(
-              `/orgs/github/teams/docs/members`
+              `/orgs/github/teams/docs/members?per_page=100`
             )
             const logins = teamMembers.data.map(member => member.login)
             // ignore PRs opened by docs bot accounts

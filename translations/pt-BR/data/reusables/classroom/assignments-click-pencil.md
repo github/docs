@@ -1,1 +1,1 @@
-1. To the right of the assignment you want to edit, click {% octicon "pencil" aria-label="The pencil icon" %}. ![Pencil icon for editing assignment in list of assignments](/assets/images/help/classroom/assignments-click-pencil.png)
+1. À direita da atividade que você deseja editar, clique em {% octicon "pencil" aria-label="The pencil icon" %}. ![Ícone de lápis para editar a atividade na lista de atividades](/assets/images/help/classroom/assignments-click-pencil.png)

@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - accounts
 ---
 
 ### About trials of {% data variables.product.prodname_ghe_cloud %}

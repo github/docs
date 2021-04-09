@@ -41,7 +41,7 @@ We recommend these tools for moving changes between Team Foundation Server and G
 
 {% tip %}
 
-**Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/).
+**Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 

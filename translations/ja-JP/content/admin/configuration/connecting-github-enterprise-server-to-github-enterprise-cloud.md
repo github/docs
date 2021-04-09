@@ -10,6 +10,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_github_connect %}を有効化できます。'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### {% data variables.product.prodname_github_connect %} について

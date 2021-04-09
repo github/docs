@@ -10,6 +10,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_dotcom_the_website %} 之间启用统一搜索。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 启用统一搜索后，用户可在从 {% data variables.product.product_location_enterprise %} 进行搜索时查看 {% data variables.product.prodname_dotcom_the_website %} 上公共和私有内容的搜索结果。

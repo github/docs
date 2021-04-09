@@ -8,6 +8,9 @@ versions:
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
+topics:
+  - organizations
+  - teams
 ---
 
 Quando você cria uma organização do zero, ela não tem repositórios associados a ela. Para obter mais informações sobre como adicionar repositórios à sua organização, consulte "[Criar um repositório](/articles/creating-a-new-repository)" e "[Transferir um repositório](/articles/transferring-a-repository)."

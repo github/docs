@@ -85,54 +85,73 @@ module.exports = class Operation {
       const rawResponse = rawResponses[responseCode]
       const httpStatusCode = responseCode
       const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode))
+      const responseDescription = rawResponse.description
 
       const cleanResponses = []
 
-      // responses can have zero, one, or multiple examples
-      const rawExample = get(rawResponse, 'content.application/json.example')
-      const rawExamples = get(rawResponse, 'content.application/json.examples')
+      /* Responses can have zero, one, or multiple examples. The `examples`
+       * property often only contains one example object. Both the `example`
+       * and `examples` properties can be used in the OpenAPI but `example`
+       * doesn't work with `$ref`.
+       * This works:
+       * schema:
+       *  '$ref': '../../components/schemas/foo.yaml'
+       * example:
+       *  id: 10
+       *  description: This is a summary
+       *  foo: bar
+       *
+       * This doesn't
+       * schema:
+       *  '$ref': '../../components/schemas/foo.yaml'
+       * example:
+       *  '$ref': '../../components/examples/bar.yaml'
+      */
+      const examplesProperty = get(rawResponse, 'content.application/json.examples')
+      const exampleProperty = get(rawResponse, 'content.application/json.example')
 
-      // first handle responses with multiple examples
-      if (rawExamples) {
-        for (const rawExampleKey of Object.keys(rawExamples)) {
-          const rawExample = rawExamples[rawExampleKey]
-          const cleanResponse = {}
+      // Return early if the response doesn't have an example payload
+      if (!exampleProperty && !examplesProperty) {
+        return [{
+          httpStatusCode,
+          httpStatusMessage,
+          description: responseDescription
+        }]
+      }
 
-          cleanResponse.httpStatusCode = httpStatusCode
-          cleanResponse.httpStatusMessage = httpStatusMessage
-
-          // a handful of examples don't have summary properties with a description,
-          // so we can sentence case the property name as a fallback
-          cleanResponse.description = rawExample.summary || sentenceCase(rawExampleKey)
-
-          const payloadMarkdown = createCodeBlock(rawExample.value, 'json')
-          cleanResponse.payload = await renderContent(payloadMarkdown)
-
-          cleanResponses.push(cleanResponse)
+      // Use the same format for `example` as `examples` property so that all
+      // examples can be handled the same way.
+      const normalizedExampleProperty = {
+        default: {
+          value: exampleProperty
         }
-      } else { // then handle responses with either one or zero examples
-        const cleanResponse = {}
+      }
 
-        cleanResponse.httpStatusCode = responseCode
-        cleanResponse.httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode))
-        cleanResponse.description = sentenceCase(rawResponse.description)
+      const rawExamples = examplesProperty || normalizedExampleProperty
+      const rawExampleKeys = Object.keys(rawExamples)
 
-        if (rawExample) {
-          const payloadMarkdown = createCodeBlock(rawExample, 'json')
-          cleanResponse.payload = await renderContent(payloadMarkdown)
+      for (const exampleKey of rawExampleKeys) {
+        const exampleValue = rawExamples[exampleKey].value
+        const exampleSummary = rawExamples[exampleKey].summary
+        const cleanResponse = {
+          httpStatusCode,
+          httpStatusMessage
         }
+
+        // If there is only one example, use the response description
+        // property. For cases with more than one example, some don't have
+        // summary properties with a description, so we can sentence case
+        // the property name as a fallback
+        cleanResponse.description = rawExampleKeys.length === 1
+          ? exampleSummary || responseDescription
+          : exampleSummary || sentenceCase(exampleKey)
+
+        const payloadMarkdown = createCodeBlock(exampleValue, 'json')
+        cleanResponse.payload = await renderContent(payloadMarkdown)
 
         cleanResponses.push(cleanResponse)
       }
-
-      // tidy up descriptions
-      return cleanResponses.map(response => {
-        response.description = response.description
-          .replace('Example of', 'Response for')
-          .replace('Empty response', 'Default Response')
-          .replace(/^Default$/, 'Default response')
-        return response
-      })
+      return cleanResponses
     }))
 
     // flatten child arrays

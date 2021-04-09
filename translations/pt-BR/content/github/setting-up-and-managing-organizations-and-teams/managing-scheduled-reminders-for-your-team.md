@@ -5,6 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre os lembretes agendados para as equipes
@@ -12,6 +15,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Os mantenedores de equipe e os proprietários da organização podem definir lembretes agendados para quaisquer pull requests que se solicite que uma equipe revise. Antes de criar um lembrete agendado para sua equipe, um proprietário da organização deve autorizar o seu espaço de trabalho do Slack. Para obter mais informações, consulte "[Gerenciar lembretes agendados para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)".
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Criar um lembrete agendado para uma equipe
 {% data reusables.profile.access_profile %}

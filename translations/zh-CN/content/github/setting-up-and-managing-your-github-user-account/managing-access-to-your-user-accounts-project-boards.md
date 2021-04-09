@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
 ---
 
 协作者是对您拥有的项目板具有访问权限的个人。 协作者的权限默认为读取权限。 更多信息请参阅“[用户项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards)”。

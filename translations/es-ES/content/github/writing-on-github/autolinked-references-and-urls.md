@@ -52,6 +52,6 @@ Las referencias a un hash SHA de confirmación se convertirán automáticamente 
 
 {% data reusables.repositories.autolink-references %}
 
-### Further reading
+### Leer más
 
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

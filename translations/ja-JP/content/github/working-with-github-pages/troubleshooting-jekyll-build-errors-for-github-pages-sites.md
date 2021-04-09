@@ -29,6 +29,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### ビルドエラーのトラブルシューティング
@@ -78,7 +80,7 @@ versions:
 このエラーは、`日本語`などアルファベット以外の文字を使用したことを意味します。
 
 トラブルシューティングするには、*_config.yml* ファイルに次の行を追加して UTF-8 エンコーディングを指定します。
-```
+```yaml
 encoding: UTF-8
 ```
 

@@ -12,7 +12,7 @@ require('dotenv').config()
 const {
   DOCUBOT_REPO_PAT,
   HEROKU_PRODUCTION_APP,
-  GIT_BRANCH // Set by the deployer with the name of the docs-internal branch
+  GIT_BRANCH // Set by Actions and/or the deployer with the name of the docs-internal branch
 } = process.env
 
 // Exit if PAT is not found

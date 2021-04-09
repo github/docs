@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 ### アーカイブにある {% data variables.large_files.product_name_short %} オブジェクトについて

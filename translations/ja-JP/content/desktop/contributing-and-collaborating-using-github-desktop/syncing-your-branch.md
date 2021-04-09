@@ -15,7 +15,7 @@ versions:
 
 あるブランチから別のブランチへの変更を追加するには、ブランチをマージします。 同じリポジトリ内の別のブランチからブランチに変更を適用するには、他のブランチを {% data variables.product.prodname_desktop %} のブランチにマージします。 ブランチからの変更を、同じリポジトリまたはネットワーク内の別のリポジトリにある別のブランチにマージするようにリクエストするには、{% data variables.product.prodname_desktop %} でプルリクエストを作成します。 詳しい情報については、「[プロジェクトブランチに他のブランチを結合する](#merging-another-branch-into-your-project-branch)」および「[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests) 」を参照してください。
 
-一部のワークフローでは、マージではなくリベースが必要または役立つ場合があります。 リベースすることで、コミットの順序を変更したり、編集したり、まとめて squash したりできます。 詳しい情報については、「[Git リベースについて](/articles/about-git-rebase)」および「[プロジェクトブランチを別のブランチにリベースする](#rebasing-your-project-branch-onto-another-branch) 」を参照してください。
+一部のワークフローでは、マージではなくリベースが必要または役立つ場合があります。 リベースすることで、コミットの順序を変更したり、編集したり、まとめて squash したりできます。 詳しい情報については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」および「[プロジェクトブランチを別のブランチにリベースする](#rebasing-your-project-branch-onto-another-branch) 」を参照してください。
 
 ### リモートからローカルブランチにプルする
 

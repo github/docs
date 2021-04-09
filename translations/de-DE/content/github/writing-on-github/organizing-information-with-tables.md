@@ -13,7 +13,7 @@ versions:
 
 Tabellen werden mit senkrechten Strichen (`|`) und Bindestrichen (`-`) erstellt. Mit Bindestrichen werden die Überschriften der Tabelle erstellt; die senkrechten Striche trennen die Spalten voneinander ab. Vor der Tabelle musst Du eine Zeile frei lassen, damit sie korrekt dargestellt wird.
 
-```
+```markdown
 
 | First Header  | Second Header |
 | ------------- | ------------- |
@@ -27,7 +27,7 @@ Die senkrechten Striche am linken und rechten Rand der Tabelle sind optional.
 
 Die Zellen können unterschiedlich breit sein und müssen nicht perfekt an den Spalten ausgerichtet sein. In jeder Spalte der Überschriftenzeile müssen mindestens drei Bindestriche vorhanden sein.
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | git status | List all new or modified files |
@@ -40,7 +40,7 @@ Die Zellen können unterschiedlich breit sein und müssen nicht perfekt an den S
 
 Du kannst [Formatierungen](/articles/basic-writing-and-formatting-syntax) wie Links, Inline-Codeblöcke und Textstile in Deiner Tabelle verwenden:
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
@@ -51,7 +51,7 @@ Du kannst [Formatierungen](/articles/basic-writing-and-formatting-syntax) wie Li
 
 Du kannst den Text links oder rechts ausrichten oder zentrieren, indem Du links oder rechts oder an beiden Seiten der Bindestriche in der Überschriftenzeile einen Doppelpunkt (`:`) hinzufügst.
 
-```
+```markdown
 | Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
@@ -62,7 +62,7 @@ Du kannst den Text links oder rechts ausrichten oder zentrieren, indem Du links 
 
 Wenn Du einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchtest, verwende das Zeichen '\' vor dem senkrechten Strich:
 
-```
+```markdown
 | Name     | Character |
 | ---      | ---       |
 | Backtick | `         |

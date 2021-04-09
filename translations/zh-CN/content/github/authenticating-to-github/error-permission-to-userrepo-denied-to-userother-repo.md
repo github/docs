@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 要解决此问题，请从仓库中删除部署密钥，改为[将密钥添加到您的用户帐户](/articles/adding-a-new-ssh-key-to-your-github-account) 。

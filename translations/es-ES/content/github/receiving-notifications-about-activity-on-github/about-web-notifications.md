@@ -17,7 +17,7 @@ Desde la página de notificaciones, también puedes marcar las notificaciones co
 - "[Guardar las notificaciones para después](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/saving-notifications-for-later)"
 - "[Suscribirse y desuscribirse de las notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
 
-### Further reading
+### Leer más
 
 - "[Listar los repositorios que estás observando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
 - "[Observar y dejar de observar un repositorio](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"

@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Os proprietários da organização podem configurar o {% data variables.product.prodname_sponsors %} para uma organização.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Ingressar no {% data variables.product.prodname_sponsors %}
@@ -46,6 +48,7 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Enviando informações bancárias
@@ -71,7 +74,7 @@ Para obter mais informações sobre como configurar o Stripe Connect usando o Op
 
 ### Habilitar a autenticação de dois fatores (2FA, two-factor authentication) na sua conta do {% data variables.product.prodname_dotcom %}
 
-Antes de sua organização se tornar uma organização patrocinada, você deve habilitar a 2FA em sua conta do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
+Antes da sua organização se tornar uma organização patrocinada, você deve habilitar a 2FA na sua conta do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".
 
 ### Enviar seu aplicativo ao {% data variables.product.prodname_dotcom %} para aprovação
 

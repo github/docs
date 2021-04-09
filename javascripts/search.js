@@ -1,14 +1,13 @@
 import { tags } from './hyperscript'
 import { sendEvent } from './events'
 import searchWithYourKeyboard from 'search-with-your-keyboard'
-import truncate from 'html-truncate'
-
-const maxContentLength = 300
 
 let $searchInputContainer
 let $searchResultsContainer
 let $searchOverlay
 let $searchInput
+
+let isExplorerPage
 
 // This is our default placeholder, but it can be localized with a <meta> tag
 let placeholder = 'Search topics, products...'
@@ -16,6 +15,9 @@ let version
 let language
 
 export default function search () {
+  // We don't want to mess with query params intended for the GraphQL Explorer
+  isExplorerPage = Boolean(document.getElementById('graphiql'))
+
   // First, only initialize search if the elements are on the page
   $searchInputContainer = document.getElementById('search-input-container')
   $searchResultsContainer = document.getElementById('search-results-container')
@@ -29,7 +31,7 @@ export default function search () {
     languages,
     versions,
     nonEnterpriseDefaultVersion
-  } = JSON.parse(document.getElementById('search-options').text)
+  } = JSON.parse(document.getElementById('expose').text).searchOptions
   version = deriveVersionFromPath(versions, nonEnterpriseDefaultVersion)
   language = deriveLanguageCodeFromPath(languages)
 
@@ -54,7 +56,9 @@ export default function search () {
   searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
 
   // If the user already has a query in the URL, parse it and search away
-  parseExistingSearch()
+  if (!isExplorerPage) {
+    parseExistingSearch()
+  }
 
   // If not on home page, decide if search panel should be open
   toggleSearchDisplay() // must come after parseExistingSearch
@@ -136,8 +140,9 @@ async function onSearch () {
   const query = $searchInput.value
 
   // Update the URL with the search parameters in the query string
+  // UNLESS this is the GraphQL Explorer page, where a query in the URL is a GraphQL query
   const pushUrl = new URL(location)
-  pushUrl.search = query ? new URLSearchParams({ query }) : ''
+  pushUrl.search = query && !isExplorerPage ? new URLSearchParams({ query }) : ''
   history.pushState({}, '', pushUrl)
 
   // If there's a query, call the endpoint
@@ -264,8 +269,8 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
       { href: url, class: 'no-underline' },
       div(
         { class: 'search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1' },
-        // Remove redundant title from the end of breadcrumbs
-        markify((breadcrumbs || '').replace(` / ${title}`, ''))
+        // Breadcrumbs in search records don't include the page title
+        markify(breadcrumbs || '')
       ),
       div(
         { class: 'search-result-title d-block h4-mktg text-gray-dark' },
@@ -274,8 +279,7 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
       ),
       div(
         { class: 'search-result-content d-block text-gray' },
-        // Truncate without breaking inner HTML tags
-        markify(truncate(content, maxContentLength))
+        markify(content)
       )
     )
   )

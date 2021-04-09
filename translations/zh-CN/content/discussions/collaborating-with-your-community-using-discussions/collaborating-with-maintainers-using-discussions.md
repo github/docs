@@ -45,4 +45,4 @@ versions:
 ### 延伸阅读
 
 - “[关于 {% data variables.product.prodname_dotcom %} 上的书写和格式化](/github/writing-on-github/about-writing-and-formatting-on-github)”
-- “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/github/building-a-strong-community/maintaining-your-safety-on-github)”
+- “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/communities/maintaining-your-safety-on-github)”

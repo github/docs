@@ -14,7 +14,7 @@ After you enable the link, each user can navigate directly from {% data variable
 
 1. Connect to the administrative shell for {% data variables.product.prodname_ghe_server %}. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
 2. Run the following command.
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. Return to

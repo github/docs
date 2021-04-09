@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.discussions %}'
 permissions: Las personas con permisos administrativos en un repositorio pueden habilitar los debates en éste.
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.discussions.beta %}
@@ -14,7 +16,7 @@ versions:
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. Para inhabilitar los debates, debajo de "Características", deselecciona **Debates**.
 
-### Further reading
+### Leer más
 
 - "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Administrar debates para tu comunidad](/discussions/managing-discussions-for-your-community)"

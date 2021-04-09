@@ -1,0 +1,63 @@
+name: Send Issue to How We Work Boards
+
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
+on:
+  issues:
+    types:
+      - labeled
+      - opened
+      - reopened
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'feature') && !contains(github.event.issue.labels.*.name, 'epic')
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            var column_id = 9659080;
+            try {
+              github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'feature')
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            var column_id = 13445681;
+            try {
+              github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }
+      - if: contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'epic')
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            var column_id = 13445932;
+            try {
+              github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }

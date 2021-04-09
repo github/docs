@@ -93,7 +93,7 @@ Cuando das clic para mostrar los detalles de la alerta puedes ver cuántas vulne
 
 **Verifica**: Si hay una discrepancia en la cantidad total que ves, verifica si no estás comparando la cantidad de alertas con la cantidad de vulnerabilidades.
 
-### Further reading
+### Leer más
 
 - "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
 - "[Ver y actualizar las dependencias vulnerables en tu repositorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"

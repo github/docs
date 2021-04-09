@@ -3,6 +3,8 @@ title: Enabling GitHub Packages with MinIO
 intro: 'Set up {% data variables.product.prodname_registry %} with MinIO as your external storage.'
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% warning %}

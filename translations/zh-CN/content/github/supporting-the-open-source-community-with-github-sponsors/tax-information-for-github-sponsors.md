@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 如果您是美国的纳税人，则必须提交 W-9，然后才能收到付款。 如果您是美国以外任何其他地区的纳税人，则必须提交 W-8BEN，然后才能收到付款。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms. {% data variables.product.prodname_dotcom %} 将向您发送适当的表格，在到期时通知您，并给您合理的时间填写和发送表格。

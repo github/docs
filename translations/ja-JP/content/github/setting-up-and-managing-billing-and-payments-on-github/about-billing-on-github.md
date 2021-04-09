@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 ### 有料の機能と製品

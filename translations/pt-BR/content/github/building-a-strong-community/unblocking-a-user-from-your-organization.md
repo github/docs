@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 O desbloqueio de um usuário da organização permite que ele continue contribuindo para os repositórios da organização.

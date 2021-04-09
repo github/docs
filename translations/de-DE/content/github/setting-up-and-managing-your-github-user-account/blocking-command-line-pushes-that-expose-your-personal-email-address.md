@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
+  - notifications
 ---
 
 Wenn Du Commits über die Befehlszeile freigibst, wird die E-Mail-Adresse, die Du [in Git festgelegt](/articles/setting-your-commit-email-address) hast, mit Deinen Commits verknüpft. Diese Einstellung verhindert Commit-Pushes über die Befehlszeile, die Deine private E-Mail-Adresse verwenden.

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Du kannst SAML SSO in Deiner Organisation aktivieren, ohne die Verwendung für alle Mitglieder vorzuschreiben. Wenn Du SAML SSO für Deine Organisation aktivierst, aber nicht erzwingst, förderst Du die Annahme dieser Funktion. Sobald die Mehrheit der Organisationsmitglieder SAML SSO verwendet, kannst Du die Nutzung in Deiner Organisation vorschreiben.

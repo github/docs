@@ -6,6 +6,8 @@ redirect_from:
   - /articles/viewing-users-youve-blocked-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 {% data reusables.user_settings.access_settings %}

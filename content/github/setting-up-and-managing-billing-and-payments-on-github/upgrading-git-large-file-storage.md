@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 ### Purchasing additional storage and bandwidth for a personal account

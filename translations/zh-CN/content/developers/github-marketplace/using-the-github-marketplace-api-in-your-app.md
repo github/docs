@@ -8,5 +8,7 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 

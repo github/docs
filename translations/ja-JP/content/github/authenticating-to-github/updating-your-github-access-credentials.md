@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 {% if currentVersion != "github-ae@latest" %}

@@ -1,3 +1,3 @@
-If you choose **Allow select actions**, local actions are allowed, and there are additional options for allowing other specific actions. Para obtener más información, consulta la sección "[Permitir que se ejecuten acciones específicas](#allowing-specific-actions-to-run)".
+Si eliges **Permitir las acciones seleccionadas**, las acciones locales se permitirán y habrá opciones adicionales para permitir otras acciones específicas. Para obtener más información, consulta la sección "[Permitir que se ejecuten acciones específicas](#allowing-specific-actions-to-run)".
 
 Cuando permites únicamente acciones locales, las políticas bloquean todo el acceso a las acciones que haya creado {% data variables.product.prodname_dotcom %}. Por ejemplo, no se podría acceder a [`actions/checkout`](https://github.com/actions/checkout).

@@ -4,6 +4,10 @@ intro: 'Você pode configurar o período de retenção para artefatos e registro
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

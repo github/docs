@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Configurar o e-mail de cobrança da conta pessoal

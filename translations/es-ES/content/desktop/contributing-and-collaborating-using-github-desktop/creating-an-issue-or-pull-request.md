@@ -70,7 +70,7 @@ Amtes de crear una solicitud de extracción, necesitarás subir los cambios a un
 
 {% endwindows %}
 
-### Further reading
+### Leer más
 - "[Informe de problemas](/github/getting-started-with-github/github-glossary#issue)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Solicitud de extracción](/github/getting-started-with-github/github-glossary#pull-request)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Rama base](/github/getting-started-with-github/github-glossary#base-branch)" en el glosario de {% data variables.product.prodname_dotcom %}

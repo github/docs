@@ -5,6 +5,8 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 Se a autenticação de dois fatores por mensagem de texto não for aceita em seu país de residência, você poderá configurar a autenticação por meio de um aplicativo móvel TOTP. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)".

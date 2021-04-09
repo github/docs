@@ -8,6 +8,9 @@ versions:
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch
   - /admin/user-management/creating-organizations
+topics:
+  - organisationen
+  - teams
 ---
 
 Wenn Du eine Organisation von Grund auf neu erstellst, sind mit ihr keine Repositorys verknüpft. Weitere Informationen zum Hinzufügen von Repositorys zu einer Organisation findest Du unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“ und „[Ein Repository übertragen](/articles/transferring-a-repository).“

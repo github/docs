@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/validating-your-domain-settings
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

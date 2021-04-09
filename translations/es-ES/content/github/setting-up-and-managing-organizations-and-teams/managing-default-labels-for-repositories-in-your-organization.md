@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los propietarios de la organización pueden administrar las etiquetas predeterminadas para los repositorios de la organización.
@@ -58,6 +61,6 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de las etiquetas](/articles/about-labels)"

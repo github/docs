@@ -1,5 +1,9 @@
 name: Check all English links
 
+# **What it does**: This script once a day checks all English links and reports in issues.
+# **Why we have it**: We want to know if any links break.
+# **Who does it impact**: Docs content.
+
 on:
   workflow_dispatch:
   schedule:

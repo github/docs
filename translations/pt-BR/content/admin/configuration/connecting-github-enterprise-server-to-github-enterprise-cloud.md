@@ -10,6 +10,8 @@ redirect_from:
 permissions: 'Administradores de sites para {% data variables.product.prodname_ghe_server %} que também são proprietários de uma conta corporativa ou organização do {% data variables.product.prodname_ghe_cloud %} podem ativar {% data variables.product.prodname_github_connect %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Sobre o {% data variables.product.prodname_github_connect %}

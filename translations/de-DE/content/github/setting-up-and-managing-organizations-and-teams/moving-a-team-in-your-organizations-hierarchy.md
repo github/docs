@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber können das übergeordnete Team jedes Teams ändern. Team-Betreuer können das übergeordnete Team eines Teams ändern, wenn sie sowohl im untergeordneten als auch im übergeordneten Team Betreuer sind. Team-Betreuer ohne Betreuer-Berechtigungen im untergeordneten Team können das Hinzufügen eines übergeordneten oder untergeordneten Teams anfordern. Weitere Informationen findest Du unter „[Hinzufügen oder Ändern eines übergeordneten Teams anfordern](/articles/requesting-to-add-or-change-a-parent-team)“ und „[Hinzufügen eines untergeordneten Teams anfordern](/articles/requesting-to-add-a-child-team).“

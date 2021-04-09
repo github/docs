@@ -16,7 +16,7 @@ Start by adding frontmatter `interactive:true` to any Markdown file that you wan
 
 1. Create the component in the `./react` directory
 2. Register the component for webpack in `./javascripts/index.js` so the component works with client side rendering
-3. Register the component in `./lib/react-engine.js` so the component works with server side rendering
+3. Register the component in `./lib/react/engine.js` so the component works with server side rendering
 4. If the component needs to be evaluated client side, see [this example](https://github.com/github/docs/blob/a48998c7890b71c8f58eda1fa31b50df348a0042/react/CodeEditor.js) for how to ensure the client side component rendered by the server gets [Hydrated](https://reactjs.org/docs/react-dom.html#hydrate).
 
 ## A Complete Example

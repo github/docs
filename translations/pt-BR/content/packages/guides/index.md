@@ -1,16 +1,18 @@
 ---
 title: Guias
 shortTitle: Guias
-intro: 'These guides help you configure {% data variables.product.prodname_actions %} or your package client to work with {% data variables.product.prodname_registry %}.'
+intro: 'Esses guias ajudam você a configurar {% data variables.product.prodname_actions %} ou o cliente do seu pacote a trabalhar com {% data variables.product.prodname_registry %}.'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
   - /packages/using-github-packages-with-your-projects-ecosystem
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Índice
 
@@ -29,5 +31,3 @@ versions:
     {% link_in_list /configuring-access-control-and-visibility-for-container-images %}
     {% link_in_list /connecting-a-repository-to-a-container-image %}
     {% link_in_list /pushing-and-pulling-docker-images %}
-    {% link_in_list /deleting-a-container-image %}
-

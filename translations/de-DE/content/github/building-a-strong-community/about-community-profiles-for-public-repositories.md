@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Die Checkliste für Community-Profile prüft, ob ein Projekt empfohlene Community-Unterstützungsdateien, wie README, CODE_OF_CONDUCT, LICENSE oder CONTRIBUTING, an einem unterstützten Speicherort enthält. Weitere Informationen findest Du unter „[Auf das Community-Profil eines Projekts zugreifen](/articles/accessing-a-project-s-community-profile).“

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data variables.product.prodname_ghe_server %} の pre-receive 環境は、Linux の [`chroot`](https://en.wikipedia.org/wiki/Chroot) 環境です。 pre-receiveフックはプッシュのイベントごとに実行されるので、高速かつ軽量でなければなりません。 こうしたチェックに必要となる環境は、通常最小限のものです。
