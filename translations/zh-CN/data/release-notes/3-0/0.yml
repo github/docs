@@ -133,7 +133,7 @@ sections:
     - 依赖关系图无法解析 `setup.py` Python 清单文件，导致日志中的 HTTP 500 错误。 这种情况再加上重复的记录问题，导致根卷的使用增加。
     - 竞争条件可能导致依赖关系图数据库迁移失败。
     - 自定义时区从较早发布的 GitHub Enterprise Server 升级的实例可能在 web UI 中有不正确的时间戳。
-    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。
   deprecations:
     - 
       heading: 弃用 GitHub Enterprise Server 2.19

@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允�
 * 为 Azure AD 上的 IdP 组分配 {% data variables.product.prodname_ghe_managed %} 应用程序，以为 IdP 组的所有成员授予对 {% data variables.product.product_name %} 上用户帐户的访问权限 。 此外，IdP 组也可以在 {% data variables.product.prodname_ghe_managed %} 上连接到团队及其父组织。
 * 从 IdP 组取消分配 {% data variables.product.prodname_ghe_managed %} 应用程序来停用仅通过 IdP 组访问的所有 IdP 用户的 {% data variables.product.product_name %} 用户帐户，并从父组织中删除这些用户。 IdP 组将与 {% data variables.product.product_name %} 上的任何团队断开连接。
 
-有关在 {% data variables.product.product_location %} 上管理企业的身份和访问权限的详细信息，请参阅“[管理企业的身份和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。 有关与 IdP 组同步团队的更多信息，请参阅“[同步团队与身份提供程序组](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)”。
+有关在 {% data variables.product.product_location %} 上管理企业的身份和访问权限的详细信息，请参阅“[管理企业的身份和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。 有关与 IdP 组同步团队的更多信息，请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
 ### 基本要求
 

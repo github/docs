@@ -20,7 +20,7 @@ topics:
 - 使用 [LastPass](https://lastpass.com/) 或 [1Password](https://1password.com/) 等密码管理器生成至少 15 个字符的密码。
 - 为 {% data variables.product.product_name %} 生成唯一的密码。 如果您在别处使用 {% data variables.product.product_name %} 密码，并且该服务遭到入侵，则攻击者或其他恶意行为者可能使用该信息访问您的 {% data variables.product.product_name %} 帐户。
 - 为您的帐户配置双重身份验证。 更多信息请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。
-- 不与任何人分享您的密码，即使是潜在协作者。 在 {% data variables.product.product_name %} 上每个人都应使用自己的个人帐户。 有关协作方式的更多信息，请参阅：“[邀请协作者参与个人仓库](/articles/inviting-collaborators-to-a-personal-repository)”、“[关于协作开发模式](/articles/about-collaborative-development-models/)”或“[与组织中的团体协作](/articles/collaborating-with-groups-in-organizations/)”。
+- 不与任何人分享您的密码，即使是潜在协作者。 在 {% data variables.product.product_name %} 上每个人都应使用自己的个人帐户。 有关协作方式的更多信息，请参阅：“[邀请协作者参与个人仓库](/articles/inviting-collaborators-to-a-personal-repository)”、“[关于协作开发模式](/articles/about-collaborative-development-models/)”或“[与组织中的团体协作](/organizations/collaborating-with-groups-in-organizations/)”。
 
 {% data reusables.repositories.blocked-passwords %}
 

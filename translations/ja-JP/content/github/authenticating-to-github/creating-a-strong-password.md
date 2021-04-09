@@ -20,7 +20,7 @@ topics:
 - [LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのパスワードマネージャを使用して、15 文字以上のパスワードを生成すること。
 - {% data variables.product.product_name %}用に独自のパスワードを生成すること。 {% data variables.product.product_name %} パスワードを他でも使用していて、そのサービスが危険にさらされると、攻撃者や悪意のある者がその情報を使用して {% data variables.product.product_name %} アカウントにアクセスする可能性があります。
 - 個人アカウントに 2 要素認証を設定する。 詳しい情報については「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。
-- 潜在的なコラボレーターであっても誰であっても、パスワードは決して共有しないでください。 {% data variables.product.product_name %}では一人ひとりが自分の個人アカウントを使用すべきです。 コラボレートする方法の詳しい情報については、「[コラボレーターを個人リポジトリに招待する](/articles/inviting-collaborators-to-a-personal-repository)」、「[共同開発モデルについて](/articles/about-collaborative-development-models/)」、または「[Organization のグループでコラボレーションする](/articles/collaborating-with-groups-in-organizations/)」を参照してください。
+- 潜在的なコラボレーターであっても誰であっても、パスワードは決して共有しないでください。 {% data variables.product.product_name %}では一人ひとりが自分の個人アカウントを使用すべきです。 コラボレートする方法の詳しい情報については、「[コラボレーターを個人リポジトリに招待する](/articles/inviting-collaborators-to-a-personal-repository)」、「[共同開発モデルについて](/articles/about-collaborative-development-models/)」、または「[Organization のグループでコラボレーションする](/organizations/collaborating-with-groups-in-organizations/)」を参照してください。
 
 {% data reusables.repositories.blocked-passwords %}
 
