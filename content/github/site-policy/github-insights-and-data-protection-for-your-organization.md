@@ -1,7 +1,6 @@
 ---
 title: GitHub Insights and data protection for your organization
 intro: '{% data variables.product.prodname_insights %} analyzes your {% data variables.product.prodname_ghe_server %} data. This data could include personal data of individuals in your organization who may have the right to understand how such personal data is being used.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
   - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
