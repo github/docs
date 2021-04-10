@@ -1,3 +1,4 @@
+![IMG_20200502_070034_442](https://user-images.githubusercontent.com/76145735/114254356-78fc7880-9974-11eb-9966-436870fa90cd.jpg)
 ---
 title: Setting up GitHub Sponsors for your user account
 intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication on your {% data variables.product.prodname_dotcom %} account.'
