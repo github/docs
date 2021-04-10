@@ -20,7 +20,7 @@ redirect_from:
 
 クラスルームの作成後、{% data variables.product.prodname_classroom %}はクラスルームにティーチングアシスタント (TA) と管理者を招待するよう促します。 各クラスルームには複数の管理者を置くことができます。 管理者には教師、TA、その他{% data variables.product.prodname_classroom %}でクラスルームの管理をさせたいコース管理者がなることができます。
 
-TAおよび管理者をクラスルームに招待するには、{% data variables.product.product_name %}のユーザアカウントを、あなたのOrganizationにOrganizationのオーナーとして招待し、クラスルームのURLを共有します。 Organizationのオーナーは、Organizationの任意のクラスルームを管理できます。 詳しい情報については、「[Organizationの権限レベル](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)」および「[Organizationに参加するようユーザを招待する](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)」を参照してください
+TAおよび管理者をクラスルームに招待するには、{% data variables.product.product_name %}のユーザアカウントを、あなたのOrganizationにOrganizationのオーナーとして招待し、クラスルームのURLを共有します。 Organizationのオーナーは、Organizationの任意のクラスルームを管理できます。 詳しい情報については、「[Organizationの権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)」および「[Organizationに参加するようユーザを招待する](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)」を参照してください
 
 クラスルームの使用を終えたら、後でクラスルーム、名簿、課題を参照するためにクラスルームをアーカイブできます。また、クラスルームが今後不要な場合は、クラスルームを削除できます。
 
@@ -34,7 +34,7 @@ TAおよび管理者をクラスルームに招待するには、{% data variabl
 
 ### 必要な環境
 
-{% data variables.product.prodname_classroom %}でクラスルームを管理するには、{% data variables.product.product_name %}でOrganizationアカウントが必要です。 詳しい情報については、「[{% data variables.product.company_short %}アカウントの種類](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)」および「[新しいOrganizationをゼロから作成する](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)」を参照してください。
+{% data variables.product.prodname_classroom %}でクラスルームを管理するには、{% data variables.product.product_name %}でOrganizationアカウントが必要です。 詳しい情報については、「[{% data variables.product.company_short %}アカウントの種類](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)」および「[新しいOrganizationをゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 
 Organizationアカウントのクラスルームを管理するには、Organizationの{% data variables.product.prodname_classroom %}用OAuth Appを認証する必要があります。 詳しい情報については、「[OAuth App を認証する](/github/authenticating-to-github/authorizing-oauth-apps)」を参照してください。
 

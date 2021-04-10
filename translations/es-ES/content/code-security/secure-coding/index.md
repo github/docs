@@ -1,7 +1,7 @@
 ---
 title: Encontrar errores y vulnerabilidades de seguridad en tu código
 shortTitle: Programación segura
-intro: 'Mantén tu código seguro utilizando el escaneo de secretos para identificar y arreglar vulnerabilidades de seguridad potenciales y otros errores en tu código.'
+intro: 'Keep your code secure by using {% data variables.product.prodname_code_scanning %} to identify and fix potential security vulnerabilities and other errors in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code

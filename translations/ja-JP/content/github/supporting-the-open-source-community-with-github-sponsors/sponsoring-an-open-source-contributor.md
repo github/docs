@@ -1,6 +1,6 @@
 ---
 title: オープンソースコントリビューターに対するスポンサー
-intro: 'あなたが頼りにしているオープンソースプロジェクトを設計、作成、維持する開発者または Organization に対して、毎月定期的に支払いをすることができます。'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -24,11 +24,11 @@ topics:
 - オープンソースを大切にする Organization としてブランド認知度を確立する
 - Organization が提供する製品を補完するライブラリを構築しているオープンソース開発者に感謝する
 
-{% data variables.product.product_name %} でアカウントをスポンサーするときは、クレジットカードを使用できます。 Organization が請求書で支払いしたい場合は、[お問い合わせ](https://support.github.com/contact/org-sponsors-waitlist)ください。
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. Organization が請求書で支払いしたい場合は、[お問い合わせ](https://support.github.com/contact/org-sponsors-waitlist)ください。
 
 {% data reusables.sponsors.no-fees %}詳細は「[{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)」を参照してください。
 
-クレジットカードを使用してアカウントをスポンサーすると、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -53,6 +53,7 @@ topics:
    - 開発者をスポンサーする場合は、開発者の名前の下で [**Sponsor**] をクリックします。 ![[Sponsor] ボタン](/assets/images/help/profile/sponsor-button.png)
    - Organization をスポンサーする場合は、開発者の名前の下で [**Sponsor**] をクリックします。 ![[Sponsor] ボタン](/assets/images/help/sponsors/sponsor-org-button.png)
 1. オプションとして、ページの右側で、Organization に代わってアカウントをスポンサーする場合は、[**Sponsor as**] ドロップダウンメニューを使用して Organization をクリックします。 ![スポンサーとしてのアカウントを選択するドロップダウンメニュー](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

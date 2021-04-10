@@ -18,7 +18,7 @@ topics:
 
 议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”和“[评论拉取请求](/articles/commenting-on-a-pull-request)”。
 
-{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
+{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
 ### 反应评论意见
 

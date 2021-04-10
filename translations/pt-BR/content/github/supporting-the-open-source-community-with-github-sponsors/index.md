@@ -25,7 +25,7 @@ topics:
     {% link_in_list /setting-up-github-sponsors-for-your-organization %}
     {% link_in_list /editing-your-profile-details-for-github-sponsors %}
     {% link_in_list /managing-your-sponsorship-goal %}
-    {% link_in_list /changing-your-sponsorship-tiers %}
+    {% link_in_list /managing-your-sponsorship-tiers %}
     {% link_in_list /viewing-your-sponsors-and-sponsorships %}
     {% link_in_list /managing-your-payouts-from-github-sponsors %}
     {% link_in_list /configuring-webhooks-for-events-in-your-sponsored-account %}

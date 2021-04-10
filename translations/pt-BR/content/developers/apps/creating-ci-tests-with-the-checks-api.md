@@ -845,7 +845,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
     **R:** Se você vir o erro a seguir, você não excluiu o excluiu ou fez o checkout do repositório em um ou ambos os métodos `initiate_check_run` ou `take_requested_action`:
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: o caminho do destino 'Octocat-breeds' já existe e não é um diretório vazio.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     Compare seu código com o arquivo `server.rb` para garantir que você tenha o mesmo código nos seus métodos `initiate_check_run` e `take_requested_action`.

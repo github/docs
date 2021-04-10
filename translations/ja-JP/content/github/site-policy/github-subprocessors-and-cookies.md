@@ -13,7 +13,7 @@ topics:
   - legal
 ---
 
-Effective date: **January 29, 2021**
+Effective date: **April 2, 2021**
 
 GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -33,7 +33,6 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 | MailChimp                | 顧客チケットメールサービスプロバイダ                                              | 米国    | 米国                 |
 | Mailgun                  | トランザクションメールサービスプロバイダ                                            | 米国    | 米国                 |
 | Microsoft                | Microsoft Services                                              | 米国    | 米国                 |
-| Monday.com               | チームコラボレーションおよびプロジェクト管理プラットフォーム                                  | 米国    | イスラエル              |
 | Nexmo                    | SMS通知プロバイダ                                                      | 米国    | 米国                 |
 | Salesforce.com           | 顧客関係管理                                                          | 米国    | 米国                 |
 | Sentry.io                | Application monitoring provider                                 | 米国    | 米国                 |

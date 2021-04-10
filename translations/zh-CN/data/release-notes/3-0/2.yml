@@ -30,7 +30,7 @@ sections:
     - 当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 [GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) 或 [GitHub Premium 支持](https://premium.githubsupport.com/)。
     - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
     - restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。
-    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。
     - |
       用户可能会遇到一些资产（如头像）不加载，或者无法推送/拉取代码。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。要确定您是否有受影响的实例：
 
