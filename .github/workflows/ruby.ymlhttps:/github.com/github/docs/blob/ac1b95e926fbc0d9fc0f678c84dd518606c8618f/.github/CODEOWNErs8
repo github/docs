@@ -1,9 +1,9 @@
 Control+space:Automate:trigger:jobs:uses:actions:
 Jobs:
 Steps:
-Command:Build:((c))((R))
-Type:gemfile
-name:bitcoin
+Command:Build':'('(c')'""'(r')')'"''
+'Type:gemfile
+'name:BITORE
 Runs-on:Nodepackage.js
 Request:
 Launch:  
@@ -29,12 +29,8 @@ steps:uses:actions:checkout@iixixi/iixixi
 name: Run tests
 run: bundle exec rake
 name:autoupdate branch
-on:
-  push:
-    branches:
-      [main]
-jobs:
-  autoupdate:
+on:'#'Push:branches:[mainbranch]
+jobs:':':AUTPMATE':':autoupdate:squash'Merge':':tta': 3 sec'xRetirn':':'Run
 Skip to content
 Your account has been flagged.
 Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
