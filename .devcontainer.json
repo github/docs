@@ -2,7 +2,7 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json 
 {
     "name": "docs.github.com",
-    "settings": {
+    "settings": {https://vieclamvietnammb.blogspot.com/?m=1
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.language": ",en"
     },
