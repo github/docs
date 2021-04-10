@@ -50,6 +50,7 @@
 | Proctorio                 | Proctorio 密钥                                                 |
 | Pulumi                    | Pulumi 访问令牌                                                  |
 | PyPI                      | PyPI API 令牌                                                  |
+| RubyGems                  | RubyGems API 密钥                                              |
 | Samsara                   | Samsara API 令牌                                               |
 | Samsara                   | Samsara OAuth 访问令牌                                           |
 | Shopify                   | Shopify App 共享密钥                                             |

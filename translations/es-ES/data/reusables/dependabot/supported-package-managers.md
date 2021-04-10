@@ -6,7 +6,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 
 | Administración de paquetes | El valor de YAML | Las versiones compatibles       | Los repositorios privados | Registros privados | Delegamiento a proveedores |
 | -------------------------- | ---------------- | ------------------------------- |:-------------------------:|:------------------:|:--------------------------:|
-| Bundler                    | `bundler`        | v1                              |                           |       **✓**        |           **✓**            |
+| Bundler                    | `bundler`        | v1, v2                          |                           |       **✓**        |           **✓**            |
 | Cargo                      | `cargo`          | v1                              |           **✓**           |       **✓**        |                            |
 | Composer                   | `composer`       | v1, v2                          |           **✓**           |       **✓**        |                            |
 | Docker                     | `docker`         | v1                              |           **✓**           |       **✓**        |                            |

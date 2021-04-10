@@ -18,7 +18,7 @@ Wenn Du ein Repository umbenennst, werden mit Ausnahme von Projektwebsite-URLs a
 * Sterne
 * Follower
 
-Weitere Informationen zu Projektwebsites findest Du unter „[Über {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Zusätzlich zur Umleitung des Web-Traffic werden auch alle `git clone`, `git fetch`, oder `git push` Operationen, welche auf den vorherigen Standort zielen, weiter funktionieren, wie wenn sie für den neuen Standort gemacht worden wären. Um jedoch Verwirrung zu vermeiden, empfehlen wir ausdrücklich, alle bestehenden lokalen Klone zu aktualisieren, sodass sie auf die neue Repository-URL verweisen. Du kannst dies mit dem Befehl  `git remote`  auf der Befehlszeile durchführen:
 
@@ -30,7 +30,7 @@ For more information, see "[Managing remote repositories](/github/getting-starte
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Wenn Du vorhast, ein Repository mit einer {% data variables.product.prodname_pages %}-Website umzubenennen, empfehlen wir Dir, eine benutzerdefinierte Domäne für Deine Website zu verwenden. Dadurch wird sichergestellt, dass die URL der Website nicht durch Umbenennung des Repository beeinträchtigt wird. Weitere Informationen findest Du unter „[Über benutzerdefinierte Domänen und {% data variables.product.prodname_pages %}-Websites](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
+Wenn Du vorhast, ein Repository mit einer {% data variables.product.prodname_pages %}-Website umzubenennen, empfehlen wir Dir, eine benutzerdefinierte Domäne für Deine Website zu verwenden. Dadurch wird sichergestellt, dass die URL der Website nicht durch Umbenennung des Repository beeinträchtigt wird. Weitere Informationen findest Du unter „[Über benutzerdefinierte Domänen und {% data variables.product.prodname_pages %}-Websites](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)."
 
 {% endif %}
 

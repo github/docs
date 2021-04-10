@@ -37,7 +37,7 @@ topics:
 
 ### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
 
-これは単なる始めに過ぎません。{% data variables.product.prodname_sponsors %} が将来皆さんのお役に立てるよう、ぜひともご意見をお寄せください。 フィードバックやご提案は、[{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors) からお送りください。
+{% data reusables.sponsors.feedback %}
 
 ### 参考リンク
 - [オープンソースコントリビューターをスポンサーする](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)

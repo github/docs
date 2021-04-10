@@ -105,6 +105,7 @@ function getExampleBodyParams ({ operation }) {
   let schema
   try {
     schema = operation.requestBody.content['application/json'].schema
+    if (!schema.properties) return {}
   } catch (noRequestBody) {
     return {}
   }
@@ -115,6 +116,8 @@ function getExampleBodyParams ({ operation }) {
 
   if (schema.oneOf && schema.oneOf[0].type) {
     schema = schema.oneOf[0]
+  } else if (schema.anyOf && schema.anyOf[0].type) {
+    schema = schema.anyOf[0]
   }
 
   const props =

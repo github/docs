@@ -13,7 +13,7 @@ Predeterminadamente, los usuarios autorizados pueden acceder a tu empresa desde 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-También puedes configurar las direcciones IP permitidas para una organización individual. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)".
+También puedes configurar las direcciones IP permitidas para una organización individual. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)".
 
 Predeterminadamente, las reglas del grupo de seguridad de redes (NSG) de Azure dejan todo el tráfico entrante abierto en los puertos 22, 80, 443 y 25. Los propietarios de las empresas pueden contactar a {% data variables.contact.github_support %} para configurar las restricciones de acceso para tu instancia.
 

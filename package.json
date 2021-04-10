@@ -106,7 +106,11 @@ BuckosBits:main
     "resolve-url-loader": "^3.1.2",
     "revalidator": "^0.3.1",
     "rimraf": "^3.0.0",
+MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-dependabot-security-updates.md
     "sass": "^1.29.0",
+    "rss-parser": "^3.12.0",
+    "sass": "^1.26.3",
+BuckosBits:main
     "sass-loader": "^9.0.2",
     "search-with-your-keyboard": "1.1.0",
     "semver": "^5.7.1",
@@ -123,6 +127,7 @@ BuckosBits:main
   },
   "devDependencies": {
     "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
     "ajv": "^6.11.0",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",

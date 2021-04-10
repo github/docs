@@ -48554,6 +48554,14 @@
           "id": "sponsorstier",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "tierSelectedAt",
+          "description": "<p>Identifies the date and time when the current tier was chosen for this sponsorship.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },

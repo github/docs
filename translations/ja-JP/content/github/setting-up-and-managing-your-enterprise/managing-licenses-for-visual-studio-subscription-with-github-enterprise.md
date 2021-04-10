@@ -27,9 +27,9 @@ The total quantity of your licenses for your enterprise on {% data variables.pro
 
 1. {% data variables.product.prodname_vss_ghe %} を購入したら、{% data variables.contact.contact_enterprise_sales %} に問い合わせて「{% data variables.product.prodname_vss_ghe %}」と伝えます。 営業スチームと連携して、{% data variables.product.prodname_dotcom_the_website %} で Enterprise アカウントを作成します。 すでに {% data variables.product.prodname_dotcom_the_website %} に Enterprise アカウントをお持ちの場合、または不明な場合は、営業チームにお問い合わせください。
 
-2. {% data variables.product.prodname_vss_admin_portal_with_url %} のサブスクライバーに {% data variables.product.prodname_vss_ghe %} のライセンスを割り当てます。 For more information about assigning licenses, see [Manage {% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/visualstudio/subscriptions/assign-github) in the Microsoft Docs.
+2. {% data variables.product.prodname_vss_admin_portal_with_url %} のサブスクライバーに {% data variables.product.prodname_vss_ghe %} のライセンスを割り当てます。 ライセンス割り当ての詳細については、Microsoft Docs の「[{% data variables.product.prodname_enterprise %} を使用した {% data variables.product.prodname_vs %} プランの管理](https://docs.microsoft.com/visualstudio/subscriptions/assign-github)」を参照してください。
 
-3. {% data variables.product.prodname_dotcom_the_website %} で、Enterprise アカウントが所有する Organization を少なくとも 1 つ作成します。 For more information, see "[Adding organizations to your enterprise account](/github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account)."
+3. {% data variables.product.prodname_dotcom_the_website %} で、Enterprise アカウントが所有する Organization を少なくとも 1 つ作成します。 詳しい情報については、「[Enterprise アカウントに Organization を追加する](/github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account)」参照してください。
 
 ### サブスクライバーを招待して {% data variables.product.prodname_enterprise %} を使用する
 
@@ -39,7 +39,7 @@ Organization owners can invite new members to an organization by email address. 
 
 While not required, we recommend that organization owners send an invitation to the same email address used for the {% data variables.product.prodname_vs %} subscriber's User Primary Name (UPN). When the email address on {% data variables.product.product_name %} matches the subscriber's UPN, you can ensure that another member of the organization does not claim the subscriber's license.
 
-For more information, see "[Inviting users to join your organization](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)," "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)," and "[Managing email preferences](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)."
+For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)," "[Signing up for {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)," and "[Managing email preferences](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)."
 
 ### {% data variables.product.prodname_enterprise %} ライセンスを表示する
 
@@ -49,4 +49,4 @@ For more information, see "[Inviting users to join your organization](/github/se
 
 ### 参考リンク
 
-- [Introducing Visual Studio subscriptions with GitHub Enterprise](https://docs.microsoft.com/visualstudio/subscriptions/access-github) in the Microsoft Docs
+- Microsoft Docs の [GitHub Enterprise による Visual Studio サブスクリプションの紹介](https://docs.microsoft.com/visualstudio/subscriptions/access-github)

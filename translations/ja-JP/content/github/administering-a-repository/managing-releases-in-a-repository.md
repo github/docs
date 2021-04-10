@@ -47,6 +47,9 @@ You can also publish an action from a specific release in {% data variables.prod
 6. リリースのタイトルと説明を入力します。 ![リリースの説明](/assets/images/help/releases/releases_description.png)
 7. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
 8. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
+{%- if currentVersion == "free-pro-team@latest" %}
+1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+{%- endif %}
 9. リリースを公開する準備ができている場合は、[**Publish release**] をクリックします。 リリースの作業を後でする場合は、[**Save draft**] をクリックします。 ![[Publish release] と [Save draft] ボタン](/assets/images/help/releases/release_buttons.png)
 
 コマンドラインから、またはスクリプトでリリースを自動的に作成することもできます。 詳しい情報については、「[リリース](/rest/reference/repos/#create-a-release)」を参照してください。

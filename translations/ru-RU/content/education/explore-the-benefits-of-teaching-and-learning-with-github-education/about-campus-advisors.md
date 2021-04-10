@@ -16,3 +16,7 @@ Professors, teachers and mentors can use the Campus Advisors online training to 
 **Note:** As an instructor, you can't create {% data variables.product.prodname_dotcom %} accounts for your students. Students must create their own {% data variables.product.prodname_dotcom %} accounts.
 
 {% endnote %}
+
+Teachers can manage a course on software development with {% data variables.product.prodname_education %}. {% data variables.product.prodname_classroom %} allows you to distribute code, provide feedback, and manage coursework using {% data variables.product.product_name %}. For more information, see "[Manage coursework with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom)."
+
+If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)."

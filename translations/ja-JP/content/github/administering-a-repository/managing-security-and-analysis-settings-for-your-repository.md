@@ -106,4 +106,4 @@ Organization owners and repository administrators can only grant access to view 
 ### 参考リンク
 
 - 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
-- 「[Organization のセキュリティと分析設定を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)」
+- 「[Organization のセキュリティと分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」
