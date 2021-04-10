@@ -12,8 +12,6 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
-{% data reusables.dependabot.beta-note-no-link %}
-
 ### 依存関係のバージョン更新について
 
 {% data variables.product.prodname_dependabot_version_updates %} を有効にするには、リポジトリの `.github` ディレクトリにある *dependabot.yml* 構成ファイルをチェックします。 {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. 更新するパッケージマネージャーの依存関係ごとに、パッケージマニフェストファイルの場所と、それらのファイルにリストされている依存関係の更新をチェックする頻度を指定する必要があります。 For information about enabling security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
@@ -97,32 +95,32 @@ updates:
 以下の *dependabot.yml* ファイルの例には、一部の依存関係の更新を無効にし、他の更新を続行できるようにするさまざまな方法が含まれています。
 
 ```yaml
-# Docker で無効および npm で制限された
-# 更新を含む dependabot.yml ファイル
+# dependabot.yml file with updates
+# disabled for Docker and limited for npm
 
 version: 2
 updates:
-  # Dockerfile の構成
+  # Configuration for Dockerfile
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
-      # Docker 依存関係のすべてのプルリクエストを無効にする
+      # Disable all pull requests for Docker dependencies
     open-pull-requests-limit: 0
 
-  # npm の構成
+  # Configuration for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    # 「@dependabot ignore」コマンドを使用して作成された無視指定を上書きする
+    # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # 「aws」で始まるパッケージの更新を無視する
-      # ワイルドカードを 0 文字以上の任意の文字に一致させる
+      # Ignore updates to packages that start with 'aws'
+      # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
-      # 「express」パッケージの更新を無視する
+      # Ignore some updates to the 'express' package
       - dependency-name: "express"
-        # 4.x および 5.x の新しいバージョンのみを無視する
+        # Ignore only new versions for 4.x and 5.x
         versions: ["4.x", "5.x"]
 ```
 

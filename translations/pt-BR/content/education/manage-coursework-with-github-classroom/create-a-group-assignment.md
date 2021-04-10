@@ -17,7 +17,7 @@ Quando um aluno aceita uma atividade em grupo, o aluno poderá criar uma nova eq
 
 {% data reusables.classroom.about-assignments %}
 
-Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes cada equipe pode ter. Cada equipe que um estudante cria para uma atividade é uma equipe dentro da sua organização em {% data variables.product.product_name %}. A visibilidade da equipe é secreta. Equipes criadas em {% data variables.product.product_name %} não aparecerão em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Sobre equipes](/github/setting-up-and-managing-organizations-and-teams/about-teams)".
+Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes cada equipe pode ter. Cada equipe que um estudante cria para uma atividade é uma equipe dentro da sua organização em {% data variables.product.product_name %}. A visibilidade da equipe é secreta. Equipes criadas em {% data variables.product.product_name %} não aparecerão em {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 Para uma demonstração de vídeo da criação de uma atividade de grupo, consulte "[Fundamentos de configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 

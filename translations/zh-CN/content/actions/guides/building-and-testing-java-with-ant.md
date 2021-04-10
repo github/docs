@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
@@ -70,7 +71,7 @@ jobs:
 此工作流程执行以下步骤：
 
 1. `checkout` 步骤在运行器上下载仓库的副本。
-2. `setup-java` 步骤配置 Java 1.8 JDK。
+2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Ant 构建”步骤以非交互模式运行 `build.xml` 中的默认目标。
 
 在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
@@ -91,9 +92,10 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
@@ -109,7 +111,11 @@ Ant 通常会在 `build/jar` 目录中创建 JAR、EAR 或 WAR 等输出文件�
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

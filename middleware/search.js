@@ -22,7 +22,7 @@ router.get('/', async function postSearch (req, res, next) {
   }
 
   try {
-    const results = process.env.AIRGAP
+    const results = process.env.AIRGAP || req.cookies.AIRGAP
       ? await loadLunrResults({ version, language, query: `${query} ${filters || ''}`, limit })
       : await loadAlgoliaResults({ version, language, query, filters, limit })
     return res.status(200).json(results)

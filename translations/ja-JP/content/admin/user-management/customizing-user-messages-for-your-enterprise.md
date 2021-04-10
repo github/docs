@@ -66,16 +66,15 @@ topics:
 - {% data variables.product.product_location %} のヘルプの取得方法をユーザに伝える
 - すべてのユーザが {% data variables.product.product_location %} を使用時の利用規約を確実に読むようにする
 
-{% note %}
-
-**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
-
-{% endnote %}
-
-
 メッセージに Markdown チェックボックスを含める場合、ユーザがメッセージを閉じる前に、すべてのチェックボックスを選択する必要があります。 たとえば、必須メッセージに利用規約を含める場合、各ユーザにチェックボックスを選択して、ユーザが利用規約を読んだことを確認するように要求できます。
 
 ユーザに必須メッセージが表示されるたびに、監査ログイベントが作成されます。 イベントには、ユーザが表示したメッセージのバージョンが含まれます。 詳しい情報については、「[監査されたアクション](/admin/user-management/audited-actions)」を参照してください。
+
+{% note %}
+
+**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

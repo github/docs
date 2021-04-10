@@ -343,18 +343,18 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a discussion. For more information, see the "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+与讨论有关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-| 键        | 类型    | 描述                                                                                                                                                        |
-| -------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action` | `字符串` | 执行的操作。 Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`. |
+| 键        | 类型    | 描述                                                                                                                                          |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered` 或 `unanswered`。 |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -368,20 +368,20 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
-Activity related to a comment in a discussion. For more information, see "[Using the GraphQL API for discussions](/graphql/guides/using-the-graphql-api-for-discussions)."
+与讨论中的评论相关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- {% data variables.product.prodname_github_app %}s with the `discussions` permission
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-| 键        | 类型    | 描述                                                                                                            |
-| -------- | ----- | ------------------------------------------------------------------------------------------------------------- |
-| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited` 或 `deleted`。                                                                    |
-| `注释，评论`  | `对象`  | The [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) resource. |
+| 键        | 类型    | 描述                                                                                                  |
+| -------- | ----- | --------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited` 或 `deleted`。                                                          |
+| `注释，评论`  | `对象`  | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) 资源。 |
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
