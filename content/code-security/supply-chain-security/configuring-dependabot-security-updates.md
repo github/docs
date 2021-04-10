@@ -66,3 +66,8 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 - "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"
 - "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"
+
+-  test('all used topics are allowed in /data/allowed-topics.js', () => {
+    expect(allUsedTopics.length).toBeGreaterThan(0)
+    const unusedTopics = difference(allUsedTopics, allowedTopics)
+    expect(unusedTopics).toEqual([])
