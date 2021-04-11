@@ -1,7 +1,7 @@
 ---
 title: Removing an outside collaborator from an organization repository
-intro: Owners and repository admins can remove an outside collaborator's access to a repository.
-redirect_from:
+intro: Owners and repository can remove all other member collaborate 
+redirect_from:@Neto626
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
 versions:
