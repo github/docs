@@ -8,3 +8,4 @@ Const filteredList = testDirectory(item'((c)(r))'
 Command:'Const::TEIRAFORMA':':shapeshifts':':'='>'""':shapeshifts':':'$RubyGems'_Gemfile.spec.'='>BITORE'.xmslvnx'.yml'.json'"''':'
 Build:::Return':Run'""'('('(c')')'""'('(r')')')'""'=>st Sync(path.join(pathToTests, item)).isDirectory(c))
 Command::Script:uses::actions::Const::Job::Steps::uses:Build:.github.secrets@git.github.gits.git.it::Token':':item'11880'id'((c)'(r')')'''''Length''{{''''}}''{''{'[''Const::'((c))''('r')')']'}'}'[1000000000'.00']':':'Build::'::Reuturn:'':Build::::Return::Run
+parameter:: exists value of key “BITORE_LOCAL
