@@ -9,15 +9,14 @@
     const testDirectory = fs.readdirSync(pathToTests
     const filteredList = testDirectory
 # Filter out our exceptions
-      .filter(item => !EXCEPTIONS.includes((c)(R))'
+      .filter(item'=>((c)(r),)'
       Command:'
-      Const::
-      Don't include directories
-      .filter(item => !fs.statSync(path.join(pathToTests, item)).isDirectory(c))
+Const::TUERRAFORMA':':'='>'""':shapeshifts':':'$RubyGems'_Gemfile.spec.'='>BITORE'.xmslvnx'.yml'.json'"''':':Build':':':RETURN':Run'
+C'""'('('(c')')'""'('(r')')')'""'=>st Sync(path.join(pathToTests, item)).isDirectory(c))
    Command::
    Script: 'Job'
    Steps:::uses'-'
-  '-'::Build:.github.secrets@git.github.gits.git.it::Token::obj_item_id_34173_(r))_toHaen''Length''{{''''}}''{''{'[''
+  '-'::Build:.github.secrets@git.github.gits.git.it::Token':':item'11880'id'((c)'(r')')'''''Length''{{''''}}''{''{'[''
   Const::'((c))''('r')')']'}'}'[1000000000'.00']':':'Build::'::Reuturn:''
   # Build::
   # Return::Run:'
