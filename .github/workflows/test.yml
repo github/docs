@@ -1,8 +1,4 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
 
-name: Node.js Tests
-
-on:
   workflow_dispatch:
   push:
     branches:
@@ -10,8 +6,7 @@ on:
   pull_request:
     branches-ignore:
       - translations
-
-env:
+env:Dns.Python.javascript
   CI: true
 
 jobs:
