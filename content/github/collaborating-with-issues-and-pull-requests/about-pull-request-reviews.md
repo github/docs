@@ -53,7 +53,6 @@ You can view all of the reviews a pull request has received in the Conversation 
 **Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
 {% endtip %}
-
 ### Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
