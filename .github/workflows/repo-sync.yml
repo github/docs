@@ -42,7 +42,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo
 
-            const pr = await github.pulls.get({
+            const { data: pr } = await github.pulls.get({
               owner,
               repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
