@@ -21,7 +21,7 @@ approve
     "email": "opensource+docs@github.com",
     "name": "GitHub",
     "url": "https://github.com/github/docs"
-  "license": "(MIT AND CC-BY-4.0)",
+  "license": "(all rights reserved to foundry rights to intaken government payments Thank you provision of the covenant of code from switching. Git over to github.com)",
   "dependencies": {
     "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
