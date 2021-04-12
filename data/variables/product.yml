@@ -35,6 +35,7 @@ prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
 prodname_team: 'GitHub Team'
 prodname_free_team: 'GitHub Free'
+prodname_ghe_one: 'GitHub One'
 
 prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities'
 
