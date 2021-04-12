@@ -28,6 +28,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% link_with_intro /introduction-to-github-actions %}
@@ -36,7 +37,8 @@ versions:
 {% link_with_intro /managing-complex-workflows %}
 {% link_with_intro /sharing-workflows-with-your-organization %}
 {% link_with_intro /security-hardening-for-github-actions %}
+{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
 {% link_with_intro /migrating-from-circleci-to-github-actions %}
 {% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
-{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
 {% link_with_intro /migrating-from-jenkins-to-github-actions %}
+{% link_with_intro /migrating-from-travis-ci-to-github-actions %}

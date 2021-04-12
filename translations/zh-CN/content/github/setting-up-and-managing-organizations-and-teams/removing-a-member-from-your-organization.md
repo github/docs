@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 只有组织所有者才能从组织中删除成员。

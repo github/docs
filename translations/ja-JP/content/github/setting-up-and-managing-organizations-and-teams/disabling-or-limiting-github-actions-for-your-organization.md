@@ -4,10 +4,14 @@ intro: 'Organization のオーナーは Organization の GitHub Actions を無�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Organization の {% data variables.product.prodname_actions %} 権限について
 
@@ -17,7 +21,7 @@ Organization のすべてのリポジトリについて {% data variables.produc
 
 あるいは、Organization のすべてのリポジトリについて {% data variables.product.prodname_actions %} を有効化したうえで、ワークフローで実行できるアクションを制限することができます。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 ### Organization の {% data variables.product.prodname_actions %} 権限の管理
 
@@ -34,13 +38,13 @@ Organization のすべてのリポジトリについて {% data variables.produc
 
 ### Organization の {% data variables.product.prodname_actions %} 権限の管理
 
-You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
+Organization のワークフローをすべて無効にすることも、Organization でどのアクションを使用できるかを設定するポリシーを設定することもできます。
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**注釈:** Organizationが、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 詳しい情報については、 {% if currentVersion == "free-pro-team@latest" %}「[Enterprise アカウントで {% data variables.product.prodname_actions %} のポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% else %}"[Enterprise で{% data variables.product.prodname_actions %} のポリシーを施行する](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」{% endif %}を参照してください。
 
 {% endnote %}
 
@@ -48,7 +52,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select an option. ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+1. [**Policies**] でオプションを選択します。 ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
 1. [**Save**] をクリックします。
 
 ### Allowing specific actions to run
@@ -59,7 +63,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. [**Save**] をクリックします。
 
 {% endif %}

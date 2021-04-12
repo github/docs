@@ -7,6 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Proprietários da organização podem gerenciar as autoridades certificadas (CA, certificate authorities) de SSH da organização.

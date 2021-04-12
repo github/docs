@@ -7,12 +7,13 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Creating pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. Click **Add pre-receive hook**.
@@ -32,8 +33,7 @@ versions:
 
 ### Editing pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Next to the pre-receive hook that you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
@@ -41,8 +41,7 @@ versions:
 
 ### Deleting pre-receive hooks
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Next to the pre-receive hook that you want to delete, click {% octicon "x" aria-label="X symbol" %}.
@@ -71,4 +70,4 @@ A repository owner can only configure a hook if the site administrator selected 
 4. In the left sidebar, click **Hooks & Services**.
 ![Hooks and services](/assets/images/enterprise/repos/hooks-services.png)
 5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook.
-![Repo hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)
+![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)

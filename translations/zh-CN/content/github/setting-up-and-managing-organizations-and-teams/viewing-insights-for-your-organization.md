@@ -6,6 +6,9 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织的所有成员均可查看组织洞察。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
@@ -45,4 +48,4 @@ versions:
    - "[关于组织](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[探索仓库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - “[更改组织依赖项洞察的可见性](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)”
-   - "[在企业帐户中实施关于依赖项洞察的策略](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+   - "[在企业帐户中实施关于依赖项洞察的策略](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"

@@ -12,6 +12,10 @@ intro: 'A página de configurações da conta da organização fornece várias m
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

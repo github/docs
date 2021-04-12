@@ -1,14 +1,20 @@
 ---
-title: 关于 GitHub 操作的计费
+title: 关于 GitHub Actions 的计费
 intro: '如果要对 {% data variables.product.prodname_actions %} 的使用超出帐户所含存储容量或分钟数，您需要支付额外的使用费。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 ### 关于 {% data variables.product.prodname_actions %} 的计费
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
+
+如果您通过 Microsoft 企业协议购买 {% data variables.product.prodname_enterprise %}，可以将 Azure 订阅 ID 连接到您的企业帐户，以便启用并支付超出您的帐户金额的 {% data variables.product.prodname_actions %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)”。
 
 分钟数每月都会重置，而存储使用量不重置。
 
@@ -69,8 +75,8 @@ versions:
 
 ### 关于支出限制
 
-默认情况下，您的帐户对 {% data variables.product.prodname_actions %} 使用的支出限额为 0 美元。 要为私有仓库启用超过帐户自带量使用分钟数和存储空间，您可以增加支出限额或允许无限制支出。 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

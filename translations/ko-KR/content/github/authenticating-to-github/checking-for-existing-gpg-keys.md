@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - identity
+  - access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

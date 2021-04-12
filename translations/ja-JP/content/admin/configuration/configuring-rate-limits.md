@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### {% data variables.product.prodname_enterprise_api %}のレート制限の有効化
@@ -30,7 +32,7 @@ versions:
 
 ### 不正利用レート制限の有効化
 
-不正利用レート制限を設定すれば、{% data variables.product.product_location_enterprise %}上のサービスの全体のレベルを保護できます。
+不正利用レート制限を設定すれば、{% data variables.product.product_location %}上のサービスの全体のレベルを保護できます。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

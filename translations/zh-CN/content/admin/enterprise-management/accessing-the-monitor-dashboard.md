@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 访问监视仪表板
@@ -18,7 +20,7 @@ versions:
 
 {% note %}
 
-**注**：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location_enterprise %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 web 挂钩推送更新。 更多信息请参阅“[关于 web 挂钩](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)”。
+**注**：由于通过持续集成 (CI) 或构建服务器定期轮询 {% data variables.product.product_location %} 会引发拒绝服务攻击，从而导致问题的出现，因此，建议使用 web 挂钩推送更新。 更多信息请参阅“[关于 web 挂钩](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)”。
 
 {% endnote %}
 

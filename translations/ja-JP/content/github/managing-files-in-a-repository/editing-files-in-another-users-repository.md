@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 1. 他のユーザーのリポジトリで、編集するファイルが含まれるフォルダに移動します。 編集するファイルの名前をクリックします。

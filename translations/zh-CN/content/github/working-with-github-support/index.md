@@ -2,8 +2,11 @@
 title: 使用 GitHub 支持
 redirect_from:
   - /categories/working-with-github-support
+  - /forum
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 

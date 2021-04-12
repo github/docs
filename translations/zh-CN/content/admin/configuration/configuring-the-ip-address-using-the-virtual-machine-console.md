@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-the-ip-address-using-the-virtual-machine-console
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% note %}
 
-**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+**注意：** 我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。
 
 {% endnote %}
 

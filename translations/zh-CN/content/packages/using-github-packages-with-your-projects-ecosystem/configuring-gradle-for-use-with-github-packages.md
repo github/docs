@@ -25,12 +25,12 @@ versions:
 
 您可以使用 Gradle Groovy 或 Kotlin DSL，通过 Gradle 向 {% data variables.product.prodname_registry %} 验证，方法是编辑 *build.gradle* 文件 (Gradle Groovy) 或 *build.gradle.kts* 文件 (Kotlin DSL) 以包含您的个人访问令牌。 您还可以配置 Gradle Groovy 和 Kotlin DSL 以识别仓库中的一个或多个包。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 将 *REGISTRY-URL* 替换为您实例的 Maven 注册表的 URL。 如果您的实例启用了子域隔离，请使用 `maven.HOSTNAME`。 如果您的实例禁用了子域隔离，请使用 `HOSTNAME/_registry/maven`。 无论是哪种情况，都要将 *HOSTNAME* 替换为
 {% data variables.product.prodname_ghe_server %} 实例的主机名。
 {% endif %}
 
-将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *REPOSITORY* 替换为要发布的包所在仓库的名称，将 *OWNER* 替换为 {% data variables.product.prodname_dotcom %} 上拥有该仓库的用户或组织帐户的名称。 {% data reusables.package_registry.lowercase-name-field %}
+将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *REPOSITORY* 替换为要发布的包所在仓库的名称，将 *OWNER* 替换为 {% data variables.product.prodname_dotcom %} 上拥有该仓库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
 
 {% note %}
 
@@ -174,7 +174,7 @@ subprojects {
 {% data reusables.package_registry.authenticate-step %}
 2. 将包依赖项添加到您的 *build.gradle* 文件 (Gradle Groovy) 或 *build.gradle.kts* 文件 (Kotlin DSL)。
 
-  Example using Gradle Groovy:
+  使用 Gradle Groovy 的示例：
   ```shell
   dependencies {
       implementation 'com.example:package'
@@ -189,7 +189,7 @@ subprojects {
 
 3. 将 maven 插件添加到您的 *build.gradle* 文件 (Gradle Groovy) 或 *build.gradle.kts* 文件 (Kotlin DSL)。
 
-  Example using Gradle Groovy:
+  使用 Gradle Groovy 的示例：
   ```shell
   plugins {
       id 'maven'

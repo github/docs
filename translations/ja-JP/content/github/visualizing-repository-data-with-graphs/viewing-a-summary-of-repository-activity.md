@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 コミットがリポジトリのデフォルトブランチにマージされていて、コミットを最も多くコントリビュートした上位 15 人のユーザの中にコミット共作者が含まれている場合は、コミットアクティビティの概要に含まれます。

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data reusables.repositories.archiving-repositories-recommendation %}

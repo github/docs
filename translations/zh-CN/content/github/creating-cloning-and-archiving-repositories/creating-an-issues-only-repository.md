@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 1. 创建一个**私有**仓库来托管项目的源代码。

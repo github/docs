@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 削除できる Issue は自分のユーザアカウントが所有するリポジトリのものだけです。 別のユーザアカウントが所有するリポジトリの Issue は、仮にあなたがコラボレーターであったとしても、削除することはできません。

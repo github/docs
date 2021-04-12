@@ -22,7 +22,7 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. [{% data variables.product.prodname_dotcom_the_website %}] の右にある [**Sign In**] をクリックします。 ![GitHubのサインインボタン](/assets/images/help/desktop/mac-sign-in-github.png)
-4. [Sign in] ペインで [**Sign in using your browser**] をクリックします。 {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開きます。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. [Sign in] ペインで [**Sign in using your browser**] をクリックします。 {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開きます。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -37,8 +37,8 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a
-{% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+4. 次に、
+{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
   ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
@@ -51,7 +51,7 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. [GitHub.com] の右にある [**Sign in**] をクリックします。 ![GitHubのサインインボタン](/assets/images/help/desktop/windows-sign-in-github.png)
-4. サインインペインで、**Sign in using your browser**をクリックします。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. サインインペインで、**Sign in using your browser**をクリックします。 ![ブラウザリンク経由でのサインイン](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -67,8 +67,8 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a
-{% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+4. 次に、
+{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
   ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 

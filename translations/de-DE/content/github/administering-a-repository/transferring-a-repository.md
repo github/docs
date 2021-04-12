@@ -15,6 +15,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 ### Informationen zur Übertragung von Repositorys
@@ -45,7 +48,7 @@ Bei der Übertragung eines Repositorys werden auch seine Issues, Pull Requests, 
   $ git remote set-url origin <em>new_url</em>
   ```
 
-Weitere Informationen findest Du unter "[URL eines Remote-Repository ändern](/articles/changing-a-remote-s-url)".
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### Repository-Übertragungen und Organisationen
 

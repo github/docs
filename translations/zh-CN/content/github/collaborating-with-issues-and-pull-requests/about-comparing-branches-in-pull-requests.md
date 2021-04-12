@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 {% note %}
@@ -15,8 +18,9 @@ versions:
 {% endnote %}
 
 您可以在 Files changed（更改的文件）选项卡的拉取请求中查看提议的更改。
-
-![拉取请求文件已更改选项卡](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% if currentVersion ver_lt "github-enterprise@3.0" %}
+![拉取请求文件已更改选项卡](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
+![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 无需查看提交本身，您可以查看提议的更改，因为它们在拉取请求合并后就会出现在文件中。 这些文件在 Files changed（更改的文件）选项卡中按字母数字顺序显示。 添加的文件以绿色显示，前缀 `+` 号，而删除的内容以红色显示，前缀 `-` 号。
 
@@ -38,7 +42,7 @@ versions:
 
 ![差异查看选项菜单](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
+为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型、显示您是其代码所有者的文件、隐藏您查看过的文件或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 
@@ -54,7 +58,7 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
 如果要模拟拉取请求中的两点差异并查看每个分支最新版本之间的比较结果，可以将基本分支合并到主题分支，以更新分支之间最新的共同原型。
 
-For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
+有关用于比较更改的 Git 命令的更多信息，请参阅 _Pro Git_ 书籍网站中的“[Git 差异选项](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)”。
 
 ### 差异不显示的原因
 - 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[在仓库中查看内容和差异的限制](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)”。

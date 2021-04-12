@@ -29,7 +29,7 @@ versions:
 必须：
 - 将 `USERNAME` 替换为您在 {% data variables.product.prodname_dotcom %} 上的用户帐户的名称。
 - 将 `TOKEN` 替换为您的个人访问令牌。
-- 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{% if currentVersion != "free-pro-team@latest" %}
+- 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{% if enterpriseServerVersions contains currentVersion %}
 - 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。
 
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
@@ -51,7 +51,7 @@ versions:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```xml
@@ -78,7 +78,7 @@ versions:
 
 ### 发布包
 
-您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
+您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -90,7 +90,7 @@ versions:
 3. 将项目的特定信息添加到以 *.csproj* 结尾的项目文件中。  必须：
     - 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。
     - 将 `REPOSITORY` 替换为要发布的包所在仓库的名称。
-    - 将 `1.0.0` 替换为包的版本号。{% if currentVersion != "free-pro-team@latest" %}
+    - 将 `1.0.0` 替换为包的版本号。{% if enterpriseServerVersions contains currentVersion %}
     - 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
@@ -160,7 +160,7 @@ versions:
 
 ### 安装包
 
-在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 *nuget.org* 的包。 将包依赖项添加到 *.csproj* 文件以指定包名称和版本。 有关在项目中使用 *.csproj* 文件的更多信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)”。
+在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 *nuget.org* 的包。 将包依赖项添加到 *.csproj* 文件以指定包名称和版本。 有关在项目中使用 *.csproj* 文件的更多信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)”。
 
 {% data reusables.package_registry.authenticate-step %}
 

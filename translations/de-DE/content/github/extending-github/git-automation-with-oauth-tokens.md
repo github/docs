@@ -8,6 +8,7 @@ intro: 'Du kannst OAuth-Tokens einsetzen, um über automatisierte Skripts mit {%
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Schritt 1: Ein OAuth-Token erhalten
@@ -32,7 +33,7 @@ Erstelle ein persönliches Zugriffstoken auf der Einstellungsseite Deiner Anwend
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung von Git verwenden. For information, see "[Caching your GitHub credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
+Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung von Git verwenden. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 {% warning %}
 
@@ -42,4 +43,4 @@ Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung
 
 ### Weiterführende Informationen
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

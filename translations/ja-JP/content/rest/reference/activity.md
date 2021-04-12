@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - api
 ---
 
 {% for operation in currentRestOperations %}
@@ -31,8 +34,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
 ```
-
-イベントはページネーションをサポートしていますが、`per_page` オプションはサポートされていません。 固定ページサイズは 30 項目です。 最大 10 ページ、合計 300 イベントのフェッチがサポートされています。 詳細については、「[ページネーションをトラバースする](/rest/guides/traversing-with-pagination) 」を参照してください。
 
 過去 90 日以内に作成されたイベントのみがタイムラインに含まれます。 90 日以上経過しているイベントは含まれません（タイムラインのイベントの総数が300 未満の場合でも）。
 
@@ -146,7 +147,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 | `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
 | `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
 | `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
-| `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% if currentVersion == "free-pro-team@latest" %}
+| `review_requested` | 自分、または自分が所属している Team が、プルリクエストのレビューを求められた。{% if currentVersion == "free-pro-team@latest" %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} が、リポジトリに[セキュリティの脆弱性](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を発見した。{% endif %}
 | `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                    |
 | `subscribed`       | リポジトリを Watch している。                                                                                                                                                     |

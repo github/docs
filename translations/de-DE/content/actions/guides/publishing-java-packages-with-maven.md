@@ -7,10 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: 'tutorial'
+topics:
+  - 'Pakete erstellen'
+  - 'Publishing'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -46,7 +54,7 @@ In diesem Workflow kannst Du die Aktion `setup-java` verwenden. Diese Aktion ins
 Wenn Du zum Beispiel über das OSSRH-Hosting-Projekt ins „Maven Central Repository“ deployst, kann Deine _pom.xml_ ein  Distributions-Management-Repository mit `ossrh` als `id` angeben.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,7 +74,7 @@ Im Deploy-Schritt musst Du die Umgebungsvariablen auf den Benutzernamen setzen, 
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -84,7 +92,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -112,7 +120,7 @@ Für ein Maven-basiertes Projekt kannst Du diese Einstellungen nutzen, indem Du 
 Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {% data variables.product.prodname_registry %}-Konfiguration in _pom.xml_ so ähnlich wie im folgenden Beispiel aus.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -129,7 +137,7 @@ Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hell
 Mit dieser Konfiguration kannst Du einen Workflow erstellen, der Dein Paket in der {% data variables.product.prodname_registry %} veröffentlicht, indem Du die automatisch generierte _settings.xml_ verwendest.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -143,7 +151,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish package
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -164,7 +172,7 @@ Du kannst Deine Pakete sowohl im Maven Central Repository als auch in der {% dat
 Stelle sicher, dass Deine Datei _pom.xml_ ein Distributionsmanagement-Repository sowohl für Dein {% data variables.product.prodname_dotcom %}-Repository als auch Deinen „Maven Central Repository“-Provider enthält. Wenn Du z.B. über das Hosting-Projekt OSSRH in das Central Repository deployst, solltest Du es vielleicht in einem Distributionsverwaltungs-Repository mit `ossrh` als `id` angeben, und Du solltest {% data variables.product.prodname_registry %} in einem Distributionsverwaltungs-Repository mit `github` als `id` setzen.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
@@ -182,7 +190,7 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -191,7 +199,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Publish to GitHub Packages
-        run: mvn -B deploy
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

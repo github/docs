@@ -5,6 +5,8 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Ein *Verhaltenskodex* definiert die Standards für die Interaktion in einer Community. Er signalisiert, dass in dieser integrativen Umgebung alle Beiträge respektiert werden. Außerdem beschreibt er Verfahren für die Problembehandlung bei Schwierigkeiten zwischen Mitgliedern Deiner Projekt-Community. Weitere Informationen dazu, warum ein Verhaltenskodex Standards und Erwartungen für die Interaktion in einer Community festlegt, findest Du in den [Open-Source-Leitfäden](https://opensource.guide/code-of-conduct/).
@@ -43,7 +45,7 @@ If the code of conduct you want to use isn't available in the provided templates
 3. In the file name field, type the name and extension for the file. ![New code of conduct file name](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - To make your code of conduct visible in the repository's root directory, type *CODE_OF_CONDUCT* in the file name field.
     - To make your code of conduct visible in the repository's `docs` directory, type *docs/CODE_OF_CONDUCT*.
-    - To make your code of conduct visible in the respository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
+    - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
 4. In the new file, add your custom code of conduct.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

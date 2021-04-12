@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode habilitar ou desabilitar a exclusão automática de branches.

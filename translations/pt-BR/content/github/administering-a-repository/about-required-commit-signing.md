@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você aplicou proteções de branch no repositório, será possível configurar a assinatura de commit obrigatória. Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)".
 
-Ao habilitar o login de commit necessário em um branch, os contribuidores de {% if currentVersion == "free-pro-team@latest" %}e bots{% endif %} só podem fazer push de commits que foram assinados e verificados no branch. Para obter mais informações, consulte "[Sobre verificação de assinatura commit](/articles/about-commit-signature-verification)".
+Ao habilitar a assinatura de commit obrigatória em um branch, os contribuidores {% if currentVersion == "free-pro-team@latest" %}e bots{% endif %} só podem fazer push de commits que foram assinados e verificados no branch. Para obter mais informações, consulte "[Sobre verificação de assinatura commit](/articles/about-commit-signature-verification)".
 
 Você sempre pode fazer push de commits locais para o branch se os commits forem assinados e verificados. {% if currentVersion == "free-pro-team@latest" %}Você também pode fazer merge de commits assinados e verificados no branch usando um pull request em {% data variables.product.product_name %}. No entanto, você não pode realizar a combinação por squash e fazer o merge de um pull request no branch em {% data variables.product.product_name %} a menos que você seja o autor do pull request.{% else %}No entanto, você não pode fazer merge de pull requests no branch em {% data variables.product.product_name %}.{% endif %} Você pode {% if currentVersion == "free-pro-team@latest" %}fazer combinação por squash e {% endif %} fazer merge de pull requests localmente. Para obter mais informações, consulte "[Verificar de pull requests localmente](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally). {% if currentVersion == "free-pro-team@latest" %} Para obter mais informações sobre métodos de merge, consulte "[Sobre métodos de merge em {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github).{% endif %}
 

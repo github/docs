@@ -4,6 +4,9 @@ intro: 'Quando você revisa e investiga uma única notificação, você tem vár
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - notificações
 ---
 
 ### Salvando uma única notificação

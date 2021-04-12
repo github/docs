@@ -5,6 +5,8 @@ redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
   free-pro-team: '*'
+topics:
+  - early access
 ---
 
 ### {% data variables.product.prodname_dotcom %} のリリースサイクル
@@ -21,5 +23,5 @@ versions:
 
 ベータ版で利用可能な機能のリストと各機能の簡単な説明を確認することができます。 各機能には、フィードバックを提供するリンクが含まれています。
 
-1. 任意のページの右上隅で、プロフィール画像をクリックし、続いて [**Feature preview（機能プレビュー）**] をクリックします。 ![[Feature preview] ボタン](/assets/images/help/settings/feature-preview-button.png)
+{% data reusables.feature-preview.feature-preview-setting  %}
 2. 必要に応じて、機能の右側で、[**Enable**] または [**Disable**] をクリックします。 ![機能プレビューの [Enable] ボタン](/assets/images/help/settings/enable-feature-button.png)

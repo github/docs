@@ -6,6 +6,9 @@ redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 そうしたリカバリコードを、すでに [ LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[ Keeper](https://keepersecurity.com/) などのパスワードマネージャーに保存しているかもしれません。
@@ -18,7 +21,7 @@ Organization の管理者は、シングルサインオンをバイパスする�
 
 1. シングルサインオンをバイパスするには、シングルサインオンダイアログの下部で、[**Use a recovery code**] をクリックします。 ![リカバリコードを入力するためのリンク](/assets/images/help/saml/saml_use_recovery_code.png)
 2. [Recovery Code] フィールドにリカバリコードを入力します。 ![リカバリコードを入力するフィールド](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. Click **Verify**. ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
+3. [**Verify**] をクリックします。 ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
 
 一度使用したリカバリコードは二度と使用できないということを覚えておいてください。 リカバリコードは再利用できません。
 

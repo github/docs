@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Wenn Sie eine Datei auf {% data variables.product.product_name %} erstellen, beachten Sie Folgendes:

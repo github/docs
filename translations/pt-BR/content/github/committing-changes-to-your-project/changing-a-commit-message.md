@@ -7,15 +7,16 @@ intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Reescrever a mensagem do commit mais recente
 
 Você pode alterar a mensagem do commit mais recente usando o comando `git commit --amend`.
 
-No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará a ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
+No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará o ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
 
-### Não foi feito push online do commit
+### Não foi feito push on-line do commit
 
 Se o commit existir em seu repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
 
@@ -106,13 +107,13 @@ Para obter mais informações sobre rebase interativo, consulte a seção sobre 
 
 {% tip %}
 
-Tal como antes, corrigir a mensagem do commit resultará em um novo commit com uma nova ID. No entanto, nesse caso, cada commit que segue o commit corrigido também obterá uma nova ID, pois cada commit também contém a id de seu principal.
+Tal como antes, corrigir a mensagem do commit resultará em um novo commit com um novo ID. No entanto, nesse caso, cada commit que segue o commit corrigido também obterá um novo ID, pois cada commit também contém o id de seu principal.
 
 {% endtip %}
 
 {% warning %}
 
-Se você incluiu informações confidenciais em uma mensagem do commit, forçar o push de um commit com um commit corrigido pode não remover o commit original do {% data variables.product.product_name %}. O commit antigo não fará parte de um clone subsequente. No entanto, ele ainda poderá ser armazenado no cache do {% data variables.product.product_name %} e ser acessado por meio da ID do commit. Você deve contatar o {% data variables.contact.contact_support %} com a ID do commit antigo para que ele seja apagado do repositório remoto.
+Se você incluiu informações confidenciais em uma mensagem do commit, forçar o push de um commit com um commit corrigido pode não remover o commit original do {% data variables.product.product_name %}. O commit antigo não fará parte de um clone subsequente. No entanto, ele ainda poderá ser armazenado no cache do {% data variables.product.product_name %} e ser acessado por meio do ID do commit. Você deve contatar o {% data variables.contact.contact_support %} com o ID do commit antigo para que ele seja apagado do repositório remoto.
 
 {% endwarning %}
 

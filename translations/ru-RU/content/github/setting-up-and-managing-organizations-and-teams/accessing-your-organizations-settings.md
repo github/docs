@@ -12,6 +12,10 @@ intro: 'The organization account settings page provides several ways to manage t
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

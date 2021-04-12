@@ -109,7 +109,7 @@ GitHub 保证，自首次下载之日起九十 (90) 天内，未经修改的软�
 
 #### 2.1.5 U.S. 联邦政府条款。 5. 美国联邦政府条款.
 
-如果客户是美国 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 联邦政府修正</a>适用，并且客户同意其条款。
+如果客户是美国 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://docs.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 联邦政府修正</a>适用，并且客户同意其条款。
 
 ### 2.2 遵守法律；可接受的使用；隐私。
 
@@ -175,7 +175,7 @@ GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意�
 
 #### 2.5.2 版权侵权和 DMCA 政策。
 
-如果客户是版权所有者，并且认为服务上的内容侵犯了其版权，则客户可根据 GitHub 的[数字千禧年版权法政策](https://github.com/contact/dmca)联系 GitHub - 通过其 [DMCA 表](https://github.com/contact/dmca-notice)联系 GitHub 或发电子邮件到 copyright@github.com。
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 2.5.3 GitHub 商标和徽标。
 

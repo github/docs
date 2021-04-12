@@ -6,7 +6,6 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: '`github/insights-releases`リポジトリの読み取り権限を持ち、アプリケーションサーバーへの管理アクセスを持っている人は、{% data variables.product.prodname_insights %}をアップデートできます。'
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
 ---
 

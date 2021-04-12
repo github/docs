@@ -7,10 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: 'tutorial'
+topics:
+  - 'Empacotando'
+  - 'Publicar'
+  - 'Java'
+  - 'Maven'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -46,7 +54,7 @@ Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação inst
 Por exemplo, se você estava implantando no Repositório Central do Maven por meio do projeto de hospedagem OSSRH, seu _pom.xml_ poderia especificar um repositório de gerenciamento de distribuição com o `id` de `ossrh`.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -66,25 +74,25 @@ Na etapa de implementação, você deverá definir as variáveis de ambiente par
 
 
 {% raw %}
-```yaml
-nome: Publicar pacote no Repositório Central do Maven
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to the Maven Central Repository
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Configurar no Repositório Central do Maven
-        usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Maven Central Repository
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - nome: Publicar pacote
-        executar: mvn -B deploy
+      - name: Publish package
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -112,7 +120,7 @@ Para um projeto baseado no Maven, você pode usar essas configurações ao criar
 Por exemplo, se sua organização é denominada "octocat" e seu repositório é denominado "hello-world", a configuração do {% data variables.product.prodname_registry %} no _pom.xml_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -129,21 +137,21 @@ Por exemplo, se sua organização é denominada "octocat" e seu repositório é 
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {% data variables.product.prodname_registry %}, fazendo uso do _settings.xml_ gerado automaticamente.
 
 {% raw %}
-```yaml
-nome: Publicar pacote nos pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Publicar pacote
-        executar: mvn -B deploy
+      - name: Publish package
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -164,34 +172,34 @@ Você pode publicar seus pacotes no Repositório Central Maven e em {% data vari
 Certifique-se de que seu arquivo _pom.xml_ inclui um repositório de gerenciamento de distribuição tanto para seu repositório {% data variables.product.prodname_dotcom %} como para o seu provedor de Repositório Central do Maven. Por exemplo, se você fizer a implementação em um Repositório Central por meio do projeto de hospedagem OSSRH, é possível que você deseje especificá-la em um repositório de gerenciamento de distribuição com o `id` definido como `ossrh`. Além disso, você pode desejar especificar {% data variables.product.prodname_registry %} em um repositório de gerenciamento de distribuição com o `id` definido como `github`.
 
 {% raw %}
-```yaml
-nome: Publicar pacote no Repositório Central do Maven e nos Pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to the Maven Central Repository and GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usar: actions/checkout@v2
-      - nome: Configurar o Java para publicação no Repositório Central do Maven
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - nome: Publicar no Repositório Central do Maven
-        run: mvn -B deploy
+      - name: Publish to the Maven Central Repository
+        run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        usa: actions/setup-java@v1
-        com:
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Publicar nos pacotes do GitHub
-        executar: mvn -B deploy
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

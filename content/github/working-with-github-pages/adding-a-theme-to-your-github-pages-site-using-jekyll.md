@@ -9,6 +9,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pages
 ---
 
 People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
@@ -41,7 +44,7 @@ People with write permissions for a repository can add a theme to a {% data vari
 {% data reusables.pages.navigate-publishing-source %}
 1. Create a new file called _/assets/css/style.scss_.
 2. Add the following content to the top of the file:
-  ```
+  ```scss
   ---
   ---
 

@@ -9,13 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 启用双重身份验证后，您在通过浏览器访问 {% data variables.product.product_name %} 时需要提供验证码。 如果使用其他方法访问 {% data variables.product.product_name %}，如 API 或命令行，则需要使用其他形式的身份验证。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”。
 
 ### 登录网站时提供 2FA 码
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
+在使用密码登录 {% data variables.product.product_name %} 后，系统会提示您提供{% if currentVersion == "free-pro-team@latest" %}短信或{% endif %} TOTP 应用程序中的验证码。
 
 {% data variables.product.product_name %} 仅在您注销后、使用新设备或会话过期时才会要求您再次提供 2FA 验证码。
 

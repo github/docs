@@ -6,17 +6,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 ### 关于克隆仓库
 
 您可以将仓库从 {% data variables.product.product_location %} 克隆到本地计算机，以便修复合并冲突、添加或删除文件以及推送较大的提交。 克隆仓库时，将仓库从 {% data variables.product.product_location %} 复制到本地计算机。
 
-克隆仓库将提取 {% data variables.product.product_location %} 在当时拥有的所有仓库数据的完整副本，包括项目每个文件和文件夹的所有版本。 您可以将更改推送到 {% data variables.product.product_location %} 上的远程仓库，或者从 {% data variables.product.product_location %} 拉取其他人的更改。 更多信息请参阅“[使用常见的 Git 命令](/github/using-git/using-common-git-commands)”。
+克隆仓库将提取 {% data variables.product.product_location %} 在当时拥有的所有仓库数据的完整副本，包括项目每个文件和文件夹的所有版本。 您可以将更改推送到 {% data variables.product.product_location %} 上的远程仓库，或者从 {% data variables.product.product_location %} 拉取其他人的更改。 For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
 
 您可以克隆自己的现有仓库或克隆其他人的现有仓库以参与项目。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 克隆仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库克隆`](https://cli.github.com/manual/gh_repo_clone)”。
@@ -46,7 +49,7 @@ versions:
 空仓库不含任何文件。 如果创建仓库时不使用 README 初始化仓库，通常会出现空仓库。
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 要使用 HTTPS 以命令行克隆仓库，请在“Quick setup（快速设置）”下单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}. ![空仓库克隆 URL 按钮](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. 要使用 HTTPS 以命令行克隆仓库，请在“Quick setup（快速设置）”下单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 要使用 SSH 密钥克隆仓库，包括组织的 SSH 认证中心颁发的证书，单击 **SSH**，然后单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 ![空仓库克隆 URL 按钮](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    或者，要在 Desktop 中克隆仓库，请单击 {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop（在 Desktop 中设置）**并按照提示完成克隆。 ![空仓库克隆桌面按钮](/assets/images/help/repository/empty-desktop-clone-button.png)
 

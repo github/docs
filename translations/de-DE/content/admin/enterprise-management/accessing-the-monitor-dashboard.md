@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Auf das Überwachungs-Dashboard zugreifen
@@ -18,7 +20,7 @@ versions:
 
 {% note %}
 
-**Hinweis**: Da das regelmäßige automatische Abrufen von {% data variables.product.product_location_enterprise %} mittels fortlaufender Integration (CI) oder Build-Servern effektiv zu Denial-of-Service-Angriffen führen kann, die zu Problemen führen, sollten Sie Webhooks verwenden, um Updates per Push-Vorgang zu übertragen. Weitere Informationen finden Sie unter „[Informationen zu Webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)“.
+**Hinweis**: Da das regelmäßige automatische Abrufen von {% data variables.product.product_location %} mittels fortlaufender Integration (CI) oder Build-Servern effektiv zu Denial-of-Service-Angriffen führen kann, die zu Problemen führen, sollten Sie Webhooks verwenden, um Updates per Push-Vorgang zu übertragen. Weitere Informationen finden Sie unter „[Informationen zu Webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)“.
 
 {% endnote %}
 

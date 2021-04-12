@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 これらのコマンドは[リモートリポジトリ](/articles/about-remote-repositories)の操作時に非常に便利です。 `clone` および `fetch` は、リポジトリのリモート URL からお使いのローカルのコンピュータにリモートコードをダウンロードします。`merge` は、他のユーザの作業を自分のものとマージするために使用します。`pull` は、`fetch` と `merge` の組み合わせです。

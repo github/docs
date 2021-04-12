@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ブランチ、タグ、コミット、日付にわたってリポジトリの状態を比較できます。 リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
@@ -26,9 +27,9 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ### タグを比較する
 
-リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
+リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} タグを比較するには、ページ上部の [`compare`] ドロップダウンメニューからタグ名を選択します。{% else %}ブランチ名を入力する代わりに、[`compare`] ドロップダウンメニューにタグの名前を入力します。{% endif %}
 
 2 つのタグ間を比較する例については、[こちらをクリック](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)してください。
 
@@ -46,7 +47,7 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ベースリポジトリと、フォークした任意のリポジトリを比較できます。 これは、ユーザがプロジェクトにプルリクエストを実行したときに表示されるビューです。
 
-別のリポジトリにあるブランチを比較するには、ブランチの名前の前にユーザ名を付けてください。 For example, by specifying `octocat:main` for `base` and `octo-org:main` for `compare`, you can compare the `main` branch of the repositories respectively owned by `octocat` and `octo-org`.
+別のリポジトリにあるブランチを比較するには、ブランチの名前の前にユーザ名を付けてください。 たとえば、`base` に `octocat:main` を指定し、`compare` に `octo-org:main` を指定することで、`octocat` と `octo-org` がそれぞれ所有するリポジトリの `main` ブランチを比較できます。
 
 2 つのリポジトリ間を比較した例については、[こちらをクリック](https://github.com/octocat/linguist/compare/master...octo-org:master)してください。
 

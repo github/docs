@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 自分の Team の親を追加または変更するようにリクエストすると、その親チームのメンテナーにリクエストが送信されます。 新しい親チームのメンテナーがリクエストを承認すると、自分の Team は Organization の階層内で親チームの下に子チームとしてネストされます。

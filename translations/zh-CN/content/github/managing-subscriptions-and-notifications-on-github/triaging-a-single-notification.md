@@ -4,6 +4,9 @@ intro: '查看和调查单个通知时，有几个针对详细通知视图优化
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - 通知
 ---
 
 ### 保存单个通知

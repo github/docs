@@ -7,6 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Team のプロフィール画像を設定しない場合、Team プロフィール画像は Organization のプロフィール画像と同じになります。

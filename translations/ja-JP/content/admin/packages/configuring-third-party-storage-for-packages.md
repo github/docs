@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} 上の {% data variables.product.prodname_registry %} は、外部の blob ストレージを使用してパッケージを保存します。 必要なストレージ容量は、{% data variables.product.prodname_registry %} の使用状況によって異なります。
 
-現時点では、{% data variables.product.prodname_registry %} は Amazon Web Services (AWS) S3 で blob ストレージをサポートしています。 MinIO もサポートされていますが、設定は現在 {% data variables.product.product_name %} インタフェースに実装されていません。 AWS S3 の手順に従って MinIO 設定に同様の情報を入力することで、ストレージにMinIO を使用できます。
+現時点では、{% data variables.product.prodname_registry %} は Amazon Web Services (AWS) S3 で blob ストレージをサポートしています。 MinIO もサポートされていますが、設定は現在 {% data variables.product.product_name %} インタフェースに実装されていません。 You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration. Before configuring third-party storage for {% data variables.product.prodname_registry %} on {% data variables.product.prodname_dotcom %}, you must set up a bucket with your third-party storage provider. For more information on installing and running a MinIO bucket to use with {% data variables.product.prodname_registry %}, see the "[Quickstart for configuring MinIO storage](/admin/packages/quickstart-for-configuring-minio-storage)."
 
 最適なエクスペリエンスを得るには、{% data variables.product.prodname_actions %} のストレージに使用するバケットとは別に、{% data variables.product.prodname_registry %} }専用のバケットを使用することをお勧めします。
 
@@ -21,7 +21,10 @@ versions:
 
 {% warning %}
 
-**警告:** 今後使用するバケットを必ず設定してください。 {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
+**警告:**
+- It's critical you set the restrictive access policies you want for your storage bucket because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. For more information, see [Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html) in the AWS Documentation.
+- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+- Make sure to configure the bucket you'll want to use in the future. {% data variables.product.prodname_registry %} の使用開始後にストレージを変更することはお勧めしません。
 
 {% endwarning %}
 

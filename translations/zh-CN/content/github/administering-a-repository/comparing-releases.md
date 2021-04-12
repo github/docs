@@ -5,6 +5,9 @@ permissions: 拥有仓库读取权限的人可查看和比较发行版。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

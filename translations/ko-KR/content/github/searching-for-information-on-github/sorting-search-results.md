@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github search
 ---
 
 Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.

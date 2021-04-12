@@ -11,6 +11,8 @@ redirect_from:
 intro: '使用 LDAP，您可以向 {% data variables.product.prodname_ghe_server %} 验证现有帐户的身份和集中管理仓库权限。 LDAP 是一种用于访问和维护目录信息服务的流行应用程序协议，是将第三方软件与大型公司用户目录相集成时使用的最常见协议之一。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -35,7 +37,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### 在 {% data variables.product.product_location_enterprise %} 上配置 LDAP
+### 在 {% data variables.product.product_location %} 上配置 LDAP
 
 在您配置 LDAP 后，用户将能够使用他们的 LDAP 凭据登录您的实例。 在用户首次登录时，他们个人资料中的姓名、电子邮件地址和 SSH 密钥将使用您的目录中的 LDAP 属性进行设置。
 
@@ -43,7 +45,7 @@ versions:
 
 {% warning %}
 
-**警告**：在 {% data variables.product.product_location_enterprise %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
+**警告**：在 {% data variables.product.product_location %} 上配置 LDAP 之前，请确保您的 LDAP 服务支持分页结果。
 
 {% endwarning %}
 
@@ -55,14 +57,14 @@ versions:
 5. 添加您的配置设置。
 
 ### LDAP 属性
-使用以下属性完成 {% data variables.product.product_location_enterprise %} 的 LDAP 配置。
+使用以下属性完成 {% data variables.product.product_location %} 的 LDAP 配置。
 
 | 属性名称                                             | 类型 | 描述                                                                                                                                                                                                          |
 | ------------------------------------------------ | -- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location_enterprise %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                               |
+| `Host`                                           | 必选 | LDAP 主机，例如 `ldap.example.com` 或 `10.0.0.30`。 如果主机名只能在您的内部网络中使用，您需要先配置 {% data variables.product.product_location %} 的 DNS，以便它可以使用您的内部域名服务器解析主机名。                                                            |
 | `端口`                                             | 必选 | 主机的 LDAP 服务侦听的端口。 示例包括：389 和 636（适用于 LDAPS）。                                                                                                                                                                |
 | `Encryption`                                     | 必选 | 用于确保与 LDAP 服务器之间的通信安全的加密方法。 示例包括明文（无加密）、SSL/LDAPS（从一开始就加密）和 StartTLS（在连接后升级为加密通信）。                                                                                                                          |
-| `Domain search user`                             | 可选 | 执行用户查询，在其他用户登录时对其进行身份验证的 LDAP 用户。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，您还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。  |
+| `Domain search user`                             | 可选 | 查找其他登录用户的 LDAP 用户，以允许身份验证。 这一般是一个专为第三方集成创建的服务帐户。 使用完全限定名称，例如 `cn=Administrator,cn=Users,dc=Example,dc=com`。 对于 Active Directory，您还可为域搜索用户使用 `[DOMAIN]\[USERNAME]` 语法（例如 `WINDOWS\Administrator`）。         |
 | `Domain search password`                         | 可选 | 域搜索用户的密码。                                                                                                                                                                                                   |
 | `Administrators group`                           | 可选 | 登录您的设备后，此组中的用户将被升级为站点管理员。 如果您不配置 LDAP 管理员组，则登录您的设备的第一个 LDAP 用户帐户将被自动升级为站点管理员。                                                                                                                               |
 | `Domain base`                                    | 必选 | 您想要搜索用户和组的 LDAP 子树的完全限定 `Distinguished Name` (DN)。 您可以添加任意数量的组；不过，每个组和它所包含的用户都必须在相同的基础域中定义。 如果您指定受限的用户组，那么只有属于这些组的用户将在作用域内。 我们建议您将 LDAP 目录树的顶级指定为您的基础域，并使用受限的用户组来控制权限。                                      |
@@ -190,7 +192,7 @@ versions:
 
 您也可以[使用 API 触发手动同步](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)。
 
-### 撤销 {% data variables.product.product_location_enterprise %} 的权限
+### 撤销 {% data variables.product.product_location %} 的权限
 
 如果[启用 LDAP 同步](#enabling-ldap-sync)，移除用户的 LDAP 凭据将在下一次同步操作后挂起他们的帐户。
 

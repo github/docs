@@ -5,10 +5,15 @@ intro: '{% data variables.product.prodname_actions %} are designed to help you b
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Übersicht
 
@@ -70,7 +75,7 @@ jobs:
         run: |
           expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: output-log-file
           path: output.log

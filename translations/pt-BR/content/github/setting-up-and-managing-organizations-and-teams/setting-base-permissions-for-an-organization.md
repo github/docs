@@ -5,6 +5,10 @@ permissions: Os proprietários da organização podem definir permissões básic
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Sobre as permissões básicas para uma organização

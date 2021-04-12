@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% note %}
@@ -44,7 +46,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 
 {% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. holidays.
 
-| U.S. Weihnachtsfeiertag | Datum im Jahr 2018             |
+| U.S. Weihnachtsfeiertag | Date observed                  |
 | ----------------------- | ------------------------------ |
 | Neujahr                 | 1. Januar                      |
 | Martin Luther King Day  | Dritter Montag im Januar       |
@@ -57,7 +59,7 @@ We offer support for {% data variables.product.prodname_advanced_security %} in 
 | Tag nach Thanksgiving   | Vierter Freitag im November    |
 | Heiligabend             | 24. Dezember                   |
 | 1. Weihnachtsfeiertag   | 25. Dezember                   |
-| 2. Weihnachtsfeiertag   | 26. Dezember                   |
+| 2. Weihnachtsfeiertag   | 28. Dezember                   |
 | Silvester               | 31. Dezember                   |
 
 ### {% data variables.product.prodname_advanced_security %}-Updates installieren

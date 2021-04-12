@@ -9,6 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 ### Löschen eines Branches, der für einen Pull-Request verwendet wurde

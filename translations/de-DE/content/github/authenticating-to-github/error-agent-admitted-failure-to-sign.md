@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - ssh
 ---
 
 Wenn Sie auf einem Linux-Computer versuchen, eine SSH-Verbindung mit {% data variables.product.product_location %} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:

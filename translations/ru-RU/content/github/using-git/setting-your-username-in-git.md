@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can change the name that is associated with your Git commits using the `git config` command. The new name you set will be visible in any future commits you push to {% data variables.product.product_name %} from the command line. If you'd like to keep your real name private, you can use any text as your Git username.
@@ -19,13 +20,13 @@ Changing the name associated with your Git commits using `git config` will only 
 2. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Setting your Git username for a single repository
 
@@ -36,13 +37,13 @@ Changing the name associated with your Git commits using `git config` will only 
 3. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Дополнительная литература
 

@@ -21,13 +21,16 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Seiten
 ---
 
 ### Informationen zu Jekyll
 
 Jekyll ist ein Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %} und einem vereinfachten Build-Prozess. Jekyll erstellt aus Markdown- und HTML-Dateien eine statische Website und nutzt dabei die von Dir ausgewählten Layouts. Jekyll unterstützt Markdown und Liquid, eine Vorlagensprache, die dynamische Inhalte auf Deiner Website lädt. Weitere Informationen findest Du auf der Website zu [Jekyll](https://jekyllrb.com/).
 
-Jekyll wird von Windows nicht offiziell unterstützt. Weitere Informationen findest Du unter „[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)“ (Jekyll unter Windows) in der Jekyll-Dokumentation.
+Jekyll wird von Windows nicht offiziell unterstützt. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 Wir empfehlen, Jekyll mit {% data variables.product.prodname_pages %} zu verwenden. Wenn Du möchtest, kannst Du aber auch andere Generatoren für statische Websites verwenden oder Deinen eigenen Build-Prozess lokal oder auf einem anderen Server anpassen. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators).“
 
@@ -37,7 +40,7 @@ Du kannst die meisten Jekyll-Einstellungen konfigurieren, beispielsweise das Des
 
 Einige Konfigurationseinstellungen können für {% data variables.product.prodname_pages %}-Websites nicht geändert werden.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -91,9 +94,9 @@ Du kannst Jekyll-Plug-ins herunterladen oder erstellen, um die Funktionalität v
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Du kannst zusätzliche Plug-ins aktivieren, indem Du die Gem des Plug-ins zur `plugins`-Einstellung in der Datei *_config.yml* hinzufügst. Weitere Informationen findest Du unter „[Konfiguration](https://jekyllrb.com/docs/configuration/)“ in der Jekyll-Dokumentation. Eine Liste der unterstützten Plug-ins findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/) auf der {% data variables.product.prodname_pages %}-Website.
+Du kannst zusätzliche Plug-ins aktivieren, indem Du die Gem des Plug-ins zur `plugins`-Einstellung in der Datei *_config.yml* hinzufügst. Weitere Informationen findest Du unter „[Konfiguration](https://jekyllrb.com/docs/configuration/)“ in der Jekyll-Dokumentation.
 
-Informationen zur Verwendung eines bestimmten Plug-ins findest Du in der dazugehörigen Dokumentation.
+Eine Liste der unterstützten Plug-ins findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/) auf der {% data variables.product.prodname_pages %}-Website.  Informationen zur Verwendung eines bestimmten Plug-ins findest Du in der dazugehörigen Dokumentation.
 
 {% tip %}
 
@@ -111,7 +114,7 @@ Standardmäßig werden Codeblöcke auf Deiner Website von Jekyll markiert. Jekyl
 
 Wenn Du einen anderen Markierer verwenden möchtest, z. B. `highlight.js`, musst Du die Jekyll-Syntaxmarkierung deaktivieren, indem Du die *_config.yml*-Datei Deines Projekts änderst.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

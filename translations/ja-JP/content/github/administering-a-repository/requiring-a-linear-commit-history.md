@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 リポジトリに対する管理者権限を持つ人は誰でも、直線状のコミット履歴が必要になる可能性があります。

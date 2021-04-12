@@ -8,6 +8,12 @@ intro: Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Reposit
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
+  - Issues (Lieferungen)
+  - notifications
+  - accounts
 ---
 
 Üblicherweise werden Forks genutzt, um Änderungen für ein Projekt eines anderes Benutzers vorzuschlagen oder ein Projekt eines anderen Benutzers als Ausgangspunkt für eigene Ideen zu verwenden.
@@ -24,9 +30,15 @@ Du kannst Forks beispielsweise benutzen, um Änderungen im Zusammenhang mit der 
 
 Open-Source-Software basiert auf der Idee, dass wir durch gemeinsamen Code bessere, zuverlässigere Software erstellen können. Weitere Informationen findest Du in „[Über die Open-Source-Initiative](http://opensource.org/about)“ auf der Open-Source-Initiative-Website.
 
-Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. Weitere Informationen findest Du unter „[Wähle eine Open-Source-Lizenz](http://choosealicense.com/)“ auf der choosealicense-Website.
+For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. For more information, see "[Choose an open source license](http://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
@@ -34,7 +46,7 @@ Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.

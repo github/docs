@@ -6,6 +6,9 @@ redirect_from:
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% danger %}
@@ -21,4 +24,4 @@ versions:
 5. Click **Remove restrictions**.
   ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
 6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**.
-  ![Remove confirmation button button](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+  ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

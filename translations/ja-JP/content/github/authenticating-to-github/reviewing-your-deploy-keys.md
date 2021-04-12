@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

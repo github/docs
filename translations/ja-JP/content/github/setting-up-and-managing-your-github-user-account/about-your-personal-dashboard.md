@@ -8,13 +8,16 @@ intro: 'パーソナルダッシュボードにアクセスして、作業した
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アカウント
 ---
 
 ### パーソナルダッシュボードにアクセスする
 
 パーソナルダッシュボードは、{% data variables.product.product_name %}にサインインしたときに最初に表示されるページです。
 
-サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_url %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
+サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_name %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
 
 ### 最近のアクティビティを見つける
 
@@ -28,6 +31,8 @@ versions:
 
 ![さまざまな Organization のリポジトリや Team のリスト](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
+上位のリポジトリのリストは自動的に生成され、アカウントが直接所有しているかどうかに関係なく、操作したリポジトリを含めることができます。 インタラクションには、コミットの作成、Issue およびプルリクエストのオープンまたはコメントが含まれます。 上位のリポジトリのリストは編集できませんが、リポジトリを最後に操作してから 4 か月後にリポジトリはリストから削除されます。
+
 {% data variables.product.product_name %} 上の任意のページの上部にある検索バーをクリックすれば、最近アクセスしたリポジトリ、Team、プロジェクトボードのリストを見つけることもできます。
 
 ### コミュニティからのアクティビティの更新を受ける
@@ -36,17 +41,17 @@ versions:
 
 ニュースフィードでは、あなたがフォローしているユーザが以下のことをした場合に更新情報が示されます:
 - リポジトリに Star を付ける。
-- 他のユーザをフォローする。
-- パブリックリポジトリを作成
+- 別のユーザをフォローする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Creates a public repository.{% endif %}
 - あなたが Watch しているリポジトリ上で "help wanted" あるいは "good first issue" のラベルを付けた Issue あるいはプルリクエストをオープンする。
-- あなたが Watch しているリポジトリにコミットをプッシュする。
-- パブリックリポジトリをフォークする。
+- Watch しているリポジトリにコミットをプッシュする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- パブリックリポジトリをフォークする。{% endif %}
 
 リポジトリへの Star 付けや人のフォローに関する詳細は「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」および「[人をフォローする](/articles/following-people)」を参照してください。
 
 ### 推奨されているリポジトリを調べる
 
-ダッシュボードの右側にある [Explore repositories] セクションでは、コミュニティで推奨されているリポジトリを調べることができます。 Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+ダッシュボードの右側にある [Explore repositories] セクションでは、コミュニティで推奨されているリポジトリを調べることができます。 推奨は、Star を付けたりアクセスしたりしたリポジトリ、フォローしているユーザ、アクセスしたリポジトリ内のアクティビティに基づいています。{% if currentVersion == "free-pro-team@latest" %}詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。{% endif %}
 
 ### 参考リンク
 

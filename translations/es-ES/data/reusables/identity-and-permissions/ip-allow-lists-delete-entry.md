@@ -1,0 +1,1 @@
+1. Debajo de "Lista de IP permitidas", a la derecha de la entrada que quieres borrar, da clic en **Borrar**. ![Botón Delete allowed IP address (Eliminar dirección IP permitida)](/assets/images/help/security/ip-address-delete-button.png)

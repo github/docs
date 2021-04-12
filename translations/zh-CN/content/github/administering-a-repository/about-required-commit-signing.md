@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您在仓库中实施了分支保护，便可设置必需提交签名。 更多信息请参阅“[配置受保护分支](/articles/configuring-protected-branches/)”。
 
-When you enable required commit signing on a branch, contibutors {% if currentVersion == "free-pro-team@latest" %}and bots{% endif %} can only push commits that have been signed and verified to the branch. 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
+在分支上启用必需提交签名时，贡献者{% if currentVersion == "free-pro-team@latest" %}和自动程序{% endif %}只能将已经签名并验证的提交推送到分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”。
 
-如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% if currentVersion == "free-pro-team@latest" %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% if currentVersion == "free-pro-team@latest" %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."{% if currentVersion == "free-pro-team@latest" %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+如果提交已进行签名和验证，则始终可以将本地提交推送到分支。 {% if currentVersion == "free-pro-team@latest" %}您也可以使用 {% data variables.product.product_name %} 上的拉请求将已经签名和验证的提交合并到分支。 但除非您是拉取请求的作者，否则不能将拉取请求压缩并合并到 {% data variables.product.product_name %} 。{% else %}但不能将拉取请求合并到 {% data variables.product.product_name %} 上的分支。{% endif %} 您可以在本地 {% if currentVersion == "free-pro-team@latest" %}压缩和{% endif %}合并拉取请求。 更多信息请参阅“[本地检出拉取请求](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)”。{% if currentVersion == "free-pro-team@latest" %}有关合并方法的详细信息，请参阅“[关于 {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github) 上的合并方法”。{% endif %}
 
 {% note %}
 

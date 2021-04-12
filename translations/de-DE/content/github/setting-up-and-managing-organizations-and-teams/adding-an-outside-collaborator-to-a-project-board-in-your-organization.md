@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Ein externer Mitarbeiter ist eine Person, die nicht explizit Mitglied Deiner Organisation ist, aber auf ein Projektboard in Deiner Organisation zugreifen kann.

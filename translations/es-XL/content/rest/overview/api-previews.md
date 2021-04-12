@@ -2,7 +2,6 @@
 title: Vistas previas de la API
 intro: Puedes utilizar las vistas previas de la API para probar características nuevas y proporcionar retroalimentación antes de que dichas características se hagan oficiales.
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}
@@ -30,7 +32,7 @@ Habilitar limites de taxa na {{ site.data.variables.product.prodname_enterprise_
 
 ### Habilitar limites de taxa de abuso
 
-Definir limites de taxa de abuso protege o nível geral de serviço na {% data variables.product.product_location_enterprise %}.
+Definir limites de taxa de abuso protege o nível geral de serviço na {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

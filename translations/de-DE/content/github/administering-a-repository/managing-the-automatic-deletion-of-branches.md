@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Personen mit Administratorberechtigungen für ein Repository können die automatische Löschung von Branches aktivieren oder deaktivieren.

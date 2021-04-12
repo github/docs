@@ -8,6 +8,8 @@ redirect_from:
 intro: 'CAS is a single sign-on (SSO) protocol for multiple web applications. A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -32,7 +34,7 @@ The following attributes are available.
 ### Configuring CAS
 {% warning %}
 
-**Warning:** Before configuring CAS on {% data variables.product.product_location_enterprise %}, note that users will not be able to use their CAS usernames and passwords to authenticate API requests or Git operations over HTTP/HTTPS. Instead, they will need to [create an access token](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
+**Warning:** Before configuring CAS on {% data variables.product.product_location %}, note that users will not be able to use their CAS usernames and passwords to authenticate API requests or Git operations over HTTP/HTTPS. Instead, they will need to [create an access token](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
 
 {% endwarning %}
 

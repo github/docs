@@ -1,27 +1,29 @@
 ---
-title: About billing for Codespaces
-intro: 'When {% data variables.product.prodname_codespaces %} becomes generally available, you will be billed for storage and compute usage.'
+title: Codespaces の支払いについて
+intro: '{% data variables.product.prodname_codespaces %} が一般提供されると、ストレージとコンピューティングの使用量に対して課金されます。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
 
 {% data reusables.codespaces.about-billing-for-codespaces %}
 
-Compute costs are incurred only when a codespace is active. When you're using a codespace, the codespace is active. After 30 minutes of inactivity, a codespace becomes suspended automatically.
+計算コストは、Codespaces がアクティブな場合にのみ発生します。 Codespaces を使用している場合、Codespaces はアクティブになっています。 30 分間操作がない場合、Codespaces は自動的に中断されます。
 
-Compute usage is billed per hour, at a rate that depends on your codespace's instance type. During the beta, {% data variables.product.prodname_codespaces %} offers a single, Linux instance type. At general availability, we'll support three Linux instance types.
+コンピューティングの使用量は、Codespaces のインスタンスタイプに応じたレートで、1 時間あたりで課金されます。 ベータ期間中、{% data variables.product.prodname_codespaces %} は単一の Linux インスタンスタイプを提供します。 一般提供時には、3 つの Linux インスタンスタイプをサポートします。
 
-| Instance Type (Linux)                   | Per-hour rate |
-| --------------------------------------- | ------------- |
-| Basic (2 cores, 4GB RAM, 32 GB SSD)     | $0.085        |
-| Standard (4 cores, 8 GB RAM, 32 GB SSD) | $0.169        |
-| Premium (8 cores, 16 GB RAM, 32 GB SSD) | $0.339        |
+| インスタンスタイプ (Linux)                  | 1 時間あたりのレート |
+| ---------------------------------- | ----------- |
+| Basic (2 コア、4GB RAM、32 GB SSD)     | $0.085      |
+| Standard (4 コア、8 GB RAM、32 GB SSD) | $0.169      |
+| Premium (8 コア、16 GB RAM、32 GB SSD) | $0.339      |
 
-Compute pricing may vary for additional instance types and operating systems supported in the future.
+コンピューティングの価格は、将来サポートされる追加のインスタンスタイプとオペレーティングシステムによって異なる場合があります。
 
-Each codespace also incurs monthly storage costs until you delete the codespace. Storage costs for all instance types are $0.10/GB-month.
+各 Codespaces には、Codespaces を削除するまで毎月のストレージコストも発生します。 すべてのインスタンスタイプのストレージコストは、月額 $0.10/GB です。
 
-We'll share more information about any compute and storage usage included in each plan at general availability.
+各プランに含まれるコンピューティングとストレージの使用状況に関する詳細情報は、一般提供時に共有されます。

@@ -4,6 +4,8 @@ intro: '通过与 {% data variables.product.product_name %} 上的帐户连接�
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -46,8 +48,12 @@ versions:
 
 ### 配置 {% data variables.product.prodname_vs %} 的代码空间
 
-通过 {% data variables.product.prodname_vs %} 创建的默认代码空间环境包括流行的框架和工具，例如 .NET Core、Microsoft SQL Server、Python 和 Windows SDK。 使用 {% data variables.product.prodname_vs %} 创建的{% data variables.product.prodname_github_codespaces %} 可通过一组 `devcontainers.json` 属性和 {% data variables.product.prodname_vs %} 随附的新工具 devinit 进行自定义。
+使用 {% data variables.product.prodname_vs %} 创建的代码空间可以通过名为 devinit 的新工具进行自定义，该工具是 {% data variables.product.prodname_vs %} 附带的命令行工具。
 
 #### devinit
 
-[devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) 命令行工具允许您将额外的框架和工具安装到 Windows 开发代码空间中，以及运行 PowerShell 脚本或修改环境变量。 devinit 支持名为 [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json) 的配置文件，该文件可添加到您的项目中用于创建自定义和可重复的开发环境。 有关 Windows 代码空间配置和 devinit 的更多信息，请参阅 {% data variables.product.prodname_vs %} 文档中的[自定义代码空间](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces)。
+[devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) 允许您将额外的框架和工具安装到 Windows 开发代码空间中以及修改环境变量等。
+
+devinit 支持名为 [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json) 的配置文件。 如果要创建自定义且可重复的开发环境，可以将此文件添加到项目中。 当您将 devinit 与 [devcontainer.json](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces#running-devinit-when-creating-a-codespace) 文件结合使用时，您的代码空间将在创建时自动配置。
+
+有关 Windows 代码空间配置和 devinit 的更多信息，请参阅 {% data variables.product.prodname_vs %} 文档中的[自定义代码空间](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces)。 有关 devinit 的更多信息，请参阅 [devinit 使用入门](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit)。

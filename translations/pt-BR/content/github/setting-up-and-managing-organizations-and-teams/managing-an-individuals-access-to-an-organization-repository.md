@@ -8,6 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Pessoas com permissões de administrador podem gerenciar o acesso de integrantes da organização e colaboradores externos a um repositório da organização.

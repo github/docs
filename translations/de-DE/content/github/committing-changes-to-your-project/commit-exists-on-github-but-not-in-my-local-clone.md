@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du mit `git show` einen bestimmten Commit in der Befehlszeile anzeigen möchtest, kann ein schwerer Fehler auftreten.

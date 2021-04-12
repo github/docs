@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As etiquetas são associadas ao repositório em que foram criadas. Dada a existência de uma etiqueta, você pode usá-la em qualquer problema ou pull request dentro desse repositório. Para obter mais informações, consulte "[Criar uma etiqueta](/articles/creating-a-label/)".
@@ -30,7 +31,7 @@ O {% data variables.product.product_name %} fornece etiquetas padrão para todos
 
 Etiquetas padrão são incluídas em todos os novos repositórios quando criados, mas você pode editar ou excluir as etiquetas posteriormente. Para obter mais informações, consulte "[Excluir uma etiqueta](/articles/deleting-a-label/)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Os proprietários da organização podem personalizar as etiquetas padrão para repositórios na organização. Para obter mais informações, consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)".
 {% endif %}
 

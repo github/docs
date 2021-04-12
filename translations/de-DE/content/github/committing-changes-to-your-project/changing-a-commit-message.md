@@ -7,6 +7,7 @@ intro: 'Wenn eine Commit-Mitteilung unklare, falsche oder vertrauliche Informati
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Die letzte Commit-Mitteilung erneut schreiben

@@ -4,6 +4,9 @@ intro: 'You can set the default branch name new repositories that you create on 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - accounts
 ---
 
 ### About management of the default branch name

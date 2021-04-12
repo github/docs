@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 网络考虑因素

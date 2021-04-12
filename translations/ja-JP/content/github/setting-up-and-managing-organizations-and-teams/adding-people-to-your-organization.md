@@ -5,15 +5,13 @@ redirect_from:
   - /articles/adding-people-to-your-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Organization owners can add people to an organization.'
 ---
 
-{% tip %}
-
-**Tips**:
-- Organization にユーザを追加できるのは、Organization オーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
-- Organization が[メンバーに 2 要素認証を使うことを要求](/articles/requiring-two-factor-authentication-in-your-organization)しているなら、ユーザを Organization に追加する前にそのユーザは [2 要素認証を有効化](/articles/securing-your-account-with-two-factor-authentication-2fa)していなければなりません。
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+Organization が[メンバーに 2 要素認証を使うことを要求](/articles/requiring-two-factor-authentication-in-your-organization)しているなら、ユーザを Organization に追加する前にそのユーザは [2 要素認証を有効化](/articles/securing-your-account-with-two-factor-authentication-2fa)していなければなりません。
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

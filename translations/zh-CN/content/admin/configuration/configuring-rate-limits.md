@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 为 {% data variables.product.prodname_enterprise_api %} 启用速率限制
@@ -30,7 +32,7 @@ versions:
 
 ### 启用滥用率限制
 
-设置滥用率限制可保护 {% data variables.product.product_location_enterprise %} 上的整体服务等级。
+设置滥用率限制可保护 {% data variables.product.product_location %} 上的整体服务等级。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

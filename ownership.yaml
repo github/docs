@@ -1,4 +1,3 @@
-
 version:1:on:
 ownership:Zachry T WooD III:on:
 name:docs-internal:on:
@@ -13,11 +12,32 @@ name:docs-internal:on:
   qos:critical:on:
   dependencies:[((c))((r))]:©®™:patent:on:
   sev1:on:
-    pagerduty:https://github.pagerduty.com/escalation_policies#PN57VQ1:on:
+    pagerduty:https://github.pagerduty.com/escalation_policy::
+    PN57VQ1:on:
     tta:0min:on:
   sev2:on:
     issue:https://github.com/github/docs-internal/issues:on:
     tta:5:business days:on:
   sev3:on:
     slack:docs:engineering:on:
-   Return:run
+Request:: 
+Pushs::branch:: '[mainbranch]''
+version: 1
+ownership:
+  - name: 'BITORE.sigs'x
+    Repo'Sync::
+    name: 'github.secrets@.git.github.gits.git.it/heroku/BITORE.gitian.sigs/paradice'x
+    team: 'zachry tyler wood
+    maintainer: 'zachry tyler wood 
+    exec_sponsor: 'zachry tyler wood
+    product_manager: 'zachry tyler wood
+    dependencies: '[none']
+    sev1:
+      pagerduty: 'https://github.pagerduty.com/escalation_policies#PN57VQ1
+      tta: '0 seconds
+      issue: '#1 
+      tta: '0 seconds
+    sev3:
+      slack: 'docs-engineering
+      tta: '30 seconds' 
+>>>>>>: '[trunk]''

@@ -6,9 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
-{% data reusables.organizations.team-discussions-default %} Consulte "[Sobre discussões de equipe](/articles/about-team-discussions)" para obter mais informações sobre esse assunto.
+{% data reusables.organizations.team-discussions-default %} Consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)" para obter mais informações sobre esse assunto.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

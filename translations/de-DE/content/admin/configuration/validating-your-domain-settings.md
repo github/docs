@@ -1,11 +1,13 @@
 ---
 title: Ihre Domain-Einstellungen validieren
-intro: 'Stellen Sie sicher, dass Ihre Domain-Einstellungen ordnungsgemäß konfiguriert sind, bevor Sie {% data variables.product.product_location_enterprise %} erstmals starten.'
+intro: 'Stellen Sie sicher, dass Ihre Domain-Einstellungen ordnungsgemäß konfiguriert sind, bevor Sie {% data variables.product.product_location %} erstmals starten.'
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - ssh
 ---
 
 Ao executar SSH ou comandos do Git remotos, o tempo limite da conexão pode expirar:
@@ -23,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### Usar HTTPS
 
-Geralmente, a solução mais simples é simplesmente evitar SSH por completo. A maioria dos firewalls e proxies permite tráfego HTTPS sem problemas. Para aproveitar isso, altere [a URL remota](/articles/which-remote-url-should-i-use) que você está usando:
+Geralmente, a solução mais simples é simplesmente evitar SSH por completo. A maioria dos firewalls e proxies permite tráfego HTTPS sem problemas. Para aproveitar isso, altere [a URL remota](/github/getting-started-with-github/about-remote-repositories) que você está usando:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

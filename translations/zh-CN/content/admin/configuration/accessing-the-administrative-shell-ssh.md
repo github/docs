@@ -10,9 +10,11 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH 访问允许用户运行 {% data variables.product.prodname_ghe_server %} 命令行实用程序，可用于故障排查、运行备份和配置复制。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于管理 shell 访问
@@ -46,7 +48,7 @@ admin@github-example-com:~$ █
 
 #### 排查 SSH 连接问题
 
-如果在尝试通过 SSH 连接到 {% data variables.product.product_location_enterprise %} 时发生 `Permission denied (publickey)` 错误，请确认您是否是通过端口 122 连接的。 您可能需要明确指定要使用的 SSH 私钥。
+如果在尝试通过 SSH 连接到 {% data variables.product.product_location %} 时发生 `Permission denied (publickey)` 错误，请确认您是否是通过端口 122 连接的。 您可能需要明确指定要使用的 SSH 私钥。
 
 要使用命令行指定 SSH 私钥，请运行包含 `-i` 参数的 `ssh`。
 

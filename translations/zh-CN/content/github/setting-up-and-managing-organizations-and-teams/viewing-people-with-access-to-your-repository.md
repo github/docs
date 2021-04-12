@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 管理员可以使用此信息帮助非内部人员，收集数据用于合规性以及其他常规安全检查。

@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 
 describe('curated homepage links', () => {
   jest.setTimeout(5 * 60 * 1000)

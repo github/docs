@@ -31,6 +31,8 @@ versions:
 
 ### 使用容器注册表进行身份验证
 
+{% data reusables.package_registry.feature-preview-for-container-registry %}
+
 您需要使用基本 URL `ghcr.io` 向 {% data variables.product.prodname_container_registry %} 验证。 我们建议创建新的访问令牌以使用 {% data variables.product.prodname_container_registry %}。
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -71,6 +73,8 @@ versions:
   ```
 
 ### 更新 {% data variables.product.prodname_actions %} 工作流程
+
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
 如果您有 {% data variables.product.prodname_actions %} 工作流程使用来自 {% data variables.product.prodname_registry %} Docker 注册表的 Docker 映像，则可能需要将工作流程更新到 {% data variables.product.prodname_container_registry %}，以允许匿名访问公共容器映像、更细致的访问权限以及更好的容器存储和带宽兼容性。
 

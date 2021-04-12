@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
 - 您必须具有能够启动 EC2 实例和创建 EBS 卷的 AWS 帐户。 更多信息请参阅 [Amazon Web Services 网站](https://aws.amazon.com/)。
-- 启动 {% data variables.product.product_location_enterprise %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
+- 启动 {% data variables.product.product_location %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
 
 本指南假定您已熟悉以下 AWS 概念：
 
@@ -21,6 +23,9 @@ versions:
  - [使用安全组](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)（用于管理对实例的网络访问）
  - [弹性 IP 地址 (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)（强烈建议用于生产环境）
  - [EC2 和 Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html)（如果计划启动到 Virtual Private Cloud）
+ - [AWS 定价](https://aws.amazon.com/pricing/)（用于计算和管理成本）
+
+ 本指南建议在 AWS 上设置 {% data variables.product.product_location %} 时使用最小权限原则。 更多信息请参阅 [AWS 身份和访问管理 (IAM) 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)。
 
 ### 硬件考量因素
 
@@ -28,17 +33,11 @@ versions:
 
 ### 确定实例类型
 
-在 AWS 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
-
-#### 支持的实例类型
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 建议的实例类型
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### 选择 {% data variables.product.prodname_ghe_server %} AMI
 
@@ -130,4 +129,5 @@ aws ec2 run-instances \
 
 ### 延伸阅读
 
-- "[系统概述](/enterprise/admin/guides/installation/system-overview)"
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

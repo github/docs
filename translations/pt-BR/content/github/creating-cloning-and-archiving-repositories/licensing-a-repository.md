@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - repositories
 ---
 
 ### Escolher a licença ideal
@@ -17,15 +19,15 @@ Você não tem qualquer obrigação de escolher uma licença. Entretanto, sem um
 
 {% note %}
 
-**Observação:** Se você publicar seu código-fonte em um repositório público no GitHub, {% if currentVersion == "free-pro-team@latest" %}de acordo com os [termos de serviço](/articles/github-terms-of-service), {% endif %}outros usuários do GitHub terão o direito de visualizar e bifurcar o seu repositório no site do GitHub. Se você já criou um repositório público e não quer mais que os usuários tenham acesso a ele, você pode transformar seu repositório em privado. Ao converter um repositório público em repositório privado, as bifurcações ou cópias locais criadas por outros usuários continuam existindo. Para obter mais informações, consulte "[Converter um repositório público em privado](/articles/making-a-public-repository-private)".
+**Observação:** Se você publicar seu código-fonte em um repositório público em {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}de acordo com os [Termos de Serviço](/articles/github-terms-of-service), {% endif %}outros usuários de {% data variables.product.product_location %} terão o direito de visualizar e bifurcar o seu repositório. Se você já criou um repositório e não quer mais que os usuários tenham acesso a ele, você pode torná-lo privado. Ao alterar a visibilidade de um repositório para privado, as bifurcações existentes ou cópias locais criadas por outros usuários continuarão existindo. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
 
 {% endnote %}
 
 ### Identificar a localização da sua licença
 
-A maioria das pessoas indere o texto da licença em um arquivo denominado `LICENSE.txt` (ou `LICENSE.md`) na raiz do repositório. [Veja aqui um exemplo do Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+A maioria das pessoas coloca seu texto de licença em um arquivo denominado `LICENSE.txt` (ou `LICENSE.rst` ou `LICENSE.rst`) na raiz do repositório; [aqui está um exemplo do Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
-Alguns projetos incluem as informações sobre a licença no LEIAME. Por exemplo, um LEIAME de um projeto pode incluir uma observação declarando "Este projeto está licenciado nos termos da licença MIT".
+Alguns projetos incluem as informações sobre a licença no README. Por exemplo, um README de um projeto pode incluir uma observação declarando "Este projeto está licenciado nos termos da licença MIT."
 
 Como uma prática recomendada, incentivamos que você inclua o arquivo da licença no seu projeto.
 
@@ -74,9 +76,9 @@ Quando você pesquisar uma família de licenças, os resultados incluirão todas
 
 ### Identificar uma licença
 
-[A licenciada de código aberto Ruby gem ](https://github.com/benbalter/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/v3/licenses/) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](http://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[A licenciada de código aberto Ruby gem ](https://github.com/licensee/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/rest/reference/licenses) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](http://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
-Caso o seu repositório use uma licença listada no site Choose a License que não aparece na parte superior da página do repositório, ele pode conter licenças múltiplas ou outras complexidades. Para que sua licença seja detectada, simplifique o arquivo *LICENSE* e anote a complexidade em algum outro local, como no arquivo *LEIAME* do repositório.
+Caso o seu repositório use uma licença listada no site Choose a License que não aparece na parte superior da página do repositório, ele pode conter licenças múltiplas ou outras complexidades. Para que sua licença seja detectada, simplifique o arquivo *LICENSE* e anote a complexidade em algum outro local, como no arquivo *README* do repositório.
 
 ### Aplicar uma licença em um repositório com uma licença existente
 

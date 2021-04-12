@@ -5,6 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ### Über geplante Erinnerungen für Teams
@@ -12,6 +15,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Team-Betreuer und Organisationsinhaber können geplante Erinnerungen für alle Pull Requests festlegen, für die ein Team zum Review angefordert wurde. Bevor Du eine geplante Erinnerung für Dein Team erstellen kannst, muss ein Organisationsinhaber Deinen Slack-Arbeitsbereich autorisieren. Weitere Informationen findest Du unter „[Geplante Erinnerungen für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Erstellen einer geplanten Erinnerung für ein Team
 {% data reusables.profile.access_profile %}

@@ -9,6 +9,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pages
 ---
 
 People with write permissions for a repository can set the Markdown processor for a {% data variables.product.prodname_pages %} site.

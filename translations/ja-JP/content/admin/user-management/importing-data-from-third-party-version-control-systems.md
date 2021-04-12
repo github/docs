@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Mercurialからのプロジェクトのインポート
@@ -70,4 +72,4 @@ versions:
 
 ### 参考リンク
 
-- "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"
+- "[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"

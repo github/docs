@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - 企业
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -69,7 +71,7 @@ versions:
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```
    {% endraw %}
-1. 从工作流程运行下载工具缓存构件。 For instructions on downloading artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+1. 从工作流程运行下载工具缓存构件。 有关下载构件的说明，请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
 1. 将工具缓存构件传输到自托管的运行器，并将其提取到本地工具缓存目录。 默认工具缓存目录是 `RUNNER_DIR/_work/_tool`。 如果运行器尚未处理任何任务，您可能需要创建 `_work/_tool` 目录。
 
     提取上述示例中上传的工具缓存构件后，自托管运行器上应具有类似于以下示例的目录结构：

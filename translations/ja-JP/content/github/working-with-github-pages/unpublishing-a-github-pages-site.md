@@ -1,6 +1,6 @@
 ---
 title: GitHub Pages サイトを取り下げる
-intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available to {% if currentVersion == "free-pro-team@latest" %}the public{% else %}everyone using {% data variables.product.product_location %}{% endif %}.'
+intro: 'You can unpublish your {% data variables.product.prodname_pages %} site so that the site is no longer available.'
 redirect_from:
   - /articles/how-do-i-unpublish-a-project-page/
   - /articles/unpublishing-a-project-page/
@@ -12,6 +12,9 @@ permissions: 'People with admin or maintainer permissions for a repository can u
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pages
 ---
 
 ### プロジェクトサイトを取り下げる
@@ -21,7 +24,7 @@ versions:
 3. `gh-pages` ブランチが公開ソースだった場合、
 {% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
-5. Under "
+5. [
 {% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
   ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}

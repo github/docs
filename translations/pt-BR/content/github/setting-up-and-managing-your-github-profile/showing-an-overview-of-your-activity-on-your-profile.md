@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - perfis
 ---
 
 {% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)".

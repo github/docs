@@ -1,5 +1,5 @@
 ---
-title: Specifications for GitHub-hosted runners
+title: GitHub 托管的运行器的规格
 intro: '{% data variables.product.prodname_dotcom %} 提供托管的虚拟机来运行工作流程。 虚拟机包含可供 {% data variables.product.prodname_actions %} 使用的工具、包和设置。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -29,50 +29,62 @@ versions:
 
 #### {% data variables.product.prodname_dotcom %} 托管的运行器的云主机
 
-{% data variables.product.prodname_dotcom %} 在 Microsoft Azure 中安装了 {% data variables.product.prodname_actions %} 运行器应用程序的 Standard_DS2_v2 虚拟机上托管 Linux 和 Windows 运行器。 {% data variables.product.prodname_dotcom %} 托管的运行器应用程序是 Azure Pipelines Agent 的复刻。 入站 ICMP 数据包被阻止用于所有 Azure 虚拟机，因此 ping 或 traceroute 命令可能无效。 有关 Standard_DS2_v2 机器资源的更多信息，请参阅 Microsoft Azure 文档中的“[Dv2 和 DSv2 系列](https://docs.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series)”。
+{% data variables.product.prodname_dotcom %} 在 Microsoft Azure 中安装了 {% data variables.product.prodname_actions %} 运行器应用程序的 Standard_DS2_v2 虚拟机上托管 Linux 和 Windows 运行器。 {% data variables.product.prodname_dotcom %} 托管的运行器应用程序是 Azure Pipelines Agent 的复刻。 入站 ICMP 数据包被阻止用于所有 Azure 虚拟机，因此 ping 或 traceroute 命令可能无效。 有关 Standard_DS2_v2 机器资源的更多信息，请参阅 Microsoft Azure 文档中的“[Dv2 和 DSv2 系列](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)”。
 
-{% data variables.product.prodname_dotcom %} 使用 [MacStadium](https://www.macstadium.com/) 托管 macOS 运行器。
+{% data variables.product.prodname_dotcom %} 在 {% data variables.product.prodname_dotcom %} 自己的 macOS Cloud 中托管 macOS 运行器。
 
 #### {% data variables.product.prodname_dotcom %} 托管的运行器的管理权限
 
 Linux 和 macOS 虚拟机都使用无密码的 `sudo` 运行。 在需要比当前用户更多的权限才能执行命令或安装工具时，您可以使用无需提供密码的 `sudo`。 更多信息请参阅“[Sudo 手册](https://www.sudo.ws/man/1.8.27/sudo.man.html)”。
 
-Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身份运行。 更多信息请参阅 Windows 文档中的“[用户帐户控制工作原理](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works)”。
+Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身份运行。 更多信息请参阅 Windows 文档中的“[用户帐户控制工作原理](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/how-user-account-control-works)”。
 
 ### 支持的运行器和硬件资源
 
-每台虚拟机都有相同的硬件资源。
 
+Hardware specification for Windows and Linux virtual machines:
 - 2 核 CPU
 - 7 GB RAM 内存
+- 14 GB SSD 硬盘空间
+
+Hardware specification for macOS virtual machines:
+- 3 核 CPU
+- 14 GB RAM 内存
 - 14 GB SSD 硬盘空间
 
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
-Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+工作流程日志列出用于运行作业的运行器。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
-### Supported software
+### 支持的软件
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. 有关每个运行器操作系统包含的工具最新列表，请参阅以下链接：
+{% data variables.product.prodname_dotcom %} 托管的运行器中包含的软件工具每周更新。 有关每个运行器操作系统包含的工具最新列表，请参阅以下链接：
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
 * [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 {% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
 
-Workflow logs include a link to the preinstalled tools on the runner. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
-### IP addresses
+如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。 This repository also contains announcements about all major software updates on runners.
+
+### IP 地址
 
 {% note %}
 
@@ -80,46 +92,13 @@ Workflow logs include a link to the preinstalled tools on the runner. For more i
 
 {% endnote %}
 
-Windows 和 Ubuntu 运行程序托管在 Azure 中，具有与 Azure 数据中心相同的 IP 地址范围。 目前，所有 Windows 和 Ubuntu {% data variables.product.prodname_dotcom %} 托管的运行器都在以下 Azure 地区：
+Windows 和 Ubuntu 运行程序托管在 Azure 中，随后具有与 Azure 数据中心相同的 IP 地址范围。 macOS 运行器托管在 {% data variables.product.prodname_dotcom %} 自己的 macOS 云中。
 
-- 美国东部 (`eastus`)
-- 美国东部 2 (`eastus2`)
-- 美国西部 2 (`westus2`)
-- 美国中部 (`centralus`)
-- 美国中南部 (`southcentralus`)
+要获取 {% data variables.product.prodname_actions %} 用于 {% data variables.product.prodname_dotcom %} 托管运行器的 IP 地址范围列表，您可以使用 {% data variables.product.prodname_dotcom %} REST API。 更多信息请参阅“[获取 GitHub 元信息](/rest/reference/meta#get-github-meta-information)”端点响应中的 `actions` 键。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址列表。
 
-Microsoft 每周通过 JSON 文件更新 Azure IP 地址范围，您可以从 [Azure IP 范围和服务标签 - 公共云](https://www.microsoft.com/en-us/download/details.aspx?id=56519)网站下载该文件。 如果需要一个允许列表来阻止未经授权访问您的内部资源，您可以使用此 IP 地址范围。
+API 返回的 {% data variables.product.prodname_actions %} IP 地址列表每周更新一次。
 
-JSON 文件包含一个名为 `values` 的数组。 例如，在该数组内，您可以通过包含 `"AzureCloud.eastus2"` 的 `name` 和 `id` 的对象找到支持的 IP 地址。
-
-您可以在 `"addressPrefixes"` 对象中找到支持的 IP 地址范围。 这是 JSON 文件的精简示例。
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
-
-### File systems
+### 文件系统
 
 {% data variables.product.prodname_dotcom %} 在虚拟机上的特定目录中执行操作和 shell 命令。 虚拟机上的文件路径不是静态的。 使用环境变量 {% data variables.product.prodname_dotcom %} 提供 `home`、`workspace` 和 `workflow` 目录的构建文件路径。
 

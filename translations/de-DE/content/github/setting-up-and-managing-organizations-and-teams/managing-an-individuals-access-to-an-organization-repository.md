@@ -8,6 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Personen mit Administratorberechtigungen können den Zugriff von Organisationsmitgliedern und externen Mitarbeitern auf ein Repository der Organisation verwalten.

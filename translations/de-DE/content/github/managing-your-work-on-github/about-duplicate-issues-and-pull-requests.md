@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Damit ein als Duplikat markiertes Zeitleistenereignis angezeigt wird, muss der Benutzer, der den Referenzkommentar „Duplikat" erstellt, Schreibzugriff auf das Repository haben, in dem er den Kommentar erstellt.

@@ -27,6 +27,8 @@ versions:
 
 有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 ### 管理链接到企业帐户的组织
 
 组织是共享帐户，供多个项目的人员同时协作之用。 所有者可通过复杂的安全和管理功能管理成员对组织的数据和项目的访问。 更多信息请参阅“[关于组织](/articles/about-organizations)”。
@@ -34,6 +36,8 @@ versions:
 企业所有者可创建组织并将其链接到企业。 在将组织添加到企业帐户之后，您可以管理并实施组织的策略。 具体实施选项因设置而异；一般而言，您可以选择对企业帐户中的每个组织实施一种策略，或者让所有者在组织层级设置策略。
 
 更多信息请参阅“[管理企业帐户中的组织](/articles/managing-organizations-in-your-enterprise-account)”和“[为企业帐户中的组织设置策略](/articles/setting-policies-for-organizations-in-your-enterprise-account)”。
+
+{% endif %}
 
 ### 管理链接至企业帐户的 {% data variables.product.prodname_ghe_server %} 许可
 

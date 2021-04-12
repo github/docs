@@ -10,9 +10,11 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH アクセスにより、{% data variables.product.prodname_ghe_server %} のコマンドラインユーティリティを実行でき、トラブルシューティング、バックアップの実行、およびレプリケーションの設定に役立ちます。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### 管理シェルでのアクセスについて
@@ -46,7 +48,7 @@ admin@github-example-com:~$ █
 
 #### SSH 接続問題のトラブルシューティング
 
-SSH 経由で {% data variables.product.product_location_enterprise %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
+SSH 経由で {% data variables.product.product_location %} に接続しようとしたときに、`Permission denied (publickey)` というエラーが発生した場合は、ポート 122 経由で接続していることを確認してください。 使用するプライベートな SSH キーを明確に指定することが必要になる場合があります。
 
 コマンドラインでプライベートな SSH キーを指定するには、`-i` 引数を付けて `ssh` を実行します。
 
@@ -54,7 +56,7 @@ SSH 経由で {% data variables.product.product_location_enterprise %} に接続
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-SSH 設定ファイル (`~/.ssh/config`) を使用することでもプライベートな SSH キーを指定できます。
+SSH 設定ファイル (`~/.ssh/config`) を使用して SSH 秘密キーを指定することもできます。
 
 ```shell
 Host <em>hostname</em>

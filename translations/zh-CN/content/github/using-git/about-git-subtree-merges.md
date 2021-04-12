@@ -8,6 +8,7 @@ intro: '如果需要管理单一仓库中的多个项目，可以使用*子树�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 通常，子树合并用于在仓库中包含仓库。 “子仓库”存储在主仓库的文件夹中。
@@ -104,5 +105,5 @@ $ git pull -s subtree spoon-knife main
 
 ### 延伸阅读
 
-- [_Pro Git_ 书籍中的“子树合并”一章](https://git-scm.com/book/en/Git-Tools-Subtree-Merging)
+- [_Pro Git_ 书籍中的“高级合并”一章](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[如何使用子树合并策略](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

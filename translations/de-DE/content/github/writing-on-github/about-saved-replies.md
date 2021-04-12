@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Gespeicherte Antworten](/assets/images/help/settings/saved-replies.png)

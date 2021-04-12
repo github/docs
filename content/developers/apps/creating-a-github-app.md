@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
@@ -34,9 +37,18 @@ versions:
 ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
 7. In "Homepage URL", type the full URL to your app's website.
 ![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+8. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. This URL is used if your app needs to identify and authorize user-to-server requests.
+
+  You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.
+
+  ![Button for 'Add callback URL' and field for callback URL](/assets/images/github-apps/github_apps_callback_url_multiple.png)
+{% else %}
 8. In "User authorization callback URL", type the full URL to redirect to after a user authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests.
 ![Field for the user authorization callback URL of your GitHub App](/assets/images/github-apps/github_apps_user_authorization.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 9. By default, to improve your app's security, your app will use expiring user authorization tokens. To opt-out of using expiring user tokens, you must deselect "Expire user authorization tokens". To learn more about setting up a refresh token flow and the benefits of expiring user tokens, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
   ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
 {% endif %}
@@ -65,7 +77,7 @@ versions:
 
 13. In "Permissions", choose the permissions your app will request. For each type of permission, use the drop-down menu and click **Read-only**, **Read & write**, or **No access**.
 ![Various permissions for your GitHub App](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. In "Subscribe to events", choose whether to subscribe your app to **Label**, **Public**, **Repository**, or **Watch** events. ![Subscribe to events options for your GitHub App](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. In "Subscribe to events", choose the events you want your app to receive.
 15. To choose where the app can be installed, select either **Only on this account** or **Any account**. For more information on installation options, see "[Making a GitHub App public or private](/apps/managing-github-apps/making-a-github-app-public-or-private/)."
 ![Installation options for your GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
 16. Click **Create GitHub App**.

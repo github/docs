@@ -35,9 +35,9 @@ Git プロジェクトも、単一のディレクトリに保管されます。 
 Git のワークフローは以下のようになります:
 
 * Git リポジトリは、ブランチおよびタグのすべての履歴を、*.git* ディレクトリ内に保管します。
-* 最新の安定したリリースは、`master` ブランチ内に含まれます。
+* 最新の安定したリリースは、デフォルトブランチに含まれています。
 * アクティブな feature は、別のブランチで開発されます。
-* feature が完了したとき、フィーチャブランチは `master` にマージされ消去されます。
+* feature が完了すると、フィーチャブランチはデフォルトブランチにマージされ、消去されます。
 
 Git はディレクトリ構造は同じままですが、SVN とは違い、ファイルの変更内容はブランチベースです。
 
@@ -51,7 +51,7 @@ SVN では、サブプロジェクトは、*SVN external* と呼ばれます。 
 
 ### 履歴を保存する
 
-SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git は、[`git rebase`](/articles/about-git-rebase) のようなツールを使って、過去のコミットや変更を修正できます。
+SVN は、プロジェクトの履歴は変更されないものとして設定されています。 Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

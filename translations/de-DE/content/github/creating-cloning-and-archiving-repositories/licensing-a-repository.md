@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - repositorys
 ---
 
 ### Die richtige Lizenz auswählen
@@ -17,13 +19,13 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. Wenn Du bereits ein öffentliches Repository erstellt hast und nicht mehr möchtest, dass andere Benutzer darauf zugreifen, kannst Du festlegen, dass Dein Repository privat ist. Wenn Du ein öffentliches Repository in ein privates umwandelst, bleiben vorhandene Forks oder lokale Kopien bestehen, die andere Benutzer erstellt haben. Weitere Informationen findest Du unter „[Ein öffentliches Repository in ein privates umwandeln](/articles/making-a-public-repository-private).“
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
 
 {% endnote %}
 
 ### Den Speicherort der Lizenz festlegen
 
-Meistens wird der Lizenztext in einer Datei mit dem Namen `LICENSE.txt` (oder `LICENSE.md`) im Root des Repositorys gespeichert. [Hier ist ein Beispiel von Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
 Bei manchen Projekten finden sich Informationen zur Lizenz in der README-Datei. Beispielsweise kann die README-Datei eines Projekts den Hinweis „This project is licensed under the terms of the MIT license“ (Dieses Projekt ist gemäß den Bedingungen der MIT-Lizenz lizenziert) enthalten.
 
@@ -74,7 +76,7 @@ Wenn Du nach einer Lizenz einer Familie suchst, enthalten die Suchergebnisse all
 
 ### Eine Lizenz erkennen
 
-[Das Open-Source-Ruby-Gem Licensee](https://github.com/benbalter/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/v3/licenses/) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[Das Open-Source-Ruby-Gem Licensee](https://github.com/licensee/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/rest/reference/licenses) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Wenn Dein Repository eine Lizenz verwendet, die auf der Website „Choose a License“ (Wähle eine Lizenz) aufgeführt ist, und die Lizenz nicht deutlich sichtbar oben auf der Repository-Seite angezeigt wird, enthält das Repository möglicherweise mehrere Lizenzen oder es liegt eine andere Komplexität vor. Damit Deine Lizenz erkannt wird, vereinfache Deine *LICENSE*-Datei und notiere die Komplexität an anderer Stelle, beispielsweise in der *README*-Datei Deines Repositorys.
 

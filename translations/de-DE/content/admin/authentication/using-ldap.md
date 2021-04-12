@@ -11,6 +11,8 @@ redirect_from:
 intro: 'Mithilfe von LDAP können Sie {% data variables.product.prodname_ghe_server %} bei Ihren vorhandenen Konten authentifizieren und den Zugriff auf Repositorys zentral verwalten. LDAP ist ein beliebtes Anwendungsprotokoll für den Zugriff auf und die Verwaltung von Verzeichnisinformationsdiensten. Zudem ist es eines der gängigsten Protokolle zur Integration von Drittanbietersoftware in große Benutzerverzeichnisse von Unternehmen.'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -35,7 +37,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### LDAP für {% data variables.product.product_location_enterprise %} konfigurieren
+### LDAP für {% data variables.product.product_location %} konfigurieren
 
 Nach der Konfiguration von LDAP können sich Benutzer mit ihren LDAP-Anmeldeinformationen bei Ihrer Instanz anmelden. Wenn sich Benutzer erstmals anmelden, werden ihre Profilnamen, E-Mail-Adressen und SSH-Schlüssel mit den LDAP-Attributen aus Ihrem Verzeichnis festgelegt.
 
@@ -43,7 +45,7 @@ Wenn Du LDAP-Zugriff für Benutzer über die {% data variables.enterprise.manage
 
 {% warning %}
 
-**Warnung:** Stellen Sie sicher, dass Ihr LDAP-Dienst seitenweise Ergebnisse unterstützt, bevor Sie LDAP auf {% data variables.product.product_location_enterprise %} konfigurieren.
+**Warnung:** Stellen Sie sicher, dass Ihr LDAP-Dienst seitenweise Ergebnisse unterstützt, bevor Sie LDAP auf {% data variables.product.product_location %} konfigurieren.
 
 {% endwarning %}
 
@@ -55,14 +57,14 @@ Wenn Du LDAP-Zugriff für Benutzer über die {% data variables.enterprise.manage
 5. Fügen Sie die gewünschten Konfigurationseinstellungen hinzu.
 
 ### LDAP-Attribute
-Verwenden Sie die folgenden Attribute, um die Konfiguration von LDAP für {% data variables.product.product_location_enterprise %} abzuschließen.
+Verwenden Sie die folgenden Attribute, um die Konfiguration von LDAP für {% data variables.product.product_location %} abzuschließen.
 
 | Attributname                                     | Typ          | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Host`                                           | Erforderlich | Der LDAP-Host, z. B. `ldap.example.com` oder `10.0.0.30`. Wenn der Hostnamen nur in Ihrem internen Netzwerk verfügbar ist, müssen Sie möglicherweise zunächst den DNS von {% data variables.product.product_location_enterprise %} konfigurieren, damit der Hostname mithilfe Ihrer internen Nameserver aufgelöst werden kann.                                                                                                                                                                                                                                     |
+| `Host`                                           | Erforderlich | Der LDAP-Host, z. B. `ldap.example.com` oder `10.0.0.30`. Wenn der Hostnamen nur in Ihrem internen Netzwerk verfügbar ist, müssen Sie möglicherweise zunächst den DNS von {% data variables.product.product_location %} konfigurieren, damit der Hostname mithilfe Ihrer internen Nameserver aufgelöst werden kann.                                                                                                                                                                                                                                                  |
 | `Port`                                           | Erforderlich | Der Port, der von den LDAP-Diensten des Hosts überwacht wird. Beispiele: 389 und 636 (für LDAPS).                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `Encryption`                                     | Erforderlich | Die Verschlüsselungsmethode, die verwendet wird, um Kommunikationen zum LDAP-Server zu schützen. Dazu zählen beispielsweise Nur-Text (keine Verschlüsselung), SSL/LDAPS (von Anfang an verschlüsselt) und StartTLS (Upgrade auf verschlüsselte Kommunikation nach dem Herstellen der Verbindung).                                                                                                                                                                                                                                                                    |
-| `Domain search user`                             | Optional     | Der LDAP-Benutzer, der Benutzernachschlagevorgänge durchführt, um andere Benutzer bei ihrer Anmeldung zu authentifizieren. In der Regel handelt es sich dabei um ein Dienstkonto, das speziell für Drittanbieterintegrationen erstellt wird. Verwenden Sie einen vollqualifizierten Namen, beispielsweise `cn=Administrator,cn=Users,dc=Example,dc=com`. Mit Active Directory können Sie zudem die Syntax `[DOMAIN]\[USERNAME]` (z. B. `WINDOWS\Administrator`) für den Benutzer der Domain-Suche mit Active Directory verwenden.                                  |
+| `Domain search user`                             | Optional     | The LDAP user that looks up other users that sign in, to allow authentication. In der Regel handelt es sich dabei um ein Dienstkonto, das speziell für Drittanbieterintegrationen erstellt wird. Verwenden Sie einen vollqualifizierten Namen, beispielsweise `cn=Administrator,cn=Users,dc=Example,dc=com`. Mit Active Directory können Sie zudem die Syntax `[DOMAIN]\[USERNAME]` (z. B. `WINDOWS\Administrator`) für den Benutzer der Domain-Suche mit Active Directory verwenden.                                                                              |
 | `Domain search password`                         | Optional     | Das Passwort für den Benutzer der Domain-Suche.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `Administrators group`                           | Optional     | Benutzer in dieser Gruppe werden auf Websiteadministratoren hochgestuft, wenn sie sich bei Ihrer Appliance anmelden. Wenn Sie keine Gruppe für LDAP-Administratoren konfigurieren, wird das erste LDAP-Benutzerkonto, das sich bei Ihrer Appliance anmeldet, automatisch auf einen Websiteadministrator hochgestuft.                                                                                                                                                                                                                                                 |
 | `Domain base`                                    | Erforderlich | Der vollqualifizierte `Distinguished Name` (DN) einer LDAP-Unterstruktur, die auf Benutzer und Gruppen durchsucht werden soll. Sie können beliebig viele hinzufügen. Jede Gruppe muss jedoch in derselben Domain-Basis definiert sein wie die zugehörigen Benutzer. Wenn Sie eingeschränkte Benutzergruppen angeben, befinden sich nur die diesen Gruppen zugehörigen Benutzer im Geltungsbereich. Zum Steuern des Zugriffs sollten Sie die oberste Ebene Ihrer LDAP-Verzeichnisstruktur als Ihre Domain-Basis angeben und eingeschränkte Benutzergruppen verwenden. |
@@ -190,7 +192,7 @@ Sofern die [LDAP-Synchronisierung nicht aktiviert ist](#enabling-ldap-sync), wer
 
 You can also [use the API to trigger a manual sync](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
 
-### Zugriff auf {% data variables.product.product_location_enterprise %} widerrufen
+### Zugriff auf {% data variables.product.product_location %} widerrufen
 
 Bei [aktivierter LDAP-Synchronisierung](#enabling-ldap-sync) wird beim Entfernen der LDAP-Anmeldeinformationen eines Benutzers dessen Konto nach der nächsten Synchronisierungsausführung gesperrt.
 

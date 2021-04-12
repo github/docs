@@ -5,9 +5,13 @@ redirect_from:
   - /articles/about-billing-for-github-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 {% data reusables.sponsors.sponsorship-details %}
+
+{% data reusables.sponsors.no-fees %}
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 

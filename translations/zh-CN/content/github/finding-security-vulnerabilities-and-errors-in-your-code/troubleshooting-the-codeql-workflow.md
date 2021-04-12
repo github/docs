@@ -11,6 +11,7 @@ versions:
 ---
 
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
 ### Automatic build for a compiled language fails
 
@@ -60,9 +61,13 @@ For more information, see the workflow extract in "[Automatic build for a compil
 1. Your {% data variables.product.prodname_code_scanning %} workflow is analyzing a compiled language (C, C++, C#, or Java), but the code was not compiled. By default, the {% data variables.product.prodname_codeql %} analysis workflow contains an `autobuild` step, however, this step represents a best effort process, and may not succeed in building your code, depending on your specific build environment. Compilation may also fail if you have removed the `autobuild` step and did not include build steps manually.  For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but portions of your build are cached to improve performance (most likely to occur with build systems like Gradle or Bazel). Since {% data variables.product.prodname_codeql %} observes the activity of the compiler to understand the data flows in a repository, {% data variables.product.prodname_codeql %} requires a complete build to take place in order to perform analysis. 
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but compilation does not occur between the `init` and `analyze` steps in the workflow. {% data variables.product.prodname_codeql %} requires that your build happens in between these two steps in order to observe the activity of the compiler and perform analysis. 
-1. Your compiled code (in C, C++, C#, or Java) was compiled successfully, but {% data variables.product.prodname_codeql %} was unable to detect the compiler invocations. The most common causes are certain configuration options like running your build process in a container, if you're building using a distributed build system external to {% data variables.product.prodname_actions %} using a daemon process, or if {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using. 
+1. Your compiled code (in C, C++, C#, or Java) was compiled successfully, but {% data variables.product.prodname_codeql %} was unable to detect the compiler invocations. The most common causes are:
 
-  For C# projects using either `dotnet build` or `msbuild` which target .NET Core 2, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code. The `UseSharedCompilation` flag isn't necessary for .NET Core 3.0 and later.
+   * Running your build process in a separate container to {% data variables.product.prodname_codeql %}. For more information, see "[Running CodeQL code scanning in a container](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)."
+   * Building using a distributed build system external to GitHub Actions, using a daemon process.
+   * {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
+
+  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild` that target .NET Core 2, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code. The `UseSharedCompilation` flag isn't necessary for .NET Core 3.0 and later.
   
   For example, the following configuration for C# will pass the flag during the first build step.
 
@@ -78,16 +83,6 @@ For more information about specifying build steps, see "[Configuring the {% data
 ### Portions of my repository were not analyzed using `autobuild`
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
-
-### Error: "Server error"
-
-If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
-
-### Error: "Out of disk" or "Out of memory"
-
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
-{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
 
 ### The build takes too long
 
@@ -123,3 +118,53 @@ If you are analyzing code written in Python, you may see different results depen
 On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)."
 
 {% endif %}
+
+### Error: "Server error"
+
+If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
+
+### Error: "Out of disk" or "Out of memory"
+
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
+{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
+
+### Warning: "git checkout HEAD^2 is no longer necessary"
+
+If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+
+```
+Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
+necessary. Please remove this step as Code Scanning recommends analyzing the merge 
+commit for best results.
+```
+
+Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+
+```yaml
+      with:
+        # We must fetch at least the immediate parents so that if this is
+        # a pull request then we can checkout the head.
+        fetch-depth: 2
+
+    # If this run was triggered by a pull request event, then checkout
+    # the head of the pull request instead of the merge commit.
+    - run: git checkout HEAD^2
+      if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+```      
+
+The revised `steps` section of the workflow will look like this:
+
+```yaml
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+    - name: Initialize {% data variables.product.prodname_codeql %}
+      uses: github/codeql-action/init@v1
+
+    ...
+```
+
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)."

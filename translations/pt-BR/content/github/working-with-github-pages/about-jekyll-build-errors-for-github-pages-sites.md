@@ -9,13 +9,16 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Sobre erros de criação do Jekyll
 
 Às vezes, {% data variables.product.prodname_pages %} não tentará criar seu site depois que você fizer push das alterações na fonte de publicação do site.{% if currentVersion == "free-pro-team@latest" %}
 - A pessoa que fez push das alterações não verificou o endereço de e-mail dela. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/articles/verifying-your-email-address)".{% endif %}
-- Você está fazendo push com uma chave de implantação. Se desejar automatizar pushes para o repositório do seu site, você poderá configurar um usuário de máquina. Para obter mais informações, consulte "[Gerenciar chaves de implantação](/v3/guides/managing-deploy-keys/#machine-users)".
+- Você está fazendo push com uma chave de implantação. Se desejar automatizar pushes para o repositório do seu site, você poderá configurar um usuário de máquina. Para obter mais informações, consulte "[Gerenciar chaves de implantação](/developers/overview/managing-deploy-keys#machine-users)".
 - Você está usando um serviço de CI que não está configurado para criar sua fonte de publicação. Por exemplo, Travis CI não criará o branch `gh-pages`, a menos que você adicione o branch a uma lista segura. Para obter mais informações, consulte "[Personalizar a criação](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" em Travis CI ou na documentação do seu serviço de CI.
 
 {% note %}
@@ -43,13 +46,13 @@ Quando você fizer push das alterações na fonte de publicação no {% data var
 Você pode configurar um serviço de terceiros, como o [Travis CI](https://travis-ci.org/), para exibir mensagens de erro após cada commit.
 
 1. Se você ainda não tiver, adicione um arquivo chamado _Gemfile_ na raiz da sua fonte de publicação, com o seguinte conteúdo:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Configure o repositório do site para o serviço de teste de sua escolha. Por exemplo, para usar [Travis CI](https://travis-ci.org/), adicione um arquivo chamado _.travis.yml_ na raiz da fonte de publicação, com o seguinte conteúdo:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

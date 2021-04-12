@@ -1,5 +1,5 @@
 ---
-title: 关于使用 GitHub 操作进行打包
+title: 关于使用 GitHub Actions 进行打包
 intro: '您可以在 {% data variables.product.prodname_actions %} 中设置工作流程生成包并将其上传到 {% data variables.product.prodname_registry %} 或其他包托管提供程序。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -8,10 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - 打包
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于打包步骤
 
@@ -25,7 +30,11 @@ versions:
 
 现在，在审查拉取请求时，您将能够查看工作流程运行并下载生成的构件。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down-updated.png)
+{% else %}
 ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)
+{% endif %}
 
 这将允许您在计算机上运行拉取请求中的代码，有助于调试或测试拉取请求。
 

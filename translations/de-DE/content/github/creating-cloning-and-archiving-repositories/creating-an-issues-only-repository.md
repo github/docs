@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 1. Erstelle ein **privates** Repository, um den Quellcode von Deinem Projekt zu verwalten.

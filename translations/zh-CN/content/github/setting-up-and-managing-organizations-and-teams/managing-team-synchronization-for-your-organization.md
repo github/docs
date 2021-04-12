@@ -10,6 +10,9 @@ permissions: 组织所有者可管理组织的团队同步。
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -24,7 +27,7 @@ versions:
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)”。
+您还可以为企业帐户拥有的组织启用团队同步。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)”。
 
 ### 启用团队同步
 

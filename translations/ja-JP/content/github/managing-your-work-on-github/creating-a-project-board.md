@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}
@@ -30,6 +33,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -49,6 +53,7 @@ versions:
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
+{% data reusables.project-management.choose-visibility %}
 {% data reusables.project-management.linked-repositories %}
 {% data reusables.project-management.create-project-button %}
 {% data reusables.project-management.add-column-new-project %}
@@ -82,7 +87,7 @@ versions:
 ### 参考リンク
 
 - "[プロジェクトボードについて](/articles/about-project-boards)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - "[プロジェクトボードをクローズする](/articles/closing-a-project-board)"

@@ -11,7 +11,7 @@ Os hooks pre-receive executam testes em um código do qual foi feito push em um 
 
 Se o push não for aceito, você receberá uma mensagem de erro correspondente ao hook pre-receive com falha.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
@@ -21,7 +21,7 @@ Total 3 (delta 0), reused 0 (delta 0)
 remote: always_reject.sh: failed with exit status 1
 remote: error: rejecting all pushes
 To https://54.204.174.51/hodor/nope.git
- ! [remote rejected] master -> master (pre-receive hook declined)
+ ! [remote rejected] main -> main (pre-receive hook declined)
 error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 ```
 

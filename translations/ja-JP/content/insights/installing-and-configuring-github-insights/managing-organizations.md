@@ -36,4 +36,4 @@ versions:
 {% data reusables.github-insights.add-organizations %}
 4. {% data variables.product.prodname_insights %}から削除したいOrganizationをクリックしてください。
 4. "Uninstall {% data variables.product.prodname_insights %}（{% data variables.product.prodname_insights %}のアンインストール）"の下で、**Uninstall（アンインストール）**をクリックしてください。 ![アンインストールボタン](/assets/images/help/insights/uninstall-button.png)
-5. Click **OK**.
+5. [**OK**] をクリックします。

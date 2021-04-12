@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -17,8 +19,13 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. No canto superior direito do fluxo de trabalho, clique em **Cancelar fluxo de trabalho**. ![Botão Cancel check suite (Cancelar conjunto de verificações)](/assets/images/help/repository/cancel-check-suite.png)
+1. Na lista de execuções do fluxo de trabalho, clique no nome da execução em estado `queued` ou `em progresso` que você deseja cancelar. ![Nome da execução do fluxo de trabalho](/assets/images/help/repository/in-progress-run.png)
+1. No canto superior direito do fluxo de trabalho, clique em **Cancelar fluxo de trabalho**.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![Botão Cancel check suite (Cancelar conjunto de verificações)](/assets/images/help/repository/cancel-check-suite-updated.png)
+{% else %}
+ ![Botão Cancel check suite (Cancelar conjunto de verificações)](/assets/images/help/repository/cancel-check-suite.png)
+{% endif %}
 
 ### Etapas que o {% data variables.product.prodname_dotcom %} realiza para cancelar uma execução de fluxo de trabalho
 

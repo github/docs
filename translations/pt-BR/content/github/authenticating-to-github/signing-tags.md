@@ -7,6 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - identidade
+  - gerenciamento de acesso
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Wenn Du Projektboards deaktivierst, kannst Du keine Projektboard-Informationen mehr in Zeitleisten oder [Auditprotokollen](/articles/reviewing-your-security-log/) sehen.

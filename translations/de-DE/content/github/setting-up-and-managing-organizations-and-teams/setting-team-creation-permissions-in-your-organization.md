@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber können die Berechtigungen für die Teamerstellung festlegen.

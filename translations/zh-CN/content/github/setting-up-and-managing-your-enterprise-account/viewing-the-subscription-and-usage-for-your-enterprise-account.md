@@ -18,6 +18,9 @@ versions:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
-4. 在“User licenses（用户许可证）”下，查看许可证总数、已使用许可证数量和订阅到期日期。 ![企业计费设置中的许可证和订阅信息](/assets/images/help/business-accounts/billing-license-info.png)
-5. 要查看当前使用的用户许可的详细信息，请单击 **View details（查看详细信息）**。
+{% data reusables.enterprise-accounts.license-tab %}
+4. Under "User
+{% if currentVersion == "free-pro-team@latest" %}Licenses{% else %}licenses{% endif %}", view your total licenses, number of consumed licenses, and your subscription expiration date.
+  {% if currentVersion == "free-pro-team@latest" %}![License and subscription information in enterprise billing settings](/assets/images/help/business-accounts/billing-license-info.png){% else %}
+  ![企业计费设置中的许可证和订阅信息](/assets/images/enterprise/enterprises/enterprise-server-billing-license-info.png){% endif %}
+5. To view details of the user licenses currently in use, click **View {% if currentVersion == "free-pro-team@latest" %}details{% else %}users{% endif %}**.

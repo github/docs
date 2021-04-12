@@ -7,6 +7,7 @@ intro: Git リポジトリ内のフォルダを、全く新しいリポジトリ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリの新しいクローンを作成した場合でも、フォルダを別のリポジトリに分割したとき、Git の履歴や変更を失うことはありません。
@@ -35,7 +36,7 @@ versions:
     {% endwindows %}
     - `BRANCH-NAME`: `master` や `gh-pages` などの、現在のプロジェクトのデフォルトブランチです。
     ```shell
-    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
+    $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
     # Filter the specified branch in your directory and remove empty commits
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten

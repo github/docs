@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 ファイルの場所を変えるだけでなく、同じコミットで[ファイルの内容を更新](/articles/editing-files-in-your-repository)したり、
@@ -13,7 +16,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 
 - アクセス権のないリポジトリのファイルを移動しようとした場合は、プロジェクトがあなたのユーザー アカウントにフォークされ、変更のコミット後には元のリポジトリに[プル リクエスト](/articles/about-pull-requests)を送信できます。
 - 画像など、ファイルによってはコマンドラインから移動しなければならない場合があります。 詳細は「[コマンドラインを使用してファイルを新しい場所へ移動する](/articles/moving-a-file-to-a-new-location-using-the-command-line)」を参照してください。

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 标签与它们所在的仓库相关联。 添加标签后，便可在该仓库的任何议题或拉取请求中使用该标签。 更多信息请参阅“[创建标签](/articles/creating-a-label/)”。
@@ -30,7 +31,7 @@ versions:
 
 创建仓库时，每个新仓库中均包含默认标签，但您稍后可以编辑或删除标签。 更多信息请参阅“[删除标签](/articles/deleting-a-label/)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 组织所有者可以自定义其组织中仓库的默认标签。 更多信息请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
 {% endif %}
 

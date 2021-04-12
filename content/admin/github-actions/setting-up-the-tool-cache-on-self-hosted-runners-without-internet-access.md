@@ -1,10 +1,12 @@
 ---
 title: Setting up the tool cache on self-hosted runners without internet access
-intro: 'To use the the included `actions/setup` actions on self-hosted runners without internet access, you must first populate the runner''s tool cache for your workflows.'
+intro: 'To use the included `actions/setup` actions on self-hosted runners without internet access, you must first populate the runner''s tool cache for your workflows.'
 redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,11 +1,14 @@
 ---
 title: プルリクエストマージを設定する
-intro: 'Git の履歴をワークフローおよび好みに合わせて管理するため、{% data variables.product.product_location %} のプルリクエストのマージを設定して、リポジトリ内のすべてのプルリクエストに対し、標準的マージコミット、squash したコミット、リベースしたコミットを有効化、無効化、または強制化できます。'
+intro: '{% data variables.product.product_location %} でプルリクエストのマージを設定して、Git 履歴を管理するためのワークフローと設定に一致させることができます。'
 mapTopic: true
 redirect_from:
   - /articles/configuring-pull-request-merges
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 

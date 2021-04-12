@@ -9,6 +9,7 @@ intro: webhook は、特定のアクションがリポジトリあるいは Orga
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

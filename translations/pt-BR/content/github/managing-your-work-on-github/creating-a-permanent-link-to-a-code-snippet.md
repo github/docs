@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Esse tipo de link permanente será renderizado como um trecho de código somente no repositório em que ele foi originado. Em outros repositórios, o trecho de código permalink será renderizado como uma URL.

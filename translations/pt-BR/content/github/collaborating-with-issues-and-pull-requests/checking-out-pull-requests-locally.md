@@ -7,6 +7,9 @@ permissions: Qualquer pessoa com acesso de gravação a um repositório pode der
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

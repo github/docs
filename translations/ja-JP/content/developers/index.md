@@ -1,9 +1,10 @@
 ---
-title: Developers
-intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
+title: 開発者
+intro: 'APIと統合し、{% data variables.product.prodname_dotcom %}ワークフローをカスタマイズし、アプリケーションを構築してコミュニティと共有することによって、さらに{% data variables.product.prodname_dotcom %}との関係を深めてください。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

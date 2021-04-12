@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 1. No nome do seu repositório, clique em **Clone or download** (Clonar ou baixar). ![Botão Clone or download (Clonar ou baixar)](/assets/images/help/repository/clone-repo-clone-url-button.png)
 1. Clique em **Abrir no Desktop** para clonar o repositório e abra-o no
 {% data variables.product.prodname_desktop %}.

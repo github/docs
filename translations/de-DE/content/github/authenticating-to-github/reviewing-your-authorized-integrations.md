@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - identity
+  - access management
 ---
 
 ### Deine autorisierten {% data variables.product.prodname_oauth_app %}s überprüfen

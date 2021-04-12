@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - ssh
 ---
 
 Ao usar uma chave não verificada para operações no Git, será solicitada uma auditoria de suas chaves SSH.

@@ -1,4 +1,4 @@
-<table spaces-before="0" line-breaks-before="1">
+<table spaces-before="0">
   <tr>
     <th>
       <nobr>Tipo de análise</nobr>
@@ -15,7 +15,7 @@
     </td>
     
     <td>
-      Usar {% data variables.product.prodname_actions %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar {% data variables.product.prodname_code_scanning %} usando ações</a>") ou usar o {% data variables.product.prodname_codeql_runner %} em um sistema contínuo de integração contínua (CI) de terceiros (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Varrendo o código em execução no seu sistema de CI</a>").
+      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system">Running {% data variables.product.prodname_codeql %} code scanning in your CI system</a>").
     </td>
   </tr>
   
@@ -25,7 +25,7 @@
     </td>
     
     <td>
-      Usar {% data variables.product.prodname_actions %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository#enabling-code-scanning-using-actions">Habilitar {% data variables.product.prodname_code_scanning %} usando ações</a>") ou geradas externamente e subidas em {% data variables.product.product_name %} (consulte "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Fazer upload de um arquivo SARIF em {% data variables.product.prodname_dotcom %}</a>").
+      Usar {% data variables.product.prodname_actions %} (ver "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Configurar {% data variables.product.prodname_code_scanning %} usando ações</a>") ou gerado externamente e enviado para {% data variables.product.product_name %} (ver "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Fazer o upload de um arquivo SARIF para {% data variables.product.prodname_dotcom %}</a>").
     </td>
   </tr>
 </table>

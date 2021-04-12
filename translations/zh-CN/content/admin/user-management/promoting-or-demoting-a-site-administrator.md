@@ -7,6 +7,8 @@ redirect_from:
 intro: '站点管理员可以将任何普通用户升级为站点管理员，也可以将其他站点管理员降级为普通用户。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% tip %}
@@ -19,8 +21,7 @@ versions:
 
 ### 从企业设置升级用户
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. 在页面的右上角，单击 **Add owner（添加所有者）**。 ![用于添加管理员的按钮](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +29,7 @@ versions:
 
 ### 从企业设置降级站点管理员
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. 在页面左上角的“Find an administrator（查找管理员）”搜索字段中，输入您想要降级的人员的用户名。 ![用于查找管理员的搜索字段](/assets/images/help/business-accounts/business-account-search-for-admin.png)

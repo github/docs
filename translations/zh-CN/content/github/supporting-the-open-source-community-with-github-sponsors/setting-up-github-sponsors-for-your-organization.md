@@ -7,6 +7,8 @@ redirect_from:
 permissions: '组织所有者可以为组织设置 {% data variables.product.prodname_sponsors %}。'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 加入 {% data variables.product.prodname_sponsors %}
@@ -25,7 +27,7 @@ versions:
 
 ### 填写被赞助组织资料
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +42,7 @@ versions:
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -54,7 +56,7 @@ versions:
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 有关使用 Open Collective 设置 Stripe Connect 的更多信息，请参阅 Open Collective 文档中的[设置 {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors)。
@@ -63,7 +65,7 @@ versions:
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +77,7 @@ versions:
 
 ### 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

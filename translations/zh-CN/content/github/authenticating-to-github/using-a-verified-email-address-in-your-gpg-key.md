@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

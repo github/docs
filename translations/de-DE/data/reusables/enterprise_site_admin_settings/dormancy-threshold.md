@@ -1,1 +1,1 @@
-Die Inaktivitätsschwelle ist die Zeitspanne welche ein Benutzer inaktiv sein muss um als ruhend betrachtet zu werden. Die Standard-Inaktivitätsschwelle beträgt 90 Tage, Du kannst sie aber für {% data variables.product.product_location_enterprise %} anpassen.
+Die Inaktivitätsschwelle ist die Zeitspanne welche ein Benutzer inaktiv sein muss um als ruhend betrachtet zu werden. Die Standard-Inaktivitätsschwelle beträgt 90 Tage, Du kannst sie aber für {% data variables.product.product_location %} anpassen.

@@ -19,7 +19,7 @@ Por exemplo:
 - Se você fizer push de um arquivo de 500 MB no {% data variables.large_files.product_name_short %}, serão usados 500 MB do armazenamento alocado e nada da largura de banda. Se você fizer uma alteração de 1 byte e fizer push do arquivo novamente, serão usados outros 500 MB do armazenamento e nada a largura de banda, totalizando 1 GB de uso total do armazenamento e zero de largura de banda para esses dois pushes.
 - Se você baixar um arquivo de 500 MB que é rastreado com o LFS, serão usados 500 MB da largura de banda alocada do proprietário do repositório. Se um colaborador fizer push de uma alteração no arquivo e você fizer pull da nova versão no repositório local, serão usados outros 500 MB de largura de banda, totalizando 1 GB de uso total da largura de banda para esses dois downloads.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 Se
 {% data variables.large_files.product_name_long %} objetos de ({% data variables.large_files.product_name_short %}) estiverem incluídos nos arquivos do código-fonte do seu repositório, os downloads desses arquivos contarão para o uso de banda larga no repositório. Para obter mais informações, consulte "
 [Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 

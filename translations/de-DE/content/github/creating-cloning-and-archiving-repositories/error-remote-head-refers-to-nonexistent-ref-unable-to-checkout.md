@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Es ist nicht schwierig, diesen Fehler zu erkennen. Git warnt Dich, wenn Du versuchst, das Repository zu klonen:

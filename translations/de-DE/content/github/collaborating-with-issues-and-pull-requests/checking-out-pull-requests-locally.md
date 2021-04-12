@@ -7,6 +7,9 @@ permissions: Personen mit Schreibzugriff auf eine Repository können einen Remot
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
   {% note %}

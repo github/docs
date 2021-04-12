@@ -9,6 +9,8 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Localizar a próxima data de cobrança da sua conta pessoal

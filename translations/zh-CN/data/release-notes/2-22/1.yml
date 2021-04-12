@@ -1,0 +1,71 @@
+---
+date: '2020-10-09'
+sections:
+  security_fixes:
+    - '**MEDIUM**:  ImageMagick has been updated to address [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22623, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'
+    - 'Requests from a GitHub App integration to refresh an OAuth access token would be accepted if sent with a different, valid OAuth client ID and client secret than was used to create the refresh token. {% comment %} https://github.com/github/github/pull/154921, https://github.com/github/github/pull/154423, https://github.com/github/ecosystem-apps/issues/1066 {% endcomment %}'
+    - 'A user whose LDAP directory username standardizes to an existing GHES account login could authenticate into the existing account. {% comment %} https://github.com/github/github/pull/156513, https://github.com/github/github/pull/155512 {% endcomment %}'
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/22912, https://github.com/github/enterprise2/pull/22878 {% endcomment %}'
+  bugs:
+    - |
+      The NameID Format dropdown in the Management Console would be reset to "unspecified" after setting it to "persistent". {% comment %} https://github.com/github/enterprise2/pull/22376, https://github.com/github/enterprise2/pull/22331, https://github.com/github/enterprise2/issues/13446 {% endcomment %}
+    - |
+      Upgrading using a hotpatch could fail with an error: `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22557, https://github.com/github/enterprise2/pull/22552 {% endcomment %}
+    - |
+      Saving settings via the [management console](/admin/configuration/accessing-the-management-console) would append a newline to the [TLS/SSL certificate and key](/admin/configuration/configuring-tls) files which triggered unnecessary reloading of some services. {% comment %} https://github.com/github/enterprise2/pull/22570, https://github.com/github/enterprise2/pull/22540 {% endcomment %}
+    - |
+      System logs for Dependency Graph were not rotating, allowing unbounded storage growth. {% comment %} https://github.com/github/enterprise2/pull/22767, https://github.com/github/enterprise2/pull/22733 {% endcomment %}
+    - |
+      The MS SQL Server performance graph showed statistics from the primary instance even when a replica was selected. {% comment %} https://github.com/github/enterprise2/pull/22778, https://github.com/github/enterprise2/pull/22750 {% endcomment %}
+    - |
+      如果 Actions 未启用，`ghe-actions-precheck` 将不运行存储检查而静默退出。{% comment %} https://github.com/github/enterprise2/pull/22787, https://github.com/github/enterprise2/pull/22742 {% endcomment %}
+    - |
+      如果请求的工人覆盖设置在使用中，升级可能会失败。{% comment %} https://github.com/github/enterprise2/pull/22836, https://github.com/github/enterprise2/pull/22814 {% endcomment %}
+    - |
+      在容器中运行的一些服务没有发送日志到日报。 {% comment %} https://github.com/github/enterprise2/pull/22994, https://github.com/github/enterprise2/pull/22518 {% endcomment %}
+    - |
+      Links to GitHub Security Advisories would use a URL with the hostname of the GitHub Enterprise Server instance instead of GitHub.com, directing the user to a nonexistent URL. {% comment %} https://github.com/github/github/pull/153316, https://github.com/github/github/pull/151301 {% endcomment %}
+    - |
+      When importing a repository with `ghe-migrator`, an unexpected exception could occur when inconsistent data is present. {% comment %} https://github.com/github/github/pull/153850, https://github.com/github/github/pull/151552 {% endcomment %}
+    - |
+      The enterprise account security settings page showed a "View your organizations' current configurations" link for the "Two-factor authentication" setting when the authentication mode in use does not support built in two-factor authentication. {% comment %} https://github.com/github/github/pull/153860 {% endcomment %}
+    - |
+      OAuth refresh tokens would be removed prematurely. {% comment %} https://github.com/github/github/pull/154271, https://github.com/github/github/pull/153694 {% endcomment %}
+    - |
+      Search repair tasks would generate exceptions during the migration phase of configuration. {% comment %} https://github.com/github/github/pull/154573, https://github.com/github/github/pull/153392 {% endcomment %}
+    - |
+      On the settings page for GitHub Apps, the "Beta Features" tab was not visible in some circumstances. {% comment %} https://github.com/github/github/pull/154612, https://github.com/github/github/pull/154417 {% endcomment %}
+    - |
+      When using `ghe-migrator` to import PR review requests, records associated with deleted users would result in extraneous database records. {% comment %} https://github.com/github/github/pull/154960, https://github.com/github/github/pull/153169 {% endcomment %}
+    - |
+      When importing users with `ghe-migrator`, an error of "Emails is invalid" would occur if the system-generated email address were longer than 100 characters. {% comment %} https://github.com/github/github/pull/155109, https://github.com/github/github/pull/152418 {% endcomment %}
+    - |
+      Logging webhook activity could use large amounts of disk space and cause the root disk to become full. {% comment %} https://github.com/github/github/pull/155657, https://github.com/github/github/pull/154100 {% endcomment %}
+    - |
+      Users experienced slower Git clone and fetch performance on an instance with high availability replicas due to reads being forwarded to a different node. {% comment %} https://github.com/github/github/pull/156195, https://github.com/github/github/pull/156016, https://github.com/github/spokesd/issues/746 {% endcomment %}
+    - |
+      The repository Settings page of a repository for a user or organization GitHub Pages sites would fail with a "500 Internal Server Error". {% comment %} https://github.com/github/github/pull/156439, https://github.com/github/github/issues/156183 {% endcomment %}
+    - |
+      Repository network maintenance operations could become stuck in a `running` state. {% comment %} https://github.com/github/github/pull/156669, https://github.com/github/github/pull/156036 {% endcomment %}
+    - |
+      A repository being deleted immediately after uploading a code scanning result could cause a stall in the processing of code scanning results for all repositories. {% comment %} https://github.com/github/github/pull/157063, https://github.com/github/github/pull/156437 {% endcomment %}
+    - |
+      When a large number of code scanning results were submitted at the same time, processing of batches could time out resulting in a stall in processing of code scanning results. {% comment %} https://github.com/github/github/pull/157065, https://github.com/github/github/pull/156462 {% endcomment %}
+    - |
+      [Creating a GitHub App from a manifest](https://docs.github.com/en/enterprise/2.22/user/developers/apps/creating-a-github-app-from-a-manifest) would fail. {% comment %} https://github.com/github/github/pull/157133, https://github.com/github/github/pull/156904, https://github.com/github/enterprise2/issues/22849 {% endcomment %}
+    - |
+      GitHub usernames were changed unintentionally when using SAML authentication, when the GitHub username did not match the value of the attribute mapped to the `username` field in the Management Console. {% comment %} https://github.com/github/github/pull/158131, https://github.com/github/github/pull/157936, https://github.com/github/external-identities/issues/335 {% endcomment %}
+  changes:
+    - Support is added for the AWS EC2 instance type `m5.16xlarge`. {% comment %} https://github.com/github/enterprise2/pull/22502, https://github.com/github/enterprise2/pull/22473 {% endcomment %}
+    - Remove the requirement for SSH fingerprints in `ghe-migrator` archives as it can always be computed. {% comment %} https://github.com/github/github/pull/156946, https://github.com/github/github/pull/155387 {% endcomment %}
+    - GitHub App Manifests now include the `request_oauth_on_install` field. {% comment %} https://github.com/github/github/pull/156991, https://github.com/github/github/pull/155010, https://github.com/github/ecosystem-apps/issues/1055 {% endcomment %}
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
+    - Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}
+    - Configuration updates will fail when restoring data to a GitHub Actions-enabled instance if the original backup source did not have the feature enabled. {% comment %} https://github.com/github/c2c-actions-runtime/issues/915 {% endcomment %}
+    - GitHub Actions can fail to start up successfully if it was previously enabled on an instance running 2.22.0 and is upgraded to 2.22.1. (updated 2020-10-23) {% comment %} https://github.com/github/c2c-actions/issues/1680 {% endcomment %}
+    - On a freshly set up 2.22.1 instance or after upgrading to 2.22.1, the activity feed on an organization's dashboard will no longer update. (updated 2020-10-27) {% comment %}https://github.com/github/enterprise2/issues/23050{% endcomment %}
+    - Audit logs may be attributed to 127.0.0.1 instead of the actual source IP address. (updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}

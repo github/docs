@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### Enabling rate limits for {% data variables.product.prodname_enterprise_api %}
@@ -30,7 +32,7 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 ### Enabling abuse rate limits
 
-Setting abuse rate limits protects the overall level of service on {% data variables.product.product_location_enterprise %}.
+Setting abuse rate limits protects the overall level of service on {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

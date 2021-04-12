@@ -12,7 +12,7 @@ Autenticar-se no {% data variables.product.prodname_dotcom %}."</p>
 
 Depois de se autenticar no {% data variables.product.prodname_dotcom %}, você poderá se conectar a repositórios remotos com o {% data variables.product.prodname_desktop %}. O {% data variables.product.prodname_desktop %} armazena suas credenciais (nome de usuário e senha ou token de acesso pessoal) e usa as credenciais para autenticar cada conexão ao repositório remoto.
 
-{% data variables.product.prodname_desktop %} se conecta ao {% data variables.product.prodname_dotcom %} usando HTTPS. Se você usar o {% data variables.product.prodname_desktop %} para acessar repositórios que foram clonados usando SSH, você poderá encontrar erros. Para se conectar a um repositório que foi clonado usando SSH, altere as URLs do remote. Para obter mais informações, consulte "[Alterar a URL de um remote](/github/using-git/changing-a-remotes-url)".
+{% data variables.product.prodname_desktop %} se conecta ao {% data variables.product.prodname_dotcom %} usando HTTPS. Se você usar o {% data variables.product.prodname_desktop %} para acessar repositórios que foram clonados usando SSH, você poderá encontrar erros. Para se conectar a um repositório que foi clonado usando SSH, altere as URLs do remote. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 
 

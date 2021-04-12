@@ -1,6 +1,6 @@
 ---
 title: メンテナンスモードの有効化とスケジューリング
-intro: '標準的なメンテナンス手順のうち、{% data variables.product.product_location_enterprise %} のアップグレードやバックアップの復元などは、通常の使用のためにインスタンスをオフラインにしなければならないものがあります。'
+intro: '標準的なメンテナンス手順のうち、{% data variables.product.product_location %} のアップグレードやバックアップの復元などは、通常の使用のためにインスタンスをオフラインにしなければならないものがあります。'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -12,11 +12,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### メンテナンスモードについて
 
-操作の種類によっては、{% data variables.product.product_location_enterprise %} をオフラインにしてメンテナンスモードにする必要があります。
+操作の種類によっては、{% data variables.product.product_location %} をオフラインにしてメンテナンスモードにする必要があります。
 - {% data variables.product.prodname_ghe_server %} の新規バージョンにアップグレードする
 - 仮想マシンに割り当てられている CPU、メモリ、またはストレージリソースを拡大する
 - ある仮想マシンから別の仮想マシンへデータを移行する

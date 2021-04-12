@@ -1,0 +1,1 @@
+Edita el emoji, título, descripción y formato del debate para la categoría. Para obtener más información sobre los formatos de debate, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".

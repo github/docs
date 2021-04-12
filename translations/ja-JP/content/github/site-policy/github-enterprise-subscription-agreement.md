@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: July 20, 2020
+Version Effective Date: November 16, 2020
 
 「同意する」またはそれに類似するボタンをクリックするか、(以下に定義する) 本製品を利用することにより、お客様は本契約の規約および条件に同意することになります。 お客様が、法人を代表して契約を締結する場合、お客様は、本契約を締結するためにその法人に義務を負担させる法的権限を持つことを表明するものとします。
 
@@ -59,7 +59,7 @@ Version Effective Date: July 20, 2020
 
 #### 1.2.1 料金
 
-お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 Dollars. お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本契約により支払われる金額は、セクション 1.5.1 および 1.6.2 に定める場合を除き返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 設定しなければなりません。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本契約により支払われる金額は、セクション 1.5.1 および 1.6.2 に定める場合を除き返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 #### 1.2.2 プランライセンスの追加購入
 
@@ -197,7 +197,7 @@ GitHub は、お客様を、現在または将来的な顧客に対する顧客�
 
 #### 1.13.11 修正、優先順位
 
-GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 重要でない変更については、お客様が「サービス」を継続して利用することをもって、本契約の改訂に同意したものとみなされます。 お客様は、本契約に対するすべての変更を「[サイトポリシー](https://github.com/github/site-policy)」リポジトリで確認できます。 本契約の規定と、あらゆる「注文書」または「SOW」との間に万が一矛盾がある場合、その「注文書」または「SOW」に関してのみ、「注文書」または「SOW」の規定が支配するものとします。
+GitHub は、独自の裁量により、いつでも本契約を修正する権利を留保し、かかる修正があった場合には本契約を更新します。 GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. お客様は、本契約に対するすべての変更を「[サイトポリシー](https://github.com/github/site-policy)」リポジトリで確認できます。 本契約の規定と、あらゆる「注文書」または「SOW」との間に万が一矛盾がある場合、その「注文書」または「SOW」に関してのみ、「注文書」または「SOW」の規定が支配するものとします。
 
 #### 1.13.12 分離可能性
 
@@ -296,7 +296,7 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 **(ii)** お客様は、セクション3.3.3から3.3.6で規定されている権利を、無料で、かつ同セクションに記された目的のために付与します。これは、お客様が「お客様のコンテンツ」をGitHubサーバから削除するまで続きますが、お客様が公に投稿し「外部ユーザ」がフォークしたコンテンツは例外となり、その場合は「お客様のコンテンツ」のすべてのフォークがGitHubサーバから削除されるまで続きます。 お客様が、「サービス」を実行するために必要な権限をGitHubに付与するライセンスをあらかじめ伴うような「お客様のコンテンツ」をアップロードする場合、追加のライセンスは必要ありません。
 
 #### 3.3.3 GitHubへのライセンス付与
-お客様は、「お客様のコンテンツ」を保存、解析、表示し、「サービス」の提供に必要な限りにおいて付随的な複製を作成する権利をGitHubに付与します。 これには、「お客様のコンテンツ」をGitHubのデータベースにコピーし、バックアップを作成する権利、お客様およびお客様が閲覧者として選択した相手に「お客様のコンテンツ」を表示する権利、「お客様のコンテンツ」を解析して検索インデックスを作成するなどの形でGitHubのサーバ上で分析する権利、お客様がコンテンツの共有相手として選択した外部ユーザーと「お客様のコンテンツ」を共有する権利、および音楽や動画のような場合に「お客様のコンテンツ」を実演する権利が含まれます。 これらの権利は、パブリックリポジトリとプライベートリポジトリの両方に適用されます。 このライセンスは、「お客様のコンテンツ」を販売またはその他の方法で配布する、あるいは「サービス」以外で使用する権利をGitHubに付与するものではありません。 お客様は、帰属先を明示せず、また「サービス」の提供に必要な限りにおいて「お客様のコンテンツ」を合理的に適応させる目的で、「お客様のコンテンツ」に必要な権利をGitHubに付与します。
+Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service. これには、「お客様のコンテンツ」をGitHubのデータベースにコピーし、バックアップを作成する権利、お客様およびお客様が閲覧者として選択した相手に「お客様のコンテンツ」を表示する権利、「お客様のコンテンツ」を解析して検索インデックスを作成するなどの形でGitHubのサーバ上で分析する権利、お客様がコンテンツの共有相手として選択した外部ユーザーと「お客様のコンテンツ」を共有する権利、および音楽や動画のような場合に「お客様のコンテンツ」を実演する権利が含まれます。 これらの権利は、パブリックリポジトリとプライベートリポジトリの両方に適用されます。 このライセンスは、「お客様のコンテンツ」を販売またはその他の方法で配布する、あるいは「サービス」以外で使用する権利をGitHubに付与するものではありません。 お客様は、帰属先を明示せず、また「サービス」の提供に必要な限りにおいて「お客様のコンテンツ」を合理的に適応させる目的で、「お客様のコンテンツ」に必要な権利をGitHubに付与します。
 
 #### 3.3.3 外部ユーザへのライセンス付与
 **(i)** Issue、コメント、外部ユーザのリポジトリへのコントリビューションなど、お客様が公に投稿するコンテンツは、他のユーザーが閲覧することができます。 リポジトリを公開表示に設定することで、お客様は外部ユーザがお客様のリポジトリを閲覧しフォークすることを許可するものとします。
@@ -318,10 +318,13 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 GitHubは、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報と見なします。 GitHubは、プライベートリポジトリの「お客様のコンテンツ」を、セクション1.4に従って保護し、厳密に機密扱いします。
 
 #### 3.4.3 アクセス
-GitHubがお客様のプライベートリポジトリにアクセスするのは、(i) サポート上の理由からお客様の同意と承認を得ている、または (ii) セキュリティ上の理由からアクセスが必須となっている場合だけです。  お客様は、プライベートリポジトリへのアクセスを追加することもできます。 たとえば、プライベートリポジトリにある「お客様のコンテンツ」への追加の権利を必要とするGitHubの各種サービスまたは機能を有効にするなどが考えられます。 これらの権利はサービスまたは機能によって異なりますが、GitHubは引き続き、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報として扱います。 これらのサービスが、「サービス」の提供に必要な以上の権利を追加で必要とする場合、GitHubはその件について説明を行います。
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 3.4.4 免責
-プライベートリポジトリのコンテンツが法律または本契約に違反していると考えられる理由がある場合、GitHubはそのコンテンツにアクセスし、レビューして削除する権利を有します。 また、GitHubはお客様のプライベートリポジトリのコンテンツを開示するよう法律で強制される場合があります。 法律に基づく要件で別段拘束されていない限り、またはセキュリティ上の脅威などセキュリティに対するリスクに対応する目的で、GitHubはかかる行動について通知します。
+お客様は、プライベートリポジトリへのアクセスを追加することもできます。 たとえば、プライベートリポジトリにある「お客様のコンテンツ」への追加の権利を必要とするGitHubの各種サービスまたは機能を有効にするなどが考えられます。 これらの権利はサービスまたは機能によって異なりますが、GitHubは引き続き、お客様のプライベートリポジトリにある「お客様のコンテンツ」をお客様の機密情報として扱います。 これらのサービスが、「サービス」の提供に必要な以上の権利を追加で必要とする場合、GitHubはその件について説明を行います。
+
+また、[法律により強制された](/github/site-policy/github-privacy-statement#for-legal-disclosure)場合は、当社はプライベートリポジトリのコンテンツを開示する場合があります。
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### 3.5. 知的財産に関する通知
 
@@ -330,7 +333,7 @@ GitHubがお客様のプライベートリポジトリにアクセスするの�
 
 #### 3.5.2 著作権侵害とDMCAポリシー
 
-お客様が著作権所有者であり、「サービス」上のコンテンツがお客様の著作権を侵害していると考えられる場合、お客様は[GitHubのデジタルミレニアム著作権法 (DMCA) ポリシー](https://github.com/contact/dmca)に従って、[DMCAの様式](https://github.com/contact/dmca-notice)でGitHubに通知するか、またはcopyright@github.com.に電子メールを送信すして、GitHubに連絡することができます。
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 3.5.3 GitHubのトレードマークとロゴ
 

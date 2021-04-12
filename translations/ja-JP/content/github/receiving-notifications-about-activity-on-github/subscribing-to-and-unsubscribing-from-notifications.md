@@ -12,7 +12,7 @@ versions:
 3. サブスクライブの設定を行う Issue またはプルリクエストを選択します。
 4. 右サイドバーで [**Subscribe**] または [**Unsubscribe**] をクリックします。 ![Conversation サブスクライブボタン](/assets/images/help/notifications/subscribe_button_with_gear.png)
 5. 通知をカスタマイズするには {% octicon "gear" aria-label="The gear icon" %} をクリックします。 ![Conversation サブスクライブの隣にある歯車ボタン](/assets/images/help/notifications/subscribe_button_with_gear_chosen.png)
-6. この Conversation で受信したいタイプの通知を選択して、[**Save**] をクリックします。 ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) You can see a list of all the issues and pull requests you're subscribed to. 詳細は「[サブスクライブしている Issue とプルリクエストをリストする](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)」を参照してください。
+6. この Conversation で受信したいタイプの通知を選択して、[**Save**] をクリックします。 ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) サブスクライブしている Issue およびプルリクエストの一覧を表示できます。 詳細は「[サブスクライブしている Issue とプルリクエストをリストする](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)」を参照してください。
 
 ### Team ディスカッションをサブスクライブする
 

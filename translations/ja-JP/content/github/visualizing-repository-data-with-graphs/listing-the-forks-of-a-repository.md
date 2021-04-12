@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 フォークは、リポジトリをフォークしたユーザの名前のアルファベット順に表示されます。 ユーザ名をクリックして、そのユーザの {% data variables.product.product_name %} プロフィール ページにリダイレクトすることも、フォーク名をクリックして、リポジトリの特定のフォークにリダイレクトすることもできます。

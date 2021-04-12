@@ -45,20 +45,21 @@ Atalhos de teclado do GitHub Desktop no macOS
 
 ### Branches
 
-| Atalho                               | Descrição                                                                   |
-| ------------------------------------ | --------------------------------------------------------------------------- |
-| <kbd>⌘</kbd><kbd>1</kbd>             | Exibir todas as alterações antes de fazer o commit                          |
-| <kbd>⌘</kbd><kbd>2</kbd>             | Exibir o histórico de commits                                               |
-| <kbd>⌘</kbd><kbd>B</kbd>             | Exibir todos os branches                                                    |
-| <kbd>⌘</kbd><kbd>G</kbd>             | Ir para o campo de resumo de commits                                        |
-| <kbd>space (Espaço)</kbd>            | Selecione ou desmarque todos os arquivos destacados                         |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | Criar um branch                                                             |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | Renomear o branch atual                                                     |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>D</kbd> | Excluir o branch atual                                                      |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>U</kbd> | Atualizar o branch padrão                                                   |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd> | Comparar a outro branch                                                     |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>M</kbd> | Fazer um merge com o branch atual                                           |
-| <kbd>⌃</kbd><kbd>H</kbd>             | Exibir ou ocultar alterações stashed                                        |
+| Atalho                               | Descrição                                                                         |
+| ------------------------------------ | --------------------------------------------------------------------------------- |
+| <kbd>⌘</kbd><kbd>1</kbd>             | Exibir todas as alterações antes de fazer o commit                                |
+| <kbd>⌘</kbd><kbd>2</kbd>             | Exibir o histórico de commits                                                     |
+| <kbd>⌘</kbd><kbd>B</kbd>             | Exibir todos os branches                                                          |
+| <kbd>⌘</kbd><kbd>G</kbd>             | Ir para o campo de resumo de commits                                              |
+| <kbd>⌘</kbd><kbd>Enter</kbd>         | Realizar commit de alterações quando o campo de resumo ou descrição estiver ativo |
+| <kbd>space (Espaço)</kbd>            | Selecione ou desmarque todos os arquivos destacados                               |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | Criar um branch                                                                   |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | Renomear o branch atual                                                           |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>D</kbd> | Excluir o branch atual                                                            |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>U</kbd> | Atualizar o branch padrão                                                         |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd> | Comparar a outro branch                                                           |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>M</kbd> | Fazer um merge com o branch atual                                                 |
+| <kbd>⌃</kbd><kbd>H</kbd>             | Exibir ou ocultar alterações stashed                                              |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | Comparar branches no {% data variables.product.prodname_dotcom %}
 | <kbd>⌘</kbd><kbd>R</kbd>             | Exibir a pull request atual no {% data variables.product.prodname_dotcom %}
 
@@ -98,20 +99,21 @@ Atalhos de teclado do GitHub Desktop no Windows
 
 ### Branches
 
-| Atalho                                      | Descrição                                                                   |
-| ------------------------------------------- | --------------------------------------------------------------------------- |
-| <kbd>Ctrl</kbd><kbd>1</kbd>                 | Exibir todas as alterações antes de fazer o commit                          |
-| <kbd>Ctrl</kbd><kbd>2</kbd>                 | Exibir o histórico de commits                                               |
-| <kbd>Ctrl</kbd><kbd>B</kbd>                 | Exibir todos os branches                                                    |
-| <kbd>Ctrl</kbd><kbd>G</kbd>                 | Ir para o campo de resumo de commits                                        |
-| <kbd>space (Espaço)</kbd>                   | Selecione ou desmarque todos os arquivos destacados                         |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | Criar um branch                                                             |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | Renomear o branch atual                                                     |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd> | Excluir o branch atual                                                      |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>U</kbd> | Atualizar o branch padrão                                                   |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> | Comparar a outro branch                                                     |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>M</kbd> | Fazer um merge com o branch atual                                           |
-| <kbd>Ctrl</kbd><kbd>H</kbd>                 | Exibir ou ocultar alterações stashed                                        |
+| Atalho                                      | Descrição                                                                         |
+| ------------------------------------------- | --------------------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd><kbd>1</kbd>                 | Exibir todas as alterações antes de fazer o commit                                |
+| <kbd>Ctrl</kbd><kbd>2</kbd>                 | Exibir o histórico de commits                                                     |
+| <kbd>Ctrl</kbd><kbd>B</kbd>                 | Exibir todos os branches                                                          |
+| <kbd>Ctrl</kbd><kbd>G</kbd>                 | Ir para o campo de resumo de commits                                              |
+| <kbd>Ctrl</kbd><kbd>Enter</kbd>             | Realizar commit de alterações quando o campo de resumo ou descrição estiver ativo |
+| <kbd>space (Espaço)</kbd>                   | Selecione ou desmarque todos os arquivos destacados                               |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | Criar um branch                                                                   |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | Renomear o branch atual                                                           |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>D</kbd> | Excluir o branch atual                                                            |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>U</kbd> | Atualizar o branch padrão                                                         |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> | Comparar a outro branch                                                           |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>M</kbd> | Fazer um merge com o branch atual                                                 |
+| <kbd>Ctrl</kbd><kbd>H</kbd>                 | Exibir ou ocultar alterações stashed                                              |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd> | Comparar branches no {% data variables.product.prodname_dotcom %}
 | <kbd>Ctrl</kbd><kbd>R</kbd>                 | Exibir a pull request atual no {% data variables.product.prodname_dotcom %}
 

@@ -9,6 +9,9 @@ intro: 'Wenn Du einen Pull Request in einem Repository geöffnet hast, können M
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 ### Informationen zu Pull Requests

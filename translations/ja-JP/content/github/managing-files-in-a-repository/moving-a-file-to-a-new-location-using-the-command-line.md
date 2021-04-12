@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 多くのファイルは {% data variables.product.product_name %} で[直接移動](/articles/moving-a-file-to-a-new-location)できますが、画像など一部のファイルは、コマンドラインで移動する必要があります。

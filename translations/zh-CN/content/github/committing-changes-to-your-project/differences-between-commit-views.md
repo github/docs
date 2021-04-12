@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在 {% data variables.product.product_name %} 上，您可以按以下方式查看仓库的提交历史记录：

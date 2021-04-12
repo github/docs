@@ -5,25 +5,28 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: 少なくとも 1 か月の間活動のなかったユーザアカウントは、休眠していると見なされます。 You may choose to suspend dormant users to free up user licenses.
+intro: 'ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% if enterpriseServerVersions contains currentVersion %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}'
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - enterprise
 ---
 
 「活動」には以下のことが含まれますが、以下に限定はされません:
-- {% data variables.product.prodname_ghe_server %} へのサインイン。
+- {% data variables.product.product_name %} へのサインイン。
 - Issue やプルリクエストへのコメント。
 - リポジトリの作成、削除、Watch、スター付け。
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
+- コミットのプッシュ。{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- 個人アクセストークンまたは SSH キーを使用してリソースにアクセスします。{% endif %}
 
 ### 休眠ユーザの表示
 
 サスペンドされておらず、サイト管理者でもないすべての休眠ユーザのリストを表示できます。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. 左のサイドバーで**Dormant users（休眠ユーザ）**をクリックしてください。 ![休眠ユーザタブ](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
-4. このリスト中のすべての休眠ユーザをサスペンドするには、ページの上部で**Suspend all（全員をサスペンド）**をクリックしてください。 ![全員をサスペンドボタン](/assets/images/enterprise/site-admin-settings/suspend-all.png)
+3. 左のサイドバーで**Dormant users（休眠ユーザ）**をクリックしてください。 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+4. このリスト中のすべての休眠ユーザをサスペンドするには、ページの上部で**Suspend all（全員をサスペンド）**をクリックしてください。 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
 ### ユーザアカウントが休眠状態かの判断
 
@@ -36,9 +39,8 @@ versions:
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

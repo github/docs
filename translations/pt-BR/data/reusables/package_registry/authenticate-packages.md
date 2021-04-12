@@ -3,8 +3,11 @@ Você precisa de um token de acesso para publicar, instalar e excluir pacotes no
 {% if currentVersion == "free-pro-team@latest" %}
 Para efetuar a autenticação usando um
 fluxo de trabalho do {% data variables.product.prodname_actions %}:
-- Para registros de pacotes (`PACKAGE-REGISTRY.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`), você pode usar um `GITHUB_TOKEN`.
-- Para o registro do contêiner (`ghcr.io/OWNER/IMAGE-NAME`), você deve usar um token de acesso pessoal.
+- Para registros de pacotes (`PACKAGE-REGISTRY.pkg.github.com`), você pode usar um `GITHUB_TOKEN`.
+- For the container registry (`ghcr.io/OWNER/IMAGE-NAME`), you can use a `GITHUB_TOKEN` or a personal access token. We strongly recommend you use a `GITHUB_TOKEN` to avoid unncessary access to your repositories.
+
+For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+
 {% else %}
 Para efetuar a autenticação em
 {% data variables.product.prodname_registry %} usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, você deve usar `GITHUB_TOKEN`.

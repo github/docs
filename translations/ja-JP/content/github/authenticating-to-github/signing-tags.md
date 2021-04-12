@@ -1,12 +1,16 @@
 ---
 title: タグに署名する
-intro: You can sign tags locally using GPG or S/MIME.
+intro: GPG または S/MIME を使用してローカルでタグに署名できます。
 redirect_from:
   - /articles/signing-tags-using-gpg/
   - /articles/signing-tags
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アイデンティティ
+  - アクセス管理
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

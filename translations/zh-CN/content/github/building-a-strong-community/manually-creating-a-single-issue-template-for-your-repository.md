@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 社区
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -17,7 +20,7 @@ versions:
 
 下面是 YAML 前页的示例。
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.
@@ -28,7 +31,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注：**必须将 YAML 保留的字符（如 `:`）放在引号中。 例如 `":bug: Bug"`。
+**注：** 如果扉页值包含 YAML 保留字符，如 `:`，则您必须将整个值放入引号中。 例如，`":bug: Bug"` 或 `":new: triage needed, :bug: bug"`。
 
 {% endnote %}
 
@@ -38,7 +41,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### 添加议题模板
 

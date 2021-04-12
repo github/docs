@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
@@ -21,7 +23,7 @@ Da Clientverbindungen zu {% data variables.product.prodname_ghe_server %} vom Lo
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### PROXY-Protokollunterstützung auf {% data variables.product.product_location_enterprise %} aktivieren
+#### PROXY-Protokollunterstützung auf {% data variables.product.product_location %} aktivieren
 
 Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Appliance und für den Load-Balancer zu aktivieren. Befolgen Sie die Anweisungen Ihres Anbieters, um das PROXY-Protokoll auf Ihrem Load-Balancer zu aktivieren. Weitere Informationen finden Sie in der Dokumentation zum „[PROXY-Protokoll](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt)“.
 
@@ -33,7 +35,7 @@ Es wird dringend empfohlen, die PROXY-Protokollunterstützung für Ihre Applianc
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### X-Forwarded-For-Unterstützung auf {% data variables.product.product_location_enterprise %} aktivieren
+#### X-Forwarded-For-Unterstützung auf {% data variables.product.product_location %} aktivieren
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 

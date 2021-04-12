@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 准备 {% data variables.product.prodname_ghe_server %} 源实例
@@ -86,7 +88,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. 关闭与 {% data variables.product.product_location_enterprise %} 的连接：
+8. 关闭与 {% data variables.product.product_location %} 的连接：
   ```shell
   $ exit
   > logout

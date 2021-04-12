@@ -4,6 +4,9 @@ intro: '世界のオープンソースソフトウェアを長期的に維持で
 permissions: 'パブリックリポジトリに対する管理者権限があるユーザは、{% data variables.product.prodname_archive %} をオプトインまたはオプトアウトできます。'
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} 詳細は「[{% data variables.product.prodname_dotcom %} 上のコンテンツとデータのアーカイブ処理について](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。

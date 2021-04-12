@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Jeder Benutzer mit Administratorberechtigungen für ein Repository kann Branch-Löschungen aktivieren.

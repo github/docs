@@ -9,6 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - identidade
+  - gerenciamento de acesso
 ---
 
 O comando `git filter-branch` e o BFG Repo-Cleaner regravam o histórico do repositório, o que altera os SHAs dos commits existentes que você altera e quaisquer commits dependentes. Os SHAs do commit alterados podem afetar as pull requests abertas no repositório. Recomendamos que você faça merge ou feche todas todas as pull requests abertas antes de remover os arquivos do repositório.
@@ -27,7 +31,7 @@ Este artigo explica como fazer commits com dados confidenciais que não podem se
 
 #### Usar o BFG
 
-O [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) é uma ferramenta desenvolvida e mantida pela comunidade de código aberto. Ele fornece uma alternativa mais rápida e simples ao `git filter-branch` para remover dados não desejados. Por exemplo: para remover o arquivo com dados confidenciais sem alterar o commit mais recente, execute:
+O [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) é uma ferramenta desenvolvida e mantida pela comunidade de código aberto. Ele fornece uma alternativa mais rápida e simples ao `git filter-branch` para remover dados não desejados. Por exemplo: para remover o arquivo com dados confidenciais sem alterar o commit mais recente, execute:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -39,7 +43,13 @@ Para substituir todo o texto relacionado no `passwords.txt` sempre que ele for e
 $ bfg --replace-text passwords.txt
 ```
 
-Consulte as instruções completas de download e uso na documentação do [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/).
+Depois que os dados confidenciais são removidos, você deve fazer push forçado das suas alterações para {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
+```
+
+Consulte as instruções completas de download e uso na documentação do [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
 
 #### Usar o filter-branch
 
@@ -134,7 +144,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
 
   {% endnote %}
 
-## Evitar commits acidentais no futuro
+### Evitar commits acidentais no futuro
 
 Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
@@ -145,5 +155,5 @@ Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
 ### Leia mais
 
-- [Página principal do `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [man page de `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Ferramentas do Git - Reescrevendo o Histórico](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

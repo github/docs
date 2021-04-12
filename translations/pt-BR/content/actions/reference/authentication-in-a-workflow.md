@@ -9,12 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar secredos.
+{% data reusables.actions.ae-beta %}
 
 ### Sobre o segredo `GITHUB_TOKEN`
 
@@ -40,7 +40,7 @@ Este exemplo de fluxo de trabalho usa a [ação etiquetadora](https://github.com
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -73,13 +73,14 @@ Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este ex
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n O hash do commit foi: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
 ### Permissões para o `GITHUB_TOKEN`
 
-Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/v3/apps/permissions/). "
+Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps). "
 
 | Permissão               | Tipo de acesso   | Acesso pelos repositórios bifurcados |
 | ----------------------- | ---------------- | ------------------------------------ |
@@ -93,6 +94,8 @@ Para obter informações sobre os pontos de extremidade da API que {% data varia
 | Pull requests           | leitura/gravação | leitura                              |
 | Projetos de repositório | leitura/gravação | leitura                              |
 | Status                  | leitura/gravação | leitura                              |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 Se você precisa de um token que exige premissões que não estão disponíveis no `GITHUB_TOKEN`, é possível criar um token de acesso pessoal e configurá-lo como um segredo no repositório:
 

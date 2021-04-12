@@ -3,10 +3,11 @@ title: どのリモート URL を使うべきですか？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '{% data variables.product.prodname_dotcom %} で使用できるリポジトリを複製する方法は複数あります。'
+intro: '{% data variables.product.product_location %} で使用できるリポジトリを複製する方法は複数あります。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 アカウントにサインインしているときにリポジトリを表示すると、プロジェクトを自分のコンピュータに複製するために使用できるURLがリポジトリの詳細の下に表示されます:
@@ -15,7 +16,7 @@ versions:
 
 ### Cloning with HTTPS URLs
 
-`https://` クローン URL は、パブリックおよびプライベートのすべてのリポジトリで利用できます。 これらの URL は、ファイアウォールまたはプロキシの内側にいる場合でも機能します。
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 コマンドラインで、HTTPS URL を使用してリモートリポジトリに `git clone`、`git fetch`、`git pull` または `git push` を行った場合、{% data variables.product.product_name %} のユーザ名とパスワードの入力を求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -23,7 +24,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 
 - 認証情報ヘルパーを使用すれば、{% data variables.product.prodname_dotcom %} と通信するたびに、{% data variables.product.prodname_dotcom %} の認証情報が Git で記憶されます。 詳細は「[Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 
@@ -43,11 +44,11 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% tip %}
 
-**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/v3/guides/using-ssh-agent-forwarding/)」を参照してください。
+**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/developers/overview/using-ssh-agent-forwarding)」を参照してください。
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### Cloning with {% data variables.product.prodname_cli %}
 
@@ -55,11 +56,14 @@ You can also install {% data variables.product.prodname_cli %} to use {% data va
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### Subversion を使って複製する
 
 [Subversion](https://subversion.apache.org/) クライアントを使用して、{% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 Subversion と Git では、提供する機能群に違いがあります。 詳しい情報については、「[Subversion と Git の違い](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)」を参照してください。
+You can also access repositories on
 
-Subversion クライアントから {% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
+{% data variables.product.prodname_dotcom %} from Subversion clients. 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
+{% endif %}
 
 ### 参考リンク
 

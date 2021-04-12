@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data variables.product.product_name %} 可托管和渲染扩展名为 *.stl* 的 3D 文件。

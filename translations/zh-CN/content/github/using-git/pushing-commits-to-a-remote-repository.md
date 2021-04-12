@@ -7,12 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git push` 命令使用两个参数：
 
 * 远程命令，如 `origin`
-* A branch name, for example, `main`
+* 分支名称，如 `main`
 
 例如：
 
@@ -20,7 +21,7 @@ versions:
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-As an example, you usually run `git push origin main` to push your local changes to your online repository.
+例如，您通常运行 `git push origin main` 来推送本地更改到在线仓库。
 
 ### 重命名分支
 
@@ -97,3 +98,4 @@ git fetch upstream
 - [`git remote` 手册页](https://git-scm.com/docs/git-remote.html)
 - "[Git 小抄](/articles/git-cheatsheet)"
 - "[Git 工作流程](/articles/git-workflows)"
+- "[Git 手册](https://guides.github.com/introduction/git-handbook/)"

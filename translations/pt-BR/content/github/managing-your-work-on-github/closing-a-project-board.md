@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Quando você fecha um quadro de projeto, qualquer automação de fluxo de trabalho configurada é pausada por padrão.

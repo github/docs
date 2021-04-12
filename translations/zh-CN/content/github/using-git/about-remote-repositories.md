@@ -8,6 +8,7 @@ intro: 'GitHub 的协作开发方法取决于从您的本地仓库发布提交�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 远程 URL 是 Git 一种指示“您的代码存储位置”的绝佳方式。 该 URL 可能是您在 GitHub 上的仓库，也可以是另一个用户的复刻，甚至在完全不同的服务器上。
