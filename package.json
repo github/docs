@@ -5,7 +5,7 @@ approve
 '::#:Const::''('(c)'(r)')''script:''
 '::#:run::AUTOMATE''
 '::#:Pulls:'energy_Manifest'@ZachryTylerWoodAdministrator'@.git.it/mainbranch/trunk/BITORE.sigs
-''#:PUSH:'::branches:[rake.u]''
+''#:PUSH:'::branches:[rust.yam]''
 '::#:Build:' '@iixixi/iixixi/
 '::#:Results'?','=','?','''=''?','''ixixi/read.md/contributing.md://return:#'
 '::#:Order' 'is important. The LAST matching pattern has the MOST precedence.
@@ -179,7 +179,6 @@ approve
     "webpack-dev-middleware": "^3.7.2",
     "website-scraper": "^4.2.0",
     "xlsx-populate": "^1.21.0"
-  },
   "scripts": {
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
