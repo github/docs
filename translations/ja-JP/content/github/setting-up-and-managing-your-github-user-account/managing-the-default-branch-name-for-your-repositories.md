@@ -25,4 +25,4 @@ topics:
 
 ### 参考リンク
 
-- 「[Organization のリポジトリのデフォルブランチ名を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)」
+- 「[Organization のリポジトリのデフォルブランチ名を管理する](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)」

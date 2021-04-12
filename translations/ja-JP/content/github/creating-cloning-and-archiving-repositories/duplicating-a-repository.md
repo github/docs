@@ -23,13 +23,13 @@ topics:
   ```
 3. 新しいリポジトリをミラープッシュします。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### {% data variables.large_files.product_name_long %} オブジェクトを含むリポジトリをミラーする
@@ -41,7 +41,7 @@ topics:
   ```
 3. クローンしたリポジトリに移動します。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. リポジトリの {% data variables.large_files.product_name_long %} オブジェクトをプルします。
   ```shell
@@ -58,7 +58,7 @@ topics:
 7. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 別の場所にあるリポジトリをミラーする
@@ -72,7 +72,7 @@ topics:
   ```
 3. プッシュの場所をミラーに設定します。
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

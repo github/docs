@@ -17,7 +17,7 @@ redirect_from:
 
 {% data reusables.classroom.about-assignments %}
 
-您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 更多信息请参阅“[关于团队](/github/setting-up-and-managing-organizations-and-teams/about-teams)”。
+您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 

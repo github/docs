@@ -1,7 +1,7 @@
 ---
 title: Encontrar vulnerabilidades e erros de segurança no seu código
 shortTitle: Codificação segura
-intro: 'Mantenha seu código seguro usando a varredura de segredo para identificar e corrigir potenciais vulnerabilidades de segurança e outros erros no seu código.'
+intro: 'Keep your code secure by using {% data variables.product.prodname_code_scanning %} to identify and fix potential security vulnerabilities and other errors in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code

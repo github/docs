@@ -11,7 +11,7 @@ versions:
 
 ### 关于安全概述
 
-您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。 在组织级别，安全概述显示组织拥有的仓库的聚合和仓库特定安全信息。 在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 更多信息请参阅“[管理团队的组织仓库访问权限](/github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository)”。
+您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。 在组织级别，安全概述显示组织拥有的仓库的聚合和仓库特定安全信息。 在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 更多信息请参阅“[管理团队的组织仓库访问权限](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”。
 
 安全概述指示是否为组织拥有的仓库启用了 {% data variables.product.prodname_GH_advanced_security %} 功能，并且合并来自 {% data variables.product.prodname_advanced_security %} 功能的警报，包括 {% data variables.product.prodname_code_scanning %} 警报、{% data variables.product.prodname_dependabot_alerts %} 和 {% data variables.product.prodname_secret_scanning %} 警报。 更多信息请参阅“[关于保护仓库](/code-security/getting-started/about-securing-your-repository)”。
 
