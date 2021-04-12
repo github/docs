@@ -139,7 +139,7 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
             const mainHeadSha = await github.git.getRef({
               ...context.repo,
@@ -167,14 +167,16 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
             const pull = await github.pulls.get({
               ...context.repo,
               pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
             })
+
             const pullNodeId = pull.data.node_id
             console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
+
             const mutation = `mutation ($id: ID!) {
               enablePullRequestAutoMerge(input: {
                 pullRequestId: $id,
@@ -186,9 +188,12 @@ jobs:
             const variables = {
               id: pullNodeId
             }
+
             const graph = await github.graphql(mutation, variables)
+            console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
+
             if (graph.errors && graph.errors.length > 0) {
-              console.error('ERROR! Failed to enable auto-merge:\n - ', graph.errors.map(error => error.message).join('\n - '))
+              console.error('ERROR! Failed to enable auto-merge:\n - ' + graph.errors.map(error => error.message).join('\n - '))
             } else {
               console.log('Auto-merge enabled!')
             }
