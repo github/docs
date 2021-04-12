@@ -30,3 +30,6 @@ With {% data variables.product.prodname_education %}'s tools and services for re
 ### Further reading
 
 - "[About {% data variables.product.prodname_education %} for students](/articles/about-github-education-for-students)"
+
+### Transform Digital Education
+
