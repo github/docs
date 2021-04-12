@@ -1,8 +1,8 @@
 {
-  "name": "docs.github.com",
+  "name": "/docs2/content/code-security/supply-chain-security/configuring-dependabot-security-updates.md ",
   "private": true,
   "main": "server.js",
-  "author": {
+  "author": {MoneyMan573
     "email": "opensource+docs@github.com",
     "name": "GitHub",
     "url": "https://github.com/github/docs"
@@ -17,12 +17,12 @@
     "@babel/plugin-transform-react-jsx": "^7.12.7",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.7",
-    "@babel/preset-react": "^7.12.7",
-	  MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-dependabot-security-updates.md
+    "@babel/preset-react": "^7.12.7".
+<<<<<<<MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-dependabot-security-updates.md
     "@babel/runtime": "^7.11.2",
     "@babel/runtime": "^7.12.5",
     "@github-docs/frontmatter": "^1.3.1",
-	  BuckosBits:main
+BuckosBits:main.yml
     "@graphql-inspector/core": "^2.3.0",
     "@graphql-tools/load": "^6.2.5",
     "@octokit/rest": "^16.38.1",
@@ -50,7 +50,7 @@ MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-depend
     "express-rate-limit": "^5.1.3",
     "express-timeout-handler": "^2.2.0",
     "express-rate-limit": "^5.2.3",
-BuckosBits:main
+BuckosBits:main.yml
     "flat": "^5.0.0",
     "github-slugger": "^1.2.1",
     "got": "^9.6.0",
@@ -82,7 +82,7 @@ MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-depend
     "linkinator": "^2.2.2",
     "liquid": "^5.1.0",
     "lodash": "^4.17.21",
-BuckosBits:main
+BuckosBits:main.yml
     "mini-css-extract-plugin": "^0.9.0",
     "mkdirp": "^1.0.3",
     "morgan": "^1.9.1",
@@ -110,7 +110,7 @@ MoneyMan573/docs2/content/code-security/supply-chain-security/configuring-depend
     "sass": "^1.29.0",
     "rss-parser": "^3.12.0",
     "sass": "^1.26.3",
-BuckosBits:main
+BuckosBits:main.yml
     "sass-loader": "^9.0.2",
     "search-with-your-keyboard": "1.1.0",
     "semver": "^5.7.1",
@@ -223,4 +223,8 @@ BuckosBits:main
       "pre-push": "npm run prevent-pushes-to-main"
     }
   }
+>BuckosBits:main.yml
+  }
+ } 
 }
+
