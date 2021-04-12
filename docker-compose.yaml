@@ -1,0 +1,7 @@
+version: '3.6'
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile.openapi_decorator
+    image: 'openapi_decorator:${BUILD_SHA}'

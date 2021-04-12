@@ -23,13 +23,13 @@ topics:
   ```
 3. 镜像推送至新仓库。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 镜像包含 {% data variables.large_files.product_name_long %} 对象的仓库。
@@ -41,7 +41,7 @@ topics:
   ```
 3. 导航到刚克隆的仓库。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. 拉取仓库的 {% data variables.large_files.product_name_long %} 对象。
   ```shell
@@ -58,7 +58,7 @@ topics:
 7. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 镜像其他位置的仓库
@@ -72,7 +72,7 @@ topics:
   ```
 3. 设置到镜像的推送位置。
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

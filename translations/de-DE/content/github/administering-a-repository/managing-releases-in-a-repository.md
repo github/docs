@@ -47,7 +47,10 @@ You can choose whether
 6. Gib einen Titel und eine Beschreibung für Deinen Release ein. ![Beschreibung der Releases](/assets/images/help/releases/releases_description.png)
 7. Um optional binäre Dateien wie kompilierte Programme in Deinen Release einzubinden, ziehe die Dateien mit Drag-and-Drop herüber oder wähle die Dateien manuell im Feld für Binärdateien. ![DMG mit dem Release bereitstellen](/assets/images/help/releases/releases_adding_binary.gif)
 8. Um Benutzer darüber zu informieren, dass der Release nicht produktionsbereit und möglicherweise instabil ist, wähle **This is a pre-release** (Dies ist eine Vorabversion). ![Kontrollkästchen für die Markierung eines Release als Vorab-Release](/assets/images/help/releases/prerelease_checkbox.png)
-9. Wenn Du Deinen Release publizieren möchtest, klicke auf **Publish release** (Release publizieren). Um den Release später zu bearbeiten, klicke auf **Save draft** (Entwurf speichern). ![Schaltfläche „Publish release“ (Release veröffentlichen) und Schaltfläche zum Speichern als Entwurf](/assets/images/help/releases/release_buttons.png)
+{%- if currentVersion == "free-pro-team@latest" %}
+1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+{%- endif %}
+9. Wenn Du Deinen Release publizieren möchtest, klicke auf **Publish release** (Release publizieren). Um den Release später zu bearbeiten, klicke auf **Save draft** (Entwurf speichern). ![Schaltfläche „Publish release“ (Veröffentlichung veröffentlichen) und Schaltfläche zum Speichern als Entwurf](/assets/images/help/releases/release_buttons.png)
 
 Du kannst auch automatisch einem Release aus der Kommandozeile oder in einem Skript erstellen. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
 

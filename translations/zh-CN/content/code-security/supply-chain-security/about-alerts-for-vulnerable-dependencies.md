@@ -49,9 +49,9 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom %} 默认会检测_公共_仓库中有漏洞的依赖项并生成 {% data variables.product.prodname_dependabot_alerts %}。 私有仓库的所有者或具有管理员权限的人员可以通过为其仓库启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %} 来启用 {% data variables.product.prodname_dependabot_alerts %}。
 
-您也可以为用户帐户或组织拥有的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[管理用户帐户的安全和分析设置](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)”或“[管理组织的安全和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”。
+您也可以为用户帐户或组织拥有的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
-有关 {% data variables.product.prodname_dependabot_alerts %} 相关操作的权限要求的信息，请参阅“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)”。
+For information about permission requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization#permission-requirements-for-security-features)."
 
 {% data variables.product.product_name %} 将立即开始生成依赖关系图，并在发现任何有漏洞的依赖项后立即生成警报。 依赖关系图通常在几分钟之内填充，但对于依赖项很多的仓库，可能需要更长时间。 更多信息请参阅“[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”。
 {% endif %}

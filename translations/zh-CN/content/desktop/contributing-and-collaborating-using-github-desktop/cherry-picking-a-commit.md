@@ -1,22 +1,22 @@
 ---
-title: Cherry-picking a commit
-intro: You can pick a specific commit on one branch and copy the commit to another branch.
+title: 优选提交
+intro: 您可以在一个分支上选择特定的提交，并将提交副本复制到另一个分支。
 versions:
   free-pro-team: '*'
 ---
 
-### About Git cherry-pick
+### 关于 Git 优选
 
-You can cherry-pick a commit on one branch to create a copy of the commit with the same changes on another branch. If you commit changes to the wrong branch or want to make the same changes to another branch, you can cherry-pick the commit to apply the changes to another branch. You can also use cherry-picking to apply specific changes before you are ready to create or merge a pull request. For example, if you commit a bug fix to a feature branch, you can cherry-pick the commit with the bug fix to other branches of your project.
+您可以在一个分支上优选提交在另一个分支上创建具有相同更改的提交副本。 如果将更改提交到错误的分支或想要对另一分支进行相同的更改，您可以优选提交将更改应用到另一个分支。 您也可以在准备创建或合并拉取请求之前使用优选来应用特定的更改。 例如，如果您向功能分支提交错误修复，则可优选包含错误修复的提交到项目的其他分支。
 
-You can also use cherry-picking when collaborating with a team. Some projects incorporate contributions by cherry-picking commits. For more information, see [Distributed Git - Maintaining a Project](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project#_rebase_cherry_pick) in the Git documentation.
+您还可以在与团队合作时使用优选。 有些项目包括通过优选提交所做的参与。 更多信息请参阅 Git 文档中的[分发的 Git - 维护项目](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project#_rebase_cherry_pick)。
 
-### Cherry-picking a commit
+### 优选提交
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, click the branch that has the commit that you want to cherry-pick.
+2. 在分支列表中，单击包含您想要优的提交的分支。
 {% data reusables.desktop.history-tab %}
-4. Drag the commit that you want to cherry-pick to the {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** menu and drop the commit on the branch that you want to copy the commit to. ![Dragging a commit to another branch in the Current Branch menu](/assets/images/help/desktop/cherry-picking.png)
+4. 将要优选的提交拖到 {% octicon "git-branch" aria-label="The branch icon" %} **当前分支**菜单，并放到您要复制该提交到其中的分支上。 ![将提交拖动到 Current Branch（当前分支）菜单中的另一个分支](/assets/images/help/desktop/cherry-picking.png)
 
 ### 延伸阅读
-- [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
+- Git 文档中的 [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick)
