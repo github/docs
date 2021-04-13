@@ -9,19 +9,15 @@
 }
 
 // Type
-.text-blue-mktg {
-  color: $blue-500 !important;
-}
-
-.text-white-fade {
-  color: $white-fade-70 !important;
+.color-text-link-mktg {
+  color: var(--color-auto-blue-5) !important;
 }
 
 // Text styling
 .underline-dashed {
   display: inline;
   padding-bottom: $spacer-1;
-  background-image: linear-gradient(to right, $gray-300 50%, rgba(255, 255, 255, 0) 0%);
+  background-image: linear-gradient(to right, var(--color-auto-gray-3) 50%, transparent 0%);
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 10px 1px;
@@ -48,11 +44,6 @@
 .Bump-link--hover:hover .Bump-link-symbol {
   opacity: 1;
   transform: translateX(3px);
-}
-
-// Background
-.bg-blue-dark {
-  background-color: $blue-800 !important;
 }
 
 // stylelint-disable primer/no-unused-vars
