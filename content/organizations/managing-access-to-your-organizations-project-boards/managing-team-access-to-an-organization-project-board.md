@@ -52,5 +52,5 @@ If a team's access to a project board is inherited from a parent team, you must 
 {% data reusables.organizations.specific_team %}
 4. Above the team's conversation, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
   ![The team repositories tab](/assets/images/help/organizations/team-project-board-button.png)
-5. To change permissions levels, to the right of the project board you want to update, use the drop-down. To remove a project board, click **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
+5. To change permissions levels, to the right of the project board you want to update, use the drop-down. To remove a project board, click **{% octicon "trash" aria-label="The trash icon" %}**.
   ![Remove a project board from your team trash button](/assets/images/help/organizations/trash-button.png)
