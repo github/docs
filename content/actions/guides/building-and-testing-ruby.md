@@ -105,9 +105,9 @@ name: Ruby CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -211,9 +211,9 @@ name: Matrix Testing
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -272,11 +272,11 @@ name: Ruby Gem
 on:
   # Manually publish
   workflow_dispatch:
-  # Alternatively, publish whenever changes are merged to the default branch.
+  # Alternatively, publish whenever changes are merged to the `main` branch.
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
