@@ -16,6 +16,7 @@ const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
 const prerenderInputObjects = require('./utils/prerender-input-objects')
 const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
+const loadData = require('../../lib/site-data')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -37,6 +38,8 @@ const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-sc
 
 const versionsToBuild = Object.keys(allVersions)
 
+const currentLanguage = 'en'
+
 main()
 
 async function main () {
@@ -44,6 +47,14 @@ async function main () {
   const upcomingChangesJson = {}
   const prerenderedObjects = {}
   const prerenderedInputObjects = {}
+
+  const siteData = await loadData()
+
+  // create a bare minimum context for rendering the graphql-object.html layout
+  const context = {
+    currentLanguage,
+    site: siteData[currentLanguage].site,
+  }
 
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
@@ -75,13 +86,17 @@ async function main () {
     const schemaJsonPerVersion = await processSchemas(safeForPublicSchema, safeForPublicPreviews)
     updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
 
+    // Add some version specific data to the context
+    context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
+    context.currentVersion = version
+
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(context)
 
     // 5. PRERENDER INPUT OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(schemaJsonPerVersion, version)
+    prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(context)
 
     // 6. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {

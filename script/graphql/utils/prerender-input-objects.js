@@ -6,27 +6,16 @@ const getMiniTocItems = require('../../../lib/get-mini-toc-items')
 const rewriteLocalLinks = require('../../../lib/rewrite-local-links')
 const includes = path.join(process.cwd(), 'includes')
 const inputObjectIncludeFile = fs.readFileSync(path.join(includes, 'graphql-input-object.html'), 'utf8')
-// TODO need to localize
-const currentLanguage = 'en'
 
-module.exports = async function prerenderInputObjects (schemaJsonPerVersion, version) {
-  const site = await require('../../../lib/site-data')()
-
-  // create a bare minimum context for rendering the graphql-object.html layout
-  const context = {
-    currentLanguage,
-    site: site[currentLanguage].site,
-    graphql: { schemaForCurrentVersion: schemaJsonPerVersion }
-  }
-
+module.exports = async function prerenderInputObjects (context) {
   const inputObjectsArray = []
 
   // render the graphql-object.html layout for every object
-  for (const inputObject of schemaJsonPerVersion.inputObjects) {
+  for (const inputObject of context.graphql.schemaForCurrentVersion.inputObjects) {
     context.item = inputObject
     const inputObjectHtml = await liquid.parseAndRender(inputObjectIncludeFile, context)
     const $ = cheerio.load(inputObjectHtml, { xmlMode: true })
-    rewriteLocalLinks($, version, currentLanguage)
+    rewriteLocalLinks($, context.currentVersion, context.currentLanguage)
     const htmlWithVersionedLinks = $.html()
     inputObjectsArray.push(htmlWithVersionedLinks)
   }
