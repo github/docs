@@ -42,19 +42,18 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
-### Automatic table of contents in README files
+### Auto-generated table of contents in README files
 
-For README files located in the root of a repository, a table of contents will be automatically generated based on headings. You can view the table of contents for a README by clicking on the {% octicon "list-unordered" aria-label="The unordered list icon" %} icon at the top of the README page. 
+For any Markdown file in a repository, including README files located in the root of a repository, a table of contents is automatically generated based on section headings. You can view the table of contents for a README by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered README page. 
 
-<TBD INSERT screenshot of readme with icon?>
+![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
 
-While the automatic table of contents is enabled by default, you can opt out of it for your repository. Go to the main page of your repository and click {% octicon "gear" aria-label="The gear icon" %}**Settings**. Under "Features", unselect **Table of contents**. 
+While the auto-generated table of contents is enabled by default for all Markdown files in a repository, you can disable it for your repository. Go to the main page of your repository and click {% octicon "gear" aria-label="The gear icon" %} **Settings**. Under "Features", deselect **Table of contents**. 
 
-<TBD INSERT screenshot of repo setting>
-
+![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
 ### Section links in README files and blob pages
 
-Many projects use a table of contents at the start of a README to direct users to different sections of the file. {% data reusables.repositories.section-links %}
+{% data reusables.repositories.section-links %}
 
 ### Relative links and image paths in README files
 
