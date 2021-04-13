@@ -22,7 +22,7 @@ Form and inputs using .ais- prefix gets added by search.js */
   padding: 10px $spacer-2 10px $spacer-5;
   font-size: 16px;
   @extend .form-control;
-  background: var(--color-bg-primary) url("/assets/images/octicons/search.svg") no-repeat 6px;
+  background: $white url("/assets/images/octicons/search.svg") no-repeat 6px;
 }
 
 .ais-SearchBox-reset {
@@ -54,13 +54,13 @@ Form and inputs using .ais- prefix gets added by search.js */
   overflow: hidden;
 
   &:hover {
-    background: var(--color-auto-blue-0);
+    background: $blue-000;
   }
 }
 
 /* activated by search-with-your-keyboard arrow navigation */
 .ais-Hits-item.active {
-  background: var(--color-auto-blue-0);
+  background: $blue-000;
 }
 
 .search-result-intro {
@@ -76,16 +76,16 @@ mark,
   color: inherit;
 
   .search-result-title & {
-    color: var(--color-auto-blue-5);
+    color: $blue-500;
   }
 
   .search-result-intro & {
-    border-bottom: 1px solid var(--color-auto-blue-5);
+    border-bottom: 1px solid $blue-500;
   }
 
   .search-result-content & {
     text-decoration: none;
-    border-bottom: 1px dotted var(--color-auto-gray-5);
+    border-bottom: 1px dotted $gray-500;
   }
 }
 
@@ -118,8 +118,8 @@ header {
       right: 0;
       width: 0;
       border-radius: 3px;
-      background: var(--color-bg-primary);
-      box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
+      background: $white;
+      box-shadow: 0 1px 15px $black-fade-15;
       transition: width 0.3s ease-in-out;
 
       &.js-open {
@@ -144,7 +144,7 @@ header {
       z-index: -1;
       display: block;
       content: " ";
-      background: rgba(0, 0, 0, 0.15);
+      background: $black-fade-15;
     }
 
     .ais-SearchBox-input {
