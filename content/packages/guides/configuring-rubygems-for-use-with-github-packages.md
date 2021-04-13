@@ -70,7 +70,7 @@ If you don't have a *~/.gemrc* file, create a new *~/.gemrc* file using this exa
 ```shell
 ---
 :backtrace: false
-:bulk_threshold: 1000
+:bulk_threshold: 10000
 :sources:
 - https://rubygems.org/
 - https://USERNAME:TOKEN@{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/
