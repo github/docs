@@ -88,7 +88,7 @@ For more information, see "[Creating a personal access token](/github/authentica
 
 If you have feedback or feature requests for {% data variables.product.prodname_github_container_registry %}, use the [feedback form](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages).
 
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_github_container_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+ Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_github_container_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
 
 * You experience anything that contradicts the documentation.
 * You encounter vague or unclear errors.
