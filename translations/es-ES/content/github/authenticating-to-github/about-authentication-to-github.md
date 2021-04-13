@@ -55,3 +55,19 @@ Puedes acceder a los repositorios en {% data variables.product.product_name %} d
 * Puedes trabajar con todos los repositorios en {% data variables.product.product_name %} a través de SSH, aunque los cortafuegos y los proxys podrían rehusarse a permitir las conexiones de SSH. Para utilizar SSH necesitas generar un par de llaves pública/privada de SSH en tu máquina local y agregar la llave pública a tu cuenta de {% data variables.product.product_name %}. Cada que utilizas Git para autenticarte con {% data variables.product.product_name %}, se te solicitará que ingreses tu frase de ingreso de la llave SSH, a menos de que hayas [almacenado la llave](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). Para obtener más información, consulta "[Generar una nueva llave SSH y agregarla a ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
 {% if currentVersion == "free-pro-team@latest" %}Para utilizar un token de acceso personal o llave SSH para acceder a los recursos que pertenecen a una organización que utilice el inicio de sesión único de SAML, también debes autorizar el token personal o llave SSH. Para obtener más información, consulta la sección "[Autorizar un token de acceso personal para utilizarlo con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" o la sección "[Autorizar una llave SSH para su uso con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+
+### {% data variables.product.company_short %}'s token formats
+
+{% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
+
+| Token type                                                                      | Prefix | Más información                                                                                                                                                   |
+|:------------------------------------------------------------------------------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Token de acceso personal                                                        | `ghp_` | "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)"                                                          |
+| OAuth access token                                                              | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)"                                                       |
+| User-to-server token for a {% data variables.product.prodname_github_app %}   | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
+| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"   |
+| Refresh token for a {% data variables.product.prodname_github_app %}          | `ghr_` | "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)"                                                             |
+
+{% endif %}

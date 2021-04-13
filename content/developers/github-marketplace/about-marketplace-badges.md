@@ -13,7 +13,7 @@ Certain apps on the {% data variables.product.prodname_marketplace %} have the {
 
 - Verified ownership of their domain and has a verified badge on their profile
 - Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. For more information, see "[Requiring two-factor authentication in your organization](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
+- Required two-factor authentication for their organization. For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."
 
 ![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

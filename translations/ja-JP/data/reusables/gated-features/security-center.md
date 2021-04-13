@@ -1,4 +1,4 @@
 {% if currentVersion == "github-ae@latest" %}
-The security overview for your organization is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
+{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら、Organizationのセキュリティの概要が利用できます。これは、ベータリリースの間は無料です。
 {% else %}
-The security overview for your organization is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら、Organizationのセキュリティの概要が利用できます。{% endif %} {% data reusables.advanced-security.more-info-ghas %}

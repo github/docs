@@ -12,8 +12,6 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
-{% data reusables.dependabot.beta-note-no-link %}
-
 ### Sobre atualizações de versão para dependências
 
 Você habilita {% data variables.product.prodname_dependabot_version_updates %}, verificando um arquivo de configuração *dependabot.yml* no diretório do seu repositório `.github`. Em seguida, o {% data variables.product.prodname_dependabot %} cria um pull request para manter as dependências que você configura atualizadas. Para cada dependência do gerenciador de pacotes que você deseja atualizar, você deve especificar a localização dos arquivos de manifesto do pacote e a frequência de busca por atualizações nas dependências listadas nesses arquivos. Para obter mais informações sobre habilitar atualizações de segurança, consulte "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
@@ -97,30 +95,30 @@ Quando você desabilita dependências, você pode usar cartões curingas para co
 O exemplo de arquivo *dependabot.yml* abaixo inclui exemplos das diferentes maneiras de desabilitar atualizações para algumas dependências, ao mesmo tempo que permite que outras atualizações continuem.
 
 ```yaml
-# arquivo dependabot.yml file com atualizações
-# desabilitado para Docker e limitado para npm
+# dependabot.yml file with updates
+# disabled for Docker and limited for npm
 
 version: 2
 updates:
-  # Configuração para Dockerfile
+  # Configuration for Dockerfile
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
-      # Desabilitar todas as pull requests para dependências Docker
+      # Disable all pull requests for Docker dependencies
     open-pull-requests-limit: 0
 
-  # Configuração para npm
+  # Configuration for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
-    # Substituir quaisquer ignores criados usando os comandos "@dependabot ignore"
+    # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # Ignorar atualizações de pacotes que comecem com "aws"
-      # Curingas correspondentes a zero ou outros caracteres arbitrários
+      # Ignore updates to packages that start with 'aws'
+      # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
-      # Ignorar algumas atualizações do pacote "express"
+      # Ignore some updates to the 'express' package
       - dependency-name: "express"
         # Ignore only new versions for 4.x and 5.x
         versions: ["4.x", "5.x"]

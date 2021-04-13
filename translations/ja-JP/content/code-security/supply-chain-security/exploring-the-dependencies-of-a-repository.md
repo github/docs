@@ -74,7 +74,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 リポジトリ管理者は、プライベートリポジトリに対して依存関係グラフを有効または無効にすることができます。
 
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. 詳しい情報については、「[ユーザーアカウントのセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」または「[Organization のセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
+You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -114,7 +114,7 @@ The "Used by" section represents a single package from the repository. If you ha
 ### 参考リンク
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
-- [Organization のインサイトを表示する](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)
+- [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)
 - [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
 - [{% data variables.product.product_name %} によるデータの利用方法と保護方法を理解する](/github/understanding-how-github-uses-and-protects-your-data)
 {% endif %}

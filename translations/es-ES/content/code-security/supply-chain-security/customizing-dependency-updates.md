@@ -10,8 +10,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### Acerca de personalizar las actualizaciones de las dependencias
 
 Después de que hayas habilitado la actualización de versiones, puedes personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus dependencias si agregas más opciones al archivo *dependabot.yml*. Por ejemplo, podrías:

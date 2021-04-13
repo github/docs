@@ -13,7 +13,7 @@ topics:
   - legal
 ---
 
-Fecha de entrada en vigor: **29 de enero de 2021**
+Effective date: **April 2, 2021**
 
 GitHub ofrece una gran cantidad de transparencia en cuanto a cómo usamos tus datos, cómo recopilamos tus datos y con quién los compartimos. Para este propósito, proporcionamos esta página, la cual detalla [nuestros subprocesadores](#github-subprocessors) y cómo utilizamos las [cookies](#cookies-on-github).
 
@@ -33,7 +33,6 @@ Cuando compartimos tu información con subprocesadores de terceros, como nuestro
 | MailChimp                | Proveedor de servicios de correo de billetaje de clientes                                       | Estados Unidos              | Estados Unidos        |
 | Mailgun                  | Proveedor de servicios de correo transaccional                                                  | Estados Unidos              | Estados Unidos        |
 | Microsoft                | Servicios de Microsoft                                                                          | Estados Unidos              | Estados Unidos        |
-| Monday.com               | Plataforma de colaboración en equipo y gestión de proyectos                                     | Estados Unidos              | Israel                |
 | Nexmo                    | Proveedor de notificaciones SMS                                                                 | Estados Unidos              | Estados Unidos        |
 | Salesforce.com           | Gestión de relaciones con clientes                                                              | Estados Unidos              | Estados Unidos        |
 | Sentry.io                | Proveedor de monitoreo de aplicaciones                                                          | Estados Unidos              | Estados Unidos        |

@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -201,7 +201,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '2.2.103', '3.0', '3.1.x' ]
+        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
       - uses: actions/checkout@v2

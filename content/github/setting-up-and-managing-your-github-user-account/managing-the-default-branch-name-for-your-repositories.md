@@ -28,4 +28,4 @@ When you create a new repository on {% data variables.product.product_location %
 
 ### Further reading
 
-- "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

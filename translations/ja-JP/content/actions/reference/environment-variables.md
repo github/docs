@@ -22,6 +22,7 @@ versions:
 
 カスタムの環境変数を設定するには、ワークフローファイル中でその変数を指定しなければなりません。 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv)、[`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)といったキーワードを使って、ステップ、ジョブ、あるいはワークフロー全体の環境変数を定義できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -30,13 +31,14 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 環境変数の値をワークフローファイル内で使うには、[`env`コンテキスト](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)を使わなければなりません。 環境変数の値をランナー内で使いたいなら、ランナーのオペレーティングシステムで環境変数を読む通常の方法が使えます。
 
