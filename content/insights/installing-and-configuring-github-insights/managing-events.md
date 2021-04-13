@@ -32,6 +32,6 @@ After you create an event in {% data variables.product.prodname_insights %}, any
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.events-tab %}
-3. To the right of the event you want to delete, click **{% octicon "trash" aria-label="The trash icon" %}**.
+3. To the right of the event you want to delete, click **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
   ![Trash can button](/assets/images/help/insights/trashcan-button.png)
 4. Click **Confirm**.

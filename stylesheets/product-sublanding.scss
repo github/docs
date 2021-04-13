@@ -15,7 +15,7 @@
 }
 
 .step-circle-text {
-  color: var(--color-auto-purple-5);
+  color: #7952AF;
 }
 .description-text {
   opacity: 0.7;
@@ -38,28 +38,3 @@
 
 @include truncate(3);
 @include truncate(8);
-
-
-.fade-background-left {
-  background: linear-gradient(
-    to right,
-    var(--color-bg-tertiary),
-    transparent
-  );
-}
-
-.fade-background-right {
-  background: linear-gradient(
-    to left,
-    var(--color-bg-tertiary),
-    transparent
-  );
-}
-
-.fade-background-bottom {
-  background: linear-gradient(
-    to top,
-    var(--color-bg-tertiary),
-    transparent
-  );
-}

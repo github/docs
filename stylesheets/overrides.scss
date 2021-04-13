@@ -44,7 +44,7 @@
 
 // needs specificity to override
 .markdown-body .lead-mktg p {
-  color: var(--color-auto-gray-9);
+  color: $gray-900;
 }
 
 .extended-markdown p {
@@ -62,7 +62,7 @@
 }
 
 .extended-markdown.note pre code {
-  color: var(--color-text-primary);
+  color: $text-gray-dark;
 }
 
 .product-callout p, .contributor-callout p {
@@ -73,6 +73,24 @@
   display: table;
   table-layout: fixed;
   line-height: 1.5;
+}
+
+div.light-bg a,
+div.light-bg a h4 {
+  color: $text-gray-dark;
+}
+
+div.light-bg a p {
+  color: $text-gray;
+}
+
+div.dark-bg a,
+div.dark-bg a h4 {
+  color: $white;
+}
+
+div.dark-bg a p {
+  color: $white-fade-70;
 }
 
 li.nestedTocItem {
@@ -105,21 +123,21 @@ li.nestedTocItem {
 
 /* code styles */
 pre .redbox {
-  border: 2px solid var(--color-auto-red-5);
+  border: 2px solid #d9534f;
   padding: 2px;
   border-radius: 2px;
   margin-right: 2px;
 }
 
 pre .greenbox {
-  border: 2px solid var(--color-auto-green-5);
+  border: 2px solid #5cb85c;
   padding: 2px;
   border-radius: 2px;
   margin-right: 2px;
 }
 
 pre .bluebox {
-  border: 2px solid var(--color-auto-blue-5);
+  border: 2px solid #428bca;
   padding: 2px;
   border-radius: 2px;
   margin-right: 2px;
@@ -127,31 +145,31 @@ pre .bluebox {
 
 /* Accessibility color contrast */
 .btn-mktg {
-  background-color: var(--color-auto-blue-5);
+  background-color: $blue-500;
 }
 
 /* Accessibility color contrast */
 .btn-outline-mktg {
-  background-color: var(--color-auto-inverse);
-  color: var(--color-auto-blue-5);
+  background-color: white;
+  color: $blue-500;
 }
 
 /* Accessibility color contrast */
-.color-bg-danger a {
-  color: var(--color-auto-blue-6);
+.bg-red-light a {
+  color: $blue-600;
 }
 
 /* Accessibility color contrast */
-.markdown-body .color-bg-info blockquote {
-  color: var(--color-auto-gray-6);
+.markdown-body .bg-blue-light blockquote {
+  color: $gray-600;
 }
 
 /* Helpfulness survey override */
 :checked + .x-radio-label {
-  background: var(--color-auto-blue-5);
+  background: $blue-500;
 
   svg {
-    fill: var(--color-auto-inverse);
+    fill: $white;
   }
 }
 
@@ -162,3 +180,4 @@ pre .bluebox {
 .markdown-body img {
   max-height: 600px;
 }
+
