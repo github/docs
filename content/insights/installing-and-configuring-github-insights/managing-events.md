@@ -1,7 +1,6 @@
 ---
 title: Managing events
 intro: '{% data reusables.github-insights.events %}'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-events
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
