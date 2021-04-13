@@ -37,7 +37,7 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. 在 "{% data variables.product.prodname_code_scanning_capc %}" 下，单击要探索的警报。 ![警报摘要](/assets/images/help/repository/code-scanning-click-alert.png)
+1. 在 "{% data variables.product.prodname_code_scanning_capc %}" 下，单击要探索的警报。 ![警报摘要](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 1. （可选）如果警报突出显示数据流的问题，请单击 **Show paths（显示路径）**以显示从数据源到使用它的接收者的路径。 ![警报上的"显示路径"链接](/assets/images/help/repository/code-scanning-show-paths.png)
 1. 来自 {% data variables.product.prodname_codeql %} 分析的警报包括对问题的描述。 单击 **Show more（显示更多）**以获取有关如何修复代码的指导。 ![警报的详细信息](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -49,7 +49,7 @@ versions:
 
 警报只能在一个分支中修复。 您可以在警报摘要上使用“Branch（分支）”下拉菜单检查警报是否是在特定分支中修复的。
 
-![按分支过滤警报](/assets/images/help/repository/code-scanning-branch-filter.png)
+![按分支过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -102,11 +102,11 @@ versions:
 
    （可选）您可以使用过滤器显示警报子集，然后一次删除所有匹配的警报。 例如，如果您从 {% data variables.product.prodname_codeql %} 分析中删除了查询，您可以使用“Rule（规则）”过滤器仅列出该查询的警报，然后选择并删除所有这些警报。
 
-  ![按规则过滤警报](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+  ![按规则过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 
 1. 如果要忽略警报，请务必先了解警报，以便选择正确的忽略原因。 单击要了解的警报。
 
-   ![从摘要列表中打开警报](/assets/images/help/repository/code-scanning-click-alert.png)
+  ![从摘要列表中打开警报](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 
 1. 查看警报，然后单击 **Dismiss（忽略）**并选择关闭警报的原因。 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 

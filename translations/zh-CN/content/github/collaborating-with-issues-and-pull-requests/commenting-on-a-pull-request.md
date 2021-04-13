@@ -57,5 +57,5 @@ topics:
 ### 延伸阅读
 
 - “[创建指向代码段的永久链接](/articles/creating-a-permanent-link-to-a-code-snippet/)”
-{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
+{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 {% endif %}

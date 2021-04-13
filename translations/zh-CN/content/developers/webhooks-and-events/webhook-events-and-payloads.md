@@ -338,6 +338,60 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
+{% if currentVersion == "free-pro-team@latest" %}
+### 讨论
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+与讨论有关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+#### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
+
+#### Web 挂钩有效负载对象
+
+| 键        | 类型    | 描述                                                                                                                                          |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered` 或 `unanswered`。 |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.discussion.created }}
+
+### discussion_comment
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+与讨论中的评论相关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+
+#### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
+
+#### Web 挂钩有效负载对象
+
+| 键        | 类型    | 描述                                                                                                  |
+| -------- | ----- | --------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited` 或 `deleted`。                                                          |
+| `注释，评论`  | `对象`  | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) 资源。 |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
+{% endif %}
+
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 ### 企业

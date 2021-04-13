@@ -19,7 +19,7 @@ Para baixar um arquivo do seu repositório, você pode usar a API para usuário 
 Você pode baixar e fazer backup dos repositórios manualmente:
 
 - Para baixar os dados Git de um repositório no computador local, é preciso clonar o repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
-- Também é possível baixar o wiki do repositório. Para obter mais informações, consulte "[Adicionar ou editar páginas wiki](/articles/adding-or-editing-wiki-pages)".
+- Também é possível baixar o wiki do repositório. Para obter mais informações, consulte "[Adicionar ou editar páginas wiki](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)".
 
 Quando você clona um repositório ou wiki, somente os dados Git, como arquivos e histórico de commits do projeto, são baixados. Você pode usar nossa API para exportar outros elementos do seu repositório do {% data variables.product.product_name %} para o computador local:
 

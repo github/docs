@@ -22,6 +22,7 @@ versions:
 
 カスタムの環境変数を設定するには、ワークフローファイル中でその変数を指定しなければなりません。 [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)、[`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv)、[`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)といったキーワードを使って、ステップ、ジョブ、あるいはワークフロー全体の環境変数を定義できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -30,13 +31,14 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 環境変数の値をワークフローファイル内で使うには、[`env`コンテキスト](/actions/reference/context-and-expression-syntax-for-github-actions#env-context)を使わなければなりません。 環境変数の値をランナー内で使いたいなら、ランナーのオペレーティングシステムで環境変数を読む通常の方法が使えます。
 
@@ -54,6 +56,7 @@ jobs:
 | `GITHUB_WORKFLOW`    | ワークフローの名前。                                                                                                                                                                                                                                                                      |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                              |
 | `GITHUB_ACTION`      | アクションの一意の識別子 (`id`)。                                                                                                                                                                                                                                                            |
 | `GITHUB_ACTIONS`     | {% data variables.product.prodname_actions %}がワークフローを実行しているときは常に`true`に設定されます。 この変数は、テストがローカルで実行されているときと、{% data variables.product.prodname_actions %}によって実行されているときを区別するために利用できます。                                                                                              |
 | `GITHUB_ACTOR`       | ワークフローを開始するユーザまたはアプリの名前。 `octocat`などです。                                                                                                                                                                                                                                         |
@@ -62,12 +65,12 @@ jobs:
 | `GITHUB_EVENT_PATH`  | 完了したwebhookイベントペイロードのファイルのパス。 `/github/workflow/event.json`などです。                                                                                                                                                                                                                |
 | `GITHUB_WORKSPACE`   | {% data variables.product.prodname_dotcom %}ワークスペースディレクトリのパス。 ワークフローで [actions/checkout](https://github.com/actions/checkout) アクションを使用する場合、ワークスペースディレクトリはリポジトリのコピーです。 `actions/checkout`アクションを使用していない場合、ディレクトリは空となります。 たとえば、`/home/runner/work/my-repo-name/my-repo-name`となります。 |
 | `GITHUB_SHA`         | ワークフローをトリガーしたコミットSHA。 たとえば、`ffac537e6cbbf934b08745a378932722df287a53`です。                                                                                                                                                                                                        |
-| `GITHUB_REF`         | ワークフローをトリガーしたブランチまたはタグref。 たとえば、`refs/heads/feature-branch-1`です。 イベントタイプのブランチもタグも利用できない場合、この変数は存在しません。                                                                                                                                                                          |
+| `GITHUB_REF`         | ワークフローをトリガーしたブランチまたはタグref。 たとえば、`refs/heads/feature-branch-1`です。 イベントタイプのブランチもタグも利用できない場合、変数は存在しません。                                                                                                                                                                            |
 | `GITHUB_HEAD_REF`    | Pull Requestのイベントに対してのみ設定されます。 headブランチの名前です。                                                                                                                                                                                                                                   |
 | `GITHUB_BASE_REF`    | Pull Requestのイベントに対してのみ設定されます。 ベースブランチの名前です。                                                                                                                                                                                                                                    |
-| `GITHUB_SERVER_URL`  | {% data variables.product.product_name %} サーバーの URL を返します。 For example: `https://{% data variables.product.product_url %}`.                                                                                                                                                     |
-| `GITHUB_API_URL`     | API URL を返します。 For example: `{% data variables.product.api_url_code %}`.                                                                                                                                                                                                        |
-| `GITHUB_GRAPHQL_URL` | グラフ QL API の URL を返します。 For example: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                                                           |
+| `GITHUB_SERVER_URL`  | {% data variables.product.product_name %} サーバーの URL を返します。 For example: `https://github.com`.                                                                                                                                                                                   |
+| `GITHUB_API_URL`     | API URL を返します。 For example: `https://api.github.com`.                                                                                                                                                                                                                           |
+| `GITHUB_GRAPHQL_URL` | グラフ QL API の URL を返します。 For example: `https://api.github.com/graphql`.                                                                                                                                                                                                          |
 
 {% tip %}
 

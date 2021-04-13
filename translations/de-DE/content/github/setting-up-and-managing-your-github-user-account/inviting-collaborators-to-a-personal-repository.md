@@ -56,4 +56,4 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 - „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)“
 - „[Mitarbeiter aus einem persönlichen Repository entfernen](/articles/removing-a-collaborator-from-a-personal-repository)“
 - „[Dich selbst aus dem Repository eines Mitarbeiters entfernen](/articles/removing-yourself-from-a-collaborator-s-repository)“
-- „[Mitglieder in Teams organisieren](/articles/organizing-members-into-teams)“
+- „[Mitglieder in Teams organisieren](/organizations/organizing-members-into-teams)“

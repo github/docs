@@ -9,8 +9,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 
 Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."

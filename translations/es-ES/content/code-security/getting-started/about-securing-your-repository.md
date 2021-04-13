@@ -61,14 +61,14 @@ Estas características están disponibles {% if currentVersion == "free-pro-team
 
   Detecta automáticamente las vulnerabilidades de seguridad y los errores de código en el código nuevo o modificado. Se resaltan los problemas potenciales, con información detallada, lo cual te permite arreglar el código antes de que se fusione en tu rama predeterminada. Para obtener más información, consulta la sección "[Acerca del escaneo de código"](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
 
-- **Secretos detectados**
+- **alertas del {% data variables.product.prodname_secret_scanning_caps %}**
 
   {% if currentVersion == "free-pro-team@latest" %}Para los repositorios privados, ve {% else %}Ve {% endif %}cualquier secreto que {% data variables.product.prodname_dotcom %} haya encontrado en tu código. Deberías tratar a los tokens o las credenciales que se hayan registrado en tu repositorio como puestos en riesgo. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}

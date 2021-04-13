@@ -305,7 +305,7 @@ Der Kennzeichner `archived` filtert Suchergebnisse danach, ob sich ein Issue ode
 
 ### Suche nach dem Sperrstatus einer Unterhaltung
 
-Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. Weitere Informationen finden Sie unter „[Unterhaltungen sperren](/articles/locking-conversations)“.
+Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. (siehe „[Unterhaltungen sperren](/communities/moderating-comments-and-conversations/locking-conversations)“)
 
 | Qualifizierer | Beispiel                                                                                                                                                                                                                                                                                                   |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -13,7 +13,7 @@ versions:
 
 - 已验证其域名的所有权，且其个人资料上有经过验证的徽章
 - 已确认其电子邮件地址可用于 {% data variables.product.prodname_dotcom %} 支持人员联系该组织
-- 对其组织要求双重身份验证 更多信息请参阅“[您的组织中需要双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)”。
+- 对其组织要求双重身份验证 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”。
 
 ![GitHub 应用程序的 Marketplace 徽章](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

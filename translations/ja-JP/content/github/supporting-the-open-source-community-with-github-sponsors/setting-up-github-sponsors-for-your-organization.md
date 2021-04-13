@@ -48,6 +48,7 @@ Organization 外の個人コントリビューターとして {% data variables.
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### 銀行口座情報をサブミットする

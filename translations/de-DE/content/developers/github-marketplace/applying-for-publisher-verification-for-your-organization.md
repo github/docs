@@ -22,8 +22,8 @@ To offer paid plans for your app, the app must be owned by an organization and y
 1. Under "Developer settings", click **Publisher Verification**. ![Publisher verification option in the organization settings sidebar](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Under "Publisher Verification", complete the information in the checklist:
    - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
-   - Ensure that Two-factor authentication is enabled for your organization. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)“.
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[Verifying your organization's domain](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
+   - Ensure that Two-factor authentication is enabled for your organization. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)“.
+   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[Verifying your organization's domain](/organizations/managing-organization-settings/verifying-your-organizations-domain)."
 
   ![Publisher Verification checklist](/assets/images/marketplace/publisher-verification-checklist.png)
 

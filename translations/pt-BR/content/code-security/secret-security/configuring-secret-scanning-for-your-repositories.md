@@ -70,4 +70,4 @@ Você também pode ignorar alertas individuais de {% data variables.product.prod
 
 ### Leia mais
 
-- "[Gerenciando configurações de segurança e análise para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)"
+- "[Gerenciando configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

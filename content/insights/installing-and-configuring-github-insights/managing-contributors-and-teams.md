@@ -1,7 +1,6 @@
 ---
 title: Managing contributors and teams
 intro: You can manage the people and teams included in metrics and reports.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'

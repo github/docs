@@ -5,7 +5,7 @@ redirect_from:
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-credentials-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), you can use a credential helper to tell Git to remember your credentials.'
+intro: '如果您 [使用 HTTPS 克隆 {% data variables.product.product_name %} 仓库](/github/getting-started-with-github/about-remote-repositories)，您可以使用凭据小助手告诉 Git 记住您的凭据。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

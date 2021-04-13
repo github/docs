@@ -39,14 +39,14 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 
 使用 `git fetch` 可检索其他人完成的新工作。 从仓库获取将会获取所有新的远程跟踪分支和标记，但*不会*将这些更改合并到您自己的分支中。
 
-If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
+如果已经有一个本地仓库包含为所需项目设置的远程 URL，您可以在终端使用 `git fetch *remotename*` 获取所有新信息：
 
 ```shell
 $ git fetch <em>remotename</em>
 # 获取远程仓库的更新
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+否则，您可以随时添加新的远程，然后获取。 更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ### 合并更改到本地分支
 

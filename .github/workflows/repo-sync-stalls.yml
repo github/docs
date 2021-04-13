@@ -7,7 +7,7 @@ name: Repo Sync Stalls
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
 
 jobs:
   repo-sync-stalls:
