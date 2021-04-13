@@ -42,9 +42,9 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
-### Auto-generated table of contents in README files
+### Auto-generated table of contents for README files
 
-For any Markdown file in a repository, including README files located in the root of a repository, a table of contents is automatically generated based on section headings. You can view the table of contents for a README by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered README page. 
+For the rendered view of any Markdown file in a repository, including README files located in the root of a repository, a table of contents is automatically generated based on section headings. You can view the table of contents for a README by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered README page. 
 
 ![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
 
