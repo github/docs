@@ -64,7 +64,7 @@ versions:
 
   <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>
 
-  <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
+  <div class="js-filter-card-no-results d-none py-4 text-center color-text-secondary font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>
     <h3 class="text-normal">Sorry, there is no result for <strong class="js-filter-card-value"></strong></h3>
     <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
