@@ -30,7 +30,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbs.eq(0).attr('title')).toBe('product: GitHub.com')
       expect($breadcrumbs.eq(1).attr('title')).toBe('category: Getting started')
       expect($breadcrumbs.eq(2).attr('title')).toBe('maptopic: Using GitHub')
-      expect($breadcrumbs.eq(2).hasClass('text-gray-light')).toBe(true)
+      expect($breadcrumbs.eq(2).hasClass('color-text-tertiary')).toBe(true)
     })
 
     test('works for enterprise user pages', async () => {
@@ -78,7 +78,7 @@ describe('breadcrumbs', () => {
       expect($breadcrumbSpans.eq(1).text()).toBe('GitHub.com')
       expect($breadcrumbLinks.eq(0).attr('title')).toBe('category: Enforcing best practices with GitHub Policies')
       expect($breadcrumbLinks.eq(1).attr('title')).toBe('article: About GitHub Policies')
-      expect($breadcrumbLinks.eq(1).hasClass('text-gray-light')).toBe(true)
+      expect($breadcrumbLinks.eq(1).hasClass('color-text-tertiary')).toBe(true)
     })
   })
 
