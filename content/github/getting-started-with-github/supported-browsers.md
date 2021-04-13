@@ -1,5 +1,5 @@
 ---
-title: Supported browsers
+title: Supported browsers 
 redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8/
   - /articles/why-don-t-graphs-work-with-ie8/
