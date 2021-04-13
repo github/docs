@@ -5,7 +5,7 @@
 // Markup can be different and we need both selectors below
 .directory-link-box:hover .Box,
 .directory-link-box.Box:hover {
-  border: 1px solid var(--color-auto-blue-5);
+  border: 1px solid $blue-500;
 }
 
 // Expandable grid is used on article listing pages
