@@ -24,6 +24,7 @@
     "@octokit/rest": "^16.38.1",
     "@primer/css": "^15.1.0",
     "@primer/octicons": "^11.0.0",
+    "ajv": "^6.11.0",
     "algoliasearch": "^3.35.1",
     "assert": "^2.0.0",
     "babel-loader": "^8.1.0",
@@ -110,7 +111,6 @@
   "devDependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
-    "ajv": "^6.11.0",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",
     "aws-sdk": "^2.610.0",
