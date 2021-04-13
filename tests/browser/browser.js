@@ -50,7 +50,7 @@ describe('browser search', () => {
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('2.22')
         expect(searchParams.get('language')).toBe('ja')
@@ -71,7 +71,7 @@ describe('browser search', () => {
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')
         expect(searchParams.get('language')).toBe('en')

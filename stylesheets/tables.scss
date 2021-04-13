@@ -12,7 +12,7 @@
   code {
     font-size: 85%;
     padding: 0.2em 0.4em;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba($black, 0.05);
     border-radius: $border-radius;
   }
 
@@ -34,8 +34,8 @@
     vertical-align: top;
     z-index: 1;
     top: 0;
-    background: var(--color-bg-tertiary);
-    box-shadow: 0 3px 0 0 var(--color-auto-gray-4);
+    background: white;
+    box-shadow: 0 3px 0 0 $gray-400;
     padding: 12px 8px;
     border: 0px;
   }

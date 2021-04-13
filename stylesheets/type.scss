@@ -6,7 +6,7 @@ h2,
 h3,
 h4 {
   a {
-    color: var(--color-auto-gray-9);
+    color: $gray-900;
   }
 }
 
@@ -36,9 +36,9 @@ summary {
 // all h3 headers that are links should be blue-500
 // except those on each product's toc
 h3 a {
-  color: var(--color-auto-blue-5);
+  color: $blue-500;
 
   .directory-toc & {
-    color: var(--color-auto-gray-9);
+    color: $gray-900;
   }
 }
