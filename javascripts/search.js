@@ -264,21 +264,21 @@ function tmplSearchResults (items) {
 function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
   const { div, a } = tags
   return div(
-    { class: 'search-result border-top border-gray-light py-3 px-2' },
+    { class: 'search-result border-top color-border-secondary py-3 px-2' },
     a(
       { href: url, class: 'no-underline' },
       div(
-        { class: 'search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1' },
+        { class: 'search-result-breadcrumbs d-block color-text-primary opacity-60 text-small pb-1' },
         // Breadcrumbs in search records don't include the page title
         markify(breadcrumbs || '')
       ),
       div(
-        { class: 'search-result-title d-block h4-mktg text-gray-dark' },
+        { class: 'search-result-title d-block h4-mktg color-text-primary' },
         // Display page title and heading (if present exists)
         markify(heading ? `${title}: ${heading}` : title)
       ),
       div(
-        { class: 'search-result-content d-block text-gray' },
+        { class: 'search-result-content d-block color-text-secondary' },
         markify(content)
       )
     )

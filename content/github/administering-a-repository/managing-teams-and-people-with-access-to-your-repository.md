@@ -52,8 +52,8 @@ For more information about repository permission levels, see "[Permission levels
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trashcan" aria-label="The trashcan icon" %}.
-  ![Trashcan icon for removing access](/assets/images/help/repository/manage-access-remove.png)
+4. Under "Manage access", find the team or person whose access you'd like to remove, then click {% octicon "trash" aria-label="The trash icon" %}.
+  ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
 
 ### Further reading
 
