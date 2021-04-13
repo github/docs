@@ -53,7 +53,7 @@ async function main () {
   // create a bare minimum context for rendering the graphql-object.html layout
   const context = {
     currentLanguage,
-    site: siteData[currentLanguage].site,
+    site: siteData[currentLanguage].site
   }
 
   for (const version of versionsToBuild) {
