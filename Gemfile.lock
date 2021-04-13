@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    graphql (1.10.6)
+    graphql (1.12.8)
     graphql-schema_comparator (1.0.0)
       bundler (>= 1.14)
       graphql (~> 1.10)
@@ -13,7 +13,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  graphql (= 1.10.6)
+  graphql (= 1.12.8)
   graphql-schema_comparator (~> 1.0.0)
 
 BUNDLED WITH
