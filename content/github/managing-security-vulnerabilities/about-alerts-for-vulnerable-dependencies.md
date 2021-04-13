@@ -19,7 +19,7 @@ When your code depends on a package that has a security vulnerability, this vuln
 
 {% if currentVersion == "free-pro-team@latest" %}
 - A new vulnerability is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)."{% else %}
-- New advisory data is synchronized to {% data variables.product.prodname_ghe_server %} each hour from {% data variables.product.prodname_dotcom_the_website %}. For more information about advisory data, see "<a href="/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database" class="dotcom-only">Browsing security vulnerabilities in the {% data variables.product.prodname_advisory_database %}</a>."{% endif %}
+- New advisory data is synchronized to {% data variables.product.prodname_ghe_server %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
 - The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% if currentVersion == "free-pro-team@latest" %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 
 {% data reusables.repositories.dependency-review %}
