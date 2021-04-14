@@ -102,7 +102,7 @@ To set up a `www` subdomain alongside the apex domain, you must first configure 
 
 After you configure the apex domain, you must to configure a CNAME record with your DNS provider.
 
-1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io.` or `<organization>.github.io.` (note the [required trailing dots](https://stackexchange.github.io/dnscontrol/why-the-dot) in both cases). Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
 ```shell
     $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
