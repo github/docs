@@ -136,15 +136,8 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  // Layouts can be specified with a `layout` frontmatter value
-  // If unspecified, `layouts/default.html` is used.
-  // Any invalid layout values will be caught by frontmatter schema validation.
-  const layoutName = context.page.layout || 'default'
-
-  // Set `layout: false` to use no layout
-  const layout = context.page.layout === false ? '' : layouts[layoutName]
-
-  const output = await liquid.parseAndRender(layout, context)
+  // currentLayout is added to the context object in middleware/contextualizers/layouts
+  const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
   // First, send the response so the user isn't waiting
   // NOTE: Do NOT `return` here as we still need to cache the response afterward!
