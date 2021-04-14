@@ -41,7 +41,7 @@ $ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git remote set-head origin -a
 ```
 
-Run the following command to remove tracking references to `OLD-BRANCH-NAME`:
+Optionally, run the following command to remove tracking references to the old branch name.
 ```
 $ git remote prune origin
 ```
