@@ -27,7 +27,7 @@
                     <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
                     <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
                     {{ productMap[currentProduct].name }}
-                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
+                    <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="currentColor"><path d="M1,1l6.2,6L13,1"></path></svg>
                   </div>
                 </summary>
                 <!-- Mobile-only product dropdown -->
@@ -38,7 +38,7 @@
                       {% if product.id == currentProduct %}color-text-link-mktg text-underline active{% elsif product.id == currentProduct.id %}color-text-link-mktg text-underline active{% else %}Link--primary no-underline{% endif %}">
                       {{ product.name }}
                       {% if product.external %}
-                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
+                      <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
                       {% endif %}
                   </a>
                   {% endfor %}
@@ -62,7 +62,7 @@
                         {% else %}
                           {{ languages[page.languageCode].name }}
                         {% endif %}
-                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+                        <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="currentColor"><path d="M1,1l6.2,6L13,1"></path></svg>
                       </div>
                     </summary>
                     <div id="languages-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
