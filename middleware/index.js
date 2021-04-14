@@ -97,7 +97,7 @@ module.exports = function (app) {
   app.use(asyncMiddleware(instrument('./archived-enterprise-versions')))
   app.use(instrument('./robots'))
   app.use(/(\/.*)?\/early-access$/, instrument('./contextualizers/early-access-links'))
-  app.use(asyncMiddleware(instrument('./categories-for-support-team')))
+  app.use('/categories.json', asyncMiddleware(instrument('./categories-for-support-team')))
   app.use(instrument('./loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
 
