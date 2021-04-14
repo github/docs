@@ -6,7 +6,8 @@ redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '>=0.0.0''
+'label:Bitore.sigs-block-builder-pacakage'
   github-ae: '*'
 type: 'quick_start'
 topics:
