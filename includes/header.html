@@ -52,7 +52,7 @@
             <div class="d-md-inline-block">
 
               <!-- Language picker - 'English', 'Japanese', etc -->
-              {% unless error == '404' or !page.hidden %}
+              {% if page.languageVariants.length > 0 and error != '404' and !page.hidden %}
                 <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
                   <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
                     <summary class="py-2 color-text-primary" role="button" aria-label="Toggle languages list">
@@ -84,7 +84,7 @@
                     </div>
                   </details>
                 </div>
-              {% endunless %}
+              {% endif %}
 
               <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not -->
               {% if page.relativePath != 'index.md' and error != '404' %}

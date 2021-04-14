@@ -9,7 +9,7 @@
       {% include header %}
       {% include deprecation-banner %}
 
-      <main class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
+      <div class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
         <article class="markdown-body width-full">
           <div class="d-lg-flex flex-justify-between"></div>
 
@@ -55,14 +55,13 @@
             {% for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
             <li><a href="https://developer.github.com/enterprise/{{version}}">Enterprise Server {{version}}</a></li>
             {% endfor %}
-            {% include support-section %}
-            {% include small-footer %}
-            {% include scroll-button %}
           </div>
           </div>
         </article>
-      </main>
-
+      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>
