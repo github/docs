@@ -151,5 +151,6 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 - "[Set up Git](/articles/set-up-git)"
 - "[Create a repository](/articles/create-a-repo)"
+- **Fork a repository**
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
