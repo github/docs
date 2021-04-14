@@ -59,11 +59,11 @@ versions:
 ### 学生身份不合格
 
 以下情况时，您没有资格获得 {% data variables.product.prodname_student_pack %}：
-- 您已注册参加不属于 [{% data variables.product.prodname_dotcom %} 校园计划](https://education.github.com/schools)的非正式学习计划，但未注册参加授予学位或文凭的学习课程。
+- 您已注册参加不属于 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 的非正式学习计划，但未注册参加授予学位或文凭的学习课程。
 - 您正在攻读将在当前学术会议上终止的学位。
 - 您未满 13 岁。
 
-您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果您是编程学校或训练营的学生，并且您的学校参加 [{% data variables.product.prodname_dotcom %} 校园计划](https://education.github.com/schools)，您将有资格获得 {% data variables.product.prodname_student_pack %}。
+您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果您是编程学校或训练营的学生，并且您的学校参加 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools)，您将有资格获得 {% data variables.product.prodname_student_pack %}。
 
 ### 延伸阅读
 

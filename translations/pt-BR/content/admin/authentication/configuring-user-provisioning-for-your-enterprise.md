@@ -28,7 +28,7 @@ O aplicativo de provisionamento no seu IdP comunica-se com {% data variables.pro
 
 {% data reusables.scim.supported-idps %}
 
-Ao configurar o provisionamento de usuário com um IdP compatível, você também pode atribuir ou desatribuir a do aplicativo de {% data variables.product.product_name %} para grupos de usuários. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)."
+Ao configurar o provisionamento de usuário com um IdP compatível, você também pode atribuir ou desatribuir a do aplicativo de {% data variables.product.product_name %} para grupos de usuários. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 ### Pré-requisitos
 

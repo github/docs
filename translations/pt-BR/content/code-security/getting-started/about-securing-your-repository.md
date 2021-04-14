@@ -68,7 +68,7 @@ Essas funcionalidades estão disponíveis {% if currentVersion == "free-pro-team
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **Revisão de dependências** - Mostra o impacto total das alterações nas dependências e vê detalhes de qualquer versão vulnerável antes de realizar o merge de um pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **Revisão de dependências** - Mostra o impacto total das alterações nas dependências e vê detalhes de qualquer versão vulnerável antes de realizar o merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}

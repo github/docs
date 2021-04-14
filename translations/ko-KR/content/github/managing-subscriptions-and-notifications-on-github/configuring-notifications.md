@@ -66,7 +66,7 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -78,7 +78,7 @@ You can configure notifications for a repository on the repository page, or on y
 #### About custom notifications
 {% data reusables.notifications-v2.custom-notifications-beta %}
 You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
-{% endif %} For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)."
+{% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
@@ -248,16 +248,15 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 
 1. In the bottom menu, tap **Profile**.
 2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Receive Notifications**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
 ### Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %}
 
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
-1. On {% data variables.product.prodname_mobile %}, navigate to main page of the repository.
+1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
 2. Tap **Watch**. ![The watch button on {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
 3. To choose what activities you receive notifications for, tap your preferred watch settings. ![Watch settings dropdown menu in {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
 
 {% endif %}

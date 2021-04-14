@@ -45,7 +45,14 @@ You need write permission to view a summary of all the alerts for a repository o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore. ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+1. Optionally, use the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+  ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![{% data variables.product.prodname_code_scanning %}からのアラートのリスト](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used. ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code. ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -57,7 +64,11 @@ If you have write permission for a repository, you can view fixed alerts by view
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
+{% else %}
+![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+{% endif %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -110,11 +121,19 @@ To dismiss or delete alerts:
 
    Optionally, you can use the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+{% else %}
+  ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
+{% endif %}
 
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
    ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![{% data variables.product.prodname_code_scanning %}からのアラートのリスト](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert. ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 

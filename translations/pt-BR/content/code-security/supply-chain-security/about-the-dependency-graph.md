@@ -28,7 +28,7 @@ O gráfico de dependências é um resumo do manifesto e bloqueia arquivos armaze
 Ao fazer push de um commit para {% data variables.product.product_name %} que altera ou adiciona um manifesto compatível ou um arquivo de bloqueio para o branch-padrão, o gráfico de dependências é atualizado automaticamente.{% if currentVersion == "free-pro-team@latest" %} Além disso, o gráfico é atualizado quando alguém faz push de uma alteração no repositório de uma de suas dependências.{% endif %} Para informações sobre os ecossistemas compatíveis e arquivos de manifesto, consulte "[ecossistemas de pacote compatíveis](#supported-package-ecosystems)" abaixo.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Ao criar um pull request que contém alterações para dependências direcionadas ao branch padrão, {% data variables.product.prodname_dotcom %} usará o gráfico de dependências para adicionar revisões de dependências ao pull request. Eles indicam se as dependências contêm vulnerabilidades e, em caso afirmativo, a versão da dependência na qual a vulnerabilidade foi corrigida. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Ao criar um pull request que contém alterações para dependências direcionadas ao branch padrão, {% data variables.product.prodname_dotcom %} usará o gráfico de dependências para adicionar revisões de dependências ao pull request. Eles indicam se as dependências contêm vulnerabilidades e, em caso afirmativo, a versão da dependência na qual a vulnerabilidade foi corrigida. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
 ### Dependências incluídas
@@ -90,6 +90,6 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 
 - "[Gráfico de dependências](https://en.wikipedia.org/wiki/Dependency_graph)" na Wikipedia
 - "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Visualizar ideias para sua organização](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
+- "[Visualizar informações da organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Solução de problemas na detecção de dependências vulneráveis](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"{% endif %}

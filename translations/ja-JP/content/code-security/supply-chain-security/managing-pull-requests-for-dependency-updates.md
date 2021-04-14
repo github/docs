@@ -9,8 +9,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### {% data variables.product.prodname_dependabot %} のプルリクエストについて
 
 {% data reusables.dependabot.pull-request-introduction %}

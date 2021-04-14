@@ -13,7 +13,7 @@ Certain apps on the {% data variables.product.prodname_marketplace %} have the {
 
 - Verified ownership of their domain and has a verified badge on their profile
 - Confirmou o endereço de e-mail da empresa, para que o suporte de {% data variables.product.prodname_dotcom %} possa entrar em contato com a empresa
-- Exigiu a autenticação de dois fatores para sua organização. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
+- Exigiu a autenticação de dois fatores para sua organização. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
 
 ![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

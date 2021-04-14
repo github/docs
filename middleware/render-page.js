@@ -107,6 +107,13 @@ module.exports = async function renderPage (req, res, next) {
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
+  // handle special-case prerendered GraphQL input objects page
+  if (req.path.endsWith('graphql/reference/input-objects')) {
+    // concat the markdown source miniToc items and the prerendered miniToc items
+    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
+    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
+  }
+
   // Create string for <title> tag
   context.page.fullTitle = context.page.title
 

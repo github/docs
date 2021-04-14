@@ -7,6 +7,7 @@
 | Alibaba Cloud             | Segredo da chave de acesso à nuvem do Alibaba       | alibaba_cloud_access_key_secret      |
 | Amazon Web Services (AWS) | ID da Chave de Acesso do AWS da Amazon              | aws_access_key_id                      |
 | Amazon Web Services (AWS) | Chave de acesso secreta do AWS da Amazon            | aws_secret_access_key                  |
+| Asana                     | Asana Personal Access Token                         | asana_personal_access_token            |
 | Atlassian                 | Token da API de Atlassian                           | atlassian_api_token                    |
 | Atlassian                 | Token web de JSON de Atlassian                      | atlassian_jwt                            |
 | Azure                     | Token de acesso pessoal do Azure DevOps             | azure_devops_personal_access_token   |
@@ -37,8 +38,12 @@
 | GoCardless                | Token de acesso de GoCardless Sandbox               | gocardless_sandbox_access_token        |
 | Google Cloud              | Chave da API do GOogle                              | google_api_key                         |
 | Google Cloud              | ID da chave privada do Google Cloud                 | google_cloud_private_key_id          |
+| Grafana                   | Grafana API Key                                     | grafana_api_key                        |
 | Hashicorp Terraform       | Token da API de Terraform Cloud / Enterprise        | terraform_api_token                    |
 | Hubspot                   | Chave da API de Hubspot                             | hubspot_api_key                        |
+| Intercom                  | Intercom Access Token                               | intercom_access_token                  |
+| Lob                       | Lob Live API Key                                    | lob_live_api_key                       |
+| Lob                       | Lob Test API Key                                    | lob_test_api_key                       |
 | Mailchimp                 | Chave da API de Mailchimp                           | mailchimp_api_key                      |
 | Mailgun                   | Chave da API de Mailgun                             | mailgun_api_key                        |
 | npm                       | Token de acesso de npm                              | npm_access_token                       |
@@ -51,6 +56,7 @@
 | Proctorio                 | Chave de segredo de Proctorio                       | proctorio_secret_key                   |
 | Pulumi                    | Token de acesso de Pulumi                           | pulumi_access_token                    |
 | PyPI                      | PyPI API Token                                      | pypi_api_token                         |
+| RubyGems                  | RubyGems API Key                                    | rubygems_api_key                       |
 | Samsara                   | Token de API de Samsara                             | samsara_api_token                      |
 | Samsara                   | Token de acesso de OAuth de Samsara                 | samsara_oauth_access_token             |
 | SendGrid                  | SendGrid API Key                                    | sendgrid_api_key                       |
