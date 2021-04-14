@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
@@ -70,7 +71,7 @@ jobs:
 このワークフローは以下のステップを実行します。
 
 1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
-2. `setup-java`ステップは、Java 1.8 JDKを設定します。
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. "Build with Ant"ステップは、`build.xml`中のデフォルトターゲットを非インタラクティブモードで実行します。
 
 デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
@@ -91,9 +92,10 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
@@ -109,7 +111,11 @@ Antは通常、JAR、EAR、WARのような出力ファイルを`build/jar`ディ
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

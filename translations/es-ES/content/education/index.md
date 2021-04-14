@@ -1,7 +1,7 @@
 ---
 title: Documentación de GitHub Education
 shortTitle: Educación
-intro: '{% data variables.product.prodname_education %} te permite enseñar o aprender sobre desarrollo de software con las herramientas y el apoyo de la plataforma y la comunidad de {% data variables.product.company_short %}.'
+intro: "{% data variables.product.prodname_education %} te permite enseñar o aprender sobre desarrollo de software con las herramientas y el apoyo de la plataforma y la comunidad de {% data variables.product.company_short %}."
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
@@ -20,18 +20,7 @@ featuredLinks:
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
-  - title: 'Intenta hacer algo nuevo en el día local del Hack: Aprende'
-    date: '2020-10-15'
-    href: 'https://github.blog/2020-10-15-try-something-new-at-local-hack-day-learn/'
-  - title: 'Educación remota: Crear una comunidad mediante las experiencias compartidas'
-    date: '2020-09-24'
-    href: 'https://github.blog/2020-09-24-remote-education-creating-community-through-shared-experiences/'
-  - title: 'Educación remota: Una serie de mejores prácticas para las comunidades de campus en línea'
-    date: '2020-09-10'
-    href: 'https://github.blog/2020-09-10-remote-education-a-series-of-best-practices-for-online-campus-communities/'
-  - title: Bienvenido a la clase de inauguración de MLH Fellows
-    date: '2020-06-24'
-    href: 'https://github.blog/2020-06-24-welcome-to-the-inaugural-class-of-mlh-fellows/'
+  label: 'educación'
 layout: product-landing
 versions:
   free-pro-team: '*'

@@ -66,7 +66,7 @@ Las notificaciones por correo electrónico también permiten la flexibilidad con
 
 ### Acerca de participar y seguir de cerca las notificaciones
 
-Cuando observas un repositorio, te suscribes a las actualizaciones de la actividad en el mismo. De forma similar, cuando observas las discusiones específicas de un equipo, te suscribes a todas las actualizaciones de la conversación en la página de ese equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)".
+Cuando observas un repositorio, te suscribes a las actualizaciones de la actividad en el mismo. De forma similar, cuando observas las discusiones específicas de un equipo, te suscribes a todas las actualizaciones de la conversación en la página de ese equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver los repositorios que estás observando, dirígete a tu [página de observados](https://github.com/watching). Para obtener más información, consulta la sección "[Administrar suscricpiones y notificaciones en GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -78,7 +78,7 @@ Puedes configurar las notificaciones de un repositorio en la página del mismo, 
 #### Acerca de las notificaciones personalizadas
 {% data reusables.notifications-v2.custom-notifications-beta %}
 Puedes personalizar las notificaciones de un repositorio, por ejemplo, puedes elegir que solo se te notifique cuando sucedan actualizaciones en uno o más tipos de eventos (propuestas, solicitudes de cambios, lanzamientos, debates) dentro de un repositorio, o ignorar todas las notificaciones del mismo.
-{% endif %} Para obtener más información, consulta la sección "[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)".
+{% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participar en conversaciones
 Siempre que comentes en una conversación, o cuando alguien @menciona tu nombre de usuario, estarás _participando_ en una conversación. Predeterminadamente, estás suscrito automáticamente a una conversación cuando participas en ella. Puedes desuscribirte manualmente de una conversación en la que hayas participado si das clic en **Desuscribir** en el informe de problemas o solicitud de extracción, o a través de la opción de **Desuscribir** en la bandeja de notificaciones.
@@ -248,16 +248,15 @@ También puedes programar si {% data variables.product.prodname_mobile %} enviar
 
 1. En el menú inferior, pulsa en **Perfil**.
 2. Para ver tu configuración, toca en {% octicon "gear" aria-label="The Gear icon" %}.
-3. Para actualizar tu configuración de notificaciones, pulsa en **Notificaciones** y luego usa los alternadores para habilitar o inhabilitar tus tipos de notificaciones de subida preferidos.
-4. Opcionalmente, para programar cuando {% data variables.product.prodname_mobile %} enviará notificaciones de subida a tu dispositivo móvil, pusla en **Recibir notificaciones**, utiliza el botón para alternar de **Horas laborales personalizadas** y elige entonces cuándo te gustaría recibir notificaciones de subida.
+3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+4. Opcionalmente, para programar cuando {% data variables.product.prodname_mobile %} enviará notificaciones de subida a tu dispositivo móvil, pusla en **Horas laborales**, utiliza el botón para alternar de **Horas laborales personalizadas** y elige entonces cuándo te gustaría recibir notificaciones de subida.
 
 ### Configurar tus ajustes de observación para un repositorio individual con {% data variables.product.prodname_mobile %}
 
 Puedes elegir si quieres observar o dejar de observar un repositorio individual. También puedes elegir que solo se te notifique de {% if currentVersion == "free-pro-team@latest" %}algunos tipos de eventos, tales como propuestas, solicitudes de cambios, debates (si se habilitaron en el repositorio) y {% endif %}lanzamientos nuevos, o puedes ignorar completamente un repositorio específico.
 
-1. En {% data variables.product.prodname_mobile %}, navega a la página principal del repositorio.
+1. En {% data variables.product.prodname_mobile %}, visita la página principal del repositorio.
 2. Pulsa en **Observar**. ![El botón de observar en {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-button.png)
 3. Para elegir para qué actividades recibes notificaciones, pulsa en tus ajustes de observación preferidos. ![Menú desplegable de ajustes de observación en {% data variables.product.prodname_mobile %}](/assets/images/help/notifications-v2/mobile-watch-settings.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
 
 {% endif %}

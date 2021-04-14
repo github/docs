@@ -24,13 +24,13 @@ Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure
 
 ### Determinar o tipo de máquina virtual
 
-Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Antes de lançar {% data variables.product.product_location %} no Azure, você deverá determinar o tipo de máquina que melhor atende às necessidades da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Azure VM types with the `s` suffix support premium storage. For more information, see "[What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" and "[Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" in the Azure documentation.
+O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Tipos de Azure VM com `s` sufixo são compatíveis com o armazenamento premium. Para obter mais informações, consulte "[Quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" e "[Armazenamento premium do Azure: design para alto desempenho](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" na documentação do Azure.
 
-{% data variables.product.company_short %} recommends a memory-optimized VM for {% data variables.product.prodname_ghe_server %}. For more information, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" in the Azure documentation.
+{% data variables.product.company_short %} recomenda uma VM com memória otimizada para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tamanhos de máquinas virtuais com memória otimizada ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" na documentação do Azure.
 
 O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
 

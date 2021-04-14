@@ -31,21 +31,21 @@ Enterprise アカウントの {% data variables.product.prodname_GH_advanced_sec
 
 ### {% data variables.product.prodname_GH_advanced_security %} のライセンス利用を管理する
 
-単一のリポジトリまたは Organization 内のすべてのリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効にすると、{% data variables.product.company_short %} は、使用する追加のシートの数を示し、確認を求めるプロンプトを表示します。 If you disable access to {% data variables.product.prodname_GH_advanced_security %}, any seats used by "unique" committers are freed up. This makes it easy to understand the impact of your changes on the use of your license.
+単一のリポジトリまたは Organization 内のすべてのリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効にすると、{% data variables.product.company_short %} は、使用する追加のシートの数を示し、確認を求めるプロンプトを表示します。 {% data variables.product.prodname_GH_advanced_security %} へのアクセスを無効にすると、「一意」のコミッターが使用するシートが解放されます。 これによって、ライセンスの使用に関する変更のインパクトを簡単に理解できます。
 
-If you are over your license limit, {% data variables.product.prodname_GH_advanced_security %} continues to work on all repositories where it is already enabled. However, in organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled for new repositories, repositories will be created with the feature disabled. In addition, the option to enable {% data variables.product.prodname_GH_advanced_security %} for existing repositories will not be available. If you change the visibility of a public repository to private then {% data variables.product.prodname_GH_advanced_security %} will be disabled for that repository.
+ライセンス制限を超えている場合、{% data variables.product.prodname_GH_advanced_security %} はすでに有効になっているすべてのリポジトリで引き続き動作します。 ただし、{% data variables.product.prodname_GH_advanced_security %} が新しいリポジトリに対して有効になっている Organization では、リポジトは機能が無効の状態で作成されます。 さらに、既存のリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効にするオプションは使用できなくなります。 パブリックリポジトリの可視性をプライベートに変更すると、そのリポジトリの {% data variables.product.prodname_GH_advanced_security %} は無効になります。
 
-As soon as you free up some seats, by disabling {% data variables.product.prodname_GH_advanced_security %} for some repositories or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_advanced_security %} will work again as normal.
+一部のリポジトリで {% data variables.product.prodname_GH_advanced_security %} を無効にするか、ライセンスサイズを増やすと、一部のシートを解放した直後に {% data variables.product.prodname_GH_advanced_security %} を有効にするオプションが通常どおり動作します。
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)."
+Enterprise アカウントが所有する Organization による {% data variables.product.prodname_advanced_security %} の使用を許可または禁止するポリシーを適用できます。 詳しい情報については、「[Enterprise アカウントに {% data variables.product.prodname_advanced_security %} のポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)」を参照してください。
 
-For more information on viewing license usage, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)."
+ライセンスの使用状況の表示について詳しくは、「[{% data variables.product.prodname_GH_advanced_security %} の使用状況を表示する](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)」を参照してください。
 
-### Getting the most out of your {% data variables.product.prodname_GH_advanced_security %} license
+### {% data variables.product.prodname_GH_advanced_security %} ライセンスを最大限に活用する
 
-When you decide which repositories and organizations to prioritize for {% data variables.product.prodname_GH_advanced_security %}, you should review them and identify:
+{% data variables.product.prodname_GH_advanced_security %} の優先順位を付けるリポジトリと Organization を決定するときは、それらを確認して次のことを特定する必要があります。
 
-- Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or vulnerable dependencies would have the greatest impact on your company.
-- Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
+- 会社の成功にとって最も重要なコードベース。 これらは、脆弱なコード、ハードコードされたシークレット、または脆弱な依存関係の導入が会社に最大の影響を与えるプロジェクトです。
+- コミット頻度が最も高いコードベース。 これらは最も積極的に開発されたプロジェクトであるため、セキュリティの問題が発生するリスクが高くなります。
 
-When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, you should assess which other codebases you could add without adding any extra unique committers and using up more seats on your license. After this, review the next most important and busy codebases. If you want to increase the number of seats in your license, contact {% data variables.contact.contact_enterprise_sales %}.
+これらの Organization またはリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効にした場合、一意のコミッターを追加したり、ライセンスのシートを使い切ったりせずに、追加できる他のコードベースを評価する必要があります。 この後、次に重要でビジーなコードベースを確認します。 ライセンスのシート数を増やす場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

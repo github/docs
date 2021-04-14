@@ -91,6 +91,6 @@ end{% endif %}
 
 * どの実装を使用する場合でも、ハッシュ署名は {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %} で始まり、シークレットトークンのキーとペイロード本体を使用します。
 
-* プレーンな `==` 演算子を使用することは**お勧めしません**。 [`secure_compare`][secure_compare] のようなメソッドは、「一定時間」の文字列比較を実行します。これは、通常の等式演算子に対する特定のタイミング攻撃を軽減するのに役立ちます。
+* プレーンな `==` 演算子を使用することは**お勧めしません**。 A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
-[secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

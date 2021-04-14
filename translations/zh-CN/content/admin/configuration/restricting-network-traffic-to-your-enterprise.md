@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)”。
+您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
 默认情况下，Azure 网络安全组 (NSG) 规则允许所有入站流量在端口 22、80、443 和 25 打开。 企业所有者可以联系 {% data variables.contact.github_support %} 配置您实例的访问限制。
 
