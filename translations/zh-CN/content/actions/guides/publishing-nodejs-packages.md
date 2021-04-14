@@ -8,16 +8,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - 打包
-  - Publishing
+  - 发布
   - Node
   - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -70,7 +72,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -93,11 +95,11 @@ always-auth=true
 
 每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件发生时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。
 
-#### Configuring the destination repository
+#### 配置目标仓库
 
-If you don't provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository.
+如果您没有在 *package.json* 文件中提供 `repository` 键，则 {% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的 `name` 字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，名为 `@my-org/test` 的包将被发布到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。
 
-However, if you do provide the `repository` key, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository.
+但是，如果您提供了 `repository` 键，则该键中的仓库将被用作 {% data variables.product.prodname_registry %} 的目标 npm 注册表。 例如，发布以下 *package.json* 将导致名为 `my-amazing-package` 的包被发布到 `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} 仓库。
 
 ```json
 {
@@ -108,11 +110,11 @@ However, if you do provide the `repository` key, then the repository in that key
   },
 ```
 
-#### Authenticating to the destination repository
+#### 向目标仓库验证
 
-To authenticate to the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN` from your repository. It is created automatically and has _read_ and _write_ permissions for packages in the repository where the workflow runs. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)."
+要向工作流程中的 {% data variables.product.prodname_registry %} 注册表进行验证，您可以使用仓库的 `GITHUB_TOKEN`。 它是自动创建的，对工作流程运行所在仓库中的包具有_读取_和_写入_权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)。
 
-If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+如果要将包发布到其他仓库，您必须使用对目标仓库中的包具有写入权限的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
 
 #### 示例工作流程
 
@@ -129,12 +131,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # 设置 .npmrc 文件以发布到 GitHub 包
-    - uses: actions/setup-node@v1
+    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
-        # 默认为拥有工作流程文件的用户或组织
+        # Defaults to the user or organization that owns the workflow file
         scope: '@octocat'
     - run: npm install
     - run: npm publish
@@ -167,7 +169,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -211,23 +213,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # 设置 .npmrc 文件以发布到 npm
+    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
-    # 发布到 npm
+    # Publish to npm
     - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    # 设置 .npmrc 文件以发布到 GitHub 包
+    # Setup .npmrc file to publish to GitHub Packages
     - uses: actions/setup-node@v1
       with:
         registry-url: 'https://npm.pkg.github.com'
-        # 默认为拥有工作流程文件的用户或组织
+        # Defaults to the user or organization that owns the workflow file
         scope: '@octocat'
-    # 发布到 GitHub 包
+    # Publish to GitHub Packages
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

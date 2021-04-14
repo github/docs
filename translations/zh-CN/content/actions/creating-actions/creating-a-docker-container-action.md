@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - 操作开发
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -32,9 +34,13 @@ topics:
 您可能会发现它有助于基本了解 {% data variables.product.prodname_actions %} 环境变量和 Docker 容器文件系统：
 
 - "[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
+{% if currentVersion == "github-ae@latest" %}
+- “[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”。
+{% else %}
 - "[{% data variables.product.prodname_dotcom %} 的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+{% endif %}
 
-开始之前，您需要创建 GitHub 仓库。
+在开始之前，您需要创建 {% data variables.product.prodname_dotcom %} 仓库。
 
 1. 在 {% data variables.product.product_location %} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用“hello-world-docker-action”。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
@@ -52,13 +58,13 @@ topics:
 
 **Dockerfile**
 ```dockerfile{:copy}
-# 运行代码的容器图像
+# Container image that runs your code
 FROM alpine:3.10
 
-# 从操作仓科到容器的文件系统路径 `/`的副本
+# Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-# Docker 容器启动时执行的代码文件 (`entrypoint.sh`)
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -112,7 +118,7 @@ runs:
   ```
   如果 `entrypoint.sh` 执行没有任何错误，则操作的状态设置为 `success`。 您还可以在操作的代码中显式设置退出代码以提供操作的状态。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
-1. Make your `entrypoint.sh` file executable by running the following command on your system.
+1. 通过在您的系统上运行以下命令使您的 `entrypoint.sh` 文件可执行。
 
   ```shell{:copy}
   $ chmod +x entrypoint.sh
@@ -141,13 +147,13 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ### `who-to-greet`
 
-**必填** 要问候的人员的姓名。 默认值为 `"World"`。
+**Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
 ### `time`
 
-我们问候您的时间。
+The time we greeted you.
 
 ## Example usage
 
@@ -177,7 +183,7 @@ git push --follow-tags
 
 #### 使用公共操作的示例
 
-The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
+以下工作流程代码使用公共 [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) 仓库中完整的 _hello world_ 操作。 将以下工作流程示例代码复制到 `.github/workflows/main.yml` 文件中，但将 `actions/hello-world-docker-action` 替换为您的仓库和操作名称。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}公共操作即使未发布到 {% data variables.product.prodname_marketplace %} 也可使用。 更多信息请参阅“[发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)”。 {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -202,7 +208,7 @@ jobs:
 
 #### 使用私有操作的示例
 
-将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% if currentVersion == "free-pro-team@latest" %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -214,8 +220,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      # 要使用此仓库的私有操作，
-      # 您必须检出仓库
+      # To use this repository's private action,
+      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
@@ -223,15 +229,15 @@ jobs:
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
-      # 使用来自 `hello` 步骤的输出
+      # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run.png)

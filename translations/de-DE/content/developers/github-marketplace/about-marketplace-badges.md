@@ -9,14 +9,23 @@ versions:
 
 ### For GitHub Apps
 
-Apps with the {% octicon "verified" aria-label="The verified badge" %}, are owned by an organization that has:
-- Confirmed their domain
-- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)“.
+Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
 
-![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge.png)
+- Verified ownership of their domain and has a verified badge on their profile
+- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
+- Required two-factor authentication for their organization. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)“.
+
+![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
+
+{% note %}
+{% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
+{% endnote %}
 
 To learn how you can add this badge to your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+
+Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+
+![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
 For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
 
@@ -29,15 +38,3 @@ Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  v
 ![Verified creator badge for GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
 For information on how to publish a GitHub action to {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
-
-### About the previous verification process for apps
-
-In addition to the verified creator badge, you'll also see badges for unverified and verified apps. These apps were published using the old method for verifying individual apps.
-
-![Green verified and grey unverified badge](/assets/images/marketplace/marketplace_verified_badges.png)
-
-{% note %}
-
-**Note:** The new publisher verification process for apps replaces the previous process where individual apps were verified. The new publisher verification process is similar to the verification process for actions. If you have apps that were verified under the old process, these will not be affected by the changes. The {% data variables.product.prodname_marketplace %} team will contact you with details of how to migrate to organization-based verification.
-
-{% endnote %}

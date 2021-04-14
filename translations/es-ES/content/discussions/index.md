@@ -22,6 +22,8 @@ featuredLinks:
     - /discussions/guides/finding-discussions-across-multiple-repositories
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
+changelog:
+  label: 'discussions'
 product_video: https://www.youtube-nocookie.com/embed/IpBw2SJkFyk
 layout: product-landing
 versions:
@@ -40,7 +42,7 @@ versions:
   <h2 class="mb-2 font-mktg h1">Communities using discussions</h2>
 
   <div class="d-flex flex-wrap gutter">
-    {% render 'discussions-community-card' for discussionsCommunityExamples as example %}
+    {% render discussions-community-card for discussionsCommunityExamples as example %}
   </div>
   {% if discussionsCommunityExamples.length > 6 %}
     <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>

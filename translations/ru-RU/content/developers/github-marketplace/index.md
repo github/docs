@@ -7,6 +7,8 @@ redirect_from:
   - /рынок
 versions:
   free-pro-team: '*'
+topics:
+  - рынок
 ---
 
 {% topic_link_in_list /github-marketplace-overview %}

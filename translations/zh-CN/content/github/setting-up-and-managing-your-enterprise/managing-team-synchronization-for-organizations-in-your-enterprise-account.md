@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 企业所有者可以管理企业帐户的团队同步。
 versions:
   free-pro-team: '*'
+topics:
+  - 企业
 ---
 
 ### 关于企业帐户的团队同步
@@ -17,7 +19,7 @@ versions:
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”。
+您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”。
 
 ### 基本要求
 

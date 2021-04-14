@@ -7,15 +7,11 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
-{% if currentVersion == "enterprise-server@2.22" %}
-{% note %}
-
-**注釈:** {% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定パブリックベータです。 Review the external storage requirements below and [sign up for the beta](https://resources.github.com/beta-signup/).
-
-{% endnote %}
-{% endif %}
+{% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -23,11 +19,44 @@ versions:
 
 この記事では、サイト管理者が {% data variables.product.prodname_actions %} を使用するように {% data variables.product.prodname_ghe_server %} を設定する方法について説明しています。 ハードウェアとソフトウェアの要件、ストレージオプション、セキュリティ管理ポリシーについて説明します。
 
+{% endif %}
+
 ### ハードウェアについての留意点を確認する
 
-{% data reusables.actions.enterprise-hardware-considerations %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
+
+{% note %}
+
+**注釈**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} は限定ベータとして {% data variables.product.prodname_ghe_server %} 2.22 で利用可能でした。 {% endif %}既存の {% data variables.product.prodname_ghe_server %} インスタンスを 3.0 以降にアップグレードしていて、{% data variables.product.prodname_actions %} を設定する場合は、ハードウェアの最小要件が増えていることに注意してください。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。
+
+{% endnote %}
 
 {% endif %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
+
+Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
+
+| vCPUs | メモリ    | Maximum job throughput |
+|:----- |:------ |:---------------------- |
+| 4     | 32 GB  | Demo or light testing  |
+| 8     | 64 GB  | 25ジョブ                  |
+| 16    | 160 GB | 35ジョブ                  |
+| 32    | 256 GB | 100ジョブ                 |
+
+If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. {% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
+
+For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
+
+- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations)
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 ### 外部ストレージの要件
 
@@ -37,9 +66,9 @@ versions:
 
 {% data variables.product.prodname_actions %} は、次のストレージプロバイダをサポートしています。
 
-* Azure Blob storage
+* Azure Blob ストレージ
 * Amazon S3
-* S3-compatible MinIO Gateway for NAS
+* NAS ストレージ用の S3 対応 MinIO ゲートウェイ
 
 {% note %}
 
@@ -49,13 +78,13 @@ versions:
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Amazon S3 permissions
+#### Amazon S3 の権限
 
 {% data reusables.actions.enterprise-s3-permission %}
 
 ### {% data variables.product.prodname_actions %} の有効化
 
-{% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定パブリックベータです。 [Sign up for the beta](https://resources.github.com/beta-signup/).
+{% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定ベータとして利用可能でした。 インスタンスの {% data variables.product.prodname_actions %} を設定するには、{% data variables.product.prodname_ghe_server %} 3.0 以降にアップグレードします。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} 3.0 リリースノート](/enterprise-server@3.0/admin/release-notes)および「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。
 
 ### 参考リンク
 

@@ -1,3 +1,4 @@
+<!doctype html>
 {% assign error = '404' %}
 <html lang="{{currentLanguage}}">
   {% include head %}
@@ -31,8 +32,9 @@
       </div>
 
       <!-- {{ content }} -->
-      {% include support %}
+      {% include support-section %}
       {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

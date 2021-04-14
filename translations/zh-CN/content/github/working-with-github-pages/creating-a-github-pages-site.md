@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -19,8 +21,6 @@ versions:
 ### 为站点创建仓库
 
 {% data reusables.pages.new-or-existing-repo %}
-
-{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
@@ -32,6 +32,8 @@ versions:
 ### 创建站点
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.decide-publishing-source %}

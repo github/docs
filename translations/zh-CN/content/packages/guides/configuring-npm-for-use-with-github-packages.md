@@ -10,20 +10,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 已发布 npm 版本的限制
 
 如果您发布超过 1,000npm 软件包版本到 {% data variables.product.prodname_registry %}，在使用过程中可能会出现性能问题和超时。
 
 将来，为了提高服务的性能，您将无法在 {% data variables.product.prodname_dotcom %} 上发布超过 1，000 个版本的包。 在达到此限制之前发布的任何版本仍将是可读的。
 
-如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“[删除包](/packages/manage-packages/deleting-a-package)”或“[联系支持人员](/packages/learn-github-packages/about-github-packages#contacting-support)”。
+如果达到此限制，请考虑删除包版本或联系支持人员寻求帮助。 实施此限制后，我们的文档将就此限制进行更新。 更多信息请参阅“{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}”或“[联系支持](/packages/learn-github-packages/about-github-packages#contacting-support)”。
 
 {% endif %}
 
@@ -37,7 +39,7 @@ versions:
 
 通过编辑您的每用户 *~/.npmrc* 文件以包含个人访问令牌，或者在命令行上使用用户名和个人访问令牌登录 npm，您可以使用 npm 向 {% data variables.product.prodname_registry %} 验证。
 
-要通过将个人访问令牌添加到 *~/.npmrc* 文件进行身份验证，请编辑项目的 *~/.npmrc* 文件以包含以下行，将{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为 {% data variables.product.prodname_ghe_server %} 实例的主机名，并{% endif %}将 *TOKEN* 替换为您的个人访问令牌。  如果 *~/.npmrc* 文件不存在，请新建该文件。
+要通过将个人访问令牌添加到 *~/.npmrc* 文件进行身份验证，请编辑项目的 *~/.npmrc* 文件以包含以下行，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 的主机名，并将 {% endif %}*TOKEN* 替换为您的个人访问令牌。 如果 *~/.npmrc* 文件不存在，请新建该文件。
 
 {% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
@@ -187,29 +189,27 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 
 #### 从其他组织安装包
 
-默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 如果想将包请求传送到多个组织和用户，您可以添加额外行到 *.npmrc* 文件，将 {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名，并{% endif %}将 *OWNER* 替换为拥有项目所在仓库的用户或组织帐户的名称。
+默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 如果想将包请求传送到多个组织和用户，您可以添加额外行到 *.npmrc* 文件，将 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* 替换为 {% data variables.product.product_location %} 实例的主机名，并{% endif %}将 *OWNER* 替换为拥有项目所在仓库的用户或组织帐户的名称。
 
 {% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```shell
-registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
-@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```shell
-registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
 ```
 {% endif %}
 
-{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### 使用官方 NPM 注册表
 
 {% data variables.product.prodname_registry %} 允许您访问 `registry.npmjs.com` 上的官方 NPM 注册表，前提是您的 {% data variables.product.prodname_ghe_server %} 管理员已启用此功能。 更多信息请参阅[连接到官方 NPM 注册表](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry)。
@@ -217,4 +217,4 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 
 ### 延伸阅读
 
-- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 チームメンテナと Organization のオーナーは、コードレビューの割り当てを設定できます。

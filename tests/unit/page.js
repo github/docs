@@ -5,6 +5,7 @@ const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects
 const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const { latest } = require('../../lib/enterprise-server-releases')
 
 const getLinkData = require('../../lib/get-link-data')
 jest.mock('../../lib/get-link-data')
@@ -190,6 +191,36 @@ describe('Page class', () => {
       expect($.text()).not.toBe('This text should render on any actively supported version of Enterprise Server')
       expect($.text()).toBe('This text should only render on non-Enterprise')
     })
+
+    test('support next to-be-released Enterprise Server version in frontmatter', async () => {
+      // This fixture has `enterprise-server: '>=3.1'` hardcoded in the frontmatter
+      const page = await Page.init({
+        relativePath: 'page-versioned-for-next-enterprise-release.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      // set version to 3.0
+      const context = {
+        currentVersion: 'enterprise-server@3.0',
+        currentLanguage: 'en'
+      }
+      await expect(() => { return page.render(context) }).not.toThrow()
+    })
+
+    test('support next GitHub AE version in frontmatter', async () => {
+      // This fixture has `github-ae: 'next'` hardcoded in the frontmatter
+      const page = await Page.init({
+        relativePath: 'page-versioned-for-ghae-next.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      // set version to @latest
+      const context = {
+        currentVersion: 'github-ae@latest',
+        currentLanguage: 'en'
+      }
+      await expect(() => { return page.render(context) }).not.toThrow()
+    })
   })
 
   test('preserves `languageCode`', async () => {
@@ -306,7 +337,13 @@ describe('Page class', () => {
     })
 
     it('includes learning tracks specified in frontmatter', async () => {
-      expect(page.learningTracks).toStrictEqual(['track_1', 'track_2', 'non_existing_track'])
+      expect(page.learningTracks).toStrictEqual([
+        'track_1',
+        'track_2',
+        'non_existing_track',
+        '{% if currentVersion == "free-pro-team@latest" %}dotcom_only_track{% endif %}',
+        '{% if currentVersion != "free-pro-team@latest" %}enterprise_only_track{% endif %}'
+      ])
     })
 
     it('renders learning tracks that have been defined', async () => {
@@ -328,6 +365,16 @@ describe('Page class', () => {
                   title: 'title',
                   description: 'description',
                   guides
+                },
+                dotcom_only_track: {
+                  title: 'title',
+                  description: 'description',
+                  guides
+                },
+                enterprise_only_track: {
+                  title: 'title',
+                  description: 'description',
+                  guides
                 }
               }
             }
@@ -335,8 +382,18 @@ describe('Page class', () => {
         }
       }
       await page.render(context)
+      // To actually render the guides in this test, we would have to load context.pages and context.redirects;
+      // To avoid that we can just test that the function was called with the expected data.
       expect(getLinkData).toHaveBeenCalledWith(guides, context)
-      expect(page.learningTracks).toHaveLength(2)
+      expect(page.learningTracks).toHaveLength(3)
+      expect(page.learningTracks.find(track => track.trackName === 'dotcom_only_track')).toBeTruthy()
+
+      // Test that Liquid versioning is respected
+      context.currentVersion = `enterprise-server@${latest}`
+      await page.render(context)
+      expect(page.learningTracks).toHaveLength(3)
+      expect(page.learningTracks.find(track => track.trackName === 'dotcom_only_track')).toBeFalsy()
+      expect(page.learningTracks.find(track => track.trackName === 'enterprise_only_track')).toBeTruthy()
     })
   })
 
@@ -367,6 +424,7 @@ describe('Page class', () => {
       })
       const guides = ['/path/guide1', '/path/guide2', '/path/guide3']
       const context = {
+        currentVersion: nonEnterpriseDefaultVersion,
         currentLanguage: 'en'
       }
       await page.render(context)

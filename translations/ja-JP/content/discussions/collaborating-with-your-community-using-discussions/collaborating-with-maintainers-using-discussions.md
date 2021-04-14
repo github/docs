@@ -45,4 +45,4 @@ versions:
 ### 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
-- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

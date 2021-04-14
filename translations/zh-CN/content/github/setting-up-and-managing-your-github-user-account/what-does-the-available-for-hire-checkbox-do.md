@@ -5,6 +5,8 @@ redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
 ---
 
 [GitHub Jobs](https://jobs.github.com/) 版块是在技术领域求职的一种绝佳途径。 您可选择查看在 GitHub 仪表板上发布的职位。

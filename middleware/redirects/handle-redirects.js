@@ -1,7 +1,7 @@
 const patterns = require('../../lib/patterns')
 const { URL } = require('url')
 
-module.exports = async function handleRedirects (req, res, next) {
+module.exports = function handleRedirects (req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 

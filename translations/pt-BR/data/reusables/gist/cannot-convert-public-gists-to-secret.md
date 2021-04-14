@@ -1,1 +1,1 @@
-After creating a gist, you cannot convert it from {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} to secret.
+Após criar um gist, você não poderá convertê-lo de {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %} para secreto.

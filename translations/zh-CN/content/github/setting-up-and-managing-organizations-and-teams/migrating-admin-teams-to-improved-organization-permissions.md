@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 默认情况下，所有组织成员都可以创建仓库。 如果将[仓库创建权限](/articles/restricting-repository-creation-in-your-organization)限于组织所有者，并且您的组织已在旧组织权限结构下创建，则旧管理员团队的成员仍可创建仓库。

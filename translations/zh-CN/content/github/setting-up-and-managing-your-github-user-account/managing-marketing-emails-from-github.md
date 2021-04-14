@@ -5,6 +5,9 @@ redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
+  - 通知
 ---
 
 ### 退订 {% data variables.product.prodname_dotcom %} 营销电子邮件

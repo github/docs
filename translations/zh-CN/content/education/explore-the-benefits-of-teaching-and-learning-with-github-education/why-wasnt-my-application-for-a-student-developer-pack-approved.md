@@ -19,7 +19,9 @@ versions:
 
 ### 学术关联文档不明确
 
-如果您上传的图像没有明确地确定您当前的学术地位，则我们需要您的学术地位的进一步证明。 {% data reusables.education.upload-proof-reapply %}
+如果您上传的图片中提及的日期或时间表不符合我们的资格标准，我们需要进一步证明您的学术身份。
+
+如果您上传的图像没有明确地确定您当前的学术身份，或者上传的图像模糊，则我们需要您的学术身份的进一步证明。 {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -57,10 +59,11 @@ versions:
 ### 学生身份不合格
 
 以下情况时，您没有资格获得 {% data variables.product.prodname_student_pack %}：
-- 您已注册参加不属于 [{% data variables.product.prodname_dotcom %} 校园计划](https://education.github.com/schools)的非正式学习计划，但未注册参加授予学位或文凭的学习课程。
+- 您已注册参加不属于 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) 的非正式学习计划，但未注册参加授予学位或文凭的学习课程。
+- 您正在攻读将在当前学术会议上终止的学位。
 - 您未满 13 岁。
 
-您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果您是编程学校或训练营的学生，并且您的学校参加 [{% data variables.product.prodname_dotcom %} 校园计划](https://education.github.com/schools)，您将有资格获得 {% data variables.product.prodname_student_pack %}。
+您的讲师仍可申请 {% data variables.product.prodname_education %} 折扣供课堂使用。 如果您是编程学校或训练营的学生，并且您的学校参加 [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools)，您将有资格获得 {% data variables.product.prodname_student_pack %}。
 
 ### 延伸阅读
 

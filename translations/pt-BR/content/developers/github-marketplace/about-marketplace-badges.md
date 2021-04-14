@@ -9,14 +9,23 @@ versions:
 
 ### Para aplicativos GitHub
 
-Os aplicativos com {% octicon "verified" aria-label="The verified badge" %} pertencem a uma organização que:
-- Confirmou o domínio dela
-- Confirmou o endereço de e-mail da empresa, para que o suporte de {% data variables.product.prodname_dotcom %} possa entrar em contato com a empresa
-- Exigiu a autenticação de dois fatores para sua organização. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
+Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
 
-![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-verified-publisher-badge.png)
+- Verified ownership of their domain and has a verified badge on their profile
+- Confirmou o endereço de e-mail da empresa, para que o suporte de {% data variables.product.prodname_dotcom %} possa entrar em contato com a empresa
+- Exigiu a autenticação de dois fatores para sua organização. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
+
+![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
+
+{% note %}
+{% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
+{% endnote %}
 
 Para saber como adicionar esse selo ao seu aplicativo, consulte "[Candidatar-se para a verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
+
+Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+
+![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
 Para obter mais informações sobre os requisitos para a listagem de um aplicativo em {% data variables.product.prodname_marketplace %}, consulte "[Requisitos para listar um aplicativo em {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
@@ -29,15 +38,3 @@ Ações com {% octicon "verified" aria-label="The verified badge" %} ou com o se
 ![Selo de criador verificada para o GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
 Para obter informações sobre como publicar uma ação do GitHub em {% data variables.product.prodname_marketplace %}, consulte "[Publicar ações no GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)".
-
-### Sobre o processo de verificação anterior para aplicativos
-
-Além do selo de criador verificado, você também verá selos referentes a aplicativos verificados e não verificados. Esses aplicativos foram publicados usando o método antigo para verificar aplicativos individuais.
-
-![Selo verde para verificado e cinza para não verificado](/assets/images/marketplace/marketplace_verified_badges.png)
-
-{% note %}
-
-**Observação:** O processo de verificação do novo publicador para aplicativos substitui o processo anterior em que os aplicativos individuais foram verificados. O novo processo de verificação de publicador é semelhante ao processo de verificação para ações. Se você tiver aplicativos que foram verificados no processo antigo, eles não serão afetados pelas alterações. A equipe de {% data variables.product.prodname_marketplace %} entrará em contato com você com detalhes sobre como fazer a migração para uma verificação baseada na organização.
-
-{% endnote %}

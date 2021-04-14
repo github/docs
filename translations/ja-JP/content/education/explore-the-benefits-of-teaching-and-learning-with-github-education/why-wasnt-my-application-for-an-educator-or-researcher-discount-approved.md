@@ -43,4 +43,4 @@ versions:
 
 ### 参考リンク
 
-- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- 「[教育者・研究者割引への応募](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)」

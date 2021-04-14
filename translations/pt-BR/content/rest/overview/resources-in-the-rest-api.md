@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 
@@ -129,7 +131,7 @@ $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -141,7 +143,7 @@ $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "f
 > HTTP/1.1 403 Forbidden
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -158,7 +160,7 @@ Neste exemplo, os valores 'vmg' e 'redcarpet' são fornecidos para os parâmetro
 Para solicitações de `POST`, `PATCH`, `PUT`e `EXCLUIR`, os parâmetros não incluídos na URL devem ser codificados como JSON com um Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Ponto de extremidade raiz
@@ -321,6 +323,8 @@ Para usuários que pertencem a uma conta {% data variables.product.prodname_ghe_
 
 {% endif %}
 
+Ao usar o `GITHUB_TOKEN` embutido no GitHub Actions, o limite de taxa será de 1.000 solicitações por hora por repositório. Para organizações que pertencem a uma conta no GitHub Enterprise Cloud, este limite é de 15.000 solicitações por hora por repositório.
+
 Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. Solicitações não autenticadas estão associadas ao endereço IP original, e não ao usuário que faz solicitações.
 
 {% data reusables.enterprise.rate_limit %}
@@ -364,7 +368,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
 
@@ -409,7 +413,7 @@ Se seu aplicativo acionar este limite de taxa, você receberá uma resposta info
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#abuse-rate-limits"
 > }
 ```
 

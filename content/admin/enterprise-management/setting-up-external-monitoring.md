@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### About SNMP

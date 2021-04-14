@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% warning %}
@@ -27,6 +29,16 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 {% endtip %}
 
 The maximum size for files is 25MB and the maximum size for images is 10MB.
+{% if currentVersion == "free-pro-team@latest" %}
+Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan.
+
+{% note %}
+
+**Note:** Support for video attachments is currently in beta and subject to change.
+
+{% endnote %}
+
+{% endif %}
 
 We support these files:
 
@@ -37,6 +49,7 @@ We support these files:
 * Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
 * Text files (*.txt*)
 * PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*)
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* Video (*.mp4*, *.mov*){% endif %}
 
 ![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)

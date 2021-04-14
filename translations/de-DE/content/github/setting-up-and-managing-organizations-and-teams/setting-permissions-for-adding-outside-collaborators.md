@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber und Mitglieder mit Administratorberechtigungen für ein Repository können externe Mitarbeiter einladen, an dem Repository zu arbeiten. Du kannst das Recht, externe Mitarbeiter einzuladen, auf ausschließlich Organisationsinhaber einschränken.

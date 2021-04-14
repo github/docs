@@ -1,11 +1,13 @@
 ---
 title: Opening an issue from a comment
 intro: You can open a new issue from a specific comment in an issue or pull request.
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.

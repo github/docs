@@ -24,7 +24,7 @@
     - etiquetas
 - 
   title: Agregar lanzamientos a GitHub
-  description: Publicar los lanzamientos de GitHub en una acción
+  description: Publicar lanzamientos de GitHub en una acción
   languages: 'Dockerfile, Shell'
   href: elgohr/Github-Release-Action
   tags:
@@ -32,7 +32,7 @@
     - publicar
 - 
   title: Publicar una imagen de docker en Dockerhub
-  description: Una acción de GitHub que se utiliza para crear y publicar imágenes de Docker
+  description: Una GitHub Action que se utiliza para crear y publicar imágenes de Docker
   languages: 'Dockerfile, Shell'
   href: elgohr/Publish-Docker-Github-Action
   tags:
@@ -123,7 +123,7 @@
     - publicar
 - 
   title: Etiqueta tus solicitudes de cambios auto-mágicamente (utilizando archivos confirmados)
-  description: Acción de Github para etiquetar tus solicitudes de cambios auto-mágicamente (utilizando archivos confirmados)
+  description: GitHub Action para etiquetar tus solicitudes de cambios auto-mágicamente (utilizando archivos confirmados)
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:

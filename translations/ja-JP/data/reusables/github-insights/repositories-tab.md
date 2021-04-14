@@ -1,1 +1,2 @@
-1. **{% octicon "gear" aria-label="The gear icon" %} Settings（設定）**の下で**Repositories（リポジトリ）**をクリックしてください。 ![[Repositories] タブ](/assets/images/help/insights/repositories-tab.png)
+1. Under "**{% octicon "gear" aria-label="The gear icon" %} Settings**", click **Repositories**.
+  ![Repositories tab](/assets/images/help/insights/repositories-tab.png)

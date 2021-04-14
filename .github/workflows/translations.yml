@@ -1,5 +1,9 @@
 name: Translations
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**: Docs localization
+
 on:
   schedule:
     - cron: '20 19 * * *' # once a day at 19:20 UTC / 11:20 PST
@@ -17,13 +21,14 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Find original Pull Request
-        uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
         id: pr
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: translations
           base: main
           author: octoglot
+          state: open
       - if: ${{ steps.pr.outputs.number }}
         name: Check if already labeled
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9

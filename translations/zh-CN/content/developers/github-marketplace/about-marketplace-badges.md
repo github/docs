@@ -9,14 +9,23 @@ versions:
 
 ### 对于 GitHub 应用程序
 
-带有 {% octicon "verified" aria-label="The verified badge" %} 的应用程序由满足以下条件的组织所拥有：
-- 已确认其域
-- 已确认其电子邮件地址可用于 {% data variables.product.prodname_dotcom %} 支持人员联系该组织
-- 对其组织要求双重身份验证 更多信息请参阅“[您的组织中需要双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)”。
+{% data variables.product.prodname_marketplace %} 上的某些应用有 {% octicon "verified" aria-label="The verified badge" %} 徽章以及显示“发布者域名和电子邮件已验证”的工具提示。 这意味着该应用由下列组织拥有：
 
-![GitHub 应用程序的 Marketplace 徽章](/assets/images/marketplace/apps-with-verified-publisher-badge.png)
+- 已验证其域名的所有权，且其个人资料上有经过验证的徽章
+- 已确认其电子邮件地址可用于 {% data variables.product.prodname_dotcom %} 支持人员联系该组织
+- 对其组织要求双重身份验证 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”。
+
+![GitHub 应用程序的 Marketplace 徽章](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
+
+{% note %}
+{% data variables.product.prodname_dotcom %} 不分析应用。 市场徽章 {% octicon "verified" aria-label="The verified badge" %} 只确认发布者符合上述要求。
+{% endnote %}
 
 要了解如何将此徽章添加到您的应用程序，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
+
+{% data variables.product.prodname_marketplace %} 上的某些应用有 {% octicon "verified" aria-label="The verified badge" %} 徽章以及显示“应用符合列出的要求”而非“发布者域名和电子邮件已验证”的工具提示。 这意味着该应用满足“[列出应用的要求](/developers/github-marketplace/requirements-for-listing-an-app)”中所述的列出要求， 但发布者尚未经过验证，如“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”中所述 。 在发布者成功申请验证之前，带有此徽章的应用无法更改其定价计划。
+
+![GitHub 应用程序的 Marketplace 徽章](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
 有关在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求，请参阅“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
 
@@ -29,15 +38,3 @@ versions:
 ![GitHub Actions 的已验证创作者徽章](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
 有关如何向 {% data variables.product.prodname_marketplace %} 发布 GitHub Actions，请参阅“[在 GitHub Marketplace 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace)”。
-
-### 关于以前的应用程序验证流程
-
-除了已验证创建者徽章外，您还将看到未验证和已验证的应用程序徽章。 这些应用程序是使用针对单个应用程序进行验证的旧方法来发布的。
-
-![绿色的已验证和灰色的未验证徽章](/assets/images/marketplace/marketplace_verified_badges.png)
-
-{% note %}
-
-**注：**新的发布者验证流程将取代以前针对单个应用程序的验证流程。 新的发布者验证流程类似于操作的验证流程。 在旧流程下验证的应用程序将不会受到流程变更的影响。 {% data variables.product.prodname_marketplace %} 团队将联系您，提供如何迁移到基于组织的验证的详细信息。
-
-{% endnote %}

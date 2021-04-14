@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 管理権限を持つ人は、Organization のメンバーや外部のコラボレータの、Organization のリポジトリに対するアクセスを管理できます。

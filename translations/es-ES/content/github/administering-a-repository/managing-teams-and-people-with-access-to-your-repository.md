@@ -6,6 +6,8 @@ redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 ### Acerca de gestionar el acceso a tu repositorio
@@ -14,7 +16,7 @@ Puedes ver un resumen de cada equipo o persona con acceso a tu repositorio para 
 
 Este resumen puede ayudarte a auditar el acceso a tu repositorio, incorporar o retirar personal externo o empleados, y responder con efectividad a los incidentes de seguridad.
 
-Para obtener más información acerca de los niveles de permiso en los repositorios, consulta "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y"[Niveles de permiso para una organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+Para obtener más información acerca de los niveles de permiso en los repositorios, consulta "[Niveles de permiso para un repositorio de la cuenta de un usuario](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" y"[Niveles de permiso para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 ![Resumen de gestión de accesos](/assets/images/help/repository/manage-access-overview.png)
 
@@ -51,4 +53,4 @@ Para obtener más información acerca de los niveles de permiso en los repositor
 ### Leer más
 
 - "[Configurar la visibilidad de un repositorio](/github/administering-a-repository/setting-repository-visibility)"
-- "[Configurar los permisos básicos para una organización](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+- "[Configurar los permisos básicos para una organización](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
