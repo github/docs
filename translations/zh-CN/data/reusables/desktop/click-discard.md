@@ -1,13 +1,13 @@
-1. Click **Discard**.
+1. 单击 **Discard（放弃）**。
 
   {% mac %}
 
-  ![Discard stashed changes button](/assets/images/help/desktop/mac-discard-stashed-changes-button.png)
+  ![放弃隐藏的更改按钮](/assets/images/help/desktop/mac-discard-stashed-changes-button.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Discard stashed changes button](/assets/images/help/desktop/windows-discard-stashed-changes-button.png)
+  ![放弃隐藏的更改按钮](/assets/images/help/desktop/windows-discard-stashed-changes-button.png)
 
   {% endwindows %}

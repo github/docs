@@ -1,37 +1,37 @@
 ---
-title: About licensing for GitHub Advanced Security
-intro: 'If you want to use {% data variables.product.prodname_GH_advanced_security %} features in a private or internal repository, you need a license. These features are available free of charge for public repositories.'
+title: GitHub Advanced Security のライセンスについて
+intro: 'プライベートリポジトリまたは内部リポジトリで {% data variables.product.prodname_GH_advanced_security %} 機能を使用する場合は、ライセンスが必要です。 これらの機能は、パブリックリポジトリで無料で利用できます。'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   free-pro-team: '*'
 ---
 
-### About licensing for {% data variables.product.prodname_GH_advanced_security %}
+### {% data variables.product.prodname_GH_advanced_security %} のライセンスについて
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a license. {% data variables.product.prodname_GH_advanced_security %} に関する詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
+{% data variables.product.prodname_dotcom_the_website %} のパブリックリポジトリ以外のリポジトリで {% data variables.product.prodname_GH_advanced_security %} 機能を使用する場合は、ライセンスが必要です。 {% data variables.product.prodname_GH_advanced_security %} に関する詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。
 
 {% data reusables.advanced-security.license-overview %}
 
-To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
+Enterprise アカウントの {% data variables.product.prodname_GH_advanced_security %} のライセンスについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
-### About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
+### {% data variables.product.prodname_GH_advanced_security %} のコミッター番号について
 
-We record and display two numbers of committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_dotcom_the_website %}:
+{% data variables.product.prodname_dotcom_the_website %} の {% data variables.product.prodname_GH_advanced_security %} の 2 つのコミッター数を記録して表示します。
 
-- **Committers** is the number of committers who contributed to at least one private repository in an organization and who use a seat in your license. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise.
-- **Unique to this repository/organization** is the number of committers who contributed only to this repository, or to repositories in this organization. This number shows how many license seats you can free up by disabling {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+- **コミッター**は、Organization 内の少なくとも 1 つのプライベートリポジトリにコントリビュートし、ライセンスのシートを使用するコミッターの数です。 つまり、Organization のメンバー、外部のコラボレータでもあるか、Enterprise 内の Organization に参加するための保留中の招待状を持っています。
+- **このリポジトリ/Organization に固有**は、このリポジトリまたはこの Organization のリポジトリにのみコントリビュートしたコミッターの数です。 この数値は、そのリポジトリまたは Organization の {% data variables.product.prodname_GH_advanced_security %} を無効にすることで解放できるライセンスシートの数を示しています。
 
-If there are no unique committers, this means that all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Disabling the feature for that repository or organization would not free any seats on your license.
+一意のコミッターがない場合、これは、すべてのアクティブなコミッターが {% data variables.product.prodname_GH_advanced_security %} を使用する他のリポジトリまたは Organization にもコントリビュートしていることを意味します。 そのリポジトリまたは Organization の機能を無効にしても、ライセンスのシートは解放されません。
 
 {% note %}
 
-**Note:** The total number of seats used in your license is not the sum of either the committers or the unique committers to each repository or organization. This is because there are people who contribute to multiple repositories or organizations. The number of seats used is measured across the whole enterprise account to ensure that each person is counted only once regardless of how many repositories or organizations they contribute to.
+**注釈:** ライセンスで使用されるシートの総数は、各リポジトリまたは Organization のコミッターまたは一意のコミッターの合計ではありません。 これは、複数のリポジトリや Organization にコントリビュートしている人がいるためです。 使用されたシートの数は、Enterprise アカウント全体で測定され、コントリビュートしているリポジトリや Organization の数に関係なく、各人が 1 回だけカウントされるようにします。
 
 {% endnote %}
 
-### Managing your license usage for {% data variables.product.prodname_GH_advanced_security %}
+### {% data variables.product.prodname_GH_advanced_security %} のライセンス利用を管理する
 
-When you enable {% data variables.product.prodname_GH_advanced_security %} for a single repository, or for all repositories in an organization, {% data variables.product.company_short %} shows how many extra seats this will use and prompts you for confirmation. If you disable access to {% data variables.product.prodname_GH_advanced_security %}, any seats used by "unique" committers are freed up. This makes it easy to understand the impact of your changes on the use of your license.
+単一のリポジトリまたは Organization 内のすべてのリポジトリに対して {% data variables.product.prodname_GH_advanced_security %} を有効にすると、{% data variables.product.company_short %} は、使用する追加のシートの数を示し、確認を求めるプロンプトを表示します。 If you disable access to {% data variables.product.prodname_GH_advanced_security %}, any seats used by "unique" committers are freed up. This makes it easy to understand the impact of your changes on the use of your license.
 
 If you are over your license limit, {% data variables.product.prodname_GH_advanced_security %} continues to work on all repositories where it is already enabled. However, in organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled for new repositories, repositories will be created with the feature disabled. In addition, the option to enable {% data variables.product.prodname_GH_advanced_security %} for existing repositories will not be available. If you change the visibility of a public repository to private then {% data variables.product.prodname_GH_advanced_security %} will be disabled for that repository.
 

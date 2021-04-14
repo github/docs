@@ -1,7 +1,7 @@
 ---
 getting_started:
   title: '开始使用 {% data variables.product.prodname_actions %}'
-  description: 'Discover the possibilities of {% data variables.product.prodname_actions %} by creating your first workflow.'
+  description: '通过创建第一个工作流程来发现 {% data variables.product.prodname_actions %} 的可能性。'
   guides:
     - /actions/learn-github-actions/introduction-to-github-actions
     - /actions/learn-github-actions/finding-and-customizing-actions

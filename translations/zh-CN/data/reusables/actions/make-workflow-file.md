@@ -1,1 +1,1 @@
-In your repository, create a file called `.github/workflows/YOUR_WORKFLOW.yml`, replacing `YOUR_WORKFLOW` with a name of your choice. This is a workflow file. For more information about creating new files on GitHub, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+在您的仓库中，创建一个名为 `.github/workflows/YOUR_WORKFLOW.yml`的文件，将 `YOUR_WORKFLOW` 替换为您选择的名称。 这是一个工作流程文件。 有关在 GitHub 上创建新文件的更多信息，请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。

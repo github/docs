@@ -48,7 +48,7 @@ topics:
 
 ### 使用命令行进行身份验证
 
-您可以通过两种方式从命令行访问 {% data variables.product.product_name %} 上的仓库：HTTPS 和 SSH ，两者采用不同的身份验证。 验证方法取决于克隆仓库时您是选择 HTTPS 还是 SSH 远程 URL。 For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+您可以通过两种方式从命令行访问 {% data variables.product.product_name %} 上的仓库：HTTPS 和 SSH ，两者采用不同的身份验证。 验证方法取决于克隆仓库时您是选择 HTTPS 还是 SSH 远程 URL。 有关使用哪种访问方式的更多信息，请参阅“[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”。
 
 * 即使您在防火墙或代理后面，也可以通过 HTTPS 处理 {% data variables.product.product_name %} 上的所有仓库。 除非您使用[凭据小助手](/github/getting-started-with-github/caching-your-github-credentials-in-git)缓存了凭据，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入凭据以向 {% data variables.product.product_name %} 验证。 {% data reusables.user_settings.password-authentication-deprecation %}
 
