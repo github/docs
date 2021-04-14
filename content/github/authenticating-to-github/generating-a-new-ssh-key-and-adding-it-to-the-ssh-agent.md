@@ -91,7 +91,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing ` ~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * Open your `~/.ssh/config` file, then modify the file to the following lines. Replace the filename ` ~/.ssh/id_ed25519` below if you did not use the default location and filename for your `id_ed25519` key.
 
       ```
       Host *
