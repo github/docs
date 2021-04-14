@@ -23,6 +23,12 @@ topics:
 
 Organization owners have full administrative access to the organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role. 
+
+{% endnote %}
+
 ### Appointing an organization owner
 
 {% data reusables.profile.access_profile %}
