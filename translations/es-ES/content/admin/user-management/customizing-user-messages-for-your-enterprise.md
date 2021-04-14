@@ -66,16 +66,15 @@ Los mensajes obligatorios tienen varios usos.
 - Decir a los usuarios cómo obtener ayuda con {% data variables.product.product_location %}
 - Garantizar que todos los usuarios lean tus condiciones de servicio para utilizar {% data variables.product.product_location %}
 
-{% note %}
-
-**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
-
-{% endnote %}
-
-
 Si incluyes cajas de verificación con lenguaje de marcado en el mensaje, todas ellas deberán seleccionarse antes de que el usuario pueda descartar el mensaje. Por ejemplo, si incluyes tus condiciones de servicio en el mensaje obligatorio, puede que necesites que cada usuario seleccione una casilla para confirmar que leyó dichas condiciones.
 
 Cada vez que un usuario vea un mensaje obligatorio, se crea un evento de bitácora de auditoría. El evento incluye la versión del mensaje que vio el usuario. Para obtener más información, consulta la sección "[Acciones auditadas](/admin/user-management/audited-actions)".
+
+{% note %}
+
+**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

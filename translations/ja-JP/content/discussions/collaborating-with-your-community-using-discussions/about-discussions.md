@@ -19,7 +19,7 @@ versions:
 
 Issue やプルリクエストをクローズするように、ディスカッションをクローズする必要はありません。
 
-リポジトリ管理者またはプロジェクトメンテナがリポジトリのディスカッションを有効にすると、リポジトリにアクセスするすべての人がリポジトリのディスカッションを作成して参加できます。 リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 詳細は「[Organization のリポジトリ権限レベル](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)」を参照してください。
+リポジトリ管理者またはプロジェクトメンテナがリポジトリのディスカッションを有効にすると、リポジトリにアクセスするすべての人がリポジトリのディスカッションを作成して参加できます。 リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 詳細は「[Organization のためのリポジトリ権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 
 リポジトリのディスカッションの管理の詳細については、「[リポジトリでのディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)」を参照してください。
 

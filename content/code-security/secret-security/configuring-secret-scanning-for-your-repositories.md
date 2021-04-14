@@ -77,4 +77,4 @@ You can also ignore individual alerts from {% data variables.product.prodname_se
 
 ### Further reading
 
-- "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)"
+- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

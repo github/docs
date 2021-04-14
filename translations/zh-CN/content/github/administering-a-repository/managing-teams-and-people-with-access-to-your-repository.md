@@ -16,7 +16,7 @@ topics:
 
 此概览可帮助您审核对仓库、内部或外部承包商或员工的访问权限，并有效响应安全事件。
 
-有关仓库权限级别的更多信息，请参阅“[用户帐户仓库的权限级别](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)”和“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)”。
+有关仓库权限级别的更多信息，请参阅“[用户帐户仓库的权限级别](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)”和“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
 ![访问权限管理概览](/assets/images/help/repository/manage-access-overview.png)
 
@@ -53,4 +53,4 @@ topics:
 ### 延伸阅读
 
 - “[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”
-- “[设置组织的基本权限](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)”
+- “[设置组织的基本权限](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)”

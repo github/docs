@@ -23,7 +23,7 @@ versions:
 {% link_in_list /managing-subscriptions-and-notifications-on-github %}
 
 <!-- Notifications v1 -->
-{% link_in_list /setting-up-and-managing-organizations-and-teams %}
+
 {% link_in_list /setting-up-and-managing-your-enterprise %}
 {% link_in_list /setting-up-and-managing-billing-and-payments-on-github %}
 
@@ -57,7 +57,6 @@ versions:
 
 {% link_in_list /extending-github %}
 
-{% link_in_list /working-with-github-pages %}
 {% link_in_list /supporting-the-open-source-community-with-github-sponsors %}
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}

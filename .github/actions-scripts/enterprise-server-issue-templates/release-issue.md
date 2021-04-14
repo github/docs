@@ -34,18 +34,20 @@
     ```
     ☝️ This will run a workflow **on every push to the PR** that will sync **only** the English index for the new version to Algolia. This will make the GHES content searchable on staging throughout content creation, and will ensure the search updates go live at the same time the content is published. See [`contributing/search.md`](https://github.com/github/docs-internal/blob/main/contributing/search.md) for details.
 
-- [ ] Create an OpenAPI topic branch
-
-  This branch is used to avoid propagating the OpenAPI dev mode check CI test failure in all of the branches. All changes that affect the OpenAPI schema should branch off of this topic branch. The tests should all be passing before the OpenAPI topic branch is merged into the megabranch.
-
-  For more information about how OpenAPI changes are published to docs.github.com, see [Publishing REST API changes to docs.github.com](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/publishing-documentation/publishing-REST-api-docs.md#publishing-rest-api-changes-to-docsgithubcom).
-
 - [ ] In `github/github`, to create a new GHES release follow these steps:
   - [ ] Copy the previous release's root document to a new root document for this release `cp app/api/description/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/ghes-<NEXT RELEASE NUMBER>.yaml`.
   - [ ] Update the `externalDocs.url` property in that file to use the new GHES release number.
   - [ ] Copy the previous release's configuration file to a new configuration file for this release `cp app/api/description/config/releases/ghes-<LATEST RELEASE NUMBER>.yaml app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`.
   - [ ] Update the `variables.externalDocsUrl`, `variables.ghesVersion`, and `patch.[].value.url` in that file to use the new GHES release number.
   - [ ] Update `published` in that file to `false`. **Note:** This is important to ensure that 3.1 OpenAPI changes are not made public until 3.1 is released.
+
+#### Troubleshooting
+
+If the `OpenAPI dev mode check / check-schema-versions` check fails on the release branch, in your local checkout of the mega branch:
+
+- run `git checkout origin/main lib/rest/static/*`
+- run `script/rest/update-files.js --decorate-only`
+- push the resulting changes
 
 ### Before shipping the release branch
 

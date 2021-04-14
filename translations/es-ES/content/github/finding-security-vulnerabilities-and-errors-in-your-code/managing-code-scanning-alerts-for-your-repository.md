@@ -37,7 +37,7 @@ Necesitas permisos de escritura para ver un resumen de todas las alertas de un r
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Debajo de "{% data variables.product.prodname_code_scanning_capc %}", da clic en la alerta que quisieras explorar. ![Resumen de alertas](/assets/images/help/repository/code-scanning-click-alert.png)
+1. Debajo de "{% data variables.product.prodname_code_scanning_capc %}", da clic en la alerta que quisieras explorar. ![Resumen de alertas](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 1. Opcionalmente, si la alerta resalta un problema con el flujo de datos, da clic en **Mostrar rutas** para mostrar la ruta desde la fuente de datos hacia el consumidor de datos en donde se utiliza. ![El enlace de "Mostrar rutas" en una alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Las alertas del análisis de {% data variables.product.prodname_codeql %} incluyen una descripción del problema. Da clic en **Mostrar más** para obtener orientación sobre cómo arreglar tu código. ![Detalles de una alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -49,7 +49,7 @@ Si tienes permisos de escritura para un repositorio, puedes ver las alertas arre
 
 Las alertas pueden arreglarse en una rama pero no en alguna otra. Puedes utilizar el menú desplegable de "Rama", en el resumen de las alertas, para verificar si una alerta se arregló en una rama en particular.
 
-![Filtrar alertas por rama](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Filtrar alertas por rama](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -102,11 +102,11 @@ Para descartar o borrar una alerta:
 
    Opcionalmente, puedes utilizar los filtros para mostrar un subconjunto de alertas y luego borrar simultáneamente todas las que empaten. Por ejemplo, si eliminaste una consulta desde el análisis de {% data variables.product.prodname_codeql %}, puedes utilizar el filtro de "Regla" para listar solo las alertas para esa consulta y luego seleccionar y borrar todas esas alertas.
 
-  ![Filtrar alertas por regla](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+  ![Filtrar alertas por regla](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
 
 1. Si quieres descartar una alerta, es importante explorarla primero para que puedas elegir la razón correcta para descartarla. Da clic en la alerta que quisieras explorar.
 
-   ![Abrir una alerta desde la lista de sumario](/assets/images/help/repository/code-scanning-click-alert.png)
+  ![Abrir una alerta desde la lista de sumario](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 
 1. Revisa la alerta y da clic en **Descartar** y elije una razón para cerrarla. ![Elegir una razón para descartar una alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 
