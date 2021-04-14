@@ -1,3 +1,3 @@
-{% data variables.product.prodname_github_container_registry %} now supports `GITHUB_TOKEN` for easy and secure authentication in your workflows. If your workflow is using a personal access token (PAT) to authenticate to `ghcr.io`, then we highly recommend you update your workflow to use `GITHUB_TOKEN`.
+{% data variables.product.prodname_github_container_registry %}は、ワークフロー内での容易でセキュアな認証のために`GITHUB_TOKEN`をサポートするようになりました。 ワークフローが`ghcr.io`での認証のために個人アクセストークン（PAT）を使っているなら、`GITHUB_TOKEN`を使うようにワークフローを更新することを強くおすすめします。
 
-For more information about `GITHUB_TOKEN`, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+`GITHUB_TOKEN`に関する詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」及び「[ワークフロー内での認証](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。

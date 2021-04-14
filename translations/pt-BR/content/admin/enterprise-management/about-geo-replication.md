@@ -22,6 +22,8 @@ As solicitações do Git e as solicitações específicas do servidor de arquivo
 
 As solicitações de gravação para a réplica exigem o envio dos dados para o servidor principal e todas as réplicas. Isso significa que o desempenho de todas as gravações é limitado pela réplica mais lenta, embora novas georréplicas possam semear a maioria de seus dados a partir de georréplicas colocalizadas existentes, ao invés das primárias. A replicação geográfica não aumentará a capacidade de uma instância do {% data variables.product.prodname_ghe_server %} nem resolverá problemas de desempenho relacionados a CPU ou recursos de memória insuficientes. Se o appliance primário estiver offline, as réplicas ativas não poderão atender a solicitações de leitura ou gravação.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Monitorar a configuração da replicação geográfica
 
 {% data reusables.enterprise_installation.monitoring-replicas %}

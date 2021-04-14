@@ -56,4 +56,4 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 - "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Remover um colaborador de um repositório pessoal](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Remover a si mesmo de um repositório de colaborador](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizar integrantes em equipes](/articles/organizing-members-into-teams)"
+- "[Organizar integrantes em equipes](/organizations/organizing-members-into-teams)"

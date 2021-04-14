@@ -13,7 +13,7 @@ Algunas apps en {% data variables.product.prodname_marketplace %} tienen la insi
 
 - Propiedad verificada del dominio y tiene una insignia verificada en su perfil
 - Confirmó su dirección de correo electrónico para que el soporte de {% data variables.product.prodname_dotcom %} pueda contactarla
-- Requirió la autenticación bifactorial. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en tu organización](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
+- Requirió la autenticación bifactorial. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
 
 ![Insignia de Marketplace para las GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

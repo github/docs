@@ -36,7 +36,7 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 | <kbd>g</kbd> <kbd>p</kbd> | Dirige a la pestaña **Pull requests** (Solicitudes de extracción). Para obtener más información, consulta la sección "[Acerca de las solicitudes de cambios](/articles/about-pull-requests)".{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | Ve a la pestaña de **Acciones**. Para obtener más información, consulta la sección "[Acerca de las acciones](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | Dirige a la pestaña **Projects** (Proyectos). Para obtener más información, consulta "[Acerca de los tableros de proyectos](/articles/about-project-boards)."                                                                                                                                    |
-| <kbd>g</kbd> <kbd>w</kbd> | Dirige a la pestaña **Wiki**. Para obtener más información, consulta "[Acerca de las wikis](/articles/about-wikis)".                                                                                                                                                                             |
+| <kbd>g</kbd> <kbd>w</kbd> | Dirige a la pestaña **Wiki**. Para obtener más información, consulta "[Acerca de las wikis](/communities/documenting-your-project-with-wikis/about-wikis)".                                                                                                                                      |
 
 ### Edición del código fuente
 
@@ -52,6 +52,7 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 | <kbd>control z</kbd> o <kbd>comando z</kbd>                       | Deshace                                                                                                      |
 | <kbd>control y</kbd> o <kbd>comando y</kbd>                       | Rehace                                                                                                       |
 | <kbd>cmd + shift + p</kbd>                                        | Alterna entre las pestañas **Edit file** (Editar comentario) y **Preview changes** (Vista previa de cambios) |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                      | Write a commit message                                                                                       |
 
 Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror](https://codemirror.net/doc/manual.html#commands).
 

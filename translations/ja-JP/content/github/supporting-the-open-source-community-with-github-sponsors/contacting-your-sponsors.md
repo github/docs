@@ -15,6 +15,8 @@ topics:
 
 スポンサード開発者アカウントの場合、アップデートはユーザーアカウントのプライマリメールアドレスから送信されます。 ユーザアカウントでメールアドレスのプライバシーを有効化している場合は、`noreply@github.com` から送信されます。 スポンサードOrganizationの場合、アップデートはOrganizationの`noreply@github.com` メールアドレスから送信されます。 詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
 
+You can also contact any one-time sponsors who contributed within the last 30 days and enabled updates.
+
 ### スポンサーに連絡する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `tierSelectedAt` was added to object type `Sponsorship`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-04-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `closestLesserValueTier` was added to object type `SponsorsTier`",
           "Field `isCustomAmount` was added to object type `SponsorsTier`",
           "Field `isOneTimePayment` was added to object type `Sponsorship`"

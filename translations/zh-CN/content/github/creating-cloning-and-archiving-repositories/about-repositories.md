@@ -39,5 +39,5 @@ topics:
 - "[在 {% data variables.product.prodname_dotcom %} 上管理您的工作](/categories/managing-your-work-on-github/)"
 - "[管理仓库](/categories/administering-a-repository)"
 - "[使用图表可视化仓库数据](/categories/visualizing-repository-data-with-graphs/)"
-- "[关于 wikis](/articles/about-wikis)"
+- "[关于 wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[{% data variables.product.prodname_dotcom %} 词汇](/articles/github-glossary)"

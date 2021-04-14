@@ -14,6 +14,8 @@ Beim Konfigurieren der Hochverfügbarkeit gibt es eine automatisierte Einrichtun
 
 {% data variables.product.prodname_ghe_server %} unterstützt eine aktive/passive Konfiguration, bei der die Replikations-Appliance als Standby-Instanz mit Datenbankdiensten im Replikationsmodus ausgeführt wird, aber die Anwendungsdienste gestoppt werden.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Anvisierte Fehlerszenarien
 
 Verwenden Sie eine Hochverfügbarkeitskonfiguration zum Schutz vor:

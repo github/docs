@@ -11,8 +11,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### Acerca del archivo *dependabot.yml*
 
 El archivo de configuración del {% data variables.product.prodname_dependabot %}, *dependabot.yml*, utiliza la sintaxis YAML. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
@@ -323,7 +321,7 @@ updates:
 
 {% note %}
 
-**Nota**: El {% data variables.product.prodname_dependabot %} solo puede ejecutar actualizaciones de versión en los archivos de bloqueo o de manifiesto si puede acceder a todas las dependencias en estos archivos, aún si agregas dependencias inaccesibles a la opción `ignore` de tu archivo de configuración. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y deanálisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" y "[Solucionar los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+**Nota**: El {% data variables.product.prodname_dependabot %} solo puede ejecutar actualizaciones de versión en los archivos de bloqueo o de manifiesto si puede acceder a todas las dependencias en estos archivos, aún si agregas dependencias inaccesibles a la opción `ignore` de tu archivo de configuración. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y deanálisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" y "[Solucionar los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
 
 
 {% endnote %}

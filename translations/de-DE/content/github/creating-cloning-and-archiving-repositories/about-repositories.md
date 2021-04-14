@@ -39,5 +39,5 @@ You can use repositories to manage your work and collaborate with others.
 - „[Ihre Arbeit auf {% data variables.product.prodname_dotcom %} verwalten](/categories/managing-your-work-on-github/)“
 - „[Ein Repository verwalten](/categories/administering-a-repository)“
 - „[Repository-Daten mit Diagrammen visualisieren](/categories/visualizing-repository-data-with-graphs/)“
-- „[Informationen zu Wikis](/articles/about-wikis)“
+- „[Informationen zu Wikis](/communities/documenting-your-project-with-wikis/about-wikis)“
 - „[{% data variables.product.prodname_dotcom %}-Glossar](/articles/github-glossary)“

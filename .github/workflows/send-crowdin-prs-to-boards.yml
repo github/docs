@@ -1,5 +1,9 @@
 name: Send Crowdin PRs to boards
 
+# **What it does**: Sends PRs opened on the crowdin branch to the ready for work column in this board: https://github.com/orgs/github/projects/1269#column-13447153
+# **Why we have it**: To make sure the first responder sees crowdin translations that need to be merged as they review the Task board.
+# **Who does it impact**: Docs localization and Docs Engineering
+
 on:
   pull_request:
     types:
@@ -14,24 +18,13 @@ jobs:
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
-            var squadBoardColumnId = 13447153; // Add to the team backlog/squad board
+            var squadBoardColumnId = 13447153; // Add to the team task board
 
             try {
               await github.projects.createCard({
                 column_id: squadBoardColumnId,
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
-              });
-            } catch (error) {
-              console.log(error);
-            }
-
-            var prBoardColumnId = 10095775; // Add to the pull requests board
-            try {
-              await github.projects.createCard({
-                column_id: prBoardColumnId,
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
               });
             } catch (error) {
               console.log(error);

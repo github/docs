@@ -58,7 +58,7 @@ inputs:
 
 When you specify an input to an action in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-For example, if a workflow defined the numOctocats and octocatEyeColor inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -75,6 +75,10 @@ For example, if a workflow defined the numOctocats and octocatEyeColor inputs, t
 #### `inputs.<input_id>.default`
 
 **Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs`
 

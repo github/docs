@@ -183,6 +183,20 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### 事件 `payload` 对象
+
+| 键              | 类型    | 描述                      |
+| -------------- | ----- | ----------------------- |
+| `action`       | `字符串` | 执行的操作内容. 可以是 `created`。 |
+| `pull_request` | `对象`  | 与审查相关的拉取请求。             |
+| `审查`           | `对象`  | 受影响的审查。                 |
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -199,6 +213,8 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### 事件 `payload` 对象
 
 | 键                          | 类型    | 描述                                                                                                                     |
 | -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |

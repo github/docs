@@ -95,4 +95,4 @@ Organization のオーナーは、Organization 内のリポジトリのための
 ### 参考リンク
 - 「[Issue およびプルリクエストをラベルでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-labels)」{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}
+- 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}

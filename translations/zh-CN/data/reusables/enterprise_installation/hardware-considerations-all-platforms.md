@@ -29,7 +29,7 @@
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-如果您对 {% data variables.product.prodname_ghe_server %} 实例的{% if currentVersion == "enterprise-server@2.22" %}已启用{% else %}计划启用{% endif %} {% data variables.product.prodname_actions %} 测试版，可能需要为实例提供附加的 CPU 和内存资源。 For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+如果您对 {% data variables.product.prodname_ghe_server %} 实例的{% if currentVersion == "enterprise-server@2.22" %}已启用{% else %}计划启用{% endif %} {% data variables.product.prodname_actions %} 测试版，可能需要为实例提供附加的 CPU 和内存资源。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
 
 {% endif %}
 
@@ -41,6 +41,6 @@
 
 {% endwarning %}
 
-For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
 
 您可以增加实例的 CPU 或内存资源。 更多信息请参阅“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。

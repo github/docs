@@ -16,7 +16,7 @@ topics:
 
 ### 关于仓库可见性更改
 
-组织所有者可以限制只有组织所有者才能更改仓库可见性。 更多信息请参阅“[限制组织的仓库可见性更改](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)”。
+组织所有者可以限制只有组织所有者才能更改仓库可见性。 For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 我们建议在您更改仓库可见性之前审查以下注意事项。
 

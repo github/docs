@@ -49,7 +49,7 @@ versions:
 
   {% tip %}
 
-  **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+  **提示：** 有关 HTTPS 与 SSH URL 之间的差异，请参阅“[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”
 
   {% endtip %}
 

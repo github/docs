@@ -1,7 +1,7 @@
 ---
 title: Manter os segredos protegidos
 shortTitle: Segurança de segredo
-intro: 'Let {% data variables.product.company_short %} do the hard work of ensuring that tokens, private keys, and other code secrets are not exposed in your repository.'
+intro: 'Permita que {% data variables.product.company_short %} faça o trabalho duro de garantir que tokens, chaves privadas e outros segredos de código não sejam expostos no seu repositório.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'

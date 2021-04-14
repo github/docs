@@ -720,7 +720,7 @@ Issue がピン留め解除された。
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-Organization のオーナーがユーザを Organization からブロックした。 これは、[Issue に関するブロックされたユーザのコメントの 1 つを介して](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)行われました。
+Organization のオーナーがユーザを Organization からブロックした。 これは、[Issue に関するブロックされたユーザのコメントの 1 つを介して](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)行われました。
 
 #### 利用の可否
 

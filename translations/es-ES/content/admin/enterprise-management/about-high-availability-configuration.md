@@ -14,6 +14,8 @@ Cuando configuras la alta disponibilidad, hay una configuración automática uni
 
 {% data variables.product.prodname_ghe_server %} admite una configuración activa/pasiva, en la que el aparato réplica se ejecuta como en un modo de espera con los servicios de base de datos ejecutándose en modo de replicación, pero con los servicios de aplicación detenidos.
 
+{% data reusables.enterprise_installation.replica-limit %}
+
 ### Escenarios de fallas específicas
 
 Utiliza la configuración de alta disponibilidad para la protección contra lo siguiente:

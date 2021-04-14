@@ -36,7 +36,7 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                               |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                  |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。                                                                                           |
 
 ### ソースコード編集
 
@@ -52,6 +52,7 @@ versions:
 | <kbd>control z</kbd> または <kbd>command z</kbd>                    | 元に戻します                                              |
 | <kbd>control y</kbd> または <kbd>command y</kbd>                    | やり直します                                              |
 | <kbd>cmd + shift + p</kbd>                                       | [**Edit file**] タブと [**Preview changes**] タブを切り替えます |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                     | Write a commit message                              |
 
 その他のキーボードショートカットについては、[CodeMirror ドキュメント](https://codemirror.net/doc/manual.html#commands)を参照してください。
 

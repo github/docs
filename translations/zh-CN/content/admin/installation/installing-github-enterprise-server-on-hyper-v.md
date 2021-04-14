@@ -1,6 +1,6 @@
 ---
 title: 在 Hyper-V 上安装 GitHub Enterprise Server
-intro: '要在 Hyper-V 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到运行 Windows Server 2008 至 Windows Server 2016 的机器上。'
+intro: '要在 Hyper-V 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到运行 Windows Server 2008 至 Windows Server 2019 的机器上。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
@@ -13,7 +13,7 @@ topics:
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
-- 您必须具有 Windows Server 2008 至 Windows Server 2016，这些版本支持 Hyper-V。
+- 您必须具有 Windows Server 2008 至 Windows Server 2019，这些版本支持 Hyper-V。
 - 创建虚拟机 (VM）所需的大部分操作也可以使用 [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts) 执行。 不过，我们建议使用 Windows PowerShell 命令行 shell 进行初始设置。 下文介绍了使用 PowerShell 的示例。 更多信息请参阅 Microsoft 指南“[Windows PowerShell 使用入门](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)”。
 
 ### 硬件考量因素
