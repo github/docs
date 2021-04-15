@@ -26,10 +26,10 @@ Make sure you add your custom domain to your {% data variables.product.prodname_
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
-
-{% endwindows %}
-
+Команда `dig` , которую можно использовать для проверки правильности конфигурации записей DNS, не включена в Windows. Прежде чем вы сможете убедиться, что ваши записи DNS настроены правильно, вы должны установить [BIND] (https://www.isc.org/bind/) .
+Взаимодействие с другими людьми
+{% endwindows%}
+Взаимодействие с другими людьми
 {% note %}
 
 **Note:** DNS changes can take up to 24 hours to propagate.
