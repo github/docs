@@ -10,8 +10,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### 依存関係の更新のカスタマイズについて
 
 バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。

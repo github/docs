@@ -52,6 +52,7 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 | <kbd>control z</kbd> o <kbd>comando z</kbd>                       | Deshace                                                                                                      |
 | <kbd>control y</kbd> o <kbd>comando y</kbd>                       | Rehace                                                                                                       |
 | <kbd>cmd + shift + p</kbd>                                        | Alterna entre las pestañas **Edit file** (Editar comentario) y **Preview changes** (Vista previa de cambios) |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                      | Write a commit message                                                                                       |
 
 Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror](https://codemirror.net/doc/manual.html#commands).
 

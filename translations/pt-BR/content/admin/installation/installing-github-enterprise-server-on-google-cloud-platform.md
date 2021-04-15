@@ -22,11 +22,11 @@ topics:
 
 ### Determinar o tipo de máquina
 
-Antes de iniciar a {% data variables.product.product_location %} no Google Cloud Platform, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Antes de iniciar a {% data variables.product.product_location %} no Google Cloud Platform, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} recomenda uma máquina de uso geral e de alta memória para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tipos de máquina](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" na documentação do Google Compute Engine.
 
 ### Selecionar a imagem do {% data variables.product.prodname_ghe_server %}
 

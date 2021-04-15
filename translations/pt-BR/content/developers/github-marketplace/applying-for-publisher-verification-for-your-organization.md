@@ -22,8 +22,8 @@ Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma o
 1. Em "Configurações de desenvolvedor", clique em **Verificação do publicador**. ![Opção de verificação do editor na barra lateral de configurações da organização](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Em "Verificação do Publicador, preencha as informações na lista de verificação:
    - Certifique-se de que as suas informações básicas do perfil estejam presentes e precisas. Além disso, certifique-se de incluir o melhor endereço de e-mail para suporte e atualizações de {% data variables.product.company_short %}.
-   - Certifique-se de que a autenticação de dois fatores esteja habilitada para a sua organização. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. Para obter informações relacionadas, consulte "[Verificar o domínio da sua organização](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)".
+   - Certifique-se de que a autenticação de dois fatores esteja habilitada para a sua organização. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
+   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. Para obter informações relacionadas, consulte "[Verificar o domínio da sua organização](/organizations/managing-organization-settings/verifying-your-organizations-domain)".
 
   ![Lista de verificação do publicador](/assets/images/marketplace/publisher-verification-checklist.png)
 

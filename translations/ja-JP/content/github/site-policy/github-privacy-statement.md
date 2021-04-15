@@ -192,7 +192,7 @@ If you would like to compile GitHub data, you must comply with our Terms of Serv
 
 #### Organization
 
-さらに、お客様は、GitHub上でのアクションを通じて、ユーザ個人情報を共有するために指示することができます。 Organizationでコラボレートしている場合またはそのOrganizationのメンバーとなったの場合、そのアカウントオーナーはお客様のユーザ個人情報を受け取ることができます。 Organizationへの招待を承認した場合、オーナーが閲覧できる情報の種類についてお客様に通知されます。（詳細は、[Organizationメンバーシップについて](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)を参照してください） [認証ドメイン](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)付きOrganizationへの招待を承認した場合、Organizationのオーナーは、Organizationの認証ドメイン内でお客様の完全なメールアドレスを閲覧できます。
+さらに、お客様は、GitHub上でのアクションを通じて、ユーザ個人情報を共有するために指示することができます。 Organizationでコラボレートしている場合またはそのOrganizationのメンバーとなったの場合、そのアカウントオーナーはお客様のユーザ個人情報を受け取ることができます。 Organizationへの招待を承認した場合、オーナーが閲覧できる情報の種類についてお客様に通知されます。（詳細は、[Organizationメンバーシップについて](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)を参照してください） [認証ドメイン](/organizations/managing-organization-settings/verifying-your-organizations-domain)付きOrganizationへの招待を承認した場合、Organizationのオーナーは、Organizationの認証ドメイン内でお客様の完全なメールアドレスを閲覧できます。
 
 Please note, GitHub may share your username, [Usage Information](#usage-information), and [Device Information](#device-information) with the owner(s) of the Organization you are a member of, to the extent that your User Personal Information is provided only to investigate or respond to a security incident that affects or compromises the security of that particular Organization.
 
@@ -321,7 +321,7 @@ GitHub processes personal information both inside and outside of the United Stat
 
 ### プライバシーステートメントの変更
 
-ほとんどの変更は軽微ですが、GitHubは、随時、プライバシーステートメントを変更することがあります。 当社は、ホームページに通知を掲載すること、または、GitHubアカウントで指定するプライマリメールアドレスにemailを送信することで、変更が発効する遅くとも30日前にウェブサイト上で、このプライバシーステートメントの重要な変更についてユーザへの通知を提供します。 また、当社は、このポリシーの変更を追跡している[サイトポリシーリポジトリ](https://github.com/github/site-policy/)をアップデートします。 For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
+ほとんどの変更は軽微ですが、GitHubは、随時、プライバシーステートメントを変更することがあります。 当社は、ホームページに通知を掲載すること、または、GitHubアカウントで指定するプライマリメールアドレスにemailを送信することで、変更が発効する遅くとも30日前にウェブサイト上で、このプライバシーステートメントの重要な変更についてユーザへの通知を提供します。 また、当社は、このポリシーの変更を追跡している[サイトポリシーリポジトリ](https://github.com/github/site-policy/)をアップデートします。 For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### ライセンス
 
