@@ -22,7 +22,7 @@
     "@graphql-inspector/core": "^2.3.0",
     "@graphql-tools/load": "^6.2.5",
     "@octokit/rest": "^16.38.1",
-    "@primer/css": "^15.1.0",
+    "@primer/css": "^15.2.0",
     "@primer/octicons": "^11.0.0",
     "algoliasearch": "^3.35.1",
     "babel-loader": "^8.1.0",
