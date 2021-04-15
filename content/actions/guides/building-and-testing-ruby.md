@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'tutorial'
 topics:
   - 'CI'
@@ -13,6 +14,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -29,7 +31,7 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 
 {% data variables.product.prodname_dotcom %} provides a Ruby workflow template that will work for most Ruby projects. For more information, see the [Ruby workflow template](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+To get started quickly, add the template to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
 {% raw %}
 ```yaml
@@ -37,9 +39,9 @@ name: Ruby
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -103,9 +105,9 @@ name: Ruby CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -209,9 +211,9 @@ name: Matrix Testing
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -270,11 +272,11 @@ name: Ruby Gem
 on:
   # Manually publish
   workflow_dispatch:
-  # Alternatively, publish whenever changes are merged to the default branch.
+  # Alternatively, publish whenever changes are merged to the `main` branch.
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:

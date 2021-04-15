@@ -6,5 +6,7 @@ redirect_from:
   - /articles/managing-billing-for-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 

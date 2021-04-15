@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.

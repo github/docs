@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Informationen zu {% data variables.product.prodname_sponsors %}
@@ -35,7 +37,7 @@ Um für {% data variables.product.prodname_matching_fund %} berechtigt zu sein, 
 
 ### Feedback zu {% data variables.product.prodname_sponsors %} geben
 
-Das ist nur der Anfang. Wir würden uns über Deinen Input freuen, um sicherzustellen, dass {% data variables.product.prodname_sponsors %} Deine Bedürfnisse auch in der Zukunft erfüllt. Bitte sende uns Dein Feedback oder Deine Anregungen zu, indem Du Dich bei [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors) meldest.
+{% data reusables.sponsors.feedback %}
 
 ### Weiterführende Informationen
 - „[Unterstützung von Open-Source-Mitarbeitern](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"

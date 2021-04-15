@@ -5,6 +5,10 @@ redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
+  - Abrechnung
 ---
 
 Mitglieder vom Team des Inhabers Deiner Organisation können anderen Benutzern *Abrechnungsmanager*-Berechtigungen zuweisen. Wenn ein Benutzer die Einladung, Abrechnungsmanager zu werden, annimmt, kann er weitere Benutzer einladen, Abrechnungsmanager zu werden.

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/verifying-your-organizations-domain
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About domain verification

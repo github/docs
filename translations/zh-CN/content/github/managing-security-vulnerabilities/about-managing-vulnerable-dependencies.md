@@ -8,17 +8,17 @@ versions:
 {% data variables.product.prodname_dotcom %} 提供以下工具来删除和避免有漏洞依赖项。
 
 #### 依赖关系图
-依赖项图是存储在仓库中的清单和锁定文件的摘要。 It shows you the ecosystems and packages your codebase depends on (its dependencies) and the repositories and packages that depend on your project (its dependents). The information in the dependency graph is used by dependency review and {% data variables.product.prodname_dependabot %}. 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
+依赖项图是存储在仓库中的清单和锁定文件的摘要。 它显示您的代码库所依赖的生态系统和软件包（其依赖项）以及依赖于您的项目的仓库和包（其从属项）。 依赖关系图中的信息用于依赖项审查和 {% data variables.product.prodname_dependabot %}。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 
-#### Dependency review
-By checking the dependency reviews on pull requests you can avoid introducing vulnerabilities from dependencies into your codebase. If the pull requests adds a vulnerable dependency, or changes a dependency to a vulnerable version, this is highlighted in the dependency review. You can change the dependency to a patched version before merging the pull request. 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+#### 依赖项审查
+通过检查拉取请求的依赖项审查，可以避免将依赖项的漏洞引入到代码库中。 如果拉取请求添加了有漏洞依赖项，或者将依赖项更改为有漏洞的版本，这将在依赖项审查中高亮显示。 您可以在合并拉取请求之前将依赖项更改为修补版本。 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
 
 #### {% data variables.product.prodname_dependabot_alerts %}
-{% data variables.product.prodname_dotcom %} can create {% data variables.product.prodname_dependabot_alerts %} when it detects vulnerable dependencies in your repository. The alert is displayed on the Security tab for the repository. 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.prodname_dotcom %} also notifies the maintainers of the repository, according to their notification preferences. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+检测到仓库中存在有漏洞依赖项时，{% data variables.product.prodname_dotcom %} 可创建 {% data variables.product.prodname_dependabot_alerts %}。 警报显示在仓库的 Security（安全）选项卡上。 该警报包括指向项目中受影响的文件的链接，以及有关修复的版本的信息。 {% data variables.product.prodname_dotcom %} 还根据仓库维护员的通知首选项通知他们。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 
 #### {% data variables.product.prodname_dependabot_security_updates %}
-When {% data variables.product.prodname_dotcom %} generates a {% data variables.product.prodname_dependabot %} alert for a vulnerable dependency in your repository, {% data variables.product.prodname_dependabot %} can automatically try to fix it for you. {% data variables.product.prodname_dependabot_security_updates %} are automatically generated pull requests that update a vulnerable dependency to a fixed version. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
+当 {% data variables.product.prodname_dotcom %} 针对仓库中的有漏洞依赖项生成 {% data variables.product.prodname_dependabot %} 警报时，{% data variables.product.prodname_dependabot %} 可以自动尝试为您修复它。 {% data variables.product.prodname_dependabot_security_updates %} 是自动生成的拉取请求，用于将有漏洞依赖项更新到修复版本。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
 
 #### {% data variables.product.prodname_dependabot_version_updates %}
-Enabling {% data variables.product.prodname_dependabot_version_updates %} takes the effort out of maintaining your dependencies. With {% data variables.product.prodname_dependabot_version_updates %}, whenever {% data variables.product.prodname_dotcom  %} identifies an outdated dependency, it raises a pull request to update the manifest to the latest version of the dependency. By contrast, {% data variables.product.prodname_dependabot_security_updates %} only raises pull requests to fix vulnerable dependencies. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates)."
+启用 {% data variables.product.prodname_dependabot_version_updates %} 帮助您维护依赖项。 有了 {% data variables.product.prodname_dependabot_version_updates %}，每当 {% data variables.product.prodname_dotcom  %} 发现过时的依赖项，它就会提出拉取请求，以将清单更新到依赖项的最新版本。 而 {% data variables.product.prodname_dependabot_security_updates %} 只是提出拉取请求以修复有漏洞依赖项。 更多信息请参阅“[关于 Dependabot 版本更新](/github/administering-a-repository/about-dependabot-version-updates)”。

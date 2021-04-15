@@ -4,6 +4,6 @@
 
 {% else %}
 
-1. Klicke auf der linken Seitenleiste auf **License** (Lizenz). !["License" tab in the enterprise account settings sidebar](/assets/images/enterprise/enterprises/license.png)
+1. Klicke auf der linken Seitenleiste auf **License** (Lizenz). !["License" tab in the enterprise account settings sidebar](/assets/images/enterprise/enterprise-server/license.png)
 
 {% endif %}

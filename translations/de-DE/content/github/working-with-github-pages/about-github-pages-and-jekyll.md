@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 ### Informationen zu Jekyll
@@ -38,7 +40,7 @@ Du kannst die meisten Jekyll-Einstellungen konfigurieren, beispielsweise das Des
 
 Einige Konfigurationseinstellungen können für {% data variables.product.prodname_pages %}-Websites nicht geändert werden.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -92,9 +94,9 @@ Du kannst Jekyll-Plug-ins herunterladen oder erstellen, um die Funktionalität v
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Du kannst zusätzliche Plug-ins aktivieren, indem Du die Gem des Plug-ins zur `plugins`-Einstellung in der Datei *_config.yml* hinzufügst. Weitere Informationen findest Du unter „[Konfiguration](https://jekyllrb.com/docs/configuration/)“ in der Jekyll-Dokumentation. Eine Liste der unterstützten Plug-ins findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/) auf der {% data variables.product.prodname_pages %}-Website.
+Du kannst zusätzliche Plug-ins aktivieren, indem Du die Gem des Plug-ins zur `plugins`-Einstellung in der Datei *_config.yml* hinzufügst. Weitere Informationen findest Du unter „[Konfiguration](https://jekyllrb.com/docs/configuration/)“ in der Jekyll-Dokumentation.
 
-Informationen zur Verwendung eines bestimmten Plug-ins findest Du in der dazugehörigen Dokumentation.
+Eine Liste der unterstützten Plug-ins findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/) auf der {% data variables.product.prodname_pages %}-Website.  Informationen zur Verwendung eines bestimmten Plug-ins findest Du in der dazugehörigen Dokumentation.
 
 {% tip %}
 
@@ -112,7 +114,7 @@ Standardmäßig werden Codeblöcke auf Deiner Website von Jekyll markiert. Jekyl
 
 Wenn Du einen anderen Markierer verwenden möchtest, z. B. `highlight.js`, musst Du die Jekyll-Syntaxmarkierung deaktivieren, indem Du die *_config.yml*-Datei Deines Projekts änderst.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

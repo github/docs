@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 页面
 ---
 
 ### _CNAME_ 错误
@@ -21,8 +23,8 @@ versions:
 
 - _CNAME_ 文件名必须全部大写。
 - _CNAME_ 文件只能包含一个域。 要将多个域指向您的站点，必须通过 DNS 提供程序设置重定向。
-- _CNAME_ 条目必须是裸域。 例如，`www.example.com`、`blog.example.com` 或 `example.com`。
-- _CNAME_ 条目只能在 {% data variables.product.product_name %} 上使用一次。 例如，如果另一个仓库的 _CNAME_ 文件包含 `example.com`，则不能在您仓库的 _CNAME_ 文件中使用 `example.com`。
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. 例如，如果另一个仓库的 _CNAME_ 文件包含 `example.com`，则不能在您仓库的 _CNAME_ 文件中使用 `example.com`。
 
 ### DNS 配置错误
 

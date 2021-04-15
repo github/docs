@@ -1,6 +1,6 @@
 ---
 title: Searching the audit log
-intro: 'Site administrators can search an extensive list of audited actions on the enterprise.'
+intro: Site administrators can search an extensive list of audited actions on the enterprise.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### Search query syntax

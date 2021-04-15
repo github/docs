@@ -7,6 +7,8 @@ redirect_from:
 intro: 'Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% tip %}

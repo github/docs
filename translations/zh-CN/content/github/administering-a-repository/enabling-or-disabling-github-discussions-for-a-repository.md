@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.discussions %}'
 permissions: 拥有仓库管理员权限的人可为仓库启用讨论。
 versions:
   free-pro-team: '*'
+topics:
+  - 仓库
 ---
 
 {% data reusables.discussions.beta %}

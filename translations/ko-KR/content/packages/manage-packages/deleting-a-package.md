@@ -54,7 +54,7 @@ Use the `deletePackageVersion` mutation in the GraphQL API. You must use a token
 Here is an example cURL command to delete a package version with the package version ID of `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`, using a personal access token.
 
 {% if currentVersion == "free-pro-team@latest" %}
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \
@@ -64,7 +64,7 @@ https://api.github.com/graphql
 
 {% else %}
 
-```
+```shell
 curl -X POST \
 -H "Accept: application/vnd.github.package-deletes-preview+json" \
 -H "Authorization: bearer TOKEN" \

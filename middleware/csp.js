@@ -4,9 +4,10 @@
 const { contentSecurityPolicy } = require('helmet')
 const isArchivedVersion = require('../lib/is-archived-version')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
+const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 // module.exports = contentSecurityPolicy({
-module.exports = async (req, res, next) => {
+module.exports = function csp (req, res, next) {
   const csp = {
     directives: {
       defaultSrc: ["'none'"],
@@ -18,13 +19,13 @@ module.exports = async (req, res, next) => {
       fontSrc: [
         "'self'",
         'data:',
-        'github-images.s3.amazonaws.com'
+        AZURE_STORAGE_URL
       ],
       imgSrc: [
         "'self'",
         'data:',
         'github.githubassets.com',
-        'github-images.s3.amazonaws.com',
+        AZURE_STORAGE_URL,
         'placehold.it',
         '*.githubusercontent.com',
         'github.com'

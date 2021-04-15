@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: 'overview'
 topics:
   - 'Packaging'
@@ -15,6 +16,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About packaging steps
 
@@ -28,7 +30,7 @@ Creating a package at the end of a continuous integration workflow can help duri
 
 Now, when reviewing a pull request, you'll be able to look at the workflow run and download the artifact that was produced.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
 {% else %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
@@ -43,7 +45,7 @@ In addition to uploading packaging artifacts for testing in a continuous integra
 * **Publish packages to {% data variables.product.prodname_registry %}**  
   {% data variables.product.prodname_registry %} can act as a package hosting service for many types of packages. You can choose to share your packages with all of {% data variables.product.prodname_dotcom %}, or private packages to share with collaborators or an organization. For more information, see "[About {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/about-github-packages)."
 
-  You may want to publish packages to {% data variables.product.prodname_registry %} on every push into the default branch. This will allow developers on your project to always be able to run and test the latest build out of master easily, by installing it from {% data variables.product.prodname_registry %}.
+  You may want to publish packages to {% data variables.product.prodname_registry %} on every push into the default branch. This will allow developers on your project to always be able to run and test the latest build out of the main branch easily, by installing it from {% data variables.product.prodname_registry %}.
 
 * **Publish packages to a package registry**  
   For many projects, publishing to a package registry is performed whenever a new version of a project is released. For example, a project that produces a JAR file may upload new releases to the Maven Central repository. Or, a .NET project may produce a nuget package and upload it to the NuGet Gallery.

@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - community
 ---
 
 Jedes {% data variables.product.product_name %}-Repository enthält einen Abschnitt für das Verwalten von Dokumentationen, ein so genanntes Wiki. Du kannst das Wiki Deines Repositorys verwenden, um ausführliche Informationen über Dein Projekt auszutauschen, beispielsweise über seine Verwendung, seine Gestaltung und seine Kernprinzipien. Eine README-Datei zeigt schnell, was Dein Projekt bezweckt, wohingegen Du ein Wiki verwenden kannst, um zusätzliche Dokumentation bereitzustellen. Weitere Informationen finden Sie unter „[Informationen zu README-Dateien](/articles/about-readmes/)“.

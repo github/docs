@@ -3,6 +3,8 @@ title: Deine Sponsoring-Ziele verwalten
 intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Über Sponsoring-Ziele
@@ -10,6 +12,12 @@ versions:
 You can set a funding goal for your sponsored account and share the goal with your community. Ziele helfen Dir, die Auswirkungen zu verstehen, die Du in der Open-Source-Community hast, und Deine Präsenz im {% data variables.product.prodname_sponsors %}-Programm zu erweitern.
 
 Du kannst Ziele setzen für die Anzahl der Sponsoren, die Du suchst, oder die finanziellen Beiträge, Du Du jeden Monat erzielen möchtest. Du kannst jeweils nur ein Ziel festlegen. Nachdem du ein Ziel erreicht hast, kannst Du ein neues Ziel setzen.
+
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
 
 ### Setting a goal
 

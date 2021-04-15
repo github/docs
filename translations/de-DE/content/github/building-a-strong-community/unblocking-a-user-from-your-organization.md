@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 Nach der Aufhebung der Sperre kann der Benutzer wieder zu den Repositorys der Organisation beitragen.
