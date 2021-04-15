@@ -36,8 +36,15 @@ topics:
    ![选择令牌作用域](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. 单击 **Generate token（生成令牌）**。 ![生成令牌按钮](/assets/images/help/settings/generate_token.png)
-8. 单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 将令牌复制到剪贴板。 出于安全原因，离开此页面后，您将无法再次看到令牌。{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. 单击
+{% octicon "clippy" aria-label="The copy to clipboard icon" %} 以将令牌复制到剪贴板。 出于安全原因，在离开页面后，您将无法再次看到令牌。
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![新建的令牌](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![新建的令牌](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![新建的令牌](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 

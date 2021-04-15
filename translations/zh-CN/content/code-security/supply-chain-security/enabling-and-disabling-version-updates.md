@@ -12,8 +12,6 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 
-{% data reusables.dependabot.beta-note-no-link %}
-
 ### 关于依赖项的版本更新
 
 通过将 *dependabot.yml* 配置文件检入仓库的 `.github` 目录，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 {% data variables.product.prodname_dependabot %} 然后提出拉取请求，使您配置的依赖项保持最新。 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)。”
@@ -117,7 +115,7 @@ updates:
       interval: "daily"
     # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # Ignore updates to packages that start 'aws'
+      # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
       # Ignore some updates to the 'express' package

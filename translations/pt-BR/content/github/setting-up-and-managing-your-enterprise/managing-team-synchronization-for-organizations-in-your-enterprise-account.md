@@ -19,7 +19,7 @@ Se você usar o Azure AD como seu IdP, você pode habilitar a sincronização de
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-Você também pode configurar e gerenciar a sincronização da equipe para uma organização individual. Para obter mais informações, consulte "[Gerenciar a sincronização de equipe para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)".
+Você também pode configurar e gerenciar a sincronização da equipe para uma organização individual. Para obter mais informações, consulte "[Gerenciar a sincronização de equipe para a sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)".
 
 ### Pré-requisitos
 

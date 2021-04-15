@@ -13,6 +13,12 @@ topics:
 
 您的目标可设为您想要的赞助者数量或您希望每月赚取的金额。 每次只能设置一个目标。 一个目标达成后，可以设置另一个目标。
 
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
 ### 设置目标
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

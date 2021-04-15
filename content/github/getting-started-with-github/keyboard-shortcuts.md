@@ -42,6 +42,9 @@ Below is a list of some of the available keyboard shortcuts.
 
 | Keyboard shortcut | Description
 |-----------|------------
+| <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
+| <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
+| <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
 |<kbd>e</kbd> | Open source code file in the **Edit file** tab
 |<kbd>control f</kbd> or <kbd>command f</kbd> | Start searching in file editor
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Find next
@@ -52,6 +55,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>control z</kbd> or <kbd>command z</kbd> | Undo
 |<kbd>control y</kbd> or <kbd>command y</kbd> | Redo
 |<kbd>cmd + shift + p</kbd> | Toggles between the **Edit file** and **Preview changes** tabs
+|<kbd>control s</kbd> or <kbd>command s</kbd> | Write a commit message
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 

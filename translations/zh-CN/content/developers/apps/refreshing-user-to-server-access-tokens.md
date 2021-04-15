@@ -42,9 +42,9 @@ topics:
 
 ```json
 {
-  "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c",
+  "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e169246c34e1ccbf66c46812d16d5b1a9dc86a149873c{% endif %}",
   "refresh_token_expires_in": "15811200",
   "scope": "",
   "token_type": "bearer"
@@ -73,3 +73,11 @@ topics:
 仅当应用程序所有者为其应用程序启用了过期用户令牌时，使用用户到服务器授权令牌的现有 {% data variables.product.prodname_github_app %} 才会受到这个新流程的影响。
 
 要为现有 {% data variables.product.prodname_github_app %} 启用过期用户令牌，需要通过 OAuth 流程发送用户以重新颁发将在 8 小时后过期的新用户令牌，并使用刷新令牌发出请求以获取新的访问令牌和刷新令牌。 更多信息请参阅“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+
+### 延伸阅读
+
+- “[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)”
+
+{% endif %}

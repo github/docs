@@ -66,16 +66,15 @@ Mandatory messages have a variety of uses.
 - Telling users how to get help with {% data variables.product.product_location %}
 - Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
 
-{% note %}
-
-**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
-
-{% endnote %}
-
-
 If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
 
 Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audited actions](/admin/user-management/audited-actions)."
+
+{% note %}
+
+**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

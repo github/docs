@@ -1,7 +1,6 @@
 ---
 title: Managing contributors and teams
 intro: You can manage the people and teams included in metrics and reports.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
@@ -81,7 +80,7 @@ You can merge contributors manually or automatically, based on contributors {% d
 
 ### Managing teams in {% data variables.product.prodname_insights %}
 
-There are two types of teams in {% data variables.product.prodname_insights %}: teams imported from {% data variables.product.product_name %} and custom teams. 
+There are two types of teams in {% data variables.product.prodname_insights %}: teams imported from {% data variables.product.product_name %} and custom teams.
 
 When an organization is added to {% data variables.product.prodname_insights %}, all of the organization's teams are imported from {% data variables.product.product_name %}. You can search and filter by these teams in {% data variables.product.prodname_insights %}. You can manage the teams in {% data variables.product.product_name %}.
 
@@ -111,8 +110,8 @@ You can create and manage custom teams in {% data variables.product.prodname_ins
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. To the right of the contributor you'd like to remove, click {% octicon "trashcan" aria-label="The trashcan icon" %}.
-  ![Trashcan button](/assets/images/help/insights/contributor-trashcan.png)
+3. To the right of the contributor you'd like to remove, click {% octicon "trash" aria-label="The trash icon" %}.
+  ![trash button](/assets/images/help/insights/contributor-trashcan.png)
 
 #### Renaming a custom team
 

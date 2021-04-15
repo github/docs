@@ -28,8 +28,21 @@ topics:
 
 ### 必要な環境
 
-* `actions-sync` ツールを使用する前に、すべての宛先 Organization が Enterprise インスタンスにすでに存在していることを確認する必要があります。 次の例は、Enterprise インスタンスの `synced-actions` という名前の Organization にアクションを同期する方法を示しています。 詳しい情報については、「[新しい Organization をゼロから作成する](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)」を参照してください。
+* `actions-sync` ツールを使用する前に、すべての宛先 Organization が Enterprise インスタンスにすでに存在していることを確認する必要があります。 次の例は、Enterprise インスタンスの `synced-actions` という名前の Organization にアクションを同期する方法を示しています。 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 * Enterprise インスタンスに、宛先 Organization のリポジトリを作成して書き込むことができる個人アクセストークン (PAT) を作成する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+* If you want to sync the bundled actions in the `actions` organization on {% data variables.product.product_location %}, you must be an owner of the `actions` organization.
+
+  {% note %}
+
+  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
+
+  {% endnote %}
+
+  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+
+  ```shell
+  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ```
 
 ### 例: `actions-sync` ツールを使用する
 
