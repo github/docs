@@ -10,7 +10,7 @@ sections:
     - Packages related subdomains were not showing up in the "Test domain settings" prompt for subdomain isolation.
     - The `X-GitHub-Enterprise-Host` header sent with webhooks included a random string, rather than the hostname of the GitHub Enterprise Server instance that sent the HTTP POST payload.
     - Upgrading from 2.22.x to 3.0.x would fail if GitHub Actions had previously been enabled, but disabled before the upgrade.
-    - Visiting the `/settings/emails page` would store state that could cause improper redirects when logging out and logging back in.
+    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
     - GitHub integration apps were not able to notify teams when mentioned directly via an at-mention in an issue comment.
     - reStructuredText (RST) rendering in the web UI would fail and instead displayed raw RST markup text.
     - Email notifications for Secret Scanning alerts were not sent to authorized users when the Dependency Graph was not fully enabled.
