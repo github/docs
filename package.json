@@ -37,7 +37,7 @@
     "copy-webpack-plugin": "^6.0.3",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
-    "css-loader": "^4.3.0",
+    "css-loader": "^5.0.0",
     "csurf": "^1.11.0",
     "directory-tree": "^2.2.5",
     "dotenv": "^8.2.0",
