@@ -79,7 +79,9 @@ categoryIndexFiles.forEach(categoryIndexFile => {
 
       // Read the article file so we can add a redirect from its old path
       const articleContents = frontmatter(fs.readFileSync(newArticlePath, 'utf8'))
-      addRedirectToFrontmatter(articleContents.data.redirect_from, `${oldTopicDirectory}/${article}`)
+
+      if (!articleContents.data.redirect_from) articleContents.data.redirect_from = []
+      addRedirectToFrontmatter(articleContents.data.redirect_from, `${oldTopicDirectory.replace(/^.*?\/content\//, '/')}/${article}`)
 
       // Write the article with updated frontmatter
       fs.writeFileSync(newArticlePath, frontmatter.stringify(articleContents.content.trim(), articleContents.data, { lineWidth: 10000 }))
