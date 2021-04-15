@@ -22,7 +22,7 @@ topics:
 
 ### Introduction
 
-This guide shows you workflow examples that configure a service container using the Docker Hub `postgres` image. The workflow runs a script to create a PostgreSQL client and populate the client with data. To test that the workflow creates and populates the PostgreSQL client, the script prints the client's data to the console.
+This guide shows you workflow examples that configure a service container using the Docker Hub `postgres` image. The workflow runs a script that creates a PostgreSQL database and populates it with data. To test that the workflow creates and populates the PostgreSQL database, the script prints the data from the database to the console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
