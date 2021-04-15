@@ -5,7 +5,7 @@ versions:
 topics:
   - security
 ---
-
+<!--See /content/code-security/supply-chain-security for the current version of this article -->
 
 ### Table of Contents
 {% topic_link_in_list /managing-vulnerabilities-in-your-projects-dependencies %}
