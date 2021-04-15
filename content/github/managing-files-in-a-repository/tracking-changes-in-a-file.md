@@ -1,4 +1,4 @@
----
+Thanks and god bless---
 title: Tracking changes in a file
 intro: You can trace changes to lines in a file and discover how parts of the file evolved over time.
 redirect_from:
