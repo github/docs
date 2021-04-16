@@ -9,7 +9,7 @@ name: No Response
 
 on:
   issue_comment:
-    types: created
+    types: [created]
 
   schedule:
     # Schedule for five minutes after the hour every hour
