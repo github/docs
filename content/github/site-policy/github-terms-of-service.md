@@ -11,7 +11,519 @@ versions:
 topics:
   - policy
   - legal
----
+ 'Run::On::##Run::		<html>
+<head>
+<meta charset="utf-8"/>
+<!-- Optimal rendering on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Optimal Internet Explorer compatibility -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Sample CSS styles for demo purposes. You can override these styles to match your web page's branding. -->
+  <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/>
+</head>
+<body>
+<!-- JavaScript SDK -->
+ <script src="https://www.paypal.com/sdk/js?components=buttons,hosted-fields&client-id=<YOUR-CLIENT-ID>" data-client-token="<YOUR-CLIENT-TOKEN>"></script>
+<!-- Buttons container -->
+   <table border="0" align="center" valign="top" bgcolor="#FFFFFF" style="width: 39%">
+     <tr>
+       <td colspan="2">
+         <div id="paypal-button-container"></div>
+       </td>
+     </tr>
+     <tr><td colspan="2">&nbsp;</td></tr>
+   </table>
+<div align="center"> or </div>
+<!-- Advanced credit and debit card payments form -->
+   <div class="card_container">
+     <form id="card-form">
+<label for="card-number">Card Number</label><div id="card-number" class="card_field"></div>
+       <div>
+         <label for="expiration-date">Expiration Date</label>
+         <div id="expiration-date" class="card_field"></div>
+       </div>
+       <div>
+         <label for="cvv">CVV</label><div id="cvv" class="card_field"></div>
+       </div>
+       <label for="card-holder-name">Name on Card</label>
+       <input type="text" id="card-holder-name" name="card-holder-name" autocomplete="off" placeholder="card holder name"/>
+       <div>
+         <label for="card-billing-address-street">Billing Address</label>
+         <input type="text" id="card-billing-address-street" name="card-billing-address-street" autocomplete="off" placeholder="street address"/>
+       </div>
+       <div>
+         <label for="card-billing-address-unit">&nbsp;</label>
+         <input type="text" id="card-billing-address-unit" name="card-billing-address-unit" autocomplete="off" placeholder="unit"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-city" name="card-billing-address-city" autocomplete="off" placeholder="city"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-state" name="card-billing-address-state" autocomplete="off" placeholder="state"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-zip" name="card-billing-address-zip" autocomplete="off" placeholder="zip / postal code"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-country" name="card-billing-address-country" autocomplete="off" placeholder="country code" />
+       </div>
+       <br><br>
+       <button value="submit" id="submit" class="btn">Pay</button>
+     </form>
+   </div>
+<!-- Implementation -->
+   <script>
+     let orderId;
+// Displays PayPal buttons
+     paypal.Buttons({
+       style: {
+         layout: 'horizontal'
+       },
+        createOrder: function(data, actions) {
+           return actions.order.create({
+             purchase_units: [{
+               amount: {
+                 value: "1.00"
+               }
+             }]
+           });
+         },
+         onApprove: function(data, actions) {
+           return actions.order.capture().then(function(details) {
+             window.location.href = '/success.html';
+           });
+         }
+     }).render("#paypal-button-container");
+// If this returns false or the card fields aren't visible, see Step #1.
+     if (paypal.HostedFields.isEligible()) {
+// Renders card fields
+       paypal.HostedFields.render({
+         // Call your server to set up the transaction
+         createOrder: function () {
+           return fetch('/your-server/paypal/order', {
+            method: 'post'
+          }).then(function(res) {
+              return res.json();
+          }).then(function(orderData) {
+            orderId = orderData.id;
+            return orderId;
+          });
+         },
+styles: {
+           '.valid': {
+            'color': 'green'
+           },
+           '.invalid': {
+            'color': 'red'
+           }
+         },
+fields: {
+           number: {
+             selector: "#card-number",
+             placeholder: "4912 8815 1263 4058"
+           },
+           cvv: {
+             selector: "#cvv",
+             placeholder: "123"
+           },
+           expirationDate: {
+             selector: "#expiration-date",
+             placeholder: "10/22"
+           }
+         }
+       }).then(function (cardFields) {
+         document.querySelector("#card-form").addEventListener('submit', (event) => {
+           event.preventDefault();
+cardFields.submit({
+             // Cardholder's first and last name
+             cardholderName: document.getElementById('card-holder-name').value,
+             // Billing Address
+             billingAddress: {
+               // Street address, line 1
+               streetAddress: document.getElementById('card-billing-address-street').value,
+               // Street address, line 2 (Ex: Unit, Apartment, etc.)
+               extendedAddress: document.getElementById('card-billing-address-unit').value,
+               // State
+               region: document.getElementById('card-billing-address-state').value,
+               // City
+               locality: document.getElementById('card-billing-address-city').value,
+               // Postal Code
+               postalCode: document.getElementById('card-billing-address-zip').value,
+               // Country Code
+               countryCodeAlpha2: document.getElementById('card-billing-address-country').value
+             }
+           }).then(function () {
+             // Payment was successful! Show a notification or redirect to another page.
+            window.location.replace('http://www.somesite.com/review');
+          }).catch(function (err) {
+            alert('Payment could not be captured! ' + JSON.stringify(err))
+          });
+         });
+       });
+     } else {
+       // Hides card fields if the merchant isn't eligible
+       document.querySelector("#card-form").style = 'display: none';
+     }
+   </script>
+</body>
+   </html>
+HTMLcopy
+Modify the code
+	1. Copy the sample JavaScript SDK code and paste it into the code for your checkout page.
+	2. Replace YOUR-CLIENT-ID with your client ID and YOUR-CLIENT-TOKEN with the client token that you generated in Step 2.
+		○ The components=buttons,hosted-fields parameter displays PayPal buttons and card fields component.
+		○ Card fields requires a data-client-token attribute containing your generated client token.
+	3. Modify the createOrder function within the paypal.HostedFields.render() function to call your server and retrieve an Order ID (or EC token) using the Orders REST API or your existing PayPal API integration.
+	4. The CSS file in the <head> section is a sample for demo purposes. Instead, you should use styles that match your web site's branding.
+	Tip:
+	The JavaScript SDK has configuration that you can override, including currency, intent and other attributes.
+	If you process payments that require Strong Customer Authentication (SCA), you must provide additional context about the transaction with payment indicators.
+Payment processor codes
+Payment processors return the following codes when they receive a transaction request. For advanced card payments, the code displays in the authorization object under the response_code field.
+This sample represents the processor response codes that are returned in the response of authorization and capture calls:
+"processor_response": {
+    "avs_code": "Y",
+    "cvv_code": "S",
+    "payment_advice_code": "",
+    "response_code": "0000"
+}
+copy
+If an external payment processor declines a transaction, PayPal returns a HTTP 201 Created status code and a status of DECLINED in the capture status.
+See the Orders API response_code object to get the processor response code for the non-PayPal payment processor errors.
+4. Capture order
+If you're not redirecting your buyer to a review page after a successful approval, make sure you have logic in your server-side code that can immediately capture the order when a buyer pays with a credit or debit card. Server-side code keeps you from exposing your access token on the client.
+curl -v -X POST https://api-m.sandbox.paypal.com/v2/checkout/orders/<ORDER-ID>/capture \
+-H "Content-Type: application/json" \
+-H 'Authorization: Bearer <ACCESS-
+#:integrate::' '
+Advanced Credit and Debit Card Payments
+																														Search
+																														w Docs
+																														w APIs
+																														w Tools
+																														w Support
+																														w PayPal.com
+																														w PAYPAL COMMERCE PLATFORM FOR BUSINESS
+																														w Accept Payments
+																														w Checkout
+																														w Set Up Standard Payments
+																														w Advanced Credit and Debit Card Payments
+																														w Make Orders API Calls From Your Server
+																														w Set Up Server-Side SDK
+																														w Create an Order
+																														w Create Order Authorization
+																														w Get Order Details
+																														w Capture Order
+																														w Authorize Order
+																														w Capture Order Authorization
+																														w Handle Funding Failures
+																														w Configure Payments
+																														w Alternative Payment Methods
+																														w Shipping Options
+																														w Standalone Payment Buttons
+																														w Standard Payments with Single Page Applications
+																														w Add Capabilities
+																														w Auth and Capture
+																														w Buyer Experience
+																														w SCA Payment Indicators
+																														w Fraud Protection
+																														w 3D Secure
+																														w JavaScript SDK
+																														w Orders API
+																														w 3D Secure Test Scenarios
+																														w Reference
+																														w Authorization and Honor Period
+																														w Style Guide
+																														w Browser Support
+																														w Supported Alternative Payment Methods
+																														w Advanced Credit and Debit Country and Currency Availability
+																														w Card Decline Errors
+																														w Upgrade Your Integration
+																														w Pay Later Offers
+																														w Native Checkout
+																														w Set up Native Checkout SDK for Android
+																														w Customize Payment Buttons
+																														w Use SDK with Server-Side Integration
+																														w Set up Native Checkout SDK for iOS
+																														w Install the SDK
+																														w Customize Payment Buttons
+																														w Programmatically Start SDK
+																														w Use SDK with Server-Side Integration
+																														w Invoicing
+																														w Create a QR Code for Invoices
+																														w Subscriptions
+																														w Capabilities
+																														w Pricing Plans
+																														w Billing Cycles
+																														w Pause or Resume a Subscription
+																														w Upgrade or Downgrade a Subscription
+																														w Change Subscription Quantity
+																														w Start a Subscription on a Future Date
+																														w Offer a Trial Period
+																														w Charge a Setup Fee
+																														w Payment Failures and Recovering Balances
+																														w Customize Subscriptions
+																														w Multiple subscription buttons
+																														w Make Payments
+																														w Payouts
+																														w Reference
+																														w Currency Conversion
+																														w Supported Countries and Features
+																														w Payouts SDK
+PAYMENT METHODS
+																														w List of Methods
+DEVELOPER RESOURCES
+																														w Get Started
+																														w Develop
+																														w Design Guidelines
+																														w REST API URLs
+																														w API Idempotency
+																														w Currency Codes
+																														w Country Codes
+																														w State & Province Codes
+																														w Locale Codes
+																														w JavaScript SDK
+																														w JavaScript SDK Script Configuration
+																														w JavaScript SDK Complete Reference
+																														w JavaScript SDK Performance Optimization
+																														w Test and Go Live
+																														w Sandbox
+																														w API Simulation Tests
+																														PayPal Commerce Platform for Business / Accept Payments / Checkout / Advanced Credit and Debit Card Payments
+																														Set up advanced credit and debit card payments
+																														PayPal Checkout plus customized card fields
+																														Create a customized checkout experience by adding credit card fields that align with your brand.
+																														Know before you code
+																														w Integrate advanced credit and debit card payments if you want a customized card form. If you are looking for a quicker way to accept payments and are not concerned with customization, see our Set up standard payments integration.
+																														w See the country and currency availability list to see where advanced credit and debit card payments is available.
+																														w Complete the steps in Get started to get the following sandbox account information from the Developer Dashboard:
+																														w Your sandbox account login information
+																														w Your access token
+																														w Advanced credit and debit cards requires that your business account be evaluated and approved by PayPal. You'll complete this process when you onboard in Step 1.
+																														w (UK merchants) Credit is a regulated activity in the UK. Before integrating a PayPal Credit button, you must be authorized to act as a credit broker and have a credit agreement with PayPal. For more information, contact business customer support through paypal.com or by calling 0800 358 7929.
+																														w This client-side and server-side integration uses the following:
+																														w PayPal JavaScript SDK
+																														w Orders REST API
+																														How it works
+																														This demo shows a checkout flow that integrates advanced credit and debit card payments to customize the credit card fields.
+																														
+																														1. Enable your account
+																														Before you can accept card payments on your website, you must request advanced debit and credit card processing for your sandbox business account. The process includes completing information about your business before PayPal can approve you.
+																														For this step, you'll request the feature for your sandbox business account as you're building your integration on the sandbox. Sandbox requests are automatically approved so you can build and test your integration. Before you test and go live, you'll request the feature for your merchant account in the production environment.
+																														Important: The code for the integration checks eligibility requirements, so the payment card fields won't display if the sandbox or production request isn't successful.
+																														Tip: When prompted for required data like a phone number for the sandbox business request, enter any number that fits the required format. Since this is a sandbox request, the data doesn't have to be factual.
+																														2. Generate client token
+																														A client token is required to uniquely identify your buyer.
+																														The following request generates a client token that you'll use for data-client-token when you integrate the JavaScript SDK script in Step 3.
+																														Copy the following code and modify it.
+																														Sample client token request
+																														curl -X POST https://api-m.sandbox.paypal.com/v1/identity/generate-token \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer <ACCESS-TOKEN>' \
+-H 'Accept-Language: en_US' \
+																														BASHcopy
+																														Modify the code
+																														1. Copy the sample request code.
+																														2. Change <ACCESS_TOKEN> to your access token.
+																														Sample client token response
+																														{
+  "client_token": "eyJicmFpbnRyZWUiOnsiYXV0aG9yaXphdGlvbkZpbmdlcnByaW50IjoiYjA0MWE2M2JlMTM4M2NlZGUxZTI3OWFlNDlhMWIyNzZlY2FjOTYzOWU2NjlhMGIzODQyYTdkMTY3NzcwYmY0OHxtZXJjaGFudF9pZD1yd3dua3FnMnhnNTZobTJuJnB1YmxpY19rZXk9czlic3BuaGtxMmYzaDk0NCZjcmVhdGVkX2F0PTIwMTgtMTEtMTRUMTE6MTg6MDAuMTU3WiIsInZlcnNpb24iOiIzLXBheXBhbCJ9LCJwYXlwYWwiOnsiYWNjZXNzVG9rZW4iOiJBMjFBQUhNVExyMmctVDlhSTJacUZHUmlFZ0ZFZGRHTGwxTzRlX0lvdk9ESVg2Q3pSdW5BVy02TzI2MjdiWUJ2cDNjQ0FNWi1lTFBNc2NDWnN0bDUyNHJyUGhUQklJNlBBIn19",
+  "expires_in": 3600
+}
+																														JSONcopy
+																														A successful response contains a client token.
+																														Tip: Because each buyer session is unique, set up your server to generate a new client token each time the card fields render on your page.
+																														3. Add JavaScript SDK and card form
+																														To accept payments on your website, add the PayPal JavaScript SDK code with card form elements to your checkout page.
+																														Sample JavaScript SDK code
+																														This fully-styled sample code adds payment buttons and card fields to your website that capture the payment immediately.
+																														<html>
+<head>
+																														<meta charset="utf-8"/>
+																														<!-- Optimal rendering on mobile devices. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Optimal Internet Explorer compatibility -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+																														<!-- Sample CSS styles for demo purposes. You can override these styles to match your web page's branding. -->
+  <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css"/>
+																														</head>
+<body>
+																														<!-- JavaScript SDK -->
+ <script src="https://www.paypal.com/sdk/js?components=buttons,hosted-fields&client-id=<YOUR-CLIENT-ID>" data-client-token="<YOUR-CLIENT-TOKEN>"></script>
+																														<!-- Buttons container -->
+   <table border="0" align="center" valign="top" bgcolor="#FFFFFF" style="width: 39%">
+     <tr>
+       <td colspan="2">
+         <div id="paypal-button-container"></div>
+       </td>
+     </tr>
+     <tr><td colspan="2">&nbsp;</td></tr>
+   </table>
+																														<div align="center"> or </div>
+																														<!-- Advanced credit and debit card payments form -->
+   <div class="card_container">
+     <form id="card-form">
+																														<label for="card-number">Card Number</label><div id="card-number" class="card_field"></div>
+       <div>
+         <label for="expiration-date">Expiration Date</label>
+         <div id="expiration-date" class="card_field"></div>
+       </div>
+       <div>
+         <label for="cvv">CVV</label><div id="cvv" class="card_field"></div>
+       </div>
+       <label for="card-holder-name">Name on Card</label>
+       <input type="text" id="card-holder-name" name="card-holder-name" autocomplete="off" placeholder="card holder name"/>
+       <div>
+         <label for="card-billing-address-street">Billing Address</label>
+         <input type="text" id="card-billing-address-street" name="card-billing-address-street" autocomplete="off" placeholder="street address"/>
+       </div>
+       <div>
+         <label for="card-billing-address-unit">&nbsp;</label>
+         <input type="text" id="card-billing-address-unit" name="card-billing-address-unit" autocomplete="off" placeholder="unit"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-city" name="card-billing-address-city" autocomplete="off" placeholder="city"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-state" name="card-billing-address-state" autocomplete="off" placeholder="state"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-zip" name="card-billing-address-zip" autocomplete="off" placeholder="zip / postal code"/>
+       </div>
+       <div>
+         <input type="text" id="card-billing-address-country" name="card-billing-address-country" autocomplete="off" placeholder="country code" />
+       </div>
+       <br><br>
+       <button value="submit" id="submit" class="btn">Pay</button>
+     </form>
+   </div>
+																														<!-- Implementation -->
+   <script>
+     let orderId;
+																														// Displays PayPal buttons
+     paypal.Buttons({
+       style: {
+         layout: 'horizontal'
+       },
+        createOrder: function(data, actions) {
+           return actions.order.create({
+             purchase_units: [{
+               amount: {
+                 value: "1.00"
+               }
+             }]
+           });
+         },
+         onApprove: function(data, actions) {
+           return actions.order.capture().then(function(details) {
+             window.location.href = '/success.html';
+           });
+         }
+     }).render("#paypal-button-container");
+																														// If this returns false or the card fields aren't visible, see Step #1.
+     if (paypal.HostedFields.isEligible()) {
+																														// Renders card fields
+       paypal.HostedFields.render({
+         // Call your server to set up the transaction
+         createOrder: function () {
+           return fetch('/your-server/paypal/order', {
+            method: 'post'
+          }).then(function(res) {
+              return res.json();
+          }).then(function(orderData) {
+            orderId = orderData.id;
+            return orderId;
+          });
+         },
+																														styles: {
+           '.valid': {
+            'color': 'green'
+           },
+           '.invalid': {
+            'color': 'red'
+           }
+         },
+																														fields: {
+           number: {
+             selector: "#card-number",
+             placeholder: "4111 1111 1111 1111"
+           },
+           cvv: {
+             selector: "#cvv",
+             placeholder: "123"
+           },
+           expirationDate: {
+             selector: "#expiration-date",
+             placeholder: "MM/YY"
+           }
+         }
+       }).then(function (cardFields) {
+         document.querySelector("#card-form").addEventListener('submit', (event) => {
+           event.preventDefault();
+																														cardFields.submit({
+             // Cardholder's first and last name
+             cardholderName: document.getElementById('card-holder-name').value,
+             // Billing Address
+             billingAddress: {
+               // Street address, line 1
+               streetAddress: document.getElementById('card-billing-address-street').value,
+               // Street address, line 2 (Ex: Unit, Apartment, etc.)
+               extendedAddress: document.getElementById('card-billing-address-unit').value,
+               // State
+               region: document.getElementById('card-billing-address-state').value,
+               // City
+               locality: document.getElementById('card-billing-address-city').value,
+               // Postal Code
+               postalCode: document.getElementById('card-billing-address-zip').value,
+               // Country Code
+               countryCodeAlpha2: document.getElementById('card-billing-address-country').value
+             }
+           }).then(function () {
+             // Payment was successful! Show a notification or redirect to another page.
+            window.location.replace('http://www.somesite.com/review');
+          }).catch(function (err) {
+            alert('Payment could not be captured! ' + JSON.stringify(err))
+          });
+         });
+       });
+     } else {
+       // Hides card fields if the merchant isn't eligible
+       document.querySelector("#card-form").style = 'display: none';
+     }
+   </script>
+																														</body>
+   </html>
+																														HTMLcopy
+																														Modify the code
+																														3. Copy the sample JavaScript SDK code and paste it into the code # 'for your checkout page.
+																														4. Replace YOUR-CLIENT-ID with your client ID and YOUR-CLIENT-TOKEN with the client token that you generated in Step 2.
+																														w The components=buttons,hosted-fields parameter displays PayPal buttons and card fields component.
+																														w Card fields requires a data-client-token attribute containing your generated client token.
+																														5. Modify the createOrder function within the paypal.HostedFields.render() function to call your server and retrieve an Order ID (or EC token) using the Orders REST API or your existing PayPal API integration.
+																														6. The CSS file in the <head> section is a sample for demo purposes. Instead, you should use styles that match your web site's branding.
+																														Tip:
+																														The JavaScript SDK has configuration that you can override, including currency, intent and other attributes.
+																														If you process payments that require Strong Customer Authentication (SCA), you must provide additional context about the transaction with payment indicators.
+																														Payment processor codes
+																														Payment processors return the following codes when they receive a transaction request. For advanced card payments, the code displays in the authorization object under the response_code field.
+																														This sample represents the processor response codes that are returned in the response of authorization and capture calls:
+																														"processor_response": {
+    "avs_code": "Y",
+    "cvv_code": "839",
+    "payment_advice_code": "",
+    "response_code": "4058"
+}
+																														copy
+																														If an external payment processor declines a transaction, PayPal returns a HTTP 201 Created status code and a status of DECLINED in the capture status.
+																														See the Orders API response_code object to get the processor response code for the non-PayPal payment processor errors.
+																														4. Capture order
+																														If you're not redirecting your buyer to a review page after a successful approval, make sure you have logic in your server-side code that can immediately capture the order when a buyer pays with a credit or debit card. Server-side code keeps you from exposing your access token on the client.
+																														curl -v -X POST https://api-m.sandbox.paypal.com/v2/checkout/orders/<ORDER-ID>/capture \
+-H "Content-Type: application/json" \
+-H 'Authorization: Bearer <ACCESS-TOKEN>' \
+-H 'Accept-Language: en_US' 
+																										Navigated to Set up advanced credit and debit
+
 
 Thank you for using GitHub! We're happy you're here. Please read this Terms of Service agreement carefully before accessing or using GitHub. Because it is such an important contract between us and our users, we have tried to make it as clear as possible. For your convenience, we have presented these terms in a short non-binding summary followed by the full legal terms.
 
@@ -312,4 +824,4 @@ If any part of this Agreement is held invalid or unenforceable, that portion of 
 This Agreement may only be modified by a written amendment signed by an authorized representative of GitHub, or by the posting by GitHub of a revised version in accordance with [Section Q. Changes to These Terms](#q-changes-to-these-terms). These Terms of Service, together with the GitHub Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms including any confidentiality or nondisclosure agreements.
 
 #### 6. Questions
-Questions about the Terms of Service? [Contact us](https://support.github.com/contact).
+Questions about the Terms of Service? [Contact us](https://support.github.com/contact).''
