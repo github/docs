@@ -482,6 +482,38 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+#### `pull_request` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a pull request is created.
+| `close` | Triggered when a pull request is closed without being merged.
+| `reopen` | Triggered when a pull request is reopened after previously being closed.
+| `merge` | Triggered when a pull request is merged.
+| `indirect_merge` | Triggered when a pull request is considered merged because its commits were merged into the target branch.
+| `ready_for_review` | Triggered when a pull request is marked as ready for review.
+| `converted_to_draft` | Triggered when a pull request is converted to a draft.
+| `create_review_request` | Triggered when a review is requested.
+| `remove_review_request` | Triggered when a review request is removed.
+
+#### `pull_request_review` category actions
+
+| Action | Description
+|------------------|-------------------
+| `submit` | Triggered when a review is submitted.
+| `dismiss` | Triggered when a review is dismissed.
+| `delete` | Triggered when a review is deleted.
+
+#### `pull_request_review_comment` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a review comment is added.
+| `update` | Triggered when a review comment is changed.
+| `delete` | Triggered when a review comment is deleted.
+{% endif %}
+
 #### `repo` category actions
 
 | Action | Description
