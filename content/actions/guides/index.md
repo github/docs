@@ -70,6 +70,7 @@ includeGuides:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/guides/managing-github-actions-with-github-cli
 
 ---
 <!-- {% link_in_list /about-continuous-integration %} -->
@@ -104,3 +105,4 @@ includeGuides:
 <!-- {% link_in_list /commenting-on-an-issue-when-a-label-is-added %} -->
 <!-- {% link_in_list /moving-assigned-issues-on-project-boards %} -->
 <!-- {% link_in_list /removing-a-label-when-a-card-is-added-to-a-project-board-column %} -->
+<!-- {% link_in_list /managing-github-actions-with-github-cli %} -->

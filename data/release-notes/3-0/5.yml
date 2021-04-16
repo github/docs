@@ -1,0 +1,25 @@
+date: '2021-04-14'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - Some logs were not included in the log forwarding configuration.
+    - 'A warning message `jq: error (at <stdin>:0): Cannot index number with string "settings"` could occur during replica promotion.'
+    - Continuously restoring backups to a cluster could fail due to MySQL replicas failing to connect to the primary.
+    - Pages were not getting published when using custom CA certificate.
+    - Packages related subdomains were not showing up in the "Test domain settings" prompt for subdomain isolation.
+    - The `X-GitHub-Enterprise-Host` header sent with webhooks included a random string, rather than the hostname of the GitHub Enterprise Server instance that sent the HTTP POST payload.
+    - Upgrading from 2.22.x to 3.0.x would fail if GitHub Actions had previously been enabled, but disabled before the upgrade.
+    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
+    - GitHub integration apps were not able to notify teams when mentioned directly via an at-mention in an issue comment.
+    - reStructuredText (RST) rendering in the web UI would fail and instead displayed raw RST markup text.
+    - Email notifications for Secret Scanning alerts were not sent to authorized users when the Dependency Graph was not fully enabled.
+    - When ghe-migrator encountered import errors, it would sometimes abort the entire process, and the logs did not include enough context.
+    - Jupyter notebooks with non-ASCII characters could fail to render.
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
