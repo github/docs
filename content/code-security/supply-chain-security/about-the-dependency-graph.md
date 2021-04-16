@@ -1,18 +1,106 @@
 ---
-title: About the dependency graph
+title: bitore About-pull-requests ⁶the dependency graph
 intro: 'You can use the dependency graph to identify all your project''s dependencies. The dependency graph supports a range of popular package ecosystems.'
 redirect_from:
-  - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
+  - Bitore.sigs-block-builder-pacakage/pom.xml/rust.u/package.yam/pkg.json/.git.it/github/visualizing-repository-data-with-graphs/about-the-dependency-graph
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.0'
+  enterprise-server: versioning:'@v-'0.1.3'
 topics:
   - repositories
----
-<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
-<!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
+  - BITORE.Gitian.Sigs
+# For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
+# Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
-### Dependency graph availability
+# Dependencies: worker_processes  24;
+events { 
+     worker_connections  1024; 
+}
+
+http {
+    access_log off;
+    proxy_redirect off;
+    include       mime.types;
+    default_type  application/json;
+    client_max_body_size 200M;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+
+        location ~* /rest/objects {
+                set_formatted_gmt_time $timestr "%a, %d %b %Y %H:%M:%S GMT";
+                more_clear_headers 'Date*';
+                content_by_lua '
+                local atmos_user = "xxxxxxxxxxxx/user" # <--- atmos user
+                local atmos_key = "xxxxxxxxxxxxxx" # <--- atmos user key
+                ngx.req.set_header("x-emc-uid", atmos_user)
+                ngx.req.set_header("x-emc-date", ngx.var.timestr)
+                local h = ngx.req.get_headers()
+                local atmos_args, atmos_range = "", ""
+                if (ngx.var.args) then
+                        atmos_ags = "?"..ngx.var.ags
+                end
+                if h["Range"] ~= nil then
+                        atmos_range = h["Range"]
+                end
+                local str = ngx.req.get_method().."\\n"..h["Content-Type"].."\\n"..atmos_range.."\\n\\n"..ngx.var.uri..atmos_args.."\\nx-emc-date:"..h["x-emc-date"].."\\nx-emc-uid:"..h["x-emc-uid"]
+                local digest = ngx.encode_base64(ngx.hmac_sha1(ngx.decode_base64(atmos_key), str))
+                ngx.req.set_header("x-emc-signature", digest)
+                ngx.exec("@atmos");
+                ';
+        }
+        location @atmos {
+                proxy_pass_request_headers on;
+                proxy_pass http://x.x.x.x; # <--- atmos IP
+        }
+    }
+}[worker_processes  24;
+events { 
+     worker_connections  1024; 
+}
+
+http {
+    access_log off;
+    proxy_redirect off;
+    include       mime.types''
+    default_type: application/json;
+    client_max_body_size: 200M;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        listen       80;
+
+        location ~* /rest/objects {
+                'set_formatted_gmt_time $timestr "%a, %d %b %Y %H:%M:%S GMT";
+                more_clear_headers 'Date*';
+                content_by_lua '
+                local atmos_user = user/bin/bash" # <--- atmos user
+                local atmos_key = "Bitore.sigs-pacakage.yam_Rakefile.iu" # <--- atmos user key
+                ngx.req.set_header("x-emc-uid", atmos_user)
+                ngx.req.set_header("x-emc-date", ngx.var.timestr)
+                local h = ngx.req.get_headers()
+                local atmos_args, atmos_range = "", ""
+                if (ngx.var.args)'' then
+                        'atmos_(ags)''='='"?"'..ngx.var.(ags)).''
+                end
+                if h["Range"] ~= nil then
+                        atmos_range = h["Range"]
+                end
+                local str = ngx.req.get_method().."\\n"..h["Content-Type"].."\\n"..atmos_range.."\\n\\n"..ngx.var.uri..atmos_args.."\\nx-emc-date:"..h["x-emc-date"].."\\nx-emc-uid:"..h["x-emc-uid"]
+                local digest = ngx.encode_base64(ngx.hmac_sha1(ngx.decode_base64(atmos_key), str))
+                ngx.req.set_header("x-emc-signature", digest)
+                ngx.exec("@atmos");
+                ';
+        }
+        location @atmos {
+                proxy_pass_request_headers on;
+                proxy_pass http://x.x.x.x; # <--- atmos IP
+        }
+    }
+}] graph availability
 
 The dependency graph is available for every{% if currentVersion == "free-pro-team@latest" %} public{% endif %} repository that defines dependencies in a supported package ecosystem using a supported file format.{% if currentVersion == "free-pro-team@latest" %} Repository administrators can also set up the dependency graph for private repositories.{% endif %}
 
