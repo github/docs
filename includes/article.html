@@ -17,7 +17,6 @@
           <button class="btn-link Link--secondary js-print tooltipped tooltipped-n" aria-label="Print this article">
             {% include printer-icon %}
           </button>
-          {% include toggle-images %}
         </div>
       </div>
 
@@ -63,6 +62,7 @@
         </ul>
         {% endif %}
       </div>
+      {% include toggle-images %}
     </div>
     <div id="article-contents" class="article-grid-body">
       {% if featuredLinks.gettingStarted and featuredLinks.popular %}
