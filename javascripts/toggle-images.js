@@ -1,5 +1,8 @@
 // import { sendEvent } from './events'
 
+// This module does two things:
+// 1. Wraps every image in a div so they can be toggled individually.
+// 2. Adds a button to toggle all images on the page.
 export default function () {
   const toggleImagesBtn = document.getElementById('js-toggle-images')
   if (!toggleImagesBtn) return
@@ -12,42 +15,50 @@ export default function () {
     return
   }
 
-  const hideText = document.getElementById('js-hide-text')
-  const showText = document.getElementById('js-show-text')
+  // Get the span elements containing the hide and show icons.
+  const hideIcon = document.getElementById('js-hide-icon')
+  const showIcon = document.getElementById('js-show-icon')
 
-  // For localization friendliness, the button HTML includes both show and hide text.
-  // The button should say "Hide" by default, so we suppress the "Show" text here.
-  showText.style.display = 'none'
+  // Get the aria-labels from the span elements for the tooltips.
+  const tooltipHide = hideIcon.getAttribute('aria-label')
+  const tooltipShow = showIcon.getAttribute('aria-label')
 
-  // The selection state is set to false by default in the button HTML.
-  let selectionState = toggleImagesBtn.getAttribute('aria-selected') !== 'false'
+  // The icon should be "Hide" to start, so we suppress the "Show" icon here.
+  showIcon.style.display = 'none'
+  toggleImagesBtn.setAttribute('aria-label', tooltipHide)
+
+  let hideImages = true
 
   toggleImagesBtn.addEventListener('click', (e) => {
-    // On click, toggle the selection state.
-    selectionState = !selectionState
-    toggleImagesBtn.setAttribute('aria-selected', selectionState)
-
-    // Check first image to see if images are currently hidden; if so, and there is a click to show them...
-    if (images[0].style.display === 'none') {
-      // Button should say "Hide"
-      showText.style.display = 'none'
-      hideText.style.display = 'inline'
+    if (hideImages) {
+      // Button should say "Show" on first click
+      showIcon.style.display = 'inline'
+      hideIcon.style.display = 'none'
+      toggleImagesBtn.setAttribute('aria-label', tooltipShow)
+      toggleImages(images, 'hide')
     } else {
-      // Button should say "Show"
-      showText.style.display = 'inline'
-      hideText.style.display = 'none'
+      // Button should say "Hide" on another click
+      showIcon.style.display = 'none'
+      hideIcon.style.display = 'inline'
+      toggleImagesBtn.setAttribute('aria-label', tooltipHide)
+      toggleImages(images, 'show')
     }
 
-    // Toggle the images on click.
-    for (const img of images) {
-      if (img.style.display === 'none') {
-        img.style.display = 'block'
-      } else {
-        img.style.display = 'none'
-      }
-    }
+    // Toggle the action on every click.
+    hideImages = !hideImages
 
     // Track image toggle events
     // sendEvent({ type: 'imageToggle' })
   })
+}
+
+function toggleImages (images, action) {
+  for (const img of images) {
+    if (action === 'show') {
+      img.src = img.getAttribute('originalSrc')
+    } else {
+      if (!img.getAttribute('originalSrc')) img.setAttribute('originalSrc', img.src)
+      img.src = '/assets/images/octicons/image.svg'
+    }
+  }
 }
