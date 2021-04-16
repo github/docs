@@ -176,3 +176,5 @@ contributor_callout: This article is contributed and maintained by
 toggle_images:
   hide: Hide images on page
   show: Show images on page
+  hide_single: Hide image
+  show_single: Show image
