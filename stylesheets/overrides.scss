@@ -155,10 +155,18 @@ pre .bluebox {
   }
 }
 
-.markdown-body li img {
-  max-width: calc(100% - 32px);
-}
-
 .markdown-body img {
   max-height: 600px;
+  padding: 0;
+}
+
+.markdown-body button.btn-toggle-image {
+  border: none;
+  margin-top: 2px;
+  max-width: calc(100% - 32px);
+  background-color: transparent;
+}
+
+.markdown-body button.btn-toggle-image img {
+  padding: 0;
 }
