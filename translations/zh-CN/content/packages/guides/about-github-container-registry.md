@@ -23,10 +23,10 @@ versions:
 
 {% data variables.product.prodname_github_container_registry %} 与其他包注册表具有不同的托管位置、权限和可见性。
 
-|      | 包注册表                                                                                                                                                                                                    | {% data variables.product.prodname_github_container_registry %}
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| 托管位置 | 您可以在一个仓库中托管多个包。                                                                                                                                                                                         | 您可以在一个组织或用户帐户中托管多个容器映像。                                           |
-| 权限   | {% data reusables.package_registry.public-or-private-packages %} 您可以使用 {% data variables.product.prodname_dotcom %} 角色和团队来限制谁可以安装或发布每个包，因为包会继承仓库的权限。 对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。                  |
+|      | 包注册表                                                                                     | {% data variables.product.prodname_github_container_registry %}
+| ---- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 托管位置 | 您可以在一个仓库中托管多个包。                                                                          | 您可以在一个组织或用户帐户中托管多个容器映像。                                           |
+| 权限   | 每个包都继承托管包的仓库的权限。 <br><br>例如，对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。                  |
  可见性 | {% data reusables.package_registry.public-or-private-packages %} | 您可以设置每个容器映像的可见性。 私有容器映像仅对组织内被授予访问权限的人员或团队可见。 公共容器映像对任何人都可见。 | 匿名访问 | N/A| 您可以匿名访问公共容器映像。
 
 更多信息请参阅“[关于 {% data variables.product.prodname_github_container_registry %} 的范围和权限](#about-scopes-and-permissions-for-github-container-registry)”。
@@ -69,11 +69,11 @@ versions:
 
 要安装或发布包，您必须使用具有适当作用域的令牌，并且您的用户帐户必须对该仓库具有适当的权限。
 
-| 作用域               | 描述                                                                                                                                                    |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `read:packages`   | 从 {% data variables.product.prodname_github_container_registry %} 下载和安装容器映像                                                                         |
+| 作用域               | 描述                                                                                                                                                                           |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `read:packages`   | 从 {% data variables.product.prodname_github_container_registry %} 下载和安装容器映像                                                                                                |
 | `write:packages`  | 上传和发布容器映像到 {% data variables.product.prodname_github_container_registry %}
-| `delete:packages` | 从 {% data variables.product.prodname_github_container_registry %} 删除私有或公共容器映像的特定版本。 更多信息请参阅“[删除容器映像](/packages/guides/deleting-a-container-image)”。 |
+| `delete:packages` | 从 {% data variables.product.prodname_github_container_registry %} 删除私有或公共容器映像的特定版本。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。 |
 
 要了解容器映像的可用范围和权限，请参阅“[配置容器映像的访问控制和可见性](/packages/guides/configuring-access-control-and-visibility-for-container-images)”。
 

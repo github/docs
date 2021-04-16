@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github 搜索
 ---
 
 ### 搜索 {% data variables.product.product_name %} 主题

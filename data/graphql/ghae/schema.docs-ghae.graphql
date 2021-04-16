@@ -3129,7 +3129,9 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   additions: Int!
 
   """
-  The pull requests associated with a commit
+  The merged Pull Request that introduced the commit to the repository. If the
+  commit is not present in the default branch, additionally returns open Pull
+  Requests associated with the commit
   """
   associatedPullRequests(
     """
@@ -31493,6 +31495,11 @@ type Sponsorship implements Node {
   id: ID!
 
   """
+  Whether this sponsorship represents a one-time payment versus a recurring sponsorship.
+  """
+  isOneTimePayment: Boolean!
+
+  """
   The entity that is being sponsored
   """
   maintainer: User! @deprecated(reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.")
@@ -31516,6 +31523,11 @@ type Sponsorship implements Node {
   The entity that is being sponsored
   """
   sponsorable: Sponsorable!
+
+  """
+  Identifies the date and time when the current tier was chosen for this sponsorship.
+  """
+  tierSelectedAt: DateTime
 }
 
 """

@@ -14,6 +14,7 @@ versions:
 topics:
   - repositories
 ---
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 
 ### Viewing the dependency graph
 
@@ -51,19 +52,6 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
-
-{% endif %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 #### Dependents view
 
@@ -75,7 +63,7 @@ For public repositories, the dependents view shows how the repository is used by
 
 Repository administrators can enable or disable the dependency graph for private repositories.
 
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -116,8 +104,8 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 
 ### Further reading
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
-- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Understanding how {% data variables.product.product_name %} uses and protects your data](/github/understanding-how-github-uses-and-protects-your-data)"
 {% endif %}

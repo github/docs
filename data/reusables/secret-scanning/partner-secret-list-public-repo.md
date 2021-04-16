@@ -50,8 +50,10 @@ Proctorio | Proctorio Registration Key
 Proctorio | Proctorio Secret Key
 Pulumi | Pulumi Access Token
 PyPI | PyPI API Token
+RubyGems | RubyGems API Key
 Samsara | Samsara API Token
 Samsara | Samsara OAuth Access Token
+SendGrid | SendGrid API Key
 Shopify | Shopify App Shared Secret
 Shopify | Shopify Access Token
 Shopify | Shopify Custom App Access Token

@@ -5,6 +5,8 @@ redirect_from:
   - /计划
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
 要构建与 GitHub 集成的应用程序？ 请注册我们的开发者计划！ 无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
@@ -19,7 +21,7 @@ versions:
 
 ## 纳入企业
 
-[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)，根据 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_ghe_managed %} 构建和测试您的应用程序。
+[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)以根据 {% data variables.product.prodname_ghe_server %} 构建和测试您的应用程序。
 
 
 ## 有适用于 GitHub 的集成？

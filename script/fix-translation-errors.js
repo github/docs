@@ -1,3 +1,13 @@
+#!/usr/bin/env node
+
+// [start-readme]
+//
+// Run this script to fix known frontmatter errors by copying values from english file
+// Currently only fixing errors in: 'type', 'changelog'
+// Please double check the changes created by this script before committing.
+//
+// [end-readme]
+
 const { execSync } = require('child_process')
 const { get, set } = require('lodash')
 const fs = require('fs')
@@ -12,14 +22,6 @@ const revalidator = require('revalidator')
 
 const fixableFmProps = ['type', 'changelog', 'mapTopic', 'hidden', 'layout', 'defaultPlatform', 'showMiniToc', 'allowTitleToDifferFromFilename', 'interactive', 'beta_product']
 const fixableYmlProps = ['date']
-
-// [start-readme]
-//
-// Run this script to fix known frontmatter errors by copying values from english file
-// Currently only fixing errors in: 'type', 'changelog'
-// Please double check the changes created by this script before committing.
-//
-// [end-readme]
 
 const loadAndValidateContent = async (path, schema) => {
   let fileContents
@@ -71,13 +73,14 @@ changedFilesRelPaths.forEach(async (relPath) => {
   if (!engResult) return
   const { data: engData } = engResult
 
-  console.log(chalk.red('fixing errors in ') + chalk.bold(relPath))
+  console.log(chalk.bold(relPath))
 
   const newData = data
 
-  fixableErrors.forEach(({ property }) => {
+  fixableErrors.forEach(({ property, message }) => {
     const correctValue = get(engData, property)
-    console.log(`  [${property}]: ${get(data, property)} -> ${correctValue}`)
+    console.log(chalk.red(`  error message: [${property}] ${message}`))
+    console.log(`  fix property [${property}]: ${get(data, property)} -> ${correctValue}`)
     set(newData, property, correctValue)
   })
 

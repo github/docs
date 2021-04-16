@@ -16,7 +16,7 @@ Los debates proporcionan un espacio para que existan conversaciones colaborativa
 
 ### Habilitar los {% data variables.product.prodname_discussions %} en tu repositorio
 
-Los propietarios de los repositoriso con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios públicos.
+Los propietarios de los repositorios y las personas con acceso de escritura pueden habilitar los {% data variables.product.prodname_discussions %} para una comunidad en sus repositorios privados o públicos.
 
 Cuando habilitas un {% data variables.product.prodname_discussions %} por primera vez, se te invitará a configurar una publicación de bienvenida.
 
@@ -35,7 +35,7 @@ Puedes invitar a tu comunidad y presentarles una forma nueva de comunicarse en u
 
 Puedes configurar lineamientos de contribución para motivar a los colaboradores para que tengan conversaciones significativas y útiles que sean relevantes para el repositorio. También puedes actualizar el archivo de README del repositorio para comunicar tus expectativas de cuándo deberían los colaboradores abrir una propuesta o un debate.
 
-Para obtener más información sobre proporcionar lineamientos para tu proyecto, consulta las secciones "[Agregar un código de conducta a tu proyecto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" y "[Configurar tu proyecto para que tegan contribuciones sanas](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
+Para obtener más información sobre proporcionar lineamientos para tu proyecto, consulta las secciones "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y "[Configurar tu proyecto para que tegan contribuciones sanas](/communities/setting-up-your-project-for-healthy-contributions)".
 
 ### Crear un debate nuevo
 
@@ -45,7 +45,7 @@ Cualquiera con acceso a un repositorio puede crear un debate.
 
 ### Organizar los debates en tus categorías relevantes
 
-Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)"
+Los propietarios de los repositorios y las personas con acceso de escritura pueden crear categorías nuevas para mantener los debates organizados. Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 ### Promover las conversaciones sanas
 

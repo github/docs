@@ -6,6 +6,9 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Antes de [habilitar o SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) na organização do {% data variables.product.product_name %}, você precisará conectar o provedor de identidade (IdP) à sua organização.

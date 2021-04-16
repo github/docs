@@ -19,7 +19,9 @@ versions:
 
 ### Falta de clareza em documentos de afiliação acadêmica
 
-Se a imagem que você enviou por upload não identificar claramente seu status acadêmico atual, exigiremos mais provas dele. {% data reusables.education.upload-proof-reapply %}
+Se as datas ou cronogramas mencionados na sua imagem carregada não corresponderem aos nossos critérios de elegibilidade, precisaremos de mais provas do seu status acadêmico.
+
+Se a imagem que você subiu não identificar claramente o seu status acadêmico atual ou se a imagem carregada estiver desfocada, precisaremos de uma prova adicional do seu status acadêmico. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -57,10 +59,11 @@ Para obter mais informações, consulte:
 ### Status de aluno não qualificado
 
 Você não estará qualificado para um {% data variables.product.prodname_student_pack %} se:
-- Você está matriculado em um programa de aprendizado informal que não faz parte do [programa de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/schools) e não está matriculado em um curso superior ou técnico.
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're pursuing a degree which will be terminated in the current academic session.
 - Tiver menos de 13 anos.
 
-Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você for aluno de uma escola de programação ou de um bootcamp, só estará qualificado para um {% data variables.product.prodname_student_pack %} se a sua instituição de ensino participar do [programa de campus do {% data variables.product.prodname_dotcom %}](https://education.github.com/schools).
+Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Leia mais
 

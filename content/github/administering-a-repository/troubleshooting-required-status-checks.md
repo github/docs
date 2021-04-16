@@ -16,7 +16,7 @@ After you enable required status checks, your branch may need to be up-to-date w
 
 {% note %}
 
-**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/using-git/about-git-rebase)."
+**Note:** You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[About Git rebase](/github/getting-started-with-github/about-git-rebase)."
 
 {% endnote %}
 

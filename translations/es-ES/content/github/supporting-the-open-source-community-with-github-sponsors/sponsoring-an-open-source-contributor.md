@@ -1,6 +1,6 @@
 ---
 title: Patrocinar a un colaborador de código abierto
-intro: 'Puedes generar un pago mensual recurrente para un desarrollador u organización que diseñe, cree, o mantenga los proyectos de código abierto de los que dependes.'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: Cualquiera puede patrocinar cuentas en nombre de su propia cuenta de usuario. Los propietarios y gerentes de facturación de las organizaciones pueden patrocinar cuentas en nombre de su organización.
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -22,11 +24,11 @@ Puedes patrocinar una cuenta en nombre de tu cuenta de usuario para invertir en 
 - Desarrollar una conciencia de marca como una organización que valora el código abierto
 - Agradecer a los desarrolladores de código abierto por crear bibliotecas que complementan el producto que ofrece tu organización
 
-Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data variables.product.product_name %}. Si tu organización quiere pagar por factura, [contáctanos](https://support.github.com/contact/org-sponsors-waitlist).
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. Si tu organización quiere pagar por factura, [contáctanos](https://support.github.com/contact/org-sponsors-waitlist).
 
 {% data reusables.sponsors.no-fees %} Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
-Cuando patrocinas una cuenta utilizando una tarjeta de crédito, el cargo tomará efecto de inmediato. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -49,8 +51,9 @@ Antes de que puedas patrocinar una cuenta, debes tener una dirección de correo 
 1. En {% data variables.product.product_name %}, navega al perfil del usuario u organización que quieras patrocinar.
 1. Navega a tu panel de patrocinios para la cuenta.
    - Para patrocinar a un desarrollador, debajo de su nombre, da clic en **Patrocinar**. ![Botón de Patrocinador](/assets/images/help/profile/sponsor-button.png)
-   - Para patrocinar a una organización, a la derecha de su nombre, da clic en **Patrocinar**. ![Botón de Patrocinador](/assets/images/help/sponsors/sponsor-org-button.png)
+   - Para patrocinar una organización, a la derecha del nombre de esta, haz clic en **Patrocinar**. ![Botón de Patrocinador](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Opcionalmente, a la derecha de la página, para patrocinar una cuenta en nombre de tu organización, utiliza el menú desplegable de **Patrocinar como**, y da clic en la organización. ![Menú desplegable para elegier la cuenta bajo la cual harás el patrocinio](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de las variables de entorno
 
@@ -20,6 +22,7 @@ versions:
 
 Para establecer variables de entorno personalizadas, debes especificar las variables en el archivo de flujo de trabajo. Puedes definir variables de ambiente para un paso, job o para todo el flujo de trabajo si utilizas las palabras clave [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), y [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env). Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -28,19 +31,20 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 Para utilizar el valor de una variable de ambiente en un archivo de flujo de trabajo, deberías utilizar el [contexto `env`](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). Si quieres utilizar el valor de una variable de ambiente dentro de un ejecutor, puedes utilizar el método normal del sistema operativo ejecutor para leer las variables de ambiente.
 
 Si utilizas la clave `run` de los archivos del flujo de trabajo para leer las variables de ambiente desde dentro del sistema operativo ejecutor (como se muestra en el ejemplo anterior), dicha variable se sustituirá en el sistema operativo ejecutor después de que se envíe el job al ejecutor. En el caso de otras partes de un archivo de flujo de trabajo, debes utilizar el contexto `env` para leer las variables de ambiente; esto es porque las claves de flujo de trabajo (tales como `if`) requieren que se sustituya la variable durante el procesamiento de dicho flujo de trabajo antes de que se envíe al ejecutor.
 
-Tambièn puedes utilizar el archivo de ambiente de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV`{% else %} el comando de flujo de trabajo `set-env`{% endif %} para configurar una variable de ambiente que pueda utilizar los siguientes pasos en un flujo de trabajo. El {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}archivo de ambiente{% else %} comando `set-env`{% endif %} puede utilizarse directamente a travès de una acciòn o como un comando de shell en un archivo de trabajo utilizando la palabra clave `run`. Para obtener más información, consulta "[Comandos de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
+También puedes utilizar el {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} archivo de ambiente `GITHUB_ENV`{% else %} comando de flujo de trabajo `set-env`{% endif %} para configurar una variable de ambiente que puedan utilizar los siguientes pasos en un flujo de trabajo. Una acción puede utilizar directamente el {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}archivo de ambiente{% else %} comando `set-env`{% endif %}, o se puede utilizar como un comando de shell en un archivo de flujo de trabajo si se utiliza la palabra clave `run`. Para obtener más información, consulta "[Comandos de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
 
 ### Variables de entorno predeterminadas
 
@@ -52,6 +56,7 @@ Te recomendamos encarecidamente que las acciones usen variables de entorno para 
 | `GITHUB_WORKFLOW`    | El nombre del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                      |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                                                                                                                                                   |
 | `GITHUB_ACTION`      | El único identificador (`id`) de la acción.                                                                                                                                                                                                                                                                                                                                                          |
 | `GITHUB_ACTIONS`     | Siempre establecido en `true` cuando {% data variables.product.prodname_actions %} está ejecutando el flujo de trabajo. Puedes usar esta variable para diferenciar cuando las pruebas se ejecutan de forma local o mediante {% data variables.product.prodname_actions %}.                                                                                                                         |
 | `GITHUB_ACTOR`       | El nombre de la persona o de la aplicación que inició el flujo de trabajo. Por ejemplo, `octocat`.                                                                                                                                                                                                                                                                                                   |
