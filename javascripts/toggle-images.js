@@ -40,6 +40,9 @@ export default function () {
       } else {
         toggleImage(img, 'hide', tooltipShowSingle)
       }
+
+      // Don't leave the button in focus after click or the tooltip will stay displayed.
+      parentButton.blur()
     })
   }
 
