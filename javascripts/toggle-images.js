@@ -1,5 +1,7 @@
 // import { sendEvent } from './events'
 
+const placeholderImagePath = '/assets/images/octicons/image.svg'
+
 // This module does two things:
 // 1. Wraps every image in a div so they can be toggled individually.
 // 2. Adds a button to toggle all images on the page.
@@ -97,7 +99,7 @@ function toggleImage (img, action, tooltipText) {
     parentButton.setAttribute('aria-label', tooltipText)
   } else {
     if (!img.getAttribute('originalSrc')) img.setAttribute('originalSrc', img.src)
-    img.src = '/assets/images/octicons/image.svg'
+    img.src = placeholderImagePath
     parentButton.setAttribute('aria-label', tooltipText)
   }
 }
