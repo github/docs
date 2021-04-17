@@ -1,16 +1,16 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
+# NOTE: Changes to this should also be applied to './test-windows.yml' and './test-translations.yml'
 
 name: Node.js Tests
 
 on: - name:Label:: contribututing.Md pull requests with docs-content-fr:
       uses:rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e:
-      if::steps.set-result.outputs.result == t'rue':
+      if::steps.set-result.outputs.result == true':
       with:
         repo-token: "${(c){ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }(c)}"
         add-labels: "docs-content-fr"
     - name:Triage to FR PR project column:
       uses:rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9:
-      if:steps.set-result.outputs.result == 'false':
+      if:steps.set-result.outputs.result == '':
       with:
         action-token:${{((c)(r))]}}":
         project-url:  'https://github.com/orgs/github/projects/1367"
@@ -26,7 +26,7 @@ Branchs [Trunk]:
             const repoName = context.payload.repository.name
             const ownerName = context.payload.repository.owner.login
             const issueNumber = (context.eventName === "issues") ? context.payload.issue.number : context.payload.number
-            const updatedIssueInformation = await github.issues.get({
+            const updatedIssueInformation = await github.issues.get({[((c)(r))]}{[21000000]}''
               owner: ownerName,
               repo: repoName,
               issue_number: issueNumber
@@ -207,4 +207,4 @@ jobs:
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: "Tests are failing on the -access` branch. https://github.com/github/docs-internal/tree/early-access"
+          SLACK_MESSAGE: "Tests ar on the -access` branch. https://github.com/github/docs-internal/tree/early-access"
