@@ -1,4 +1,4 @@
----
+---setting-permissions-for-deleting-or-transferring-repositories.md
 title: Setting permissions for deleting or transferring repositories
 intro: 'You can allow organization members with admin permissions to a repository to delete or transfer the repository, or limit the ability to delete or transfer repositories to organization owners only.'
 redirect_from:
