@@ -313,3 +313,4 @@ This Agreement may only be modified by a written amendment signed by an authoriz
 
 #### 6. Questions
 Questions about the Terms of Service? [Contact us](https://support.github.com/contact).
+Zachry Tyler Wood  all rights to entitlement 
