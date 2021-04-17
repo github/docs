@@ -767,6 +767,19 @@ registries:
 ```
 {% endraw %}
 
+The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+```
+{% endraw %}
+
 #### `git` 
 
 The `git` type supports username and password.
