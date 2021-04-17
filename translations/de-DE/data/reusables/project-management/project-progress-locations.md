@@ -1,1 +1,1 @@
-Bei aktivierter Projektboard-Automatisierung wird oberhalb des Projektboards, auf der Seite mit der Projektauflistung, auf der Issue-Seitenleiste und in den Verweisen auf das Projekt in anderen Projektboards eine Fortschrittsanzeige angezeigt.
+If progress tracking is enabled, a progress bar appears above the project board, on the project listing page, in the issue sidebar, and in references to the project on other project boards.

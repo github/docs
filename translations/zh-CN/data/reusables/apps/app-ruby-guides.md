@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** This guide demonstrates the app development process using the Ruby programming language. However, there are many [flavors of Octokit](/v3/libraries/). If you prefer JavaScript, you can use [Probot](https://probot.github.io/) and [Node.js](https://octokit.github.io/rest.js/) to develop GitHub Apps.
+**注：**本指南演示了使用 Ruby 编程语言的应用程序开发过程。 但有很多[Octokit 风格](/rest/overview/libraries)。 如果您喜欢 JavaScript，可以使用 [Probot](https://probot.github.io/) 和 [Node.js](https://octokit.github.io/rest.js/) 开发 GitHub 应用程序。
 
 {% endnote %}

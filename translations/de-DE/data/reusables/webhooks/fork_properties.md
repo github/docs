@@ -1,3 +1,3 @@
-| Schlüssel | Typ      | Beschreibung                                                      |
-| --------- | -------- | ----------------------------------------------------------------- |
-| `forkee`  | `Objekt` | The created [`repository`](/v3/repos/#get-a-repository) resource. |
+| Schlüssel | Typ      | Beschreibung                                                                 |
+| --------- | -------- | ---------------------------------------------------------------------------- |
+| `forkee`  | `Objekt` | The created [`repository`](/rest/reference/repos#get-a-repository) resource. |

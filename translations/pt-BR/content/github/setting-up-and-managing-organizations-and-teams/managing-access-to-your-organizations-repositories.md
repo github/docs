@@ -9,5 +9,9 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 

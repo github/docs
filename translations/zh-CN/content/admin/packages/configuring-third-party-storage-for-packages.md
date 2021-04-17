@@ -1,11 +1,7 @@
 ---
-title: Configuring third-party storage for packages
-intro: 'You can configure the third-party service that {% data variables.product.prodname_registry %} uses to store your enterprise''s packages.'
+title: 为包配置第三方存储
+intro: '您可以配置 {% data variables.product.prodname_registry %} 用于存储企业软件包的第三方服务。'
 redirect_from:
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
   - /enterprise/admin/packages/configuring-third-party-storage-for-packages
 versions:
   enterprise-server: '>=2.22'
@@ -13,23 +9,26 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-### About third-party storage for {% data variables.product.prodname_registry %}
+### 关于 {% data variables.product.prodname_registry %} 的第三方存储
 
-{% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}.
+{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_registry %} 使用外部 Blob 存储来存储您的软件包。 所需存储量取决于您使用 {% data variables.product.prodname_registry %} 的情况。
 
-At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analagous information for your MinIO configuration.
+目前，{% data variables.product.prodname_registry %} 支持使用 Amazon Web Services (AWS) S3 的 Blob 存储。 还支持 MinIO，但配置当前未在 {% data variables.product.product_name %} 界面中实现。 您可以按照 AWS S3 的说明使用 MinIO 进行存储，输入 MinIO 配置的类似信息。 在 {% data variables.product.prodname_dotcom %} 上为 {% data variables.product.prodname_registry %} 配置第三方存储之前，必须使用第三方存储提供商设置存储桶。 有关安装和运行 MinIO 存储桶以用于 {% data variables.product.prodname_registry %} 的详细信息，请参阅“[配置 MinIO 存储快速入门](/admin/packages/quickstart-for-configuring-minio-storage)”。
 
-For the best experience, we recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+为了获得最佳体验，我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
 
-### Configuring AWS S3 as storage for {% data variables.product.prodname_registry %}
+### 将 AWS S3 配置为 {% data variables.product.prodname_registry %} 的存储系统
 
 {% warning %}
 
-**Warning:** Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
+**警告：**
+- 为存储桶设置所需的限制性访问策略至关重要，因为 {% data variables.product.company_short %} 不会将特定对象权限或其他访问控制列表 (ACL) 应用于存储桶配置。 例如，如果将存储桶设为公共，则在公共互联网上可以访问存储桶中的数据。 更多信息请参阅 AWS 文档中的[设置存储桶和对象访问权限](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)。
+- 我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
+- 请确保配置将来要使用的存储桶。 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
 
 {% endwarning %}
 
-Before you configure AWS as storage for {% data variables.product.prodname_registry %}, make sure your AWS access key ID and secret have the following permissions:
+在将 AWS 配置为 {% data variables.product.prodname_registry %} 的存储系统之前，请确保您的 AWS 访问密钥 ID 和密码具有以下权限：
   - `s3:PutObject`
   - `s3:GetObject`
   - `s3:ListBucketMultipartUploads`
@@ -41,9 +40,9 @@ Before you configure AWS as storage for {% data variables.product.prodname_regis
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
-1. Under "AWS Service URL", type the S3 endpoint URL for your bucket's region. ![AWS Service URL field](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
-1. Under "AWS S3 Bucket", type the name of the S3 bucket you want to use to store package artifacts. ![AWS S3 Bucket field](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
-1. Under "AWS S3 Access Key", type your access key for S3. ![AWS S3 Access Key field](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
-1. Under "AWS S3 Secret Key", type your secret key for S3. ![AWS S3 Secret Key field](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
-1. Under "AWS S3 Region", type your region for S3. ![AWS S3 Region field](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
+1. 在“AWS Service URL（AWS 服务 URL）”下，请为存储桶的区域键入S3 端点 URL。 ![AWS 服务 URL 字段](/assets/images/enterprise/site-admin-settings/storage-service-url.png)
+1. 在“AWS S3 Bucket（AWS S3 存储桶）”下，键入您想要用来存储软件包工件的 S3 存储桶。 ![AWS S3 存储桶字段](/assets/images/enterprise/site-admin-settings/aws-s3-bucket.png)
+1. 在“AWS S3 Access Key（AWS S3 访问密钥）”下，键入 S3 的访问密钥。 ![AWS S3 访问密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-access-key.png)
+1. 在“AWS S3 Secret Key（AWS S3 密码密钥”下，请输入 S3 的密码密钥。 ![AWS S3 密码密钥字段](/assets/images/enterprise/site-admin-settings/aws-s3-secret-key.png)
+1. 在“AWS S3 Region（AWS S3 区域）”下，键入 S3 的区域。 ![AWS S3 区域字段](/assets/images/enterprise/site-admin-settings/aws-s3-region.png)
 {% data reusables.enterprise_management_console.save-settings %}

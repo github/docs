@@ -3,7 +3,6 @@ title: Creating organizations
 redirect_from:
   - /enterprise/admin/articles/creating-organizations/
   - /enterprise/admin/user-management/creating-organizations
-  - /enterprise/admin/user-management/creating-organizations
 intro: You can choose to set up a new organization or convert an existing personal account into an organization.
 versions:
   enterprise-server: '*'

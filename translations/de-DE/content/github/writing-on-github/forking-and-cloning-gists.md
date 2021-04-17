@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Gists forken
 
-Jeder Gist gibt an, bei welchen Forks es Aktivitäten gibt, sodass Du leicht interessante Änderungen von Mitarbeitern oder unbekannten Benutzern finden kannst.
+Each gist indicates which forks have activity, making it easy to find interesting changes from others.
 
 ![Gist-Forks](/assets/images/help/gist/gist_forks.png)
 

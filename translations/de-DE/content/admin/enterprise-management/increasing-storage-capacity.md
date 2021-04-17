@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-Wenn sich mehr Benutzer {% data variables.product.product_location_enterprise %} anschließen, müssen Sie die Größe Ihres Storage-Volumes anpassen. Informationen zur Storage-Größenanpassung finden Sie in der Dokumentation für Ihre Virtualisierungsplattform.
+Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließen, müssen Sie die Größe Ihres Storage-Volumes anpassen. Informationen zur Storage-Größenanpassung finden Sie in der Dokumentation für Ihre Virtualisierungsplattform.
 
 ### Anforderungen und Empfehlungen
 
@@ -20,6 +22,8 @@ Wenn sich mehr Benutzer {% data variables.product.product_location_enterprise %}
 
 {% endnote %}
 
+#### Minimum requirements
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Größe der Datenpartition erhöhen
@@ -28,7 +32,7 @@ Wenn sich mehr Benutzer {% data variables.product.product_location_enterprise %}
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Versetzen Sie die Appliance in den Wartungsmodus. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
 4. Starten Sie die Appliance neu, um die neue Storage-Zuordnung zu ermitteln.
-5. Führen Sie den Befehl `ghe-storage-extend` aus, um das Dateisystem `/data` zu erweitern:
+5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
   ```

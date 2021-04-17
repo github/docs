@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you notice any spammy {% data variables.product.prodname_marketplace %} purchases or other malicious behavior, please complete the [report abuse](https://github.com/contact/report-abuse) form with more information on the user.
+**注：**如果您发现任何恶意 {% data variables.product.prodname_marketplace %} 购买或其他恶意行为，请填写[报告滥用](https://github.com/contact/report-abuse)表单，并提供有关用户的更多信息。
 
 {% endnote %}

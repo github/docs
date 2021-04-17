@@ -1,73 +1,54 @@
-// This middleware serves a file that's used by the GitHub support team
-// to quickly search for Help articles by title and insert the link to
-// the article into a reply to a customer.
 const path = require('path')
-const fs = require('fs')
-const matter = require('gray-matter')
-const dotcomDir = path.join(__dirname, '../content/github')
-const dotcomIndex = path.join(dotcomDir, 'index.md')
-const linkRegex = /{% (?:topic_)?link_in_list ?\/(.*?) ?%}/g
 
-module.exports = async (req, res, next) => {
-  if (req.path !== '/categories.json') return next()
-  const categories = generateCategories()
-  return res.json(categories)
-}
+module.exports = async function categoriesForSupportTeam (req, res, next) {
+  const englishSiteTree = req.context.siteTree.en
 
-function generateCategories () {
-  // get links included in dotcom index page.
-  // each link corresponds to a dotcom subdirectory
-  // example: getting-started-with-github
-  const links = getLinks(fs.readFileSync(dotcomIndex, 'utf8'))
+  const allCategories = []
 
-  const categories = []
+  Object.keys(englishSiteTree).forEach(version => {
+    const versionedProductsTree = englishSiteTree[version].products
 
-  // get links included in each subdir's index page
-  // these are links to articles
-  links.forEach(link => {
-    const category = {}
-    const indexPath = getPath(link, 'index')
-    const indexContents = fs.readFileSync(indexPath, 'utf8')
-    const { data, content } = matter(indexContents)
+    Object.values(versionedProductsTree).forEach(productObj => {
+      if (productObj.id === 'early-access') return
+      if (productObj.external) return
 
-    // get name from title frontmatter
-    category.name = data.title
+      Object.values(productObj.categories).forEach(categoryObj => {
+        const articlesArry = []
 
-    // get child article links
-    const articleLinks = getLinks(content)
+        if (categoryObj.maptopics) {
+          Object.values(categoryObj.maptopics).forEach(maptopicObj => {
+            Object.values(maptopicObj.articles).forEach(articleObj => {
+              articlesArry.push({
+                title: articleObj.title,
+                slug: path.basename(articleObj.href)
+              })
+            })
+          })
+        }
 
-    const publishedArticles = []
+        if (categoryObj.standalone) {
+          articlesArry.push({
+            title: categoryObj.title,
+            slug: path.basename(categoryObj.href)
+          })
+        }
 
-    articleLinks.forEach(articleLink => {
-      const publishedArticle = {}
+        if (categoryObj.articles) {
+          Object.values(categoryObj.articles).forEach(articleObj => {
+            articlesArry.push({
+              title: articleObj.title,
+              slug: path.basename(articleObj.href)
+            })
+          })
+        }
 
-      // get title from frontmatter
-      const articlePath = getPath(link, articleLink)
-      const articleContents = fs.readFileSync(articlePath, 'utf8')
-      const { data } = matter(articleContents)
-
-      // do not include map topics in list of published articles
-      if (data.mapTopic) return
-
-      publishedArticle.title = data.title
-      publishedArticle.slug = articleLink
-
-      publishedArticles.push(publishedArticle)
+        allCategories.push({
+          name: categoryObj.title,
+          published_articles: articlesArry
+        })
+      })
     })
-
-    category.published_articles = publishedArticles
-
-    categories.push(category)
   })
 
-  return categories
-}
-
-function getLinks (contents) {
-  return contents.match(linkRegex)
-    .map(link => link.match(linkRegex.source)[1])
-}
-
-function getPath (link, filename) {
-  return path.join(dotcomDir, link, `${filename}.md`)
+  return res.json(allCategories)
 }

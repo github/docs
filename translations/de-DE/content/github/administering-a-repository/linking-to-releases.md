@@ -1,11 +1,14 @@
 ---
 title: Zu Releases verknüpfen
-intro: 'Du kannst jeden Release, den Du auf GitHub erstellst, mit einer eindeutigen URL teilen.'
+intro: Du kannst jeden Release, den Du auf GitHub erstellst, mit einer eindeutigen URL teilen.
 redirect_from:
   - /articles/linking-to-releases
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

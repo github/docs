@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -20,7 +22,7 @@ versions:
 
 #### Considerações de redimensionamento
 
-Antes de aumentar recursos de CPU ou memória do {% data variables.product.product_location_enterprise %}:
+Antes de aumentar recursos de CPU ou memória do {% data variables.product.product_location %}:
 
 - **Amplie sua memória com CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
 - **Atribua um endereço IP elástico à instância**. Se não houver IP elástica atribuída, você terá que ajustar os registros DNS A do seu host do {% data variables.product.prodname_ghe_server %} após o reinício para explicar a alteração no endereço IP público. Depois que a instância for reiniciada, a IP elástica (EIP) será automaticamente mantida se a instância for iniciada em uma VPC. Se a instância for iniciada no EC2-Classic, a IP elástica deverá ser associada outra vez manualmente.
@@ -28,13 +30,10 @@ Antes de aumentar recursos de CPU ou memória do {% data variables.product.produ
 #### Tipos de instância do AWS compatíveis
 
 É necessário determinar o tipo de instância para a qual você pretende atualizar com base nas especificações de CPU/memória.
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Tipos de instância do AWS recomendados
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### Redimensionar para o AWS
 
@@ -64,7 +63,7 @@ Não é possível adicionar recursos de CPU ou memória a uma instância atual d
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 1. Use o cliente vSphere para conexão com o host VMware ESXi.
-2. Desligue a {% data variables.product.product_location_enterprise %}.
+2. Desligue a {% data variables.product.product_location %}.
 3. Selecione a máquina virtual e clique em **Edit Settings** (Editar configurações).
 4. Em "Hardware", ajuste a CPU e/ou os recursos de memória alocados à máquina virtual, conforme necessário. ![Recursos de configuração VMware](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
 5. Para iniciar a máquina virtual, clique em **OK**.

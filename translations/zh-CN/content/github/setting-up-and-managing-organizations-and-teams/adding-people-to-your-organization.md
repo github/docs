@@ -5,15 +5,13 @@ redirect_from:
   - /articles/adding-people-to-your-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+permissions: '组织所有者可以向组织添加人员。'
 ---
 
-{% tip %}
-
-**Tips**:
-- 仅组织所有者才可将用户添加到组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
-- 如果您的组织[要求成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后您才可将他们添加到组织。
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+如果您的组织[要求成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后您才可将他们添加到组织。
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

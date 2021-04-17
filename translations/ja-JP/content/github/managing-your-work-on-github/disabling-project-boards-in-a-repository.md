@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 プロジェクトボードを無効化すると、タイムラインや[監査ログ](/articles/reviewing-your-security-log/)でプロジェクトボード情報を見ることができなくなります。

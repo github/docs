@@ -9,6 +9,10 @@ permissions: Organizationのオーナーは、Organization のメンバーを Or
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Organization の所有権の継続性の管理について

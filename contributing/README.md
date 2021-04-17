@@ -6,7 +6,7 @@ Here, you'll find additional information that might be helpful as you work on a 
 
 - [development](./development.md) - steps for getting this app running on your local machine
 - [content markup reference](./content-markup-reference.md) - how to use markup and features specific to the GitHub Docs site
-- [content style guide](./content-style-guide) - style guidance specific to GitHub Docs content and additional resources for writing clear, helpful content
+- [content style guide](./content-style-guide.md) - style guidance specific to GitHub Docs content and additional resources for writing clear, helpful content
 - [deployments](./deployments.md) - how our staging and production environments work
 - [liquid helpers](./liquid-helpers.md) - using liquid helpers for versioning in our docs
 - [localization checklist](./localization-checklist.md) - making sure your content is ready to be translated

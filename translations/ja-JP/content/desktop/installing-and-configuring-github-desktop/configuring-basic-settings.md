@@ -1,6 +1,6 @@
 ---
 title: ベーシック設定
-intro: プライバシー保護、アカウントのGitHub Desktopへの関連付け、およびGit構成のための設定にアクセスできます。
+intro: 'プライバシー保護、アカウントのGitHub Desktopへの関連付け、およびGit構成のための設定にアクセスできます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-basic-settings
 versions:

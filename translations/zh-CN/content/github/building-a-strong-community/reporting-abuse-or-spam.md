@@ -5,6 +5,8 @@ redirect_from:
   - /articles/reporting-abuse-or-spam
 versions:
   free-pro-team: '*'
+topics:
+  - 社区
 ---
 
 所有者、协作者、以前的贡献者以及具有写入权限的人员均可举报议题、拉取请求以及对议题、拉取请求和提交的评论。 任何人均可举报 {% data variables.product.prodname_marketplace %} 中的应用程序。
@@ -27,16 +29,16 @@ versions:
 ### 举报议题或拉取请求
 
 1. 导航到您想要举报的议题或拉取请求。
-2. In the upper-right corner of the issue or pull request, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. 在议题或拉取请求的右上角，单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}，然后单击 **Report content（报告内容）**。
   ![用于报告评论的按钮](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ### 举报评论
 
 1. 导航到您要举报的评论。
-2. In the upper-right corner of the comment, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. 在注释的右上角，单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}，然后单击 **Report content（报告内容）**。
 ![包含报告评论选项的烤肉串式菜单](/assets/images/help/repository/menu-report-comment.png)
 {% data reusables.community.report-content %}
 

@@ -1,12 +1,13 @@
 ---
 title: 必須ステータスチェックのタイプ
-intro: '必須ステータスチェックのタイプは、[loose] (寛容)、[strict] (厳格) のいずれかに設定できます。 選択した必須ステータスチェックのタイプにより、マージする前にブランチをベースブランチとともに最新にする必要があるかどうかが決まります。'
+intro: 必須ステータスチェックのタイプは、[loose] (寛容)、[strict] (厳格) のいずれかに設定できます。 選択した必須ステータスチェックのタイプにより、マージする前にブランチをベースブランチとともに最新にする必要があるかどうかが決まります。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/types-of-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | 必須ステータスチェックのタイプ | 設定                                                                          | マージの要件                                    | 留意点                                                                                                                               |

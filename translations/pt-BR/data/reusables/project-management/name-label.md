@@ -1,1 +1,1 @@
-1. Under "Label name", type a name for your label. ![Field to type a label name](/assets/images/help/issues/Issues-Label-Create.png)
+1. Em "Nome da etiqueta", digite um nome para a sua etiqueta. ![Campo para digitar um nome de etiqueta](/assets/images/help/issues/Issues-Label-Create.png)

@@ -20,7 +20,7 @@ versions:
 
 ### 联系支持
 
-您可以从 {% data variables.product.prodname_insights %} 获得对 {% data variables.contact.github_support %} 的支持。 更多信息请参阅 {% if currentVersion == "free-pro-team@latest" %}“[提交事件单](/github/working-with-github-support/submitting-a-ticket)”。{% else %}“[连接 {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)”。{% endif %}
+您可以从 {% data variables.product.prodname_insights %} 获得对 {% data variables.contact.github_support %} 的支持。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %}“[提交事件单](/github/working-with-github-support/submitting-a-ticket)”。{% else %}“[连接 {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)”。{% endif %}
 
 ### 延伸阅读
 

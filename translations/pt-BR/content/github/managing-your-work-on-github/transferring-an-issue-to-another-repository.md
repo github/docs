@@ -1,32 +1,36 @@
 ---
-title: Transferir um problema para outro repositório
-intro: 'Para mover um problema para um repositório mais adequado, você pode transferir problemas abertos para outros repositórios.'
+title: Transferring an issue to another repository
+intro: 'To move an issue to a better fitting repository, you can transfer open issues to other repositories.'
 redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Para transferir um problema aberto para outro repositório, é preciso ter permissões de gravação no repositório em que o problema está e no repositório para onde você está transferindo o problema. Para obter mais informações, consulte "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization)".
+To transfer an open issue to another repository, you must have write permissions on the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
 
-Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. É possível transferir um problema de um repositório privado para um repositório público.
+You can only transfer issues between repositories owned by the same user or organization account. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
-Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas do problema{% if currentVersion ver_lt "enterprise-server@2.19" %}, projetos,{% endif %} e marcos do problema não são preservados.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Esse problema ficará nos quadros de projeto pertencentes a qualquer usuário proprietário ou quadro de projeto da organização e será removido de quaisquer quadros de projeto de repositório. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)."{% endif %}
+When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
 
-As pessoas ou equipes mencionadas no problema receberão uma notificação informando que o problema foi transferido para um novo repositório. O URL original redirecionará para o novo URL do problema. As pessoas que não tenham permissões de leitura no novo repositório verão um banner informando que o problema foi transferido para um novo repositório ao qual elas não têm acesso.
+People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 
-### Transferir um problema aberto para outro repositório
+### Transferring an open issue to another repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. Na lista de problemas, clique no problema que deseja transferir.
-4. Na barra lateral direita, clique em **Transfer issue** (Transferir problema). ![Botão para transferir problema](/assets/images/help/repository/transfer-issue.png)
-5. Use o menu **Choose a repository** (Escolher um repositório) e selecione o repositório para o qual deseja transferir o problema. ![Seleção em Choose a repository (Escolher um repositório)](/assets/images/help/repository/choose-a-repository.png)
-6. Clique em **Transfer issue** (Transferir problema). ![Botão Transfer issue (Transferir problema)](/assets/images/help/repository/transfer-issue-button.png)
+3. In the list of issues, click the issue you'd like to transfer.
+4. In the right sidebar, click **Transfer issue**.
+![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
+5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
+![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
+6. Click **Transfer issue**.
+![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
 
-### Leia mais
+### Further reading
 
-- "[Sobre problemas](/articles/about-issues)"
-- "[Revisar o log de segurança](/articles/reviewing-your-security-log)"
-- "[Revisar o log de auditoria da organização](/articles/reviewing-the-audit-log-for-your-organization)"
+- "[About issues](/articles/about-issues)"
+- "[Reviewing your security log](/articles/reviewing-your-security-log)"
+- "[Reviewing the audit log for your organization](/articles/reviewing-the-audit-log-for-your-organization)"

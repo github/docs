@@ -6,9 +6,12 @@ redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
-Vor der [Aktivierung von SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in Deiner {% data variables.product.product_name %}-Organisation musst Du Deinen Identitätsanbieter (IdP Identity Provider) mit Deiner Organisation verbinden.
+Vor der [Aktivierung von SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in Ihrer {% data variables.product.product_name %}-Organisation müssen Sie Ihren Identity Provider (IdP) mit Ihrer Organisation verbinden.
 
 Die SAML- und SCIM-Implementierungsdetails für Deinen IdP findest Du in der IdP-Dokumentation:
 - Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)

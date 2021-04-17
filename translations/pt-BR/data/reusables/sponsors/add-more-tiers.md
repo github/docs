@@ -1,1 +1,1 @@
-  1. Repeat the steps above until you've published all the tiers you want to offer.
+  1. Repita os passos acima até que você tenha publicado todas as camadas que deseja oferecer.

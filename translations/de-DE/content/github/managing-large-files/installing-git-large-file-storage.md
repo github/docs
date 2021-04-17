@@ -7,15 +7,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
 
-1. Navigiere zu [git-lfs.github.com](https://git-lfs.github.com), und klicke auf **Download** (Herunterladen). Alternativ kannst Du {% data variables.large_files.product_name_short %} auch mit einem Paketmanager installieren:
+1. Navigiere zu [git-lfs.github.com](https://git-lfs.github.com), und klicke auf **Download** (Herunterladen). Alternativ können Sie {% data variables.large_files.product_name_short %} auch mit einem Paketmanager installieren:
     - Um [Homebrew](http://brew.sh/) zu verwenden, führe `brew install git-lfs` aus.
     - Um [MacPorts](https://www.macports.org/) zu verwenden, führe `port install git-lfs` aus.
 
- Wenn Du {% data variables.large_files.product_name_short %} mit Homebrew oder MacPorts installierst, fahre mit Schritt 6 fort.
+ Wenn Sie {% data variables.large_files.product_name_short %} mit Homebrew oder MacPorts installieren, fahren Sie mit Schritt 6 fort.
 
 2. Suche und entpacke auf Deinem Computer die heruntergeladene Datei.
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -43,7 +44,7 @@ versions:
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wenden Sie sich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
+6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wende Dich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
 
 {% endmac %}
 
@@ -57,14 +58,15 @@ versions:
 
   {% endtip %}
 2. Suche auf Deinem Computer die heruntergeladene Datei.
-3. Doppelklicke auf die Datei namens *git-lfs-windows-1.X.X.exe*, wobei 1.X.X durch die Version von Git LFS ersetzt wird, die Du heruntergeladen hast. Wenn Du diese Datei öffnest, führt Windows einen Einrichtungsassistenten für die Installation von {% data variables.large_files.product_name_short %} aus.
+3. Doppelklicke auf die Datei namens *git-lfs-windows-1.X.X.exe*, wobei 1.X.X durch die Version von Git LFS ersetzt wird, die Du heruntergeladen hast. When you open this file Windows will run a setup wizard to install
+{% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Überprüfen Sie, ob die Installation erfolgreich war:
   ```shell
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wenden Sie sich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
+6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wende Dich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
 
 {% endwindows %}
 
@@ -103,7 +105,7 @@ versions:
   $ git {% data variables.large_files.command_name %} install
   > {% data variables.large_files.product_name_short %} initialized.
   ```
-6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wenden Sie sich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
+6. Wenn keine Nachricht angezeigt wird, die angibt, dass `git {% data variables.large_files.command_name %} install` erfolgreich war, wende Dich an {% data variables.contact.contact_support %}. Denken Sie daran, den Namen Ihres Betriebssystems anzugeben.
 
 {% endlinux %}
 

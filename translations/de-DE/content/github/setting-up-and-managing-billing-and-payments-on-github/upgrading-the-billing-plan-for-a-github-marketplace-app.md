@@ -1,12 +1,14 @@
 ---
 title: Abrechnungsplan für eine GitHub Marketplace-App heraufstufen
-intro: 'Du kannst Deine {% data variables.product.prodname_marketplace %}-App jederzeit auf einen anderen Plan heraufstufen.'
+intro: 'Sie können Ihre {% data variables.product.prodname_marketplace %}-App jederzeit auf einen anderen Plan heraufstufen.'
 redirect_from:
   - /articles/upgrading-an-app-for-your-personal-account/
   - /articles/upgrading-an-app-for-your-organization/
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Wenn Du eine App heraufstufst, wird basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“

@@ -8,6 +8,7 @@ intro: 'The `git rebase` command allows you to easily change a series of commits
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

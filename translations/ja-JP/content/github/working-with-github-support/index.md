@@ -2,8 +2,11 @@
 title: GitHub Support への相談
 redirect_from:
   - /categories/working-with-github-support
+  - /forum
 versions:
   free-pro-team: '*'
+topics:
+  - jobs
 ---
 
 

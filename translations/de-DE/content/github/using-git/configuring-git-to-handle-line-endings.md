@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jedes Mal, wenn Du auf der Tastatur die <kbd>Eingabetaste</kbd> drückst, fügst Du ein unsichtbares Zeichen ein, nämlich einen Zeilenabschluss. Verschiedene Betriebssysteme handhaben Zeilenenden unterschiedlich.

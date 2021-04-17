@@ -1,10 +1,12 @@
 ---
 title: Informationen zur Abrechnung für Git Large File Storage
-intro: 'Wenn Du zusätzlichen Speicher und zusätzliche Bandbreite für {% data variables.large_files.product_name_long %} kaufst, gilt für Deinen Kauf das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Deines Kontos.'
+intro: 'Wenn Sie zusätzlichen Speicher und zusätzliche Bandbreite für {% data variables.large_files.product_name_long %} kaufen, gilt für Ihren Kauf das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Ihres Kontos.'
 redirect_from:
   - /articles/about-billing-for-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 ### Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}

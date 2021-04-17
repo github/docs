@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - выставление счетов
 ---
 
 ### Upgrading your personal account's subscription
@@ -28,7 +30,9 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Next to "{% data variables.product.prodname_free_user %}", click **Upgrade**. ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. Next to "
+{% data variables.product.prodname_free_user %}", click **Upgrade**.
+  ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}
@@ -55,7 +59,7 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 
 #### Next steps for organizations using {% data variables.product.prodname_ghe_cloud %}
 
-If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/articles/managing-saml-single-sign-on-for-your-organization)."
+If you upgraded your organization to {% data variables.product.prodname_ghe_cloud %}, you can set up identity and access management for your organization. For more information, see "[Managing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization)."
 
 If you'd like to use an enterprise account with {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[About enterprise accounts](/articles/about-enterprise-accounts)."
 

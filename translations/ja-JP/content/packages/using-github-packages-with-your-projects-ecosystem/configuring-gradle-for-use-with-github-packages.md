@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-**ノート:** dockerイメージをインストールしたり公開したりする際に、現時点で{% data variables.product.prodname_registry %}はWindowsイメージのような外部レイヤーはサポートしていません。
+{% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
 ### {% data variables.product.prodname_registry %} への認証を行う
 
@@ -25,11 +25,12 @@ versions:
 
 Gradle GroovyもしくはKotlin DSLを使って、Gradleで{% data variables.product.prodname_registry %}に認証を受けることができます。それには、*build.gradle*ファイル（Gradle Groovy）もしくは*build.gradle.kts*ファイル（Kotlin DSL）ファイルを編集して、個人アクセストークンを含めます。 リポジトリ中の単一のパッケージもしくは複数パッケージを認識するようにGradle Groovy及びKotlin DSLを設定することもできます。
 
-{% if currentVersion != "free-pro-team@latest" %}
-Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
+{% if enterpriseServerVersions contains currentVersion %}
+*REGISTRY-URL* をインスタンスの Maven レジストリの URL に置き換えます。 インスタンスで Subdomain Isolation が有効になっている場合は、`maven.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/maven` を使用します。 いずれの場合でも、*HOSTNAME* を
+{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。
 {% endif %}
 
-*USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*REPOSITORY*を公開したいパッケージを含むリポジトリの名前で、*OWNER*をリポジトリを所有する{% data variables.product.prodname_dotcom %}のユーザもしくはOrganizationアカウント名で置き換えてください。 {% data reusables.package_registry.lowercase-name-field %}
+*USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*REPOSITORY*を公開したいパッケージを含むリポジトリの名前で、*OWNER*をリポジトリを所有する{% data variables.product.prodname_dotcom %}のユーザもしくはOrganizationアカウント名で置き換えてください。 Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 
@@ -48,7 +49,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/<em>OWNER</em>/<em>REPOSITORY</em>")
+            url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
             credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
                 password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
@@ -76,7 +77,7 @@ subprojects {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/<em>OWNER</em>/<em>REPOSITORY</em>")
+                url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
                 credentials {
                     username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
                     password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
@@ -103,7 +104,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/<em>OWNER</em>/<em>REPOSITORY</em>")
+            url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
@@ -120,32 +121,32 @@ publishing {
 
 ##### 同じリポジトリ中の複数パッケージのためにKotlin DSLを使う例
 
-  ```shell
-  plugins {
-  `maven-publish` apply false
-  }
+```shell
+plugins {
+    `maven-publish` apply false
+}
 
-  subprojects {
-  apply(plugin = "maven-publish")
-  configure<PublishingExtension> {
-  repositories {
-  maven {
-  name = "GitHubPackages"
-  url = uri("https://maven.pkg.github.com/<em>OWNER</em>/<em>REPOSITORY</em>")
-  credentials {
-  username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-  password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
-  }
-  }
-  }
-  publications {
-  register<MavenPublication>("gpr") {
-  from(components["java"])
-  }
-  }
-  }
-  }
-  ```
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                }
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+            }
+        }
+    }
+}
+```
 
   #### `GITHUB_TOKEN`での認証
 
@@ -173,31 +174,31 @@ publishing {
 {% data reusables.package_registry.authenticate-step %}
 2. *build.gradle*ファイル（Gradle Groovy）もしくは*build.gradle.kts*ファイル（Kotlin DSL）にパッケージの依存関係を追加してください。
 
-  Gradle Groovyの例：
+  Example using Gradle Groovy:
   ```shell
   dependencies {
-  implementation 'com.example:package'
+      implementation 'com.example:package'
   }
   ```
   Kotlin DSLの例：
   ```shell
   dependencies {
-  implementation("com.example:package")
+      implementation("com.example:package")
   }
   ```
 
 3. *build.gradle*ファイル（Gradle Groovy）もしくは*build.gradle.kts*ファイル（Kotlin DSL）にmavenプラグインを追加してください。
 
-  Gradle Groovyの例：
+  Example using Gradle Groovy:
   ```shell
   plugins {
-  id 'maven'
+      id 'maven'
   }
   ```
   Kotlin DSLの例：
   ```shell
   plugins {
-  `maven`
+      `maven`
   }
   ```
 

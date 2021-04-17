@@ -1,18 +1,19 @@
 ---
 title: 情報を表に編成する
-intro: 表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。
+intro: '表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。'
 redirect_from:
   - /articles/organizing-information-with-tables
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 表を作成する
 
 表は、パイプ文字 (`|`) とハイフン (`-`) を使って作成できます。 ハイフンでヘッダを作成し、パイプ文字で各列を分けます。 正しく表示されるように、表の前には空白行を 1 行追加してください。
 
-```
+```markdown
 
 | ヘッダ 1 | ヘッダ 2 |
 | ------------- | ------------- |
@@ -26,7 +27,7 @@ versions:
 
 セルの幅は変わるので、列がぴったり一致する必要はありません。 各列のヘッダ行には、ハイフンを 3 つ以上使用してください。
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | git status | List all new or modified files |
@@ -39,7 +40,7 @@ versions:
 
 表では、リンク、インラインのコードブロック、テキストスタイルなどの[フォーマット](/articles/basic-writing-and-formatting-syntax)を使用できます。
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
@@ -50,7 +51,7 @@ versions:
 
 ヘッダー行でハイフンの左、右、両側にコロン (`:`) を使うと、列でテキストを左寄せ、右寄せ、センタリングすることができます。
 
-```
+```markdown
 | Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
@@ -61,7 +62,7 @@ versions:
 
 セルでパイプ文字 (`|`) を使用するには、パイプ文字の前に "\" を追加します。
 
-```
+```markdown
 | Name     | Character |
 | ---      | ---       |
 | Backtick | `         |

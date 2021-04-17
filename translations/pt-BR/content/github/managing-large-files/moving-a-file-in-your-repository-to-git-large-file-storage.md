@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Depois de instalar o {% data variables.large_files.product_name_short %} e configurar o rastreamento do {% data variables.large_files.product_name_short %}, você pode mover arquivos do rastreamento regular do Git para o {% data variables.large_files.product_name_short %}. Para obter mais informações, consulte "[Instalando {% data variables.large_files.product_name_long %}](/github/managing-large-files/installing-git-large-file-storage)" e "[Configurando o {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)".

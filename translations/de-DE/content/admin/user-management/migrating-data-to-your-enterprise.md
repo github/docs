@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
+Once you have [prepared your migration](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) you can use the following steps to complete the migration.
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Führen Sie den Befehl `ghe-migrator import` aus, um den Importprozess zu starten. Sie benötigen Folgendes:
-    * Ihren Migrations-GUID.
+    * Ihren Migrations-GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
     * Dein persönliches Zugangs-Token für die Authentifizierung. Das persönliche Zugriffstoken, das Du verwendest, dient nur der Authentifizierung als Website-Administrator und erfordert keinen bestimmten „Scope“ (Geltungsbereich). Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 
     ```shell
@@ -131,7 +135,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### {% data variables.product.prodname_insights %}について
+### {% data variables.product.prodname_insights %} について
 
 {% data variables.product.prodname_insights %}は、{% data variables.product.product_location %}からのデータに基づく分析レポートを提供するスタンドアローンアプリケーションで、ソフトウェアデリバリのプロセスを理解し、改善する手助けをします。 これらのメトリクスは、プロセス中のボトルネックの除去、コラボレーションの改善、プロジェクトのデリバリを高品質で高速に行うために利用できます。
 
@@ -20,7 +20,7 @@ versions:
 
 ### サポートへの連絡
 
-{% data variables.contact.github_support %}から{% data variables.product.prodname_insights %}に関するサポートを受けることができます。 詳しい情報については{% if currentVersion == "free-pro-team@latest" %}「[チケットのサブミット](/github/working-with-github-support/submitting-a-ticket)」{% else %}「[{% data variables.contact.github_support %}への連絡](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)」{% endif %}を参照してください。
+{% data variables.contact.github_support %}から{% data variables.product.prodname_insights %}に関するサポートを受けることができます。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" %}「[チケットのサブミット](/github/working-with-github-support/submitting-a-ticket)」「{% else %}"[{% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support) への連絡」{% endif %}を参照してください。
 
 ### 参考リンク
 

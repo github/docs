@@ -7,12 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O comando `git push` usa dois argumentos:
 
 * Um nome de remote, por exemplo, `origin`
-* Um nome de branch, por exemplo, `master` (mestre)
+* Um nome de branch, por exemplo, `principal`
 
 Por exemplo:
 
@@ -20,7 +21,7 @@ Por exemplo:
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-Como um exemplo, você normalmente executa `git push origin master` para fazer push de suas alterações locais para seu repositório online.
+Como exemplo, você normalmente executa o `git push origin main` para fazer push das suas alterações locais para o seu repositório on-line.
 
 ### Renomear branches
 
@@ -84,7 +85,7 @@ git fetch upstream
 > remote: Total 62 (delta 27), reutilizados 44 (delta 9)
 > Descompactação de objetos: 100% (62/62), concluída.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
->  * [novo branch]      master     -> upstream/master
+>  * [new branch]      main     -> upstream/main
 ```
 
 Quando finalizar as alterações locais, você pode fazer push do seu branch local para o GitHub e [iniciar uma pull request](/articles/about-pull-requests).
@@ -97,3 +98,4 @@ Para obter mais informações sobre como trabalhar com bifurcações, consulte "
 - [Página do manual `git remote`](https://git-scm.com/docs/git-remote.html)
 - "[Folha de consultas Git](/articles/git-cheatsheet)"
 - "[Fluxos de trabalho Git](/articles/git-workflows)"
+- "[Manual do Git](https://guides.github.com/introduction/git-handbook/)"

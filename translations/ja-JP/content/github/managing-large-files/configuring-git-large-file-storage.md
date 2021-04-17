@@ -7,17 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} で利用したいファイルがリポジトリにある場合、まずリポジトリからそれらのファイルを削除し、それからローカルで {% data variables.large_files.product_name_short %} に追加する必要があります。 詳細は「[リポジトリ内のファイルを {% data variables.large_files.product_name_short %} に移動する](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)」を参照してください。
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% tip %}
 
-**メモ:** 大容量ファイルを {% data variables.product.product_name %}にプッシュする前に、アプライアンスで {% data variables.large_files.product_name_short %}を有効化していることを確認してください。 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
+**注釈:** 大容量ファイルを {% data variables.product.product_name %} にプッシュする前に、Enterprise で {% data variables.large_files.product_name_short %} を有効化していることを確認してください。 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
 
 {% endtip %}
 
@@ -47,7 +48,7 @@ versions:
 5. 以下のように、ファイルをコミットし、{% data variables.product.product_name %} にプッシュします:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   アップロードしたファイルの Diagnostics 情報が、以下のように表示されるはずです:
   ```shell
@@ -58,5 +59,5 @@ versions:
 
 ### 参考リンク
 
-- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 - 「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」{% endif %}

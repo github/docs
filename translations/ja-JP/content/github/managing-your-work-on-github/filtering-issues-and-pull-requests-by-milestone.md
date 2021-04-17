@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% tip %}
@@ -14,7 +17,7 @@ versions:
 
 - 検索バーを使用して Issue とプルリクエストをフィルタリングしたい場合は、マイルストーンの検索構文を使用できます。 My Milestone という名前のマイルストーンであれば、検索構文は `milestone:"My Milestone"` となります。
 - フィルタの選択をクリアするには、[**Clear current search query, filters, and sorts**] をクリックします。
--  You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
+-  {% data variables.product.prodname_cli %} を使用して Issue またはプルリクエストをフィルタすることもできます。 詳しい情報については、ドキュメントの「[`gh issue list`](https://cli.github.com/manual/gh_issue_list)」または「[`gh pr list`](https://cli.github.com/manual/gh_pr_list)」{% data variables.product.prodname_cli %} を参照してください。
 
 {% endtip %}
 

@@ -1,5 +1,1 @@
-For compiled languages like C/C++, C#, and Java, the `autobuild` step in the default workflow attempts to build code before the action performs {% data variables.product.prodname_codeql %} analysis. 与其他编译语言不同，{% data variables.product.prodname_codeql %} 在分析 Go 时不会构建代码。 与其他编译语言不同，{% data variables.product.prodname_codeql %} 在分析 Go 时不会构建代码。
-
-The `autobuild` process only ever attempts to build _one_ compiled language for a repository. The language automatically selected for analysis is the language with most files.
-
-
+对于受支持的编译语言，您可以使用 {% data variables.product.prodname_codeql_workflow %} 中的 `autobuild` 操作来构建代码。 这样您无需为 C/C++、C# 和 Java 指定显式构建命令。

@@ -1,0 +1,1 @@
+3. En la barra lateral izquierda, da clic en **Gráfica de dependencias**. ![Pestaña de gráfica de dependencias en la barra lateral izquierda](/assets/images/help/graphs/graphs-sidebar-dependency-graph.png)

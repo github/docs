@@ -1,5 +1,5 @@
 {% note %}
 
-**Billing update for container image storage:** During the beta phase of {% data variables.product.prodname_github_container_registry %}, Docker image storage and bandwidth are free for the old `docker.pkg.github.com` and new `ghcr.io` hosting services. 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/getting-started-with-github-container-registry/about-github-container-registry)」を参照してください。
+**コンテナイメージのストレージの支払いに関するアップデート:** {% data variables.product.prodname_github_container_registry %}のベータ期間は、古い`docker.pkg.github.com`及び新しい`ghcr.io`ホスティングサービスにおいて、Dockerイメージのストレージと帯域は無料です。 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/guides/about-github-container-registry)」を参照してください。
 
 {% endnote %}

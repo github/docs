@@ -1,6 +1,6 @@
 ---
 title: 在企业帐户中实施仓库管理策略
-intro: 企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。
+intro: '企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
@@ -78,12 +78,12 @@ versions:
 3. 在 **Repository policies（仓库策略）**选项卡中的“Repository issue deletion（仓库议题删除）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。 ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
-### Enforcing a policy on the default branch name
+### 对默认分支名称实施策略
 
-Across all organizations owned by your enterprise account, you can set the default branch name for any new repositories that members create. You can choose to enforce that default branch name across all organizations or allow individual organizations to set a different one.
+在企业帐户拥有的所有组织中，您可以为成员创建的任何新仓库设置默认分支名称。 您可以选择在所有组织中强制实施默认分支名称，或允许个别组织设置不同的名称。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-3. On the **Repository policies** tab, under "Default branch name", enter the default branch name that new repositories should use. ![Text box for entering default branch name](/assets/images/help/business-accounts/default-branch-name-text.png)
-4. Optionally, to enforce the default branch name for all organizations in the enterprise, select **Enforce across this enterprise**. ![Enforcement checkbox](/assets/images/help/business-accounts/default-branch-name-enforce.png)
-5. Click **Update**. ![Update button](/assets/images/help/business-accounts/default-branch-name-update.png)
+3. 在 **Repository policies（仓库策略）**选项卡的“Default branch name（默认分支名称）”下，输入新仓库应使用的默认分支名称。 ![输入默认分支名称的文本框](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)

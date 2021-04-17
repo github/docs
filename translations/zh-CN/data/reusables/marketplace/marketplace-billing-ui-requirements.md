@@ -1,9 +1,9 @@
-- Customers who cancel a paid plan purchased from {% data variables.product.prodname_marketplace %} must be automatically downgraded to the app's free plan if it exists. {% data reusables.marketplace.cancellation-clarification %} It's highly recommended to allow customers to re-enable their previous plan.
-- Customers must be able to upgrade from your app's UI if you provide an [upgrade URL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls) in this format: `https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`
-- Customers must be able to modify which users have access to your app from your app's website if they purchased seats (per-unit pricing plan) or the plan offers unlimited collaborators.
-- Customers must be able to see the following changes to their account immediately in the billing, profile, or account settings section of the app's website:
-  - Current plan and price.
-  - New plans purchased.
-  - Upgrades, downgrades, cancellations, and the number of remaining days in a free trial.
-  - Changes to billing cycles (monthly or yearly).
-  - Usage and remaining resources for flat-rate and per-unit plans. For example, if the pricing plan is per-unit, your app's site should show units used and units available.
+- 取消从 {% data variables.product.prodname_marketplace %} 购买的付费计划的客户应自动降级到该应用程序的免费计划（如果有）。 {% data reusables.marketplace.cancellation-clarification %} 强烈建议允许客户重新启用他们以前的计划。
+- 如果您用以下格式提供[升级 URL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls)，客户应能从应用程序的用户界面升级：`https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`
+- 如果客户购买了席位（单位定价计划）或支持无限协作者的计划，他们应该能够修改哪些用户可以从应用程序的网站访问应用程序。
+- 客户应该能够在应用程序网站的帐单、个人资料或帐户设置部分立即看到其帐户的以下变动：
+  - 当前计划和价格。
+  - 购买的新计划。
+  - 升级、降级、取消以及免费试用剩余天数。
+  - 结算周期的变化（每月或每年）。
+  - 固定费用和每单位计划的使用情况和剩余资源。 例如，如果定价计划是按单位计费，则应用程序的网站应显示已用单位和可用单位。

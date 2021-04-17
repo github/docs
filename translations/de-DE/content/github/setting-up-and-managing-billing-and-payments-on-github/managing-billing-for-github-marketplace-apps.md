@@ -1,6 +1,6 @@
 ---
 title: Abrechnung für Deine GitHub Marketplace-Apps verwalten
-intro: 'Du kannst {% data variables.product.prodname_marketplace %}-Apps jederzeit herauf- oder herabstufen oder kündigen.'
+intro: 'Sie können {% data variables.product.prodname_marketplace %}-Apps jederzeit upgraden, herabstufen oder kündigen.'
 redirect_from:
   - /articles/managing-your-personal-account-s-apps/
   - /articles/managing-your-organization-s-apps/
@@ -8,5 +8,7 @@ redirect_from:
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 

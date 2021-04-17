@@ -1,1 +1,1 @@
-1. Click **Push origin** to push your local changes to the remote repository. ![Botão Push](/assets/images/help/desktop/push-origin-button.png)
+1. Clique em **Carregar origem** para fazer push das suas alterações locais no repositório remoto. ![Botão Push](/assets/images/help/desktop/push-origin-button.png)

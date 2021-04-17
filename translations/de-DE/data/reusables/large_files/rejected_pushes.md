@@ -1,1 +1,1 @@
-Benutzer können {% data variables.large_files.product_name_short %}-Objekte nicht nach {% data variables.product.prodname_ghe_server %} verschieben, wenn {% data variables.large_files.product_name_short %} auf der Appliance oder im Repository deaktiviert ist.
+Users cannot push {% data variables.large_files.product_name_short %} assets to {% data variables.product.product_name %} if {% data variables.large_files.product_name_short %} is disabled on the enterprise or repository.

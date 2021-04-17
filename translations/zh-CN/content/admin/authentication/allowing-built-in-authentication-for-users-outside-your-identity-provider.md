@@ -1,11 +1,13 @@
 ---
 title: 允许对身份提供程序覆盖范围以外的用户进行内置身份验证
-intro: 您可以配置内置身份验证，为无法访问使用 LDAP、SAML 或 CAS 的身份提供程序的用户验证身份。
+intro: '您可以配置内置身份验证，为无法访问使用 LDAP、SAML 或 CAS 的身份提供程序的用户验证身份。'
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于对您的身份提供程序覆盖范围外的用户进行内置身份验证
@@ -45,6 +47,6 @@ versions:
 
 ### 延伸阅读
 
-- "[使用 LDAP](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap)"
+- "[使用 LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)"
 - "[使用 SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"
 - "[使用 CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)"

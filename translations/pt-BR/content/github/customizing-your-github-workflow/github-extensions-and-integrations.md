@@ -10,7 +10,7 @@ versions:
 
 ### Ferramentas de edição
 
-Para otimizar seu fluxo de trabalho, é possível conectar-se a repositórios {% data variables.product.product_name %} em ferramentas de edição de terceiros, como Atom, Unity e Visual Studio.
+Você pode conectar-se aos repositórios de {% data variables.product.product_name %} de ferramentas de editores de terceiros, como o Atom, Unity e o Visual Studio.
 
 #### {% data variables.product.product_name %} para Atom
 
@@ -30,8 +30,20 @@ A extensão {% data variables.product.product_name %} para Visual Studio, permit
 
 ### Ferramentas de gerenciamento de projetos
 
-Para agilizar o fluxo de trabalho, você pode integrar sua conta pessoal {% data variables.product.product_name %} ou organização a ferramentas de gerenciamento de projetos de terceiros, como o Jira.
+Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou organização com ferramentas de gerenciamento de projetos de terceiros, como o Jira.
 
 #### Integração Jira Cloud e {% data variables.product.product_name %}.com
 
-É possível integrar o Jira Cloud à sua conta pessoal ou de sua organização para analisar commits e pull requests e criar metadados e hyperlinks relevantes em qualquer problema mencionado no Jira.
+É possível integrar o Jira Cloud à sua conta pessoal ou de sua organização para analisar commits e pull requests e criar metadados e hyperlinks relevantes em qualquer problema mencionado no Jira. Para obter mais informações, visite o [aplicativo de integração do Jira](https://github.com/marketplace/jira-software-github) no marketplace.
+
+### Ferramentas de comunicação de equipe
+
+Você pode integrar sua conta pessoal de {% data variables.product.product_name %} ou a organização com ferramentas de comunicação de equipes de terceiros, como o Slack ou o Microsoft Teams.
+
+#### Integração com Slack e {% data variables.product.product_name %}
+
+Você pode integrar o Slack à sua conta pessoal ou da organização para assinar notificações, fechar ou abrir problemas e fornecer referências ricas para problemas e pull requests sem sair do Slack. Para obter mais informações, visite o [aplicativo de integração do Slack](https://github.com/marketplace/slack-github) no Marketplace.
+
+#### Integração com o Microsoft Teams e {% data variables.product.product_name %}
+
+Você pode integrar o Microsoft Teams à sua conta pessoal ou da organização para acessar informações sobre {% data variables.product.product_name %} junto com a comunicação mais ampla da equipe. Ao integrar o Microsoft Teams com {% data variables.product.product_name %}, você poderá se inscrever em notificações, fechar ou abrir problemas e fornecer referências ricas a problemas e pull requests sem sair do Microsoft Teams. Para obter mais informações, acesse o [aplicativo de integração do Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002077) no Microsoft AppSource.

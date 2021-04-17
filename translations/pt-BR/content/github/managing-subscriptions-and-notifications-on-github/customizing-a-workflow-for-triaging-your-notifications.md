@@ -4,6 +4,9 @@ intro: 'Para criar um fluxo de trabalho ideal para a triagem de suas notificaç�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - notificações
 ---
 
 ### Iniciando sua triagem de caixa de entrada

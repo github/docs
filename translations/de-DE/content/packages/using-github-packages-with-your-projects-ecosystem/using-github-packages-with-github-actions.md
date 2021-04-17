@@ -18,11 +18,13 @@ versions:
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Bei {% data variables.product.prodname_github_container_registry %} authentifizieren
+#### Authenticating to {% data variables.product.prodname_github_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
-Instead of using a personal access token to authenticate to {% data variables.product.prodname_registry %}, use the `GITHUB_TOKEN` that {% data variables.product.prodname_dotcom %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+For an authentication example, see "[Authenticating with the {% data variables.product.prodname_container_registry %}](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images#authenticating-with-the-container-registry)."
 
 {% endif %}
 
@@ -30,7 +32,7 @@ Instead of using a personal access token to authenticate to {% data variables.pr
 
 {% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. The `GITHUB_TOKEN` has `read:packages` and `write:packages` scopes to the current repository. For forks, the token also has the `read:packages` scope for the parent repository.
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. Weitere Informationen findest Du unter „[Authentifizierung mit dem GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)".
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
 ### Publishing a package using an action
 
@@ -42,7 +44,7 @@ You can publish packages as part of your continuous integration (CI) flow using 
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication, by using the `GITHUB_TOKEN`. Data transfer is also free when an action installs a package. Weitere Informationen finden Sie unter „[Informationen zur Abrechnung für {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)“.
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 `GITHUB_TOKEN` cannot install packages from any private repository besides the repository where the action runs.  You cannot currently use `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.

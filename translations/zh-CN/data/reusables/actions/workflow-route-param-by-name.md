@@ -1,1 +1,0 @@
-您也可以将 `:workflow_id` 替换为 `:workflow_file_name`。 例如，您可以使用 `main.yml`。

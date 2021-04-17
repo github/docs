@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 组织所有者可以设置团队创建权限。

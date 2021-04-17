@@ -1,6 +1,7 @@
 ---
 title: Gerenciar a varredura de segredos para sua organização
 intro: 'Você pode controlar quais repositórios no {% data variables.product.product_name %} da organização fará a varredura dos segredos.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'Os proprietários da organização podem gerenciar {% data variables.product.prodname_secret_scanning %} para os repositórios na organização.'
 versions:
   free-pro-team: '*'

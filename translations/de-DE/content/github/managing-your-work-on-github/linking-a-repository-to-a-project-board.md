@@ -6,7 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
+
 
 Jeder, der Schreibberechtigung auf ein Projektboard hat, kann Repositories im Besitz dieser Organisation oder dieses Benutzerkontos mit dem Projektboard verknüpfen. Weitere Informationen findest Du unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization/)" oder „[Berechtigungsebenen für benutzereigene Projektboards](/articles/permission-levels-for-user-owned-project-boards/)."
 
@@ -19,6 +23,12 @@ Jeder, der Schreibberechtigung auf ein Projektboard hat, kann Repositories im Be
 5. Klicke auf **Link a repository** (Ein Repository verknüpfen). ![Schaltfläche „Link a repository“ (Ein Repository verknüpfen) auf der Registerkarte „Linked repositories“ (Verknüpfte Repositorys)](/assets/images/help/projects/link-repository-button.png)
 6. Suche das Repository, das Du verknüpfen möchtest. ![Suchfeld im Fenster „Link a repository“ (Ein Repository verknüpfen)](/assets/images/help/projects/search-to-link-repository.png)
 7. Klicke auf **Link** (Verknüpfen). Um die Verknüpfung aufzuheben, klicke auf **Unlink** (Verknüpfung aufheben). ![Schaltfläche „Link“ (Verknüpfen)](/assets/images/help/projects/link-button.png)
+
+{% note %}
+
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. That is, the repository has an "Issues" tab (in forked repositories issues are disabled by default).  For information on how to enable or disable issues for a repository, see "[Disabling issues for a repository](/github/managing-your-work-on-github/disabling-issues)."
+
+{% endnote %}
 
 ### Weiterführende Informationen
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/reporting-abuse-or-spam
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 オーナー、コラボレータ、以前のコントリビューター、および書き込みアクセスを持つユーザは、Issue やプルリクエスト、および Issue、プルリクエスト、コミットについてのコメントをレポートできます。 {% data variables.product.prodname_marketplace %} のアプリケーションについては誰でもレポートできます。
@@ -27,16 +29,16 @@ versions:
 ### Issue やプルリクエストをレポートする
 
 1. レポートする Issue またはプルリクエストに移動します。
-2. In the upper-right corner of the issue or pull request, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. Issue またはプルリクエストの右上隅にある
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックし、[**Report content**] をクリックします。
   ![コメントをレポートするボタン](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ### コメントをレポートする
 
 1. レポートするコメントに移動します。
-2. In the upper-right corner of the comment, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. コメントの右上隅にある
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックし、[**Report content**] をクリックします。
 ![コメントをレポートするオプションを含むケバブメニュー](/assets/images/help/repository/menu-report-comment.png)
 {% data reusables.community.report-content %}
 

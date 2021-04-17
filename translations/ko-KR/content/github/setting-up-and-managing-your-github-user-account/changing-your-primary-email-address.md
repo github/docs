@@ -6,7 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - accounts
+  - notifications
 ---
+
+{% note %}
+
+**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
+
+{% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
@@ -15,7 +24,8 @@ versions:
 5. To remove the old email address from your account, next to the old email, click
 {% octicon "trashcan" aria-label="The trashcan symbol" %}.
 {% if currentVersion == "free-pro-team@latest" %}
-6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+6. Verify your new primary email address. Without a verified email address, you won't be able to use all of
+{% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 {% endif %}
 
 ### 더 읽을거리

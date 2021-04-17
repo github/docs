@@ -1,1 +1,1 @@
-We recommend that you regularly review your authorized integrations. Remove any applications and tokens that haven't been used in a while. For more information, see "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)."
+Recomendamos que você revise regularmente as integrações autorizadas. Remova todos os aplicativos e tokens que não tenham sido usados por um tempo. Para obter mais informações, consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)".

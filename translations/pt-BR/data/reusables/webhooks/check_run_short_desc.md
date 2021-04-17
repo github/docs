@@ -1,1 +1,1 @@
-Check run activity has occurred. {% data reusables.webhooks.action_type_desc %} For more information, see the "[check runs](/v3/checks/runs/)" REST API.
+Verifique se a atividade de execução ocorreu. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST de "[execuções de verificação](/rest/reference/checks#runs)".

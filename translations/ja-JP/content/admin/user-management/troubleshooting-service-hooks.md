@@ -1,12 +1,15 @@
 ---
 title: サービスフックのトラブルシューティング
-intro: ペイロードが配信されない場合、以下の一般的な問題をチェックしてください。
+intro: 'ペイロードが配信されない場合、以下の一般的な問題をチェックしてください。'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### デリバリーについての情報を入手
@@ -25,7 +28,7 @@ versions:
 2. 調べるリポジトリを開ける。
 3. ナビゲーションサイドバーで **Hooks** のリンクをクリックする。 ![フックのサイドバー](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. 問題が発生しているサービスフックで、**Latest Delivery** へのリンクをクリックする。
-5. Click **Delivery**. ![ペイロードの表示](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+5. [**Delivery**] をクリックします。 ![ペイロードの表示](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
 ### 過去のデリバリーの表示
 

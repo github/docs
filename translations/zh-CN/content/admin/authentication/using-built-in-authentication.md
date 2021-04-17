@@ -1,11 +1,13 @@
 ---
 title: 使用内置身份验证
-intro: '当您使用默认身份验证方法时，所有身份验证详细信息都将存储在 {% data variables.product.product_location_enterprise %} 中。 如果您尚未建立身份验证提供程序（例如 LDAP、SAML 或 CAS），内置身份验证将是默认方法。'
+intro: '当您使用默认身份验证方法时，所有身份验证详细信息都将存储在 {% data variables.product.product_location %} 中。 如果您尚未建立身份验证提供程序（例如 LDAP、SAML 或 CAS），内置身份验证将是默认方法。'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 您可以创建用户将在登录和注销页面上看到的自定义消息。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)”。

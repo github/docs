@@ -1,1 +1,0 @@
-Las apps sin verificar no necesitan cumplir con los "[Requisitos para listar una app en GitHub Marketplace](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" ni pasar por el "[proceso de revisión de seguridad](/marketplace/getting-started/security-review-process/)".

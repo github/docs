@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 对仓库具有管理员权限的任何人都可以启用分支删除。

@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Datum des Inkrafttretens dieser Fassung: 20. Juli 2020
+Version Effective Date: November 16, 2020
 
 WENN DER KUNDE AUF „I AGREE“ („ICH STIMME ZU“) ODER EINE ÄHNLICHE SCHALTFLÄCHE KLICKT ODER EINES DER (NACHFOLGEND DEFINIERTEN) PRODUKTE VERWENDET, AKZEPTIERT ER DIE GESCHÄFTSBEDINGUNGEN DIESER VEREINBARUNG. WENN DER KUNDE DIESE VEREINBARUNG IM NAMEN EINER JURISTISCHEN PERSON SCHLIESST, SICHERT ER ZU, DASS ER RECHTLICH DAZU BEFUGT IST, DIESE VEREINBARUNG FÜR DIE JURISTISCHE PERSON ZU SCHLIESSEN.
 
@@ -197,7 +197,7 @@ Diese Vereinbarung bildet zusammen mit den Anhängen und den einzelnen Auftragsf
 
 #### 1.13.11 Änderungen, Vorrang
 
-GitHub behält sich das Recht vor, diese Vereinbarung jederzeit nach alleinigem Ermessen zu ändern, und aktualisiert diese Vereinbarung im Fall entsprechender Änderungen. GitHub informiert den Kunden durch Veröffentlichung einer Mitteilung im Dienst über wesentliche Änderungen dieser Vereinbarung wie z. B. Preisänderungen mindestens 30 Tage vor Inkrafttreten der Änderung. Bei geringfügigen Änderungen stellt die fortgesetzte Nutzung des Dienstes durch den Kunden die Zustimmung zu den Änderungen dieser Vereinbarung dar. Der Kunde kann alle Änderungen dieser Vereinbarung in unserem [Websiterichtlinien](https://github.com/github/site-policy)-Repository einsehen. Bei Widersprüchen zwischen den Bestimmungen dieser Vereinbarung und einem Auftragsformular oder einer Leistungsbeschreibung haben die Bestimmungen des Auftragsformulars oder der Leistungsbeschreibung Vorrang, jedoch nur für das entsprechende Auftragsformular bzw. die entsprechende Leistungsbeschreibung.
+GitHub behält sich das Recht vor, diese Vereinbarung jederzeit nach alleinigem Ermessen zu ändern, und aktualisiert diese Vereinbarung im Fall entsprechender Änderungen. GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. Der Kunde kann alle Änderungen dieser Vereinbarung in unserem [Websiterichtlinien](https://github.com/github/site-policy)-Repository einsehen. Bei Widersprüchen zwischen den Bestimmungen dieser Vereinbarung und einem Auftragsformular oder einer Leistungsbeschreibung haben die Bestimmungen des Auftragsformulars oder der Leistungsbeschreibung Vorrang, jedoch nur für das entsprechende Auftragsformular bzw. die entsprechende Leistungsbeschreibung.
 
 #### 1.13.12 Salvatorische Klausel
 
@@ -296,7 +296,7 @@ Kunden können im Rahmen der Nutzung des Dienstes benutzergenerierte Inhalte ers
 **(ii)** Der Kunde gewährt die Rechte nach den Abschnitten 3.3.3 bis 3.3.6 kostenlos und zu den in den entsprechenden Abschnitten angegebenen Zwecken, bis der Kunde die Kundeninhalte von den GitHub-Servern entfernt. Davon ausgenommen sind Inhalte, die der Kunde öffentlich veröffentlicht hat und für die externe Benutzer ein Forking vorgenommen haben. In diesem Fall gilt die Lizenz unbefristet, bis alle Forks von Kundeninhalten von den GitHub-Servern entfernt wurden. Lädt der Kunde Kundeninhalte hoch, für die bereits eine Lizenz besteht, die GitHub die erforderlichen Rechte zur Ausführung des Dienstes gewährt, ist keine weitere Lizenz erforderlich.
 
 #### 3.3.3 Lizenzgewährung für GitHub
-Der Kunde gewährt GitHub das Recht, Kundeninhalte zu speichern, zu analysieren und anzuzeigen und gelegentlich Kopien zu erstellen, insoweit dies zur Bereitstellung des Dienstes erforderlich ist. Dazu zählt das Recht, Kundeninhalte in die GitHub-Datenbank zu kopieren und Sicherungen zu erstellen, Kundeninhalte dem Kunden und anderen anzuzeigen, denen der Kunde die Inhalte anzeigen möchte, Kundeninhalte für einen Suchindex oder auf andere Weise auf den GitHub-Servern zu analysieren, Kundeninhalte für externe Benutzer freizugeben, für die der Kunde die Inhalte freigeben möchte, und Kundeninhalte wiederzugeben, insoweit es sich um Musik, Videos usw. handelt. Diese Rechte gelten sowohl für öffentliche als auch private Repositorys. Diese Lizenz gewährt GitHub nicht das Recht, Kundeninhalte zu verkaufen oder auf andere Weise zu verbreiten oder außerhalb des Dienstes zu verwenden. Der Kunde gewährt GitHub die nötigen Rechte zur Verwendung von Kundeninhalten ohne Namensnennung und zur Durchführung angemessener Änderungen von Kundeninhalten, insoweit dies für die Bereitstellung des Dienstes erforderlich ist.
+Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service. Dazu zählt das Recht, Kundeninhalte in die GitHub-Datenbank zu kopieren und Sicherungen zu erstellen, Kundeninhalte dem Kunden und anderen anzuzeigen, denen der Kunde die Inhalte anzeigen möchte, Kundeninhalte für einen Suchindex oder auf andere Weise auf den GitHub-Servern zu analysieren, Kundeninhalte für externe Benutzer freizugeben, für die der Kunde die Inhalte freigeben möchte, und Kundeninhalte wiederzugeben, insoweit es sich um Musik, Videos usw. handelt. Diese Rechte gelten sowohl für öffentliche als auch private Repositorys. Diese Lizenz gewährt GitHub nicht das Recht, Kundeninhalte zu verkaufen oder auf andere Weise zu verbreiten oder außerhalb des Dienstes zu verwenden. Der Kunde gewährt GitHub die nötigen Rechte zur Verwendung von Kundeninhalten ohne Namensnennung und zur Durchführung angemessener Änderungen von Kundeninhalten, insoweit dies für die Bereitstellung des Dienstes erforderlich ist.
 
 #### 3.3.4 Lizenzgewährung für externe Benutzer
 **(i)** Inhalte, die der Kunde öffentlich postet, darunter Issues, Kommentare und Beiträge in Repositorys externer Benutzer, können von anderen angezeigt werden. Indem der Kunde seine Repositorys für die öffentliche Anzeige konfiguriert, stimmt er zu, dass externe Benutzer die Repositorys des Kunden anzeigen und kopieren können.
@@ -318,10 +318,13 @@ Der Kunde haftet für die Verwaltung des Zugriffs auf seine privaten Repositorys
 GitHub betrachtet Kundeninhalte in den privaten Repositorys des Kunden als vertrauliche Informationen des Kunden. GitHub sorgt nach Abschnitt 1.4 für den Schutz und die strikte Wahrung der Vertraulichkeit von Kundeninhalten in privaten Repositorys.
 
 #### 3.4.3 Zugriff
-GitHub kann ausschließlich in folgenden Fällen auf private Repositorys des Kunden zugreifen: (i) aus Gründen des Supports mit dem Wissen und unter Zustimmung des Kunden oder (ii) wenn der Zugriff aus Sicherheitsgründen erforderlich ist.  Der Kunde kann zusätzlichen Zugriff auf seine privaten Repositorys aktivieren. Beispielsweise kann der Kunde mehrere GitHub-Dienste oder -Features aktivieren, für die zusätzliche Rechte für Kundeninhalte in privaten Repositorys erforderlich sind. Diese Rechte können je nach Dienst oder Feature andere sein. GitHub behandelt Kundeninhalte in den privaten Repositorys des Kunden jedoch weiterhin als vertrauliche Informationen des Kunden. Sind für diese Dienste oder Features neben den Rechten, die für die Dienstbereitstellung erforderlich sind, zusätzliche Rechte erforderlich, gibt GitHub eine Erläuterung dieser Rechte.
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 3.4.4 Ausschlüsse
-Hat GitHub Grund zu der Annahme, dass Inhalte eines privaten Repositorys gegen Gesetze oder diese Vereinbarung verstoßen, hat GitHub das Recht, auf die betreffenden Inhalte zuzugreifen und sie zu prüfen sowie zu entfernen. Darüber hinaus kann GitHub gesetzlich verpflichtet sein, Inhalte in privaten Repositorys des Kunden offenzulegen. Sofern GitHub nicht durch gesetzliche Auflagen oder in Reaktion auf eine Sicherheitsbedrohung oder ein sonstiges Sicherheitsrisiko anders gebunden ist, informiert GitHub über entsprechende Maßnahmen.
+Der Kunde kann zusätzlichen Zugriff auf seine privaten Repositorys aktivieren. Beispielsweise kann der Kunde mehrere GitHub-Dienste oder -Features aktivieren, für die zusätzliche Rechte für Kundeninhalte in privaten Repositorys erforderlich sind. Diese Rechte können je nach Dienst oder Feature andere sein. GitHub behandelt Kundeninhalte in den privaten Repositorys des Kunden jedoch weiterhin als vertrauliche Informationen des Kunden. Sind für diese Dienste oder Features neben den Rechten, die für die Dienstbereitstellung erforderlich sind, zusätzliche Rechte erforderlich, gibt GitHub eine Erläuterung dieser Rechte.
+
+Darüber hinaus können wir [gesetzlich verpflichtet sein](/github/site-policy/github-privacy-statement#for-legal-disclosure) Inhalte Ihrer privaten Repositorys offenzulegen.
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### 3.5. Urheberrechtsvermerke
 
@@ -330,7 +333,7 @@ Das Erscheinungsbild des Dienstes ist wie folgt urheberrechtlich geschützt: „
 
 #### 3.5.2 Urheberrechtsverletzungen und DMCA-Richtlinie
 
-Wenn der Kunde Urheberrechtsinhaber ist und der Ansicht ist, dass Inhalte im Dienst gegen die Urheberrechte des Kunden verstoßen, kann er sich nach der [Digital Millenium Copyright Act-Richtlinie](https://github.com/contact/dmca) von GitHub an GitHub wenden, indem er GitHub über das [DMCA-Formular](https://github.com/contact/dmca-notice) oder per E-Mail an copyright@github.com entsprechend informiert.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 3.5.3 Marken und Logos von GitHub
 

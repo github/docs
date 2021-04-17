@@ -36,4 +36,4 @@ versions:
 {% data reusables.github-insights.add-organizations %}
 4. 单击要从 {% data variables.product.prodname_insights %} 删除的组织。
 4. 在“卸载 {% data variables.product.prodname_insights %}”下，单击 **Uninstall（卸载）**。 ![卸载按钮](/assets/images/help/insights/uninstall-button.png)
-5. Click **OK**.
+5. 单击 **OK（确定）**。

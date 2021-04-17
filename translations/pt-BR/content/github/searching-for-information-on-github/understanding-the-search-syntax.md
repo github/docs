@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pesquisa do github
 ---
 
 ### Consultar por valores maiores ou menores que outro valor
@@ -47,7 +50,7 @@ Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-value
 | <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** corresponde a problemas com a palavra "cats" que foram criados em ou antes de 4 de julho de 2012.                                    |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** corresponde a repositórios com a palavra "cats" nos quais foi feito push entre o final de abril e julho de 2016. |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** corresponde a problemas criados após 30 de abril de 2012 contendo a palavra "cats".                                                    |
-| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** corresponde a problemas criados antes de 4 de julho de 2012 contendo a palavra "cats".                                                 |
+| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** corresponde a problemas criados antes de 4 de julho de 2012 contendo a palavra "cats".                                                 |
 
 {% data reusables.time_date.time_format %}
 
@@ -80,7 +83,7 @@ Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre
 
 Alguns símbolos não alfanuméricos, como espaços, são descartados de consultas de pesquisa de código entre aspas, por isso os resultados podem ser inesperados.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Consultas com nomes de usuário
 
 Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {% data variables.product.product_name %}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.

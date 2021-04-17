@@ -1,6 +1,6 @@
 ---
-title: Convertir un colaborador externo en un miembro de la organización
-intro: 'Si deseas que un colaborador externo en los repositorios de la organización tenga más permisos dentro de tu organización, puedes {% if currentVersion == "free-pro-team@latest" %}invitarlo a convertirse en miembro de{% else %}convertirlo en miembro de{% endif %} la organización.'
+title: Converting an outside collaborator to an organization member
+intro: 'If you would like to give an outside collaborator on your organization''s repositories broader permissions within your organization, you can {% if currentVersion == "free-pro-team@latest" %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
 versions:
@@ -11,9 +11,9 @@ versions:
 {% tip %}
 
 **Tips**:
-- Solo los propietarios de la organización pueden {% if currentVersion == "free-pro-team@latest" %}invitar a los usuarios a unirse a{% else %}agregar a usuarios a{% endif %} una organización. Para obtener más información, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization)".{% if currentVersion == "free-pro-team@latest" %}
-- Si tu organización está en una suscripción de pago por usuario, debes contar con una licencia sin utilizarse antes de que puedas invitar a un nuevo miembro a unirse a tu organización o a reinstalar a un miembro previo de la misma. Para obtener más información, consulta "[About per-user pricing](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}{% endif %}
-- Si tu organización [requiere que los miembros usen autenticación de dos factores](/articles/requiring-two-factor-authentication-in-your-organization), los usuarios {% if currentVersion == "free-pro-team@latest" %}que invites deben [habilitar la autenticación de dos factores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de que puedan aceptar la invitación.{% else %}debe [habilitar la autenticación de dos factores](/articles/securing-your-account-with-two-factor-authentication-2fa) antes de que puedas agregarla a la organización.{% endif %}
+- Only organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."{% if currentVersion == "free-pro-team@latest" %}
+- If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}
+- If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users {% if currentVersion == "free-pro-team@latest" %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
 
 {% endtip %}
 
@@ -22,10 +22,9 @@ versions:
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people_tab_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
-5. To the right of the name of the outside collaborator you want to become a member, use the
-{% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Invite to organization**.![Invitar colaboradores externos a la organización](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
+5. To the right of the name of the outside collaborator you want to become a member, use the {% octicon "gear" aria-label="The gear icon" %} drop-down menu and click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/help/organizations/invite_outside_collaborator_to_organization.png)
 {% else %}
-5. A la derecha del nombre del colaborador externo que quieres hacer miembro, haz clic en **Invite to organization** (Invitar a la organización).![Invitar colaboradores externos a la organización](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
+5. To the right of the name of the outside collaborator you want to become a member, click **Invite to organization**.![Invite outside collaborators to organization](/assets/images/enterprise/orgs-and-teams/invite_outside_collabs_to_org.png)
 {% endif %}
 {% data reusables.organizations.choose-to-restore-privileges %}
 {% data reusables.organizations.choose-user-role-send-invitation %}
@@ -33,6 +32,6 @@ versions:
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Leer más
+### Further reading
 
-- "[Convertir a un miembro de la organización en colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator)"
+- "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"

@@ -1,1 +1,0 @@
-<ul><li>Errors or outages on {% data variables.product.prodname_dotcom_the_website %} affect core Git or web application functionality for all members of your organization or enterprise</li></ul>

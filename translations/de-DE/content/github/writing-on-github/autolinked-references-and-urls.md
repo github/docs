@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### URLs
@@ -38,21 +39,18 @@ In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise 
 
 ### Commit-SHAs
 
-Verweise auf den SHA-Hash eines Commits werden automatisch in verkürzte Links zum Commit auf {% data variables.product.product_name %} umgewandelt.
+Verweise auf den SHA-Hash eines Commits werden zum Committen auf {% data variables.product.product_name %} automatisch in verkürzte Links umgewandelt.
 
-| Verweistyp                  | Rohverweis                                                                           | Kurzlink                                                                                                          |
-| --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Commit-URL                  | https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
-| SHA                         | a5c3785ed8d6a35868bc169f07e40e889087fd2e                                             | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
-| Benutzer@SHA                | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                       | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)             |
-| Benutzername/Repository@SHA | Benutzer/Repository@SHA: jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e  | [jlord/sheetsee.js@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| Verweistyp                    | Rohverweis                                                                                                                                                                     | Kurzlink                                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Commit-URL                    | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                     |
+| SHA                           | a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                       | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                     |
+| Benutzer@SHA                  | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                 | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)               |
+| `Benutzername/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e`                                                                                                                   | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Benutzerdefinierte automatische Verknüpfungen von externen Ressourcen
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### Weiterführende Informationen
 

@@ -1,1 +1,1 @@
-[リポジトリがTeamに追加された](/v3/teams/#add-or-update-team-repository-permissions)。
+[リポジトリがTeamに追加された](/rest/reference/teams#add-or-update-team-repository-permissions)。

@@ -1,1 +1,1 @@
-1. Read the information, then click **Revoke external identity**.
+1. Leia as informações e clique em **Revogar identidade externa**.

@@ -19,13 +19,14 @@ versions:
 - 如果将 500 MB 文件推送到 {% data variables.large_files.product_name_short %}，您将使用 500 MB 的分配存储空间，而不使用带宽。 如果进行 1 个字节的更改后再次推送文件，您会使用另外 500 MB 的存储空间，但仍然不使用带宽，所以两次推送的总使用量是 1 GB 存储空间和零带宽。
 - 如果下载一个使用 LFS 跟踪的 500 MB 文件，您将使用仓库所有者分配的 500 MB 带宽。 如果协作者推送文件更改并将新版本拉取到本地仓库，您将使用另外 500 MB 的带宽，所以两次下载的总使用量是 1 GB 带宽。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-If {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+如果
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在仓库的源代码存档中，则下载这些存档将会计入仓库的带宽使用量。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 
 {% tip %}
 
-**Tips**:
+**提示**：
 - {% data reusables.large_files.owner_quota_only %}
 - {% data reusables.large_files.does_not_carry %}
 

@@ -11,7 +11,7 @@ versions:
 
 ### 关于企业帐户的计费
 
-企业帐户目前适用于通过发票付款的 {% data variables.product.prodname_enterprise %} 客户。 对于所有付费 {% data variables.product.prodname_dotcom_the_website %} 服务（包括组织中的付费许可、{% data variables.large_files.product_name_long %} 数据包和 {% data variables.product.prodname_marketplace %} 应用程序订阅），连接至企业帐户的所有组织和 {% data variables.product.prodname_ghe_server %} 实例的帐单都将汇总为一个计费帐单。
+企业帐户目前适用于通过发票付费的 {% data variables.product.prodname_enterprise %} 客户。 对于所有付费 {% data variables.product.prodname_dotcom_the_website %} 服务（包括组织中的付费许可、{% data variables.large_files.product_name_long %} 数据包和 {% data variables.product.prodname_marketplace %} 应用程序订阅），连接至企业帐户的所有组织和 {% data variables.product.prodname_ghe_server %} 实例的帐单都将汇总为一个计费帐单。
 
 企业所有者和帐单管理员均可访问和管理企业帐户的所有帐单设置。 有关企业帐户的更多信息，请参阅“[企业帐户的角色](/github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account)”。 有关管理帐单管理员的更多信息，请参阅“[邀请人员管理企业帐户](/github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account)”。
 

@@ -14,7 +14,7 @@ assert(process.env.HEROKU_API_TOKEN)
 const { chain } = require('lodash')
 const chalk = require('chalk')
 const Heroku = require('heroku-client')
-const github = require('../lib/github')()
+const github = require('./helpers/github')()
 const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 const owner = 'github'
 const repo = 'docs-internal'

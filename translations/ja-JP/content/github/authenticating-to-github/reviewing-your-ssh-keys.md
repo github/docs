@@ -1,6 +1,6 @@
 ---
-title: SSH キーをレビューする
-intro: '認証情報を安全に保つには、SSH キーを定期的に監査し、キーをデプロイし、自分の {% data variables.product.product_name %} アカウントにアクセスする許可されたアプリケーションをレビューしてください。'
+title: Reviewing your SSH keys
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your {% data variables.product.product_name %} account.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -8,39 +8,46 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-許可されていない (あるいは侵害された可能性のある) SSH キーを削除することで、攻撃者が以後自分のリポジトリにアクセスすることを防止できます。 有効な既存の SSH キーを承認することもできます。
+You can delete unauthorized (or possibly compromised) SSH keys to ensure that an attacker no longer has access to your repositories. You can also approve existing SSH keys that are valid.
 
 {% mac %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **メモ:** Git 操作が失敗したために SSH キーを監査している場合は、 [SSH キー監査エラー](/articles/error-we-re-doing-an-ssh-key-audit)の原因となった未検証のキーが SSH キーのリストで強調表示されます。 ![未検証の SSH キー](/assets/images/help/settings/settings-ssh-key-review-highlight.png)
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. ターミナルを開きます。
+4. Open Terminal.
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 OpenSSH 6.7 より前のバージョンを使用している場合:
+6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  OpenSSH 6.8 以降を使用している場合:
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
-7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endmac %}
 
@@ -48,33 +55,39 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **メモ:** Git 操作が失敗したために SSH キーを監査している場合は、 [SSH キー監査エラー](/articles/error-we-re-doing-an-ssh-key-audit)の原因となった未検証のキーが SSH キーのリストで強調表示されます。![未検証の SSH キー](/assets/images/help/settings/settings-ssh-key-review-highlight.png)
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. Git Bash を開きます。 {% data variables.product.prodname_desktop %} に収納されている Git Shell を使用している場合は、Git Shell を開き、ステップ 6 に進みます。
+4. Open Git Bash. If you're using Git Shell, which is included in {% data variables.product.prodname_desktop %}, open Git Shell and skip to step 6.
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 OpenSSH 6.7 より前のバージョンを使用している場合:
+6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  OpenSSH 6.8 以降を使用している場合:
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
-7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endwindows %}
 
@@ -82,36 +95,42 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. [SSH Settings] ページで、自分のアカウントに関連付けられている SSH キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効な SSH キーがある場合は、[**Approve**] をクリックします。 ![SSH キーのリスト](/assets/images/help/settings/settings-ssh-key-review.png)
+3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **メモ:** Git 操作が失敗したために SSH キーを監査している場合は、 [SSH キー監査エラー](/articles/error-we-re-doing-an-ssh-key-audit)の原因となった未検証のキーが SSH キーのリストで強調表示されます。 ![未検証の SSH キー](/assets/images/help/settings/settings-ssh-key-review-highlight.png)
+     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
 
   {% endtip %}
 
-4. ターミナルを開きます。
+4. Open Terminal.
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. 自分の公開鍵のフィンガープリントを見つけてメモします。 OpenSSH 6.7 より前のバージョンを使用している場合:
+6. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  OpenSSH 6.8 以降を使用している場合:
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
-7. {% data variables.product.product_name %} での SSH キーは、お使いのコンピュータでの同じキーと一致して*いなければなりません* 。
+7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
 
 {% endlinux %}
 
 {% warning %}
 
-**警告**: 見慣れない SSH キーが {% data variables.product.product_name %} で見つかった場合は、すぐにそれを削除し、さらに支援が必要な場合は {% data variables.contact.contact_support %} に問い合わせてください。 確認できない公開鍵は、潜在的なセキュリティ上の問題を示している可能性があります。
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
 
 {% endwarning %}

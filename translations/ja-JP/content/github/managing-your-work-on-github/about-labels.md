@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ラベルは、作成されたリポジトリに結びつけられています。 一度ラベルができれば、そのリポジトリ内で任意の Issue あるいはプルリクエストに使うことができます。 詳細は「[ラベルの作成](/articles/creating-a-label/)」を参照してください。
@@ -16,21 +17,21 @@ versions:
 
 {% data variables.product.product_name %} は、すべての新しいリポジトリにデフォルトのラベルを提供します。 これらのデフォルトのラベルを使って、リポジトリの標準的なワークフローを作成しやすくできます。
 
-| ラベル                | 説明                                                                                      |
-| ------------------ | --------------------------------------------------------------------------------------- |
-| `bug`              | 予想外の問題あるいは意図しない振る舞いを示します{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-| `documentation`    | ドキュメンテーションに改善や追加が必要であることを示します{% endif %}
-| `duplicate`        | 同様の Issue あるいはプルリクエストを示します                                                              |
-| `enhancement`      | 新しい機能のリクエストを示します                                                                        |
-| `good first issue` | 初回のコントリビューターに適した Issue を示します                                                            |
-| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します                                                |
-| `invalid`          | Issue あるいはプルリクエストに関連性がなくなったことを示します                                                      |
-| `question`         | Issue あるいはプルリクエストにさらなる情報が必要なことを示します                                                     |
-| `wontfix`          | Issue あるいはプルリクエストの作業が継続されないことを示します                                                      |
+| ラベル                | 説明                                       |
+| ------------------ | ---------------------------------------- |
+| `bug`              | 予想外の問題あるいは意図しない振る舞いを示します                 |
+| `documentation`    | ドキュメンテーションに改善や追加が必要であることを示します            |
+| `duplicate`        | 同様の Issue あるいはプルリクエストを示します               |
+| `enhancement`      | 新しい機能のリクエストを示します                         |
+| `good first issue` | 初回のコントリビューターに適した Issue を示します             |
+| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します |
+| `invalid`          | Issue あるいはプルリクエストに関連性がなくなったことを示します       |
+| `question`         | Issue あるいはプルリクエストにさらなる情報が必要なことを示します      |
+| `wontfix`          | Issue あるいはプルリクエストの作業が継続されないことを示します       |
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。 詳細は「[ラベルの削除](/articles/deleting-a-label/)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Organization のオーナーは、Organization 内のリポジトリのためのデフォルトラベルをカスタマイズできます。 詳しい情報については、「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照してください。
 {% endif %}
 

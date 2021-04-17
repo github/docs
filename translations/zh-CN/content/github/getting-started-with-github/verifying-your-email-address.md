@@ -7,6 +7,8 @@ redirect_from:
   - /articles/verifying-your-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
 ---
 
 ### 关于电子邮件通知
@@ -28,7 +30,7 @@ versions:
 
 {% warning %}
 
-**Warnings**:
+**警告**：
 
 - {% data reusables.user_settings.no-verification-disposable-emails %}
 - {% data reusables.user_settings.verify-org-approved-email-domain %}

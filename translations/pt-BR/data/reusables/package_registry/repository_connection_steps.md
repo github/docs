@@ -1,3 +1,3 @@
-1. Under your package versions, click **Connect repository**. ![Connect a repository button on packages landing page](/assets/images/help/package-registry/connect-repository.png)
+1. Na versão do pacote, clique em **Conectar repositório**. ![Botão para conectar-se a um repositório na página inicial de pacotes](/assets/images/help/package-registry/connect-repository.png)
 
-1. Select a repository, then click **Connect repository**. ![Connect a repository button in repository selection pop-up window](/assets/images/help/package-registry/select_a_repo.png)
+1. Selecione um repositório e, em seguida, clique em **Conectar repositório**. ![Botão de conectar-se a um repositório na janela de pop-up de seleção de repositório](/assets/images/help/package-registry/select_a_repo.png)

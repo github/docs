@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pesquisa do github
 ---
 
 ### Possíveis tempos limite

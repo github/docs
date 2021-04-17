@@ -4,6 +4,10 @@ intro: 'You can set up, test, and secure webhooks so your integrations can subsc
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - веб-перехватчики
+  - events
 ---
 
 ### Table of Contents

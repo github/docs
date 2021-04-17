@@ -1,6 +1,6 @@
 ---
 title: Einen Sicherheitshinweis bearbeiten
-intro: 'Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.'
+intro: Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.
 versions:
   free-pro-team: '*'
 ---

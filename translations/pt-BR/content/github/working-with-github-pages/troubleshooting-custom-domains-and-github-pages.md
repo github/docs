@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Páginas
 ---
 
 ### Erros _CNAME_
@@ -21,8 +23,8 @@ Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
 
 - O nome de arquivo _CNAME_ deve estar todo em letras maiúsculas.
 - O arquivo _CNAME_ só pode conter um domínio. Para apontar vários domínios para o site, é preciso configurar um redirecionamento por meio do provedor DNS.
-- A entrada _CNAME_ deve ser o domínio bare. Por exemplo, `www.example.com`, `blog.example.com` ou `example.com`.
-- A entrada _CNAME_ só pode ser usada uma vez no {% data variables.product.product_name %}. Por exemplo, se o arquivo _CNAME_ de outro repositório contiver `example.com`, você não poderá usar `example.com` no arquivo _CNAME_ para o repositório.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Por exemplo, se o arquivo _CNAME_ de outro repositório contiver `example.com`, você não poderá usar `example.com` no arquivo _CNAME_ para o repositório.
 
 ### Configuração incorreta do DNS
 
@@ -39,11 +41,7 @@ Verifique se o seu site não:
 - Usa mais de um subdomínio `www`. Por exemplo, `www.example.com` e `www.anotherexample.com`.
 - Usa um domínio apex e um subdomínio personalizado. Por exemplo, `example.com` e `docs.example.com`.
 
-{% warning %}
-
-**Aviso:** é altamente recomendável não usar registros DNS curingas, como `*.example.com`. O registro DNS curinga permite que qualquer pessoa hospede um site do {% data variables.product.prodname_pages %} em um dos subdomínios que você tem.
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 Para obter uma lista de domínios personalizados compatíveis, consulte "[Sobre domínios personalizados e o {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)".
 

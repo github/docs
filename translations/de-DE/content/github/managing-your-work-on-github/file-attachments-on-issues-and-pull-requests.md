@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% warning %}
 
-**Warnung:** Wenn Du ein Bild zu einem Pull-Request- oder Issue-Kommentar hinzufügst, kann jeder die anonymisierte Bild-URL ohne Authentifizierung anzeigen, selbst wenn sich der Pull Request in einem privaten Repository befindet{% if currentVersion != "free-pro-team@latest" %} oder der private Modus aktiviert ist{% endif %}. Um vertraulicher Bilder zu schützen, stelle sie über ein privates Netzwerk oder einen Server bereit, der eine Authentifizierung vorschreibt. {% if currentVersion == "free-pro-team@latest" %}Weitere Informationen zu anonymisierten URLs findest Du unter „[Informationen zu anonymisierten Bild-URLs](/articles/about-anonymized-image-urls)“.{% endif %}
+**Warnung:** Wenn Du ein Bild zu einem Pull-Request- oder Issue-Kommentar hinzufügst, kann jeder die anonymisierte Bild-URL ohne Authentifizierung anzeigen, selbst wenn sich der Pull Request in einem privaten Repository befindet{% if enterpriseServerVersions contains currentVersion %} oder der private Modus aktiviert ist{% endif %}. Um vertraulicher Bilder zu schützen, stelle sie über ein privates Netzwerk oder einen Server bereit, der eine Authentifizierung vorschreibt. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -21,11 +24,21 @@ Um eine Datei an eine Issue- oder eine Pull-Request-Unterhaltung anzuhängen, zi
 
 {% tip %}
 
-**Tipp:** Wenn Du Chrome verwendest, kannst Du Bilder auch direkt in das Feld kopieren.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
 Die Größe der Anhänge ist bei Dateien auf 25 MB und bei Bildern auf 10 MB beschränkt.
+{% if currentVersion == "free-pro-team@latest" %}
+Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan.
+
+{% note %}
+
+**Note:** Support for video attachments is currently in beta and subject to change.
+
+{% endnote %}
+
+{% endif %}
 
 Wir unterstützen die folgenden Dateiformate:
 
@@ -36,6 +49,7 @@ Wir unterstützen die folgenden Dateiformate:
 * Microsoft Word-Dokumente (*.docx*), Powerpoint-Dokumente (*.pptx*) und Excel-Dokumente (*.xlsx*)
 * Textdateien (*.txt*)
 * PDF-Dateien (*.pdf*)
-* ZIP-Dateien (*.zip*, *.gz*)
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* Video (*.mp4*, *.mov*){% endif %}
 
 ![Animiertes GIF zu Anhängen](/assets/images/help/pull_requests/dragging_images.gif)

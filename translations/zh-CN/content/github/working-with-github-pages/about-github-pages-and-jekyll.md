@@ -21,6 +21,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 页面
 ---
 
 ### 关于 Jekyll
@@ -37,7 +40,7 @@ Windows 并未正式支持 Jekyll。 更多信息请参阅 Jekyll 文档中的�
 
 对于 {% data variables.product.prodname_pages %} 站点，有些配置设置不能更改。
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -69,7 +72,8 @@ kramdown:
 {% data reusables.pages.add-jekyll-theme %} 更多信息请参阅 Jekyll 文档中的“[主题](https://jekyllrb.com/docs/themes/)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
-您可以在 {% data variables.product.prodname_dotcom %} 上添加支持的主题到站点。 更多信息请参阅 {% data variables.product.prodname_pages %} 站点上“[支持的主题](https://pages.github.com/themes/)"和"[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)”。
+您可以将支持的主题添加到
+{% data variables.product.prodname_dotcom %} 上的站点。 更多信息请参阅 {% data variables.product.prodname_pages %} 站点上“[支持的主题](https://pages.github.com/themes/)"和"[使用主题选择器添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)”。
 
 要使用 {% data variables.product.prodname_dotcom %} 上托管的任何其他开源 Jekyll 主题，您可以手动添加主题。{% else %} 您可以手动添加主题到站点。{% endif %} 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %} [{% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) 上托管的主题和 {% else %}{% data variables.product.prodname_pages %} 站点上 "[支持的主题](https://pages.github.com/themes/)"和{% endif %}“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。
 
@@ -90,9 +94,9 @@ kramdown:
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-您可以通过在 *_config.yml* 文件中添加插件的 gem 到 `plugins` 设置来启用额外的插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。 有关支持的插件列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。
+您可以通过在 *_config.yml* 文件中添加插件的 gem 到 `plugins` 设置来启用额外的插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。
 
-有关特定插件的使用信息，请参阅插件的文档。
+有关支持的插件列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。  有关特定插件的使用信息，请参阅插件的文档。
 
 {% tip %}
 
@@ -110,7 +114,7 @@ kramdown:
 
 如果想使用其他突显工具，如 `highlight.js`，则必须更新项目的 *_config.yml* 文件来禁用 Jekyll 的语法突显。
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

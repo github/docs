@@ -8,9 +8,11 @@ redirect_from:
   - /articles/changing-the-duration-of-your-billing-cycle
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
-Wenn Du die Dauer Deines Abrechnungszeitraums änderst, wird Dein {% data variables.product.prodname_dotcom %}-Abonnement und alle weiteren bezahlten Funktionen und Produkte am nächsten Abrechnungsdatum auf den neuen Abrechnungszeitraum umgestellt.
+Wenn Sie die Dauer Ihres Abrechnungszeitraums ändern, werden Ihr {% data variables.product.prodname_dotcom %}-Abonnement und alle weiteren bezahlten Features und Produkte am nächsten Abrechnungsdatum auf den neuen Abrechnungszeitraum umgestellt.
 
 ### Die Dauer des Abrechnungszeitraums Deines persönlichen Kontos ändern
 

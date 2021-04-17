@@ -10,6 +10,9 @@ permissions: Organization のオーナーは、Organization の Team 同期を�
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}
@@ -24,7 +27,7 @@ IdP と {% data variables.product.product_name %} の間で Team の同期を有
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
+Enterprise アカウントが所有する Organization に対して Team の同期を有効化することもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
 
 ### Team の同期を有効化する
 

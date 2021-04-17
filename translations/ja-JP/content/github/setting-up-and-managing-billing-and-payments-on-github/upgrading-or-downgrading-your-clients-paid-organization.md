@@ -6,13 +6,15 @@ redirect_from:
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 支払い
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - クライアントの Organization をアップグレードする前に、 [Organization のファイルで支払い方法を表示または更新](/articles/adding-or-editing-a-payment-method)することができます。
 - これらの手順は、*シートごとのプラン*で Organization をアップグレードおよびダウングレードするためのものです。 クライアントが*レガシーのリポジトリ単位プラン*で {% data variables.product.product_name %} を支払っている場合は、レガシーのプランをアップグレードまたは[ダウングレード](/articles/downgrading-your-github-subscription)するか、[Organization をシート単位の価格に切り替える](/articles/upgrading-your-github-subscription)ことができます。
 

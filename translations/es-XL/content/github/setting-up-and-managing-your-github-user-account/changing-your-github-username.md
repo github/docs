@@ -1,6 +1,6 @@
 ---
-title: Cambiar tu nombre de usuario de GitHub
-intro: 'Puedes cambiar tu nombre de usuario de {% data variables.product.product_name %} en cualquier momento.'
+title: Changing your GitHub username
+intro: 'You can change your {% data variables.product.product_name %} username at any time.'
 redirect_from:
   - /articles/how-to-change-your-username/
   - /articles/changing-your-github-user-name/
@@ -12,46 +12,50 @@ versions:
   enterprise-server: '*'
 ---
 
-### Acerca de los cambios de nombre de usuario
+### About username changes
 
-Puedes cambiar tu nombre de usuario por otro nombre de usuario que actualmente no esté en uso.{% if currentVersion == "free-pro-team@latest" %} Si el nombre de usuario que quieres no está disponible, verás información acerca de si puedes solicitar el nombre de usuario que aparecerá cuando escribas el nombre de usuario deseado.
+You can change your username to another username that is not currently in use.{% if currentVersion == "free-pro-team@latest" %} If the username you want is not available, you'll see information about whether you can request the username to be released when you type in the desired username.
 
-Si el nombre de usuario no puede usarse y no posees una marca comercial para el nombre de usuario, puedes elegir otro nombre de usuario o conservar tu nombre de usuario actual. {% data variables.contact.github_support %} no puede publicar el nombre de usuario que no está disponible para ti. Para obtener más información, consulta "[Cambiar tu nombre de usuario](#changing-your-username)".{% endif %}
+If the username is not eligible for release and you don't hold a trademark for the username, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
 
-Una vez que cambies tu nombre de usuario, el nombre de usuario anterior estará disponible para todas las personas que lo reclamen. La mayoría de las referencias a tus repositorios con el nombre de usuario anterior automáticamente cambian al nombre de usuario nuevo. Sin embargo, algunos enlaces a tu perfil no se redirigirán automáticamente.
+After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
-{% data variables.product.product_name %} no puede configurar redirecciones para:
-- [@menciones](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) con tu nombre de usuario anterior
-- Enlaces a los [gists](/articles/creating-gists) que incluyen tu nombre de usuario anterior
+{% data variables.product.product_name %} cannot set up redirects for:
+- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
+- Links to [gists](/articles/creating-gists) that include your old username
 
-### Referencias del repositorio
+### Repository references
 
-Después de cambiar tu nombre de usuario, {% data variables.product.product_name %} automáticamente redirigirá las referencias a tus repositorios.
-- Los enlaces web a tus repositorios existentes seguirán funcionando. Esto puede tardar algunos minutos en completarse después de realizar el cambio.
-- Las inserciones de la línea de comando desde tus clones de repositorio local hasta las URL del registro remoto anterior seguirán funcionando.
+After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
+- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
+- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
 
-Si el nuevo propietario de tu nombre de usuario anterior crea un repositorio con el mismo nombre que tu repositorio, se sobrescribirá el registro de redirección y tu redirección dejará de funcionar. Debido a esta posibilidad, recomendamos que actualices todas las URL de repositorios remotos existentes luego de cambiar tu nombre de usuario. Para obtener más información, consulta "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url).
+If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)."
 
-### Enlaces a tu página de perfil anterior
+### Links to your previous profile page
 
-Luego de cambiar tu nombre de usuario, los enlaces a tu página de perfil anterior, como `https://{% data variables.command_line.backticks %}/previoususername`, arrojarán un error 404. Recomendamos actualizar todos los enlaces a tu cuenta de {% data variables.product.product_name %} desde cualaquier lugar{% if currentVersion == "free-pro-team@latest" %}, como tu perfil de LinkedIn o Twitter{% endif %}.
+After changing your username, links to your previous profile page, such as `https://{% data variables.command_line.backticks %}/previoususername`, will return a 404 error. We recommend updating any links to your {% data variables.product.product_name %} account from elsewhere{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profile{% endif %}.
 
-### Tus confirmaciones Git
+### Your Git commits
 
-{% if currentVersion == "free-pro-team@latest"%}Las confirmaciones de Git que estaban asociadas con tu dirección de correo electrónico de {% data variables.product.product_name %} `sin respuesta` ya no se atribuirán a tu nuevo nombre de usuario y no aparecerán en tu gráfico de contribuciones.{% endif %}Si tus confirmaciones de Git están asociadas con otra dirección de correo electrónico que has[agregado a tu cuenta de GitHub](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}incluida la dirección de correo electrónico basada en ID `sin respuesta` proporcionada por {% data variables.product.product_name %}, {% endif %}se te seguirá atribuyendo y aparecerá en tu gráfico de contribuciones después de que hayas cambiado tu nombre de usuario. Para obtener más información sobre cómo establecer tu dirección de correo electrónico, consulta "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)".
+{% if currentVersion == "free-pro-team@latest"%}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
 
-### Cambiar tu nombre de usuario
+### Changing your username
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
-3. En la sección "Change username" (Cambiar nombre de usuario), haz clic en **Change username** (Cambiar nombre de usuario). ![Change Username button](/assets/images/help/settings/settings-change-username.png){% if currentVersion == "free-pro-team@latest" %}
-4. Lee las advertencias sobre cómo cambiar tu nombre de usuario. Si aún deseas cambiar tu nombre de usuario, haz clic en **I understand, let's change my username** (Comprendo, cambiaré mi nombre de usuario). ![Cambiar botón Username warning (Advertencia de nombre de usuario)](/assets/images/help/settings/settings-change-username-warning-button.png)
-5. Escribe un nuevo nombre de usuario. ![Campo New username (Nuevo nombre de usuario)](/assets/images/help/settings/settings-change-username-enter-new-username.png)
-6. Si el nombre de usuario que elegiste está disponible, haz clic en **Change my username** (Cambiar mi nombre de usuario). Si el nombre de usuario que elegiste no está disponible, puedes probar un nombre de usuario diferente o una de las sugerencias que ves. ![Cambiar botón Username warning (Advertencia de nombre de usuario)](/assets/images/help/settings/settings-change-my-username-button.png)
+3. In the "Change username" section, click **Change username**.
+   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% if currentVersion == "free-pro-team@latest" %}
+4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
+   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
+5. Type a new username.
+   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
+6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
+   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
-### Leer más
+### Further reading
 
-- "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)"
-- "[¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
-- "[{% data variables.product.prodname_dotcom %} Política de nombre de usuario](/articles/github-username-policy)"{% endif %}
+- "[Changing a remote's URL](/articles/changing-a-remote-s-url)"
+- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
+- "[{% data variables.product.prodname_dotcom %} Username Policy](/articles/github-username-policy)"{% endif %}

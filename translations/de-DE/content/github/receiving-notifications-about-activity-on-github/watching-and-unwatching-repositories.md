@@ -1,13 +1,11 @@
 ---
 title: Beobachtungen für Repositorys aktivieren und deaktivieren
-intro: 'Du kannst ein Repository beobachten, um Benachrichtigungen für neu erstellte Pull Requests und Issues zu erhalten. Darüber hinaus kannst Du die Beobachtung eines Repositorys beenden, wenn Du keine weiteren Benachrichtigungen für dieses bestimmte Repository erhalten möchtest.'
+intro: Du kannst ein Repository beobachten, um Benachrichtigungen für neu erstellte Pull Requests und Issues zu erhalten. Darüber hinaus kannst Du die Beobachtung eines Repositorys beenden, wenn Du keine weiteren Benachrichtigungen für dieses bestimmte Repository erhalten möchtest.
 versions:
   enterprise-server: <2.21
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.notifications.auto-watch %} Weitere Informationen findest Du unter „[Über Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
-{% endif %}
 
 Zudem kannst Du Releases in einem Repository beobachten und deren Beobachtung beenden. Weitere Informationen findest Du unter „[Beobachtung von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)."
 
@@ -35,11 +33,11 @@ Zudem kannst Du Releases in einem Repository beobachten und deren Beobachtung be
 
 {% note %}
 
-**Hinweis:**Du kannst auch auswählen, dass ein Repository ignoriert werden soll. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% if currentVersion == "free-pro-team@latest" %}Wenn du Missbrauch feststellst und ein Repository ignorieren willst, [kontaktiere bitte den Support](/contact), damit wir Dir helfen können. {% data reusables.policies.abuse %}{% endif %}
+**Hinweis:**Du kannst auch auswählen, dass ein Repository ignoriert werden soll. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
 ### Weiterführende Informationen
 
-- „[Abonnieren und Kündigen von Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- „[Abonnieren oder Kündigen von Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
 - „[Repositorys auflisten, die Du beobachtest](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

@@ -1,3 +1,3 @@
-| Tecla  | Tipo     | Descrição                                     |
-| ------ | -------- | --------------------------------------------- |
-| `Ação` | `string` | A ação que foi executada. Can be `published`. |
+| Tecla  | Tipo     | Descrição                                       |
+| ------ | -------- | ----------------------------------------------- |
+| `Ação` | `string` | A ação que foi executada. Pode ser `publicado`. |

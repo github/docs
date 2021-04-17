@@ -1,11 +1,12 @@
 ---
 title: リモートの追加
-intro: 新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。
+intro: '新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。'
 redirect_from:
   - /articles/adding-a-remote
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote add` コマンドは 2 つの引数を取ります:
@@ -36,7 +37,7 @@ $ git remote -v
 このエラーは、ローカルのリポジトリにすでに存在している名前でリモートを追加しようとしたということです。
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 

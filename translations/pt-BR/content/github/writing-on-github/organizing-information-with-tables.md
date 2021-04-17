@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Criar uma tabela
 
 Você pode criar tabelas com barras verticais `|` e hifens `-`. Os hifens são usados para criar o cabeçalho das colunas e as barras verticais, para separar as colunas. Você deve incluir uma linha em branco antes da tabela para ela ser construída corretamente.
 
-```
+```markdown
 
 | Primeiro cabeçalho  |  Segundo cabeçalho  |
 | ------------------- | ------------------- |
@@ -26,7 +27,7 @@ As barras verticais em cada extremo da tabela são opcionais.
 
 As células podem ter largura variada e não precisam estar alinhadas perfeitamente com as colunas. Deve ter no mínimo três hifens em cada coluna da linha do cabeçalho.
 
-```
+```markdown
 | Comando | Descrição |
 | --- | --- |
 | git status | Lista de todos os arquivos modificados ou novos |
@@ -39,7 +40,7 @@ As células podem ter largura variada e não precisam estar alinhadas perfeitame
 
 Você pode usar [formatação](/articles/basic-writing-and-formatting-syntax), como links, blocos de código em linhas e estilos de texto em sua tabela:
 
-```
+```markdown
 | Comando | Descrição |
 | --- | --- |
 | `git status` | Lista de todos os arquivos *modificados ou novos* |
@@ -50,7 +51,7 @@ Você pode usar [formatação](/articles/basic-writing-and-formatting-syntax), c
 
 Você pode alinhar o texto à esquerda, direita ou centralizar uma coluna incluindo dois pontos `:` à esquerda, direita ou nos dois lados dos hifens que estão dentro da linha de cabeçalho.
 
-```
+```markdown
 |   Esquerda   |  Centralizado  |    Direita    |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
@@ -61,7 +62,7 @@ Você pode alinhar o texto à esquerda, direita ou centralizar uma coluna inclui
 
 Para incluir uma barra vertical `|` como conteúdo dentro da célula, use `\` antes da barra vertical:
 
-```
+```markdown
 | Nome   | Caractere |
 | ---    | ---       |
 | Crase  | `         |

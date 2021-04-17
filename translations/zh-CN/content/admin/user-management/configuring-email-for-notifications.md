@@ -44,7 +44,7 @@ versions:
 1. 确保您的 SMTP 服务器可以访问实例上的端口 25。
 2. 创建一个指向 `reply.[hostname]` 的 A 记录。 根据您的 DNS 提供商和实例主机配置，您可以创建一个指向 `*.[hostname]` 的 A 记录。
 3. 创建一个指向 `reply.[hostname]` 的 MX 记录，以便发送到该域的电子邮件可以路由到实例。
-4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 更多信息请参阅{% if currentVersion ver_gt "enterprise-server@2.20" %}"[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
+4. 创建一个将 `noreply.[hostname]` 指向 `[hostname]` 的 MX 记录，以便对通知电子邮件中 `cc` 地址的回复可以路由到实例。 更多信息请参阅{% if currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}。”
 
 借助 DNS 配置，您现在可以测试设置是否能够正常运行。
 

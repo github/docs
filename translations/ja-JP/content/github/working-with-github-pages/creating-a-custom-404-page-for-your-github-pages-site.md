@@ -8,6 +8,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pages
 ---
 
 {% data reusables.pages.navigate-site-repo %}
@@ -15,7 +18,7 @@ versions:
 {% data reusables.files.add-file %}
 3. ファイル名のフィールドに、`404.html` または `404.md` と入力します。 ![ファイル名フィールド](/assets/images/help/pages/404-file-name.png)
 4. ファイル名を `404.md` とした場合、ファイルの先頭に以下の YAML front matter を追加します。
-  ```
+  ```yaml
   ---
   permalink: /404.html
   ---

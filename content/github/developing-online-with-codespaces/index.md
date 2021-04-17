@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -18,7 +20,11 @@ versions:
 {% link_in_list /configuring-codespaces-for-your-project %}
 {% link_in_list /creating-a-codespace %}
 {% link_in_list /developing-in-a-codespace %}
+{% link_in_list /forwarding-ports-in-your-codespace %}
 {% link_in_list /personalizing-codespaces-for-your-account %}
+{% link_in_list /managing-encrypted-secrets-for-codespaces %}
+{% link_in_list /managing-access-and-security-for-codespaces %}
+{% link_in_list /managing-gpg-verification-for-codespaces %}
 {% link_in_list /deleting-a-codespace %}
 {% link_in_list /troubleshooting-your-codespace %}
 {% link_in_list /using-codespaces-in-visual-studio-code %}

@@ -1,1 +1,1 @@
-Scopes let you specify exactly what type of access you need. Scopes _limit_ access for OAuth tokens. They do not grant any additional permission beyond that which the user already has.
+Os escopos permitem especificar exatamente que tipo de acesso você precisa. Os escopos _limitam_ o acesso para tokens do OAuth. Não concedem qualquer autorização adicional para além da que o usuário já possui.

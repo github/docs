@@ -12,6 +12,8 @@ redirect_from:
 intro: '要从 {% data variables.product.prodname_enterprise %} 11.10.x 迁移到 2.1.23，您需要设置新的设备实例并迁移之前实例中的数据。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
@@ -45,7 +47,7 @@ versions:
 3. 设置管理员密码。
 5. 单击 **Migrate**。 ![选择安装类型](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. 将备份主机访问 SSH 密钥粘贴到“Add new SSH key”中。 ![授权备份](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
-7. Click **Add key** and then click **Continue**.
+7. 单击 **Add key（添加密钥）**，然后单击 **Continue（继续）**。
 8. 复制您将在备份主机上运行的 `ghe-restore` 命令，将数据迁移到新实例。 ![开始迁移](/assets/images/enterprise/migration/migration-restore-start.png)
 9. 在旧实例上启用维护模式，并等待所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
@@ -77,7 +79,7 @@ versions:
   Visit https://169.254.1.1/setup/settings to review appliance configuration.
   ```
 
-12. 返回到新实例的恢复状态屏幕，查看恢复是否已完成。 ![恢复整个屏幕](/assets/images/enterprise/migration/restore-complete-screen.png)
+12. 返回到新实例的恢复状态屏幕，查看恢复是否已完成。 ![恢复整个屏幕](/assets/images/enterprise/migration/migration-status-complete.png)
 13. 单击 **Continue to settings**，检查并调整从之前的实例中导入的配置信息和设置。 ![检查导入的设置](/assets/images/enterprise/migration/migration-status-complete.png)
 14. 单击 **Save settings（保存设置）**。
 

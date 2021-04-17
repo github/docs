@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 ### 审查授权的 {% data variables.product.prodname_oauth_app %}

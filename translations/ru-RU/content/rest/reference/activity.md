@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - api
 ---
 
 {% for operation in currentRestOperations %}
@@ -31,8 +34,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
 ```
-
-Events support pagination, however the `per_page` option is unsupported. The fixed page size is 30 items. Fetching up to ten pages is supported, for a total of 300 events. For information, see "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
 
 Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
 
@@ -138,19 +139,19 @@ When retrieving responses from the Notifications API, each payload has a key tit
 
 Here's a list of potential `reason`s for receiving a notification:
 
-| Reason Name        | Description                                                                                                                                                                                                |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | You were assigned to the issue.                                                                                                                                                                            |
-| `автор`            | You created the thread.                                                                                                                                                                                    |
-| `комментарий`      | You commented on the thread.                                                                                                                                                                               |
-| `приглашение`      | You accepted an invitation to contribute to the repository.                                                                                                                                                |
-| `manual`           | You subscribed to the thread (via an issue or pull request).                                                                                                                                               |
-| `упоминание`       | You were specifically **@mentioned** in the content.                                                                                                                                                       |
+| Reason Name        | Description                                                                                                                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assign`           | You were assigned to the issue.                                                                                                                                                                       |
+| `автор`            | You created the thread.                                                                                                                                                                               |
+| `комментарий`      | You commented on the thread.                                                                                                                                                                          |
+| `приглашение`      | You accepted an invitation to contribute to the repository.                                                                                                                                           |
+| `manual`           | You subscribed to the thread (via an issue or pull request).                                                                                                                                          |
+| `упоминание`       | You were specifically **@mentioned** in the content.                                                                                                                                                  |
 | `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% if currentVersion == "free-pro-team@latest" %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-| `state_change`     | You changed the thread state (for example, closing an issue or merging a pull request).                                                                                                                    |
-| `subscribed`       | You're watching the repository.                                                                                                                                                                            |
-| `team_mention`     | You were on a team that was mentioned.                                                                                                                                                                     |
+| `state_change`     | You changed the thread state (for example, closing an issue or merging a pull request).                                                                                                               |
+| `subscribed`       | You're watching the repository.                                                                                                                                                                       |
+| `team_mention`     | You were on a team that was mentioned.                                                                                                                                                                |
 
 Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
 

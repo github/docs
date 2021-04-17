@@ -15,7 +15,9 @@ versions:
 
 {% mac %}
 
-1. 开始克隆前，请先登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_desktop %}。
+1. 登录到
+
+{% data variables.product.product_location %} 和 {% data variables.product.prodname_desktop %}，然后开始克隆。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. 单击 **Choose...（选择...）**，并使用 Finder 窗口找到要克隆仓库的本地路径。 ![URL 选项卡中的选择按钮](/assets/images/help/desktop/clone-choose-button-url-mac.png)
@@ -32,7 +34,9 @@ versions:
 
 {% windows %}
 
-1. 开始克隆前，请先登录到 {% data variables.product.product_location %} 和 {% data variables.product.prodname_desktop %}。
+1. 登录到
+
+{% data variables.product.product_location %} 和 {% data variables.product.prodname_desktop %}，然后开始克隆。
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. 单击 **Choose...（选择...）**，并使用 Windows 资源管理器找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-url-win.png)

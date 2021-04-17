@@ -1,6 +1,6 @@
 ---
 title: Beobachtung von Releases für ein Repository aktivieren oder deaktivieren
-intro: 'Du kannst Releases in einem Repository beobachten, um Benachrichtigungen zu erhalten, wenn ein neuer Release veröffentlicht wird, ohne dass Benachrichtigungen zu anderen Updates am Repository empfangen werden. Darüber hinaus kannst Du die Beobachtung von Releases beenden, wenn Du keine weiteren Benachrichtigungen für neue Releases in einem Repository erhalten möchtest.'
+intro: Du kannst Releases in einem Repository beobachten, um Benachrichtigungen zu erhalten, wenn ein neuer Release veröffentlicht wird, ohne dass Benachrichtigungen zu anderen Updates am Repository empfangen werden. Darüber hinaus kannst Du die Beobachtung von Releases beenden, wenn Du keine weiteren Benachrichtigungen für neue Releases in einem Repository erhalten möchtest.
 versions:
   enterprise-server: <2.21
 ---

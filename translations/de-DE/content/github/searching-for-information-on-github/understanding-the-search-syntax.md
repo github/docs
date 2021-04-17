@@ -1,12 +1,15 @@
 ---
 title: Grundlagen der Suchsyntax
-intro: 'Für Suchen auf {% data variables.product.product_name %} kannst Du Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
+intro: 'Für Suchen auf {% data variables.product.product_name %} können Sie Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github search
 ---
 
 ### Abfrage nach Werten mit einem Vergleichsoperator
@@ -47,7 +50,7 @@ Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-rang
 | <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** findet Issues mit dem Wort „cats", die am oder vor dem 4. Juli 2012 erstellt wurden.                                                                |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** sucht Repositorys, die das Wort „cats“ enthalten und zu denen zwischen dem 30. April und dem 4. Juli 2016 ein Push erfolgt ist. |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und nach dem 30. April 2012 erstellt wurden.                                                              |
-| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und vor dem 30. April 2012 erstellt wurden.                                                               |
+| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und vor dem 30. April 2012 erstellt wurden.                                                               |
 
 {% data reusables.time_date.time_format %}
 
@@ -80,7 +83,7 @@ Wenn Deine Suchabfrage Leerzeichen enthält, musst du die gesuchte Zeichenfolge 
 
 Bei Suchabfragen innerhalb von Code werden einige nicht alphanumerische Zeichen, so auch Leerzeichen, ignoriert, selbst wenn der Suchstring in Anführungszeichen steht. Dies führt oft nicht zum erwünschten Ergebnis.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Abfragen mit Benutzernamen
 
 Wenn Deine Abfrage einen Qualifizierer verwendet, der einen Benutzernamen verlangt, beispielsweise `user`, `actor`, oder `assignee`, kannst du jeden {% data variables.product.product_name %}-Benutzernamen verwenden, um eine spezifische Person anzugeben oder `@me` benutzen, um den aktuellen Benutzer anzugeben.

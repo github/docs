@@ -7,6 +7,9 @@ permissions: リポジトリへの書き込みアクセスを持つユーザで�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 また、上流リポジトリのメンテナに、ユーザ所有のフォークにコミットをプッシュする権限を与えることもできます。 プルリクエストが上流リポジトリのブランチを base ブランチとして自分のトピックブランチと比較する場合、トピックブランチは「プルリクエストの比較ブランチ」とも呼ばれます。 例も含めたプルリクエストブランチに関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)」を参照してください。

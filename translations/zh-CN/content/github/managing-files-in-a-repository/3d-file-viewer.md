@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data variables.product.product_name %} 可托管和渲染扩展名为 *.stl* 的 3D 文件。
@@ -57,6 +60,6 @@ versions:
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注**：`ref` 可以是分支或个别提交的哈希（如 `2391ae`）。
 
 {% endtip %}

@@ -9,9 +9,10 @@ redirect_from:
   - /enterprise/admin/guides/migrations/preparing-the-github-enterprise-source-instance/
   - /enterprise/admin/guides/migrations/exporting-the-github-enterprise-source-repositories/
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
-  - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 ### Preparing the {% data variables.product.prodname_ghe_server %} source instance
@@ -87,7 +88,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Close the connection to {% data variables.product.product_location_enterprise %}:
+8. Close the connection to {% data variables.product.product_location %}:
   ```shell
   $ exit
   > logout

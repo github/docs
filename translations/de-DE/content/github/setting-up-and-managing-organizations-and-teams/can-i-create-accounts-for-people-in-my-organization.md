@@ -6,6 +6,9 @@ redirect_from:
 intro: 'Zwar kannst Du Benutzer in eine von Dir erstellte Organisation hinzufügen, Du kannst aber keine persönlichen Benutzerkonten für andere Personen erstellen.'
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Da der Zugriff auf eine Organisation durch die Anmeldung bei einem persönlichen Konto erfolgt, benötigt jedes Teammitglied ein persönliches Konto. Wenn Du die Benutzernamen aller Personen hast, die Du zu Deiner Organisation hinzufügen möchtest, kannst Du sie zu Teams hinzufügen.

@@ -1,1 +1,1 @@
-1. In Okta, in the upper-right corner, click **Admin**. ![Admin button in Okta](/assets/images/help/saml/okta-admin-button.png)
+1. 在 Okta 中的右上角，单击 **Admin（管理员）**。 ![Okta 中的管理员按钮](/assets/images/help/saml/okta-admin-button.png)

@@ -7,12 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git push` 命令使用两个参数：
 
 * 远程命令，如 `origin`
-* 分支名称，如 `master`
+* 分支名称，如 `main`
 
 例如：
 
@@ -20,7 +21,7 @@ versions:
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-例如，您通常运行 `git push origin master` 来推送本地更改到在线仓库。
+例如，您通常运行 `git push origin main` 来推送本地更改到在线仓库。
 
 ### 重命名分支
 
@@ -84,7 +85,7 @@ git fetch upstream
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
->  * [new branch]      master     -> upstream/master
+>  * [new branch]      main     -> upstream/main
 ```
 
 在完成本地更改后，可以推送本地分支到 GitHub 并[发起拉取请求](/articles/about-pull-requests)。
@@ -97,3 +98,4 @@ git fetch upstream
 - [`git remote` 手册页](https://git-scm.com/docs/git-remote.html)
 - "[Git 小抄](/articles/git-cheatsheet)"
 - "[Git 工作流程](/articles/git-workflows)"
+- "[Git 手册](https://guides.github.com/introduction/git-handbook/)"

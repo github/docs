@@ -6,11 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### 有针对性的故障场景
 
@@ -52,7 +56,7 @@ versions:
 
 `ghe-repl-setup` 命令可将 {% data variables.product.prodname_ghe_server %} 设备置于副本备用模式。
 
- - 为两个设备之间的通信配置加密的 {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} 隧道。
+ - 配置加密的 WireGuard VPN 隧道以实现两台设备之间的通信。
  - 配置用于复制的数据库服务并启动。
  - 禁用应用程序服务。 尝试通过 HTTP、Git 或其他受支持协议访问副本将出现“设备处于副本模式”维护页面或显示错误消息。
 
@@ -71,8 +75,7 @@ Run `ghe-repl-start' to start replicating against the newly configured primary.
 `ghe-repl-start` 命令可以启用所有数据存储的主动复制。
 
 ```shell
-admin@169-254-1-2:~$ ghe-repl-start{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Starting OpenVPN tunnel ... {% endif %}
+admin@169-254-1-2:~$ ghe-repl-start
 Starting MySQL replication ...
 Starting Redis replication ...
 Starting Elasticsearch replication ...
@@ -144,8 +147,7 @@ Stopping Pages replication ...
 Stopping Git replication ...
 Stopping MySQL replication ...
 Stopping Redis replication ...
-Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Stopping OpenVPN tunnel ...{% endif %}
+Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
@@ -163,8 +165,7 @@ Stopping replication ...
   | Stopping Git replication ...
   | Stopping MySQL replication ...
   | Stopping Redis replication ...
-  | Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-  | Stopping OpenVPN tunnel ...{% endif %}
+  | Stopping Elasticsearch replication ...
   | Success: replication was stopped for all services.
 Switching out of replica mode ...
   | Success: Replication configuration has been removed.

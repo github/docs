@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:

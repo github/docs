@@ -10,9 +10,11 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'Der SSH-Zugriff ermöglicht Ihnen die Ausführung der {% data variables.product.prodname_ghe_server %}-Befehlszeilendienstprogramme und eignet sich zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Informationen zum Verwaltungsshellzugriff
@@ -46,7 +48,7 @@ admin@github-example-com:~$ █
 
 #### Fehlerbehebung bei SSH-Verbindungsproblemen
 
-Wenn der Fehler `Permission denied (publickey)` (Berechtigung verweigert (öffentlicher Schlüssel)) angezeigt wird, wenn Sie versuchen, über SSH eine Verbindung zu {% data variables.product.product_location_enterprise %} herzustellen, sollten Sie bestätigen, dass Sie die Verbindung über Port 122 vornehmen. Möglicherweise müssen Sie explizit angeben, welcher private SSH-Schlüssel verwendet werden soll.
+Wenn der Fehler `Permission denied (publickey)` (Berechtigung verweigert (öffentlicher Schlüssel)) angezeigt wird, wenn Sie versuchen, über SSH eine Verbindung zu {% data variables.product.product_location %} herzustellen, sollten Sie bestätigen, dass Sie die Verbindung über Port 122 vornehmen. Möglicherweise müssen Sie explizit angeben, welcher private SSH-Schlüssel verwendet werden soll.
 
 Führen Sie zum Angeben eines privaten SSH-Schlüssels an der Befehlszeile `ssh` mit dem Argument `-i` aus.
 
@@ -54,7 +56,7 @@ Führen Sie zum Angeben eines privaten SSH-Schlüssels an der Befehlszeile `ssh`
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-Darüber hinaus können Sie einen privaten SSH-Schlüssel mithilfe der SSH-Konfigurationsdatei (`~/.ssh/config`) angeben.
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>

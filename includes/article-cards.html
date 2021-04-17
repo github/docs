@@ -1,0 +1,50 @@
+{% assign maxArticles = 9 %}
+
+<div class="container-xl px-3 px-md-6 pt-3 pb-2">
+  <h2 class="mb-3 font-mktg">{% data ui.product_sublanding.all_guides %}</h2>
+
+  <form class="mt-2 mb-5 d-flex d-flex">
+    <div>
+      <label for="type" class="text-uppercase f6 color-text-secondary d-block">{% data ui.product_sublanding.filters.type %}</label>
+      <select class="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown" name="type" aria-label="guide types">
+        <option value="">{% data ui.product_sublanding.filters.all %}</option>
+        {% for type in site.data.ui.product_sublanding.guide_types %}
+          <option value="{{ type[0] }}">{{ type[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mx-4">
+      <label for="topic" class="text-uppercase f6 color-text-secondary d-block">{% data ui.product_sublanding.filters.topic %}</label>
+      <select class="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown" name="topics" aria-label="guide topics">
+        <option value="">{% data ui.product_sublanding.filters.all %}</option>
+        {% for topic in page.allTopics %}
+          <option value="{{ topic }}">{{ topic }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </form>
+
+
+  <div class="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
+    {% for article in page.includeGuides %}
+      {% assign card_display_class = "" %}
+      {% if forloop.index > maxArticles %}
+        {% assign card_display_class = "d-none" %}
+      {% endif %}
+
+      {% capture link_card %}
+        {% link_as_article_card {{ article.href }} %}
+      {% endcapture %}
+
+      {{ link_card | replace: "<display condition>", card_display_class }}
+    {% endfor %}
+
+    <button class="col-12 mt-5 text-center text-bold color-text-link btn-link js-filter-card-show-more" data-js-filter-card-max="{{ maxArticles }}">
+      {% data ui.product_sublanding.load_more %}
+    </button>
+
+    <div class="js-filter-card-no-results d-none py-4 text-center color-text-secondary">
+      <h4 class="text-normal">{% data ui.product_sublanding.no_result %}</h4>
+    </div>
+  </div>
+</div>

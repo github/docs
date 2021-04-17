@@ -8,10 +8,9 @@ versions:
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. Currently, {% data variables.product.prodname_github_container_registry %} only supports Docker image formats. During the beta, storage and bandwidth is free.
+**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. During the beta, storage and bandwidth are free. To use {% data variables.product.prodname_github_container_registry %}, you must enable the feature for your account. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% endnote %}
-
 
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
@@ -19,8 +18,14 @@ To share context about your package's use, you can link a repository to your con
 
 ### Supported formats
 
-The {% data variables.product.prodname_container_registry %} currently only supports Docker images.
+The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
 
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
+
+#### Manifest Lists/Image Indexes
+
+{% data variables.product.prodname_github_container_registry %} also supports [Docker Manifest List](https://docs.docker.com/registry/spec/manifest-v2-2/#manifest-list)/[OCI Image Index](https://github.com/opencontainers/image-spec/blob/79b036d80240ae530a8de15e1d21c7ab9292c693/image-index.md) formats which are defined in the Docker V2, Schema 2 and OCI image specifications.
 
 ### Visibility and access permissions for container images
 

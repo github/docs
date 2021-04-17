@@ -1,6 +1,6 @@
 ---
-title: 配置 Docker 用于 GitHub 包
-intro: '您可以配置 Docker 客户端以使用 {% data variables.product.prodname_registry %} 发布和检索 docker 镜像。'
+title: Configuring Docker for use with GitHub Packages
+intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -13,35 +13,33 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-**注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### 向 {% data variables.product.prodname_registry %} 验证
+### About Docker and {% data variables.product.prodname_registry %}
 
-{% warning %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
-# Build the image with docker.pkg.github.com/&lt;em&gt;OWNER/REPOSITORY/IMAGE_NAME:VERSION&lt;/em&gt; # Assumes Dockerfile resides in the current working directory (.) $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 . # Push the image to {% data variables.product.prodname_registry %} $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
+When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
-{% endwarning %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-您可以使用 `docker` 登录命令，通过 Docker 向 {% data variables.product.prodname_registry %} 验证。
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location_enterprise %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
+Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
 {% endif %}
 
-### 向 {% data variables.product.prodname_registry %} 验证
+### Authenticating to {% data variables.product.prodname_registry %}
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### 使用个人访问令牌进行身份验证
+#### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
 
-您可以使用 `docker` 登录命令，通过 Docker 向 {% data variables.product.prodname_registry %} 验证。
+You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
-为确保凭据安全，我们建议您将个人访问令牌保存在您计算机上的本地文件中，然后使用 Docker 的 `--password-stdin` 标志从本地文件读取您的令牌。
+To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% raw %}
@@ -51,7 +49,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% endraw %}
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
@@ -59,42 +57,46 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% endraw %}
 {% endif %}
 
-要使用此示例登录命令，请将 `USERNAME` 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 `~/TOKEN.txt` 替换为您用于 {% data variables.product.prodname_dotcom %} 的个人访问令牌的文件路径。
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
-更多信息请参阅“[Docker 登录](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)”。
+For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-#### 使用 `GITHUB_TOKEN` 进行身份验证
+#### Authenticating with the `GITHUB_TOKEN`
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### 发布包
+### Publishing an image
 
-{% data variables.product.prodname_registry %} 支持每个仓库的多个顶层 Docker 镜像。 仓库可以拥有任意数量的映像标记。 在发布或安装大于 10GB 的 Docker 映像（每个图层上限为 5GB）时，可能会遇到服务降级的情况。 更多信息请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
-{% data reusables.package_registry.lowercase-name-field %}
+{% note %}
+
+**Note:** Image names must only use lowercase letters.
+
+{% endnote %}
+
+{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
-1. 使用 `docker images` 确定 docker 映像的名称和 ID。
+1. Determine the image name and ID for your docker image using `docker images`.
   ```shell
   $ docker images
   > <&nbsp>
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. 使用 Docker 映像 ID 标记 docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *VERSION* 替换为构建时的包版本。
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
+2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
   ```shell
-  如果尚未为包构建 docker 映像，请构建映像，将 <em x-id="3">OWNER</em> 替换为拥有仓库的用户或组织帐户的名称，将 <em x-id="3">REPOSITORY</em> 替换为包含项目的仓库的名称，将 <em x-id="3">IMAGE_NAME</em> 替换为包或映像的名称，将 <em x-id="3">VERSION</em> 替换为构建时的包版本，将 <em x-id="3">PATH</em> 替换为映像路径（如果映像未在当前工作目录中）。
+  $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% endif %}
-3. 您可能首次发布新的 Docker 映像并将其命名为 `monalisa`。
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -104,7 +106,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
-4. 将映像发布到 {% data variables.product.prodname_registry %}。
+4. Publish the image to {% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -116,13 +118,15 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   {% endif %}
   {% note %}
 
-  **注：**必须使用 `IMAGE_NAME:VERSION` 推送映像，而不能使用 `IMAGE_NAME:SHA`。
+  **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
   {% endnote %}
 
-#### 发布 Docker 映像的示例
+#### Example publishing a Docker image
 
-您可以使用映像 ID 将 `monalisa` 映像的 1.0 版本发布到 `octocat/octo-app` 仓库。
+{% data reusables.package_registry.docker_registry_deprecation_status %}
+
+You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -155,7 +159,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% endif %}
 
-您可能首次发布新的 Docker 映像并将其命名为 `monalisa`。
+You can publish a new Docker image for the first time and name it `monalisa`.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -178,10 +182,11 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-### 安装包
+### Downloading an image
 
-您可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *TAG_NAME* 替换为要安装的映像的标记。 {% data reusables.package_registry.lowercase-name-field %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. 
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -195,11 +200,10 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% note %}
 
-**注：**必须使用 `IMAGE_NAME:VERSION` 推送映像，而不能使用 `IMAGE_NAME:SHA`。
+**Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
 
+### Further reading
 
-### 延伸阅读
-
-- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”
+- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

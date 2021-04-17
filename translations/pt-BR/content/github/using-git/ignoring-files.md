@@ -8,6 +8,7 @@ intro: 'Você pode configurar o Git para ignorar arquivos dos quais você não d
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Configurar arquivos ignorados para um único repositório

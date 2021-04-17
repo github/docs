@@ -1,5 +1,5 @@
 ---
-title: Preparing to migrate data to your enterprise
+title: 准备将数据迁移到企业
 intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
@@ -10,9 +10,11 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
-### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
+### 准备迁移的数据以导入到 {% data variables.product.prodname_ghe_server %}
 
 1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：
 
@@ -37,7 +39,7 @@ versions:
     ```shell
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
-    - If no conflicts are reported, you can safely import the data by following the steps in "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
+    - 如果未报告冲突，您可以按照“[将数据迁移到企业](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)”中的步骤操作，安全地导入数据。
 2. 如果存在冲突，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将 *conflicts.csv* 复制到您的本地计算机：
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
@@ -79,7 +81,7 @@ versions:
 | `map_or_rename` | 如果存在目标，请映射到该目标。 否则，请重命名导入的模型。 | 用户       |
 | `合并`            | 源中的数据将与目标中的现有数据合并。            | 团队       |
 
-**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
+**我们强烈建议您检查 *conflicts.csv* 文件并使用 [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data)，以确保正确的操作。**如果一切正常，您可以继续“[将数据迁移到企业](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)”。
 
 
 ### 解决迁移冲突或设置自定义映射
@@ -128,13 +130,13 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 #### 应用修改的迁移数据
 
-1. 进行更改后，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 csv）应用到目标实例：
+1. 进行更改后，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 *.csv* 文件）应用到目标实例：
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. 使用 `ghe-migrator map` 命令重新映射迁移数据，并传入修改后的 csv 文件的路径和迁移 GUID：
+2. 使用 `ghe-migrator map` 命令重新映射迁移数据，并传入修改后的 *.csv* 文件的路径和迁移 GUID：
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>

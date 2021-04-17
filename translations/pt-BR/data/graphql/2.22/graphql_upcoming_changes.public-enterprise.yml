@@ -44,8 +44,8 @@ upcoming_changes:
     owner: antn
   - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending members consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os integrantes pendentes consomem uma licença
     date: '2020-07-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
@@ -107,22 +107,22 @@ upcoming_changes:
     owner: oneill38
   - 
     location: EnterpriseMemberEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All members consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os integrantes consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
   - 
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All outside collaborators consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os colaboradores externos consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
   - 
     location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending collaborators consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os colaboradores pendentes consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon

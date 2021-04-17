@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Repository defaults**. ![Repository defaults tab](/assets/images/help/organizations/repo-defaults-tab.png)
+1. 左のサイドバーで**Repository defaults（リポジトリのデフォルト）**をクリックしてください。 ![リポジトリのデフォルトタブ](/assets/images/help/organizations/repo-defaults-tab.png)

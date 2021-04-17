@@ -1,1 +1,1 @@
-1. On the left side of your profile page, under "Organizations", click the icon for your organization. ![organization icons](/assets/images/help/profile/profile_orgs_box.png)
+1. No lado esquerdo da página do seu perfil, em "Organizações", clique no ícone da sua organização. ![ícones da organização](/assets/images/help/profile/profile_orgs_box.png)

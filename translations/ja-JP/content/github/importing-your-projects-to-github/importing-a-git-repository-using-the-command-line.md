@@ -1,11 +1,12 @@
 ---
 title: コマンドラインを使った Git リポジトリのインポート
-intro: '{% if currentVersion == "free-pro-team@latest" %}[GitHub Importer](/articles/importing-a-repository-with-github-importer) が目的に適さない、たとえば既存のコードがプライベート ネットワークにホストされているなどの場合には、コマンドライン ラインをお使いください。{% else %}既存のコードがプライベート ネットワークにホストされている場合には、コマンド ラインを使った Git プロジェクトのインポートが適しています。{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %} 既存のコードがプライベートネットワークでホストされている場合など、[GitHub Importer](/articles/importing-a-repository-with-github-importer) が目的に適さない場合は、コマンドラインを使用してインポートすることをお勧めします。{% else %}コマンドラインを使用して Git プロジェクトをインポートすることは、既存のコードがプライベートネットワークでホストされている場合に適しています。{% endif %}'
 redirect_from:
   - /articles/importing-a-git-repository-using-the-command-line
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 始める前に、以下をご確認ください:

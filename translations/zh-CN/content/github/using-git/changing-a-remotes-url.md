@@ -7,6 +7,7 @@ intro: '`git remote set-url` 命令可更改现有远程仓库的 URL。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -50,12 +51,11 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-下次对远程仓库执行 `git fetch`、`git pull` 或 `git push` 操作时，您需要提供 GitHub 用户名和密码。
+下次对远程仓库执行 `git fetch`、`git pull` 或 `git push` 操作时，您需要提供 GitHub 用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-- 如果您启用了[双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，则必须[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)来代替 GitHub 密码。
-- 您可以[使用凭据小助手](/github/using-git/caching-your-github-credentials-in-git)让 Git 在每次与 GitHub 会话时记住您的 GitHub 用户名和密码。
+您可以[使用凭据小助手](/github/using-git/caching-your-github-credentials-in-git)让 Git 在每次与 GitHub 会话时记住您的 GitHub 用户名和个人访问令牌。
 
-### Switching remote URLs from HTTPS to SSH
+### 将远程 URL 从 HTTPS 切换到 SSH
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。

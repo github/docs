@@ -1,21 +1,23 @@
 ---
 title: Configurar regras de firewall integrado
-intro: 'É possível exibir as regras padrão de firewall e personalizar outras regras da {% data variables.product.product_location_enterprise %}.'
+intro: 'É possível exibir as regras padrão de firewall e personalizar outras regras da {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
-### Sobre o firewall da {% data variables.product.product_location_enterprise %}
+### Sobre o firewall da {% data variables.product.product_location %}
 
 O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall (UFW) do Ubuntu no appliance virtual. Para obter mais informações, consulte "[UFW](https://help.ubuntu.com/community/UFW)" na documentação do Ubuntu. O {% data variables.product.prodname_ghe_server %} atualiza automaticamente a lista de desbloqueio de firewall dos serviços permitidos em cada versão.
 
 Depois da instalação do {% data variables.product.prodname_ghe_server %}, todas as portas de rede necessárias ficam abertas automaticamente para aceitar conexões. As portas desnecessárias são configuradas automaticamente como `deny`, e a política de saída padrão é configurada como `allow`. O rastreamento com estado fica habilitado para novas conexões; em geral, são pacotes de rede com o conjunto de bits `SYN`. Para obter mais informações, consulte "[Portas de rede](/enterprise/admin/guides/installation/network-ports)".
 
-O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras do UFW, consulte [o LEIAME do UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras da UFW, consulte [o README da UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ### Exibir as regras padrão de firewall
 
@@ -66,7 +68,7 @@ O firewall UFW também abre várias outras portas necessárias para o funcioname
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-Após a atualização da {% data variables.product.product_location_enterprise %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
+Após a atualização da {% data variables.product.product_location %}, você deve reaplicar suas regras personalizadas de firewall. Para isso, é recomendável criar um script.
 
 ### Restaurar as regras padrão de firewall
 

@@ -1,11 +1,12 @@
 ---
-title: 'O commit aparece no GitHub, mas não no meu clone local'
+title: O commit aparece no GitHub, mas não no meu clone local
 intro: 'Às vezes, um commit poderá ser visto no {% data variables.product.product_name %}, mas não existirá no clone local do repositório.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.

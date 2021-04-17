@@ -16,6 +16,7 @@ Você pode exibir proprietários corporativos e gerentes de cobrança, além de 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
+1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**. ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/administrators-pending.png)
 
 ### Exibir integrantes e colaboradores externos
 
@@ -25,7 +26,8 @@ Você pode exibir todas as organizações do {% data variables.product.prodname_
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-3. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes. ![Guia Outside collaborators (Colaboradores externos) na página Organization members (Integrantes da organização)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes. ![Guia Outside collaborators (Colaboradores externos) na página Organization members (Integrantes da organização)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**. ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/members-pending.png)
 
 ### Leia mais
 

@@ -1,12 +1,16 @@
 ---
 title: Ein Team erstellen
-intro: 'Du kannst unabhängige oder untergeordnete Teams erstellen, um Repository-Berechtigungen und Erwähnungen für Personengruppen zu verwalten.'
+intro: Du kannst unabhängige oder untergeordnete Teams erstellen, um Repository-Berechtigungen und Erwähnungen für Personengruppen zu verwalten.
 redirect_from:
   - /articles/creating-a-team-early-access-program/
   - /articles/creating-a-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Nur Organisationsinhaber und Betreuer eines übergeordneten Teams können ein neues untergeordnetes Team unter einem übergeordneten Team erstellen. Inhaber können auch die Berechtigungen für die Erstellung aller Teams in einer Organisation einschränken. Weitere Informationen findest Du unter „[Berechtigungen für die Teamerstellung in Deiner Organisation festlegen](/articles/setting-team-creation-permissions-in-your-organization).“

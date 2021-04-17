@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 このタイプのパーマリンクは、元々作成された場所であるリポジトリでのみ、コードスニペットとして表示されます。 それ以外のリポジトリでは、パーマリンクのコードスニペットは URL として表示されます。

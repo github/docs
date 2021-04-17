@@ -9,10 +9,10 @@ redirect_from:
   - /enterprise/admin/categories/general/
   - /enterprise/admin/categories/logging-and-monitoring/
   - /enterprise/admin/installation
-  - /enterprise/admin/installation
-  - /enterprise/admin/installation
 versions:
   enterprise-server: '*'
+topics:
+  - корпоративный
 ---
 
 For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

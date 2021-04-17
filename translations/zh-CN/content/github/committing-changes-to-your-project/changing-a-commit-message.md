@@ -7,19 +7,16 @@ intro: '如果提交消息中包含不明确、不正确或敏感的信息，您
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 重写最近的提交消息
 
 您可以使用 `git commit --amend` 命令更改最近的提交消息。
 
-{% warning %}
-
 在 Git 中，提交消息的文本是提交的一部分。 更改提交消息将更改提交 ID - 即用于命名提交的 SHA1 校验和。 实际上，您是创建一个新提交以替换旧提交。
 
-{% endwarning %}
-
-#### 提交尚未推送上线
+### 提交尚未推送上线
 
 如果提交仅存在于您的本地仓库中，尚未推送到 {% data variables.product.product_location %}，您可以使用 `git commit --amend` 命令修改提交消息。
 
@@ -39,7 +36,7 @@ versions:
 
 {% endtip %}
 
-#### 修改旧提交或多个提交的消息
+### 修改旧提交或多个提交的消息
 
 如果您已将提交推送到 {% data variables.product.product_location %}，则必须强制推送含有修正消息的提交。
 
@@ -93,7 +90,6 @@ versions:
     #
     # Note that empty commits are commented out
     ```
-
 3. 在要更改的每个提交消息的前面，用 `reword` 替换 `pick`。
   ```shell
   pick e499d89 Delete CNAME
@@ -102,10 +98,10 @@ versions:
   ```
 4. 保存并关闭提交列表文件。
 5. 在每个生成的提交文件中，键入新的提交消息，保存文件，然后关闭它。
-6. 强制推送修改后的提交。
-  ```shell
-  $ git push --force
-  ```
+6. 准备好将更改推送到 GitHub 时，请使用 push - force 命令强制推送旧提交。
+```shell
+$ git push --force <em>example-branch</em>
+```
 
 有关交互式变基的更多信息，请参阅 Git 手册中的“[交互模式](https://git-scm.com/docs/git-rebase#_interactive_mode)”。
 

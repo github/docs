@@ -1,1 +1,1 @@
-1. Under "Active SAML sessions", view the active SAML sessions for the member.
+1. Em "Sessões ativas do SAML", veja as sessões ativas do SAML para o integrante.

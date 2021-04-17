@@ -9,7 +9,10 @@ describe('glossaries', () => {
 
   test('are broken into external, internal, and candidates', async () => {
     const keys = Object.keys(glossaries)
-    expect(keys).toEqual(['candidates', 'external', 'internal'])
+    expect(keys).toHaveLength(3)
+    expect(keys).toContain('candidates')
+    expect(keys).toContain('external')
+    expect(keys).toContain('internal')
   })
 
   test('every entry has a valid term', async () => {

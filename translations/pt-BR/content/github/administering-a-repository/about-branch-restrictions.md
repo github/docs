@@ -1,23 +1,24 @@
 ---
 title: Sobre restrições de branch
-intro: 'Os branches em repositórios que pertencem às organizações podem ser configurados para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} ou apps{% endif %} possam fazer push no branch.'
+intro: 'Os branches em repositórios que pertencem a organizações podem ser configurados de modo que apenas alguns usuários, equipes ou aplicativos possam fazer push para o branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Quando você habilita restrições de branch, somente usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. Quando você habilita restrições de branch, somente usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. É possível exibir e editar os usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} com acesso push a um branch protegido nas configurações do branch protegido.
+Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Quando você habilita restrições de branch, somente usuários{% if page.version == "dotcom" or page.version ver_gt "2.18" %},{% else %} ou{% endif %} equipes{% if page.version == "dotcom" or page.version ver_gt "2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido.
 
-Você pode dar acesso push a um branch protegido apenas a usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou {% data variables.product.prodname_github_apps %}{% endif %} instalados com acesso `write` a um repositório.
+Você só pode dar acesso de push a um branch protegido a usuários, equipes ou {% data variables.product.prodname_github_apps %} instalados com acesso de `gravação` a um repositório.
 
-Pessoas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} e apps{% endif %} com permissões de administrador a um repositório sempre podem fazer push em um branch protegido.
+As pessoas e os aplicativos com permissões de administrador em um repositório sempre conseguem fazer push em um branch protegido.
 
 {% tip %}
 
-**Observação:** se "Include administrators" (Incluir administradores) estiver selecionada, significa que você habilitou as verificações de status obrigatórias no branch, e se quaisquer verificações de status falharem, qualquer tentativa de fazer push de alterações no branch protegido também irá falhar, mesmo para pessoas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} e apps{% endif %} com permissões de administrador. Para obter mais informações, consulte "[Habilitando verificações de status obrigatórias](/articles/enabling-required-status-checks)".
+**Observação:** se "Incluir administradores estiver selecionada, significa que você habilitou as verificações de status obrigatórias no branch, e se quaisquer verificações de status falharem, qualquer tentativa de fazer push de alterações no branch protegido também irá falhar, mesmo para pessoas e aplicativos com permissões de administrador. Para obter mais informações, consulte "[Habilitando verificações de status obrigatórias](/articles/enabling-required-status-checks)".
 
 {% endtip %}
 

@@ -1,6 +1,6 @@
 ---
 title: Eine Sicherheitsrichtlinie zum Repository hinzufügen
-intro: 'Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.'
+intro: Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
 versions:
@@ -19,7 +19,7 @@ Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein 
 
 {% endtip %}
 
-Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du {% data variables.product.prodname_security_advisories %} verwenden, um die Verwundbarkeit offen zu legen, sie zu korrigieren und entsprechende Informationen darüber zu veröffentlichen. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du {% data variables.product.prodname_security_advisories %} verwenden, um die Verwundbarkeit offen zu legen, sie zu korrigieren und entsprechende Informationen darüber zu veröffentlichen. Weitere Informationen findest Du unter „[ Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 {% data reusables.repositories.github-security-lab %}
 

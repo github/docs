@@ -1,11 +1,12 @@
 ---
-title: 'Commit ist auf GitHub vorhanden, aber nicht in meinem lokalen Klon'
+title: Commit ist auf GitHub vorhanden, aber nicht in meinem lokalen Klon
 intro: 'Manchmal kann ein Commit auf {% data variables.product.product_name %} angezeigt werden, befindet sich aber nicht im lokalen Klon des Repositorys.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du mit `git show` einen bestimmten Commit in der Befehlszeile anzeigen möchtest, kann ein schwerer Fehler auftreten.
@@ -17,7 +18,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-Wenn Du den Commit jedoch auf {% data variables.product.product_location %} anzeigst, kannst Du ihn ohne Probleme sehen:
+Wenn Sie den Commit jedoch auf {% data variables.product.product_location %} anzeigen, können Sie ihn ohne Probleme sehen:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
@@ -47,7 +48,7 @@ Dadurch werden die Informationen vom Remote-Repository sicher auf Deinen lokalen
 
 Wenn ein Mitarbeiter des Repositorys den Branch mit dem Commit gelöscht oder einen Push über den Branch erzwungen hat, ist der fehlende Commit möglicherweise verwaist (das heißt, er kann über keine Referenz mehr erreicht aufgerufen werden) und wird daher nicht in Deinen lokalen Klon abgerufen.
 
-Wenn aber irgendein Mitarbeiter noch einen lokalen Klon des Repositorys mit dem fehlenden Commit besitzt, kann er ihn zurück zu {% data variables.product.product_name %} übertragen.  Dabei muss er sicherstellen, dass von einem lokalen Branch auf den Commit verwiesen wird, und ihn dann als neuen Branch zu {% data variables.product.product_name %} pushen.
+Wenn irgendein Mitarbeiter jedoch einen lokalen Klon des Repositorys mit dem fehlenden Commit besitzt, kann er ihn glücklicherweise zurück zu {% data variables.product.product_name %} pushen.  Dabei muss er sicherstellen, dass von einem lokalen Branch auf den Commit verwiesen wird, und ihn dann als neuen Branch zu {% data variables.product.product_name %} pushen.
 
 Nehmen wir an, diese Person hat noch einen lokalen Branch (nennen wir ihn `B`), der den Commit enthält.  Dieser verfolgt vielleicht den Branch, dessen Push erzwungen oder der gelöscht wurde, und es wurde einfach noch keine Aktualisierung durchgeführt.  Um den Commit zu bewahren, kann er diesen lokalen Branch zu einem neuen Branch (nennen wir ihn `recover-B`) auf {% data variables.product.product_name %} pushen.  Für dieses Beispiel nehmen wir an, dass die Person ein Remote-Repository namens `upstream` besitzt, über das sie Push-Zugriff auf `github.coom/$account/$repository` hat.
 

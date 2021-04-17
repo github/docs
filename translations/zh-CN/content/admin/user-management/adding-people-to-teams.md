@@ -5,9 +5,11 @@ redirect_from:
   - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
   - /enterprise/admin/user-management/adding-people-to-teams
-intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location_enterprise %} 添加到团队并决定他们可以访问哪些仓库。'
+intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location %} 添加到团队并决定他们可以访问哪些仓库。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 每个团队都有自己单独定义的[组织所拥有仓库的访问权限](/articles/permission-levels-for-an-organization)。

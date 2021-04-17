@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 仓库
 ---
 
 GitHub 支持呈现 PDF 文档。

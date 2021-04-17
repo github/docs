@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Only organization owners can remove members from an organization.

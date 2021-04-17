@@ -1,20 +1,22 @@
 ---
 title: Criar um problema
 intro: 'Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras solicitações.'
+permissions: Pessoas com permissões de leitura podem criar um problema em um repositório onde os problemas estão habilitados.
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
-
-{% data reusables.repositories.create-issue-in-public-repository %}
 
 Você pode abrir um novo problema com base no código de uma pull request existente. Para obter mais informações, consulte "[Abrir um problema a partir de código](/github/managing-your-work-on-github/opening-an-issue-from-code)".
 
 Você pode abrir um novo problema diretamente de um comentário em um problema ou uma revisão de pull request. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Dica**: Você também pode criar um problema usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" na documentação do {% data variables.product.prodname_cli %}.
@@ -27,7 +29,7 @@ Se estiver usando um quadro de projeto para rastrear e priorizar seu trabalho, v
 {% tip %}
 
 **Dicas**: mantenedores de projeto podem optar por:
-  - Criar um modelo de problema para um repositório. Os modelos incluem solicitações por informações no texto de um problema. Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/github/building-a-strong-community/about-issue-and-pull-request-templates)".
+  - Criar um modelo de problema para um repositório. Os modelos incluem solicitações por informações no texto de um problema. Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)".
   - Desabilitar problemas para um repositório. Para obter mais informações, consulte "[Desabilitar problemas](/github/managing-your-work-on-github/disabling-issues)". As pull requests não podem ser desativadas e estão sempre disponíveis.
 
 {% endtip %}

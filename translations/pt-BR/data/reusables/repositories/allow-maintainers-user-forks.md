@@ -1,7 +1,7 @@
-1. On user-owned forks, if you do not want to allow anyone with push access to the upstream repository to make changes to your pull request, unselect **Allow edits from maintainers**.
+1. Na bifurcação pertencente a usuários, se você não desejar permitir que qualquer pessoa com acesso push ao repositório upstream faça alterações no seu pull request, desmarque **Permitir edições de mantenedores**.
 
     {% warning %}
 
-    **Warning:** If your fork contains {% data variables.product.prodname_actions %} workflows, the option is  **Allow edits and access to secrets by maintainers**. Allowing edits on a fork's branch that contains {% data variables.product.prodname_actions %} workflows also allows a maintainer to edit the forked repository's workflows, which can potentially reveal values of secrets and grant access to other branches.
+    **Aviso:** Se a sua bifurcação contiver fluxos de trabalho {% data variables.product.prodname_actions %}, a opção será **Permitir edições e acesso a segredos por parte dos mantenedores**. Permitir edições no branch de uma bifurcação que contém fluxos de trabalho do {% data variables.product.prodname_actions %} também permite que um mantenedor edite os fluxos de trabalho do repositório bifurcado, o que pode potencialmente revelar valores de segredos e conceder acesso a outros branches.
 
     {% endwarning %}

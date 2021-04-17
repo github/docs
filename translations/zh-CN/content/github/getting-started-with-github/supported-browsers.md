@@ -4,10 +4,11 @@ redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8/
   - /articles/why-don-t-graphs-work-with-ie8/
   - /articles/supported-browsers
-intro: '我们将 {% data variables.product.product_name %} 设计为支持最新的 Web 浏览器。 我们支持最新版本的 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/)、{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.16" %}Internet Explorer 11 {% endif %}和 [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)。'
+intro: '我们将 {% data variables.product.product_name %} 设计为支持最新的 Web 浏览器。 我们支持最新版本的 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/) 和 [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox Extended Support Release

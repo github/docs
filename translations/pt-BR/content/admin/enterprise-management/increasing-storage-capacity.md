@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-À medida que mais usuários se juntam à sua {% data variables.product.product_location_enterprise %}, talvez seja necessário redimensionar o volume de armazenamento. Consulte a documentação da sua plataforma de virtualização para obter informações sobre como fazer isso.
+À medida que mais usuários se juntam à sua {% data variables.product.product_location %}, talvez seja necessário redimensionar o volume de armazenamento. Consulte a documentação da sua plataforma de virtualização para obter informações sobre como fazer isso.
 
 ### Requisitos e recomendações
 
@@ -20,6 +22,8 @@ versions:
 
 {% endnote %}
 
+#### Requisitos mínimos
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Aumentar o tamanho da partição de dados
@@ -28,7 +32,7 @@ versions:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Deixe o appliance em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 4. Reinicie o appliance para detectar a alocação do novo armazenamento.
-5. Execute o comando `ghe-storage-extend` para expandir o sistema de arquivos `/data`:
+5. Execute o comando `ghe-storage-extend` para expandir o sistema de arquivos `/data/user`:
   ```shell
   $ ghe-storage-extend
   ```

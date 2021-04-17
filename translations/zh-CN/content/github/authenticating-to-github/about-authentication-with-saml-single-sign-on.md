@@ -1,31 +1,47 @@
 ---
-title: 关于使用 SAML 单点登录进行身份验证
-intro: 您可以通过身份提供程序 (IdP) 验证来访问使用 SAML 单点登录 (SSO) 的组织。 要在组织实施 SAML SSO 时使用命令行上的 API 或 Git 进行身份验证，您必须授权个人访问令牌或 SSH 密钥。
+title: About authentication with SAML single sign-on
+intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %}To authenticate with the API or Git on the command line when an organization enforces SAML SSO, you must authorize your personal access token or SSH key.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+  github-ae: '*'
 ---
 
-{% data reusables.saml.dotcom-saml-explanation %} 组织所有者可以邀请您在 {% data variables.product.prodname_dotcom %} 上的用户帐户加入其使用 SAML SSO 的组织，这样您可以对该组织做出贡献，并且保留您在 {% data variables.product.prodname_dotcom %} 上的现有身份和贡献。
+{% if currentVersion == "github-ae@latest" %}
 
-在访问使用 SAML SSO 的组织中的资源时，{% data variables.product.prodname_dotcom %} 会将您重定向到组织的 SAML IdP 进行身份验证。 在 IdP 上成功验证您的帐户后，IdP 会将您重定向回到 {% data variables.product.prodname_dotcom %}，您可以在那里访问组织的资源。
+SAML SSO allows an enterprise owner to centrally control and secure access to {% data variables.product.product_name %} from a SAML IdP. When you visit {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect you to your IdP to authenticate. After you successfully authenticate with an account on the IdP, the IdP redirects you back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access.
+
+{% data reusables.saml.you-must-periodically-authenticate %}
+
+If you can't access {% data variables.product.product_name %}, contact your local enterprise owner or administrator for {% data variables.product.product_name %}. You may be able to locate contact information for your enterprise by clicking **Support** at the bottom of any page on {% data variables.product.product_name %}. {% data variables.product.company_short %} and {% data variables.contact.github_support %} do not have access to your IdP, and cannot troubleshoot authentication problems. 
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your user account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
+
+When you access resources within an organization that uses SAML SSO, {% data variables.product.prodname_dotcom %} will redirect you to the organization's SAML IdP to authenticate. After you successfully authenticate with your account on the IdP, the IdP redirects you back to {% data variables.product.prodname_dotcom %}, where you can access the organization's resources.
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
-如果您最近在浏览器中使用组织的 SAML IdP 进行过身份验证，则在访问使用 SAML SSO 的 {% data variables.product.prodname_dotcom %} 组织时会自动获得授权。 如果您最近没有在浏览器中使用组织的 SAML IdP 进行身份验证，则必须在 SAML IdP 进行身份验证后才可访问组织。
+If you have recently authenticated with your organization's SAML IdP in your browser, you are automatically authorized when you access a {% data variables.product.prodname_dotcom %} organization that uses SAML SSO. If you haven't recently authenticated with your organization's SAML IdP in your browser, you must authenticate at the SAML IdP before you can access the organization.
 
-必须定期使用 SAML IdP 验证身份和访问组织在 {% data variables.product.prodname_dotcom %} 上的资源。 此登录期的持续时间由 IdP 指定，一般为 24 小时。 此定期登录要求会限制访问的时长，您必须重新验证身份后才可继续访问。 您可以在安全设置中查看和管理活动的 SAML 会话。 更多信息请参阅“[查看和管理活动的 SAML 会话](/articles/viewing-and-managing-your-active-saml-sessions)”。
+{% data reusables.saml.you-must-periodically-authenticate %}
 
-要在命令行上使用 API 或 Git 访问使用 SAML SSO 的组织中受保护的内容，需要使用授权的 HTTPS 个人访问令牌或授权的 SSH 密钥。 默认授权 {% data variables.product.prodname_oauth_app %} 访问令牌。
+To use the API or Git on the command line to access protected content in an organization that uses SAML SSO, you will need to use an authorized personal access token over HTTPS or an authorized SSH key. {% data variables.product.prodname_oauth_app %} access tokens are authorized by default.
 
-如果没有个人访问令牌或 SSH 密钥，可以创建用于命令行的个人访问令牌或生成新的 SSH 密钥。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”或“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
+If you don't have a personal access token or an SSH key, you can create a personal access token for the command line or generate a new SSH key. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" or "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-要对实施 SAML SSO 的组织使用新的或现有的个人访问令牌或 SSH 密钥，需要授权该令牌或授权 SSH 密钥用于 SAML SSO 组织。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。
+To use a new or existing personal access token or SSH key with an organization that enforces SAML SSO, you will need to authorize the token or authorize the SSH key for use with a SAML SSO organization. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
-每次授权 {% data variables.product.prodname_oauth_app %} 时必须有活动的 SAML 会话。
+You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
-### 延伸阅读
+{% endif %}
 
-- "[关于使用 SAML 单点登录管理身份和访问](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)"
+### Further reading
+
+{% if currentVersion == "free-pro-team@latest" %}- "[About identity and access management with SAML single sign-on](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% if currentVersion == "github-ae@latest" %}- "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

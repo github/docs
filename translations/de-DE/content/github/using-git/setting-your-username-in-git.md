@@ -1,14 +1,15 @@
 ---
 title: Git-Benutzername festlegen
-intro: 'Git verknüpft Commits über den Benutzernamen mit einer Identität. Der Git-Benutzername ist nicht identisch mit Deinem {% data variables.product.product_name %}-Benutzernamen.'
+intro: 'Git verknüpft Commits über den Benutzernamen mit einer Identität. Der Git-Benutzername ist nicht identisch mit Ihrem {% data variables.product.product_name %}-Benutzernamen.'
 redirect_from:
   - /articles/setting-your-username-in-git
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Den Namen, der mit Deinen Git-Commits verbunden ist, kannst Du mit dem Befehl `git config` ändern. Der neue Name wird bei allen zukünftigen Commits angezeigt, die Du über die Befehlszeile per Push an {% data variables.product.product_name %} überträgst. Als Git-Benutzernamen kannst Du einen beliebigen Text verwenden, um Deinen echten Namen privat zu halten.
+Den Namen, der mit Deinen Git-Commits verbunden ist, kannst Du mit dem Befehl `git config` ändern. Der neue Name wird bei allen zukünftigen Commits angezeigt, die Sie über die Befehlszeile per Push an {% data variables.product.product_name %} übertragen. Als Git-Benutzernamen kannst Du einen beliebigen Text verwenden, um Deinen echten Namen privat zu halten.
 
 Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt sich nur auf zukünftige Commits aus. Der für frühere Commits verwendete Name wird hierdurch nicht geändert.
 
@@ -19,13 +20,13 @@ Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt 
 2. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Git-Benutzername für ein einzelnes Repository festlegen
 
@@ -36,13 +37,13 @@ Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt 
 3. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Weiterführende Informationen
 

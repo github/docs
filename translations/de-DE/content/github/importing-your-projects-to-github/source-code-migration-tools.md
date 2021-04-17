@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -40,7 +41,7 @@ Für die Verschiebung von Änderungen zwischen Team Foundation Server und Git em
 
 {% tip %}
 
-**Tipp:** Nach der erfolgreichen Konvertierung Deines Projekts zu Git kannst Du es [per Push auf {% data variables.product.prodname_dotcom %} übertragen](/articles/pushing-commits-to-a-remote-repository/).
+**Tipp:** Nach der erfolgreichen Konvertierung Ihres Projekts in Git können Sie es [per Push auf {% data variables.product.prodname_dotcom %} übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 

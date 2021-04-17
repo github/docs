@@ -8,9 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - aplicativos github
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}Para aprender como usar manifestos do aplicativo GitHub que permitem que pessoas criem aplicativos GitHub pré-configurados, consulte "[Criando aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Para aprender como usar Manifestos do aplicativo GitHub, que permite às pessoas criar aplicativos GitHub pré-configurados, consulte "[Criar aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
@@ -30,8 +33,17 @@ versions:
 
 6. Opcionalmente, em "Descrição", digite uma descrição do aplicativo que os usuários irão ver. ![Campo para uma descrição do seu aplicativo GitHub](/assets/images/github-apps/github_apps_description.png)
 7. Em "URL da página inicial", digite a URL completa do site do seu aplicativo. ![Campo para a URL da página inicial do seu aplicativo GitHub](/assets/images/github-apps/github_apps_homepage_url.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+8. Em "URL de retorno de chamada", digite a URL completa para redirecionar após um usuário autorizar a instalação. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor.
+
+  Você pode usar **Adicionar URL de retorno de chamada** para fornecer URLs de retorno de chamadas adicionais até o limite máximo de 10.
+
+  ![Botão para 'Adicionar URL de retorno de chamada' e campo para URL de retorno de chamada](/assets/images/github-apps/github_apps_callback_url_multiple.png)
+{% else %}
 8. Em "URL de chamada de retorno de autorização do usuário", digite a URL completa para redirecionamento após um usuário autorizar uma instalação. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor. ![Campo para a URL de chamada de retorno de autorização do usuário do seu aplicativo GitHub](/assets/images/github-apps/github_apps_user_authorization.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 9. Por padrão, para melhorar a segurança de seus aplicativos, seus aplicativos usarão os tokens de autorização do usuário. Para optar por não usar tokens do usuário expirados, você deverá desmarcar "Expirar tokens de autorização do usuário". Para saber mais sobre como configurar o fluxo de atualização do token e os benefícios de expirar os tokens do usuário, consulte "[Atualizando tokens de acesso do usuário para o servidor](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)." ![Opção para expirar os tokens dos usuários durante a configuração dos aplicativos GitHub](/assets/images/github-apps/expire-user-tokens-selection.png)
 {% endif %}
 9. Se seu aplicativo autoriza usuários a usar o fluxo OAuth, você pode selecionar **Solicitar autorização de usuário (OAuth) durante a instalação** para permitir que pessoas autorizem o aplicativo ao instalá-lo, economizando uma etapa. Se você selecionar esta opção, a "URL de configuração" irá tornar-se indisponível e os usuários serão redirecionados para a "URL de retorno de chamada de autorização do usuário" após a instalação do aplicativo. Consulte "[Autorizando usuários durante a instalação](/apps/installing-github-apps/#authorizing-users-during-installation)" para obter mais informações. ![Solicitar autorização de usuário durante a instalação](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
@@ -54,6 +66,6 @@ versions:
   {% endnote %}
 
 13. Em "Permissões", escolha as permissões que o seu aplicativo irá solicitar. Para cada tipo de permissão, use o menu suspenso e clique em **somente leitura**, **leitura & gravação** ou **Sem acesso**. ![Várias permissões para o seu aplicativo GitHub](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. Em "Assinar eventos", escolha se deseja assinar seu aplicativo para eventos de **etiqueta**, **públicos**, **repositório** or **inspeção**. ![Inscreva-se nas opções de eventos para seu aplicativo GitHub](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. Em "Assinar eventos", escolha os eventos que você deseja que seu aplicativo receba.
 15. Para escolher o local onde o aplicativo pode ser instalado, selecione **somente nesta conta** ou **qualquer conta**. Para obter mais informações sobre as opções de instalação, consulte "[Tornando um aplicativo GitHub público ou privado](/apps/managing-github-apps/making-a-github-app-public-or-private/)". ![Opções de instalação para o seu aplicativo GitHub](/assets/images/github-apps/github_apps_installation_options.png)
 16. Click **Criar aplicativo GitHub**. ![Botão para criar o seu aplicativo GitHub](/assets/images/github-apps/github_apps_create_github_app.png)

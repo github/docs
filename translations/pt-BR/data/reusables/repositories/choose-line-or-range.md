@@ -1,3 +1,3 @@
-1. Choose whether to select a single line or a range:
-    - To select a single line of code, click the line number to highlight the line. ![File with a single line of code selected](/assets/images/help/repository/highlight-line-of-code.png)
-      - To select a range of code, click the number of the first line in the range to highlight the line of code. Then, hover over the last line of the code range, press <kbd>Shift</kbd>, and click the line number to highlight the range. ![File with a range of code selected](/assets/images/help/repository/highlight-range-of-code.png)
+1. Escolha se deseja selecionar uma única linha ou um intervalo:
+    - Para selecionar uma única linha de código, clique no número de linha para destacá-la. ![Arquivo com uma única linha de código selecionado](/assets/images/help/repository/highlight-line-of-code.png)
+      - Para selecionar um intervalo de código, clique no número da primeira linha no intervalo para destacar a linha de código. Em seguida, passe o mouse sobre a última linha do intervalo de código, pressione <kbd>Shift</kbd> e clique no número de linha para destacar o intervalo. ![Arquivo com um intervalo de código selecionado](/assets/images/help/repository/highlight-range-of-code.png)

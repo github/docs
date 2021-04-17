@@ -1,6 +1,6 @@
 ---
 title: 通知を既読としてマークする
-intro: Web 通知は、レビューせずに既読としてマークすることができます。 会話を更新すると、新しい通知が届きます。 既読の会話を未読とマークすることもできるので、後からでも簡単に見つけることができます。
+intro: 'Web 通知は、レビューせずに既読としてマークすることができます。 会話を更新すると、新しい通知が届きます。 既読の会話を未読とマークすることもできるので、後からでも簡単に見つけることができます。'
 versions:
   enterprise-server: <2.21
 ---
@@ -34,4 +34,4 @@ Web 通知へのアクセスについては、「[通知にアクセスする](/
 ### 参考リンク
 
 - 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」
-- [Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)
+- 「[Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)」

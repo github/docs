@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Preparar a instância de origem de {% data variables.product.prodname_ghe_server %}
@@ -86,7 +88,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Fechar a conexão com {% data variables.product.product_location_enterprise %}:
+8. Fechar a conexão com {% data variables.product.product_location %}:
   ```shell
   $ exit
   > logout

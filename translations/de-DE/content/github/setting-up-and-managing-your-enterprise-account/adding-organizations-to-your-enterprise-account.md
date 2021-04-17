@@ -1,6 +1,6 @@
 ---
 title: Organisationen zu Deinem Enterprise-Konto hinzufügen
-intro: 'Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.'
+intro: Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
@@ -14,7 +14,7 @@ Um Deinem Enterprise-Konto eine Organisation hinzuzufügen, musst Du die Organis
 
 ### Eine Organisation in Deinem Enterprise-Konto erstellen
 
-Die von Dir in den Einstellungen des Enterprise-Kontos erstellten Organisationen sind im {% data variables.product.prodname_ghe_cloud %}-Abonnement Deines Enterprise-Kontos enthalten. Weitere Informationen zur Zusammenarbeit in Organisationen findest Du unter „[Organisationen und Teams einrichten und verwalten](/categories/setting-up-and-managing-organizations-and-teams).“
+Die von Ihnen in den Einstellungen des Enterprise-Kontos erstellten Organisationen sind im {% data variables.product.prodname_ghe_cloud %}-Abonnement Ihres Enterprise-Kontos enthalten. Weitere Informationen zur Zusammenarbeit in Organisationen findest Du unter „[Organisationen und Teams einrichten und verwalten](/categories/setting-up-and-managing-organizations-and-teams).“
 
 Enterprise-Inhaber, die eine dem Enterprise-Konto gehörende Organisation erstellen, werden automatisch zu Organisationsinhabern. Weitere Informationen zu Organisationsinhabern findest Du unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization).“
 

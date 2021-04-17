@@ -13,7 +13,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{% data variables.product.prodname_ghe_server %} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {% data variables.product.prodname_ghe_server %} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
+{% data variables.product.prodname_ghe_server %} 2.14 には、Elasticsearch 5.6 へのアップグレードが含まれています。 2.12 または 2.13 から {% data variables.product.prodname_ghe_server %} 2.14 以降にアップグレードする前に、Elasticsearch 移行ツールをダウンロード、インストール、実行することをお勧めします。これにより、アプライアンスはオンラインアクセスを維持しながら、最大のインデックスがオンラインで移行されます。
 
 ### 検索インデックス
 

@@ -1,1 +1,1 @@
-1. Type your username and password to prompt authentication.
+1. Digite seu nome de usuário e senha para solicitar autenticação.

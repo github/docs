@@ -1,0 +1,1 @@
+1. No canto superior direito de qualquer página, clique na sua foto do perfil e depois em **Feature preview** (Visualização de recursos). ![Botão Feature preview (Visualização de recursos)](/assets/images/help/settings/feature-preview-button.png)

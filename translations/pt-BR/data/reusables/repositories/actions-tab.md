@@ -1,1 +1,1 @@
-1. Under your repository name, click **Actions**. ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+1. No nome do seu repositório, clique em **Ações**. ![Aba Ações na navegação principal do repositório](/assets/images/help/repository/actions-tab.png)

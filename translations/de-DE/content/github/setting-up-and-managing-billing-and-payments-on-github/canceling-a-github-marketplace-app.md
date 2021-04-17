@@ -1,12 +1,14 @@
 ---
 title: Eine GitHub Marketplace-App kündigen
-intro: 'Du kannst {% data variables.product.prodname_marketplace %}-Apps jederzeit kündigen und aus Deinem Konto entfernen.'
+intro: 'Sie können {% data variables.product.prodname_marketplace %}-Apps jederzeit kündigen und aus Ihrem Konto entfernen.'
 redirect_from:
   - /articles/canceling-an-app-for-your-personal-account/
   - /articles/canceling-an-app-for-your-organization/
   - /articles/canceling-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Wenn Du eine App kündigst, bleibt Dein Abonnement bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Die Kündigung tritt zum nächsten Abrechnungsdatum in Kraft. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“

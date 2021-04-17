@@ -1,12 +1,14 @@
 ---
 title: Git Large File Storage herabstufen
-intro: 'Du kannst Speicher und Bandbreite für {% data variables.large_files.product_name_short %} in Stufen von je 50 GB pro Monat herabstufen.'
+intro: 'Sie können Speicher und Bandbreite für {% data variables.large_files.product_name_short %} in Stufen von je 50 GB pro Monat herabstufen.'
 redirect_from:
   - /articles/downgrading-storage-and-bandwidth-for-a-personal-account/
   - /articles/downgrading-storage-and-bandwidth-for-an-organization/
   - /articles/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Wenn Du die Anzahl Deiner Datenpakete herabstufst, werden Deine Änderungen zum nächsten Abrechnungsdatum wirksam. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage).“

@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 ### Preparing the source organization on {% data variables.product.prodname_dotcom %}
@@ -27,7 +29,7 @@ versions:
 
 Verwenden Sie die <a href="/rest/reference/migrations" class="dotcom-only">API für Migrationen</a>, um Repository-Daten von {% data variables.product.prodname_dotcom_the_website %} zu exportieren.
 
-Die API für Migrationen befindet sich derzeit in einer Vorschauphase, weshalb sich die Endpunkte und Parameter künftig ändern können. Um auf die API für Migrationen zuzugreifen, müssen Sie einen benutzerdefinierten [Medientyp](/v3/media) im Header `Accept` angeben: `application/vnd.github.wyandotte-preview+json`. Die folgenden Beispiele enthalten den benutzerdefinierten Medientyp.
+Die API für Migrationen befindet sich derzeit in einer Vorschauphase, weshalb sich die Endpunkte und Parameter künftig ändern können. Um auf die API für Migrationen zuzugreifen, müssen Sie einen benutzerdefinierten [Medientyp](/rest/overview/media-types) im Header `Accept` angeben: `application/vnd.github.wyandotte-preview+json`. Die folgenden Beispiele enthalten den benutzerdefinierten Medientyp.
 
 ### Migrationsarchiv generieren
 
@@ -35,9 +37,9 @@ Die API für Migrationen befindet sich derzeit in einer Vorschauphase, weshalb s
 
 1. Benachrichtigen Sie die Mitglieder Ihrer Organisation, dass Sie eine Migration durchführen werden. Der Export kann entsprechend der Anzahl der zu exportierenden Repositorys mehrere Minuten dauern. Die vollständige Migration, einschließlich des Imports, dauert ggf. mehrere Stunden. Daher wird empfohlen, einen Probelauf durchzuführen, um die Länge des vollständigen Prozesses ermitteln zu können. Weitere Informationen finden Sie unter „[Informationen zu Migrationen](/enterprise/admin/migrations/about-migrations#types-of-migrations)“.
 
-2. Starten Sie eine Migration. Senden Sie dazu eine `POST`-Anforderung an den <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">Migrationsendpunkt</a>. Sie benötigen Folgendes:
+2. Start a migration by sending a `POST` request to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. Sie benötigen Folgendes:
     * Ihr Zugriffstoken für die Authentifizierung.
-    * Eine [Liste der Repositorys](/v3/repos/#list-organization-repositories), die migriert werden sollen:
+    * Eine [Liste der Repositorys](/rest/reference/repos#list-organization-repositories), die migriert werden sollen:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
       -H "Accept: application/vnd.github.wyandotte-preview+json" \

@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 以下の制限の多くは {% data variables.product.product_name %}と API の両方に影響します。

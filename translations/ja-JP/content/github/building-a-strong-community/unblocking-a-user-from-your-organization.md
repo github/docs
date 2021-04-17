@@ -1,10 +1,12 @@
 ---
 title: Organization からユーザのブロックを解除する
-intro: Organization のオーナーは、過去にブロックしたユーザのブロックを解除し、Organization のリポジトリへのアクセスを回復できます。
+intro: 'Organization のオーナーは、過去にブロックしたユーザのブロックを解除し、Organization のリポジトリへのアクセスを回復できます。'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 Organization からユーザのブロックを解除すると、そのユーザは Organization のリポジトリにコントリビュートできるようになります。

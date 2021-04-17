@@ -1,6 +1,6 @@
 ---
 title: コミットメールアドレスを設定する
-intro: '編集およびマージのようなウェブベースの Git のオペレーションと関連する {% data variables.product.product_name %} 上のプライマリメールアドレスを設定できます。'
+intro: '{% data variables.product.product_name %} とコンピュータ上でコミットを作成するために使用するメールアドレスを設定できます。'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - アカウント
+  - notifications
 ---
 
 ### コミットメールアドレスについて
@@ -21,7 +25,7 @@ versions:
 
 Web ベースの Git 操作については、{% data variables.product.product_name %} でのコミットメールアドレスを設定できます。 コマンドラインからプッシュするコミットについては、Git のコミットメールアドレスを設定できます。
 
-{% if currentVersion == "free-pro-team@latest" %}コミットメールアドレスの変更前に行ったコミットは、変更前のメールアドレスに関連づけられたままとなります。{% else %}{% data variables.product.product_name %} 上のコミットメールアドレスを変更した後、新規メールアドレスは、今後のウェブベースの Git オペレーションのすべてで表示されます。 コミットメールアドレスを変更する前のコミットは、変更前のメールアドレスに関連付けられたままとなります。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}コミットメールアドレスの変更前に行ったコミットは、変更前のメールアドレスに関連づけられたままとなります。{% else %}{% data variables.product.product_name %} 上のコミットメールアドレスを変更した後、新規メールアドレスは、今後のすべての Web ベースの Git オペレーションで表示されます。 コミットメールアドレスを変更する前のコミットは、変更前のメールアドレスに関連付けられたままとなります。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -33,11 +37,11 @@ Web ベースの Git 操作については、{% data variables.product.product_n
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %} メールアドレスをプライベートにしておきたいなら、{% data variables.product.product_name %}が提供する `no-reply` メールアドレスをコミットメールアドレスとして使うことができます。 コマンドラインからプッシュするコミットに対して`noreply`メールアドレスを使いたい場合には、そのメールアドレスを Git のコミットメールアドレスの設定で使用してください。 Web ベースの Git 操作に `noreply` アドレスを使いたい場合には、GitHub でコミットメールアドレスの設定を行い、[**Keep my email address private**] を選択してください。
+{% if currentVersion == "free-pro-team@latest" %}個人のメールアドレスを非公開にする場合は、{% data variables.product.product_name %} が提供する `no-reply` のメールアドレスをコミットメールアドレスとして使用できます。 コマンドラインからプッシュするコミットに対して`noreply`メールアドレスを使いたい場合には、そのメールアドレスを Git のコミットメールアドレスの設定で使用してください。 Web ベースの Git 操作に `noreply` アドレスを使いたい場合には、GitHub でコミットメールアドレスの設定を行い、[**Keep my email address private**] を選択してください。
 
 また、個人のメールアドレスを公開するコマンドラインからプッシュされたコミットをブロックするよう選択することもできます。 詳細は「[個人のメールを公開するコマンドラインプッシュのブロック](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)」を参照してください。{% endif %}
 
-コミットが自分に関連付けられ、コントリビューショングラフに表示されるようにするには、[自分の GitHub アカウントに追加した](/articles/adding-an-email-address-to-your-github-account/)メールアドレス{% if currentVersion == "free-pro-team@latest" %}か、メール設定で {% data variables.product.product_name %}から提供された `noreply` メールアドレス{% endif %}を使ってください。
+コミットが自分に帰属し、コントリビューショングラフに表示されるようにするには、{% data variables.product.product_name %}アカウントに接続されているメールアドレス{% if currentVersion == "free-pro-team@latest" %}、またはメール設定で提供されている `noreply` のメールアドレスを使用します{% endif %}。 {% if currentVersion != "github-ae@latest" %}詳しい情報については、「[{% data variables.product.prodname_dotcom %} アカウントにメールアドレスを追加する](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -61,7 +65,7 @@ Web ベースの Git 操作については、{% data variables.product.product_n
 
 ### Git のコミットメールアドレスを設定する
 
-`git config`コマンドを使用して、Git コミットに関連付けたられているメールアドレスを変更できます。 設定した新しいメールアドレスは、コマンドラインから {% data variables.product.product_name %} にプッシュするこれからのコミットに表示されます。 コミットメールアドレスを変更する前のコミットは、まだ過去のメールアドレスに関連付けられます。
+`git config`コマンドを使用して、Git コミットに関連付けられているメールアドレスを変更できます。 設定した新しいメールアドレスは、コマンドラインから {% data variables.product.product_name %} にプッシュするこれからのコミットに表示されます。 コミットメールアドレスを変更する前のコミットは、まだ過去のメールアドレスに関連付けられます。
 
 #### コンピュータにあるすべてのリポジトリ用にメールアドレスを設定する
 

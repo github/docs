@@ -5,6 +5,9 @@ intro: '{% data variables.product.prodname_dotcom %} の REST API のリソー�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - api
 ---
 
 ### 目次
@@ -15,4 +18,5 @@ versions:
 {% link_in_list /troubleshooting %}
 {% link_in_list /api-previews %}
 {% link_in_list /libraries %}
+{% link_in_list /openapi-description %}
 {% link_in_list /endpoints-available-for-github-apps %}

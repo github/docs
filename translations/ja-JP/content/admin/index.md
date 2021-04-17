@@ -1,11 +1,12 @@
 ---
-title: Enterprise Administrators
+title: Enterprise 管理者
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin
-intro: GitHub Enterprise インスタンスを配備、設定、および管理している組織の管理者、システム管理者、およびセキュリティスペシャリストのためのステップバイステップガイドです。
+intro: '{% data variables.product.product_name %} を{% if enterpriseServerVersions contains currentVersion %}デプロイ、{% endif %}設定{% if enterpriseServerVersions contains currentVersion %}、{% endif %}管理する Enterprise 管理者、システム管理者、およびセキュリティスペシャリスト向けのドキュメントとガイドです。'
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}
@@ -27,3 +28,5 @@ versions:
 {% link_with_intro /packages %}
 
 {% link_with_intro /enterprise-support %}
+
+{% link_with_intro /release-notes %}

@@ -6,11 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。
 
 {% data variables.product.prodname_ghe_server %} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### ターゲットとなる障害のシナリオ
 
@@ -52,7 +56,7 @@ Geo-replication を使用している場合は、トラフィックを最も近�
 
 `ghe-repl-setup` コマンドは、{% data variables.product.prodname_ghe_server %} アプライアンスをレプリカスタンバイモードにします。
 
- - 2 つのアプライアンス間の通信のために、暗号化された{% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %}トンネルが設定されます。
+ - 2 つのアプライアンス間の通信のために、暗号化された WireGuard VPN トンネルが設定されます。
  - レプリケーションのためのデータベースサービスが設定され、起動されます。
  - アプリケーションサービスは無効化されます。 HTTP、Git、あるいはその他のサポートされているプロトコルでレプリカアプライアンスへアクセスしようとすると、"appliance in replica mode"メンテナンスページあるいはエラーメッセージが返されます。
 
@@ -71,8 +75,7 @@ To disable replica mode and undo these changes, run `ghe-repl-teardown'.
 `ghe-repl-start`コマンドは、すべてのデータストアのアクティブなレプリケーションを有効化します。
 
 ```shell
-admin@169-254-1-2:~$ ghe-repl-start{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Starting OpenVPN tunnel ... {% endif %}
+admin@169-254-1-2:~$ ghe-repl-start
 Starting MySQL replication ...
 Starting Redis replication ...
 Starting Elasticsearch replication ...
@@ -144,8 +147,7 @@ Stopping Pages replication ...
 Stopping Git replication ...
 Stopping MySQL replication ...
 Stopping Redis replication ...
-Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Stopping OpenVPN tunnel ...{% endif %}
+Stopping Elasticsearch replication ...
 Success: replication was stopped for all services.
 ```
 
@@ -163,8 +165,7 @@ Stopping replication ...
   | Stopping Git replication ...
   | Stopping MySQL replication ...
   | Stopping Redis replication ...
-  | Stopping Elasticsearch replication ...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-  | Stopping OpenVPN tunnel ...{% endif %}
+  | Stopping Elasticsearch replication ...
   | Success: replication was stopped for all services.
 Switching out of replica mode ...
   | Success: Replication configuration has been removed.

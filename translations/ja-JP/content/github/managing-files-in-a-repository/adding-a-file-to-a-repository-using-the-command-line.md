@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositories
 ---
 
 {% tip %}
@@ -19,7 +22,9 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. 自分のコンピュータ上で、{% data variables.product.product_name %}にアップロードしたいファイルを、リポジトリをクローンした際に作成したローカルディレクトリに移動します。
+1. お使いのコンピューターで、
+
+{% data variables.product.product_name %} にアップロードするファイルを、リポジトリのクローン作成時に作成されたローカルディレクトリに移動します。
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}

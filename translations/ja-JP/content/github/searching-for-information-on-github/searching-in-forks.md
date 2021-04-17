@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - github search
 ---
 
 [リポジトリの検索](/articles/searching-for-repositories)結果でフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。

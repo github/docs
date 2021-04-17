@@ -1,6 +1,6 @@
 ---
 title: Dein GitHub-Abonnement hochstufen
-intro: 'Du kannst das Abonnement jederzeit für jeden beliebigen {% data variables.product.product_name %}-Kontotyp heraufstufen.'
+intro: 'Sie können das Abonnement jederzeit für jeden beliebigen {% data variables.product.product_name %}-Kontotyp heraufstufen.'
 redirect_from:
   - /articles/upgrading-your-personal-account-s-billing-plan/
   - /articles/upgrading-your-personal-account/
@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 ### Abonnement Deines persönlichen Kontos heraufstufen
@@ -28,7 +30,9 @@ Du kannst Dein persönliches Konto von {% data variables.product.prodname_free_u
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Klicke neben „{% data variables.product.prodname_free_user %}" auf **Upgrade** (Heraufstufen). ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. Next to "
+{% data variables.product.prodname_free_user %}", click **Upgrade**.
+  ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}
@@ -55,7 +59,7 @@ Du kannst Deine Organisation von {% data variables.product.prodname_free_team %}
 
 #### Nächste Schritte für Organisationen mit {% data variables.product.prodname_ghe_cloud %}
 
-Nach dem Heraufstufen Deiner Organisation auf {% data variables.product.prodname_ghe_cloud %} kannst Du die Identitäts- und Zugriffsverwaltung für Deine Organisation einrichten. Weitere Informationen findest Du unter „[SAML Single Sign-On für Deine Organisation verwalten](/articles/managing-saml-single-sign-on-for-your-organization).“
+Nach dem Heraufstufen Deiner Organisation auf {% data variables.product.prodname_ghe_cloud %} kannst Du die Identitäts- und Zugriffsverwaltung für Deine Organisation einrichten. Weitere Informationen finden Sie unter „[SAML Single Sign-On für Ihre Organisation verwalten](/organizations/managing-saml-single-sign-on-for-your-organization)“.
 
 Wenn Du ein Enterprise-Konto mit {% data variables.product.prodname_ghe_cloud %} benutzen möchtest, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/articles/about-enterprise-accounts).“
 

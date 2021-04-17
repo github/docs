@@ -21,6 +21,9 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Sobre o Jekyll
@@ -37,7 +40,7 @@ O Jekyll não é oficialmente compatível com o Windows. Para obter mais informa
 
 Algumas definições de configuração não podem ser alteradas para sites do {% data variables.product.prodname_pages %}.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -69,9 +72,10 @@ Você pode adicionar `site.github` a uma publicação ou página para incluir me
 {% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Temas](https://jekyllrb.com/docs/themes/)" na documentação do Jekyll.
 
 {% if currentVersion == "free-pro-team@latest" %}
-É possível adicionar um tema compatível ao seu site no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
+Você pode adicionar um tema compatível ao seu site em
+{% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
 
-Para usar qualquer outro tema Jekyll de código aberto hospedado no {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para obter mais informações, consulte{% if currentVersion == "free-pro-team@latest" %} [temas hospedados no {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e{% endif %} "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+Para usar qualquer outro tema de código aberto do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para mais informações, consulte {% if currentVersion == "free-pro-team@latest" %} [temas hospedados em {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveis](https://pages.github.com/themes/)no site de {% data variables.product.prodname_pages %} e{% endif %} "[Adicionar um tema ao seu site de {% data variables.product.prodname_pages %} usando Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 Você pode substituir qualquer um dos padrões do seu tema editando os arquivos do tema. Para obter mais informações, consulte a documentação do seu tema e "[Substituir padrões do tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" na documentação do Jekyll.
 
@@ -90,9 +94,9 @@ O {% data variables.product.prodname_pages %} usa plugins que são habilitados p
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Você pode habilitar plugins adicionais incluindo a gem do plugin à configuração `plugins` em seu arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll. Para obter uma lista de plugins compatíveis, consulte "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.
+Você pode habilitar plugins adicionais incluindo a gem do plugin à configuração `plugins` em seu arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll.
 
-Para obter informações de uso para um plugin específico, consulte a documentação do plugin.
+Para obter uma lista de plugins compatíveis, consulte "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.  Para obter informações de uso para um plugin específico, consulte a documentação do plugin.
 
 {% tip %}
 
@@ -110,7 +114,7 @@ Por padrão, blocos de código no seu site serão destacados pelo Jekyll. O Jeky
 
 Se quiser usar outro realçador, como `highlight.js`, você deverá desabilitar o realce da sintaxe do Jekyll atualizando o arquivo *_config.yml* do projeto.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

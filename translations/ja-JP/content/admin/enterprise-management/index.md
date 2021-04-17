@@ -1,25 +1,23 @@
 ---
-title: 'Monitoring, managing, and updating your enterprise'
-intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
+title: 'Enterprise の監視、管理、および更新'
+intro: 'アプライアンスを監視し、新しいバージョンにアップグレードし、クラスタリングまたは High Availability を設定できます'
 redirect_from:
-  - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 
-### Table of Contents
+### 目次
 
 {% topic_link_in_list /monitoring-your-appliance %}
     {% link_in_list /accessing-the-monitor-dashboard %}
     {% link_in_list /recommended-alert-thresholds %}
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
-    {% link_in_list /log-forwarding %}
-    {% link_in_list /monitoring-using-snmp %}{% if currentVersion ver_gt "enterprise-server@2.21" %}
-    {% link_in_list /monitoring-using-analytics %}{% endif %}
+    {% link_in_list /monitoring-using-snmp %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}
     {% link_in_list /upgrading-github-enterprise-server %}
@@ -27,7 +25,6 @@ versions:
     {% link_in_list /increasing-storage-capacity %}
     {% link_in_list /increasing-cpu-or-memory-resources %}
     {% link_in_list /migrating-from-github-enterprise-1110x-to-2123 %}
-    {% link_in_list /migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later %}
 {% topic_link_in_list /configuring-clustering %}
     {% link_in_list /about-clustering %}
     {% link_in_list /differences-between-clustering-and-high-availability-ha %}

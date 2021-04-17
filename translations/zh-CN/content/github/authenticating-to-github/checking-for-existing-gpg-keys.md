@@ -1,11 +1,15 @@
 ---
 title: 检查现有 GPG 密钥
-intro: 在生成 GPG 密钥之前，您可以检查是否有任何现有的 GPG 密钥。
+intro: '在生成 GPG 密钥之前，您可以检查是否有任何现有的 GPG 密钥。'
 redirect_from:
   - /articles/checking-for-existing-gpg-keys
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

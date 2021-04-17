@@ -1,11 +1,15 @@
 ---
 title: Informationen zu Teams
-intro: 'Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.'
+intro: Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.
 redirect_from:
   - /articles/about-teams
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ![Liste der Teams in einer Organisation](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +23,9 @@ Weitere Informationen findest Du unter:
 
 ![Bild einer Teamerwähnung](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-Du kannst außerdem mit LDAP Sync {% data variables.product.product_location_enterprise %}-Teammitglieder und -Teamrollen mit Deinen bestehenden LDAP-Gruppen synchronisieren. Dadurch kannst Du eine rollenbasierte Zugriffskontrolle für Benutzer von Deinem LDAP-Server aus einrichten statt manuell innerhalb von {% data variables.product.product_location_enterprise %}. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
+Sie können außerdem mit LDAP Sync {% data variables.product.product_location %}-Teammitglieder und -Teamrollen mit Ihren bestehenden LDAP-Gruppen synchronisieren. Dadurch können Sie eine rollenbasierte Zugriffskontrolle für Benutzer von Ihrem LDAP-Server aus statt manuell innerhalb von {% data variables.product.product_location %} einrichten. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
 {% endif %}
 
@@ -35,7 +39,7 @@ Du kannst außerdem mit LDAP Sync {% data variables.product.product_location_ent
 
 Jedes Team hat seine eigene Seite innerhalb einer Organisation. Auf der Seite eines Teams kannst Du Teammitglieder, untergeordnete Teams und Repositorys des Teams anzeigen. Organisationsinhaber und Team-Betreuer können auf die Teameinstellungen zugreifen und die Beschreibung sowie das Profilbild des Teams über die Seite des Teams aktualisieren.
 
-Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran teilnehmen. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/articles/about-team-discussions)“.
+Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran teilnehmen. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)“.
 
 ![Teamseite mit einer Auflistung der Teammitglieder und Diskussionen](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -55,17 +59,13 @@ Um zu verstehen, wer die Berechtigungen und Erwähnungen eines übergeordneten T
 
 Du kannst beim Erstellen des Teams ein übergeordnetes Team auswählen oder ein Team in der Hierarchie Deiner Organisation später verschieben. Weitere Informationen findest Du unter „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy).“
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### Die Verschachtelung von Teams in Deiner Organisation vorbereiten
 
-Wenn in Deiner Organisation bereits Teams vorhanden sind, solltest Du die Zugriffsberechtigungen für das Repository jedes Teams überprüfen, bevor Du Teams über- oder unterordnest. Du solltest außerdem die neue Struktur berücksichtigen, die Du für Deine Organisation implementieren möchtest.
+Wenn in Ihrer Organisation bereits Teams vorhanden sind, sollten Sie die Zugriffsberechtigungen für das Repository jedes Teams überprüfen, bevor Sie Teams über- oder unterordnen. Sie sollten außerdem die neue Struktur berücksichtigen, die Sie für Ihre Organisation implementieren möchten.
 
-An der Spitze der Teamhierarchie solltest Du den übergeordneten Teams nur Zugriffsberechtigungen für Repositorys erteilen, die für jedes Mitglied des übergeordneten Teams und seine untergeordneten Teams sicher sind. Wenn Du Dich in der Hierarchie nach unten bewegst, kannst Du untergeordneten Teams zusätzlichen, detaillierteren Zugriff auf sensiblere Repositorys gewähren.
+An der Spitze der Teamhierarchie sollten Sie den übergeordneten Teams Zugriffsberechtigungen für das Repository erteilen, die für jedes Mitglied des übergeordneten Teams und seine untergeordneten Teams sicher sind. Wenn Sie sich in der Hierarchie nach unten bewegen, können Sie untergeordneten Teams zusätzlichen, detaillierteren Zugriff auf sensiblere Repositorys gewähren.
 
 1. Entferne alle Mitglieder aus vorhandenen Teams
 2. Überprüfe und bearbeite die Zugriffsrechte für Repositorys für jedes Team, und weise jedem Team ein übergeordnetes Team zu

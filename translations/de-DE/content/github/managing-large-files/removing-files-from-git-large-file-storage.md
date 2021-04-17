@@ -1,11 +1,12 @@
 ---
 title: Dateien aus dem Git Large File Storage entfernen
-intro: 'Wenn Du für Dein Repository {% data variables.large_files.product_name_short %} eingerichtet hast, kannst Du alle oder einen Teil der Dateien aus {% data variables.large_files.product_name_short %} entfernen.'
+intro: 'Wenn Sie für Ihr Repository {% data variables.large_files.product_name_short %} eingerichtet haben, können Sie alle oder einen Teil der Dateien aus {% data variables.large_files.product_name_short %} entfernen.'
 redirect_from:
   - /articles/removing-files-from-git-large-file-storage
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Einzelne Datei entfernen
@@ -33,11 +34,11 @@ versions:
   $ git lfs uninit
   ```
 
-### {% data variables.large_files.product_name_short %}-Objekte in Deinem Repository
+### {% data variables.large_files.product_name_short %}-Objekte in Ihrem Repository
 
-Die {% data variables.large_files.product_name_short %}-Objekte von Dateien, die Du aus {% data variables.large_files.product_name_short %} entfernt hast, sind nach wie vor im Remote-Speicher vorhanden{% if currentVersion == "free-pro-team@latest" %} und werden Deinem {% data variables.large_files.product_name_short %}-Speicher-Kontingent weiterhin angerechnet{% endif %}.
+After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-Um {% data variables.large_files.product_name_short %}-Objekte aus einem Repository zu entfernen, {% if currentVersion == "free-pro-team@latest" %}lösche und erstelle das Repository erneut. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. Weitere Informationen findest Du unter "[Löschen eines Repositories](/github/administering-a-repository/deleting-a-repository)."{% else %}kontaktiere Deinen {% data variables.product.prodname_enterprise %}-Administrator, um die Objekte zu archivieren. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. Weitere Informationen findest Du unter "[Löschen eines Repositories](/github/administering-a-repository/deleting-a-repository)."{% else %}kontaktiere Deinen {% data variables.product.prodname_enterprise %}-Administrator, um die Objekte zu archivieren. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
 
 {% note %}
 

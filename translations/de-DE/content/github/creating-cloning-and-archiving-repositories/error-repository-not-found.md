@@ -1,20 +1,23 @@
 ---
 title: 'Fehler: „Repository not found“ (Repository wurde nicht gefunden)'
-intro: '{% if currentVersion == "free-pro-team@latest" %}Wenn Dir beim Klonen eines Repositorys diese Fehlermeldung angezeigt wird, ist das Repository nicht vorhanden oder Du hast keinen Zugriff darauf. Es gibt mehrere Möglichkeiten, dieses Problem zu lösen, je nach Ursache.{% else %}Wenn Dir beim Klonen eines Repositorys diese Fehlermeldung angezeigt wird, ist das Repository nicht vorhanden, Du hast keinen Zugriff darauf oder Deine GitHub Enterprise-Instanz befindet sich im privaten Modus. Es gibt mehrere Möglichkeiten, dieses Problem zu lösen, je nach Ursache.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - repositorys
 ---
 
 ### Schreibweise überprüfen
 
-Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die Groß- und Kleinschreibung beachtet werden.  Wenn Du versuchst, `git@{% data variables.command_line.codeblock %}:user/repo.git` zu klonen, das Repository aber in Wirklichkeit `User/Repo` heißt, wird diese Fehlermeldung angezeigt.
+Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die Groß- und Kleinschreibung beachtet werden.  Wenn Sie versuchen, `git@{% data variables.command_line.codeblock %}:user/repo.git` zu klonen, das Repository aber in Wirklichkeit `User/Repo` heißt, wird diese Fehlermeldung angezeigt.
 
 Um diesen Fehler beim Klonen zu verhindern, solltest Du die Klon-URL immer von der Repository-Seite kopieren und einfügen. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
-Informationen zum Aktualisieren des Remote eines bestehenden Repositorys findest Du unter „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url)“.
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Berechtigungen überprüfen
 
@@ -30,7 +33,7 @@ Stelle sicher, dass Du in einer der folgenden Rollen Zugriff auf das Repository 
 
 In seltenen Fällen kann Dir der richtige SSH-Zugriff auf ein Repository fehlen.
 
-Du solltest sicherstellen, dass der von Dir verwendete SSH-Schlüssel an Dein {% data variables.product.product_name %}-Benutzerkonto angehängt ist. Um zu prüfen, ob dies bei Dir der Fall ist, gib Folgendes in die Befehlszeile ein:
+Sie sollten sicherstellen, dass der von Ihnen verwendete SSH-Schlüssel an Ihr {% data variables.product.product_name %}-Benutzerkonto angehängt ist. Um zu prüfen, ob dies bei Dir der Fall ist, gib Folgendes in die Befehlszeile ein:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
@@ -38,16 +41,14 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-Wenn das Repository zu einer Organisation gehört und Du einen SSH-Schlüssel verwendest, der von einer OAuth-App generiert wurde, wurde der OAuth-App-Zugriff möglicherweise von einem Organisationsinhaber eingeschränkt. Weitere Informationen findest Du unter „<a href="/github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions" class="dotcom-only">Informationen zu OAuth-App-Zugriffsbeschränkungen</a>.“
+Wenn das Repository zu einer Organisation gehört und Du einen SSH-Schlüssel verwendest, der von einer OAuth-App generiert wurde, wurde der OAuth-App-Zugriff möglicherweise von einem Organisationsinhaber eingeschränkt. For more information, see "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">About OAuth App access restrictions</a>."
 
 Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel zum GitHub-Konto hinzufügen](/articles/adding-a-new-ssh-key-to-your-github-account)“.
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### Überprüfe, ob sich Deine Instanz im privaten Modus befindet
 
 Wenn Dein Websiteadministrator den privaten Modus auf Deiner GitHub Enterprise-Instanz aktiviert hat, sind anonyme Klone über `git://` deaktiviert. Wenn Du ein Repository nicht klonen kannst, wende Dich an den Websiteadministrator.
-
 {% endif %}
 
 ### Überprüfen ob das Repository wirklich vorhanden ist

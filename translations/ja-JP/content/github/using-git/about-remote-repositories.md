@@ -4,10 +4,11 @@ redirect_from:
   - /articles/working-when-github-goes-down/
   - /articles/sharing-repositories-without-github/
   - /articles/about-remote-repositories
-intro: GitHub のコラボレーティブな開発へのアプローチは、ローカルリポジトリからコミットを公開して、他者が見たり、フェッチしたり、更新したりできるようにすることに依存しています。
+intro: 'GitHub のコラボレーティブな開発へのアプローチは、ローカルリポジトリからコミットを公開して、他者が見たり、フェッチしたり、更新したりできるようにすることに依存しています。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リモート URL は、「コードがここに保存されています」ということを表現する Git のしゃれた方法です。 その URL は、GitHub 上のあなたのリポジトリや、他のユーザーのフォーク、さらにはまったく異なるサーバーだったりします。

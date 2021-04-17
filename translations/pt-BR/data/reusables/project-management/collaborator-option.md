@@ -1,1 +1,1 @@
-8. Na barra lateral esquerda, clique em **Collaborators** (Colaboradores). ![Collaborators menu option in left sidebar](/assets/images/help/projects/project-board-collaborator-setting.png)
+8. Na barra lateral esquerda, clique em **Collaborators** (Colaboradores). ![Opção do menu de colaboradores na barra lateral esquerda](/assets/images/help/projects/project-board-collaborator-setting.png)

@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - accounts
 ---
 
 ![Feld „Organizations“ (Organisationen) im Profil](/assets/images/help/profile/profile_orgs_box.png)

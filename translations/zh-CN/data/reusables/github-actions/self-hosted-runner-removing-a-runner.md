@@ -1,5 +1,5 @@
-1. Under **Self-hosted runners**, locate the runner in the list. If your runner is in a group, click {% octicon "chevron-down" aria-label="The downwards chevron" %} to expand the list.
-1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to the runner you want to remove, then click **Remove**.
+1. 在 **Self-hosted runners（自托管运行器）**下，找到列表中的运行器。 如果您的运行器在一个组中，请单击 {% octicon "chevron-down" aria-label="The downwards chevron" %} 以展开列表。
+1. 单击要删除的运行器旁边的 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Remove（删除）**。
 
     ![删除自托管运行器设置](/assets/images/help/settings/actions-runner-remove.png)
 1. 您将看到删除自托管运行器的说明。 完成以下任一步骤来删除运行器，具体取决于它是否仍然可以访问：

@@ -1,6 +1,6 @@
 ---
 title: SSLのエラーのトラブルシューティング
-intro: アプライアンスでSSLの問題が生じたなら、解決のためのアクションを取ってください。
+intro: 'アプライアンスでSSLの問題が生じたなら、解決のためのアクションを取ってください。'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors/
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### 鍵ファイルからのパスフレーズの除去
@@ -39,7 +41,7 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 ### 鍵のアップロード後の反応のない環境
 
-SSL 鍵のアップロード後に {% data variables.product.product_location_enterprise %} の反応がない場合、SSL 証明書のコピーを含む詳細事項と合わせて [{% data variables.product.prodname_enterprise %} Support に連絡](https://enterprise.github.com/support)してください。
+SSL 鍵のアップロード後に {% data variables.product.product_location %} の反応がない場合、SSL 証明書のコピーを含む詳細事項と合わせて [{% data variables.product.prodname_enterprise %} Support に連絡](https://enterprise.github.com/support)してください。
 
 ### 証明書の検証エラー
 

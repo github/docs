@@ -7,6 +7,7 @@ intro: コマンドラインで、「git rebase」を使うための簡単なチ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 この例では、`exec` を除く、利用可能なすべての ` git rebase ` コマンドについて説明します。
@@ -123,7 +124,11 @@ i cant' typ goods
 Git の履歴を変更したので、通常の `git push origin` **は動作しません**。 最新の変更を「強制プッシュ」して、コマンドを変更する必要があります:
 
 ```shell
-$ git push origin master --force
+# Don't override changes
+$ git push origin main --force-with-lease
+
+# Override changes
+$ git push origin main --force
 ```
 
 {% warning %}

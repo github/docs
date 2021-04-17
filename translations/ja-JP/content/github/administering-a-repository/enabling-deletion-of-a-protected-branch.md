@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 リポジトリに対する管理者権限があるユーザは、ブランチの削除を有効化できます。

@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 要自动执行常见任务、备份数据或创建扩展 {% data variables.product.product_name %} 的集成，可以使用 {% data variables.product.product_name %} API。

@@ -1,6 +1,6 @@
 ---
-title: Exibir contribuições no perfil
-intro: 'Seu perfil do {% data variables.product.product_name %} mostra os repositórios fixos e um gráfico de contribuições no seu repositório no último ano.'
+title: Viewing contributions on your profile
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -8,84 +8,91 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-O gráfico de contribuição mostra a atividade em repositórios públicos. Você pode optar por mostrar a atividade de repositórios públicos e privados, com detalhes específicos da sua atividade em repositórios privados anônimos. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
-**Observação:** os commits só serão exibidos no gráfico de contribuições se você tiver [adicionado o endereço de e-mail usado para sua configuração local do Git nas configurações de e-mail do {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account). Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
-### O que conta como contribuição
+### What counts as a contribution
 
-Na sua página de perfil, determinadas ações contam como contribuições:
+On your profile page, certain actions count as contributions:
 
-- Fazer commit no branch `gh-pages` ou no branch padrão de um repositório
-- Abrir um problema
-- Propor uma pull request
-- Enviar uma revisão de pull request{% if currentVersion != "free-pro-team@latest" %}
-- Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
+- Committing to a repository's default branch or `gh-pages` branch
+- Opening an issue
+- Proposing a pull request
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
-### Repositórios populares
+### Popular repositories
 
-Esta seção exibe os repositórios com a maioria dos inspetores. Depois que você [fixar os repositórios no seu perfil](/articles/pinning-repositories-to-your-profile), esta seção será alterada para "Repositórios fixos".
+This section displays your repositories with the most watchers. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
-![Repositórios populares](/assets/images/help/profile/profile_popular_repositories.png)
+![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
 
-### Repositórios fixos
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Esta seção exibe até seis repositórios públicos e pode incluir tanto repositórios pertencentes a você como aqueles com os quais você contribuiu. Para ver detalhes importantes sobre os repositórios que você escolheu retratar, cada repositório nesta seção inclui um resumo do trabalho que está sendo feito, o número de [estrelas](/articles/saving-repositories-with-stars/) que ele recebeu e a principal linguagem de programação usada nele. Para obter mais informações, consulte "[Fixar repositórios no seu perfil](/articles/pinning-repositories-to-your-profile)".
+### Pinned repositories
 
-![Repositórios fixos](/assets/images/help/profile/profile_pinned_repositories.png)
+This section displays up to six public repositories and can include your repositories as well as repositories you've contributed to. To easily see important details about the repositories you've chosen to feature, each repository in this section includes a summary of the work being done, the number of [stars](/articles/saving-repositories-with-stars/) the repository has received, and the main programming language used in the repository. For more information, see "[Pinning repositories to your profile](/articles/pinning-repositories-to-your-profile)."
 
-### Calendário de contribuições
+![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
 
-O calendário de contribuições mostra sua atividade de contribuição.
+{% endif %}
 
-#### Exibir contribuições de horários específicos
+### Contributions calendar
 
-- Clique no quadrado de um dia para mostrar as contribuições feitas durante esse período de 24 horas.
-- Pressione *Shift* e clique no quadrado de outro dia para mostrar as contribuições feitas durante esse intervalo de tempo.
+Your contributions calendar shows your contribution activity.
+
+#### Viewing contributions from specific times
+
+- Click on a day's square to show the contributions made during that 24-hour period.
+- Press *Shift* and click on another day's square to show contributions made during that timespan.
 
 {% note %}
 
-**Observação:** só é possível selecionar um intervalo de até um mês no calendário de contribuições. Mesmo que você selecione um período maior, será exibido apenas um mês de contribuições.
+**Note:** You can select up to a one-month range on your contributions calendar. If you select a larger timespan, we will only display one month of contributions.
 
 {% endnote %}
 
-![Gráfico de contribuição](/assets/images/help/profile/contributions_graph.png)
+![Your contributions graph](/assets/images/help/profile/contributions_graph.png)
 
-#### Como são calculados os horários de evento de contribuição
+#### How contribution event times are calculated
 
-Os registros de data e hora são calculados de forma diferente para commits e pull requests:
-- Os **commits** usam as informações de fuso horário no registro de data e hora do commit. Para obter mais informações, consulte "[Solucionar problemas de commits na linha do tempo](/articles/troubleshooting-commits-on-your-timeline)".
-- As **pull requests** e os **problemas** abertos no {% data variables.product.product_name %} usam o fuso horário do navegador. Os abertos pela API usam o registro de data e hora ou o fuso horário [especificado na chamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+Timestamps are calculated differently for commits and pull requests:
+- **Commits** use the time zone information in the commit timestamp. For more information, see "[Troubleshooting commits on your timeline](/articles/troubleshooting-commits-on-your-timeline)."
+- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
-### Visão geral de atividade
+### Activity overview
 
-{% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir a visão geral das atividades no perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)".
+{% data reusables.profile.activity-overview-summary %} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
 
-![Seção Visão geral de atividade no perfil](/assets/images/help/profile/activity-overview-section.png)
+![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
 
-As organizações retratadas na visão geral da atividade são priorizadas de acordo com a forma como você está ativo na organização. Se você for integrante de uma organização e @mencioná-la na bio do perfil, essa organização será priorizada na visão geral da atividade. Para obter mais informações, consulte “[Mencionar pessoas e equipes](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” ou "[Adicionar uma bio ao seu perfil](/articles/adding-a-bio-to-your-profile/)".
+The organizations featured in the activity overview are prioritized according to how active you are in the organization. If you @mention an organization in your profile bio, and you’re an organization member, then that organization is prioritized first in the activity overview. For more information, see “[Mentioning people and teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)” or "[Adding a bio to your profile](/articles/adding-a-bio-to-your-profile/)."
 
-### Atividade de contribuição
+### Contribution activity
 
-A seção de atividade de contribuição contém uma linha do tempo detalhada do seu trabalho, incluindo commits feitos exclusivamente por você ou em coautoria, solicitações de pull que você propôs e problemas que você abriu. Para ver suas contribuições ao longo do tempo, clique em **Mostrar mais atividade** na parte inferior da atividade de contribuição ou clique no ano em que você está interessado em visualizar, no lado direito da página. Momentos importantes, como a data em que você ingressou na organização, propôs sua primeira pull request ou abriu um problema relevante, são realçados na atividade de contribuição. Se você não conseguir ver determinados eventos na sua linha do tempo, verifique se ainda tem acesso à organização ou ao repositório em que o evento aconteceu
+The contribution activity section includes a detailed timeline of your work, including commits you've made or co-authored, pull requests you've proposed, and issues you've opened. You can see your contributions over time by either clicking **Show more activity** at the bottom of your contribution activity or by clicking the year you're interested in viewing on the right side of the page. Important moments, like the date you joined an organization, proposed your first pull request, or opened a high-profile issue, are highlighted in your contribution activity. If you can't see certain events in your timeline, check to make sure you still have access to the organization or repository where the event happened.
 
-![Filtro de hora de atividade de contribuição](/assets/images/help/profile/contributions_activity_time_filter.png)
+![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
+{% if currentVersion != "github-ae@latest" %}
+### Viewing contributions from {% data variables.product.product_location_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-Se o administrador do site tiver ativado o {% data variables.product.prodname_unified_contributions %}, você poderá enviar contagens de contribuição do {% data variables.product.prodname_enterprise %} para o perfil do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+If your site administrator has enabled {% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+{% endif %}
 
-### Leia mais
+### Further reading
 
-- "[Visualizar contribuições na página de perfil](/articles/viewing-contributions-on-your-profile-page)"
-- "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
-- "[Exibir a visão geral das atividades no perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)"
+- "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
+- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"
+- "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
+- "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)"

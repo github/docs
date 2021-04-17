@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - pull requests
 ---
 
 {% data reusables.pull_requests.default_merge_option %}
@@ -41,7 +44,7 @@ In folgenden Fällen ist kein automatisches Rebasing und Zusammenführen auf {% 
 - Beim Rebasing der Commits vom Basis-Branch in den Head-Branch kommt es zu Konflikten.
 - Das Rebasing der Commits gilt als „unsicher“, beispielsweise wenn ein Rebase ohne Mergekonflikte möglich ist, jedoch ein anderes Ergebnis liefern würde als ein Merge.
 
-Wenn Du trotzdem ein Rebasing der Commits durchführen möchtest, aber kein automatischer Rebase auf {% data variables.product.product_location %} möglich ist, musst Du folgendermaßen vorgehen:
+Wenn Sie trotzdem ein Rebasing der Commits durchführen möchten, aber kein automatischer Rebase auf {% data variables.product.product_location %} möglich ist, müssen Sie folgendermaßen vorgehen:
 - Führe ein Rebasing des Themen-Branches (oder Head-Branches) auf den Basis-Branch lokal in der Befehlszeile durch.
 - [Behebe Mergekonflikte in der Befehlszeile](/articles/resolving-a-merge-conflict-using-the-command-line/).
 - Erzwinge den Push der Rebase-Commits an den Themen-Branch (oder Remote-Head-Branch) des Pull Requests.

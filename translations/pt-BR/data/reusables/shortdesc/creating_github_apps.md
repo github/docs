@@ -1,1 +1,1 @@
-You can create and register a GitHub App under your personal account or under any organization you have administrative access to.
+Você pode criar e registrar um aplicativo GitHub na sua conta pessoal em sob qualquer organização à qual você tem acesso administrativo.

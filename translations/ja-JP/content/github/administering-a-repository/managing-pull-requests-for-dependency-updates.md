@@ -9,9 +9,9 @@ versions:
 
 ### {% data variables.product.prodname_dependabot %} のプルリクエストについて
 
-{% data variables.product.prodname_dependabot %} は、依存関係を更新するプルリクエストを生成します。 リポジトリの設定によっては、{% data variables.product.prodname_dependabot_short %} がバージョン更新やセキュリティアップデートのプルリクエストを発行する場合があります。 これらのプルリクエストは、他のプルリクエストと同じ方法で管理しますが、追加のコマンドもいくつか用意されています。 {% data variables.product.prodname_dependabot %} 依存関係の更新を有効にする方法については、「[{% data variables.product.prodname_dependabot_security_updates %} を構成する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」および「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+{% data reusables.dependabot.pull-request-introduction %}
 
-{% data variables.product.prodname_dependabot %} がプルリクエストを発行すると、リポジトリに対して選択した方法で通知されます。 各プルリクエストには、パッケージ管理システムから取得した、提案された変更に関する詳細情報が含まれています。 これらのプルリクエストは、リポジトリで定義されている通常のチェックとテストに従います。 また、十分な情報がある場合は、互換性スコアが表示されます。 これは、変更をマージするかどうかを決める際にも役立ちます。 このスコアについての詳しい情報は、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+{% data variables.product.prodname_dependabot %} がプルリクエストを発行すると、リポジトリに対して選択した方法で通知されます。 Each pull request contains detailed information about the proposed change, taken from the package manager. これらのプルリクエストは、リポジトリで定義されている通常のチェックとテストに従います。 また、十分な情報がある場合は、互換性スコアが表示されます。 これは、変更をマージするかどうかを決める際にも役立ちます。 For information about this score, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 管理する依存関係が多数ある場合は、各パッケージマネージャーの設定をカスタマイズして、プルリクエストに特定のレビュー担当者、アサインされた人、ラベルを付けることができます。 詳しい情報については、「[依存関係の更新をカスタマイズする](/github/administering-a-repository/customizing-dependency-updates)」をご覧ください。
 

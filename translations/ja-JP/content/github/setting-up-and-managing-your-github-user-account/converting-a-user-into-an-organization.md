@@ -8,6 +8,8 @@ intro: ユーザアカウントは、Organization に変換できます。 こ�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - アカウント
 ---
 
 {% warning %}
@@ -17,7 +19,7 @@ versions:
  - 変換したユーザアカウントには、サインイン**できなくなります**。
  - 変換したユーザアカウントが所有していた Gist を作成や変更することは**できなくなります**。
  - Organization をユーザに変換して元に戻すことは**できません**。
- - SSH キー、OAuth トークン、ジョブプロフィール、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}リアクション、{% endif %}および関連するユーザ情報は、Organization に移譲**されません**。 これは、変換されたユーザアカウントのみに該当し、ユーザアカウントのコラボレーターには該当しません。
+ - SSH キー、OAuth トークン、ジョブプロフィール、リアクション、および関連するユーザ情報は、Organization に移譲**されません**。 これは、変換されたユーザアカウントのみに該当し、ユーザアカウントのコラボレーターには該当しません。
  - 変換したユーザアカウントによるコミットは、アカウントに**リンクされなくなります**。 コミットそのものは、**そのまま残ります**。
 
 {% endwarning %}
@@ -50,11 +52,11 @@ Organization の名前を、あなたの個人アカウントが使用してい�
 
 {% tip %}
 
-**ヒント**: ユーザアカウントを Organization に変換した場合、アカウントに属していたリポジトリのコラボレーターは、新しい Organization に*外部コラボレーター*として追加されます。 希望する場合は、*外部コラボレーター*を新しい Organization のメンバーに招待できます。 詳しい情報については「[Organization の権限レベル](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
+**ヒント**: ユーザアカウントを Organization に変換した場合、アカウントに属していたリポジトリのコラボレーターは、新しい Organization に*外部コラボレーター*として追加されます。 希望する場合は、*外部コラボレーター*を新しい Organization のメンバーに招待できます。 詳しい情報については「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
 
 {% endtip %}
 
 ### 参考リンク
 - [Team の設定](/articles/setting-up-teams)
-{% if currentVersion == "free-pro-team@latest" %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- 「[ユーザを Organization に招待する](/articles/inviting-users-to-join-your-organization)」{% endif %}
 - [Organization にアクセスする](/articles/accessing-an-organization)

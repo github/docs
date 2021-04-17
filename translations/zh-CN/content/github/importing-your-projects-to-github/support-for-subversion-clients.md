@@ -28,7 +28,7 @@ Subversion 检出则不同：它们混合工作目录中的仓库数据，因此
   $ cd <em>repo</em>
   ```
 
-4. 获取 `trunk` 分支。 The Subversion bridge maps trunk to the Git HEAD branch.
+4. 获取 `trunk` 分支。 Subversion 网桥将主干映射到 Git HEAD 分支。
   ```shell
   $ svn up trunk
   > A    trunk
