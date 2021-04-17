@@ -323,7 +323,7 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces useing double braces.
+Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
 ##### Example
 
