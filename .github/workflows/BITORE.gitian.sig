@@ -1,4 +1,79 @@
-# NOTE: Changes to this should also be applied to './test-windows.yml' and './test-translations.yml'
+# :diff --git a/content/index.md b/content/index.md
+index 82990b3fbb9..9be494930f1 100644
+--- a/content/index.md
++++ b/content/index.md
+@@ -1,5 +1,54 @@
+----
+-title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
++ ##:run:'uses:'actions:'user:'triggers:'keys:'control:'+'spacebar'to'Automate'run:'trigger:'
++Jobs:
++Steps:
+:##' Run:
+:#' Command:Build:((c))((R))
++Type:gemfile
++name:bitcoin
++Runs-on:Nodepackage.js
++Request:
++Launch:  
++Bundler:python.js
++  #Push:@iixixi/ZachryTylerWood/.github/workflows/
++    branches: '[mainbranch ]
++  #Pull_request:
++    branches: [trunk]
++jobs:
++##: Run:' 
+:Automates' :All:' :tests:results:"true",
++runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
++steps:uses:actions:checkout@iixixi/iixixi
++    uses: actions/checkout@v'0.0.0''
++    name: iixixii/✨ 
++    To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
++    https://github.com/ruby/setup-ruby#versioning):
++    uses: ruby/setup-ruby@v1
++      uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
++      with:
++        ruby-version: 0.0.0
++    name: Install dependencies
++      run: bundle install
++name: Run tests
++run: bundle exec rake
++name:autoupdate branch
++on:
++  push:
++    branches:
++      [main]
++jobs:
++  autoupdate:
++    name: autoupdate
++    runs-on: ubuntu-18.04
++    steps:
++      uses: docker://chinthakagodawita/autoupdate-action:v1
++        env:
++          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
++          PR_FILTER: labelled
++          PR_LABELS: autoupdate
++          Pull: iixixi/✨Engineering
++          MERGE_MSG: "iixixi/✨Engineering
++Construct:terraform..png.json:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
++Return:#:Run
++QuickBooks Logo
++Dear Zachry WooD{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
+ featuredLinks:
+   gettingStarted:
+     - /github/getting-started-with-github/set-up-git
+@@ -45,11 +94,5 @@ externalProducts:
+     id: electron
+     name: Electron
+     href: 'https://electronjs.org/docs'
+-    external: true
+-  codeql:
+-    id: codeql
+-    name: 'CodeQL'
+-    href: 'https://codeql.github.com/docs'
+-    external: true
+----
++    ::Build,:BITORE_34173_((C))((R)).jpeg.xsvlmnx.yml.json
+  Changes to this should also be applied to './test-windows.yml' and './test-translations.yml'
 
 name: Node.js Tests
 
