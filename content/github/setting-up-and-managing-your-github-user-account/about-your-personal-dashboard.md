@@ -1,4 +1,4 @@
----
+Lk9HkOcasC0 ---
 title: About your personal dashboard
 redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
