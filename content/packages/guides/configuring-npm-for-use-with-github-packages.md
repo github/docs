@@ -1,35 +1,42 @@
----
-title: Configuring npm for use with GitHub Packages
-intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
-product: '{% data reusables.gated-features.packages %}'
-redirect_from:
-  - /articles/configuring-npm-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages
-  - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
-versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
----
-
-{% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
-
+On::/##Run::/On::
+:#On:''
+:#Const:''
+:#Name:Configuring npm for use with GitHub Packages
+:#Run::'Steps''
+:#Steps:Name:
+:#::Run:
+:#::On:
+:#:Name:
+:#:Automate::All::
+:# "@my-orctcokit/hello-World!'"''
+:# "version": "1.0.0",
+:# "description": "Server app that uses the @octo-org/octo-app package",
+:# "main": "index.js",
+:# "author": "zachryiixixiiwood@gmail.com",
+:# "license": "MIT",
+:#  "dependencies": {
+:# "@octo-org/octcokit": 
+:# '@versioning: '0.0.0"
+:# Install: the package.
+:#run:: 'npm_install''
+:# You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
+:# product: '{% data reusables.gated-features.packages %}'
+:# redirect_from:
+:# - /articles/configuring-npm-for-use-with-github-package-registry
+:#  - /github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry
+:#  - /github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages
+:#  - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
+;#Versioning:
+:# free-pro-team: '#'
+:# enterprise-server: '>=2.22'
+:# github-ae:'
+:#'*logs:''
+:#'All''
+:#'{%data reusables.package_registry.packages-ghes-release-stage %}
+:#'{%data reusables.package_registry.packages-ghae-release-stage %}
 {% data reusables.package_registry.admins-can-configure-package-types %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Limits for published npm versions
-
-If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
-
-In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
-
-If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}" or "[Contacting Support](/packages/learn-github-packages/about-github-packages#contacting-support)."
-
-{% endif %}
-
-### Authenticating to {% data variables.product.prodname_registry %}
+{%if'currentVersion'"free-pro-team@latest"' or' currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+:#::Authenticating:' to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -162,55 +169,25 @@ You also need to add the *.npmrc* file to your project so all requests to instal
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
-
-  ```json
-  {
+:#' Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core{webhooks}''
     "name": "@my-org/server",
     "version": "1.0.0",
     "description": "Server app that uses the @octo-org/octo-app package",
     "main": "index.js",
     "author": "",
     "license": "MIT",
-    "dependencies": {
-      "@octo-org/octo-app": "1.0.0"
-    }
-  }
-  ```
-5. Install the package.
-
-  ```shell
-  $ npm install
-  ```
-
-#### Installing packages from other organizations
-
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
-
-{% if enterpriseServerVersions contains currentVersion %}
+    "dependencies"
+':#'npm:' Installing packages from other organizations
+LBy default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %} and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
-{% endif %}
-
-```shell
 @<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
 @<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}
-```
-
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
-
-```shell
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
-```
 {% endif %}
-
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-### Using the official NPM registry
-
-{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
-{% endif %}
-
-### Further reading
-
-- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+:#' sing the official NPM registry
+:#' {% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+:#' '{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
