@@ -9,8 +9,6 @@ topics:
   - 仓库
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### 关于 {% data variables.product.prodname_dependabot %} 拉取请求
 
 {% data reusables.dependabot.pull-request-introduction %}

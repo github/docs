@@ -20,8 +20,8 @@ featuredLinks:
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  label: 'packages'
-  prefix: 'Packages: '
+  label: 'pacotes'
+  prefix: 'Pacotes:'
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry

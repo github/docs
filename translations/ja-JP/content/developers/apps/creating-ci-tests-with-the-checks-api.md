@@ -845,7 +845,7 @@ end
     **A:** 以下のエラーが表示される場合、`initiate_check_run` と `take_requested_action` メソッドのいずれかのリポジトリでチェックアウトを削除していません。
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     コードを `server.rb` ファイルと比較し、`initiate_check_run` および `take_requested_action` メソッドと同じコードがあることを確認してください。

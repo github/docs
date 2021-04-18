@@ -16,7 +16,7 @@ topics:
 
 ### リポジトリの可視性の変更について
 
-Organization のオーナーは、リポジトリの可視性を変更する機能を Organization のオーナーのみに制限できます。 詳しい情報については「[Organization 内でリポジトリの可視性の変更を制限する](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)」を参照してください。
+Organization のオーナーは、リポジトリの可視性を変更する機能を Organization のオーナーのみに制限できます。 For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 リポジトリの可視性を変更する前に、次の注意点を確認することをお勧めします。
 

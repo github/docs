@@ -52,6 +52,7 @@ versions:
 | <kbd>control z</kbd> または <kbd>command z</kbd>                    | 元に戻します                                              |
 | <kbd>control y</kbd> または <kbd>command y</kbd>                    | やり直します                                              |
 | <kbd>cmd + shift + p</kbd>                                       | [**Edit file**] タブと [**Preview changes**] タブを切り替えます |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                     | Write a commit message                              |
 
 その他のキーボードショートカットについては、[CodeMirror ドキュメント](https://codemirror.net/doc/manual.html#commands)を参照してください。
 

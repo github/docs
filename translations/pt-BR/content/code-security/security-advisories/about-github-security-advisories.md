@@ -17,7 +17,7 @@ topics:
 
 ### Sobre o {% data variables.product.prodname_security_advisories %}
 
-{% data reusables.security-advisory.disclosing-vulnerabilities %} For more information, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)."
+{% data reusables.security-advisory.disclosing-vulnerabilities %} Para obter mais informações, consulte "[Sobre a divulgação coordenada de vulnerabilidades de segurança](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities)".
 
 {% data reusables.security-advisory.security-advisory-overview %}
 
@@ -25,7 +25,7 @@ Com {% data variables.product.prodname_security_advisories %}, você pode:
 
 1. Criar um aviso de segurança rascunho e usar o rascunho para discutir em particular o impacto da vulnerabilidade no seu projeto. Para obter mais informações, consulte "[Criar uma consultoria de segurança](/github/managing-security-vulnerabilities/creating-a-security-advisory)".
 2. Colaborar de modo particular com a correção da vulnerabilidade em uma bifurcação privada temporária.
-3. Publish the security advisory to alert your community of the vulnerability once a patch is released. Para obter mais informações, consulte "[Publicar uma consultoria de segurança](/github/managing-security-vulnerabilities/publishing-a-security-advisory)".
+3. Publique a consultoria de segurança para alertar a sua comunidade sobre a vulnerabilidade depois que um patch for lançado. Para obter mais informações, consulte "[Publicar uma consultoria de segurança](/github/managing-security-vulnerabilities/publishing-a-security-advisory)".
 
 {% data reusables.repositories.security-advisories-republishing %}
 
@@ -33,13 +33,13 @@ Você pode dar crédito a indivíduos que contribuíram para um aviso de seguran
 
 {% data reusables.repositories.security-guidelines %}
 
-If you created a security advisory in your repository, the security advisory will stay in your repository. We publish security advisories for any of the ecosystems supported by the dependency graph to the {% data variables.product.prodname_advisory_database %} on [github.com/advisories](https://github.com/advisories). If a security advisory is specifically for npm, we also publish the advisory to the npm security advisories. For more information, see [npmjs.com/advisories](https://www.npmjs.com/advisories).
+Se você criou uma consultoria de segurança no seu repositório, o consultório de segurança permanecerá no seu repositório. Publicamos consultorias de segurança para qualquer um dos ecossistemas compatíveis com o gráfico de dependências para o {% data variables.product.prodname_advisory_database %} em [github.com/advisories](https://github.com/advisories). Se uma consultoria de segurança for especificamente para o npm, nós também publicamos a consultoria nas consultorias de segurança do npm. Para obter mais informações, consulte [npmjs.com/advisories](https://www.npmjs.com/advisories).
 
 {% data reusables.repositories.github-security-lab %}
 
 ### Números de identificação CVE
 
-{% data variables.product.prodname_security_advisories %} baseia-se na base da lista de Vulnerabilidades e Exposições Comuns (CVE). The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format.
+{% data variables.product.prodname_security_advisories %} baseia-se na base da lista de Vulnerabilidades e Exposições Comuns (CVE). O formulário de consultoria de segurança em {% data variables.product.prodname_dotcom %} é um formulário padronizado que corresponde ao formato de descrição CVE.
 
 {% data variables.product.prodname_dotcom %} é uma Autoridade de Numeração CVE (CNA) e está autorizada a atribuir números de identificação CVE. Para obter mais informações, consulte "[Sobre CVE](https://cve.mitre.org/about/index.html)" e "[Autoridades de Numeração CVE](https://cve.mitre.org/cve/cna.html)" no site da CVE.
 

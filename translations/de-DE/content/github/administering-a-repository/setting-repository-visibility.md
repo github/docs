@@ -16,7 +16,7 @@ topics:
 
 ### Über Änderungen der Repository-Sichtbarkeit
 
-Organisationsinhaber können die Möglichkeit, die Sichtbarkeit des Repositorys zu ändern, auf Organisationsinhaber einschränken. Weitere Informationen findest Du unter „[Einschränken von Änderungen der Repository-Sichtbarkeit in Deiner Organisation](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)."
+Organisationsinhaber können die Möglichkeit, die Sichtbarkeit des Repositorys zu ändern, auf Organisationsinhaber einschränken. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
