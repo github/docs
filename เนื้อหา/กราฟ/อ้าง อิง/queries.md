@@ -35,3 +35,6 @@ For more information, see "[About queries](/graphql/guides/forming-calls-with-gr
 {% for item in graphql.schemaForCurrentVersion.queries.fields %}
   {% include graphql-query %}
 {% endfor %}
+curl \
+ -H 'Authorization: Bearer VUNMUKUYFAMLWG3Y4SZQDFJIO35YTXW4' \
+ 'https://api.wit.ai/message?v=20210418&q=tbnoapi.v1'
