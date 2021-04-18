@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
 ```
@@ -71,7 +70,7 @@ jobs:
 このワークフローは以下のステップを実行します。
 
 1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. `setup-java`ステップは、Java 1.8 JDKを設定します。
 3. "Build with Maven"ステップは、Mavenの`package`ターゲットを非インタラクティブモードで実行し、コードがビルドされ、テストをパスし、パッケージが作成できることを保証します。
 
 デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
@@ -92,10 +91,9 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
@@ -109,11 +107,10 @@ steps:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Cache Maven packages
     uses: actions/cache@v2
     with:
@@ -137,10 +134,7 @@ Mavenは通常、JAR、EAR、WARのような出力ファイルを`target`ディ�
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
+  - uses: actions/setup-java@v1
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2

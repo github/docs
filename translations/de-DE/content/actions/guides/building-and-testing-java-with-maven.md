@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
 ```
@@ -71,7 +70,7 @@ jobs:
 Dieser Workflow führt die folgenden Schritte aus:
 
 1. Der Schritt `checkout` lädt eine Kopie Deines Repositorys auf den Runner herunter.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. Der Schritt `setup-java` konfiguriert das Java 1.8 JDK.
 3. Der Schritt "Build with Maven" führt das Maven-„Target“ (Ziel) `package` im nicht-interaktiven Modus aus, um sicherzustellen, dass der Code gebaut, Tests bestanden und ein Paket erstellt werden kann.
 
 Die Standard-Workflow-Vorlagen sind ausgezeichnete Ausgangspunkte beim Erstellen des Build- und Testworkflows, und Du kannst die Vorlage an die Anforderungen Deines Projekts anpassen.
@@ -92,10 +91,9 @@ Wenn Du zum Bauen Deines Projekts andere Befehle verwenden oder ein anderes Ziel
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
@@ -109,11 +107,10 @@ When using {% data variables.product.prodname_dotcom %}-hosted runners, you can 
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Cache Maven packages
     uses: actions/cache@v2
     with:
@@ -137,10 +134,7 @@ Maven erstellt normalerweise Ausgabedateien wie JARs, EARs oder WARs im Verzeich
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
+  - uses: actions/setup-java@v1
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2

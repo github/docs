@@ -85,10 +85,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Publish package
         run: gradle publish
         env:
@@ -144,10 +143,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Publish package
         run: gradle publish
         env:
@@ -211,10 +209,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Publish to the Maven Central Repository
         run: gradle publish
         env:

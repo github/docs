@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -71,7 +70,7 @@ jobs:
 此工作流程执行以下步骤：
 
 1. `checkout` 步骤在运行器上下载仓库的副本。
-2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
+2. `setup-java` 步骤配置 Java 1.8 JDK。
 3. “使用 Gradle 构建”步骤运行 `gradlew` wrapper 脚本以确保可以创建您的代码构建、测试通过和包。
 
 在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
@@ -92,10 +91,9 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -109,11 +107,10 @@ steps:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -146,11 +143,7 @@ Gradle 通常会在 `build/libs` 目录中创建 JAR、EAR 或 WAR 等输出文�
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-
+  - uses: actions/setup-java@v1
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

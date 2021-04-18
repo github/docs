@@ -75,22 +75,21 @@ Na etapa de implementação, você deverá definir variáveis de ambiente para o
 
 {% raw %}
 ```yaml{:copy}
-name: Publish package to the Maven Central Repository
-on:
-  release:
-    types: [created]
-jobs:
-  publish:
+nome: Publicar pacote no Repositório Central do Maven
+em:
+  versão:
+    tipos: [created]
+trabalhos:
+  publicar:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Publish package
-        run: gradle publish
+    etapas:
+      - usa: actions/checkout@v2
+      - nome: Configurar Java
+        usa: actions/setup-java@v1
+        com:
+          java-version: 1.8
+      - nome: Publicar pacote
+        executar: gradle publish
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -135,21 +134,20 @@ Com essa configuração, é possível criar um fluxo de trabalho que publica seu
 
 {% raw %}
 ```yaml{:copy}
-name: Publish package to GitHub Packages
-on:
-  release:
-    types: [created]
-jobs:
-  publish:
+nome: Publicar pacote nos pacotes do GitHub
+em:
+  versão:
+    tipos: [created]
+trabalhos:
+  publicar:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Publish package
-        run: gradle publish
+    etapas:
+      - usa: actions/checkout@v2
+      - usa: actions/setup-java@v1
+        com:
+          java-version: 1.8
+      - nome: Publicar pacote
+        executar: publicação do gradle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -201,22 +199,21 @@ Com esta configuração, você pode criar um fluxo de trabalho que publica seu p
 
 {% raw %}
 ```yaml{:copy}
-name: Publish package to the Maven Central Repository and GitHub Packages
-on:
-  release:
-    types: [created]
-jobs:
-  publish:
+nome: Publicar pacote no Repositório Central do Maven e nos Pacotes do GitHub
+em:
+  versão:
+    tipos: [created]
+trabalhos:
+  publicar:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: Publish to the Maven Central Repository
-        run: gradle publish
+    etapas:
+      - usa: actions/checkout@v2
+      - nome: Configura o Java
+        usa: actions/setup-java@v1
+        com:
+          java-version: 1.8
+      - nome: Publica no Repositório Central do Maven
+        executa: publicação do gradle
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

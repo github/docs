@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
@@ -71,7 +70,7 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. The `setup-java` step configures the Java 1.8 JDK.
 3. The "Build with Ant" step runs the default target in your `build.xml` in non-interactive mode.
 
 The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
@@ -92,10 +91,9 @@ If you use different commands to build your project, or you want to run a differ
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
@@ -111,11 +109,7 @@ Ant will usually create output files like JARs, EARs, or WARs in the `build/jar`
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-  
+  - uses: actions/setup-java@v1
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

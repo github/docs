@@ -46,7 +46,6 @@ describe('check for repository references', () => {
     ignore: [
       '.algolia-cache',
       '.git',
-      '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       'dist',
       'node_modules',
       'translations',
@@ -57,13 +56,7 @@ describe('check for repository references', () => {
       'lib/excluded-links.js',
       'content/early-access',
       'data/early-access',
-      'data/release-notes', // These include links to internal issues in Liquid comments.
-      '**/*.png', // Do not check images or font files.
-      '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
-      '**/*.gif', // READMEs or other text-based files from being checked.
-      '**/*.pdf',
-      '**/*.ico',
-      '**/*.woff'
+      'data/release-notes' // These include links to internal issues in Liquid comments
     ]
   })
 

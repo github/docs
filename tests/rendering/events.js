@@ -74,7 +74,7 @@ describe('POST /events', () => {
     const pageExample = { ...baseExample, type: 'page' }
 
     it('should record a page event', () =>
-      checkEvent(pageExample, 200)
+      checkEvent(pageExample, 201)
     )
 
     it('should require a type', () =>
@@ -128,7 +128,7 @@ describe('POST /events', () => {
           ...pageExample.context,
           page_event_id: baseExample.context.event_id
         }
-      }, 200)
+      }, 201)
     )
 
     it('should not allow a honeypot token', () =>
@@ -201,7 +201,7 @@ describe('POST /events', () => {
       }, 400)
     )
 
-    it('should os a valid os option', () =>
+    it('should a valid os option', () =>
       checkEvent({
         ...pageExample,
         context: {
@@ -295,7 +295,7 @@ describe('POST /events', () => {
     }
 
     it('should record an exit event', () =>
-      checkEvent(exitExample, 200)
+      checkEvent(exitExample, 201)
     )
 
     it('should exit_render_duration is a positive number', () =>
@@ -330,7 +330,7 @@ describe('POST /events', () => {
     }
 
     it('should send a link event', () =>
-      checkEvent(linkExample, 200)
+      checkEvent(linkExample, 201)
     )
 
     it('link_url is a required uri formatted string', () =>
@@ -347,7 +347,7 @@ describe('POST /events', () => {
     }
 
     it('should record a search event', () =>
-      checkEvent(searchExample, 200)
+      checkEvent(searchExample, 201)
     )
 
     it('search_query is required string', () =>
@@ -355,7 +355,7 @@ describe('POST /events', () => {
     )
 
     it('search_context is optional string', () =>
-      checkEvent({ ...searchExample, search_context: undefined }, 200)
+      checkEvent({ ...searchExample, search_context: undefined }, 201)
     )
   })
 
@@ -367,11 +367,11 @@ describe('POST /events', () => {
     }
 
     it('should record a navigate event', () =>
-      checkEvent(navigateExample, 200)
+      checkEvent(navigateExample, 201)
     )
 
     it('navigate_label is optional string', () =>
-      checkEvent({ ...navigateExample, navigate_label: undefined }, 200)
+      checkEvent({ ...navigateExample, navigate_label: undefined }, 201)
     )
   })
 
@@ -385,7 +385,7 @@ describe('POST /events', () => {
     }
 
     it('should record a survey event', () =>
-      checkEvent(surveyExample, 200)
+      checkEvent(surveyExample, 201)
     )
 
     it('survey_vote is boolean', () =>
@@ -411,7 +411,7 @@ describe('POST /events', () => {
     }
 
     it('should record an experiment event', () =>
-      checkEvent(experimentExample, 200)
+      checkEvent(experimentExample, 201)
     )
 
     it('experiment_name is required string', () =>
@@ -423,7 +423,7 @@ describe('POST /events', () => {
     )
 
     it('experiment_success is optional boolean', () =>
-      checkEvent({ ...experimentExample, experiment_success: undefined }, 200)
+      checkEvent({ ...experimentExample, experiment_success: undefined }, 201)
     )
   })
 
@@ -436,7 +436,7 @@ describe('POST /events', () => {
     }
 
     it('should record an redirect event', () =>
-      checkEvent(redirectExample, 200)
+      checkEvent(redirectExample, 201)
     )
 
     it('redirect_from is required url', () =>
@@ -456,7 +456,7 @@ describe('POST /events', () => {
     }
 
     it('should record an clipboard event', () =>
-      checkEvent(clipboardExample, 200)
+      checkEvent(clipboardExample, 201)
     )
 
     it('clipboard_operation is required copy, paste, cut', () =>
@@ -471,7 +471,7 @@ describe('POST /events', () => {
     }
 
     it('should record a print event', () =>
-      checkEvent(printExample, 200)
+      checkEvent(printExample, 201)
     )
   })
 })

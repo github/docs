@@ -1,0 +1,29 @@
+<!-- Versions picker that only appears in the header on homepage or product landing -->
+{% if page.relativePath == 'index.md' or page.layout == 'product-landing' or page.layout == 'product-sublanding' %}
+<div class="d-md-inline-block">
+  <div class="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+    <details class="dropdown-withArrow position-relative details details-reset mr-md-3 close-when-clicked-outside">
+      <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle versions list">
+        <div class="d-flex flex-items-center flex-justify-between">
+          {% if currentVersion == 'homepage' %}
+          {% data ui.homepage.version_picker %}
+          {% else %}
+          {{ allVersions[currentVersion].versionTitle }}
+          {% endif %}
+          <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1B1F23"><path d="M1,1l6.2,6L13,1"></path></svg>
+        </div>
+      </summary>
+      <div id="versions-selector" class="position-md-absolute nav-desktop-langDropdown p-md-4 right-md-n4 top-md-6" style="z-index: 6;">
+      {% for permalink in page.permalinks %}
+      {% unless permalink.pageVersion == 'homepage' %}
+      <a
+      href="{{ permalink.href }}"
+      class="d-block py-2 no-underline {% if currentPath == permalink.href %}active{% else %}link-gray-dark{% endif %}"
+      style="white-space: nowrap"
+      >{{ allVersions[permalink.pageVersion].versionTitle }}</a>
+      {% endunless %}
+      {% endfor %}
+      </div>
+    </details>
+  </div>
+{% endif %}

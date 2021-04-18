@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
@@ -71,7 +70,7 @@ jobs:
 Este flujo de trabajo realiza los siguientes pasos:
 
 1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. El paso `setup-java` configura el JDK de Java 1.8.
 3. El paso "Build with Ant" (Construir con Ant) ejecuta el objetivo predeterminado en tu `build.xml` en el modo no interactivo.
 
 Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
@@ -92,10 +91,9 @@ Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un 
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
@@ -111,11 +109,7 @@ Por lo general, Ant crea archivos de salida como JAR, EAR o WAR en el directorio
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
-
+  - uses: actions/setup-java@v1
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

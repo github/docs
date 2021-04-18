@@ -23,13 +23,13 @@ Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na no
   ```
 3. Faça espelhamento/push no novo repositório.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository</em>.git
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository</em>.git
   ```
 
 ### Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
@@ -41,7 +41,7 @@ Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na no
   ```
 3. Navegue até o repositório que você acabou de clonar.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository</em>.git
   ```
 4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
@@ -58,7 +58,7 @@ Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na no
 7. Remova o repositório local temporário que você criou anteriormente.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository</em>.git
   ```
 
 ### Espelhar um repositório em outro local
@@ -72,7 +72,7 @@ Se você deseja espelhar um repositório em outro local e ainda obter atualizaç
   ```
 3. Defina o local de push no espelho.
   ```shell
-  $ cd <em>repository-to-mirror</em>
+  $ cd <em>repository-to-mirror</em>.git
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

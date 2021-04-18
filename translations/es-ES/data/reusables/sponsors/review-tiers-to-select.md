@@ -1,1 +1,0 @@
-1. En el lado derecho de la página, debajo de "Selecciona un nivel", revisa los niveles de patrocinio disponibles. If more than one type of tier is available "Monthly" tiers are shown, click **One-time** to show the tiers for one-time payments. ![Show "One-time" tiers](/assets/images/help/sponsors/show-one-time-tiers.png)

@@ -10,6 +10,8 @@ topics:
   - repositorys
 ---
 
+{% data reusables.dependabot.beta-note %}
+
 ### About customizing dependency updates
 
 After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the *dependabot.yml* file. For example, you could:

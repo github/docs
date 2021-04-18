@@ -23,13 +23,13 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   ```
 3. Mirror-push to the new repository.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository</em>.git
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remove the temporary local repository you created earlier.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository</em>.git
   ```
 
 ### Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
@@ -41,7 +41,7 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   ```
 3. Navigate to the repository you just cloned.
   ```shell
-  $ cd <em>old-repository</em>
+  $ cd <em>old-repository</em>.git
   ```
 4. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
   ```shell
@@ -58,7 +58,7 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
 7. Remove the temporary local repository you created earlier.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>
+  $ rm -rf <em>old-repository</em>.git
   ```
 
 ### Mirroring a repository in another location
@@ -72,7 +72,7 @@ If you want to mirror a repository in another location, including getting update
   ```
 3. Set the push location to your mirror.
   ```shell
-  $ cd <em>repository-to-mirror</em>
+  $ cd <em>repository-to-mirror</em>.git
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

@@ -11,6 +11,8 @@ topics:
   - seguridad
 ---
 
+{% data reusables.dependabot.beta-note %}
+
 ### Acerca de los errores del {% data variables.product.prodname_dependabot %}
 
 {% data reusables.dependabot.pull-request-introduction %}

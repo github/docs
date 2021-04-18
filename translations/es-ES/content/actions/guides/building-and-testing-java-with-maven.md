@@ -58,11 +58,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: 1.8
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
 ```
@@ -71,7 +70,7 @@ jobs:
 Este flujo de trabajo realiza los siguientes pasos:
 
 1. El paso `checkout (comprobación)` descarga una copia de tu repositorio en el ejecutor.
-2. The `setup-java` step configures the Java 11 JDK by Adoptium.
+2. El paso `setup-java` configura el JDK de Java 1.8.
 3. El paso "Build with Maven" (Construir con Maven) ejecuta el `paquete` destino de Maven en modo no interactivo para garantizar que tu código se compile, se superen las pruebas y se pueda crear un paquete.
 
 Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
@@ -92,10 +91,9 @@ Si usas diferentes comandos para compilar tu proyecto, o si quieres usar un dest
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
@@ -109,11 +107,10 @@ Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotc
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 11
-    uses: actions/setup-java@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
     with:
-      java-version: '11'
-      distribution: 'adopt'
+      java-version: 1.8
   - name: Cache Maven packages
     uses: actions/cache@v2
     with:
@@ -137,10 +134,7 @@ Por lo general, Maven creará archivos de salida como tarros, orejas o guerras e
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
-    with:
-      java-version: '11'
-      distribution: 'adopt'
+  - uses: actions/setup-java@v1
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2

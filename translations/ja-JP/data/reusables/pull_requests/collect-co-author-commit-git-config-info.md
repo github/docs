@@ -1,1 +1,1 @@
-1. 各 co-author (共同作者) の名前とメールアドレスを収集してください。{% if currentVersion == "free-pro-team@latest" %}メールアドレスをプライベートにしておきたい人がいる場合、そのプライバシーを保護するためにその人には {% data variables.product.product_name %} が提供する`no-reply`メールを使わなければなりません。{% endif %}
+1. Collect the name and email address for each co-author.{% if currentVersion == "free-pro-team@latest" %} If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy.{% endif %}

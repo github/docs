@@ -9,6 +9,8 @@ topics:
   - repositorys
 ---
 
+{% data reusables.dependabot.beta-note %}
+
 ### About {% data variables.product.prodname_dependabot %} pull requests
 
 {% data reusables.dependabot.pull-request-introduction %}

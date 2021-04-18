@@ -17,8 +17,6 @@ const pageCache = new RedisAccessor({
   prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
   // Allow for graceful failures if a Redis SET operation fails
   allowSetFailures: true,
-  // Allow for graceful failures if a Redis GET operation fails
-  allowGetFailures: true,
   name: 'page-cache'
 })
 
