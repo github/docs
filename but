@@ -1,9 +1,13 @@
-##Run':':'""'
+'#'##:'Run'""':'""''#''""'On'':'""'#'""'#'""':'""'START'""':'"""':'""'/'""'On'""':'""':'""'Const'"":'""':'""'Command'""':'""':'""'Runs'""':'''"'Name'""'Bitore'""'.'""'gitians'""'.'""'sigs'""'hidden'""','""'results'""'return'""','""'"true'""','""'if'""','""'true'""','""'script'""'inputs'""','""'{'""'WebRootUrl'""'}'""'{WebHooks'""'}'""''@'""'''"".https'""':'""'/'""'/'""'.git'""'.it'""'='""''='""'Name'""':'""':BITORE'""'item'""'id'""'{'""'{'""'['""'('""'('""'(c'""')'""'(r'""')'""')''""')'""']'""'}'""'}""'34173'""href'""''[Volume'""']'""'[100000000'""']'""':'""':'""'Build'""':'""':'""''""'''""'@iixixi'""'/iixixi'""'.'""'README'""'.mD'"'.cOnTrIbUtInG'""'.Md'""'/BITORE'""'.sigs'""'''""'@'""''user'""'/'""'bin'""'/bash'""''""'/Dns'""'.Python'""'.javascript'""'/'""':'""':Const'""':'""':'""':BITORE'""'.sigs'""':'""':Return'""':'""':'Run '''""''"''
+'#'""':'""':'""'.xmslvnx'""'/pom.yml'""'/mvn1'"",'""'Raven'""''s'""',c'""'+'""''lang'""','""'fetch'""'-fiddle'""'/purl'""'/thimbal'""'metadata'""'.'""'laddle'""','"" {'""'Object'""'_$Ruby'""'_Gemfile'""'}'""'[Volume'""']'""'[464000000'""']'""':'""':Build'""':'""'@iixixi'""'/iixixi'""':Const'""':BITORE'""'.,gitian'""'.sig'""':'""':Return'""':'Run::#:' 
+'#'#Run':':'""'
 Command:
 Clone':':'''.git'.'.gitsdk.se/runwizard-pro/aurobot/@paradise/bitore/paradisebotlist/paradisebotsapi.js:::build"@v-1.0.3.9.11"
 Jobs: uses: steps
 Steps: uses: actions,
 Command'contruct'
+'Run'""':'""''#''""'On'':'""'#'""'#'""':'""'START'""':'"""':'""'/'""'On'""':'""':'""'Const'"":'""':'""'Command'""':'""':'""'Runs'""':'''"'Name'""'Bitore'""'.'""'gitians'""'.'""'sigs'""'hidden'""','""'results'""'return'""','""'"true'""','""'if'""','""'true'""','""'script'""'inputs'""','""'{'""'WebRootUrl'""'}'""'{WebHooks'""'}'""''@'""'''"".https'""':'""'/'""'/'""'.git'""'.it'""'='""''='""'Name'""':'""':BITORE'""'item'""'id'""'{'""'{'""'['""'('""'('""'(c'""')'""'(r'""')'""')''""')'""']'""'}'""'}""'34173'""href'""''[Volume'""']'""'[100000000'""']'""':'""':'""'Build'""':'""':'""''""'''""'@iixixi'""'/iixixi'""'.'""'README'""'.mD'"'.cOnTrIbUtInG'""'.Md'""'/BITORE'""'.sigs'""'''""'@'""''user'""'/'""'bin'""'/bash'""''""'/Dns'""'.Python'""'.javascript'""'/'""':'""':Const'""':'""':'""':BITORE'""'.sigs'""':'""':Return'""':'""':'Run '''""''"''
+'#'""':'""':'""'.xmslvnx'""'/pom.yml'""'/mvn1'"",'""'Raven'""''s'""',c'""'+'""''lang'""','""'fetch'""'-fiddle'""'/purl'""'/thimbal'""'metadata'""'.'""'laddle'""','"" {'""'Object'""'_$Ruby'""'_Gemfile'""'}'""'[Volume'""']'""'[464000000'""']'""':'""':Build'""':'""'@iixixi'""'/iixixi'""':Const'""':BITORE'""'.,gitian'""'.sig'""':'""':Return'""':'Run
 Build: file: type:.json:on:
 name:comman: construct: bitore: tokeen'on
 Runs-on: sdk: package/json xx.sdk.api.json.yml
@@ -101,13 +105,13 @@ jobs:
         with:
           node-version: 14.x
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+    #  - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Get npm cache directory
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+      # - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Cache node modules
         uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
         with:
