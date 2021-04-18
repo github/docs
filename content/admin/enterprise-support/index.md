@@ -22,3 +22,4 @@ topics:
     {% link_in_list /preparing-to-submit-a-ticket %}
     {% link_in_list /submitting-a-ticket %}
     {% link_in_list /providing-data-to-github-support %}
+iPhone XR is admin 
