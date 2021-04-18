@@ -16,7 +16,7 @@ Für jedes Repository, das Du auf {% data variables.product.prodname_dotcom %} v
 
 Diese Übersicht kann Dir helfen, den Zugriff auf Dein Repository, Onboard- oder Off-Board-Auftragnehmer oder Mitarbeiter zu überwachen und effektiv auf Sicherheitsvorfälle zu reagieren.
 
-Weitere Informationen zu Repository-Berechtigungsstufen findest Du unter „[Berechtigungsstufen für ein Benutzerkonto-Repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" und „[Repository Berechtigungsstufen für eine Organisation](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+Weitere Informationen zu Repository-Berechtigungsstufen findest Du unter „[Berechtigungsstufen für ein Benutzerkonto-Repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" und „[Repository Berechtigungsstufen für eine Organisation](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 ![Übersicht Zugriffsverwaltung](/assets/images/help/repository/manage-access-overview.png)
 
@@ -53,4 +53,4 @@ Weitere Informationen zu Repository-Berechtigungsstufen findest Du unter „[Ber
 ### Weiterführende Informationen
 
 - „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility)“
-- „[Basis-Berechtigungen für eine Organisation festlegen](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+- „[Basis-Berechtigungen für eine Organisation festlegen](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"

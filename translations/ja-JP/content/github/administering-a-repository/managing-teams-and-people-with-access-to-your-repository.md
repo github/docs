@@ -16,7 +16,7 @@ topics:
 
 この概要は、リポジトリ、オンボードまたはオフボードの独立契約者または従業員へのアクセスを監査し、セキュリティインシデントに効果的に対応するのに役立ちます。
 
-リポジトリの権限レベルについての詳細は、「[ユーザアカウントのリポジトリ権限レベル](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)」および「[Organization のリポジトリ権限レベル](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)」を参照してください。
+リポジトリの権限レベルについての詳細は、「[ユーザアカウントのリポジトリの権限レベル](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)」および「[Organization のリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 
 ![アクセス管理の概要](/assets/images/help/repository/manage-access-overview.png)
 
@@ -53,4 +53,4 @@ topics:
 ### 参考リンク
 
 - 「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」
-- 「[Organization の基本レベルの権限の設定](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)」
+- 「[Organization の基本レベルの権限の設定](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)」

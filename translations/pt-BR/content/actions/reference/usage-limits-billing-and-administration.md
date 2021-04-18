@@ -70,7 +70,7 @@ Além dos limites de uso, você deve garantir que você usa
 Para obter mais informações, consulte:
 
 - [Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros no seu repositório](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua organização](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua organização](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
 - [Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua empresa](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
@@ -80,7 +80,7 @@ Para obter mais informações, consulte:
 
 Para obter mais informações, consulte:
 - "[Desabilitar ou limitar {% data variables.product.prodname_actions %} para um repositório](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)"
-- "[Desabilitar ou limitar {% data variables.product.prodname_actions %} para a sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Desabilitar ou limitar {% data variables.product.prodname_actions %} para a sua organização](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Aplicar as políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" para {% data variables.product.prodname_ghe_cloud %}{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}

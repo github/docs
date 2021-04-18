@@ -17,6 +17,8 @@ Puedes dar crédito a las personas que ayudaron a descubrir, reportar, o arregla
 
 Si alguien acepta el crédito, el nombre de usuario de la persona aparecerá en la sección "Créditos" de la asesoría de seguridad. Cualquiera con acceso de lectura al repositorio puede ver la asesoría y las personas que aceptaron el crédito por ella.
 
+If you believe you should be credited for a security advisory, please contact the person who created the advisory and ask them to edit the advisory to include your credit. Only the creator of the advisory can credit you, so please don't contact GitHub Support about credits for security advisories.
+
 ### Editar una asesoría de seguridad
 
 {% data reusables.repositories.navigate-to-repo %}

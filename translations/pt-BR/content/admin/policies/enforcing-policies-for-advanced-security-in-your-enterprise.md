@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for Advanced Security in your enterprise
-intro: 'Enterprise owners can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features for organizations on {% data variables.product.product_location %}.'
+title: Aplicar políticas de Segurança Avançada na sua empresa
+intro: 'Os proprietários da empresa podem aplicar políticas para gerenciar funcionalidades de {% data variables.product.prodname_GH_advanced_security %} para as organizações em {% data variables.product.product_location %}.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'

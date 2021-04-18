@@ -86,18 +86,18 @@ GitHub Appが`login`パラメータを指定すると、ユーザに対して利
 
 デフォルトでは、レスポンスは以下の形式になります。
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 Acceptヘッダに応じて、異なる形式でコンテンツを受け取ることもできます。
 
     Accept: application/json
-    {"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a", "scope":"repo,gist", "token_type":"bearer"}
+    {"access_token":"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
     
     Accept: application/xml
     <OAuth>
       <token_type>bearer</token_type>
       <scope>repo,gist</scope>
-      <access_token>e72e16c7e42f292c6912e7710c838347ae178b4a</access_token>
+      <access_token>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
     </OAuth>
 
 #### 3. アクセストークンを使ったAPIへのアクセス
@@ -207,7 +207,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ```json
 {
- "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+ "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "user"
 }
@@ -304,3 +304,7 @@ OAuthアプリケーションへの認可情報へリンクし、ユーザがア
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * 「[デバイスフローのエラー](#errors-for-the-device-flow)」
 {% endif %}
+
+### 参考リンク
+
+- "[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)"

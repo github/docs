@@ -13,7 +13,7 @@ Certain apps on the {% data variables.product.prodname_marketplace %} have the {
 
 - Verified ownership of their domain and has a verified badge on their profile
 - Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. 詳しい情報については [Organization で 2 要素認証を要求する](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)を参照してください。
+- Required two-factor authentication for their organization. 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。
 
 ![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

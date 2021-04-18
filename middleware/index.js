@@ -109,6 +109,7 @@ module.exports = function (app) {
   app.use(instrument('./contextualizers/graphql'))
   app.use(instrument('./contextualizers/rest'))
   app.use(instrument('./contextualizers/webhooks'))
+  app.use(asyncMiddleware(instrument('./contextualizers/whats-new-changelog')))
   app.use(asyncMiddleware(instrument('./breadcrumbs')))
   app.use(asyncMiddleware(instrument('./early-access-breadcrumbs')))
   app.use(asyncMiddleware(instrument('./enterprise-server-releases')))

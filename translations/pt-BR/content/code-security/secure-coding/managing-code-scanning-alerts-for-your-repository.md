@@ -45,7 +45,14 @@ Você precisa de permissão de gravação para visualizar um resumo de todos os 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Em "{% data variables.product.prodname_code_scanning_capc %}", clique no alerta que você gostaria de explorar. ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+1. Opcionalmente, use os menus suspensos para filtrar alertas. Por exemplo, você pode filtrar pela ferramenta usada para identificar alertas. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. Em "{% data variables.product.prodname_code_scanning_capc %}", clique no alerta que você gostaria de explorar.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+  ![Resumo dos alertas](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -57,7 +64,11 @@ Se você tem permissão de escrita em um repositório, você pode visualizar ale
 
 Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o menu suspenso "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)
+{% else %}
+![Filtrar alertas por branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+{% endif %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -110,11 +121,19 @@ Para ignorar ou excluir alertas:
 
    Opcionalmente, você pode usar os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas de correspondência de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filtrar alertas por regra](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+{% else %}
+  ![Filtrar alertas por regra](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
+{% endif %}
 
 1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
    ![Abrir um alerta da lista de resumo](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 
 1. Revise o alerta e clique em **Ignorar** e escolha um motivo para fechar o alerta. ![Escolher um motivo para ignorar um alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 

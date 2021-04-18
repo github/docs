@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %}ディスカッションに関する詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。
 
-Organization のオーナーは、Organization が所有するリポジトリのディスカッションを作成するために必要な権限を選択できます。 詳しい情報については、「[Organization 内のリポジトリのディスカッションの作成を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)」を参照してください。
+Organization のオーナーは、Organization が所有するリポジトリのディスカッションを作成するために必要な権限を選択できます。 詳しい情報については、「[Organization 内のリポジトリのディスカッションの作成を管理する](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)」を参照してください。
 
 ディスカッションのメンテナとして、コミュニティリソースを作成して、プロジェクト全体の目標に沿ったディスカッションを促し、コラボレータのための親しみやすいオープンフォーラムを維持できます。 コラボレータが従う行動規範またはコントリビューションガイドラインを作成することは、協力的で生産的なフォーラムを促進するのに役立ちます。 コミュニティリソースの作成について詳しくは、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[リポジトリコントリビューター向けのガイドラインを設定する](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
 

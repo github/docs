@@ -13,6 +13,12 @@ Puedes configurar una meta de financiamiento para tu cuenta patrocinada y compar
 
 Tu meta puede configurar un objetivo para la cantidad de patrocinadores que quieres tener o la cantidad de dinero que quieres ganar mensualmente. Solo puedes configurar una meta a la vez. Después de que llegues a tu meta, puedes configurar otra.
 
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
 ### Configurar una meta
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

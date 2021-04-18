@@ -3,18 +3,12 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
-const yaml = require('js-yaml')
 const frontmatter = require('../../lib/read-frontmatter')
 const getDocumentType = require('../../lib/get-document-type')
 const languages = require('../../lib/languages')
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
-
-// The product order is determined by data/products.yml
-const productsFile = path.join(process.cwd(), 'data/products.yml')
-const productsYml = yaml.load(fs.readFileSync(productsFile, 'utf8'))
-const sortedProductIds = productsYml.productsInOrder.concat('early-access')
 
 // This script turns `{% link /<link> %} style content into children: [ -/<link> ] frontmatter arrays.
 //
@@ -32,6 +26,11 @@ const fullDirectoryPaths = Object.values(languages).map(langObj => path.join(pro
 const indexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirectoryPath, walkOpts)).flat()
   .filter(file => file.endsWith('index.md'))
 
+const englishHomepageData = {
+  children: '',
+  externalProducts: ''
+}
+
 indexFiles
   .forEach(indexFile => {
     const relativePath = indexFile.replace(/^.+\/content\//, '')
@@ -39,8 +38,16 @@ indexFiles
 
     const { data, content } = frontmatter(fs.readFileSync(indexFile, 'utf8'))
 
-    if (documentType === 'homepage') {
-      data.children = sortedProductIds
+    // Save the English homepage frontmatter props...
+    if (documentType === 'homepage' && !indexFile.includes('/translations/')) {
+      englishHomepageData.children = data.children
+      englishHomepageData.externalProducts = data.externalProducts
+    }
+
+    // ...and reuse them in the translated homepages, in case the translated files are out of date
+    if (documentType === 'homepage' && indexFile.includes('/translations/')) {
+      data.children = englishHomepageData.children
+      data.externalProducts = englishHomepageData.externalProducts
     }
 
     const linkItems = content.match(linksArray) || []

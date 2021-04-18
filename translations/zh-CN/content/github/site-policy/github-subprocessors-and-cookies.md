@@ -13,7 +13,7 @@ topics:
   - 法律
 ---
 
-生效日期：**2021 年 1 月 29 日**
+Effective date: **April 2, 2021**
 
 GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享您的数据方面提供很大的透明度。 为此，我们提供此页面，以详细介绍了我们的[子处理商](#github-subprocessors)，以及我们如何使用 [cookie](#cookies-on-github)。
 
@@ -33,7 +33,6 @@ GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享�
 | MailChimp                | 客户事件单邮件服务提供商      | 美国   | 美国   |
 | Mailgun                  | 交易邮件服务提供商         | 美国   | 美国   |
 | Microsoft                | Microsoft 服务      | 美国   | 美国   |
-| Monday.com               | 团队协作和项目管理平台       | 美国   | 以色列  |
 | Nexmo                    | 短信通知提供商           | 美国   | 美国   |
 | Salesforce.com           | 客户关系管理            | 美国   | 美国   |
 | Sentry.io                | 应用程序监控提供商         | 美国   | 美国   |

@@ -20,22 +20,7 @@ featuredLinks:
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
-  - 
-    title: 'Local Hack Day: Learnで新しいことを試してみる'
-    date: '2020-10-15'
-    href: https://github.blog/2020-10-15-try-something-new-at-local-hack-day-learn/
-  - 
-    title: 'リモート教育: 共有体験を通じてコミュニティを生み出す'
-    date: '2020-09-24'
-    href: https://github.blog/2020-09-24-remote-education-creating-community-through-shared-experiences/
-  - 
-    title: 'リモート教育: オンラインキャンパスコミュニティのためのベストプラクティスを扱うシリーズ'
-    date: '2020-09-10'
-    href: https://github.blog/2020-09-10-remote-education-a-series-of-best-practices-for-online-campus-communities/
-  - 
-    title: MLHフェローの一期生になろう
-    date: '2020-06-24'
-    href: https://github.blog/2020-06-24-welcome-to-the-inaugural-class-of-mlh-fellows/
+  label: 'education'
 layout: product-landing
 versions:
   free-pro-team: '*'
