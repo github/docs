@@ -110,8 +110,8 @@ The following workflow will run on pushes to `releases/10` or `releases/beta/mon
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -128,7 +128,7 @@ When all the path names match patterns in `paths-ignore`, the workflow will not 
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### Example including paths
@@ -139,7 +139,7 @@ If at least one path matches a pattern in the `paths` filter, the workflow runs.
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### Excluding paths
@@ -160,8 +160,8 @@ This example runs anytime the `push` event includes a file in the `sub-project` 
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git diff comparisons
@@ -392,15 +392,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -470,14 +470,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
