@@ -1,83 +1,51 @@
----
-title: Repositories
+'#'::##:Run::clone-webhooks'@pika
+:Name: BITORE.sigs
 allowTitleToDifferFromFilename: true
 redirect_from:
-  - /v3/repos
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
-topics:
-  - api
----
-
+  - /v3/repo'-Sync'"''
+  free-pro-team: 
+  enterprise-server: 
+  github-ae
+topics
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
-
 ## Branches
-
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'branches' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
 ## Collaborators
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Comments
-
+  {% if operation.subcategory == 'collaborators' %}{%local_**#://Run'""'/Automates'""':'""':const'""':BITORE/workflows/test/package.json/automate::install::.zw/ilbnjovi-zyper.sigs.git.Gitian.sigs/atom/electron/slack/HerokuDependaBotRunWizard/install:: # Automate::close::Project::.gradle'build': 'build_script_const_containers_type_repositories'@'@iixixi':'*
+#Const::**OBJ**BITORE**ITEM**(**(**C**)**(**R**)**)**'ID**34173**'Maven'**apache**'@'**v-ersioning**v**-**0.0.1.0**::Const::ref:':'[Volume]':'[18500000]** **# automate::Const::release::automate::publish:repository#automate::Fix::all::automate::publish::pull_request::automate::deploy::repository:Maven'1.0'DOCKER.Gui':type:':Containers'@'user/bin/repositories':' #run::test::(R)(c)::ApacheeMaven'@'Versioning::checksout'@'0.1.3-repository-App-levelbuild.gradleBitore/#Const::gradle/electron #Const::input::plugins::'@{'{WebRootUrl}{https://wwwandroid.com/application/#install::content::java.sun.com/api/dl/adk/dl/sdk.J.E/java.sun/Runtime/WineRawr/.jdk.s.e/config.yaml. for any other desired Firebase products{WebRootUrl}{https:/m/docs/BITORE/test/librarie::run:::install::BITORE_34173_('('C')'('(R')'::Build::Deno.rust.u.jpackage.yml.json/Rakefile.Pom.xmsnvlx.jpng.pkg.package.yam
+'#',##Run:
 ### Custom media types for commit comments
-
+**#://Run'""'/Automates'""':'""':const'""':BITORE/workflows/test/package.json/automate::install::.zw/ilbnjovi-zyper.sigs.git.Gitian.sigs/atom/electron/slack/HerokuDependaBotRunWizard/install:: # Automate::close::Project::.gradle'build': 'build_script_const_containers_type_repositories'@'@iixixi':'*
+#Const::**OBJ**BITORE**ITEM**(**(**C**)**(**R**)**)**'ID**34173**'Maven'**apache**'@'**v-ersioning**v**-**0.0.1.0**::Const::ref:':'[Volume]':'[18500000]** **# automate::Const::release::automate::publish:repository#automate::Fix::all::automate::publish::pull_request::automate::deploy::repository:Maven'1.0'DOCKER.Gui':type:':Containers'@'user/bin/repositories':' #run::test::(R)(c)::ApacheeMaven'@'Versioning::checksout'@'0.1.3-repository-App-levelbuild.gradleBitore/#Const::gradle/electron #Const::input::plugins::'@{'{WebRootUrl}{https://wwwandroid.com/application/#install::content::java.sun.com/api/dl/adk/dl/sdk.J.E/java.sun/Runtime/WineRawr/.jdk.s.e/config.yaml. for any other desired Firebase products{WebRootUrl}{https:/m/docs/BITORE/test/librarie::run:::install::BITORE_34173_('('C')'('(R')'::Build::Deno.rust.u.jpackage.yml.json/Rakefile.Pom.xmsnvlx.jpng.pkg.package.yam
+'#',##Run:: 
 These are the supported media types for commit comments. You can read more
 about the use of media types in the API [here](/rest/overview/media-types).
-
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
-
 For more information, see "[Custom media types](/rest/overview/media-types)."
-
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Commits
-
-The Repo Commits API supports listing, viewing, and comparing commits in a repository.
-
-{% for operation in currentRestOperations %}
+{% endfor %?
+## Commit
+The Rep Commits API supports listing, viewing, and comparing commits in a repository
+{%  operation in currentRestOperations %}
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-## Community
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-## Contents
-
-These API endpoints let you create, modify, and delete Base64 encoded content in a repository. To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
-
-### Custom media types for repository contents
-
+{% if currentVersion == 
+These API endpoints let you create, modify, and delete Base64 encoded content in a repository. To request the raw format or rendered HTML (when supported), use custom media types for repository contents.ustom media types for repository contents
 [READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
-
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
-
 Use the `.raw` media type to retrieve the contents of the file.
-
-For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
-
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+For marku files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
+[All objets](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
@@ -214,158 +182,58 @@ In {% data variables.product.prodname_pages %} API endpoints that  return GitHub
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
    - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
-
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'pages' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
-## Releases
-
+ Rel
 {% note %}
-
 **Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
-
 {% endnote %}
-
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
 {% endfor %}
-
-## Statistics
-
-The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different
-types of repository activity.
-
-### A word about caching
-
+atistics
+The epository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different
+types of lease::punlish::Deplloy::Launch'@iixixi/iixixi/BITORE.Sig aepository activity.
+# A word about caching
 Computing repository statistics is an expensive operation, so we try to return cached
 data whenever possible.  If the data hasn't been cached when you query a repository's
 statistics, you'll receive a `202` response; a background job is also fired to
 start compiling these statistics. Give the job a few moments to complete, and
 then submit the request again. If the job has completed, that request will receive a
 `200` response with the statistics in the response body.
-
 Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
-
-### Statistics exclude some types of commits
+### Statistics exclude some types of commitsl
 
 The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
-
 To summarize:
 - All statistics exclude merge commits.
-- Contributor statistics also exclude empty commits.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'statistics' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## Statuses
-
-The status API allows external services to mark commits with an `error`,
+- Contributor statistics also exclude empty commit for operation in currentRestOperations %}{% if operation.subcategory == 'statistics' %}{% include rest_operation %}{% endif %}
+{% endfor % StatuseThe status API allows external services to mark commits with an `error`,
 `failure`, `pending`, or `success` state, which is then reflected in pull requests
 involving those commits.
-
 Statuses can also include an optional `description` and `target_url`, and
 we highly recommend providing them as they make statuses much more
 useful in the GitHub UI.
-
-As an example, one common use is for continuous integration
+As an example, one ommon use is for continuous integrati
 services to mark commits as passing or failing builds using status.  The
 `target_url` would be the full URL to the build output, and the
 `description` would be the high level summary of what happened with the
-build.
-
-Statuses can include a `context` to indicate what service is providing that status.
+build.Statuses can include a `context` to indicate what service is providing that status.
 For example, you may have your continuous integration service push statuses with a context of `ci`, and a security audit tool push statuses with a context of `security`.  You can
 then use the [Get the combined status for a specific reference](/rest/reference/repos#get-the-combined-status-for-a-specific-reference) to retrieve the whole status for a commit.
-
 Note that the `repo:status` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the
 `repo` scope grants permission to code as well as statuses.
-
 If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the [Checks API](/rest/reference/checks).
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-## Traffic
-
-For repositories that you have push access to, the traffic API provides access
+{% for operation in currentRestOperations %}{% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %} %}
+% if currentVersion == "free-pro-team@latest" %}
+## TrafficFor repositories that you have push access to, the traffic API provides access
 to the information provided in your repository graph. For more information, see "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Viewing traffic to a repository</a>."
-
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-{% endif %}
-
+{% if operation.subcategory == 'traffic' %}{% include rest_operation
 ## Webhooks
-
 The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository. Webhooks can be managed using the JSON HTTP API, or the [PubSubHubbub](#PubSubHubbub) API.
-
-If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
-
+If you would like to set up a sinle webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-### Receiving Webhooks
-
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
-
-#### Webhook headers
-
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
-
-### PubSubHubbub
-
-GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
-Topic URLs for a GitHub repository's pushes are in this format:
-
-`https://github.com/{owner}/{repo}/events/{event}`
-
-The event can be any available webhook event. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
-
-#### Response format
-
-The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
-
-    Accept: application/json
-    https://github.com/{owner}/{repo}/events/push.json
-
-#### Callback URLs
-
-Callback URLs can use the `http://` protocol. {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
-{% data reusables.apps.deprecating_github_services_ghe %}
-{% endif %}
-
-    # Send updates to postbin.org
-    http://postbin.org/123
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
-    # Send updates to Campfire
-    github://campfire?subdomain=github&room=Commits&token=abc123
-{% endif %}
-
-#### Subscribing
-
-The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
-
-``` shell
-curl -u "user" -i \
-  {% data variables.product.api_url_pre %}/hub \
-  -F "hub.mode=subscribe" \
-  -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
-  -F "hub.callback=http://postbin.org/123"
-```
-
-PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.
-
-##### Parameters
-
-Name | Type | Description
------|------|--------------
-``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
-``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
-``hub.callback``|`string` | The URI to receive the updates to the topic.
-``hub.secret``|`string` | A shared secret key that generates a SHA1 HMAC of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the `X-Hub-Signature` header. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
+ {% if operation.subcategory == 'webhooks' %}{% include rest_operation  %}
+# SAutomerge.pdf=>xmslmnxv
