@@ -141,7 +141,7 @@ You can disable some of the badges for {% data variables.product.prodname_dotcom
 
 ### List of qualifying repositories for Mars 2020 Helicopter Contributor badge
 
-If you authored any commit(s) on the default branch of one or more of the repositories below, up to the specified version, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. 
+If you authored any commit(s) on the default branch of one or more of the repositories below, up to the specified version, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The list was built based on the information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version |
 |---|---|
