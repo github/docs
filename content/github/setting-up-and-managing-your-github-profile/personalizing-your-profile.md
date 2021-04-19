@@ -145,7 +145,8 @@ If you authored any commit(s) on the default branch of one or more of the reposi
 
 | {% data variables.product.prodname_dotcom %} Repository | Version |
 |---|---|
-| [torvalds/linux](https://github.com/torvalds/linux) | 3.4
+| [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | 
+| [nasa/fprime](https://github.com/nasa/fprime) | 1.3 |
 | [python/cpython](https://github.com/python/cpython) | 3.9.2 |
 | [boto/boto3](https://github.com/boto/boto3) | 1.17.17 |
 | [boto/botocore](https://github.com/boto/botocore) | 1.20.11 |
@@ -178,7 +179,6 @@ If you authored any commit(s) on the default branch of one or more of the reposi
 | [pallets/click](https://github.com/pallets/click) | 7.0 |
 | [pallets/flask](https://github.com/pallets/flask) | 1.1.1 |
 | [flask-restful/flask-restful](https://github.com/flask-restful/flask-restful) | 0.3.7 |
-| [nasa/fprime](https://github.com/nasa/fprime) | 1.3 |
 | [pytest-dev/iniconfig](https://github.com/pytest-dev/iniconfig) | 1.0.0 |
 | [pallets/itsdangerous](https://github.com/pallets/itsdangerous) | 1.1.0 |
 | [pallets/jinja](https://github.com/pallets/jinja) | 2.10.3 |
@@ -193,11 +193,17 @@ If you authored any commit(s) on the default branch of one or more of the reposi
 | [pyparsing/pyparsing](https://github.com/pyparsing/pyparsing) | 2.4.5 |
 | [pytest-dev/pytest](https://github.com/pytest-dev/pytest) | 5.3.0 |
 | [stub42/pytz](https://github.com/stub42/pytz) | 2019.3 |
-| [dmnfarrell/tkintertable](https://github.com/dmnfarrell/tkintertable) | 1.2 |
 | [uiri/toml](https://github.com/uiri/toml) | 0.10.0 |
 | [pallets/werkzeug](https://github.com/pallets/werkzeug) | 0.16.0 |
+| [dmnfarrell/tkintertable](https://github.com/dmnfarrell/tkintertable) | 1.2 |
 | [wxWidgets/wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic) | 2.9.1.1 |
-
+| [opencv/opencv](https://github.com/opencv/opencv) | 4.5.1 |
+| [curl/curl](https://github.com/curl/curl) | 7.19.0 |
+| [madler/zlib](https://github.com/madler/zlib) | 1.2.11 |
+| [apache/lucene](https://github.com/apache/lucene) | 7.7.3 |
+| [yaml/libyaml](https://github.com/yaml/libyaml) | 0.2.5 |
+| [elastic/elasticsearch](https://github.com/elastic/elasticsearch) | 6.8.1 |
+| [nucleic/cppy](https://github.com/nucleic/cppy) | 1.1.0 |
 
 ### Further reading
 
