@@ -731,6 +731,7 @@ You use the following options to specify access settings. Registry settings must
 | `url`                      | The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, `https://` is assumed. {% data variables.product.prodname_dependabot %} adds or ignores trailing slashes as required. |
 | `username`                 | The username that {% data variables.product.prodname_dependabot %} uses to access the registry. |
 | `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)." |
+| `key`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)." |
 | `token`                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)." |
 | `replaces-base`            | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`). |
 
@@ -792,6 +793,20 @@ registries:
     url: https://github.com
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `hex-organization` 
+
+The `hex-organization` type supports organization and key.
+
+{% raw %}
+```yaml
+registries:
+  github-hex-org:
+    type: hex-organization
+    organization: github
+    key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
 {% endraw %}
 
