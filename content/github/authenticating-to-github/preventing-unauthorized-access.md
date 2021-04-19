@@ -25,3 +25,4 @@ After changing your password, you should perform these actions to make sure that
 - [Make sure that no new deploy keys](/guides/managing-deploy-keys/#deploy-keys) were created. This could enable outside servers access to your projects.
 - Review recent commits made to your repositories.
 - Review the list of collaborators for each repository.
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
