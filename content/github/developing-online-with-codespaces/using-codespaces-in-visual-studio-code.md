@@ -4,6 +4,7 @@ intro: 'You can develop in your codespace directly in {% data variables.product.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
+  - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
 versions:
   free-pro-team: '*'
 topics:
@@ -27,7 +28,7 @@ To develop in a codespace directly in {% data variables.product.prodname_vscode 
 
 ### Creating a codespace in {% data variables.product.prodname_vscode %}
 
-After you connect your {% data variables.product.product_name %} account to the {% data variables.product.prodname_vs_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} or in {% data variables.product.prodname_vscode %}.
+After you connect your {% data variables.product.product_name %} account to the {% data variables.product.prodname_github_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} or in {% data variables.product.prodname_vscode %}.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Click the Add icon, then click **Create New Codespace**.
