@@ -31,7 +31,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Dropdownmenü, um den aktuellen Branch zu wechseln](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![Dropdownmenü, um den aktuellen Branch zu wechseln](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
   ![Option „New Branch“ (Neuer Branch) im Branch-Menü](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
@@ -62,12 +62,11 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
 
-1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to publish. ![Drop-down menu to select which branch to publish](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to publish. ![Drop-down menu to select which branch to publish](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Click **Publish branch**. ![The Publish branch button](/assets/images/help/desktop/publish-branch-button.png)
 
 ### Zwischen Branches wechseln
-Du kannst Commits auf allen Branches Deiner Repositorys anzeigen und durchführen. Wenn Du Änderungen gespeichert hast, die nicht per Commit übertragen wurden, musst Du Dich entscheiden, was mit Deinen Änderungen geschehen soll, bevor Du den Branch wechseln kannst. Du kannst Deine Änderungen per Commit zum aktuellen Branch übertragen, auf dem aktuellen Branch per Stash verbergen oder zu Deinem neuen Branch übertragen. Wenn Du Deine Änderungen per Commit auf den aktuellen Branch übertragen möchtest, solltest Du vor dem Wechseln der Branches die unter „[Änderungen an Deinem Projekt per Commit übertragen und überprüfen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)“ beschriebenen Schritte befolgen.
-
+Du kannst Commits auf allen Branches Deiner Repositorys anzeigen und durchführen. Wenn Du Änderungen gespeichert hast, die nicht per Commit übertragen wurden, musst Du Dich entscheiden, was mit Deinen Änderungen geschehen soll, bevor Du den Branch wechseln kannst. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
 **Tipp**: Du kannst ein Standardverhalten für das Wechseln zwischen Branches in den **Advanced** (Erweiterten) Einstellungen festlegen. For more information, see "[Configuring basic settings](/desktop/getting-started-with-github-desktop/configuring-basic-settings)."
@@ -76,17 +75,8 @@ Du kannst Commits auf allen Branches Deiner Repositorys anzeigen und durchführe
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![Liste der Branches im Repository](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![Liste der Branches im Repository](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. Wenn Du Änderungen gespeichert, aber noch nicht per Commit übertragen hast, wähle **Leave my changes** (Meine Änderungen vergessen) oder **Bring my changes** (Meine Änderungen mitnehmen) aus, und klicke anschließend auf **Switch Branch** (Branch wechseln). ![Optionen zum Wechseln des Branches mit Änderungen](/assets/images/help/desktop/stash-changes-options.png)
-
-### Gestashte Änderungen abrufen
-Um auf die Änderungen zuzugreifen, die Sie im anderen Branch gestasht haben, wechseln Sie zurück zum Branch, auf dem Sie die Änderungen gestasht haben.
-
-{% data reusables.desktop.current-branch-menu %}
-{% data reusables.desktop.switching-between-branches %}
-  ![Liste der Branches im Repository](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-3. Klicke auf der linken Seitenleiste auf **Stashed Changes** (Versteckte Änderungen). ![Option für gestashte Änderungen](/assets/images/help/desktop/stashed-changes.png)
-4. Klicke zum Löschen Deiner versteckten Änderungen auf **Discard** (Verwerfen). Klicke zum Verwenden Deiner versteckte Änderungen auf **Restore** (Wiederherstellen). ![Gestashte Änderungen verwerfen oder wiederherstellen](/assets/images/help/desktop/discard-restore-stash-buttons.png)
 
 ### Branch löschen
 
@@ -95,7 +85,7 @@ Du kannst einen Branch nicht löschen, wenn er derzeit einem offenen Pull Reques
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
 
@@ -104,7 +94,7 @@ Du kannst einen Branch nicht löschen, wenn er derzeit einem offenen Pull Reques
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
 
@@ -116,3 +106,4 @@ Du kannst einen Branch nicht löschen, wenn er derzeit einem offenen Pull Reques
 - „[Branch](/articles/github-glossary/#branch)“ im {% data variables.product.prodname_dotcom %}-Glossar
 - „[Informationen zu Branches](/articles/about-branches)“
 - „[Branches auf einen Blick](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)“ in der Git-Dokumentation
+- "[Stashing changes](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)"

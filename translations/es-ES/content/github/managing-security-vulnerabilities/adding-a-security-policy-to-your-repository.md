@@ -35,7 +35,7 @@ Después de que alguien reporte una vulnerabilidad de seguridad en tu proyecto, 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-### Further reading
+### Leer más
 
 - [Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository)"
 - "[Configurar tu proyecto para contribuciones positivas](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"

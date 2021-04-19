@@ -1,7 +1,7 @@
 ---
-title: Get started with GitHub Classroom
+title: GitHub Classroomを使ってみる
 shortTitle: 始めましょう！
-intro: Learn how to configure and use {% data variables.product.prodname_classroom %} to administer your course.
+intro: '{% data variables.product.prodname_classroom %} の設定および使用方法を学び、コースを運営しましょう。'
 mapTopic: true
 versions:
   free-pro-team: '*'

@@ -9,13 +9,13 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEFINED BELOW), CUSTOMER ACCEPTS THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER IS ENTERING INTO THIS AGREEMENT ON BEHALF OF A LEGAL ENTITY, CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE LEGAL ENTITY TO THIS AGREEMENT.
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud) and GitHub One;
+-   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
 -   Any Beta Previews;
 
@@ -212,7 +212,7 @@ This Section 2 details terms applicable to Customer’s use of the Software.
 
 ### 2.1 License Grant.
 
-GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to install and use the Software for Customer’s internal business purposes during the applicable Subscription Term, in accordance with the Documentation, and only for the number of Subscription Licenses stated in Customer’s Order Form. The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request. Without limiting the foregoing, this license permits Customer to download and run Microsoft SQL Server Standard Edition container image for Linux files (“**SQL Server Images**”), which may be used only with the Software as documented. Customer’s right to use the SQL Server Images ends when Customer no longer has rights to use the Software, and Customer must uninstall the SQL Server Images when its right to use them ends. Microsoft Corporation may disable SQL Server Images at any time. 
+GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to install and use the Software for Customer’s internal business purposes during the applicable Subscription Term, in accordance with the Documentation, and only for the number of Subscription Licenses stated in Customer’s Order Form. The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request. Without limiting the foregoing, this license permits Customer to download and run Microsoft SQL Server Standard Edition container image for Linux files (“**SQL Server Images**”), which may be used only with the Software as documented. Customer’s right to use the SQL Server Images ends when Customer no longer has rights to use the Software, and Customer must uninstall the SQL Server Images when its right to use them ends. Microsoft Corporation may disable SQL Server Images at any time.
 
 ### 2.2 License Restrictions.
 
@@ -320,11 +320,11 @@ Customer is responsible for managing access to its Private Repositories, includi
 GitHub considers Customer Content in Customer’s Private Repositories to be Customer’s Confidential Information. GitHub will protect and keep strictly confidential the Customer Content of Private Repositories in accordance with Section 1.4.
 
 #### 3.4.3 Access.
-GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents). 
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
 Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
 
-Additionally, we may be [compelled by law](/github/site-policy/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories. 
+Additionally, we may be [compelled by law](/github/site-policy/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories.
 
 GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
@@ -405,8 +405,6 @@ Some Service features may be subject to additional terms as set forth in the [Gi
 **"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
 
 **"GitHub Insights"** or **“Insights”** means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software. GitHub Insights does not include legacy features of GitHub including Organization insights and repository insights.
-
-**“GitHub One”** means the Product bundle which includes GitHub Enterprise, Advanced Security, Insights, Learning Lab for Enterprise Server, and Premium Plus or Engineering Direct Support.
 
 **"Learning Lab for Enterprise Server"** means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 

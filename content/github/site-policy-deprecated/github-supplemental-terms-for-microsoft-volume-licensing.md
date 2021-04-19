@@ -9,13 +9,13 @@ versions:
   free-pro-team: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
 
 The following GitHub Supplemental Terms (including any applicable Order Forms) supplement Customer's Microsoft volume licensing agreement ("**Microsoft Customer Agreement**") and, together with the Microsoft Customer Agreement, govern Customer's use of the Products (as defined below). The Microsoft Customer Agreement is incorporated herein by this reference.  Capitalized terms used but not defined in these supplemental terms have the meanings assigned to them in the Microsoft Customer Agreement.
 
 These Supplemental Terms apply to the following GitHub Offerings, as further defined below (collectively, the "**Products**"):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud) and GitHub One;
+-   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
 
 -   Any related Support; and
 
@@ -39,7 +39,7 @@ This Section 1 details terms applicable to Customer’s use of the Software.
 
 ### 1.1 License Grant.
 
-GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to install and use the Software for Customer’s internal business purposes during the applicable Subscription Term, in accordance with the Documentation, and only for the number of Subscription Licenses stated in Customer’s Order Form. The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request. Without limiting the foregoing, this license permits Customer to download and run Microsoft SQL Server Standard Edition container image for Linux files (“**SQL Server Images**”), which may be used only with the Software as documented. Customer’s right to use the SQL Server Images ends when Customer no longer has rights to use the Software, and Customer must uninstall the SQL Server Images when its right to use them ends. Microsoft Corporation may disable SQL Server Images at any time. 
+GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to install and use the Software for Customer’s internal business purposes during the applicable Subscription Term, in accordance with the Documentation, and only for the number of Subscription Licenses stated in Customer’s Order Form. The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request. Without limiting the foregoing, this license permits Customer to download and run Microsoft SQL Server Standard Edition container image for Linux files (“**SQL Server Images**”), which may be used only with the Software as documented. Customer’s right to use the SQL Server Images ends when Customer no longer has rights to use the Software, and Customer must uninstall the SQL Server Images when its right to use them ends. Microsoft Corporation may disable SQL Server Images at any time.
 
 ### 1.2 Restrictions.
 
@@ -273,8 +273,6 @@ In the event of a conflict between the Supplemental Terms, on one hand, and an O
 **"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
 
 **"GitHub Insights"** or **“Insights”** means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software. GitHub Insights does not include legacy features of GitHub including organization insights and repository insights.
-
-**“GitHub One”** means the Product bundle which includes GitHub Enterprise, Advanced Security, Insights, Learning Lab for Enterprise Server, and Premium Plus or Engineering Direct Support.
 
 **"Learning Lab for Enterprise Server"** means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 

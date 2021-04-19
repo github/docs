@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 ### 关于 {% data variables.large_files.product_name_long %} 的计费

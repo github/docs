@@ -13,7 +13,7 @@ versions:
 
 Puede crear tablas con barras verticales `|` y guiones `-`. Los guiones se usan para crear el encabezado de cada columna, mientras que las barras verticales separan cada columna. Debes incluir una línea en blanco antes de tu tabla para que se representen correctamente.
 
-```
+```markdown
 
 | Primer encabezado | Segundo encabezado |
 | ------------- | ------------- |
@@ -27,7 +27,7 @@ Las barras verticales en cada lado de la tabla son opcionales.
 
 Las celdas pueden variar en el ancho y no es necesario que estén perfectamente alineadas dentro de las columnas. Debe haber al menos tres guiones en cada columna de la línea de encabezamiento.
 
-```
+```markdown
 | Comando | Descripción |
 | --- | --- |
 | git status | Enumera todos los archivos nuevos o modificados |
@@ -40,7 +40,7 @@ Las celdas pueden variar en el ancho y no es necesario que estén perfectamente 
 
 Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como enlaces, bloques de códigos insertados y el estilo de texto dentro de tu tabla:
 
-```
+```markdown
 | Comando | Descripción |
 | --- | --- |
 | `git status` | Enumera todos los archivos *nuevos o modificados* |
@@ -51,7 +51,7 @@ Puedes utilizar [formato](/articles/basic-writing-and-formatting-syntax) como en
 
 Puedes alinear el texto a la izquierda, la derecha o en el centro de una columna al incluir dos puntos `:` a la izquierda, la derecha, o en ambos lados de los guiones dentro de la línea de encabezamiento.
 
-```
+```markdown
 | Alineado a la izquierda | Alineado en el centro | Alineado a la derecha |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
@@ -62,7 +62,7 @@ Puedes alinear el texto a la izquierda, la derecha o en el centro de una columna
 
 Para incluir una barra vertical `|` como contenido dentro de tu celda, utiliza una `\` antes de la barra:
 
-```
+```markdown
 | Nombre     | Símbolo |
 | ---      | ---       |
 | Comilla simple | `         |
@@ -71,7 +71,7 @@ Para incluir una barra vertical `|` como contenido dentro de tu celda, utiliza u
 
 ![Tabla presentada con una barra vertical liberada](/assets/images/help/writing/table-escaped-character-rendered.png)
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

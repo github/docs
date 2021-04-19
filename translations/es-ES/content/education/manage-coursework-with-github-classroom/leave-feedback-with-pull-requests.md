@@ -26,6 +26,6 @@ Para crear y acceder a la solicitud de cambios de retroalimentación, debes habi
 1. A la derecha de la emisión, da clic en **Revisar**. ![Botón de revisar para la tarea en una lista de emisiones de una tarea](/assets/images/help/classroom/assignments-click-review-button.png)
 1. Revisar la solicitud de cambios. Para obtener más información, consulta "[Comentar en una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)."
 
-### Further reading
+### Leer más
 
 - "[Integrar a {% data variables.product.prodname_classroom %} con un IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"

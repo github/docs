@@ -1,0 +1,40 @@
+---
+date: '2021-03-23'
+intro: 複数のお客様に影響する重大なバグのため、ダウンロードは無効になりました。修正は次回のパッチで利用可能になります。
+sections:
+  security_fixes:
+    - '**高:** GitHubPagesのサイトをビルドする際に利用される可能性があるリモートコード実行の脆弱性が、GitHub Enterprise Serverで特定されました。GitHub Pagesが使用するユーザが制御する設定オプションが十分に厳密ではなく、環境変数を上書きできてしまい、GitHub Enterprise Serverインスタンス上でコマンドを実行できてしまいます。この脆弱性を利用するには、攻撃者はGitHub Enterprise Serverインスタンス上でGitHub Pagesのサイトを作成してビルドする権限を持っていなければなりません。この脆弱性は3.0.3以前のすべてのバージョンのGitHub Enterprise Serverに影響し、3.0.3、2.22.9、2.21.17で修正されました。この脆弱性はGitHub Bug Bountyプログラムを通じて報告され、CVE-2021-22864が割り当てられました。'
+    - パッケージは最新のセキュリティバージョンにアップデートされました。
+  bugs:
+    - '`ghe-cluster-config-init`を実行すると、クラスタが動作しなくなることがありました。'
+    - GUI中でのマージコンフリクトの解決が、リポジトリでカスタムのpre-receiveフックが設定されている場合に失敗します。
+    - '`launch-deployer`及び`launch-receiver`がDEBUGレベルでロギングされ、不要な情報でログを埋めてしまいました。'
+    - システムがHAProxyのPIDを見失うことがありました。
+    - アクションがS3ストレージを使うように設定されていると、アクションのログのロードに失敗することがあります。
+    - 成功したフェイルオーバーの後、mysql-failoverの警告が無期限に表示されました。
+    - '`ghe-cluster-config-init`の実行でバックグラウンドジョブの終了コードが完全に考慮されておらず、プリフライトチェックが不適切に処理されることにつながっていました。'
+    - GitHub Actionsを有効化する際に、初期化が何の反応もなしに失敗することがありました。
+    - 脆弱性アラートが有効になっていると、3.0シリーズへのアップグレードに失敗します。
+    - Codespacesに関連するジョブがキューに追加され、未処理のジョブが蓄積されることになりました。
+  changes:
+    - consulとnormadの`bootstrap_expect`に相対的な値を使用することによって、クラスタは少数のノードがダウンしている場合でもブートストラップできます。
+    - ログが、時間に加えてサイズに基づいてローテートされます。
+    - '`ghe-cluster-status`コマンドにkafka-liteを追加しました。'
+  known_issues:
+    - 新しくセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理ユーザを作成できました。
+    - カスタムのファイアウォールのルールは、アップグレードの際に維持されません。
+    - Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。
+    - 同じリポジトリ内のファイルパスが255文字を超えるblobへのパーマリンクを含むIssueをクローズできませんでした。
+    - GitHub Connectで"Users can search GitHub.com"が有効化されている場合、GitHub.comの検索結果にプライベート及びインターナルリポジトリのIssueが含まれません。
+    - メンテナンスモードが有効化されているとき、サービスの中に引き続き"active processes"としてリストされるものがあります。特定されたサービスは、メンテナンスモード中にも実行されることが期待されるものです。この問題が生じており、不確実な場合は[GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us)もしくは[GitHub Premium Support](https://premium.githubsupport.com/)にお問い合わせください。
+    - ノートブックに非ASCIIのUTF-8文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。
+    - Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。
+    - Pagesの古いビルドがクリーンアップされず、ユーザディスク(`/data/user/`)を使い切ってしまうことがあります。
+    - |
+      ログのローテーションが新しいログファイルへの移行をサービスに通知するのに失敗し、古いログファイルが使われ続け、最終的にルートディスクの領域が枯渇してしまうことがあります。
+      この問題を緩和し、回避するために、以下のコマンドを[管理シェル](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH)で実行するか、 [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us)あるいは[GitHub Premium Support](https://premium.githubsupport.com/)に連絡して支援を求めてください。
+
+      ```
+      printf "PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/enterprise:/usr/sbin:/usr/bin:/sbin:/bin\n29,59 * * * * root /usr/sbin/logrotate /etc/logrotate.conf\n" | sudo sponge /etc/cron.d/logrotate
+      sudo /usr/sbin/logrotate -f /etc/logrotate.conf
+      ```

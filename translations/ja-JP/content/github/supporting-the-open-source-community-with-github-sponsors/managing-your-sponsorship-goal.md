@@ -1,17 +1,25 @@
 ---
 title: スポンサーシップ目標を管理する
-intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
+intro: コミュニティがあなたをスポンサーすることによる影響を把握できるように、スポンサード開発者またはスポンサード Organization アカウントに対して目標を設定することができます。
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### スポンサーシップ目標について
 
-You can set a funding goal for your sponsored account and share the goal with your community. 目標を設定すると、オープンソースコミュニティにおける自分の影響を把握し、{% data variables.product.prodname_sponsors %} プログラムで影響力を持てるようになります。
+スポンサードアカウントの資金獲得目標を設定し、その目標をコミュニティと共有することができます。 目標を設定すると、オープンソースコミュニティにおける自分の影響を把握し、{% data variables.product.prodname_sponsors %} プログラムで影響力を持てるようになります。
 
 目標には、確保したいスポンサーの数、または毎月集めたい金額を設定できます。 一度に設定できる目標は 1 つだけです。 目標に達したら、次の目標を設定できます。
 
-### Setting a goal
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
+### 目標の設定
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-your-goals-tab %}

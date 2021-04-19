@@ -96,15 +96,13 @@ describe('liquid helper tags', () => {
 
   test('link_as_article_card', async () => {
     const template = '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
-    const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="">
-  <a class="no-underline d-flex flex-column py-4 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
-    <h4 class="h4 text-gray-dark mb-1">Contributing and collaborating using GitHub Desktop</h4>
-    <div class="text-purple h6 text-uppercase"></div>
-    <p class="text-gray my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>
-  </a>
-</div>`
+    const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="" data-topics="">
+  <a class="no-underline d-flex flex-column py-3 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
+    <h4 class="h4 color-text-primary mb-1">Contributing and collaborating using GitHub Desktop</h4>
+    <div class="h6 text-uppercase"></div>
+    <p class="color-text-secondary my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>`
     const output = await liquid.parseAndRender(template, context)
-    expect(output).toBe(expected)
+    expect(output.includes(expected)).toBe(true)
   })
 
   describe('indented_data_reference tag', () => {

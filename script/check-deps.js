@@ -32,7 +32,6 @@ const main = async () => {
       '@babel/*',
       'babel-preset-env',
       '@primer/*',
-      'querystring',
       'pa11y-ci',
       'sass',
       'babel-loader',
@@ -43,13 +42,13 @@ const main = async () => {
       'style-loader',
       'webpack-cli',
       'browser-date-formatter',
-      'html-truncate',
-      'platform-utils',
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',
       'js-cookie',
-      'clipboard'
+      'mdast-util-from-markdown',
+      'unist-util-visit',
+      'assert'
     ]
   })
 

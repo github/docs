@@ -32,8 +32,7 @@ versions:
 {% data reusables.organizations.org_settings %}
 4. 在左侧，单击 **Packages（包）**。
 5. 在“Improved container support（改进的容器支持）”下，选择“Enable improved container support（启用改进的容器支持）”，然后单击 **Save（保存）**。 ![启用容器注册表支持选项和保存按钮](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
-6. 在“Container creation（容器创建）”下，选择是要启用公共容器映像和/或私有容器映像。
+6. 在“Container creation（容器创建）”下，选择是要启用公共、私有或内部容器映像。
     - 要让组织成员创建公共容器映像，请单击 **Public（公共）**。
     - 要让组织成员创建只对其他组织成员可见的私有容器映像，请单击 **Private（私有）**。 您可以进一步自定义私有容器映像的可见性。 更多信息请参阅“[配置容器映像的访问控制和可见性](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)”。
-
-    ![用于启用公共或私有包的选项 ](/assets/images/help/package-registry/package-creation-org-settings.png)
+    - **仅适用于 {% data variables.product.prodname_ghe_cloud %} ：**要让组织成员创建仅供其他组织成员可见的内部容器映像，请单击 **Internal（内部）**。 ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)

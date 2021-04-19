@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Cuando solicitas agregar o modificar el padre de tu equipo, se envía una solicitud a los mantenedores del equipo padre. Cuando un mantenedor del nuevo equipo padre aprueba tu solicitud, tu equipo se anida como equipo hijo en bajo el equipo padre en la jerarquía de tu organización.
@@ -25,7 +28,7 @@ Si eres propietario de la organización o tienes permisos de mantenedor del equi
 {% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm changes** (Confirmar cambios) para enviar una solicitud para agregar o modificar el padre de tu equipo. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-### Further reading
+### Leer más
 
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Mover un equipo en la jerarquía de tu organización](/articles/moving-a-team-in-your-organization-s-hierarchy)"

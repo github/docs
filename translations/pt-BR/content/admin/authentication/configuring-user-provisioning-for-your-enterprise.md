@@ -28,6 +28,8 @@ O aplicativo de provisionamento no seu IdP comunica-se com {% data variables.pro
 
 {% data reusables.scim.supported-idps %}
 
+Ao configurar o provisionamento de usuário com um IdP compatível, você também pode atribuir ou desatribuir a do aplicativo de {% data variables.product.product_name %} para grupos de usuários. Estes grupos são disponibilizados para os proprietários da organização e mantenedores de equipe em {% data variables.product.product_location %} para mapear para equipes de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sincronizando uma equipe com um grupo de provedores de identidade ](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+
 ### Pré-requisitos
 
 {% if currentVersion == "github-ae@latest" %}
@@ -74,7 +76,7 @@ Você deve ter acesso administrativo no seu IdP para configurar o aplicativo par
 
   | Valor              | Outros nomes                           | Descrição                                                                                                        | Exemplo                                           |
   |:------------------ |:-------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |:------------------------------------------------- |
-  | URL                | URL do inquilino                       | URL para a API de provisionamento SCIM para a sua empresa em {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code>                         |
+  | URL                | URL do inquilino                       | URL para a API de provisionamento SCIM para a sua empresa em {% data variables.product.prodname_ghe_managed %} | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre>                         |
   | Segredo partilhado | Token de acesso pessoal, token secreto | Token para aplicativo no seu IdP para executar tarefas de provisionamento em nome do proprietário de uma empresa | Token de acesso pessoal que você criou no passo 1 |
 
 {% endif %}

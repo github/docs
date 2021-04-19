@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - 通知
 ---
 
 ### 开始收件箱分类

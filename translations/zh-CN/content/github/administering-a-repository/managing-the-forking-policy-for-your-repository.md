@@ -9,9 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
-组织所有者必须在组织级别上允许复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 和内部{% endif %} 仓库，然后才能允许或禁止对特定仓库进行复刻。 更多信息请参阅“[管理组织的复刻政策](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)”。
+组织所有者必须在组织级别上允许复刻私有{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 和内部{% endif %} 仓库，然后才能允许或禁止对特定仓库进行复刻。 更多信息请参阅“[管理组织的复刻政策](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)”。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

@@ -1,0 +1,1 @@
+プロジェクトサイトが{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationが所有するプライベートもしくはインターナルリポジトリから公開されるなら、そのサイトのアクセス制御を管理できます。
