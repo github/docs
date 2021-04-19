@@ -16,7 +16,6 @@ topics:
 
 Owners can set permissions for deleting or transferring repositories in an organization.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

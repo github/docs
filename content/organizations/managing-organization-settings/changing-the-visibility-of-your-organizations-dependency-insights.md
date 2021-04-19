@@ -16,7 +16,6 @@ Organization owners can set limitations for viewing organization dependency insi
 
 Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see "[Enforcing a policy on dependency insights in your enterprise account](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

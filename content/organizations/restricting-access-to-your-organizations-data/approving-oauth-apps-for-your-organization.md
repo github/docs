@@ -13,7 +13,6 @@ topics:
 ---
 When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, organization members must [request approval](/articles/requesting-organization-approval-for-oauth-apps) from an organization owner before they can authorize an {% data variables.product.prodname_oauth_app %} that has access to the organization's resources.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.oauth_app_access %}

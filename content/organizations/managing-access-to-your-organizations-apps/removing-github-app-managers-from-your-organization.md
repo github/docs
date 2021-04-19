@@ -17,7 +17,6 @@ For more information about {% data variables.product.prodname_github_app %} mana
 
 ### Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
@@ -26,7 +25,6 @@ For more information about {% data variables.product.prodname_github_app %} mana
 
 ### Removing a {% data variables.product.prodname_github_app %} manager's permissions for an individual {% data variables.product.prodname_github_app %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}

@@ -56,7 +56,7 @@ If you don't purchase {% data variables.product.prodname_enterprise %} or {% dat
 
 Downgrading to {% data variables.product.prodname_free_team %} for organizations also disables any SAML settings configured during the trial period. Once you purchase {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_team %}, your SAML settings will be enabled again for users in your organization to authenticate.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing %}

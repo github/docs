@@ -19,7 +19,6 @@ Organization owners, and members with admin privileges for a repository, can inv
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
