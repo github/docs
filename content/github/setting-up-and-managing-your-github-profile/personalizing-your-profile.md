@@ -178,6 +178,7 @@ If you authored any commit(s) on the default branch of one or more of the reposi
 | [pallets/click](https://github.com/pallets/click) | 7.0 |
 | [pallets/flask](https://github.com/pallets/flask) | 1.1.1 |
 | [flask-restful/flask-restful](https://github.com/flask-restful/flask-restful) | 0.3.7 |
+| [nasa/fprime](https://github.com/nasa/fprime) | 1.3 |
 | [pytest-dev/iniconfig](https://github.com/pytest-dev/iniconfig) | 1.0.0 |
 | [pallets/itsdangerous](https://github.com/pallets/itsdangerous) | 1.1.0 |
 | [pallets/jinja](https://github.com/pallets/jinja) | 2.10.3 |
@@ -192,11 +193,11 @@ If you authored any commit(s) on the default branch of one or more of the reposi
 | [pyparsing/pyparsing](https://github.com/pyparsing/pyparsing) | 2.4.5 |
 | [pytest-dev/pytest](https://github.com/pytest-dev/pytest) | 5.3.0 |
 | [stub42/pytz](https://github.com/stub42/pytz) | 2019.3 |
+| [dmnfarrell/tkintertable](https://github.com/dmnfarrell/tkintertable) | 1.2 |
 | [uiri/toml](https://github.com/uiri/toml) | 0.10.0 |
 | [pallets/werkzeug](https://github.com/pallets/werkzeug) | 0.16.0 |
-| [dmnfarrell/tkintertable](https://github.com/dmnfarrell/tkintertable) | 1.2 |
 | [wxWidgets/wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic) | 2.9.1.1 |
-| [nasa/fprime](https://github.com/nasa/fprime) | 1.3 |
+
 
 ### Further reading
 
