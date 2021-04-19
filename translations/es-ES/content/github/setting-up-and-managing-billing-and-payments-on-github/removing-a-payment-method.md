@@ -15,6 +15,8 @@ topics:
 
 Si vas a pagar tu {% data variables.product.product_name %} suscripción con un cupón y no vas a usar tu método de pago para ninguna [otra función o producto pago](/articles/about-billing-on-github) en {% data variables.product.product_name %}, puedes eliminar tu información de tarjeta de crédito o de PayPal.
 
+{% data reusables.dotcom_billing.coupon-expires %}
+
 {% tip %}
 
 **Sugerencia:** Si [bajas la categoría de tu cuenta a producto gratuito](/articles/downgrading-your-github-subscription) y no tienes suscripciones a ninguna otra función o producto pago, eliminaremos automáticamente tu información de pago.

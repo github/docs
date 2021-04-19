@@ -41,7 +41,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > fornece acesso shell.
 ```
 
-Se o repositório pertencer a uma organização e você estiver usando uma chave SSH gerada por um aplicativo OAuth, o acesso ao aplicativo OAuth poderá ser restringido pelo proprietário da organização. Para obter mais informações, consulte "<a href="/github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions" class="dotcom-only">Sobre as restrições de acesso ao aplicativo OAuth</a>".
+Se o repositório pertencer a uma organização e você estiver usando uma chave SSH gerada por um aplicativo OAuth, o acesso ao aplicativo OAuth poderá ser restringido pelo proprietário da organização. For more information, see "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">About OAuth App access restrictions</a>."
 
 Para obter mais informações, consulte [Adicionar uma nova chave SSH à sua conta GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 

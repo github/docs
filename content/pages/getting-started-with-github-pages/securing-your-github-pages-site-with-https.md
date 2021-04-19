@@ -17,8 +17,6 @@ People with admin permissions for a repository can enforce HTTPS for a {% data v
 
 All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" and "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)."
 
-HTTPS enforcement is required for {% data variables.product.prodname_pages %} sites using a `github.io` domain that were created after June 15, 2016. If you created your site before June 15, 2016, you can manually enable HTTPS enforcement.
-
 {% data reusables.pages.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
@@ -27,6 +25,7 @@ HTTPS enforcement is required for {% data variables.product.prodname_pages %} si
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
   ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
 

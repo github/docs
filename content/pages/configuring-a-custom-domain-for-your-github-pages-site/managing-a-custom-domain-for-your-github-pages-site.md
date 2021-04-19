@@ -42,6 +42,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
   ![Save custom domain button](/assets/images/help/pages/save-custom-subdomain.png)
 5. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
@@ -67,6 +68,7 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 4. Under "Custom domain", type your custom domain, then click **Save**. This will create a commit that adds a _CNAME_ file in the root of your publishing source.
   ![Save custom domain button](/assets/images/help/pages/save-custom-apex-domain.png)
 5. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. {% data reusables.pages.contact-dns-provider %}
@@ -91,6 +93,31 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
   ```
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
+
+### Configuring an apex domain and the `www` subdomain variant
+
+When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
+
+To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain, which will create an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+
+After you configure the apex domain, you must to configure a CNAME record with your DNS provider.
+
+1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
+2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+```shell
+    $ dig <em>WWW.EXAMPLE.COM</em> +nostats +nocomments +nocmd
+    > ;<em>WWW.EXAMPLE.COM.</em>                     IN      A
+    > <em>WWW.EXAMPLE.COM.</em>              3592    IN      CNAME   <em>YOUR-USERNAME</em>.github.io.
+    > <em>YOUR-USERNAME</em>.github.io.      43192   IN      CNAME   <em> GITHUB-PAGES-SERVER </em>.
+    > <em> GITHUB-PAGES-SERVER </em>.         22      IN      A       192.0.2.1
+```
+### Removing a custom domain
+
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
+4. Under "Custom domain," click **Remove**.
+  ![Save custom domain button](/assets/images/help/pages/remove-custom-domain.png)
 
 ### Further reading
 

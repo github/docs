@@ -15,6 +15,8 @@ topics:
 
 如果您使用优惠券为 {% data variables.product.product_name %} 订阅付款，并且不会将付款方式用于 {% data variables.product.product_name %} 上的任何[其他付费功能或产品](/articles/about-billing-on-github)，则可以删除信用卡或 PayPal 信息。
 
+{% data reusables.dotcom_billing.coupon-expires %}
+
 {% tip %}
 
 **提示：**如果您[将帐户降级为免费产品](/articles/downgrading-your-github-subscription)并且没有任何其他付费功能或产品的订阅，我们将自动删除您的付款信息。

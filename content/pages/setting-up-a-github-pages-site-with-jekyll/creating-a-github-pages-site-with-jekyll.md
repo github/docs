@@ -101,7 +101,9 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 

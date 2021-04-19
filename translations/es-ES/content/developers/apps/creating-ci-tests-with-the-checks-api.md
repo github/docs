@@ -845,7 +845,7 @@ Aquí te presentamos algunos problemas comunes y sus soluciones sugeridas. Si te
     **R:** Si ves el siguiente error, no has borrado la salida del repositorio en uno o ambos de los métodos de `initiate_check_run` o `take_requested_action`:
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     Compara tu código con el archivo `server.rb` para garantizar que tienes el mismo código en tus métodos de `initiate_check_run` y de `take_requested_action`.

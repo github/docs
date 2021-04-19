@@ -11,7 +11,7 @@ redirect_from:
 
 ### About access control for {% data variables.product.prodname_pages %} sites
 
-If your project site is published from a private or internal repository that's owned by an organization using {% data variables.product.prodname_ghe_cloud %}, you can manage access control for the site. With access control, you can choose to publish the site publicly to anyone on the internet or privately to people with read access to your repository. A privately published site can be used to share your internal documentation or knowledge base with members of your enterprise. You cannot manage access control for an organization site. For more information about the types of {% data variables.product.prodname_pages %} sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)." 
+If your project site is published from a private or internal repository that's owned by an organization using {% data variables.product.prodname_ghe_cloud %}, you can manage access control for the site. With access control, you can choose to publish the site publicly to anyone on the internet or privately to people with read access to your repository. A privately published site can be used to share your internal documentation or knowledge base with members of your enterprise. You cannot manage access control for an organization site. For more information about the types of {% data variables.product.prodname_pages %} sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Privately published sites are available at a different subdomain than publicly published sites. This ensures that your {% data variables.product.prodname_pages %} site is secure from the moment it's published:
 
@@ -26,6 +26,7 @@ To use a shorter and more memorable domain for your private {% data variables.pr
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** drop-down menu, then click a visibility.
    ![Drop-down to choose a visibility for your site](/assets/images/help/pages/public-or-private-visibility.png)
 4. To see your published site, under "{% data variables.product.prodname_pages %}", click your site's URL.

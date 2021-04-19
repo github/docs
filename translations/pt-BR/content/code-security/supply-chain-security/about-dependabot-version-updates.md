@@ -12,8 +12,6 @@ topics:
   - repositories
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### Sobre o {% data variables.product.prodname_dependabot_version_updates %}
 
 O {% data variables.product.prodname_dependabot %} facilita a manutenção de suas dependências. Você pode usá-lo para garantir que seu repositório se mantenha atualizado automaticamente com as versões mais recentes dos pacotes e aplicações do qual ele depende.
