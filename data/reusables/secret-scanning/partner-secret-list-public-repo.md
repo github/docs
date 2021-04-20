@@ -1,15 +1,19 @@
 Partner | Supported secret
 --- | ---
 Adafruit IO | Adafruit IO Key
+Adobe | Adobe Device Token
+Adobe | Adobe Service Token
+Adobe | Adobe Short-Lived Access Token
+Adobe | Adobe JSON Web Token
 Alibaba Cloud | Alibaba Cloud Access Key ID and Access Key Secret pair
 Amazon Web Services (AWS) | Amazon AWS Access Key ID and Secret Access Key pair
 Atlassian | Atlassian API Token
 Atlassian | Atlassian JSON Web Token
-Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
-Azure | Azure SAS Token | azure_sas_token
-Azure | Azure Service Management Certificate | azure_management_certificate
-Azure | Azure SQL Connection String | azure_sql_connection_string
-Azure | Azure Storage Account Key | azure_storage_account_key
+Azure | Azure DevOps Personal Access Token
+Azure | Azure SAS Token
+Azure | Azure Service Management Certificate
+Azure | Azure SQL Connection String
+Azure | Azure Storage Account Key
 Clojars | Clojars Deploy Token
 CloudBees CodeShip | CloudBees CodeShip Credential
 Databricks | Databricks Access Token
