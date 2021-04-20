@@ -26,9 +26,9 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
+  free-pro-team: 'Aof1983'
   enterprise-server: '>=2.22'
-  github-ae: '*'
+  github-ae: 'Aof1983'
 ---
 
 {% link_with_intro /introduction-to-github-actions %}
