@@ -5,7 +5,8 @@
 {% assign fullPath = tocItem.fullPath %}
 {% assign intro = tocItem.intro %}
 
-{% if tocItem.childTocItems %}
+{% if tocItem.childTocItems and page.documentType != "product" %}
+
 <ul>
 <li>{% include liquid-tags/link %}
   <ul>
@@ -17,6 +18,7 @@
   </ul>
 </li>
 </ul>
+
 {% else %}
 
 {% include liquid-tags/link-with-intro %}
