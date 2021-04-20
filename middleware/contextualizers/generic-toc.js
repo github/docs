@@ -10,21 +10,8 @@ module.exports = async function genericToc (req, res, next) {
   // Find the array of child pages that start with the requested path.
   const currentPageInSiteTree = findPageInSiteTree(currentSiteTree.childPages, req.context.currentPath)
 
-  const unsortedTocItems = await Promise.all(currentPageInSiteTree.childPages.map(async (childPage) => {
-    // return an empty string if it's a hidden link on a non-hidden page (hidden links on hidden pages are OK)
-    if (childPage.page.hidden && !req.context.page.hidden) {
-      return ''
-    }
-
-    const fullPath = childPage.href
-    const title = await childPage.page.renderTitle(req.context, { textOnly: true, encodeEntities: true })
-    const intro = await childPage.page.renderProp('intro', req.context, { unwrap: true })
-
-    return { fullPath, title, intro }
-  }))
-
   req.context.tocItems = sortBy(
-    unsortedTocItems,
+    await getUnsortedTocItems(currentPageInSiteTree.childPages, req.context),
     // Sort by the ordered array of `children` in the frontmatter.
     currentPageInSiteTree.page.children
   )
@@ -42,4 +29,29 @@ function findPageInSiteTree (pageArray, currentPath) {
   }
 
   return findPageInSiteTree(childPage.childPages, currentPath)
+}
+
+async function getUnsortedTocItems (pageArray, context) {
+  return Promise.all(pageArray.map(async (childPage) => {
+    // return an empty string if it's a hidden link on a non-hidden page (hidden links on hidden pages are OK)
+    if (childPage.page.hidden && !context.page.hidden) {
+      return ''
+    }
+
+    const fullPath = childPage.href
+    const title = await childPage.page.renderTitle(context, { textOnly: true, encodeEntities: true })
+    const intro = await childPage.page.renderProp('intro', context, { unwrap: true })
+
+    if (!childPage.childPages) {
+      return { fullPath, title, intro }
+    }
+
+    const childTocItems = sortBy(
+      await getUnsortedTocItems(childPage.childPages, context),
+      // Sort by the ordered array of `children` in the frontmatter.
+      childPage.page.children
+    )
+
+    return { fullPath, title, intro, childTocItems }
+  }))
 }

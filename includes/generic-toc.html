@@ -1,8 +1,0 @@
-{% for tocItem in tocItems %}
-
-<a class="link-with-intro Bump-link--hover no-underline" href="{{ tocItem.fullPath }}">
-  <h2 class="link-with-intro-title f4">{{ tocItem.title }}<span class="Bump-link-symbol">→</span></h2>
-</a>
-{% if tocItem.intro %}<p class="link-with-intro-intro">{{ tocItem.intro }}</p>{% endif %}
-
-{% endfor %}
