@@ -3,6 +3,10 @@ Partner | Supported secret | API slug
 n/a | JSON Web Token | json_web_token
 n/a | OAuth Client Credential | api_credential_assignment
 Adafruit IO | Adafruit IO Key | adafruit_io_key
+Adobe | Adobe Device Token | adobe_device_token
+Adobe | Adobe Service Token | adobe_service_token
+Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token
+Adobe | Adobe JSON Web Token | adobe_jwt
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
