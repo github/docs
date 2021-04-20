@@ -118,6 +118,7 @@ module.exports = function (app) {
   }
 
   if (process.env.FEATURE_NEW_SITETREE) {
+    app.use(asyncMiddleware(instrument('./contextualizers/render-tree-titles')))
     app.use(instrument('./contextualizers/current-product-tree'))
     app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
     app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))

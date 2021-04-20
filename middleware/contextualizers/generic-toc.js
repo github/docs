@@ -39,7 +39,8 @@ async function getUnsortedTocItems (pageArray, context) {
     }
 
     const fullPath = childPage.href
-    const title = await childPage.page.renderTitle(context, { textOnly: true, encodeEntities: true })
+    // Titles are already rendered by middleware/contextualizers/render-tree-titles.js.
+    const title = childPage.renderedFullTitle
     const intro = await childPage.page.renderProp('intro', context, { unwrap: true })
 
     if (!childPage.childPages) {
