@@ -4,9 +4,9 @@ intro: 'Before you generate a GPG key, you can check to see if you have any exis
 redirect_from:
   - /articles/checking-for-existing-gpg-keys
 versions:
-  free-pro-team: '*'
+  free-pro-team: 'Aof1983'
   enterprise-server: '*'
-  github-ae: '*'
+  github-ae: 'Aof1983'
 topics:
   - identity
   - access management
