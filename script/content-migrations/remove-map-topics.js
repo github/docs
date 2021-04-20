@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
+const stripHtmlComments = require('strip-html-comments')
 const languages = require('../../lib/languages')
 const frontmatter = require('../../lib/read-frontmatter')
 const addRedirectToFrontmatter = require('../../lib/redirects/add-redirect-to-frontmatter')
@@ -25,6 +26,10 @@ const categoryIndexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(full
 
 categoryIndexFiles.forEach(categoryIndexFile => {
   let categoryIndexContent = fs.readFileSync(categoryIndexFile, 'utf8')
+
+  if (categoryIndexFile.endsWith('github/getting-started-with-github/index.md')) {
+    categoryIndexContent = stripHtmlComments(categoryIndexContent.replace(/\n<!--/g, '<!--'))
+  }
 
   // find array of TOC link strings
   const rawItems = categoryIndexContent.match(linksArray)

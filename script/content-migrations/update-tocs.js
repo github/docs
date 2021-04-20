@@ -72,8 +72,14 @@ indexFiles
       ]
     }
 
-    // Remove the Table of Contents section and leave any custom content before it.
-    const newContent = content.replace(/^#*? Table of contents[\s\S]*/im, '')
+    // Remove the Table of Contents section and leave any body text before it.
+    const newContent = content
+      .replace(/^#*? Table of contents[\s\S]*/im, '')
+      .replace('<div hidden>', '')
+      .replace(linksArray, '')
+      .split('\n')
+      .filter(line => /\S/.test(line))
+      .join('\n')
 
     // Index files should no longer have body content, so we write an empty string
     fs.writeFileSync(indexFile, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
