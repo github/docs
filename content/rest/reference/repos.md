@@ -3,7 +3,8 @@ title: Repositories
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
-versions:
+versions:git add README test.rb LICENSE
+$ git commit -m 'Initial commit'
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
