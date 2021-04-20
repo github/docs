@@ -58,7 +58,7 @@ inputs:
 
 Wenn Du eine Eingabe für eine Aktion in einer Workflow-Datei angibst oder einen Standardeingabewert verwendest, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<NAME_DER_VARIABLEN>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
 
-Wenn beispielsweise ein Workflow die Eingaben „numOctocats“ und „octocatEyeColor“ definiert hat, kann der Aktionscode die Werte für die Eingaben mithilfe der Umgebungsvariablen `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` lesen.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -75,6 +75,10 @@ Wenn beispielsweise ein Workflow die Eingaben „numOctocats“ und „octocatEy
 #### `inputs.<input_id>.default`
 
 **Optional**: Ein `String`, der den Standardwert darstellt. Der Standardwert wird verwendet, wenn ein Eingabeparameter in einer Workflow-Datei nicht angegeben ist.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs`
 

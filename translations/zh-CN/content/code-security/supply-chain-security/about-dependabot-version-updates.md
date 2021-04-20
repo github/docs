@@ -12,8 +12,6 @@ topics:
   - 仓库
 ---
 
-{% data reusables.dependabot.beta-note %}
-
 ### 关于 {% data variables.product.prodname_dependabot_version_updates %}
 
 {% data variables.product.prodname_dependabot %} 负责维护您的依赖项。 您可以使用它来确保仓库自动跟上它所依赖的包和应用程序的最新版本。

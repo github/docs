@@ -29,7 +29,7 @@ During this beta, {% data variables.product.prodname_advanced_security %} featur
 
 #### アイデンティティプロバイダ (IdP) での Team の管理
 
-SCIM (System for Cross-domain Identity Management) を使用しているお客様は、Azure Active Directory のセキュリティグループを {% data variables.product.company_short %} Team と同期できるようになりました。 チームがセキュリティグループにリンクされると、ユーザが割り当てられたセキュリティグループに追加または削除されたときに、メンバーシップは {% data variables.product.product_name %} で自動的に更新されます。 詳しい情報については「[Team をアイデンティティプロバイダグループと同期する](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
+SCIM (System for Cross-domain Identity Management) を使用しているお客様は、Azure Active Directory のセキュリティグループを {% data variables.product.company_short %} Team と同期できるようになりました。 チームがセキュリティグループにリンクされると、ユーザが割り当てられたセキュリティグループに追加または削除されたときに、メンバーシップは {% data variables.product.product_name %} で自動的に更新されます。 詳しい情報については「[アイデンティティプロバイダグループとTeamの同期](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
 
 #### IP 許可リストベータ
 
@@ -37,18 +37,18 @@ Enterprise and organization owners can now use IP allow lists to restrict traffi
 
 This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the {% data variables.product.product_name %} tenant.
 
-For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)."
+For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 #### Pull request auto-merge
 
-With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements (like missing approvals or pending or failing required status checks). For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements (like missing approvals or pending or failing required status checks). 詳しい情報については「[Pull Requestの自動マージ](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)」を参照してください。
 
 ### 変更
 
 #### 開発者に関する変更
 
-- Organization のオーナーは、Organization 内のリポジトリからの {% data variables.product.prodname_pages %} サイトの[公開を無効化](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)できるようになりました。 これにより、既存のサイトが非公開になることはありません。
-- {% data variables.product.prodname_pages %} を使用するリポジトリは、[任意のブランチからビルドおよびデプロイ](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)できるようになりました。
+- Organization のオーナーは、Organization 内のリポジトリからの {% data variables.product.prodname_pages %} サイトの[公開を無効化](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)できるようになりました。 これにより、既存のサイトが非公開になることはありません。
+- {% data variables.product.prodname_pages %} を使用するリポジトリは、[任意のブランチからビルドおよびデプロイ](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)できるようになりました。
 - Issue またはプルリクエストを作成するときに、`return` キーまたは `enter` キーを押すと、箇条書き、番号、およびタスクのリスト構文がオートコンプリートされるようになりました。
 - リポジトリページからリポジトリ内のディレクトリを削除できるようになりました。 ディレクトリに移動するとき、[Add file] ボタンの横にある新しいケバブボタンで、ディレクトリを削除できます。
 - 「#」の後に複数の単語を検索することで、[Issue やプルリクエストの参照](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests)がより簡単かつ迅速になりました。
@@ -65,7 +65,7 @@ With auto-merge, pull requests can be set to merge automatically when all merge 
 
 ##### デフォルトブランチの名称変更
 
-Enterprise および Organization のオーナーは、新しいリポジトリのデフォルトブランチ名を設定できるようになりました。 Enterprise のオーナーは、すべての Organization でデフォルトブランチ名の選択を強制したり、個々の Organization が独自のブランチ名を選択できるようにすることもできます。 For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" and "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)."
+Enterprise および Organization のオーナーは、新しいリポジトリのデフォルトブランチ名を設定できるようになりました。 Enterprise のオーナーは、すべての Organization でデフォルトブランチ名の選択を強制したり、個々の Organization が独自のブランチ名を選択できるようにすることもできます。 For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" and "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 
 既存のリポジトリはこれらの設定の影響を受けず、デフォルトのブランチ名は変更されません。
 

@@ -17,12 +17,6 @@ Cuando se encuentra una coincidencia de tu formato secreto en un repositorio pú
 
 Cuando se encuentra una coincidencia con tu formato de secreto en un repositorio privado que se haya configurado para el {% data variables.product.prodname_secret_scanning %}, entonces, se alerta a los administradores de repositorio y éstos pueden ver y administrar los resultados del {% data variables.product.prodname_secret_scanning %} en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Administrar alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
 
-{% note %}
-
-**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} para los repositorios privados se encuentran actualmente en beta y está sujeto a cambios.
-
-{% endnote %}
-
 Este artículo describe cómo puedes asociarte con {% data variables.product.prodname_dotcom %} como un proveedor de servicios y unirte al programa del {% data variables.product.prodname_secret_scanning %}.
 
 ### El proceso del {% data variables.product.prodname_secret_scanning %}

@@ -221,6 +221,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the `github` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
 A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
@@ -347,10 +359,11 @@ The environment that the job references. All environment protection rules must p
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
 
 ##### Example using a single environment name
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### Example using environment name and URL
 
@@ -372,6 +385,25 @@ environment:
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+
+{% endnote %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -899,7 +931,7 @@ The order that you define a `matrix` matters. The first option you define will b
 
 #### Example running with more than one version of Node.js
 
-You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 6, 8, and 10, you could specify an array of those versions in the `matrix`.
+You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 10, 12, and 14, you could specify an array of those versions in the `matrix`.
 
 This example creates a matrix of three jobs by setting the `node` key to an array of three Node.js versions. To use the matrix, the example sets the `matrix.node` context property as the value of the `setup-node` action's input parameter `node-version`. As a result, three jobs will run, each using a different Node.js version.
 
@@ -907,10 +939,10 @@ This example creates a matrix of three jobs by setting the `node` key to an arra
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
       node-version: ${{ matrix.node }}
@@ -934,9 +966,9 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
@@ -948,7 +980,7 @@ steps:
 
 #### Example including additional values into combinations
 
-You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 4 of `node` runs, you can use `include` to specify that additional option.
+You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 8 of `node` runs, you can use `include` to specify that additional option.
 
 {% raw %}
 ```yaml
@@ -956,29 +988,29 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
 #### Example including new combinations
 
-You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
+You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -994,11 +1026,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excludes node 4 on macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -1033,7 +1065,7 @@ Prevents a workflow run from failing when a job fails. Set to `true` to allow a 
 
 #### Example preventing a specific failing matrix job from failing a workflow run
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `13` to fail without failing the workflow run.
+You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
@@ -1042,11 +1074,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1064,7 +1096,7 @@ If you do not set a `container`, all steps will run directly on the host specifi
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1079,7 +1111,7 @@ When you only specify a container image, you can omit the `image` keyword.
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`

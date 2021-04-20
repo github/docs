@@ -200,7 +200,7 @@ The authenticated user will be the author of any merges done through this endpoi
 
 ## Pages
 
-The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
 In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
 * `null`: The site has yet to be built.
@@ -212,7 +212,7 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
+   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}

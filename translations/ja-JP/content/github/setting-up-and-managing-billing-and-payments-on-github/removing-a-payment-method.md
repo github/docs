@@ -15,6 +15,8 @@ topics:
 
 {% data variables.product.product_name %} のクーポン付きプランの支払いをしていて、{% data variables.product.product_name %} の[他の有料機能や製品](/articles/about-billing-on-github)の支払い方法を使用していない場合、クレジットカードや PayPal の情報を削除できます。
 
+{% data reusables.dotcom_billing.coupon-expires %}
+
 {% tip %}
 
 **ヒント:** 他の有料機能や製品のプランがなくて[アカウントを無料製品にダウングレード](/articles/downgrading-your-github-subscription)した場合、支払い情報は自動的に削除されます。

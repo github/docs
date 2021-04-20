@@ -1,7 +1,7 @@
 1. 実行したいタスクに対して適切なスコープを持つ新しい個人アクセストークン（PAT）を作成してください。 OrganizationがSSOを必須としている場合は、新しいトークンでSSOを有効化しなければなりません。
   {% warning %}
 
-  **ノート:** `write:packages`スコープを選択した場合、PATを作成する際には`repo`スコープのせんたくを解除してください。 リポジトリのシークレットとして`repo`スコープを持つPATを追加すると、そのクレデンシャルはリポジトリのすべてのコラボレータからアクセスできるようになります。 そうすると、アクション内で`repo`スコープを持つPATが使われた場合、不要なアクセス権が追加で与えられることになります。 アクションのセキュリティのベストプラクティスに関する詳しい情報については「[GitHub Actionsのセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」を参照してください。
+  **ノート:** デフォルトでは、ユーザインターフェース内で個人アクセストークン（PAT）に対して`write:packages`スコープを選択すると、`repo`スコープも選択されます。 `repo`は不要に広いアクセス権を提供するので、特にGitHub Actionsのワークフローでの利用は避けることをおすすめします。 詳しい情報については「[GitHub Actionsのためのセキュリティ強化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)」を参照してください。 回避策として、以下のURLでユーザインターフェース内でPATに`write:packages`スコープだけを選択することができます。 `https://github.com/settings/tokens/new?scopes=write:packages`
 
   {% endwarning %}
 

@@ -28,7 +28,7 @@ IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.produ
 
 {% data reusables.scim.supported-idps %}
 
-在使用支持的 IdP 设置用户预配时，您也可以将 {% data variables.product.product_name %} 的应用程序分配或取消分配给用户组。 然后，这些组可供 {% data variables.product.product_location %} 中的组织所有者和团队维护员用来映射到 {% data variables.product.product_name %} 团队。 更多信息请参阅“[同步团队与身份提供程序组](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)”。
+在使用支持的 IdP 设置用户预配时，您也可以将 {% data variables.product.product_name %} 的应用程序分配或取消分配给用户组。 然后，这些组可供 {% data variables.product.product_location %} 中的组织所有者和团队维护员用来映射到 {% data variables.product.product_name %} 团队。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
 ### 基本要求
 

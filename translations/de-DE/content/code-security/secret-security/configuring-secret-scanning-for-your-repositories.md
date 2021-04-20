@@ -70,4 +70,4 @@ Du kannst auch einzelne Warnungen von {% data variables.product.prodname_secret_
 
 ### Weiterführende Informationen
 
-- "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)"
+- "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

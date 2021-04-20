@@ -14,6 +14,8 @@ topics:
 
 {% data variables.product.product_name %} can't issue a refund if you pay for an account before applying a coupon. We also can't transfer a redeemed coupon or give you a new coupon if you apply it to the wrong account. Confirm that you're applying the coupon to the correct account before you redeem a coupon.
 
+{% data reusables.dotcom_billing.coupon-expires %}
+
 You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
 
 ### Redeeming a coupon for your personal account

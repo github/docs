@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.dependency-review.feature-overview %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 
 ### Revisar as dependências em um pull request
 

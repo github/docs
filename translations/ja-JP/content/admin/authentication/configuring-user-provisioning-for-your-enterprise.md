@@ -28,7 +28,7 @@ IdP のプロビジョニングアプリケーションは、Enterprise 向け�
 
 {% data reusables.scim.supported-idps %}
 
-サポートされている IdP を使用してユーザプロビジョニングを設定する場合、{% data variables.product.product_name %} のアプリケーションをユーザのグループに割り当てたり、割り当てを解除したりすることもできます。 これらのグループは、{% data variables.product.product_location %} の Organization のオーナーとチームメンテナが {% data variables.product.product_name %} Team にマッピングできるようになります。 詳しい情報については「[Team をアイデンティティプロバイダグループと同期する](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
+サポートされている IdP を使用してユーザプロビジョニングを設定する場合、{% data variables.product.product_name %} のアプリケーションをユーザのグループに割り当てたり、割り当てを解除したりすることもできます。 これらのグループは、{% data variables.product.product_location %} の Organization のオーナーとチームメンテナが {% data variables.product.product_name %} Team にマッピングできるようになります。 詳しい情報については「[アイデンティティプロバイダグループとTeamの同期](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
 
 ### 必要な環境
 

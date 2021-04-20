@@ -13,6 +13,12 @@ topics:
 
 目標には、確保したいスポンサーの数、または毎月集めたい金額を設定できます。 一度に設定できる目標は 1 つだけです。 目標に達したら、次の目標を設定できます。
 
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
 ### 目標の設定
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
