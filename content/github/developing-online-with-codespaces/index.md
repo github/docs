@@ -28,4 +28,3 @@ topics:
 {% link_in_list /deleting-a-codespace %}
 {% link_in_list /troubleshooting-your-codespace %}
 {% link_in_list /using-codespaces-in-visual-studio-code %}
-{% link_in_list /using-codespaces-in-visual-studio %}
