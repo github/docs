@@ -27,7 +27,7 @@ async function createBreadcrumb (pageArray, context) {
   context.breadcrumbs.push({
     documentType: childPage.page.documentType,
     href: childPage.href,
-    title: await childPage.page.renderTitle(context, { textOnly: true, encodeEntities: true })
+    title: childPage.renderedShortTitle || childPage.renderedFullTitle
   })
 
   // Recursively loop through the siteTree and create each breadcrumb, until we reach the
