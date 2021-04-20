@@ -6,6 +6,7 @@ const walk = require('walk-sync')
 const frontmatter = require('../../lib/read-frontmatter')
 const getDocumentType = require('../../lib/get-document-type')
 const languages = require('../../lib/languages')
+const extendedMarkdownTags = Object.keys(require('../../lib/liquid-tags/extended-markdown').tags)
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
@@ -73,13 +74,19 @@ indexFiles
     }
 
     // Remove the Table of Contents section and leave any body text before it.
-    const newContent = content
+    let newContent = content
       .replace(/^#*? Table of contents[\s\S]*/im, '')
       .replace('<div hidden>', '')
       .replace(linksArray, '')
+
+    const linesArray = newContent
       .split('\n')
-      .filter(line => /\S/.test(line))
-      .join('\n')
+
+    const newLinesArray = linesArray
+      .filter((line, index) => /\S/.test(line) || (extendedMarkdownTags.find(tag => (linesArray[index - 1] && linesArray[index - 1].includes(tag)) || (linesArray[index + 1] && linesArray[index + 1].includes(tag)))))
+      .filter(line => !/^<!--\s+?-->$/m.test(line))
+
+    newContent = newLinesArray.join('\n')
 
     // Index files should no longer have body content, so we write an empty string
     fs.writeFileSync(indexFile, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
