@@ -47,7 +47,11 @@
 
           {{ renderedPage }}
 
-          {% include generic-toc-items %}
+          {% if page.documentType == "category" or page.relativePath == "github/index.md" %}
+            {% include generic-toc-list %}
+          {% else %}
+            {% include generic-toc-items %}
+          {% endif %}
         </div>
         </div>
       </article>

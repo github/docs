@@ -1,28 +1,12 @@
 {% if tocItems %}
 
 {% for tocItem in tocItems %}
+
 {% assign title = tocItem.title %}
 {% assign fullPath = tocItem.fullPath %}
 {% assign intro = tocItem.intro %}
-
-{% if tocItem.childTocItems and page.documentType != "product" %}
-
-<ul>
-<li>{% include liquid-tags/link %}
-  <ul>
-  {% for childItem in tocItem.childTocItems %}
-    {% assign title = childItem.title %}
-    {% assign fullPath = childItem.fullPath %}
-    <li>{% include liquid-tags/link %}</li>
-  {% endfor %}
-  </ul>
-</li>
-</ul>
-
-{% else %}
-
 {% include liquid-tags/link-with-intro %}
 
-{% endif %}
 {% endfor %}
+
 {% endif %}
