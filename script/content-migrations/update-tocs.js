@@ -72,8 +72,11 @@ indexFiles
       ]
     }
 
+    // Remove the Table of Contents section and leave any custom content before it.
+    const newContent = content.replace(/^#*? Table of contents[\s\S]*/im, '')
+
     // Index files should no longer have body content, so we write an empty string
-    fs.writeFileSync(indexFile, frontmatter.stringify(content, data, { lineWidth: 10000 }))
+    fs.writeFileSync(indexFile, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
   })
 
 function getLinks (linkItemArray) {
