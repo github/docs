@@ -446,12 +446,12 @@ updates:
 
 #### `rebase-strategy`
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects conflicts. Use `rebase-strategy` to disable this behavior.
+By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
 
 Available rebase strategies
 
 - `disabled` to disable automatic rebasing.
-- `auto` to use the default behavior and rebase open pull requests when conflicts are detected.
+- `auto` to use the default behavior and rebase open pull requests when changes are detected.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
