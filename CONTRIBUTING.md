@@ -19,6 +19,8 @@ Before you make your changes, check to see if an [issue exists](https://github.c
 
 If you spot something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
+**Note:** We cannot accept contributions to the [REST API reference documentation](https://docs.github.com/en/rest/reference). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [github/rest-api-description](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
+
 ### Ready to make a change? Fork the repo
 
 Fork using GitHub Desktop:

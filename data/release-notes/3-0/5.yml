@@ -1,4 +1,5 @@
 date: '2021-04-14'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 sections:
   security_fixes:
     - Packages have been updated to the latest security versions.
@@ -10,7 +11,7 @@ sections:
     - Packages related subdomains were not showing up in the "Test domain settings" prompt for subdomain isolation.
     - The `X-GitHub-Enterprise-Host` header sent with webhooks included a random string, rather than the hostname of the GitHub Enterprise Server instance that sent the HTTP POST payload.
     - Upgrading from 2.22.x to 3.0.x would fail if GitHub Actions had previously been enabled, but disabled before the upgrade.
-    - Visiting the `/settings/emails page` would store state that could cause improper redirects when logging out and logging back in.
+    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
     - GitHub integration apps were not able to notify teams when mentioned directly via an at-mention in an issue comment.
     - reStructuredText (RST) rendering in the web UI would fail and instead displayed raw RST markup text.
     - Email notifications for Secret Scanning alerts were not sent to authorized users when the Dependency Graph was not fully enabled.

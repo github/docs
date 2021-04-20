@@ -1,0 +1,16 @@
+<div class="my-6 pt-6">
+  <h2 class="mb-2 font-mktg h1">{% data ui.product_landing.communities_using_discussions %}</h2>
+
+  <div class="d-flex flex-wrap gutter">
+    {% render discussions-community-card for productCommunityExamples as example %}
+  </div>
+  {% if productCommunityExamples.length > 6 %}
+    <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">{% data ui.product_landing.show_more %} {% octicon "arrow-right" %}</button>
+  {% endif %}
+  <div class="js-filter-card-no-results d-none py-4 text-center color-text-secondary font-mktg">
+    <div class="mb-3">{% octicon "search" width="24" %}</div>
+    <h3 class="text-normal">{% data ui.product_landing.sorry %} <strong class="js-filter-card-value"></strong></h3>
+    <p class="my-3 f4">{% data ui.product_landing.no_example %} <br>{% data ui.product_landing.try_another %}</p>
+    <a href="https://github.com/github/docs/blob/main/data/variables/discussions_community_examples.yml">{% data ui.product_landing.add_your_community %} {% octicon "arrow-right" %}</a>
+  </div>
+</div>

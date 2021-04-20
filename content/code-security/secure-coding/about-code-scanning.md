@@ -12,6 +12,7 @@ versions:
 topics:
   - security
 ---
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -59,7 +60,6 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 ### Further reading
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
+- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

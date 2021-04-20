@@ -20,6 +20,7 @@ topics:
 {% link_in_list /configuring-codespaces-for-your-project %}
 {% link_in_list /creating-a-codespace %}
 {% link_in_list /developing-in-a-codespace %}
+{% link_in_list /forwarding-ports-in-your-codespace %}
 {% link_in_list /personalizing-codespaces-for-your-account %}
 {% link_in_list /managing-encrypted-secrets-for-codespaces %}
 {% link_in_list /managing-access-and-security-for-codespaces %}

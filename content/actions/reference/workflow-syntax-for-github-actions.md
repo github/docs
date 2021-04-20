@@ -901,7 +901,7 @@ The order that you define a `matrix` matters. The first option you define will b
 
 #### Example running with more than one version of Node.js
 
-You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 6, 8, and 10, you could specify an array of those versions in the `matrix`.
+You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 10, 12, and 14, you could specify an array of those versions in the `matrix`.
 
 This example creates a matrix of three jobs by setting the `node` key to an array of three Node.js versions. To use the matrix, the example sets the `matrix.node` context property as the value of the `setup-node` action's input parameter `node-version`. As a result, three jobs will run, each using a different Node.js version.
 
@@ -909,10 +909,10 @@ This example creates a matrix of three jobs by setting the `node` key to an arra
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
       node-version: ${{ matrix.node }}
@@ -936,9 +936,9 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
@@ -950,7 +950,7 @@ steps:
 
 #### Example including additional values into combinations
 
-You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 4 of `node` runs, you can use `include` to specify that additional option.
+You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 8 of `node` runs, you can use `include` to specify that additional option.
 
 {% raw %}
 ```yaml
@@ -958,29 +958,29 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
 #### Example including new combinations
 
-You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
+You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -996,11 +996,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excludes node 4 on macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -1035,7 +1035,7 @@ Prevents a workflow run from failing when a job fails. Set to `true` to allow a 
 
 #### Example preventing a specific failing matrix job from failing a workflow run
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `13` to fail without failing the workflow run.
+You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
@@ -1044,11 +1044,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1066,7 +1066,7 @@ If you do not set a `container`, all steps will run directly on the host specifi
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1081,7 +1081,7 @@ When you only specify a container image, you can omit the `image` keyword.
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
