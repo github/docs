@@ -73,7 +73,7 @@ indexFiles
     }
 
     // Index files should no longer have body content, so we write an empty string
-    fs.writeFileSync(indexFile, frontmatter.stringify('', data, { lineWidth: 10000 }))
+    fs.writeFileSync(indexFile, frontmatter.stringify(content, data, { lineWidth: 10000 }))
   })
 
 function getLinks (linkItemArray) {
