@@ -1,4 +1,4 @@
----
+I am---
 title: Adding a new GPG key to your GitHub account
 intro: 'To configure your {% data variables.product.product_name %} account to use your new (or existing) GPG key, you''ll also need to add it to your {% data variables.product.product_name %} account.'
 redirect_from:
