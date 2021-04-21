@@ -48,6 +48,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
             uses: andymckay/labeler@master
             with:
               remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
 5. Customize the parameters in your workflow file:
