@@ -35,9 +35,11 @@ Facebook | Facebook Access Token | facebook_access_token
 Finicity | Finicity App Key | finicity_app_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
-GitHub | GitHub SSH Private Key | github_ssh_private_key
 GitHub | GitHub Personal Access Token | github_personal_access_token
+GitHub | GitHub OAuth Access Token | github_oauth_access_token
+GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
+GitHub | GitHub SSH Private Key | github_ssh_private_key
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google Cloud | Google API Key | google_api_key
