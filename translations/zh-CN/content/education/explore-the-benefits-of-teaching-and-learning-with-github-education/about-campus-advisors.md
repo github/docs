@@ -16,3 +16,7 @@ versions:
 **注：**作为讲师，无法为学生创建 {% data variables.product.prodname_dotcom %} 帐户。 学生必须创建自己的 {% data variables.product.prodname_dotcom %} 帐户。
 
 {% endnote %}
+
+教师可以使用 {% data variables.product.prodname_education %} 管理软件开发课程。 {% data variables.product.prodname_classroom %} 可用于发布代码、提供反馈，以及使用 {% data variables.product.product_name %} 管理课程。 更多信息请参阅“[使用 {% data variables.product.prodname_classroom %} 管理课程](/education/manage-coursework-with-github-classroom)”。
+
+如果您是学生或教师并且您的学校未作为 {% data variables.product.prodname_campus_program %} 学校与 {% data variables.product.prodname_dotcom %} 合作，您也可以个人申请使用 {% data variables.product.prodname_dotcom %} 的折扣。 更多信息请参阅“[使用 {% data variables.product.prodname_dotcom %} 做家庭作业](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)”或“[在课堂上和研究中使用 {% data variables.product.prodname_dotcom %}](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)”。

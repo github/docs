@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 成果物を削除する
 
@@ -28,12 +30,13 @@ versions:
 {% data reusables.repositories.view-run %}
 1. **Artifacts（成果物）**の下で、
 削除したい成果物の隣の{% octicon "trashcan" aria-label="The trashcan icon" %}をクリックしてください。
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}
     ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact.png)
     {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 成果物の保持期間を設定する
 
 成果物とログの保持期間は、リポジトリ、Organization、および Enterprise レベルで設定できます。 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)」を参照してください。

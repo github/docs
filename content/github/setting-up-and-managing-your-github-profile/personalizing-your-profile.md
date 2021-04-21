@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - profiles
 ---
 
 ### Changing your profile picture
@@ -54,7 +56,7 @@ You can change the name that is displayed on your profile. This name may also be
 
 ### Adding a bio to your profile
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink. 
+Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
@@ -120,21 +122,88 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 | Badge | Program | Description |
 | --- | --- | --- |
-| {% octicon "north-star" aria-label="The North Star icon" %} | **{% data variables.product.prodname_arctic_vault %} Contributor** | If you authored any commit(s) on the default branch of a repository that was archived in the 2020 Arctic Vault program, you'll get an {% data variables.product.prodname_arctic_vault %} Contributor badge on your profile. For more information on the program, see [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com). |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the GitHub Developer Program, building an app with the GitHub API, you'll get a Developer Program Member badge on your profile. For more information on the GitHub Developer Program, see [GitHub Developer](/program/). |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub Sponsor**  | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a GitHub Sponsor badge on your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)." |
+| ![Mars 2020 Helicopter Contributor badge icon](/assets/images/help/profile/badge-mars-2020-small.png) | **Mars 2020 Helicopter Contributor**  | If you authored any commit(s) on the default branch up to the relevant version of an open source library used in the Mars 2020 Helicopter Mission, you'll get a Mars 2020 Helicopter Contributor badge on your profile. Hovering over the badge shows you several of the repositories you contributed to that were used in the mission. For the full list of repositories that will qualify you for the badge, see "[List of qualifying repositories for Mars 2020 Helicopter Contributor badge](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#list-of-qualifying-repositories-for-mars-2020-helicopter-contributor-badge)." |
+| ![Arctic Code Vault Contributor badge icon](/assets/images/help/profile/badge-arctic-code-vault-small.png) | **{% data variables.product.prodname_arctic_vault %} Contributor** | If you authored any commit(s) on the default branch of a repository that was archived in the 2020 Arctic Vault program, you'll get an {% data variables.product.prodname_arctic_vault %} Contributor badge on your profile. Hovering over the badge shows you several of the repositories you contributed to that were part of the program. For more information on the program, see [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com). |
+| ![{% data variables.product.prodname_dotcom %} Sponsor badge icon](/assets/images/help/profile/badge-sponsors-small.png) | **{% data variables.product.prodname_dotcom %} Sponsor**  | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a {% data variables.product.prodname_dotcom %} Sponsor badge on your profile. Clicking the badge takes you to the **Sponsoring** tab of your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)." |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% data variables.product.prodname_dotcom %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/program/). |
 | {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)." |
 
 ### Disabling badges on your profile
 
-You can disable some of the badges for {% data variables.product.prodname_dotcom %} programs you're participating in, including the PRO and {% data variables.product.prodname_arctic_vault %} badges.
+You can disable some of the badges for {% data variables.product.prodname_dotcom %} programs you're participating in, including the PRO, {% data variables.product.prodname_arctic_vault %} and Mars 2020 Helicopter Contributor badges.
 
 {% data reusables.user_settings.access_settings %}
 2. Under "Profile settings", deselect the badge you want you disable.
-  ![Checkbox to no longer display a badge on your profile](/assets/images/help/profile/display-pro-badge-checkbox.png)
+  ![Checkbox to no longer display a badge on your profile](/assets/images/help/profile/profile-badge-settings.png)
 3. Click **Update preferences**.
 
 {% endif %}
+
+### List of qualifying repositories for Mars 2020 Helicopter Contributor badge
+
+If you authored any commit(s) on the default branch of one or more of the repositories below, up to the specified version, you'll receive the Mars 2020 Helicopter Contributor badge on your profile. The list was built based on the information received from NASA's Jet Propulsion Laboratory.
+
+| {% data variables.product.prodname_dotcom %} Repository | Version |
+|---|---|
+| [torvalds/linux](https://github.com/torvalds/linux) | 3.4 | 
+| [nasa/fprime](https://github.com/nasa/fprime) | 1.3 |
+| [python/cpython](https://github.com/python/cpython) | 3.9.2 |
+| [boto/boto3](https://github.com/boto/boto3) | 1.17.17 |
+| [boto/botocore](https://github.com/boto/botocore) | 1.20.11 |
+| [certifi/python-certifi](https://github.com/certifi/python-certifi) | 2020.12.5 |
+| [chardet/chardet](https://github.com/chardet/chardet) | 4.0.0 |
+| [matplotlib/cycler](https://github.com/matplotlib/cycler) | 0.10.0 |
+| [elastic/elasticsearch-py](https://github.com/elastic/elasticsearch-py) | 6.8.1 |
+| [ianare/exif-py](https://github.com/ianare/exif-py) | 2.3.2 |
+| [kjd/idna](https://github.com/kjd/idna) | 2.10 |
+| [jmespath/jmespath.py](https://github.com/jmespath/jmespath.py) | 0.10.0 |
+| [nucleic/kiwi](https://github.com/nucleic/kiwi) | 1.3.1 |
+| [matplotlib/matplotlib](https://github.com/matplotlib/matplotlib) | 3.3.4 |
+| [numpy/numpy](https://github.com/numpy/numpy) | 1.20.1 |
+| [opencv/opencv-python](https://github.com/opencv/opencv-python) | 4.5.1.48 |
+| [python-pillow/Pillow](https://github.com/python-pillow/Pillow) | 8.1.0 |
+| [pycurl/pycurl](https://github.com/pycurl/pycurl) | 7.43.0.6 |
+| [pyparsing/pyparsing](https://github.com/pyparsing/pyparsing) | 2.4.7 |
+| [pyserial/pyserial](https://github.com/pyserial/pyserial) | 3.5 |
+| [dateutil/dateutil](https://github.com/dateutil/dateutil) | 2.8.1 |
+| [yaml/pyyaml](https://github.com/yaml/pyyaml) | 5.4.1 |
+| [psf/requests](https://github.com/psf/requests) | 2.25.1 |
+| [boto/s3transfer](https://github.com/boto/s3transfer) | 0.3.4 |
+| [enthought/scimath](https://github.com/enthought/scimath) | 4.2.0 |
+| [scipy/scipy](https://github.com/scipy/scipy) | 1.6.1 |
+| [benjaminp/six](https://github.com/benjaminp/six) | 1.15.0 |
+| [enthought/traits](https://github.com/enthought/traits) | 6.2.0 |
+| [urllib3/urllib3](https://github.com/urllib3/urllib3) | 1.26.3 |
+| [python-attrs/attrs](https://github.com/python-attrs/attrs) | 19.3.0 |
+| [CheetahTemplate3/cheetah3](https://github.com/CheetahTemplate3/cheetah3/) | 3.2.4 |
+| [pallets/click](https://github.com/pallets/click) | 7.0 |
+| [pallets/flask](https://github.com/pallets/flask) | 1.1.1 |
+| [flask-restful/flask-restful](https://github.com/flask-restful/flask-restful) | 0.3.7 |
+| [pytest-dev/iniconfig](https://github.com/pytest-dev/iniconfig) | 1.0.0 |
+| [pallets/itsdangerous](https://github.com/pallets/itsdangerous) | 1.1.0 |
+| [pallets/jinja](https://github.com/pallets/jinja) | 2.10.3 |
+| [lxml/lxml](https://github.com/lxml/lxml) | 4.4.1 |
+| [Python-Markdown/markdown](https://github.com/Python-Markdown/markdown) | 3.1.1 |
+| [pallets/markupsafe](https://github.com/pallets/markupsafe) | 1.1.1 |
+| [pypa/packaging](https://github.com/pypa/packaging) | 19.2 |
+| [pexpect/pexpect](https://github.com/pexpect/pexpect) | 4.7.0 |
+| [pytest-dev/pluggy](https://github.com/pytest-dev/pluggy) | 0.13.0 |
+| [pexpect/ptyprocess](https://github.com/pexpect/ptyprocess) | 0.6.0 |
+| [pytest-dev/py](https://github.com/pytest-dev/py) | 1.8.0 |
+| [pyparsing/pyparsing](https://github.com/pyparsing/pyparsing) | 2.4.5 |
+| [pytest-dev/pytest](https://github.com/pytest-dev/pytest) | 5.3.0 |
+| [stub42/pytz](https://github.com/stub42/pytz) | 2019.3 |
+| [uiri/toml](https://github.com/uiri/toml) | 0.10.0 |
+| [pallets/werkzeug](https://github.com/pallets/werkzeug) | 0.16.0 |
+| [dmnfarrell/tkintertable](https://github.com/dmnfarrell/tkintertable) | 1.2 |
+| [wxWidgets/wxPython-Classic](https://github.com/wxWidgets/wxPython-Classic) | 2.9.1.1 |
+| [opencv/opencv](https://github.com/opencv/opencv) | 4.5.1 |
+| [curl/curl](https://github.com/curl/curl) | 7.19.0 |
+| [madler/zlib](https://github.com/madler/zlib) | 1.2.11 |
+| [apache/lucene](https://github.com/apache/lucene) | 7.7.3 |
+| [yaml/libyaml](https://github.com/yaml/libyaml) | 0.2.5 |
+| [elastic/elasticsearch](https://github.com/elastic/elasticsearch) | 6.8.1 |
+| [nucleic/cppy](https://github.com/nucleic/cppy) | 1.1.0 |
 
 ### Further reading
 

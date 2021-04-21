@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - identidad
+  - administración de accesos
 ---
 
 ### Revisar tus {% data variables.product.prodname_oauth_app %}s autorizadas

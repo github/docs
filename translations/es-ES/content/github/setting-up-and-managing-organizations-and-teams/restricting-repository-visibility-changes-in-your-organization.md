@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Puedes restringir la habilidad de cambiar la visibilidad de un repositorio para solo los propietarios de la organización o permitir que los miembros con privilegios administrativos en éste también cambien la visibilidad.

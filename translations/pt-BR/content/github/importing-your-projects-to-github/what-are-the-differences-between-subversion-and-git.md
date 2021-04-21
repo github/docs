@@ -51,7 +51,7 @@ Para obter mais informações, consulte “[Submódulos de ferramentas Git](http
 
 ### Preservar o histórico
 
-O SVN está configurado para pressupor que o histórico de um projeto nunca é alterado. O Git permite modificar alterações e commits anteriores usando ferramentas como [`git rebase`](/articles/about-git-rebase).
+O SVN está configurado para pressupor que o histórico de um projeto nunca é alterado. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

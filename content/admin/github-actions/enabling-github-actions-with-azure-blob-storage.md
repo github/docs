@@ -4,6 +4,8 @@ intro: 'You can enable {% data variables.product.prodname_actions %} on {% data 
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - enterprise
 ---
 
 ### Prerequisites

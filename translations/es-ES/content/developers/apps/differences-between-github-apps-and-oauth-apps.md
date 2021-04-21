@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - github apps
+  - oauth apps
 ---
 
 ### ¿Quién puede instalar GitHub Apps y autorizar Apps de OAuth?

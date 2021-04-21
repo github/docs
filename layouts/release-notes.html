@@ -13,7 +13,7 @@
 
       <div class="d-flex">
         <article class="min-width-0 flex-1">
-          <div class="d-flex flex-items-center flex-justify-between bg-white text-bold px-5 py-2">
+          <div class="d-flex flex-items-center flex-justify-between color-bg-primary text-bold px-5 py-2">
             {% if prevRelease %}
               <a
                 class="btn btn-outline"
@@ -39,15 +39,15 @@
 
           <div class="markdown-body">
             {% for patch in releaseNotes %}
-              <div class="js-release-notes-patch mb-10 bg-gray-light pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
-                <header class="container-xl position-sticky top-0 bg-gray-light border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
+              <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
+                <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
                   <div class="d-flex flex-items-center">
                     <h2 class="border-bottom-0 m-0 p-0">
                       {{ allVersions[currentVersion].versionTitle }}.{{ patch.patchVersion }}
                     </h2>
 
                     {% if patch.release_candidate %}
-                      <span class="IssueLabel bg-orange text-white ml-3" style="white-space: pre">Release Candidate</span>
+                      <span class="IssueLabel color-bg-warning-inverse color-text-inverse ml-3" style="white-space: pre">Release Candidate</span>
                     {% endif %}
 
                     <a href="https://enterprise.github.com/releases/{{ patch.downloadVersion }}/download" class="ml-3 text-small text-bold">
@@ -59,7 +59,19 @@
                     </button>
                   </div>
 
-                  <p class="text-gray mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+                  <p class="color-text-secondary mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease == latestRelease %}
+                  <p class="color-text-secondary mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version == latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="color-text-secondary mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_release_only %}</p>
+                  {% endif %}
+
+                  {% if patch.version != latestPatch and allVersions[currentVersion].currentRelease != latestRelease %}
+                  <p class="color-text-secondary mt-1">{% data ui.header.notices.ghes_release_notes_upgrade_patch_and_release %}</p>
+                  {% endif %}
                 </header>
 
                 <div class="container-xl px-3">
@@ -101,7 +113,7 @@
         </article>
 
         <aside
-          class="markdown-body position-sticky top-0 d-none d-md-block border-left no-print bg-white flex-shrink-0"
+          class="markdown-body position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
           style="width: 260px; height: 100vh;"
         >
           <nav class="height-full overflow-auto">
@@ -114,18 +126,18 @@
                         <summary class="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
                           {{ release.version }}
                           <div class="d-flex">
-                            <span class="text-gray-light text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
+                            <span class="color-text-tertiary text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
                             {% octicon "chevron-down" %}
                           </div>
                         </summary>
-                        <ul class="bg-gray border-top list-style-none py-4 px-0 my-0">
+                        <ul class="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
                           {% for patch in release.patches %}
                             <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.version }}">
                               <a
                                 href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes#{{ patch.version }}"
                                 class="d-flex flex-items-center flex-justify-between">
                                 {{ patch.version }}
-                                <span class="text-gray-light text-mono text-small text-normal">{{ patch.date | date: "%B %d, %Y" }}</span>
+                                <span class="color-text-tertiary text-mono text-small text-normal">{{ patch.date | date: "%B %d, %Y" }}</span>
                               </a>
                             </li>
                           {% endfor %}
@@ -134,11 +146,11 @@
                     {% else %}
                       <a class="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between" href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes">
                         {{ release.version }}
-                        <span class="text-gray-light text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
+                        <span class="color-text-tertiary text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
                       </a>
                     {% endif %}
                   {% else %}
-                    <a href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes" class="link-gray-dark no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+                    <a href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes" class="Link--primary no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
                       {{ release.version }}
                       {% octicon "link-external" %}
                     </a>
@@ -150,9 +162,9 @@
         </aside>
       </div>
 
-      <div class="border-top">
-        {% include small-footer %}
-      </div>
+      {% include support-section %}
+      {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

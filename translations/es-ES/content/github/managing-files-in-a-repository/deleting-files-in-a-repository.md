@@ -9,7 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Las personas con permisos de escritura pueden borrar los archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorios{% endif %} de un repositorio.
+permissions: 'Las personas con permisos de escritura pueden borrar los archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorios{% endif %} de un repositorio.'
+topics:
+  - repositories
 ---
 
 ### Acerca del borrado de archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} y directorios{% endif %}

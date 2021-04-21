@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Los propietarios de organización pueden configurar {% data variables.product.prodname_sponsors %} para una organización.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Unirte a {% data variables.product.prodname_sponsors %}
@@ -46,6 +48,7 @@ Para unirte a {% data variables.product.prodname_sponsors %} como un colaborador
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Emitir tu información bancaria

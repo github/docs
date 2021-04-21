@@ -13,7 +13,7 @@ Este guia ajudará você a dar os primeiros passos com {% data variables.product
 
 Você pode achar útil ter um entendimento básico do Git e do {% data variables.product.prodname_dotcom %} antes de começar a usar o {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte os seguintes artigos.
 
-- "[Aprender sobre o Git](/github/using-git/learning-about-git)"
+- "[Using Git](/github/getting-started-with-github/using-git)"
 - "[Aprender sobre {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[Começar com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
 
@@ -47,7 +47,7 @@ Depois de instalar o {% data variables.product.prodname_desktop %}, você pode c
 
 {% mac %}
 
-Você pode conectar ou remover contas no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}, escolher um editor de texto padrão ou shell, editar a sua configuração do Git, alterar a aparência de {% data variables.product.prodname_desktop %}, personalizar diálogos do sistema e configurar preferências de privacidade na janela Preferências do {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte "[Definindo as configurações básicas](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
+Você pode conectar ou remover contas no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}, escolher um editor de texto padrão ou shell, editar a sua configuração do Git, alterar a aparência de {% data variables.product.prodname_desktop %}, personalizar caixas de diálogo do sistema e configurar preferências de privacidade na janela Preferências do {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte "[Definindo as configurações básicas](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
 
   ![As configurações básicas na janela de Preferências](/assets/images/help/desktop/mac-appearance-tab-themes.png)
 
@@ -55,7 +55,7 @@ Você pode conectar ou remover contas no {% data variables.product.prodname_dotc
 
 {% windows %}
 
-Você pode conectar ou remover contas no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}, escolher um editor de texto padrão ou shell, editar a sua configuração do Git, alterar a aparência de {% data variables.product.prodname_desktop %}, personalizar diálogos do sistema e configurar preferências de privacidade na janela de Opções do {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte "[Definindo as configurações básicas](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
+Você pode conectar ou remover contas no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}, escolher um editor de texto padrão ou shell, editar a sua configuração do Git, alterar a aparência de {% data variables.product.prodname_desktop %}, personalizar as caixas de diálogo do sistema e configurar preferências de privacidade na janela de Opções do {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte "[Definindo as configurações básicas](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
 
   ![As configurações básicas na janela de Opções](/assets/images/help/desktop/windows-appearance-tab-themes.png)
 

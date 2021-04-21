@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/about-migrations
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### Types of migrations

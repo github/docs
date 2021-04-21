@@ -1,6 +1,6 @@
 ---
 title: Einen Open-Source-Mitwirkenden unterstützen
-intro: 'Du kannst monatlich wiederkehrende Zahlungen an einen Entwickler oder eine Organisation machen, welche ein für Dich wichtiges Open-Source-Projekt entwirft, erstellt oder unterhält.'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -22,11 +24,11 @@ You can sponsor an account on behalf of your user account to invest in projects 
 - Developing brand awareness as an organization that values open source
 - Thanking open source developers for building libraries that complement the product your organization offers
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
 
 {% data reusables.sponsors.no-fees %} Weitere Informationen finden Sie unter „[Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)“.
 
-When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -49,8 +51,9 @@ Before you can sponsor an account, you must have a verified email address. Weite
 1. On {% data variables.product.product_name %}, navigate to the profile of the user or organization you want to sponsor.
 1. Navigate to your sponsorship dashboard for the account.
    - To sponsor a developer, under the developer's name, click **Sponsor**. ![Schaltfläche „Sponsor“ (Unterstützen)](/assets/images/help/profile/sponsor-button.png)
-   - To sponsor an organization, to the right of the the organization's name, click **Sponsor**. ![Schaltfläche „Sponsor“ (Unterstützen)](/assets/images/help/sponsors/sponsor-org-button.png)
+   - To sponsor an organization, to the right of the organization's name, click **Sponsor**. ![Schaltfläche „Sponsor“ (Unterstützen)](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

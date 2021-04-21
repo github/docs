@@ -7,8 +7,9 @@
 | Alibaba Cloud             | Secreto de Clave de Acceso a la Nube de Alibaba     | alibaba_cloud_access_key_secret      |
 | Amazon Web Services (AWS) | ID de Clave de Acceso de AWS de Amazon              | aws_access_key_id                      |
 | Amazon Web Services (AWS) | Clave de Acceso Secreta de AWS de Amazon            | aws_secret_access_key                  |
+| Asana                     | Asana Personal Access Token                         | asana_personal_access_token            |
 | Atlassian                 | Token de API de Atlassian                           | atlassian_api_token                    |
-| Atlassian                 | Token Web de JSON de Atlassian                      | atlassian_jwt                            |
+| Atlassian                 | Token Web de JSOn de Atlazzian                      | atlassian_jwt                            |
 | Azure                     | Token de Acceso Personal de Azure DevOps            | azure_devops_personal_access_token   |
 | Azure                     | Token de Azure SAS                                  | azure_sas_token                        |
 | Azure                     | Certificado de Administración de Servicios de Azure | azure_management_certificate           |
@@ -26,6 +27,7 @@
 | Dropbox                   | Token de Acceso de Vida Corta de Dropbox            | dropbox_short_lived_access_token     |
 | Dynatrace                 | Token de Acceso de Dynatrace                        | dynatrace_access_token                 |
 | Dynatrace                 | Token Interno de Dynatrace                          | dynatrace_internal_token               |
+| Facebook                  | Token de Acceso a Facebook                          | facebook_access_token                  |
 | Finicity                  | Clave de App de Finicity                            | finicity_app_key                       |
 | Frame.io                  | Token Web de JSON de Frame.io                       | frameio_jwt                              |
 | Frame.io                  | Token de Desarrollador de Frame.io                  | frameio_developer_token                |
@@ -36,8 +38,12 @@
 | GoCardless                | Token de Acceso de GoCardless Sandbox               | gocardless_sandbox_access_token        |
 | Google Cloud              | Clave de API de Google                              | google_api_key                         |
 | Google Cloud              | ID de Clave Privada de Google Cloud                 | google_cloud_private_key_id          |
+| Grafana                   | Grafana API Key                                     | grafana_api_key                        |
 | Hashicorp Terraform       | Token de API de Terraform Cloud / Enterprise        | terraform_api_token                    |
 | Hubspot                   | Clave de API de Hubspot                             | hubspot_api_key                        |
+| Intercom                  | Intercom Access Token                               | intercom_access_token                  |
+| Lob                       | Lob Live API Key                                    | lob_live_api_key                       |
+| Lob                       | Lob Test API Key                                    | lob_test_api_key                       |
 | Mailchimp                 | Clave de API de Mailchimp                           | mailchimp_api_key                      |
 | Mailgun                   | Clave de API de Mailgun                             | mailgun_api_key                        |
 | npm                       | Token de Acceso de npm                              | npm_access_token                       |
@@ -49,8 +55,11 @@
 | Proctorio                 | Clave de Registro de Proctorio                      | proctorio_registration_key             |
 | Proctorio                 | Clave de Secreto de Proctorio                       | proctorio_secret_key                   |
 | Pulumi                    | Token de Acceso de Pulumi                           | pulumi_access_token                    |
+| PyPI                      | Token de la API de PyPI                             | pypi_api_token                         |
+| RubyGems                  | RubyGems API Key                                    | rubygems_api_key                       |
 | Samsara                   | Token de API de Samsara                             | samsara_api_token                      |
 | Samsara                   | Token de Acceso de OAuth de Samsara                 | samsara_oauth_access_token             |
+| SendGrid                  | Clave de la API de SendGrid                         | sendgrid_api_key                       |
 | Shopify                   | Secreto Compartid de la App de Shopify              | shopify_app_shared_secret              |
 | Shopify                   | Token de Acceso de Shopify                          | shopify_access_token                   |
 | Shopify                   | Token de Acceso de la App Personalizada de Shopify  | shopify_custom_app_access_token      |

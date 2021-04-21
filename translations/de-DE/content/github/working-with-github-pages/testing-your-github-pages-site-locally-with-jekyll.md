@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können eine {% data variables.product.prodname_pages %}-Website lokal testen.
@@ -28,6 +30,7 @@ Bevor Du mit Jekyll eine Website testen kannst, müssen folgende Voraussetzungen
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
+3. Run `bundle install`.
 3. Führe Dein Jekyll-Website lokal aus.
   ```shell
   $ bundle exec jekyll serve

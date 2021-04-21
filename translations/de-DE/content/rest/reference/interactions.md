@@ -4,6 +4,8 @@ redirect_from:
   - /v3/interactions
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
 Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict interaction with public repositories to a certain type of user.

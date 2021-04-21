@@ -5,6 +5,9 @@ redirect_from:
   - /categories/site-policy
 versions:
   free-pro-team: '*'
+topics:
+  - policy
+  - legal
 ---
 
 
@@ -13,6 +16,7 @@ versions:
 {% link_in_list /github-terms-of-service %}
 {% link_in_list /github-corporate-terms-of-service %}
 {% link_in_list /github-privacy-statement %}
+{% link_in_list /github-data-protection-agreement-non-enterprise-customers %}
 {% link_in_list /global-privacy-practices %}
 {% link_in_list /github-insights-and-data-protection-for-your-organization %}
 {% link_in_list /github-sponsors-additional-terms %}

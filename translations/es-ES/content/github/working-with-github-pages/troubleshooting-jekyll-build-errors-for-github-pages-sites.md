@@ -29,6 +29,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 ### Solucionar problemas de errores de compilación

@@ -11,5 +11,7 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 

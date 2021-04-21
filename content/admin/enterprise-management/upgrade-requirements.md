@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% note %}

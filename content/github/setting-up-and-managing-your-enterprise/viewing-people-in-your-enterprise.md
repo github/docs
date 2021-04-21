@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 ### Viewing enterprise owners{% if currentVersion == "free-pro-team@latest" %} and billing managers{% endif %}

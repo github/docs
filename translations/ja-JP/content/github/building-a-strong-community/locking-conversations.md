@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - コミュニティ
 ---
 
 会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %} または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %} に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。

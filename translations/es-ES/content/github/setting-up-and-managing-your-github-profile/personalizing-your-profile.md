@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfiles
 ---
 
 ### Cambiar tu imagen de perfil
