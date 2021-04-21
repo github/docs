@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 ### Ver detalles del historial de edición de un comentario
@@ -27,7 +29,7 @@ Cuando eliminas información confidencial del historial de edición del comentar
 3. En el margen superior derecho de la ventana del historial de edición, haz clic en **Options** (Opciones). Luego haz clic en **Delete revision from history** (Eliminar revisión del historial) para eliminar la diferencia que muestra el contenido que se agrega. ![Eliminar detalles de edición de un comentario](/assets/images/help/repository/delete-comment-edit-details.png)
 4. Para confirmar la eliminación, haz clic en **OK**.
 
-### Further reading
+### Leer más
 
 {% if currentVersion == "free-pro-team@latest" %}- "[Reportar abuso o spam](/articles/reporting-abuse-or-spam)"{% endif %}
 - "[Editar un comentario](/articles/editing-a-comment)"

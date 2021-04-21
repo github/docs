@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 {% warning %}
@@ -27,7 +29,7 @@ versions:
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Crear una solicitud de extracción](/articles/creating-a-pull-request)"
 - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"

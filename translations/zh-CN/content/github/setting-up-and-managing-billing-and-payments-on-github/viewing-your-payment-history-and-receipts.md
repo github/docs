@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-your-payment-history-and-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - 计费，帐单
 ---
 
 ### 查看个人帐户的收据

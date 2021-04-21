@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Standardmäßig können alle Organisationsmitglieder Repositorys erstellen. Wenn Du die [Berechtigungen zur Repository-Erstellung](/articles/restricting-repository-creation-in-your-organization) auf Organisationsinhaber beschränkst und Deine Organisation unter der alten Struktur der Organisationsberechtigungen erstellt wurde, können Mitglieder der früheren Administratorenteams nach wie vor Repositorys erstellen.

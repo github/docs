@@ -1,1 +1,1 @@
-You can use the site admin dashboard to manage users, organizations, and repositories in your enterprise directly in {% data variables.product.product_name %}.
+Puedes utilizar el tablero administrativo del sitio para administrar usuarios, organizaciones y repositorios en tu empresa directamente en {% data variables.product.product_name %}.

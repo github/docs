@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - ssh
 ---
 
 ### Descobrir onde a chave foi usada

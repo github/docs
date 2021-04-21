@@ -4,7 +4,7 @@ const webhookPayloads = require(path.join(process.cwd(), 'lib/webhooks'))
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const allVersions = require('../../lib/all-versions')
 
-module.exports = async (req, res, next) => {
+module.exports = function webhooksContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-webhook reference paths
   // and to versions that don't exist

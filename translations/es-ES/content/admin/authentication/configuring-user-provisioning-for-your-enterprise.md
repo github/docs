@@ -28,6 +28,8 @@ La aplicación de aprovisionamiento en tu IdP se comunica con {% data variables.
 
 {% data reusables.scim.supported-idps %}
 
+Cuando configuras el aprovisionamiento de usuarios con un IdP compatible, también puedes asignar o desasignar la aplicación para {% data variables.product.product_name %} a grupos de usuarios. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
+
 ### Prerrequisitos
 
 {% if currentVersion == "github-ae@latest" %}
@@ -74,7 +76,7 @@ Debes tener acceso administrativo en tu IdP para configurar la aplicación para 
 
   | Valor              | Otros nombres                           | Descripción                                                                                                           | Ejemplo                                           |
   |:------------------ |:--------------------------------------- |:--------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------- |
-  | URL                | URL de inquilino                        | URL para la API de aprovisionamiento de SCIM para tu empresa en {% data variables.product.prodname_ghe_managed %}   | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code>                         |
+  | URL                | URL de inquilino                        | URL para la API de aprovisionamiento de SCIM para tu empresa en {% data variables.product.prodname_ghe_managed %}   | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre>                         |
   | Secreto compartido | Token de acceso personal, token secreto | Toekn para que la aplicación en tu IdP realice las tareas de aprovisionamiento en nombre de un propietario de empresa | Token de acceso personal que creaste en el paso 1 |
 
 {% endif %}

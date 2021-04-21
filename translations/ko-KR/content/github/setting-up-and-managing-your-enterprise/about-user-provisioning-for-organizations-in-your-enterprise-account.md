@@ -4,6 +4,8 @@ intro: You can manage organization membership in an enterprise account directly 
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 엔터프라이즈
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

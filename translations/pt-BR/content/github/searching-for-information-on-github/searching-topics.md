@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pesquisa do github
 ---
 
 ### Pesquisar tópicos no {% data variables.product.product_name %}

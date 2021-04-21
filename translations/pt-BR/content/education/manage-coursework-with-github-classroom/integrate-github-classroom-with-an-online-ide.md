@@ -12,7 +12,7 @@ redirect_from:
 
 {% data reusables.classroom.about-online-ides %}
 
-Depois que um aluno aceitar uma atividade com um IDE on-line, o arquivo LEIAME no repositório de atividades do aluno conterá um botão para abrir a atividade no IDE. O aluno pode começar a trabalhar imediatamente, e nenhuma configuração adicional será necessária.
+Depois que um aluno aceitar uma atividade com um IDE on-line, o arquivo README no repositório de atividades do aluno conterá um botão para abrir a atividade no IDE. O aluno pode começar a trabalhar imediatamente, e nenhuma configuração adicional será necessária.
 
 ![Botão para IDE on-line no README.md para repositório de atividade](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
 
@@ -39,4 +39,4 @@ Para todos os repositórios, conceda acesso de **leitura** do aplicativo aos met
 
 ### Leia mais
 
-- "[Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

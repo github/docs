@@ -88,5 +88,5 @@ versions:
 
 如果取消阻止了 {% data variables.product.prodname_dependabot %}，您可以手动触发新的尝试来创建拉取请求。
 
-- **安全更新**—显示 {% data variables.product.prodname_dependabot %} 警报，查看您修复的错误，然后单击 **Create {% data v{% data variables.product.prodname_dependabot %} security update（创建安全更新）**。
+- **安全更新**—显示 {% data variables.product.prodname_dependabot %} 警报，查看您修复的错误，然后单击 **Create {% data variables.product.prodname_dependabot %} security update（创建安全更新）**。
 - **版本更新**—在仓库的 **Insights（洞察）**选项卡上单击 **Dependency graph（依赖项图）**，然后单击 **Dependabot** 选项卡。 单击 **Last checked *TIME* ago**（上次检查时间以前），查看 {% data variables.product.prodname_dependabot %} 在上次检查版本更新时生成的日志文件。 单击 **Check for Updates（检查更新）**。

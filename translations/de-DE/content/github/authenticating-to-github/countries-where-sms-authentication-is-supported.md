@@ -5,6 +5,8 @@ redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 Wenn wir die Zwei-Faktor-Authentifizierung per SMS in Deinem Land nicht unterstützen, kannst Du die Authentifizierung per TOTP-Mobilanwendung einrichten. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.

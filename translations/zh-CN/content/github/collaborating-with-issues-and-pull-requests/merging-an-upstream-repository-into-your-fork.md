@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
