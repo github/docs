@@ -3,15 +3,18 @@ title: Viewing your sponsors and sponsorships
 intro: You can view and export detailed information and analytics about your sponsors and sponsorships.
 redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
+  - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Open Source'
+  - 'Analytics'
 ---
 
 ### About sponsors and sponsorships
 
-You can view analytics on your current and past sponsorships, the payments you've received from sponsors, and events, such as cancellations and sponsor tier changes for your sponsorships. You can also view activity such as new sponsorships, changes to sponsorships, and canceled sponsorships. You can filter the list of activities by date. You can also export sponsorship data for the account you're viewing in CSV or JSON format. 
+You can view analytics on your current and past sponsorships, the payments you've received from sponsors, and events, such as cancellations and sponsor tier changes for your sponsorships. You can also view activity such as new sponsorships, changes to sponsorships, and canceled sponsorships. You can filter the list of activities by date. You can also export sponsorship data for the account you're viewing in CSV or JSON format.
 
 ### Viewing your sponsors and sponsorships
 
