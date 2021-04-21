@@ -1200,7 +1200,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
 
 #### Availability
 

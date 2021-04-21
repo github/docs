@@ -1,10 +1,15 @@
 ---
 title: Configuring webhooks for events in your sponsored account
 intro: You can configure webhooks to alert you when you receive new sponsorships or existing sponsors make changes to their sponsorships.
+redirect_from:
+  - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Webhooks'
+  - 'Events'
+  - 'Open Source'
 ---
 
 ### About webhooks for events in your sponsored account
