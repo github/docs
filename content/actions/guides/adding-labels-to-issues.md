@@ -46,6 +46,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
             uses: andymckay/labeler@1.0.2
             with:
               add-labels: "triage"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
 4. Customize the parameters in your workflow file:
