@@ -117,6 +117,18 @@
           {% endif %}
         </div>
 
+        {% if productCodeExamples %}
+        {% include code-examples %}
+        {% endif %}
+
+        {% if productCommunityExamples %}
+        {% include community-examples %}
+        {% endif %}
+
+        {% if productUserExamples %}
+        {% include sponsor-examples %}
+        {% endif %}
+
         {{ renderedPage }}
       </div>
 
