@@ -3,6 +3,10 @@ Partner | Supported secret | API slug
 n/a | JSON Web Token | json_web_token
 n/a | OAuth Client Credential | api_credential_assignment
 Adafruit IO | Adafruit IO Key | adafruit_io_key
+Adobe | Adobe Device Token | adobe_device_token
+Adobe | Adobe Service Token | adobe_service_token
+Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token
+Adobe | Adobe JSON Web Token | adobe_jwt
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
@@ -31,9 +35,11 @@ Facebook | Facebook Access Token | facebook_access_token
 Finicity | Finicity App Key | finicity_app_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
-GitHub | GitHub SSH Private Key | github_ssh_private_key
 GitHub | GitHub Personal Access Token | github_personal_access_token
+GitHub | GitHub OAuth Access Token | github_oauth_access_token
+GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
+GitHub | GitHub SSH Private Key | github_ssh_private_key
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google Cloud | Google API Key | google_api_key
