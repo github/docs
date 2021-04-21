@@ -45,7 +45,7 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% if currentVersion == "free-pro-team@latest" %}
 {% raw %}
   ```shell
-  $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+  $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>BITORE</em> --password-stdin
   ```
 {% endraw %}
 {% endif %}
