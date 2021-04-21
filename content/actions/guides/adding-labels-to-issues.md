@@ -29,6 +29,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
+{% raw %}
+
     ```yaml{:copy}
     name: Label issues
     on:
@@ -48,6 +50,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
               add-labels: "triage"
               repo-token: ${{ secrets.GITHUB_TOKEN }}
     ```
+
+{% endraw %}
 
 4. Customize the parameters in your workflow file:
    - Change the value for `add-labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `"help wanted, good first issue"`. For more information about labels, see "[Managing labels](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)."
