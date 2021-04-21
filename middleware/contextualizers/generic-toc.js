@@ -3,7 +3,8 @@ const { sortBy } = require('lodash')
 module.exports = async function genericToc (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
-  if (req.context.currentLayoutName !== 'generic-toc') return next()
+  if (req.context.currentLayoutName !== 'default') return next()
+  if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article') return next()
 
   const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
 
