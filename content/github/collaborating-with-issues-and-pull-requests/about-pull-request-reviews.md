@@ -45,6 +45,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 {% data reusables.pull_requests.re-request-review %}
 
 ### Required reviews
+![Uploading 16189698436329023031253932407135.jpg…]()
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
