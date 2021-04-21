@@ -199,7 +199,9 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 Webhook events are triggered based on the specificity of the domain you register. For example, if you register a subdomain (`https://subdomain.example.com`) then only URLs for the subdomain trigger this event. If you register a domain (`https://example.com`) then URLs for domain and all subdomains trigger this event. See "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" to create a new content attachment.
 
-Only {% data variables.product.prodname_github_app %}s can receive this event. {% data variables.product.prodname_github_app %}s must have the `content_references` `write` permission to subscribe to this event.
+#### Availability
+
+- {% data variables.product.prodname_github_app %}s with the `content_references:write` permission
 
 #### Webhook payload example
 
@@ -1007,12 +1009,6 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 **Note:** You will not receive a webhook for this event when you push more than three tags at once.
 
 {% endnote %}
-
-{% tip %}
-
-**Note**: The webhook payload example following the table differs significantly from the Events API payload described in the table. Among other differences, the webhook payload includes both `sender` and `pusher` objects. Sender and pusher are the same user who initiated the `push` event, but the `sender` object contains more detail.
-
-{% endtip %}
 
 #### Availability
 

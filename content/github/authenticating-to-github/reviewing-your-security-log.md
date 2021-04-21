@@ -93,6 +93,10 @@ An overview of some of the most common actions that are recorded as events in th
 
 | Action | Description
 |------------------|-------------------
+| `create` | Triggered when you [create a codespace](/github/developing-online-with-codespaces/creating-a-codespace).
+| `resume` | Triggered when you resume a suspended codespace.
+| `delete` | Triggered when you [delete a codespace](/github/developing-online-with-codespaces/deleting-a-codespace).
+| `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 | `trusted_repositories_access_update` | Triggered when you change your user account's [access and security setting for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 
 #### `marketplace_agreement_signature` category actions
