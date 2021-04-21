@@ -27,7 +27,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 ### Updating your personal account's payment method
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 {% data reusables.dotcom_billing.enter-payment-info %}
 
@@ -40,6 +40,6 @@ If your organization is outside of the US or if you're using a corporate checkin
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 {% data reusables.dotcom_billing.enter-payment-info %}

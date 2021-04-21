@@ -18,7 +18,7 @@ When you downgrade an app, your subscription remains active until the end of you
 ### Downgrading an app for your personal account
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
@@ -31,7 +31,7 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
