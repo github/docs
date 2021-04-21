@@ -30,9 +30,11 @@ Dynatrace | Dynatrace Internal Token
 Finicity | Finicity App Key
 Frame.io | Frame.io JSON Web Token
 Frame.io| Frame.io Developer Token
-GitHub | GitHub SSH Private Key
 GitHub | GitHub Personal Access Token
+GitHub | GitHub OAuth Access Token
+GitHub | GitHub Refresh Token
 GitHub | GitHub App Installation Access Token
+GitHub | GitHub SSH Private Key
 GoCardless | GoCardless Live Access Token
 GoCardless | GoCardless Sandbox Access Token
 Google Cloud | Google API Key
