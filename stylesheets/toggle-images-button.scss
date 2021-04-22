@@ -1,12 +1,14 @@
 button.toggle-images {
-    opacity: 1;
-    transition: 1s;
-    background-color: var(--color-auto-blue-5);
-    color: var(--color-text-inverse);
-    position: fixed;
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
+  opacity: 1;
+  transition: 1s;
+  background-color: var(--color-auto-blue-5);
+  color: var(--color-text-inverse);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
 }
