@@ -46,14 +46,14 @@ header summary,
 }
 
 .nav-mobile-burgerIcon {
-  background: url('/assets/images/octicons/hamburger.svg') no-repeat right;
+  background: url("/assets/images/octicons/hamburger.svg") no-repeat right;
   width: 18px;
   height: 23px;
   position: relative;
   z-index: 3;
 
   &.js-open {
-    background: url('/assets/images/octicons/x.svg') no-repeat right;
+    background: url("/assets/images/octicons/x.svg") no-repeat right;
     width: 16px;
     height: 21px;
   }
@@ -91,7 +91,7 @@ header summary,
   }
 }
 
-.nav-dropdown  {
+.nav-dropdown {
   @media (min-width: 1012px) and (max-width: 1279px) {
     right: 0;
   }
