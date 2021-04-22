@@ -10,8 +10,8 @@
     grid-template-rows: auto 1fr;
     grid-template-columns: minmax(500px, 720px) minmax(220px, 1fr);
     grid-template-areas:
-    'top right-sidebar'
-    'bottom right-sidebar';
+      "top right-sidebar"
+      "bottom right-sidebar";
     column-gap: $spacer-6;
   }
 
@@ -45,7 +45,6 @@
 /* Deprecation banner
 ------------------------------------------------------------------------------*/
 .deprecation-banner {
-
   & + .alert {
     margin-top: 5px;
   }
@@ -58,24 +57,21 @@
     margin-bottom: 0;
   }
 
-  + #bootcamp {
-    margin-top: 20px;
-  }
-
   b,
   strong {
     font-weight: bold;
   }
 
   p {
-   margin: 0;
+    margin: 0;
   }
 }
 
 /* Code style overrides
 ------------------------------------------------------------------------------*/
 
-.markdown-body .highlight pre, .markdown-body pre {
+.markdown-body .highlight pre,
+.markdown-body pre {
   margin-top: 10px;
 }
 
@@ -93,12 +89,13 @@
   }
 }
 
-.breadcrumbs a:not(:last-child)::after, .breadcrumbs span:not(:last-child)::after {
-  content: '/';
+.breadcrumbs a:not(:last-child)::after,
+.breadcrumbs span:not(:last-child)::after {
+  content: "/";
   color: var(--color-auto-gray-4);
   padding-right: $spacer-1;
   padding-left: $spacer-2;
-  display:inline-block;
+  display: inline-block;
 }
 
 /* Numbered procedures (step 1, step 2, ...)
@@ -181,7 +178,8 @@ img[src*="https://github.githubassets.com/images/icons/emoji"] {
 .warning,
 .danger {
   // remove extra space under lists inside of notes
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 0;
   }
 }

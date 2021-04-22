@@ -25,6 +25,7 @@ summary {
       display: inline-block;
       margin-top: 10px;
       margin-bottom: 10px;
+
       p {
         margin: 0;
         padding: 0;
@@ -37,8 +38,4 @@ summary {
 // except those on each product's toc
 h3 a {
   color: var(--color-auto-blue-5);
-
-  .directory-toc & {
-    color: var(--color-auto-gray-9);
-  }
 }

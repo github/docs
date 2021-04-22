@@ -4,10 +4,13 @@ intro: 'You can add a new sponsorship tier, or edit or retire an existing tier.'
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
   - /github/supporting-the-open-source-community-with-github-sponsors/changing-your-sponsorship-tiers
+  - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Open Source'
+  - 'Sponsors profile'
 ---
 
 ### About sponsorship tiers
