@@ -8,37 +8,45 @@ const hideImagesByDefault = false
 const placeholderImagePath = '/assets/images/octicons/image.svg'
 
 // This module does a few things:
-// 1. Wraps every image in a div so they can be toggled individually.
-// 2. Adds a button to toggle all images on the page.
-// 3. Sets a cookie to keep track of a user's selected preference.
+//
+// 1. Wraps every image in a button so they can be toggled individually.
+// 2. Adds a new icon button in the margin to toggle all images on the page.
+//
+// It uses cookies to keep track of a user's selected image preference.
 export default function () {
   const toggleImagesBtn = document.getElementById('js-toggle-images')
   if (!toggleImagesBtn) return
 
+  // If there are no images on the page, return!
   const images = document.querySelectorAll('img')
+  if (!images.length) return
 
-  // If there are no images on the page, hide the button entirely and return.
-  if (!images.length) {
-    toggleImagesBtn.style.display = 'none'
-    return
-  }
+  // The button is hidden by default so it doesn't appear on browsers with JS disabled.
+  // If there are images on a docs page and JS is enabled, display the toggle button.
+  toggleImagesBtn.style.display = 'block'
+  // Remove focus from the button after click so the tooltip does not stay displayed.
+  toggleImagesBtn.blur()
 
   // Look for a cookie with image visibility preference; otherwise, use the default.
   const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
 
+  /* 1. INDIVIDUAL IMAGE HANDLING */
+
   // Get the aria-labels from the span elements containing the hide/show tooltips for single images.
-  // (We do it this way instead of hardcoding text here for localization-friendliness.)
+  // (We do it this way instead of hardcoding text in JS for localization friendliness.)
   const tooltipHideSingle = document.getElementById('js-hide-single-image').getAttribute('aria-label')
   const tooltipShowSingle = document.getElementById('js-show-single-image').getAttribute('aria-label')
 
   // For every image...
   for (const img of images) {
-    // First, wrap each image in a button and add some attributes.
-    const parentDiv = img.parentNode
+    const parentSpan = img.parentNode
+    // Create a button and add some attributes.
     const parentButton = document.createElement('button')
-    parentDiv.replaceChild(parentButton, img)
-    parentButton.appendChild(img)
     parentButton.classList.add('tooltipped', 'tooltipped-nw', 'btn-toggle-image')
+    // Wrap the image in the button.
+    parentButton.appendChild(img)
+    // Replace the image's parent span with the new button.
+    parentSpan.parentNode.replaceChild(parentButton, parentSpan)
 
     // Set the relevant tooltip text, and hide the image if that is the preference.
     if (hideImagesPreferred) {
@@ -65,6 +73,8 @@ export default function () {
     })
   }
 
+  /* 2. PAGE-WIDE TOGGLE BUTTON HANDLING */
+
   // Get the span elements containing the hide and show icons.
   const hideIcon = document.getElementById('js-hide-icon')
   const showIcon = document.getElementById('js-show-icon')
@@ -73,9 +83,14 @@ export default function () {
   const tooltipHideAll = hideIcon.getAttribute('aria-label')
   const tooltipShowAll = showIcon.getAttribute('aria-label')
 
-  // The icon should be "Hide" to start, so we suppress the "Show" icon here.
-  showIcon.style.display = 'none'
-  toggleImagesBtn.setAttribute('aria-label', tooltipHideAll)
+  // Set the starting state depending on user preferences.
+  if (hideImagesPreferred) {
+    showIcon.style.display = 'block'
+    toggleImagesBtn.setAttribute('aria-label', tooltipShowAll)
+  } else {
+    hideIcon.style.display = 'block'
+    toggleImagesBtn.setAttribute('aria-label', tooltipHideAll)
+  }
 
   // If images are hidden by default, showOnNextClick should be false.
   // If images are not hidden by default, showOnNextClick should be true.
