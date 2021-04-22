@@ -24,7 +24,7 @@ You can edit wikis directly on {% data variables.product.product_name %}, or you
 
 {% note %}
 
-**Note:** Crawlers such as those from search engines will not crawl the contents of wikis as they are excluded by `robots.txt` for anti-abuse reasons. While editing is not as accessible as a wiki, consider using [{% data variables.product.prodname_pages %}](https://pages.github.com/) backed by a public repository for content that can be crawled and accepting of public contributions.
+**Note:** Search engines will not index the contents of wikis. To have your content indexed by search engines, you can use [{% data variables.product.prodname_pages %}](/pages) in a public repository.
 
 {% endnote %}
 
