@@ -88,7 +88,11 @@ We strongly recommend you implement signature validation in your secret alert se
 
 You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm.
 
-> Important: While the public key endpoint above does not require authentication, if no authentication is present, requests may be heavily rate limited.  Please use a PAT as suggested below, or implement caching or [conditional requests](/rest/guides/getting-started-with-the-rest-api#conditional-requests) using ETags.
+{% note %}
+
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token as suggested below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+
+{% endnote %}
 
 Assuming you receive the following message, the code snippets below demonstrate how you could perform signature validation.
 The code also assumes you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens). The token does not need any permissions set.
@@ -360,4 +364,3 @@ A few important points:
 **Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}
-
