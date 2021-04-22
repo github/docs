@@ -7,12 +7,12 @@ const hideImagesByDefault = false
 // Set the image placeholder icon here.
 const placeholderImagePath = '/assets/images/octicons/image.svg'
 
-// This module does a few things:
-//
-// 1. Wraps every image in a button so they can be toggled individually.
-// 2. Adds a new icon button in the margin to toggle all images on the page.
-//
-// It uses cookies to keep track of a user's selected image preference.
+/*
+ * This module does two main things:
+ * 1. Wraps every image in a button so they can be toggled individually.
+ * 2. Adds a new icon button in the margin to toggle all images on the page.
+ * It uses cookies to keep track of a user's selected image preference.
+ */
 export default function () {
   const toggleImagesBtn = document.getElementById('js-toggle-images')
   if (!toggleImagesBtn) return
@@ -30,7 +30,9 @@ export default function () {
   // Look for a cookie with image visibility preference; otherwise, use the default.
   const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
 
-  /* 1. INDIVIDUAL IMAGE HANDLING */
+  /*
+   *  1. INDIVIDUAL IMAGE HANDLING
+   */
 
   // Get the aria-labels from the span elements containing the hide/show tooltips for single images.
   // (We do it this way instead of hardcoding text in JS for localization friendliness.)
@@ -75,7 +77,9 @@ export default function () {
     })
   }
 
-  /* 2. PAGE-WIDE TOGGLE BUTTON HANDLING */
+  /*
+   *  2. PAGE-WIDE TOGGLE BUTTON HANDLING
+   */
 
   // Get the span elements containing the off and on icons.
   const offIcon = document.getElementById('js-off-icon')
