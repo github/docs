@@ -19,7 +19,7 @@ If you use Azure AD as your IdP, you can enable team synchronization for your en
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-Organization ごとの Team 同期の設定と管理も可能です。 詳細は「[Organization の Team 同期を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)」を参照してください。
+Organization ごとの Team 同期の設定と管理も可能です。 詳細は「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」を参照してください。
 
 ### 必要な環境
 

@@ -17,12 +17,6 @@ topics:
 
 When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for private repositories is currently in beta.
-
-{% endnote %}
-
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} program.
 
 ### The {% data variables.product.prodname_secret_scanning %} process

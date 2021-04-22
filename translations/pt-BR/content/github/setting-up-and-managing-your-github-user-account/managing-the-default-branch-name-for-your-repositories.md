@@ -25,4 +25,4 @@ Ao criar um novo repositório em {% data variables.product.product_location %}, 
 
 ### Leia mais
 
-- "[Gerenciar o nome do branch-padrão para repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- "[Gerenciar o nome do branch-padrão para repositórios na sua organização](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

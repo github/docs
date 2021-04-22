@@ -7,7 +7,7 @@ sections:
   bugs:
     - When maintenance mode was enabled, some services continued to be listed as "active processes" even though they were expected to be running, and should not have been listed.
     - After upgrading from 2.22.x to 3.0.x with GitHub Actions enabled, the self-hosted runner version was not updated and no self-hosted updates were made.
-    - Old GitHub Pages builds that were created from commits to a `gh-pages` branch were not cleaned up leading to increased disk usage.
+    - Old GitHub Pages builds were not cleaned up leading to increased disk usage.
     - '`memcached` was not running on active replicas.'
     - Upgrade failed when updating file permissions when GitHub Actions was enabled.
     - A timezone set on GitHub Enterprise 11.10.x or earlier was not being used by some services which were defaulting to UTC time.
@@ -22,3 +22,4 @@ sections:
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
+    - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.

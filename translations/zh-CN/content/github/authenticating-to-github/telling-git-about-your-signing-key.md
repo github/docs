@@ -31,12 +31,12 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
+1. 如果您使用的不是 GPG 套件， 在 `zsh` shell 中运行以下命令将GPG 密钥添加到您的 `shrc` 文件或 `.zprofile` 文件（如果存在）：
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  Alternatively, if you use the `bash` shell, run this command:
+  或者，如果您使用 `bash` shell，则运行皮命令：
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
@@ -93,7 +93,7 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. To add your GPG key to your bash profile, run the following command:
+1. 要将 GPG 密钥添加到您的 bash 配置文件中，请运行以下命令：
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
