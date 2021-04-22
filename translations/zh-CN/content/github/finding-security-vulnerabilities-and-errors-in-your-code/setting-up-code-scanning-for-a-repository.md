@@ -25,7 +25,7 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. 在“{% data variables.product.prodname_code_scanning_capc %} 警报”右侧，单击**设置 {% data variables.product.prodname_code_scanning %}**。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}如果 {% data variables.product.prodname_code_scanning %} 缺少，您必须要求组织所有者或仓库管理员启用 {% data variables.product.prodname_GH_advanced_security %}。 更多信息请参阅“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
+3. 在“{% data variables.product.prodname_code_scanning_capc %} 警报”右侧，单击**设置 {% data variables.product.prodname_code_scanning %}**。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}如果 {% data variables.product.prodname_code_scanning %} 缺少，您必须要求组织所有者或仓库管理员启用 {% data variables.product.prodname_GH_advanced_security %}。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
 4. Under "Get started with code scanning", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 2" %}工作流程仅在与仓库中检测到的编程语言相关时才会显示。 {% data variables.product.prodname_codeql_workflow %} 始终显示，但仅在 {% data variables.product.prodname_codeql %} 分析支持仓库中存在的语言时才启用“Set up this workflow（设置此工作流程）”按钮。{% endif %}
 5. Optionally, to customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
 
@@ -65,7 +65,7 @@ topics:
 
 **注意：** 如果您提出拉取请求以将 {% data variables.product.prodname_code_scanning %} 工作流程添加到仓库，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，您可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面上的横幅中点击**发现的 _n_ 条警报**链接。
 
-  ![点击"发现的 n 条警报"链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+  ![点击"发现的 n 条警报"链接](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
@@ -91,7 +91,7 @@ topics:
 
   要检查是否扫描了分支，请转到 {% data variables.product.prodname_code_scanning_capc %} 页面，单击 **Branch<（分支）**下拉菜单并选择相关分支。
 
-  ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
 
   {% if currentVersion == "free-pro-team@latest" %}Using actions to run {% data variables.product.prodname_code_scanning %} will use minutes. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."{% endif %}
 

@@ -29,7 +29,7 @@ During this beta, {% data variables.product.prodname_advanced_security %} featur
 
 #### Manage teams from your identity provider (IdP)
 
-Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams. Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group. For more information, see "[Synchronizing a team with an identity provider group](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)."
+Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams. Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 #### IP allow lists beta
 
@@ -37,7 +37,7 @@ Enterprise and organization owners can now use IP allow lists to restrict traffi
 
 This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the {% data variables.product.product_name %} tenant.
 
-For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)."
+For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 #### Pull request auto-merge
 
@@ -47,8 +47,8 @@ With auto-merge, pull requests can be set to merge automatically when all merge 
 
 #### Developer changes
 
-- [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
-- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+- [Organization owners can now disable publication](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
+- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
 - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
 - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
 - It’s now easier and faster to [reference issues or pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), with search across multiple words after the "#".  
@@ -65,7 +65,7 @@ With auto-merge, pull requests can be set to merge automatically when all merge 
 
 ##### Default branch renaming
 
-Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" and "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)."
+Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" and "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 
 Existing repositories are unaffected by these settings, and their default branch name will not be changed.
 

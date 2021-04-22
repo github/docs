@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
+許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
 既定では、Azure ネットワークセキュリティグループ (NSG) ルールで、ポート 22、80、443、および 25 ですべてのインバウンドトラフィックが開いたままになります。 Enterprise オーナーは {% data variables.contact.github_support %} に問い合わせて、インスタンスのアクセス制限を設定できます。
 
