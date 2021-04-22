@@ -180,4 +180,5 @@ toggle_images:
   on: Images are on, click to hide
   hide_single: Hide image
   show_single: Show image
-scroll_to_top: Scroll to top
+scroll_button:
+  scroll_to_top: Scroll to top
