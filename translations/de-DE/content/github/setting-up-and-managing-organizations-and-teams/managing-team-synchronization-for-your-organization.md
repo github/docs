@@ -10,6 +10,9 @@ permissions: Organisationsinhaber können die Teamsynchronisierung für eine Org
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

@@ -7,7 +7,7 @@ module.exports = async function enterpriseServerReleases (req, res, next) {
 
   const html = await liquid.parseAndRender(layouts['enterprise-server-releases'], req.context)
 
-  req.context.miniTocItems = getMiniTocItems(html)
+  req.context.miniTocItems = getMiniTocItems(html, 3, 'article')
 
   return res.send(await liquid.parseAndRender(layouts['enterprise-server-releases'], req.context))
 }

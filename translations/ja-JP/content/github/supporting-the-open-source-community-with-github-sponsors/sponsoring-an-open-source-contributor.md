@@ -1,38 +1,40 @@
 ---
 title: オープンソースコントリビューターに対するスポンサー
-intro: 'あなたが頼りにしているオープンソースプロジェクトを設計、作成、維持する開発者または Organization に対して、毎月定期的に支払いをすることができます。'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
 versions:
   free-pro-team: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: 誰でも、自身のユーザーアカウントに代わってアカウントをスポンサーできます。 Organization のオーナーと支払いマネージャーは、自身のOrganizationに代わってアカウントをスポンサーできます。
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorships
+### スポンサーシップについて
 
 {% data reusables.sponsors.sponsorship-details %}
 
-You can sponsor an account on behalf of your user account to invest in projects that you personally benefit from. You can sponsor an account on behalf of your organization for many reasons.
-- Sustaining specific libraries that your organization's work depends on
-- Investing in the ecosystem you rely on as a organization (such as blockchain)
-- Developing brand awareness as an organization that values open source
-- Thanking open source developers for building libraries that complement the product your organization offers
+ユーザーアカウントの代わりにアカウントをスポンサーし、個人的に利益を得るプロジェクトに投資することができます。 Organization に代わってアカウントをスポンサーできますが、それには多くの理由があります。
+- Organization の作業が依存する特定のライブラリを維持する
+- Organization として依存しているエコシステム (たとえばブロックチェーン) に投資する
+- オープンソースを大切にする Organization としてブランド認知度を確立する
+- Organization が提供する製品を補完するライブラリを構築しているオープンソース開発者に感謝する
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to pay by invoice, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. Organization が請求書で支払いしたい場合は、[お問い合わせ](https://support.github.com/contact/org-sponsors-waitlist)ください。
 
 {% data reusables.sponsors.no-fees %}詳細は「[{% data variables.product.prodname_sponsors %} の支払いについて](/articles/about-billing-for-github-sponsors)」を参照してください。
 
-When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. 詳細は「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照してください。
+スポンサードアカウントがあなたのスポンサー層を廃止した場合、あなたが別の層を選択するか、プランをキャンセルするまで、あなたはその層にそのままとどまります。 詳細は「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照してください。
 
-If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. 詳細については、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」と「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
+スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 詳細については、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」と「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -42,15 +44,16 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% endnote %}
 
-### Sponsoring an account
+### アカウントをスポンサーする
 
-Before you can sponsor an account, you must have a verified email address. 詳細は「[メールアドレスを検証する](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。
+アカウントをスポンサーするには、認証済みメールアドレスが必要です。 詳細は「[メールアドレスを検証する](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。
 
-1. On {% data variables.product.product_name %}, navigate to the profile of the user or organization you want to sponsor.
-1. Navigate to your sponsorship dashboard for the account.
-   - To sponsor a developer, under the developer's name, click **Sponsor**. ![[Sponsor] ボタン](/assets/images/help/profile/sponsor-button.png)
-   - To sponsor an organization, to the right of the the organization's name, click **Sponsor**. ![[Sponsor] ボタン](/assets/images/help/sponsors/sponsor-org-button.png)
-1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+1. {% data variables.product.product_name %} で、スポンサーするユーザーまたは Organization のプロフィールに移動します。
+1. アカウントのスポンサーシップダッシュボードに移動します。
+   - 開発者をスポンサーする場合は、開発者の名前の下で [**Sponsor**] をクリックします。 ![[Sponsor] ボタン](/assets/images/help/profile/sponsor-button.png)
+   - Organization をスポンサーする場合は、開発者の名前の下で [**Sponsor**] をクリックします。 ![[Sponsor] ボタン](/assets/images/help/sponsors/sponsor-org-button.png)
+1. オプションとして、ページの右側で、Organization に代わってアカウントをスポンサーする場合は、[**Sponsor as**] ドロップダウンメニューを使用して Organization をクリックします。 ![スポンサーとしてのアカウントを選択するドロップダウンメニュー](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

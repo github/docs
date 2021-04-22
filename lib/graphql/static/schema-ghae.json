@@ -1371,6 +1371,40 @@
       ]
     },
     {
+      "name": "convertPullRequestToDraft",
+      "kind": "mutations",
+      "id": "convertpullrequesttodraft",
+      "href": "/graphql/reference/mutations#convertpullrequesttodraft",
+      "description": "<p>Converts a pull request to draft.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertPullRequestToDraftInput!",
+          "id": "convertpullrequesttodraftinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request that is now a draft.</p>"
+        }
+      ]
+    },
+    {
       "name": "createBranchProtectionRule",
       "kind": "mutations",
       "id": "createbranchprotectionrule",
@@ -7423,6 +7457,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -7526,6 +7565,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -8233,7 +8302,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -15681,7 +15750,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -32588,6 +32657,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerLatestReview",
+          "description": "<p>The latest review given from the viewer.</p>",
+          "type": "PullRequestReview",
+          "id": "pullrequestreview",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreview"
+        },
+        {
+          "name": "viewerLatestReviewRequest",
+          "description": "<p>The person who has requested the viewer for review on this pull request.</p>",
+          "type": "ReviewRequest",
+          "id": "reviewrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reviewrequest"
+        },
+        {
           "name": "viewerMergeBodyText",
           "description": "<p>The merge body text for the viewer and method.</p>",
           "type": "String!",
@@ -35571,6 +35656,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -35581,6 +35674,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -40906,7 +41007,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -44775,6 +44876,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -44817,6 +44926,14 @@
           "id": "sponsorable",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#sponsorable"
+        },
+        {
+          "name": "tierSelectedAt",
+          "description": "<p>Identifies the date and time when the current tier was chosen for this sponsorship.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -45295,6 +45412,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
         }
       ],
       "fields": [
@@ -45358,6 +45480,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "state",
@@ -53842,7 +53994,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -54172,6 +54324,45 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "RequirableByPullRequest",
+      "kind": "interfaces",
+      "id": "requirablebypullrequest",
+      "href": "/graphql/reference/interfaces#requirablebypullrequest",
+      "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "fields": [
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         }
       ]
     },
@@ -60521,6 +60712,32 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ConvertPullRequestToDraftInput",
+      "kind": "inputObjects",
+      "id": "convertpullrequesttodraftinput",
+      "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput",
+      "description": "<p>Autogenerated input type of ConvertPullRequestToDraft.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to convert to draft.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

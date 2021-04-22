@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 申请添加或更改团队的父团队时，申请会发送给父团队的维护员。 新父团队的维护员批准申请后，您的团队将作为子团队嵌套在组织的层次结构中该父团队下。

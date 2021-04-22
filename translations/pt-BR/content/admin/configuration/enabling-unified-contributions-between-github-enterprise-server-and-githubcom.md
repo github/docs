@@ -10,6 +10,8 @@ redirect_from:
 permissions: 'Administradores de sites para {% data variables.product.prodname_ghe_server %} que também são proprietários de uma conta corporativa ou organização conectada do {% data variables.product.prodname_ghe_cloud %} podem ativar contribuições unificadas entre {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 Como administrador do site, você pode permitir que os usuários finais enviem as contagens de contribuição anônimas do trabalho deles no {% data variables.product.prodname_ghe_server %} pelos respectivos gráficos de contribuição no {% data variables.product.prodname_dotcom_the_website %}.

@@ -7,6 +7,7 @@
 
     <main class="width-full">
       {% include header %}
+      {% include deprecation-banner %}
 
       <main class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
         <article class="markdown-body width-full">
@@ -20,7 +21,7 @@
 
           <div class="mt-2">
             <div>
-              {% if process.env.AIRGAP %}
+              {% if AIRGAP %}
                 <p>GraphQL explorer is not available on this environment.</p>
               {% else %}
                 <iframe id="graphiql" class="graphql-explorer" scrolling="no" src="{{ graphql.explorerUrl }}">
@@ -32,8 +33,9 @@
         </article>
       </main>
 
-      {% include support %}
+      {% include support-section %}
       {% include small-footer %}
+      {% include scroll-button %}
     </main>
   </body>
 </html>

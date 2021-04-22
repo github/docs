@@ -36,7 +36,7 @@ Below is a list of some of the available keyboard shortcuts.
 | <kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."                                                                                                       |
-| <kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/articles/about-wikis)."                                                                                                                             |
+| <kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."                                                                                      |
 
 ### Source code editing
 
@@ -52,6 +52,7 @@ Below is a list of some of the available keyboard shortcuts.
 | <kbd>control z</kbd> or <kbd>command z</kbd>                    | Undo                                                           |
 | <kbd>control y</kbd> or <kbd>command y</kbd>                    | Redo                                                           |
 | <kbd>cmd + shift + p</kbd>                                      | Toggles between the **Edit file** and **Preview changes** tabs |
+| <kbd>control s</kbd> or <kbd>command s</kbd>                    | Write a commit message                                         |
 
 For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirror.net/doc/manual.html#commands).
 
@@ -64,6 +65,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>w</kbd>      | Switch to a new branch or tag                                                                                                                               |
 | <kbd>y</kbd>      | Expand a URL to its canonical form. For more information, see "[Getting permanent links to files](/articles/getting-permanent-links-to-files)."             |
 | <kbd>i</kbd>      | Show or hide comments on diffs. For more information, see "[Commenting on the diff of a pull request](/articles/commenting-on-the-diff-of-a-pull-request)." |
+| <kbd>a</kbd>      | Show or hide annotations on diffs                                                                                                                           |
 | <kbd>b</kbd>      | Open blame view. For more information, see "[Tracing changes in a file](/articles/tracing-changes-in-a-file)."                                              |
 
 ### Комментарии
@@ -163,8 +165,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file. |
 | <kbd>g</kbd> <kbd>f</kbd>                                 | Go to the workflow file                                         |
 | <kbd>shift + t</kbd> or <kbd>T</kbd>                      | Toggle timestamps in logs                                       |
-| <kbd>shift + f</kbd> or <kbd>F</kbd>                      | Toggle fullscreen logs                                          |
-| <kbd>esc</kbd>                                            | Exit fullscreen logs                                            |
+| <kbd>shift + f</kbd> or <kbd>F</kbd>                      | Toggle full-screen logs                                         |
+| <kbd>esc</kbd>                                            | Exit full-screen logs                                           |
 
 {% endif %}
 

@@ -1,12 +1,14 @@
 ---
 title: Configuring GitHub Enterprise
 shortTitle: Configuring GitHub Enterprise
-intro: "You can configure your enterprise to suit your organization's needs."
+intro: You can configure your enterprise to suit your organization's needs.
 redirect_from:
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}

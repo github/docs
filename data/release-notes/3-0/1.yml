@@ -1,4 +1,5 @@
 date: '2021-03-02'
+intro: The minimum infrastructure requirements have increased for {% data variables.product.prodname_ghe_server %} 3.0+. For more information, see "[About minimum requirements for GitHub Enterprise Server 3.0 and later](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 sections:
   security_fixes:
     - '**HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed authenticated users of the instance to gain write access to unauthorized repositories via specifically crafted pull requests and REST API requests. An attacker would need to be able to fork the targeted repository, a setting that is disabled by default for organization owned private repositories. Branch protections such as required pull request reviews or status checks would prevent unauthorized commits from being merged without further review or validation. This vulnerability has been assigned CVE-2021-22861. This issue was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
@@ -38,6 +39,31 @@ sections:
     - 'Users can dismiss a mandatory message without checking all checkboxes.'
     - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
     - 'Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.'
-    - 'Juypter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.'
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - 'reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.'
     - 'Dependency graph fails to parse `yarn.lock` Javascript manifest files, resulting in HTTP 500 errors in logs.'
     - 'Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.'
+    - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
+    - 'When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.'
+    - |
+      Users may experience assets such as avatars not loading, or a failure to push/pull code. This may be caused by a PID mismatch in the `haproxy-cluster-proxy` service. To determine if you have an affected instance:
+
+      **Single instance**
+
+      1. Run this in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+        ```
+        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
+        ```
+
+      2. If it shows that there is a mismatch, reboot the instance.
+
+      **Cluster or High Availability configuration**
+
+      1. Run this in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH):
+
+        ```
+        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
+        ```
+
+      2. If it shows one or more nodes are affected, reboot the affected nodes.

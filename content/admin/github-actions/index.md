@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -27,9 +29,10 @@ versions:
 {% link_in_list /enforcing-github-actions-policies-for-your-enterprise %}
 
 {% topic_link_in_list /managing-access-to-actions-from-githubcom %}
-  {% link_in_list /about-using-actions-on-github-enterprise-server %}
+  {% link_in_list /about-using-actions-in-your-enterprise %}
   {% link_in_list /enabling-automatic-access-to-githubcom-actions-using-github-connect %}
   {% link_in_list /manually-syncing-actions-from-githubcom %}
+  {% link_in_list /using-the-latest-version-of-the-official-bundled-actions %}
   {% link_in_list /setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access %}
 
 {% topic_link_in_list /advanced-configuration-and-troubleshooting %}

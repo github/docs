@@ -8,5 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - cuentas
+  - cli
+  - móvil
+  - desktop
+  - seguridad
 ---
 

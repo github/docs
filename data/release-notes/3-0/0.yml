@@ -113,6 +113,7 @@ sections:
         - The format of several log files have changed, including the addition of a PID for different log types. This does not affect how GitHub Enterprise Support uses support bundles to troubleshoot issues.
         - A PATCH request to the webhook configuration API no longer erases the webhook secret.
         - Certain types of pre-receive hooks were failing.
+        - 'The Packages NuGet service now normalizes semantic versions on publish. An invalid semantic version (for example: v1.0.0.0.0.0) is not downloadable by NuGet clients and therefore a NuGet service is expected to normalize those versions (for example: v1.0.0.0.0.0 --> v1.0.0). Any original, non-normalized, version will be available in the `verbatimVersion` field. No changes to client configurations are required.'
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
@@ -125,10 +126,13 @@ sections:
     - Users can dismiss a mandatory message without checking all checkboxes.
     - '[Pre-receive hook scripts](/admin/policies/enforcing-policy-with-pre-receive-hooks) cannot write temporary files, which may cause script execution to fail. Users who use pre-receive hooks should test in a staging environment to see if scripts require write access.'
     - Repository [deploy keys](/developers/overview/managing-deploy-keys) are unable to be used with repositories containing LFS objects.
-    - Juypter Notebook rendering in the web UI may fail if the notebook includes non UTF-8 encoded characters.
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
     - Dependency graph fails to parse `setup.py` Python manifest files, resulting in HTTP 500 errors in logs. This, combined with the duplicated logging issue, results in increased root volume utilization.
     - A race condition can cause dependency graph database migrations to appear to fail.
     - Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.
+    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.
 
   deprecations:
     - heading: Deprecation of GitHub Enterprise Server 2.19

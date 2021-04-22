@@ -3,6 +3,8 @@ title: FAQ about changes to GitHub’s plans
 intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub features are now free for everyone.'
 versions:
   free-pro-team: '*'
+topics:
+  - github
 ---
 
 ### What plans and pricing changes did GitHub announce on April 14?

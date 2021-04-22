@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - solicitudes de extracción
 ---
 
 También puedes otorgar permiso a los mantenedores del repositorio ascendente para subir confirmaciones de cambios en una bifurcación propiedad del usuario. Si tu solicitud de extracción compara tu rama de tema con una rama del repositorio ascendente como la rama base, entonces tu rama de tema también se llamará rama de comparación de la solicitud de extracción. Para obtener más información acerca de las ramas de solicitud de extracción, incluyendo ejemplos, consulta la sección "[Crear una solicitud de extracción](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."

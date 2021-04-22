@@ -59,7 +59,7 @@ async function getDereferencedFiles () {
 
   console.log(`\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`)
   try {
-    execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle -o ${tempDocsDir}`, { stdio: 'inherit' })
+    execSync(`${path.join(githubRepoDir, 'bin/openapi')} bundle -o ${tempDocsDir} --include_unpublished`, { stdio: 'inherit' })
   } catch (error) {
     console.error(error)
     console.log('🛑 Whoops! It looks like the `bin/openapi bundle` command failed to run in your `github/github` repository checkout. To troubleshoot, ensure that your OpenAPI schema YAML is formatted correctly. A CI test runs on your `github/github` PR that flags malformed YAML. You can check the PR diff view for comments left by the openapi CI test to find and fix any formatting errors.')
@@ -91,17 +91,23 @@ async function decorate () {
   }, {})
 
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
-    // munge OpenAPI definitions object in an array of operations objects
-    const operations = await getOperations(schema)
+    try {
+      // munge OpenAPI definitions object in an array of operations objects
+      const operations = await getOperations(schema)
 
-    // process each operation, asynchronously rendering markdown and stuff
-    await Promise.all(operations.map(operation => operation.process()))
+      // process each operation, asynchronously rendering markdown and stuff
+      await Promise.all(operations.map(operation => operation.process()))
 
-    const filename = path.join(decoratedPath, `${schemaName}.json`)
-      .replace('.deref', '')
-    // write processed operations to disk
-    fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
+      const filename = path.join(decoratedPath, `${schemaName}.json`)
+        .replace('.deref', '')
+      // write processed operations to disk
+      fs.writeFileSync(filename, JSON.stringify(operations, null, 2))
 
-    console.log('Wrote', path.relative(process.cwd(), filename))
+      console.log('Wrote', path.relative(process.cwd(), filename))
+    } catch (error) {
+      console.error(error)
+      console.log('🐛 Whoops! It looks like the decorator script wasn\'t able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.')
+      process.exit(1)
+    }
   }
 }

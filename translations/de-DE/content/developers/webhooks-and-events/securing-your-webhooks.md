@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -40,7 +42,7 @@ When your secret token is set, {% data variables.product.product_name %} uses it
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrate using the `X-Hub-Signature-256` header.
+**Note:** For backward-compatibility, we also include the `X-Hub-Signature` header that is generated using the SHA-1 hash function. If possible, we recommend that you use the `X-Hub-Signature-256` header for improved security. The example below demonstrates using the `X-Hub-Signature-256` header.
 
 {% endnote %}
 {% endif %}
@@ -79,10 +81,16 @@ def verify_signature(payload_body)
 end{% endif %}
 ```
 
+{% note %}
+
+**Note:** Webhook payloads can contain unicode characters. If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8.
+
+{% endnote %}
+
 Your language and server implementations may differ from this example code. However, there are a number of very important things to point out:
 
 * No matter which implementation you use, the hash signature starts with {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
 
 * Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
-[secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

@@ -7,6 +7,8 @@ redirect_from:
 permissions: サイト管理者はインターナルリポジトリへ移行できます。
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - enterprise
 ---
 
 ### インターナルリポジトリについて
