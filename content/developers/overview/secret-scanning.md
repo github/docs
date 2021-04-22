@@ -93,7 +93,7 @@ The code snippets assume you've set an environment variable called `GITHUB_PRODU
 
 {% note %}
 
-**Note**: The signature was generated using the raw message body. So for the purposes of signature validation it's important you also use the raw message body rather than parsing the JSON to avoid rearranging the JSON objects, their members, or changing the spacing.
+**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
 
 {% endnote %}
 
