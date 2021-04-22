@@ -23,7 +23,7 @@ export default function () {
 
   // The button is hidden by default so it doesn't appear on browsers with JS disabled.
   // If there are images on a docs page and JS is enabled, display the toggle button.
-  toggleImagesBtn.style.display = 'block'
+  toggleImagesBtn.removeAttribute('hidden')
   // Remove focus from the button after click so the tooltip does not stay displayed.
   toggleImagesBtn.blur()
 
@@ -51,6 +51,7 @@ export default function () {
     // This mostly applies to images in ordered lists nested in spans (via lib/render-content/create-processor.js).
     // It will have no effect with images that are not in ordered lists.
     parentSpan.parentNode.replaceChild(parentButton, parentSpan)
+    // parentSpan.appendChild()
 
     // Set the relevant tooltip text, and hide the image if that is the preference.
     if (hideImagesPreferred) {
@@ -91,10 +92,10 @@ export default function () {
 
   // Set the starting state depending on user preferences.
   if (hideImagesPreferred) {
-    offIcon.style.display = 'block'
+    offIcon.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
   } else {
-    onIcon.style.display = 'block'
+    onIcon.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
   }
 
@@ -105,14 +106,14 @@ export default function () {
   toggleImagesBtn.addEventListener('click', (e) => {
     if (showOnNextClick) {
       // Button should say "Images are off" on first click (depending on prefs)
-      offIcon.style.display = 'inline'
-      onIcon.style.display = 'none'
+      offIcon.removeAttribute('hidden')
+      onIcon.setAttribute('hidden', true)
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
       toggleImages(images, 'hide', tooltipShowSingle)
     } else {
       // Button should say "Images are on" on another click
-      offIcon.style.display = 'none'
-      onIcon.style.display = 'inline'
+      offIcon.setAttribute('hidden', true)
+      onIcon.removeAttribute('hidden')
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
       toggleImages(images, 'show', tooltipHideSingle)
     }
@@ -137,12 +138,21 @@ function toggleImages (images, action, tooltipText) {
 function toggleImage (img, action, tooltipText) {
   const parentButton = img.parentNode
 
+  // Style the parent button and image depending on the state.
   if (action === 'show') {
     img.src = img.getAttribute('originalSrc')
+    img.style.border = '2px solid var(--color-auto-gray-2)'
     parentButton.setAttribute('aria-label', tooltipText)
+    parentButton.style.display = 'block'
+    parentButton.style['margin-top'] = '20px'
+    parentButton.style.padding = '10px 0'
   } else {
     if (!img.getAttribute('originalSrc')) img.setAttribute('originalSrc', img.src)
     img.src = placeholderImagePath
+    img.style.border = 'none'
     parentButton.setAttribute('aria-label', tooltipText)
+    parentButton.style.display = 'inline'
+    parentButton.style['margin-top'] = '0'
+    parentButton.style.padding = '1px 6px'
   }
 }
