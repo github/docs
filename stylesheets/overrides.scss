@@ -14,6 +14,7 @@
   }
 }
 
+// NB: Note that there's also overlapping styling in "article.scss"
 .markdown-body ol > li {
   padding: $spacer-2 0 $spacer-2 $spacer-7;
   border: 0;
@@ -31,7 +32,6 @@
   .extended-markdown {
     margin-top: 15px;
   }
-
 }
 
 .markdown-body ul ul,
@@ -65,19 +65,16 @@
   color: var(--color-text-primary);
 }
 
-.product-callout p, .contributor-callout p {
+.product-callout p,
+.contributor-callout p {
   margin: 0;
 }
 
+// Largely overwritten in tables.scss
 .markdown-body table {
   display: table;
   table-layout: fixed;
   line-height: 1.5;
-}
-
-li.nestedTocItem {
-  margin-left: 2em;
-  list-style-type: circle;
 }
 
 /* Getting Started and Popular Articles sections in article layout */
@@ -95,12 +92,6 @@ li.nestedTocItem {
 
 .markdown-body div.featured-links h4.link-with-intro-title {
   margin-top: 0;
-}
-
-.octicon {
-  display: inline-block;
-  vertical-align: text-top;
-  fill: currentColor;
 }
 
 /* code styles */
@@ -123,27 +114,6 @@ pre .bluebox {
   padding: 2px;
   border-radius: 2px;
   margin-right: 2px;
-}
-
-/* Accessibility color contrast */
-.btn-mktg {
-  background-color: var(--color-auto-blue-5);
-}
-
-/* Accessibility color contrast */
-.btn-outline-mktg {
-  background-color: var(--color-auto-inverse);
-  color: var(--color-auto-blue-5);
-}
-
-/* Accessibility color contrast */
-.color-bg-danger a {
-  color: var(--color-auto-blue-6);
-}
-
-/* Accessibility color contrast */
-.markdown-body .color-bg-info blockquote {
-  color: var(--color-auto-gray-6);
 }
 
 /* Helpfulness survey override */
