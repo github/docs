@@ -42,10 +42,12 @@ export default function () {
     const parentSpan = img.parentNode
     // Create a button and add some attributes.
     const parentButton = document.createElement('button')
-    parentButton.classList.add('tooltipped', 'tooltipped-nw', 'btn-toggle-image')
+    parentButton.classList.add('tooltipped', 'tooltipped-nw', 'tooltipped-no-delay', 'btn-toggle-image')
     // Wrap the image in the button.
     parentButton.appendChild(img)
     // Replace the image's parent span with the new button.
+    // This mostly applies to images in ordered lists nested in spans (via lib/render-content/create-processor.js).
+    // It will have no effect with images that are not in ordered lists.
     parentSpan.parentNode.replaceChild(parentButton, parentSpan)
 
     // Set the relevant tooltip text, and hide the image if that is the preference.
@@ -75,21 +77,21 @@ export default function () {
 
   /* 2. PAGE-WIDE TOGGLE BUTTON HANDLING */
 
-  // Get the span elements containing the hide and show icons.
-  const hideIcon = document.getElementById('js-hide-icon')
-  const showIcon = document.getElementById('js-show-icon')
+  // Get the span elements containing the off and on icons.
+  const offIcon = document.getElementById('js-off-icon')
+  const onIcon = document.getElementById('js-on-icon')
 
   // Get the aria-labels from the span elements for the tooltips.
-  const tooltipHideAll = hideIcon.getAttribute('aria-label')
-  const tooltipShowAll = showIcon.getAttribute('aria-label')
+  const tooltipImagesOff = offIcon.getAttribute('aria-label')
+  const tooltipImagesOn = onIcon.getAttribute('aria-label')
 
   // Set the starting state depending on user preferences.
   if (hideImagesPreferred) {
-    showIcon.style.display = 'block'
-    toggleImagesBtn.setAttribute('aria-label', tooltipShowAll)
+    offIcon.style.display = 'block'
+    toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
   } else {
-    hideIcon.style.display = 'block'
-    toggleImagesBtn.setAttribute('aria-label', tooltipHideAll)
+    onIcon.style.display = 'block'
+    toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
   }
 
   // If images are hidden by default, showOnNextClick should be false.
@@ -98,16 +100,16 @@ export default function () {
 
   toggleImagesBtn.addEventListener('click', (e) => {
     if (showOnNextClick) {
-      // Button should say "Show" on first click
-      showIcon.style.display = 'inline'
-      hideIcon.style.display = 'none'
-      toggleImagesBtn.setAttribute('aria-label', tooltipShowAll)
+      // Button should say "Images are off" on first click (depending on prefs)
+      offIcon.style.display = 'inline'
+      onIcon.style.display = 'none'
+      toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
       toggleImages(images, 'hide', tooltipShowSingle)
     } else {
-      // Button should say "Hide" on another click
-      showIcon.style.display = 'none'
-      hideIcon.style.display = 'inline'
-      toggleImagesBtn.setAttribute('aria-label', tooltipHideAll)
+      // Button should say "Images are on" on another click
+      offIcon.style.display = 'none'
+      onIcon.style.display = 'inline'
+      toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
       toggleImages(images, 'show', tooltipHideSingle)
     }
 
