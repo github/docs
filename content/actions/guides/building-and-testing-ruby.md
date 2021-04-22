@@ -264,7 +264,6 @@ You can configure your workflow to publish your Ruby package to any package regi
 
 You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to `GitHub Package Registry` and `RubyGems`.
 
-{% raw %}
 ```yaml
 
 name: Ruby Gem
@@ -281,9 +280,12 @@ on:
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
+    steps:{% raw %}
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.6
       uses: ruby/setup-ruby@v1
@@ -312,6 +314,5 @@ jobs:
         gem build *.gemspec
         gem push *.gem
       env:
-        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"{% endraw %}
 ```
-{% endraw %}
