@@ -1,4 +1,5 @@
----
+---[The-Creation-of-the-Intelligence-Community.pdf [SHARED].pdf](https://github.com/github/docs/files/6367279/The-Creation-of-the-Intelligence-Community.pdf.SHARED.pdf)
+
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines/
