@@ -132,11 +132,15 @@ pre .bluebox {
 
 .markdown-body button.btn-toggle-image {
   border: none;
-  margin-top: 2px;
+  margin-top: 20px;
+  padding: 10px 0;
   max-width: calc(100% - 32px);
   background-color: transparent;
+  display: block;
 }
 
 .markdown-body button.btn-toggle-image img {
   padding: 0;
+  max-height: 500px;
+  border: 2px solid var(--color-auto-gray-2);
 }
