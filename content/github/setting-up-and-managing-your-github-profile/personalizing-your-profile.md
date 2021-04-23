@@ -199,7 +199,7 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | https://github.com/nasa/fprime | 1.3 | https://github.com/nasa/fprime/releases/tag/NASA-v1.3 |
 | https://github.com/nucleic/cppy | 1.1.0 | https://github.com/nucleic/cppy/releases/tag/1.1.0 |
 | https://github.com/opencv/opencv | 4.5.1 | https://github.com/opencv/opencv/releases/tag/4.5.1 |
-| https://github.com/curl/curl | 7.19.0 | https://github.com/curl/curl/releases/tag/curl-7_72_0 |
+| https://github.com/curl/curl | 7.72.0 | https://github.com/curl/curl/releases/tag/curl-7_72_0 |
 | https://github.com/madler/zlib | 1.2.11 | https://github.com/madler/zlib/releases/tag/v1.2.11 |
 | https://github.com/apache/lucene | 7.7.3 | https://github.com/apache/lucene/releases/tag/releases%2Flucene-solr%2F7.7.3 |
 | https://github.com/yaml/libyaml | 0.2.5 | https://github.com/yaml/libyaml/releases/tag/0.2.5 |
