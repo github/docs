@@ -25,8 +25,6 @@ export default function () {
   // The button is hidden by default so it doesn't appear on browsers with JS disabled.
   // If there are images on a docs page and JS is enabled, display the toggle button.
   toggleImagesBtn.removeAttribute('hidden')
-  // Remove focus from the button after click so the tooltip does not stay displayed.
-  toggleImagesBtn.blur()
 
   // Look for a cookie with image visibility preference; otherwise, use the default.
   const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
@@ -117,6 +115,9 @@ export default function () {
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
       toggleImages(images, 'show', tooltipHideSingle)
     }
+
+    // Remove focus from the button after click so the tooltip does not stay displayed.
+    toggleImagesBtn.blur()
 
     // Save this preference as a cookie.
     Cookies.set('hideImagesPreferred', showOnNextClick)
