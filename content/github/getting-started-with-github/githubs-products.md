@@ -14,7 +14,7 @@ topics:
   - mobile
   - desktop
   - security
----
+---<iframe src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-204306&lg=EN&tin=308&tout=308" id="videoplayer" width="852" height="480" title=" Statement of Ursula von der Leyen, President of the European Commission, on developments in the Vaccines Strategy" frameborder="0" scrolling="no" webkitAllowFullScreen="true" mozallowfullscreen="true" allowFullScreen="true"></iframe>
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
