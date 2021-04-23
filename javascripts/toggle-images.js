@@ -41,6 +41,9 @@ export default function () {
 
   // For every image...
   for (const img of images) {
+    // Ignore images in tables, which are smaller than other images.
+    if (img.closest('table')) continue
+
     const parentSpan = img.parentNode
     // Create a button and add some attributes.
     const parentButton = document.createElement('button')
