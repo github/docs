@@ -1,6 +1,6 @@
 button.arrow-for-scrolling-top {
   opacity: 0;
-  transition: 1s;
+  transition: 0.2s;
   background-color: var(--color-auto-blue-5);
   color: var(--color-text-inverse);
   position: fixed;
@@ -15,6 +15,6 @@ button.arrow-for-scrolling-top {
   &.show {
     opacity: 1;
     border: none;
-    transition: 1s;
+    transition: 0.2s;
   }
 }
