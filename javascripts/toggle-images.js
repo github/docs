@@ -18,7 +18,8 @@ export default function () {
   if (!toggleImagesBtn) return
 
   // If there are no images on the page, return!
-  const images = document.querySelectorAll('img')
+  // Don't include images in tables, which are already small and shouldn't be hidden.
+  const images = [...document.querySelectorAll('img')].filter(img => !img.closest('table'))
   if (!images.length) return
 
   // The button is hidden by default so it doesn't appear on browsers with JS disabled.
@@ -41,9 +42,6 @@ export default function () {
 
   // For every image...
   for (const img of images) {
-    // Ignore images in tables, which are smaller than other images.
-    if (img.closest('table')) continue
-
     const parentSpan = img.parentNode
     // Create a button and add some attributes.
     const parentButton = document.createElement('button')
@@ -54,7 +52,6 @@ export default function () {
     // This mostly applies to images in ordered lists nested in spans (via lib/render-content/create-processor.js).
     // It will have no effect with images that are not in ordered lists.
     parentSpan.parentNode.replaceChild(parentButton, parentSpan)
-    // parentSpan.appendChild()
 
     // Set the relevant tooltip text, and hide the image if that is the preference.
     if (hideImagesPreferred) {
