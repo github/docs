@@ -30,10 +30,10 @@ By default, {% data variables.product.product_name %} search will return both is
 
 | Qualifier  | Example
 | ------------- | -------------
-| `type:pr` | [**cat type:pr**](https://github.com/search?q=cat+type%3Apr&type=Issues) matches pull requests with the word "cat."
-| `type:issue` | [**github commenter:defunkt type:issue**](https://github.com/search?q=github+commenter%3Adefunkt+type%3Aissue&type=Issues) matches issues that contain the word "github," and have a comment by @defunkt.
-| `is:pr` | [**event is:pr**](https://github.com/search?utf8=%E2%9C%93&q=event+is%3Apr&type=) matches pull requests with the word "event."
-| `is:issue` | [**is:issue label:bug is:closed**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aissue+label%3Abug+is%3Aclosed&type=) matches closed issues with the label "bug."
+| `type:pr` | [**cat type:pr**](https://github.com/search?q=cat+type%3Apr&type=Issues) matches pull requests with the word "cat".
+| `type:issue` | [**github commenter:defunkt type:issue**](https://github.com/search?q=github+commenter%3Adefunkt+type%3Aissue&type=Issues) matches issues that contain the word "github", and have a comment by @defunkt.
+| `is:pr` | [**event is:pr**](https://github.com/search?utf8=%E2%9C%93&q=event+is%3Apr&type=) matches pull requests with the word "event".
+| `is:issue` | [**is:issue label:bug is:closed**](https://github.com/search?utf8=%E2%9C%93&q=is%3Aissue+label%3Abug+is%3Aclosed&type=) matches closed issues with the label "bug".
 
 ### Search by the title, body, or comments
 
