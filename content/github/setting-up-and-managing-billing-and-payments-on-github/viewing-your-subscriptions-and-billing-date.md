@@ -24,8 +24,8 @@ topics:
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.profiles.org_settings %}
+{% data reusables.organizations.billing %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ### Further reading
