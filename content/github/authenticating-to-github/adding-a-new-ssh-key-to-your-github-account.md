@@ -87,6 +87,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
   If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
