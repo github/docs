@@ -26,12 +26,19 @@ You can use {% data variables.product.prodname_github_connect %} to allow {% dat
 
 Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using the `actions/checkout@v1` action, and you need to use `actions/checkout@v2` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
 
-1. To get the required access to delete the `checkout` repository, use the `ghe-org-admin-promote` command to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)." For example:
+1. By default, site administrators are not owners of the bundled actions organization. To get the required access to delete the `checkout` repository, use the `ghe-org-admin-promote` command to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)." For example:
 
    ```shell
-   ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+   $ ghe-org-admin-promote -u octocat -o actions
+    Do you want to give organization admin privileges for actions to octocat? (y/N) y
+    Making octocat an admin of actions
+     --> Adding octocat as an admin of actions
+     --> octocat is now an admin of the actions organization
+     --> Done.
    ```
 1. On your {% data variables.product.product_name %} instance, delete the `checkout` repository within the `actions` organization. For information on how to delete a repository, see "[Deleting a repository
 ](/github/administering-a-repository/deleting-a-repository)."
+1. It is recommended that you leave the `actions` organization once you no longer require administrative access. For more information, see "[Removing yourself from an organization
+](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization)."
 1. Configure your workflow's YAML to use `actions/checkout@v2`.
 1. Each time your workflow runs, the runner will use the `v2` version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.

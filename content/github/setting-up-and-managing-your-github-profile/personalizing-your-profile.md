@@ -56,7 +56,7 @@ You can change the name that is displayed on your profile. This name may also be
 
 ### Adding a bio to your profile
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink. 
+Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/articles/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 

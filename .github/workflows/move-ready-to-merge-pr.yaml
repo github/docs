@@ -1,7 +1,7 @@
-name: Move and unlabel ready to merge issues
+name: Move and unlabel ready to merge PRs
 
-# **What it does**: This moves ready to merge issues on the project board for the open source repo. When an issue in the open source repo is labeled "ready to merge," the "waiting for review" label is removed and the issue is moved to the "Triage" column.
-# **Why we have it**:  To help with managing our project boards.
+# **What it does**: When a PR in the open source repo is labeled "ready to merge," the "waiting for review" label is removed and the PR is moved to the "Triage" column.
+# **Why we have it**: To help with managing our project boards.
 # **Who does it impact**: Open source contributors, open-source maintainers.
 
 on:
@@ -14,7 +14,7 @@ jobs:
     if: github.repository == 'github/docs' && github.event.label.name == 'ready to merge'
     runs-on: ubuntu-latest
     steps:
-      - name: move issue
+      - name: move PR
         uses: alex-page/github-project-automation-plus@fdb7991b72040d611e1123d2b75ff10eda9372c9
         with:
           project: Docs team reviews

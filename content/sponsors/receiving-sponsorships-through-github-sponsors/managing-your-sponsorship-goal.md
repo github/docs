@@ -1,10 +1,15 @@
 ---
 title: Managing your sponsorship goal
 intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
+redirect_from:
+  - /github/supporting-the-open-source-community-with-github-sponsors/manage-your-sponsorship-goal
+  - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-goal
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Open Source'
+  - 'Sponsors profile'
 ---
 
 ### About sponsorship goals
@@ -12,12 +17,6 @@ topics:
 You can set a funding goal for your sponsored account and share the goal with your community. Goals help you understand the impact you have in the open source community and build up your presence in the {% data variables.product.prodname_sponsors %} program.
 
 Your goal can set a target for the number of sponsors you want to have or the amount of money you want to earn each month. You can only set one goal up at a time. After you reach a goal, you can set another goal.
-
-{% note %}
-
-**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
-
-{% endnote %}
 
 ### Setting a goal
 

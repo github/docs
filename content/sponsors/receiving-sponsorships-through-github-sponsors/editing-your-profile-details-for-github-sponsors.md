@@ -4,10 +4,13 @@ intro: You can update the information that potential sponsors see about your wor
 redirect_from:
   - /articles/editing-your-sponsored-developer-profile
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile
+  - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Sponsors profile'
+  - 'Open Source'
 ---
 
 ### About sponsor profiles

@@ -4,11 +4,15 @@ intro: 'Your organization can join {% data variables.product.prodname_sponsors %
 redirect_from:
   - /articles/setting-up-github-sponsorship-for-your-organization
   - /articles/receiving-sponsorships-as-a-sponsored-organization
+  - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization
 permissions: 'Organization owners can set up {% data variables.product.prodname_sponsors %} for an organization.'
 versions:
   free-pro-team: '*'
+type: 'how_to'
 topics:
-  - sponsors
+  - 'Organizations'
+  - 'Sponsors profile'
+  - 'Open Source'
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}
@@ -17,7 +21,7 @@ topics:
 
 After you receive an invitation for your organization to join {% data variables.product.prodname_sponsors %}, you can complete the steps below to become a sponsored organization.
 
-To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}
@@ -48,7 +52,6 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
-{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Submitting your bank information
@@ -84,5 +87,5 @@ Before your organization can become a sponsored organization, you must enable 2F
 {% data reusables.sponsors.github-review-app %}
 
 ### Further reading
-- "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
-- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/receiving-sponsorships-through-github-sponsors)"
+- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

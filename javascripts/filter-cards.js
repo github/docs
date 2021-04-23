@@ -19,10 +19,12 @@ export default function cardsFilter () {
   const showMoreButton = document.querySelector('.js-filter-card-show-more')
   const noResults = document.querySelector('.js-filter-card-no-results')
   // if jsFilterCardMax not set, assume no limit (well, at 99)
-  const maxCards = showMoreButton ? parseInt(showMoreButton.dataset.jsFilterCardMax || 99) : null
+  // some landing pages don't include the button because the number of
+  // guides is less than the max defined in includes/article-cards.html
+  const maxCards = showMoreButton ? parseInt(showMoreButton.dataset.jsFilterCardMax || 99) : 99
 
   const noFilter = () => {
-    showMoreButton.classList.remove('d-none')
+    if (showMoreButton) showMoreButton.classList.remove('d-none')
     for (let index = 0; index < cards.length; index++) {
       const card = cards[index]
       // Hide all but the first n number of cards
@@ -38,7 +40,7 @@ export default function cardsFilter () {
     const { currentTarget } = evt
     const value = currentTarget.value
 
-    showMoreButton.classList.add('d-none')
+    if (showMoreButton) showMoreButton.classList.add('d-none')
 
     // Track whether or not we had at least one match
     let hasMatches = false
