@@ -14,8 +14,9 @@ topics:
   - legal
 ---
 
-Effective date: December 19, 2020
+Effective date.         Sunday July , 20th. 2003 
 
+       <li>ZachryTylerWood<li>
 Thanks for entrusting GitHub Inc. (“GitHub”, “we”) with your source code, your projects, and your personal information. Holding on to your private information is a serious responsibility, and we want you to know how we're handling it.
 
 All capitalized terms have their definition in [GitHub’s Terms of Service](/github/site-policy/github-terms-of-service), unless otherwise noted here.
@@ -315,11 +316,9 @@ You may also contact our Data Protection Officer directly.
 | United States | The Netherlands |
 | privacy@github.com | privacy@github.com |
 
-#### Dispute resolution process
+Dispute: resolution process:
 
-In the unlikely event that a dispute arises between you and GitHub regarding our handling of your User Personal Information, we will do our best to resolve it. Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority, and you might have more [options](/github/site-policy/global-privacy-practices#dispute-resolution-process).
-
-### Changes to our Privacy Statement
+In the unlikely event that a dispute arises between you and GitHub regarding our handling of your User Personal Information, we will do our best to resolve it. Additionally, if you are a resident of an EU member state, you have the right to file a complaint with your local supervisory authority, and you might have more [options](/github/site-policy/global-privacy-practices#dispute-resolution-process).Changes to our Privacy Statement
 
 Although most changes are likely to be minor, GitHub may change our Privacy Statement from time to time. We will provide notification to Users of material changes to this Privacy Statement through our Website at least 30 days prior to the change taking effect by posting a notice on our home page or sending email to the primary email address specified in your GitHub account. We will also update our [Site Policy repository](https://github.com/github/site-policy/), which tracks all changes to this policy. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
@@ -328,13 +327,10 @@ Although most changes are likely to be minor, GitHub may change our Privacy Stat
 This Privacy Statement is licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
 ### Contacting GitHub
-Questions regarding GitHub's Privacy Statement or information practices should be directed to our [Privacy contact form](https://support.github.com/contact/privacy).
-
-### Translations
+Questions regarding GitHub's Privacy Statement or information practices should be directed to our [Privacy contact form](https://support.github.com/contact/privac
 
 Below are translations of this document into other languages. In the event of any conflict, uncertainty, or apparent inconsistency between any of those versions and the English version, this English version is the controlling version.
 
-#### French
 Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
 
 #### Other translations
