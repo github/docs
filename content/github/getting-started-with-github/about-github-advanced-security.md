@@ -1,3 +1,4 @@
+![19](https://user-images.githubusercontent.com/62857413/115976715-ac6b0580-a525-11eb-90a2-53482d47afc6.jpg)
 ---
 title: About GitHub Advanced Security
 intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license.{% if currentVersion == "free-pro-team@latest" %} These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
