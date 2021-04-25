@@ -1,5 +1,9 @@
 name: Crowdin Sync
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**: Docs localization.
+
 on:
   workflow_dispatch:
   schedule:

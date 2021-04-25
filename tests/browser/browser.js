@@ -50,7 +50,7 @@ describe('browser search', () => {
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
+      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('2.22')
         expect(searchParams.get('language')).toBe('ja')
@@ -71,7 +71,7 @@ describe('browser search', () => {
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
+      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
         expect(searchParams.get('version')).toBe('ghae')
         expect(searchParams.get('language')).toBe('en')
@@ -279,5 +279,32 @@ describe('language banner', () => {
       const href = await page.$eval('a#to-english-doc', el => el.href)
       expect(href.endsWith('/en/actions')).toBe(true)
     }
+  })
+})
+
+// The Explorer in the iFrame will not be accessible on localhost, but we can still
+// test the query param handling
+describe('GraphQL Explorer', () => {
+  it('preserves query strings on the Explorer page without opening search', async () => {
+    const queryString = `query {
+  viewer {
+    foo
+  }
+}`
+    // Encoded as: query%20%7B%0A%20%20viewer%20%7B%0A%20%20%20%20foo%0A%20%20%7D%0A%7D
+    const encodedString = encodeURIComponent(queryString)
+    const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
+
+    await page.goto(`${explorerUrl}?query=${encodedString}`)
+
+    // On non-Explorer pages, query params handled by search JS get form-encoded using `+` instead of `%20`.
+    // So on these pages, the following test will be false; but on the Explorer page, it should be true.
+    expect(page.url().endsWith(encodedString)).toBe(true)
+
+    // On non-Explorer pages, query params handled by search JS will populate in the search box and the `js-open`
+    // class is added. On these pages, the following test will NOT be null; but on the Explorer page, it should be null.
+    await page.waitForSelector('#search-results-container')
+    const searchResult = await page.$('#search-results-container.js-open')
+    expect(searchResult).toBeNull()
   })
 })

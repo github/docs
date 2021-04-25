@@ -4,6 +4,9 @@ intro: 人に対して、Organization が所有しているリポジトリで外
 permissions: Organization のオーナーは、そのOrganization で外部のコラボレーターになる招待をキャンセルすることができます。
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization が所有しているリポジトリで外部のコラボレーターになる招待を保留にしている人すべてのリストを表示できます。

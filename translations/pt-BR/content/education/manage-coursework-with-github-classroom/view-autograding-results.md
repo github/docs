@@ -23,7 +23,7 @@ A aba **Ações** mostra o histórico completo de execuções de teste.
 
 Você pode clicar em uma execução de teste específico para revisar o resultado do registro, como erros de compilação e falhas de teste.
 
-![O "{% data variables.product.prodname_classroom %}  Fluxo de trabalho da avaliação automática" registros de resultados de teste em {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![O " fluxo de trabalho de avaliação automática de {% data variables.product.prodname_classroom %}" resultados de teste em {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
 ### Leia mais
 

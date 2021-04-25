@@ -59,6 +59,6 @@ Puedes usar esta notación para comparar una sola confirmación o rama con sus p
 
 Aquí hay un ejemplo de una [comparación usando la notación `^`](https://github.com/octocat/linguist/compare/octocat:96d29b7%5E%5E%5E%5E%5E...octocat:96d29b7).
 
-### Further reading
+### Leer más
 
 - "[Cambiar la rama base de una solicitud de extracción](/articles/changing-the-base-branch-of-a-pull-request)"

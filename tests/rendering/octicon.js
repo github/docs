@@ -34,7 +34,7 @@ describe('octicon tag', () => {
       .toThrowError('Syntax Error in tag \'octicon\' - Valid syntax: octicon "<name>" <key="value">')
   })
 
-  it('throws an error with a non-existant octicon', async () => {
+  it('throws an error with a non-existent octicon', async () => {
     await expect(renderContent('{% octicon "pizza-patrol" %}')).rejects
       .toThrowError('Octicon pizza-patrol does not exist')
   })

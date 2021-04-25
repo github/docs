@@ -54,6 +54,6 @@ $ git remote rm sofake
 
 Comprueba que escribiste correctamente el nombre del remoto.
 
-### Further reading
+### Leer más
 
 - ["Working with Remotes" (Trabajar con remotos) desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

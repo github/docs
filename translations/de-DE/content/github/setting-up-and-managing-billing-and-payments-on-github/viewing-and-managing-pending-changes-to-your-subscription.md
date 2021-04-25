@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Du kannst ausstehende Änderungen am Abonnement Deines Kontos sowie ausstehende Änderungen an Abonnements für andere bezahlte Funktionen und Produkte stornieren.

@@ -3,6 +3,8 @@ title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
 intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

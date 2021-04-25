@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 企业
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

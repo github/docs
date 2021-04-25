@@ -8,6 +8,8 @@ redirect_from:
   - /articles/discounted-subscriptions-for-github-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 {% tip %}

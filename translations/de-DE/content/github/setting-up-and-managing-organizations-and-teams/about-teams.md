@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ![Liste der Teams in einer Organisation](/assets/images/help/teams/org-list-of-teams.png)
@@ -36,7 +39,7 @@ Sie können außerdem mit LDAP Sync {% data variables.product.product_location %
 
 Jedes Team hat seine eigene Seite innerhalb einer Organisation. Auf der Seite eines Teams kannst Du Teammitglieder, untergeordnete Teams und Repositorys des Teams anzeigen. Organisationsinhaber und Team-Betreuer können auf die Teameinstellungen zugreifen und die Beschreibung sowie das Profilbild des Teams über die Seite des Teams aktualisieren.
 
-Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran teilnehmen. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/articles/about-team-discussions)“.
+Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran teilnehmen. Weitere Informationen finden Sie unter „[Informationen zu Teamdiskussionen](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)“.
 
 ![Teamseite mit einer Auflistung der Teammitglieder und Diskussionen](/assets/images/help/organizations/team-page-discussions-tab.png)
 

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** You'll need to restart the Sinatra server before you can test changes. Enter `Ctrl-C` to stop the server, and then run `ruby template_server.rb` again. If you don't want to do this every time you change your app code, you can look into [reloading](http://sinatrarb.com/faq.html#reloading).
+**ノート:** 変更をテストする前に、Sinatraサーバーを再起動しなければなりません。 `Ctrl-C`を入力してサーバーを停止し、`ruby template_server.rb` をもう一度実行してください。 アプリエーションのコードを変更するたびにこれを繰り返したくないなら、[リローディング](http://sinatrarb.com/faq.html#reloading)を調べてみてください。
 
 {% endnote %}

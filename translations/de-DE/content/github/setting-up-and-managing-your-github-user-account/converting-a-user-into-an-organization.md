@@ -8,6 +8,8 @@ intro: Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - accounts
 ---
 
 {% warning %}
@@ -50,7 +52,7 @@ Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwa
 
 {% tip %}
 
-**Tipp:** Wenn Du ein Benutzerkonto in eine Organisation umwandelst, fügen wir Mitarbeiter von Repositorys, die zum Konto gehören, als *externe Mitarbeiter* zur neuen Organisation hinzu. Du kannst dann *externe Mitarbeiter* dazu einladen, Mitglieder Deiner neuen Organisation zu werden. Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organisation](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)."
+**Tipp:** Wenn Du ein Benutzerkonto in eine Organisation umwandelst, fügen wir Mitarbeiter von Repositorys, die zum Konto gehören, als *externe Mitarbeiter* zur neuen Organisation hinzu. Du kannst dann *externe Mitarbeiter* dazu einladen, Mitglieder Deiner neuen Organisation zu werden. Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organisation](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)."
 
 {% endtip %}
 

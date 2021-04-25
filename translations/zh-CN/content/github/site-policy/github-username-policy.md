@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-username-policy
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 GitHub 帐户名按先到先得的方式提供，预期立即使用。

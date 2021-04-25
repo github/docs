@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 Pessoas com permissões de gravação para um repositório podem adicionar conteúdo a um site do {% data variables.product.prodname_pages %} usando o Jekyll.
@@ -61,6 +63,8 @@ O tema engloba layouts, inclusões e folhas de estilo padrão que serão aplicad
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
+
+Seu post já deve estar no seu site! Se a URL de base do seu site for `https://octocat.github.io`, o seu novo post estará localizado em `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
 
 ### Próximas etapas
 

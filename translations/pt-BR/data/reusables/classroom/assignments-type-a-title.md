@@ -1,5 +1,5 @@
-Type a title for the assignment. Optionally, click {% octicon "pencil" aria-label="The pencil icon" %} to edit the prefix.
+Digite um título para a atividade. Opcionalmente, clique em {% octicon "pencil" aria-label="The pencil icon" %} para editar o prefixo.
 
 <div class="procedural-image-wrapper">
-  <img alt="Assignment title and prefix" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-assignment-title.png">
+  <img alt="Título e prefixo da atividade" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-assignment-title.png">
 </div>

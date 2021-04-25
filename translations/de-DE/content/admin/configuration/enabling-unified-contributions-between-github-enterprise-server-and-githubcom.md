@@ -10,6 +10,8 @@ redirect_from:
 permissions: 'Website-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber einer Organisation oder eines Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können vereinheitlichte Beiträge zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_dotcom_the_website %} aktivieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Unternehmen
 ---
 
 Als Websiteadministrator können Sie zulassen, dass Endbenutzer anonymisierte Beitragsanzahlen für ihre Arbeit auf {% data variables.product.prodname_ghe_server %} an ihr {% data variables.product.prodname_dotcom_the_website %}-Beteiligungsdiagramm senden können.

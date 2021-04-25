@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加できます。
@@ -40,7 +42,7 @@ versions:
 {% data reusables.pages.navigate-publishing-source %}
 1. _/assets/css/style.scss_ という新しいファイルを作成します。
 2. ファイルの先頭に、以下の内容を追加します。
-  ```
+  ```scss
   ---
   ---
 

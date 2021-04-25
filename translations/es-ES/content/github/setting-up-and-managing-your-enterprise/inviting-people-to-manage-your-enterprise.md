@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - empresa
 ---
 
 ### Acerca de invitar a personas a administrar tu cuenta de empresa

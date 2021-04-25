@@ -11,9 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
@@ -30,10 +32,10 @@ versions:
 必须：
 - 将 `USERNAME` 替换为您在 {% data variables.product.prodname_dotcom %} 上的用户帐户的名称。
 - 将 `TOKEN` 替换为您的个人访问令牌。
-- 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{% if enterpriseServerVersions contains currentVersion %}
-- 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。
+- 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。{%if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- 将 `HOSTNAME` 替换为 {% data variables.product.product_location %} 的主机名。{% endif %}
 
-有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
+{%if enterpriseServerVersions contains currentVersion %}如果您的实例启用了子域隔离：
 {% endif %}
 
 ```xml
@@ -79,12 +81,12 @@ versions:
 
 ### 发布包
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+您可以通过使用 *nuget.config* 文件进行身份验证{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%}或使用包含 {% data variables.product.prodname_dotcom %} 个人访问令牌 (PAT) 的 `--api-key` 命令行选项，向 {% data variables.product.prodname_registry %} 发布包{% endif %}。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### Publishing a package using a GitHub PAT as your API key
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+#### 使用 GitHub PAT 作为 API 密钥发布包
 
-If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+如果您还没有用于 {% data variables.product.prodname_dotcom %} 帐户的 PAT，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 1. 创建一个新项目。
   ```shell
@@ -95,7 +97,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
   dotnet pack --configuration Release
   ```
 
-3. Publish the package using your PAT as the API key.
+3. 使用您的 PAT 作为 API 密钥发布包。
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
   ```
@@ -104,7 +106,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 {% endif %}
 
-#### Publishing a package using a *nuget.config* file
+#### 使用 *nuget.config* 文件发布包
 
 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
@@ -116,8 +118,8 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 3. 将项目的特定信息添加到以 *.csproj* 结尾的项目文件中。  必须：
     - 将 `OWNER` 替换为拥有项目所在仓库的用户或组织帐户的名称。
     - 将 `REPOSITORY` 替换为要发布的包所在仓库的名称。
-    - 将 `1.0.0` 替换为包的版本号。{% if enterpriseServerVersions contains currentVersion %}
-    - 拥有 {% data variables.product.prodname_ghe_server %} 实例主机名称的 `HOSTNAME`。{% endif %}
+    - `1.0.0` 替换为包的版本号。{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+    - 将 `HOSTNAME` 替换为 {% data variables.product.product_location %} 的主机名。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -221,4 +223,4 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 ### 延伸阅读
 
-- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[删除包](/packages/learn-github-packages/deleting-a-package){% endif %}"

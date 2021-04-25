@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 强烈建议使用双重身份验证保护您的帐户。 如果您需要禁用 2FA，我们建议尽快将其重新启用。

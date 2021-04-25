@@ -38,7 +38,7 @@ versions:
    - “Description（说明）”是一个可选字段，可用于提供有关仓库目的的更多信息。
    - “Local path（本地路径）”设置仓库在计算机上的位置。 默认情况下，{% data variables.product.prodname_desktop %} 会在 _Documents_ 文件夹内创建 _GitHub_ 文件夹，用于存储仓库，但您也可以选择计算机上的任何位置。 您的新仓库将是所选位置内的文件夹。 例如，如果将仓库命名为 `Tutorial`，则会在为本地路径选择的文件夹内创建一个名为 _Tutorial_ 的文件夹。 下次创建或克隆新仓库时，{% data variables.product.prodname_desktop %} 会记住您选择的位置。
    - **Initialize this repository with a README（使用自述文件初始化此仓库）**创建包含 _README.md_ 文件的初始提交。 自述文件帮助人们了解项目的目的，因此建议选择此选项并加入有用的信息。 当有人访问您在 {% data variables.product.product_name %} 上的仓库时，自述文件是他们了解您的项目时看到的第一项内容。 更多信息请参阅“[关于自述文件](/articles/about-readmes)”。
-   - **Git ignore（Git 忽略）**下拉菜单可让您添加自定义文件，以忽略本地仓库中您不想存储在版本控制中的特定文件。 如有您要使用的特定语言或框架，您可以从可用的列表中选择选项。 如果刚刚开始，尽请跳过此选择。 更多信息请参阅“[忽略文件](/articles/ignoring-files)”。
+   - **Git ignore（Git 忽略）**下拉菜单可让您添加自定义文件，以忽略本地仓库中您不想存储在版本控制中的特定文件。 如有您要使用的特定语言或框架，您可以从可用的列表中选择选项。 如果刚刚开始，尽请跳过此选择。 更多信息请参阅“[忽略文件](/github/getting-started-with-github/ignoring-files)”。
    - **License（许可证）**下拉菜单可让您将开源许可证添加到仓库中的 _LICENSE_ 文件。 您无需担心要立即添加许可证。 有关可用开源许可证以及如何将它们添加到仓库的更多信息，请参阅“[许可仓库](/articles/licensing-a-repository)”。
 3. 单击 **Create repository（创建仓库）**。
 
@@ -92,6 +92,6 @@ versions:
 您现已创建一个仓库，并且已将仓库发布到 {% data variables.product.product_name %}，进行了提交，并且已将更改推送到 {% data variables.product.product_name %}。 在参与创建或协作的其他项目时，可以遵循这个相同的工作流程。
 
 ### 延伸阅读
-- [[了解 Git](/github/using-git/learning-about-git)]
+- "[开始使用 Git](/github/getting-started-with-github/getting-started-with-git)"
 - "[了解 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[开始使用 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

@@ -11,6 +11,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
 versions:
   free-pro-team: '*'
+topics:
+  - Abrechnung
 ---
 
 Du kannst Dein Konto entsperren und wieder darauf zugreifen, indem Du die Zahlungsmethode Deiner Organisation aktualisierst und den Status "bezahlt" wieder erlangst. Für den Zeitraum im gesperrten Modus fallen keine Gebühren an.

@@ -1,0 +1,69 @@
+---
+date: '2021-03-02'
+intro: '对于 {% data variables.product.prodname_ghe_server %} 3.0+ 的最低基础设施要求已经增加。更多信息请参阅“[关于GitHub Enterprise Server 3.0 及更高版本的最低要求](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)”。'
+sections:
+  security_fixes:
+    - '**高：**在 GitHub Enterprise Server 中发现了一个不适当的访问控制漏洞，允许经过验证的实例用户通过特殊构建的拉取请求和 REST API 请求获得对未授权仓库的写入权限。攻击者需要能够复刻目标仓库，该设置默认为组织拥有的私有仓库禁用。分支保护（如所需的拉取请求审查或状态检查）将防止未经进一步审查或验证的未授权提交被合并。此漏洞已分配 CVE-2021-22861。这个问题是通过 [GitHub Bug Bounty 计划](https://bounty.github.com) 报告的。'
+    - '**高：** GitHub Enterprise Server GraphQL API 中发现了一个不当的访问控制漏洞，允许经过验证的实例用户在未经适当授权的情况下修改拉取请求的维护者协作权限。通过利用此漏洞，攻击者将能够访问在其作为维护者的仓库上打开的拉取请求的头部分支。对于组织拥有的私有仓库，复刻默认为禁用，并将阻止此漏洞。此外，分支保护（如必需的拉取请求审查或状态检查）将防止未经进一步审查或验证的未授权提交被合并。此漏洞已分配 CVE-2021-22863。这个问题是通过 [GitHub Bug Bounty 计划](https://bounty.github.com) 报告的。'
+    - '**高：**在 GitHub Enterprise Server 中发现了不当的访问控制漏洞，允许能够复刻仓库的经验证用户为复刻的父仓库披露 Actions 密钥。此漏洞的存在源于一个缺陷，该缺陷允许更新拉取请求的基础引用，以指向复刻仓库外部的任意 SHA 或其他拉取请求。通过在 PR 中建立此不正确的引用，可以绕过限制从复刻发送工作流程的 Actions 密钥的限制。此漏洞影响了 GitHub Enterprise Server 版本 3.0.0、3.0.0.rc2 和 3.0.0.rc1，并已分配 CVE-2021-22862。此漏洞是通过 GitHub Bug Bounty 计划报告的。'
+    - '**中：**来自 GitHub Pages 建立号的 GitHub 令牌可能在日志中结束。'
+    - '包已更新到最新的安全版本。'
+  bugs:
+    - '在某些情况下，负载平衡器健康检查可能导致 babld 日志充满有关代理协议的错误。'
+    - 'HTTP 标头在特定响应中不符合 HTTP RFC 标准，如 304 存档的状态。'
+    - '在启用了依赖关系图功能的主机 Python 仓库的实例中，由于根盘中填充了错误日志，实例可能会变得无响应。'
+    - '在 GitHub Enterprise 备份实用程序快照期间，信息消息被无意中记录为错误，这导致在备份由侦听输出到 stderr 的 cron 作业安排时发送不必要的电子邮件。'
+    - '在 VMWare ESX 6.7 上，初始配置可能会在创建主机密钥时挂起，使实例无法通过 SSH 访问。'
+    - '启用 GitHub Actions 时，在管理控制台中禁用维护模式失败。'
+    - '包创建设置显示在组织成员设置页面上，但此功能尚不可用。'
+    - '在 Security & Analysis（安全和分析）页面上启用密钥扫描时，对话框不正确地提及私有仓库。'
+    - '在编辑 wiki 页面时，用户单击 Save（保存）按钮时可能会遇到 500 错误。'
+    - '使用主题替代名称中具有多个名称的证书签名的 S/MIME 签名提交将错误地显示为提交徽章中的“未验证”。'
+    - '用户在使用 LDAP 身份验证配置的实例上执行 git 操作时看到 500 错误。'
+    - '被暂停的用户在添加到团队时收到电子邮件。'
+    - '当仓库有大量清单时，在 Insights（见解）-> Dependency graph（依赖关系图）选项卡上显示错误 `You have reached the maximum number of allowed manifest files (20) for this repository.`（您已达到此存储库允许的清单文件的最大数量）。更多信息请参阅[可视化限制](https://docs.github.com/en/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies#are-there-limits-which-affect-the-dependency-graph-data)。'
+    - '即使存储库未启用 Actions，也可修复显示设置代码扫描代 CodeQL Action 选项的用户。'
+    - '无法成功启用或禁用企业帐户设置中的“Prevent repository admins from changing anonymous Git read access（防止仓库管理员更改匿名 Git 读取访问权限）”复选框。'
+    - '用于显示强制消息的模组不包含垂直滚动栏，这意味着无法完全查看较长的消息。'
+    - 'Redis 有时在硬重启或应用程序崩溃后无法启动。'
+    - '依赖关系图无法解析 `setup.py` Python 清单文件，导致日志中的 HTTP 500 错误。 这种情况再加上重复的记录问题，导致根卷的使用增加。'
+  changes:
+    - '当多个用户下载同一存档时，可同时满足请求，从而提高性能。'
+  known_issues:
+    - '在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。'
+    - '自定义防火墙规则在升级期间不会保持。'
+    - 'Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。'
+    - '如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。'
+    - '对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。'
+    - '当启用维护模式时，某些服务将继续列为“活动进程”。 指定的服务预期在维护模式下运行。如果您遇到这个问题但不确定，请联系 [GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) 或 [GitHub Premium 支持](https://premium.githubsupport.com/)。'
+    - '重复记录到 `/var/log/messages`、`/var/log/syslog` 和 `/var/log/user.log` 将提高根卷利用率。'
+    - '用户无需选中所有复选框即可忽略强制消息。'
+    - '[预接收挂钩脚本](/admin/policies/enforcing-policy-with-pre-receive-hooks) 无法编写临时文件，这可能导致脚本执行失败。使用预接收挂钩的用户应在暂存环境中进行测试，以查看脚本是否需要写入权限。'
+    - '仓库[部署密钥](/developers/overview/managing-deply-keys) 无法用于包含 LFS 对象的仓库。'
+    - 如果笔记本包含非 ASCII UTF-8 字符，网页界面中的 Jupyter Notebook 渲染可能会失败。
+    - 'restructuredText(RST) 渲染在 web 界面可能失败，反而显示原始 RST 标记文本。'
+    - '依赖关系图无法解析 `yarn.lock` Javascript 清单文件，导致日志中的 HTTP 500 错误。'
+    - '自定义时区从较早发布的 GitHub Enterprise Server 升级的实例可能在 web UI 中有不正确的时间戳。'
+    - 'Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。'
+    - |
+      用户可能会遇到一些资产（如头像）不加载，或者无法推送/拉取代码。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。要确定您是否有受影响的实例：
+
+      **单一实例**
+
+      . 在 [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行：
+
+        ``
+        if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi
+        ```
+
+      2. 如果它显示存在不匹配，重启实例。
+
+      **集群或高可用性配置**
+
+      1. 在 [管理 shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH) 中运行它：
+
+        ```
+        ghe-cluster-each -- 'if [ $(cat /var/run/haproxy-cluster-proxy.pid) -ne $(systemctl show --property MainPID --value haproxy-cluster-proxy) ]; then echo 'Main PID of haproxy-cluster-proxy does not match /var/run/haproxy-cluster-proxy.pid'; fi'
+        ``` 
+
+      2. 如果它显示一个或多个节点受到影响，请重启受影响的节点。

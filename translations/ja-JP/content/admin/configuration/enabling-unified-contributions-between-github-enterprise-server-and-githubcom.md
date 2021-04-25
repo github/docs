@@ -10,6 +10,8 @@ redirect_from:
 permissions: '接続された{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_dotcom_the_website %}間の統合コントリビューションを有効化できます。'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 サイト管理者は、{% data variables.product.prodname_ghe_server %} からの作業に対する匿名のコントリビューション数の {% data variables.product.prodname_dotcom_the_website %} コントリビューショングラフへの送信をエンドユーザに許可できます。

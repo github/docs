@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -35,10 +37,10 @@ Depois de conectar sua conta de {% data variables.product.product_name %} à ext
 ### Abrir um codespace em {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. Em Codespaces, clique no codespace que você deseja desenvolver.
+2. Em "Codedespaces", clique no código que você deseja desenvolver.
 3. Clique no ícone Conectar-se ao Codespace. ![Ícone de conectar-se a um Codespace em {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ### Excluir um codespace em {% data variables.product.prodname_vscode %}
 
-1. Em codespaces, clique com o botão direito no codespace que você deseja excluir.
+1. Em "Codedespaces", clique com o botão direito no código que você deseja excluir.
 2. No menu suspenso, clique em **Excluir o codespace**. ![Excluir um codespace em {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)

@@ -9,6 +9,8 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   free-pro-team: '*'
+topics:
+  - facturación
 ---
 
 ### Encontrar la próxima fecha de facturación de tu cuenta personal
@@ -27,6 +29,6 @@ versions:
 {% data reusables.organizations.billing %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la facturación para las cuentas de {% data variables.product.product_name %}](/articles/about-billing-for-github-accounts)"

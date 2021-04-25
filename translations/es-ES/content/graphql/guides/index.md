@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 {% link_in_list /introduction-to-graphql %}
@@ -20,3 +22,5 @@ versions:
 {% link_in_list /using-the-explorer %}
 
 {% link_in_list /managing-enterprise-accounts %}
+
+{% link_in_list /using-the-graphql-api-for-discussions %}

@@ -1,59 +1,56 @@
 ---
 title: Secret scanning
 intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
 versions:
   free-pro-team: '*'
+topics:
+  - api
 ---
 
-
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. Secret scanning happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our secret scanning.
+{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
 
 When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
 
-When a match of your secret format is found in a private repository configured for secret scanning, then repository admins are alerted and can view and manage the secret scanning results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from secret scanning](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
-{% note %}
+This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} program.
 
-**Note:** Secret scanning for private repositories is currently in beta.
+### The {% data variables.product.prodname_secret_scanning %} process
 
-{% endnote %}
+##### How {% data variables.product.prodname_secret_scanning %} works in a public repository
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %}  as a service provider and join the secret scanning program.
+The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
 
-### The secret scanning process
+![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "{% data variables.product.prodname_secret_scanning_caps %} flow")
 
-##### How secret scanning works in a public repository
-
-The following diagram summarizes the secret scanning process for public repositories, with any matches sent to a service provider's verify endpoint.
-
-![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "Secret scanning flow")
-
-### Joining the secret scanning program on {% data variables.product.prodname_dotcom %}
+### Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
 1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the secret scanning message payload.
+1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
+1. Provide feedback for false positives (optional).
 
 #### Contact {% data variables.product.prodname_dotcom %} to get the process started
 
-To get the enrollment process started, email secret-scanning@github.com.
+To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-You will receive details on the secret scanning program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
+You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
 #### Identify your secrets and create regular expressions
 
-To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the secret scanning program:
+To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
 * A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
 * A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
 * The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
 
-Send this information to secret-scanning@github.com.
+Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 #### Create a secret alert service
 
@@ -61,7 +58,7 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 ##### Example POST sent to your endpoint
 
-```
+```http
 POST / HTTP/1.1
 Host: HOST
 Accept: */*
@@ -94,7 +91,7 @@ You can retrieve the {% data variables.product.prodname_dotcom %} secret scannin
 Assuming you receive the following message, the code snippets below demonstrate how you could perform signature validation. The code also assumes you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens). The token does not need any permissions set.
 
 **Sample message sent to verify endpoint**
-```
+```http
 POST / HTTP/1.1
 Host: HOST
 Accept: */*
@@ -276,6 +273,88 @@ openssl_key = OpenSSL::PKey::EC.new(current_key)
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
 ```
 
+**Validation sample in JavaScript**
+```js
+const crypto = require("crypto");
+const axios = require("axios");
+
+const GITHUB_KEYS_URI = "https://api.github.com/meta/public_keys/secret_scanning";
+
+/**
+ * Verify a payload and signature against a public key
+ * @param {String} payload the value to verify
+ * @param {String} signature the expected value
+ * @param {String} keyID the id of the key used to generated the signature
+ * @return {void} throws if the signature is invalid
+ */
+const verify_signature = async (payload, signature, keyID) => {
+  if (typeof payload !== "string" || payload.length === 0) {
+    throw new Error("Invalid payload");
+  }
+  if (typeof signature !== "string" || signature.length === 0) {
+    throw new Error("Invalid signature");
+  }
+  if (typeof keyID !== "string" || keyID.length === 0) {
+    throw new Error("Invalid keyID");
+  }
+
+  const keys = (await axios.get(GITHUB_KEYS_URI)).data;
+  if (!(keys?.public_keys instanceof Array) || keys.length === 0) {
+    throw new Error("No public keys found");
+  }
+
+  const publicKey = keys.public_keys.find((k) => k.key_identifier === keyID) ?? null;
+  if (publicKey === null) {
+    throw new Error("No public key found matching key identifier");
+  }
+
+  const verify = crypto.createVerify("SHA256").update(payload);
+  if (!verify.verify(publicKey.key, Buffer.from(signature, "base64"), "base64")) {
+    throw new Error("Signature does not match payload");
+  }
+};
+```
+
 #### Implement secret revocation and user notification in your secret alert service
 
-For secret scanning in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+
+#### Provide feedback for false positives
+
+We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+
+When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
+
+You can send us the raw token:
+
+```
+[
+  {
+    "token_raw": "The raw token",
+    "token_type": "ACompany_API_token",
+    "label": "true_positive"
+  }
+]
+```
+You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
+
+```
+[
+  {
+    "token_hash": "The SHA-256 hashed form of the raw token",
+    "token_type": "ACompany_API_token",
+    "label": "false_positive"
+  }
+]
+```
+A few important points:
+- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
+- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
+- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
+
+{% note %}
+
+**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
+
+{% endnote %}
+

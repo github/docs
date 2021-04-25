@@ -10,6 +10,8 @@ redirect_from:
 intro: '根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 管理端口

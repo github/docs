@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 Se você é contribuinte nos Estados Unidos, deve enviar um formulário W-9 antes de poder receber pagamentos. Se você é contribuinte em qualquer outro país, deve enviar um formulário W-8BEN antes de poder receber pagamentos. Para mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} lhe enviará os formulários apropriados, avisando quando estiverem vencidos, e lhe dará um tempo razoável para completar e enviar os formulários.

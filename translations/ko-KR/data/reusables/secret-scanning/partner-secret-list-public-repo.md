@@ -49,6 +49,8 @@
 | Proctorio                 | Proctorio Registration Key                                                  |
 | Proctorio                 | Proctorio Secret Key                                                        |
 | Pulumi                    | Pulumi Access Token                                                         |
+| PyPI                      | PyPI API Token                                                              |
+| RubyGems                  | RubyGems API Key                                                            |
 | Samsara                   | Samsara API Token                                                           |
 | Samsara                   | Samsara OAuth Access Token                                                  |
 | Shopify                   | Shopify App Shared Secret                                                   |

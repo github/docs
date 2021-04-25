@@ -9,7 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
+
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
 ### 必要な環境
 
@@ -23,8 +27,6 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -33,6 +35,8 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 ### サイトを作成する
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. リポジトリのローカルコピーがまだない場合、サイトのソースファイルを保存したい場所に移動します。_PARENT-FOLDER_ は、リポジトリを保存したいフォルダの名前に置き換えてください。
@@ -63,23 +67,24 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
- 7. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。_VERSION_ は、Jekyll の現在の依存関係バージョンに置き換えてください。 詳しい情報については、{% data variables.product.prodname_pages %} サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
-    - Bundler をインストールしている場合、以下のコマンドを入力します。
-      ```shell
-      $ bundle exec jekyll <em>VERSION</em> new .
-      # Creates a Jekyll site in the current directory
-      ```
-    - Bundler をインストールしていない場合、以下のコマンドを入力します。
-     ```shell
-     $ jekyll <em>VERSION</em> new .
-     # Creates a Jekyll site in the current directory
-     ```
-8. 作成された Gemfile を開き、Gemfile のコメントに従って {% data variables.product.prodname_pages %} を使用します。 ![Gemfile の更新手順](/assets/images/help/pages/gemfile-instructions.png)
-9. `gem "github-pages"` の行を以下のように更新します。_VERSION_ は、`github-pages` の現在の依存関係バージョンに置き換えてください。 詳しい情報については、{% data variables.product.prodname_pages %} サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
-```shell
-gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
-```
+7. To create a new Jekyll site, use the `jekyll new` command:
+   ```shell
+   $ jekyll new .
+   # Creates a Jekyll site in the current directory
+   ```
+8. Open the Gemfile that Jekyll created.
+1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
+1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
+
+   ```shell
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
+   ```
+
+   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+
+   The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Gemfile を保存して閉じます。
+11. From the command line, run `bundle update`.
 11. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
@@ -95,7 +100,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

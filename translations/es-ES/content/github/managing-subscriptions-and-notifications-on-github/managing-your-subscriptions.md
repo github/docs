@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - notifications
 ---
 
 Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, consulta la sección "[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
@@ -39,7 +41,7 @@ Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparece
 
 {% data reusables.notifications.access_notifications %}
 1. Desde la bandeja de notificaciones, selecciona aquellas de las cuales deseas darte de baja.
-2. Utiliza el menú desplegable de **seleccionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para dar clic en **Desuscribirse**. ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Utiliza el menú desplegable de **seleccionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para dar clic en **Desuscribirse**. ![Opción para darse de baja de una bandeja principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Darse de baja de las notificaciones en la página de suscripciones
 

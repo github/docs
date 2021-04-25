@@ -1,6 +1,6 @@
 {% if enterpriseServerReleases.deprecated contains currentVersion %}
 {% assign deprecatedDate = enterpriseServerReleases.dates[currentVersion].deprecationDate %}
-  <div class="deprecation-banner border rounded-1 mb-2 bg-yellow-light p-3 border-yellow f5">
+  <div class="deprecation-banner border rounded-1 mb-2 color-bg-warning p-3 color-border-warning f5">
     <p>
       <b>
         {% data reusables.enterprise_deprecation.version_was_deprecated %}

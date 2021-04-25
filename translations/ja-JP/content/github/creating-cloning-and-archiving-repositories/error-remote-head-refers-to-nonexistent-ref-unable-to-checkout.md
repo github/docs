@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:

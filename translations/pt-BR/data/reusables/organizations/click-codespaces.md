@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Codespaces**. !["Codespaces" tab in left sidebar](/assets/images/help/organizations/codespaces-sidebar-tab.png)
+1. Na barra lateral esquerda, clique em **Codespaces**. ![Aba "Codespaces" na barra lateral esquerda](/assets/images/help/organizations/codespaces-sidebar-tab.png)

@@ -42,16 +42,18 @@ Se as atualizações de segurança não estiverem habilitadas para o seu reposit
 
 ### Gerenciar {% data variables.product.prodname_dependabot_security_updates %} para seus repositórios
 
-Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} em um repositório individual.
+Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual (veja abaixo).
 
 Você também pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para todos os repositórios pertencentes à sua conta de usuário ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)".
 
 O {% data variables.product.prodname_dependabot_security_updates %} exige configurações específicas do repositório. Para obter mais informações, consulte "[Repositórios compatíveis](#supported-repositories)".
 
+#### Habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual
+
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Acima da lista de alertas, use o menu suspenso e selecione ou desmarque as atualizações de segurança do **{% data variables.product.prodname_dependabot %}**. ![Menu suspenso com a opção de ativar {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-drop-down.png)
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. Em "Configurar recursos de segurança e análise" à direita de "atualizações de segurança de {% data variables.product.prodname_dependabot %}", clique em **Habilitar** ou **Desabilitar**. ![Seção "Configurar recursos de segurança e análise" com botão para habilitar {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
 ### Leia mais
 

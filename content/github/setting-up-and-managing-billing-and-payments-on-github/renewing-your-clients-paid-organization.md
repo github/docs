@@ -6,6 +6,8 @@ redirect_from:
   - /articles/renewing-your-clients-paid-organization
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}

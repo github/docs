@@ -33,7 +33,7 @@ Wenn Dein Websiteadministrator den privaten Modus deaktiviert hat, kannst Du auc
 In folgenden Fällen erhältst Du eine Benachrichtigung:
 - Du bist der Autor eines Gists.
 - Jemand erwähnt Dich in einem Gist.
-- Du abonnierst einen Gist, indem Du oben im Gist auf **Subscribe** (Abonnieren) klickst.
+- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
@@ -55,12 +55,14 @@ Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in ein
 
 ### Einen Gist erstellen
 
-Du kannst auch eine Textdatei per Drag-and-Drop von Deinem Desktop direkt in den Gist-Editor ziehen.
+Follow the steps below to create a gist.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 {% endnote %}
 {% endif %}
@@ -69,7 +71,7 @@ You can also create a gist using the {% data variables.product.prodname_cli %}. 
 2. Navigieren Sie zu Ihrer {% data variables.gists.gist_homepage %}.
 3. Gib eine optionale Beschreibung und einen Namen für Deinen Gist ein. ![Name und Beschreibung des Gists](/assets/images/help/gist/gist_name_description.png)
 
-4. Gib den Text für den Gist in das Gist-Textfeld ein. ![Gist-Textfeld](/assets/images/help/gist/gist_text_box.png)
+4. Type the text of your gist into the gist text box. ![Gist-Textfeld](/assets/images/help/gist/gist_text_box.png)
 
 5. Optionally, to create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. ![Drop-down menu to select gist visibility]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 

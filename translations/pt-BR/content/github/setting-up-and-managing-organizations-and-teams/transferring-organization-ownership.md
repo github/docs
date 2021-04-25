@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 1. Caso você seja o único integrante com privilégios de *proprietário*, atribua a função de proprietário a outro integrante da organização. Para obter mais informações, consulte "[Designar um proprietário da organização](/github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)".

@@ -7,6 +7,8 @@ redirect_from:
 permissions: '接続されている{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、ユーザライセンスの自動同期を有効化できます。'
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 ### ライセンスの同期について

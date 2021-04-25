@@ -1,6 +1,7 @@
 ---
 title: Audited actions
 intro: You can search the audit log for a wide variety of actions.
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/articles/audited-actions/
   - /enterprise/admin/installation/audited-actions
@@ -8,11 +9,13 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - enterprise
 ---
 #### Authentication
 
-Name                                 | Description
-------------------------------------:| ----------------------------------------
+Action                               | Description
+------------------------------------ | ----------------------------------------
 `oauth_access.create`                | An [OAuth access token][] was [generated][generate token] for a user account.
 `oauth_access.destroy`               | An [OAuth access token][] was deleted from a user account.
 `oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
@@ -31,10 +34,17 @@ Name                                 | Description
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication
 
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+#### {% data variables.product.prodname_actions %}
+
+{% data reusables.actions.actions-audit-events-for-enterprise %}
+
+{% endif %}
+
 #### Hooks
 
-Name                              | Description
----------------------------------:| -------------------------------------------
+Action                            | Description
+--------------------------------- | -------------------------------------------
 `hook.create`                     | A new hook was added to a repository.
 `hook.config_changed`             | A hook's configuration was changed.
 `hook.destroy`                    | A hook was deleted.
@@ -42,17 +52,34 @@ Name                              | Description
 
 #### Enterprise configuration settings
 
-Name                                            | Description
------------------------------------------------:| -------------------------------------------
-`business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
-`business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% if enterpriseServerVersions contains currentVersion %}
+Action                                          | Description
+----------------------------------------------- | -------------------------------------------{% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+`business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
+`business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."
+`business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% if enterpriseServerVersions contains currentVersion %}
 `enterprise.config.lock_anonymous_git_access`   | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."
 `enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."{% endif %}
 
-#### Issues and pull requests
+{% if currentVersion == "github-ae@latest" %}
+
+#### IP allow lists
 
 Name                                 | Description
 ------------------------------------:| -----------------------------------------------------------
+`ip_allow_list_entry.create`         | An IP address was added to an IP allow list.
+`ip_allow_list_entry.update`         | An IP address or its description was changed.
+`ip_allow_list_entry.destroy`        | An IP address was deleted from an IP allow list.
+`ip_allow_list.enable`               | An IP allow list was enabled.
+`ip_allow_list.enable_for_installed_apps` | An IP allow list was enabled for installed {% data variables.product.prodname_github_apps %}.
+`ip_allow_list.disable`              | An IP allow list was disabled.
+`ip_allow_list.disable_for_installed_apps` | An IP allow list was disabled for installed {% data variables.product.prodname_github_apps %}.
+
+{% endif %}
+
+#### Issues and pull requests
+
+Action                               | Description
+------------------------------------ | -----------------------------------------------------------
 `issue.update`                       | An issue's body text (initial comment) changed.
 `issue_comment.update`               | A comment on an issue (other than the initial one) changed.
 `pull_request_review_comment.delete` | A comment on a pull request was deleted.
@@ -60,16 +87,16 @@ Name                                 | Description
 
 #### Organizations
 
-Name               | Description
-------------------:| ----------------------------------------------------------
+Action             | Description
+------------------ | ----------------------------------------------------------
 `org.async_delete` | A user initiated a background job to delete an organization.
 `org.delete`       | An organization was deleted by a user-initiated background job.{% if currentVersion != "github-ae@latest" %}
 `org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
 
 #### Protected branches
 
-Name                       | Description
---------------------------:| ----------------------------------------------------------
+Action                     | Description
+-------------------------- | ----------------------------------------------------------
 `protected_branch.create ` | Branch protection is enabled on a branch.
 `protected_branch.destroy` | Branch protection is disabled on a branch.
 `protected_branch.update_admin_enforced `            | Branch protection is enforced for repository administrators.
@@ -83,8 +110,8 @@ Name                       | Description
 
 #### Repositories
 
-Name                  | Description
----------------------:| -------------------------------------------------------
+Action                | Description
+--------------------- | -------------------------------------------------------
 `repo.access`         | The visibility of a repository changed to private{% if enterpriseServerVersions contains currentVersion %}, public,{% endif %} or internal.
 `repo.archived`       | A repository was archived. For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."
 `repo.add_member`     | A collaborator was added to a repository.
@@ -103,8 +130,8 @@ Name                  | Description
 
 #### Site admin tools
 
-Name                          | Description
------------------------------:| -----------------------------------------------
+Action                        | Description
+----------------------------- | -----------------------------------------------
 `staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
 `staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.
 `staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.
@@ -113,8 +140,8 @@ Name                          | Description
 
 #### Teams
 
-Name                              | Description
----------------------------------:| -------------------------------------------
+Action                            | Description
+--------------------------------- | -------------------------------------------
 `team.create`                     | A user account or repository was added to a team.
 `team.delete`                     | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 `team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
@@ -124,8 +151,8 @@ Name                              | Description
 
 #### Users
 
-Name                              | Description
----------------------------------:| -------------------------------------------
+Action                            | Description
+--------------------------------- | -------------------------------------------
 `user.add_email`                  | An email address was added to a user account.
 `user.async_delete`               | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
 `user.change_password`            | A user changed his or her password.{% endif %}

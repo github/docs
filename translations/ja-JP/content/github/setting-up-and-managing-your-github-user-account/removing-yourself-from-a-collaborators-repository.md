@@ -12,6 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - アカウント
+  - repositories
 ---
 
 {% data reusables.user_settings.access_settings %}

@@ -30,12 +30,20 @@ versions:
 
 ### 项目管理工具
 
-您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 或 Slack 等第三方项目管理工具集成。
+您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 等第三方项目管理工具集成。
 
 #### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 
 您可以将 Jira Cloud 与个人或组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。 更多信息请访问 Marketplace 中的 [Jira 集成应用程序](https://github.com/marketplace/jira-software-github)。
 
+### 团队通信工具
+
+您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Slack 或 Microsoft Teams 等第三方团队通信工具集成。
+
 #### Slack 与 {% data variables.product.product_name %} 集成
 
 您可以将 Slack 与您的个人或组织帐户集成，以订阅通知、关闭或打开的议题，并提供对议题和拉取请求的丰富引用，而无需离开 Slack。 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
+
+#### Microsoft Teams 与 {% data variables.product.product_name %} 集成
+
+您可以将 Microsoft Teams 与您的个人或组织帐户集成，来访问关于 {% data variables.product.product_name %} 的信息，以及进行更广泛的团队通信。 将 Microsoft Teams 与 {% data variables.product.product_name %} 集成时，您可以订阅通知、关闭或打开议题，以及提供丰富的议题和拉取请求参考，而无需离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。

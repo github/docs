@@ -8,7 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+type: overview
+topics:
+  - Segurança
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -54,11 +56,13 @@ Isso significa que comprometer uma única ação dentro de um fluxo de trabalho 
 
   Fixar uma ação para um commit SHA de comprimento completo é, atualmente, a única maneira de usar uma ação como uma versão imutável. Fixar um SHA em particular ajuda a mitigar o risco de um ator malicioso adicionar uma porta traseira ao repositório da ação, porque precisariam gerar uma colisão de SHA-1 para uma carga válida do objeto de Git.
 
+  {% if currentVersion ver_lt "enterprise-server@3.1" %}
   {% warning %}
 
   **Aviso:** A versão curta do commit SHA é insegura e nunca deve ser usada para especificar a referência do Git de uma ação. Devido ao modo como funcionam as redes de repositório, qualquer usuário pode bifurcar o repositório e fazer push de um commit criado que colida com o SHA curto. Isso faz com que os clones subsequentes falhem nesse SHA, pois se converte em um commit ambíguo. Como resultado, todos os fluxos de trabalho que usam o SHA encurtado falharão imediatamente.
 
   {% endwarning %}
+  {% endif %}
 
 
 * **Audite o código-fonte da ação**
@@ -113,7 +117,7 @@ Você pode usar o log de auditoria para monitorar tarefas administrativas em uma
 
 Por exemplo, você pode usar o log de auditoria para monitorar o evento de `action:org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
 
-As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre como usar o registro de auditoria, consulte [Revisar o log de auditoria para a sua organização](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre como usar o log de auditoria, consulte [Revisar o log de auditoria para a sua organização](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
 
 #### Eventos para gerenciamento de segredo
 | Ação                                | Descrição                                                                                                                                                                                                  |
@@ -140,4 +144,4 @@ As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_a
 | `action:org.runner_group_removed`         | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                |
 | `action:org.runner_group_renamed`         | Acionado quando um administrador da organização renomeia um grupo de executores auto-hospedados.                                                                                                                                              |
 | `action:org.runner_group_runners_added`   | Acionada quando um administrador da organização [adiciona um executor auto-hospedado a um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).               |
-| `action:org.runner_group_runners_removed` | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                | 
+| `action:org.runner_group_runners_removed` | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                |

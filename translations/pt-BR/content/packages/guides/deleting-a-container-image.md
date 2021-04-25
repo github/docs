@@ -1,6 +1,6 @@
 ---
 title: Excluir uma imagem de contêiner
-intro: 'You can delete a specific version or all versions of a private or public container image on {% data variables.product.prodname_dotcom %}.'
+intro: 'É possível excluir uma versão específica ou todas as versões de uma imagem de contêiner privado ou público em {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/deleting-a-container-image
@@ -20,34 +20,34 @@ Ao excluir pacotes públicos, esteja ciente de que você pode quebrar projetos q
 
 ### Excluir uma versão de uma imagem de contêiner de usuário em {% data variables.product.prodname_dotcom %}
 
-To only delete specific versions of a container image, you can use these steps. To delete an entire package, see "[Deleting all versions of a user-owned container image on {% data variables.product.prodname_dotcom %}](#deleting-all-versions-of-a-user-owned-container-image-on-github)."
+Para excluir apenas as versões específicas de uma imagem de contêiner, você pode usar estas etapas. Para excluir um pacote inteiro, consulte "[Excluir todas as versões de uma imagem do contêiner de usuário em {% data variables.product.prodname_dotcom %}](#deleting-all-versions-of-a-user-owned-container-image-on-github)".
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 5. À esquerda, clique em **Gerenciar versões**.
-6. Optionally, to ensure you're seeing all of your package versions, use the "Type" drop down menu and select **All**. ![Package version type drop down menu showing option to list all versions](/assets/images/help/package-registry/make-all-container-versions-visible.png)
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**. ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
+6. Opcionalmente, para garantir que você está visualizando todas as versões de seu pacote, use o menu suspenso "Tipo" e selecione **Todos**. ![Menu suspenso do tipo de versão do pacote que mostra a opção de listar todas as versões](/assets/images/help/package-registry/make-all-container-versions-visible.png)
+5. À direita da versão que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Excluir versão**. ![Botão para excluir a versão do pacote](/assets/images/help/package-registry/delete-container-package-version.png)
 6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua esta versão**. ![Botão de confirmar exclusão de pacote](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 
 ### Excluir uma versão de uma imagem de contêiner de uma organização no {% data variables.product.prodname_dotcom %}
 
-To only delete specific versions of a container image that you have admin , you can use these steps. To delete an entire package, see "[Deleting all versions of an organization-owned container image on {% data variables.product.prodname_dotcom %}](#deleting-all-versions-of-an-organization-owned-container-image-on-github)."
+Para excluir apenas versões específicas de uma imagem contêiner que você tem administrador, você pode usar essas etapas. Para excluir um pacote inteiro, consulte "[Excluir todas as versões de uma imagem contêiner de propriedade da organização em {% data variables.product.prodname_dotcom %}](#deleting-all-versions-of-an-organization-owned-container-image-on-github)".
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 5. À esquerda, clique em **Gerenciar versões**.
-6. Optionally, to ensure you're seeing all of your package versions, use the "Type" drop down menu and select **All**. ![Package version type drop down menu showing option to list all versions](/assets/images/help/package-registry/make-all-container-versions-visible.png)
-5. To the right of the version you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Delete version**. ![Delete package version button](/assets/images/help/package-registry/delete-container-package-version.png)
-6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua esta versão**. ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
+6. Opcionalmente, para garantir que você está visualizando todas as versões de seu pacote, use o menu suspenso "Tipo" e selecione **Todos**. ![Menu suspenso do tipo de versão do pacote que mostra a opção de listar todas as versões](/assets/images/help/package-registry/make-all-container-versions-visible.png)
+5. À direita da versão que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Excluir versão**. ![Botão para excluir a versão do pacote](/assets/images/help/package-registry/delete-container-package-version.png)
+6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua esta versão**. ![Botão para confirmar a exclusão da versão do pacote](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 
-### Deleting all versions of a user-owned container image on {% data variables.product.prodname_dotcom %}
+### Excluir todas as versões de uma imagem contêiner de usuário em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-5. On the left, click **Options**. !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**. ![Delete package version button](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**. ![Confirm package version deletion button](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+5. À esquerda, clique em **Opções**. ![Opção do menu "Opções"](/assets/images/help/package-registry/options-for-container-settings.png)
+6. Em "Zona de Perigo" clique em **Excluir este pacote**. ![Botão para excluir a versão do pacote](/assets/images/help/package-registry/delete-container-package-button.png)
+6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua este pacote**. ![Botão para confirmar a exclusão da versão do pacote](/assets/images/help/package-registry/confirm-container-package-deletion.png)
 
-### Deleting all versions of an organization-owned container image on {% data variables.product.prodname_dotcom %}
+### Excluir todas as versões de uma imagem de contêiner pertencente à organização em {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-5. On the left, click **Options**. !["Options" menu option](/assets/images/help/package-registry/options-for-container-settings.png)
-6. Under "Danger zone", click **Delete this package**. ![Botão de excluir pacote](/assets/images/help/package-registry/delete-container-package-button.png)
-6. To confirm deletion, type the package name and click **I understand the consequences, delete this package**. ![Botão de confirmar exclusão de pacote](/assets/images/help/package-registry/confirm-container-package-deletion.png)
+5. À esquerda, clique em **Opções**. ![Opção do menu "Opções"](/assets/images/help/package-registry/options-for-container-settings.png)
+6. Em "Zona de Perigo" clique em **Excluir este pacote**. ![Botão de excluir pacote](/assets/images/help/package-registry/delete-container-package-button.png)
+6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua este pacote**. ![Botão de confirmar exclusão de pacote](/assets/images/help/package-registry/confirm-container-package-deletion.png)

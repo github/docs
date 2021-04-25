@@ -8,6 +8,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Páginas
 ---
 
 Pessoas com permissões de administrador para um repositório podem usar o seletor de temas para adicionar um tema a um site do {% data variables.product.prodname_pages %}.

@@ -8,11 +8,8 @@ export default function displayPlatformSpecificContent () {
   let platform = getDefaultPlatform() || parseUserAgent().os
 
   // adjust platform names to fit existing mac/windows/linux scheme
-  if (!platform) platform = 'mac' // default to 'mac' on mobile
-  if (platform === 'darwin') platform = 'mac'
+  if (!platform) platform = 'linux'
   if (platform === 'ios') platform = 'mac'
-  if (platform === 'android') platform = 'linux'
-  if (platform.startsWith('win')) platform = 'windows'
 
   const platformsInContent = findPlatformSpecificContent(platform)
 

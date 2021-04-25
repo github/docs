@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
 versions:
   enterprise-server: '*'
+topics:
+  - корпоративный
 ---
 
 ### Creating and sharing diagnostic files

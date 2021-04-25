@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 加入 {% data variables.product.prodname_sponsors %}
@@ -22,7 +24,9 @@ versions:
 
 ### 赞助级别
 
-{% data reusables.sponsors.tier-details %} 更多信息请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”、“[为组织设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)”和“[更改赞助级别](/articles/changing-your-sponsorship-tiers)”。
+{% data reusables.sponsors.tier-details %} For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)," "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)."
+
+It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 
 ### 赞助付款
 
@@ -31,6 +35,10 @@ versions:
 {% data reusables.sponsors.payout-info %}
 
 更多信息请参阅“[从 {% data variables.product.prodname_sponsors %} 管理您的付款](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors)”。
+
+### 共享关于 {% data variables.product.prodname_sponsors %} 的反馈
+
+{% data reusables.sponsors.feedback %}
 
 ### 延伸阅读
 - {% data variables.product.prodname_blog %} 上的“[{% data variables.product.prodname_sponsors %} 团队常见问题](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)”

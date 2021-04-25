@@ -3,6 +3,9 @@ title: 管理组织的预定提醒
 intro: 对于组织中的团队已请求审查的所有拉取请求，您可以在 Slack 中收到提醒。
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于拉取请求的预定提醒
@@ -10,6 +13,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 对于团队的所有拉取请求或团队已经请求审查的所有拉取请求，组织所有者可为其组织中的一个或多个团队预定提醒。
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### 为组织创建预定提醒
 {% data reusables.profile.access_profile %}

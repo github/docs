@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 {% data variables.product.prodname_ghe_server %} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。 由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。 这类检查需要的环境通常极少。

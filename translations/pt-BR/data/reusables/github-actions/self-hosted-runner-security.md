@@ -1,3 +1,1 @@
-Recomendamos que você não use runners auto-hospedados com repositórios públicos.
-
-Bifurcações do seu repositório público podem potencialmente executar códigos perigosos na sua máquina de executor auto-hospedada, criando uma pull request que executa o código em um fluxo de trabalho.
+We recommend that you only use self-hosted runners with private repositories. This is because forks of your repository can potentially run dangerous code on your self-hosted runner machine by creating a pull request that executes the code in a workflow.

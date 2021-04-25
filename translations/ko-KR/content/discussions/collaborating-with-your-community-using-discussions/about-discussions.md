@@ -19,7 +19,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 
 You don't need to close a discussion like you close an issue or a pull request.
 
-If a repository administrator or project maintainer enables discussions for a repository, anyone who visits the repository can create and participate in discussions for the repository. Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. For more information, see "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+If a repository administrator or project maintainer enables discussions for a repository, anyone who visits the repository can create and participate in discussions for the repository. Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. For more information, see "[Repository permission levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 For more information about management of discussions for your repository, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
 
@@ -50,5 +50,5 @@ You can share your feedback about {% data variables.product.prodname_discussions
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)"
 - "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderating comments and conversations](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

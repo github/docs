@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Después de desbloquear un usuario desde tu organización, este podrá contribuir con los repositorios de tu organización.
@@ -31,7 +33,7 @@ Si seleccionaste una cantidad de tiempo específica para bloquear al usuario, se
 {% data reusables.organizations.block_users %}
 5. En "Blocked users" (Usuarios bloqueados), al lado del usuario que quieres desbloquear, haz clic en **Unblock** (Desbloquear). ![Botón Unblock user (Desbloquear usuario)](/assets/images/help/organizations/org-unblock-user-button.png)
 
-### Further reading
+### Leer más
 
 - "[Bloquear a un usuario de tu organización](/articles/unblocking-a-user-from-your-organization)"
 - "[Bloquear a un usuario desde tu cuenta personal](/articles/blocking-a-user-from-your-personal-account)"

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About SAML SSO

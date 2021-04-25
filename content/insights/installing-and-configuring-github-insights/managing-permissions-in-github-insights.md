@@ -1,7 +1,6 @@
 ---
 title: Managing permissions in GitHub Insights
 intro: 'You can update a user''s permissions in {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage permissions.'
 versions:
   enterprise-server: '*'

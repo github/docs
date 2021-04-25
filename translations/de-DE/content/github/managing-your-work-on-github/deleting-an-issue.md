@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Du kannst nur Issues in einem Repository löschen, das Deinem Benutzerkonto gehört. Du kannst keine Issues in einem Repository eines anderen Benutzerkontos löschen, selbst dann nicht, wenn Du dort Mitarbeiter bist.

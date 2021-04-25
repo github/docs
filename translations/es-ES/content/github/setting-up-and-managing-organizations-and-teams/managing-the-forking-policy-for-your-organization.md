@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Predeterminadamente, las organizaciones nuevas se configuran para no permitir que se bifurquen los repositorios privados{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} e internos{% endif %}.
@@ -24,7 +27,7 @@ Si permites que se bifurquen los repositorios privados{% if currentVersion == "f
 5. Debajo de "Bifurcación de repositorios", selecciona **Permitir la bifurcación de repositorios privados** o **Permitir la bifurcación de repositorios privados e internos**. ![Casilla de verificación para permitir o prohibir la bifurcación en la organización](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Haz clic en **Save ** (guardar).
 
-### Further reading
+### Leer más
 
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Niveles de permiso del repositorio para una organización](/articles/repository-permission-levels-for-an-organization)"

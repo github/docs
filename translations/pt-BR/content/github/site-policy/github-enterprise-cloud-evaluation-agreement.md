@@ -10,7 +10,7 @@ OBRIGADO POR ESCOLHER O GITHUB PARA AS NECESSIDADES COMERCIAIS DE SUA EMPRESA. L
 
 ### 1. Termos de serviço corporativos
 
-O cliente deve ter uma conta corporativa no GitHub.com para poder ter acesso de avaliação. A avaliação do Cliente do Enterprise Cloud será regida por estes termos e pelos Termos de Serviços Corporativos (encontrado em [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (juntamente com o "**Contrato de Avaliação**"). Entretanto, quaisquer termos suplementares associados ao [Adendo do Enterprise Cloud](https://help.github.com/articles/github-enterprise-cloud-addendum) **não se** aplicarão até o Cliente atualizar sua compra para uma assinatura paga do Enterprise Cloud.Quaisquer termos com a inicial em maiúscula não definidos neste Contrato de Avaliação são definidos nos Termos de serviço corporativos.
+O cliente deve ter uma conta corporativa no GitHub.com para poder ter acesso de avaliação. A avaliação do Cliente do Enterprise Cloud será regida por estes termos e pelos Termos de Serviços Corporativos (encontrado em [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (juntamente com o "**Contrato de Avaliação**"). Entretanto, quaisquer termos suplementares associados ao [Adendo do Enterprise Cloud](https://docs.github.com/articles/github-enterprise-cloud-addendum) **não se** aplicarão até o Cliente atualizar sua compra para uma assinatura paga do Enterprise Cloud.Quaisquer termos com a inicial em maiúscula não definidos neste Contrato de Avaliação são definidos nos Termos de serviço corporativos.
 
 ### 2. Vigência e rescisão
 

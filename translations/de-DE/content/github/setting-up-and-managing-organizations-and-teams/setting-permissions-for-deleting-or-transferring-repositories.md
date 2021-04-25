@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Inhaber können die Berechtigungen zum Löschen oder Übertragen von Repositorys innerhalb einer Organisation festlegen.

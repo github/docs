@@ -7,6 +7,8 @@ redirect_from:
   - /articles/verifying-your-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - 帐户
 ---
 
 ### 关于电子邮件通知

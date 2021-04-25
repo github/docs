@@ -1,5 +1,5 @@
-* {% data reusables.actions.enterprise-hardware-considerations %}
-* TLS must be configured for {% data variables.product.product_location %}'s domain. For more information, see "[Configuring TLS](/admin/configuration/configuring-tls)."
+* Revisa los requisitos de hardware de las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+* Se debe configurar el TLS para el dominio de {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Configurar el TLS](/admin/configuration/configuring-tls)".
 
   {% note %}
 

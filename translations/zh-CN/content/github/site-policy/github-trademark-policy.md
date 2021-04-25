@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-trademark-policy
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 ### 什么是违反 GitHub 商标政策的行为？

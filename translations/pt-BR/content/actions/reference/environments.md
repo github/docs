@@ -5,21 +5,23 @@ product: '{% data reusables.gated-features.environments %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.environments-beta %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre ambientes
 
 Você pode configurar ambientes com regras de proteção e segredos. Quando um trabalho de fluxo de trabalho faz referência a um ambiente, o trabalho não será iniciado até que todas as regras de proteção do ambiente sejam aprovadas. Um trabalho também não pode acessar segredos definidos em ambiente até que todas as regras de proteção do ambiente sejam aprovadas.
 
 {% if currentVersion == "free-pro-team@latest" %}
-As regras de proteção do ambiente e os segredos de ambiente só estão disponíveis em repositórios públicos. Se você converter um repositório de público em privado, todas as regras de proteção ou segredos de ambiente configurados serão ignorados, e você não conseguirá configurar nenhum ambiente. Se você converter seu repositório de volta para público, você terá acesso a todas as regras de proteção e segredos de ambiente previamente configurados.
+As regras de protecção do ambiente e os segredos de ambiente só estão disponíveis em repositórios públicos e repositórios privados em um plano corporativo. Se você converter um repositório de público para privado em um plano não corporativo, todas as regras de proteção configuradas ou segredos de ambiente serão ignorados e você não será capaz de configurar nenhum ambiente. Se você converter seu repositório de volta para público, você terá acesso a todas as regras de proteção e segredos de ambiente previamente configurados.
 {% endif %}
 
 #### Regras de proteção de ambiente
 
-As normas de proteção do ambiente exigem a aprovação de condições específicas antes que um trabalho que faz referência ao ambiente possa prosseguir. Você pode usar regras de proteção ambiental para exigir uma aprovação manual ou para atrasar um trabalho.
+As normas de proteção do ambiente exigem a aprovação de condições específicas antes que um trabalho que faz referência ao ambiente possa prosseguir. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}Você pode usar regras de proteção do ambiente para exigir uma aprovação manual, atrasar um trabalho ou restringir o ambiente a certos branches.{% else %}Você pode usar as regras de proteção de ambiente para exigir uma aprovação manual ou atrasar um trabalho.{% endif %}
 
 ##### Revisores necessários
 
@@ -31,6 +33,17 @@ Para obter mais informações sobre os trabalhos de revisão que fazem referênc
 
 Use o temporizador de espera para atrasar o trabalho por um período específico de tempo depois que o trabalho for inicialmente acionado. O tempo (em minutos) deve ser um número inteiro entre 0 e 43.200 (30 dias).
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}
+##### Implementar branches
+
+Use os branches de implantação para restringir quais branches podem ser implementados no ambiente. Abaixo, estão as opções para branches de implantação para um ambiente:
+
+* **Todos os branches**: Todos os branches no repositório podem implantar no ambiente.
+* **Branches protegidos**: Somente branches com regras de proteção de branch habilitadas podem implementar no ambiente. Se nenhuma regra de proteção de branch for definida para qualquer branch no repositório, todos os branches poderão implantar. Para obter mais informações sobre as regras de proteção de branches, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
+* **Branches selecionados**: Somente branches que correspondem a seus padrões de nome especificados podem implantar no ambiente.
+
+  Por exemplo, se você especificar `releases/*` como uma regra de implantação de branch, apenas os branches cujo nome começa com `releases/` poderão fazer a implantação no ambiente. (Caracteres curinga não correspondem a `/`. Para corresponder aos branches que começam com `release/` e contêm uma única barra adicional, use `release/*/*`.) Se você adicionar `main` como uma regra de branch de implantação, um branch denominado `main` também poderá ser implantado no ambiente. Para obter mais informações sobre opções de sintaxe para branches de implantação, consulte a [Documentação File.fnmatch do Ruby](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
+{% endif %}
 #### Segredos de ambiente
 
 Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de fluxo de trabalho que fazem referência ao ambiente. Se o ambiente exigir aprovação, um trabalho não poderá acessar segredos de ambiente até que um dos revisores necessários o aprove. Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
@@ -45,6 +58,8 @@ Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de
 1. Clique em **Novo ambiente**.
 1. Insira um nome para o ambiente e clique em **Configurar ambiente**. Os nomes de ambiente não diferenciam maiúsculas de minúsculas. Um nome de ambiente não pode exceder 255 caracteres e deve ser único dentro do repositório.
 1. Configure todas as regras de proteção de ambiente ou segredos de ambiente.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}Você também pode criar e configurar ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)" e "[Segredos](/rest/reference/actions#secrets)."{% endif %}
 
 Executar um fluxo de trabalho que faz referência a um ambiente que não existe criará um ambiente com o nome referenciado. O novo ambiente não terá nenhuma regra de proteção ou segredos configurados. Qualquer pessoa que possa editar fluxos de trabalho no repositório pode criar ambientes por meio de um arquivo de fluxo de trabalho, mas apenas os administradores do repositório podem configurar o ambiente.
 
@@ -67,3 +82,5 @@ A exclusão de um ambiente apagará todos os segredos e regras de proteção ass
 {% data reusables.github-actions.sidebar-environment %}
 1. Próximo o ambiente que você deseja excluir, clique em {% octicon "trashcan" aria-label="The trashcan icon" %}.
 2. Clique em **Eu entendi, exclua este ambiente**.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}Você também pode excluir ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)."{% endif %}

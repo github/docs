@@ -3,6 +3,8 @@ title: Sobre gerenciamento e moderação da comunidade
 intro: '{% data variables.product.prodname_dotcom %} oferece ferramentas que ajudam os mantenedores de repositório a estabelecer e aplicar padrões de comportamento em suas comunidades em {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 ### Sobre gerenciamento e moderação da comunidade

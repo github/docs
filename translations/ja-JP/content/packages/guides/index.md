@@ -1,16 +1,18 @@
 ---
 title: ガイド
 shortTitle: ガイド
-intro: 'These guides help you configure {% data variables.product.prodname_actions %} or your package client to work with {% data variables.product.prodname_registry %}.'
+intro: 'このガイドは、{% data variables.product.prodname_actions %}やパッケージクライアントを{% data variables.product.prodname_registry %}と連携させるために役立ちます。'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
   - /packages/using-github-packages-with-your-projects-ecosystem
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### 目次
 
@@ -29,5 +31,3 @@ versions:
     {% link_in_list /configuring-access-control-and-visibility-for-container-images %}
     {% link_in_list /connecting-a-repository-to-a-container-image %}
     {% link_in_list /pushing-and-pulling-docker-images %}
-    {% link_in_list /deleting-a-container-image %}
-

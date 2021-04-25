@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

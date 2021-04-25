@@ -7,6 +7,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Seiten
 ---
 
 Wenn das Repository für Ihre {% data variables.product.prodname_pages %}-Website Submodule enthält, wird deren Inhalt automatisch beim Erstellen der Website abgerufen.

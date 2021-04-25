@@ -14,7 +14,7 @@ versions:
 
 {% tip %}
 
-**ヒント:** {% data variables.large_files.product_name_short %}を有効にしていないユーザに対しては、大きなファイルの扱いについて記載したリポジトリコントリビューターのためのガイドラインを設定することをお勧めします。 たとえば、大容量ファイルを修正しないように、あるいは [Dropbox](http://www.dropbox.com/) や <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a> といったファイル共有サービスに変更をアップロードするように、コントリビューターに依頼するとよいでしょう。 詳しい情報については、「[リポジトリコントリビューターのためのガイドラインを定める](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)」を参照してください。
+**ヒント:** {% data variables.large_files.product_name_short %}を有効にしていないユーザに対しては、大きなファイルの扱いについて記載したリポジトリコントリビューターのためのガイドラインを設定することをお勧めします。 たとえば、大容量ファイルを修正しないように、あるいは [Dropbox](http://www.dropbox.com/) や <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a> といったファイル共有サービスに変更をアップロードするように、コントリビューターに依頼するとよいでしょう。 詳しい情報については、「[リポジトリコントリビューターのためのガイドラインを定める](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)」を参照してください。
 
 {% endtip %}
 

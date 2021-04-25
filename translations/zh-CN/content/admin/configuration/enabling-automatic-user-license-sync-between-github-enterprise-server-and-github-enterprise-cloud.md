@@ -7,6 +7,8 @@ redirect_from:
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以启用自动用户许可同步。'
 versions:
   enterprise-server: '*'
+topics:
+  - 企业
 ---
 
 ### 关于许可同步

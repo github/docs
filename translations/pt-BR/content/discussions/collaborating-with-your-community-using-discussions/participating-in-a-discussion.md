@@ -14,7 +14,7 @@ versions:
 
 Além de começar ou visualizar uma discussão, você pode comentar em resposta ao comentário original do autor da discussão. Você também pode criar um tópico de comentário respondendo a um comentário individual feito por outro integrante da comunidade dentro da discussão e reagir aos comentários com emoji. Para obter mais informações sobre reações, consulte "[Sobre conversas em {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github#reacting-to-ideas-in-comments)".
 
-Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Manter sua segurança em {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)".
+Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Manter sua segurança em {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".
 
 ### Pré-requisitos
 

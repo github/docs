@@ -13,6 +13,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Commands](#commands)
   - [Examples](#examples)
   - [Indentation](#indentation)
+  - [Scheduled workflows](#scheduled-workflows)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -144,6 +145,14 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
         with:
           python-version: ${{ matrix.python }}
 ```
+
+### Scheduled workflows
+
+Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
+
+- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
+- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Use a different time for each example.
 
 ## Headers
 

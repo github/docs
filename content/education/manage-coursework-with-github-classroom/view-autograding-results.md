@@ -23,7 +23,7 @@ The **Actions** tab shows the full history of test runs.
 
 You can click a specific test run to review log output, like compilation errors and test failures.
 
-![The "{% data variables.product.prodname_classroom %}  Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
+![The "{% data variables.product.prodname_classroom %} Autograding Workflow" test results logs in {% data variables.product.prodname_actions %} ](/assets/images/help/classroom/autograding-actions-logs.png)
 
 ### Further reading
 

@@ -3,6 +3,8 @@ title: Webhooks für Ereignisse in deinem unterstützten Konto konfigurieren
 intro: Du kannst Webhooks konfigurieren, damit Du benachrichtigt wirst, wenn Du ein neues Sponsoring erhältst, oder wenn bestehende Sponsoren Änderungen an ihren Sponsorings machen.
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### About webhooks for events in your sponsored account

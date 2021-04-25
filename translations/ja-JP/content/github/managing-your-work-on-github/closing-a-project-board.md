@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 プロジェクトボードをクローズすると、設定されたワークフローの自動化はデフォルトですべて停止します。

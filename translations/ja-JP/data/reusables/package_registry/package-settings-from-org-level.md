@@ -1,4 +1,2 @@
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
-2. Under your organization name, click **Packages**. ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/org-tab-for-packages.png)
-3. Search for and select your package.
-4. In the top right of your container image's landing page, click **Package settings**. ![Package settings button](/assets/images/help/package-registry/packages-settings-from-package-landing-page.png)
+1. {% data variables.product.prodname_dotcom %}で、Organizationのメインページにアクセスしてください。
+2. Organization名の下で、**Packages（パッケージ）**をクリックしてください。 ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/org-tab-for-packages.png)

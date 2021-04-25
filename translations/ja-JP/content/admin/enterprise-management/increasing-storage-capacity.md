@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -20,7 +22,7 @@ versions:
 
 {% endnote %}
 
-#### Minimum requirements
+#### 最小要件
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
@@ -30,7 +32,7 @@ versions:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. アプライアンスをメンテナンスモードにしてください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 4. アプライアンスを再起動して、新しいストレージの割り当てを検出させてください。
-5. `ghe-storage-extend` コマンドを実行して、`/data` のファイルシステムを拡張します。
+5. `ghe-storage-extend` コマンドを実行して、`/data/user` のファイルシステムを拡張します。
   ```shell
   $ ghe-storage-extend
   ```

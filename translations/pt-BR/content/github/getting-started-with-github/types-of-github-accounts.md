@@ -11,6 +11,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - contas
+  - cli
+  - móvel
+  - desktop
+  - segurança
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

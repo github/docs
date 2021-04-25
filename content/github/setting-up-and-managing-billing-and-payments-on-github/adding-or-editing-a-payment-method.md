@@ -17,6 +17,8 @@ redirect_from:
   - /articles/adding-or-editing-a-payment-method
 versions:
   free-pro-team: '*'
+topics:
+  - billing
 ---
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 

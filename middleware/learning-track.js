@@ -1,7 +1,7 @@
 const { getPathWithoutLanguage, getPathWithoutVersion } = require('../lib/path-utils')
 const getLinkData = require('../lib/get-link-data')
 
-module.exports = async (req, res, next) => {
+module.exports = async function learningTrack (req, res, next) {
   const noTrack = () => {
     req.context.currentLearningTrack = {}
     return next()

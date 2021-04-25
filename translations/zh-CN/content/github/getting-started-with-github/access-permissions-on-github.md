@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 权限
+  - 帐户
 ---
 
 ### 个人用户帐户

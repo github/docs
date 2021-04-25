@@ -1,12 +1,17 @@
-Partner | Supported secret | API slug 
---- | --- | --- 
+Partner | Supported secret | API slug
+--- | --- | ---
 n/a | JSON Web Token | json_web_token
 n/a | OAuth Client Credential | api_credential_assignment
 Adafruit IO | Adafruit IO Key | adafruit_io_key
+Adobe | Adobe Device Token | adobe_device_token
+Adobe | Adobe Service Token | adobe_service_token
+Adobe | Adobe Short-Lived Access Token | adobe_short_lived_access_token
+Adobe | Adobe JSON Web Token | adobe_jwt
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
 Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
 Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id
 Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
+Asana | Asana Personal Access Token | asana_personal_access_token
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
@@ -26,22 +31,31 @@ Dropbox | Dropbox Access Token | dropbox_access_token
 Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
 Dynatrace | Dynatrace Access Token | dynatrace_access_token
 Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
+Facebook | Facebook Access Token | facebook_access_token
+Fastly | Fastly API Token | fastly_api_token
 Finicity | Finicity App Key | finicity_app_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
-GitHub | GitHub SSH Private Key | github_ssh_private_key
 GitHub | GitHub Personal Access Token | github_personal_access_token
+GitHub | GitHub OAuth Access Token | github_oauth_access_token
+GitHub | GitHub Refresh Token | github_refresh_token
 GitHub | GitHub App Installation Access Token | github_app_installation_access_token
+GitHub | GitHub SSH Private Key | github_ssh_private_key
 GoCardless | GoCardless Live Access Token | gocardless_live_access_token
 GoCardless | GoCardless Sandbox Access Token | gocardless_sandbox_access_token
 Google Cloud | Google API Key | google_api_key
 Google Cloud | Google Cloud Private Key ID | google_cloud_private_key_id
+Grafana | Grafana API Key | grafana_api_key
 Hashicorp Terraform | Terraform Cloud / Enterprise API Token | terraform_api_token
 Hubspot | Hubspot API Key | hubspot_api_key
+Intercom | Intercom Access Token | intercom_access_token
+Lob | Lob Live API Key | lob_live_api_key
+Lob | Lob Test API Key | lob_test_api_key
 Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+OpenAI | OpenAI API Key | openai_api_key
 Palantir | Palantir JSON Web Token | palantir_jwt
 Postman | Postman API Key | postman_api_key
 Proctorio | Proctorio Consumer Key | proctorio_consumer_key
@@ -49,8 +63,11 @@ Proctorio | Proctorio Linkage Key | proctorio_linkage_key
 Proctorio | Proctorio Registration Key | proctorio_registration_key
 Proctorio | Proctorio Secret Key | proctorio_secret_key
 Pulumi | Pulumi Access Token | pulumi_access_token
+PyPI | PyPI API Token | pypi_api_token
+RubyGems | RubyGems API Key | rubygems_api_key
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+SendGrid | SendGrid API Key | sendgrid_api_key
 Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token

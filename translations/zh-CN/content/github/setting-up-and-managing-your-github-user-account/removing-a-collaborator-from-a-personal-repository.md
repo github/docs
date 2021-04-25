@@ -13,6 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 帐户
+  - 仓库
 ---
 
 ### 删除私有仓库的复刻

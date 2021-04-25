@@ -5,6 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Team のスケジュールされたリマインダーについて
@@ -12,6 +15,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 チームメンテナと Organization のオーナーは、Team がレビューをリクエストされたプルリクエストのスケジュールされたリマインダーを設定できます。 Team のスケジュールされたリマインダーを作成するには、Organization のオーナーが Slack ワークスペースを承認する必要があります。 詳しい情報については、「[Organization にスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)」を参照してください。
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Team のスケジュールされたリマインダーを作成する
 {% data reusables.profile.access_profile %}

@@ -10,6 +10,9 @@ permissions: 组织所有者可管理组织的团队同步。
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

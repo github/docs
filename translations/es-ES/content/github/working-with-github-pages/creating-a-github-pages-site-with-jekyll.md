@@ -9,7 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
+
+{% data reusables.pages.org-owners-can-restrict-pages-creation %}
 
 ### Prerrequisitos
 
@@ -23,8 +27,6 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 
 {% data reusables.pages.new-or-existing-repo %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.pages.create-repo-name %}
@@ -33,6 +35,8 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 ### Crear tu sitio
 
 {% data reusables.pages.must-have-repo-first %}
+
+{% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Si aún no tienes una copia local de tu repositorio, desplázate hasta la ubicación en la que quieras almacenar los archivos fuente de tu sitio y reemplaza _PARENT-FOLDER_ por la carpeta que quieras que contenga la carpeta para su repositorio.
@@ -63,23 +67,24 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
- 7. Para crear un sitio Jekyll nuevo, usa el comando `jekyll new` y reemplaza _VERSION_ por la versión de dependencias actual para Jekyll. Para obtener más información, consulta "[Versiones de dependencias](https://pages.github.com/versions/)" en el sitio de {% data variables.product.prodname_pages %}.
-    - Si instalaste Bundler:
-      ```shell
-      $ bundle exec jekyll <em>VERSION</em> new .
-      # Creates a Jekyll site in the current directory
-      ```
-    - Si no tienes instalado Bundler:
-     ```shell
-     $ jekyll <em>VERSION</em> new .
-     # Creates a Jekyll site in the current directory
-     ```
-8. Abre el Gemfile que se creó y sigue las instrucciones de los comentarios del Gemfile para usar las {% data variables.product.prodname_pages %}. ![Instrucciones para actualizar Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Actualiza la línea `gem "github-pages"` para que luzca así, reemplazando _VERSION_ por la versión de dependencias actual para `github-pages`. Para obtener más información, consulta "[Versiones de dependencias](https://pages.github.com/versions/)" en el sitio de {% data variables.product.prodname_pages %}.
-```shell
-gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
-```
+7. Para crear un sitio nuevo de Jekyll, utiliza el comando `jekyll new`:
+   ```shell
+   $ jekyll new .
+   # Creates a Jekyll site in the current directory
+   ```
+8. Abre el Gemfile que creó Jekyll.
+1. Agrega "#" en el inicio de la línea que comienza con `gem "jekyll"` para comentar esta línea.
+1. Agrega la gema `github-pages` editando la línea que comienza con `# gem "github-pages"`. Cambia la línea a:
+
+   ```shell
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
+   ```
+
+   Reemplaza _GITHUB-PAGES-VERSION_ con la última versión compatible de la gema `github-pages`. Puedes encontrar esta versión aquí: "[Versiones de la dependencia](https://pages.github.com/versions/)".
+
+   La versión correcta de Jekyll se instalará como una dependencia de la gema `github-pages`.
 10. Guarda y cierra el Gemfile.
+11. Desde la línea de comandos, ejecuta `bundle update`.
 11. De forma opcional, prueba tu sitio localmente. Para obtener más información, consulta "[Verificar tu sitio de {% data variables.product.prodname_pages %} localmente con Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
 12. Agrega tu repositorio de {% data variables.product.product_name %} como remoto, reemplazando {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ con el nombre de host de tu aplicativo,{% endif %} _USER_ con la cuenta a la que pertenece el repositorio{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} y _REPOSITORY_ con el nombre del repositorio.
 ```shell
@@ -95,7 +100,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}
-{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-settings %}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.pages.choose-visibility %}{% endif %}
 {% data reusables.pages.visit-site %}
 
 {% data reusables.pages.admin-must-push %}

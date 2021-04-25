@@ -11,7 +11,7 @@ versions:
 
 如果不接受推送，您将看到对应失败预接收挂钩的错误消息。
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.

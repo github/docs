@@ -1,5 +1,5 @@
 ---
-title: Core concepts for GitHub Packages
+title: GitHub Packages の中核的概念
 intro: '弊社のサイトおよびドキュメンテーションで使用する、一般的な {% data variables.product.prodname_registry %} 用語を以下に挙げます。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -7,9 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Package
 

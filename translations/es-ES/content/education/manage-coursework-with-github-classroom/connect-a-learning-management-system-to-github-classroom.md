@@ -36,7 +36,7 @@ Utilizar LTI ayuda a mantener tu información segura y protegida. LTI es un prot
 - Moodle
 - Sakai
 
-Actualmente, {% data variables.product.prodname_classroom %} no es compatible para importar datos de registro de alumnos desde Blackboard o Brightspace
+Actualmente, {% data variables.product.prodname_classroom %} no es compatible para importar datos de registro de alumnos desde Blackboard o Brightspace.
 
 ### Generar credenciales de configuración para tu aula
 

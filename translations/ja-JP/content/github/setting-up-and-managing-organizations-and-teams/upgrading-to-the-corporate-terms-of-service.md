@@ -5,6 +5,9 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 標準の利用規約は、{% data variables.product.prodname_dotcom %} と個人としてのあなたとの間の合意です。 会社、非営利団体、グループなどのエンティティに代わって {% data variables.product.prodname_dotcom %} との契約を締結するには、Organization のオーナーが企業利用規約にアップグレードします。

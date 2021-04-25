@@ -1,0 +1,9 @@
+<div class="my-6 pt-6">
+  <h2 class="mb-2 font-mktg h1">{% data ui.product_landing.sponsor_community %}</h2>
+
+  <div class="d-flex flex-wrap gutter">
+    {% render sponsors-community-card for productUserExamples as example %}
+
+  </div>
+  <a href="https://github.com/sponsors/community" class="btn btn-outline float-right">{% data ui.product_landing.explore_people_and_projects %} {% octicon "arrow-right" %}</a>
+</div>

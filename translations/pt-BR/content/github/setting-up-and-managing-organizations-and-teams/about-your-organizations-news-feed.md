@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 O feed de notícias de uma organização mostra a atividade de outras pessoas nos repositórios que pertencem a essa organização. Você pode usar o feed de notícias da sua organização para ver quando alguém abre, fecha ou faz merge de um problema ou uma pull request, cria ou exclui um branch, cria uma tag ou versão, comenta sobre um problema, uma pull request, ou faz commit, ou faz push de novos commits no {% data variables.product.product_name %}.

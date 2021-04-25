@@ -1,1 +1,1 @@
-You will receive a monthly bill for {% data variables.product.prodname_ghe_managed %}, with charges that are calculated per licensed user per day.
+ライセンスされたユーザの日割りで計算された課金を含む{% data variables.product.prodname_ghe_managed %}の月額請求書を受け取ります。

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
 ---
 
 Das [GitHub Jobs](https://jobs.github.com/)-Board ist eine tolle Möglichkeit, um im technischen Bereich eine Stelle zu finden. Du kannst die in Deinem GitHub-Dashboard eingestellten Stellenangebote ansehen.

@@ -1,0 +1,29 @@
+---
+name: A brief status update
+description: A brief status update.
+body:
+  - type: dropdown
+    attributes:
+      label: Status
+      options:
+        - label: 'GREY ⚪️ (Not started, paused, not currently being worked on)'
+          value: 'Status: GREY'
+        - label: 'GREEN 🟢 (All good, smooth sailing)'
+          value: 'Status: GREEN'
+        - label: "YELLOW \U0001F7E1 (On track, with hurdles to work through)"
+          value: 'Status: YELLOW'
+        - label: "RED \U0001F534 (BLOCKED)"
+          value: 'Status: RED'
+        - label: "BLACK ⚫️ (We shipped it \U0001F389)"
+          value: 'Status: BLACK'
+  - type: textarea
+    attributes:
+      label: Update Summary
+      placeholder:
+        Brief summary of the status and next steps. Any blockers should be
+        called out specifically.
+  - type: input
+    attributes:
+      label: 'Attribution'
+      value: '_created with :heart: by typing_ `/status`'
+      format: text

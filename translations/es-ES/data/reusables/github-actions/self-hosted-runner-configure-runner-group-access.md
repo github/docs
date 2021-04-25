@@ -3,7 +3,7 @@
 
    {% warning %}
 
-   **Warning**
+   **Advertencia**
 
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
