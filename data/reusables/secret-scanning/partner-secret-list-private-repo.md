@@ -32,6 +32,7 @@ Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
 Dynatrace | Dynatrace Access Token | dynatrace_access_token
 Dynatrace | Dynatrace Internal Token | dynatrace_internal_token
 Facebook | Facebook Access Token | facebook_access_token
+Fastly | Fastly API Token | fastly_api_token
 Finicity | Finicity App Key | finicity_app_key
 Frame.io | Frame.io JSON Web Token | frameio_jwt
 Frame.io| Frame.io Developer Token | frameio_developer_token
@@ -54,6 +55,7 @@ Mailchimp | Mailchimp API Key | mailchimp_api_key
 Mailgun | Mailgun API Key | mailgun_api_key
 npm | npm Access Token | npm_access_token
 NuGet | NuGet API Key | nuget_api_key
+OpenAI | OpenAI API Key | openai_api_key
 Palantir | Palantir JSON Web Token | palantir_jwt
 Postman | Postman API Key | postman_api_key
 Proctorio | Proctorio Consumer Key | proctorio_consumer_key
