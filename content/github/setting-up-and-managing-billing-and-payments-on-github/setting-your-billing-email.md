@@ -44,7 +44,7 @@ If you have users that want to receive billing reports, you can add their email 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 1. Under "Billing management", to the right of "Email recipients", click **Add**.
   ![Add recipient](/assets/images/help/billing/billing-add-email-recipient.png)
 1. Type the email address of the recipient, then click **Add**.
@@ -56,7 +56,7 @@ One address must always be designated as the primary recipient. The address with
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 1. Under "Billing management", find the email address you want to set as the primary recipient.
 1. To the right of the email address, use the "Edit" drop-down menu, and click **Mark as primary**.
   ![Mark primary recipient](/assets/images/help/billing/billing-change-primary-email-recipient.png)
@@ -65,10 +65,10 @@ One address must always be designated as the primary recipient. The address with
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 1. Under "Email recipients", find the email address you want to remove.
 1. For the user's entry in the list, click **Edit**.
   ![Edit recipient](/assets/images/help/billing/billing-edit-email-recipient.png)
-1. To the right of the email address, use the "Edit" drop-down menu, and click *Remove**.
+1. To the right of the email address, use the "Edit" drop-down menu, and click **Remove**.
   ![Remove recipient](/assets/images/help/billing/billing-remove-email-recipient.png)
 1. Review the confirmation prompt, then click **Remove**.
