@@ -28,7 +28,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 ### Managing {% data variables.product.prodname_actions %} permissions for your organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Local and third-party Actions**, select an option.
   ![Enable, disable, or limit actions for this organization](/assets/images/help/repository/enable-org-actions.png)
@@ -40,7 +40,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 ### Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization. 
+You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
 
 {% data reusables.actions.actions-use-policy-settings %}
 
@@ -51,7 +51,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% endnote %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Policies**, select an option.
   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
@@ -62,7 +62,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
   ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
@@ -78,7 +78,7 @@ You can disable all workflows for an organization or set a policy that configure
 #### Configuring the private fork policy for an organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
@@ -96,7 +96,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)

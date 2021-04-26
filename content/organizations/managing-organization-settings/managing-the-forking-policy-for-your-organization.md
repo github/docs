@@ -22,7 +22,7 @@ If you allow forking of private{% if currentVersion == "free-pro-team@latest" or
 {% data reusables.organizations.internal-repos-enterprise %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Repository forking", select **Allow forking of private repositories** or **Allow forking of private and internal repositories**.
   ![Checkbox to allow or disallow forking in the organization](/assets/images/help/repository/allow-disable-forking-organization.png)

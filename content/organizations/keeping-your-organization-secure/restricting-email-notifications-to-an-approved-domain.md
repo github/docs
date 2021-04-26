@@ -24,7 +24,7 @@ If your organization is owned by an enterprise account, organization members wil
 ### Restricting email notifications to an approved domain
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 {% data reusables.organizations.restrict-email-notifications %}
 6. Click **Save**.
