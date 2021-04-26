@@ -69,6 +69,6 @@ One address must always be designated as the primary recipient. The address with
 1. Under "Email recipients", find the email address you want to remove.
 1. For the user's entry in the list, click **Edit**.
   ![Edit recipient](/assets/images/help/billing/billing-edit-email-recipient.png)
-1. To the right of the email address, use the "Edit" drop-down menu, and click *Remove**.
+1. To the right of the email address, use the "Edit" drop-down menu, and click **Remove**.
   ![Remove recipient](/assets/images/help/billing/billing-remove-email-recipient.png)
 1. Review the confirmation prompt, then click **Remove**.
