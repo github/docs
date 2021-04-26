@@ -17,7 +17,6 @@ For more information about {% data variables.product.prodname_github_app %} mana
 
 ### Giving someone the ability to manage all {% data variables.product.prodname_github_app %}s owned by the organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
@@ -26,7 +25,6 @@ For more information about {% data variables.product.prodname_github_app %} mana
 
 ### Giving someone the ability to manage an individual {% data variables.product.prodname_github_app %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}

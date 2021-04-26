@@ -23,7 +23,6 @@ If someone with admin permissions to an organization's repository grants a membe
 
 ### Setting base permissions
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

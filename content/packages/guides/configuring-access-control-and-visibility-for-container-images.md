@@ -93,7 +93,6 @@ A public package can be accessed anonymously without authentication. Once you ma
 
 You can choose the visibility of containers that organization members can publish by default.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 4. On the left, click **Packages**.

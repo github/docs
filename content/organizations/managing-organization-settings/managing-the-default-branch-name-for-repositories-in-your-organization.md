@@ -23,7 +23,6 @@ If an enterprise owner has enforced a policy for the default branch name for you
 
 ### Setting the default branch name
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.repository-defaults %}

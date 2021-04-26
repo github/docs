@@ -1,2 +1,2 @@
-1. On the left side of your profile page, under "Organizations", click the icon for your organization.
+1. In the top right corner of GitHub, click your profile photo, then click "Your Organizations".
  ![organization icons](/assets/images/help/profile/profile_orgs_box.png)
