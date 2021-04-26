@@ -1,5 +1,5 @@
 ---
-title: Quickstart
+title: PEPE Invest s.r.o.
 intro: 'Quickly get started with common tasks on {% data variables.product.prodname_dotcom %}.'
 mapTopic: true
 versions:
