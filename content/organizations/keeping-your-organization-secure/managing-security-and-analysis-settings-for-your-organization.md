@@ -24,7 +24,7 @@ topics:
 ### Displaying the security and analysis settings
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
@@ -45,7 +45,7 @@ You can enable or disable features for all repositories. {% if currentVersion ==
 - **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect only private repositories where {% data variables.product.prodname_GH_advanced_security %} is also enabled. {% data variables.product.prodname_secret_scanning_caps %} is always enabled for public repositories.{% endif %}
 
-{% data reusables.advanced-security.note-org-enable-uses-seats %} 
+{% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 2. Under "Configure security and analysis features", to the right of the feature, click **Disable all** or **Enable all**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.{% endif %}
@@ -112,7 +112,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
    ![Add repositories button](/assets/images/help/organizations/dependabot-private-repository-access.png)
 1. Start typing the name of the repository you want to allow.
    ![Add repositories button](/assets/images/help/organizations/dependabot-private-repo-choose.png)
-1. Click the repository you want to allow. 
+1. Click the repository you want to allow.
 
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
    !["X" button to remove a repository](/assets/images/help/organizations/dependabot-private-repository-list.png)

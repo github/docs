@@ -24,7 +24,7 @@ If someone with admin permissions to an organization's repository grants a membe
 ### Setting base permissions
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Base permissions", use the drop-down to select new base permissions.
   ![Selecting new permission level from base permissions drop-down](/assets/images/help/organizations/base-permissions-drop-down.png)

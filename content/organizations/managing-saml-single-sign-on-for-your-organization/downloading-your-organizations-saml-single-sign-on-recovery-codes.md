@@ -16,7 +16,7 @@ topics:
 Recovery codes should not be shared or distributed. We recommend saving them with a password manager such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/).
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "SAML single sign-on", in the note about recovery codes, click **Save your recovery codes**.
 ![Link to view and save your recovery codes](/assets/images/help/saml/saml_recovery_codes.png)
