@@ -137,7 +137,8 @@ footer:
       press: Press
       shop: Shop
 product_landing:
-  quick_start: Quickstart
+  quickstart: Quickstart
+  reference: Reference
   reference_guides: Reference guides
   overview: Overview
   code_examples: Code examples
