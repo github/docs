@@ -1,6 +1,7 @@
 ---
 title: Enterprise Server releases
 intro: A list of the currently supported and previously deprecated Enterprise Server releases.
+allowTitleToDifferFromFilename: true
 versions:
   enterprise-server: '*'
 topics:
