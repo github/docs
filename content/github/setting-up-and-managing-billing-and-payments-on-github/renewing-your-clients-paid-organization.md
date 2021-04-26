@@ -25,6 +25,6 @@ topics:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Under "Payment method", click **New card**. 
+1. Under "Payment method", click **New Card**. 
 ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

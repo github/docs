@@ -29,6 +29,8 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**.
+![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ### Updating your organization's payment method
@@ -42,4 +44,6 @@ If your organization is outside of the US or if you're using a corporate checkin
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**.
+![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
