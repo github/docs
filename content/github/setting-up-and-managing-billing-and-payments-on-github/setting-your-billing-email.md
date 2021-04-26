@@ -28,7 +28,6 @@ Your organization's billing email is where {% data variables.product.product_nam
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 4. Under **Billing email**, type a valid email address. The email does not need to be unique to the organization account.

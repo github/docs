@@ -42,7 +42,6 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 
 ### Requiring two-factor authentication in your organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}

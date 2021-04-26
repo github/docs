@@ -22,7 +22,6 @@ You can allow members to access your organization's repositories using SSH certi
 
 {% data reusables.organizations.add-extension-to-cert %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}
@@ -31,7 +30,6 @@ You can allow members to access your organization's repositories using SSH certi
 
 ### Deleting an SSH certificate authority
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}

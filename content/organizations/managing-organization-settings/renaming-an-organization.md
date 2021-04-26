@@ -40,7 +40,6 @@ After changing your organization's name:
 
 ### Changing your organization's name
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 4. Near the bottom of the settings page, under "Rename organization", click **Rename Organization**.

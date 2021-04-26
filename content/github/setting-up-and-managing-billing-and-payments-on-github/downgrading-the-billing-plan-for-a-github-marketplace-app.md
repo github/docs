@@ -28,7 +28,6 @@ When you downgrade an app, your subscription remains active until the end of you
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}

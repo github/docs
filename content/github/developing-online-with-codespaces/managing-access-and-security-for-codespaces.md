@@ -37,7 +37,7 @@ Organization owners can manage security and access for {% data variables.product
 
 When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will have read and write permissions to all other repositories the organization owns. You can enable access and security for none of your organization's repositories, all of your organization's repositories, or specific repositories. You should only enable access and security for repositories you trust.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.click-codespaces %}

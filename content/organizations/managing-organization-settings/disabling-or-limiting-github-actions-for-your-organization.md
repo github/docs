@@ -27,7 +27,6 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 ### Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
@@ -51,7 +50,6 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
@@ -63,7 +61,6 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
@@ -80,7 +77,6 @@ You can disable all workflows for an organization or set a policy that configure
 
 #### Configuring the private fork policy for an organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
