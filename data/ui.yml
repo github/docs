@@ -175,3 +175,10 @@ learning_track_nav:
   prevGuide: Previous guide
   nextGuide: Next guide
 contributor_callout: This article is contributed and maintained by
+toggle_images:
+  off: Images are off, click to show
+  on: Images are on, click to hide
+  hide_single: Hide image
+  show_single: Show image
+scroll_button:
+  scroll_to_top: Scroll to top

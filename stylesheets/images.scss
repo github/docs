@@ -19,10 +19,22 @@ img[src*="https://github.githubassets.com/images/icons/emoji"] {
   align: absmiddle;
 }
 
-.markdown-body li img {
-  max-width: calc(100% - 32px);
-}
-
 .markdown-body img {
   max-height: 600px;
+  padding: 0;
+}
+
+.markdown-body button.btn-toggle-image {
+  border: none;
+  margin-top: 20px;
+  padding: 10px 0;
+  max-width: calc(100% - 32px);
+  background-color: transparent;
+  display: block;
+}
+
+.markdown-body button.btn-toggle-image img {
+  padding: 0;
+  max-height: 500px;
+  border: 2px solid var(--color-auto-gray-2);
 }
