@@ -30,7 +30,7 @@ These docs remain available but are no longer maintained:
 
 ## Deprecated on developer.github.com
 
-These docs remain available on the legacy [developer site](https://developer.github.com) but are no longer maintained:
+These docs remain available on the legacy [developer site](https://developer.github.com/enterprise/2.18) but are no longer maintained:
 
 {% for deprecatedDevRelease in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
 - [Enterprise Server {{deprecatedDevRelease}}](https://developer.github.com/enterprise/{{deprecatedDevRelease}})
