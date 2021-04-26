@@ -22,23 +22,15 @@
             </h1>
             <div class="lead-mktg color-text-secondary">{{ page.intro }}</div>
 
-            {% if page.introLinks.quickstart and page.introLinks.quickstart != '' %}
-            <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
-              {% data ui.product_landing.quick_start %}
+            {% for introLinkType in page.introLinks %}
+            {% if introLinkType[1] != '' %}
+            {% unless introLinkType[0] contains 'raw' %}
+            <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks[introLinkType[0]] }}" class="btn-mktg {% unless forloop.first %}btn-outline-mktg {% endunless %}btn-large f4 mt-3 mr-3">
+              {% data ui.product_landing[introLinkType[0]] %}
             </a>
+            {% endunless %}
             {% endif %}
-
-            {% if page.introLinks.reference and page.introLinks.reference != '' %}
-              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
-                {% data ui.product_landing.reference_guides %}
-              </a>
-            {% endif %}
-
-            {% if page.introLinks.overview and page.introLinks.overview != '' %}
-              <a href="/{{ currentLanguage }}{% if currentVersion != 'free-pro-team@latest' %}/{{ currentVersion }}{% endif %}{{ page.introLinks.overview }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3">
-                {% data ui.product_landing.overview %}
-              </a>
-            {% endif %}
+            {% endfor %}
           </div>
 
           {% if page.product_video and page.product_video != '' %}
