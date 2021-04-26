@@ -20,7 +20,9 @@ const yaml = require('js-yaml')
 const ghesReleaseNotesSchema = require('../lib/release-notes-schema')
 const revalidator = require('revalidator')
 
-const fixableFmProps = ['type', 'changelog', 'mapTopic', 'hidden', 'layout', 'defaultPlatform', 'showMiniToc', 'allowTitleToDifferFromFilename', 'interactive', 'beta_product']
+const fixableFmProps = Object.keys(fm.schema.properties)
+  .filter(property => !fm.schema.properties[property].translatable)
+  .sort()
 const fixableYmlProps = ['date']
 
 const loadAndValidateContent = async (path, schema) => {
@@ -50,6 +52,7 @@ const cmd = 'git diff --name-only origin/main | egrep "^translations/.*/(content
 const changedFilesRelPaths = execSync(cmd).toString().split('\n')
 
 changedFilesRelPaths.forEach(async (relPath) => {
+  // Skip READMEs
   if (!relPath || relPath.endsWith('README.md')) return
 
   const localisedAbsPath = path.join(__dirname, '..', relPath)
