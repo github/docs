@@ -82,7 +82,7 @@ To reduce the number of paid seats your organization uses, you can remove member
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}
-1. Under "Current plan", se the **Edit** drop-down and click **Remove seats**.
+1. Under "Current plan", use the **Edit** drop-down and click **Remove seats**.
   ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)
 1. Under "Remove seats", select the number of seats you'd like to downgrade to.
   ![remove seats option](/assets/images/help/billing/remove-seats-amount.png)
