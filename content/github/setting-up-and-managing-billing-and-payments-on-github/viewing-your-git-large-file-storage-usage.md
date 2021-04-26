@@ -16,8 +16,7 @@ topics:
 ### Viewing storage and bandwidth usage for a personal account
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ### Viewing storage and bandwidth usage for an organization
@@ -26,8 +25,7 @@ topics:
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ### Further reading

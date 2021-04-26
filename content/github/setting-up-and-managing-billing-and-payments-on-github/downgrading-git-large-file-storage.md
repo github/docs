@@ -16,8 +16,7 @@ When you downgrade your number of data packs, your change takes effect on your n
 ### Downgrading storage and bandwidth for a personal account
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 
@@ -27,7 +26,6 @@ When you downgrade your number of data packs, your change takes effect on your n
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
