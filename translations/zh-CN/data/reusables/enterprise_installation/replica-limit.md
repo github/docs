@@ -1,7 +1,7 @@
 {% if  currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** There is a maximum of 8 high availability replicas (both passive and active/geo replicas) allowed for {% data variables.product.product_name %}.
+**注意：** 允许 {% data variables.product.product_name %} 使用最多 8 种高可用性副本（被动和主动/地理副本）。
 
 {% endnote %}
 

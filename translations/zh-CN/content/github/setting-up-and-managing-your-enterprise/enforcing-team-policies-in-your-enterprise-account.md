@@ -15,7 +15,7 @@ topics:
 
 ### 执行团队讨论策略
 
-在企业帐户拥有的所有组织中，可以启用或禁用团队讨论，或允许所有者在组织级别管理设置。 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)”。
+在企业帐户拥有的所有组织中，可以启用或禁用团队讨论，或允许所有者在组织级别管理设置。 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions/)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -20,15 +20,8 @@ featuredLinks:
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  - title: Modo de manutenção do ghcr.io em 2021-01-09
-    date: '2021-01-08'
-    href: 'https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/'
-  - title: Os nomes de contêineres de ghcr.io redirecionam para a página do contêiner
-    date: '2020-12-14'
-    href: 'https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/'
-  - title: Filtro para contêineres marcados e sem tags
-    date: '2020-12-14'
-    href: 'https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/'
+  label: 'pacotes'
+  prefix: 'Pacotes:'
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry

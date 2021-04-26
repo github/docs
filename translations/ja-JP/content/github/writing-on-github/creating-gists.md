@@ -33,7 +33,7 @@ Secret gists don't show up in {% data variables.gists.discover_url %} and are no
 通知は以下の場合に送られます:
 - あなたが Gist の作者である場合。
 - 誰かがあなたを Gist 中でメンションした場合。
-- いずれかの Gist の上部で [** Subscribe**] をクリックして、Gist をサブスクライブした場合。
+- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
@@ -55,12 +55,14 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 
 ### Gist の作成
 
-テキストファイルをデスクトップから直接 Gist エディターにドラッグアンドドロップすることもできます。
+Follow the steps below to create a gist.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 {% endnote %}
 {% endif %}
@@ -69,7 +71,7 @@ You can also create a gist using the {% data variables.product.prodname_cli %}. 
 2. {% data variables.gists.gist_homepage %}に移動します。
 3. Gist の名前と説明 (任意) を入力します。 ![Gist の名前と説明](/assets/images/help/gist/gist_name_description.png)
 
-4. Gist のテキストを Gist テキストボックスに入力します。 ![Gist テキストボックス](/assets/images/help/gist/gist_text_box.png)
+4. Type the text of your gist into the gist text box. ![Gist テキストボックス](/assets/images/help/gist/gist_text_box.png)
 
 5. Optionally, to create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. ![Drop-down menu to select gist visibility]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 

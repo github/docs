@@ -39,7 +39,7 @@ Os proprietários da organização podem convidar novos integrantes para uma org
 
 Embora não seja necessário, recomendamos que os proprietários da organização enviem um convite para o mesmo endereço de e-mail usado para o Nome Principal do Usuário (UPN) do assinante de {% data variables.product.prodname_vs %}. Quando o endereço de e-mail em {% data variables.product.product_name %} corresponder ao UPN do assinante, você poderá garantir que outro integrante da organização não reivindique a licença do assinante.
 
-Para obter mais informações, consulte "[Convidar usuários para participar da sua organização](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization), "[Inscrever-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)" e "[Gerenciar preferências de e-mail](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)".
+Para obter mais informações, consulte "[Convidar usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization), "[Inscrever-se em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)" e "[Gerenciar preferências de e-mail](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)".
 
 ### Visualizar licenciamento de {% data variables.product.prodname_enterprise %}
 

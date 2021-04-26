@@ -66,16 +66,15 @@ topics:
 - 告诉用户如何获得 {% data variables.product.product_location %} 帮助
 - 确保所有用户阅读有关使用 {% data variables.product.product_location %} 的服务条款
 
-{% note %}
-
-**Note:** After you configure a mandatory message for {% data variables.product.product_location %}, you cannot change or remove the message.
-
-{% endnote %}
-
-
 如果消息中包含 Markdown 复选框，则用户必须选中所有复选框才能忽略消息。 例如，如果您在必读消息中包含服务条款，您可以要求每个用户选中复选框以确认他们阅读了这些条款。
 
 每次用户看到必读消息时，都会创建审核日志事件。 该事件包括用户看到的消息的版本。 更多信息请参阅“[已审核操作](/admin/user-management/audited-actions)”。
+
+{% note %}
+
+**注意：**如果您更改了 {% data variables.product.product_location %} 的强制消息，已经确认该消息的用户将不会看到新消息。
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
