@@ -37,7 +37,7 @@ Anyone can manage the spending limit for {% data variables.product.prodname_acti
 Organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_actions %} for an organization.
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.cost-management-tab %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}

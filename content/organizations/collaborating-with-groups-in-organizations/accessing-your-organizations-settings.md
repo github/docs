@@ -29,4 +29,4 @@ topics:
 {% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}

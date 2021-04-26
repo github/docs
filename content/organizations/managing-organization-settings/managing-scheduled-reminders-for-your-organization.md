@@ -20,7 +20,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 
 ### Creating a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -44,7 +44,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 
 ### Managing a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,7 +53,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 
 ### Deleting a scheduled reminder for an organization
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

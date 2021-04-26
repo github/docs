@@ -41,7 +41,7 @@ If your organization is outside of the US or if you're using a corporate checkin
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has an existing credit card that you want to update, click **New Card**.

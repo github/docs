@@ -29,7 +29,7 @@ To use {% data variables.product.prodname_github_container_registry %} within an
 Before organization owners or members can publish container images to {% data variables.product.prodname_github_container_registry %}, an organization owner must enable the feature preview for the organization.
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 4. On the left, click **Packages**.
 5. Under "Improved container support", select "Enable improved container support" and click **Save**.
   ![Enable container registry support option and save button](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)

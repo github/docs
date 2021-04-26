@@ -27,7 +27,7 @@ When you cancel a pending change, your subscription will not change on your next
 ### Viewing and managing pending changes to your organization's subscription
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
 {% data reusables.dotcom_billing.review-pending-changes %}

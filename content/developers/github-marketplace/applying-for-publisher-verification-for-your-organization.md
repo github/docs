@@ -17,7 +17,7 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 1. In the left sidebar, click **Developer settings**.
   ![Developer settings option in the organization settings sidebar](/assets/images/marketplace/developer-settings-in-org-settings.png)
 1. Under "Developer settings", click **Publisher Verification**.

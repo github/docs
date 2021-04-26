@@ -25,7 +25,7 @@ When you downgrade your number of data packs, your change takes effect on your n
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
 {% data reusables.dotcom_billing.lfs-remove-data %}

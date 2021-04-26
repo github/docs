@@ -42,7 +42,7 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.payment-info-tab %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

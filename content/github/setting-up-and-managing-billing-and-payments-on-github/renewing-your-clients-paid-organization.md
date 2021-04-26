@@ -21,7 +21,7 @@ topics:
 ### Updating your organization's credit card
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. Under "Payment method", click **New Card**.

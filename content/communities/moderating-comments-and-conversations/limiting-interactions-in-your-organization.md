@@ -30,7 +30,7 @@ Organization owners can also block users for a specific amount of time. After th
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 1. In the organization settings sidebar, click **Moderation settings**.
   !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. Under "Moderation settings", click **Interaction limits**.

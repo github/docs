@@ -36,7 +36,7 @@ If you're paying for your {% data variables.product.product_name %} subscription
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.payment-info-tab %}
 {% data reusables.dotcom_billing.remove-payment-method %}

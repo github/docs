@@ -27,7 +27,7 @@ When you upgrade an app, your payment method is charged a prorated amount based 
 {% data reusables.marketplace.marketplace-org-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
 {% data reusables.marketplace.upgrade-app-billing-settings %}

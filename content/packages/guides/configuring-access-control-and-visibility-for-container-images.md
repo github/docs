@@ -94,7 +94,7 @@ A public package can be accessed anonymously without authentication. Once you ma
 You can choose the visibility of containers that organization members can publish by default.
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 4. On the left, click **Packages**.
 6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
     - To enable organization members to create public container images, click **Public**.

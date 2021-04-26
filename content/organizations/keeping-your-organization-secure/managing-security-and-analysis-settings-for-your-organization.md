@@ -24,7 +24,7 @@ topics:
 ### Displaying the security and analysis settings
 
 {% data reusables.profile.access_org %}
-{% data reusables.profiles.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
