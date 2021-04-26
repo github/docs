@@ -13,7 +13,7 @@ topics:
 See [GitHub Enterprise](https://github.com/enterprise) for information about the latest release.
 
 {% for supportedRelease in enterpriseServerReleases.supported %}
-- [Enterprise Server {{supportedRelease}}](/{{currentLanguage}}/enterprise-server@{{supportedRelease}})
+- [Enterprise Server {{supportedRelease}}](/enterprise-server@{{supportedRelease}})
 {% endfor %}
 
 ## Deprecated
@@ -21,11 +21,11 @@ See [GitHub Enterprise](https://github.com/enterprise) for information about the
 These docs remain available but are no longer maintained:
 
 {% for deprecatedRelease in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
-- [Enterprise Server {{deprecatedRelease}}](/{{currentLanguage}}/enterprise-server@{{deprecatedRelease}})
+- [Enterprise Server {{deprecatedRelease}}](/enterprise-server@{{deprecatedRelease}})
 {% endfor %}
 
 {% for deprecatedReleaseLegacyFormat in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
-- [Enterprise Server {{deprecatedReleaseLegacyFormat}}](/{{currentLanguage}}/enterprise/{{deprecatedReleaseLegacyFormat}})
+- [Enterprise Server {{deprecatedReleaseLegacyFormat}}](/enterprise/{{deprecatedReleaseLegacyFormat}})
 {% endfor %}
 
 ## Deprecated on developer.github.com
