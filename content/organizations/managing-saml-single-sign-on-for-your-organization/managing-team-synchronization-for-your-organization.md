@@ -46,7 +46,6 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}
@@ -60,7 +59,6 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}
@@ -75,7 +73,6 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security %}

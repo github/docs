@@ -39,7 +39,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 
 If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}

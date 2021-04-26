@@ -26,7 +26,6 @@ On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of
 
 ### Verifying your organization's domain
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.verified-domains %}

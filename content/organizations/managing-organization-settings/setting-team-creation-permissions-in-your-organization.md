@@ -17,7 +17,6 @@ Organization owners can set team creation permissions.
 
 If you do not set team creation permissions, all organization members will be able to create teams by default.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

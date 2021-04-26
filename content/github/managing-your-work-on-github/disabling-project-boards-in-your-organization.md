@@ -16,7 +16,7 @@ After you disable repository project boards in an organization, it won't be poss
 
 When you disable project boards, you will no longer see project board information in timelines or [audit logs](/articles/reviewing-the-audit-log-for-your-organization/).
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 4. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":

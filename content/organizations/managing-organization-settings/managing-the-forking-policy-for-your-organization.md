@@ -21,7 +21,6 @@ If you allow forking of private{% if currentVersion == "free-pro-team@latest" or
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

@@ -44,7 +44,7 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 
 ### Step 3: Upgrade the organization to a yearly paid subscription
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}
@@ -57,7 +57,6 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 
 ### Step 4: Upgrade the number of paid seats in the organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}

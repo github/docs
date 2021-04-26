@@ -14,7 +14,6 @@ topics:
   - teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 4. In the left sidebar, click **Installed {% data variables.product.prodname_github_app %}s**.

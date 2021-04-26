@@ -17,7 +17,6 @@ topics:
 
 By default, organization members with read access can create discussions if a repository administrator or organization owner enables discussions for a repository owned by the organization.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}

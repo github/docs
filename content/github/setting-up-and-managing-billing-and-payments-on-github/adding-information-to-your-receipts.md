@@ -40,7 +40,7 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.billing_plans %}
