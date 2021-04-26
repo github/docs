@@ -82,3 +82,23 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.organizations.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
 {% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Setting the permissions of the `GITHUB_TOKEN` for your organization
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your organization or your repositories. If you choose the restricted option as the default in your organization settings, the same option is auto-selected in the settings for repositories within your organization, and the permissive option is disabled. If your organization belongs to a {% data variables.product.prodname_enterprise %} account and the more restricted default has been selected in the enterprise settings, you won't be able to choose the more permissive default in your organization settings.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
+  ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. Click **Save** to apply the settings.
+{% endif %}

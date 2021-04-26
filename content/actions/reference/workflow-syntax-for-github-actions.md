@@ -110,8 +110,8 @@ The following workflow will run on pushes to `releases/10` or `releases/beta/mon
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -128,7 +128,7 @@ When all the path names match patterns in `paths-ignore`, the workflow will not 
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### Example including paths
@@ -139,7 +139,7 @@ If at least one path matches a pattern in the `paths` filter, the workflow runs.
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### Excluding paths
@@ -160,8 +160,8 @@ This example runs anytime the `push` event includes a file in the `sub-project` 
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git diff comparisons
@@ -186,6 +186,32 @@ For more information, see "[About comparing branches in pull requests](/articles
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Example
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -351,6 +377,34 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Example
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v3
+```
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
@@ -424,15 +478,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -502,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 

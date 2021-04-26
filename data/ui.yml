@@ -143,6 +143,7 @@ product_landing:
   code_examples: Code examples
   search_code_examples: Search code examples
   show_more: Show more
+  explore_people_and_projects: Explore people and projects
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
   try_another: Try another filter or add your code example.
@@ -150,6 +151,7 @@ product_landing:
   learn: Learn how to add a code example
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
+  sponsor_community: GitHub Sponsors community
 product_sublanding:
   start: Start
   start_path: Start path
@@ -173,3 +175,10 @@ learning_track_nav:
   prevGuide: Previous guide
   nextGuide: Next guide
 contributor_callout: This article is contributed and maintained by
+toggle_images:
+  off: Images are off, click to show
+  on: Images are on, click to hide
+  hide_single: Hide image
+  show_single: Show image
+scroll_button:
+  scroll_to_top: Scroll to top

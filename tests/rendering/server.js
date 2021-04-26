@@ -191,8 +191,8 @@ describe('server', () => {
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
     const note = $('.product-callout').eq(0)
-    expect(note.hasClass('color-border-info')).toBe(true)
-    expect(note.hasClass('color-bg-info')).toBe(true)
+    expect(note.hasClass('color-border-success')).toBe(true)
+    expect(note.hasClass('color-bg-success')).toBe(true)
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
