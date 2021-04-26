@@ -27,18 +27,19 @@ jobs:
     steps:
       - name: Find pull request
         if: ${{ github.repository == 'github/docs' }}
-        uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
         id: find-pull-request
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           branch: repo-sync
           base: main
+          state: open
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
             const { owner, repo } = context.repo
 
@@ -119,13 +120,14 @@ jobs:
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Find pull request
-        uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
         id: find-pull-request
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: repo-sync
           base: main
           author: Octomerger
+          state: open
 
       - name: Approve pull request
         if: ${{ steps.find-pull-request.outputs.number }}

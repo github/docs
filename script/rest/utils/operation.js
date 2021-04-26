@@ -166,8 +166,43 @@ module.exports = class Operation {
   }
 
   async renderBodyParameterDescriptions () {
-    const bodyParamsObject = get(this, 'requestBody.content.application/json.schema.properties', {})
-    const requiredParams = get(this, 'requestBody.content.application/json.schema.required', [])
+    let bodyParamsObject = get(this, 'requestBody.content.application/json.schema.properties', {})
+    let requiredParams = get(this, 'requestBody.content.application/json.schema.required', [])
+    const oneOfObject = get(this, 'requestBody.content.application/json.schema.oneOf', undefined)
+
+    // oneOf is an array of input parameter options, so we need to either
+    //  use the first option or munge the options together.
+    if (oneOfObject) {
+      const firstOneOfObject = oneOfObject[0]
+      const allOneOfAreObjects = oneOfObject
+        .filter(elem => elem.type === 'object')
+        .length === oneOfObject.length
+
+      // TODO: Remove this check
+      // This operation shouldn't have a oneOf in this case, it needs to be
+      // removed from the schema in the github/github repo.
+      if (this.operationId === 'checks/create') {
+        delete bodyParamsObject.oneOf
+      } else if (allOneOfAreObjects) {
+        // When all of the oneOf objects have the `type: object` we
+        // need to display all of the parameters.
+        // This merges all of the properties and required values into the
+        // first requestBody object.
+        for (let i = 1; i < oneOfObject.length; i++) {
+          Object.assign(firstOneOfObject.properties, oneOfObject[i].properties)
+          requiredParams = firstOneOfObject.required
+            .concat(oneOfObject[i].required)
+        }
+        bodyParamsObject = firstOneOfObject.properties
+      } else if (oneOfObject) {
+        // When a oneOf exists but the `type` differs, the case has historically
+        // been that the alternate option is an array, where the first option
+        // is the array as a property of the object. We need to ensure that the
+        // first option listed is the most comprehensive and preferred option.
+        bodyParamsObject = firstOneOfObject.properties
+        requiredParams = firstOneOfObject.required
+      }
+    }
 
     this.bodyParameters = await getBodyParams(bodyParamsObject, requiredParams)
   }
@@ -211,16 +246,57 @@ async function getBodyParams (paramsObject, requiredParams) {
     param.rawType = param.type
     param.rawDescription = param.description
 
-    // e.g. array of strings
-    param.type = param.type === 'array'
-      ? `array of ${param.items.type}s`
-      : param.type
+    // Stores the types listed under the `Type` column in the `Parameters`
+    // table in the REST API docs. When the parameter contains oneOf
+    // there are multiple acceptable parameters that we should list.
+    const paramArray = []
 
-    // e.g. object or null
-    param.type = param.nullable
-      ? `${param.type} or null`
-      : param.type
+    const oneOfArray = param.oneOf
+    const isOneOfObjectOrArray = oneOfArray
+      ? oneOfArray.filter(elem => elem.type !== 'object' || elem.type !== 'array')
+      : false
 
+    // When oneOf has the type array or object, the type is defined
+    // in a child object
+    if (oneOfArray && isOneOfObjectOrArray.length > 0) {
+      // Store the defined types
+      paramArray.push(oneOfArray
+        .filter(elem => elem.type)
+        .map(elem => elem.type)
+      )
+
+      // If an object doesn't have a description, it is invalid
+      const oneOfArrayWithDescription = oneOfArray.filter(elem => elem.description)
+
+      // Use the parent description when set, otherwise enumerate each
+      // description in the `Description` column of the `Parameters` table.
+      if (!param.description && oneOfArrayWithDescription.length > 1) {
+        param.description = oneOfArray
+          .filter(elem => elem.description)
+          .map(elem => `**Type ${elem.type}** - ${elem.description}`)
+          .join('\n\n')
+      } else if (!param.description && oneOfArrayWithDescription.length === 1) {
+        // When there is only on valid description, use that one.
+        param.description = oneOfArrayWithDescription[0].description
+      }
+    }
+
+    // Arrays require modifying the displayed type (e.g., array of strings)
+    if (param.type === 'array') {
+      if (param.items.type) paramArray.push(`array of ${param.items.type}s`)
+      if (param.items.oneOf) {
+        paramArray.push(param.items.oneOf
+          .map(elem => `array of ${elem.type}s`)
+        )
+      }
+    } else if (param.type) {
+      paramArray.push(param.type)
+    }
+
+    if (param.nullable) paramArray.push('nullable')
+
+    param.type = paramArray.flat().join(' or ')
+    param.description = param.description || ''
     const isRequired = requiredParams && requiredParams.includes(param.name)
     const requiredString = isRequired ? '**Required**. ' : ''
     param.description = await renderContent(requiredString + param.description)
@@ -245,8 +321,9 @@ async function getBodyParams (paramsObject, requiredParams) {
 }
 
 async function getChildParamsGroup (param) {
-  // only objects and arrays of objects ever have child params
-  if (!(param.rawType === 'array' || param.rawType === 'object')) return
+  // only objects, arrays of objects, anyOf, allOf, and oneOf have child params
+  if (!(param.rawType === 'array' || param.rawType === 'object' || param.oneOf)) return
+  if (param.oneOf && !param.oneOf.filter(param => param.type === 'object' || param.type === 'array')) return
   if (param.items && param.items.type !== 'object') return
 
   const childParamsObject = param.rawType === 'array' ? param.items.properties : param.properties
