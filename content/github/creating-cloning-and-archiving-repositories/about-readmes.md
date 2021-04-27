@@ -53,7 +53,6 @@ The auto-generated table of contents is enabled by default for all Markdown file
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features", deselect **Table of contents**.
-
 ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
 
 ### Section links in README files and blob pages
