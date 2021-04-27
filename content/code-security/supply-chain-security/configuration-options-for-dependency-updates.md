@@ -164,7 +164,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Use the `allow` option to customize which dependencies are updated. This has no impact on security updates for vulnerable dependencies. You can use the following options:
+Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
 - `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
 - `dependency-type`—use to allow updates for dependencies of specific types.

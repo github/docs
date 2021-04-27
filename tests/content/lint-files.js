@@ -10,7 +10,7 @@ const readFileAsync = require('../../lib/readfile-async')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
-const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
+const ghesReleaseNotesSchema = require('../helpers/schemas/release-notes-schema')
 const renderContent = require('../../lib/render-content')
 const { execSync } = require('child_process')
 
