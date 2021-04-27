@@ -44,7 +44,7 @@ You can upgrade your organization from {% data variables.product.prodname_free_t
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %}
@@ -65,7 +65,7 @@ If you'd like to use an enterprise account with {% data variables.product.prodna
 If you'd like additional users to have access to your {% data variables.product.prodname_team %} organization's private repositories, you can purchase more seats anytime.
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
@@ -76,7 +76,7 @@ If you'd like additional users to have access to your {% data variables.product.
 {% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 5. To the right of your plan name, use the **Edit** drop-down menu, and select **Edit plan**.
   ![Edit drop-down menu](/assets/images/help/billing/per-user-upgrade-button.png)

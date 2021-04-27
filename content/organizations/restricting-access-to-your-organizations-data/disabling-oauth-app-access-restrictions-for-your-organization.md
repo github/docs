@@ -19,7 +19,7 @@ topics:
 {% enddanger %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Click **Remove restrictions**.
   ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
