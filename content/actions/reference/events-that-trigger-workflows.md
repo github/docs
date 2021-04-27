@@ -679,7 +679,7 @@ on:
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre releases getting published from draft releases. The `published` type however will. If you want a workflow to run when stable *and* pre releases are published, subscribe to `published` instead of `released` and `prereleased`.
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
