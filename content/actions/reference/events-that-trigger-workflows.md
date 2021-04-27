@@ -677,6 +677,12 @@ on:
     types: [published]
 ```
 
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre releases getting published from draft releases. The `published` type however will. If you want a workflow to run when stable *and* pre releases are published, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
+
 #### `status`
 
 Runs your workflow anytime the status of a Git commit changes, which triggers the `status` event. For information about the REST API, see [Statuses](/rest/reference/repos#statuses).
