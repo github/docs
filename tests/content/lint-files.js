@@ -11,6 +11,7 @@ const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../helpers/schemas/release-notes-schema')
+const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
 const renderContent = require('../../lib/render-content')
 const { execSync } = require('child_process')
 
@@ -20,6 +21,7 @@ const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
 const glossariesDir = path.join(rootDir, 'data/glossaries')
 const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes')
+const learningTracks = path.join(rootDir, 'data/learning-tracks')
 
 const languageCodes = Object.keys(languages)
 
@@ -167,7 +169,7 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint, ymlToLint, releaseNotesToLint
+let mdToLint, ymlToLint, releaseNotesToLint, learningTracksToLint
 
 if (!process.env.TEST_TRANSLATION) {
   // compile lists of all the files we want to lint
@@ -196,8 +198,13 @@ if (!process.env.TEST_TRANSLATION) {
 
   // GHES release notes
   const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
+  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
   releaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+
+  // Learning tracks
+  const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
+  const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
   const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
@@ -207,7 +214,7 @@ if (!process.env.TEST_TRANSLATION) {
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
-  const { mdRelPaths = [], ymlRelPaths = [], releaseNotesRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
+  const { mdRelPaths = [], ymlRelPaths = [], releaseNotesRelPaths = [], learningTracksRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
     // separate the changed files to different groups
     if (path.endsWith('README.md')) {
       return 'throwAway'
@@ -217,13 +224,15 @@ if (!process.env.TEST_TRANSLATION) {
       return 'ymlRelPaths'
     } else if (path.match(/\/data\/release-notes\//i)) {
       return 'releaseNotesRelPaths'
+    } else if (path.match(/\data\/learning-tracks/)) {
+      return 'learningTracksRelPaths'
     } else {
       // we aren't linting the rest
       return 'throwAway'
     }
   })
 
-  const [mdTuples, ymlTuples, releaseNotesTuples] = [mdRelPaths, ymlRelPaths, releaseNotesRelPaths].map(relPaths => {
+  const [mdTuples, ymlTuples, releaseNotesTuples, learningTracksTuples] = [mdRelPaths, ymlRelPaths, releaseNotesRelPaths, learningTracksRelPaths].map(relPaths => {
     const absPaths = relPaths.map(p => path.join(rootDir, p))
     return zip(relPaths, absPaths)
   })
@@ -231,6 +240,7 @@ if (!process.env.TEST_TRANSLATION) {
   mdToLint = mdTuples
   ymlToLint = ymlTuples
   releaseNotesToLint = releaseNotesTuples
+  learningTracksToLint = learningTracksTuples
 }
 
 function formatLinkError (message, links) {
@@ -678,6 +688,45 @@ describe('lint release notes', () => {
             .not
             .toThrow()
         }
+      })
+    }
+  )
+})
+
+describe('lint learning tracks', () => {
+  if (learningTracksToLint.length < 1) return
+  describe.each(learningTracksToLint)(
+    '%s',
+    (yamlRelPath, yamlAbsPath) => {
+      let dictionary
+
+      beforeAll(async () => {
+        const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+      })
+
+      it('matches the schema', () => {
+        const { errors } = revalidator.validate(dictionary, learningTracksSchema)
+        const errorMessage = errors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
+        expect(errors.length, errorMessage).toBe(0)
+      })
+
+      it('has at least one featured track', () => {
+        expect(Object.values(dictionary).some(entry => entry.featured_track)).toBe(true)
+      })
+
+      it('contains valid liquid', () => {
+        const toLint = []
+        Object.values(dictionary).forEach(({ title, description }) => {
+          toLint.push(title)
+          toLint.push(description)
+        })
+
+        toLint.forEach(element => {
+          expect(() => renderContent.liquid.parse(element), `${element} contains invalid liquid`)
+            .not
+            .toThrow()
+        })
       })
     }
   )

@@ -347,6 +347,7 @@ describe('Page class', () => {
     })
 
     it('renders learning tracks that have been defined', async () => {
+      getLinkData.mockImplementation((guides) => { return guides })
       const guides = ['/path/guide1', '/path/guide2']
       const context = {
         currentLanguage: 'en',
