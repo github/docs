@@ -1,3 +1,4 @@
+![Icon](https://user-images.githubusercontent.com/78496768/116315823-59a57e00-a7b1-11eb-921f-45b2004a20ab.png)
 ---
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
