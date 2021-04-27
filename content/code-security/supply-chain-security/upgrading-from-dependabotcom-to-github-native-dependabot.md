@@ -7,11 +7,13 @@ topics:
   - repositories
 ---
 
-{% note %}
+{% warning %}
 
 Dependabot Preview will be shut down on August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot before then.
 
-{% endnote %}
+After that date, any open pull requests from Dependabot Preview will remain open, but the bot itself will no longer work on your {% data variables.product.prodname_dotcom %} accounts and organizations.
+
+{% endwarning %}
 
 ### About upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
