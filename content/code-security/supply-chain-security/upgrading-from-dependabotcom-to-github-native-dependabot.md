@@ -7,6 +7,12 @@ topics:
   - repositories
 ---
 
+{% note %}
+
+Dependabot Preview will be shut down on August 3rd, 2021. In order to keep getting Dependabot updates, please migrate to GitHub-native Dependabot before then.
+
+{% endnote %}
+
 ### About upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
 Dependabot Preview has been built directly into {% data variables.product.prodname_dotcom %}, so you can use {% data variables.product.prodname_dependabot %} alongside all the other functionality in {% data variables.product.prodname_dotcom %} without having to install and use a separate application. By migrating to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}, we can also focus on bringing lots of exciting new features to {% data variables.product.prodname_dependabot %}, including more [ecosystem updates](https://github.com/github/roadmap/issues/150), [improved notifications](https://github.com/github/roadmap/issues/133), and {% data variables.product.prodname_dependabot %} support for [{% data variables.product.prodname_ghe_server %}](https://github.com/github/roadmap/issues/86) and [{% data variables.product.prodname_ghe_managed %}](https://github.com/github/roadmap/issues/135).
@@ -30,7 +36,11 @@ For more information about version updates with {% data variables.product.prodna
 
 ### Upgrading to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}
 
-Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires only one step: merge the *Upgrade to GitHub-native Dependabot* pull request in your repository. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
+Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires you to merge the *Upgrade to GitHub-native Dependabot* pull request in your repository. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
+
+If you are using private repositories, you will have to grant Dependabot access to these repositories in your organization's "Settings" > "Security & analysis" > "Grant Dependabot access to private repositories." Previously, Dependabot had access to all repositories within an organization, but this change was implemented as it is much safer by default, since Dependabot has least privilege.
+
+If you are using private registries, you will have to add your existing Dependabot Preview secrets to your repository's or organization's *Dependabot secrets*.
 
 If you have any questions or need help migrating, you can view or open issues in the [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues) repository.
 
