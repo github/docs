@@ -1,7 +1,6 @@
 // import { sendEvent } from './events'
 import Cookies from 'js-cookie'
 
-
 // Set the image placeholder icon here.
 const placeholderImagePath = '/assets/images/octicons/image.svg'
 
