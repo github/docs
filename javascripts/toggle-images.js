@@ -27,7 +27,7 @@ export default function () {
   // Look for a cookie with image visibility preference; otherwise, use the default.
   const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
 
-  // Hide the image if that is the preference.
+  // Hide the images if that is the preference.
   if (hideImagesPreferred) {
     toggleImages(images, 'hide')
   }
