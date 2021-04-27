@@ -30,7 +30,7 @@ For more information, see "[Repository permission levels for an organization](/a
 ### Migrating all of your organization's legacy admin teams
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 1. Review your organization's legacy admin teams, then click **Migrate all teams**.
   ![Migrate all teams button](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)

@@ -47,7 +47,7 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
@@ -60,7 +60,7 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
@@ -74,7 +74,7 @@ You must authenticate to your organization using SAML SSO and the supported IdP.
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "Team synchronization", click **Disable team synchronization**.
   ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)

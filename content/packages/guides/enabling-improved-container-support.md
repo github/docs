@@ -2,7 +2,7 @@
 title: Enabling improved container support
 intro: 'To use {% data variables.product.prodname_github_container_registry %}, you must enable it for your user or organization account.'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from: 
+redirect_from:
   - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
 versions:
   free-pro-team: '*'
@@ -29,7 +29,7 @@ To use {% data variables.product.prodname_github_container_registry %} within an
 Before organization owners or members can publish container images to {% data variables.product.prodname_github_container_registry %}, an organization owner must enable the feature preview for the organization.
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. On the left, click **Packages**.
 5. Under "Improved container support", select "Enable improved container support" and click **Save**.
   ![Enable container registry support option and save button](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
