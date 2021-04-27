@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pull requests
 ---
 
 Mit der Suchleiste für Issues und Pull Requests kannst Du Deine eigenen benutzerdefinierten Filter erstellen und nach einer Vielzahl an Kriterien Sortierungen vornehmen. Die Suchleiste befindet sich auf den Registerkarten **Issues** und **Pull requests** jedes Repositorys und in Deinem [Dashboards für Issues und Pull Requests](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -36,7 +38,7 @@ Für Issues kannst Du die Suche auf für folgendes benutzen:
 Bei Pull Requests kannst Du die Suche auch verwenden, um:
 - Pull Requests mit dem Status [Entwurf](/articles/about-pull-requests#draft-pull-requests) zu filtern: `is:draft`
 - Pull Requests zu filtern, die noch keinem [Review](/articles/about-pull-request-reviews) unterzogen wurden: `state:open type:pr review:none`
-- Pull Requests zu filtern, für die ein [Review erforderlich ist](/articles/about-required-reviews-for-pull-requests), bevor sie zusammengeführt werden können: `state:open type:pr review:required`
+- Pull Requests zu filtern, für die ein [Review erforderlich ist](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging), bevor sie gemergt werden können: `state:open type:pr review:required`,
 - Von einem Reviewer genehmigte Pull Requests zu filtern: `state:open type:pr review:approved`
 - Pull Requests zu filtern, in denen ein Reviewer um Änderungen gebeten hat: `state:open type:pr review:changes_requested`
 - Pull Requests nach [Reviewer](/articles/about-pull-request-reviews/) zu filtern: `state:open type:pr reviewed-by:octocat`

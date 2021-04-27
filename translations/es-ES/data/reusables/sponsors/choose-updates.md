@@ -1,0 +1,1 @@
+4. Decide whether you want to receive email updates from the sponsored account, then select or unselect "Receive email updates from _ACCOUNT_." ![Casilla de verificación para recibir actualizaciones de la cuenta patrocinada](/assets/images/help/sponsors/updates-checkbox-manage.png)

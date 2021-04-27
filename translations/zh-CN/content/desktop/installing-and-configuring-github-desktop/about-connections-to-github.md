@@ -11,7 +11,7 @@ versions:
 
 在向 {% data variables.product.prodname_dotcom %} 验证后，您可以通过 {% data variables.product.prodname_desktop %} 连接远程仓库。 {% data variables.product.prodname_desktop %} 缓存您的凭据（用户名和密码或个人访问令牌），并使用凭据验证到远程存储库的每个连接。
 
-{% data variables.product.prodname_desktop %} 使用 HTTPS 连接到 {% data variables.product.prodname_dotcom %}。 如果使用 {% data variables.product.prodname_desktop %} 访问使用 SSH 克隆的仓库，可能会遇到错误。 要连接到使用 SSH 克隆的仓库，请更改远程 URL。 更多信息请参阅“[更改远程的 URL](/github/using-git/changing-a-remotes-url)”。
+{% data variables.product.prodname_desktop %} 使用 HTTPS 连接到 {% data variables.product.prodname_dotcom %}。 如果使用 {% data variables.product.prodname_desktop %} 访问使用 SSH 克隆的仓库，可能会遇到错误。 要连接到使用 SSH 克隆的仓库，请更改远程 URL。 更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ### 延伸阅读
 - “[从 GitHub Desktop 克隆和复刻仓库](/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)”

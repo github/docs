@@ -2,10 +2,13 @@
 title: 接口
 redirect_from:
   - /v4/interface
+  - /v4/reference/interface
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 ### 关于接口

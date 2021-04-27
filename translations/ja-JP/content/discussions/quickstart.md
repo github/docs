@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Discussions
-intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository and start conversations with your community.'
+title: GitHub Discussions のクイックスタート
+intro: '既存のリポジトリで {% data variables.product.prodname_discussions %} を有効にして、コミュニティとの会話を開始します。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
@@ -10,49 +10,49 @@ versions:
 
 ### はじめに
 
-{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike issues. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} は、オープンソースプロジェクトに関するコミュニティ向けの共同コミュニケーションフォーラムです。 Discussions は、Issue とは異なり、プロジェクトボードで追跡する必要がなく、コードに関連しない会話のためのものですが、透明性があり利用しやすいものである必要があります。 Discussions により、公開フォーラムで流動的でオープンな会話ができるようになります。
 
-Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
+Discussions では、より協力的な会話ができるように、情報に接続して検索するためのより一元的なエリアを提供しています。
 
-### Enabling {% data variables.product.prodname_discussions %} on your repository
+### リポジトリの {% data variables.product.prodname_discussions %} を有効化する
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public repositories.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public and private repositories.
 
-When you first enable a {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
+{% data variables.product.prodname_discussions %} を最初に有効化すると、ウェルカム投稿を設定するように求められます。
 
 {% data reusables.repositories.navigate-to-repo %}
-1. リポジトリ名の下で{% octicon "gear" aria-label="The gear icon" %} **Settings（設定）**をクリックしてください。 ![Public settings button](/assets/images/help/discussions/public-repo-settings.png)
-1. Under "Features", click **Set up discussions**. ![Set up a discussion button under "Features" for enabling or disabling discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
-1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.
-1. Click **Start discussion**. !["Start discussion" button](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
+1. リポジトリ名の下で{% octicon "gear" aria-label="The gear icon" %} **Settings（設定）**をクリックしてください。 ![公開設定ボタン](/assets/images/help/discussions/public-repo-settings.png)
+1. [Features] で、[**Set up discussions**] をクリックします。 ![リポジトリのディスカッションを有効または無効にするために、[機能] の下にディスカッションボタンを設定](/assets/images/help/discussions/setup-discussions-button.png)
+1. [Start a new discussion] で、テンプレートを編集してコミュニティに設定するリソースと方向性を合わせます。
+1. **Start discussion（ディスカッションの開始）**をクリックしてください。 !["ディスカッションの開始" ボタン](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
-### Welcoming contributions to your discussions
+### ディスカッションへのコントリビューションを歓迎する
 
-You can welcome your community and introduce a new way to communicate in a repository by creating a welcome post and pin the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)."
+ウェルカム投稿を作成して、その投稿を {% data variables.product.prodname_discussions %} ページにピン留めすることで、コミュニティを歓迎し、リポジトリ内の新しいコミュニケーションの導入について紹介します。 ディスカッションをピン留めしてロックすると、投稿がお知らせであることを周知するのに役立ちます。 お知らせを使用すると、ユーザをより多くのリソースにリンクし、コミュニティでディスカッションをオープンするためのガイダンスを提供できます。 ディスカッションのピン留めに関する詳しい情報については、「[リポジトリ内のディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)」を参照してください。
 
 
-### Setting up community guidelines for contributors
+### コントリビューター向けのコミュニティガイドラインを設定する
 
-You can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion.
+コントリビューションガイドラインを設定して、コラボレータがリポジトリについて有意義で有用な会話を行うよう促すことができます。 リポジトリの README を更新して、コラボレータが Issue やディスカッションをオープンするタイミングを伝えることもできます。
 
-For more information about providing guidelines for your project, see "[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and "[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+プロジェクトのガイドラインの提供方法の詳細については、「[プロジェクトに行動規範を追加する](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)」および 「[健全なコントリビューションのためのプロジェクトの設定](/communities/setting-up-your-project-for-healthy-contributions)」を参照してください。
 
-### Creating a new discussion
+### 新しいディスカッションを作成する
 
-Anyone with access to a repository can create a discussion.
+リポジトリへのアクセス権限を持つユーザは、ディスカッションを作成できます。
 
 {% data reusables.discussions.starting-a-discussion %}
 
-### Organizing discussions into relevant categories
+### ディスカッションを関連するカテゴリに整理する
 
-Repository owners and people with write access can create new categories to keep discussions organized. Collaborators participating and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)"
+リポジトリの所有者と書き込みアクセス権を持つユーザは、新しいカテゴリを作成してディスカッションを整理できます。 参加しているコラボレータが新しいディスカッションを作成する場合、ディスカッションを最も関連性の高い既存のカテゴリにグループ化できます。 ディスカッションは、作成後に再分類することもできます。 詳しい情報については、「[リポジトリ内のディスカッションのカテゴリを管理する](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)」を参照してください。
 
-### Promoting healthy conversations
+### 健全な会話を促進する
 
-People with write permissions for a repository can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)."
+リポジトリへの書き込み権限を持つユーザは、ディスカッションをピン留めし、役に立たなくなった、またはコミュニティに害を与えているディスカッションを削除し、Organization が所有するより関連性の高いリポジトリにディスカッションを移譲することで、重要な会話を明示できます。 詳しい情報については、「[リポジトリ内のディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)」を参照してください。
 
-People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
 
 ### 次のステップ
 
-Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+作業を確認してアイデアをコンセプトから現実に移すための明確な道筋ができたら、Issue を作成して進捗状況の追跡を開始できます。 ディスカッションから Issue を作成する際の詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。

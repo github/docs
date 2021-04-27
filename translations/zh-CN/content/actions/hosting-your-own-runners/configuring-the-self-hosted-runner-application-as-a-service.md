@@ -6,10 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+defaultPlatform: linux
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 {% capture service_first_step %}1. 如果自托管的运行器应用程序正在运行，请停止它。{% endcapture %}
 {% capture service_non_windows_intro_shell %}在运行器机器上，在安装了自托管运行器应用程序的目录中打开 shell。 使用以下命令安装和管理自托管的运行器服务。{% endcapture %}

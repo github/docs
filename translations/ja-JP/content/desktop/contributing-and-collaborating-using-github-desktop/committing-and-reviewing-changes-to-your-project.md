@@ -15,10 +15,9 @@ versions:
 
 ### 1. ブランチの選択と変更の実行
 
-1. [新しいブランチを作成](/desktop/guides/contributing-to-projects/managing-branches)するか、クリックして既存のブランチを選択します
+1. [新規ブランチを作成する](/desktop/guides/contributing-to-projects/managing-branches)か、ツールバーにある{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch**をクリックし、既存ブランチをリストから選択します。
 
-{% octicon "git-branch" aria-label="The branch icon" %} ツールバーの**現在のブランチ**とリストからブランチを選択します。
-  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. コミットに含める変更の選択方法
@@ -28,11 +27,15 @@ versions:
 * 赤い{% octicon "diff-removed" aria-label="The diff removed icon color-red" %}アイコンは、削除されたファイルを表します。
 * 黄色の{% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}アイコンは変更されたファイルを表します。
 * 緑の{% octicon "diff-added" aria-label="The diff added icon color-green" %}アイコンは、追加されたファイルを表します。
-* stash した変更にアクセスするには、[**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
+* stash した変更にアクセスするには、[**Stashed Changes**] をクリックします。
+
+  ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
 * {% data reusables.desktop.commit-all-desc %}
-![チェックボックスを選択して、変更されたすべてのファイルをコミットします](/assets/images/help/desktop/commit-all.png)
+
+  ![チェックボックスを選択して、変更されたすべてのファイルをコミットします](/assets/images/help/desktop/commit-all.png)
 * {% data reusables.desktop.commit-some-desc %}
-![コミットするファイルの横のチェックボックスを選択します](/assets/images/help/desktop/commit-some.png)
+
+  ![コミットするファイルの横のチェックボックスを選択します](/assets/images/help/desktop/commit-some.png)
 
 #### 部分的なコミットの作成方法
 
@@ -44,8 +47,12 @@ versions:
 
 {% endnote %}
 
-1. 変更の表示方法を選択するには、変更したファイルの右上隅で、{% octicon "gear" aria-label="The Gear icon" %} を使用して [**Unified**] または [**Split**] を選択します。 ![統合および split diff のギアアイコン](/assets/images/help/desktop/gear-diff-select.png)
-2. 変更した行をコミットから除外するには、変更した行を複数クリックして、青色が消えるようにします。 青色で強調表示されている行は、コミットに含まれます。 ![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
+1. 変更の表示方法を選択するには、変更したファイルの右上隅で、{% octicon "gear" aria-label="The Gear icon" %} を使用して [**Unified**] または [**Split**] を選択します。
+
+  ![統合および split diff のギアアイコン](/assets/images/help/desktop/gear-diff-select.png)
+2. 変更した行をコミットから除外するには、変更した行を複数クリックして、青色が消えるようにします。 青色で強調表示されている行は、コミットに含まれます。
+
+  ![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
 
 ### 3. 変更の廃棄
 保持する必要がない未コミットの変更がある場合は、変更を破棄できます。 これにより、コンピュータ上のファイルから変更が削除されます。 複数のファイル内の未コミットの変更をすべて破棄することも、追加した特定の行を破棄することもできます。
@@ -56,8 +63,10 @@ versions:
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
+
   ![コンテキストメニュー内の [Discard Changes] オプション](/assets/images/help/desktop/discard-changes-mac.png)
 {% data reusables.desktop.confirm-discard-files %}
+
   ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 #### 複数の行の変更を破棄する
@@ -89,13 +98,19 @@ versions:
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
+
   ![Commit messageフィールド](/assets/images/help/desktop/commit-message.png)
-2. オプションとして、コミットに別の作者を追加するには、共作者を追加するアイコンをクリックし、追加するユーザ名を入力します。 ![コミットメッセージに共作者を追加](/assets/images/help/desktop/add-co-author-commit.png)
+2. オプションとして、コミットに別の作者を追加するには、共同作業者を追加するアイコンをクリックし、追加するユーザ名を入力します。
+
+  ![コミットメッセージに共作者を追加](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
+
   ![[Commit] ボタン](/assets/images/help/desktop/commit-button.png)
 4. コミットしようとしているブランチが保護されている場合、Desktopは警告します。
     - 変更を移動するには、**switch branches（ブランチを切り替え）**をクリックしてください。
     - 保護されたブランチに変更をコミットするには、**Commit to _BRANCH_（ブランチにコミット）**をクリックしてください。
 
-  保護されたブランチに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)」を参照してください。 ![保護されたブランチの警告](/assets/images/help/desktop/protected-branch-warning.png)
+  保護されたブランチに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)」を参照してください。
+
+  ![保護されたブランチの警告](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}

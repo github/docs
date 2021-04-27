@@ -39,7 +39,17 @@ Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit e
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tipp:** Wenn Du auf der Befehlszeile einen Texteditor verwendest, um Deine Commit-Mitteilung einzugeben, stelle sicher, dass es zwei Zeilenumbrüche hat zwischen dem Ende Deiner Commit-Beschreibung und dem `Co-authored-by:` Commit-Trailer.
+
+  {% endtip %}
 
 3. Gib in der nächsten Zeile der Commit-Mitteilung `Co-authored-by: name <name@example.com>` mit spezifischen Informationen zu jedem Co-Autor ein. Füge nach den Angaben zu den Co-Autoren ein abschließendes Anführungszeichen ein.
 
@@ -52,7 +62,7 @@ Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit e
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/articles/pushing-commits-to-a-remote-repository/).“
+Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).“
 
 ### Commits mit Co-Autor auf {% data variables.product.product_name %} erstellen
 

@@ -1,0 +1,1 @@
+Puede que quieras predefinir la configuración predeterminada para los repositorios de tareas que {% data variables.product.prodname_classroom %} crea desde un repositorio de plantilla. Por ejemplo, puede que quieras inhabilitar las propuestas, definir las etiquetas para las solicitudes de cambios o proteger una rama en alguno o todos los repositorios.

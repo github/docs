@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 帐户
+  - 通知
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

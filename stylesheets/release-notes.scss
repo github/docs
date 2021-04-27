@@ -1,35 +1,50 @@
 ul.release-notes-list li.release-notes-list-item {
-  &::marker  {
-    // `• `
-    content: '\2022\00a0';
+  font-size: 15px !important;
+
+  &::marker {
+    // `•    `
+    content: "\2022\00a0\00a0\00a0\00a0";
     font-size: 1.6em;
-    margin-right: $spacer-2;
-    color: $gray-400;
+    color: var(--color-auto-gray-4);
   }
 
   &.list-style-none::marker {
-    content: '';
+    content: "";
   }
 }
 
-details[open].release-notes-version-picker summary .octicon.octicon-chevron-down {
+.release-notes-section-heading {
+  font-size: 15px !important;
+}
+
+details[open].release-notes-version-picker
+  summary
+  .octicon.octicon-chevron-down {
   transform: rotate(180deg);
 }
 
-$colors-list:(
-  features: #05a88b,
-  bugs: #ec8c1c,
-  known_issues: #4f6db3,
-  security_fixes: #e53e72,
-  changes: #69b378,
-  deprecations: #9a62a3
+.js-release-notes-patch-link {
+  &.selected {
+    background-color: var(--color-auto-blue-1);
+  }
+}
+
+$colors-list: (
+  features: var(--color-auto-green-5),
+  bugs: var(--color-auto-yellow-5),
+  known_issues: var(--color-auto-blue-5),
+  security_fixes: var(--color-auto-pink-5),
+  changes: var(--color-auto-green-5),
+  deprecations: var(--color-auto-purple-5),
+  backups: var(--color-auto-orange-5)
 );
 
-@each $key,$val in $colors-list{
+@each $key, $val in $colors-list {
   .release-notes-section-#{$key} {
     .release-notes-section-label {
       background-color: #{$val};
     }
+
     .release-notes-section-heading {
       color: #{$val};
     }

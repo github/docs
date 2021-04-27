@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:
   free-pro-team: '*'
+topics:
+  - 政策
+  - 法律
 ---
 
 ### 摘要

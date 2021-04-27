@@ -5,6 +5,8 @@ redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
   free-pro-team: '*'
+topics:
+  - ssh
 ---
 
 您可能收到像以下这样的错误：

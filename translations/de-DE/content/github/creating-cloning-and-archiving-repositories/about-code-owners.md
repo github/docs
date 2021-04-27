@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositorys
 ---
 
 Personen mit Administrator- oder Inhaberberechtigungen können eine CODEOWNERS-Datei in einem Repository einrichten.
@@ -19,11 +21,11 @@ Die Personen, die Du als Codeinhaber auswählst, müssen Schreibberechtigung fü
 
 Code-Besitzer werden automatisch zur Überprüfung aufgefordert, wenn jemand einen Pull Request öffnet, der den Code ändert, den sie besitzen. Code-Besitzer werden nicht automatisch aufgefordert, Entwürfe für Pull Requests zu überprüfen. Weitere Informationen zu Entwürfen von Pull Requests finden Sie unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)“. Code-Besitzer werden nicht automatisch aufgefordert, Entwürfe für Pull Requests zu überprüfen. Wenn Du einen Pull Request in einen Entwurf konvertierst, werden Personen, die bereits Benachrichtigungen abonniert haben, nicht automatisch abgemeldet. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request).“
 
-Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlichen Reviews aktiviert hat, kann er optional auch die Genehmigung von einem Codeinhaber anfordern, bevor der Autor einen Pull Request im Repository zusammenführen kann. Weitere Informationen findest Du unter „[Erforderliche Reviews für Pull Requests aktivieren](/github/administering-a-repository/enabling-required-reviews-for-pull-requests).“
+Wenn ein Benutzer mit Administrator- oder Inhaberberechtigungen die erforderlichen Reviews aktiviert hat, kann er optional auch die Genehmigung von einem Codeinhaber anfordern, bevor der Autor einen Pull Request im Repository zusammenführen kann. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist, bevor Du einen Pull Request öffnest. In the repository, you can browse to the file and hover over
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 

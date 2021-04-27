@@ -6,11 +6,13 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 
 
-{% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限于已验证的上架产品。
+{% data variables.product.prodname_marketplace %} 定价计划可以是免费、统一定价或每单位定价。 价格以美元设置、显示和处理。 付费计划仅限验证的发布者发布的应用。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
 客户使用附加到其 {% data variables.product.product_name %} 帐户的付款方式购买您的应用程序，而不必离开 {% data variables.product.prodname_dotcom_the_website %}。 您不必编写代码来执行结算交易，但必须处理来自 {% data variables.product.prodname_marketplace %} API 的事件。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
@@ -48,7 +50,7 @@ versions:
 
 免费试用的固定期限为 14 天。 客户在试用期结束前 4 天（免费试用期第 11 天）收到通知，他们的计划将升级。 在免费试用结束时，如果客户不取消，他们将自动注册到他们正在试用的计划中。
 
-更多信息请参阅“[处理新购买和免费试用](/developers/github-marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)”。
+更多信息请参阅“[处理新购买和免费试用](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”。
 
 {% note %}
 

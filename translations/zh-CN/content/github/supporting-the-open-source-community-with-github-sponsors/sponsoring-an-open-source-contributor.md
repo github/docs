@@ -1,38 +1,40 @@
 ---
 title: 赞助开源贡献者
-intro: '您可以向设计、创建或维护您所依赖的开源项目的开发者或组织每月定期付款。'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
 versions:
   free-pro-team: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织所有者和帐单管理员可以代表其组织赞助帐户。
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorships
+### 关于赞助
 
 {% data reusables.sponsors.sponsorship-details %}
 
-You can sponsor an account on behalf of your user account to invest in projects that you personally benefit from. You can sponsor an account on behalf of your organization for many reasons.
-- Sustaining specific libraries that your organization's work depends on
-- Investing in the ecosystem you rely on as a organization (such as blockchain)
-- Developing brand awareness as an organization that values open source
-- Thanking open source developers for building libraries that complement the product your organization offers
+您可以代表您的用户帐户赞助一个帐户，以投资您个人受益的项目。 您可以代表您的组织赞助帐户，原因有很多。
+- 维护组织工作所依赖的特定库
+- 投资于作为一个组织所依赖的生态系统（如区块链）
+- 作为重视开源的组织，培养品牌知名度
+- 感谢开源开发者构建库来补充您的组织提供的产品
 
-You can use a credit card to sponsor an account on {% data variables.product.product_name %}. If your organization wants to be invoiced, [contact us](https://support.github.com/contact/org-sponsors-waitlist).
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 
-When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
+如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
 
-If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
+如果您要赞助的帐户在 {% data variables.product.prodname_sponsors %} 上还没有个人资料，您可以建议该帐户加入。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -42,15 +44,16 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% endnote %}
 
-### Sponsoring an account
+### 赞助帐户
 
-Before you can sponsor an account, you must have a verified email address. 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
+在赞助帐户之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
 
-1. On {% data variables.product.product_name %}, navigate to the profile of the user or organization you want to sponsor.
-1. Navigate to your sponsorship dashboard for the account.
-   - To sponsor a developer, under the developer's name, click **Sponsor**. ![赞助按钮](/assets/images/help/profile/sponsor-button.png)
-   - To sponsor an organization, to the right of the the organization's name, click **Sponsor**. ![赞助按钮](/assets/images/help/sponsors/sponsor-org-button.png)
-1. Optionally, on the right side of the page, to sponsor the account on behalf of your organization, use the **Sponsor as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you'll sponsor as](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+1. 在 {% data variables.product.product_name %} 上，导航到您要赞助的用户或组织的个人资料。
+1. 导航到帐户的赞助仪表板。
+   - 要赞助开发者，请在开发者的名称下单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/profile/sponsor-button.png)
+   - 要赞助组织，请在组织名称的右侧单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/sponsors/sponsor-org-button.png)
+1. （可选），在页面的右侧，要代表您的组织赞助帐户，请使用 **Sponsor as（赞助者）**下拉菜单，然后单击组织。 ![选择将作为赞助者的帐户](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

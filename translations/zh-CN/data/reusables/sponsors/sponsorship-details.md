@@ -1,1 +1,1 @@
-You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your user account or an organization. You can choose from multiple sponsorship tiers, with monthly payment amounts and benefits that are set by the sponsored account. 您的赞助将分享您帐户的现有帐单日期、付款方式和收据。
+您可以代表您的用户帐户或组织赞助具有被赞助的开发者配置文件或赞助组织配置文件的任何人。 You can choose from multiple sponsorship tiers, with one-time or monthly payment amounts and benefits that are set by the sponsored account. 您的赞助将分享您帐户的现有帐单日期、付款方式和收据。

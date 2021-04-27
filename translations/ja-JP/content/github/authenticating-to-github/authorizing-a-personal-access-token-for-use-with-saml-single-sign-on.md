@@ -6,6 +6,8 @@ redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - sso
 ---
 
 既存の個人アクセストークンを認可することも、[新しい個人アクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して認可することもできます。

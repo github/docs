@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - 页面
 ---
 
 ### _CNAME_ 错误
@@ -21,8 +23,8 @@ versions:
 
 - _CNAME_ 文件名必须全部大写。
 - _CNAME_ 文件只能包含一个域。 要将多个域指向您的站点，必须通过 DNS 提供程序设置重定向。
-- _CNAME_ 条目必须是裸域。 例如，`www.example.com`、`blog.example.com` 或 `example.com`。
-- _CNAME_ 条目只能在 {% data variables.product.product_name %} 上使用一次。 例如，如果另一个仓库的 _CNAME_ 文件包含 `example.com`，则不能在您仓库的 _CNAME_ 文件中使用 `example.com`。
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. 例如，如果另一个仓库的 _CNAME_ 文件包含 `example.com`，则不能在您仓库的 _CNAME_ 文件中使用 `example.com`。
 
 ### DNS 配置错误
 
@@ -39,11 +41,7 @@ versions:
 - 使用多个 `www` 子域。 例如，同时使用 `www.example.com` 和 `www.anotherexample.com`。
 - 同时使用 apex 域和自定义子域。 例如，同时使用 `example.com` 和 `docs.example.com`。
 
-{% warning %}
-
-**警告：**我们强烈建议不要使用通配符 DNS 记录，例如 `*.example.com`。 通配符 DNS 记录将允许任何人在您的其中一个子域上托管 {% data variables.product.prodname_pages %} 站点。
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 有关支持的自定义域列表，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)”。
 

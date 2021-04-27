@@ -1,43 +1,43 @@
 ---
-title: About verified creators
-intro: 'Each organization that wants to sell apps on {% data variables.product.prodname_marketplace %} must follow a verification process. Their identity is checked and their billing process reviewed.'
+title: 关于经验证的创作者
+intro: '每个要在 {% data variables.product.prodname_marketplace %} 上出售应用程序的组织必须遵循验证流程。 需要检查其身份并审查其帐单流程。'
 versions:
   free-pro-team: '*'
 ---
 
-### About verified creators
+### 关于经验证的创作者
 
-A verified creator is an organization that {% data variables.product.company_short %} has checked. Anyone can share their apps with other users on {% data variables.product.prodname_marketplace %} but only organizations that are verified by {% data variables.product.company_short %} can sell apps. For more information about organizations, see "[About organizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)."
+经验证的创作者是经过 {% data variables.product.company_short %} 检查的组织。 任何人都可以在 {% data variables.product.prodname_marketplace %} 上与其他用户分享其应用程序，但只有经 {% data variables.product.company_short %} 验证的组织才能出售应用程序。 有关组织的更多信息，请参阅“[关于组织](/github/setting-up-and-managing-organizations-and-teams/about-organizations)”。
 
-The verification process aims to protect users. For example, it verifies the seller's identity, checks that their {% data variables.product.product_name %} organization is set up securely, and that they can be contacted for support.
+验证过程旨在保护用户。 例如，它验证卖方的身份，检查其 {% data variables.product.product_name %} 组织是否安全设置，以及是否可以联系他们获得支持。
 
-After passing the verification checks, any apps that the organization lists on {% data variables.product.prodname_marketplace %} are shown with a verified creator badge {% octicon "verified" aria-label="Verified creator badge" %}. The organization can now add paid plans to any of their apps. Each app with a paid plan also goes through a financial onboarding process to check that it's set up to handle billing correctly.
+验证检查通过后，该组织在 {% data variables.product.prodname_marketplace %} 中上架的任何应用程序都会显示已验证创作者徽章 {% octicon "verified" aria-label="Verified creator badge" %}。 组织现在可以将付费计划添加到其任何应用程序。 每个带有付费计划的应用程序还要通过财务上架流程来检查其是否设置了适当的帐单处理程序。
 
-![verified creator badges](/assets/images/marketplace/marketplace_verified_creator_badges_apps.png)
+![已验证创作者徽章](/assets/images/marketplace/marketplace_verified_creator_badges_apps.png)
 
-In addition to the verified creator badge, you'll also see badges for unverified and verified apps. These apps were published using the old method for verifying individual apps.
+除了已验证创建者徽章外，您还将看到未验证和已验证的应用程序徽章。 这些应用程序是使用针对单个应用程序进行验证的旧方法来发布的。
 
 ![绿色的已验证和灰色的未验证徽章](/assets/images/marketplace/marketplace_verified_badges.png)
 
-For information on finding apps to use, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+有关如何查找要使用的应用程序，请参阅“[搜索 {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)”。
 
-### About the verification process
+### 关于验证流程
 
-The first time you request verification for a listing of one of your apps, you will enter the verification process.  An onboarding expert will guide you through the process. This includes checking:
+首次请求验证应用程序上架信息时，您将进入验证流程。  上架专家将指导您完成整个流程。 这包括检查：
 
-- Profile information - The basic profile information is populated accurately and appropriately.
-- Security - The organization has enabled two-factor authentication.
-- Verified domain - The organization has verified the domain of the site URL.
-- Purchase webhook event - The event is handled correctly by the app.
+- 个人资料信息 - 准确、适当地填写基本个人资料信息。
+- 安全性 - 组织已启用双重身份验证。
+- 已验证域 - 组织已验证站点 URL 的域。
+- 购买 web 挂钩事件 - 应用程序能够正确处理该事件。
 
-When your organization is verified, all your apps are shown with a verified creator badge. You are now able to offer paid plans for any of your apps.
+您的组织通过验证后，您的所有应用程序都会显示已验证创作者徽章。 您现在可以为您的任何应用程序提供付费计划。
 
-For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+有关在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求，请参阅“[在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)”。
 
 {% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何进行验证，请参阅“[提交要发布的上架信息](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)”。
 
 {% note %}
 
-**Note:** This verification process for apps replaces the previous process where individual apps were verified. The current process is similar to the verification process for actions. If you have apps that were verified under the old process, these will not be affected by the changes. The {% data variables.product.prodname_marketplace %} team will contact you with details of how to migrate to organization-based verification.
+**注：**此应用程序验证流程将取代以前针对单个应用程序的验证流程。 当前流程类似于操作的验证流程。 在旧流程下验证的应用程序将不会受到流程变更的影响。 {% data variables.product.prodname_marketplace %} 团队将联系您，提供如何迁移到基于组织的验证的详细信息。
 
 {% endnote %}

@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 身份
+  - 访问管理
 ---
 
 ### 访问安全日志
@@ -39,6 +42,7 @@ versions:
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
 | [`account_recovery_token`](#account_recovery_token-category-actions)                   | 包含与[添加恢复令牌](/articles/configuring-two-factor-authentication-recovery-methods)相关的所有活动。                                                                                                                                                                                                                                                            |
 | [`计费，帐单`](#billing-category-actions)                                                   | 包含与帐单信息相关的所有活动。                                                                                                                                                                                                                                                                                                                                  |
+| [`codespaces`](#codespaces-category-actions)                                           | 包含与 {% data variables.product.prodname_codespaces %} 相关的所有活动。 更多信息请参阅“[关于 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-codespaces)”。                                                                                                                                                        |
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                                                                                                            |
 | [`marketplace_listing`](#marketplace_listing-category-actions)                         | 包含与 {% data variables.product.prodname_marketplace %} 中列出的应用程序相关的所有活动。{% endif %}
 | [`oauth_access`](#oauth_access-category-actions)                                       | 包含与您已连接的 [{% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps) 相关的所有活动。{% if currentVersion == "free-pro-team@latest" %}
@@ -81,6 +85,12 @@ versions:
 | --------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `change_billing_type` | 当您[更改 {% data variables.product.prodname_dotcom %} 的支付方式](/articles/adding-or-editing-a-payment-method)时触发。 |
 | `change_email`        | 当您[更改您的电子邮件地址](/articles/changing-your-primary-email-address)时触发。                                           |
+
+#### `codespaces` 类操作
+
+| 操作                                   | 描述                                                                                                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `trusted_repositories_access_update` | 当您更改用户帐户的 [{% data variables.product.prodname_codespaces %} 访问权限和安全设置](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)时触发。 |
 
 #### `marketplace_agreement_signature` 类操作
 
@@ -176,14 +186,14 @@ versions:
 | `repo_funding_link_button_toggle`             | 在仓库中启用或禁用赞助按钮时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                        |
 | `repo_funding_links_file_action`              | 更改仓库中的 FUNDING 文件时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                    |
 | `sponsor_sponsorship_cancel`                  | 当您取消赞助时触发（请参阅“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                          |
-| `sponsor_sponsorship_create`                  | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")                                                       |
+| `sponsor_sponsorship_create`                  | 当您赞助帐户时触发（请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)”）                                                                                                                   |
 | `sponsor_sponsorship_preference_change`       | 当您更改是否接收被赞助开发者的电子邮件更新时触发（请参阅“[管理赞助](/articles/managing-your-sponsorship)”）                                                                                                                                                                           |
 | `sponsor_sponsorship_tier_change`             | 当您升级或降级赞助时触发（请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                           |
 | `sponsored_developer_approve`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户被批准时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）     |
 | `sponsored_developer_create`                  | 当您的 {% data variables.product.prodname_sponsors %} 帐户创建时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）      |
 | `sponsored_developer_profile_update`          | 在编辑您的被赞助开发者个人资料时触发（请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)”）                                           |
 | `sponsored_developer_request_approval`        | 提交您对 {% data variables.product.prodname_sponsors %} 的申请以供审批时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）  |
-| `sponsored_developer_tier_description_update` | 当您更改赞助等级的说明时触发（请参阅“[更改赞助等级](/articles/changing-your-sponsorship-tiers)”）                                                                                                                                                                             |
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                        |
 | `sponsored_developer_update_newsletter_send`  | 当您向赞助者发送电子邮件更新时触发（请参阅“[联系赞助者](/articles/contacting-your-sponsors)”）                                                                                                                                                                                  |
 | `waitlist_invite_sponsored_developer`         | 当您从等候名单被邀请加入 {% data variables.product.prodname_sponsors %} 时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”） |
 | `waitlist_join`                               | 当您加入成为被赞助开发者的等候名单时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                            |
@@ -227,20 +237,20 @@ versions:
 
 #### `user` 类操作
 
-| 操作                                 | 描述                                                                                                                                            |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_email`                        | 在您{% if currentVersion != "github-ae@latest" %}[新增电子邮件地址](/articles/changing-your-primary-email-address){% else %}新增电子邮件地址{% endif %}时触发。     |
-| `create`                           | 在创建新帐户时触发。{% if currentVersion != "github-ae@latest" %}
-| `change_password`                  | 当您更改密码时触发。                                                                                                                                    |
-| `forgot_password`                  | 在您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。{% endif %}
-| `hide_private_contributions_count` | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                              |
-| `login`                            | 当您登录 {% data variables.product.product_location %} 时触发。                                                                                       |
-| `failed_login`                     | 当您未能成功登录时触发。                                                                                                                                  |
-| `remove_email`                     | 当您删除电子邮件地址时触发。                                                                                                                                |
-| `rename`                           | 在重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %}
-| `report_content`                   | 当您[举报议题或拉取请求，或者举报对议题、拉取请求或提交的评论](/articles/reporting-abuse-or-spam)时触发。{% endif %}
-| `show_private_contributions_count` | 当您[在个人资料中公开私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %}
-| `two_factor_requested`             | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
+| 操作                                                                                                                                                                                         | 描述                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                                                                                                                                                                                | 当您                                                                                                                                                        |
+| {% if currentVersion != "github-ae@latest" %}[添加新电子邮件地址](/articles/changing-your-primary-email-address){% else %}添加新电子邮件地址{% endif %}时触发。{% if currentVersion == "free-pro-team@latest" %} |                                                                                                                                                           |
+| `codespaces_trusted_repo_access_granted`                                                                                                                                                   | 当您[允许为某个仓库创建的代码空间访问您的用户帐户拥有的其他仓库]时触发(/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)。                              |
+| `codespaces_trusted_repo_access_revoked`                                                                                                                                                   | 当您[禁止为某个仓库创建的代码空间访问您的用户帐户拥有的其他仓库]时触发(/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)。                              |{% endif %}
+| `create`                                                                                                                                                                                   | 在创建新帐户时触发。{% if currentVersion != "github-ae@latest" %}
+| `change_password`                                                                                                                                                                          | 当您更改密码时触发。                                                                                                                                                |
+| `forgot_password`                                                                                                                                                                          | 在您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。{% endif %}
+| `hide_private_contributions_count`                                                                                                                                                         | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                                          |
+| `login`                                                                                                                                                                                    | 当您登录到 {% data variables.product.product_location %} 时触发。{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+
+
+`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | 当您重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | 当您[报告议题或拉取请求，或者报告对议题、拉取请求或提交的评论](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)时触发。{% endif %} | `show_private_contributions_count` | 当您[在个人资料中公布私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
 
 #### `user_status` 类操作
 
@@ -248,5 +258,4 @@ versions:
 | --------- | -------------------------------------------------------------------------------------------- |
 | `update`  | 当您在个人资料中设置或更改状态时触发。 更多信息请参阅“[设置状态](/articles/personalizing-your-profile/#setting-a-status)”。 |
 | `destroy` | 当您在个人资料中清除状态时触发。                                                                             |
-
 

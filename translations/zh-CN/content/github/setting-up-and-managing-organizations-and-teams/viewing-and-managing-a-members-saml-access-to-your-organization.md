@@ -8,6 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于对组织的 SAML 访问
@@ -19,6 +22,8 @@ versions:
 ### 查看和撤销链接的身份
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

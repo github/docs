@@ -5,7 +5,7 @@ const { execSync } = require('child_process')
 // [start-readme]
 
 // This script is intended to be used as a git "prepush" hook.
-// If the current branch is main, it will exit unsuccesfully and prevent the push.
+// If the current branch is main, it will exit unsuccessfully and prevent the push.
 
 // [end-readme]
 

@@ -1,5 +1,5 @@
 ---
-title: Apply for an educator or researcher discount
+title: 申请教育者或研究人员折扣
 intro: '如果您是教育者或研究人员，可以为组织申请免费获取 {% data variables.product.prodname_team %}。'
 redirect_from:
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -18,7 +18,7 @@ versions:
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+有关在 {% data variables.product.product_name %} 上创建用户帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
 
 ### 申请教育者或研究人员折扣
 

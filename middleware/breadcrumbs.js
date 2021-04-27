@@ -1,7 +1,9 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
-module.exports = async (req, res, next) => {
+module.exports = async function breadcrumbs (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
 
@@ -16,10 +18,12 @@ module.exports = async (req, res, next) => {
   // drop first '/'
   pathParts.shift()
 
-  // drop the version segment so pathParts now starts with /product
-  pathParts.shift()
-
   const productPath = path.posix.join('/', req.context.currentProduct)
+
+  if (!req.context.siteTree[req.language][req.context.currentVersion].products) {
+    return next()
+  }
+
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
   if (!product) {
@@ -27,8 +31,14 @@ module.exports = async (req, res, next) => {
   }
 
   req.context.breadcrumbs.product = {
-    href: path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath),
+    href: removeFPTFromPath(path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath)),
     title: product.title
+  }
+
+  // if this is not FPT, drop the version segment so pathParts now starts with /product
+  // if this is FPT, there is no version segment so pathParts already starts with /product
+  if (req.context.currentVersion !== nonEnterpriseDefaultVersion) {
+    pathParts.shift()
   }
 
   if (!pathParts[1]) return next()
@@ -36,7 +46,7 @@ module.exports = async (req, res, next) => {
   // get category path
   // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
   // or /enterprise-server@2.21/github/getting-started-with-github
-  const categoryPath = path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath, pathParts[1])
+  const categoryPath = removeFPTFromPath(path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath, pathParts[1]))
 
   const category = product.categories[categoryPath]
 

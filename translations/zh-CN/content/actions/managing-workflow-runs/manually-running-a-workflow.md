@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 配置工作流程手动运行
 
@@ -18,7 +20,7 @@ versions:
 
 要在 {% data variables.product.prodname_dotcom %} 上触发 `Workflow_spoch` 事件，您的工作流程必须在默认分支中。 按照以下步骤手动触发工作流程运行。
 
-{% data reusables.repositories.permissions-statement-read %}
+{% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

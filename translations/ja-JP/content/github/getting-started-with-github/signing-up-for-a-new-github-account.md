@@ -1,11 +1,13 @@
 ---
 title: 新しい GitHub アカウントへのサインアップ
-shortTitle: Sign up for a new GitHub account
+shortTitle: 新しい GitHub アカウントへのサインアップ
 intro: '{% data variables.product.product_name %} は、人々が協力して作業するチームのために個人および Organization のユーザアカウントを提供します。'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
 versions:
   free-pro-team: '*'
+topics:
+  - アカウント
 ---
 
 アカウントの種類と製品の詳しい情報については、「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」および「[{% data variables.product.product_name %} の製品](/articles/github-s-products)」を参照してください。

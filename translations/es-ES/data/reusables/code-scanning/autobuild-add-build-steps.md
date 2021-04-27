@@ -1,0 +1,1 @@
+Si el código de C/C++, C# o de Java en tu repositorio tiene un proceso de compilación diferente al estándar, el `autobuild` podría fallar. Necesitarás eliminar el paso de `autobuild` del flujo de trabajo y agregar los pasos de compilación manualmente. 

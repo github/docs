@@ -1,10 +1,12 @@
 ---
 title: 管理赞助
-intro: You can manage who can see your sponsorship and whether you receive email updates from the sponsored account.
+intro: 您可以管理谁能看到您的赞助，以及您是否要接收来自被赞助帐户的电子邮件更新。
 redirect_from:
   - /articles/managing-your-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -17,9 +19,9 @@ versions:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Managing email updates for your sponsorship
+### 管理赞助的电子邮件更新
 
-You can choose whether an account you sponsor can send you email updates about their work. The sponsored account will not have access to your email address.
+您可以选择您赞助的帐户能否以电子邮件向您发送其工作的更新。 被赞助帐户无法访问您的电子邮件地址。
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -31,5 +33,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ### 延伸阅读
 
-- "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
-- "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"
+- "[升级赞助](/articles/upgrading-a-sponsorship)"
+- "[降级赞助](/articles/downgrading-a-sponsorship)"

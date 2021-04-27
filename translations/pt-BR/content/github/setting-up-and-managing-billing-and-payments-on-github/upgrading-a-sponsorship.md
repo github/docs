@@ -5,11 +5,13 @@ redirect_from:
   - /articles/upgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
 
-### About sponsorship upgrades
+### Sobre atualizações de patrocínio
 
 Quando você atualiza a camada do patrocínio, a alteração entra em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 
@@ -17,5 +19,6 @@ Quando você atualiza a camada do patrocínio, a alteração entra em vigor imed
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}

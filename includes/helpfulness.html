@@ -1,13 +1,13 @@
 {% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
-<form class="js-helpfulness mt-4 f5">
-  <h4
+<form class="js-helpfulness f5">
+  <h2
     data-help-start
     data-help-yes
     data-help-no
-    class="mb-1"
+    class="mb-1 f4"
   >
     {% data ui.helpfulness.able_to_find %}
-  </h4>
+  </h2>
   <p class="f6">
     <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
   </p>
@@ -40,10 +40,10 @@
       {% octicon "thumbsdown" height="24" %}
     </label>
   </p>
-  <p class="text-gray f6" hidden data-help-yes>
+  <p class="color-text-secondary f6" hidden data-help-yes>
     {% data ui.helpfulness.yes_feedback %}
   </p>
-  <p class="text-gray f6" hidden data-help-no>
+  <p class="color-text-secondary f6" hidden data-help-no>
     {% data ui.helpfulness.no_feedback %}
   </p>
   <input
@@ -55,42 +55,10 @@
   <p hidden data-help-no>
     <label
       class="d-block mb-1 f6"
-      for="helpfulness-category"
-    >
-      {% data ui.helpfulness.category_label %}
-      <span class="text-normal text-gray-light float-right ml-1">
-        {% data ui.helpfulness.required %}
-      </span>
-    </label>
-    <select
-      class="form-control select-sm width-full"
-      name="helpfulness-category"
-      id="helpfulness-category"
-    >
-      <option value="">
-        {% data ui.helpfulness.category_default %}
-      </option>
-      <option value="Unclear">
-        {% data ui.helpfulness.category_unclear %}
-      </option>
-      <option value="Confusing">
-        {% data ui.helpfulness.category_confusing %}
-      </option>
-      <option value="Unhelpful">
-        {% data ui.helpfulness.category_unhelpful %}
-      </option>
-      <option value="Other">
-        {% data ui.helpfulness.category_other %}
-      </option>
-    </select>
-  </p>
-  <p hidden data-help-no>
-    <label
-      class="d-block mb-1 f6"
       for="helpfulness-comment"
     >
       <span>{% data ui.helpfulness.comment_label %}</span>
-      <span class="text-normal text-gray-light float-right ml-1">
+      <span class="text-normal color-text-tertiary float-right ml-1">
         {% data ui.helpfulness.optional %}
       </span>
     </label>
@@ -108,7 +76,7 @@
       data-help-no
     >
       {% data ui.helpfulness.email_label %}
-      <span class="text-normal text-gray-light float-right ml-1">
+      <span class="text-normal color-text-tertiary float-right ml-1">
         {% data ui.helpfulness.optional %}
       </span>
     </label>
@@ -129,11 +97,11 @@
     data-help-yes
     data-help-no
   >
-    <button type="submit" class="btn btn-blue btn-sm">
+    <button type="submit" class="btn btn-sm">
       {% data ui.helpfulness.send %}
     </button>
   </p>
-  <p class="text-gray f6" hidden data-help-end>
+  <p class="color-text-secondary f6" hidden data-help-end>
     {% data ui.helpfulness.feedback %}
   </p>
 </form>

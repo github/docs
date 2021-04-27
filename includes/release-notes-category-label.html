@@ -11,8 +11,10 @@
     {% assign text = "Changes" %}
   {% when "deprecations" %}
     {% assign text = "Deprecations" %}
+  {% when "backups" %}
+    {% assign text = "Backups" %}
   {% else %}
     {% assign text = "INVALID SECTION" %}
 {% endcase %}
 
-<span class="px-3 py-2 f5 text-uppercase text-mono text-white release-notes-section-label">{{ text }}</span>
+<span class="px-3 py-2 text-small text-bold text-uppercase text-mono color-text-inverse release-notes-section-label">{{ text }}</span>

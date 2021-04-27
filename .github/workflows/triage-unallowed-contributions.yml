@@ -1,5 +1,9 @@
 name: Check unallowed file changes
 
+# **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
+# **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
+# **Who does it impact**: Open source contributors.
+
 on:
   pull_request_target:
     paths:
@@ -78,25 +82,23 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const changedFiles = ${{steps.filter.outputs.notAllowed_files}}
-            const restFiles = ${{steps.filter.outputs.openapi_files}}
-            const translationFiles = ${{steps.filter.outputs.translation_files}}
-            const markdownFiles = changedFiles.map(file => `- \`${file}\`\n`).join('')
+            const badFilesArr = [
+              'translations/**',
+              'lib/rest/static/**',
+              '.github/workflows/**',
+              '.github/CODEOWNERS',
+              'translations/**',
+              'assets/fonts/**',
+              'data/graphql/**',
+              'lib/graphql/**',
+              'lib/redirects/**',
+              'lib/rest/**',
+              'lib/webhooks/**'
+            ]
 
-            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions.\n${markdownFiles}\n\nYou'll need to revert all of these ☝️ files using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+            const badFiles = badFilesArr.join('\n')
 
-            if (restFiles.length > 0) {
-              reviewMessage += "\n\nIt looks like you've modified the OpenAPI schema (`lib/rest/static/**`). While we aren't accepting changes to the schema directly, you can open an issue for any updates to the REST API docs. Head on over to the [`github/rest-api-description`](https://github.com/github/rest-api-description/issues/new?assignees=&labels=Inaccuracy&template=schema-inaccuracy.md&title=%5BSchema+Inaccuracy%5D+%3CDescribe+Problem%3E) repository to open an issue. ⚡"
-            }
-
-            if (translationFiles.length > 0) {
-              await github.issues.addLabels({
-                ...context.repo,
-                issue_number: context.payload.number,
-                labels: ['localization']
-              })
-              reviewMessage += "\n\nIt looks like you've modified translated content. Unfortunately, we are not able to accept pull requests for translated content. Our translation process involves an integration with an external service at crowdin.com, where all translation activity happens. We hope to eventually open up the translation process to the open source community, but we're not there yet. See https://github.com/github/docs/blob/main/CONTRIBUTING.md#earth_asia-translations for more details."
-            }
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
 
             await github.pulls.createReview({
               ...context.repo,
@@ -104,6 +106,8 @@ jobs:
               body: reviewMessage,
               event: 'REQUEST_CHANGES'
             })
+
+            core.setFailed("It looks like you've modified some files we don't accept contributions for. Please see the review with requested changes for details.")
       # When the most recent review was CHANGES_REQUESTED and the existing
       # PR no longer contains unallowed changes, dismiss the previous review
       - name: Dismiss pull request review

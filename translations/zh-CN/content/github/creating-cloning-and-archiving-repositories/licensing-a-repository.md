@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 仓库
 ---
 
 ### 选择合适的许可
@@ -23,7 +25,7 @@ versions:
 
 ### 确定许可的位置
 
-大多数人将其许可文件放在仓库根目录的文件 `LICENSE.txt`（或 `LICENSE.md`）中；[下面是 Hubot 中的一个示例](https://github.com/github/hubot/blob/master/LICENSE.md)。
+大多数人将其许可文件放在仓库根目录的文件 `LICENSE.txt`（或者 `LICENSE.md` 或 `LICENSE.rst`）中；[下面是 Hubot 中的一个示例](https://github.com/github/hubot/blob/master/LICENSE.md)。
 
 有些项目在其自述文件中包含许可的相关信息。 例如，项目的自述文件可能包含一条注释，表示“此项目根据 MIT 许可的条款进行许可”。
 
@@ -74,7 +76,7 @@ versions:
 
 ### 检测许可
 
-[开源 Ruby gem 被许可人](https://github.com/benbalter/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/rest/reference/licenses) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](http://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
+[开源 Ruby gem 被许可人](https://github.com/licensee/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/rest/reference/licenses) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](http://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
 
 如果您的仓库使用的许可列在“选择许可”网站中，但未明确显示在仓库页面顶部，其中可能包含多个许可或存在其他复杂性。 为使您的许可被检测到，请简化*许可*文件，并在其他位置注明复杂性，例如在仓库的*自述文件*中。
 

@@ -12,25 +12,16 @@ featuredLinks:
     - /packages/manage-packages/installing-a-package
   popular:
     - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-docker-for-use-with-github-packages
+    - /packages/learn-github-packages
     - /packages/guides/configuring-apache-maven-for-use-with-github-packages
   guideCards:
     - /packages/guides/configuring-npm-for-use-with-github-packages
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  - 
-    title: 包容器支持是一个选择性测试版
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
-  - 
-    title: 组织管理员对容器的访问
-    date: '2020-11-16'
-    href: https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers/
-  - 
-    title: 包现在遵守 IP 允许列表设置
-    date: '2020-11-12'
-    href: https://github.blog/changelog/2020-11-12-packages-now-respects-ip-allow-list-settings/
+  label: '包'
+  prefix: '包:'
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
@@ -39,6 +30,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

@@ -1,21 +1,21 @@
 ---
-title: Discussions guides
+title: 讨论指南
 shortTitle: 指南
-intro: 'Discover pathways to get started or learn best practices for participating or monitoring your community''s discussions.'
+intro: '了解开始或学习参与或监控社区讨论的最佳做法的途径。'
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Getting started with discussions
+### 开始讨论
 
 {% link_in_list /about-discussions %}
 {% link_in_list /best-practices-for-community-conversations-on-github %}
 {% link_in_list /finding-discussions-across-multiple-repositories %} <!--
 {% link_in_list /managing-notifications-for-discussions %} -->
 
-### Administering discussions
+### 管理讨论
 
 {% link_in_list /granting-higher-permissions-to-top-contributors %}
 

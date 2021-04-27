@@ -6,6 +6,9 @@ redirect_from:
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% danger %}
@@ -19,4 +22,4 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. 单击 **Remove restrictions（删除限制）**。 ![删除限制按钮](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. 审查有关禁用第三方应用程序限制的信息后，请单击 **Yes, remove application restrictions（是，删除应用程序限制）**。 ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+6. 审查有关禁用第三方应用程序限制的信息后，请单击 **Yes, remove application restrictions（是，删除应用程序限制）**。 ![删除确认按钮](/assets/images/help/settings/settings-third-party-confirm-disable.png)

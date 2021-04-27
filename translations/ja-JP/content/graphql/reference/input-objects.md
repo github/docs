@@ -2,10 +2,13 @@
 title: 入力オブジェクト
 redirect_from:
   - /v4/input_object
+  - /v4/reference/input_object
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - api
 ---
 
 ### 入力オブジェクトについて

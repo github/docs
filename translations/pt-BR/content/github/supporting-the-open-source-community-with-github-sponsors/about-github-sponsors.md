@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre o {% data variables.product.prodname_sponsors %}
@@ -27,7 +29,7 @@ Quando você se tornar um desenvolvedor patrocinado ou uma organização patroci
 
 {% endnote %}
 
-O {% data variables.product.prodname_matching_fund %} visa beneficiar os membros da comunidade {% data variables.product.prodname_dotcom %} que desenvolvem softwares de código aberto que promovem as [{% data variables.product.prodname_dotcom %}Diretrizes da Comunidade](/github/site-policy/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+O {% data variables.product.prodname_matching_fund %} visa beneficiar os membros da comunidade {% data variables.product.prodname_dotcom %} que desenvolvem softwares de código aberto que promovem as [{% data variables.product.prodname_dotcom %}Diretrizes da Comunidade](/github/site-policy/github-community-guidelines). Pagamentos a organizações patrocinadas e pagamentos de organizações não são elegíveis para {% data variables.product.prodname_matching_fund %}.
 
 Para ser elegível para o {% data variables.product.prodname_matching_fund %}, você deve criar um perfil que atrairá uma comunidade que irá sustentar você a longo prazo. Para obter mais informações sobre criar um perfil forte, consulte "[Editando os detalhes de seu perfil para {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)".
 
@@ -35,7 +37,7 @@ Para ser elegível para o {% data variables.product.prodname_matching_fund %}, v
 
 ### Compartilhando feedback sobre o {% data variables.product.prodname_sponsors %}
 
-Esse é apenas o começo – adoraríamos saber sua opinião para garantir que o {% data variables.product.prodname_sponsors %} atenda às suas necessidades no futuro. Por favor, envie-nos seu feedback ou sugestões, entrando em contato com [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors).
+{% data reusables.sponsors.feedback %}
 
 ### Leia mais
 - "[Patrocinando contribuidores de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"

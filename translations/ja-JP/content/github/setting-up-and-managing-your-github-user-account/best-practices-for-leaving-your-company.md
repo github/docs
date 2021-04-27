@@ -5,6 +5,8 @@ redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:
   free-pro-team: '*'
+topics:
+  - アカウント
 ---
 
 会社を辞める前に、ユーザアカウントの以下の情報を必ず更新しておきましょう:

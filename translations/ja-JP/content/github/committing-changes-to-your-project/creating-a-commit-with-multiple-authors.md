@@ -39,7 +39,17 @@ versions:
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tip:** コミットメッセージを入力するのにコマンドライン上のテキストエディタを使っているなら、コミットの説明とコミットトレーラーの`Co-authored-by:`との間に新しい2行があることを確認してください。
+
+  {% endtip %}
 
 3. コミットメッセージの次の行に、各共作者の情報を `Co-authored-by: name <name@example.com>` という形式で入力します。 共同作者の情報の後に、閉じる引用符を追加します。
 
@@ -52,7 +62,7 @@ versions:
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)」を参照してください。
+次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)」を参照してください。
 
 ### {% data variables.product.product_name %} で co-authored コミットを作成する
 

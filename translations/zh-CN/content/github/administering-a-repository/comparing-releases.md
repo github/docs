@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - 仓库
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

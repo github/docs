@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -32,14 +34,13 @@ Wenn keine dieser Dateien gefunden wird, werden Dateien oder Ordner in `dotfiles
 
 Änderungen an Deinem `dotfiles`-Repository gelten nur für neue Codespaces und verändern bestehende Codespaces nicht.
 
-Weiter Informationen findest Du unter „[Personalisierung](https://docs.microsoft.com/visualstudio/online/reference/personalizing)" in der {% data variables.product.prodname_vscode %}-Dokumentation.
-
 {% note %}
 
 **Hinweis:** Derzeit unterstützt {% data variables.product.prodname_codespaces %} kein personalisieren der _Benutzer_ Einstellungen für den {% data variables.product.prodname_vscode %}-Editor mit Deinem `dotfiles`-Repository. Du kannst Standardeinstellungen für den _Arbeitsbereich _ und die _Remote [Codespaces]_ für ein bestimmtes Projekt in einem Projekt-Repository festlegen. Weitere Informationen findest Du unter „[{% data variables.product.prodname_codespaces %} für Dein Projekt konfigurieren](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)."
 
 {% endnote %}
 
+You can also configure settings for your user account to add encrypted secrets, enable GPG verification, and allow your codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
 
 ### Weiterführende Informationen
 

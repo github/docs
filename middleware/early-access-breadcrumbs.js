@@ -1,9 +1,11 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
 // Early Access content doesn't conform to the same structure as other products, so we
 // can't derive breadcrumbs from the siteTree in the same way. Hence, this separate middleware.
-module.exports = async (req, res, next) => {
+module.exports = async function earlyAccessBreadcrumbs (req, res, next) {
   if (!req.context.page) return next()
   if (!req.context.page.hidden) return next()
 
@@ -22,8 +24,13 @@ module.exports = async (req, res, next) => {
   // drop first '/'
   pathParts.shift()
 
-  // drop the version and early-accesss segments so pathParts now starts with /product
-  pathParts.shift()
+  // if this is not FPT, drop the version segment
+  // if this is FPT, there is no version segment
+  if (req.context.currentVersion !== nonEnterpriseDefaultVersion) {
+    pathParts.shift()
+  }
+
+  // drop the early-accesss segments so pathParts now starts with /product
   pathParts.shift()
 
   // Early Access products do not require an index.md, so look for a matching public product
@@ -40,7 +47,7 @@ module.exports = async (req, res, next) => {
 
   // get Early Access category path
   // e.g., `enforcing-best-practices-with-github-policies` in /free-pro-team@latest/early-access/github/enforcing-best-practices-with-github-policies
-  const categoryPath = path.posix.join('/', 'en', req.context.currentVersion, 'early-access', pathParts[0], pathParts[1])
+  const categoryPath = removeFPTFromPath(path.posix.join('/', 'en', req.context.currentVersion, 'early-access', pathParts[0], pathParts[1]))
   const category = req.context.pages[categoryPath]
 
   if (!category) return next()

@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ### Informationen zu SAML SSO
@@ -14,7 +17,7 @@ versions:
 
 Auch nachdem Du SAML SSO konfiguriert hast, werden Mitglieder Deiner {% data variables.product.prodname_dotcom %}-Organisation sich weiterhin auf {% data variables.product.prodname_dotcom %} in ihre Benutzerkonten anmelden. Wenn ein Mitglied auf Ressourcen Deiner SAML SSO einsetzenden Organisation zugreift, wird {% data variables.product.prodname_dotcom %} den Benutzer zwecks Authentifizierung zu Deinem IdP umleiten. Nach erfolgreicher Authentifizierung leitet Dein IdP den Benutzer zurück zu {% data variables.product.prodname_dotcom %}, wo er dann auf die Ressourcen Deiner Organisation zugreifen kann.
 
-Enterprise-Inhaber können SAML SSO auch für alle Organisationen in einem Enterprise-Konto erzwingen. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. Weitere Informationen findest Du unter „[SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto aktivieren](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,6 +35,8 @@ If members are signed in with a SAML SSO session when they create a new reposito
 
 Organisationsmitglieder müssen auch eine aktive SAML-Sitzung haben, um eine {% data variables.product.prodname_oauth_app %} zu autorisieren. Du kannst Dich von dieser Anforderung abmelden, indem Du {% data variables.contact.contact_support %} kontaktierst. {% data variables.product.product_name %} empfiehlt nicht, sich von dieser Anforderung abzumelden, weil dies Deine Organisation einem höheren Risiko von Kontoübernahmen und potenziellen Datenverlust aussetzt.
 
+{% data reusables.saml.saml-single-logout-not-supported %}
+
 ### Unterstützte SAML-Dienste
 
 {% data reusables.saml.saml-supported-idps %}
@@ -40,13 +45,13 @@ Einige IdPs unterstützen die Bereitstellung von Zugriffen auf eine  {% data var
 
 ### Mitglieder zu einer Organisation mit SAML SSO hinzufügen
 
-Nachdem Sie SAML SSO aktiviert haben, gibt es mehrere Möglichkeiten, wie Sie neue Mitglieder zu Ihrer Organisation hinzufügen können. Organisationsinhaber können neue Mitglieder manuell auf {% data variables.product.product_name %} oder über die API einladen. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/rest/reference/orgs#add-or-update-organization-membership)."
-
-{% data reusables.organizations.team-synchronization %}
+Nachdem Sie SAML SSO aktiviert haben, gibt es mehrere Möglichkeiten, wie Sie neue Mitglieder zu Ihrer Organisation hinzufügen können. Organisationsinhaber können neue Mitglieder manuell auf {% data variables.product.product_name %} oder über das API einladen. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/rest/reference/orgs#add-or-update-organization-membership)."
 
 Um neue Benutzer ohne Einladung eines Organisationsinhabers hinzuzufügen, kannst Du die URL `https://github.com/orgs/ORGANIZATION/sso/sign_up` verwenden und _ORGANIZATION_ durch den Namen Deiner Organisation ersetzen. Du kannst beispielsweise Deinen IdP so konfigurieren, dass jeder, der Zugriff auf den IdP hat, auf einen Link im Dashboard des IdP klicken kann, um Deiner {% data variables.product.prodname_dotcom %}-Organisation beizutreten.
 
 Wenn Dein IdP SCIM unterstützt, kann {% data variables.product.prodname_dotcom %} automatisch Mitglieder einladen, Deiner Organisation beizutreten, wenn Du den Zugriff auf Deine IdP erlaubst. Wenn Du den Zugriff eines Mitglieds auf Deine {% data variables.product.prodname_dotcom %}-Organisation auf Deinem SAML IdP entfernst, wird das Mitglied automatisch aus der {% data variables.product.prodname_dotcom %}-Organisation entfernt. Weitere Informationen findest Du unter „[Über SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

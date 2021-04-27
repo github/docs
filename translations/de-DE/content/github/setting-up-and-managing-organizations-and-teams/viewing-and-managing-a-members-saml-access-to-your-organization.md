@@ -8,6 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 ### Über SAML Zugriff auf Deine Organisation
@@ -19,6 +22,8 @@ Du kannst die verknüpfte Identität, die aktiven Sitzungen und die autorisierte
 ### Eine verknüpfte Identität anschauen und widerrufen
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

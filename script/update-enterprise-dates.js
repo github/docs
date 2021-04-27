@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { getContents } = require('../lib/git-utils')
+const { getContents } = require('./helpers/git-utils')
 const fs = require('fs')
 const path = require('path')
-const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
+const enterpriseDatesFile = path.join(__dirname, '../../lib/enterprise-dates.json')
 const enterpriseDatesString = fs.readFileSync(enterpriseDatesFile, 'utf8')
 
 // [start-readme]

@@ -1,21 +1,21 @@
 ---
-title: Discussions guides
+title: ディスカッションガイド
 shortTitle: ガイド
-intro: 'Discover pathways to get started or learn best practices for participating or monitoring your community''s discussions.'
+intro: 'コミュニティのディスカッションに参加したりモニタリングしたりするための最初のステップやベストプラクティスを学びましょう。'
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Getting started with discussions
+### ディスカッションを使ってみる
 
 {% link_in_list /about-discussions %}
 {% link_in_list /best-practices-for-community-conversations-on-github %}
 {% link_in_list /finding-discussions-across-multiple-repositories %} <!--
 {% link_in_list /managing-notifications-for-discussions %} -->
 
-### Administering discussions
+### ディスカッションを管理する
 
 {% link_in_list /granting-higher-permissions-to-top-contributors %}
 

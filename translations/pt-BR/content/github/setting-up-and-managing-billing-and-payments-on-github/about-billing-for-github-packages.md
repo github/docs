@@ -4,15 +4,19 @@ intro: 'Se você quiser usar {% data variables.product.prodname_registry %} alé
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - cobrança
 ---
 
 ### Sobre a cobrança do {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
-{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.package_registry.packages-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
+
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
 
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
@@ -54,6 +58,6 @@ Se uso de {% data variables.product.prodname_registry %} compartilha a data de c
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
+Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)".
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

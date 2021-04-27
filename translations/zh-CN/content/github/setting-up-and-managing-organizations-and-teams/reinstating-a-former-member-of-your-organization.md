@@ -1,18 +1,21 @@
 ---
 title: 恢复组织的前成员
-intro: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
+intro: '组织所有者可以{% if currentVersion == "free-pro-team@latest" %}邀请前组织成员重新加入{% else %}将前成员添加到{% endif%}您的组织，并可选择是否恢复该人员以前的角色、访问权限、复刻和设置。'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Organization owners can reinstate a former member of an organization.'
+permissions: 组织所有者可以恢复组织的前成员。
+topics:
+  - 组织
+  - 团队
 ---
 
-### About member reinstatement
+### 关于成员恢复
 
-If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion =="free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+如果您[从组织中删除用户](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} 或{% else %}、{% endif %}[将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %} 或者由于您[要求成员和外部协作者启用双重身份验证 (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %} 而从组织中删除用户，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion =="free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

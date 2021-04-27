@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### SAML SSO について
@@ -14,7 +17,7 @@ versions:
 
 SAML SSO を設定すると、{% data variables.product.prodname_dotcom %} Organization のメンバーは {% data variables.product.prodname_dotcom %} 上の各自のユーザアカウントに引き続きログインできるようになります。 SAML SSO を使用する Organization 内のリソースにメンバーがアクセスすると、{% data variables.product.prodname_dotcom %} は認証のためにメンバーを IdP にリダイレクトします。 認証に成功すると、IdP はメンバーを {% data variables.product.prodname_dotcom %} にリダイレクトして戻し、そこでメンバーは Organization のリソースにアクセスできます。
 
-Enterprise のオーナーは、Enterprise アカウントのすべての Organization について SAML SSO を施行できます。 詳細は「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」を参照してください。
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. 詳しい情報については、「[Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」参照してください。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,6 +35,8 @@ Organization で SAML SSO を有効化する前に、IdP を Organization に接
 
 {% data variables.product.prodname_oauth_app %}を認可するために、Organization メンバーにはアクティブな SAML セッションが必要です。 {% data variables.contact.contact_support %} に連絡すれば、この要件をオプトアウトできます。 ただし、この要件をオプトアウトすることを {% data variables.product.product_name %} はお勧めしません。Organization でアカウント乗っ取りやデータ漏えいのリスクが高くなるからです。
 
+{% data reusables.saml.saml-single-logout-not-supported %}
+
 ### サポートされているSAMLサービス
 
 {% data reusables.saml.saml-supported-idps %}
@@ -42,11 +47,11 @@ Organization で SAML SSO を有効化する前に、IdP を Organization に接
 
 SAML SSO を有効化後、Organization に新しいメンバーを追加する方法はいくつかあります。 Organization のオーナーは、{% data variables.product.product_name %} で手作業または API を使って、新しいメンバーを招待できます。 詳細は {} の「[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)」および「[メンバー](/rest/reference/orgs#add-or-update-organization-membership)」を参照してください。
 
-{% data reusables.organizations.team-synchronization %}
-
 新しいユーザを、Organization のオーナーから招待せずにプロビジョニングするには、`https://github.com/orgs/ORGANIZATION/sso/sign_up` の URL の _ORGANIZATION_ をあなたの Organization 名に置き換えてアクセスします。 たとえば、あなたの IdP にアクセスできる人なら誰でも、IdP のダッシュボードにあるリンクをクリックして、あなたの {% data variables.product.prodname_dotcom %} Organization に参加できるよう、IdP を設定できます。
 
 IdP が SCIM をサポートしている場合、{% data variables.product.prodname_dotcom %} は、IdP でアクセス権限が付与されたとき Organization に参加するよう自動的にメンバーを招待できます。 SAML IdP での メンバーの {% data variables.product.prodname_dotcom %} Organization へのアクセス権限を削除すると、そのメンバーは {% data variables.product.prodname_dotcom %} Organization から自動的に削除されます。 詳しい情報については「[SCIMについて](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

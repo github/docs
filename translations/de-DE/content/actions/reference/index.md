@@ -6,10 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Syntax für Workflows
 
@@ -27,17 +29,24 @@ You can configure workflows to run when specific GitHub events occur, at a sched
 
 ### Authentication and secrets
 
-{% data variables.product.prodname_dotcom %} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {% data variables.product.prodname_actions %} authentifizieren kannst. You can also store sensitive information as a secret in your organization or repository. {% data variables.product.prodname_dotcom %} encrypts all secrets.
+{% data variables.product.prodname_dotcom %} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {% data variables.product.prodname_actions %} authentifizieren kannst. You can also store sensitive information as a secret in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repository, or environments{% else %} or repository{% endif %}. {% data variables.product.prodname_dotcom %} encrypts all secrets.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
 
-### {% data variables.product.prodname_dotcom %}-gehostete Runner
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+### Environments
 
-GitHub offers hosted virtual machines to run workflows. The virtual machine contains an environment with tools, packages, and environment variables for GitHub Actions to use.
+Workflow jobs can reference environments that have protection rules or environment-specific secrets.
+
+{% link_in_list /environments %}
+{% endif %}
+
+### Umgebungsvariablen
+
+{% data variables.product.prodname_dotcom %} setzt Standard-Umgebungsvariablen für jeden {% data variables.product.prodname_actions %}-Workflow-Lauf. Du kannst auch benutzerdefinierte Umgebungsvariablen in Deiner Workflow-Datei festlegen.
 
 {% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Administration

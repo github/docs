@@ -1,0 +1,1 @@
+Si las confirmaciones que haces en {% data variables.product.prodname_desktop %} se asocian con la cuenta incorrecta de {% data variables.product.product_name %}, actualiza la dirección de correo electrónico en tu configuración de Git utilizando {% data variables.product.prodname_desktop %}.

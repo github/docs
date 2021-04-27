@@ -1,42 +1,42 @@
 ---
-title: Integrate GitHub Classroom with an online IDE
-shortTitle: Integrate with an online IDE
-intro: You can preconfigure a supported online integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.
+title: Integrar GitHub Classroom com um IDE on-line
+shortTitle: Integrar com um IDE on-line
+intro: Você pode pré-configurar um ambiente de desenvolvimento integrado on-line (IDDE) compatível com recomendações que você cria em {% data variables.product.prodname_classroom %}.
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
 ---
 
-### About integration with an online IDE
+### Sobre a integração com um IDE on-line
 
 {% data reusables.classroom.about-online-ides %}
 
-After a student accepts an assignment with an online IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+Depois que um aluno aceitar uma atividade com um IDE on-line, o arquivo README no repositório de atividades do aluno conterá um botão para abrir a atividade no IDE. O aluno pode começar a trabalhar imediatamente, e nenhuma configuração adicional será necessária.
 
-![Button for online IDE in README.md for assignment repository](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
+![Botão para IDE on-line no README.md para repositório de atividade](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
 
-### Supported online IDEs
+### IDEs on-line compatíveis
 
-{% data variables.product.prodname_classroom %} supports the following online IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %} é compatível com os seguintes IDEs on-line. Você pode aprender mais sobre a experiência do aluno para cada IDE.
 
-| IDE                       | Mais informações                                                                                                                                                                           |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Repl.it                   | "[About using Repl.it with GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)"                                                 |
+| IDE                       | Mais informações                                                                                                                                                                             |
+|:------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microsoft MakeCode Arcade | "[Sobre o uso do Arcade MakeCode com {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
+| Repl.it                   | "[Sobre o uso do Repl.it com GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)"                                                 |
 
-### Configuring an online IDE for an assignment
+### Configurar um IDE on-line para uma atividade
 
-You can choose the online IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an online IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+Você poderá escolher o IDE on-line que gostaria de usar para uma atividade ao criar uma atividade. Para aprender a criar uma nova atividade que utiliza um ID on-line, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" ou "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
-### Authorizing the OAuth app for an online IDE
+### Autorizar o aplicativo OAuth para um IDE on-line
 
-The first time you configure an assignment with an online IDE, you must authorize the OAuth app for the online IDE for your organization.
+A primeira vez que você configurar uma tarefa com um ID on-line, você deverá autorizar o aplicativo OAuth para o IDE on-line para sua organização.
 
-!["Go grant access" button in popover for authorizing OAuth app for online IDE](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
+![Botão "Conceder acesso" no popover para autorizar o aplicativo OAuth para IDE on-line](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
+Para todos os repositórios, conceda acesso de **leitura** do aplicativo aos metadados, administração, código e acesso de **gravação** à administração e código. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 
 ### Leia mais
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.profile.access_profile %}

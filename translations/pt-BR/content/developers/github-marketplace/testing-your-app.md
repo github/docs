@@ -7,13 +7,15 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
 versions:
   free-pro-team: '*'
+topics:
+  - marketplace
 ---
 
 
 
 ### Testar aplicativos
 
-Você pode usar um rascunho de anúncio de {% data variables.product.prodname_marketplace %} para simular cada um dos fluxos de cobrança. Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {% data variables.product.prodname_marketplace %} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+Você pode usar um rascunho de anúncio de {% data variables.product.prodname_marketplace %} para simular cada um dos fluxos de cobrança. Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {% data variables.product.prodname_marketplace %} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito. Para mais informações, consulte "[Elaborar um anúncio para o seu aplicativo](/developers/github-marketplace/drafting-a-listing-for-your-app)" e "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 #### Usar um aplicativo de desenvolvimento com uma listagem de rascunho para testar alterações
 

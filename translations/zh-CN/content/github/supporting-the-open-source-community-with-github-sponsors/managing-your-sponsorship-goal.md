@@ -1,17 +1,25 @@
 ---
 title: 管理您的赞助目标
-intro: You can set a goal for your sponsored developer or sponsored organization account to help the community understand the impact of sponsoring you.
+intro: 您可以为被赞助开发者或被赞助组织帐户设置目标，以帮助社区了解赞助您的影响。
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于赞助目标
 
-You can set a funding goal for your sponsored account and share the goal with your community. 目标可帮助您了解您在开源社区中的影响，并扩大您在 {% data variables.product.prodname_sponsors %} 计划中的影响力。
+您可以为被赞助帐户设置一个融资目标，并与您的社区共享该目标。 目标可帮助您了解您在开源社区中的影响，并扩大您在 {% data variables.product.prodname_sponsors %} 计划中的影响力。
 
 您的目标可设为您想要的赞助者数量或您希望每月赚取的金额。 每次只能设置一个目标。 一个目标达成后，可以设置另一个目标。
 
-### Setting a goal
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
+### 设置目标
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-your-goals-tab %}

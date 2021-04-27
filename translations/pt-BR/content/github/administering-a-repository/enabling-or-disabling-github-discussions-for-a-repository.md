@@ -1,20 +1,22 @@
 ---
-title: Enabling or disabling GitHub Discussions for a repository
-intro: 'You can use discussions in a repository as a place for your community to have conversations, ask questions, and post answers without scoping work in an issue.'
+title: Habilitar ou desabilitar discussões no GitHub para um repositório
+intro: 'Você pode usar discussões em um repositório como um lugar para sua comunidade ter conversas, fazer perguntas e postar respostas sem definir o escopo de trabalho em um problema.'
 product: '{% data reusables.gated-features.discussions %}'
-permissions: People with admin permissions to a repository can enable discussions for the repository.
+permissions: As pessoas com permissões de administrador em um repositório podem habilitar discussões no repositório.
 versions:
   free-pro-team: '*'
+topics:
+  - repositories
 ---
 
 {% data reusables.discussions.beta %}
 
-### Enabling or disabling discussions for your repository
+### Habilitar ou desabilitar discussões para o seu repositório
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
-1. To disable discussions, under "Features", unselect **Discussions**.
+1. Para desabilitar as discussões, em "Recursos", desmarque **Discussões**.
 
 ### Leia mais
 
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[Gerenciar discussões para a sua comunidade](/discussions/managing-discussions-for-your-community)"

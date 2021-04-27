@@ -6,16 +6,18 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于赞助者个人资料
 
-您的 {% data variables.product.prodname_sponsors %} 个人资料会告诉潜在的赞助者，他们为什么应该支持您。 People see your sponsor profile when they click the **Sponsor** button on your profile. 我们建议个人资料中包括以下信息。
+您的 {% data variables.product.prodname_sponsors %} 个人资料会告诉潜在的赞助者，他们为什么应该支持您。 用户单击您个人资料上的 **Sponsor（赞助）** 按钮，就会看到您的赞助个人资料。 我们建议个人资料中包括以下信息。
 
-- Open source work that you contribute to
-- Why you are committed to open source development
+- 您参与的开源工作
+- 您为什么致力于开源开发
 
-### Editing your profile details
+### 编辑您的个人资料详细信息
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

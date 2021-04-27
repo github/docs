@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - repositories
 ---
 
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
@@ -19,11 +21,11 @@ versions:
 
 コードオーナーは、他者が所有するコードを変更するプルリクエストをオープンすると、自動的にレビューをリクエストされます。 コードオーナーはドラフトのプルリクエストのレビューを自動的にリクエストされません。 ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests)」を参照してください。 コードオーナーはドラフトのプルリクエストのレビューを自動的にリクエストされません。 プルリクエストをドラフトに変換する場合、通知を既にサブスクライブしているユーザは自動的にサブスクライブ解除されません。 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request)」を参照してください。
 
-管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については、「[プルリクエストの必須レビューを有効にする](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)」を参照してください。
+管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 リポジトリでは、ファイルを参照して
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 

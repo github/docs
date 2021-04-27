@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -22,15 +24,13 @@ versions:
 
 When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "enterprise-server@2.22" %}
 
 Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
 {% endif %}
 
 ### Authenticating to {% data variables.product.prodname_registry %}
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -50,15 +50,28 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% endraw %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+If your instance has subdomain isolation enabled:
+{% endif %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
 ```
 {% endraw %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+If your instance has subdomain isolation disabled:
+
+{% raw %}
+ ```shell
+ $ cat <em>~/TOKEN.txt</em> | docker login <em>HOSTNAME</em> -u <em>USERNAME</em> --password-stdin
+```
+{% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+{% endif %}
+
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
@@ -88,26 +101,44 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation enabled:
+  {% endif %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation disabled:
+  ```shell
+  $ docker tag <em>IMAGE_ID</em> <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
 3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation enabled:
+  {% endif %}
   ```shell
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation disabled:
+  ```shell
+  $ docker build -t <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
+  ```
+  {% endif %}
   {% endif %}
 4. Publish the image to
 {% data variables.product.prodname_registry %}.
@@ -116,9 +147,18 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation enabled:
+  {% endif %}
   ```shell
   $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
+  {% if currentVersion ver_gt "enterprise-server@2.22" %}
+  If your instance has subdomain isolation disabled:
+  ```shell
+  $ docker push <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  ```
+  {% endif %}
   {% endif %}
   {% note %}
 
@@ -128,7 +168,9 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
 #### Example publishing a Docker image
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+These examples assume your instance has subdomain isolation enabled.
+{% endif %}
 
 You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
@@ -190,16 +232,26 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
 {% else %}
+<!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+If your instance has subdomain isolation enabled:
+{% endif %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+If your instance has subdomain isolation disabled:
+```shell
+$ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+```
+{% endif %}
 {% endif %}
 
 {% note %}
@@ -210,4 +262,4 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 ### 더 읽을거리
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
