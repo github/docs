@@ -1,7 +1,7 @@
 const express = require('express')
 const { omit } = require('lodash')
 const Ajv = require('ajv')
-const schema = require('../lib/schemas/events-schema')
+const schema = require('../lib/schema-event')
 
 const OMIT_FIELDS = ['type', 'token']
 
