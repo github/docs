@@ -229,7 +229,7 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *Hunter* with the name of the user or organization account that owns the repository, *CHETAKX* with the name of the repository containing your project, *ChetakX* with name of the package or image,{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} *Abhinav* with the host name of {% data variables.product.product_location %}, {% endif %} .
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
