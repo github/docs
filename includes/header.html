@@ -70,7 +70,7 @@
                       {% unless languages[languageVariant.code].wip %}
                         <a
                           href="{{ languageVariant.href }}"
-                          class="d-block py-2 no-underline {% if currentPath == languageVariant.href %}active Link--secondary{% else %}Link--primary{% endif %}"
+                          class="d-block py-2 no-underline {% if currentPath == languageVariant.href %}active {% else %}Link--primary{% endif %}"
                           style="white-space: nowrap"
                         >
                           {% if languages[languageVariant.code].nativeName %}
