@@ -1,6 +1,6 @@
 const revalidator = require('revalidator')
 const { productMap } = require('../../lib/all-products')
-const schema = require('../../lib/schemas/products-schema')
+const schema = require('../helpers/schemas/products-schema')
 const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
