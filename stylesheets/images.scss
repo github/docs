@@ -2,6 +2,8 @@
   display: block;
   padding: 10px 0;
   margin: 20px auto 0 auto;
+  border: none;
+  max-width: calc(100% - 32px);
 }
 
 .procedural-image-wrapper img {
@@ -10,6 +12,7 @@
   width: auto;
   height: auto;
   max-height: 500px;
+  padding: 0;
 }
 
 // make sure images that contain emoji render at the expected size
@@ -20,21 +23,6 @@ img[src*="https://github.githubassets.com/images/icons/emoji"] {
 }
 
 .markdown-body img {
-  max-height: 600px;
-  padding: 0;
-}
-
-.markdown-body button.btn-toggle-image {
-  border: none;
-  margin-top: 20px;
-  padding: 10px 0;
-  max-width: calc(100% - 32px);
-  background-color: transparent;
-  display: block;
-}
-
-.markdown-body button.btn-toggle-image img {
-  padding: 0;
   max-height: 500px;
-  border: 2px solid var(--color-auto-gray-2);
+  padding: 0;
 }

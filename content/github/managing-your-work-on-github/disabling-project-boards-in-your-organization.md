@@ -18,7 +18,7 @@ When you disable project boards, you will no longer see project board informatio
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
     - To disable organization-wide project boards, unselect **Enable projects for the organization**.
     - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.

@@ -8,9 +8,7 @@ const hideImagesByDefault = false
 const placeholderImagePath = '/assets/images/octicons/image.svg'
 
 /*
- * This module does two main things:
- * 1. Wraps every image in a button so they can be toggled individually.
- * 2. Adds a new icon button in the margin to toggle all images on the page.
+ * This module adds a new icon button in the margin to toggle all images on the page.
  * It uses cookies to keep track of a user's selected image preference.
  */
 export default function () {
@@ -29,56 +27,10 @@ export default function () {
   // Look for a cookie with image visibility preference; otherwise, use the default.
   const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
 
-  /*
-   *  1. INDIVIDUAL IMAGE HANDLING
-   */
-
-  // Get the aria-labels from the span elements containing the hide/show tooltips for single images.
-  // (We do it this way instead of hardcoding text in JS for localization friendliness.)
-  const tooltipHideSingle = document.getElementById('js-hide-single-image').getAttribute('aria-label')
-  const tooltipShowSingle = document.getElementById('js-show-single-image').getAttribute('aria-label')
-
-  // For every image...
-  for (const img of images) {
-    const parentSpan = img.parentNode
-    // Create a button and add some attributes.
-    const parentButton = document.createElement('button')
-    parentButton.classList.add('tooltipped', 'tooltipped-nw', 'tooltipped-no-delay', 'btn-toggle-image')
-    // Wrap the image in the button.
-    parentButton.appendChild(img)
-    // Replace the image's parent span with the new button.
-    // This mostly applies to images in ordered lists nested in spans (via lib/render-content/create-processor.js).
-    // It will have no effect with images that are not in ordered lists.
-    parentSpan.parentNode.replaceChild(parentButton, parentSpan)
-
-    // Set the relevant tooltip text, and hide the image if that is the preference.
-    if (hideImagesPreferred) {
-      parentButton.setAttribute('aria-label', tooltipShowSingle)
-      toggleImage(img, 'hide', tooltipShowSingle)
-    } else {
-      parentButton.setAttribute('aria-label', tooltipHideSingle)
-    }
-
-    // On any individual image button click...
-    parentButton.addEventListener('click', (e) => {
-      // Determine current state.
-      const hideOnNextClick = parentButton.getAttribute('aria-label') === tooltipShowSingle
-
-      // Hide or show the image!
-      if (hideOnNextClick) {
-        toggleImage(img, 'show', tooltipHideSingle)
-      } else {
-        toggleImage(img, 'hide', tooltipShowSingle)
-      }
-
-      // Remove focus from the button after click so the tooltip does not stay displayed.
-      parentButton.blur()
-    })
+  // Hide the images if that is the preference.
+  if (hideImagesPreferred) {
+    toggleImages(images, 'hide')
   }
-
-  /*
-   *  2. PAGE-WIDE TOGGLE BUTTON HANDLING
-   */
 
   // Get the span elements containing the off and on icons.
   const offIcon = document.getElementById('js-off-icon')
@@ -107,13 +59,13 @@ export default function () {
       offIcon.removeAttribute('hidden')
       onIcon.setAttribute('hidden', true)
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
-      toggleImages(images, 'hide', tooltipShowSingle)
+      toggleImages(images, 'hide')
     } else {
       // Button should say "Images are on" on another click
       offIcon.setAttribute('hidden', true)
       onIcon.removeAttribute('hidden')
       toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
-      toggleImages(images, 'show', tooltipHideSingle)
+      toggleImages(images, 'show')
     }
 
     // Remove focus from the button after click so the tooltip does not stay displayed.
@@ -130,30 +82,28 @@ export default function () {
   })
 }
 
-function toggleImages (images, action, tooltipText) {
+function toggleImages (images, action) {
   for (const img of images) {
-    toggleImage(img, action, tooltipText)
+    toggleImage(img, action)
   }
 }
 
-function toggleImage (img, action, tooltipText) {
-  const parentButton = img.parentNode
+function toggleImage (img, action) {
+  const parentEl = img.parentNode
 
-  // Style the parent button and image depending on the state.
+  // Style the parent element and image depending on the state.
   if (action === 'show') {
     img.src = img.getAttribute('originalSrc')
     img.style.border = '2px solid var(--color-auto-gray-2)'
-    parentButton.setAttribute('aria-label', tooltipText)
-    parentButton.style.display = 'block'
-    parentButton.style['margin-top'] = '20px'
-    parentButton.style.padding = '10px 0'
+    parentEl.style.display = 'block'
+    parentEl.style['margin-top'] = '20px'
+    parentEl.style.padding = '10px 0'
   } else {
     if (!img.getAttribute('originalSrc')) img.setAttribute('originalSrc', img.src)
     img.src = placeholderImagePath
     img.style.border = 'none'
-    parentButton.setAttribute('aria-label', tooltipText)
-    parentButton.style.display = 'inline'
-    parentButton.style['margin-top'] = '0'
-    parentButton.style.padding = '1px 6px'
+    parentEl.style.display = 'inline'
+    parentEl.style['margin-top'] = '0'
+    parentEl.style.padding = '1px 6px'
   }
 }
