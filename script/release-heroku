@@ -24,8 +24,8 @@ if [[ "$EXIT_STATUS" -ne "0" ]]; then
     echo "Exiting..."
     exit 0
   fi
+else
+  # Execute the release script and exit with its status
+  node script/purge-redis-pages.js
+  exit $?
 fi
-
-# Execute the release script and exit with its status
-node script/purge-redis-pages.js
-exit $?
