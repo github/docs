@@ -4,7 +4,7 @@ sections:
     - Packages have been updated to the latest security versions.
   bugs:
     - During upgrades, the process would pause indefinitely after `cleanup nomad job`.
-    - Failing `ghe-cluster-failover` with the error message `Trilogy::Error: trilogy_connect`.
+    - 'Failing `ghe-cluster-failover` with the error message `Trilogy::Error: trilogy_connect`.'
     - '`ghe-cluster-status-mysql` showed warnings about failovers as errors.'
     - Setup script running on MySQL replication may have caused unnecessary database reseeding during database failover.
     - '`config-apply` could take longer than necessary due to `rake db:migrate` being called unnecessarily.'
