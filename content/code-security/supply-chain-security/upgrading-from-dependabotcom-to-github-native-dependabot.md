@@ -38,9 +38,8 @@ For more information about version updates with {% data variables.product.prodna
 
 Upgrading from Dependabot Preview to {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %} requires you to merge the *Upgrade to GitHub-native Dependabot* pull request in your repository. This pull request includes the updated configuration file needed for {% data variables.product.prodname_dotcom %}-native {% data variables.product.prodname_dependabot %}.
 
-If you are using private repositories, you will have to grant Dependabot access to these repositories in your organization's "Settings" > "Security & analysis" > "Grant Dependabot access to private repositories." Previously, Dependabot had access to all repositories within an organization, but this change was implemented as it is much safer by default, since Dependabot has least privilege.
+If you are using private repositories, you will have to grant Dependabot access to these repositories in your organization's security and analysis settings. For more information, see "[Allowing Dependabot to access private dependencies](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)". Previously, Dependabot had access to all repositories within an organization, but we implemented this change because it is much safer to use the principle of least privilege for Dependabot.
 
 If you are using private registries, you will have to add your existing Dependabot Preview secrets to your repository's or organization's *Dependabot secrets*.
 
 If you have any questions or need help migrating, you can view or open issues in the [dependabot/dependabot-core](https://github.com/dependabot/dependabot-core/issues) repository.
-
