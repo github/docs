@@ -14,6 +14,8 @@ const ghesReleaseNotesSchema = require('../helpers/schemas/release-notes-schema'
 const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
 const renderContent = require('../../lib/render-content')
 const { execSync } = require('child_process')
+const allVersions = Object.keys(require('../../lib/all-versions'))
+const enterpriseServerVersions = allVersions.filter(v => v.startsWith('enterprise-server@'))
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -723,8 +725,25 @@ describe('lint learning tracks', () => {
         expect(errors.length, errorMessage).toBe(0)
       })
 
-      it('has at least one featured track', () => {
-        expect(Object.values(dictionary).filter(entry => entry.featured_track).length).toBe(1)
+      it.only('has one and only one featured track per version', async () => {
+        const featuredTracks = {}
+        const context = { enterpriseServerVersions }
+
+        await Promise.all(allVersions.map(async (version) => {
+          const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
+            if (!entry.featured_track) return
+            context.currentVersion = version
+            return renderContent(entry.featured_track, context, { textOnly: true, encodeEntities: true })
+          })))
+            .filter(val => val === 'true')
+
+          featuredTracks[version] = featuredTracksPerVersion
+        }))
+
+        Object.entries(featuredTracks).forEach(([version, arrayOfTracks]) => {
+          const errorMessage = `Featured learning track not found for ${version} in ${yamlAbsPath}`
+          expect(arrayOfTracks.length, errorMessage).toBe(1)
+        })
       })
 
       it('contains valid liquid', () => {
