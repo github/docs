@@ -21,8 +21,8 @@ Learning track data for a product is defined in two places:
 
     For example, in `data/learning-tracks/actions.yml`, each of the items from the list in #1 is represented with additional data such as `title`, `description`, and a list of `guides` links.
 
-    One, and only one, learning track in this YAML must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. Schema validation will fail if this property is missing.
+    One, and only one, learning track in this YAML must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product sublanding page. A test will fail if this property is missing.
 
-Versioning for learning tracks happens at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `layouts/product-sublanding.html`.
+Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `layouts/product-sublanding.html`.
 
 The schema for validating the learning track YAML lives in [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).
