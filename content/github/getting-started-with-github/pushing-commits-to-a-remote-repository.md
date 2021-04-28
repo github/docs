@@ -1,3 +1,4 @@
+[How to contribute - MediaWiki.pdf](https://github.com/github/docs/files/6392709/How.to.contribute.-.MediaWiki.pdf)
 ---
 title: Pushing commits to a remote repository
 intro: Use `git push` to push commits made on your local branch to a remote repository.
