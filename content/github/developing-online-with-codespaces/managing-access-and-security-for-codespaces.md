@@ -37,11 +37,11 @@ Organization owners can manage security and access for {% data variables.product
 
 When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will have read and write permissions to all other repositories the organization owns. You can enable access and security for none of your organization's repositories, all of your organization's repositories, or specific repositories. You should only enable access and security for repositories you trust.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.click-codespaces %}
-5. To approve of the [pre-release program terms of service](/github/site-policy/github-pre-release-program) on behalf of your organization and enable {% data variables.product.prodname_codespaces %}, under "User permissions", select **Selected users**, then type the username for each person to grant access to. Repeat for all users who you want to have access to your organization's codespaces.  
+5. To approve of the [pre-release program terms of service](/github/site-policy/github-pre-release-program) on behalf of your organization and enable {% data variables.product.prodname_codespaces %}, under "User permissions", select **Selected users**, then type the username for each person to grant access to. Repeat for all users who you want to have access to your organization's codespaces.
   ![Radio button for "Selected users"](/assets/images/help/organizations/select-selected-users-radio-button.png)
 1. Under "Access and security", select the setting you want for your organization.
   ![Radio buttons to manage trusted repositories](/assets/images/help/settings/codespaces-access-and-security-radio-buttons.png)
