@@ -13,7 +13,7 @@ topics:
 See [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) for information about the latest release.
 
 {% for supportedRelease in enterpriseServerReleases.supported %}
-- [Enterprise Server {{supportedRelease}}](/enterprise-server@{{supportedRelease}})
+- [{% data variables.product.prodname_ghe_server %} {{supportedRelease}}](/enterprise-server@{{supportedRelease}})
 {% endfor %}
 
 ## Deprecated
