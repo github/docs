@@ -1,5 +1,5 @@
 ---
-title: Enterprise Server releases
+title: GitHub Enterprise Server releases
 intro: A list of the currently supported and previously deprecated Enterprise Server releases.
 allowTitleToDifferFromFilename: true
 versions:
