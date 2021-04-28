@@ -725,7 +725,7 @@ describe('lint learning tracks', () => {
         expect(errors.length, errorMessage).toBe(0)
       })
 
-      it.only('has one and only one featured track per version', async () => {
+      it('has one and only one featured track per version', async () => {
         const featuredTracks = {}
         const context = { enterpriseServerVersions }
 
@@ -733,16 +733,17 @@ describe('lint learning tracks', () => {
           const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
             if (!entry.featured_track) return
             context.currentVersion = version
-            return renderContent(entry.featured_track, context, { textOnly: true, encodeEntities: true })
+            const isFeaturedLink = typeof entry.featured_track === 'boolean' || (await renderContent(entry.featured_track, context, { textOnly: true, encodeEntities: true }) === 'true')
+            return isFeaturedLink
           })))
-            .filter(val => val === 'true')
+            .filter(Boolean)
 
-          featuredTracks[version] = featuredTracksPerVersion
+          featuredTracks[version] = featuredTracksPerVersion.length
         }))
 
-        Object.entries(featuredTracks).forEach(([version, arrayOfTracks]) => {
-          const errorMessage = `Featured learning track not found for ${version} in ${yamlAbsPath}`
-          expect(arrayOfTracks.length, errorMessage).toBe(1)
+        Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {
+          const errorMessage = `Expected one featured learning track for ${version} in ${yamlAbsPath}`
+          expect(numOfFeaturedTracks, errorMessage).toBe(1)
         })
       })
 
