@@ -129,8 +129,8 @@ footer:
       press: Press
       shop: Shop
 product_landing:
-  quick_start: Quickstart
-  reference_guides: Reference guides
+  quickstart: Quickstart
+  reference: Reference
   overview: Overview
   code_examples: Code examples
   search_code_examples: Search code examples
