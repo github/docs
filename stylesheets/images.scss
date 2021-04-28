@@ -2,6 +2,8 @@
   display: block;
   padding: 10px 0;
   margin: 20px auto 0 auto;
+  border: none;
+  max-width: calc(100% - 32px);
 }
 
 .procedural-image-wrapper img {
@@ -10,6 +12,7 @@
   width: auto;
   height: auto;
   max-height: 500px;
+  padding: 0;
 }
 
 // make sure images that contain emoji render at the expected size
@@ -19,10 +22,7 @@ img[src*="https://github.githubassets.com/images/icons/emoji"] {
   align: absmiddle;
 }
 
-.markdown-body li img {
-  max-width: calc(100% - 32px);
-}
-
 .markdown-body img {
-  max-height: 600px;
+  max-height: 500px;
+  padding: 0;
 }
