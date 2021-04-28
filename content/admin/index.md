@@ -30,3 +30,5 @@ versions:
 {% link_with_intro /enterprise-support %}
 
 {% link_with_intro /release-notes %}
+
+{% link_with_intro /all-releases %}

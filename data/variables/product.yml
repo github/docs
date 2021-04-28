@@ -119,7 +119,6 @@ prodname_security_center: 'Security Center'
 
 # Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Visual Studio Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 
 # GitHub resources: blog, jobs, Learning Lab

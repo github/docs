@@ -1,6 +1,6 @@
 const revalidator = require('revalidator')
 const languages = require('../../lib/languages')
-const schema = require('../../lib/languages-schema')
+const schema = require('../helpers/schemas/languages-schema')
 
 describe('languages module', () => {
   test('is an object with language codes as keys', () => {

@@ -35,7 +35,7 @@ For an authentication example, see "[Authenticating with the {% data variables.p
 
 #### Authenticating to package registries on {% data variables.product.prodname_dotcom %}
 
-{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. The `GITHUB_TOKEN` has `read:packages` and `write:packages` scopes to the current repository. For forks, the token also has the `read:packages` scope for the parent repository.
+{% if currentVersion == "free-pro-team@latest" %}If you want your workflow to authenticate to {% data variables.product.prodname_registry %} to access a package registry other than the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %} instead of a personal access token for authentication. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. {% else %}It has read and write permissions for packages in the repository where the workflow runs. {% endif %}For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 
@@ -87,7 +87,6 @@ You can use {% data variables.product.prodname_actions %} to automatically publi
 The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build and test your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}:
 
 - Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
-  {% raw %}
   ```yaml{:copy}
   name: Create and publish a package
   on:
@@ -114,12 +113,12 @@ The following example demonstrates how you can use {% data variables.product.pro
         matrix:
           os: [ubuntu-latest]
           node-version: [12.x, 14.x]
-      steps:
+      steps: {% raw %}
         - uses: actions/checkout@v2
         - name: Use Node.js ${{ matrix.node-version }}
           uses: actions/setup-node@v1
           with:
-            node-version: ${{ matrix.node-version }}
+            node-version: ${{ matrix.node-version }}{% endraw %}
         - uses: actions/download-artifact@main
           with:
             name: webpack artifacts
@@ -132,22 +131,24 @@ The following example demonstrates how you can use {% data variables.product.pro
             CI: true
 
     build-and-push-image:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions: 
+        contents: read
+        packages: write {% endif %}
       needs: run-npm-test
       steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build container image
         uses: docker/build-push-action@v1
-        with:
+        with: {% raw %}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-          repository: ${{ github.repository }}/octo-image
+          repository: ${{ github.repository }}/octo-image {% endraw %}
           tag_with_sha: true
-          tag_with_ref: true
+          tag_with_ref: true 
   ```
-  {% endraw %}
 
   The relevant settings are explained in the following table:
 
@@ -225,7 +226,22 @@ on:
   <td>
     This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
   </td>
-  </tr>
+  </tr> {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+  <tr>
+  <td>
+
+{% raw %}
+  ```yaml
+  permissions: 
+    contents: read
+    packages: write 
+  ```
+{% endraw %}
+  </td>
+  <td>
+    Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
+  </td>
+  </tr> {% endif %}
   <tr>
   <td>
 
@@ -351,9 +367,10 @@ tag_with_ref: true
 
 You can install packages as part of your CI flow using {% data variables.product.prodname_actions %}. For example, you could configure a workflow so that anytime a developer pushes code to a pull request, the workflow resolves dependencies by downloading and installing packages hosted by {% data variables.product.prodname_registry %}. Then, the workflow can run CI tests that require the dependencies.
 
-Installing packages hosted by the {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
+Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
+The `GITHUB_TOKEN` cannot install packages from any private repository besides the repository where the action runs.  You cannot currently use the `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.
 {% endif %}
 
 {% data reusables.package_registry.actions-configuration %}
@@ -381,7 +398,6 @@ Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, incr
 
 For example, this workflow publishes a Docker container using {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
-{% raw %}
 ```yaml{:copy}
 name: Demo Push
 
@@ -406,9 +422,12 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
+    {% raw %}steps:
       - uses: actions/checkout@v2
 
       - name: Build image
@@ -433,8 +452,7 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION{% endraw %}
 ```
-{% endraw %}
 
 {% endif %}

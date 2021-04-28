@@ -1,0 +1,13 @@
+/* Notes, tips, warning, and danger styles
+------------------------------------------------------------------------------*/
+
+.note,
+.tip,
+.warning,
+.danger {
+  // remove extra space under lists inside of notes
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}

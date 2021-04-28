@@ -10,7 +10,7 @@ const readFileAsync = require('../../lib/readfile-async')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
-const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
+const ghesReleaseNotesSchema = require('../helpers/schemas/release-notes-schema')
 const renderContent = require('../../lib/render-content')
 const { execSync } = require('child_process')
 
@@ -399,7 +399,10 @@ describe('lint markdown content', () => {
 
           // Filter out some very specific false positive matches
           const matches = initialMatches.filter(match => {
-            if (markdownRelPath === 'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md') {
+            if (
+              markdownRelPath === 'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md' ||
+              markdownRelPath === 'content/admin/all-releases.md'
+            ) {
               return false
             }
             return true
@@ -410,7 +413,16 @@ describe('lint markdown content', () => {
         })
 
         test('URLs must not contain a hard-coded domain name', async () => {
-          const matches = (content.match(domainLinkRegex) || [])
+          const initialMatches = (content.match(domainLinkRegex) || [])
+
+          // Filter out some very specific false positive matches
+          const matches = initialMatches.filter(match => {
+            if (markdownRelPath === 'content/admin/all-releases.md') {
+              return false
+            }
+            return true
+          })
+
           const errorMessage = formatLinkError(domainLinkErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
         })

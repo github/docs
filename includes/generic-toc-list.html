@@ -1,0 +1,24 @@
+{% if tocItems %}
+<ul>
+{% for tocItem in tocItems %}
+
+{% assign title = tocItem.title %}
+{% assign fullPath = tocItem.fullPath %}
+{% assign intro = tocItem.intro %}
+
+<li>{% include liquid-tags/link %}
+  {% if tocItem.childTocItems %}
+  {% unless page.relativePath == "github/index.md" %}
+  <ul>
+  {% for childItem in tocItem.childTocItems %}
+    {% assign title = childItem.title %}
+    {% assign fullPath = childItem.fullPath %}
+    <li>{% include liquid-tags/link %}</li>
+  {% endfor %}
+  </ul>
+  {% endunless %}
+  {% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endif %}

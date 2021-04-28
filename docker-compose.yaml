@@ -4,4 +4,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.openapi_decorator
-    image: 'openapi_decorator:${BUILD_SHA}'
+    image: 'openapi_decorator'

@@ -14,9 +14,8 @@ topics:
   - teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. In the left sidebar, click **Installed {% data variables.product.prodname_github_app %}s**.
   ![Installed {% data variables.product.prodname_github_app %}s tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. Next to the {% data variables.product.prodname_github_app %} you'd like to review, click **Configure**.

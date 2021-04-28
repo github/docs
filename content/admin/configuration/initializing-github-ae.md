@@ -103,11 +103,11 @@ Once this is initialized, you can reconfigure any settings after the initializat
  settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
   !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Complete your email server settings:
-  - In the **Server address** field, type the address of your SMTP server.
-  - In the **Port** field, type the port that your SMTP server uses to send email.
-  - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-  - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
-  - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
+    - In the **Server address** field, type the address of your SMTP server.
+    - In the **Port** field, type the port that your SMTP server uses to send email.
+    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
+    - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
+    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 
 4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
   !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
