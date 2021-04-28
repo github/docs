@@ -32,7 +32,9 @@ function applyTreatment (toggleButton) {
 export default function () {
   // *** Example test code ***
   const testName = 'toggle-images'
-  const xbucket = bucket(testName)
+  const xbucket = process.env.TEST_TREATMENT
+    ? 'TREATMENT'
+    : bucket(testName)
   const x = document.getElementById('js-toggle-images')
   if (!x) return
 
