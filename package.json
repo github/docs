@@ -78,7 +78,7 @@
     "rate-limit-redis": "^2.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "redis": "^3.0.2",
+    "redis": "^3.1.1",
     "redis-mock": "^0.56.3",
     "rehype-autolink-headings": "^2.0.5",
     "rehype-highlight": "^4.1.0",
