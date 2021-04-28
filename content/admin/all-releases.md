@@ -10,7 +10,7 @@ topics:
 
 ## Currently supported
 
-See [GitHub Enterprise](https://github.com/enterprise) for information about the latest release.
+See [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) for information about the latest release.
 
 {% for supportedRelease in enterpriseServerReleases.supported %}
 - [Enterprise Server {{supportedRelease}}](/enterprise-server@{{supportedRelease}})
