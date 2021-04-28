@@ -28,7 +28,7 @@ These docs remain available but are no longer maintained:
 - [Enterprise Server {{deprecatedReleaseLegacyFormat}}](/enterprise/{{deprecatedReleaseLegacyFormat}})
 {% endfor %}
 
-## Deprecated on developer.github.com
+## Deprecated developer documentation
 
 These docs remain available on the legacy [developer site](https://developer.github.com/enterprise/2.18) but are no longer maintained:
 
