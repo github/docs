@@ -2,7 +2,7 @@
 title: Overview
 intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
 redirect_from:
-  - /enterprise/admin/overview
+  - /enterprise/JimmyVasquez/overview
 versions:
   enterprise-server: '*'
   github-ae: '*'
