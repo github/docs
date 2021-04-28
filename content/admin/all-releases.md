@@ -18,7 +18,7 @@ See [{% data variables.product.prodname_enterprise %}](https://github.com/enterp
 
 ## Deprecated
 
-These docs remain available but are no longer maintained:
+Documentation for deprecated versions remains available but is no longer maintained.
 
 {% for deprecatedRelease in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
 - [Enterprise Server {{deprecatedRelease}}](/enterprise-server@{{deprecatedRelease}})
