@@ -3,18 +3,13 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
-const yaml = require('js-yaml')
 const frontmatter = require('../../lib/read-frontmatter')
 const getDocumentType = require('../../lib/get-document-type')
 const languages = require('../../lib/languages')
+const extendedMarkdownTags = Object.keys(require('../../lib/liquid-tags/extended-markdown').tags)
 
 const linkString = /{% [^}]*?link.*? (\/.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
-
-// The product order is determined by data/products.yml
-const productsFile = path.join(process.cwd(), 'data/products.yml')
-const productsYml = yaml.load(fs.readFileSync(productsFile, 'utf8'))
-const sortedProductIds = productsYml.productsInOrder.concat('early-access')
 
 // This script turns `{% link /<link> %} style content into children: [ -/<link> ] frontmatter arrays.
 //
@@ -32,6 +27,11 @@ const fullDirectoryPaths = Object.values(languages).map(langObj => path.join(pro
 const indexFiles = fullDirectoryPaths.map(fullDirectoryPath => walk(fullDirectoryPath, walkOpts)).flat()
   .filter(file => file.endsWith('index.md'))
 
+const englishHomepageData = {
+  children: '',
+  externalProducts: ''
+}
+
 indexFiles
   .forEach(indexFile => {
     const relativePath = indexFile.replace(/^.+\/content\//, '')
@@ -39,8 +39,16 @@ indexFiles
 
     const { data, content } = frontmatter(fs.readFileSync(indexFile, 'utf8'))
 
-    if (documentType === 'homepage') {
-      data.children = sortedProductIds
+    // Save the English homepage frontmatter props...
+    if (documentType === 'homepage' && !indexFile.includes('/translations/')) {
+      englishHomepageData.children = data.children
+      englishHomepageData.externalProducts = data.externalProducts
+    }
+
+    // ...and reuse them in the translated homepages, in case the translated files are out of date
+    if (documentType === 'homepage' && indexFile.includes('/translations/')) {
+      data.children = englishHomepageData.children
+      data.externalProducts = englishHomepageData.externalProducts
     }
 
     const linkItems = content.match(linksArray) || []
@@ -65,8 +73,23 @@ indexFiles
       ]
     }
 
+    // Remove the Table of Contents section and leave any body text before it.
+    let newContent = content
+      .replace(/^#*? Table of contents[\s\S]*/im, '')
+      .replace('<div hidden>', '')
+      .replace(linksArray, '')
+
+    const linesArray = newContent
+      .split('\n')
+
+    const newLinesArray = linesArray
+      .filter((line, index) => /\S/.test(line) || (extendedMarkdownTags.find(tag => (linesArray[index - 1] && linesArray[index - 1].includes(tag)) || (linesArray[index + 1] && linesArray[index + 1].includes(tag)))))
+      .filter(line => !/^<!--\s+?-->$/m.test(line))
+
+    newContent = newLinesArray.join('\n')
+
     // Index files should no longer have body content, so we write an empty string
-    fs.writeFileSync(indexFile, frontmatter.stringify('', data, { lineWidth: 10000 }))
+    fs.writeFileSync(indexFile, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
   })
 
 function getLinks (linkItemArray) {

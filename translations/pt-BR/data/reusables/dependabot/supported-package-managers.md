@@ -6,7 +6,7 @@ A tabela a seguir mostra, para cada gerenciador de pacotes:
 
 | Gerenciador de pacotes | Valor do YAML    | Versões compatíveis            | Repositórios privados | Private registries | Delegação |
 | ---------------------- | ---------------- | ------------------------------ |:---------------------:|:------------------:|:---------:|
-| bundler                | `bundler`        | v1                             |                       |       **✓**        |   **✓**   |
+| bundler                | `bundler`        | v1, v2                         |                       |       **✓**        |   **✓**   |
 | Cargo                  | `cargo`          | v1                             |         **✓**         |       **✓**        |           |
 | Composer               | `composer`       | v1, v2                         |         **✓**         |       **✓**        |           |
 | Docker                 | `docker`         | v1                             |         **✓**         |       **✓**        |           |

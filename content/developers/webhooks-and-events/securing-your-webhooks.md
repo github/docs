@@ -94,4 +94,4 @@ Your language and server implementations may differ from this example code. Howe
 
 * Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
-[secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

@@ -106,4 +106,4 @@ Os proprietários da organização e os administradores do repositório só pode
 ### Leia mais
 
 - "[Sobre proteger seu repositório](/github/administering-a-repository/about-securing-your-repository)"
-- "[Gerenciando configurações de segurança e análise para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)"
+- "[Gerenciando configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

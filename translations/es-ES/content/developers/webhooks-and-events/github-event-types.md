@@ -183,6 +183,20 @@ Este evento devuelve un objeto de `payload` vacío.
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Objeto de `payload` del evento
+
+| Clave                  | Type        | Descripción                                    |
+| ---------------------- | ----------- | ---------------------------------------------- |
+| `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`. |
+| `solicitud_extracción` | `objeto`    | The pull request the review pertains to.       |
+| `revisar`              | `objeto`    | La revisión que se afectó.                     |
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -200,10 +214,12 @@ Este evento devuelve un objeto de `payload` vacío.
 
 {% data reusables.webhooks.events_api_payload %}
 
+#### Objeto de `payload` del evento
+
 | Clave                      | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                          |
 | -------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `push_id`                  | `número`    | Identificador único para la carga.                                                                                                                                                                                                                                                                                                                                                   |
-| `size`                     | `número`    | La cantidad de confirmaciones de la carga.                                                                                                                                                                                                                                                                                                                                           |
+| `tamaño`                   | `número`    | La cantidad de confirmaciones de la carga.                                                                                                                                                                                                                                                                                                                                           |
 | `distinct_size`            | `número`    | La cantidad de confimraciones distintas para la carga.                                                                                                                                                                                                                                                                                                                               |
 | `ref`                      | `secuencia` | Toda la [`git ref`](/rest/reference/git#refs) que se cargó. Ejemplo: `refs/heads/main`.                                                                                                                                                                                                                                                                                              |
 | `encabezado`               | `secuencia` | El SHA de la confirmación más reciente en `ref` después de la carga.                                                                                                                                                                                                                                                                                                                 |

@@ -11,7 +11,11 @@ topics:
   - repositories
 ---
 
-Si permites la fusión automática de solciitudes de cambios en tu repositorio, las personas pueden configurar que solicitudes de cambio individuales en éste se fusionen automáticamente cuando todos los requisitos de fusión se cumplan. Para obtener más información, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".
+### Acerca de la fusión automática
+
+If you allow auto-merge for pull requests in your repository, people with write permissions can configure individual pull requests in the repository to merge automatically when all merge requirements are met. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+
+### Managing auto-merge
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

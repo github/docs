@@ -22,18 +22,8 @@ featuredLinks:
     - /actions/reference/environment-variables
     - /actions/reference/encrypted-secrets
 changelog:
-  - 
-    title: Ambientes, regras de proteção do ambiente e segredos de ambiente (beta)
-    date: '2020-12-15'
-    href: https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/
-  - 
-    title: Visualização do fluxo de trabalho
-    date: '2020-12-08'
-    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
-  - 
-    title: Remover comandos set-env e add-path em 16 de novembro
-    date: '2020-11-09'
-    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+  label: 'ações'
+  prefix: 'GitHub Actions:'
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/

@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - if: (github.repository == 'github/docs-internal' || github.repository == 'github/docs') && (contains(github.event.pull_request.labels.*.name, 'engineering') && contains(github.event.pull_request.labels.*.name, 'feature'))
+      - if: (github.repository == 'github/docs-internal') && contains(github.event.pull_request.labels.*.name, 'feature')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
@@ -35,11 +35,15 @@ jobs:
 
             var column_id = 13445681;
             try {
-              github.projects.createCard({
+              await github.projects.createCard({
                 column_id: column_id,
                 content_id: context.payload.pull_request.id,
                 content_type: "PullRequest"
               });
             } catch (error) {
-              console.log(error);
+              if (error.includes('Project already has the associated issue')) {
+                return
+              } else {
+                console.log(error);
+              }
             }

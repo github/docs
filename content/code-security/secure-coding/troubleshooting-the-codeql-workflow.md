@@ -13,6 +13,7 @@ versions:
 topics:
   - security
 ---
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
@@ -33,7 +34,10 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:
+    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions:
+        security-events: write
+        actions: read{% endif %}
       ...
       strategy:
         fail-fast: false

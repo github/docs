@@ -183,6 +183,20 @@ This event returns an empty `payload` object.
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Event `payload` object
+
+| 키              | 유형    | 설명                                               |
+| -------------- | ----- | ------------------------------------------------ |
+| `동작`           | `문자열` | The action that was performed. Can be `created`. |
+| `pull_request` | `개체`  | The pull request the review pertains to.         |
+| `검토`           | `개체`  | The review that was affected.                    |
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -199,6 +213,8 @@ This event returns an empty `payload` object.
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### Event `payload` object
 
 | 키                          | 유형        | 설명                                                                                                                                                                                                                                                                                                     |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
