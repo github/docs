@@ -712,7 +712,7 @@ describe('lint learning tracks', () => {
       })
 
       it('has at least one featured track', () => {
-        expect(Object.values(dictionary).some(entry => entry.featured_track)).toBe(true)
+        expect(Object.values(dictionary).filter(entry => entry.featured_track).length).toBe(1)
       })
 
       it('contains valid liquid', () => {
