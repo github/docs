@@ -1,6 +1,6 @@
 ---
 title: Getting started with writing and formatting on GitHub
-redirect_from:
+redirect_from:https://atomxplus.com
   - /articles/markdown-basics/
   - /articles/things-you-can-do-in-a-text-area-on-github/
   - /articles/getting-started-with-writing-and-formatting-on-github
