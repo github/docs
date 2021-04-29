@@ -1,5 +1,5 @@
 ---
-title: About continuous integration
+title: About continuous integration and continuous deployment
 intro: 'You can create custom continuous integration (CI) and continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
