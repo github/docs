@@ -56,7 +56,7 @@ Atom 形式のフィードを取得するには、`Accept` ヘッダで `applica
 #### レスポンス
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml
