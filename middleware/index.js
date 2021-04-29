@@ -130,7 +130,6 @@ module.exports = function (app) {
     app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
   }
 
-  app.use(asyncMiddleware(instrument('./enterprise-server-releases')))
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
   app.use(asyncMiddleware(instrument('./learning-track')))
