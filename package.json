@@ -21,7 +21,6 @@
     "@babel/runtime": "^7.11.2",
     "@graphql-inspector/core": "^2.3.0",
     "@graphql-tools/load": "^6.2.5",
-    "@octokit/rest": "^16.38.1",
     "@primer/css": "^16.2.0",
     "@primer/octicons": "^13.0.0",
     "ajv": "^6.11.0",
@@ -111,6 +110,7 @@
   "devDependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
+    "@octokit/rest": "^16.43.2",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",
     "aws-sdk": "^2.610.0",
