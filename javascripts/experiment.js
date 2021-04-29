@@ -21,23 +21,23 @@ export function sendSuccess (test) {
   })
 }
 
-function applyTreatment (toggleButton) {
+function applyTreatment () {
   // Treatment-specific options.
   const hideImagesByDefault = true
   const focusButtonByDefault = true
 
+  // Run toggleImages a second time on each page, but with treatment defaults.
   toggleImages(hideImagesByDefault, focusButtonByDefault)
 }
 
 export default function () {
-  // *** Example test code ***
   const testName = 'toggle-images'
-  const xbucket = process.env.TEST_TREATMENT
-    ? 'TREATMENT'
-    : bucket(testName)
-  const x = document.getElementById('js-toggle-images')
-  if (!x) return
+  const xbucket = bucket(testName)
 
-  x.addEventListener('click', () => { sendSuccess(testName) })
-  if (xbucket === TREATMENT) applyTreatment(x)
+  const toggleImagesBtn = document.getElementById('js-toggle-images')
+  if (!toggleImagesBtn) return
+
+  toggleImagesBtn.addEventListener('click', () => { sendSuccess(testName) })
+
+  if (xbucket === TREATMENT) applyTreatment()
 }
