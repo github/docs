@@ -1,4 +1,4 @@
----
+We---
 title: GitHub Enterprise Service Level Agreement
 hidden: true
 redirect_from:
