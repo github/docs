@@ -1,4 +1,8 @@
+// import { sendEvent } from './events'
 import Cookies from 'js-cookie'
+
+// Determines whether images are hidden or displayed on first visit.
+const hideImagesByDefault = false
 
 // Set the image placeholder icon here.
 const placeholderImagePath = '/assets/images/octicons/image.svg'
@@ -7,7 +11,7 @@ const placeholderImagePath = '/assets/images/octicons/image.svg'
  * This module adds a new icon button in the margin to toggle all images on the page.
  * It uses cookies to keep track of a user's selected image preference.
  */
-export default function (hideImagesByDefault = false, focusButtonByDefault = false) {
+export default function () {
   const toggleImagesBtn = document.getElementById('js-toggle-images')
   if (!toggleImagesBtn) return
 
@@ -21,9 +25,7 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
   toggleImagesBtn.removeAttribute('hidden')
 
   // Look for a cookie with image visibility preference; otherwise, use the default.
-  const hideImagesPreferred = Cookies.get('hideImagesPreferred') === 'false'
-    ? false
-    : Cookies.get('hideImagesPreferred') === 'true' || hideImagesByDefault
+  const hideImagesPreferred = (Cookies.get('hideImagesPreferred') === 'true') || hideImagesByDefault
 
   // Hide the images if that is the preference.
   if (hideImagesPreferred) {
@@ -40,18 +42,10 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
 
   // Set the starting state depending on user preferences.
   if (hideImagesPreferred) {
-    onIcon.setAttribute('hidden', true)
     offIcon.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
-
-    // Show the tooltip if images are hidden by default to help users see the toggle button.
-    // Downside: the button will begin with focus whenever the user goes to a new page.
-    if (focusButtonByDefault) {
-      toggleImagesBtn.focus({ preventScroll: true })
-    }
   } else {
     onIcon.removeAttribute('hidden')
-    offIcon.setAttribute('hidden', true)
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOn)
   }
 
@@ -83,6 +77,9 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
 
     // Toggle the action on every click.
     showOnNextClick = !showOnNextClick
+
+    // TODO Track image toggle events
+    // sendEvent({ type: 'imageToggle' })
   })
 }
 
