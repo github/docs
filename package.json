@@ -65,7 +65,7 @@
     "js-yaml": "^3.14.0",
     "linkinator": "^2.13.6",
     "liquidjs": "^9.22.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "lunr": "^2.3.9",
     "lunr-languages": "^1.4.0",
     "mdast-util-from-markdown": "^0.8.4",
