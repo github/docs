@@ -51,6 +51,7 @@ module.exports = [
   'Security',
   'Sponsors payments',
   'Sponsors profile',
+  'Swift',
   'Travis CI',
   'User account',
   'Webhooks',
