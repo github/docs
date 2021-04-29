@@ -1,6 +1,6 @@
 ---
 title: Leaving the GitHub Sponsors program
-intro: 'If you no longer want to be in GitHub Sponsors, you can leave the GitHub Sponsors program.'
+intro: 'If you no longer want to be in {% data variables.product.prodname_sponsors %}, you can leave the {% data variables.product.prodname_sponsors %} program.'
 versions:
   free-pro-team: '*'
 ---

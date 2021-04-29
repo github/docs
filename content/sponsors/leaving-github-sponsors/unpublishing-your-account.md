@@ -1,6 +1,6 @@
 ---
 title: Unpublishing your GitHub Sponsors account
-intro: 'You can unpublish your GitHub Sponsors profile, and publish it again without an approval.'
+intro: 'You can unpublish your {% data variables.product.prodname_sponsors %} profile, and publish it again without an approval.'
 redirect_from:
   - /articles/unpublish-your-github-sponsors-profile
   - /github/supporting-the-open-source-community-with-github-sponsors/unpublish-your-profile

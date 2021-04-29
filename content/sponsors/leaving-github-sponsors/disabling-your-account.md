@@ -1,6 +1,6 @@
 ---
 title: Disabling your GitHub Sponsors account
-intro: 'If you no longer want to be in GitHub Sponsors, you can leave the GitHub Sponsors program.'
+intro: 'If you no longer want to be in {% data variables.product.prodname_sponsors %}, you can leave the {% data variables.product.prodname_sponsors %} program.'
 redirect_from:
   - /articles/leaving-github-sponsors
   - /github/supporting-the-open-source-community-with-github-sponsors/leaving-github-sponsors
