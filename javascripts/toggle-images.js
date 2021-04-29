@@ -72,7 +72,7 @@ export default function () {
     toggleImagesBtn.blur()
 
     // Save this preference as a cookie.
-    Cookies.set('hideImagesPreferred', showOnNextClick)
+    Cookies.set('hideImagesPreferred', showOnNextClick, { sameSite: 'strict', secure: true })
 
     // Toggle the action on every click.
     showOnNextClick = !showOnNextClick
