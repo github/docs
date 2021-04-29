@@ -22,7 +22,7 @@
             <div class="py-2 py-md-0 d-md-inline-block">
               <h4 class="text-mono f5 text-normal color-text-secondary d-md-none">{% data ui.homepage.explore_by_product %}</h4>
               <details class="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
-                <summary class="nav-desktop-productDropdownButton color-text-link-mktg py-2" role="button" aria-label="Toggle products list">
+                <summary class="nav-desktop-productDropdownButton color-text-link py-2" role="button" aria-label="Toggle products list">
                   <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
                     <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
                     <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
@@ -35,7 +35,7 @@
                   {% for product in activeProducts %}
                   <a href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{{ product.href }}"
                       class="d-block py-2
-                      {% if product.id == currentProduct %}color-text-link-mktg text-underline active{% elsif product.id == currentProduct.id %}color-text-link-mktg text-underline active{% else %}Link--primary no-underline{% endif %}">
+                      {% if product.id == currentProduct %}color-text-link text-underline active{% elsif product.id == currentProduct.id %}color-text-link text-underline active{% else %}Link--primary no-underline{% endif %}">
                       {{ product.name }}
                       {% if product.external %}
                       <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
