@@ -69,7 +69,8 @@ export default function () {
     }
 
     // Remove focus from the button after click so the tooltip does not stay displayed.
-    toggleImagesBtn.blur()
+    // Use settimeout to work around Firefox-specific issue.
+    setTimeout(() => { toggleImagesBtn.blur() }, 100)
 
     // Save this preference as a cookie.
     Cookies.set('hideImagesPreferred', showOnNextClick, { sameSite: 'strict', secure: true })
