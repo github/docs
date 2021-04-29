@@ -1,4 +1,3 @@
-// import { sendEvent } from './events'
 import Cookies from 'js-cookie'
 
 // Set the image placeholder icon here.
@@ -22,7 +21,9 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
   toggleImagesBtn.removeAttribute('hidden')
 
   // Look for a cookie with image visibility preference; otherwise, use the default.
-  const hideImagesPreferred = hideImagesByDefault || (Cookies.get('hideImagesPreferred') === 'true')
+  const hideImagesPreferred = Cookies.get('hideImagesPreferred') === 'false'
+    ? false
+    : Cookies.get('hideImagesPreferred') === 'true' || hideImagesByDefault
 
   // Hide the images if that is the preference.
   if (hideImagesPreferred) {
@@ -42,6 +43,7 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
     onIcon.setAttribute('hidden', true)
     offIcon.removeAttribute('hidden')
     toggleImagesBtn.setAttribute('aria-label', tooltipImagesOff)
+
     // Show the tooltip if images are hidden by default to help users see the toggle button.
     // Downside: the button will begin with focus whenever the user goes to a new page.
     if (focusButtonByDefault) {
@@ -73,16 +75,14 @@ export default function (hideImagesByDefault = false, focusButtonByDefault = fal
     }
 
     // Remove focus from the button after click so the tooltip does not stay displayed.
-    toggleImagesBtn.blur()
+    // Use settimeout to work around Firefox-specific issue.
+    setTimeout(() => { toggleImagesBtn.blur() }, 100)
 
     // Save this preference as a cookie.
-    Cookies.set('hideImagesPreferred', showOnNextClick)
+    Cookies.set('hideImagesPreferred', showOnNextClick, { sameSite: 'strict', secure: true })
 
     // Toggle the action on every click.
     showOnNextClick = !showOnNextClick
-
-    // TODO Track image toggle events
-    // sendEvent({ type: 'imageToggle' })
   })
 }
 
