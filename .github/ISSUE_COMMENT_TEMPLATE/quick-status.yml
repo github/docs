@@ -14,6 +14,8 @@ body:
           value: 'Status: YELLOW'
         - label: "RED \U0001F534 (BLOCKED)"
           value: 'Status: RED'
+        - label: "BLACK ⚫️ (We shipped it \U0001F389)"
+          value: 'Status: BLACK'
   - type: textarea
     attributes:
       label: Update Summary

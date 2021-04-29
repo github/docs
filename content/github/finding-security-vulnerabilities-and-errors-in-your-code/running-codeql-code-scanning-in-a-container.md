@@ -8,6 +8,7 @@ versions:
 topics:
   - security
 ---
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -43,7 +44,10 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write
+      actions: read{% endif %}
 
     strategy:
       fail-fast: false
