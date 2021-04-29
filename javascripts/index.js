@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   airgapLinks()
   releaseNotes()
   initializeEvents()
-  experiment()
   helpfulness()
   toggleImages()
+  experiment()
 })
