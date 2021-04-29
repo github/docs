@@ -1,5 +1,6 @@
 import murmur from 'imurmurhash'
 import { getUserEventsId, sendEvent } from './events'
+import toggleImages from './toggle-images'
 // import h from './hyperscript'
 
 const TREATMENT = 'TREATMENT'
@@ -20,11 +21,23 @@ export function sendSuccess (test) {
   })
 }
 
+function applyTreatment () {
+  // Treatment-specific options.
+  const hideImagesByDefault = true
+  const focusButtonByDefault = true
+
+  // Run toggleImages a second time on each page, but with treatment defaults.
+  toggleImages(hideImagesByDefault, focusButtonByDefault)
+}
+
 export default function () {
-  // *** Example test code ***
-  // const testName = '$test-name$'
-  // const xbucket = bucket(testName)
-  // const x = document.querySelector(...)
-  // x.addEventListener('click', () => { sendSuccess(testName) })
-  // if (xbucket === TREATMENT) applyTreatment(x)
+  const testName = 'toggle-images'
+  const xbucket = bucket(testName)
+
+  const toggleImagesBtn = document.getElementById('js-toggle-images')
+  if (!toggleImagesBtn) return
+
+  toggleImagesBtn.addEventListener('click', () => { sendSuccess(testName) })
+
+  if (xbucket === TREATMENT) applyTreatment()
 }
