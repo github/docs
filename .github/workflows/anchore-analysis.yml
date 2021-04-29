@@ -1,0 +1,126 @@
+# This workflow checks out code, builds an image, performs a container image
+# vulnerability scan with Anchore's Grype tool, and integrates the results with GitHub Advanced Security
+# code scanning feature.  For more information on the Anchore scan action usage
+# and parameters, see https://github.com/anchore/scan-action. For more
+# information on Anchore's container image scanning tool Grype, see
+# https://github.com/anchore/grype
+name: Anchore Container Scan
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ main ]
+  schedule:
+    - cron: '19 15 * * 4'
+jobs:
+  Anchore-Build-Scan:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag localbuild/testimage:latest
+    - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
+      uses: anchore/scan-action@main
+      with:'#':##::'Run::':On::''
+#**BITORE**((c)(r)[34173]**118891::
+# Install:git-completion.bash:
+#' curl https://raw.github.com/git/git/Masterbranch/contrib/completion/git-completion.bash > ~/.git-completion.bash
+and ~/.git-prompt.sha256.ssh://
+# curl https://raw.github.com/bitore.sigs'@.git.it/man/master/contrib/completion/git-prompt.sh > ~/.git-prompt.bash
+cOnTrIbUtInG.Me.rEaDmE.mE
+Kubernetes ⇒ docker-container-BITOREE.sigs:::#test'@ci-then-deploy-heroku-::to:'::Automate:'::Fix:'::All:'::Perfect:''
+'::Automate::':All::'::Installing:'::All*logs''
+Deploy:Makefile_Launch_DependabotHerokuDependaBotRunwizardPro-to-fix-all-Perfect::Launch-Makefile_$Ruby_Gemsfile::Make:clean::Publish::Release'DOCKER.Gui:svn.png.xmlsvnmx'.jpeg.pdf.yml.json'iixixi/iixixi/ReAdMe.Me/cOnTrIbUtInGmE.mE/trunk/TREE/BITORE.sigs
+'#:'##:Start::On:: Run:build_script::/Launch::/On:: #:Request:Pull::energy''Manifest::'=>'::Magic::workflow:🔛'::#::pushs::Magic::='>TIERAFORMA'='>shapeshift::'.docX''='>.jpeg.xsvlmnx'' '#:Pushs::
+Branch️es:[trunk]'with::token_item_id':_'('(c)'(r')')')'':'_item_Name:BITORE'34173'[Volume]::464000000000.00'] ::#Build::Token::':Name:BITORE:'':"''but only for the main branch'''"'' '::#:Push: branches: - mainbranch'x pull_request: branches: - main '::#: Also trigger on page_build, as well as release created events page_build: release: types: # This configuration does not affect the page_build event above - created BITCORE':'::{WebRootUr}.net{lWebHooks}variables.product.product_name %}{% if currentVersion'}}== "free-pro-team@latest-utf8/https://www.bitcore}.net{WebRootUr,1l}'' '{UrlBaseWebHooks}'"'' '- /github/collaborating-with-issues-and-pull-requests/about-''pull-request</ActiveProfiles' ' <id'>github''34173'<repositories'> <repository'>BITORE'<'/id'>11883'<'/id> https://repo1.mavn.org/maven2 sdkmnager "platform-tools'platforms'android'-'28' true</enabled github GitHub OWNER Apache Maven Packages https://maven.pkg.github.com https://bitcoreunlimited.net/sfm/api/adk.srepositories> '<'/'{WebRootUrl'}https'//BITCORE.net</profile'>'>AchryTylerWood@Administrator'@.git.it''<'/profiles>port:8333'slack8.github 'ZachryTylerWood@Administrator'o@.git.it.gists'@iixixi/secret.gBITORE'@Gitian.sig'"BITORE.SIGS'@.git.it/secrets.GITHUB_TOKEN'@'.gists.github.git.it' '('('c')('r'))' ##:run://script:'Build::'('('c')'('r')')'itcore.net'"Runtime.J.E. sdk.s.e/api/adk/linux-X32x64'@Versioning:v'-1.3.7.9.1.rpdf.deb'Utf8'//rd.xnvlms.txt-ucode.python.js.node.yml-up:::Command::Const::Build'#:@iixixi/iixixi'##:'://Run::'#://Const::'#Automate'::':'##:::Build:''Automate:🔛
+Trigger the workflow on push or pull request,
+but only for the main branch
+push: branches: - main pull_request: branches: - main
+Also trigger on page_build, as well as release created events
+page_build: release: types: # This configuration does not affect the page_build event above - created Itld:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e. on:
+Trigger the workflow on push or pull request,
+but only for the main branch
+push: branches: - main pull_request: branches: - main
+Also trigger on page_build, as well as release created events
+page_build: release: types: # This configuration does not affect the page_build event above - created yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='₿itcoin'='['volume']'['18000000']'''#://::bundle:'with'rake.u/.gem/file/.yaml.json/gemfile''#://run:'='('('c')'('r')')'='₿itcoin'with':'python.javascript/pkg.ml/rake.i/rust.u/pomIU/package.yam'''::#:run::'Build:'script::#:pull_request::pulls_energy_manifest'@ZachryTylerWoo'@Administrator'@.git.it'@moejojoejoejoe/bitore/core/embedder/embedder'::Const:'#:request_pull::'['branches::']'['mainbranch']'@mojojojojo'#:request_push:'['branches']':'['trunk']'@iixixi/iixixi/README.me'#://Build::'{'{'['('('c')'('r')')']'}'}':':://const:'container'type'DOCKER'::build'with:'python.js'@iixixi'/'iixixi'::publish:'::release:'::Deploy:':':Launch::'::release:'::publish:'@iixixi/iixixi/README.md''#://return:'#'##://Run::'#://Const::'#://Build:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e.yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='₿itcoin'='[volume]'[34173]'11880::bundle'-'with:'python.js'#://'Return:'#'activeProfiles> github central https://repo1.maven.org/mvn1.raveRaven-clang, curl::fetch::'/a> sdkmanager "platform-tools'platforms'android'-'28' true github GitHub OWNER Apache Maven Packages https://'</maven.pkg.github.com/OWNER/REPOSITORY github '@Zak'('('c')'('r')')' '</servers'>'>##:run://script:'Build::'('('₿')'='('('c')'('r')')'='₿itcoin'://construct://₿itcoin://Build'#:@iixixi/iixixi'#:run::'#://Const::'#://Build:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e.yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='₿itcoin'='['volume']'['88888888888]'''#://::bundle:'with'rake.u/.gem/file/.yaml.json/gemfile''#://run://'('('₿')'='('('c')'('r')')'='₿itcoin'with':'python.js'#://'Return:'#'''##://Run::'Build:'script::#:pull_request::Pull'@:energy::from::bitore/'<'/cont:encodedembedder/embedder''#Push:'['branches']':'['trunk']'@iixixi/iixixi/README.me'#://Build::'{'{'['('('c')'('r')')']'}'}':':://const:'container'type'DOCKER'::build'with:'python.js'@iixixi'/'iixixi'::publish:'::release:'::Deployee:':':Launch::'::release:'::publish:'@iixixi/iixixi/README.results::'"''#://re'#'#://Run::'#:Const::'#://Build:''wallet'/config.ruby.gem.yaml.api/adk/.jdk.s.e.yml.json.png@iixixi/iixixi/READme.Md#://Build::'item's:'id':'='('('c')'('r')')'='₿itcoin'='[volume]'[18000000]'''#34173'://bundle-on:: ':Python.js'' ':: job::uses:' 'Steps'''""'''' fix::All::::Perfect:::orphan::cleaning:procsses::8333: On::#Run::#:Pushs::O 2wwa bwgsn::Trigger the workflow on push or pull request,
+but only for the [master]
+push: branches: - [master] pull_request: branches: - [mainbranch]
+Also trigger on "'page'build'"
+#create:: eventsents #build: release: types: # This configuration does not affect the page_build event above - created-to-Automate' Deploy-to-Heroku-Dependabot-RunWizardPro-test-at-ci-install-sdk.s.e.Docker.Gui:type:Repository'::type::container #:publish::Repo'-Sync::'@iixixi/repositories/workflows/contributing.Md/user/bin/bashrust/u/rake.i/pkg.yml/package.json/Rake.u/$rubyGems/rakefile/pom.UI/package.yam:Release::'::Push::Branches::['trunk']::Publish::Release:'@discussions/blog/help wanted'::#:Release::BUG'-FIX::#:Perfect::All::object::create::window-framework-pop-up-notification#! '@user-console/desktop-notificatin-window.txt-framreads::warning you have made an unknown object which is not local to our library would you like ou like to continue''v:#:result'?'' '::#:If','true,''continue'' '::#:Publish'' .'::#:Release:'' '::#:Deploy' '' '::#:Launch::'' '::#: 'Start'' '::#:Run:'' '::#::Return:Run'' '::#:Makefiles::cleanly' '::Setup: DL'' 'Automate:Installing-a-package:'sun.java.net/dl/api/adk/sdk.s.e/jdk.J.e/Runtime/WinRawr.Zip/sun.java.sdk.J.R'.exe':🔛'"'' :Make::':file::':installation::,'report:'true,'then,'process::','::download:','::install::','Deploy'-heroku'.app'-to'-'Launch::'Release'@iixixi/iixixi/ReAdMe.Md/BITORE.sigs/COnTrIbUtInG.Md'::Automate:'::Deployee:'::Automate:'::Launch:'::Automate:'::Publish:'::Automate:'::Release:''@iixixi/iixixi.README.mD ::Automate:'::Build:'('(c')'(r')')'-'BITORE'_34173:':Returns:'true''
+Request:
+#Pull:'@Zachrytylerwood'@Administrator'@.git.it.github.gists
+::pull_requests_result'?','::Energy::','"''
+branches: -
+Request:
+#Push::'::Energy::
+push_requests:
+results_return::'::Magic::'"''
+'#Push::'::Magic::'::manifest::'@[mainbranch]''
+result:
+branches:[Masterbranch]''
+push_request:' [MainBranch]''
+branches:[TrunkBase]'
+::pulls_request:''
+'::results_return':'?','''='=''::Magic::','if','true'''::Manifest:'::Magic::'@'[Branches']':'@'[trunk']<xml'0.0.1'></content:encoded></Unicorn/ubuntu-latest/UTF-8"><feed xmlsvxmn''="http://www.w3.org/7/20/2003</label>bitore.sigs</title><link rel="alternate" type="text/html" href="https://ci-bitore/mvn-repo1'-Sync'@zw</update><content></content:encoded'></entry>''
+'# Rakefile
+require 'rake'
+ROOT = File.expand_path(BITORE(__((c)(r))__).);''
+# GitHub organization'@myusername
+TASKENV = 'prod' # debug == do not commit/tag/push/etc...
+# source repository
+# destination repository
+# array of paths specific to project
+# array of submodules specific to project
+task :default => to rakefile.md
+task :list do
+  puts "Tasks:\n  #{(Rake::Task.tasks - [Rake::Task[:list]]).join("\n  ")}"
+  #type rake -T for exposed tasks and their usage
+# Script loader for rake tasks defined in ./tasks/rake/*.rake files
+Dir['tasks/rake/*.rake'].each { |r| load r }
+Using rake bump
+The grunt-bump package requires an additional configuration be added to your Gruntfile:
+  options: 
+    files: 
+      'package.json',
+      'bower.json
+    commit: true,
+    commitMessage: '%VERSION% bump', // can use %VERSION%
+    commitFiles: ['-a'], // '-a' for all files
+    createTag: false,
+    push: true,
+    pushTo: 'origin'
+Release Workflow
+Caveats before running the tasks:
+Ensure you have a clean repository state (no uncommitted changes, staged or unstaged).
+Make sure you're on the master branch.
+Rake tasks for creating a release:
+rake release:bump['versiontype'] (optional)
+Bump the project version and commit, versiontype can be one of three options; assuming the version is currently 0.0.1:
+patch would bump to 0.0.2
+minor would bump to 0.1.0
+major would bump to 1.0.0
+rake release:noffmerge
+Creates a no-fast-forward merge from master into stable of the development repository; as such, all subsequent tasks will be run against the stable branch.
+rake release:clean
+Clear any temporary files related to previous releases or release attempts.
+rake release:prepare
+Does all the heavy lifting.
+rake release:diff (optional)
+Review what's going to be added.
+rake release:add
+Add all files to the release.
+rake release:deploy['X.Y.Z','codename']
+Commit, push, tag. Optionally, this task can take an additional argument to supply metadata to the tagging mechanism. For example: rake release:deploy['X.Y.Z','codename','SHA'] would result in a tag being created according to SEMVER specifications, such as: X.Y.Z-codename+SHA
+At any time during the release process, you may check the git status of the release using rake release:status.
+Also, all of the release commands can be run in succession with a single command chain:
+rake release:bump/rust.u/rake.i::publish::release:_Automates::Automate_squash_merge::100X.thpdf.export/user/.git/bin/bash/DOCKER.Gui.sng::Ruby_Rake_Gemfile-lock.specs/.Gems::Publish_and_Deploymerge; rake release:clean; rake release:Publish_and_Deploy::Automate::Automate_squash_merge::merge:'::const:::rake/release::add*logs rake release:deploy
+'#' config.yaml/$RubyGems_Makefile/python.javascript/user/bin/bash/Rakefile.spec/rake.i/rust.u/Gemfile/jekyll-theme-slate'{UrlBase'{WebHooks'}'@bitcore.net::Build:::'::Return:'Run ''</action'script>'</build>''
+      
+        image: "localbuild/testimage:latest"
+        acs-report-enable: true
+    - name: Upload Anchore Scan Report
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: results.sarif
