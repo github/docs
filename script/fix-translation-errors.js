@@ -17,7 +17,7 @@ const fm = require('../lib/frontmatter')
 const matter = require('gray-matter')
 const chalk = require('chalk')
 const yaml = require('js-yaml')
-const ghesReleaseNotesSchema = require('../lib/release-notes-schema')
+const ghesReleaseNotesSchema = require('../tests/helpers/schemas/release-notes-schema')
 const revalidator = require('revalidator')
 
 const fixableFmProps = Object.keys(fm.schema.properties)
