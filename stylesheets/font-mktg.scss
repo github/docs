@@ -1,45 +1,4 @@
-/* Styles not incorporated into Primer yet
-------------------------------------------------------------------------------*/
-
-// Text styling
-.underline-dashed {
-  display: inline;
-  padding-bottom: $spacer-1;
-  background-image: linear-gradient(
-    to right,
-    var(--color-auto-gray-3) 50%,
-    transparent 0%
-  );
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: 10px 1px;
-}
-
-// Arrow links
-.Bump-link-symbol {
-  display: inline-block;
-  transition: $transition-time / 2;
-  transform: translateX(0);
-}
-
-.Bump-link:hover .Bump-link-symbol {
-  transform: translateX(3px);
-}
-
-.Bump-link--hover .Bump-link-symbol {
-  color: inherit;
-  opacity: 0;
-  transition: $transition-time / 2;
-  transform: translateX(0);
-}
-
-.Bump-link--hover:hover .Bump-link-symbol {
-  opacity: 1;
-  transform: translateX(3px);
-}
-
 // stylelint-disable primer/no-unused-vars
-
 // Typography
 
 $marketing-font-path: "/assets/fonts/alliance/";
