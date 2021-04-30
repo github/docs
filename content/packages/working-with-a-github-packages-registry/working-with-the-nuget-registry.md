@@ -1,5 +1,5 @@
 ---
-title: Configuring `dotnet` CLI for use with GitHub Packages
+title: Working with the NuGet registry
 intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
   - /github/managing-packages-with-github-packages/configuring-nuget-for-use-with-github-packages
   - /github/managing-packages-with-github-packages/configuring-dotnet-cli-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-dotnet-cli-for-use-with-github-packages
+  - /packages/guides/configuring-dotnet-cli-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -73,10 +74,6 @@ If your instance has subdomain isolation disabled:
 </configuration>
 ```
 {% endif %}
-
-#### Authenticating with the `GITHUB_TOKEN`
-
-{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing a package
 

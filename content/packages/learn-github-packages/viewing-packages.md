@@ -7,7 +7,8 @@ redirect_from:
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages/viewing-a-repositorys-packages
   - /github/managing-packages-with-github-packages/viewing-packages
   - /packages/publishing-and-managing-packages/viewing-packages
-permissions: Anyone with read permissions to a repository can view the repository's packages.
+  - /packages/manage-packages/viewing-packages
+permissions: You must have at least read permissions to view a package.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -19,11 +20,15 @@ versions:
 
 ### About package views
 
-Packages must be installed at the repository level, but you can view all packages in an organization and all packages you've published. {% data reusables.package_registry.package-page-info %}
+Your ability to view a package depends on several factors. By default, you can view all packages you have published. 
+
+{% data reusables.package_registry.repo-scoped-and-granular-permissions-packages %}
+
+{% data reusables.package_registry.package-page-info %}
 
 ### Viewing a repository's packages
 
-You can see all the packages in a repository and search for a specific package in the repository.
+You can find and view a package located in a particular repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -31,7 +36,7 @@ You can see all the packages in a repository and search for a specific package i
 
 ### Viewing an organization's packages
 
-You can see all the packages installed in an organization and search for a specific package installed in an organization's repositories.
+You can find and view a package located in the repositories of an organization you belong to.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -40,7 +45,7 @@ You can see all the packages installed in an organization and search for a speci
 
 ### Viewing your packages
 
-You can see all the packages you've installed and search for a specific package you've installed across all organizations and repositories.
+You can find and view any package you've published across all organizations and repositories. 
 
 {% data reusables.profile.access_profile %}
 2. On the top of the profile page, in the main navigation, click **Packages**.

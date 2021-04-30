@@ -1,12 +1,13 @@
 ---
-title: Configuring Gradle for use with GitHub Packages
-intro: 'You can configure Gradle to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: Working with the Gradle registry
+intro: 'You can configure Gradle to publish packages to the {% data variables.product.prodname_registry %} Gradle registry and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-gradle-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-gradle-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-gradle-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages
+  - /packages/guides/configuring-gradle-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -20,7 +21,7 @@ versions:
 
 ### Authenticating to {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.authenticate-packages %}
+{% data reusables.package_registry.authenticate-packages %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
 
 #### Authenticating with a personal access token
 
@@ -48,7 +49,6 @@ Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} userna
 plugins {
     id("maven-publish")
 }
-
 publishing {
     repositories {
         maven {
@@ -74,7 +74,6 @@ publishing {
 plugins {
     id("maven-publish") apply false
 }
-
 subprojects {
     apply plugin: "maven-publish"
     publishing {
@@ -103,7 +102,6 @@ subprojects {
 plugins {
     `maven-publish`
 }
-
 publishing {
     repositories {
         maven {
@@ -129,7 +127,6 @@ publishing {
 plugins {
     `maven-publish` apply false
 }
-
 subprojects {
     apply(plugin = "maven-publish")
     configure<PublishingExtension> {
@@ -152,22 +149,16 @@ subprojects {
 }
 ```
 
-  #### Authenticating with the `GITHUB_TOKEN`
+### Publishing a package
 
-  {% data reusables.package_registry.package-registry-with-github-tokens %}
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
 
-  For more information about using `GITHUB_TOKEN` with Maven, see "[Publishing Java packages with Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)."
+{% data reusables.package_registry.viewing-packages %}
 
-  ### Publishing a package
+{% data reusables.package_registry.authenticate-step %}
+2. After creating your package, you can publish the package.
 
-  {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
-
-  {% data reusables.package_registry.viewing-packages %}
-
-  {% data reusables.package_registry.authenticate-step %}
-  2. After creating your package, you can publish the package.
-
-   ```shell
+  ```shell
    $ gradle publish
   ```
 
@@ -214,5 +205,5 @@ You can install a package by adding the package as a dependency to your project.
 
 ### Further reading
 
-- "[Configuring Apache Maven for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
+- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"

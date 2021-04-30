@@ -5,7 +5,8 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/installing-a-package
   - /packages/publishing-and-managing-packages/installing-a-package
-permissions: Anyone with read permissions for a repository can install a package from that repository.
+  - /packages/manage-packages/installing-a-package
+permissions: You can install any package that you have permission to view.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -25,7 +26,7 @@ After you find a package, you can read the package's description and installatio
 
 You can install a package from {% data variables.product.prodname_registry %} using any {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
-1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[About tokens](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)."
+1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
 2. Install the package using the instructions for your package client.
 
-For instructions specific to your package client, see "[Using {% data variables.product.prodname_registry %} with your project's ecosystem](/packages/using-github-packages-with-your-projects-ecosystem)."
+For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
