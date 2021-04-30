@@ -30,11 +30,16 @@ jobs:
         run: |
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
+
+      - name: Checkout repository code
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
       - name: Run script/update-enterprise-dates.js
         run: |
           script/update-enterprise-dates.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43
@@ -50,18 +55,21 @@ jobs:
           labels: automerge,autoupdate
           branch: enterprise-server-dates-update
           delete-branch: true
+
       - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)
         uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branches: enterprise-server-dates-update
+
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
         uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
+
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: failure()
@@ -69,4 +77,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last enterprise-dates run for ${{github.repository}} failed. See https://github.com/github/${{github.repository}}/actions/workflows/enterprise-dates.yml
+          text: The last enterprise-dates run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/enterprise-dates.yml
