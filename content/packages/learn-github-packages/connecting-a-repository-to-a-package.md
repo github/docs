@@ -1,34 +1,29 @@
 ---
-title: Connecting a repository to a container image
-intro: 'You can link a repository with a container image locally and on {% data variables.product.prodname_dotcom %}.'
+title: Connecting a repository to a package
+intro: 'You can connect a repository to a container image on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from: 
+redirect_from:
   - /packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image
+  - /packages/guides/connecting-a-repository-to-a-container-image
 versions:
   free-pro-team: '*'
 ---
 
-When you link a container image with a repository, the package landing page will show information and links from the repository, such as the README.
+By connecting a repository to a package, the package landing page will show information and links from the repository, such as the README.
 
-To connect a repository and a container image on {% data variables.product.prodname_dotcom %}, they must share the same owner on {% data variables.product.prodname_dotcom %}. For example, both `my_repo` and `hello_docker` are owned by the user `monalisa`:
-```shell
-https://github.com/monalisa/my_repo
-https://github.com/monalisa/hello_docker
-```
-
-### Connecting a repository to a user-owned container image on {% data variables.product.prodname_dotcom %}
+### Connecting a repository to a user-owned package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-user-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to an organization-owned container image on {% data variables.product.prodname_dotcom %}
+### Connecting a repository to an organization-owned package on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 
 {% data reusables.package_registry.repository_connection_steps %}
 
-### Connecting a repository to a container image on the command line
+### Connecting a repository to a container image using the command line
 
 1. In your Dockerfile, add this line, replacing `OWNER` and `REPO` with your details:
 
@@ -64,14 +59,14 @@ https://github.com/monalisa/hello_docker
   $ docker tag 38f737a91f39 ghcr.io/monalisa/hello_docker:latest
   ```
 
-5. If you haven't already, authenticate to {% data variables.product.prodname_github_container_registry %}. For more information, see "[Authenticating to GitHub Container Registry](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-github-container-registry)."
+5. If you haven't already, authenticate to the {% data variables.product.prodname_capitalized_container_registry %}. For more information, see "[Authenticating to the {% data variables.product.prodname_capitalized_container_registry %}](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-the-container-registry)."
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
     > Login Succeeded
     ```
     {% endraw %}
-6. Push your container image to {% data variables.product.prodname_github_container_registry %}.
+6. Push your container image to the {% data variables.product.prodname_capitalized_container_registry %}.
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:TAG
   ```

@@ -1,5 +1,5 @@
 ---
-title: Configuring Apache Maven for use with GitHub Packages
+title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-apache-maven-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
+  - /packages/guides/configuring-apache-maven-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -122,10 +123,6 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-#### Authenticating with the `GITHUB_TOKEN`
-
-{% data reusables.package_registry.package-registry-with-github-tokens %}
-
 ### Publishing a package
 
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
@@ -189,5 +186,5 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 ### Further reading
 
-- "[Configuring Gradle for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-gradle-for-use-with-github-packages)"
+- "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
