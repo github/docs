@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - perfiles
 ---
 
 {% data reusables.profile.activity-overview-summary %} Para obtener más información, consulta "[Ver contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)."

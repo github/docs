@@ -21,6 +21,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 permissions: 拥有仓库管理员权限的人可以管理分支保护规则。
+topics:
+  - 仓库
 ---
 
 ### 关于分支保护规则

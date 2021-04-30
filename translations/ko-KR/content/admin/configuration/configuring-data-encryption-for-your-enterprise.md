@@ -18,7 +18,7 @@ To provide a high level of security, {% data variables.product.product_name %} e
 
 For encryption in transit, {% data variables.product.product_name %} uses Transport Layer Security (TLS). For encryption at rest, {% data variables.product.product_name %} provides a default RSA key. After you've initialized your enterprise, you can choose to provide your own key instead. Your key should be a 2048 bit RSA private key in PEM format.
 
-The key that you provide is stored in a hardware security module (HSM) in a key vault that {% data variables.product.company_short %} manages.
+The key that you provide is stored in a FIPS 140-2 compliant hardware security module (HSM) in a key vault that {% data variables.product.company_short %} manages.
 
 To configure your encryption key, use the REST API. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. For more information about the API endpoints, see "[Encryption at rest](/rest/reference/enterprise-admin#encryption-at-rest)" in the REST API documentation.
 

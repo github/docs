@@ -14,6 +14,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - accounts
+  - notifications
 ---
 
 ### About commit email addresses

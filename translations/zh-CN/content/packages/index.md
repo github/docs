@@ -20,18 +20,8 @@ featuredLinks:
     - /packages/guides/enabling-improved-container-support
     - /packages/guides/configuring-rubygems-for-use-with-github-packages
 changelog:
-  - 
-    title: 2021-01-09 的 ghcr.io 维护模式
-    date: '2021-01-08'
-    href: https://github.blog/changelog/2021-01-08-packages-ghcr-io-maintenance-mode-on-2021-01-09/
-  - 
-    title: ghcr.io 容器名称重定向到容器页
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-ghcr-io-container-names-redirect-to-the-container-page/
-  - 
-    title: 过滤已标记和未标记的容器
-    date: '2020-12-14'
-    href: https://github.blog/changelog/2020-12-14-packages-can-filter-for-tagged-and-untagged-containers/
+  label: '包'
+  prefix: '包:'
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
@@ -40,6 +30,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %}  -->

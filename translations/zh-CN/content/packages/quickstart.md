@@ -1,34 +1,36 @@
 ---
 title: GitHub Packages 快速入门
-intro: '使用 {% data variables.product.prodname_actions %} 在 5 分钟内发布到 {% data variables.product.prodname_registry %}。'
+intro: '通过 {% data variables.product.prodname_actions %} 发布到 {% data variables.product.prodname_registry %}。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 ### 简介
 
-您只需要一个现有的 {% data variables.product.prodname_dotcom %} 仓库将包发布到到 {% data variables.product.prodname_registry %}。 在本指南中，您将创建 {% data variables.product.prodname_actions %} 工作流程来测试代码，然后将其发布到 {% data variables.product.prodname_registry %}。 随意为此快速入门创建新仓库。 您可以使用它来测试当前和未来的 {% data variables.product.prodname_actions %} 工作流程。
+在本指南中，您将创建 {% data variables.product.prodname_actions %} 工作流程来测试代码，然后将其发布到 {% data variables.product.prodname_registry %}。
 
 ### 发布包
 
-1. 在 {% data variables.product.prodname_dotcom %} 上创建新仓库，为节点添加 `.gitignore`。 如果稍后要删除此包，请创建私有仓库，公共包无法删除。 更多信息请参阅“[创建新仓库](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)”。
+1. 在 {% data variables.product.prodname_dotcom %} 上创建新仓库，为节点添加 `.gitignore`。 {% if currentversion ver_lt "enterprise-server@3.1" %} 如果您希望以后删除这个软件包，请创建私有仓库，公共软件包不能删除。{% endif %} 更多信息请参阅“[创建新仓库](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)”。
 2. 将仓库克隆到本机。
-    {% raw %}
     ```shell
-    $ git clone https://github.com/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+    $ git clone https://{% if currentVersion == "github-ae@latest" %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
     $ cd <em>YOUR-REPOSITORY</em>
     ```
-    {% endraw %}
 3. 创建 `index.js` 文件，并添加基本警报说 "Hello world!"
     {% raw %}
     ```javascript{:copy}
     alert("Hello, World!");
     ```
     {% endraw %}
-4. 初始化 npm 包。 在包初始化向导中，输入包名称：_`@YOUR-USERNAME/YOUR-REPOSITORY`_，如果您没有任何测试，请将测试脚本设置为 `exit 0`。 提交更改并推送以
-{% data variables.product.prodname_dotcom %} 上的站点。
+4. 使用 `npm init` 初始化 npm 包。 在包初始化向导中，输入包名称：_`@YOUR-USERNAME/YOUR-REPOSITORY`_，将测试脚本设置为 `exit 0`。 这将生成一个 `package.json` 文件，其中包含关于您的包的信息。
     {% raw %}
     ```shell
     $ npm init
@@ -36,17 +38,19 @@ versions:
       package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
       ...
       test command: <em>exit 0</em>
-      ...
+      ...    
+    ```
+    {% endraw %}
 
+5. 运行 `npm install` 来生成 `package-lock.json` 文件，然后提交并将更改推送到 {% data variables.product.prodname_dotcom %}。
+    ```shell
     $ npm install
     $ git add index.js package.json package-lock.json
     $ git commit -m "initialize npm package"
     $ git push
     ```
-    {% endraw %}
-5. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflow` 目录中创建一个名为 `release-package.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
-6. 将以下 YAML 内容复制到 `release-package.yml` 文件中。
-    {% raw %}
+6. 创建 `.github/workflow` 目录。 在该目录中，创建一个名为 `release-package.yml` 的文件。
+7. 将以下 YAML 内容复制到 `release-package.yml` 文件{% if currentVersion == "github-ae@latest" %}，将 `YOUR-HOSTNAME` 替换为企业的名称{% endif %}。
     ```yaml{:copy}
     name: Node.js Package
 
@@ -73,18 +77,21 @@ versions:
           - uses: actions/setup-node@v1
             with:
               node-version: 12
-              registry-url: https://npm.pkg.github.com/
+              registry-url: {% if currentVersion == "github-ae@latest" %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:
-              NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+              NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-    {% endraw %}
-7. 滚动到页面底部，然后选择 **Create a new branch for this commit and start a pull request（为此提交创建一个新分支并开始拉取请求）**。 然后，若要创建拉取请求，请单击 **Propose new file（提议新文件）**。
-8. **合并**拉取请求。
-9. 导航到 **Code（代码）**选项卡，并创建一个新版本来测试工作流程。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)”。
+8. 提交并推送更改到 {% data variables.product.prodname_dotcom %}。
+    ```shell
+    $ git add .github/workflows/release-package.yml
+    $ git commit -m "workflow to publish package"
+    $ git push
+    ```
+9.  只要您的仓库中创建新版本，您创建的工作流程就会运行。 如果测试通过，则包将发布到 {% data variables.product.prodname_registry %}。
 
-在仓库中创建新版本将触发生成和测试代码的工作流程。 如果测试通过，则包将发布到 {% data variables.product.prodname_registry %}。
+    要测试这一点，请导航到仓库中的 **Code（代码）**选项卡，并创建新版本。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)”。
 
 ### 查看已发布的包
 

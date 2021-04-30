@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Umgebungsvariablen
 
@@ -20,6 +22,7 @@ versions:
 
 Um benutzerdefinierte Umgebungsvariablen festzulegen, musst Du die Variablen in der Workflow-Datei angeben. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. Weitere Informationen finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)“.
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -28,19 +31,20 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
 
 If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
 
-You can also use the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a workflow can use. The {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. Weitere Informationen findest Du unter „[Workflow-Befehle für {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)“.
+You can also use the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a workflow can use. The {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. Weitere Informationen findest Du unter „[Workflow-Befehle für {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)“.
 
 ### Standard-Umgebungsvariablen
 
@@ -52,6 +56,7 @@ Es wird dringend empfohlen, dass Aktionen Umgebungsvariablen verwenden, um auf d
 | `GITHUB_WORKFLOW`    | Der Name des Workflows.                                                                                                                                                                                                                                                                                                                                                                |
 | `GITHUB_RUN_ID`      | {% data reusables.github-actions.run_id_description %}
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
+| `GITHUB_JOB`         | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job.                                                                                                                                                                                                                                                                                     |
 | `GITHUB_ACTION`      | Die eindeutige Kennung (`id`) der Aktion.                                                                                                                                                                                                                                                                                                                                              |
 | `GITHUB_ACTIONS`     | Immer auf `true` gesetzt, wenn {% data variables.product.prodname_actions %} den Workflow ausführt. Du kannst diese Variable verwenden, um zu differenzieren, wann Tests lokal oder von {% data variables.product.prodname_actions %} durchgeführt werden.                                                                                                                           |
 | `GITHUB_ACTOR`       | Name der Person oder App, die den Workflow initiiert hat. Beispiel: `octocat`.                                                                                                                                                                                                                                                                                                         |

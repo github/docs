@@ -1,0 +1,49 @@
+name: Send pull_request to How We Work Boards
+
+# **What it does**: This sends pull requests with the feature label to the Docs Engineering feature board
+# **Why we have it**: If we use PRs to track features this automates them ending up on the feature board
+# **Who does it impact**: Docs Engineering team members
+
+on:
+  pull_request:
+    types:
+      - labeled
+      - opened
+      - reopened
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - if: (github.repository == 'github/docs-internal') && contains(github.event.pull_request.labels.*.name, 'batch')
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          script: |
+            // Only do this for work by the engineering folks since multiple teams do work
+            // in the docs repos
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'docs-engineering',
+                username: context.payload.sender.login,
+              });
+            } catch(err) {
+              return
+            }
+
+            var column_id = 13445681;
+            try {
+              await github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.pull_request.id,
+                content_type: "PullRequest"
+              });
+            } catch (error) {
+              if (error.includes('Project already has the associated issue')) {
+                return
+              } else {
+                console.log(error);
+              }
+            }

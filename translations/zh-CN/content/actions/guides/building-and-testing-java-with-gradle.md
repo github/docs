@@ -1,12 +1,13 @@
 ---
 title: 使用 Gradle 构建和测试 Java
-intro: 您可以在 GitHub 操作中创建持续集成 (CI) 工作流程，以使用 Gradle 构建和测试 Java 项目。
+intro: 您可以在 GitHub Actions 中创建持续集成 (CI) 工作流程，以使用 Gradle 构建和测试 Java 项目。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - CI
@@ -16,12 +17,16 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
 本指南介绍如何使用 Gradle 构建系统为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
 
+{% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}
 {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 Java Development Kits (JDKs) 和 Gradle。 有关软件以及 JDK 和 Gradle 预安装版本的列表，请参阅 [{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)。
+{% endif %}
 
 ### 基本要求
 
@@ -53,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -65,7 +71,7 @@ jobs:
 此工作流程执行以下步骤：
 
 1. `checkout` 步骤在运行器上下载仓库的副本。
-2. `setup-java` 步骤配置 Java 1.8 JDK。
+2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Gradle 构建”步骤运行 `gradlew` wrapper 脚本以确保可以创建您的代码构建、测试通过和包。
 
 在创建构建和测试工作流程时，默认工作流模板是很好的起点，然后您可以自定义模板以满足项目的需求。
@@ -86,9 +92,10 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -96,16 +103,17 @@ steps:
 
 ### 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub 操作基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
 
 {% raw %}
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -138,7 +146,11 @@ Gradle 通常会在 `build/libs` 目录中创建 JAR、EAR 或 WAR 等输出文�
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

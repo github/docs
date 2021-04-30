@@ -1,4 +1,4 @@
-const InMemoryRedis = require('ioredis-mock')
+const { RedisClient: InMemoryRedis } = require('redis-mock')
 const RedisAccessor = require('../../lib/redis-accessor')
 
 describe('RedisAccessor', () => {
@@ -11,11 +11,23 @@ describe('RedisAccessor', () => {
 
   test('has expected instance properties', async () => {
     const instance = new RedisAccessor()
-    expect(Object.keys(instance).sort()).toEqual(['_allowSetFailures', '_client', '_prefix'])
+    expect(Object.keys(instance).sort()).toEqual(['_allowGetFailures', '_allowSetFailures', '_client', '_prefix'])
   })
 
   test('has expected static methods', async () => {
     expect(typeof RedisAccessor.translateSetArguments).toBe('function')
+  })
+
+  describe('#_allowGetFailures property', () => {
+    test('defaults to false', async () => {
+      const instance = new RedisAccessor()
+      expect(instance._allowGetFailures).toBe(false)
+    })
+
+    test('is expected value', async () => {
+      const instance = new RedisAccessor({ allowGetFailures: true })
+      expect(instance._allowGetFailures).toBe(true)
+    })
   })
 
   describe('#_allowSetFailures property', () => {
@@ -56,32 +68,6 @@ describe('RedisAccessor', () => {
     test('removes multiple trailing colons', async () => {
       const instance = new RedisAccessor({ prefix: 'myPrefix::' })
       expect(instance._prefix).toBe('myPrefix:')
-    })
-  })
-
-  describe('constructor', () => {
-    test('throws if databaseNumber is provided but is not a number', async () => {
-      expect(() => new RedisAccessor({ databaseNumber: 'dbName' })).toThrowError(
-        new TypeError('Redis database number must be an integer between 0 and 15 but was: "dbName"')
-      )
-    })
-
-    test('throws if databaseNumber is provided but is not an integer', async () => {
-      expect(() => new RedisAccessor({ databaseNumber: 1.5 })).toThrowError(
-        new TypeError('Redis database number must be an integer between 0 and 15 but was: 1.5')
-      )
-    })
-
-    test('throws if databaseNumber is provided but is less than 0', async () => {
-      expect(() => new RedisAccessor({ databaseNumber: -1 })).toThrowError(
-        new TypeError('Redis database number must be an integer between 0 and 15 but was: -1')
-      )
-    })
-
-    test('throws if databaseNumber is provided but is greater than max allowed', async () => {
-      expect(() => new RedisAccessor({ databaseNumber: 16 })).toThrowError(
-        new TypeError('Redis database number must be an integer between 0 and 15 but was: 16')
-      )
     })
   })
 
@@ -203,7 +189,7 @@ describe('RedisAccessor', () => {
 
     test('resolves to false if value was not set', async () => {
       const instance = new RedisAccessor()
-      instance._client.set = jest.fn(async () => 'NOT_OK')
+      instance._client.set = jest.fn((...args) => args.pop()(null, 'NOT_OK'))
 
       expect(await instance.set('myKey', 'myValue')).toBe(false)
     })
@@ -213,7 +199,8 @@ describe('RedisAccessor', () => {
       const setSpy = jest.spyOn(instance._client, 'set')
 
       await instance.set('myKey', 'myValue')
-      expect(setSpy).toBeCalledWith('myKey', 'myValue')
+      expect(setSpy.mock.calls.length).toBe(1)
+      expect(setSpy.mock.calls[0].slice(0, 2)).toEqual(['myKey', 'myValue'])
     })
 
     test('resolves to false if Redis replies with an error and `allowSetFailures` option is set to true', async () => {
@@ -221,7 +208,7 @@ describe('RedisAccessor', () => {
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
 
       const instance = new RedisAccessor({ prefix: 'myPrefix', allowSetFailures: true })
-      instance._client.set = jest.fn(async () => { throw new Error('Redis ReplyError') })
+      instance._client.set = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
 
       const result = await instance.set('myKey', 'myValue')
 
@@ -241,7 +228,7 @@ Error: Redis ReplyError`
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
 
       const instance = new RedisAccessor({ prefix: 'myPrefix' })
-      instance._client.set = jest.fn(async () => { throw new Error('Redis ReplyError') })
+      instance._client.set = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
 
       await expect(instance.set('myKey', 'myValue')).rejects.toThrowError(
         new Error(`Failed to set value in Redis.
@@ -279,7 +266,8 @@ Error: Redis ReplyError`
 
       await instance.set('myKey', 'myValue', { expireIn: 20 })
       expect(argSpy).toBeCalled()
-      expect(setSpy).toBeCalledWith('myKey', 'myValue', 'PX', 20)
+      expect(setSpy.mock.calls.length).toBe(1)
+      expect(setSpy.mock.calls[0].slice(0, 4)).toEqual(['myKey', 'myValue', 'PX', 20])
 
       argSpy.mockRestore()
     })
@@ -304,42 +292,64 @@ Error: Redis ReplyError`
 
     test('retrieves matching entry from Redis with #_client.get', async () => {
       const instance = new RedisAccessor()
-      const getSpy = jest.spyOn(instance._client, 'get')
+      let callbackSpy
+      const originalGet = instance._client.get.bind(instance._client)
+      instance._client.get = jest.fn((...args) => {
+        const realCallback = args.pop()
+        callbackSpy = jest.fn((error, value) => {
+          realCallback(error, value)
+        })
+
+        return originalGet(...args, callbackSpy)
+      })
 
       await instance.set('myKey', 'myValue')
       await instance.get('myKey')
 
-      expect(getSpy).toBeCalledWith('myKey')
-      expect(getSpy).toHaveReturnedWith(Promise.resolve('myValue'))
-    })
-  })
+      expect(instance._client.get.mock.calls.length).toBe(1)
+      expect(instance._client.get.mock.calls[0].slice(0, 1)).toEqual(['myKey'])
 
-  describe('#exists method', () => {
-    test('resolves to true if matching entry exists in Redis', async () => {
-      const instance = new RedisAccessor()
-
-      await instance.set('myKey', 'myValue')
-
-      const result = await instance.exists('myKey')
-      expect(result).toBe(true)
+      expect(callbackSpy).toHaveBeenCalledWith(null, 'myValue')
     })
 
-    test('resolves to false if no matching entry exists in Redis', async () => {
-      const instance = new RedisAccessor()
+    test('resolves to null if Redis replies with an error and `allowGetFailures` option is set to true', async () => {
+      // Temporarily override `console.error`
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
 
-      const result = await instance.exists('fakeKey')
-      expect(result).toBe(false)
+      const instance = new RedisAccessor({ prefix: 'myPrefix', allowGetFailures: true })
+      instance._client.get = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
+
+      const result = await instance.get('myKey', 'myValue')
+
+      expect(result).toBe(null)
+      expect(consoleErrorSpy).toBeCalledWith(
+        `Failed to get value from Redis.
+Key: myPrefix:myKey
+Error: Redis ReplyError`
+      )
+
+      // Restore `console.error`
+      consoleErrorSpy.mockRestore()
     })
 
-    test('checks for matching entry from Redis with #_client.exists', async () => {
-      const instance = new RedisAccessor()
-      const existsSpy = jest.spyOn(instance._client, 'exists')
+    test('rejects if Redis replies with an error and `allowGetFailures` option is not set to true', async () => {
+      // Temporarily override `console.error`
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation()
 
-      await instance.set('myKey', 'myValue')
-      await instance.exists('myKey')
+      const instance = new RedisAccessor({ prefix: 'myPrefix' })
+      instance._client.get = jest.fn((...args) => args.pop()(new Error('Redis ReplyError')))
 
-      expect(existsSpy).toBeCalledWith('myKey')
-      expect(existsSpy).toHaveReturnedWith(Promise.resolve(true))
+      await expect(instance.get('myKey')).rejects.toThrowError(
+        new Error(`Failed to get value from Redis.
+Key: myPrefix:myKey
+Error: Redis ReplyError`
+        )
+      )
+
+      expect(consoleErrorSpy).not.toBeCalled()
+
+      // Restore `console.error`
+      consoleErrorSpy.mockRestore()
     })
   })
 })

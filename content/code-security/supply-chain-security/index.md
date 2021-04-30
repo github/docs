@@ -16,9 +16,11 @@ topics:
 
 {% topic_link_in_list /understanding-your-software-supply-chain %}
     {% link_in_list /about-the-dependency-graph %}
+    {% link_in_list /about-dependency-review %}
     {% link_in_list /exploring-the-dependencies-of-a-repository %}
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
     {% link_in_list /about-dependabot-version-updates %}
+    {% link_in_list /upgrading-from-dependabotcom-to-github-native-dependabot %}
     {% link_in_list /enabling-and-disabling-version-updates %}
     {% link_in_list /listing-dependencies-configured-for-version-updates %}
     {% link_in_list /managing-pull-requests-for-dependency-updates %}

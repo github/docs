@@ -29,17 +29,18 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
     name: Weekly Team Sync
     on:
       schedule:
-        - cron: 0 07 * * 1
+        - cron: 20 07 * * 1
 
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@v3.0
@@ -62,11 +63,11 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
               pinned: false
               close-previous: false
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Customize the parameters in your workflow file:
-   - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:00 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+   - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
    - Change the value for `assignees` to the list of {% data variables.product.prodname_dotcom %} usernames that you want to assign to the issue.
    - Change the value for `labels` to the list of labels that you want to apply to the issue.
    - Change the value for `title` to the title that you want the issue to have.
@@ -77,7 +78,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 
 ### Expected results
 
-Based on the `schedule` parameter (for example, every Monday at 7:00 UTC), your workflow will create a new issue with the assignees, labels, title, and body that you specified. If you set `pinned` to `true`, the workflow will pin the issue to your repository. If you set `close-previous` to true, the workflow will close the most recent issue with matching labels.
+Based on the `schedule` parameter (for example, every Monday at 7:20 UTC), your workflow will create a new issue with the assignees, labels, title, and body that you specified. If you set `pinned` to `true`, the workflow will pin the issue to your repository. If you set `close-previous` to true, the workflow will close the most recent issue with matching labels.
 
 {% data reusables.actions.schedule-delay %}
 

@@ -51,7 +51,7 @@ Para obtener más información, consulta la sección "[Submódulos de las Git To
 
 ### Mantener el historial
 
-SVN está configurado para suponer que el historial de un proyecto nunca cambia. Git te permite modificar cambios y confirmaciones previas utilizando herramientas como [`git rebase`](/articles/about-git-rebase).
+SVN está configurado para suponer que el historial de un proyecto nunca cambia. Git te permite modificar cambios y confirmaciones previas utilizando herramientas como [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

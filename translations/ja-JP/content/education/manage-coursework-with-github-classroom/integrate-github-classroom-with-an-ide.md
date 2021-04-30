@@ -1,7 +1,7 @@
 ---
-title: Integrate GitHub Classroom with an IDE
-shortTitle: Integrate with an IDE
-intro: You can help your students write, test, and debug code by preconfiguring a development environment for assignment repositories on {% data variables.product.prodname_classroom %}.
+title: GitHub ClassroomとIDEの統合
+shortTitle: IDEとの統合
+intro: '{% data variables.product.prodname_classroom %}の課題リポジトリにおける開発環境を事前に設定しておくことで、学生がコードを書いたり、テストしたり、デバッグしたりすることを支援できます。'
 mapTopic: true
 versions:
   free-pro-team: '*'

@@ -15,7 +15,7 @@ BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEF
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud) and GitHub One;
+-   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
 -   Any Beta Previews;
 
@@ -405,8 +405,6 @@ Some Service features may be subject to additional terms as set forth in the [Gi
 **"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
 
 **"GitHub Insights"** or **“Insights”** means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software. GitHub Insights does not include legacy features of GitHub including Organization insights and repository insights.
-
-**“GitHub One”** means the Product bundle which includes GitHub Enterprise, Advanced Security, Insights, Learning Lab for Enterprise Server, and Premium Plus or Engineering Direct Support.
 
 **"Learning Lab for Enterprise Server"** means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 

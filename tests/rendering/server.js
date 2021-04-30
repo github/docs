@@ -191,8 +191,8 @@ describe('server', () => {
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
     const note = $('.product-callout').eq(0)
-    expect(note.hasClass('border-purple')).toBe(true)
-    expect(note.hasClass('bg-purple-light')).toBe(true)
+    expect(note.hasClass('color-border-success')).toBe(true)
+    expect(note.hasClass('color-bg-success')).toBe(true)
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
@@ -215,7 +215,7 @@ describe('server', () => {
   })
 
   test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM('/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites')
+    const $ = await getDOM('/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites')
     expect($.text().includes('{{ page.title }}')).toBe(true)
   })
 
@@ -632,8 +632,8 @@ describe('extended Markdown', () => {
   test('renders styled notes within liquid', async () => {
     const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
     const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('border-blue')).toBe(true)
-    expect(note.hasClass('bg-blue-light')).toBe(true)
+    expect(note.hasClass('color-border-info')).toBe(true)
+    expect(note.hasClass('color-bg-info')).toBe(true)
   })
 
   test('renders platform-specific content', async () => {

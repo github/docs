@@ -19,7 +19,9 @@ versions:
 
 ### Unklare Dokumente zur akademischen Zugehörigkeit
 
-Wenn anhand des von Dir hochgeladenen Bildes Dein aktueller akademischer Status nicht eindeutig identifiziert werden kann, fordern wir einen weiteren Nachweis Deines akademischen Status an. {% data reusables.education.upload-proof-reapply %}
+If the dates or schedule mentioned in your uploaded image do not match our eligibility criteria, we require further proof of your academic status.
+
+If the image you uploaded doesn't clearly identify your current academic status or if the uploaded image is blurry, we require further proof of your academic status. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -57,10 +59,11 @@ Weitere Informationen findest Du unter:
 ### Nicht berechtigter Studentenstatus
 
 Du bist nicht für ein {% data variables.product.prodname_student_pack %} berechtigt, falls:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_dotcom %} Campus Program](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're pursuing a degree which will be terminated in the current academic session.
 - Du weniger als 13 Jahre alt bist.
 
-Dein Kursleiter kann weiterhin einen {% data variables.product.prodname_education %}-Rabatt für die Nutzung in der Ausbildung beantragen. Wenn Du ein Student an einer Codierschule oder in einem Schülercamp bist, hast Du Anspruch auf ein {% data variables.product.prodname_student_pack %}, wenn Deine Bildungseinrichtung dem [{% data variables.product.prodname_dotcom %}-Campus-Programm](https://education.github.com/schools) beitritt.
+Dein Kursleiter kann weiterhin einen {% data variables.product.prodname_education %}-Rabatt für die Nutzung in der Ausbildung beantragen. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Weiterführende Informationen
 

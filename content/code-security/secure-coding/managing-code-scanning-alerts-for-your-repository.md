@@ -1,7 +1,7 @@
 ---
 title: Managing code scanning alerts for your repository
 shortTitle: Managing alerts
-intro: 'From the security view, you can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
+intro: 'From the security view, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -15,6 +15,7 @@ redirect_from:
 topics:
   - security
 ---
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -45,8 +46,15 @@ You need write permission to view a summary of all the alerts for a repository o
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+1. Optionally, use the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+  ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
 1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
@@ -56,19 +64,15 @@ You need write permission to view a summary of all the alerts for a repository o
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have {% if currentVersion == "enterprise-server@2.22" %}closed{% else %}dismissed{% endif %}.
+If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-### Closing an alert
-
-Closing an alert is a way to resolve an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %}
-
 {% else %}
+![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+{% endif %}
 
 ### Dismissing or deleting alerts
 
@@ -93,31 +97,28 @@ When you delete an alert:
 
 To dismiss or delete alerts:
 
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
-{% data reusables.code-scanning.click-alert-in-list %}	
-1. Select the **Close** drop-down menu and click a reason for closing the alert.	
-   ![Choosing reason for closing the alert via the Close drop-down](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)	
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
 1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
    Optionally, you can use the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+{% else %}
+  ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
+{% endif %}
 
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
    ![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
    ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
@@ -129,8 +130,6 @@ To dismiss or delete alerts:
 #### Dismissing multiple alerts at once
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
-
-{% endif %}
 
 ### Further reading
 

@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 Wenn Du in den USA steuerpflichtig bist, musst du das Formular W-9 einreichen, bevor Du Zahlungen erhalten kannst. Wenn Du in einer anderen Region als den USA steuerpflichtig bist, musst Du ein Formular W-8BEN einreichen, bevor Du Zahlungen erhalten kannst. Weitere Informationen findest du unter „[{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" und „[{% data variables.product.prodname_sponsors %} für Deine Organisation aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)". {% data variables.product.prodname_dotcom %} wird Dir die notwendigen Formulare zusenden, Dich über deren Fälligkeit informieren und Dir genügend Zeit einräumen, die Formulare zu vervollständigen und einzureichen.

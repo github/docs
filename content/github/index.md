@@ -23,7 +23,7 @@ versions:
 {% link_in_list /managing-subscriptions-and-notifications-on-github %}
 
 <!-- Notifications v1 -->
-{% link_in_list /setting-up-and-managing-organizations-and-teams %}
+
 {% link_in_list /setting-up-and-managing-your-enterprise %}
 {% link_in_list /setting-up-and-managing-billing-and-payments-on-github %}
 
@@ -31,16 +31,12 @@ versions:
 
 {% link_in_list /creating-cloning-and-archiving-repositories %}
 
-{% link_in_list /using-git %}
-
 {% link_in_list /committing-changes-to-your-project %}
 
 {% link_in_list /collaborating-with-issues-and-pull-requests %}
 
 {% link_in_list /managing-your-work-on-github %}
 {% link_in_list /developing-online-with-codespaces %}
-
-{% link_in_list /building-a-strong-community %}
 
 {% link_in_list /searching-for-information-on-github %}
 
@@ -61,7 +57,6 @@ versions:
 
 {% link_in_list /extending-github %}
 
-{% link_in_list /working-with-github-pages %}
 {% link_in_list /supporting-the-open-source-community-with-github-sponsors %}
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}

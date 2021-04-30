@@ -19,6 +19,12 @@ function actionsUsedInWorkflow (workflow) {
     .map(key => get(workflow, key))
 }
 
+const scheduledWorkflows = workflows
+  .map(workflow => workflow.data.on.schedule)
+  .filter(Boolean)
+  .flat()
+  .map(schedule => schedule.cron)
+
 const allUsedActions = chain(workflows)
   .map(actionsUsedInWorkflow)
   .flatten()
@@ -37,5 +43,18 @@ describe('GitHub Actions workflows', () => {
     expect(allowedActions.length).toBeGreaterThan(0)
     const disallowedActions = difference(allUsedActions, allowedActions)
     expect(disallowedActions).toEqual([])
+  })
+
+  test('no scheduled workflows run on the hour', () => {
+    const hourlySchedules = scheduledWorkflows.filter(schedule => {
+      const hour = schedule.split(' ')[0]
+      // return any minute cron segments that equal 0, 00, 000, etc.
+      return !/[^0]/.test(hour)
+    })
+    expect(hourlySchedules).toEqual([])
+  })
+
+  test('all scheduled workflows run at unique times', () => {
+    expect(scheduledWorkflows.length).toEqual(new Set(scheduledWorkflows).size)
   })
 })
