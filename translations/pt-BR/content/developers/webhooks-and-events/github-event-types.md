@@ -45,7 +45,7 @@ Os objetos de evento retornados dos pontos de extremidade da API de eventos têm
 Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```

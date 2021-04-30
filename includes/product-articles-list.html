@@ -3,7 +3,7 @@
 {% if currentProductTree.page.shortTitle and currentProductTree.page.shortTitle != '' %}{% assign productTitle = currentProductTree.page.shortTitle %}{% else %}{% assign productTitle = currentProductTree.page.title %}{% endif %}
 
 <div class="py-6 all-articles-list">
-  <h2 class="font-mktg mb-4">All {{ productTitle }} docs</h2>
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">All {{ productTitle }} docs</a></h2>
 
   <div class="d-flex gutter flex-wrap">
     {% for childPage in currentProductTree.childPages %}

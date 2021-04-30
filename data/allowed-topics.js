@@ -14,6 +14,7 @@ module.exports = [
   '2fa',
   'Action development',
   'Amazon ECS',
+  'Android',
   'Ant',
   'Analytics',
   'API',
@@ -31,6 +32,7 @@ module.exports = [
   'Google Kubernetes Engine',
   'Gradle',
   'GraphQL',
+  'iOS',
   'Java',
   'JavaScript',
   'Jenkins',
@@ -49,6 +51,7 @@ module.exports = [
   'Security',
   'Sponsors payments',
   'Sponsors profile',
+  'Swift',
   'Travis CI',
   'User account',
   'Webhooks',
@@ -92,5 +95,8 @@ module.exports = [
   'teams',
   'usernames',
   'webhooks', // replace this with Webhooks
+  'Xamarin',
+  'Xamarin.iOS',
+  'Xamarin.Android',
   'Xcode'
 ]

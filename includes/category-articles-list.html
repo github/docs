@@ -7,7 +7,7 @@
 {% assign maxArticles = 10 %}
 
 <div class="py-6 all-articles-list">
-  <h2 class="font-mktg mb-4">{{ currentCategoryTitle }} docs</h2>
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">{{ currentCategoryTitle }} docs</a></h2>
 
   <div class="d-flex gutter flex-wrap">
     {% for childPage in currentCategory.childPages %}
