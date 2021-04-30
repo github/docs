@@ -1,10 +1,11 @@
 ---
-title: Using GitHub Packages with GitHub Actions
+title: Publishing and installing a package with GitHub Actions
 intro: 'You can configure a workflow in {% data variables.product.prodname_actions %} to automatically publish or install a package from {% data variables.product.prodname_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
   - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
+  - /packages/guides/using-github-packages-with-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -23,7 +24,7 @@ versions:
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to {% data variables.product.prodname_github_container_registry %}
+#### Authenticating to the {% data variables.product.prodname_capitalized_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
@@ -74,7 +75,7 @@ These are more examples of how default permissions work for workflows that manag
 | Upload a new version to an existing container | - If the container is private, internal, or public, only workflows running in repositories that are given write permission on that container can upload new versions to the container.
 | Delete a container or versions of a container | - If the container is private, internal, or public, only workflows running in repositories that are given delete permission can delete existing versions of the container.
 
-You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring access control and visibility for container images](/packages/guides/configuring-access-control-and-visibility-for-container-images)."
+You can also adjust access to containers in a more granular way or adjust some of the default permissions behavior. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% endif %}
 
@@ -369,10 +370,6 @@ You can install packages as part of your CI flow using {% data variables.product
 
 Installing packages hosted by {% data variables.product.prodname_registry %} through {% data variables.product.prodname_actions %} requires minimal configuration or additional authentication when you use the `GITHUB_TOKEN`.{% if currentVersion == "free-pro-team@latest" %} Data transfer is also free when an action installs a package. For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-The `GITHUB_TOKEN` cannot install packages from any private repository besides the repository where the action runs.  You cannot currently use the `GITHUB_TOKEN` to authenticate to {% data variables.product.prodname_github_container_registry %}.
-{% endif %}
-
 {% data reusables.package_registry.actions-configuration %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -389,7 +386,7 @@ Using the `GITHUB_TOKEN` instead of a PAT, which includes the `repo` scope, incr
    !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
   {% note %}
 
-  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/guides/configuring-access-control-and-visibility-for-container-images#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a container image](/packages/guides/connecting-a-repository-to-a-container-image)."
+  **Note:** Adding a repository to your container through the **Actions access** menu option is different than connecting your container to a repository. For more information, see "[Ensuring workflow access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[Connecting a repository to a package](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
   {% endnote %}
 3. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your container image.

@@ -1,5 +1,5 @@
 ---
-title: Configuring npm for use with GitHub Packages
+title: Working with the npm registry
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
+  - /packages/guides/configuring-npm-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -83,10 +84,6 @@ $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_regist
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
-
-#### Authenticating with the `GITHUB_TOKEN`
-
-{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing a package
 
