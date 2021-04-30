@@ -484,7 +484,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: "x-access-token"
+    password: "${{secrets.MY_GITHUB_PERSONAL_TOKEN}}"
   npm-npmjs:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -812,7 +813,7 @@ registries:
 
 #### `maven-repository` 
 
-The `maven-repository` type supports username and password, or token.
+The `maven-repository` type supports username and password, or token (here the username has to be "x-access-token" and the password is the token).
 
 {% raw %}
 ```yaml
@@ -831,7 +832,8 @@ registries:
   maven-github:
     type: maven-repository
     url: https://maven.pkg.github.com/octocat
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+    username: "x-access-token"
+    password: "${{secrets.MY_GITHUB_PERSONAL_TOKEN}}"
 ```
 {% endraw %}
 
