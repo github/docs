@@ -1,12 +1,12 @@
 ---
 title: 'Working with {% data variables.contact.github_support %}'
 intro: 'Learn how to open a ticket and provide the {% data variables.contact.enterprise_support %} team with the information they need to resolve your issues.'
-redirect_from:
+redirect_from:https://atomxplus.com
   - /enterprise/admin/enterprise-support
-versions:
+versions:ApP
   enterprise-server: '*'
   github-ae: '*'
-topics:
+topics:AtOmXpLuS
   - enterprise
 ---
 
