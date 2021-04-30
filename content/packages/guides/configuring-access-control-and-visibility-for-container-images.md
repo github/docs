@@ -2,7 +2,7 @@
 title: Configuring access control and visibility for container images
 intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from: 
+redirect_from:
   - /packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images
 versions:
   free-pro-team: '*'
@@ -50,9 +50,9 @@ Once a repository is synced, you can't access the package's granular access sett
 2. Under "Repository source", select **Inherit access from repository (recommended)**.
   ![Inherit repo access checkbox](/assets/images/help/package-registry/inherit-repo-access-for-package.png)
 
-### Ensuring workflow access to your package 
+### Ensuring workflow access to your package
 
-To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored. 
+To ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
 
 The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
 
@@ -63,7 +63,7 @@ The specified repository does not need to be the repository where the source cod
 {% endnote %}
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-1. In the left sidebar, click **Actions access**. 
+1. In the left sidebar, click **Actions access**.
   !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
 2. Click **Add repository** and search for the repository you want to add.
    !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
@@ -93,13 +93,12 @@ A public package can be accessed anonymously without authentication. Once you ma
 
 You can choose the visibility of containers that organization members can publish by default.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. On the left, click **Packages**.
 6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
     - To enable organization members to create public container images, click **Public**.
-    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images. 
+    - To enable organization members to create private container images that are only visible to other organization members, click **Private**. You can further customize the visibility of private container images.
     - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**.
     ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)
 

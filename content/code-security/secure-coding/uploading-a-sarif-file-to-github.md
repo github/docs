@@ -68,7 +68,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
     # This step checks out a copy of your repository.
     - name: Checkout repository
@@ -100,6 +102,9 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
     - uses: actions/checkout@v2
     - name: Run npm install
