@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[Getting started with GitHub Marketplace](/marketplace/getting-started/)."{% endif %}

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### About failover to your replica cluster

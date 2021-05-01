@@ -6,10 +6,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Swift'
+  - CI
+  - Swift
 ---
 
 {% data reusables.actions.enterprise-beta %}

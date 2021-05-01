@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
 topics:
-  - codespaces
+  - Codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}

@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About management of security and analysis settings

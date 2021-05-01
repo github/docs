@@ -6,9 +6,9 @@ redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   enterprise-server: '>=2.22'
-  github-ae: 'next'
+  github-ae: next
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

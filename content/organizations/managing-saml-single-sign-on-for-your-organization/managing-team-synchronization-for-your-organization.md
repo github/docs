@@ -12,8 +12,8 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

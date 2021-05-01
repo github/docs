@@ -6,14 +6,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Xamarin'
-  - 'Xamarin.iOS'
-  - 'Xamarin.Android'
-  - 'Android'
-  - 'iOS'
+  - CI
+  - Xamarin
+  - Xamarin.iOS
+  - Xamarin.Android
+  - Android
+  - iOS
 ---
 
 {% data reusables.actions.enterprise-beta %}
