@@ -1,7 +1,10 @@
 {% assign maxArticles = 9 %}
 
 <div class="container-xl px-3 px-md-6 pt-3 pb-2">
-  <h2 class="mb-3 font-mktg">{% data ui.product_sublanding.all_guides %}</h2>
+  <!-- When learning tracks aren't present, only guides exist and this heading duplicates the article's title -->
+  {% if page.learningTracks %}
+  <h2 class="mb-3 font-mktg" id="all-guides"><a href="#all-guides">{% data ui.product_sublanding.all_guides %}</a></h2>
+  {% endif %}
 
   <form class="mt-2 mb-5 d-flex d-flex">
     <div>
@@ -39,9 +42,11 @@
       {{ link_card | replace: "<display condition>", card_display_class }}
     {% endfor %}
 
+    {% if page.includeGuides.length > maxArticles %}
     <button class="col-12 mt-5 text-center text-bold color-text-link btn-link js-filter-card-show-more" data-js-filter-card-max="{{ maxArticles }}">
       {% data ui.product_sublanding.load_more %}
     </button>
+    {% endif %}
 
     <div class="js-filter-card-no-results d-none py-4 text-center color-text-secondary">
       <h4 class="text-normal">{% data ui.product_sublanding.no_result %}</h4>

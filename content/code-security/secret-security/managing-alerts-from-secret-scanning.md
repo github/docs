@@ -3,13 +3,13 @@ title: Managing alerts from secret scanning
 intro: You can view and close alerts for secrets checked in to your repository.
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
-   - /github/administering-a-repository/managing-alerts-from-secret-scanning
+  - /github/administering-a-repository/managing-alerts-from-secret-scanning
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

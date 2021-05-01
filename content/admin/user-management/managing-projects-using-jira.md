@@ -10,7 +10,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization

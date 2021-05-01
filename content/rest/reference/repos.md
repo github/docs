@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -158,7 +158,8 @@ You can communicate that a transient environment no longer exists by setting its
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 ## Environments
 
-The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)."
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}

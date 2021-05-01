@@ -4,8 +4,8 @@ sections:
     - Packages have been updated to the latest security versions.
   bugs:
     - 'A warning message `jq: error (at <stdin>:0): Cannot index number with string "settings"` could occur during replica promotion.'
-    - Visiting the `/settings/emails page` would store state that could cause improper redirects when logging out and logging back in.
-    - Dependency graph alerts weren''t shown for some components whose advisories have upper case package names in `vulnerable_version_ranges`.
+    - Visiting the `/settings/emails` page would store state that could cause improper redirects when logging out and logging back in.
+    - Dependency graph alerts weren't shown for some components whose advisories have upper case package names in `vulnerable_version_ranges`.
     - User saw 500 error when executing git operations on an instance configured with LDAP authentication.
     - When ghe-migrator encountered import errors, it would sometimes abort the entire process, and the logs did not include enough context.
   known_issues:

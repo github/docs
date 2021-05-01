@@ -207,7 +207,7 @@ defaultPlatform: linux
 - type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
 - Optional
 
-**Note: the first learning track is by-default the featured track.*
+**Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
 - Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-sublanding`.

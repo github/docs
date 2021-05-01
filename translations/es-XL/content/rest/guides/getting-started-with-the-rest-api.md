@@ -56,7 +56,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
 > Connection: keep-alive
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57

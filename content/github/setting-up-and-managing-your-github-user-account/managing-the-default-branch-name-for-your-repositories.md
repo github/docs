@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### About management of the default branch name

@@ -1,0 +1,24 @@
+/* Deprecation banner
+------------------------------------------------------------------------------*/
+.deprecation-banner {
+  & + .alert {
+    margin-top: 5px;
+  }
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+  }
+}

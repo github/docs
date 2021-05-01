@@ -6,7 +6,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - desktop
+  - Desktop
 ---
 
 ### About {% data variables.product.prodname_desktop %}

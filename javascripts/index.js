@@ -20,6 +20,7 @@ import devToc from './dev-toc'
 import releaseNotes from './release-notes'
 import showMore from './show-more'
 import airgapLinks from './airgap-links'
+import toggleImages from './toggle-images'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -42,4 +43,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initializeEvents()
   experiment()
   helpfulness()
+  toggleImages()
 })

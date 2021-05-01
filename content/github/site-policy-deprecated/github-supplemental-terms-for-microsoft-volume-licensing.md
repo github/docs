@@ -15,7 +15,7 @@ The following GitHub Supplemental Terms (including any applicable Order Forms) s
 
 These Supplemental Terms apply to the following GitHub Offerings, as further defined below (collectively, the "**Products**"):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud) and GitHub One;
+-   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
 
 -   Any related Support; and
 
@@ -273,8 +273,6 @@ In the event of a conflict between the Supplemental Terms, on one hand, and an O
 **"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
 
 **"GitHub Insights"** or **“Insights”** means the Software feature which provides Customer with metrics, analytics, and recommendations relating to their use of the Software. GitHub Insights does not include legacy features of GitHub including organization insights and repository insights.
-
-**“GitHub One”** means the Product bundle which includes GitHub Enterprise, Advanced Security, Insights, Learning Lab for Enterprise Server, and Premium Plus or Engineering Direct Support.
 
 **"Learning Lab for Enterprise Server"** means the Software feature that enables Users to learn about GitHub functionality, including associated Documentation.
 

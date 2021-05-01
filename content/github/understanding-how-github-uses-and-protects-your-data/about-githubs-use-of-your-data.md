@@ -7,8 +7,8 @@ intro: '{% data variables.product.product_name %} uses your repository''s data t
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
  
 ### About {% data variables.product.product_name %}'s use of your data

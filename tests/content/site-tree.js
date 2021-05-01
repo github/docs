@@ -1,5 +1,5 @@
 const revalidator = require('revalidator')
-const schema = require('../../lib/site-tree-schema')
+const schema = require('../helpers/schemas/site-tree-schema')
 const latestEnterpriseRelease = require('../../lib/enterprise-server-releases').latest
 const { getJSON } = require('../helpers/supertest')
 const flat = require('flat')

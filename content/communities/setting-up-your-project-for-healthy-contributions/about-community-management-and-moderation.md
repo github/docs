@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
-  - community
+  - Community
 ---
 
 ### About community management and moderation

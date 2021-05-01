@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Packaging'
-  - 'Publishing'
-  - 'Docker'
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,7 +37,7 @@ You might also find it helpful to have a basic understanding of the following:
 
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
-- "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)"
+- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"
 
 ### About image configuration
 
@@ -98,7 +98,6 @@ The `build-push-action` options required for {% data variables.product.prodname_
 * `registry`: Must be set to `docker.pkg.github.com`.
 * `repository`: Must be set in the format `OWNER/REPOSITORY/IMAGE_NAME`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `repository` option should be set to `octo-org/octo-repo/octo-image`.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -107,21 +106,23 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 
 ```
-{% endraw %}
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
@@ -131,7 +132,6 @@ In a single workflow, you can publish your Docker image to multiple registries b
 
 The following example workflow uses the `build-push-action` steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -140,26 +140,28 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
           repository: my-docker-hub-namespace/my-docker-hub-repository
           tag_with_ref: true
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 ```
-{% endraw %}
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, and uses the `build-push-action` action twice to build and push the Docker image to Docker Hub and {% data variables.product.prodname_registry %}. For both steps, it sets the `build-push-action` option [`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref) to automatically tag the built Docker image with the Git reference of the workflow event. This workflow is triggered on publishing a {% data variables.product.prodname_dotcom %} release, so the reference for both registries will be the Git tag for the release.

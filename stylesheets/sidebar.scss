@@ -46,8 +46,6 @@
 .sidebar-category,
 .sidebar-maptopic,
 .sidebar-article {
-  &.active > a {
-  }
   &.is-current-page > a {
     color: var(--color-auto-blue-3);
   }
@@ -60,6 +58,7 @@
 .sidebar-maptopic {
   .sidebar-article {
     position: relative;
+
     &::before {
       content: "";
       position: absolute;
@@ -69,6 +68,7 @@
       width: 1px;
       top: 0;
     }
+
     &.active {
       &::before {
         border-left: 3px solid var(--color-auto-blue-7);

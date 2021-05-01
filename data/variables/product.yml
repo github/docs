@@ -100,7 +100,7 @@ prodname_discussions: 'GitHub Discussions'
 
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_github_container_registry: 'GitHub Container Registry'
+prodname_capitalized_container_registry: 'Container registry'
 prodname_container_registry: 'container registry'
 
 # GitHub Insights
@@ -119,7 +119,6 @@ prodname_security_center: 'Security Center'
 
 # Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Visual Studio Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 
 # GitHub resources: blog, jobs, Learning Lab

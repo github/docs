@@ -93,6 +93,10 @@ We recommend using actions to interact with the software installed on runners. T
 
 If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
+#### Installing additional software
+
+You can install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Customizing GitHub-hosted runners](/actions/using-github-hosted-runners/customizing-github-hosted-runners)".
+
 ### IP addresses
 
 {% note %}

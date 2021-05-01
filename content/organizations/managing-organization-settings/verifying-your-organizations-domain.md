@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About domain verification
@@ -26,9 +26,8 @@ On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of
 
 ### Verifying your organization's domain
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 5. Click **Add a domain**.
 ![Add a domain button](/assets/images/help/organizations/add-a-domain-button.png)

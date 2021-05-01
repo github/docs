@@ -56,7 +56,7 @@ Para obter um feed no formato Atom você deve especificar o tipo `application/at
 #### Resposta
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml

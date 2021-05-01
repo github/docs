@@ -1,0 +1,1 @@
+You can check the verification status of your signed commits or tags on {% data variables.product.product_name %} and view why your commit signatures might be unverified. For more information, see "[Checking your commit and tag signature verification status](/articles/checking-your-commit-and-tag-signature-verification-status)."

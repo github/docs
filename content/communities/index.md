@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% link_with_intro /setting-up-your-project-for-healthy-contributions %}

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 The time required to failover depends on how long it takes to manually promote the replica and redirect traffic. The average time ranges between 2-10 minutes.

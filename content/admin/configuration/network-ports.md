@@ -11,7 +11,7 @@ intro: 'Open network ports selectively based on the network services you need to
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Administrative ports

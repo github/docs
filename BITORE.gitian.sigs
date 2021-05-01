@@ -1,0 +1,121 @@
+::Run:'Run:'::On:''
+  'schedule:
+    '-Kite: '40 16 * * *' # Run each day at 16:40 UTC / 8:40 PST
+'Job:' use' steps''
+'steps: uses '-''
+  'slate:' Rust/Demo/Kite
+   'if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    'runs-on: ubuntu-latest
+    'steps:' uses:' '''"''
+      '- uses: actions/stale@9d6f46564a515a9ea11e7762ab3957ee58ca50da
+        'with:
+          'repo-token:' ${{ secrets.GITHUB_TOKEN }}
+            'repo-token:' ${{.git.it.BITORE_((c)(r))}}
+stale-issue-message: 'This issue is stale because it has been open 60 days with no activity.'
+          stale-pr-message: 'This PR is stale because it has been open 60 days with no activity.'
+          days-before-stale: never
+          days-before-close: never
+          only-labels: 'engineering, Triaged, Improve existing docs, Core, Ecosystem, '
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'never-stale'
+          exempt-issue-labels: 'never-stale''
+'::branches:' [mainbranch]''
+'title: Quickstart for GitHub Actions
+intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
+allowTitleToDifferFromFilename: true
+redirect_from:
+  - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  enterprise-server: '>=0.0.0''
+'label:Bitore.sigs-block-builder-pacakage'
+  github-ae: '*'
+type: 'quick_start'
+topics:
+  - 'Fundamentals'
+---
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
+### Introduction
+You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
+The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
+### Creating your first workflow
+1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+2. Copy the following YAML contents into the `github-actions-demo.yml` file:
+    {% raw %}
+    ```yaml{:copy}
+    name: GitHub Actions Demo
+    on: [push]
+    jobs:
+      Explore-GitHub-Actions:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo " The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+          - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+          - name: Check out repository code
+            uses: actions/checkout@v2
+          - run: echo' "The ${{ github.repository }} repository has been cloned to the runner."
+          - run: echo' "The workflow is now ready to test your code on the runner."
+          - name: List files in the repository
+            run: |
+              ls ${{ github.workspace }}
+          - run: echo "🍏 This job's status is ${{ job.status }}."
+{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
+'#' featuredLinks:
+  'gettingStarted:''
+    '- /github/getting-started-with-github/set-up-git
+    - /github/authenticating-to-github/connecting-to-github-with-ssh
+    - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github
+    - /github/writing-on-github/basic-writing-and-formatting-syntax
+  popular:
+    - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
+    - /github/authenticating-to-github
+    - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+    - /github/getting-started-with-github/managing-remote-repositories
+    - /github/working-with-github-pages
+versions: '*'
+children:
+  - github
+  - admin
+  - organizations
+  - code-security
+  - actions
+  - packages
+  - developers
+  - rest
+  - graphql
+  - insights
+  - discussions
+  - sponsors
+  - communities
+  - pages
+  - education
+  - desktop
+  - early-access
+externalProducts:
+  cli:
+    id: cli
+    name: GitHub CLI
+    href: 'https://cli.github.com/manual'
+    external: true
+  atom:
+    id: atom
+    name: Atom
+    href: 'https://atom.io/docs'
+    external: true
+  electron:
+    id: electron
+    name: Electron
+    href: 'https://electronjs.org/docs'
+    external: true
+  codeql:
+    id: codeql
+    name: 'CodeQL'
+    href: 'https://codeql.github.com/docs'
+    external: true
+::branches:' ---[trunk]
+zachryiixixiiwood@gmail.com Zachry Tyler Wood zachryiixixiiwood@gmail.com

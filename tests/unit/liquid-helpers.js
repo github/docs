@@ -107,7 +107,7 @@ describe('liquid helper tags', () => {
 
   describe('indented_data_reference tag', () => {
     test('without any number of spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example %}'
+      const template = '{% indented_data_reference reusables.example %}'
       const expected = `  a rose by any other name
   would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -115,7 +115,7 @@ describe('liquid helper tags', () => {
     })
 
     test('with 0 spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces=0 %}'
+      const template = '{% indented_data_reference reusables.example spaces=0 %}'
       const expected = `a rose by any other name
 would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -123,7 +123,7 @@ would smell as sweet`
     })
 
     test('with 0 spaces specified and whitespace around equals sign', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces = 0 %}'
+      const template = '{% indented_data_reference reusables.example spaces = 0 %}'
       const expected = `a rose by any other name
 would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -131,7 +131,7 @@ would smell as sweet`
     })
 
     test('with 5 spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces=5 %}'
+      const template = '{% indented_data_reference reusables.example spaces=5 %}'
       const expected = `     a rose by any other name
      would smell as sweet`
       const output = await liquid.parseAndRender(template, context)

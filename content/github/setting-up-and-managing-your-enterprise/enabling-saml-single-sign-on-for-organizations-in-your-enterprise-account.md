@@ -6,7 +6,7 @@ permissions: Enterprise owners can enable SAML single sign-on for organizations 
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### About SAML single sign-on for enterprise accounts

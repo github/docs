@@ -6,12 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 {% tip %}
 
-**GitHub Enterprise users**: Accessing GitHub Enterprise via SSH over the HTTPS port is currently not supported.
+**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
 
 {% endtip %}
 

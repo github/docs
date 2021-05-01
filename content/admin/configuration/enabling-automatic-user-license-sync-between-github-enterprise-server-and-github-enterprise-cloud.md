@@ -8,7 +8,7 @@ permissions: 'Site administrators for {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### About license synchronization

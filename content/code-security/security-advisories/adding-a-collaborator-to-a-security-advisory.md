@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - security
+  - Security
 ---
 
 People with admin permissions to a security advisory can add collaborators to the security advisory.

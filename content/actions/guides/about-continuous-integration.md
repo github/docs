@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'CI'
-  - 'CD'
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -53,6 +53,7 @@ For a definition of common terms, see "[Core concepts for {% data variables.prod
 
 Browse the complete list of CI workflow templates offered by {% data variables.product.product_name %} in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### Skipping workflow runs
 
 If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
@@ -72,6 +73,7 @@ You won't be able to merge the pull request if your repository is configured to 
 **Note:** Skip instructions only apply to the `push` and `pull_request` events. For example, adding `[skip ci]` to a commit message won't stop a workflow that's triggered `on: pull_request_target` from running.
 
 {% endnote %}
+{% endif %}
 
 ### Notifications for workflow runs
 
