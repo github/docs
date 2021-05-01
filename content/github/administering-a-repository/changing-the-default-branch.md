@@ -10,7 +10,7 @@ redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About changing the default branch

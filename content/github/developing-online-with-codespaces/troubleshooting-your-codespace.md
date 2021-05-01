@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - codespaces
+  - Codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
