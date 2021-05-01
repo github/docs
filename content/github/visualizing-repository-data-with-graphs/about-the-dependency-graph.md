@@ -2,9 +2,9 @@
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - repositories
+  - Repositories
 ---
 <!--See /content/code-security/supply-chain-security/about-the-dependency-graph for the latest version of this article -->
 
