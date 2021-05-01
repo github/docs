@@ -27,9 +27,9 @@ Build your own tools that seamlessly integrate with the place you push code ever
 ## Have an integration that works with GitHub?
 
 Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
+* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration).
+* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
+* Post a video or a blog on your website about your integration.
 
 ## Ready to join the GitHub Developer Program?</h3>
 
