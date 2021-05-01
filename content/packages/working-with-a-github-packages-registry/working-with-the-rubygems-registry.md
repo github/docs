@@ -1,5 +1,5 @@
 ---
-title: Configuring RubyGems for use with GitHub Packages
+title: Working with the RubyGems registry
 intro: 'You can configure RubyGems to publish a package to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Ruby project with Bundler.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -7,6 +7,7 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry/configuring-rubygems-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-rubygems-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-rubygems-for-use-with-github-packages
+  - /packages/guides/configuring-rubygems-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -84,10 +85,6 @@ To authenticate with Bundler, configure Bundler to use your personal access toke
 ```shell
 $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```
-
-#### Authenticating with the `GITHUB_TOKEN`
-
-{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing a package
 

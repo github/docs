@@ -1,12 +1,14 @@
 ---
-title: Configuring Docker for use with GitHub Packages
-intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
+title: Working with the Docker registry
+intro: 'You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-docker-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
+  - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
+  - /packages/guides/configuring-docker-for-use-with-github-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -18,11 +20,11 @@ versions:
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-### About Docker and {% data variables.product.prodname_registry %}
+{% data reusables.package_registry.docker-vs-container-registry %}
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+### About Docker support
 
-When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
+When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -74,10 +76,6 @@ If your instance has subdomain isolation disabled:
 To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
-
-#### Authenticating with the `GITHUB_TOKEN`
-
-{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing an image
 
