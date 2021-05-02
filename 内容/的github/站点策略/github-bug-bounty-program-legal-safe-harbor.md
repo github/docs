@@ -1,8 +1,8 @@
----
+LS992
 title: GitHub Bug Bounty Program Legal Safe Harbor
-redirect_from:
+redirect_from:/LS992
   - /articles/github-bug-bounty-program-legal-safe-harbor
-versions:
+versions:/
   free-pro-team: '*'
 topics:
   - Policy
