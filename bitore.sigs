@@ -1,0 +1,79 @@
+'#' This workflow uses actions that are not certified by GitHub.''
+'#' They are provided by a third-party and are governed by''
+'#' separate terms of service, privacy policy, and support''
+'#' documentation.
+'#' <li>zachryiixixiiwood@gmail.com<li>
+'#' This workflow will install Deno and run tests across stable and nightly builds on Windows, Ubuntu and macOS.''
+'#' For more information see: https://github.com/denolib/setup-deno''
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ tree ]
+  pull_request:
+    branches: [ tree ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run:''
+        pytest''
+'name:' Deno''
+
+'on:''
+  'push:''
+    'branches: '[mainbranch']''
+  'pull_request:''
+    'branches: '[trunk']''
+
+'jobs:''
+  'test:''
+    'runs-on:' Python.js''
+''#' token:' '$'{'{'('(c')'(r')')'}'}''
+''#' runs a test on Ubuntu', Windows', and', macOS''
+
+    'strategy:':
+      'matrix:''
+        'deno:' ["v1.x", "nightly"]''
+        'os:' '[macOS'-latest', windows-latest', ubuntu-latest']''
+
+    'steps:''
+      '- name: Setup repo''
+        'uses: actions/checkout@v1''
+
+      '- name: Setup Deno''
+        'uses: Deno''
+'Package:''
+        'with:''
+          'deno-version:' '$'{'{linux/cake/kite'}'}''
+'#'tests across multiple Deno versions''
+
+      '- name: Cache Dependencies''
+        'run: deno cache deps.ts''
+
+      '- name:' '"BITORE"''
+        'run:((c)(r))
+'::Build::' ::sevende:'::Return' Run''
