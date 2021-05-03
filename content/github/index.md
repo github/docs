@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-{% link_in_list /getting-started-with-github %}
+[Getting Started with github](https://docs.github.com/en/github/getting-started-with-github)
 
 {% link_in_list /setting-up-and-managing-your-github-user-account %}
 
