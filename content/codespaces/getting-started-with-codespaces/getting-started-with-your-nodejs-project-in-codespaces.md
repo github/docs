@@ -30,7 +30,7 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
-You can customize your codespace by adjusting the amount of [vCPUs and RAM](/codespaces/working-with-your-codespace/changing-the-machine-type-for-your-codespace), [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+You can customize your codespace by adjusting the amount of vCPUs and RAM], [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
