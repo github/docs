@@ -1,5 +1,38 @@
 ---
-title: Introduction to GitHub Packages
+'""' ''Run:://Start:://Script:://Build:://Script:://((c)(r))'"'''"':://Build:'[Volume'']'[464000000000'"']'"'''"':://Return:://'Runl '"'''"''#'##Run:://Script:://build_script:'::Const':':On'#':##::'Run::':On::''
+
+#**BITORE**((c)(r)[34173]**118893**
+
+This page may indicate Jenkins is almost ready! instead and if so, click Restart.
+
+If the page does not automatically refresh after a minute, use your web browser to refresh the page manually.
+
+If required, log in to Jenkins with the credentials of the user you just created and you are ready to start using Jenkins!
+
+::Installing:*logs**bitcoin:bc1q9vq530mgjjemter0jyu3nmg3jsfvwpcp0c4d9q?amount=500000&label=*logs**'::All:'"''
+
+'cOnTrIbUtInG.Me.rEaDmE.mE''**'"''
+
+Kubernetes '"''='"::>'"''
+
+'"'"'"'DOCKER.Gui'"'''"'container'"'''"'-BITOREE.sigs:::#test'@ci'"'''"'-then'"'''"'-deploy-heroku'"''
+
+'"'''"'"'-::to:'
+
+,'"'''"'::Automate:'"''"'::Fix:'"''"'::All:':':'Perfect'':':'
+
+'::Automate::':All::'::Installing:'""::All:'"''"'::'"::"'*logs'"'':'"'':All'"'':'"'':'"'"'"'"'Deploy:Makefile_Launch_DependabotHerokuDependaBotRunwizardPro-to-fix-all-Perfect::Launch-Makefile_$Ruby_Gemsfile::Make:clean::Publish::Release'"'''"'DOCKER'"'''"'.Gui'"'''"'.svg'"'''"'.jpeg'"'''"'.xvslmnxv'"'''"'.jpeg.pdf.yml.json'iixixi/iixixi/ReAdMe.Me/cOnTrIbUtInGmE.mE/trunk/TREE/BITORE.sigs
+
+'#:'##:Start::On:: Run:build_script::/Launch::/On:: #:Request:Pull::energy''Manifest::'=>'::Magic::workflow:  '::#::pushs::Magic::='>TIERAFORMA'='>shapeshift::'.docX''='>.jpeg.xsvlmnx'' '#:Pushs::
+
+Branch️es:[trunk]'with::token_item_id':_'('(c)'(r')')')'':'_item_Name:BITORE'34173'[Volume]::464000000000.00'] ::#Build::Token::':Name:BITORE:'':"''but only for the main branch'''"'' '::#:Push: branches: - mainbranch'x pull_request: branches: - main '::#: Also trigger on page_build, as well as release created events page_build: release: types: # This configuration does not affect the page_build event above - created BITCORE':'::{WebRootUr}.net{lWebHooks}variables.product.product_name %}{'"''%'"' '"'''"'currentVersion'"'''"}'"''}'"' "free-pro-team@latest-utf8
+
+"'''"'#"'''"'install::'"''{WeBaseRootUrl'"''"'}'"'''"'https'"'''"':'"'''"'/'"'''"'/www.bitcorenet{WebRootUr,1l}'''"'{'"'''"'Bitore.net'"'''"'}'"'' '- /github/collaborating-with-issues-and-pull-requests/about-''pull-request</ActiveProfiles' ' <id>'"'''"''@.git.it"'''"34173'"'''"<'"''/'"'repositories>'"'''"' '"'''"'<repository'>'"'''"'BITORE'</id>11883'"'''"</
+
+''#'" '" "''"'https:/'""'''mvn1.Repo'"'''"-Sync"'''"'@bitcore.org''"'''"'/sdk/api'"'''"'/'"'''"'adk'"'''"'/'"'''"'jdk''.s''.e''"''/bitcore.org'"'''"'/sevnde'"'''"'sdk'"'''"'.yaml'"''/'"''adk'"''api'"':'"'''"'sdk'"'''"'.'"'''"'J'"''.'"''R'"'''"'#'"'''"'env':'"'''"'platform'"'''"'-tools':'"'''"'"'''"platforms'"'''"android>'"'''"'28"'''"' true<'"'''"'"'/content:encoded>'"'''"''Enabled'"'''"''github.git.it''"'''"
+
+
+"# 'Name: 'Introduction to GitHub Packages
 intro: '{% data variables.product.prodname_registry %} is a software package hosting service that allows you to host your software packages privately {% if currentVersion == "github-ae@latest" %} for specified users or internally for your enterprise{% else %}or publicly{% endif %} and use packages as dependencies in your projects.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
