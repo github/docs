@@ -1,6 +1,6 @@
 ---
 title: 议题和拉取请求中的文件附件
-intro: '在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。'
+intro: 在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 {% warning %}

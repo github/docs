@@ -16,7 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - рынок
+  - Marketplace
 ---
 
 ### About setting pricing plans

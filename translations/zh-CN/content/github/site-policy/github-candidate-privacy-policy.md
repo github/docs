@@ -3,8 +3,8 @@ title: GitHub 候选人隐私政策
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 生效日期：2021 年 3 月 8 日

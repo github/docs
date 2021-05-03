@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 Você pode cancelar alterações pendentes na assinatura da sua conta ou de outros recursos e produtos pagos.

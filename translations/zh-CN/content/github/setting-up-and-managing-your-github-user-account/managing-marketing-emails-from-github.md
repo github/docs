@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 帐户
-  - 通知
+  - Accounts
+  - Notifications
 ---
 
 ### 退订 {% data variables.product.prodname_dotcom %} 营销电子邮件

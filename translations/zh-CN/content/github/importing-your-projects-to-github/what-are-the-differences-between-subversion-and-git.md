@@ -1,6 +1,6 @@
 ---
 title: Subversion 和 Git 有哪些区别？
-intro: 'Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。'
+intro: Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git

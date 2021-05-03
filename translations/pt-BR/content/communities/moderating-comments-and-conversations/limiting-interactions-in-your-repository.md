@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
-permissions: As pessoas com permissões de administrador em um repositório podem limitar temporariamente as interações nesse repositório.
+permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
-  - comunidade
+  - Community
 ---
 
 ### Sobre limites temporários de interação

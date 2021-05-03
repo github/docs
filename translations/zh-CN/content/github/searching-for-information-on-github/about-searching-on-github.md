@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github 搜索
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %}
