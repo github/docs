@@ -25,6 +25,7 @@ module.exports = [
   'CircleCI',
   'Contacting sponsors',
   'Containers',
+  'Codespaces',
   'Docker',
   'Events',
   'Fundamentals',

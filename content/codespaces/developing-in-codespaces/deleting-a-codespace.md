@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: Anyone can delete a codespace owned by their user account.
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
+  - /github/developing-online-with-codespaces/deleting-a-codespace
 versions:
   free-pro-team: '*'
 topics:

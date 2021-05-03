@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_codespaces %} is an online developmen
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
+  - /github/developing-online-with-codespaces/about-codespaces
 versions:
   free-pro-team: '*'
 topics:

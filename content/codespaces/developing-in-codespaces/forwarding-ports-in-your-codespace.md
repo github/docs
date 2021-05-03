@@ -4,6 +4,8 @@ intro: '{% data reusables.codespaces.about-port-forwarding %}'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+redirect_from:
+  - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
 topics:
   - Codespaces
 ---
