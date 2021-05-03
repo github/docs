@@ -9,7 +9,7 @@ intro: 'SAML 是一种基于 XML 的身份验证和授权标准。 {% data varia
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

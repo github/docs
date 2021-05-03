@@ -1,6 +1,6 @@
 ---
 title: Gerenciar segredos criptografados para o Dependabot
-intro: Você pode armazenar informações confidenciais como, por exemplo, senhas e tokens de acesso, como segredos criptografados e, em seguida, referenciá-los no arquivo de configuração do {% data variables.product.prodname_dependabot %}.
+intro: 'Você pode armazenar informações confidenciais como, por exemplo, senhas e tokens de acesso, como segredos criptografados e, em seguida, referenciá-los no arquivo de configuração do {% data variables.product.prodname_dependabot %}.'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
 versions:

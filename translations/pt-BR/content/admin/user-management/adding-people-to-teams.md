@@ -9,7 +9,7 @@ intro: 'Após a criação de uma equipe, os administradores da organização pod
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Cada equipe tem suas próprias [ permissões de acesso definidas individualmente para os repositórios pertencentes à organização](/articles/permission-levels-for-an-organization).

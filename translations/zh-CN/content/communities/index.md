@@ -1,6 +1,6 @@
 ---
 title: 建设社区
-intro: '无论您的项目是开源项目还是私有项目，您都可以创建一个健康和高效的协作环境。'
+intro: 无论您的项目是开源项目还是私有项目，您都可以创建一个健康和高效的协作环境。
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% link_with_intro /setting-up-your-project-for-healthy-contributions %}

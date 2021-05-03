@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Você pode restringir a capacidade de alterar a visibilidade do repositório apenas para os proprietários da organização, ou permitir que os integrantes com privilégios de administrador de um repositório também alterem a visibilidade.

@@ -4,7 +4,7 @@ intro: 当您或您的团队有等待审查的拉取请求时，您会在 Slack 
 versions:
   free-pro-team: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 关于用户的预定提醒

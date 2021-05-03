@@ -1,6 +1,6 @@
 ---
 title: 处理注释
-intro: '使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。'
+intro: 使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 

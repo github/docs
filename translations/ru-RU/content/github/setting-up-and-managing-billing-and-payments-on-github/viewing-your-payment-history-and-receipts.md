@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 ### Viewing receipts for your personal account

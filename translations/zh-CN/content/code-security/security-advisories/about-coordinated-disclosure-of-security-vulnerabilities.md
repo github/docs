@@ -1,6 +1,6 @@
 ---
 title: 关于安全漏洞的协调披露
-intro: '漏洞披露是安全报告者与仓库维护者之间的协调工作。'
+intro: 漏洞披露是安全报告者与仓库维护者之间的协调工作。
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

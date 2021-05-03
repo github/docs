@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Usuários com permissões de administrador podem gerenciar acessos individuais e da equipe a um repositório de propriedade da organização.

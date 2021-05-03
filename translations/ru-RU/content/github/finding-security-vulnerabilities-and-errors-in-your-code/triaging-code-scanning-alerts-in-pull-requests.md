@@ -7,7 +7,7 @@ permissions: 'If you have read permission for a repository, you can see annotati
 versions:
   enterprise-server: '2.22'
 topics:
-  - безопасность
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 所有者、协作者、以前的贡献者以及具有写入权限的人员均可举报议题、拉取请求以及对议题、拉取请求和提交的评论。 任何人均可举报 {% data variables.product.prodname_marketplace %} 中的应用程序。

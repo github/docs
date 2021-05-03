@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre os lembretes agendados para as equipes
