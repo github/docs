@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
 topics:
   - Codespaces
+redirect_from:
+  - /github/developing-online-with-codespaces/managing-access-and-security-for-codespaces
 ---
 
 {% note %}
