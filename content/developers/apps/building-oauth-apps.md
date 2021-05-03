@@ -1,4 +1,4 @@
----
+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---
 title: Building OAuth Apps
 intro: You can build OAuth Apps for yourself or others to use. Learn how to register and set up permissions and authorization options for OAuth Apps.
 mapTopic: true
