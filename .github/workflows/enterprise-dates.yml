@@ -41,7 +41,7 @@ jobs:
         run: |
           script/update-enterprise-dates.js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT }}
 
       - name: Create pull request
         id: create-pull-request
