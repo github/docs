@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
 topics:
   - Codespaces
+redirect_from:
+  - /github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces
 ---
 
 {% note %}

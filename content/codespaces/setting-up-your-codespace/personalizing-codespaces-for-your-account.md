@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'Anyone can create a `dotfiles` repository to personalize {% data variables.product.prodname_codespaces %} for their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
+  - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
 versions:
   free-pro-team: '*'
 topics:
