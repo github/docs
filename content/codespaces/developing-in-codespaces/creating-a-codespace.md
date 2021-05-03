@@ -47,14 +47,5 @@ The environment of the codespace you create will be based on the repository's co
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-   Alternatively, to create a codespace using a Basic or Premium machine type:
-   
-   * Click the ellipsis (**...**) to the right of this option. 
-   * Click **Create custom codespace**.
-     ![Custom codespace button](/assets/images/help/codespaces/custom-codespace-button.png)
-   * Choose a machine type.
-     ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
-   * Click **Create codespace**.
-
 
    
