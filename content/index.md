@@ -14,7 +14,6 @@ featuredLinks:
     - /github/working-with-github-pages
 versions: '*'
 children:
-  - github
   - admin
   - organizations
   - code-security
