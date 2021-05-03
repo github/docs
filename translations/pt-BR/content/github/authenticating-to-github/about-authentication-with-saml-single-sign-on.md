@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - sso
+  - SSO
 ---
 
 ### Sobre autenticação com SSO do SAML

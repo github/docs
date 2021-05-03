@@ -1,7 +1,7 @@
 ---
 title: 查看和管理用户对企业的 SAML 访问
-intro: '您可以查看和撤销企业成员的链接身份、活动会话和授权凭据。'
-permissions: 企业所有者可以查看和管理成员对组织的 SAML 访问。
+intro: 您可以查看和撤销企业成员的链接身份、活动会话和授权凭据。
+permissions: Enterprise owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于对企业帐户的 SAML 访问

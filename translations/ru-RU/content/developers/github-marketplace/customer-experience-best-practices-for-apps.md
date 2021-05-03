@@ -5,7 +5,7 @@ shortTitle: Customer experience best practice
 versions:
   free-pro-team: '*'
 topics:
-  - рынок
+  - Marketplace
 ---
 
 If you follow these best practices it will help you to provide a good customer experience.

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - безопасность
+  - Security
 ---
 
 ### About {% data variables.product.prodname_dependabot %} errors

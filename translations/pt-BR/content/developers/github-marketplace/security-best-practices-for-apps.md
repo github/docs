@@ -9,7 +9,7 @@ shortTitle: Práticas recomendadas de segurança
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 Se você seguir estas práticas recomendadas, elas ajudarão você a oferecer uma experiência de usuário segura.

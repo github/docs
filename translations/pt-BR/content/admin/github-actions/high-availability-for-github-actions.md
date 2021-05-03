@@ -4,7 +4,7 @@ intro: 'Há algumas considerações especiais para administrar {% data variables
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Replicação ou redundância dos seus dados de {% data variables.product.prodname_actions %}

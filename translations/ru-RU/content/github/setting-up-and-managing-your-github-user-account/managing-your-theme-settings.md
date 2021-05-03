@@ -4,7 +4,7 @@ intro: 'You can manage how {% data variables.product.product_name %} looks to yo
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 {% note %}

@@ -4,12 +4,12 @@ intro: 'Você pode confirmar a identidade das organizações pertencentes à con
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: Os proprietários das empresas podem verificar o domínio de uma conta corporativa.
+permissions: Enterprise owners can verify an enterprise account's domain.
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre a verificação do domínio

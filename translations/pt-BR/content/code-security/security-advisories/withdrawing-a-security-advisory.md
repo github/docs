@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 Se você publicar uma consultoria de segurança por engano, poderá retirar a consultoria de segurança entrando em contato com {% data variables.contact.contact_support %}.
