@@ -6,22 +6,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About scheduled reminders for pull requests
 
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
-Organization owners can schedule a reminder for one or more teams in their organization, for all pull requests the team or teams have been requested to review. 
+Organization owners can schedule a reminder for one or more teams in their organization, for all pull requests the team or teams have been requested to review.
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Creating a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -30,7 +29,7 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.days-dropdown %}
 {% data reusables.reminders.times-dropdowns %}
 {% data reusables.reminders.tracked-repos %}
-11. Under "Filter by team assigned to review code", click the **Add a team** dropdown and choose one or more teams. You can add up to 100 teams. If the team you select doesn't have access to the "Tracked repositories" selected above, you won't be able to create the scheduled reminder. 
+11. Under "Filter by team assigned to review code", click the **Add a team** dropdown and choose one or more teams. You can add up to 100 teams. If the team you select doesn't have access to the "Tracked repositories" selected above, you won't be able to create the scheduled reminder.
 ![Add a team dropdown](/assets/images/help/organizations/scheduled-reminders-add-teams.png)
 {% data reusables.reminders.ignore-drafts %}
 {% data reusables.reminders.no-review-requests %}
@@ -44,9 +43,8 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.create-reminder %}
 
 ### Managing a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -54,9 +52,8 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.update-buttons %}
 
 ### Deleting a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

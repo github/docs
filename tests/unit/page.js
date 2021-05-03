@@ -6,6 +6,7 @@ const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const { latest } = require('../../lib/enterprise-server-releases')
+const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 
 const getLinkData = require('../../lib/get-link-data')
 jest.mock('../../lib/get-link-data')
@@ -168,7 +169,7 @@ describe('Page class', () => {
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
-        enterpriseServerVersions: Object.keys(allVersions).filter(id => id.startsWith('enterprise-server@'))
+        enterpriseServerVersions
       }
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
@@ -347,11 +348,13 @@ describe('Page class', () => {
     })
 
     it('renders learning tracks that have been defined', async () => {
+      getLinkData.mockImplementation((guides) => { return guides })
       const guides = ['/path/guide1', '/path/guide2']
       const context = {
         currentLanguage: 'en',
         currentProduct: 'snowbird',
         currentVersion: nonEnterpriseDefaultVersion,
+        enterpriseServerVersions,
         site: {
           data: {
             'learning-tracks': {
@@ -359,12 +362,14 @@ describe('Page class', () => {
                 track_1: {
                   title: 'title',
                   description: 'description',
-                  guides
+                  guides,
+                  featured_track: '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}'
                 },
                 track_2: {
                   title: 'title',
                   description: 'description',
-                  guides
+                  guides,
+                  featured_track: '{% if enterpriseServerVersions contains currentVersion %}true{% else %}false{% endif %}'
                 },
                 dotcom_only_track: {
                   title: 'title',
@@ -381,19 +386,30 @@ describe('Page class', () => {
           }
         }
       }
+      // Test that Liquid versioning is respected during rendering.
+      // Start with Dotcom.
       await page.render(context)
       // To actually render the guides in this test, we would have to load context.pages and context.redirects;
       // To avoid that we can just test that the function was called with the expected data.
       expect(getLinkData).toHaveBeenCalledWith(guides, context)
-      expect(page.learningTracks).toHaveLength(3)
-      expect(page.learningTracks.find(track => track.trackName === 'dotcom_only_track')).toBeTruthy()
+      // Tracks for dotcom should exclude enterprise_only_track and the featured track_1.
+      expect(page.learningTracks).toHaveLength(2)
+      const dotcomTrackNames = page.learningTracks.map(t => t.trackName)
+      expect(dotcomTrackNames.includes('track_2')).toBe(true)
+      expect(dotcomTrackNames.includes('dotcom_only_track')).toBe(true)
+      expect(page.featuredTrack.trackName === 'track_1').toBeTruthy()
+      expect(page.featuredTrack.trackName === 'track_2').toBeFalsy()
 
-      // Test that Liquid versioning is respected
+      // Switch to Enterprise.
       context.currentVersion = `enterprise-server@${latest}`
       await page.render(context)
-      expect(page.learningTracks).toHaveLength(3)
-      expect(page.learningTracks.find(track => track.trackName === 'dotcom_only_track')).toBeFalsy()
-      expect(page.learningTracks.find(track => track.trackName === 'enterprise_only_track')).toBeTruthy()
+      // Tracks for enterprise should exclude dotcom_only_track and the featured track_2.
+      expect(page.learningTracks).toHaveLength(2)
+      const ghesTrackNames = page.learningTracks.map(t => t.trackName)
+      expect(ghesTrackNames.includes('track_1')).toBe(true)
+      expect(ghesTrackNames.includes('enterprise_only_track')).toBe(true)
+      expect(page.featuredTrack.trackName === 'track_1').toBeFalsy()
+      expect(page.featuredTrack.trackName === 'track_2').toBeTruthy()
     })
   })
 
