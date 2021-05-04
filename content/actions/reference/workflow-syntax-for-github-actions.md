@@ -725,7 +725,7 @@ jobs:
 
 #### Example using action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. You will need to generate a [personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and add it to your [repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or [organisation](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). You will need to replace `PERSONAL_ACCESS_TOKEN` in the example below with the name of the secret you created.
+Your workflow must checkout the private repository and reference the action locally. You will need to generate a [personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and add it to your [repository](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository) or [organization](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). You will need to replace `PERSONAL_ACCESS_TOKEN` in the example below with the name of the secret you created.
 
 {% raw %}
 ```yaml
