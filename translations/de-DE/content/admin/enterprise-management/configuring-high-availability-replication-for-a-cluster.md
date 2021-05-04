@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### About high availability replication for clusters

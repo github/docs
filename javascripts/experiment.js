@@ -27,4 +27,13 @@ export default function () {
   // const x = document.querySelector(...)
   // x.addEventListener('click', () => { sendSuccess(testName) })
   // if (xbucket === TREATMENT) applyTreatment(x)
+
+  const testName = 'search_lunr'
+  const xbucket = bucket(testName)
+  document.addEventListener('click', evt => {
+    if (!evt.target.closest('.search-result > a')) return
+    console.log(testName, xbucket) // eslint-disable-line
+    sendSuccess(testName)
+  })
+  // Treatment code in middleware/search.js
 }

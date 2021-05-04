@@ -1,6 +1,6 @@
 ---
 title: リポジトリを削除または移譲する権限を設定する
-intro: 'リポジトリの削除や移譲を、リポジトリの管理者権限を持つ Organization メンバーに許可したり、Organization のオーナーのみがリポジトリを削除や移譲できるよう制限したりできます。'
+intro: リポジトリの削除や移譲を、リポジトリの管理者権限を持つ Organization メンバーに許可したり、Organization のオーナーのみがリポジトリを削除や移譲できるよう制限したりできます。
 redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization/
   - /articles/setting-permissions-for-deleting-or-transferring-repositories
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 コードオーナーは、Organization 内のリポジトリについて、削除や移譲の権限を設定できます。

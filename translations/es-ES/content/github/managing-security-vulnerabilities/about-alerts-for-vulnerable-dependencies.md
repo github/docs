@@ -2,9 +2,9 @@
 title: Acerca de las alertas para las dependencias vulnerables
 intro: '{% data variables.product.product_name %} envía {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}alertas de seguridad del {% data variables.product.prodname_dependabot_alerts %}{% else %}{% endif %} cuando detectamos vulnerabilidades que afectan tu repositorio.'
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - seguridad
+  - Security
 ---
  
 ### Acerca de las dependencias vulnerables

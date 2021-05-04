@@ -1,5 +1,5 @@
 ---
-title: '¿Qué le sucede a las bifurcaciones cuando se elimina un repositorio o cambia la visibilidad?'
+title: ¿Qué le sucede a las bifurcaciones cuando se elimina un repositorio o cambia la visibilidad?
 intro: Eliminar tu repositorio o cambiar su visibilidad afecta las bifurcaciones de ese repositorio.
 redirect_from:
   - /articles/changing-the-visibility-of-a-network/
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

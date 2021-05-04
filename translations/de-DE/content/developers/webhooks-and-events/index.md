@@ -7,7 +7,7 @@ versions:
   github-ae: '*'
 topics:
   - Webhooks
-  - ereignisse
+  - Events
 ---
 
 ### Inhaltsverzeichnis

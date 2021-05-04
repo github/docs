@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Profiles
 ---
 
 Tu gráfico de contribución muestra la actividad de los repositorios públicos. Puedes elegir mostrar la actividad desde los repositorios públicos y privados, con detalles específicos de tu actividad en los repositorios privados de forma anónima. Para obtener más información, consulte "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."

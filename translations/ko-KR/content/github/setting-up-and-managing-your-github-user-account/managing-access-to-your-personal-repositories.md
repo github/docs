@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
-  - repositories
+  - Accounts
+  - Repositories
 ---
 

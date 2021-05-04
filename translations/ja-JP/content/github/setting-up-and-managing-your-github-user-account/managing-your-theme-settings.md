@@ -4,7 +4,7 @@ intro: 'システム設定に従うか、ライトモードまたはダークモ
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 {% note %}

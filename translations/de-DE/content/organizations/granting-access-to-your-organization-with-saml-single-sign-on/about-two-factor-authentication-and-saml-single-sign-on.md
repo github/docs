@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Zwei-Faktor-Authentifizierung und zu SAML Single-Sign-On
-intro: Administratoren von Organisationen können sowohl SAML Single-Sign-On als auch die Zwei-Faktor-Authentifizierung aktivieren, um zusätzliche Authentifizierungsmaßnahmen für ihre Organisationsmitglieder hinzuzufügen.
+intro: 'Administratoren von Organisationen können sowohl SAML Single-Sign-On als auch die Zwei-Faktor-Authentifizierung aktivieren, um zusätzliche Authentifizierungsmaßnahmen für ihre Organisationsmitglieder hinzuzufügen.'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Die Zwei-Faktor-Authentifizierung (2FA) bietet die grundlegende Authentifizierung für Organisationsmitglieder. Durch die Aktivierung der Zwei-Faktor-Authentifizierung begrenzen Organisationsadministratoren die Wahrscheinlichkeit, dass das {% data variables.product.product_name %}-Konto eines Mitglieds kompromittiert werden könnte. Weitere Informationen zur Zwei-Faktor-Authentifizierung findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication).“

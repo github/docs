@@ -4,6 +4,7 @@ intro: 'Saca más provecho de {% data variables.product.prodname_dotcom %} integ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

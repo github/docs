@@ -9,13 +9,13 @@ redirect_from:
   - /articles/unpublishing-a-github-pages-site
   - /github/working-with-github-pages/unpublishing-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-permissions: 'Las personas con permisos administrativos en un repositorio pueden anular la publicación de un sitio de {% data variables.product.prodname_pages %}.'
+permissions: 'People with admin or maintainer permissions for a repository can unpublish a {% data variables.product.prodname_pages %} site.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Anular la publicación de un sitio de proyecto

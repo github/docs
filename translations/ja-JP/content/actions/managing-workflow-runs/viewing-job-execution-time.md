@@ -1,6 +1,6 @@
 ---
 title: ジョブの実行時間を表示する
-intro: 'ジョブの実行時間 (ジョブの発生した支払対象の分を含む) を表示できます。'
+intro: ジョブの実行時間 (ジョブの発生した支払対象の分を含む) を表示できます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

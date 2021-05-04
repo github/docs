@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。

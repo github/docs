@@ -4,6 +4,9 @@ intro: 'Para crear un flujo de trabajo ideal para clasificar tus notificaciones,
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - Notifications
 ---
 
 ### Comenzar la clasificación en tu bandeja de entrada

@@ -1,7 +1,7 @@
 ---
 title: Organization のセキュリティおよび分析設定を管理する
 intro: '{% data variables.product.prodname_dotcom %} 上の Organization のプロジェクトでコードを保護し分析する機能を管理できます。'
-permissions: Organization のオーナーは、Organization のリポジトリのセキュリティおよび分析設定を管理できます。
+permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### セキュリティおよび分析設定の管理について
