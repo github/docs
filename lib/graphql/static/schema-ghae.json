@@ -34664,6 +34664,39 @@
       ]
     },
     {
+      "name": "PullRequestTemplate",
+      "kind": "objects",
+      "id": "pullrequesttemplate",
+      "href": "/graphql/reference/objects#pullrequesttemplate",
+      "description": "<p>A repository pull request template.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "filename",
+          "description": "<p>The filename of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository the template belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineConnection",
       "kind": "objects",
       "id": "pullrequesttimelineconnection",
@@ -41788,6 +41821,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pullRequestTemplates",
+          "description": "<p>Returns a list of pull request templates associated to the repository.</p>",
+          "type": "[PullRequestTemplate!]",
+          "id": "pullrequesttemplate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequesttemplate"
         },
         {
           "name": "pullRequests",
