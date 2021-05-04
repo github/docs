@@ -152,7 +152,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our Dockerfile.
+You can use the Dockerfile to add additional container layers to specify OS packages, node versions, or global packages we want included in our container.
 
 ### Step 3: Modify your devcontainer.json file 
 
