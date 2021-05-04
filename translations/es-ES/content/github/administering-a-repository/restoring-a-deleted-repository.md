@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cualquier usuario puede restaurar repositorios eliminados que le pertenecieron a su propia cuenta de usuario. Los propietarios de la organización pueden restaurar repositorios eliminados que le pertenecieron a la organización.

@@ -1,15 +1,15 @@
 ---
 title: Adicionando etiquetas a problemas
-intro: Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

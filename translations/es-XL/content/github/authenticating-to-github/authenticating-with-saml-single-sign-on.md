@@ -7,5 +7,8 @@ redirect_from:
   - /articles/authenticating-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - SSO
 ---
 

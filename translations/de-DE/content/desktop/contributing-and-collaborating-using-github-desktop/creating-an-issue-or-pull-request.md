@@ -1,7 +1,7 @@
 ---
 title: Ein „Issue“ (Problem) oder einen Pull-Request erstellen
-intro: Du kannst ein „Issue“ (Problem) oder einen Pull-Request erstellen, um Änderungen an einem Projektarchiv vorzuschlagen und gemeinsam daran zu arbeiten.
-permissions: 'Anyone can create an issue in a public repository that has issues enabled. Jeder, der Leseberechtigungen für ein Repository besitzt, kann einen Pull Request erstellen. Du benötigst jedoch Schreibberechtigungen, um einen Branch zu erstellen.'
+intro: 'Du kannst ein „Issue“ (Problem) oder einen Pull-Request erstellen, um Änderungen an einem Projektarchiv vorzuschlagen und gemeinsam daran zu arbeiten.'
+permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request

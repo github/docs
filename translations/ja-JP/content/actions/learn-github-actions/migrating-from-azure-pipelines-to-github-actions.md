@@ -10,7 +10,7 @@ versions:
 type: tutorial
 topics:
   - Azure Pipelines
-  - 移行
+  - Migration
   - CI
   - CD
 ---

@@ -1,14 +1,14 @@
 ---
 title: Geplante Erinnerungen für Dein Team verwalten
-intro: Du kannst in Slack Erinnerungen erhalten, wenn auf dein Team Pull-Request-Reviews warten.
+intro: 'Du kannst in Slack Erinnerungen erhalten, wenn auf dein Team Pull-Request-Reviews warten.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your team
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über geplante Erinnerungen für Teams

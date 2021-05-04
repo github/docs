@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 タスクリストは、コメント内でクリックできるチェックボックスと共に表示されます。 チェックボックスを選択するか選択を解除して、それらが完了したか、あるいは未完了であることをマークできます。

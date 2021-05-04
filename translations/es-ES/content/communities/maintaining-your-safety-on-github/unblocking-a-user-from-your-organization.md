@@ -1,13 +1,13 @@
 ---
 title: Desbloquear un usuario desde tu organización
-intro: 'Los propietarios de la organización pueden desbloquear un usuario que se haya bloqueado previamente y restaurar su acceso a los repositorios de la organización.'
+intro: Los propietarios de la organización pueden desbloquear un usuario que se haya bloqueado previamente y restaurar su acceso a los repositorios de la organización.
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Después de desbloquear un usuario desde tu organización, este podrá contribuir con los repositorios de tu organización.

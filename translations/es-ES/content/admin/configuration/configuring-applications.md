@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Ajustar el almacenamiento en caché de las imágenes

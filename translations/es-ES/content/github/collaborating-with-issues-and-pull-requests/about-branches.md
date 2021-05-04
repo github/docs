@@ -1,6 +1,6 @@
 ---
 title: Acerca de las ramas
-intro: 'Usa una rama para identificar tareas de desarrollo sin afectar otras ramas en el repositorio. Cada repositorio tiene una rama por defecto y puede tener muchas otras ramas. Puedes fusionar una rama en otra rama usando una solicitud de extracción.'
+intro: Usa una rama para identificar tareas de desarrollo sin afectar otras ramas en el repositorio. Cada repositorio tiene una rama por defecto y puede tener muchas otras ramas. Puedes fusionar una rama en otra rama usando una solicitud de extracción.
 redirect_from:
   - /articles/working-with-protected-branches/
   - /articles/about-branches
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 

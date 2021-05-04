@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de las cuentas de empresa

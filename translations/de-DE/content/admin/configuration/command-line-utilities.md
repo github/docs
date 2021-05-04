@@ -10,7 +10,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ein SSH-Administratorbenutzer angemeldet haben. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.

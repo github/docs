@@ -20,7 +20,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Subir de categoría la suscripción de tu cuenta personal

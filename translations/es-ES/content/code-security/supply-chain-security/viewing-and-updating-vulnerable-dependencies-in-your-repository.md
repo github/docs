@@ -4,12 +4,13 @@ intro: 'Si {% data variables.product.product_name %} descubre una dependencia vu
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: Los administradores de repositorio y propietarios de la organización pueden ver y actualizar las dependencias.
+permissions: Repository administrators and organization owners can view and update dependencies.
 shortTitle: Ver y actualizar las dependencias vulnerables
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
-  - seguridad
+  - Security
 ---
 
 La pestaña de alertas del {% data variables.product.prodname_dependabot %} de tu repositorio lista todas las {% data variables.product.prodname_dependabot_alerts %} abiertas y cerradas, y las {% data variables.product.prodname_dependabot_security_updates %} correspondientes. Puedes clasificar la lista de alertas utilizando el menú desplegable y hacer clic en alertas específicas para obtener más detalles. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".

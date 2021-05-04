@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 La barra de búsqueda de propuestas y solicitudes de extracción te permite definir tus propios filtros personalizados y clasificar por una amplia variedad de criterios. Puedes encontrar la barra de búsqueda en las pestañas **Issues** (Propuestas) y **Pull requests** (Solicitudes de extracción) de cada repositorio y en tus [tableros de Issues (Propuestas) y Pull requests (Solicitudes de extracción)](/articles/viewing-all-of-your-issues-and-pull-requests).

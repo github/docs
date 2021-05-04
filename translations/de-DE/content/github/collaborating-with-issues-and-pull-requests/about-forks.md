@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Forks
-intro: Ein Fork ist eine Kopie eines Repositorys, das Du verwaltest. Mit Forks kannst Du Änderungen an einem Projekt vornehmen, ohne dass sich dies auf das ursprüngliche Repository auswirkt. Du kannst Updates aus dem ursprünglichen Repository abrufen oder Änderungen mit Pull Requests an das Repository senden.
+intro: 'Ein Fork ist eine Kopie eines Repositorys, das Du verwaltest. Mit Forks kannst Du Änderungen an einem Projekt vornehmen, ohne dass sich dies auf das ursprüngliche Repository auswirkt. Du kannst Updates aus dem ursprünglichen Repository abrufen oder Änderungen mit Pull Requests an das Repository senden.'
 redirect_from:
   - /articles/about-forks
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Das Forking eines Repositorys ist ähnlich wie das Kopieren eines Repositorys, mit zwei wesentlichen Unterschieden:

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Organization 全体でプロジェクトボードを無効化すると、Organization レベルでプロジェクトボードを新たに作成することができなくなり、既存の Organization レベルのプロジェクトボードはそれまでの URL ではアクセスできなくなります。 Organization 内にあるリポジトリのプロジェクトボードは影響を受けません。

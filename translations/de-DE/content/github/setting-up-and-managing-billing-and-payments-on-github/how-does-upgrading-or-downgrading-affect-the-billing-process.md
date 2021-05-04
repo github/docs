@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Änderungen an bezahlten Abonnements Deines Benutzerkonto oder Deiner Organisation wirken sich nicht auf Abonnements und Zahlungen für andere bezahlte {% data variables.product.prodname_dotcom %}-Funktionen wie zum Beispiel {% data variables.large_files.product_name_long %} oder in {% data variables.product.prodname_marketplace %} gekaufte bezahlte Apps aus.
