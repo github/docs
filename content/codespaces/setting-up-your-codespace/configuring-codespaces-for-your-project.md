@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the default codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
+  - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   free-pro-team: '*'
 topics:

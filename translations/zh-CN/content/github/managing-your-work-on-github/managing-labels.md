@@ -1,6 +1,6 @@
 ---
 title: 管理标签
-intro: '您可以通过创建、编辑、应用和删除标签对议题和拉取请求进行分类。'
+intro: 您可以通过创建、编辑、应用和删除标签对议题和拉取请求进行分类。
 redirect_from:
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
@@ -22,7 +22,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 ### 关于标签

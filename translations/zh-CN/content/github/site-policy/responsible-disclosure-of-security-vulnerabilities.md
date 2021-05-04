@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 我们希望每个人都能安全地使用 GitHub。 如果您发现了 GitHub 中的安全漏洞，请以负责任的方式向我们披露，我们非常感谢您的帮助。

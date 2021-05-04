@@ -9,7 +9,7 @@ intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da 
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

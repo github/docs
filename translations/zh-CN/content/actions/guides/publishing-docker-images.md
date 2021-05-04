@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 打包
-  - 发布
+  - Packaging
+  - Publishing
   - Docker
 ---
 

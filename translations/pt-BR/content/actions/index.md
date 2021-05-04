@@ -22,9 +22,9 @@ featuredLinks:
     - /actions/reference/environment-variables
     - /actions/reference/encrypted-secrets
 changelog:
-  label: 'ações'
-  prefix: 'GitHub Actions:'
-product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+  label: actions
+  prefix: 'GitHub Actions: '
+product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/

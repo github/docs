@@ -4,6 +4,8 @@ intro: 'You can store sensitive information, like tokens, that you want to acces
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+redirect_from:
+  - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
 topics:
   - Codespaces
 ---

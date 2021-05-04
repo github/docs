@@ -1,8 +1,8 @@
 ---
 title: 使用讨论与维护者协作
 shortTitle: 与维护者协作
-intro: 您可以通过在讨论中与项目的维护者沟通，为 {% data variables.product.product_name %} 项目的目标、计划、运行状况和社区做出贡献。
-permissions: 对仓库具有读取权限的人可以发起及参与仓库中的讨论。
+intro: '您可以通过在讨论中与项目的维护者沟通，为 {% data variables.product.product_name %} 项目的目标、计划、运行状况和社区做出贡献。'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

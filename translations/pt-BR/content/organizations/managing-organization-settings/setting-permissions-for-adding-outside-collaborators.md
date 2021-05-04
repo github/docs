@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Os proprietários da organização e integrantes com privilégios de administrador para um repositório podem convidar colaboradores externos para trabalhar no repositório. Você também pode restringir as permissões de convites de colaboradores externos para apenas proprietários de organizações.

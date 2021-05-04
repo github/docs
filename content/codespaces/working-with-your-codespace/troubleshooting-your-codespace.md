@@ -4,6 +4,7 @@ intro: You can troubleshoot problems with a codespace by checking for known issu
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace
+  - /github/developing-online-with-codespaces/troubleshooting-your-codespace
 versions:
   free-pro-team: '*'
 topics:

@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: Anyone can develop in a codespace owned by their user account.
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
+  - /github/developing-online-with-codespaces/developing-in-a-codespace
 versions:
   free-pro-team: '*'
 topics:

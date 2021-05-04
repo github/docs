@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Eventos do GitHub são eventos da comunidade destinados a networking e colaboração na comunidade tecnológica.

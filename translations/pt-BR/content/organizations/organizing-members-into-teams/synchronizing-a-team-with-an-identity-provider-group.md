@@ -4,13 +4,13 @@ intro: 'Você pode sincronizar uma equipe do {% data variables.product.product_n
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 product: '{% data reusables.gated-features.team-synchronization %}'
-permissions: 'Os proprietários da organização e mantenedores da equipe podem sincronizar uma equipe do {% data variables.product.prodname_dotcom %} com um grupo de IdP.'
+permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

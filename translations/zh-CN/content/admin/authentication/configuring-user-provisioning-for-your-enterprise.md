@@ -1,8 +1,8 @@
 ---
 title: 为企业配置用户预配
 shortTitle: 配置用户预配
-intro: 您可以为企业配置跨域身份管理 (SCIM)，以在将 {% data variables.product.product_location %} 的应用程序分配给身份提供商 (IdP) 上的用户时，就自动在 {% data variables.product.product_location %} 上预配用户帐户。
-permissions: 企业所有者可在 {% data variables.product.product_name %} 上为企业配置用户预配。
+intro: '您可以为企业配置跨域身份管理 (SCIM)，以在将 {% data variables.product.product_location %} 的应用程序分配给身份提供商 (IdP) 上的用户时，就自动在 {% data variables.product.product_location %} 上预配用户帐户。'
+permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'

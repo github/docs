@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - aplicativos oauth
+  - OAuth Apps
 ---
 
 {% data reusables.user-settings.access_settings %}
