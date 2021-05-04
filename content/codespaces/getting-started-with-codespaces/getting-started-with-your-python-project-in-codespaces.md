@@ -57,7 +57,7 @@ This example guides you through adding a `devcontainer.json` file from a templat
 
 #### Anatomy of your dev container
 
-Adding the Node.js dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
+Adding the Python dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
 
 - `devcontainer.json`
 - Dockerfile
