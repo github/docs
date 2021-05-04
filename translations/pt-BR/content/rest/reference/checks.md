@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 A API de Verificação permite que você crie aplicativos do GitHub que executam verificações poderosas contra alterações de código em um repositório. Você pode criar os aplicativos que realizam integração contínua, linting ou serviços de varredura de código e fornecem feedback detalhado sobre commits. Para mais informações, consulte "[Começar com a API de verificações](/rest/guides/getting-started-with-the-checks-api)" e "[Criar testes de CI com a API de verificações](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)".

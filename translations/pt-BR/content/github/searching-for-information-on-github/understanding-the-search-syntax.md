@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pesquisa do github
+  - GitHub search
 ---
 
 ### Consultar por valores maiores ou menores que outro valor

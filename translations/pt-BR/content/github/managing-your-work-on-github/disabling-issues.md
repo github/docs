@@ -1,6 +1,6 @@
 ---
 title: Desabilitar problemas
-intro: Se você não aceita contribuições ou relatórios de erros, convém desativar problemas do seu repositório.
+intro: 'Se você não aceita contribuições ou relatórios de erros, convém desativar problemas do seu repositório.'
 redirect_from:
   - /articles/disabling-issues
 versions:

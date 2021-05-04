@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Permission levels for an organization

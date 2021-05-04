@@ -15,8 +15,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
-  - notificações
+  - Accounts
+  - Notifications
 ---
 
 ### Sobre os endereços de e-mail do commit

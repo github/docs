@@ -5,14 +5,14 @@ redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization
-permissions: Os proprietários da organização podem gerenciar a política de bifurcação de uma organização.
+permissions: Organization owners can manage the forking policy for an organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Por padrão, as novas organizações são configuradas para impedir a bifurcação dos repositórios privados {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "github-ae@latest" %} e internos{% endif %}.

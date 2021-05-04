@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'Anyone can create a codespace for any public repository, or for any repository owned by their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
+  - /github/developing-online-with-codespaces/creating-a-codespace
 versions:
   free-pro-team: '*'
 topics:
@@ -35,8 +36,16 @@ The environment of the codespace you create will be based on the repository's co
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Under the repository name, use the "Branch" drop-down menu, and select the branch you want to create a codespace for.
+
   ![Branch drop-down menu](/assets/images/help/codespaces/branch-drop-down.png)
+
 3. Under the repository name, use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**.
+
   ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png)
-4. If you already have a codespace for the branch, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+
+4. To create a codespace using a Standard machine type, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
+
+
+   

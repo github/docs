@@ -1,6 +1,6 @@
 ---
 title: Sobre a divulgação coordenada de vulnerabilidades de segurança
-intro: 'A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.'
+intro: A divulgação das vulnerabilidades é um esforço coordenado entre os relatores de segurança e os mantenedores de repositório.
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

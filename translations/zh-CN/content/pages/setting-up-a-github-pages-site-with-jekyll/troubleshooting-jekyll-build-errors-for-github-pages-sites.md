@@ -31,7 +31,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 ### 排查构建错误

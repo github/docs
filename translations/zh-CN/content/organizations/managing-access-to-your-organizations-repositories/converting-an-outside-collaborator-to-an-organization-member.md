@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: '组织所有者可以{% if currentVersion == "free-pro-team@latest" %}邀请用户加入{% else %}将用户添加到{% endif %}组织。'
+permissions: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

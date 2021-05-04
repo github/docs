@@ -4,7 +4,7 @@ intro: 'Enterprise owners can enforce policies to manage {% data variables.produ
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
-  github-ae: 'далее'
+  github-ae: next
 ---
 
 ### About {% data variables.product.prodname_GH_advanced_security %}

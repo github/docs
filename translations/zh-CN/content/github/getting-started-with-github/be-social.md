@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 个人资料
-  - 拉取请求
-  - 议题
-  - 通知
-  - 帐户
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 要了解有关访问个人仪表板的信息，请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。

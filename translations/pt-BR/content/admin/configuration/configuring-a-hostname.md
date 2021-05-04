@@ -1,6 +1,6 @@
 ---
 title: Configurar nome de host
-intro: Em vez de usar um endereço IP codificado, é recomendável definir um nome de host para o seu appliance.
+intro: 'Em vez de usar um endereço IP codificado, é recomendável definir um nome de host para o seu appliance.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames/
   - /enterprise/admin/installation/configuring-a-hostname
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.

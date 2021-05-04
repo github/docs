@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Excluir bifurcações de repositórios privados

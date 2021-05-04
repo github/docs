@@ -9,8 +9,8 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 恢复代码不应共享或分发。 我们建议使用一个密码管理器保存它们，例如 [LastPass](https://lastpass.com/)、 [1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/)。

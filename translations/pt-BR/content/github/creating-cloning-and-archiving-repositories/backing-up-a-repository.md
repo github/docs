@@ -2,13 +2,13 @@
 title: Fazer backup de um repositório
 intro: 'Você pode usar{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} o Git e{% endif %} a API {% if currentVersion == "free-pro-team@latest" %}ou uma ferramenta de terceiros {% endif %}para fazer backup do seu repositório.'
 redirect_from:
-  - Backing up a repository
+  - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
