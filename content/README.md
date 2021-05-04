@@ -21,6 +21,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
   - [`defaultPlatform`](#defaultplatform)
+  - [`defaultTool`](#defaulttool)
   - [`learningTracks`](#learningTracks)
   - [`includeGuides`](#includeGuides)
   - [`type`](#type)
@@ -200,6 +201,16 @@ Example:
 
 ```yaml
 defaultPlatform: linux
+```
+
+### `defaultTool`
+
+- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub, such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop. If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable.
+- Type: `String`, one of: `webui`, `cli`, `desktop`.
+- Optional.
+
+```yaml
+defaultTool: cli
 ```
 
 ### `learningTracks`
