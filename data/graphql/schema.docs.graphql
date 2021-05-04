@@ -25366,6 +25366,26 @@ enum PullRequestState {
 }
 
 """
+A repository pull request template.
+"""
+type PullRequestTemplate {
+  """
+  The body of the template
+  """
+  body: String
+
+  """
+  The filename of the template
+  """
+  filename: String
+
+  """
+  The repository the template belongs to
+  """
+  repository: Repository!
+}
+
+"""
 The connection type for PullRequestTimelineItem.
 """
 type PullRequestTimelineConnection {
@@ -31041,6 +31061,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     number: Int!
   ): PullRequest
+
+  """
+  Returns a list of pull request templates associated to the repository
+  """
+  pullRequestTemplates: [PullRequestTemplate!]
 
   """
   A list of pull requests that have been opened in the repository.
