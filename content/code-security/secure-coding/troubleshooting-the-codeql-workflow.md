@@ -44,6 +44,7 @@ If an automatic build of code for a compiled language within your project fails,
         matrix:
           language: ['csharp', 'cpp', 'javascript']
 
+      steps:
       ...
         - name: Initialize {% data variables.product.prodname_codeql %}
           uses: github/codeql-action/init@v1
@@ -162,6 +163,7 @@ Fix this by removing the following lines from the {% data variables.product.prod
       # the head of the pull request instead of the merge commit.
       - run: git checkout HEAD^2
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+```
 
 The revised `steps` section of the workflow will look like this:
 
