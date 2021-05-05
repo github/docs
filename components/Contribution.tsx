@@ -15,7 +15,7 @@ export const Contribution = () => {
       <h2 className="f4">{t`title`}</h2>
       <p className="color-text-secondary f6">{t`body`}</p>
       <a className="btn btn-outline" href={contribution_href}>
-        <GitPullRequestIcon size={16} className="color-text-tertiary mr-1" />
+        <GitPullRequestIcon size="small" className="octicon mr-1" />
         {t`button`}
       </a>
       <p className="color-text-secondary f6 mt-2">
