@@ -130,7 +130,6 @@ To create a Probot App, follow these steps:
 2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
-
     default_events:
       - content_reference
     # The set of permissions needed by the GitHub App. The format of the object uses
