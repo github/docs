@@ -5,6 +5,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 

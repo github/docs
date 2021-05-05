@@ -1,10 +1,10 @@
 ---
 title: 审查拉取请求中的依赖项更改
-intro: '如果拉取请求包含对依赖项的更改，您可以查看已更改内容摘要以及任何依赖项中是否存在已知漏洞。'
+intro: 如果拉取请求包含对依赖项的更改，您可以查看已更改内容摘要以及任何依赖项中是否存在已知漏洞。
 versions:
   free-pro-team: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->

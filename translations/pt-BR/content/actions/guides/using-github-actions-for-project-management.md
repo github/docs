@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Gerenciamento de projeto
+  - Project management
 ---
 
 Você pode usar {% data variables.product.prodname_actions %} para automatizar suas tarefas de gerenciamento de projeto, criando fluxos de trabalho. Cada fluxo de trabalho contém uma série de tarefas que são executadas automaticamente toda vez que o fluxo de trabalho é executado. Por exemplo, você pode criar um fluxo de trabalho que é executado toda vez que um problema é criado para adicionar uma etiqueta, deixar um comentário e transferir um problema para um quadro de projeto.

@@ -4,7 +4,7 @@ intro: 'Você pode gerenciar como {% data variables.product.product_name %} se p
 versions:
   free-pro-team: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 {% note %}

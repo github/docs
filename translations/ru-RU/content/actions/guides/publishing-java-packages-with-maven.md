@@ -10,7 +10,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Упаковка
+  - Packaging
   - Publishing
   - Java
   - Maven

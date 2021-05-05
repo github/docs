@@ -1,7 +1,7 @@
 ---
 title: Restringir o tráfego de rede para a sua empresa
 shortTitle: Restringir tráfego de rede
-intro: 'Você pode usar um IP permitir que a lista restrinja o acesso ao seu negócio a conexões a partir de endereços IP especificados.'
+intro: Você pode usar um IP permitir que a lista restrinja o acesso ao seu negócio a conexões a partir de endereços IP especificados.
 versions:
   github-ae: '*'
 ---

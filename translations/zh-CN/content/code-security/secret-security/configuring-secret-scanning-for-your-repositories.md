@@ -1,7 +1,7 @@
 ---
 title: 配置仓库的密码扫描
 intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何扫描您仓库中的密码。'
-permissions: '拥有仓库管理员权限的人可启用仓库的 {% data variables.product.prodname_secret_scanning %}。'
+permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

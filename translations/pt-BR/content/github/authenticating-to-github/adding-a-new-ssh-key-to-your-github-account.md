@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:

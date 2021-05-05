@@ -1,7 +1,7 @@
 ---
 title: 管理组织的安全性和分析设置
 intro: '您可以控制功能以保护组织在 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
-permissions: 组织所有者可以管理组织中仓库的安全性和分析设置。
+permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于安全性和分析设置的管理

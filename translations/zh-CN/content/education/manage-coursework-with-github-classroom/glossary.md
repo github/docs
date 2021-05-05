@@ -1,6 +1,6 @@
 ---
 title: 词汇表
-intro: 您可以查看 {% data variables.product.prodname_classroom %} 的术语解释。
+intro: '您可以查看 {% data variables.product.prodname_classroom %} 的术语解释。'
 versions:
   free-pro-team: '*'
 ---

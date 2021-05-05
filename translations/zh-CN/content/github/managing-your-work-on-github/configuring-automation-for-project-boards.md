@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 {% data reusables.project-management.automate-project-board-permissions %} 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards)”。

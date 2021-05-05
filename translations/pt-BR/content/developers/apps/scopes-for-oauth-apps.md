@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 Ao configurar um aplicativo OAuth no GitHub, os escopos solicitados são exibidos para o usuário no formulário de autorização.

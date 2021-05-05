@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - contas
-  - notificações
+  - Accounts
+  - Notifications
 ---
 
 Quando você faz push de commits usando a linha de comando, o endereço de e-mail [definido no Git](/articles/setting-your-commit-email-address) é associado aos seus commits. Essa configuração impede você de fazer push de commits na linha de comando que usa seu endereço de e-mail pessoal.

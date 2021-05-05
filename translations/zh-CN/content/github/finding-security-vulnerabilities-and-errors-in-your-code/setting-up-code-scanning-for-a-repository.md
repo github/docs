@@ -3,11 +3,11 @@ title: 为仓库设置代码扫描
 shortTitle: 设置代码扫描
 intro: '您可以通过添加工作流程到仓库来设置 {% data variables.product.prodname_code_scanning %}。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '如果您拥有仓库的写入权限，您可以为该仓库设置或配置 {% data variables.product.prodname_code_scanning %}。'
+permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
   enterprise-server: '2.22'
 topics:
-  - 安全
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

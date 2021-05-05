@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - permissões
-  - contas
+  - Permissions
+  - Accounts
 ---
 
 ### Contas de usuário pessoais

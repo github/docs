@@ -1,6 +1,6 @@
 ---
 title: 集成 Jira 与组织项目板
-intro: '您可以将 Jira Cloud 与组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。'
+intro: 您可以将 Jira Cloud 与组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。
 redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board

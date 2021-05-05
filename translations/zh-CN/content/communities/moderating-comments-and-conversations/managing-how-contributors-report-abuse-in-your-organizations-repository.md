@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
-  - 社区
+  - Community
 ---
 
 对仓库具有管理员权限的任何人都可以管理贡献者如何报告仓库中的滥用行为。

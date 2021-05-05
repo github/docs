@@ -1,8 +1,8 @@
 ---
 title: Configurar o provisionamento do usuário para a sua empresa
 shortTitle: Configurar o provisionamento do usuário
-intro: Você pode configurar o Sistema para Gerenciamento de Identidades entre Domínios (SCIM) para sua empresa, que automaticamente fornece contas de usuário em {% data variables.product.product_location %} quando você atribuir o aplicativo para {% data variables.product.product_location %} a um usuário no seu provedor de identidade (IdP).
-permissions: Os proprietários das empresas podem configurar o provisionamento de usuários para uma empresa em {% data variables.product.product_name %}.
+intro: 'Você pode configurar o Sistema para Gerenciamento de Identidades entre Domínios (SCIM) para sua empresa, que automaticamente fornece contas de usuário em {% data variables.product.product_location %} quando você atribuir o aplicativo para {% data variables.product.product_location %} a um usuário no seu provedor de identidade (IdP).'
+permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'

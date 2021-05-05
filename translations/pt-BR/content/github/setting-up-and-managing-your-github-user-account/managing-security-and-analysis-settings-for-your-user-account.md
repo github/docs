@@ -4,7 +4,7 @@ intro: 'Você pode controlar recursos que protegem e analisam o código nos seus
 versions:
   free-pro-team: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 ### Sobre a gestão de configurações de segurança e análise

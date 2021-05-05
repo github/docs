@@ -1,6 +1,6 @@
 ---
 title: 在拉取请求中加入反馈
-intro: '当审查者建议拉取请求中的更改时，您可以自动将这些更改合并到拉取请求中，或者开一个议题来跟踪范围外的建议。'
+intro: 当审查者建议拉取请求中的更改时，您可以自动将这些更改合并到拉取请求中，或者开一个议题来跟踪范围外的建议。
 redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 ### 应用建议的更改

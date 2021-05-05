@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - código aberto
+  - Open Source
 ---
 
 ### Descobrir projetos relevantes

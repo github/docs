@@ -5,10 +5,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
   free-pro-team: '*'
-permissions: 组织所有者可管理组织赞助帐户的更新。
+permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

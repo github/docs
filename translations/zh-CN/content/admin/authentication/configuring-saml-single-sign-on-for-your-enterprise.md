@@ -1,9 +1,9 @@
 ---
 title: 为企业配置 SAML 单点登录
 shortTitle: 配置 SAML SSO
-intro: 您可以为企业配置 SAML 单点登录 (SSO)，这允许您使用身份提供程序 (IdP) 集中控制 {% data variables.product.product_location %} 的身份验证。
+intro: '您可以为企业配置 SAML 单点登录 (SSO)，这允许您使用身份提供程序 (IdP) 集中控制 {% data variables.product.product_location %} 的身份验证。'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: 企业所有者可在 {% data variables.product.product_name %} 上为企业配置 SAML SSO。
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
 ---

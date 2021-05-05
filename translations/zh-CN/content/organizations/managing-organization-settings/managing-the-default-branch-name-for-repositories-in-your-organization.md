@@ -1,16 +1,16 @@
 ---
 title: 管理组织中仓库的默认分支名称
-intro: 'You can set the default branch name for repositories that members create in your organization.'
+intro: You can set the default branch name for repositories that members create in your organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
-permissions: Managing the default branch name for your repositories
+permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### About the default branch name

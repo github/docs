@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 查看依赖关系图

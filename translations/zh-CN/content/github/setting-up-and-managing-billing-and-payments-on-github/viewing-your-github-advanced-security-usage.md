@@ -1,7 +1,7 @@
 ---
 title: 查看您的 GitHub 高级安全使用情况
 intro: '您可以查看和管理 {% data variables.product.prodname_GH_advanced_security %} 许可证的使用情况。'
-permissions: 组织和企业所有者可以管理其组织或企业组织对 {% data variables.product.prodname_GH_advanced_security %} 的访问。
+permissions: 'Organization and enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from: /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 versions:

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的健康状态并了解何时向主机增加更多内存、存储空间或处理器能力。

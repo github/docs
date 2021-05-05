@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - identidade
-  - gerenciamento de acesso
+  - Identity
+  - Access management
 ---
 
 Você deve escolher ou gerar uma senha para sua conta de {% data variables.product.product_name %} pelo menos:

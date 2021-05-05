@@ -31,7 +31,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 ### Solucionar problemas de erros de criação

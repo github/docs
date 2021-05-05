@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Recomendamos que você notifique {% if currentVersion == "free-pro-team@latest" %}os integrantes da organização, colaboradores externos e os gerentes de cobrança{% else %}integrantes da organização e colaboradores externos{% endif %} a pelo menos uma semana antes de exigir 2FA na sua organização.

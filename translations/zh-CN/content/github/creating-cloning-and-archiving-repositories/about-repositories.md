@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 您可以个人拥有仓库，也可以与组织中的其他人共享仓库的所有权。

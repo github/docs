@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Você pode [realizar a introspecção](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) com base na API do GraphQL diretamente.

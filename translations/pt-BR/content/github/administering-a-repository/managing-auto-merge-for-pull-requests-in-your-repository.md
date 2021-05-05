@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: '*'
-permissions: Pessoas com permissões de mantenedor podem gerenciar merge automático para pull requests em um repositório.
+permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Sobre o merge automático

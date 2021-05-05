@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Empacotando'
-  - 'Publicar'
-  - 'Docker'
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

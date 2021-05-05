@@ -1,6 +1,6 @@
 ---
 title: Excluir e restaurar um pacote
-intro: 'Saiba como excluir ou restaurar um pacote.'
+intro: Saiba como excluir ou restaurar um pacote.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Entendemos que, algumas vezes, conteúdo protegido por direitos autorais, marcas registradas ou conteúdo privado pode ser publicado no GitHub, acidental ou intencionalmente, em repositórios dos quais você não possui a propriedade. Uma vez que a natureza deste conteúdo varia e, devido às diferentes leis aplicáveis, cada categoria tem os seus próprios requisitos distintos de denúncia definidos em nossas políticas.

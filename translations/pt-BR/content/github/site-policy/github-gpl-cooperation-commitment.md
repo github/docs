@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Este compromisso diz respeito às contribuições do GitHub para o Git, o kernel do Linux e outros programas sob licenças cobertas (role até o final para obter definições).

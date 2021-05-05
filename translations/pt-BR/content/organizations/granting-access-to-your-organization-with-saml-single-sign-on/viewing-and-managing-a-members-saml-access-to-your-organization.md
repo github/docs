@@ -1,7 +1,7 @@
 ---
 title: Visualizar e gerenciar o acesso SAML de um integrante à sua organização
 intro: 'Você pode visualizar e revogar a identidade vinculada de um integrante da organização, as sessões ativas e as credenciais autorizadas.'
-permissions: Os proprietários da organização podem visualizar e gerenciar o acesso SAML de um integrante a uma organização.
+permissions: Organization owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre o acesso SAML à sua organização

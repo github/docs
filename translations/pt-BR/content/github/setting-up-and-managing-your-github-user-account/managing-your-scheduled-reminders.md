@@ -4,7 +4,7 @@ intro: Receba lembretes no Slack quando você ou sua equipe tiverem pull request
 versions:
   free-pro-team: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 ### Sobre os lembretes agendados para os usuários

@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
-  - comunidade
+  - Community
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode visualizar e gerenciar conteúdo denunciado no repositório.

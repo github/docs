@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 O {% data variables.product.prodname_marketplace %} inclui apps com planos de preços pagos e gratuitos. Depois de comprar e instalar um app, é possível atualizar, fazer downgrade ou cancelar a qualquer momento.

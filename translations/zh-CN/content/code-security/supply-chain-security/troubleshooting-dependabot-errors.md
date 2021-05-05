@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - security
+  - Security
 ---
 
 {% data reusables.dependabot.beta-note %}

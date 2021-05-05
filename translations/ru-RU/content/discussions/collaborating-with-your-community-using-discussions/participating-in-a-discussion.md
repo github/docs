@@ -1,6 +1,6 @@
 ---
 title: Participating in a discussion
-intro: You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.
+intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'

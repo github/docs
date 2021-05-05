@@ -1,13 +1,13 @@
 ---
 title: About the dependency graph
-intro: 'You can use the dependency graph to identify all your project''s dependencies. The dependency graph supports a range of popular package ecosystems.'
+intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - repositories
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->

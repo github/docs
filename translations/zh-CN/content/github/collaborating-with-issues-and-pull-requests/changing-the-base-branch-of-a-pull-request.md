@@ -1,6 +1,6 @@
 ---
 title: 更改拉取请求的基本分支
-intro: '打开拉取请求后，您可以更改基本分支，以根据不同的分支比较拉取请求中的更改。'
+intro: 打开拉取请求后，您可以更改基本分支，以根据不同的分支比较拉取请求中的更改。
 redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 {% warning %}

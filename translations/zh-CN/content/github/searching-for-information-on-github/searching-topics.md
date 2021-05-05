@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github 搜索
+  - GitHub search
 ---
 
 ### 搜索 {% data variables.product.product_name %} 主题

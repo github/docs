@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 欢迎参与 GitHub 研究计划（以下简称“计划”）！ 要参与计划，您需要同意一套特殊的条款，即 GitHub 研究计划协议（以下简称“协议”）。

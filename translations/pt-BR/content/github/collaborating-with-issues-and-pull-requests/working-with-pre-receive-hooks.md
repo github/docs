@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com hooks pre-receive
-intro: 'Os *hooks pre-receive* impõem regras para contribuições antes que o push dos commits possa ser feito em um repositório.'
+intro: Os *hooks pre-receive* impõem regras para contribuições antes que o push dos commits possa ser feito em um repositório.
 redirect_from:
   - /articles/working-with-pre-receive-hooks
 versions:

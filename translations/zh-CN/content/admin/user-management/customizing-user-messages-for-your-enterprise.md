@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于用户消息

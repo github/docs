@@ -1,9 +1,9 @@
 ---
 title: Gerenciar vulnerabilidades de segurança
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - segurança
+  - Security
 ---
 
 

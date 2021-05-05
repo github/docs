@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

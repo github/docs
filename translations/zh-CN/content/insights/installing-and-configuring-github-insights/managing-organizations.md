@@ -4,7 +4,7 @@ intro: '您可以管理指标中包含的 {% data variables.product.prodname_ent
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
-permissions: '对 {% data variables.product.prodname_insights %} 具有管理员权限的人可管理组织。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
   enterprise-server: '*'
 ---

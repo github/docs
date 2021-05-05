@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}

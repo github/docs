@@ -9,6 +9,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - aplicativos github
+  - GitHub Apps
 ---
 

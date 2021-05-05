@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 在新增 SSH 密钥到 {% data variables.product.product_name %} 帐户之前，您应该已：

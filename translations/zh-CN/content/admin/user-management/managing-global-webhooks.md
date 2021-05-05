@@ -1,6 +1,6 @@
 ---
 title: 管理全局 web 挂钩
-intro: '站点管理员可以查看、添加、编辑和删除全局 web 挂钩，以跟踪企业的事件。'
+intro: 站点管理员可以查看、添加、编辑和删除全局 web 挂钩，以跟踪企业的事件。
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于全局 web 挂钩

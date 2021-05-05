@@ -4,13 +4,13 @@ intro: '您可以将 {% data variables.product.product_name %} 团队与身份�
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
 product: '{% data reusables.gated-features.team-synchronization %}'
-permissions: '组织所有者和团队维护员可将 {% data variables.product.prodname_dotcom %} 团队与 IdP 组同步。'
+permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

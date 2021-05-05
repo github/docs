@@ -4,7 +4,7 @@ intro: 'Configure seu bucket de armazenamento do MinIO personalizado para uso co
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

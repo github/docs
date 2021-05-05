@@ -1,7 +1,7 @@
 ---
 title: Integrar GitHub Classroom com um IDE on-line
 shortTitle: Integrar com um IDE on-line
-intro: Você pode pré-configurar um ambiente de desenvolvimento integrado on-line (IDDE) compatível com recomendações que você cria em {% data variables.product.prodname_classroom %}.
+intro: 'Você pode pré-configurar um ambiente de desenvolvimento integrado on-line (IDDE) compatível com recomendações que você cria em {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

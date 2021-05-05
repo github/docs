@@ -3,11 +3,11 @@ title: Configurar a varredura de código para um repositório
 shortTitle: Configurar a varredura de código
 intro: 'Você pode configurar {% data variables.product.prodname_code_scanning %} adicionando um fluxo de trabalho ao seu repositório.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Caso tenha permissões de gravação em um repositório, você poderá configurar {% data variables.product.prodname_code_scanning %} para esse repositório.'
+permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
   enterprise-server: '2.22'
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

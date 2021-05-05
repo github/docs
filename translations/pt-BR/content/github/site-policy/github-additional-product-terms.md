@@ -3,8 +3,8 @@ title: Termos Adicionais do Produto GitHub
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Version Effective Date: February 22, 2021

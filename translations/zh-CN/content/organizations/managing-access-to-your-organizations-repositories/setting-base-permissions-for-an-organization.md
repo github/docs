@@ -1,7 +1,7 @@
 ---
 title: 设置组织的基本权限
 intro: 您可以为组织拥有的仓库设置基本权限。
-permissions: 组织所有者可设置组织的基本权限。
+permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于组织的基本权限

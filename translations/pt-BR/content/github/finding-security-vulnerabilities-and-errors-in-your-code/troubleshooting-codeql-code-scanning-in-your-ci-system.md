@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}

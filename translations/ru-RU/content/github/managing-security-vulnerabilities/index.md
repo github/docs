@@ -1,9 +1,9 @@
 ---
 title: Managing security vulnerabilities
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - безопасность
+  - Security
 ---
 
 

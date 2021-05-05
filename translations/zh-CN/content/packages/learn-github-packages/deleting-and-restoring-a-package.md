@@ -1,6 +1,6 @@
 ---
 title: 删除和恢复包
-intro: '了解如何删除或恢复包。'
+intro: 了解如何删除或恢复包。
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package

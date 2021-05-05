@@ -11,7 +11,7 @@ intro: 'Se um usuário sair da empresa ou mudar para outro departamento, você d
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Se funcionários saírem da empresa, você poderá suspender suas contas do {% data variables.product.prodname_ghe_server %} para disponibilizar licenças de usuário em sua licença {% data variables.product.prodname_enterprise %}, embora os problemas, comentários, repositórios, gists e outros dados que eles criaram continuem existindo. Usuários suspensos não podem entrar na sua instância nem fazer push ou pull de códigos.

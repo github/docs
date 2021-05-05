@@ -7,14 +7,14 @@ redirect_from:
   - /early-access/integrations/install-an-integration/
   - /apps/adding-integrations/
   - /apps/building-integrations/setting-up-a-new-integration/about-integrations/
-  - /aplicativos
+  - /apps
   - /v3/integrations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - aplicativos github
+  - GitHub Apps
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}

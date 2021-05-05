@@ -1,12 +1,12 @@
 ---
 title: 重命名分支
 intro: 您可以更改仓库中分支的名称。
-permissions: 拥有仓库写入权限的人可重命名仓库中的分支。 具有管理员权限的人可以重命名默认分支。
+permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于重命名分支

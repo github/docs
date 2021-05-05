@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions for GitHub AE 使用入门
 intro: '了解在 {% data variables.product.prodname_ghe_managed %} 上配置 {% data variables.product.prodname_actions %}。'
-permissions: '站点管理员可以启用 {% data variables.product.prodname_actions %} 并配置企业设置。'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   github-ae: '*'
 ---

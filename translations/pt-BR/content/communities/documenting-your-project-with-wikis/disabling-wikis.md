@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Quando um wiki é desativado, o conteúdo dele é oculto, mas não apagado. Se você optar por tornar a habilitar os wikis posteriormente, as páginas anteriores serão restauradas.

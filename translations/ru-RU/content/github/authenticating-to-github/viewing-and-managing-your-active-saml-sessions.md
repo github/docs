@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - sso
+  - SSO
 ---
 
 {% data reusables.user_settings.access_settings %}

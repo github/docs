@@ -1,6 +1,6 @@
 ---
 title: 创建默认社区健康文件
-intro: '您可以创建默认社区健康文件，例如 CONTRIBUTING 和 CODE_OF_CONDUCT。 默认文件将用于不包含该类型自有文件的帐户所拥有的任何公共仓库。'
+intro: 您可以创建默认社区健康文件，例如 CONTRIBUTING 和 CODE_OF_CONDUCT。 默认文件将用于不包含该类型自有文件的帐户所拥有的任何公共仓库。
 redirect_from:
   - /articles/creating-a-default-community-health-file-for-your-organization
   - /github/building-a-strong-community/creating-a-default-community-health-file-for-your-organization
@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 ### 关于默认社区健康文件

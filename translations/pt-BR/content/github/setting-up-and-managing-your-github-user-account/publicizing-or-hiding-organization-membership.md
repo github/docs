@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 ![Caixa perfil da organização](/assets/images/help/profile/profile_orgs_box.png)

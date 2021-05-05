@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfis
+  - Profiles
 ---
 
 ### Comportamento esperado para exibir detalhes do commit

@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfis
+  - Profiles
 ---
 
 ### Alterar sua imagem de perfil

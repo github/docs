@@ -1,11 +1,11 @@
 ---
 title: 关于企业帐户的身份和访问管理
-intro: '您可以使用身份提供程序 (IdP) 集中管理对企业资源、组织成员身份和团队成员身份的访问。'
+intro: 您可以使用身份提供程序 (IdP) 集中管理对企业资源、组织成员身份和团队成员身份的访问。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于企业帐户的身份和访问管理

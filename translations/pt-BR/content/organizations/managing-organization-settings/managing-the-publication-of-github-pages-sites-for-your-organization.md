@@ -1,7 +1,7 @@
 ---
 title: Gerenciar a publicação dos sites do GitHub Pages para a sua organização
 intro: 'Você pode controlar se os integrantes da organização podem publicar sites de {% data variables.product.prodname_pages %} a partir de repositórios na organização{% if currentVersion == "free-pro-team@latest" %} e restringir as visibilidades que os integrantes podem escolher para os sites{% endif %}.'
-permissions: 'Os proprietários da organização podem gerenciar a publicação de sites de {% data variables.product.prodname_pages %} a partir de repositórios na organização.'
+permissions: 'Organization owners can manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization.'
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
@@ -11,8 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

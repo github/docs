@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 如果您在应用优惠券之前为帐户付款，则 {% data variables.product.product_name %} 无法发起退款。 如果您将优惠券应用到错误的帐户，我们也无法转移已兑换的优惠券或为您提供一张新的优惠券。 在兑换优惠券之前，请确认是否将优惠券应用到正确的帐户。

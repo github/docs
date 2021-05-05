@@ -1,6 +1,6 @@
 ---
 title: 查看仓库的依赖项
-intro: '您可以使用依赖关系图来浏览仓库所依赖的代码。'
+intro: 您可以使用依赖关系图来浏览仓库所依赖的代码。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'

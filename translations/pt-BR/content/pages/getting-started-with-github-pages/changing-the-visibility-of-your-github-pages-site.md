@@ -1,10 +1,10 @@
 ---
 title: Alterar a visibilidade do site do GitHub Pages
-intro: 'Você pode gerenciar o controle de acesso no seu site de projeto publicando o site publicamente ou privadamente.'
+intro: Você pode gerenciar o controle de acesso no seu site de projeto publicando o site publicamente ou privadamente.
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   free-pro-team: '*'
-permissions: As pessoas com permissões de administrador em um repositório podem alterar a visibilidade de um site de {% data variables.product.prodname_pages %}
+permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 ---

@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - безопасность
+  - Security
 ---
 
 ### Table of Contents

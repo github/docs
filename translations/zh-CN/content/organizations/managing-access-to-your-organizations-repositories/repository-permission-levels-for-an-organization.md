@@ -1,6 +1,6 @@
 ---
 title: 组织的仓库权限级别
-intro: '您可以通过细化权限级别自定义组织中每个仓库的权限，从而为每个用户提供所需的功能和任务权限。'
+intro: 您可以通过细化权限级别自定义组织中每个仓库的权限，从而为每个用户提供所需的功能和任务权限。
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/repository-permission-levels-for-an-organization-early-access-program/
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 具有管理员权限的人员可以管理对组织所拥有仓库的个人和团队访问权限。

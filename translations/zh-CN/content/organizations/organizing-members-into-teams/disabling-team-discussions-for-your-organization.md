@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team-discussions-default %} 有关团队讨论的更多信息，请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。

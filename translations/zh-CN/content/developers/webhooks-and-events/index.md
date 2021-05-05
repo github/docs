@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - web 挂钩
-  - 事件
+  - Webhooks
+  - Events
 ---
 
 ### 目录

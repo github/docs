@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 ### Sobre arquivos padrão de integridade da comunidade

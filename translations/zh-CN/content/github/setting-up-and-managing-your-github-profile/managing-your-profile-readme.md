@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 topics:
-  - 个人资料
+  - Profiles
 ---
 
 ### 关于您的个人资料自述文件

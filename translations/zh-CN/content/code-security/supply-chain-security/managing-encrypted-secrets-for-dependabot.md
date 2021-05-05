@@ -1,6 +1,6 @@
 ---
 title: 管理 Dependabot 的加密密码
-intro: 您可以将敏感信息（如密码和访问令牌）存储为加密密码，然后在 {% data variables.product.prodname_dependabot %} 配置文件中引用它们。
+intro: '您可以将敏感信息（如密码和访问令牌）存储为加密密码，然后在 {% data variables.product.prodname_dependabot %} 配置文件中引用它们。'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
 versions:

@@ -2,11 +2,11 @@
 title: Gerenciar a sincronização de equipes para organizações na conta corporativa
 intro: 'É possível habilitar a sincronização de equipes entre um provedor de identidade (IdP) e {% data variables.product.product_name %} para permitir que organizações pertencentes à sua conta corporativa gerenciem a associação de equipes por meio de grupos IdP.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Os proprietários das empresas podem gerenciar a sincronização de equipes para uma conta corporativa.
+permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre a sincronização de equipes para contas corporativas

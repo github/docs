@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 对仓库具有管理员权限的任何人都可启用或禁用分支的自动删除。

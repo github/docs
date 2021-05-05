@@ -4,12 +4,12 @@ intro: '您可以通过使用 {% data variables.product.company_short %} 验证�
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: 企业所有者可以验证企业帐户的域。
+permissions: Enterprise owners can verify an enterprise account's domain.
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于域验证

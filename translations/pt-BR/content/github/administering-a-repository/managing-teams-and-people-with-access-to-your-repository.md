@@ -1,13 +1,13 @@
 ---
 title: Gerenciando equipes e pessoas com acesso ao seu repositório
 intro: Você pode ver todos os que têm acesso ao seu repositório e ajustar as permissões.
-permissions: Administradores de repositórios podem gerenciar equipes e pessoas com acesso a um repositório.
+permissions: Repository administrators can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Sobre gerenciar o acesso ao seu repositório

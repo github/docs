@@ -5,10 +5,22 @@ product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
+  - /articles/about-branch-restrictions
+  - /github/administering-a-repository/about-branch-restrictions
+  - /articles/about-required-status-checks
+  - /github/administering-a-repository/about-required-status-checks
+  - /articles/types-of-required-status-checks
+  - /github/administering-a-repository/types-of-required-status-checks
+  - /articles/about-required-commit-signing
+  - /github/administering-a-repository/about-required-commit-signing
+  - /articles/about-required-reviews-for-pull-requests
+  - /github/administering-a-repository/about-required-reviews-for-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Sobre branches protegidos

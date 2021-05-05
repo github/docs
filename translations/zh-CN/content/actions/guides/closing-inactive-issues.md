@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: 对仓库有写入权限的任何人都可以向该仓库发布包。
+permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

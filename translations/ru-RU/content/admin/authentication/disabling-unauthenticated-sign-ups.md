@@ -8,7 +8,7 @@ intro: 'If you''re using built-in authentication, you can block unauthenticated 
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 topics:
   - Pull requests
-  - Problemas
-  - notificações
-  - contas
+  - Issues
+  - Notifications
+  - Accounts
 ---
 

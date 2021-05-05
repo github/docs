@@ -1,6 +1,6 @@
 ---
 title: Ocultar alterações
-intro: Você pode salvar temporariamente as alterações sem fazer commit delas em um branch, ao ocultar as alterações.
+intro: 'Você pode salvar temporariamente as alterações sem fazer commit delas em um branch, ao ocultar as alterações.'
 versions:
   free-pro-team: '*'
 ---

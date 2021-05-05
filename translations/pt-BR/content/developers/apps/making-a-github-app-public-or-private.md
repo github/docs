@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - aplicativos github
+  - GitHub Apps
 ---
 
 Para obter informações de autenticação, consulte "[Efetuando autenticação com aplicativos GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".

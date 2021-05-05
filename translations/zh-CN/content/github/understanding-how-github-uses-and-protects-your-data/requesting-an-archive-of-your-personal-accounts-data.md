@@ -7,8 +7,8 @@ intro: '{% data reusables.user_settings.export-data %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 {% data variables.product.product_name %} 存储您个人帐户活动的仓库和个人资料元数据。 您可以通过 {% data variables.product.prodname_dotcom_the_website %} 上的设置或使用用户迁移 API 导出个人帐户的数据。

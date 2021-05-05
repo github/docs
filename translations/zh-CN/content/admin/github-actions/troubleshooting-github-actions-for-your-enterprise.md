@@ -1,11 +1,11 @@
 ---
 title: 企业 GitHub Actions 故障排除
 intro: '在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 时的常见问题疑难解答。'
-permissions: '站点管理员可以排除 {% data variables.product.prodname_actions %} 问题并修改 {% data variables.product.prodname_ghe_server %} 配置。'
+permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 使用 {% data variables.product.prodname_ghe_server %} 自签名证书时配置自托管的运行器

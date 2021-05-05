@@ -3,8 +3,9 @@ title: 使用官方捆绑操作的最新版本
 intro: '您可以更新与 {% data variables.product.prodname_ghe_server %} 实例捆绑的操作，或直接从 {% data variables.product.prodname_dotcom_the_website %} 使用操作。'
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - безопасность
+  - Security
 ---
 
 People with admin permissions to a security advisory can edit the security advisory.

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 As novas organizações podem criar projetos públicos e de código aberto com o {% data variables.product.prodname_free_team %} ou [atualizar]({% data variables.product.pricing_url %}) para um produto pago com preços por usuário.

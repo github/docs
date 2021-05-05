@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Os proprietários da organização podem restabelecer um antigo integrante de uma organização.
+permissions: Organization owners can reinstate a former member of an organization.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre a reintegração de integrantes

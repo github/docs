@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 O desbloqueio de um usuário da organização permite que ele continue contribuindo para os repositórios da organização.
