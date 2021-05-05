@@ -155,6 +155,8 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Object`.
 - Optional.
 
+The list of popular links are the links displayed on the landing page under the title "Popular." Alternately, you can customize the title "Popular" by setting the `featuredLinks.popularHeading` property to a new string.
+
 Example:
 
 ```yaml
@@ -163,6 +165,10 @@ featuredLinks:
     - /path/to/page
   guides:
     - /guides/example
+  popular:
+    - /path/to/popular/article1
+    - /path/to/popular/article2
+  popularHeading: An alternate heading to Popular
 ```
 
 ### `showMiniToc`
