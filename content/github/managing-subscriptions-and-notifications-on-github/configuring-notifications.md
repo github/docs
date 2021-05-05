@@ -57,7 +57,7 @@ In addition, you can receive and triage notifications on your mobile device with
 
 #### Benefits of using an email client for notifications
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
+One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
@@ -71,11 +71,12 @@ To see repositories that you're watching, go to your [watching page](https://git
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 #### Configuring notifications
 {% endif %}
-You can configure notifications for a repository on the repository page, or on your watching page.{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 #### About custom notifications
 {% data reusables.notifications-v2.custom-notifications-beta %}
-You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, security alerts, discussions) happen within a repository, or ignore all notifications for a repository.
 {% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participating in conversations
@@ -156,7 +157,7 @@ If "Automatically watch repositories" is disabled, then you will not automatical
 
 ### Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, security alerts, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option.

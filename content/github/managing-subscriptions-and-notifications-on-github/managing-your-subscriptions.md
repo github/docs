@@ -69,5 +69,5 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 {% if currentVersion == "free-pro-team@latest" %}
     - unwatch a repository
     - ignore all notifications for a repository
-    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+    - customize the types of event you receive notifications for (issues, pull requests, releases, security alerts, or discussions, if enabled)
 {% endif %}

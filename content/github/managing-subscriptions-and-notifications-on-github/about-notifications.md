@@ -26,11 +26,8 @@ You can choose to receive ongoing updates about specific activity on {% data var
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
-{% if currentVersion == "free-pro-team@latest" %}
-- Issues, pulls requests, releases and discussions (if enabled) in a repository.
-{% endif %}
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.{% if currentVersion == "free-pro-team@latest" %}
+- Issues, pulls requests, releases, security alerts, and discussions (if enabled) in a repository.{% endif %}{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - Releases in a repository.
 {% endif %}
 
