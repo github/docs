@@ -8,8 +8,37 @@ type ProductT = {
   id: string
   name: string
 }
+
+type FooterSectionT = {
+  heading: string
+  links: Record<string, string>
+}
 type DataT = {
-  ui: Record<string, Record<string, string>>
+  ui: {
+    footer: {
+      all_rights_reserved: string
+      terms: string
+      privacy: string
+      security: string
+      product: FooterSectionT
+      platform: FooterSectionT
+      support: FooterSectionT
+      company: FooterSectionT
+    }
+    helpfulness: {
+      able_to_find: string
+      yes: string
+      no: string
+      yes_feedback: string
+      no_feedback: string
+      comment_label: string
+      optional: string
+      email_label: string
+      email_placeholder: string
+      send: string
+      feedback: string
+    }
+  }
   reusables: {
     enterprise_deprecation: {
       version_was_deprecated: string

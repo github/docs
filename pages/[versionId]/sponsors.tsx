@@ -13,7 +13,9 @@ type Props = {
 const SponsorsPage = ({ mainContext }: Props) => {
   return (
     <MainContext.Provider value={mainContext}>
-      <DefaultLayout>Sponsors page</DefaultLayout>
+      <DefaultLayout>
+        <p className="p-4">Sponsors page</p>
+      </DefaultLayout>
     </MainContext.Provider>
   )
 }

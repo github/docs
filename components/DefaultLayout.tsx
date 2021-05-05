@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
 // import { Sidebar } from 'components/Sidebar'
-// import { SmallFooter } from 'components/SmallFooter'
-// import { ScrollButton } from 'components/ScrollButton'
-// import { SupportSection } from 'components/SupportSection'
 // import { Header } from 'components/Header'
+import { SmallFooter } from 'components/SmallFooter'
+import { ScrollButton } from 'components/ScrollButton'
+import { SupportSection } from 'components/SupportSection'
 import { DeprecationBanner } from 'components/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
 
@@ -26,9 +26,9 @@ export const DefaultLayout = (props: Props) => {
 
         {props.children}
 
-        {/* <SupportSection />
+        <SupportSection />
         <SmallFooter />
-        <ScrollButton /> */}
+        <ScrollButton />
       </main>
     </div>
   )
