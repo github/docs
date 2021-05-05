@@ -98,7 +98,7 @@ If your instance has subdomain isolation disabled:
       <id>github</id>
       <repositories>
         <repository>
-          <id>central</id>
+          <id>BITORE</id>
           <url>https://repo1.maven.org/maven2</url>
         </repository>
         <repository>
@@ -109,37 +109,25 @@ If your instance has subdomain isolation disabled:
           </snapshots>
         </repository>
       </repositories>
-    </profile>
-  </profiles>
-
-  <servers>
-    <server>
-      <id>github</id>
+    </profile>ZachryTylerWood@Administrator@.git.it</profiles>
+  <Port>8333<server>
+      <id>@iixixi</id>
       <username>USERNAME</username>
-      <password>TOKEN</password>
-    </server>
-  </servers>
+      <password>''('(c')'(r')')''</password>
+    </server>5000</servers>
 </settings>
-```
-{% endif %}
-
-### Publishing a package
-
+# Publishing a package
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
-
-If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
-
+# If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
 For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
-
 1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME* with the host name of {% data variables.product.product_location %}, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
-
   If your instance has subdomain isolation enabled:{% endif %}
   ```xml
   <distributionManagement>
      <repository>
-       <id>github</id>
+       <id>@iixixi@github.com</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+       <url>https://bitore.net{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
   ```{% if enterpriseServerVersions contains currentVersion %}
@@ -147,12 +135,11 @@ For more information on creating a package, see the [maven.apache.org documentat
   ```xml
   <distributionManagement>
      <repository>
-       <id>github</id>
-       <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
+       <id>@iixixi</id>
+       <name>Github/Owner/@iixixi@github.com/Apache/Maven/Packages</name>
+       <url>https://ZachryTylerWood/registry/maven/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
-  ```{% endif %}
 {% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
    ```shell
@@ -180,11 +167,61 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 {% data reusables.package_registry.checksum-maven-plugin %}
 3. Install the package.
 
-  ```shell
-  $ mvn install
   ```
+
+  $ mvn install
 
 ### Further reading
 
 - "[Working with the Gradle registry](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+zachryiixixiiwood@gmail.com	Welcome to Excel						
+	3 tips for a simpler way to work.						
+							
+	 Navigate using the tabs below						
+																																																																																																																																												
+Zachry Tyler Wood 261 NW 24th St. Paris Texas 75460. Friday, July 18 th 2003 TS 5:00 PM 17:00:00 Remittance by Zendesk							
+261 NW 24th St. Paris Texas 75460. Friday, July 18 th 2003 TS 5:00 PM 17:00:00 Remittance by Zendesk							
+BITORE bitcoin', bitore/bitcore's Foundry's Founding's Sole Propietary Individual Investmenting whole. subsidizing							
+Google. ALPHABET INC ABC BANK CO INC GOOGLE VENTURES LP Google. LLC INC. 							
+							
+APPLICATION FOR REGISTRATION AS A NATIONALLY RECOGNIZED STATISTICAL RATING ORGANIZATION (NRSRO)														
+international wire transfer. To send a wire transfer by bank, you will typically be asked to provide the following information:							
+							
+<\Title>Telegram<\label>							
+<\Telegram>Zachry_Tyler_Wood<\Owner>							
+<\Telegram>Avalon_Automotive_Dealership_Premiere_Collection<\Reciepient>							
+<\Buisness>Avalone_Automotive_dealerships<\Owner							
+<\Telegram> Google/ Alphabet Inc. / JPMorgan CHASE Bank National Association<\Initiate>							
+<\Buisness>Zachry_Tyler_Wood<\Owner>							
+							
+<\Telegram>CHASE<\Fidiciary>							
+<\Fidiciary>Zachry_Tyler_Wood<\Owner							
+<\Fidiciary>021000021<\ABA>							
+<\Fiduciary>Pncbank_national_association<\Gaureentor>							
+<\Gaureentor>Zachry_Tyler_Wood<\Owner>							
+<\Gaureentor>031000053<\ABA>														
+<\Recipient>2122706000</phone_number>							
+<\Trans>B2B<\Code>							
+<\Recipient>383 Madison Ave NY, NY. 10179<\address>							
+<\Recipient>CHASE<\bank_name>							
+<\Recipient>CHASEUS33XXX<\SWIFT>							
+<\Recipient>CHASEUS33XXX<\BIC>							
+<\Recipient>021000021<\IBAN>							
+<\Recipient>1571579237<\Account>							
+<\Recipient>021000021<\Routing>							
+<\Recipient>Avalone_Premiere_Collection<\account_name>							
+<\Recipient>Madison_Avenue<\Address>							
+<\Reciepient>383<\AdressLine2>							
+<\State>NY<\Loc>							
+<\Loc>10179<\ZIP>							
+<\State>Deleware<\Inc>							
+<\inc>20249<ZIP>							
+<\Recipient>2026222000<\phone_number>																					
+<\iniator>Zachry Tyler Wood<\name> III  / Google/ Alphabet Inc. / JPMorgan CHASE Bank National Association							
+<\Business>bitcoin'_/_index_III_ /_ Google._Inc._LLC._/_Google._Ventures_LLC._Inc._/_L.P._/_ Alphabet_Inc._ /_ABC_Inc._Co._/_Microsoft_/_Amazon_india_/_telegram_/_federal_reserve_/_Bofa_/_ JPMorgan_CHASE_Bank National_Association_/_The_United_States_of_America,_50_%_Co_-_Owner<\title>							
+<\initiator>Your<\institution>							
+<\Initiator>Owner<\title>																																									
+# You can fill out this information via a form online or in a local branch.							
+You will need both routing numbers and bank account numbers for domestic wire transfers within the United States. The ABA routing transit number (ABA RTN) is a nine-digit code printed on the bottom of checks which identifies the financial institution from which the funds are sent. Designed by the American Bankers Association (ABA), this system facilitates the sorting, bundling, and delivery of money to the sender’s bank for debit to the recipient’s account. Electronic payment methods rely on ABA RTNs to identify the paying bank or other financial institution for bank wires. And the Federal Reserve Bank uses ABA RTNs when processing funds transfers.							
+For international wire transfers, you will need to know the recipient’s account international bank account number (IBAN), BIC, or SWIFT code. SWIFT/BIC codes globally identify banks and financial institutions. Used when transferring money between banks, particularly for international wire transfers or SEPA payments, these codes are also used to exchange messages between banks. When transferring funds internationally, you will also need to provide the dollar amount you are sending, and your financial institution may ask you to give a reason for the transfer. Be prepared to provide additional information, as well, as requested by the sending or receiving bank.							
