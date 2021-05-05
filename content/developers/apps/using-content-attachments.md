@@ -132,7 +132,7 @@ To create a Probot App, follow these steps:
    ``` yml
 
     default_events:
-    - content_reference
+      - content_reference
     # The set of permissions needed by the GitHub App. The format of the object uses
     # the permission name for the key (for example, issues) and the access type for
     # the value (for example, write).
@@ -141,10 +141,10 @@ To create a Probot App, follow these steps:
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. Add this code to the `index.js` file to handle `content_reference` events and call the REST API:
