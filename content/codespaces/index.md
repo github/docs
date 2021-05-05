@@ -1,7 +1,7 @@
 ---
 title: 'Developing online with {% data variables.product.prodname_codespaces %}'
 shortTitle: Codespaces
-intro: 'You can develop entirely in the cloud using {% data variables.product.prodname_codespaces %}, an integrated development environment (IDE) on {% data variables.product.prodname_dotcom %}.'
+intro: 'You can develop entirely in the browser using {% data variables.product.prodname_codespaces %}, an cloud development environment on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces
