@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのベースブランチを変更する
-intro: 'プルリクエストがオープンされた後は、ベースブランチを変更し、プルリクエストの変更を他のブランチと比較できます。'
+intro: プルリクエストがオープンされた後は、ベースブランチを変更し、プルリクエストの変更を他のブランチと比較できます。
 redirect_from:
   - /articles/changing-the-base-branch-of-a-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% warning %}

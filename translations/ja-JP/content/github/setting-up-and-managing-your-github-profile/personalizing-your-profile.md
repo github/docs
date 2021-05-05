@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - プロフィール
+  - Profiles
 ---
 
 ### プロフィール画像を変更する

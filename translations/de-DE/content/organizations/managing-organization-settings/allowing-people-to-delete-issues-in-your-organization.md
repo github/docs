@@ -1,6 +1,6 @@
 ---
 title: Personen das Löschen von Issues in Deiner Organisation erlauben
-intro: Organisationsinhaber können es bestimmten Personen erlauben, Issues in Repositorys zu löschen, die Deiner Organisation gehören.
+intro: 'Organisationsinhaber können es bestimmten Personen erlauben, Issues in Repositorys zu löschen, die Deiner Organisation gehören.'
 redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-delete-issues-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Standardmäßig können Issues in den Repositorys einer Organisation nicht gelöscht werden. Ein Organisationsinhaber muss diese Funktion erst für alle Repositorys der Organisation aktivieren.

@@ -1,13 +1,13 @@
 ---
 title: プロジェクトへの行動規範の追加
-intro: 'コミュニティの標準を定義し、参加を歓迎する開放的なプロジェクトであることを発信し、侵害への対処手順の概要を示すために、行動規範を採用してください。'
+intro: コミュニティの標準を定義し、参加を歓迎する開放的なプロジェクトであることを発信し、侵害への対処手順の概要を示すために、行動規範を採用してください。
 redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
   - /github/building-a-strong-community/adding-a-code-of-conduct-to-your-project
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 *行動規範*は、コミュニティへの参加方法の標準を定義するものです。 それは、すべてのコントリビューションを尊重する開放的な環境であることを発信します。 また、プロジェクトのコミュニティのメンバー間の問題に対処するための手順の概要も示します。 行動規範がコミュニティへの参加方法についての標準と期待を定義する理由に関して、詳しい情報については[オープンソースガイド](https://opensource.guide/code-of-conduct/)を参照してください。

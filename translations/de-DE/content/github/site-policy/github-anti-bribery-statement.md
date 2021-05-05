@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub hält an seinem Engagement für ethische Geschäftspraktiken fest, unter anderem durch das Verbot von Bestechung und Korruption. Wie [Transparency International](https://www.transparency.org/what-is-corruption#costs-of-corruption) führt Korruption zu erheblichen negativen Folgen, darunter:

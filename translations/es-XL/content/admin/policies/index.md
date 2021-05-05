@@ -6,6 +6,9 @@ redirect_from:
   - /enterprise/admin/policies
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 

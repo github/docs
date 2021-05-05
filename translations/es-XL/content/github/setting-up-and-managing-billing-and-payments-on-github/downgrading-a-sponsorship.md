@@ -5,6 +5,8 @@ redirect_from:
   - /articles/downgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Bajar de categoría un patrocinio

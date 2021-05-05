@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:

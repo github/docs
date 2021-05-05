@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Cuando se habilita un servidor proxy para {% data variables.product.product_location %}, primero {% data variables.product.prodname_ghe_server %} envía mensajes fuera de banda a través del servidor proxy, a menos que el host de destino se agregue como una exclusión de servidor proxy HTTP. Los tipos de mensajes fuera de banda incluyen webhooks salientes, carga de paquetes y extracción de avatares heredados. La URL del servidor proxy es el protocolo, dominio o dirección IP más el número de puerto, por ejemplo `http://127.0.0.1:8123`.

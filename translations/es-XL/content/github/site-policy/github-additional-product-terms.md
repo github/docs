@@ -2,6 +2,9 @@
 title: Términos adicionales de los productos de GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Al crear una Cuenta, se le da acceso a muchas características y productos diferentes que forman parte del Servicio. Debido a que muchas de estas características y productos ofrecen una funcionalidad diferente, pueden requerir términos y condiciones adicionales específicas de esa característica o producto. A continuación, hemos enumerado esas características y productos, junto con las correspondientes reglas adicionales que se aplican a esas partes del Servicio.

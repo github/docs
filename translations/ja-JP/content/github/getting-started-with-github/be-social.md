@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - プロフィール
-  - pull requests
-  - issues
-  - notifications
-  - アカウント
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。

@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 If you enforce SAML SSO in your organization, any members, including admins who have not authenticated via your SAML identity provider (IdP), will be removed from the organization and will receive an email notifying them about the removal. Bots and service accounts that do not have external identities set up in your organization's IdP will also be removed. For more information on bots and service accounts, see "[Managing bots and service accounts with SAML single sign-on](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)." You can restore organization members once they successfully complete single sign-on.

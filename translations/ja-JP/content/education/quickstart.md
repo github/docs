@@ -1,6 +1,6 @@
 ---
 title: GitHub Educatorsのクイックスタート
-intro: およそ15分で、教師は割引を適用して{% data variables.product.company_short %}に取りかかり、トレーニングを受け、ツールを獲得し、{% data variables.product.prodname_classroom %}を使用してソフトウェア開発のコースで学生用のクラスルームを作成できます。
+intro: 'およそ15分で、教師は割引を適用して{% data variables.product.company_short %}に取りかかり、トレーニングを受け、ツールを獲得し、{% data variables.product.prodname_classroom %}を使用してソフトウェア開発のコースで学生用のクラスルームを作成できます。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'

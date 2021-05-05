@@ -1,12 +1,12 @@
 ---
 title: Bajar de categoría un patrocinio
-intro: Puedes bajar de categoría un patrocinio y llevarlo a un nivel inferior, o bien cancelar tu patrocinio.
+intro: 'Puedes bajar de categoría un patrocinio y llevarlo a un nivel inferior, o bien cancelar tu patrocinio.'
 redirect_from:
   - /articles/downgrading-a-sponsorship
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

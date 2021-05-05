@@ -100,8 +100,7 @@ prodname_discussions: 'GitHub Discussions'
 
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_capitalized_container_registry: 'Container registry'
-prodname_container_registry: 'container registry'
+prodname_container_registry: 'Container registry'
 
 # GitHub Insights
 prodname_insights: 'GitHub Insights'

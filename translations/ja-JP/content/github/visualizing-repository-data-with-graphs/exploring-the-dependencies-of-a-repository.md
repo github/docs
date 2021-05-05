@@ -2,9 +2,9 @@
 title: Exploring the dependencies of a repository
 intro: 'Using the dependency graph, you can see the packages your project depends on{% if currentVersion == "free-pro-team@latest" %} and the repositories that depend on it{% endif %}. また、その依存関係で脆弱性が検出されると、それも表示されます。'
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### 依存関係グラフの表示

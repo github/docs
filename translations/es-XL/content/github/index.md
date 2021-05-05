@@ -8,6 +8,7 @@ intro: 'Documentación, guías y temas de ayuda para programadores de software, 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /getting-started-with-github %}

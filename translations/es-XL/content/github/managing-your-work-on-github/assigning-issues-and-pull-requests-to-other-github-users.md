@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Cualquier persona con permisos de escritura en un repositorio puede asignar propuestas y solicitudes de extracción.
