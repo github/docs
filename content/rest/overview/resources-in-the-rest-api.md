@@ -35,7 +35,7 @@ sent and received as JSON.
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/2 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
@@ -373,7 +373,7 @@ The returned HTTP headers of any API request show your current rate limit status
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/2 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
@@ -416,7 +416,7 @@ If your OAuth application needs to make unauthenticated calls with a higher rate
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/2 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
@@ -502,7 +502,7 @@ whenever possible.
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/2 200 OK
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
