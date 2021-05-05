@@ -1,4 +1,4 @@
----
+--- 
 title: Configuring the self-hosted runner application as a service
 intro: You can configure the self-hosted runner application as a service to automatically start the runner application when the machine starts.
 redirect_from:
@@ -32,7 +32,7 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script distribute
 
 {% endlinux %}
 
-{% windows %}
+{% windows %} 
 
 {% note %}
 
