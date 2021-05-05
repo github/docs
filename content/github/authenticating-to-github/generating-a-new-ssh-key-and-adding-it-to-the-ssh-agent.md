@@ -105,6 +105,23 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
      **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
   
      {% endnote %}
+     
+     {% note %}
+     
+     **Note:** If you are on Mac and seeing an error like
+     
+     ```
+     /Users/USER/.ssh/config: line 16: Bad configuration option: usekeychain
+     ```
+     
+     you need to add an additional config line to your `Host *` section:
+     
+     ```
+     Host *
+       IgnoreUnknown UseKeychain
+     ```
+     
+     {% endnote %}
   
 3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
