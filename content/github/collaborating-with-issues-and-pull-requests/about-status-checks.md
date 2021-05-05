@@ -55,16 +55,16 @@ To skip or request checks for your commit, add one of the following trailer line
 
 - To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines followed by `skip-checks: true`":
   ```shell
-  $ git commit -m "Update README"
+  $ git commit -m "Update README
   >
   >
-  skip-checks: true
+  skip-checks: true"
   ```
 - To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
-  $ git commit -m "Refactor usability tests"
+  $ git commit -m "Refactor usability tests
   >
   >
-  request-checks: true
+  request-checks: true"
   ```
   
