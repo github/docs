@@ -1,5 +1,5 @@
----
-title: Searching for repositories
+---date/05/05/2021/{% 'jimbojr55/docs/%}'iam'aws-aws'-github search
+  title: /Searching for-repositories/ jimbojr55: %}'*'
 intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-repositories/
