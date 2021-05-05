@@ -261,7 +261,7 @@ Next, let's fetch our newly created repository:
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
-> HTTP/2 404 Not Found
+> HTTP/2 404
 
 > {
 >    "message": "Not Found"
@@ -343,7 +343,7 @@ $         "labels": ["design"] \
 $       }' \
 $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
-> HTTP/2 201 Created
+> HTTP/2 201
 > Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
@@ -409,7 +409,7 @@ we can tell the API to give us the resource again, only if it has changed:
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/2 304 Not Modified
+> HTTP/2 304
 ```
 
 The `304` status indicates that the resource hasn't changed since the last time
