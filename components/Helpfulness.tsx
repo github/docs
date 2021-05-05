@@ -21,7 +21,7 @@ export const Helpfulness = () => {
           value="Yes"
           aria-label={t('yes')}
         />
-        <label className="btn x-radio-label" htmlFor="helpfulness-yes">
+        <label className="btn x-radio-label mr-1" htmlFor="helpfulness-yes">
           <ThumbsupIcon size={24} className="color-text-tertiary" />
         </label>
         <input

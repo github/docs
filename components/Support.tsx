@@ -11,7 +11,7 @@ export const Support = () => {
     <div>
       <h3 className="mb-2 f4">{t`still_need_help`}</h3>
       <a id="ask-community" href="https://github.community" className="btn btn-outline mr-4 mt-2">
-        <PeopleIcon size={16} className="color-text-tertiary" />
+        <PeopleIcon size={16} className="color-text-tertiary mr-1" />
         {t`ask_community`}
       </a>
       <a
@@ -23,7 +23,7 @@ export const Support = () => {
         }
         className="btn btn-outline mt-2"
       >
-        <CommentDiscussionIcon size={16} className="color-text-tertiary" />
+        <CommentDiscussionIcon size={16} className="color-text-tertiary mr-1" />
         {t`contact_support`}
       </a>
     </div>
