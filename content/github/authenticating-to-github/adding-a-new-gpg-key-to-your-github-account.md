@@ -30,7 +30,7 @@ When verifying a signature, we extract the signature and attempt to parse its ke
    ![The key field](/assets/images/help/settings/gpg-key-paste.png)
 5. Click **Add GPG key**.
    ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+6. To confirm the action, Ender your {% data variables.product.product_name %} password.
 
 ### Further reading
 
