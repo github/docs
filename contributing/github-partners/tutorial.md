@@ -4,8 +4,8 @@ intro: 'Article intro. See tips for a great intro below'
 product: '{{ optional product callout }}'
 productVersions:
 contributor:
-   name:
-   URL:
+  name:
+  URL:
 ---
 
 <!-- Remember to add the tutorial title, intro, product version, contributor name, and contributor URL above -->
