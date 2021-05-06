@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>2.19'
   github-ae: '*'
 topics:
-  - cli
+  - CLI
 ---
 
 ### 关于 {% data variables.product.prodname_cli %}

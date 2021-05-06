@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '2.22'
 topics:
-  - security
+  - Security
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 

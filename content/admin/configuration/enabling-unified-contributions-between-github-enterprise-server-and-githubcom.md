@@ -11,7 +11,7 @@ permissions: 'Site administrators for {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 As a site administrator, you can allow end users to send anonymized contribution counts for their work from {% data variables.product.prodname_ghe_server %} to their {% data variables.product.prodname_dotcom_the_website %} contribution graph.

@@ -10,9 +10,9 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Упаковка
+  - Packaging
   - Publishing
-  - Докер
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

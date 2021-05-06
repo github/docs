@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 个人资料
+  - Profiles
 ---
 
 您可以选择为组织添加说明、地点、网站和电子邮件地址，以及将重要仓库固定于页面顶部。

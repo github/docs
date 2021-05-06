@@ -9,7 +9,7 @@ intro: '创建团队后，组织管理员可以将用户从 {% data variables.pr
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 每个团队都有自己单独定义的[组织所拥有仓库的访问权限](/articles/permission-levels-for-an-organization)。

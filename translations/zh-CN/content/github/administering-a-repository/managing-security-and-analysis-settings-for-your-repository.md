@@ -1,7 +1,7 @@
 ---
 title: 管理仓库的安全性和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
-permissions: 拥有仓库管理员权限的人可以管理仓库的安全性和分析设置。
+permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
-  - cli
-  - móvel
-  - desktop
-  - segurança
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 O {% data variables.product.prodname_dotcom %} oferece produtos grátis e pagos. Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}

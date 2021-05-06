@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre o {% data variables.product.prodname_vss_ghe %}

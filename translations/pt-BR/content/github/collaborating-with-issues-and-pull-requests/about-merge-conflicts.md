@@ -1,6 +1,6 @@
 ---
 title: Sobre conflitos de merge
-intro: 'Os conflitos de merge acontecem quando você faz merge de branches que têm commits concorrentes e o Git precisa da sua ajuda para decidir quais alterações incorporar n merge final.'
+intro: Os conflitos de merge acontecem quando você faz merge de branches que têm commits concorrentes e o Git precisa da sua ajuda para decidir quais alterações incorporar n merge final.
 redirect_from:
   - /articles/about-merge-conflicts
 versions:

@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About the *dependabot.yml* file

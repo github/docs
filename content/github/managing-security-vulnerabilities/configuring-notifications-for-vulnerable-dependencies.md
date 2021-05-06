@@ -5,7 +5,7 @@ intro: 'Optimize how you receive notifications about  {% if currentVersion ver_g
 versions:
   enterprise-server: '>=2.21 <=2.22'
 topics:
-  - security
+  - Security
 ---
 <!--See /content/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies for the current version of this article -->
 

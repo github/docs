@@ -1,14 +1,14 @@
 ---
 title: 与组织共享工作流程
 shortTitle: 与组织共享工作流程
-intro: '了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。'
+intro: 了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}

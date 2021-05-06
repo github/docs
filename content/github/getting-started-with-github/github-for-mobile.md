@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - mobile
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

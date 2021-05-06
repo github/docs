@@ -3,8 +3,8 @@ title: Política de Privacidade do GitHub Candidate
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 8 de março de 2021

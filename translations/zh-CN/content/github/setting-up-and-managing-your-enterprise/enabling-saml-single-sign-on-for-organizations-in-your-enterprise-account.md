@@ -1,12 +1,12 @@
 ---
 title: 为企业帐户中的组织启用 SAML 单点登录
-intro: '通过跨企业帐户拥有的所有组织的 IDP 启用 SAML 单点登录 (SSO) 和集中身份验证，可以控制并保护对资源（如仓库、议题和拉取请求）的访问。'
+intro: 通过跨企业帐户拥有的所有组织的 IDP 启用 SAML 单点登录 (SSO) 和集中身份验证，可以控制并保护对资源（如仓库、议题和拉取请求）的访问。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: 企业所有者可以对企业帐户中的组织启用 SAML 单点登录。
+permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于企业帐户的 SAML 单点登录

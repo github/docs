@@ -4,7 +4,7 @@ intro: '企业所有者可以为 {% data variables.product.product_location %} �
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
-  github-ae: 'next'
+  github-ae: next
 ---
 
 ### 关于 {% data variables.product.prodname_GH_advanced_security %}

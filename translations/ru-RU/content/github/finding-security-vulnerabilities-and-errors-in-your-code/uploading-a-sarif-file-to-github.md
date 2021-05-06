@@ -7,7 +7,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - безопасность
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

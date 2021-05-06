@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Se você ainda não tem uma chave SSH, você deve [gerar uma nova chave SSH](#generating-a-new-ssh-key). Caso não tenha certeza de que já tem uma chave SSH, procure por [chaves existentes](/articles/checking-for-existing-ssh-keys).

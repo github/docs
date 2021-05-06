@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - security
+  - Security
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
 

@@ -1,7 +1,7 @@
 ---
 title: Participando de uma discussão
-intro: Você pode conversar com a comunidade e mantenedores em um fórum do repositório para um projeto em {% data variables.product.product_name %}.
-permissions: As pessoas com permissões de leitura em um repositório podem participar de discussões no repositório.
+intro: 'Você pode conversar com a comunidade e mantenedores em um fórum do repositório para um projeto em {% data variables.product.product_name %}.'
+permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

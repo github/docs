@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Por padrão, todos os integrantes da organização podem criar repositórios. Se você restringir [as permissões de criação de repositórios](/articles/restricting-repository-creation-in-your-organization) para proprietários de organizações e sua organização foi criada sob a estrutura de permissões de organização legadas, os integrantes das equipes de administradores legadas ainda conseguirão criar repositórios.

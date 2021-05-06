@@ -3,12 +3,12 @@ title: 管理您组织中仓库的讨论创建
 intro: 您可以选择成员在组织拥有的仓库中创建讨论所需的权限级别。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
-permissions: 组织所有者可以管理组织拥有的仓库的讨论创建。
+permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}

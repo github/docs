@@ -1,6 +1,6 @@
 ---
 title: Web 挂钩事件和有效负载
-intro: '对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。'
+intro: 对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - web 挂钩
+  - Webhooks
 ---
 
 

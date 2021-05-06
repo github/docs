@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 ### Sobre a cobrança do {% data variables.product.prodname_registry %}

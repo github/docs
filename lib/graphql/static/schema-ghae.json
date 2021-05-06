@@ -4071,7 +4071,7 @@
       "kind": "mutations",
       "id": "updateenterprisedefaultrepositorypermissionsetting",
       "href": "/graphql/reference/mutations#updateenterprisedefaultrepositorypermissionsetting",
-      "description": "<p>Sets the default repository permission for organizations in an enterprise.</p>",
+      "description": "<p>Sets the base repository permission for organizations in an enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4096,7 +4096,7 @@
           "id": "enterprise",
           "kind": "objects",
           "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated default repository permission setting.</p>"
+          "description": "<p>The enterprise with the updated base repository permission setting.</p>"
         },
         {
           "name": "message",
@@ -4104,7 +4104,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the default repository permission setting.</p>"
+          "description": "<p>A message confirming the result of updating the base repository permission setting.</p>"
         }
       ]
     },
@@ -64960,7 +64960,7 @@
         },
         {
           "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the default repository permission setting.</p>",
+          "description": "<p>The ID of the enterprise on which to set the base repository permission setting.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64969,7 +64969,7 @@
         },
         {
           "name": "settingValue",
-          "description": "<p>The value for the default repository permission setting on the enterprise.</p>",
+          "description": "<p>The value for the base repository permission setting on the enterprise.</p>",
           "type": "EnterpriseDefaultRepositoryPermissionSettingValue!",
           "id": "enterprisedefaultrepositorypermissionsettingvalue",
           "kind": "enums",

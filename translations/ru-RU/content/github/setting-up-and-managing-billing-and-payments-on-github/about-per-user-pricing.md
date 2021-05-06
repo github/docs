@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 New organizations can build public and open-source projects with {% data variables.product.prodname_free_team %}, or [upgrade]({% data variables.product.pricing_url %}) to a paid product with per-user pricing.

@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装设施的特定信息。 要了解有关 GitHub 应用程序的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。

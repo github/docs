@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% data reusables.actions.enterprise-beta %}
