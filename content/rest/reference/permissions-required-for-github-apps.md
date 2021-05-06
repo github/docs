@@ -776,6 +776,10 @@ _Reviews_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
 
+### Permission on "profile"
+
+- [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
+
 ### Permission on "repository hooks"
 
 - [`GET /repos/:owner/:repo/hooks`](/rest/reference/repos#list-repository-webhooks) (:read)
