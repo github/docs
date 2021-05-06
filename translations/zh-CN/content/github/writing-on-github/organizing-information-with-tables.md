@@ -13,7 +13,7 @@ versions:
 
 您可以用竖线 `|` 和横线 `-` 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。
 
-```
+```markdown
 
 | First Header  | Second Header |
 | ------------- | ------------- |
@@ -27,7 +27,7 @@ versions:
 
 单元格的宽度可以不同，无需在列内准确对齐。 标题行的第一列中必须至少有三个横线。
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | git status | List all new or modified files |
@@ -40,7 +40,7 @@ versions:
 
 您可以在表格中使用[格式](/articles/basic-writing-and-formatting-syntax)，如链接、内联代码块和文本样式：
 
-```
+```markdown
 | Command | Description |
 | --- | --- |
 | `git status` | List all *new or modified* files |
@@ -51,7 +51,7 @@ versions:
 
 您可以在标头行中横线的左侧、右侧或两侧加入冒号 `:`，靠左、靠右或居中对齐列中的文本。
 
-```
+```markdown
 | Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
@@ -62,7 +62,7 @@ versions:
 
 要包含竖线 `|` 作为单元格中的内容，请在竖线前使用 `\`：
 
-```
+```markdown
 | Name     | Character |
 | ---      | ---       |
 | Backtick | `         |

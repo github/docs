@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -28,13 +30,10 @@ Before increasing CPU or memory resources for {% data variables.product.product_
 #### Supported AWS instance types
 
 You need to determine the instance type you would like to upgrade to based on CPU/memory specifications.
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Recommended AWS instance types
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### Resizing for AWS
 

@@ -1,12 +1,14 @@
 ---
 title: Organization での操作を制限する
-intro: 'Organization が所有するすべてのパブリックリポジトリ内の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。'
+intro: Organization が所有するすべてのパブリックリポジトリ内の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: Organization のオーナーは、Organization 内のインタラクションを制限できます。
+topics:
+  - コミュニティ
 ---
 
 ### 一時的なインタラクションの制限について

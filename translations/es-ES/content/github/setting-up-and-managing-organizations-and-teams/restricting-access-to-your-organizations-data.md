@@ -4,8 +4,11 @@ intro: '{% data variables.product.prodname_oauth_app %} las restricciones de acc
 redirect_from:
   - /articles/restricting-access-to-your-organization-s-data
   - /articles/restricting-access-to-your-organizations-data
-mapTopic: verdadero
+mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 

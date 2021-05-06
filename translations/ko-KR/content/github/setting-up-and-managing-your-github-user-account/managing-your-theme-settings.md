@@ -1,8 +1,10 @@
 ---
 title: Managing your theme settings
-intro: You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses light mode or dark mode.
+intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses light mode or dark mode.'
 versions:
   free-pro-team: '*'
+topics:
+  - accounts
 ---
 
 {% note %}

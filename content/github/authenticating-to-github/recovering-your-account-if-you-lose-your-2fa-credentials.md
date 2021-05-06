@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -65,7 +67,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
   ![One-time password field](/assets/images/help/2fa/one-time-password-field.png)
 6. Click **Verify email address**.
 7. Choose an alternative verification factor.
-    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify this device**.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - If you've previously set up an SSH key on this account and would like to use the SSH key for verification, click **SSH key**.
     - If you've previously set up a personal access token and would like to use the personal access token for verification, click **Personal access token**.
   ![Alternative verification buttons](/assets/images/help/2fa/alt-verifications.png)

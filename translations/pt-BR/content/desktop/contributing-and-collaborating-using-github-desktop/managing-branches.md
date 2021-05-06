@@ -31,7 +31,7 @@ Quando estiver satisfeito com seu trabalho, você poderá criar um pull request 
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
   ![Opção New Branch (Novo branch) no menu Branch](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
@@ -62,12 +62,11 @@ Quando estiver satisfeito com seu trabalho, você poderá criar um pull request 
 
 Se você criar um branch no {% data variables.product.product_name %}, você deverá publicá-lo para disponibilizá-lo para colaboração no {% data variables.product.prodname_dotcom %}.
 
-1. Na parte superior do aplicativo, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** e, em seguida, clique no branch que você deseja publicar. ![Menu suspenso para selecionar qual branch publicar](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+1. Na parte superior do aplicativo, clique em {% octicon "git-branch" aria-label="The branch icon" %} **Branch atual** e, em seguida, clique no branch que você deseja publicar. ![Menu suspenso para selecionar qual branch publicar](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. Clique em **Publicar branch**. ![Botão de publicar branch](/assets/images/help/desktop/publish-branch-button.png)
 
 ### Alternar entre branches
-É possível exibir e fazer commits em qualquer branch do seu repositório. Se houver alterações salvas sem commit, você terá que decidir o que fazer com elas antes de poder alternar entre os branches. Você pode fazer commit das alterações no branch atual, armazená-las no branch atual ou levá-las para o novo branch. Se optar por fazer commit das alterações no branch atual, siga as etapas indicadas em "[Fazer commit e revisar as alterações do projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)" antes de alternar entre os branches.
-
+É possível exibir e fazer commits em qualquer branch do seu repositório. Se houver alterações salvas sem commit, você terá que decidir o que fazer com elas antes de poder alternar entre os branches. Você pode fazer o commit das alterações no branch atual, ocultar as suas alterações para salvá-las temporariamente no branch atual ou trazer as mudanças para seu novo branch. Se você deseja confirmar suas alterações antes de alternar os branches, consulte "[Fazer commit e revisar as alterações do seu projeto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
 {% tip %}
 
 **Dica**: Você pode definir um comportamento-padrão para alternar branches nas configurações **Avançadas**. Para obter mais informações, consulte "[Definindo as configurações básicas](/desktop/getting-started-with-github-desktop/configuring-basic-settings)".
@@ -76,17 +75,8 @@ Se você criar um branch no {% data variables.product.product_name %}, você dev
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![Lista de branches no repositório](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. Se você tiver alterações salvas sem commit, escolha entre **Leave my changes** (Deixar as alterações) ou **Bring my changes** (Levar as alterações) e clique em **Switch Branch** (Alternar branch). ![Alternar branch com opções de alteração](/assets/images/help/desktop/stash-changes-options.png)
-
-### Recuperar alterações stashed
-Para acessar as alterações com stash em outro branch, volte para o branch em que foi feito o stash das alterações em questão.
-
-{% data reusables.desktop.current-branch-menu %}
-{% data reusables.desktop.switching-between-branches %}
-  ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-3. Na barra lateral à esquerda, clique em **Stashed Changes** (Alterações stashed). ![Opção Stashed Changes (Alterações stashed)](/assets/images/help/desktop/stashed-changes.png)
-4. Para excluir as alterações stashed, clique em **Discard** (Descartar). Para usá-las, clique em **Restore** (Restaurar). ![Descartar ou restaurar alterações stashed](/assets/images/help/desktop/discard-restore-stash-buttons.png)
 
 ### Excluir um branch
 
@@ -95,7 +85,7 @@ Não é possível excluir um branch se ele estiver atualmente associado a uma pu
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Menu suspenso para selecionar qual branch deseja excluir](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![Menu suspenso para selecionar qual branch deseja excluir](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
   ![Excluir... opção no menu do branch](/assets/images/help/desktop/delete-branch-mac.png)
 
@@ -104,7 +94,7 @@ Não é possível excluir um branch se ele estiver atualmente associado a uma pu
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Menu suspenso para selecionar qual branch deseja excluir](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![Menu suspenso para selecionar qual branch deseja excluir](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
   ![Excluir... opção no menu do branch](/assets/images/help/desktop/delete-branch-win.png)
 
@@ -116,3 +106,4 @@ Não é possível excluir um branch se ele estiver atualmente associado a uma pu
 - "[Branch](/articles/github-glossary/#branch)" no glossário do {% data variables.product.prodname_dotcom %}
 - "[Sobre branches](/articles/about-branches)"
 - "[Branches em um Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" na documentação do Git
+- "[Ocultar as alterações](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)

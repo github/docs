@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 Cada repositorio de {% data variables.product.product_name %} viene equipado con una sección para alojar documentación, llamada una wiki. Puedes usar la wiki de tu repositorio para compartir contenido en forma completa acerca de tu proyecto, como por ejemplo cómo usarlo, cómo lo diseñaste o sus principios básicos. Un archivo README rápidamente dice lo que puede hacer tu proyecto, mientras que puedes usar una wiki para proporcionar documentación adicional. Para obtener más información, consulta "[Acerca de los archivos README](/articles/about-readmes/)".
@@ -19,7 +21,7 @@ Con las wikis, puedes escribir contenido como en cualquier otro lado en {% data 
 
 Puedes editar las wikis directamente en {% data variables.product.product_name %} o puedes editar los archivos wiki localmente. Predeterminadamente, solo las personas con acceso a tu repositorio podrán hacer cambios a los wikis, aunque podrás permitir que cualquiera en {% data variables.product.product_location %} colabore con un wiki en {% if currentVersion == "github-ae@latest" %}un repositorio interno{% else %}un repositorio público{% endif %}. Para obtener más información, consulta "[Cambiar permisos de acceso para wikis](/articles/changing-access-permissions-for-wikis)".
 
-### Further reading
+### Leer más
 
 - "[Agregar o eliminar páginas wiki](/articles/adding-or-editing-wiki-pages)"
 - "[Crear un pie de página o barra lateral para tu wiki](/articles/creating-a-footer-or-sidebar-for-your-wiki)"

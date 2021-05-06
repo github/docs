@@ -15,7 +15,7 @@ authors:
 
 ### 使用 Git
 
-通过访问[官方 Git 项目站点](https://git-scm.com)并阅读 [ProGit 电子书](http://git-scm.com/book)熟悉 Git。 使用 [Try Git](https://try.github.com) 模拟器时，您可以查看 [Git 命令列表](https://git-scm.com/docs)或 [Git 命令查询参考](http://gitref.org)。
+通过访问[官方 Git 项目站点](https://git-scm.com)并阅读 [ProGit 书籍](http://git-scm.com/book)熟悉 Git。 使用 [Try Git](https://try.github.com) 模拟器时，您可以查看 [Git 命令列表](https://git-scm.com/docs)或 [Git 命令查询参考](http://gitref.org)。
 
 ### 使用 {% data variables.product.product_name %}
 
@@ -25,15 +25,13 @@ authors:
 
 {% endif %}
 
-通过我们的[训练营](/categories/bootcamp/)文章熟悉使用 {% data variables.product.product_name %}。 参阅我们的 [{% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow)查看流程介绍。 阅读我们的[概述指南](https://guides.github.com)了解基本概念。
+通过我们的[使用入门](/categories/getting-started-with-github/)文章更好地熟悉 {% data variables.product.product_name %}。 参阅我们的 [{% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow)查看流程介绍。 阅读我们的[概述指南](https://guides.github.com)了解基本概念。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### 分支、复刻和拉取请求
 
-使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/articles/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。
-
-访问有关[命令行](https://hub.github.com)的快速参考，以及 {% data variables.product.prodname_dotcom %} [检查清单、备忘清单等](https://services.github.com/on-demand/resources)。
+使用交互式工具了解 [Git 分支](http://learngitbranching.js.org/)。 阅读有关[复刻](/articles/about-forks)和[拉取请求](/articles/using-pull-requests)的相关信息并了解[如何在 {% data variables.product.prodname_dotcom %} 上使用拉取请求](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)。 从[命令行](https://cli.github.com/)访问有关使用 {% data variables.product.prodname_dotcom %} 的参考。
 
 #### 收看视频
 
@@ -43,7 +41,7 @@ authors:
 
 #### 免费课程
 
-{% data variables.product.product_name %} 提供一系列交互式[按需培训课程](https://services.github.com/on-demand/)，包括 {% data variables.product.prodname_dotcom %} 101：[简介](https://services.github.com/on-demand/intro-to-github/)、{% data variables.product.prodname_dotcom %} 102：[GitHub Desktop](https://services.github.com/on-demand/github-desktop) 和 {% data variables.product.prodname_dotcom %} 103：[命令行](https://services.github.com/on-demand/github-cli)。
+{% data variables.product.product_name %} 提供一系列交互式、[点播培训培训课程](https://lab.github.com/)，包括 [{% data variables.product.prodname_dotcom %} 简介](https://lab.github.com/githubtraining/introduction-to-github)；关于 HTML、Python 和 NodeJS 等编程语言和工具的课程；{% data variables.product.product_name %} 特定工具，如 {% data variables.product.prodname_actions %}。
 
 #### {% data variables.product.prodname_dotcom %} 基于 web 的教育课程
 

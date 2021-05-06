@@ -78,13 +78,6 @@ This script runs in CI via GitHub Action to check all *internal* links in Englis
 ---
 
 
-### [`check-s3-images.js`](check-s3-images.js)
-
-Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
-
----
-
-
 ### [`content-migrations/extended-markdown-tags.js`](content-migrations/extended-markdown-tags.js)
 
 
@@ -123,13 +116,6 @@ Run this script in your branch to check whether any images referenced in content
 ### [`create-glossary-from-spreadsheet.js`](create-glossary-from-spreadsheet.js)
 
 This script turns a Google Sheets CSV spreadsheet into a YAML file.
-
----
-
-
-### [`delete-unused-staging-apps.js`](delete-unused-staging-apps.js)
-
-This script finds and lists all the Heroku staging apps and deletes any leftover apps that have closed PRs
 
 ---
 
@@ -405,6 +391,13 @@ An [automated test](/tests/extraneous-translation-files.js) checks for files in 
 ---
 
 
+### [`remove-stale-staging-apps.js`](remove-stale-staging-apps.js)
+
+This script removes all stale Heroku staging apps that outlasted the closure of their corresponding pull requests, or correspond to spammy pull requests.
+
+---
+
+
 ### [`remove-unused-assets.js`](remove-unused-assets.js)
 
 Run this script to remove reusables and image files that exist in the repo but are not used in content files. It also displays a list of unused variables. Set the `--dry-run` to flag to print results without deleting any files. For images you don't want to delete, add them to `ignoreList` in `lib/find-unused-assets.js`
@@ -517,24 +510,8 @@ This script crawls the script directory, hooks on special comment markers in eac
 ---
 
 
-### [`update-s3cmd-config.js`](update-s3cmd-config.js)
-
-This script is used by other scripts to update temporary AWS credentials and authenticate to S3.
-
----
-
-
 ### [`update-versioning-in-files.js`](update-versioning-in-files.js)
 
 
 
 ---
-
-
-### [`upload-images-to-s3.js`](upload-images-to-s3.js)
-
-Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
-
----
-
-

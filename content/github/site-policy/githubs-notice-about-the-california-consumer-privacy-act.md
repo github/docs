@@ -2,6 +2,9 @@
 title: GitHub's Notice about the California Consumer Privacy Act
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Effective January 1, 2020

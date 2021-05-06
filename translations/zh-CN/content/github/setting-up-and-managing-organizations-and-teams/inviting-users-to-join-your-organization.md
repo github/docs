@@ -7,6 +7,9 @@ redirect_from:
   - /articles/inviting-users-to-join-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 {% tip %}

@@ -87,21 +87,6 @@
   owning_teams:
     - '@github/feature-lifecycle'
 - 
-  title: Pinned Issues Preview
-  description: This preview adds support for pinned issues.
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
-- 
   title: Labels Preview
   description: >-
     This preview adds support for adding, updating, creating and deleting labels.

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 拉取请求
 ---
 
 禁用项目板后，在时间表或[审核日志](/articles/reviewing-your-security-log/)中将不再看到项目板信息。

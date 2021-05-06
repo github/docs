@@ -15,6 +15,7 @@ Thanks again!
 <!-- 
 - If there's an existing issue for your change, please link to it.
 - If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
+**Closes [issue link]**
 
 ### What's being changed:
 
@@ -24,3 +25,11 @@ Thanks again!
 - [ ] I have reviewed my changes in staging. (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**)
 - [ ] For content changes, I have reviewed the [localization checklist](https://github.com/github/docs/blob/main/contributing/localization-checklist.md)
 - [ ] For content changes, I have reviewed the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+
+### Writer impact (This section is for GitHub staff members only):
+
+- [ ] This pull request impacts the contribution experience
+  - [ ] I have added the 'writer impact' label
+  - [ ] I have added a description and/or a video demo of the changes below (eg. a "before and after video")
+
+<!-- Description of the writer impact here -->

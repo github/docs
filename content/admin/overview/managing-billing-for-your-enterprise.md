@@ -1,6 +1,6 @@
 ---
 title: Managing billing for your enterprise
-intro: 'You can view billing information for your enterprise.'
+intro: You can view billing information for your enterprise.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -24,7 +26,7 @@ For example, here are the costs for users with licenses on different dates.
 User | License dates | Counted days | Cost
 ---- | ------------ | ------- | -----
 @octocat | January 1 - January 31 | 31 | $39
-@robocat | February 1 - February 28 | 29 | $35.23
+@robocat | February 1 - February 28 | 28 | $35.23
 @devtocat  | January 15 - January 31 | 17 | $21.39
 @doctocat | January 1 - January 15 | 31 | $39
 @prodocat | January 7 - January 15 | 25 | $31.45
