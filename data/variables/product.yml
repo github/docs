@@ -72,6 +72,7 @@ prodname_pages: 'GitHub Pages'
 # CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
