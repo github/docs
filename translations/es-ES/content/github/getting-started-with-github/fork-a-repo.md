@@ -10,10 +10,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Casi siempre las bifurcaciones se usan para proponer cambios al proyecto de otra persona o para usar el proyecto de otra persona como inicio de tu propia idea.

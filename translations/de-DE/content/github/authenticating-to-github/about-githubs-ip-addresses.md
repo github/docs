@@ -11,8 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 Sie können eine Liste der IP-Adressen von {% data variables.product.prodname_dotcom %} über den [meta](https://api.github.com/meta)-API-Endpunkt abrufen. For more information, see "[Meta](/rest/reference/meta)."

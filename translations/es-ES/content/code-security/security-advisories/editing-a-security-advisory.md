@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 Las personas con permisos de administrador en una asesoría de seguridad pueden editarla.

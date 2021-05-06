@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 En {% data variables.product.product_name %}, puedes ver el historial de confirmaciones de un repositorio al:

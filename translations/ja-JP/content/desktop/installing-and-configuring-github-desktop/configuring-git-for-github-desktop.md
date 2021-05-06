@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop用のGitの設定方法
 shortTitle: Git を設定する
-intro: 'Gitをまだインストールしていない場合、GitHub Desktopを使う前にGitを設定する必要があります。'
+intro: Gitをまだインストールしていない場合、GitHub Desktopを使う前にGitを設定する必要があります。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
 versions:

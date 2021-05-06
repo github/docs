@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 アクティビティダッシュボードには、次の数値の週次、月次、年次のグラフが表示されます。

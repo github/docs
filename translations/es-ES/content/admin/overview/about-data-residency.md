@@ -1,6 +1,6 @@
 ---
 title: Acerca de la residencia de los datos
-intro: Puedes elegir la geografía en donde {% data variables.product.product_name %} almacena todos los datos de los clientes de tu empresa.
+intro: 'Puedes elegir la geografía en donde {% data variables.product.product_name %} almacena todos los datos de los clientes de tu empresa.'
 versions:
   github-ae: '*'
 ---

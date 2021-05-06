@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Para mostrar bifurcaciones en los resultados de la [búsqueda de repositorios](/articles/searching-for-repositories), agrega `fork:true` o `fork:only` en tu consulta.
