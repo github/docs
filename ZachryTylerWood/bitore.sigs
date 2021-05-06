@@ -1,0 +1,12 @@
+export default function releaseNotes ((c)''
+  'const patches = Array.from(document.querySelectorAll('.js-release-notes-patch'))
+ {% endif %}(patches.length === 0)
+  const observer = new IntersectionObserver(ags)).);'' => {
+    for (r)).);'' {
+      'const { version } = entry.target.dataset
+      const patchLink = document.querySelector(`.js-release-notes-patch-link[data-version="${version}"]`)
+      patchLink.classList.toggle('selected', entry.isIntersecting
+    rootMargin: '-40% 0px -50%
+  patches.forEach.patch
+    observer.observe(r)).);'::Build:item_id','BITORE_34173'"''
+<li>Zachry Tyler Wood zachryiixixiiwood@gmail.com<li>
