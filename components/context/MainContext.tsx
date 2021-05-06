@@ -9,6 +9,14 @@ type ProductT = {
   name: string
 }
 
+type LanguageItem = {
+  name: string
+  nativeName: string
+  code: string
+  hreflang: string
+  wip?: boolean
+}
+
 type DataT = {
   ui: Record<string, any>
   reusables: {
@@ -34,9 +42,12 @@ export type MainContextT = {
   currentLayoutName: string
   data: DataT
   airGap?: boolean
+  error: string
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentLanguage: string
+  languages: Record<string, LanguageItem>
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -47,6 +58,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct],
     currentLayoutName: req.context.currentLayoutName,
+    error: req.context.error || '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
@@ -57,6 +69,20 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     currentCategory: req.context.currentCategory || '',
     relativePath: req.context.page.relativePath,
     enterpriseServerReleases: req.context.enterpriseServerReleases,
+    currentLanguage: req.context.currentLanguage,
+    languages: Object.fromEntries(
+      Object.entries(req.context.languages).map(([key, entry]: any) => {
+        return [
+          key,
+          {
+            name: entry.name,
+            nativeName: entry.nativeName || '',
+            code: entry.code,
+            hreflang: entry.hreflang,
+          },
+        ]
+      })
+    ),
   }
 }
 
