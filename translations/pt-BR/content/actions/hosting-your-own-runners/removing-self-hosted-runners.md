@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Remover um executor de um repositório
 
@@ -63,7 +66,7 @@ Para remover um executor auto-hospedado de uma organização, você deve ser um 
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para remover um executor auto-hospedado de uma conta corporativa, você deve ser um proprietário corporativo. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
 Para remover um executor auto-hospedado no nível da empresa de
 {% data variables.product.product_location %}, você deve ser um administrador do site. Recomendamos que você também tenha acesso à máquina do executor auto-hospedado.
 {% endif %}

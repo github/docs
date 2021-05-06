@@ -1,6 +1,6 @@
 ---
 title: 使用 SSH 代理转发
-intro: '为简化向服务器的部署，您可以设置 SSH 代理转发以安全地使用本地 SSH 密钥。'
+intro: 为简化向服务器的部署，您可以设置 SSH 代理转发以安全地使用本地 SSH 密钥。
 redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 

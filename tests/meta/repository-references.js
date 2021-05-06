@@ -1,5 +1,5 @@
 const walkSync = require('walk-sync')
-const fs = require('fs').promises
+const readFileAsync = require('../../lib/readfile-async')
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -32,7 +32,8 @@ const ALLOW_LIST = new Set([
   'smimesign',
   'tweetsodium',
   'choosealicense.com',
-  'renaming'
+  'renaming',
+  'localization-support'
 ])
 
 describe('check for repository references', () => {
@@ -46,6 +47,7 @@ describe('check for repository references', () => {
     ignore: [
       '.algolia-cache',
       '.git',
+      '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       'dist',
       'node_modules',
       'translations',
@@ -56,12 +58,18 @@ describe('check for repository references', () => {
       'lib/excluded-links.js',
       'content/early-access',
       'data/early-access',
-      'data/release-notes' // These include links to internal issues in Liquid comments
+      'data/release-notes', // These include links to internal issues in Liquid comments.
+      '**/*.png', // Do not check images or font files.
+      '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
+      '**/*.gif', // READMEs or other text-based files from being checked.
+      '**/*.pdf',
+      '**/*.ico',
+      '**/*.woff'
     ]
   })
 
   test.each(filenames)('in file %s', async (filename) => {
-    const file = await fs.readFile(filename, 'utf8')
+    const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
       .filter(repoName => !ALLOW_LIST.has(repoName))

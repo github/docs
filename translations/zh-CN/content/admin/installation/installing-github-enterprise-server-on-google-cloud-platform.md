@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 基本要求
@@ -20,34 +22,11 @@ versions:
 
 ### 确定机器类型
 
-在 Google Cloud Platform 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的机器类型。
-
-#### 支持的机器类型
-
-以下 Google Compute Engine (GCE) 机器类型支持 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅 [Google Cloud Platform 机器类型文章](https://cloud.google.com/compute/docs/machine-types)。
-
-| 高内存           |
-| ------------- |
-| n1-highmem-4  |
-| n1-highmem-8  |
-| n1-highmem-16 |
-| n1-highmem-32 |
-| n1-highmem-64 |
-| n1-highmem-96 |
-
-#### 建议的机器类型
-
-根据您的用户许可数量，我们建议使用以下机器类型。
-
-|        席位         |     建议类型      |
-|:-----------------:|:-------------:|
-| 试用版、演示版或 10 个轻度用户 | n1-standard-4 |
-|     10 - 3000     | n1-standard-8 |
-|    3000 - 5000    | n1-highmem-8  |
-|    5000 - 8000    | n1-highmem-16 |
-|   8000 - 10000+   | n1-highmem-32 |
+在 Google Cloud Platform 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的机器类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.company_short %} 建议对 {% data variables.product.prodname_ghe_server %} 使用通用高内存设备。 更多信息请参阅 Google Compute Engine 文档中的“[设备类型](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)”。
 
 ### 选择 {% data variables.product.prodname_ghe_server %} 映像
 
@@ -113,5 +92,5 @@ GCE 虚拟机作为具有防火墙的网络的成员创建。 对于与 {% data 
 
 ### 延伸阅读
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

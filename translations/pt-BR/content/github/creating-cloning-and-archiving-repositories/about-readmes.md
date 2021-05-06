@@ -9,13 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Sobre READMEs
 
 É possível adicionar um arquivo README a um repositório para comunicar informações importantes sobre o seu projeto. Um README, junto com uma licença de repositório{% if currentVersion == "free-pro-team@latest" %}, diretrizes de contribuição, e um código de conduta{% elsif enterpriseServerVersions contains currentVersion %} e diretrizes de contribuição{% endif %}, comunica as expectativas para o seu projeto e ajuda você a gerenciar contribuições.
 
-Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte {% if currentVersion == "free-pro-team@latest" %}"[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)e {% endif %}"[Configurar o seu projeto para contribuições saudáveis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
+Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte {% if currentVersion == "free-pro-team@latest" %}"[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)e {% endif %}"[Configurar o seu projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)".
 
 Um README, muitas vezes, é o primeiro item que um visitante verá ao visitar seu repositório. Os arquivos README geralmente incluem informações sobre:
 - O que o projeto faz

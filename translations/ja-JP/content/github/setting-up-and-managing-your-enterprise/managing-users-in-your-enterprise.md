@@ -1,5 +1,5 @@
 ---
-title: Managing users in your enterprise
+title: Enterprise のユーザを管理する
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 mapTopic: true
 redirect_from:
@@ -11,5 +11,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Prerrequisitos
@@ -21,6 +23,9 @@ Esta guía supone que estás familiarizado con los siguientes conceptos de AWS:
  - [Utilizar grupos de seguridad](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (para administrar el acceso de red a tu instancia)
  - [Direcciones IP elásticas (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (altamente recomendadas para los entornos de producción)
  - [EC2 y Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (si planeas iniciar dentro de Virtual Private Cloud)
+ - [Precios de AWS](https://aws.amazon.com/pricing/) (Para calcular y administrar los costos)
+
+ Esta guía te recomienda utilizar el principio del menor privilegio necesario cuando configures {% data variables.product.product_location %} en AWS. Para obtener más información, refiérete a la [Documentación sobre la Administración de Accesos e Identidad (IAM) de AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
 ### Consideraciones relativas al hardware
 
@@ -28,17 +33,11 @@ Esta guía supone que estás familiarizado con los siguientes conceptos de AWS:
 
 ### Determinar el tipo de instancia
 
-Antes de iniciar {% data variables.product.product_location %} en AWS, deberás determinar el tipo de máquina virtual que mejor se adapte a las necesidades de tu organización.
-
-#### Tipos de instancias admitidas
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Tipos de instancias recomendadas
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Antes de iniciar {% data variables.product.product_location %} en AWS, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### Seleccionar la AMI del {% data variables.product.prodname_ghe_server %}
 

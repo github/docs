@@ -1,12 +1,14 @@
 ---
 title: 既存の SSH キーの確認
-intro: 'SSH キーを生成する前に、SSH キーがすでに存在するかどうかを確認できます。'
+intro: SSH キーを生成する前に、SSH キーがすでに存在するかどうかを確認できます。
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% data reusables.ssh.dsa-support %}

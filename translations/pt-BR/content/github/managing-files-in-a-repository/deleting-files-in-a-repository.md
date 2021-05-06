@@ -9,7 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: As pessoas com permissões de gravação podem excluir arquivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ou diretórios{% endif %} em um repositório.
+permissions: 'People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.'
+topics:
+  - Repositories
 ---
 
 ### Sobre a exclusão de arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} e diretório{% endif %}

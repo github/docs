@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -115,7 +117,8 @@ You'll see a form where you can enter details about your app. See "[Creating a G
 
     ![Form with webhook secret filled in](/assets/images/webhook-secret.png)
 
-* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Leave this page with its default values. If you decide to extend this template app, you can update these permissions later.
+* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions"
+ section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
 
 * At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
@@ -137,7 +140,7 @@ After you create your app, you'll be taken back to the [app settings page](https
 
 ### Step 4. Prepare the runtime environment
 
-To keep your information secure, we recommend putting all your app-related secrets in your computer's memory where your app can find them, rather than putting them directly in your code. A handy development tool called [dotenv](https://github.com/bkeepers/dotenv) loads project-specific environment variables from a `.env` file to `ENV`. Never check your `.env` file into GitHub. This is a local file that stores sensitive information that you don't want on the public internet. The `.env` file is already included in the repository's [`.gitignore`](/articles/ignoring-files/) file to prevent that.
+To keep your information secure, we recommend putting all your app-related secrets in your computer's memory where your app can find them, rather than putting them directly in your code. A handy development tool called [dotenv](https://github.com/bkeepers/dotenv) loads project-specific environment variables from a `.env` file to `ENV`. Never check your `.env` file into GitHub. This is a local file that stores sensitive information that you don't want on the public internet. The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
 
 The template code you downloaded in the [Prerequisites section](#prerequisites) already has an example file called `.env-example`. Rename the example file from `.env-example` to `.env` or create a copy of the `.env-example` file called `.env`. You haven't installed dotenv yet, but you will install it later in this quickstart when you run `bundle install`. **Note:** Quickstarts that reference the steps in this guide may include additional environment variables in the `.env-example` file. Reference the quickstart guide for the project you've cloned on GitHub for guidance setting those additional environment variables.
 
@@ -150,7 +153,7 @@ You need to add these variables to the `.env` file:
 Here is an example `.env` file:
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 ...
 HkVN9...
 ...
@@ -401,7 +404,7 @@ Here are a few common problems and some suggested solutions. If you run into any
     **A:** You probably haven't set up your private key environment variable quite right. Your `GITHUB_PRIVATE_KEY` variable should look like this:
 
     ```
-    PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
     ...
     HkVN9...
     ...

@@ -1,5 +1,5 @@
 ---
-title: '错误：密钥已被使用'
+title: 错误：密钥已被使用
 intro: '在尝试 [添加密钥](/articles/adding-a-new-ssh-key-to-your-github-account) 但该密钥尚未添加到另一个帐户或仓库时，就会发生此错误。'
 redirect_from:
   - /articles/error-key-already-in-use
@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 ### 查找已使用密钥的位置

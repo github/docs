@@ -1,6 +1,6 @@
 ---
 title: Unterschiede zwischen Subversion und Git
-intro: 'SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.'
+intro: SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -51,7 +51,7 @@ Weitere Informationen findest Du unter „[Git Tools Submodule](https://git-scm.
 
 ### Verlauf beibehalten
 
-SVN geht davon aus, dass sich der Verlauf eines Projekts niemals ändert. Mithilfe von Werkzeugen wie [`git rebase`](/articles/about-git-rebase) erlaubt Dir Git, frühere Commits und Änderungen anzupassen.
+SVN geht davon aus, dass sich der Verlauf eines Projekts niemals ändert. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

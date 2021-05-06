@@ -4,5 +4,7 @@ intro: 'Aprende cómo configurar el almacenamiento y habilita las {% data variab
 mapTopic: true
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 

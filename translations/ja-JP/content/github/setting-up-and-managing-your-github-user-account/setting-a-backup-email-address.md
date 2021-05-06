@@ -1,12 +1,15 @@
 ---
 title: バックアップメールアドレスを設定する
-intro: Use a backup email address as an additional destination for security-relevant account notifications{% if currentVersion != "github-ae@latest" %} and to securely reset your password if you can no longer access your primary email address{% endif %}.
+intro: 'セキュリティ関連のアカウント通知の追加の宛先としてバックアップメールアドレスを使用し{% if currentVersion != "github-ae@latest" %}、プライマリメールアドレスにアクセスできなくなった場合にパスワードを安全にリセットします{% endif %}。'
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% data reusables.user_settings.access_settings %}

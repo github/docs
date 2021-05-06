@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% tip %}
@@ -37,7 +39,7 @@ versions:
 {% data reusables.repositories.choose-repo-visibility %}
 6. テンプレートを使用していない場合は、リポジトリに自動入力できるオプションアイテムがいくつかあります。 既存のリポジトリを {% data variables.product.product_name %}にインポートする場合は、このようなオプションはどれも選択しないでください。マージコンフリクトが起きる可能性があります。 ユーザインターフェースを使用して新しいファイルを追加または作成する、またはコマンドラインを使用して後で新しいファイルを追加することができます。 詳細は「[コマンドラインを使って Git リポジトリをインポートする](/articles/importing-a-git-repository-using-the-command-line/)」、「[コマンドラインを使ってリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)」、「[マージコンフリクトに対処する](/articles/addressing-merge-conflicts/)」を参照してください。
     - 自分のプロジェクトについて説明するドキュメントである README を作成できます。 詳しい情報については「[README について](/articles/about-readmes/)」を参照してください。
-    - 無視するルールを記載した *.gitignore* ファイルを作成できます。 詳しい情報については、「[ファイルを無視する](/articles/ignoring-files)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+    - 無視するルールを記載した *.gitignore* ファイルを作成できます。 詳しい情報については、「[ファイルを無視する](/github/getting-started-with-github/ignoring-files)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
     - 自分のプロジェクトにソフトウェアライセンスを追加することができます。 詳細は「[リポジトリのライセンス](/articles/licensing-a-repository)」を参照してください。{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}

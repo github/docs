@@ -4,9 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: 'Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.'
+intro: Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}

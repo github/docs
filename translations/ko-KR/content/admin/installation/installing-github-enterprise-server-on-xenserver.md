@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 빌드전 요구 사양

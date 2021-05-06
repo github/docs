@@ -1,6 +1,6 @@
 ---
 title: Administrar la facturación para tu empresa
-intro: 'Puedes visualizar la información de facturación para tu empresa.'
+intro: Puedes visualizar la información de facturación para tu empresa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

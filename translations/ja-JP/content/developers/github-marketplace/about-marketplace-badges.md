@@ -1,6 +1,6 @@
 ---
-title: About marketplace badges
-intro: 'Learn about the badges that you may see for some apps and actions listings on {% data variables.product.prodname_marketplace %}.'
+title: Marketplaceバッジについて
+intro: '{% data variables.product.prodname_marketplace %}に掲載されている一部のアプリやアクションで表示されるバッジについて学びましょう。'
 redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
 versions:
@@ -9,14 +9,23 @@ versions:
 
 ### For GitHub Apps
 
-Apps with the {% octicon "verified" aria-label="The verified badge" %}, are owned by an organization that has:
-- Confirmed their domain
-- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. 詳しい情報については [Organization で 2 要素認証を要求する](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)を参照してください。
+Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
 
-![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge.png)
+- Verified ownership of their domain and has a verified badge on their profile
+- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
+- Required two-factor authentication for their organization. 詳しい情報については [Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)を参照してください。
+
+![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
+
+{% note %}
+{% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
+{% endnote %}
 
 To learn how you can add this badge to your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+
+Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+
+![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
 {% data variables.product.prodname_marketplace %}でアプリケーションをリストするための要件に関する情報については、「[{% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
 
@@ -29,15 +38,3 @@ Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  v
 ![Verified creator badge for GitHub Actions](/assets/images/marketplace/verified-creator-badge-for-actions.png)
 
 For information on how to publish a GitHub action to {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
-
-### About the previous verification process for apps
-
-検証済みの作者バッジの他に、未検証および検証済みのアプリケーションのバッジも表示されます。 これらのアプリケーションは、以前の方法を用いて、個々のアプリケーションを検証して公開されたものです。
-
-![検証済みの緑と未検証の灰色のバッジ](/assets/images/marketplace/marketplace_verified_badges.png)
-
-{% note %}
-
-**Note:** The new publisher verification process for apps replaces the previous process where individual apps were verified. The new publisher verification process is similar to the verification process for actions. 旧プロセスの下で検証されたアプリケションを持っている場合、それらはこの変更には影響されません。 {% data variables.product.prodname_marketplace %}チームは、Organizationベースの検証への移行方法の詳細について、お客様に連絡します。
-
-{% endnote %}

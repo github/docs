@@ -1,27 +1,32 @@
 ---
 title: Java bauen und testen mit Gradle
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) in GitHub-Aktionen erstellen, um Dein Java-Projekt mit Gradle zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) in GitHub-Aktionen erstellen, um Dein Java-Projekt mit Gradle zu bauen und zu testen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Gradle'
+  - CI
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
 Dieser Leitfaden zeigt Dir, wie Du einen Workflow erstellen kannst, der eine kontinuierliche Integration (CI) für Dein Java-Projekt mit Hilfe des Build-Systems Gradle durchführt. Der Workflow, den Du erstellst, zeigt Dir, wenn Commits zu einem Pull-Request zu Build- oder Testfehlern für deinen Standard-Zweig führen. Dieser Ansatz kann dazu beitragen, dass Dein Code immer brauchbar ist. Du kannst Deinen CI-Workflow so erweitern, dass er Dateien im Cache zwischenspeichert und Artefakte von einem Workflow-Lauf hochlädt.
 
+{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
 {% data variables.product.prodname_dotcom %}-gehostete Runnner haben einen Tools-Cache mit vorinstallierter Software, einschließlich Java Development Kits (JDKs) und Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Vorrausetzungen
 
@@ -53,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -65,7 +71,7 @@ jobs:
 Dieser Workflow führt die folgenden Schritte aus:
 
 1. Der Schritt `checkout` lädt eine Kopie Deines Repositorys auf den Runner herunter.
-2. Der Schritt `setup-java` konfiguriert das Java 1.8 JDK.
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. Der Schritt "Build with Gradle" führt das Wrapper-Skript `gradlew` aus, um sicherzustellen, dass dein Code gebaut, Tests bestanden und ein Paket erstellt werden kann.
 
 Die Standard-Workflow-Vorlagen sind ausgezeichnete Ausgangspunkte beim Erstellen des Build- und Testworkflows, und Du kannst die Vorlage an die Anforderungen Deines Projekts anpassen.
@@ -86,9 +92,10 @@ Wenn Du zum Bauen Deines Projekts andere Befehle verwenden oder einen anderen Ta
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -102,10 +109,11 @@ When using {% data variables.product.prodname_dotcom %}-hosted runners, you can 
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -138,7 +146,11 @@ Gradle erstellt normalerweise Ausgabedateien wie JARs, EARs oder WARs im Verzeic
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

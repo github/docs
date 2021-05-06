@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 如果数据服务集群中只有三个节点，则无法撤出节点，因为 `ghe-spoke` 没有其他位置可以进行复制。 如果您有四个或更多节点，则 `ghe-spoke ` 会将所有仓库移出已撤出的节点。

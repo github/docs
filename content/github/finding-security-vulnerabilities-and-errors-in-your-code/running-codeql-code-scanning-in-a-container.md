@@ -4,10 +4,11 @@ shortTitle: '{% data variables.product.prodname_code_scanning_capc %} in a conta
 intro: 'You can run {% data variables.product.prodname_code_scanning %} in a container by ensuring that all processes run in the same container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -15,7 +16,7 @@ versions:
 
 If you're setting up {% data variables.product.prodname_code_scanning %} for a compiled language, and you're building the code in a containerized environment, the analysis may fail with the error message "No source code was seen during the build." This indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code as it was compiled.
 
-You must run {% data variables.product.prodname_codeql %} in the same container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_runner %}, or {% data variables.product.prodname_actions %}. If you're using the {% data variables.product.prodname_codeql_runner %}, run it in the container where your code builds. For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)." If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see "[Example workflow](#example-workflow)."
+You must run {% data variables.product.prodname_codeql %} in the same container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_runner %}, or {% data variables.product.prodname_actions %}. If you're using the {% data variables.product.prodname_codeql_runner %}, run it in the container where your code builds. For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)." If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see "[Example workflow](#example-workflow)."
 
 ### Dependencies
 
@@ -38,12 +39,15 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '45 15 * * 2'
 
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write
+      actions: read{% endif %}
 
     strategy:
       fail-fast: false

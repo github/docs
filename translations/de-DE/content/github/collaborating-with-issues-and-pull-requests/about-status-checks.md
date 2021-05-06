@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Statuschecks
-intro: Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.
+intro: 'Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.'
 redirect_from:
   - /articles/about-statuses/
   - /articles/about-status-checks
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Statuschecks basieren auf externen Prozessen, beispielsweise Builds mit fortlaufender Integration, die bei jedem Push an ein Repository ausgeführt werden. Du kannst den Zustand *Ausstehend*, *Bestanden* oder *Nicht bestanden* des Statuschecks neben den einzelnen Commits in Deinem Pull Request sehen.

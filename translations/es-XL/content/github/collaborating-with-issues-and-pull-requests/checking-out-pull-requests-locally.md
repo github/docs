@@ -3,10 +3,13 @@ title: Revisar solicitudes de extracción localmente
 intro: 'Cuando alguien te manda una solicitud de extracción desde una bifurcación o rama de tu repositorio, puedes fusionarla localmente para resolver un conflicto de fusión o para probar y verificar los cambios antes de fusionarlos en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: Cualquiera con acceso de escritura a un repositorio puede extraer una solicitud de extracción remota localmente.
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

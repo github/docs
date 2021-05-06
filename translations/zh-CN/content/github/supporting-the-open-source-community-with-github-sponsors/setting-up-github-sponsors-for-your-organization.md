@@ -7,6 +7,8 @@ redirect_from:
 permissions: '组织所有者可以为组织设置 {% data variables.product.prodname_sponsors %}。'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 加入 {% data variables.product.prodname_sponsors %}
@@ -46,6 +48,7 @@ versions:
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### 提交您的银行信息

@@ -1,10 +1,12 @@
 ---
 title: Teamの作成
-intro: 'Team は Organization がメンバーのグループを作成し、リポジトリへのアクセスを制御できるようにします。 Team のメンバーには特定のリポジトリの読み取り、書き込み、管理権限を与えることができます。'
+intro: Team は Organization がメンバーのグループを作成し、リポジトリへのアクセスを制御できるようにします。 Team のメンバーには特定のリポジトリの読み取り、書き込み、管理権限を与えることができます。
 redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。
@@ -15,7 +17,7 @@ Organizationには、企業やグループの階層構造を反映させた入�
 
 ### Team の作成
 
-Teamの良く考えられた組み合わせは、リポジトリへのアクセスを制御する強力な方法です。 For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
+Teamの良く考えられた組み合わせは、リポジトリへのアクセスを制御する強力な方法です。 たとえば、Organization が、任意のリポジトリのデフォルトブランチにコードのプッシュすることを、 リリースエンジニアリングの Team にのみ許可する場合、Organization のリポジトリに対する**管理者**権限をリリースエンジニアリングの Team にのみ与え、他のすべての Team には**読み取り**権限だけを与えることができます。
 
 {% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}

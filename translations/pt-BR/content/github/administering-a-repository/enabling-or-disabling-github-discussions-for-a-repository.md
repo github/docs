@@ -2,9 +2,11 @@
 title: Habilitar ou desabilitar discussões no GitHub para um repositório
 intro: 'Você pode usar discussões em um repositório como um lugar para sua comunidade ter conversas, fazer perguntas e postar respostas sem definir o escopo de trabalho em um problema.'
 product: '{% data reusables.gated-features.discussions %}'
-permissions: As pessoas com permissões de administrador em um repositório podem habilitar discussões no repositório.
+permissions: People with admin permissions to a repository can enable discussions for the repository.
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.discussions.beta %}

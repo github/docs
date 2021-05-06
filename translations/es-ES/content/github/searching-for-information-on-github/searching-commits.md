@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Puedes buscar confirmaciones de cambios globalmente a través de todos los {% data variables.product.product_name %}, o buscar confirmaciones de cambios dentro de un repositorio particular u organización. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".

@@ -3,11 +3,10 @@ title: CI 系统中的 CodeQL 代码扫描故障排除
 shortTitle: CI 中的故障排除
 intro: '如果您在 {% data variables.product.prodname_codeql_runner %} 方面遇到问题，可使用这些提示来排除故障。'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -50,5 +49,7 @@ versions:
    **注：**如果您使用 `init` 命令的 `--temp-dir` 标志来指定临时文件的自定义目录，则 `codeql-env` 文件的路径可能不同。
 
    {% endnote %}
+
+1. 您没有使用 `autobuild` 命令分析 macOS 上的编译语言，并且在 `init` 步骤后手动运行构建步骤。 如果启用了 SIP（系统完整性保护，OSX 最新版本默认启用），则分析可能会失败。 为解决此问题，将使用 `$CODEQL_RUNNER` 环境变量前缀构建命令。 例如，如果您的构建命令是 `cmd arg1 arg2`，则应运行 `$CODEQL_RUNNER cmd arg1 arg2`。
 
 1. 代码在容器或在单独的计算机上构建。 如果您使用容器化的构建，或者将构建外包给另一台计算机，请确保在容器或您执行构建任务的计算机上运行 {% data variables.product.prodname_codeql_runner %}。 更多信息请参阅“[在容器中运行 CodeQL 代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)”。

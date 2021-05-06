@@ -1,10 +1,13 @@
 ---
 title: 在未接入互联网的自托管运行器上设置工具缓存
-intro: '要在没有互联网连接的自托管运行器上使用包含的 '' actions/setup'' 操作，您必须先为工作流程填充运行器的工具缓存。'
+intro: 要在没有互联网连接的自托管运行器上使用包含的 ' actions/setup' 操作，您必须先为工作流程填充运行器的工具缓存。
 redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

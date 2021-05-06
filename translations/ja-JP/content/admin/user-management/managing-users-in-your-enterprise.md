@@ -1,6 +1,6 @@
 ---
-title: Managing users in your enterprise
-intro: 'ユーザアクティビティを監査し、ユーザ設定を管理できます。'
+title: Enterprise のユーザを管理する
+intro: ユーザアクティビティを監査し、ユーザ設定を管理できます。
 redirect_from:
   - /enterprise/admin/guides/user-management/enabling-avatars-and-identicons/
   - /enterprise/admin/user-management/basic-account-settings
@@ -10,5 +10,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

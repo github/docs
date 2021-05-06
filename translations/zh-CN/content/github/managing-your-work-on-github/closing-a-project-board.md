@@ -1,6 +1,6 @@
 ---
 title: 关闭项目板
-intro: '如果您已完成项目板中所有任务或不再需要使用项目板，可以关闭项目板。'
+intro: 如果您已完成项目板中所有任务或不再需要使用项目板，可以关闭项目板。
 redirect_from:
   - /articles/closing-a-project/
   - /articles/closing-a-project-board
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 关闭项目板时，默认情况下任何已配置的工作流程自动化都会暂停。

@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
@@ -146,5 +151,6 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 - "[Set up Git](/articles/set-up-git)"
 - "[Create a repository](/articles/create-a-repo)"
+- **Fork a repository**
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

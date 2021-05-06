@@ -3,11 +3,10 @@ title: Solucionar problemas del escaneo de código de CodeQL en tu sistema de IC
 shortTitle: Solucionar problemas en tu IC
 intro: 'Si estás teniendo problemas con el {% data variables.product.prodname_codeql_runner %}, puedes solucionarlos si utilizas estos tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -49,5 +48,7 @@ Si el comando `analyze` para el {% data variables.product.prodname_codeql_runner
    **Nota:** Si utilizaste el marcador `--temp-dir` flag del comando `init` para especificar un directorio personalizado para los archivos temporales, la ruta hacia los archivos de `codeql-env` podría ser diferente.
 
    {% endnote %}
+
+1. Estás analizando un lenguaje compilado en macOS sin utilizar el comando `autobuild` y ejecutas los pasos de compilación tú mismo después del paso `init`. Si está habilitada la SIP (Protección Integral del Sistema, por sus siglas en inglés), que es lo predeterminado en las versiones más recientes de OSX, el análisis podría fallar. Para arreglar esto, usa un prefijo en el comando de la compilación con la variable de ambiente `$CODEQL_RUNNER`. Por ejemplo, si tu comando de compilación es `cmd arg1 arg2`, debes ejecutar `$CODEQL_RUNNER cmd arg1 arg2`.
 
 1. El código se compila en un contenedor o en una máquina independiente. Si utilizas una compilación que ya esté en un contenedor o si terciarizas la compilación a otra máquina, asegúrate de ejecutar el {% data variables.product.prodname_codeql_runner %} en el contenedor o en la máquina en donde toma lugar tu tarea de compilación. Para obtener más información, consulta la sección "[Ejecutar el escaneo de código de CodeQL en un contenedor](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)".

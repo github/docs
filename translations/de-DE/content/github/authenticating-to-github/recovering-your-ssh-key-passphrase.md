@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
@@ -26,12 +28,12 @@ Wenn Du [Deine SSH-Passphrase mit der OS X Keychain konfiguriert hast](/articles
 
 {% windows %}
 
-Wenn Du Deine SSH-Schlüssel-Passphrase verlierst, kannst Du sie nicht wiederherstellen. Du musst [ein ganz neues SSH-Schlüsselpaar erzeugen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [auf HTTPS-Klone umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https), um stattdessen Dein GitHub-Passwort zu verwenden.
+Wenn Du Deine SSH-Schlüssel-Passphrase verlierst, kannst Du sie nicht wiederherstellen. Du musst [ein ganz neues SSH-Schlüsselpaar erzeugen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [auf HTTPS-Klone umstellen](/github/getting-started-with-github/managing-remote-repositories), um stattdessen Dein GitHub-Passwort zu verwenden.
 
 {% endwindows %}
 
 {% linux %}
 
-Wenn Du Deine SSH-Schlüssel-Passphrase verlierst, kannst Du sie nicht wiederherstellen. Du musst [ein ganz neues SSH-Schlüsselpaar erzeugen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [auf HTTPS-Klone umstellen](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), um stattdessen Dein GitHub-Passwort zu verwenden.
+Wenn Du Deine SSH-Schlüssel-Passphrase verlierst, kannst Du sie nicht wiederherstellen. Du musst [ein ganz neues SSH-Schlüsselpaar erzeugen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) oder [auf HTTPS-Klone umstellen](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), um stattdessen Dein GitHub-Passwort zu verwenden.
 
 {% endlinux %}

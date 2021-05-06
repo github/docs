@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 SSH をセットアップする際には、[SSH キーを生成し、ssh-agent に追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)し、それから [ キーを自分の {% data variables.product.product_name %}アカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。 SSH キーを ssh-agent に追加することで、パスフレーズの利用を通じて SSH キーに追加のセキュリティのレイヤーを持たせることができます。 詳しい情報については[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)を参照してください。

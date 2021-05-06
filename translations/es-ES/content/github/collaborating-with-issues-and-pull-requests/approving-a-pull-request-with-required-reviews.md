@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Para obtener más información sobre las revisiones requeridas, consulta la sección "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".

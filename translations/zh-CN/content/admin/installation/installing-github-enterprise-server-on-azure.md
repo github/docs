@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 您可以将 {% data variables.product.prodname_ghe_server %} 部署在全局 Azure 或 Azure Government 上。
@@ -22,26 +24,15 @@ versions:
 
 ### 确定虚拟机类型
 
-在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
-
-#### 支持的 VM 类型和地区
-
-{% data variables.product.prodname_ghe_server %} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 更多信息请参阅 Amuze 文档中的“[支持的 VM](https://docs.microsoft.com/azure/storage/common/storage-premium-storage#supported-vms)”。 有关可用 VM 的基本信息，请参阅 [Azure 虚拟机概述页](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)。
-
-{% data variables.product.prodname_ghe_server %} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/regions/services/)”。
-
-#### 建议的 VM 类型
-
-建议使用 RAM 至少为 14 GB 的 DS v2 实例类型。 您可以使用任何受支持的 VM 类型。 根据您的用户许可数量，我们建议使用以下实例类型。
-
-|        席位         |        建议类型        |
-|:-----------------:|:------------------:|
-| 试用版、演示版或 10 个轻度用户 | Standard_DS11_v2 |
-|     10 - 3000     | Standard_DS12_v2 |
-|    3000 - 8000    | Standard_DS14_v2 |
-|   8000 - 10000+   | Standard_DS15_v2 |
+在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.prodname_ghe_server %} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 带有 `` 后缀的 Azure VM 类型支持高级存储。 更多信息请参阅 Azure 文档中的“[Azure 中有哪些磁盘类型？](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)”和“[Azure 高级存储：高性能设计](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)”。
+
+{% data variables.product.company_short %} 建议对 {% data variables.product.prodname_ghe_server %} 使用内存优化的虚拟机。 更多信息请参阅 Azure 文档中的“[内存优化的虚拟机大小](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)”。
+
+{% data variables.product.prodname_ghe_server %} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/regions/services/)”。
 
 ### 创建 {% data variables.product.prodname_ghe_server %} 虚拟机
 
@@ -108,6 +99,6 @@ versions:
 
 ### 延伸阅读
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
   

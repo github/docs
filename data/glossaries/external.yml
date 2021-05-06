@@ -1,6 +1,6 @@
 - term: '@mention'
   description:
-    to notify a person on GitHub by using `@` before their username. Users in an organization on GitHub can also be a part of a team that can be
+    To notify a person on GitHub by using `@` before their username. Users in an organization on GitHub can also be a part of a team that can be
     mentioned.
 - term: access token
   description: >-
@@ -91,7 +91,7 @@
     working tree is pointing to a new branch.
 - term: cherry-picking
   description: >-
-    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit.
+    To choose a subset of changes from a series of changes (typically commits) and record them as a new series of changes on top of a different codebase. In Git, this is performed by the `git cherry-pick` command to extract the change introduced by an existing commit on another branch and to record it based on the tip of the current branch as a new commit. For more information, see [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation.
 - term: child team
   description: >-
     Within nested teams, the subteam that inherits the parent team's access
@@ -180,7 +180,7 @@
     Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)" or "[About your organization dashboard](/articles/about-your-organization-dashboard)."
 - term: default branch
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - term: Dependents graph
   description: >-
     A repository graph that shows the packages, projects, and repositories that depend on a
@@ -400,16 +400,18 @@
   description: A system for annotating and formatting a document.
 - term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a
-    branch named `main` is created, and becomes the active branch. In most
-    cases, this contains the local development, though that is purely by
-    convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}
+    The default development branch. Whenever you create a Git repository,
+    a branch named `main` is created, and becomes the active branch. 
+    In most cases, this contains the local development, though that is purely by
+    convention and is not required.{% else %}Name often chosen as an alternative to `master`
+    for the default branch of a repository.{% endif %}
 - term: master
   description: >-
     The default branch in many Git repositories. By default, when you create
-    a new Git repository on the command line a branch called `master` is created.
-    Many tools now use an alternative name for the default branch. For example,
-    when you create a new repository on GitHub the default branch is called `main`.
+    a new Git repository on the command line, a branch called `master` is created.
+    Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example,
+    when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - term: Members graph
   description: A repository graph that shows all the forks of a repository.
 - term: mention

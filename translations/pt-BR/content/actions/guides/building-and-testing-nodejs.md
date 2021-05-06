@@ -8,15 +8,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Nó'
-  - 'JavaScript'
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -127,8 +129,12 @@ jobs:
     - run: npm test
 ```
 {% endraw %}
+Se você não especificar uma versão do Node.js,
 
-Se você não especificar uma versão do Node.js, o {% data variables.product.prodname_dotcom %} usará a versão-padrão do Node.js do ambiente. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %} usará a versão padrão do Node.js do ambiente.
+{% if currentVersion == "github-ae@latest" %} Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} possui o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %} Para obter mais informações, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Instalar dependências
 

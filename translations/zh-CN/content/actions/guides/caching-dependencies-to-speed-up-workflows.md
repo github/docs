@@ -11,8 +11,10 @@ versions:
   free-pro-team: '*'
 type: tutorial
 topics:
-  - 工作流程
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### 关于缓存工作流程依赖项
 
@@ -20,7 +22,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的依赖项。
 
-要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
+要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。 如果您缓存 Ruby Gems，则考虑使用 Ruby 维护的操作，可在启动时缓存捆绑安装。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically)。
 
 {% warning %}
 

@@ -1,6 +1,6 @@
 ---
 title: 创建组分配
-intro: '您可以为参加您课程的学生团队创建协作作业。'
+intro: 您可以为参加您课程的学生团队创建协作作业。
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -17,7 +17,7 @@ redirect_from:
 
 {% data reusables.classroom.about-assignments %}
 
-您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 更多信息请参阅“[关于团队](/github/setting-up-and-managing-organizations-and-teams/about-teams)”。
+您可以决定一个任务可以拥有多少个团队，以及每个团队可以拥有多少成员。 学生为作业创建的每个团队都是 {% data variables.product.product_name %} 上组织内的团队。 团队的可见性是秘密。 您在 {% data variables.product.product_name %} 上创建的团队不会出现在 {% data variables.product.prodname_classroom %} 中。 For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 
@@ -84,7 +84,7 @@ redirect_from:
 
 #### 选择模板仓库
 
-默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %} 有关模板仓库的更多信息，请参阅“[创建模板仓库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)”。
+默认情况下，新作业将为学生创建的每个团队创建一个空仓库。 {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -132,7 +132,7 @@ redirect_from:
 
 ### 后续步骤
 
-- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[管理合并冲突](https://lab.github.com/githubtraining/managing-merge-conflicts)课程。
+- 在创建作业和学生组成团队后，团队成员可以使用 Git 和 {% data variables.product.product_name %} 的功能开始处理作业。 学生可以克隆仓库、推送提交、管理分支、创建和审查拉取请求、解决合并冲突以及讨论议题的更改。 您和团队都可以审查仓库的提交历史记录。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 使用入门](/github/getting-started-with-github)”、“[创建、克隆和存档仓库](/github/creating-cloning-and-archiving-repositories)”、“[使用 Git](/github/getting-started-with-github/using-git)”和“[协作处理议题和拉取请求](/github/collaborating-with-issues-and-pull-requests)”，以及 {% data variables.product.prodname_learning %} 中的[管理合并冲突](https://lab.github.com/githubtraining/managing-merge-conflicts)课程。
 
 - 当团队完成作业时，您可以查看仓库中的文件，或者查看仓库的历史和可视化内容，以更好地了解团队如何协作。 更多信息请参阅“[使用图表可视化仓库](/github/visualizing-repository-data-with-graphs)”。
 

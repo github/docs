@@ -1,26 +1,30 @@
 ---
 title: Building and testing Python
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Python-Projekt zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Python-Projekt zu bauen und zu testen.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Python'
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
 Diese Anleitung zeigt Dir, wie Du ein Python-Paket baust, testest und veröffentlichst.
 
-{% data variables.product.prodname_dotcom %}-gehostete Runner haben einen Tools-Cache mit vorinstallierter Software, einschließlich Python und PyPy. Du brauchst nichts zu installieren! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% if currentVersion == "github-ae@latest" %} For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. Du brauchst nichts zu installieren! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Vorrausetzungen
 
@@ -35,7 +39,7 @@ Du solltest ein grundlegendes Verständnis von Python, PyPy und pip haben. Weite
 
 ### Einstieg mit der Python-Workflow-Vorlage
 
-{% data variables.product.prodname_dotcom %} bietet eine Python-Workflow-Vorlage, die für die meisten Python-Projekte funktionieren sollte. Diese Anleitung enthält Beispiele, mit denen Du die Vorlage anpassen kannst. Weitere Informationen findest Du in der [Python-Workflow-Vorlage](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} bietet eine Python-Workflow-Vorlage, die für die meisten Python-Projekte funktionieren sollte. Diese Anleitung enthält Beispiele, mit denen Du die Vorlage anpassen kannst. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
 Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein.
 

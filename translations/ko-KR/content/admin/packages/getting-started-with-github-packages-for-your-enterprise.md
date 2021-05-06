@@ -6,6 +6,8 @@ redirect_from:
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}
@@ -40,7 +42,7 @@ To enable {% data variables.product.prodname_registry %} and configure third-par
 
 ### Step 2: Specify the package ecosystems to support on your instance
 
-Choose which package ecosystems you'd like to enable, disable, or set to read-only on your {% data variables.product.product_location %}. Available options are Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
+Choose which package ecosystems you'd like to enable, disable, or set to read-only on {% data variables.product.product_location %}. Available options are Docker, RubyGems, npm, Apache Maven, Gradle, or NuGet.  For more information, see "[Configuring package ecosystem support for your enterprise](/enterprise/admin/packages/configuring-package-ecosystem-support-for-your-enterprise)."
 
 ### Step 3: Ensure you have a TLS certificate for your package host URL, if needed
 

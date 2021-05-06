@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre o firewall da {% data variables.product.product_location %}
@@ -15,7 +17,7 @@ O {% data variables.product.prodname_ghe_server %} usa o Uncomplicated Firewall 
 
 Depois da instalação do {% data variables.product.prodname_ghe_server %}, todas as portas de rede necessárias ficam abertas automaticamente para aceitar conexões. As portas desnecessárias são configuradas automaticamente como `deny`, e a política de saída padrão é configurada como `allow`. O rastreamento com estado fica habilitado para novas conexões; em geral, são pacotes de rede com o conjunto de bits `SYN`. Para obter mais informações, consulte "[Portas de rede](/enterprise/admin/guides/installation/network-ports)".
 
-O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras do UFW, consulte [o LEIAME do UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+O firewall UFW também abre várias outras portas necessárias para o funcionamento adequado do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o conjunto de regras da UFW, consulte [o README da UFW](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ### Exibir as regras padrão de firewall
 

@@ -2,13 +2,17 @@
 
 // [start-readme]
 //
-// Run this script to manually purge the Redis rendered page cache.
+// Run this script to manually "soft purge" the Redis rendered page cache
+// by shortening the expiration window of entries.
 // This will typically only be run by Heroku during the deployment process,
 // as triggered via our Procfile's "release" phase configuration.
 //
 // [end-readme]
 
-const Redis = require('ioredis')
+require('dotenv').config()
+
+const { promisify } = require('util')
+const createRedisClient = require('../lib/redis/create-client')
 
 const { REDIS_URL, HEROKU_RELEASE_VERSION, HEROKU_PRODUCTION_APP } = process.env
 const isHerokuProd = HEROKU_PRODUCTION_APP === 'true'
@@ -42,68 +46,111 @@ console.log({
 purgeRenderedPageCache()
 
 function purgeRenderedPageCache () {
-  const redisClient = new Redis(REDIS_URL, {
+  const redisClient = createRedisClient({
+    url: REDIS_URL,
     db: pageCacheDatabaseNumber,
-
-    // Only add this configuration for TLS-enabled REDIS_URL values.
-    // Otherwise, it breaks for local Redis instances without TLS enabled.
-    ...REDIS_URL.startsWith('rediss://') && {
-      tls: {
-        // Required for production Heroku Redis
-        rejectUnauthorized: false
-      }
-    }
+    // These commands ARE important, so let's make sure they are all accounted for
+    enable_offline_queue: true
   })
-  let totalKeyCount = 0
+
   let iteration = 0
+  let potentialKeyCount = 0
+  let totalKeyCount = 0
 
-  // Create a readable stream (object mode) for the SCAN cursor
-  const scanStream = redisClient.scanStream({
-    match: keyScanningPattern,
-    count: scanSetSize
-  })
+  // Promise wrappers
+  const scanAsync = promisify(redisClient.scan).bind(redisClient)
+  const quitAsync = promisify(redisClient.quit).bind(redisClient)
 
-  scanStream.on('end', function () {
-    console.log(`Done purging keys; affected total: ${totalKeyCount}`)
-    console.log(`Time elapsed: ${Date.now() - startTime} ms`)
+  // Run it!
+  return scan()
 
-    // This seems to be unexpectedly necessary
-    process.exit(0)
-  })
+  //
+  // Define other subroutines
+  //
 
-  scanStream.on('error', function (error) {
-    console.error('An unexpected error occurred!\n' + error.stack)
-    console.error('\nAborting...')
-    process.exit(1)
-  })
+  async function scan (cursor = '0') {
+    try {
+      // [0]: Update the cursor position for the next scan
+      // [1]: Get the SCAN result for this iteration
+      const [nextCursor, keys] = await scanAsync(
+        cursor,
+        'MATCH', keyScanningPattern,
+        'COUNT', scanSetSize.toString()
+      )
 
-  scanStream.on('data', async function (keys) {
-    console.log(`[Iteration ${iteration++}] Received ${keys.length} keys...`)
+      console.log(`\n[Iteration ${iteration++}] Received ${keys.length} keys...`)
 
-    // NOTE: It is possible for a SCAN cursor iteration to return 0 keys when
-    // using a MATCH because it is applied after the elements are retrieved
-    if (keys.length === 0) return
+      if (dryRun) {
+        console.log(`DRY RUN! This iteration might have set TTL for up to ${keys.length} keys:\n - ${keys.join('\n - ')}`)
+      }
 
-    if (dryRun) {
-      console.log(`DRY RUN! This iteration might have set TTL for up to ${keys.length} keys:\n - ${keys.join('\n - ')}`)
-      return
+      // NOTE: It is possible for a SCAN cursor iteration to return 0 keys when
+      // using a MATCH because it is applied after the elements are retrieved
+      //
+      // Remember: more or less than COUNT or no keys may be returned
+      // See http://redis.io/commands/scan#the-count-option
+      // Also, SCAN may return the same key multiple times
+      // See http://redis.io/commands/scan#scan-guarantees
+      // Additionally, you should always have the code that uses the keys
+      // before the code checking the cursor.
+      if (keys.length > 0) {
+        if (dryRun) {
+          potentialKeyCount += keys.length
+        } else {
+          totalKeyCount += await updateTtls(keys)
+        }
+      }
+
+      // From <http://redis.io/commands/scan>:
+      // 'An iteration starts when the cursor is set to 0,
+      // and terminates when the cursor returned by the server is 0.'
+      if (nextCursor === '0') {
+        const dryRunTrailer = dryRun ? ` (potentially up to ${potentialKeyCount})` : ''
+        console.log(`\nDone purging keys; affected total: ${totalKeyCount}${dryRunTrailer}`)
+        console.log(`Time elapsed: ${Date.now() - startTime} ms`)
+
+        // Close the connection
+        await quitAsync()
+        return
+      }
+
+      // Tail recursion
+      return scan(nextCursor)
+    } catch (error) {
+      console.error('An unexpected error occurred!\n' + error.stack)
+      console.error('\nAborting...')
+      process.exit(1)
+    }
+  }
+
+  // Find existing TTLs to ensure we aren't extending the TTL if it's already set
+  async function getTtls (keys) {
+    const pttlPipeline = redisClient.batch()
+    keys.forEach(key => pttlPipeline.pttl(key))
+
+    const pttlPipelineExecAsync = promisify(pttlPipeline.exec).bind(pttlPipeline)
+    const pttlResults = await pttlPipelineExecAsync()
+
+    if (pttlResults == null || pttlResults.length === 0) {
+      throw new Error('PTTL results were empty')
     }
 
-    // Pause the SCAN stream while we set a TTL on these keys
-    scanStream.pause()
+    return pttlResults
+  }
 
-    // Find existing TTLs to ensure we aren't extending the TTL if it's already set
-    // PTTL mykey // only operate on -1 result values or those greater than ONE_HOUR_FROM_NOW
-    const pttlPipeline = redisClient.pipeline()
-    keys.forEach(key => pttlPipeline.pttl(key))
-    const pttlResults = await pttlPipeline.exec()
+  async function updateTtls (keys) {
+    const pttlResults = await getTtls(keys)
 
-    // Update pertinent keys to have TTLs set
+    // Find pertinent keys to have TTLs set
     let updatingKeyCount = 0
-    const pexpireAtPipeline = redisClient.pipeline()
+    const pexpireAtPipeline = redisClient.batch()
+
     keys.forEach((key, i) => {
-      const [error, pttl] = pttlResults[i]
-      const needsShortenedTtl = error == null && (pttl === -1 || pttl > expirationDuration)
+      // Only operate on -1 values or those later than our desired expiration timestamp
+      const pttl = pttlResults[i]
+      // A TTL of -1 means the entry was not configured with any TTL (expiration)
+      // currently and will remain as a permanent entry unless a TTL is added
+      const needsShortenedTtl = pttl === -1 || pttl > expirationDuration
       const isOldKey = !HEROKU_RELEASE_VERSION || !key.startsWith(`${HEROKU_RELEASE_VERSION}:`)
 
       if (needsShortenedTtl && isOldKey) {
@@ -112,17 +159,21 @@ function purgeRenderedPageCache () {
       }
     })
 
-    // Only update TTLs if there are records worth updating
-    if (updatingKeyCount > 0) {
-      // Set all the TTLs
-      const pexpireAtResults = await pexpireAtPipeline.exec()
-      const updatedResults = pexpireAtResults.filter(([error, result]) => error == null && result === 1)
+    console.log(`Purging ${updatingKeyCount} keys...`)
 
-      // Count only the entries whose TTLs were successfully updated
-      totalKeyCount += updatedResults.length
+    // Only update TTLs if there are records worth updating
+    if (updatingKeyCount === 0) return
+
+    // Set all the TTLs
+    const pexpireAtPipelineExecAsync = promisify(pexpireAtPipeline.exec).bind(pexpireAtPipeline)
+    const pexpireAtResults = await pexpireAtPipelineExecAsync()
+
+    if (pttlResults == null || pttlResults.length === 0) {
+      throw new Error('PEXPIREAT results were empty')
     }
 
-    // Resume the SCAN stream
-    scanStream.resume()
-  })
+    // Count only the entries whose TTLs were successfully updated
+    const updatedResults = pexpireAtResults.filter((result) => result === 1)
+    return updatedResults.length
+  }
 }

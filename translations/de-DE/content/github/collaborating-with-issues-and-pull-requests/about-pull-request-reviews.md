@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Informationen zu Pull-Request-Reviews
 
 Nachdem ein Pull-Request geöffnet wurde, kann jeder mit *Lese*-Zugriff die vorgeschlagenen Änderungen überprüfen und kommentieren. Du kannst auch spezifische Änderungen an Codezeilen vorschlagen, die der Autor direkt aus dem Pull-Request anwenden kann. Weitere Informationen findest Du unter „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“
 
-Repository-Inhaber und -Mitarbeiter können von einer bestimmten Person einen Review des Pull Requests anfordern. Organisationsmitglieder können auch einen Review eines Pull Requests von einem Team mit Lesezugriff auf das Repository anfordern. Weitere Informationen findest Du unter „[Einen Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review).“ {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Repository-Inhaber und -Mitarbeiter können von einer bestimmten Person einen Review des Pull Requests anfordern. Organisationsmitglieder können auch einen Review eines Pull Requests von einem Team mit Lesezugriff auf das Repository anfordern. Weitere Informationen findest Du unter „[Einen Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review).“ {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 Reviews ermöglichen eine Diskussion der vorgeschlagenen Änderungen und tragen dazu bei, dass die Änderungen den Beitragsrichtlinien des Repositorys wie auch anderen Qualitätsstandards entsprechen. Du kannst definieren, welche Personen oder Teams bestimmte Codetypen oder -bereiche in einer CODEOWNERS-Datei besitzen. Wenn durch einen Pull Request Code mit einem definierten Inhaber geändert wird, wird diese Person oder dieses Team automatisch als Reviewer angefordert. Weitere Informationen finden Sie unter „[Informationen zu Codeinhabern](/articles/about-code-owners/)“.
 

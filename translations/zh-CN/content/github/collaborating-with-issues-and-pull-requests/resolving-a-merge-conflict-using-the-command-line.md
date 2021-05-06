@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 更多信息请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。
@@ -68,7 +70,7 @@ versions:
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
+现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
 ### 删除的文件合并冲突
 
@@ -118,7 +120,7 @@ versions:
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
+现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
 ### 延伸阅读
 

@@ -1,4 +1,9 @@
 name: Epic Status Update
+
+# **What it does**: For our epic issue status comments, also ping us in Slack.
+# **Why we have it**: So that we can write one status update and have it show up in two places.
+# **Who does it impact**: GitHub docs staff.
+
 on:
   issue_comment:
     types: [created]

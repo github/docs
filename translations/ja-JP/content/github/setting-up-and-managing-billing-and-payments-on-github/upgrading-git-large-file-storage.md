@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 個人アカウント用に追加のストレージと帯域幅を購入する

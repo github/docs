@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Merge conflicts occur when competing changes are made to the same line of a file, or when one person edits a file and another person deletes the same file. For more information, see "[About merge conflicts](/articles/about-merge-conflicts/)."
@@ -68,7 +70,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
 ### Removed file merge conflicts
 
@@ -117,7 +119,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
 ### Дополнительная литература
 

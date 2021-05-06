@@ -7,33 +7,23 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
 
 Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um servidor do Sinatra básico para gerenciar as cargas recebidas.
 
-Lembre-se de que definimos especificamente nossa URL de webhook como `http://localhost:4567/payload`. Uma vez que estamos desenvolvendo localmente, precisamos expor nosso ambiente de desenvolvimento local à internet, para que o GitHub possa enviar mensagens e nosso servidor local possa processá-las.
+{% note %}
 
-Observação: você pode baixar o código-fonte completo para este projeto [no repositório de amostra de plataforma][platform samples].
+**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
 
-### Usando o ngrok
-
-Primeiro, vamos instalar um programa para expor nosso host local à internet. Nós usaremos o ngrok para fazer isso. [ngrok é um download grátis](https://ngrok.com/download), disponível para todos os principais sistemas operacionais.
-
-Após concluir essa etapa, você poderá expor seu host local, executando `./ngrok http 4567` na linha de comando. Você deve ver uma linha parecida mais ou menos com isso:
-
-```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
-```
-
-Copie essa URL `*.ngrok.io` estranha! Estamos agora *retornando* para a URL da carga e colando este servidor nesse campo. Deve parecer como `http://7e9ea9dc.ngrok.io/payload`.
-
-Ao fazer isso, nós nos preparamos para expor nosso host local no caminho `/payload` para a internet.
+{% endnote %}
 
 ### Escrevendo o servidor
 
-Agora vem a parte divertida! Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Já que o ngrok está expondo o nosso ambiente local. não precisamos configurar um servidor real on-line e podemos testar felizmente o nosso código localmente.
+Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
 
 Vamos configurar um pouco o aplicativo Sinatra para fazer algo com as informações. Nossa configuração inicial do a configuração pode parecer como isso:
 
@@ -51,7 +41,7 @@ end
 
 Inicie este servidor.
 
-Desde que configuramos nosso webhook para ouvir eventos que gerenciam `Problemas`, siga em frente e crie uma novo problema no repositório que você está testando. Depois de criar, volte para o terminal. Você deve ver algo assim em sua saída:
+Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. Depois de criar, volte para o terminal. Você deve ver algo assim em sua saída:
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb

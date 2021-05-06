@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Com as chaves SSH, se alguém conseguir acessar seu computador, terá acesso a todos os sistemas que usam essas chaves. Para incluir uma camada extra de segurança, adicione uma frase secreta à sua chave SSH. Você pode usar `ssh-agent` para salvar sua frase secreta de forma segura e não precisar digitá-la novamente.

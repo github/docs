@@ -4,6 +4,8 @@ intro: 'Du kannst ein Ausgabenlimit für {% data variables.product.prodname_acti
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Über Ausgabenlimits für {% data variables.product.prodname_actions %}

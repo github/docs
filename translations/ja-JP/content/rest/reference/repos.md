@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -137,7 +139,8 @@ GitHub は、新しいデプロイメント、デプロイメントのステー�
 
 GitHub は、あなたのサーバーに実際にアクセスすることはないということは覚えておきましょう。 デプロイメントイベントとやり取りするかどうかは、サードパーティインテグレーション次第です。 複数のシステムがデプロイメントイベントをリッスンできます。コードをサーバーにプッシュする、ネイティブコードを構築するなどを行うかどうかは、それぞれのシステムが決めることができます。
 
-`public_repo` スコープおよび `repo` スコープはコードにもアクセス権を付与するのに対し、`repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) は、リポジトリのコードにアクセス権を付与**せず**、デプロイメントおよびデプロイメントに絞ってアクセス権を付与することに注意してください。
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% if currentVersion != "github-ae@latest" %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+
 
 ### 非アクティブのデプロイメント
 
@@ -148,6 +151,15 @@ When you set the state of a deployment to `success`, then all prior non-transien
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+## 環境
+
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)."
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## フォーク
 
@@ -181,7 +193,7 @@ Repo Merging API は、リポジトリ内にあるブランチのマージをサ
 
 ## ページ
 
-{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 サイトとビルドについての情報は、ウェブサイトがパブリックである場合でも、認証されたオーナーのみがアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/github/working-with-github-pages/about-github-pages)」を参照してください。
+{% data variables.product.prodname_pages %} API は、{% data variables.product.prodname_pages %} の設定や、ビルドのステータスについての情報を取得します。 Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. 詳しい情報については、「[{% data variables.product.prodname_pages %} について](/pages/getting-started-with-github-pages/about-github-pages)」を参照してください。
 
 レスポンスに `status` キーを持つ {% data variables.product.prodname_pages %} API エンドポイントにおいては、値は以下のいずれかになります。
 * `null`: サイトはまだビルドされていません。
@@ -193,7 +205,7 @@ Repo Merging API は、リポジトリ内にあるブランチのマージをサ
 GitHub Pages サイトの情報を返す {% data variables.product.prodname_pages %} API エンドポイントにおいては、JSON のレスポンスには以下が含まれます。
 * `html_url`: レンダリングされた Pages サイトの絶対 URL (スキームを含む) 。 たとえば、`https://username.github.io` などです。
 * `source`: レンダリングされた Pages サイトのソースブランチおよびディレクトリを含むオブジェクト。 これは以下のものが含まれます。
-   - `branch`: [サイトのソースファイル](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 たとえば、_main_ or _gh-pages_ などです。
+   - `branch`: [サイトのソースファイル](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)を公開するために使用するリポジトリのブランチ。 たとえば、_main_ or _gh-pages_ などです。
    - `path`: サイトの公開元のリポジトリディレクトリ。 `/` または `/docs` のどちらかとなります。
 
 {% for operation in currentRestOperations %}

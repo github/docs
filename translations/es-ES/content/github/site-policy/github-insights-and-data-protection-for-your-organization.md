@@ -9,6 +9,9 @@ redirect_from:
   - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Para obtener más información acerca de las condiciones normativas de {% data variables.product.prodname_insights %}, consulta tu contrato de suscripción de {% data variables.product.prodname_ghe_one %}.

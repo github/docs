@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% warning %}
@@ -27,6 +29,16 @@ Um eine Datei an eine Issue- oder eine Pull-Request-Unterhaltung anzuhängen, zi
 {% endtip %}
 
 Die Größe der Anhänge ist bei Dateien auf 25 MB und bei Bildern auf 10 MB beschränkt.
+{% if currentVersion == "free-pro-team@latest" %}
+Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan.
+
+{% note %}
+
+**Note:** Support for video attachments is currently in beta and subject to change.
+
+{% endnote %}
+
+{% endif %}
 
 Wir unterstützen die folgenden Dateiformate:
 
@@ -37,6 +49,7 @@ Wir unterstützen die folgenden Dateiformate:
 * Microsoft Word-Dokumente (*.docx*), Powerpoint-Dokumente (*.pptx*) und Excel-Dokumente (*.xlsx*)
 * Textdateien (*.txt*)
 * PDF-Dateien (*.pdf*)
-* ZIP-Dateien (*.zip*, *.gz*)
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* Video (*.mp4*, *.mov*){% endif %}
 
 ![Animiertes GIF zu Anhängen](/assets/images/help/pull_requests/dragging_images.gif)

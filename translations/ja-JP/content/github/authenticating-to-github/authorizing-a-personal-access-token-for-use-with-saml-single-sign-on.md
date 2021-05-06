@@ -1,11 +1,13 @@
 ---
 title: SAMLシングルサインオンで利用するために個人アクセストークンを認可する
-intro: 'SAMLシングルサインオン (SSO) を使う Organization で個人アクセストークンを使うためには、まずそのキーを認可しなければなりません。'
+intro: SAMLシングルサインオン (SSO) を使う Organization で個人アクセストークンを使うためには、まずそのキーを認可しなければなりません。
 redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization/
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 既存の個人アクセストークンを認可することも、[新しい個人アクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して認可することもできます。

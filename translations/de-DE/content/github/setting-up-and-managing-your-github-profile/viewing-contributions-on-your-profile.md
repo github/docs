@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
@@ -25,6 +27,8 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 
 - Commits zum Standardbranch eines Repositorys oder zum Branch `gh-pages`
 - das Öffnen eines Issues
+- Opening a discussion
+- Answering a discussion
 - das Vorschlagen eines Pull Requests
 - Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Commits mit Co-Autor im Standardbranch eines Repositorys oder im Branch `gh-pages`{% endif %}
@@ -54,11 +58,11 @@ Dein Beitragskalender zeigt Deine Beitragsaktivität an.
 #### Beiträge aus bestimmten Zeiten anzeigen
 
 - Klicke auf das Quadrat eines Tages, um die während diesem 24-Stunden-Zeitraum vorgenommenen Beiträge anzuzeigen.
-- Drücke die *Umschalttaste*, und klicke auf das Quadrat eines anderen Tages, um die in diesem Zeitraum vorgenommenen Beiträge anzuzeigen.
+- Press *Shift* and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
-**Hinweis:** In Deinem Beitragskalender kannst Du einen Zeitraum von bis zu einem Monat auswählen. Bei Auswahl eines größeren Zeitraums werden nur die Beiträge aus einem Monat angezeigt.
+**Hinweis:** In Deinem Beitragskalender kannst Du einen Zeitraum von bis zu einem Monat auswählen. If you select a larger time span, we will only display one month of contributions.
 
 {% endnote %}
 

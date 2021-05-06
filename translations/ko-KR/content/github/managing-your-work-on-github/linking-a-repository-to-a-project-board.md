@@ -7,13 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-{% note %}
-
-**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. For information on how to see if issues are disabled for a repository, see "[Disabling issues](/github/managing-your-work-on-github/disabling-issues) ."
-
-{% endnote %}
 
 Anyone with write permissions to a project board can link repositories owned by that organization or user account to the project board. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization/)" or "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards/)."
 
@@ -26,6 +23,12 @@ Anyone with write permissions to a project board can link repositories owned by 
 5. Click **Link a repository**. ![Link a repository button on Linked repositories tab](/assets/images/help/projects/link-repository-button.png)
 6. Search for the repository you'd like to link. ![Search field on Link a repository window](/assets/images/help/projects/search-to-link-repository.png)
 7. Click **Link**. To unlink, click **Unlink**. ![Link button](/assets/images/help/projects/link-button.png)
+
+{% note %}
+
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. That is, the repository has an "Issues" tab (in forked repositories issues are disabled by default).  For information on how to enable or disable issues for a repository, see "[Disabling issues for a repository](/github/managing-your-work-on-github/disabling-issues)."
+
+{% endnote %}
 
 ### 더 읽을거리
 

@@ -4,6 +4,8 @@ intro: 'Você pode usar o painel de administração do site{% if enterpriseServe
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

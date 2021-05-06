@@ -1,13 +1,15 @@
 ---
 title: Eine Repository-Vorlage erstellen
 intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} and files.'
-permissions: Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann das Repository zu einer Vorlage machen.
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% note %}

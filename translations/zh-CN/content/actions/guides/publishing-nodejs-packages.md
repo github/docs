@@ -8,16 +8,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
-  - 打包
-  - 发布
+  - Packaging
+  - Publishing
   - Node
   - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -70,7 +72,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -129,12 +131,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # 设置 .npmrc 文件以发布到 GitHub 包
-    - uses: actions/setup-node@v1
+    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
-        # 默认为拥有工作流程文件的用户或组织
+        # Defaults to the user or organization that owns the workflow file
         scope: '@octocat'
     - run: npm install
     - run: npm publish
@@ -167,7 +169,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -211,23 +213,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # 设置 .npmrc 文件以发布到 npm
+    # Setup .npmrc file to publish to npm
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
-    # 发布到 npm
+    # Publish to npm
     - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    # 设置 .npmrc 文件以发布到 GitHub 包
+    # Setup .npmrc file to publish to GitHub Packages
     - uses: actions/setup-node@v1
       with:
         registry-url: 'https://npm.pkg.github.com'
-        # 默认为拥有工作流程文件的用户或组织
+        # Defaults to the user or organization that owns the workflow file
         scope: '@octocat'
-    # 发布到 GitHub 包
+    # Publish to GitHub Packages
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

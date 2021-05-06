@@ -8,6 +8,8 @@ redirect_from:
 intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da web. Uma conta de usuário CAS não ocupa uma {% if currentVersion ver_gt "enterprise-server@2.16" %}licença de usuário{% else %}estação{% endif %} até que o usuário se conecte.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

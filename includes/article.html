@@ -14,11 +14,17 @@
       <div class="d-flex flex-items-baseline flex-justify-between mt-3">
         <h1 class="border-bottom-0">{{ page.title }}</h1>
         <div class="d-none d-lg-block ml-2">
-          <button class="btn-link link-gray js-print tooltipped tooltipped-n" aria-label="Print this article">
+          <button class="btn-link Link--secondary js-print tooltipped tooltipped-n" aria-label="Print this article">
             {% include printer-icon %}
           </button>
         </div>
       </div>
+
+      {% if page.contributor %}
+        <div class="contributor-callout border rounded-1 mb-4 p-3 color-border-info color-bg-info f5">
+          <p><span class="mr-2">{% octicon "info" %}</span>{% data ui.contributor_callout %} <a href="{{ page.contributor.URL }}">{{ page.contributor.name }}</a>.</p>
+        </div>
+      {% endif %}
 
       {% if page.intro %}
         <div class="lead-mktg">{{ page.intro }}</div>
@@ -40,7 +46,7 @@
       {% endif %}
 
       {% if page.product %}
-        <div class="product-callout border rounded-1 mb-4 p-3 border-purple bg-purple-light">
+        <div class="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success">
         {{ page.product }}
         </div>
       {% endif %}
@@ -48,7 +54,7 @@
     <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
       <div class="article-grid-toc-content">
         {% if miniTocItems.size > 1 %}
-        <h2 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">{% data ui.pages.miniToc %}</a></h2>
+        <h2 id="in-this-article" class="f5 mb-2"><a class="Link--primary" href="#in-this-article">{% data ui.pages.miniToc %}</a></h2>
         <ul class="list-style-none pl-0 f5 mb-0">
           {% for item in miniTocItems %}
           <li class="ml-{{ item.indentationLevel | times: 3 }} {{ item.platform }} mb-2 lh-condensed">{{ item.contents }}</li>
@@ -62,6 +68,14 @@
       {% include featured-links %}
       {% endif %}
       {{ renderedPage }}
+
+      {% if tocItems and tocItems.length %}
+        {% if page.documentType == "category" or page.relativePath == "github/index.md" %}
+          {% include generic-toc-list %}
+        {% else %}
+          {% include generic-toc-items %}
+        {% endif %}
+      {% endif %}
     </div>
     </div>
 

@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 OBRIGADO POR ESCOLHER O GITHUB PARA AS NECESSIDADES COMERCIAIS DE SUA EMPRESA. LEIA ESTES TERMOS ATENTAMENTE, POIS ELES REGEM O USO DOS PRODUTOS (CONFORME DEFINIDO ABAIXO), A MENOS QUE O GITHUB TENHA FIRMADO COM VOCÊ UM CONTRATO A PARTE, POR ESCRITO, COM ESSE OBJETIVO. AO CLICAR NO BOTÃO "CONCORDO" OU SEMELHANTE OU ACESSAR OS PRODUTOS, O CLIENTE ACEITA TODOS OS TERMOS E CONDIÇÕES DESTE CONTRATO. SE VOCÊ ESTIVER CELEBRANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA ENTIDADE JURÍDICA, O CLIENTE DECLARA QUE TEM OS PODERES LEGAIS DE VINCULAR A EMPRESA OU OUTRA ENTIDADE JURÍDICA A ESTE CONTRATO.
@@ -122,7 +125,7 @@ O uso dos Produtos pelo Cliente não deve violar quaisquer leis aplicáveis, inc
 O uso do Serviço pelo Cliente deve estar em conformidade com a [Política de Uso Aceitável do GitHub](/articles/github-acceptable-use-policies) e as [Diretrizes da Comunidade do GitHub](/articles/github-community-guidelines). O Cliente não deve usar o Serviço em qualquer jurisdição para atividade ou Conteúdo ilegal, obsceno, ofensivo ou fraudulento, como defender ou causar danos, interferir ou violar a integridade ou a segurança de uma rede ou um sistema, enganar os filtros, enviar vírus ou código nocivo e mensagens não solicitadas, abusivas ou enganosas ou violar direitos de terceiros.
 
 #### 3. Privacidade
-A [Declaração de Privacidade do GitHub](/articles/github-privacy-statement) e o [Adendo de Proteção de Dados do GitHub](/github/site-policy/github-data-protection-addendum) fornecem aviso detalhado das práticas de privacidade e uso de dados do GitHub, bem como do processamento e das obrigações de segurança do GitHub no que diz respeito aos Dados Pessoais do Cliente. Qualquer pessoa, entidade ou serviço que colete dados do Serviço deve estar em conformidade com a Declaração de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais dos Usuários (conforme definido na Declaração de Privacidade do GitHub). Se o Cliente coletar qualquer Informação pessoal do usuário no GitHub, só a utilizará para a finalidade para a qual o Usuário externo o autorizou. O Cliente protegerá essas Informações pessoais, e o Cliente responderá prontamente a reclamações, solicitações de remoção e pedidos para "não contatar" do GitHub ou de Usuários externos.
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Qualquer pessoa, entidade ou serviço que colete dados do Serviço deve estar em conformidade com a Declaração de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais dos Usuários (conforme definido na Declaração de Privacidade do GitHub). Se o Cliente coletar qualquer Informação pessoal do usuário no GitHub, só a utilizará para a finalidade para a qual o Usuário externo o autorizou. O Cliente protegerá essas Informações pessoais, e o Cliente responderá prontamente a reclamações, solicitações de remoção e pedidos para "não contatar" do GitHub ou de Usuários externos.
 
 ### D. Responsabilidade pelo conteúdo; Propriedade; Direitos de licença
 

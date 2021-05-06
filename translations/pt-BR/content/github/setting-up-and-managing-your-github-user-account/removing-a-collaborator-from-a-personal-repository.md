@@ -13,6 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### Excluir bifurcações de repositórios privados

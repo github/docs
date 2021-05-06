@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Os conflitos de merge ocorrem quando alterações concorrentes são feitas na mesma linha de um arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo. Para obter mais informações, consulte "[Sobre conflitos de merge](/articles/about-merge-conflicts/)".
@@ -68,7 +70,7 @@ Por exemplo, se você e outra pessoa editarem as mesmas linhas do arquivo _style
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
 
 ### Conflitos de merge de arquivo removido
 
@@ -117,7 +119,7 @@ Por exemplo, se você editou um arquivo, como o *README.md*, e outra pessoa remo
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
 
 ### Leia mais
 

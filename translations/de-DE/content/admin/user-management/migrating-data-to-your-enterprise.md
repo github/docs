@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
+Once you have [prepared your migration](/admin/user-management/preparing-to-migrate-data-to-your-enterprise) you can use the following steps to complete the migration.
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Führen Sie den Befehl `ghe-migrator import` aus, um den Importprozess zu starten. Sie benötigen Folgendes:
-    * Ihren Migrations-GUID.
+    * Ihren Migrations-GUID. For more information, see "[Preparing to migrate data to your enterprise](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)."
     * Dein persönliches Zugangs-Token für die Authentifizierung. Das persönliche Zugriffstoken, das Du verwendest, dient nur der Authentifizierung als Website-Administrator und erfordert keinen bestimmten „Scope“ (Geltungsbereich). Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 
     ```shell

@@ -1,8 +1,8 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 
 {% note %}
 
-**Note:** Environments, environment protection rules, and environment secrets are currently in beta and subject to change.
+**注意：** 环境、环境保护规则和环境机密目前处于测试阶段，可能会改变。
 
 {% endnote %}
 

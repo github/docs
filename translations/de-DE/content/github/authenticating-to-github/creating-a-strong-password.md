@@ -7,17 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
 - 8 Zeichen lang ist, wenn es eine Zahl und einen Kleinbuchstaben enthält, oder
-- 16 Zeichen lang ist, bei einer beliebigen Kombination an Zeichen.
+- 15 Zeichen lang ist, bei einer beliebigen Kombination an Zeichen.
 
 Für den Schutz Deines Kontos empfehlen wir Dir die folgenden Best Practices:
-- Benutze einen Passwort-Manager wie zum Beispiel [LastPass](https://lastpass.com/) oder [1Password](https://1password.com/), um ein Passwort mit mehr als 16 Zeichen zu erstellen.
+- Use a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/), to generate a password of at least 15 characters.
 - Erzeugen Sie ein eindeutiges Passwort für {% data variables.product.product_name %}. Wenn Sie Ihr {% data variables.product.product_name %}-Passwort auch an anderer Stelle verwenden und dieser Dienst kompromittiert wird, könnten die Angreifer oder andere Personen mit böswilliger Absicht diese Informationen nutzen, um auf Ihr {% data variables.product.product_name %}-Konto zuzugreifen.
 - Konfiguriere die Zwei-Faktor-Authentifizierung für Dein persönliches Konto. Weitere Informationen findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication).“
-- Gib Dein Passwort niemals an andere weiter, auch nicht an potenzielle Mitarbeiter. Jede Person sollte ihr eigenes persönliches Konto bei {% data variables.product.product_name %} nutzen. Weitere Informationen zu Möglichkeiten der Zusammenarbeit findest Du unter „[Mitarbeiter in ein persönliches Repository einladen](/articles/inviting-collaborators-to-a-personal-repository)“, „[Informationen über gemeinschaftliche Entwicklungsmodelle](/articles/about-collaborative-development-models/)“ oder „[Mit Gruppen in Organisationen zusammenarbeiten](/articles/collaborating-with-groups-in-organizations/).“
+- Gib Dein Passwort niemals an andere weiter, auch nicht an potenzielle Mitarbeiter. Jede Person sollte ihr eigenes persönliches Konto bei {% data variables.product.product_name %} nutzen. Weitere Informationen zu Möglichkeiten der Zusammenarbeit findest Du unter „[Mitarbeiter in ein persönliches Repository einladen](/articles/inviting-collaborators-to-a-personal-repository)“, „[Informationen über gemeinschaftliche Entwicklungsmodelle](/articles/about-collaborative-development-models/)“ oder „[Mit Gruppen in Organisationen zusammenarbeiten](/organizations/collaborating-with-groups-in-organizations/).“
 
 {% data reusables.repositories.blocked-passwords %}
 
@@ -27,5 +30,5 @@ You can only use your password to log on to {% data variables.product.product_na
 
 ### Weiterführende Informationen
 
-- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git/)"
+- "[Caching your {% data variables.product.product_name %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
 - „[Dein Konto und Deine Daten schützen](/articles/keeping-your-account-and-data-secure/)“

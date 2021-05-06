@@ -9,10 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### Sobre a memorização das dependências do fluxo de trabalho
 
@@ -20,7 +22,7 @@ As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou d
 
 Os trabalhos nos executores hospedados em {% data variables.product.prodname_dotcom %} começam em um ambiente virtual limpo e devem baixar as dependências todas as vezes, o que gera uma maior utilização da rede, maior tempo de execução e aumento dos custos. Para ajudar a acelerar o tempo que leva para recrear esses arquivos, {% data variables.product.prodname_dotcom %} pode memorizar as dependências que você usa frequentemente nos fluxos de trabalho.
 
-Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {% data variables.product.prodname_dotcom %}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
+Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {% data variables.product.prodname_dotcom %}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache). Se você estiver armazenando gems do Ruby, disso considere usar a ação mantida pelo Ruby, que pode armazenar em cache as instalações do pacote na iniciação. Para obter mais informações, consulte [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 

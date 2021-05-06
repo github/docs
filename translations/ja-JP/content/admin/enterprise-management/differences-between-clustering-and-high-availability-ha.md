@@ -1,11 +1,13 @@
 ---
-title: Differences between clustering and high availability (HA)
+title: クラスタリングと High Availability (HA) の違い
 intro: '{% data variables.product.prodname_ghe_server %} High Availability (HA) は冗長性を提供するプライマリ／セカンダリフェイルオーバー構成ですが、クラスタリングは読み書きの負荷を複数のノードに分散させることによって冗長性とスケーラビリティを提供します。'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### フェイルオーバーのシナリオ

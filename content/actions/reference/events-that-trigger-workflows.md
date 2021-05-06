@@ -43,11 +43,7 @@ The following steps occur to trigger a workflow run:
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
-{% note %}
-
-Note: Due to load, the `schedule` event may be delayed 
-
-{% endnote %}
+{% data reusables.actions.schedule-delay %}
 
 #### `schedule`
 
@@ -169,7 +165,9 @@ on:
 
 ### Webhook events
 
-You can configure your workflow to run when webhook events are created on {% data variables.product.product_name %}. Some events have more than one activity type that triggers the event. If more than one activity type triggers the event, you can specify which activity types will trigger the workflow to run. For more information, see "[Webhooks](/webhooks)." 
+You can configure your workflow to run when webhook events are generated on {% data variables.product.product_name %}. Some events have more than one activity type that triggers the event. If more than one activity type triggers the event, you can specify which activity types will trigger the workflow to run. For more information, see "[Webhooks](/webhooks)."
+
+Not all webhook events trigger workflows. For the complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
 #### `check_run`
 
@@ -482,7 +480,7 @@ For example, you can run a workflow when a project card has been `opened` or `de
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -602,7 +600,7 @@ This event runs in the context of the base of the pull request, rather than in t
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Last commit on the PR base branch | PR base branch |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Last commit on the PR base branch | PR base branch |
 
 By default, a workflow only runs when a `pull_request_target`'s activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows for more activity types, use the `types` keyword. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)."
 
@@ -679,6 +677,12 @@ on:
     types: [published]
 ```
 
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
+
 #### `status`
 
 Runs your workflow anytime the status of a Git commit changes, which triggers the `status` event. For information about the REST API, see [Statuses](/rest/reference/repos#statuses).
@@ -725,12 +729,14 @@ on:
 {% data reusables.github-actions.branch-requirement %}
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
-| --------------------- | -------------- | ------------ | -------------|	
-| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a | Last commit on default branch | Default branch |	
+| --------------------- | -------------- | ------------ | -------------|
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - `completed`<br/>- `requested` | Last commit on default branch | Default branch |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 If you need to filter branches from this event, you can use `branches` or `branches-ignore`.
 
-In this example, a workflow is configured to run after the separate “Run Tests” workflow completes.
+In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
 on:
@@ -743,6 +749,27 @@ on:
 ```
 
 {% endif %}
+
+To run a workflow job conditionally based on the result of the previous workflow run, you can use the [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) or [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) conditional combined with the `conclusion` of the previous run. For example:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    steps:
+      ...
+  on-failure:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'failure' }}{% endraw %}
+    steps:
+      ...
+```
 
 ### Triggering new workflows using a personal access token
 

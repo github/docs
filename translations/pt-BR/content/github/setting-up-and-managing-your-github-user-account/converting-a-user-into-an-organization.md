@@ -8,6 +8,8 @@ intro: Você pode converter sua conta de usuário em uma organização. Isso per
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 {% warning %}
@@ -50,7 +52,7 @@ Você também pode converter sua conta de usuário pessoal diretamente em uma or
 
 {% tip %}
 
-**Dica**: quando você converte uma conta de usuário em uma organização, os colaboradores nos repositórios que pertencem à conta são adicionados à nova organização como *colaboradores externos*. Você pode então convidar *colaboradores externos* para se tornarem integrantes da nova organização, se desejar. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)".
+**Dica**: quando você converte uma conta de usuário em uma organização, os colaboradores nos repositórios que pertencem à conta são adicionados à nova organização como *colaboradores externos*. Você pode então convidar *colaboradores externos* para se tornarem integrantes da nova organização, se desejar. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#outside-collaborators)".
 
 {% endtip %}
 

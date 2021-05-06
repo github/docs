@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于 {% data variables.product.prodname_sponsors %}
@@ -35,7 +37,7 @@ versions:
 
 ### 共享关于 {% data variables.product.prodname_sponsors %} 的反馈
 
-这只是开始 - 我们欢迎大家提供意见，确保 {% data variables.product.prodname_sponsors %} 满足您未来的需求。 请联系 [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors)，向我们发送您的反馈或建议。
+{% data reusables.sponsors.feedback %}
 
 ### 延伸阅读
 - "[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"

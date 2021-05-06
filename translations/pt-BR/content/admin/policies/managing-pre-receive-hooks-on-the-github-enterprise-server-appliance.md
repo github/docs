@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Criar hooks pre-receive
@@ -54,4 +56,4 @@ O proprietário do repositório só pode configurar um hook se o administrador d
 2. Clique em **Repositories** (Repositórios) e selecione em qual repsitório você deseja configurar hooks pre-receive. ![Repositórios](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
 4. Na barra lateral esquerda, clique em **Hooks & Services** (Hooks e serviços). ![Hooks e serviços](/assets/images/enterprise/repos/hooks-services.png)
-5. Ao lado do hook pre-receive que você pretende configurar, clique no menu suspenso **Hook permissions** (Permissões de hook). Defina se você vai habilitar ou desabilitar os hooks pre-receive. ![Permissões de hook repo](/assets/images/enterprise/repos/repo-hook-permissions.png)
+5. Ao lado do hook pre-receive que você pretende configurar, clique no menu suspenso **Hook permissions** (Permissões de hook). Defina se você vai habilitar ou desabilitar os hooks pre-receive. ![Permissões do hook repositório](/assets/images/enterprise/repos/repo-hook-permissions.png)

@@ -6,6 +6,8 @@ redirect_from:
   - /articles/signing-up-for-a-new-github-account
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 Para obter mais informações sobre tipos de contas e produtos, consulte "[Tipos de contas do {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)" e "[Produtos do {% data variables.product.product_name %}](/articles/github-s-products)".

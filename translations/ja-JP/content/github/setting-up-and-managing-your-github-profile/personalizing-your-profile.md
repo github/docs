@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### プロフィール画像を変更する
@@ -41,7 +43,7 @@ versions:
 
 ### プロフィール名を変更する
 
-プロフィールに表示される名前は変更可能です。 This name may also be displayed next to comments you make on private repositories owned by an organization. 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
+プロフィールに表示される名前は変更可能です。 この名前は、Organization が所有するプライベートリポジトリへのコメントの横に表示されることもあります。 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
 
 {% data reusables.user_settings.access_settings %}
 2. [Name] の下に、プロフィールに表示する名前を入力します。 ![プロフィール設定の [Name] フィールド](/assets/images/help/profile/name-field.png)
@@ -52,7 +54,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 詳しい情報については、「[プロフィール README の管理](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)」を参照してください。
 
 {% endif %}
 

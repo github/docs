@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
@@ -62,8 +68,8 @@ You're now connected to the {% data variables.product.product_name %} community.
 
 ![Star a project](/assets/images/help/stars/star-a-project.png)
 
-- [Set up Git](/articles/set-up-git)
-- [Create a repository](/articles/create-a-repo)
-- [Fork a repository](/articles/fork-a-repo)
+- "[Set up Git](/articles/set-up-git)"
+- "[Create a repository](/articles/create-a-repo)"
+- "[Fork a repository](/articles/fork-a-repo)"
 - **Be social**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

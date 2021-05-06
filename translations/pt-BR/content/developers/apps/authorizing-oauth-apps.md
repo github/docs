@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 A implementação do OAuth de {% data variables.product.product_name %}oferece suporte ao [tipo de concessão do código padrão](https://tools.ietf.org/html/rfc6749#section-4.1) {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} e o OAuth 2.0 [Concessão de Autorização do Dispositivo](https://tools.ietf.org/html/rfc8628) para aplicativos que não têm acesso a um navegador web{% endif %}.
@@ -84,18 +86,18 @@ Troque este `código` por um token de acesso:
 
 Por padrão, a resposta assume o seguinte formato:
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 Você também pode receber o conteúdo em diferentes formatos, dependendo do cabeçalho Aceitar:
 
     Accept: application/json
-    {"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a", "scope":"repo,gist", "token_type":"bearer"}
+    {"access_token":"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
     
     Accept: application/xml
     <OAuth>
       <token_type>bearer</token_type>
       <scope>repo,gist</scope>
-      <access_token>e72e16c7e42f292c6912e7710c838347ae178b4a</access_token>
+      <access_token>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
     </OAuth>
 
 #### 3. Use o token de acesso para acessar a API
@@ -205,7 +207,7 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 ```json
 {
- "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+ "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "user"
 }
@@ -302,3 +304,7 @@ Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth,
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Erros do fluxo do dispositivo](#errors-for-the-device-flow)"
 {% endif %}
+
+### Leia mais
+
+- "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"

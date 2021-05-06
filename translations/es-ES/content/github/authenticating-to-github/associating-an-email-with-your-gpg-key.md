@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% note %}
@@ -33,9 +36,9 @@ Si estás usando una llave GPG que coincida con la identidad de la persona que c
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to confirm your selections.
+7. Escribe`O` para confirmar tus selecciones.
 8. Escribe la contraseña de tu llave.
-9. Enter `gpg> save` to save the changes
+9. Escribe `gpg> save` para guardar los cambios
   ```shell
   $ gpg> save
   ```

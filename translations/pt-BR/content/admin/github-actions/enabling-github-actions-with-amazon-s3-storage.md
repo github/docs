@@ -1,9 +1,11 @@
 ---
 title: Habilitar o GitHub Actions com armazenamento do Amazon S3
 intro: 'Você pode habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} e usar o armazenamento Amazon S3 para armazenar artefatos gerados por execuções de fluxo de trabalho.'
-permissions: 'Os administradores de site podem ativar o {% data variables.product.prodname_actions %} e definir as configurações empresariais.'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 ### Pré-requisitos

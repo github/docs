@@ -3,6 +3,8 @@ title: Preguntas frecuentes sobre los cambios en los planes de GitHub
 intro: 'Desde el primero de abril de 2020, GitHub anunció que todas las características principales de la empresa son ahora gratuitas para todos.'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub
 ---
 
 ### ¿Qué cambios en precios y planes para GitHub se anunciaron en el 14 de abril?

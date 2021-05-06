@@ -1,11 +1,13 @@
 ---
 title: Fehlerbehebung von erforderlichen Statuschecks
-intro: 'You can check for common errors and resolve issues with required status checks.'
+intro: You can check for common errors and resolve issues with required status checks.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
@@ -14,7 +16,7 @@ After you enable required status checks, your branch may need to be up-to-date w
 
 {% note %}
 
-**Note:** Mit Git rebase kannst Du Deinen Branch auch auf den Basisbranch aktualisieren. Weitere Informationen findest Du unter „[Informationen zu Git rebase](/github/using-git/about-git-rebase).“
+**Note:** Mit Git rebase kannst Du Deinen Branch auch auf den Basisbranch aktualisieren. Weitere Informationen findest Du unter „[Informationen zu Git rebase](/github/getting-started-with-github/about-git-rebase).“
 
 {% endnote %}
 

@@ -1,7 +1,7 @@
 ---
 title: Moderar los debates
 intro: 'Puedes promover una colaboración sana si marcas los comentarios como respuestas, bloqueas o desbloqueas debates, y conviertes propuestas en debates. y editar o borrar comentarios, debates y categorías que no concuerden con el código de conducta de tu comunidad para los debates.'
-permissions: Las personas con acceso de clasificación en un repositorio pueden moderar los debates del mismo.
+permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

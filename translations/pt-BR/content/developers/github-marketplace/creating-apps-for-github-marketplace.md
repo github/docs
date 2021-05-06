@@ -4,5 +4,7 @@ intro: 'Você pode listar ferramentas gratuitas e pagas para os desenvolvedores 
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 

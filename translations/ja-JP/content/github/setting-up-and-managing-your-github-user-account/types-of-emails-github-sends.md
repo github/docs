@@ -1,10 +1,13 @@
 ---
 title: GitHub が配信するメールの種類
-intro: 'There are several types of emails you can receive from {% data variables.product.product_name %}, including notifications, account information, customer research invitations, and marketing communications.'
+intro: '{% data variables.product.product_name %} から受信できるメールには、通知、アカウント情報、顧客調査への招待、マーケティングコミュニケーションなど、いくつかの種類があります。'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 ### 通知メール
@@ -25,16 +28,16 @@ versions:
 
 有料の製品や機能にアップグレートしている場合、アカウントのプライマリメールアドレスで支払い領収書を受け取ります。 詳細は「[支払い請求先メールアドレスを設定する](/articles/setting-your-billing-email)」を参照してください。
 
-### Customer research emails
+### 顧客調査のメール
 
-{% data variables.product.product_name %} occasionally seeks customers to participate in research sessions to help us build a better GitHub. These are conducted remotely, open to customers worldwide, and may include:
+{% data variables.product.product_name %} は、より良い GitHub を構築するために、顧客に調査セッションへの参加を求めることがあります。 これらはリモートで実行され、世界中の顧客に公開されており、次のような内容が含まれる場合があります。
 
-- Feedback surveys
-- Research interviews
-- Usability testing sessions
-- Previewing early prototypes or concepts
+- フィードバック調査
+- 調査インタビュー
+- ユーザビリティテストセッション
+- 初期のプロトタイプまたは概念のプレビュー
 
-These emails are infrequent and you can choose whether or not to participate. If you're interested in additional opportunities to participate in research sessions, you may add yourself to the GitHub Customer Research Panel. For more information, see "[GitHub Customer Experience Research](https://cxr.github.com)."
+これらのメールはまれに送信され、参加するかどうかを選択できます。 調査セッションに参加できるその他の機会に興味がある場合は、GitHub Customer Research Panel に自分を追加します。 詳しい情報については、「[GitHub Customer Experience Research](https://cxr.github.com)」を参照してください。
 
 ### マーケティングメール
 

@@ -3,10 +3,12 @@ title: プラン変更の処理
 intro: '{% data variables.product.prodname_marketplace %} アプリケーションのアップグレードあるいはダウングレードによって、[`marketplace_purchase` イベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookが`changed`アクション付きでトリガされ、それによってアップグレードあるいはダウングレードのフローが開始されます。'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
-  - /apps/marketplace/administering-listing-plans-and-user-accounts/upgrading-or-downgrading-plans/
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/
   - /marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 

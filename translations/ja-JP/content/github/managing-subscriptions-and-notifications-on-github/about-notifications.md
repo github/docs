@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -54,7 +56,7 @@ versions:
 
 ### 通知とサブスクリプションをカスタマイズする
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+[https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} の通知インボックスと {% data variables.product.prodname_mobile %} アプリケーション{% endif %}、メール、またはこれらのオプションの組み合わせから通知を表示できます。
 
 通知設定で、受信する更新の種類と更新の送信先をカスタマイズできます。 詳しい情報については「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)」を参照してください。
 
@@ -63,8 +65,8 @@ You can choose to view your notifications through the notifications inbox at [ht
 特定のプルリクエストやプルリクエストの更新の受信方法をカスタマイズするには、Issue またはプルリクエスト内で設定できます。 詳しい情報については、「[単一の通知をトリアージする](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-ー
-{% data variables.product.prodname_mobile %} アプリケーションでプッシュ通知を有効にできます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)」を参照してください。
+プッシュ通知をカスタマイズしてスケジュールすることができます。
+{% data variables.product.prodname_mobile %} アプリケーションでプッシュ通知を有効にできます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)」を参照してください。
 {% endif %}
 
 ### 通知の受信理由
@@ -93,7 +95,7 @@ You can choose to view your notifications through the notifications inbox at [ht
 
 ### 通知のインボックスをカスタマイズする
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. たとえば、自分がコントリビュートしているオープンソースプロジェクトのカスタムフィルタを作成し、自分がメンションされているリポジトリの通知のみを表示することができます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。 トリアージしているワークフローをカスタマイズする方法のその他の例については、「[通知をトリアージするためのワークフローをカスタマイズする](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)」を参照してください。
+{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} または {% data variables.product.prodname_mobile %}{% endif %}のインボックスにある通知のグループにフォーカスするために、カスタムフィルタを作成できます。 たとえば、自分がコントリビュートしているオープンソースプロジェクトのカスタムフィルタを作成し、自分がメンションされているリポジトリの通知のみを表示することができます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)」を参照してください。 トリアージしているワークフローをカスタマイズする方法のその他の例については、「[通知をトリアージするためのワークフローをカスタマイズする](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)」を参照してください。
 
 ### 通知の保持ポリシー
 

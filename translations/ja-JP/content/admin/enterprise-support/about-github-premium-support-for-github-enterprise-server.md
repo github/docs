@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -35,7 +37,7 @@ versions:
 
 {% data reusables.support.signing-up-for-premium-support %}
 
-{% data reusables.support.scope-of-support %} 詳細は「[{% data variables.product.prodname_ghe_server %} Supportへの連絡](/enterprise/admin/guides/enterprise-support/reaching-github-support)」を参照してください。
+{% data reusables.support.scope-of-support %}
 
 {% data reusables.support.contacting-premium-support %}
 

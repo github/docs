@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -16,6 +18,8 @@ versions:
     - **Active branches**: [**Active**] ビューには、過去 3 か月以内に誰かがコミットしたすべてのブランチが、最新のコミットがあるブランチから順に表示されます。
     - **Stale branches**: [**Stale**] ビューには、過去 3 か月間に誰もコミットしていないブランチが、最も古いコミットがあるブランチから順にすべて表示されます。 このリストを使用して、[どのブランチを削除するか](/articles/creating-and-deleting-branches-within-your-repository)を決定します。
     - **All branches**: [**All**] ビューには、デフォルトブランチが表示され、続いて最新のコミットがあるブランチから順に他のすべてのブランチが表示されます。
+
+4. Optionally, use the search field on the top right. It provides a simple, case-insensitive, sub-string search on the branch name. It does not support any additional query syntax.
 
 ![Atom リポジトリのブランチページ](/assets/images/help/branches/branches-overview-atom.png)
 

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### About subdomain isolation
@@ -16,7 +18,7 @@ Subdomain isolation mitigates cross-site scripting and other related vulnerabili
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
 
 {% if currentVersion == "enterprise-server@2.22" %}
-To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
+To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 

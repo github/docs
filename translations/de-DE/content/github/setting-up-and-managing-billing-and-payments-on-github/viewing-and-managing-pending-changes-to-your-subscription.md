@@ -1,6 +1,6 @@
 ---
 title: Ausstehende Änderungen an Deinem Abonnement anzeigen und verwalten
-intro: Du kannst ausstehende Änderungen an Deinen Abonnements anzeigen und stornieren, bevor sie an Deinem nächsten Abrechnungsdatum wirksam werden.
+intro: 'Du kannst ausstehende Änderungen an Deinen Abonnements anzeigen und stornieren, bevor sie an Deinem nächsten Abrechnungsdatum wirksam werden.'
 redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan/
   - /articles/viewing-and-managing-pending-changes-to-your-organization-s-billing-plan/
@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Du kannst ausstehende Änderungen am Abonnement Deines Kontos sowie ausstehende Änderungen an Abonnements für andere bezahlte Funktionen und Produkte stornieren.

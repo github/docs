@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 リモート Git コマンドや SSH の実行時に、接続がタイムアウトする場合があります:
@@ -24,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### HTTPS を使用する
 
-最もシンプルな解決策は、単に SSH を一切回避することです。 多くのファイアウォールやプロキシでは、HTTPS トラフィックを問題なく許可しています。 これを活かすには、使用している[リモート URL](/articles/which-remote-url-should-i-use) を変更します。
+最もシンプルな解決策は、単に SSH を一切回避することです。 多くのファイアウォールやプロキシでは、HTTPS トラフィックを問題なく許可しています。 これを活かすには、使用している[リモート URL](/github/getting-started-with-github/about-remote-repositories) を変更します。
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

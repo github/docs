@@ -1,6 +1,6 @@
 ---
 title: Aktivitäts-Dashboard
-intro: 'The Activity dashboard gives you an overview of all the activity in your enterprise.'
+intro: The Activity dashboard gives you an overview of all the activity in your enterprise.
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafiken zur Anzahl der

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 O quadro do [GitHub Jobs](https://jobs.github.com/) é uma ótima maneira de encontrar emprego no setor de tecnologia. Você pode optar por ver trabalhos postados lá no seu painel do GitHub.

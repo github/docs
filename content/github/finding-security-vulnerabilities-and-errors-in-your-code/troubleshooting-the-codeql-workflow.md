@@ -3,16 +3,19 @@ title: Troubleshooting the CodeQL workflow
 shortTitle: Troubleshooting CodeQL
 intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
+
+### Producing detailed logs for debugging
+
+To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
 ### Automatic build for a compiled language fails
 
@@ -26,7 +29,10 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:
+    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions:
+        security-events: write
+        actions: read{% endif %}
       ...
       strategy:
         fail-fast: false
@@ -111,24 +117,13 @@ If you split your analysis into multiple workflows as described above, we still 
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Results differ between analysis platforms
-
-If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
-
-On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)."
-
-{% endif %}
-
 ### Error: "Server error"
 
 If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
 
 ### Error: "Out of disk" or "Out of memory"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
-{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner. If you encounter this issue, try increasing the memory on the runner.
 
 ### Warning: "git checkout HEAD^2 is no longer necessary"
 

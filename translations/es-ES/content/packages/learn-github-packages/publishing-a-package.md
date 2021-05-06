@@ -5,13 +5,15 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: Cualquier persona con permisos de escritura para un repositorio puede publicar un paquete en ese repositorio.
+permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Acerca de los paquetes publicados
 
@@ -26,7 +28,7 @@ Si una versión nueva de un paquete soluciona una vulnerabilidad de seguridad, d
 
 ### Publicar un paquete
 
-Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si utilizas cualquier {% if currentVersion == "free-pro-team@latest" %}cliente de paquete compatible{% else %}tipo de paquete habilitado para tu instancia{% endif %} si sigues los mismos lineamientos generales.
+Puedes publicar un paquete en el {% data variables.product.prodname_registry %} utilizando cualquier {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}cliente de paquetes compatible{% else %} tipo de paquete habilitado para tu instancia{% endif %} si sigues los mismos lineamientos generales.
 
 1. Crea o usa un token de acceso existente con los ámbitos adecuados para la tarea que deseas realizar. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)".
 2. Autentícate en {% data variables.product.prodname_registry %} mediante tu token de acceso y las instrucciones para tu cliente del paquete.

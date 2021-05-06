@@ -1,16 +1,4 @@
-const { execSync } = require('child_process')
-const { get, set } = require('lodash')
-const fs = require('fs')
-const path = require('path')
-const fm = require('../lib/frontmatter')
-const matter = require('gray-matter')
-const chalk = require('chalk')
-const yaml = require('js-yaml')
-const ghesReleaseNotesSchema = require('../lib/release-notes-schema')
-const revalidator = require('revalidator')
-
-const fixableFmProps = ['type', 'changelog', 'mapTopic', 'hidden', 'layout', 'defaultPlatform', 'showMiniToc', 'allowTitleToDifferFromFilename', 'interactive', 'beta_product']
-const fixableYmlProps = ['date']
+#!/usr/bin/env node
 
 // [start-readme]
 //
@@ -20,10 +8,27 @@ const fixableYmlProps = ['date']
 //
 // [end-readme]
 
+const { execSync } = require('child_process')
+const { get, set } = require('lodash')
+const fs = require('fs')
+const path = require('path')
+const readFileAsync = require('../lib/readfile-async')
+const fm = require('../lib/frontmatter')
+const matter = require('gray-matter')
+const chalk = require('chalk')
+const yaml = require('js-yaml')
+const ghesReleaseNotesSchema = require('../tests/helpers/schemas/release-notes-schema')
+const revalidator = require('revalidator')
+
+const fixableFmProps = Object.keys(fm.schema.properties)
+  .filter(property => !fm.schema.properties[property].translatable)
+  .sort()
+const fixableYmlProps = ['date']
+
 const loadAndValidateContent = async (path, schema) => {
   let fileContents
   try {
-    fileContents = await fs.promises.readFile(path, 'utf8')
+    fileContents = await readFileAsync(path, 'utf8')
   } catch (e) {
     console.error(e.message)
     return null
@@ -47,6 +52,7 @@ const cmd = 'git diff --name-only origin/main | egrep "^translations/.*/(content
 const changedFilesRelPaths = execSync(cmd).toString().split('\n')
 
 changedFilesRelPaths.forEach(async (relPath) => {
+  // Skip READMEs
   if (!relPath || relPath.endsWith('README.md')) return
 
   const localisedAbsPath = path.join(__dirname, '..', relPath)
@@ -70,13 +76,14 @@ changedFilesRelPaths.forEach(async (relPath) => {
   if (!engResult) return
   const { data: engData } = engResult
 
-  console.log(chalk.red('fixing errors in ') + chalk.bold(relPath))
+  console.log(chalk.bold(relPath))
 
   const newData = data
 
-  fixableErrors.forEach(({ property }) => {
+  fixableErrors.forEach(({ property, message }) => {
     const correctValue = get(engData, property)
-    console.log(`  [${property}]: ${get(data, property)} -> ${correctValue}`)
+    console.log(chalk.red(`  error message: [${property}] ${message}`))
+    console.log(`  fix property [${property}]: ${get(data, property)} -> ${correctValue}`)
     set(newData, property, correctValue)
   })
 

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zur Firewall der {% data variables.product.product_location %}
@@ -15,7 +17,7 @@ versions:
 
 Nachdem Sie {% data variables.product.prodname_ghe_server %} installiert haben, werden automatisch alle erforderlichen Netzwerkports zum Akzeptieren der Verbindungen geöffnet. Jeder nicht erforderliche Port wird automatisch als `deny` (verweigern) konfiguriert, und die standardmäßige Richtlinie für ausgehende Verbindungen wird als `allow` (zulassen) konfiguriert. Die Zustandsverfolgung ist für neue Verknüpfungen aktiviert. In der Regel handelt es sich dabei um Netzwerkpakete mit dem Bitsatz `SYN`. Weitere Informationen finden Sie unter „[Netzwerkports](/enterprise/admin/guides/installation/network-ports)“.
 
-Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {% data variables.product.prodname_ghe_server %} erforderlich sind. Weitere Informationen zum UFW-Regelsatz finden Sie in der „[UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)“.
+Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {% data variables.product.prodname_ghe_server %} erforderlich sind. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
 
 ### Standardmäßige Firewallregeln anzeigen
 

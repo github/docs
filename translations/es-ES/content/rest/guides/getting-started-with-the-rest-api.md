@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -55,7 +57,6 @@ $ curl -i https://api.github.com/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57
@@ -138,7 +139,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-Esta vez, adicionalmente al mismo conjunto de información pública que recuperamos antes para [@defunkt][defunkt github], deberías ver también la información no pública para tu perfil de usuario. Por ejemplo, verás un objeto de `plan` en la respuesta, el cuál proporciona detalles sobre el plan de {% data variables.product.product_name %} de la cuenta.
+Esta vez, adicionalmente al mismo conjunto de información pública que recuperamos para [@defunkt][defunkt github] anteriormente, también deberías ver la información diferente a la pública para tu perfil de usuario. Por ejemplo, verás un objeto de `plan` en la respuesta, el cual otorga detalles sobre el plan de {% data variables.product.product_name %} que tiene la cuenta.
 
 #### Utiilzar tokens de OAuth para las apps
 
@@ -168,7 +169,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 De la misma forma, podemos [ver los repositorios del usuario autenticado][user repos api]:
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -186,8 +187,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 La información que se devuelve de estas llamadas dependerá de los alcances que tenga nuestrotoken cuando nos autenticamos:
 
-* Un token con el [alcance][scopes] de `public_repo` devolverá una respuesta que incluya todos los repositorios públicos a los cuales tenemos acceso de visualización en github.com.
-* Un token con [scope][scopes] de `repo` devuelve una respuesta que incluye a todos los repositorios públicos y privados a los que tenemos acceso para ver en github.com.
+{% if currentVersion != "github-ae@latest" %}
+* Un token con [alcance][scopes] de `public_repo` devolverá una respuesta que incluye todos los repositorios públicos que podemos ver en github.com.{% endif %}
+* Un token con [alcance][scopes] de `repo` devolverá una respuesta que incluya todos los repositorios {% if currentVersion != "github-ae@latest" %}públicos{% else %}internos{% endif %} y privados que podemos ver en {% data variables.product.product_location %}.
 
 Como indican los [docs][repos-api], estos métodos toman un parámetro de `type` que puede filtrar los repositorios que se regresan con base en el tipo de acceso que el usuario tiene en ellos. De esta forma, podemos obtener los solo los repositorios que nos pertenezcan directamente, repositorios de organizacion o repositorios en los que el usuario colabore a través del equipo.
 
@@ -204,7 +206,7 @@ API de {% data variables.product.product_name %} es compatible con la creación 
 necesitamos hacer `POST` en algunos JSON que contengan los detalles y las opciones de configuración.
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -214,7 +216,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-En este ejemplo mínimo, creamos un repositorio nuevo para nuestro blog (que se servirá en [GitHub Pages][pages], probablemente). Aunque el blog será público, lo hemos hecho privado. En este paso único, también lo inicializamos con un README y con una [plantilla de.gitignore][gitignore templates] aderezada con [nanoc][nanoc].
+En este ejemplo mínimo, creamos un repositorio privado nuevo para nuestro blog (que se servirá en [GitHub Pages][pages], probablemente). Aunque el blog {% if currentVersion != "github-ae@latest" %}será público{% else %}está disponible para todos los miembros de la empresa{% endif %}, hemos hecho el repositorio privado. En este paso, también lo inicializaremos con un README y con una [plantilla de.gitignored][gitignore templates] enriquecida con [nanoc][nanoc].
 
 El repositorio que se obtiene como resultado se puede encontrar en `https://github.com/<your_username>/blog`. Para crear un repositorio bajo una organización para la cual eres propietario, solo cambia el método de la API de `/user/repos` a `/orgs/<org_name>/repos`.
 
@@ -239,7 +241,7 @@ La IU de informe de problemas en {% data variables.product.product_name %} prete
 Tal como en github.com, la API proporciona algunos cuantos métodos para ver los informes de problemas para el usuario autenticado. Para [ver todos tus informes de problemas][get issues api], llama a `GET /issues`:
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -247,7 +249,7 @@ Para obtener únicamente los [informes de problemas bajo alguna de tus organizac
 /orgs/<org>/issues`:
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -280,7 +282,7 @@ Ahora que hemos visto cómo paginar las listas de informes de problemas, vamos a
 Para crear un informe de problemas, necesitamos estar autenticados, así que pasaremos un token de OAuth en el encabezado. También, pasaremos el título, cuerpo, y etiquetas en el cuerpo de JSON a la ruta `/issues` debajo del repositorio en el cual queremos crear el informe de problemas:
 
 ```shell
-$ curl -i -H 'Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4' \
+$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -366,7 +368,6 @@ Sigue aprendiendo con la siguiente guía de la API ¡[Fundamentos de la Autentic
 [media types]: /rest/overview/media-types
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
-[scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [repos-api]: /rest/reference/repos
 [repos-api]: /rest/reference/repos

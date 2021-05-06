@@ -62,7 +62,7 @@ Você pode usar o {% data variables.product.prodname_desktop %} para criar um co
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/articles/pushing-commits-to-a-remote-repository/)".
+O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
 ### Criar commits coautorados no {% data variables.product.product_name %}
 

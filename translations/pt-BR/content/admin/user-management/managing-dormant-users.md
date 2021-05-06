@@ -5,10 +5,12 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: Uma conta de usuário é considerada inativa se não estiver ativa por pelo menos um mês.{% if enterpriseServerVersions contains currentVersion %} Você pode optar por suspender usuários adormecidos para liberar licenças de usuário.{% endif %}
+intro: 'Uma conta de usuário é considerada inativa se não estiver ativa por pelo menos um mês.{% if enterpriseServerVersions contains currentVersion %} Você pode optar por suspender usuários adormecidos para liberar licenças de usuário.{% endif %}'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 O termo "atividade" inclui, entre outros:

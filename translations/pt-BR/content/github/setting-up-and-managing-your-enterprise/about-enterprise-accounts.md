@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre contas corporativas
@@ -16,7 +18,7 @@ versions:
 Uma conta corporativa permite que você gerencie múltiplas organizações {% data variables.product.prodname_dotcom %} e instâncias {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
 
 - Acesso e gerenciamento de integrantes (integrantes da organização, colaboradores externos)
-- Faturamento e uso de instâncias de ({% data variables.product.prodname_ghe_server %}, licenças de usuário, pacotes de {% data variables.large_files.product_name_short %})
+- Cobrança e uso de instâncias de ({% data variables.product.prodname_ghe_server %}, licenças do usuário, {% data variables.large_files.product_name_short %} pacotes{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}, {% data variables.product.prodname_GH_advanced_security %} uso{% endif %})
 - Segurança (logon único, autenticação de dois fatores)
 - Solicitações e compartilhamento de pacote de suporte com {% data variables.contact.enterprise_support %}
 

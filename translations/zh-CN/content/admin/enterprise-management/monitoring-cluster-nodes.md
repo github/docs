@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 手动检查集群状态

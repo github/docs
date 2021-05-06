@@ -1,6 +1,6 @@
 ---
 title: コラボレーターのリポジトリから自分を削除する
-intro: '他の人の個人リポジトリのコラボレーターを続けたくなくなった場合は、自分を削除できます。'
+intro: 他の人の個人リポジトリのコラボレーターを続けたくなくなった場合は、自分を削除できます。
 redirect_from:
   - /leave-a-collaborative-repo/
   - /leave-a-repo/
@@ -12,6 +12,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 {% data reusables.user_settings.access_settings %}

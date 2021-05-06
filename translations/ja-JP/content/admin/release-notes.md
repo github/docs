@@ -4,5 +4,7 @@ intro: '{{ allVersions[currentVersion].versionTitle }} のリリースノート�
 layout: release-notes
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 在新增 SSH 密钥到 {% data variables.product.product_name %} 帐户之前，您应该已：
 * [检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)
 * [生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-在新增 SSH 密钥到 {% data variables.product.product_name %} 帐户后，您可以重新配置任何本地仓库使用 SSH。 更多信息请参阅“[将远程 URL 从 HTTPS 转换为 SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)”。
+在新增 SSH 密钥到 {% data variables.product.product_name %} 帐户后，您可以重新配置任何本地仓库使用 SSH。 更多信息请参阅“[将远程 URL 从 HTTPS 转换为 SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)”。
 
 {% data reusables.ssh.dsa-support %}
 

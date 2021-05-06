@@ -1,6 +1,6 @@
 ---
 title: 将拉取请求链接到议题
-intro: '您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。'
+intro: 您可以将拉取请求链接到议题，以显示修复正在进行中，并在拉取请求被合并时自动关闭该议题。
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}

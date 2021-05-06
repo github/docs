@@ -1,12 +1,14 @@
 ---
 title: GitHub でのマージ コンフリクトを解決する
-intro: 'コンフリクト エディターを使用すれば、GitHub で行の変更が競合している単純なマージ コンフリクトを解決できます。'
+intro: コンフリクト エディターを使用すれば、GitHub で行の変更が競合している単純なマージ コンフリクトを解決できます。
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data variables.product.product_name %}で解決できるマージコンフリクトは、Git リポジトリの別々のブランチで、同じファイルの同じ行に異なる変更がなされた場合など、互いに矛盾する行変更を原因とするもののみです。 その他すべての種類のマージ コンフリクトについては、コマンド ラインでコンフリクトをローカルに解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。

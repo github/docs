@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Considerações de rede

@@ -4,6 +4,125 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `PullRequestTemplate` was added",
+          "Field `pullRequestTemplates` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-05-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `ConvertPullRequestToDraftInput` was added",
+          "Type `ConvertPullRequestToDraftPayload` was added",
+          "Field `convertPullRequestToDraft` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-04-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `tierSelectedAt` was added to object type `Sponsorship`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-04-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `closestLesserValueTier` was added to object type `SponsorsTier`",
+          "Field `isCustomAmount` was added to object type `SponsorsTier`",
+          "Field `isOneTimePayment` was added to object type `Sponsorship`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `isOneTime` was added to object type `SponsorsTier`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `RequirableByPullRequest` was added",
+          "Field `viewerLatestReview` was added to object type `PullRequest`",
+          "Field `viewerLatestReviewRequest` was added to object type `PullRequest`",
+          "`CheckRun` object implements `RequirableByPullRequest` interface",
+          "Type for argument `pullRequestId` on field `CheckRun.isRequired` changed from `ID!` to `ID`",
+          "Argument `pullRequestNumber: Int` added to field `CheckRun.isRequired`",
+          "`StatusContext` object implements `RequirableByPullRequest` interface",
+          "Type for argument `pullRequestId` on field `StatusContext.isRequired` changed from `ID!` to `ID`",
+          "Argument `pullRequestNumber: Int` added to field `StatusContext.isRequired`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `requiresCodeOwnerReviews` was added to object type `RefUpdateRule`",
+          "Field `viewerAllowedToDismissReviews` was added to object type `RefUpdateRule`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `isRequired` was added to object type `CheckRun`",
+          "Field `isRequired` was added to object type `StatusContext`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-03-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `isPinned` was added to object type `Issue`",
           "Enum value 'CREATED_AT` was added to enum `VerifiableDomainOrderField'",
           "Field `createdAt` was added to object type `VerifiableDomain`",

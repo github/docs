@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% warning %}
@@ -27,6 +29,16 @@ Para adjuntar un archivo a una propuesta o una conversación de una solicitud de
 {% endtip %}
 
 El tamaño máximo de los archivos es de 25 MB y el tamaño máximo de las imágenes es de 10 MB.
+{% if currentVersion == "free-pro-team@latest" %}
+Los videos pueden tener un tamaño de hasta 100 MB si el repositorio pertenece a un usuario u organización que tenga un plan de pago de GitHub.
+
+{% note %}
+
+**Nota:** La compatibilidad con adjuntos de video se encuentra actualmente en beta y está sujeto a cambios.
+
+{% endnote %}
+
+{% endif %}
 
 Archivos compatibles:
 
@@ -37,6 +49,7 @@ Archivos compatibles:
 * Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
 * Archivos de texto (*.txt*)
 * PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*)
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* Video (*.mp4*, *.mov*){% endif %}
 
 ![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)

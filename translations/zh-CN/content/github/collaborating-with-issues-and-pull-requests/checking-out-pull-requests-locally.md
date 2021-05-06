@@ -3,11 +3,13 @@ title: 本地检查拉取请求
 intro: '有人从您仓库的复刻或分支向您发送拉取请求时，您可以在本地合并它以解决合并冲突， 或者在 {% data variables.product.product_name %} 上合并之前测试并验证更改。'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: 对仓库具有写入权限的任何人都可以在本地向下拉取远程拉取请求。
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

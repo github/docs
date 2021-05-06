@@ -1,9 +1,9 @@
 ---
 title: Enterprise 向けの SAML シングルサインオンを設定する
 shortTitle: SAML SSO の設定
-intro: Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。
+intro: 'Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Enterprise オーナーは、{% data variables.product.product_name %} で Enterprise の SAML SSO を設定できます。
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
 ---
@@ -73,7 +73,7 @@ IdP の詳細が変更された場合は、{% data variables.product.product_loc
 1. 必要に応じて、{% octicon "pencil" aria-label="The edit icon" %} をクリックして、新しい署名またはダイジェスト方式を設定します。 ![署名とダイジェスト方法を変更するための編集アイコン](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
 
     - ドロップダウンメニューを使用して、新しい署名またはダイジェスト方法を選択します。 ![新しい署名またはダイジェスト方法を選択するためのドロップダウンメニュー](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
-1. [**Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
+1. [**Test SAML configuration**] をクリックして、入力した情報が正しいことを確認します。 ![[Test SAML configuration] ボタン](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
 1. [**Save**] をクリックします。 ![SAML SSO 設定の [Save] ボタン](/assets/images/help/saml/ae-edit-idp-details-save.png)
 1. 必要に応じて、{% data variables.product.product_location %} のユーザアカウントを自動的にプロビジョニングおよびプロビジョニング解除するには、SCIM を使用してユーザプロビジョニングを再設定します。 詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 

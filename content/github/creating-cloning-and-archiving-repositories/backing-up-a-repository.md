@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -16,7 +18,7 @@ To download an archive of your repository, you can use the API for user or organ
 You can download and back up your repositories manually:
 
 - To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
-- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/articles/adding-or-editing-wiki-pages)."
+- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)."
 
 When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your {% data variables.product.product_name %} repository to your local machine:
 

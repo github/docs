@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}

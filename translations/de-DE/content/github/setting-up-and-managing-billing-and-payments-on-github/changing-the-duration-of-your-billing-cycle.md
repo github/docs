@@ -8,6 +8,8 @@ redirect_from:
   - /articles/changing-the-duration-of-your-billing-cycle
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Wenn Sie die Dauer Ihres Abrechnungszeitraums ändern, werden Ihr {% data variables.product.prodname_dotcom %}-Abonnement und alle weiteren bezahlten Features und Produkte am nächsten Abrechnungsdatum auf den neuen Abrechnungszeitraum umgestellt.

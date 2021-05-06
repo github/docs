@@ -1,11 +1,13 @@
 ---
 title: Autenticação
-intro: Você pode configurar como os usuários conectam-se a {% data variables.product.product_name %}.
+intro: 'Você pode configurar como os usuários conectam-se a {% data variables.product.product_name %}.'
 redirect_from:
   - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 

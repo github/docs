@@ -1,6 +1,6 @@
 ---
 title: GitHub の製品
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
+intro: '{% data variables.product.prodname_dotcom %} の商品と価格プランの概要。'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 {% data variables.product.prodname_dotcom %}では無償版と有償版の製品をご用意しています。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
@@ -79,13 +85,14 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 - 追加のセキュリティ、コンプライアンス、およびデプロイメントコントロール
 - SAML シングルサインオンでの認証
 - SAML または SCIM でのアクセスのプロビジョニング
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- The option to purchase {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください。{% endif %}
 
 {% data variables.product.prodname_ghe_cloud %} には次も含まれます:
 - {% data variables.contact.enterprise_support %}。 詳細は「<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} サポート</a>」および「<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 補遺</a>」を参照してください。
 - 50,000 {% data variables.product.prodname_actions %} 分
 - 50GBの{% data variables.product.prodname_registry %}ストレージ
-- Access control for {% data variables.product.prodname_pages %} sites. For more information, see <a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Changing the visibility of your {% data variables.product.prodname_pages %} site</a>"
+- {% data variables.product.prodname_pages %} サイトのアクセス制御。 詳しい情報については、「<a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">{% data variables.product.prodname_pages %} サイトの可視性を変更する</a>」を参照してください。
 - 99.9% の月次稼働時間を保証するサービスレベルアグリーメント
 - エンタープライズアカウントで複数の {% data variables.product.prodname_dotcom_the_website %} Organization に対してポリシーと請求を一元管理するためのオプション。 詳細は「<a href="/articles/about-enterprise-accounts" class="dotcom-only">Enterprise アカウントについて</a>」を参照してください。
 
@@ -99,7 +106,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."{% endif %}
+- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。{% endif %}
 - [Organization の {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
-For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.
+{% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

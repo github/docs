@@ -5,10 +5,11 @@ intro: 'Aprende sobre los conceptos centrales y sobre los diversos componentes d
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
-  - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
+  - /actions/getting-started-with-github-actions/core-concepts-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: overview
 topics:
   - Fundamentals
@@ -16,6 +17,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Resumen
 
@@ -53,9 +55,11 @@ Las _Acciones_ son comandos independientes que se combinan en _pasos_ para crear
 
 #### Ejecutores
 
-Un ejecutor es un servidor que tiene instalada la [aplilcación de ejecutor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner). Puedes utilizar un ejecutor que esté hospedado en {% data variables.product.prodname_dotcom %}, o puedes hospedar el tuyo propio. Un ejecutor escucha a los jobs disponibles, ejecuta un job a la vez, y reporta el progreso, bitácoras y resultados de vuelta a {% data variables.product.prodname_dotcom %}. Para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, cada job en un flujo de trabajo se ejecuta en un ambiente virtual nuevo.
-
-Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se basan en Ubuntu Linux, Microsoft Windows, y macOS. Para encontrar más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Ambientes virtuales para ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/virtual-environments-for-github-hosted-runners)". Si necesitas un sistema operativo diferente o si requieres de una configuración de hardware específica, puedes hospedar tus propios ejecutores. Para obtener información sobre los ejecutores auto-hospedados, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
+{% if currentVersion == "github-ae@latest" %}Un ejecutor es un servidor que tiene instalada la [aplicación ejecutora de {% data variables.product.prodname_actions %}](https://github.com/actions/runner). En el caso de {% data variables.product.prodname_ghe_managed %}, puedes utilizar los {% data variables.actions.hosted_runner %} con seguridad robustecida que están empaquetados con tu instancia en la nube. Un ejecutor escucha a los jobs disponibles, ejecuta un job a la vez, y reporta el progreso, bitácoras y resultados de vuelta a {% data variables.product.prodname_dotcom %}. Los {% data variables.actions.hosted_runner %} ejecutan cada job del flujo de trabajo en un ambiente virtual nuevo. Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+{% else %}
+Un ejecutor es un servidor que tiene instalada la [aplilcación de ejecutor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner). Puedes utilizar un ejecutor que hospede
+{% data variables.product.prodname_dotcom %}, o puedes hospedar tu propio ejecutor. Un ejecutor escucha a los jobs disponibles, ejecuta un job a la vez, y reporta el progreso, bitácoras y resultados de vuelta a {% data variables.product.prodname_dotcom %}. Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se basan en Ubuntu Linux, Microsoft Windows y macOS, y cada job en un flujo de trabajo se ejecuta en un ambiente virtual nuevo.  Para obtener más información sobre los ejecutores hospedados en {% data variables.product.prodname_dotcom %}, consulta la sección "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)". Si necesitas un sistema operativo diferente o si requieres de una configuración de hardware específica, puedes hospedar tus propios ejecutores. Para obtener información sobre los ejecutores auto-hospedados, consulta la sección "[Hospedar tus propios ejecutores](/actions/hosting-your-own-runners)".
+{% endif %}
 
 ### Crear un flujo de trabajo de ejemplo
 
@@ -207,16 +211,16 @@ En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear,
 
 ### Visualizar la actividad de un job
 
-Una vez que tu job ha comenzado a ejecutarse, podrás{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
+Una vez que tu job haya comenzado a ejecutarse, puedes {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}ver una gráfica de visualización del progreso de la ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo del nombre de tu repositorio, da clic en **Acciones**. ![Navegar al repositorio](/assets/images/help/images/learn-github-actions-repository.png)
 1. En la barra lateral izquierda, da clic en el flujo de trabajo que quieras ver. ![Impresión de pantalla de los resultados del flujo de trabajo](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Debajo de "Ejecuciones de flujo de trabajo", da clic en el nombre de la ejecución que quieres ver. ![Captura de pantalla de las ejecuciones del flujo de trabajo](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Debajo de **Jobs** o en la gráfica de visualización, da clic en el job que quieras ver. ![Seleccionar job](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. Ve los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated-2.png)
 {% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. Da clic en el nombre del job para ver los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated.png)

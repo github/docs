@@ -4,9 +4,11 @@ intro: '{% data variables.product.prodname_marketplace %}用に、アプリケ�
 mapTopic: true
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks/
-  - /apps/marketplace/setting-up-github-marketplace-webhooks/
+  - /apps/marketplace/integrating-with-the-github-marketplace-api/
   - /marketplace/integrating-with-the-github-marketplace-api
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 

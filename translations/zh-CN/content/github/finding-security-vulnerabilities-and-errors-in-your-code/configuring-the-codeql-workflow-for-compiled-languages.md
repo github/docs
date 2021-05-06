@@ -3,13 +3,11 @@ title: 为编译语言配置 CodeQL 工作流程
 shortTitle: 为编译语言配置
 intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何使用 {% data variables.product.prodname_codeql_workflow %} 扫描用编译语言编写的代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '如果您拥有仓库的写入权限，您可以为该仓库配置 {% data variables.product.prodname_code_scanning %}。'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -17,7 +15,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_codeql_workflow %} 和编译语言
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
+通过添加 {% data variables.product.prodname_actions %} 工作流程到仓库，设置 {% data variables.product.prodname_dotcom %} 对仓库运行 {% data variables.product.prodname_code_scanning %}。 对于 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}，您可以添加 {% data variables.product.prodname_codeql_workflow %}。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)”。
 
 {% data reusables.code-scanning.edit-workflow %}
 有关配置
@@ -33,7 +31,11 @@ You set up {% data variables.product.prodname_dotcom %} to run {% data variables
 
 {% note %}
 
-**注**：如果使用 {% data variables.product.prodname_actions %} 的自托管运行器，您可能需要安装其他软件才能使用 `autobuild` 进程。 此外，如果您的仓库需要特定版本的构建工具，您可能需要手动安装它。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% if currentversion == "github-ae@latest" %} **注意**：有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}
+**注意**：如果您将自托管运行器用于
+{% data variables.product.prodname_actions %}，您可能需要安装其他软件才能使用`自动构建`流程。 此外，如果您的仓库需要特定版本的构建工具，您可能需要手动安装它。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% endif %}
 
 {% endnote %}
 

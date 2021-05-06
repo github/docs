@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Un archivo README, junto con {% if currentVersion == "free-pro-team@latest" %}una [licencia de repositorio](/articles/licensing-a-repository), [pautas de contribución](/articles/setting-guidelines-for-repository-contributors) y un [código de conducta](/articles/adding-a-code-of-conduct-to-your-project){% else %}una [licencia de repositorio](/articles/licensing-a-repository) y [pautas de contribución](/articles/setting-guidelines-for-repository-contributors){% endif %}, te ayudan a comunicar las expectativas y a administrar las contribuciones para tu proyecto.

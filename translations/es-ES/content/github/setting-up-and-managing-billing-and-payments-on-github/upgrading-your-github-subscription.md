@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Subir de categoría la suscripción de tu cuenta personal
@@ -57,7 +59,7 @@ Puedes mejorar a tu organización desde {% data variables.product.prodname_free_
 
 #### Próximos pasos para las organizaciones que usan {% data variables.product.prodname_ghe_cloud %}
 
-Si mejoras a tu organización a {% data variables.product.prodname_ghe_cloud %}, puedes configurar la administración de accesos e identidad para la misma. Para obtener más información, consulta "[Administrar el inicio de sesión único de SAML para tu organización](/articles/managing-saml-single-sign-on-for-your-organization)".
+Si mejoras a tu organización a {% data variables.product.prodname_ghe_cloud %}, puedes configurar la administración de accesos e identidad para la misma. Para obtener más información, consulta "[Administrar el inicio de sesión único de SAML para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization)".
 
 Si quisieras utilizar una cuenta empresarial con {% data variables.product.prodname_ghe_cloud %}, contacta a {% data variables.contact.contact_enterprise_sales %}. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/articles/about-enterprise-accounts)".
 

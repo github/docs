@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Todo usuario que tenga permisos de lectura para un repositorio puede crear una solicitud de extracción, pero tú debes tener permisos de escritura para poder crear una rama. Si deseas crear una rama nueva para tu solicitud de extracción y no tienes permisos de escritura para el repositorio, puedes bifurcar antes el repositorio. Para obtener más información, consulta "[Crear una solicitud de extracción a partir de una bifurcación](/articles/creating-a-pull-request-from-a-fork)" y "

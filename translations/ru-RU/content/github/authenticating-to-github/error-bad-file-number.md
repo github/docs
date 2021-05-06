@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 When running remote Git commands or SSH, your connection might time out:
@@ -24,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### Use HTTPS
 
-Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/articles/which-remote-url-should-i-use) you're using:
+Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/github/getting-started-with-github/about-remote-repositories) you're using:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

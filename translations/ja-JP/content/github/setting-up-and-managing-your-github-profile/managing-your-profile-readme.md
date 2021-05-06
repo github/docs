@@ -1,65 +1,67 @@
 ---
-title: Managing your profile README
-intro: 'You can add a README to your {% data variables.product.prodname_dotcom %} profile to tell other people about yourself.'
+title: プロフィールの README を管理する
+intro: '{% data variables.product.prodname_dotcom %} プロフィールに README を追加して、他のユーザに自分の情報を伝えることができます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+topics:
+  - Profiles
 ---
 
-### About your profile README
+### プロフィール README について
 
-You can share information about yourself with the community on {% data variables.product.prodname_dotcom %} by creating a profile README. {% data variables.product.prodname_dotcom %} shows your profile README at the top of your profile page.
+プロフィール README を作成すると、{% data variables.product.prodname_dotcom %} で自分に関する情報をコミュニティと共有できます。 {% data variables.product.prodname_dotcom %} では、プロフィールページの上部にプロフィール README が表示されます。
 
-You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
+プロフィール README に含める情報を決めることができるため、{% data variables.product.prodname_dotcom %} で自分に関するどのような情報を表示するかを完全に制御できます。 アクセスしたユーザがあなたのプロフィール README を見て、興味深い、楽しい、役立つと感じる可能性のある情報の例は次のとおりです。
 
-- An "About me" section that describes your work and interests
-- Contributions you're proud of, and context about those contributions
-- Guidance for getting help in communities where you're involved
+- あなたの仕事や興味について説明した「自己紹介」セクション
+- あなたが誇りに思っているコントリビューションとそれらのコントリビューションについてのコンテキスト
+- あなたが関連しているコミュニティでサポートを得るためのガイド
 
 ![プロフィールに表示されるプロフィール README ファイル](/assets/images/help/repository/profile-with-readme.png)
 
-You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)」を参照してください。
+{% data variables.product.company_short %} Flavored Markdown を使用して、テキストをフォーマットし、絵文字、画像、GIF をプロフィール README に含めることができます。 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)」を参照してください。
 
 ### 必要な環境
 
-GitHub will display your profile README on your profile page if all of the following are true.
+次のすべてが当てはまる場合、GitHubは プロフィールページにプロフィール README を表示します。
 
-- You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
-- The repository is public.
-- The repository contains a file named README.md in its root.
-- The README.md file contains any content.
+- {% data variables.product.prodname_dotcom %} ユーザ名にマッチする名前のリポジトリを作成した。
+- リポジトリがパブリックである。
+- リポジトリのルートに README.md という名前のファイルが含まれている。
+- README.md ファイルに任意のコンテンツが含まれている。
 
 {% note %}
 
-**Note**: If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom_the_website %} and clicking **Share to profile**.
+**注釈**: 2020年7月以前にユーザ名と同名のパブリックリポジトリを作成していた場合、リポジトリの README は {% data variables.product.prodname_dotcom %} にプロフィールを自動的に表示しません。 {% data variables.product.prodname_dotcom_the_website %} のリポジトリに移動し、[**Share to profile**] をクリックすると、リポジトリの README をプロフィールに手動で共有できます。
 
-![Button to share README to profile](/assets/images/help/repository/share-to-profile.png)
+![README をプロフィールに共有するためのボタン](/assets/images/help/repository/share-to-profile.png)
 
 {% endnote %}
 
-### Adding a profile README
+### プロフィールの README を追加する
 
 {% data reusables.repositories.create_new %}
-2. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat". ![Repository name field which matches username](/assets/images/help/repository/repo-username-match.png)
-3. 必要な場合、リポジトリの説明を追加します。 For example, "My personal repository." ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-personal-repository-desc.png)
-4. Select **Public**. ![Radio button to select visibility with public selected](/assets/images/help/repository/create-personal-repository-visibility.png)
+2. [Repository name] の下に、{% data variables.product.prodname_dotcom %} のユーザ名とマッチするリポジトリ名を入力します。 たとえば、ユーザ名が「octocat」の場合、リポジトリ名は「octocat」である必要があります。 ![ユーザ名にマッチするリポジトリ名フィールド](/assets/images/help/repository/repo-username-match.png)
+3. 必要な場合、リポジトリの説明を追加します。 たとえば、「個人リポジトリ」などです。 ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-personal-repository-desc.png)
+4. [**Public**] を選択します。 ![パブリックが選択された状態で可視性を選択するためのラジオボタン](/assets/images/help/repository/create-personal-repository-visibility.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
-7. Above the right sidebar, click **Edit README**. ![Button to edit README file](/assets/images/help/repository/personal-repository-edit-readme.png)
+7. 右サイドバーの上にある [**Edit README**] をクリックします。 ![README ファイルを編集するためのボタン](/assets/images/help/repository/personal-repository-edit-readme.png)
 
-  The generated README file is pre-populated with a template to give you some inspiration for your profile README. ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
+  生成された README ファイルには、プロフィール README のアイディアを得るためのテンプレートが事前入力されています。 ![テンプレートが事前入力された README ファイル](/assets/images/help/repository/personal-repository-readme-template.png)
 
-For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
+利用可能なすべての絵文字とそのコードの概要については、「[絵文字のチートシート](http://www.emoji-cheat-sheet.com/)」を参照してください。
 
-### Removing a profile README
+### プロフィール README を削除する
 
-The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
+次のいずれかに該当する場合、プロフィール README は {% data variables.product.prodname_dotcom %} のプロフィールから削除されます。
 
-- The README file is empty or doesn't exist.
-- The repository is private.
-- The repository name no longer matches your username.
+- README ファイルが空であるか、存在しない。
+- リポジトリがプライベートである。
+- リポジトリ名がユーザ名とマッチしなくなった。
 
-The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see ["Changing a repository's visibility."](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)
+The method you choose is dependant upon your needs, but if you're unsure, we recommend making your repository private. リポジトリをプライベートにする方法については、「[リポジトリの可視性を変更する](/github/administering-a-repository/setting-repository-visibility#changing-a-repositorys-visibility)」を参照してください。
 
 ### 参考リンク
 

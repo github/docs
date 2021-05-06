@@ -1,13 +1,15 @@
 ---
-title: Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde
+title: 'Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde'
 intro: 'Für eine bessere Zusammenarbeit kannst Du Commits für Branches erlauben, die Du aus Forks in Deinem Benutzerkonto erstellt hast.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
-permissions: Personen mit Push-Zugriff auf das vorgelagerte (upstream) Repository einer Fork im Besitz eines Benutzerkontos können zu den geforkten Branches freigeben.
+permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Nur die Ersteller von Pull Requests können Betreuern von vorgelagerten Repositorys oder Benutzern mit Push-Zugriff auf das vorgelagerte Repository die Berechtigung erteilen, in einer benutzereigenen Fork Commits an den Vergleichs-Branch ihres Pull Requests vorzunehmen. Weitere Informationen zu vorgelagerten Repositorys findest Du unter „[Informationen zu Forks](/articles/about-forks).“

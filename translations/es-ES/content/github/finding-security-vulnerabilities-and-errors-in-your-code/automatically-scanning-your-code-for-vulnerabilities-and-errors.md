@@ -5,7 +5,8 @@ intro: 'Puedes encontrar vulnerabilidades y errores en el código de tu proyecto
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 

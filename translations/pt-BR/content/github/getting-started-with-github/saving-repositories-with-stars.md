@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Você pode pesquisar, classificar e filtrar seus repositórios e tópicos com estrela no seu {% data variables.explore.your_stars_page %}.'

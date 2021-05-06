@@ -4,14 +4,16 @@ intro: 'Você pode permitir ou impedir a bifurcação de um repositórios privad
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
-permissions: Pessoas com permissões de administrador em um repositório podem gerenciar a política de bifurcação para o repositório.
+permissions: People with admin permissions for a repository can manage the forking policy for the repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
-Um proprietário da organização deve permitir bifurcações de repositórios privado{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} e internos{% endif %} no nível da organização antes de permitir ou não permitir bifurcações em um repositório específico. Para obter mais informações, consulte "[Gerenciando a política de bifurcação para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)".
+Um proprietário da organização deve permitir bifurcações de repositórios privado{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} e internos{% endif %} no nível da organização antes de permitir ou não permitir bifurcações em um repositório específico. Para obter mais informações, consulte "[Gerenciando a política de bifurcação para sua organização](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

@@ -1,6 +1,6 @@
 ---
-title: Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?
-intro: Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.
+title: 'Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?'
+intro: 'Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.'
 redirect_from:
   - /articles/changing-the-visibility-of-a-network/
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -77,5 +79,5 @@ If you change the visibility of an internal repository and then delete the repos
 - „[Sichtbarkeit eines Repositorys festlegen](/articles/setting-repository-visibility)“
 - „[Informationen zu Forks](/articles/about-forks)“
 - „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- „[Die Forking-Richtlinie für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
+- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
 - "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

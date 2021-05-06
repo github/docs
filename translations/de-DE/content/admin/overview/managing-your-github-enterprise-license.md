@@ -14,17 +14,23 @@ redirect_from:
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.product.prodname_enterprise %}-Lizenzen
 
-Wenn Sie {% data variables.product.prodname_enterprise %} kaufen oder verlängern, erhalten Sie eine Lizenzdatei zum Validieren Ihrer Anwendung. Eine Lizenzdatei hat ein Ablaufdatum und bestimmt die Anzahl der Benutzerlizenzen, die Du auf {% data variables.product.prodname_enterprise %} hinzufügen kannst. Nachdem Sie {% data variables.product.prodname_enterprise %} heruntergeladen und installiert haben, wird die Anwendung durch das Hochladen der Lizenzdatei zu Ihrer Verwendung entsperrt.
+Wenn Sie {% data variables.product.prodname_enterprise %} kaufen oder verlängern, erhalten Sie eine Lizenzdatei zum Validieren Ihrer Anwendung. Eine Lizenzdatei hat ein Ablaufdatum und bestimmt die Anzahl der Benutzerlizenzen, die Du auf {% data variables.product.prodname_enterprise %} hinzufügen kannst. Nachdem Sie {% data variables.product.prodname_enterprise %} heruntergeladen und installiert haben, wird die Anwendung durch das Hochladen der Lizenzdatei zu Ihrer Verwendung entsperrt. For more information about downloading {% data variables.product.prodname_enterprise %}, see the [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website. For information about setting up {% data variables.product.product_location %}, see "[Setting up a {% data variables.product.prodname_enterprise %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+
 
 Du kannst die in Deiner {% data variables.product.prodname_enterprise %}-Lizenz enthaltene Lizenz Benutzern in {% data variables.product.product_location_enterprise %} und einem {% data variables.product.prodname_ghe_cloud %}-Unternehmenskonto zuordnen. Wenn Sie einen Benutzer zu einer der Umgebungen hinzufügen, nimmt er eine Lizenz in Anspruch. Wenn ein Benutzer Konten in beiden Umgebungen hat, muss Deine primäre E-Mail-Adresse in {% data variables.product.prodname_enterprise %} die gleiche sein wie Deine verifizierte E-Mail-Adresse in {% data variables.product.prodname_ghe_cloud %}, um nur eine Lizenz zu verwenden. Du kannst die Anzahl und Nutzung der Lizenzen zwischen den Umgebungen synchronisieren.
 
 Wenn Ihre {% data variables.product.prodname_ghe_server %}-Lizenz abläuft, ist es Ihnen nicht möglich, über einen Webbrowser oder Git auf {% data variables.product.product_location_enterprise %} zuzugreifen. Bei Bedarf können Sie Befehlszeilenprogramme zum Sichern Ihrer gesamten Daten verwenden. Weitere Informationen finden Sie unter „[Backups auf Ihrer Appliance konfigurieren](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)“. Wenn Du Fragen zur Erneuerung Deiner Lizenz hast, kontaktiere {% data variables.contact.contact_enterprise_sales %}.
 
+You can download your {% data variables.product.prodname_ghe_server %} license from your [enterprise account](https://enterprise.github.com/download). Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_enterprise %}-Lizenz verwalten](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server).“
+
 ### Neue Lizenz auf {% data variables.product.prodname_ghe_server %} hochladen
+
 
 Nach dem Kauf einer neuen Lizenz oder einem Upgrade einer bestehenden Lizenz von {% data variables.contact.contact_enterprise_sales %} musst Du Deine neue Lizenzdatei herunterladen und dann die Datei auf {% data variables.product.prodname_ghe_server %} hochladen, um Deine neuen Benutzerlizenzen zu entsperren.
 

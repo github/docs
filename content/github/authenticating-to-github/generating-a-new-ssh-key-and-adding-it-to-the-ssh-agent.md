@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 If you don't already have an SSH key, you must [generate a new SSH key](#generating-a-new-ssh-key). If you're unsure whether you already have an SSH key, check for [existing keys](/articles/checking-for-existing-ssh-keys).
@@ -89,7 +91,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing ` ~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup. 
 
       ```
       Host *

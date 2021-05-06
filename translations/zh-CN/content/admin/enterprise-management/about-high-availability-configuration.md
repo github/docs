@@ -6,11 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。
 
 {% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### 有针对性的故障场景
 

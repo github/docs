@@ -1,12 +1,16 @@
 ---
 title: 创建高可用性副本
-intro: '在主动/被动配置中，副本设备是主设备的冗余副本。 如果主设备发生故障，高可用性模式允许副本作为主设备运行，从而最大限度地减少服务中断。'
+intro: 在主动/被动配置中，副本设备是主设备的冗余副本。 如果主设备发生故障，高可用性模式允许副本作为主设备运行，从而最大限度地减少服务中断。
 redirect_from:
   - /enterprise/admin/installation/creating-a-high-availability-replica
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### 创建高可用性副本
 

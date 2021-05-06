@@ -1,12 +1,14 @@
 ---
 title: 审查拉取请求中的建议更改
-intro: '在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。'
+intro: 在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### 关于审查拉取请求

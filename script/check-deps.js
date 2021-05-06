@@ -47,7 +47,8 @@ const main = async () => {
       'imurmurhash',
       'js-cookie',
       'mdast-util-from-markdown',
-      'unist-util-visit'
+      'unist-util-visit',
+      'assert'
     ]
   })
 

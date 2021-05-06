@@ -6,13 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Travis CI'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - Travis CI
+  - Migration
+  - CI
+  - CD
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
@@ -181,7 +186,7 @@ Cuando te migres de Travis CI, consider las siguientes características clave en
 
 #### Almacenar secretos
 
-{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Las reglas de protección de ambiente requieren de aprobación manual para que un flujo de trabajo acceda a los secretos de ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 #### Compartir archivos entre jobs y flujos de trabajo
 
@@ -193,7 +198,7 @@ Si tus jobs requieren de hardware o software específico, {% data variables.prod
 
 #### Tiempo de ejecución y jobs simultáneos
 
-Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {% data variables.product.prodname_actions %} pueden variad dependiendo de tu plan de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Límites de uso, facturación y administración](/actions/reference/usage-limits-billing-and-administration)."
+Los jobs simultáneos y los tiempos de ejecución de los flujos de trabajo en {% data variables.product.prodname_actions %} pueden variad dependiendo de tu plan de {% data variables.product.company_short %}. Para obtener más información, consulta la sección "[Límites de uso y administración](/actions/reference/usage-limits-billing-and-administration)".
 
 #### Utilizar lenguajes diferentes en {% data variables.product.prodname_actions %}
 
