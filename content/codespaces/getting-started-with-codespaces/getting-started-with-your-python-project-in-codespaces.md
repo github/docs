@@ -46,7 +46,7 @@ This example guides you through adding a `devcontainer.json` file from a templat
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
+2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
@@ -100,7 +100,7 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-python.python"
+		"ms-python.python",
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -162,34 +162,42 @@ With your dev container added and a basic understanding of what everything does,
 
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
 
-2. Update your `devcontainer.json` file after `extensions` to include the following:
+2. Update your the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
+   
+  ```json{:copy} 
+  "extensions": [
+		  "ms-python.python",
+		  "cstrap.flask-snippets",
+		  "streetsidesoftware.code-spell-checker",
+	  ],
+  ```
+
+3. Uncomment the `postCreateCommand` to auto-install requirements as part of the codespaces setup process.
 
   ```json{:copy} 
-  "portsAttributes": {
-		"5000": {
-			"onAutoForward": "openBrowser"
-		},
-
+  // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "pip3 install --user -r requirements.txt",
   ```
-  The `portsAttributes` addition forwards port 5000 and automatically opens a browser tab to the forwarded port when you start the application while the `postCreateCommand` will ensure your requirements are installed as part of the codespace setup process.
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
-
-1. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
+4. To rebuild your container and apply the devcontainer.json changes, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
 
   ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
-
+5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
+   
+![Extensions list](/assets/images/help/codespaces/python-extensions.png) 
+   
 ### Step 4: Run your application
 
 In the previous section, you used the `postCreateCommand` to installing a set of packages via pip3. With our dependencies now installed, we can run our application.
 
-1. Run your start command by pressing `F5`.
+1. Run your application by pressing `F5` or entering `python -m flask run` in your terminal.
 
-2. When your project starts, you should see a new tab open and connect to the port your project uses. 
+2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses. 
+
+  ![Port forwarding toast](/assets/images/help/codespaces/python-port-forwarding.png)
 
 ### Step 5: Commit your changes
 
