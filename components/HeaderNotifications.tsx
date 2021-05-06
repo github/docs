@@ -48,7 +48,7 @@ export const HeaderNotifications = () => {
       type: NotificationType.RELEASE,
       content: t('notices.ghae_silent_launch'),
     })
-  } else if (currentVersion === data.variables.release_candidate_version) {
+  } else if (currentVersion === data.variables.release_candidate.version) {
     releaseNotices.push({
       type: NotificationType.RELEASE,
       content: `${allVersions[currentVersion].versionTitle}${t('notices.release_candidate')}`,

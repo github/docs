@@ -7,7 +7,7 @@ import { ChevronDownIcon, MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/o
 import { ButtonOutline } from '@primer/components'
 
 import { useMainContext } from './context/MainContext'
-// import { LanguagePicker } from './LanguagePicker'
+import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/HeaderNotifications'
 import { MobileProductDropdown } from 'components/MobileProductDropdown'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -88,7 +88,7 @@ export const Header = () => {
                 <div className="d-md-inline-block">
                   {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
                   <div className="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
-                    {/* <LanguagePicker /> */}
+                    <LanguagePicker />
                   </div>
 
                   {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}

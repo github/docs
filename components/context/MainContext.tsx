@@ -17,6 +17,11 @@ type LanguageItem = {
   wip?: boolean
 }
 
+type VersionItem = {
+  version: string;
+  versionTitle: string;
+}
+
 type DataT = {
   ui: Record<string, any>
   reusables: {
@@ -26,6 +31,12 @@ type DataT = {
       deprecation_details: string
       isOldestReleaseDeprecated: boolean
     }
+    policies: {
+      translation: string
+    }
+  }
+  variables: {
+    release_candidate: { version: string }
   }
 }
 type EnterpriseServerReleases = {
@@ -48,6 +59,7 @@ export type MainContextT = {
   enterpriseServerReleases: EnterpriseServerReleases
   currentLanguage: string
   languages: Record<string, LanguageItem>
+  allVersions: Record<string, VersionItem>
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -63,6 +75,10 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ui: req.context.site.data.ui,
       reusables: {
         enterprise_deprecation: req.context.site.data.reusables.enterprise_deprecation,
+        policies: req.context.site.data.reusables.policies,
+      },
+      variables: {
+        release_candidate: req.context.site.data.variables.release_candidate,
       },
     },
     airGap: req.context.AIRGAP || false,
@@ -83,6 +99,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
         ]
       })
     ),
+    allVersions: req.context.allVersions,
   }
 }
 
