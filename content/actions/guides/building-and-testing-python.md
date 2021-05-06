@@ -399,7 +399,13 @@ jobs:
 
 You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass.
 
-You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+In this example, your package is uploaded to PyPI each time you [publish a release](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository).
+Publishing a pre-release will upload a package to the development version of PyPI.
+
+You can store any access tokens or credentials needed to publish your package using secrets.
+In this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken).
+For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+The Python Packaging Authority (PyPA) also has a [guide to Github Actions](https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows).
 
 {% raw %}
 ```yaml{:copy}
@@ -407,7 +413,7 @@ name: Upload Python Package
 
 on:
   release:
-    types: [created]
+    types: [released, prereleased]
 
 jobs:
   deploy:
@@ -421,14 +427,23 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        pip install build
+    - name: Build package
       run: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+        python -m build
+    - name: Publish DEV package
+      if: "github.event.release.prerelease"
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
+    - name: Publish package
+      if: "!github.event.release.prerelease"
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
 ```
 {% endraw %}
 
