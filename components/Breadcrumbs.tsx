@@ -14,11 +14,10 @@ export const Breadcrumbs = (props: Props) => {
   const router = useRouter()
   const pathWithLocale = `/${router.locale}${router.asPath}`
   const { breadcrumbs } = useMainContext()
-  const items = Object.entries(breadcrumbs || {})
 
   return (
     <nav className="breadcrumbs f5" aria-label="Breadcrumb">
-      {items.map(([_, breadcrumb]) => {
+      {Object.values(breadcrumbs).map((breadcrumb) => {
         const title = `${breadcrumb.documentType}: ${breadcrumb.title}`
         return !breadcrumb.href ? (
           <span key={title} title={title}>

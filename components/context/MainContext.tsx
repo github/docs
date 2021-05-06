@@ -26,7 +26,7 @@ type EnterpriseServerReleases = {
   nextDeprecationDate: string
 }
 export type MainContextT = {
-  breadcrumbs?: Record<string, BreadcrumbT>
+  breadcrumbs: Record<string, BreadcrumbT>
   builtAssets: { main: { css: string; js: string } }
   expose: string
   activeProducts: Array<ProductT>
@@ -43,7 +43,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
     builtAssets: req.context.builtAssets,
     expose: req.context.expose,
-    breadcrumbs: req.context.breadcrumbs,
+    breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct],
     currentLayoutName: req.context.currentLayoutName,
