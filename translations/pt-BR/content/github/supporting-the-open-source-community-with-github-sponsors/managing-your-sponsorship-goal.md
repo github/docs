@@ -13,6 +13,12 @@ Você pode definir uma meta de financiamento para a sua conta patrocinada e comp
 
 Sua meta pode definir um objetivo para o número de patrocinadores que você deseja ter ou a quantidade de dinheiro que você quer ganhar a cada mês. Você só pode definir em uma meta de cada vez. Depois de atingir uma meta, você pode definir outra meta.
 
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
 ### Definir uma meta
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

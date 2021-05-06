@@ -1,6 +1,6 @@
 ---
 title: Patrocinando um colaborador de código aberto
-intro: 'Você pode fazer um pagamento recorrente mensal a um desenvolvedor ou uma organização que projeta, cria ou mantém projetos de código aberto dos quais você depende.'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -24,11 +24,11 @@ Você pode patrocinar uma conta em nome de sua conta de usuário para investir e
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
 - Agradecer aos desenvolvedores de código aberto para a criação de bibliotecas que complementam os produtos que a sua organização oferece
 
-Você pode usar um cartão de crédito para patrocinar uma conta em {% data variables.product.product_name %}. Se sua organização desejar pagar por fatura, [entre em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. Se sua organização desejar pagar por fatura, [entre em contato conosco](https://support.github.com/contact/org-sponsors-waitlist).
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
-Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -53,6 +53,7 @@ Antes de poder patrocinar uma conta, você deve ter um endereço de e-mail verif
    - Para patrocinar um desenvolvedor, sob o nome do desenvolvedor, clique em **Patrocinador**. ![Botão Sponsor (Patrocinar)](/assets/images/help/profile/sponsor-button.png)
    - Para patrocinar uma organização clique em **Patrocinador** à direita do nome da organização. ![Botão Sponsor (Patrocinar)](/assets/images/help/sponsors/sponsor-org-button.png)
 1. Opcionalmente, no lado direito da página, para patrocinar a conta em nome da sua organização, use o menu suspenso **Patrocinar como** e clique na organização. ![Menu suspenso para escolher a conta que você irá patrocinar como](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

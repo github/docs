@@ -3,7 +3,7 @@ title: Alertas de varredura de código de triagem em pull requests
 shortTitle: Alertas de triagem em pull requests
 intro: 'Quando {% data variables.product.prodname_code_scanning %} identifica um problema em um pull request, você poderá revisar o código destacado e resolver o alerta.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Se você tiver permissão de leitura em um repositório, você poderá ver anotações em pull requests. Com permissão de gravação, você poderá ver informações detalhadas e resolver alertas de {% data variables.product.prodname_code_scanning %} para esse repositório.'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -28,7 +28,7 @@ Se {% data variables.product.prodname_code_scanning %} tiver algum resultado com
 
 Há muitas opções para configurar {% data variables.product.prodname_code_scanning %} como uma verificação de pull request. Portanto, a configuração exata de cada repositório irá variar e alguns terão mais de uma verificação. A verificação que contém os resultados de {% data variables.product.prodname_code_scanning %} é: **Resultados da varredura de código**.
 
-Se o repositório usar a {% data variables.product.prodname_codeql_workflow %} uma **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)**, executa-se a verificação para cada linguagem antes que a verificação de resultados seja executada. A verificação de análise pode falhar se houver problemas de configuração ou se o pull request altera a criação para uma linguagem que a análise precisa para compilar (por exemplo, C/C++, C#, ou Java). Assim como com outras verificações de pull request, você poderá ver informações completas da falha de verificação na aba de **Verificações**. For more information about configuring and troubleshooting, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" or "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/code-security/secure-coding/troubleshooting-the-codeql-workflow)."
+Se o repositório usar a {% data variables.product.prodname_codeql_workflow %} uma **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)**, executa-se a verificação para cada linguagem antes que a verificação de resultados seja executada. A verificação de análise pode falhar se houver problemas de configuração ou se o pull request altera a criação para uma linguagem que a análise precisa para compilar (por exemplo, C/C++, C#, ou Java). Assim como com outras verificações de pull request, você poderá ver informações completas da falha de verificação na aba de **Verificações**. Para obter mais informações sobre configuração e solução de problemas, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" ou "[Solução de problemas do fluxo de trabalho de {% data variables.product.prodname_codeql %}](/code-security/secure-coding/troubleshooting-the-codeql-workflow)".
 
 ### Triar de um alerta no seu pull request
 

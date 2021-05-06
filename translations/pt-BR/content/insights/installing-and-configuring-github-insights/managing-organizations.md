@@ -4,7 +4,7 @@ intro: 'Você pode gerenciar as organizações de {% data variables.product.prod
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
-permissions: 'As pessoas com permissões de administrador no {% data variables.product.prodname_insights %} podem gerenciar organizações.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
   enterprise-server: '*'
 ---

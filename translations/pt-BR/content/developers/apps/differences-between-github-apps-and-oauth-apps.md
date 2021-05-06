@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - aplicativos github
-  - aplicativos oauth
+  - GitHub Apps
+  - OAuth Apps
 ---
 
 ### Quem pode instalar aplicativos GitHub e autorizar aplicativos OAuth?

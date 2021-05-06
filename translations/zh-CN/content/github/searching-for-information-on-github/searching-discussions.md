@@ -4,7 +4,7 @@ intro: '您可以在 {% data variables.product.product_name %} 上搜索讨论�
 versions:
   free-pro-team: '*'
 topics:
-  - github 搜索
+  - GitHub search
 ---
 
 {% data reusables.discussions.beta %}

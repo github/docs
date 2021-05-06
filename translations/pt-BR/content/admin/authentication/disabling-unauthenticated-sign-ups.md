@@ -8,7 +8,7 @@ intro: 'Se você estiver usando a autenticação integrada, será possível impe
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

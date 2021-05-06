@@ -184,8 +184,10 @@ featuredLinks:
 
 ### `changelog`
 
-- Purpose: Render a list of changelog items with timestamps on product pages (ex: `layouts/product-landing.html`)
-- Type: `Array`, items are objects `{ href: string, title: string, date: 'YYYY-MM-DD' }`
+- Purpose: Render a list of items pulled from [GitHub Changelog](https://github.blog/changelog/) on product landing pages (ex: `layouts/product-landing.html`). The one exception is Education, which pulls from https://github.blog/category/community/education.
+- Type: `Object`, properties:
+  - `label` -- must be present and corresponds to the labels used in the [GitHub Changelog](https://github.blog/changelog/)
+  - `prefix` -- optional string that starts each changelog title that should be omitted in the docs feed. For example, with the prefix `GitHub Actions: ` specified, changelog titles like `GitHub Actions: Some Title Here` will render as `Some Title Here` in the docs feed).
 - Optional.
 
 ### `defaultPlatform`
@@ -205,7 +207,7 @@ defaultPlatform: linux
 - type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
 - Optional
 
-**Note: the first learning track is by-default the featured track.*
+**Note: the featured track is set by a specific property in the learning tracks YAML. See that [README](../data/learning-tracks/README.md) for details.*
 
 ### `includeGuides`
 - Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-sublanding`.
@@ -223,7 +225,7 @@ includeGuides:
 ```
 
 ### `type`
-- Purpose: Indicate the type of article. 
+- Purpose: Indicate the type of article.
 - Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
 - Optional.
 

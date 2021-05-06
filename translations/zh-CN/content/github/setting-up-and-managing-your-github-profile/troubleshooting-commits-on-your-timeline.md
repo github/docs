@@ -1,6 +1,6 @@
 ---
 title: 对时间表上的提交进行故障排除
-intro: '您可以从个人资料的时间表查看提交的详细信息。 如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。'
+intro: 您可以从个人资料的时间表查看提交的详细信息。 如果没有在个人资料中看到预期的提交，或者无法从个人资料页面找到提交详细信息，则提交日期和提交创作日期可能不同。
 redirect_from:
   - /articles/troubleshooting-commits-on-your-timeline
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 个人资料
+  - Profiles
 ---
 
 ### 查看提交详细信息的预期行为

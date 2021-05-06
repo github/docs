@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - aplicativos github
+  - GitHub Apps
 ---
 
 ### Suspender um aplicativo GitHub

@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 我们提供的这个私人信息删除是一项特殊服务，仅针对违反 [GitHub 服务条款](/github/site-policy/github-acceptable-use-policies#3-conduct-restrictions)的高风险内容，例如当您的安全面临暴露访问凭据的风险时。 本指南说明了 GitHub 需要您提供哪些信息，才能处理从仓库中删除私人信息的请求。

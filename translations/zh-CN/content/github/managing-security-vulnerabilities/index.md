@@ -1,9 +1,9 @@
 ---
 title: 管理安全漏洞
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - 安全
+  - Security
 ---
 
 

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. {% data variables.product.prodname_secret_scanning_caps %} acontece por padrão em repositórios públicos e pode ser habilitado em repositórios privados por administradores de repositório ou proprietários da organização. Como provedor de serviço, você pode fazer parcerias com {% data variables.product.prodname_dotcom %} para que seus formatos de segredo estejam incluídos em nosso {% data variables.product.prodname_secret_scanning %}.
@@ -16,12 +16,6 @@ O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios 
 Quando uma correspondência do seu formato secreto é encontrada em um repositório público, uma carga é enviada para um ponto de extremidade HTTP de sua escolha.
 
 Quando uma correspondência do formato do segredo é encontrada em um repositório privado configurado para {% data variables.product.prodname_secret_scanning %}, os administradores do repositório são alertados e podem visualizar e gerenciar os resultados {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
-
-{% note %}
-
-**Observação:** {% data variables.product.prodname_secret_scanning_caps %} para repositórios privados está atualmente em beta.
-
-{% endnote %}
 
 Este artigo descreve como fazer parceria com {% data variables.product.prodname_dotcom %} como um provedor de serviço e participa do programa de {% data variables.product.prodname_secret_scanning %}.
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 您可以取消对帐户订阅的待定更改，以及对其他付费功能和产品订阅的待定更改。

@@ -128,12 +128,12 @@ sections:
     - ユーザが、すべてのチェックボックスをチェックすることなく必須のメッセージを閉じることができます。
     - '[pre-receiveフックスクリプト](/admin/policies/enforcing-policy-with-pre-receive-hooks)は一時ファイルを書くことができず、そのためにスクリプトの実行が失敗することがあります。pre-receiveフックを使うユーザは、ステージング環境でスクリプトが書き込みアクセス権を必要とするかを確認するためのテストをするべきです。'
     - リポジトリの[デプロイキー](/developers/overview/managing-deploy-keys)が、LFSオブジェクトを含むリポジトリで使用できません。
-    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - ノートブックに非ASCIIのUTF-8文字が含まれている場合、Web UI中でのJupyter Notebookのレンダリングが失敗することがあります。
     - Web UIでのreStructuredText (RST) のレンダリングが失敗し、代わりにRSTのマークアップテキストがそのまま表示されることがあります。
     - 依存関係グラフがPythonの`setup.py`マニフェストファイルのパースに失敗し、HTTP 500エラーがログに残されます。これが重複されるロギングの問題と組み合わさると、ルートボリュームの使用率が増大します。
     - レース条件によって依存関係グラフデータベースの移行が失敗したように見えることがあります。
     - 以前のGitHub Enterprise Serverのリリースからアップグレードされた、カスタムのタイムゾーンを持つインスタンスは、Web UIに不正確なタイムスタンプがあることがあります。
-    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - Pagesの古いビルドがクリーンアップされず、ユーザディスク(`/data/user/`)を使い切ってしまうことがあります。
   deprecations:
     - 
       heading: GitHub Enterprise Server 2.19の非推奨化

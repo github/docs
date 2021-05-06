@@ -6,11 +6,10 @@ redirect_from:
   - /github/administering-a-repository/about-github-dependabot
   - /github/administering-a-repository/about-github-dependabot-version-updates
   - /github/administering-a-repository/about-dependabot-version-updates
-
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About {% data variables.product.prodname_dependabot_version_updates %}

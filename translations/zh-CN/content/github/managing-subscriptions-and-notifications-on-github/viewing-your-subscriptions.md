@@ -1,6 +1,6 @@
 ---
 title: 查看订阅
-intro: '为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。'
+intro: 为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。
 redirect_from:
   - /articles/subscribing-to-conversations/
   - /articles/unsubscribing-from-conversations/
@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - 通知
+  - Notifications
 ---
 
 接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
@@ -38,7 +38,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**提示：**您可以在[关注页面](https://github.com/watching)或 {% data variables.product.prodname_dotcom_the_website %} 上的任何仓库页面，使用 **Watch/Unwatch（关注/取消关注）**下拉列表中的 **Custom（自定义）**选项选择要通知的事件类型。 更多信息请参阅下面的“[配置单个仓库的关注设置](#configuring-your-watch-settings-for-an-individual-repository)”。
+**提示：**您可以在[关注页面](https://github.com/watching)或 {% data variables.product.prodname_dotcom_the_website %} 上的任何仓库页面，使用 **Watch/Unwatch（关注/取消关注）**下拉列表中的 **Custom（自定义）**选项选择要通知的事件类型。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 
 {% endtip %}
 {% endif %}

@@ -1,18 +1,16 @@
 ---
 title: 启用和禁用版本更新
 intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
-permissions: '拥有仓库写入权限的用户可以启用或禁用仓库的 {% data variables.product.prodname_dependabot_version_updates %}。'
+permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
-
-{% data reusables.dependabot.beta-note-no-link %}
 
 ### 关于依赖项的版本更新
 
@@ -117,7 +115,7 @@ updates:
       interval: "daily"
     # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # Ignore updates to packages that start 'aws'
+      # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
       # Ignore some updates to the 'express' package
