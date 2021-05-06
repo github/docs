@@ -16,7 +16,7 @@ This guide shows you how to set up your Python project in {% data variables.prod
 
 #### Prerequisites 
 
-- You should have an existing Python project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-docs-hello-world.
+- You should have an existing Python project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/2percentsilk/python-quickstart.
 - You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
 
 ### Step 1: Open your project in a codespace
@@ -38,7 +38,7 @@ The next section shows you how to modify your tools by adding a dev container.
 
 ### Step 2: Add a dev container to your codespace from a template  
 
-The default codespaces container will support running Python projects like [python-docs-hello-world](https://github.com/2percentsilk/python-docs-hello-world) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
+The default codespaces container comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we encourage you to set up a custom container so you can tailor the tools and scripts that run as part of codespace creation to your project's needs and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
 To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see [Configuring your codespace](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project). 
 
@@ -46,13 +46,13 @@ This example guides you through adding a `devcontainer.json` file from a templat
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Python 3**. In practice, you could select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
+2. For this example, click **Python 3**. In practice, you could select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
-4. Click the recommended version of Python.
+3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
-5. Accept the default option to add Node.js to your customization.
+4. Accept the default option to add Node.js to your customization.
   ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
-6. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
+5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
   ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 #### Anatomy of your dev container
@@ -158,20 +158,25 @@ You can use the Dockerfile to add additional container layers to specify OS pack
 
 With your dev container added and a basic understanding of what everything does, you can now make changes to configure it for your environment. In this example, you'll add properties to install npm when your codespace launches and make a list of ports inside the container available locally.
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to expand the `.devcontainer` folder to see it. 
+1. In the Explorer, expand the `.devcontainer` folder and select the `devcontainer.json` file from the tree to open it. 
 
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
 
 2. Update your `devcontainer.json` file after `extensions` to include the following:
 
-  ```json{:copy}
-  "forwardPorts": [5000],
+  ```json{:copy} 
+  "portsAttributes": {
+		"5000": {
+			"onAutoForward": "openBrowser"
+		},
+
   "postCreateCommand": "pip3 install --user -r requirements.txt",
   ```
+  The `portsAttributes` addition forwards port 5000 and automatically opens a browser tab to the forwarded port when you start the application while the `postCreateCommand` will ensure your requirements are installed as part of the codespace setup process.
 
   For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
 
-3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
+1. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
 
   ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
 
@@ -182,11 +187,9 @@ With your dev container added and a basic understanding of what everything does,
 
 In the previous section, you used the `postCreateCommand` to installing a set of packages via pip3. With our dependencies now installed, we can run our application.
 
-1. Run your start command in the terminal with `python -m flask run`.
+1. Run your start command by pressing `F5`.
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses. 
-
-  ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+2. When your project starts, you should see a new tab open and connect to the port your project uses. 
 
 ### Step 5: Commit your changes
 
