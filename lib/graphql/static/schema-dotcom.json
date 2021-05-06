@@ -5658,7 +5658,7 @@
       "kind": "mutations",
       "id": "updatenotificationrestrictionsetting",
       "href": "/graphql/reference/mutations#updatenotificationrestrictionsetting",
-      "description": "<p>Update the setting to restrict notifications to only verified domains available to an owner.</p>",
+      "description": "<p>Update the setting to restrict notifications to only verified or approved domains available to an owner.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -16057,7 +16057,7 @@
         },
         {
           "name": "notificationDeliveryRestrictionEnabledSetting",
-          "description": "<p>Indicates if email notification delivery for this enterprise is restricted to verified domains.</p>",
+          "description": "<p>Indicates if email notification delivery for this enterprise is restricted to verified or approved domains.</p>",
           "type": "NotificationRestrictionSettingValue!",
           "id": "notificationrestrictionsettingvalue",
           "kind": "enums",
@@ -30025,7 +30025,7 @@
         },
         {
           "name": "notificationDeliveryRestrictionEnabledSetting",
-          "description": "<p>Indicates if email notification delivery for this organization is restricted to verified domains.</p>",
+          "description": "<p>Indicates if email notification delivery for this organization is restricted to verified or approved domains.</p>",
           "type": "NotificationRestrictionSettingValue!",
           "id": "notificationrestrictionsettingvalue",
           "kind": "enums",
@@ -56088,7 +56088,7 @@
       "kind": "objects",
       "id": "verifiabledomain",
       "href": "/graphql/reference/objects#verifiabledomain",
-      "description": "<p>A domain that can be verified for an organization or an enterprise.</p>",
+      "description": "<p>A domain that can be verified or approved for an organization or an enterprise.</p>",
       "implements": [
         {
           "name": "Node",
