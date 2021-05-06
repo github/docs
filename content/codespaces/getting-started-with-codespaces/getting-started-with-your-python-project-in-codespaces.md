@@ -46,7 +46,7 @@ This example guides you through adding a `devcontainer.json` file from a templat
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-2. For this example, click **Python 3**. In practice, you could select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
+3. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
