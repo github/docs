@@ -7,6 +7,12 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 In this article:
 
 - [Contributing](#contributing)
+  - [Start contributing right now:](#start-contributing-right-now)
+    - [Click **make a contribution** from docs](#click-make-a-contribution-from-docs)
+    - [Open an issue](#open-an-issue)
+    - [Solve an issue](#solve-an-issue)
+    - [Join us in discussions](#join-us-in-discussions)
+    - [And that's it!](#and-thats-it)
 - [READMEs](#readmes)
 - [License](#license)
 
@@ -73,3 +79,6 @@ The GitHub product documentation in the assets, content, and data folders are li
 All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+<!-- Just a comment to test source control - REMOVE THIS -->
+
