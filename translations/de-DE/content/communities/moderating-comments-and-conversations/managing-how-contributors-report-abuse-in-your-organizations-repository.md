@@ -1,12 +1,12 @@
 ---
-title: Verwalten, wie Mitwirkende Missbrauch im Repository Deiner Organisation melden
-intro: Du kannst Mitwirkenden erlauben, störendes Verhalten direkt an die Repository-Betreuer zu melden.
+title: 'Verwalten, wie Mitwirkende Missbrauch im Repository Deiner Organisation melden'
+intro: 'Du kannst Mitwirkenden erlauben, störendes Verhalten direkt an die Repository-Betreuer zu melden.'
 versions:
   free-pro-team: '*'
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
-  - community
+  - Community
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können verwalten, wie Mitwirkende Missbrauch im Repository melden.

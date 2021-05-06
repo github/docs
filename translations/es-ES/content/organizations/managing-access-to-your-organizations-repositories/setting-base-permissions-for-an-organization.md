@@ -1,7 +1,7 @@
 ---
 title: Configurar los permisos base para una organización
 intro: Puedes configurar permisos base para los repositorios que pertenezcan a una organización.
-permissions: Los dueños de la organización pueden configurar permisos base para la misma.
+permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de los permisos base para una organización

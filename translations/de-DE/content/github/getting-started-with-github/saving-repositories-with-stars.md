@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Du kannst Deine mit Stern versehene Repositorys und Themen auf Deiner {% data variables.explore.your_stars_page %} durchsuchen, sortieren und filtern.

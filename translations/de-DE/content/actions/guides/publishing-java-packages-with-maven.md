@@ -1,6 +1,6 @@
 ---
 title: Java-Pakete mit Maven veröffentlichen
-intro: Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.
+intro: 'Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Pakete erstellen'
-  - 'Publishing'
-  - 'Java'
-  - 'Maven'
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}

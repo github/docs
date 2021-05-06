@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
-permissions: リポジトリへの管理者権限を持つユーザは、そのリポジトリでのインタラクションを一時的に制限できます。
+permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
-  - コミュニティ
+  - Community
 ---
 
 ### 一時的なインタラクションの制限について

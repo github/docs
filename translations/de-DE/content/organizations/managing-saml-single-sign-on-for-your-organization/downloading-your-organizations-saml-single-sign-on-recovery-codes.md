@@ -9,8 +9,8 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wiederherstellungscode sollten nicht öffentlich gemacht und nicht weitergegeben werden. Wir empfehlen, sie mit einem Passwort-Manager wie [LastPass](https://lastpass.com/), [1Password](https://1password.com/) oder [Keeper](https://keepersecurity.com/) zu speichern.

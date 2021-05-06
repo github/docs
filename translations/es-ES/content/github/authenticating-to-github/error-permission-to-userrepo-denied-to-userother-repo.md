@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Para resolverlo, elimina la llave de implementación del repositorio y [agrega la clave a tu cuenta](/articles/adding-a-new-ssh-key-to-your-github-account) en lugar de esa llave.

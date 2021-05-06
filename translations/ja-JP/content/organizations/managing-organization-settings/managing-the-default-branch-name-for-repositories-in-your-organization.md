@@ -1,16 +1,16 @@
 ---
 title: Organization のリポジトリのデフォルブランチ名を管理する
-intro: 'Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。'
+intro: Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
-permissions: リポジトリのデフォルトブランチ名を管理する
+permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### デフォルトブランチ名について

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Codeinhabern
-intro: Du kannst eine CODEOWNERS-Datei verwenden, um Personen oder Teams zu definieren, die für den Code in einem Repository verantwortlich sind.
+intro: 'Du kannst eine CODEOWNERS-Datei verwenden, um Personen oder Teams zu definieren, die für den Code in einem Repository verantwortlich sind.'
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Personen mit Administrator- oder Inhaberberechtigungen können eine CODEOWNERS-Datei in einem Repository einrichten.
