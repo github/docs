@@ -9,7 +9,9 @@
     {% render code-example-card for productCodeExamples as example %}
   </div>
 
-  <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">{% data ui.product_landing.show_more %} {% octicon "arrow-right" %}</button>
+  {% if productCodeExamples.length > 6 %}
+    <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">{% data ui.product_landing.show_more %} {% octicon "arrow-right" %}</button>
+  {% endif %}
 
   <div class="js-filter-card-no-results d-none py-4 text-center color-text-secondary font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>

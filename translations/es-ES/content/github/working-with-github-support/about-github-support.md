@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Trabajos
+  - Jobs
 ---
 
 ### Acerca de {% data variables.contact.github_support %}

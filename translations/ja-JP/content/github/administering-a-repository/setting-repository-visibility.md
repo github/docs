@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### リポジトリの可視性の変更について

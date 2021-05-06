@@ -9,7 +9,7 @@ shortTitle: Mejores prácticas de seguridad
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 El seguir estas mejores prácticas te ayudará a proporcionar una experiencia de usuario segura.

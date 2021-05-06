@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acceder al registro de auditoría

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 リポジトリへの読み取りアクセスがあるユーザなら誰でも、プルリクエストの特定のファイル内の機能とメソッドの変更の概要リストを確認できます。

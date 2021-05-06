@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 ### 許可された {% data variables.product.prodname_oauth_app %} をレビューする

@@ -10,7 +10,7 @@ redirect_from:
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
-  - comunidad
+  - Community
 ---
 
 Para ayudar a los colaboradores de tu proyecto a realizar un buen trabajo, puedes agregar un archivo con las pautas de colaboración a la raíz del repositorio de tu proyecto, carpeta `docs`, o `.github`. Cuando alguien abre una solicitud de extracción o crea una propuesta, verán un enlace a ese archivo.

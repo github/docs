@@ -1,6 +1,6 @@
 ---
 title: Organization 内のユーザが 2 要素認証を有効にしているかどうかを表示する
-intro: 'どの Organization のオーナー、メンバー、および 外部コラボレーターが 2 要素認証を有効にしているかを確認できます。'
+intro: どの Organization のオーナー、メンバー、および 外部コラボレーターが 2 要素認証を有効にしているかを確認できます。
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}

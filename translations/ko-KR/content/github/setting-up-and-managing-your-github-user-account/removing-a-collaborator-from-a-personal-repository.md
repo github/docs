@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Deleting forks of private repositories

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes filtrar la lista de solicitudes de extracción de un repositorio para buscar:

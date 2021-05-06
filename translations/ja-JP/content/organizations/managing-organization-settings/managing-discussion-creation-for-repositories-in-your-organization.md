@@ -3,12 +3,12 @@ title: Organization 内のリポジトリのディスカッション作成を管
 intro: Organization が所有するリポジトリで、メンバーがディスカッションを作成するために必要な権限レベルを選択できます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
-permissions: Organization のオーナーは、Organization が所有するリポジトリのディスカッションの作成を管理できます。
+permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}

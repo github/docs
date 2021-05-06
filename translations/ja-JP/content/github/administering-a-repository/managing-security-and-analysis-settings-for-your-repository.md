@@ -1,7 +1,7 @@
 ---
 title: リポジトリのセキュリティと分析設定を管理する
 intro: '{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードをセキュリティ保護し分析する機能を管理できます。'
-permissions: リポジトリの管理者権限を持つユーザは、リポジトリのセキュリティと分析設定を管理できます。
+permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

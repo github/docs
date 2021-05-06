@@ -1,6 +1,6 @@
 ---
 title: Teamzugriff auf ein Projektboard einer Organisation verwalten
-intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du einem Team Zugriff auf ein Projektboard Deiner Organisation gewähren.'
+intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du einem Team Zugriff auf ein Projektboard Deiner Organisation gewähren.
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% warning %}

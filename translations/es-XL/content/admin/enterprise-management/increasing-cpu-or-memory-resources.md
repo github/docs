@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}

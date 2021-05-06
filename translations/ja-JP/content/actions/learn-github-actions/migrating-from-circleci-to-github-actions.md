@@ -10,7 +10,7 @@ versions:
 type: tutorial
 topics:
   - CircleCI
-  - 移行
+  - Migration
   - CI
   - CD
 ---

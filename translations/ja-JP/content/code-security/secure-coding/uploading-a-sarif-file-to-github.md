@@ -2,7 +2,7 @@
 title: SARIF ファイルを GitHub にアップロードする
 shortTitle: SARIF ファイルをアップロードする
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'リポジトリへの書き込み権限を持つユーザは、サードパーティツールから {% data variables.product.prodname_code_scanning %} データをアップロードできます。'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

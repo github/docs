@@ -7,8 +7,9 @@ const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
 const RedisAccessor = require('../lib/redis-accessor')
 const { isConnectionDropped } = require('./halt-on-dropped-connection')
+const { nextHandleRequest } = require('./next')
 
-const { HEROKU_RELEASE_VERSION } = process.env
+const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
 const pageCacheDatabaseNumber = 1
 const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
 
@@ -24,6 +25,12 @@ const pageCache = new RedisAccessor({
 
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
+
+const renderWithNext = FEATURE_NEXTJS
+  ? [
+      '/en/rest'
+    ]
+  : []
 
 function addCsrf (req, text) {
   return text.replace('$CSRFTOKEN$', req.csrfToken())
@@ -65,7 +72,10 @@ module.exports = async function renderPage (req, res, next) {
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  if (isCacheable && !isRequestingJsonForDebugging) {
+  // Should the current path be rendered by NextJS?
+  const isNextJsRequest = renderWithNext.includes(req.path)
+
+  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -136,15 +146,19 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  // currentLayout is added to the context object in middleware/contextualizers/layouts
-  const output = await liquid.parseAndRender(req.context.currentLayout, context)
+  if (FEATURE_NEXTJS && isNextJsRequest) {
+    nextHandleRequest(req, res)
+  } else {
+    // currentLayout is added to the context object in middleware/contextualizers/layouts
+    const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
-  // First, send the response so the user isn't waiting
-  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(addCsrf(req, output))
+    // First, send the response so the user isn't waiting
+    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+    res.send(addCsrf(req, output))
 
-  // Finally, save output to cache for the next time around
-  if (isCacheable) {
-    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+    // Finally, save output to cache for the next time around
+    if (isCacheable) {
+      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+    }
   }
 }

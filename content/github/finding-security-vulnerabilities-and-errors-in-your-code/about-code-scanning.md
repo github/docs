@@ -33,7 +33,7 @@ You can use {% data variables.product.prodname_code_scanning %} with {% data var
 
 {% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 

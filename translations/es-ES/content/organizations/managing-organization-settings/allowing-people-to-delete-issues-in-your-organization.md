@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Por defecto, las propuestas no pueden eliminarse en los repositorios de una organización. El propietario de la organización debe habilitar esta característica para todos los repositorios de la organización en primer lugar.

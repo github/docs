@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `PullRequestTemplate` was added",
+          "Field `pullRequestTemplates` was added to object type `Repository`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2021-05-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `ConvertPullRequestToDraftInput` was added",
           "Type `ConvertPullRequestToDraftPayload` was added",
           "Field `convertPullRequestToDraft` was added to object type `Mutation`"

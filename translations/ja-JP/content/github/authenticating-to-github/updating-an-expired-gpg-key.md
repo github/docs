@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 キーが期限切れの場合、[期限を更新し](https://www.gnupg.org/gph/en/manual/c235.html#AEN328)、新しいキーをエクスポートし、GitHub アカウントから期限切れのキーを削除し、[Github に新しいキーをアップロードする](/articles/adding-a-new-gpg-key-to-your-github-account/)必要があります。 キーが他のすべての検証の要件を満たしている限り、過去のコミットとタグは、検証済みとして表示されます。

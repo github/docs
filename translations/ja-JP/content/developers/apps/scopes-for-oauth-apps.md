@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 OAuth AppをGitHub上でセットアップする際には、要求されたスコープが認可フォーム上でユーザに表示されます。

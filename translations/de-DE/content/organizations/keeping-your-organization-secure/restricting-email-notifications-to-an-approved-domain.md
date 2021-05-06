@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About email restrictions

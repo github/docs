@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Eine Richtlinie für Teamdiskussionen erzwingen

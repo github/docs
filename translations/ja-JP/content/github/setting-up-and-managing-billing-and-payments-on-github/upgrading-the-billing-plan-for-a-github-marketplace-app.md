@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 アプリケーションをアップグレードすると、支払い方法により、次の請求日までの残り時間に基づいて比例配分額を請求されます。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

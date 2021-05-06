@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /about-identity-and-access-management-with-saml-single-sign-on %}

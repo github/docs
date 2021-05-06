@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Zugriff auf das Auditprotokoll

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub upholds our commitment to ethical business practices, including by prohibiting bribery and corruption. As [Transparency International](https://www.transparency.org/what-is-corruption#costs-of-corruption) explains, the costs of corruption are

@@ -8,6 +8,8 @@ redirect_from:
 intro: 'Una vez que se ha creado un equipo, los administradores de la organización pueden agregar usuarios desde {% data variables.product.product_location_enterprise %} al equipo y determinar a qué repositorios tienen acceso.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Cada equipo tiene sus propios premisos de acceso definidos de manera individual [ para repositorios que le pertenecen a tu organización](/articles/permission-levels-for-an-organization).

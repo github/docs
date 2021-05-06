@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Prerrequisitos

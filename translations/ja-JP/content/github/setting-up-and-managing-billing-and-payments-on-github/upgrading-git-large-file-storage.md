@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 ### 個人アカウント用に追加のストレージと帯域幅を購入する
