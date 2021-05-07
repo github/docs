@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 Wenn eine {% data variables.product.prodname_oauth_app %} Sie anhand Ihres {% data variables.product.product_name %}-Kontos identifizieren möchte, wird eine Seite mit den Kontaktdaten des Anwendungsentwicklers und einer Liste der Daten angezeigt, die angefordert werden.

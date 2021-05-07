@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Issues oder Pull Requests kannst Du zu Deinem Projektboard hinzufügen, indem Du:

@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
-  - comunidade
+  - Community
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode gerenciar como os colaboradores relatam abuso no repositório.

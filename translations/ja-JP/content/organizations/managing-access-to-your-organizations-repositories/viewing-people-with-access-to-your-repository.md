@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 管理者はこの情報を使用して、社外の人の支援、コンプライアンスのためのデータ収集、およびその他の一般的なセキュリティチェックを行うことができます。

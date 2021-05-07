@@ -1,6 +1,6 @@
 ---
 title: 关于您的个人资料
-intro: '您的个人资料向人们讲述您操作感兴趣的仓库的故事、您所做的贡献以及您进行过的对话。'
+intro: 您的个人资料向人们讲述您操作感兴趣的仓库的故事、您所做的贡献以及您进行过的对话。
 redirect_from:
   - /articles/viewing-your-feeds/
   - /articles/profile-pages/
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 个人资料
+  - Profiles
 ---
 
 您可以在传记中加入您的个人信息，比如您以前工作的地方、您参与过的项目，或者其他人可能想知道的个人兴趣。 更多信息请参阅“[添加传记到个人资料](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)”。

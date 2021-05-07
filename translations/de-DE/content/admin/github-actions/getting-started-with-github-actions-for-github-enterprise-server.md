@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

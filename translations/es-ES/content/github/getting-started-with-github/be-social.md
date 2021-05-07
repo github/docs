@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfil
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".

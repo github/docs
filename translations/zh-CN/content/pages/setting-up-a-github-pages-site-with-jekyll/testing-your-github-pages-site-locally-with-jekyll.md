@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 任何拥有仓库读取权限的人都可以在本地测试 {% data variables.product.prodname_pages %} 站点。

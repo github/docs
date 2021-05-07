@@ -5,7 +5,7 @@ intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt 
 versions:
   enterprise-server: '>=2.21 <=2.22'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 ### 脆弱性のある依存関係の通知について

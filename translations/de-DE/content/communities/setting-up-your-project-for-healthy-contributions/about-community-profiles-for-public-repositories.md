@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Community-Profilen für öffentliche Repositorys
-intro: Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.
+intro: 'Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.'
 redirect_from:
   - /articles/viewing-your-community-profile/
   - /articles/about-community-profiles-for-public-repositories
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Die Checkliste für Community-Profile prüft, ob ein Projekt empfohlene Community-Unterstützungsdateien, wie README, CODE_OF_CONDUCT, LICENSE oder CONTRIBUTING, an einem unterstützten Speicherort enthält. Weitere Informationen findest Du unter „[Auf das Community-Profil eines Projekts zugreifen](/articles/accessing-a-project-s-community-profile).“

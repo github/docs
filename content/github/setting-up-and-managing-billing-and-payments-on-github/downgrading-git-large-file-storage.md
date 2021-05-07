@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 
 When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
@@ -25,7 +25,7 @@ When you downgrade your number of data packs, your change takes effect on your n
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}

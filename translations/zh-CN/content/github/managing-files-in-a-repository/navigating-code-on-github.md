@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于在 {% data variables.product.prodname_dotcom %} 上导航代码

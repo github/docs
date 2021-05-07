@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 

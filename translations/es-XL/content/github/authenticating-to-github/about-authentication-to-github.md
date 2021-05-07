@@ -4,6 +4,10 @@ intro: 'Puedes acceder de manera segura a los recursos de tu cuenta si te atuten
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 ### Acerca de la autenticación en {% data variables.product.prodname_dotcom %}

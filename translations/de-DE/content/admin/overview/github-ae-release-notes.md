@@ -1,6 +1,6 @@
 ---
 title: GitHub AE release notes
-intro: March 1, 2021
+intro: 'March 1, 2021'
 versions:
   github-ae: '*'
 ---

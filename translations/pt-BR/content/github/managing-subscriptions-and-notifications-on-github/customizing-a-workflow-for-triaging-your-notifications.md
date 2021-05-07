@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notificações
+  - Notifications
 ---
 
 ### Iniciando sua triagem de caixa de entrada

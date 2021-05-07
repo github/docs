@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 1. Erstelle ein **privates** Repository, um den Quellcode von Deinem Projekt zu verwalten.

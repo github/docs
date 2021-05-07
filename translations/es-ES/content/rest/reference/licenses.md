@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 La API de licencias devuelve metadatos acerca de las liciencias de código abierto populares y acerca de la información sobre un archivo de licencia específico de un proyecto.

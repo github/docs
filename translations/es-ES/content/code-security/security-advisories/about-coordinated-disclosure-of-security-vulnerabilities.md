@@ -1,6 +1,6 @@
 ---
 title: Acerca de la divulgación coordinada de las vulnerabilidades de seguridad
-intro: 'La divulgación de vulnerabilidaes es un esfuerzo coordinado entre los reporteros de seguridad y los mantenedores de los repositorios.'
+intro: La divulgación de vulnerabilidaes es un esfuerzo coordinado entre los reporteros de seguridad y los mantenedores de los repositorios.
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

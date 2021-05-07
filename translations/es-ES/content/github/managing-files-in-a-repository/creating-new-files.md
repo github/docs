@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cuando crees un archivo en {% data variables.product.product_name %}, ten en cuenta lo siguiente:

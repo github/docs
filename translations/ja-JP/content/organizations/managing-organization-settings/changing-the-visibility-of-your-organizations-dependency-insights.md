@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization のオーナーは、organization dependency insights の表示制限を設定できます。 デフォルトでは、Organization のメンバー全員が Organization dependency insight を表示できます。

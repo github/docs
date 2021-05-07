@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 文章ドキュメントを含むコミットとプルリクエストには、そのドキュメントを*ソース*と*レンダリング済み*のビューで表示する機能があります。

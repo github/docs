@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 
 ### Viewing receipts for your personal account
@@ -24,7 +24,7 @@ topics:
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}

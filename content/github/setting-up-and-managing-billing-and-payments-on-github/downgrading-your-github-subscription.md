@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 
 ### Downgrading your {% data variables.product.product_name %} subscription
@@ -47,7 +47,7 @@ If you downgrade your organization from {% data variables.product.prodname_team 
 If you downgrade your organization from {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}, the account will lose access to advanced security, compliance, and deployment controls. {% data reusables.gated-features.more-info %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want.
   ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png)
@@ -60,7 +60,7 @@ If you downgrade your organization from {% data variables.product.prodname_ghe_c
 {% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[Switching your organization from per-repository to per-user pricing](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)."
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 5. Under "Subscriptions", select the "Edit" drop-down, and click **Edit plan**.
     ![Edit Plan dropdown](/assets/images/help/billing/edit-plan-dropdown.png)
@@ -77,7 +77,7 @@ To reduce the number of paid seats your organization uses, you can remove member
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click **Remove seats**.
   ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)

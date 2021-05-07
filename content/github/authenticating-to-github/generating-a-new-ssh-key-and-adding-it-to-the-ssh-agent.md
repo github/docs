@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 If you don't already have an SSH key, you must [generate a new SSH key](#generating-a-new-ssh-key). If you're unsure whether you already have an SSH key, check for [existing keys](/articles/checking-for-existing-ssh-keys).
@@ -105,6 +105,25 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
      **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
   
      {% endnote %}
+     
+      {% mac %}
+      {% note %}
+
+      **Note:** If you see an error like this
+
+      ```
+      /Users/USER/.ssh/config: line 16: Bad configuration option: usekeychain
+      ```
+
+      add an additional config line to your `Host *` section:
+
+      ```
+      Host *
+        IgnoreUnknown UseKeychain
+      ```
+
+      {% endnote %}
+      {% endmac %}
   
 3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell

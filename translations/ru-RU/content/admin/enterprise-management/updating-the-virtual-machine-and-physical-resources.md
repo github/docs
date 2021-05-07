@@ -10,6 +10,6 @@ mapTopic: true
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 

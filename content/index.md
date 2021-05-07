@@ -25,6 +25,7 @@ children:
   - graphql
   - insights
   - discussions
+  - codespaces
   - sponsors
   - communities
   - pages

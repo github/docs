@@ -7,10 +7,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Sponsors profile'
-  - 'Open Source'
+  - Sponsors profile
+  - Open Source
 ---
 
 ### About sponsor profiles

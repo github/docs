@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: 关于拉取请求审查
-intro: '审查允许协作者评论拉取请求中提议的更改、审批更改或在拉取请求合并之前请求进一步更改。 仓库管理员可要求所有拉取请求在合并之前获得批准。'
+intro: 审查允许协作者评论拉取请求中提议的更改、审批更改或在拉取请求合并之前请求进一步更改。 仓库管理员可要求所有拉取请求在合并之前获得批准。
 redirect_from:
   - /articles/about-pull-request-reviews
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 ### 关于拉取请求审查

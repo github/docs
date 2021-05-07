@@ -14,6 +14,8 @@ redirect_from:
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de las licencias {% data variables.product.prodname_enterprise %}

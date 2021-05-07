@@ -4,7 +4,7 @@ intro: '{% data variables.product.product_name %} 上のディスカッション
 versions:
   free-pro-team: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 {% data reusables.discussions.beta %}

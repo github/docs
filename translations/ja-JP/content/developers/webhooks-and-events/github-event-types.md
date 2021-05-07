@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - events
+  - Events
 ---
 
 
@@ -45,7 +45,7 @@ Events APIエンドポイントから返されるイベントオブジェクト�
 この例は、[Events API](/rest/reference/activity#events)を使用する際の[WatchEvent](#watchevent)のレスポンスの形式を示しています。
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```

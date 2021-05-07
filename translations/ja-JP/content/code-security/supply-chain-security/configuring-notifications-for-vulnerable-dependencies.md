@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 ### 脆弱性のある依存関係の通知について

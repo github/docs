@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 还可以查看单个工作流程运行的计费作业执行分钟数。 更多信息请参阅“[查看作业执行时间](/actions/managing-workflow-runs/viewing-job-execution-time)”。

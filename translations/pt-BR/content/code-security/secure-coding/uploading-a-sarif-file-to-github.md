@@ -2,7 +2,7 @@
 title: Fazer o upload de arquivo SARIF para o GitHub
 shortTitle: Fazer o upload de um arquivo SARIF
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'As pessoas com permissões de gravação em um repositório podem fazer upload de dados {% data variables.product.prodname_code_scanning %} de uma ferramenta de terceiros.'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

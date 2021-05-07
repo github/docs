@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Solo puedes resolver los conflictos de fusión en {% data variables.product.product_name %} que hayan sido provocados por realizar cambios de líneas, como cuando las personas hacen cambios diferentes en la misma línea del mismo archivo en ramas diferentes de tu repositorio de Git. Para todos los demás tipos de conflictos de fusión, debes resolver el conflicto de manera local desde la línea de comando. Para obtener más información, consulta "[Resolver un conflicto de fusión en la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".

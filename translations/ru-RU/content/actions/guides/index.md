@@ -42,7 +42,9 @@ includeGuides:
   - /actions/guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-ant
+  - /actions/guide/building-and-testing-swift
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /actions/guides/building-and-testing-xamarin-applications
   - /actions/guides/publishing-nodejs-packages
   - /actions/guides/publishing-java-packages-with-maven
   - /actions/guides/publishing-java-packages-with-gradle
@@ -70,6 +72,7 @@ includeGuides:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/guides/managing-github-actions-with-github-cli
 ---
 
 <!-- {% link_in_list /about-continuous-integration %} -->

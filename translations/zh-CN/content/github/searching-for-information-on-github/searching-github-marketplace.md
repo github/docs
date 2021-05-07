@@ -4,7 +4,7 @@ intro: '您可以搜索 {% data variables.product.prodname_marketplace %} 上可
 versions:
   free-pro-team: '*'
 topics:
-  - github 搜索
+  - GitHub search
 ---
 
 ### 关于搜索 {% data variables.product.prodname_marketplace %}

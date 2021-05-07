@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
@@ -41,7 +41,7 @@ If your organization is outside of the US or if you're using a corporate checkin
 
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has an existing credit card that you want to update, click **New Card**.

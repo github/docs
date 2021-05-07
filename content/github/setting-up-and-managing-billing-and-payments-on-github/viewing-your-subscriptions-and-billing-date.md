@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 
 ### Finding your personal account's next billing date
@@ -24,7 +24,7 @@ topics:
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 

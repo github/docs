@@ -13,8 +13,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 {% data reusables.user_settings.access_settings %}

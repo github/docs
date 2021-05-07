@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
-  - 通知
+  - Accounts
+  - Notifications
 ---
 
 {% data reusables.user_settings.access_settings %}

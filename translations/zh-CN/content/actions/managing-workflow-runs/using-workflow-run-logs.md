@@ -1,6 +1,6 @@
 ---
 title: 使用工作流程运行日志
-intro: '您可以查看、搜索和下载工作流程运行中每个作业的日志。'
+intro: 您可以查看、搜索和下载工作流程运行中每个作业的日志。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
