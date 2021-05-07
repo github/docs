@@ -26,6 +26,7 @@ module.exports = [
   'Contacting sponsors',
   'Containers',
   'Codespaces',
+  'Discussions',
   'Docker',
   'Events',
   'Fundamentals',
