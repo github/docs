@@ -28,10 +28,6 @@
             </div>
 
             <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {% data ui.release_notes.banner_text %}</p>
-
-            {% if patch.date != latestPatch %}
-            <p class="color-text-secondary mt-1">{% data ui.header.notices.ghae_release_notes_upgrade %}</p>
-            {% endif %}
           </header>
 
           <div class="container-xl px-3">

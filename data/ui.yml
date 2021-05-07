@@ -23,8 +23,6 @@ header:
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.release_notes_use_latest %}
-    # GHAE release notes
-    ghae_release_notes_upgrade: 📣 This is not the <a href="#{{ latestPatch }}">latest release</a> of GitHub AE. {% data ui.header.notices.release_notes_use_latest %}
 release_notes:
   banner_text: These changes will roll out over the next one week.
 search:
