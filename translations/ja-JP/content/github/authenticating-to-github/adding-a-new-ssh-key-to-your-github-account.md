@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 新しい SSH キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:

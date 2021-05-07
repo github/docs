@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:

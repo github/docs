@@ -1,15 +1,15 @@
 ---
 title: Comentar en una propuesta cuando se le agrega una etiqueta
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para comentar automáticamente en las propuestas cuando se les aplica una etiqueta específica.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar automáticamente en las propuestas cuando se les aplica una etiqueta específica.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

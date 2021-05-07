@@ -8,7 +8,7 @@ permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### About internal repositories

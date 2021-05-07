@@ -61,7 +61,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 #### Example delivery
 
 ```shell
-> POST /payload HTTP/1.1
+> POST /payload HTTP/2
 
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 コミュニティプロフィールチェックリストは、README、CODE_OF_CONDUCT、LICENSE、CONTRIBUTING といった推奨されるコミュニティ健全性ファイル群が、サポートされている場所でプロジェクトに含まれているかをチェックします。 詳しい情報については[プロジェクトのコミュニティプロフィールへのアクセス](/articles/accessing-a-project-s-community-profile)を参照してください。

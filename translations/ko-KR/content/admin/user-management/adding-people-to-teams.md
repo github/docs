@@ -9,7 +9,7 @@ intro: 'Once a team has been created, organization admins can add users from {% 
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).

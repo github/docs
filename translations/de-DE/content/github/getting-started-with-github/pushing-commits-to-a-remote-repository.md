@@ -1,6 +1,6 @@
 ---
 title: Commits per Push-Vorgang an ein Remote-Repository übertragen
-intro: Mit „git push“ kannst Du Commits, die auf Deinem lokalen Branch erstellt wurden, an ein Remote-Repository pushen.
+intro: 'Mit „git push“ kannst Du Commits, die auf Deinem lokalen Branch erstellt wurden, an ein Remote-Repository pushen.'
 redirect_from:
   - /articles/pushing-to-a-remote/
   - /articles/pushing-commits-to-a-remote-repository

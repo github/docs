@@ -1,6 +1,6 @@
 ---
 title: プルリクエストでのフィードバックを取り込む
-intro: 'レビュー担当者がプルリクエストの変更を提案する場合、変更をプルリクエストに自動的に組み込むか、Issue をオープンしてスコープ外の提案を追跡できます。'
+intro: レビュー担当者がプルリクエストの変更を提案する場合、変更をプルリクエストに自動的に組み込むか、Issue をオープンしてスコープ外の提案を追跡できます。
 redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### 提案された変更を適用する

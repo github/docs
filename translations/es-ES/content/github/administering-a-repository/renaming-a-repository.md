@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cuando cambias el nombre de un repositorio, toda la información existente, a excepción de las URL del sitio del proyecto, se redirige automáticamente al nuevo nombre, incluyendo:

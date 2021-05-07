@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, los cuales le permiten a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}

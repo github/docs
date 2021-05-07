@@ -4,7 +4,7 @@ intro: 'GitHub hat angekündigt, dass ab dem 14. April 2020 alle GitHub-Kernfunk
 versions:
   free-pro-team: '*'
 topics:
-  - github
+  - GitHub
 ---
 
 ### Welche Pläne und Preisänderungen hat GitHub am 14. April angekündigt?

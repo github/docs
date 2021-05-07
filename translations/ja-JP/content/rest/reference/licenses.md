@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ライセンス API は、広く利用されているオープンソースライセンスに関するメタデータと、特定のプロジェクトのライセンスファイルに関する情報を返します。
