@@ -14,6 +14,7 @@ Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
 Asana | Asana Personal Access Token | asana_personal_access_token
 Atlassian | Atlassian API Token | atlassian_api_token
 Atlassian | Atlassian JSON Web Token | atlassian_jwt
+Atlassian | Bitbucket Server Personal Access Token | bitbucket_server_personal_access_token
 Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
 Azure | Azure SAS Token | azure_sas_token
 Azure | Azure Service Management Certificate | azure_management_certificate
