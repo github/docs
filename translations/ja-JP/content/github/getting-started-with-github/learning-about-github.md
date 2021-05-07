@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アカウント
-  - cli
-  - mobile
-  - desktop
-  - セキュリティ
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 

@@ -5,16 +5,16 @@ intro: Los artefactos te permiten compartir datos entre puestos en un flujo de t
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
+  - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
+  - /actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
   - /actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}

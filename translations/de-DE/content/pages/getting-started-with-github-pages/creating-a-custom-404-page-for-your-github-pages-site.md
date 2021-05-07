@@ -1,6 +1,6 @@
 ---
 title: Eine benutzerdefinierte 404-Seite für Deine GitHub Pages-Website erstellen
-intro: Du kannst eine benutzerdefinierte 404-Fehler-Seite anzeigen lassen, wenn Benutzer versuchen, nicht vorhandene Seiten auf Deiner Website aufzurufen.
+intro: 'Du kannst eine benutzerdefinierte 404-Fehler-Seite anzeigen lassen, wenn Benutzer versuchen, nicht vorhandene Seiten auf Deiner Website aufzurufen.'
 redirect_from:
   - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 {% data reusables.pages.navigate-site-repo %}

@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.create-issue-in-public-repository %}

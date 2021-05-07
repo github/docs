@@ -1,6 +1,6 @@
 ---
 title: Viewing the dependencies of a repository
-intro: 'You can use the dependency graph to explore the code your repository depends on.'
+intro: You can use the dependency graph to explore the code your repository depends on.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'

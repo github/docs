@@ -1,13 +1,13 @@
 ---
 title: Bloquear a un usuario de tu cuenta personal
-intro: 'Puedes bloquear a un usuario para impedirle el acceso a tu actividad y repositorios y para evitar que te envíe notificaciones.'
+intro: Puedes bloquear a un usuario para impedirle el acceso a tu actividad y repositorios y para evitar que te envíe notificaciones.
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Acerca de bloquear usuarios

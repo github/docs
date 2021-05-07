@@ -1,9 +1,9 @@
 ---
 title: セキュリティ脆弱性を管理する
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - セキュリティ
+  - Security
 ---
 
 

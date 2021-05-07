@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 「GitHub Sponsors プログラム」 (以下「プログラム」) への参加にあたっては、[GitHub 利用規約](/github/site-policy/github-terms-of-service) (以下「契約」) および以下の追加条項 (以下「追加条項」) に従うものとします。 本契約に違反する GitHub Sponsors プログラムの使用は、本追加条項の違反にもなります。 かぎ括弧に括られた用語のうち、以下に定義されていないものについては、本契約に記された意味を持つものとします。 「GitHub Sponsors」プログラムの「追加条項」は、GitHub と、本プログラムにおいて「スポンサード開発者」となるあなたとの関係について記述しています。 追加条項は、あなたがこれに同意した日 (「発効日」) から発効します。

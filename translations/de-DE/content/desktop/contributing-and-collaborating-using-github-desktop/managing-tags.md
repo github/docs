@@ -1,5 +1,5 @@
 ---
-title: '„Tags“ (Schlagworte) verwalten'
+title: „Tags“ (Schlagworte) verwalten
 intro: 'Du kannst {% data variables.product.prodname_desktop %} für die Erstellung, den Push-Zugriff und die Anzeige von „Tags“ (Schlagworten) verwenden.'
 redirect_from:
   - /desktop/contributing-to-projects/managing-tags

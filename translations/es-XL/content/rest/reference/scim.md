@@ -4,6 +4,8 @@ redirect_from:
   - /v3/scim
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 ### Aprovisionamiento de SCIM para las Organizaciones

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - プロフィール
+  - Profiles
 ---
 
 Organization の説明、場所、Web サイト、メールアドレスをオプションで追加することや、重要なリポジトリをページの上部にピン止めすることもできます。

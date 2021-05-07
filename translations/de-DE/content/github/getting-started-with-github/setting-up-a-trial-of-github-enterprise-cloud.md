@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### Informationen zu {% data variables.product.prodname_ghe_cloud %}-Testversionen
