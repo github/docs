@@ -1,4 +1,6 @@
-date: '2021-03-01'
+date: '2021-06-07'
+friendlyDate: 'June 7, 2021'
+title: 'Week of June 7, 2021'
 sections:
   features:
     - heading: 'GitHub Actions beta'
