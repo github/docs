@@ -24,7 +24,7 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with `GITHUB_TOKEN` in GitHub Actions
+#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
 
 Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
 
