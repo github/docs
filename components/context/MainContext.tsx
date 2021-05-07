@@ -18,8 +18,8 @@ type LanguageItem = {
 }
 
 type VersionItem = {
-  version: string;
-  versionTitle: string;
+  version: string
+  versionTitle: string
 }
 
 type DataT = {
