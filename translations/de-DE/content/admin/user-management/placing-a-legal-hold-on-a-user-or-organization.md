@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Wenn ein Repository gelöscht wird, bleibt es in der Regel 90 Tage lang weiterhin auf der Disk und kann über das Websiteadministrator-Dashboard wiederhergestellt werden. Nach 90 Tagen wird das Repository bereinigt und dauerhaft gelöscht. Wenn Sie eine gesetzliche Aufbewahrungspflicht für einen Benutzer oder für eine Organisation festlegen, können die ihm oder ihr gehörenden Repositorys auf unbestimmte Zeit wiederhergestellt werden.

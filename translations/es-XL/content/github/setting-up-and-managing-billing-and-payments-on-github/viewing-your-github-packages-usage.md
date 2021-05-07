@@ -4,6 +4,8 @@ intro: 'Puedes ver los detalles de uso de almacenamiento y transferencia de dato
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Visualizar el uso de {% data variables.product.prodname_registry %} para tu cuenta de usuario

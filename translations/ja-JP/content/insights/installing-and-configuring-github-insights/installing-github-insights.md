@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_insights %}をインストールし�
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
-permissions: '`github/insights-releases`リポジトリに読み取り権限を持ち、アプリケーションサーバーに管理アクセスできる{% data variables.product.prodname_enterprise %}のOrganizationのオーナーは、{% data variables.product.prodname_insights %}をインストールできます。'
+permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

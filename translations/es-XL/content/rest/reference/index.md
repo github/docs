@@ -5,6 +5,9 @@ intro: Lee la documentación de referencia para conocer sobre los recursos que e
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### Índice

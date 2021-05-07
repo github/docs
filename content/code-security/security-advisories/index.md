@@ -13,7 +13,6 @@ topics:
 
 ### Table of Contents
 
-{% link_in_list /adding-a-security-policy-to-your-repository %}
 {% link_in_list /about-coordinated-disclosure-of-security-vulnerabilities %}  
 {% link_in_list /about-github-security-advisories %}
 {% link_in_list /permission-levels-for-security-advisories %}

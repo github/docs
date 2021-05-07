@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Si se rechaza tu tarjeta, te enviaremos un correo electrónico acerca del motivo por el que se rechazó el pago. Tendrás algunos días para resolver el problema antes de que tratemos de volver a cobrarte.

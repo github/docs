@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Sie in Ihrer Organisation [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) verwenden, können Sie SCIM implementieren, um den Zugriff von Organisationsmitgliedern auf {% data variables.product.product_name %} hinzuzufügen, zu verwalten und zu entfernen. Ein Administrator kann beispielsweise die Bereitstellung des Zugriffs eines Organisationsmitglieds mithilfe von SCIM aufheben und das Mitglied automatisch aus der Organisation entfernen.

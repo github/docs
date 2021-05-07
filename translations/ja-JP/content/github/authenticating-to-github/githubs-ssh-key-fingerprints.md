@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.prodname_dotcom %} の公開鍵のフィンガープリントは次のとおりです。

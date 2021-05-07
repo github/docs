@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Diese Art von Permalink wird nur in dem Repository, aus dem er stammt, als Code-Ausschnitt dargestellt. In anderen Repositorys wird der Permalink-Code-Ausschnitt als URL angezeigt.

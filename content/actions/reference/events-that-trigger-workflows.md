@@ -480,7 +480,7 @@ For example, you can run a workflow when a project card has been `opened` or `de
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
