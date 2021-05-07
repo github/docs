@@ -1,6 +1,6 @@
 ---
 title: Working with your codespace
-intro: 'You can use {% data variables.product.prodname_github_codespaces %} settings to manage information that your codespace might need'
+intro: 'You can use {% data variables.product.prodname_github_codespaces %} settings to manage information that your codespace might need.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
