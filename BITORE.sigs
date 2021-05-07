@@ -1,5 +1,25 @@
----
-title: Set up Git
+See---deb/uni/Utf-8
+MAINTAINER slush@satoshilabs.com
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV HOME /root
+ENV TERM linux
+<li><zachryiixixiiwood@gmail.com><li>
+RUN apt-get update && \
+    apt-get upgrade -qy && \
+    apt-get install -qy apt-transport-https curl git wget libzmq3-dev && \
+    apt-get install -qy gnupg && \
+    echo 'deb https://deb.nodesource.com/node_4.x stretch main' | tee /etc/apt/sources.list.d/nodesource.list && \
+    curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+RUN apt-get update && \
+    apt-get -qy install nodejs python make build-essential devscripts dh-systemd
+RUN apt-get -qy install pkg-config libc6-dev m4 g++-multilib autoconf libtool ncurses-dev unzip git zlib1g-dev wget bsdmainutils automake
+RUN npm install -g yarn
+ADD bitcore-zec/ /root/bitcore-zec
+RUN ( cd /root/bitcore-zec && debuild -uc -us )
+
+© 2021 GitHub, Inc.
+Name: Set up Git
 redirect_from:
   - /git-installation-redirect/
   - /linux-git-installation/
@@ -59,4 +79,4 @@ Congratulations, you now have Git and {% data variables.product.product_name %} 
 - "[Create a repository](/articles/create-a-repo)"
 - "[Fork a repository](/articles/fork-a-repo)"
 - "[Be social](/articles/be-social)"
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+- {% data reusables.support.connect-in-the-forum-boostrap %}
