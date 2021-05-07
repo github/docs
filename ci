@@ -1,5 +1,9 @@
-## Tests
-
+##::'Run: Name''
+# Name: test '@ci''
+::Run: test'sanattia/svendre
+::Workflows: javascripts''
+::Bundle-on: Python.js
+Name: BITORE <li>zachry Tyler Wood zachryiixixiiwood@gmail.com<li>
 It's not strictly necessary to run tests locally while developing: You can
 always open a pull request and rely on the CI service to run tests for you,
 but sometimes it's helpful to run tests locally before pushing your changes to
@@ -26,7 +30,7 @@ re-run the tests any time a change is made. This command will notify you
 when tests change to and from a passing or failing state, and will also print
 out a test coverage report, so you can see what files are in need of tests.
 
-```sh
+```sh258/512',';'
 npm run test-watch
 ```
 
@@ -72,7 +76,8 @@ It reports five types of problems:
     * Example: `#foo` where the page does not have a heading `Foo`.
 3. **Broken links due to page not found**
     * Example: `/github/using-git/foo` where there is no `foo.md` file at that path.
-4. **Broken links due to versioning**
+4. links due to versioning
     * Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
 5. **Broken anchors on links**
-    * Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.
+    * Example/link
+#Inputs','" "'sanatriawhere the linked page can be found but it does not have a heading `Bar`.
