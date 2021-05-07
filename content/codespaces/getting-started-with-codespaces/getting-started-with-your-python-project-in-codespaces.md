@@ -30,19 +30,17 @@ This guide shows you how to set up your Python project in {% data variables.prod
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM], [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
-The next section shows you how to modify your tools by adding a dev container.
 
 ### Step 2: Add a dev container to your codespace from a template  
 
-The default codespaces container comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we encourage you to set up a custom container so you can tailor the tools and scripts that run as part of codespace creation to your project's needs and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
+The default codespaces container comes with the latest Python version, package managers (pip, Miniconda), and other common tools preinstalled. However, we recommend that you set up a custom container to define the tools and scripts that your project needs. This will ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see [Configuring your codespace](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project). 
+To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)." 
 
-This example guides you through adding a `devcontainer.json` file from a template.
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
@@ -114,18 +112,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - We can name our dev container anything, this is just the default
-- **Build** - Our build properties
-  - **Dockerfile** - In our build object, Dockerfile is a reference to the Dockerfile in the same folder that was the second file added to our project. This is the reference path.
+- **Name** - You can name our dev container anything, this is just the default.
+- **Build** - The build properties.
+  - **Dockerfile** - In the build object, `dockerfile` is a reference to the Dockerfile that was also added from the template.
   - **Args**
-    - **Variant**: We only have one build argument here which is the node variant we want to use which is passed into our Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings we wish to set
-  - **Terminal.integrated.shell.linux** - While bash is the default here, we could use zsh for example by modifying this.
+    - **Variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
+- **Settings** - These are {% data variables.product.prodname_vscode %} settings.
+  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
   - **ms-python.python** - The Microsoft Python extension provides rich support for the Python language (for all actively supported versions of the language: >=3.6), including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
-- **forwardPorts** - By default we can forward a port, like port 3000, but these will also forward automatically
-- **postCreateCommand** - If we want to run anything after we land in our codespace that’s not defined in our Dockerfile, like `pip3 install -r requirements`, we can do that here.
-- **remoteUser** - We’re running as the vscode user, but you can optionally set this to root
+- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, like `pip3 install -r requirements`, you can do that here.
+- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
 
 ##### Dockerfile
 
@@ -162,7 +160,7 @@ With your dev container added and a basic understanding of what everything does,
 
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
 
-2. Update your the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
+2. Update the `extensions` list in your `devcontainer.json` file to add a few extensions that are useful when working with your project.
    
   ```json{:copy} 
   "extensions": [
@@ -187,13 +185,13 @@ With your dev container added and a basic understanding of what everything does,
 
 5. Check your changes were successfully applied by verifying the Code Spell Checker and Flask Snippet extensions were installed.
    
-![Extensions list](/assets/images/help/codespaces/python-extensions.png) 
+    ![Extensions list](/assets/images/help/codespaces/python-extensions.png) 
    
 ### Step 4: Run your application
 
-In the previous section, you used the `postCreateCommand` to installing a set of packages via pip3. With our dependencies now installed, we can run our application.
+In the previous section, you used the `postCreateCommand` to install a set of packages via pip3. With your dependencies now installed, you can run your application.
 
-1. Run your application by pressing `F5` or entering `python -m flask run` in your terminal.
+1. Run your application by pressing `F5` or entering `python -m flask run` in the codespace terminal.
 
 2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses. 
 
