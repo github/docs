@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Dependabot errors
-intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
+title: 排查 Dependabot 错误
+intro: '有时，{% data variables.product.prodname_dependabot %} 无法提出拉取请求以更新依赖项。 您可以查看错误并取消阻止 {% data variables.product.prodname_dependabot %}。'
 shortTitle: 排查错误
 redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
@@ -10,75 +10,83 @@ versions:
 
 {% data reusables.dependabot.beta-note %}
 
-### About {% data variables.product.prodname_dependabot %} errors
+### 关于 {% data variables.product.prodname_dependabot %} 错误
 
 {% data reusables.dependabot.pull-request-introduction %}
 
-If anything prevents {% data variables.product.prodname_dependabot %} from raising a pull request, this is reported as an error.
+如果有任何因素阻止 {% data variables.product.prodname_dependabot %} 提出拉取请求，则报告为错误。
 
-### Investigating errors with {% data variables.product.prodname_dependabot_security_updates %}
+### 使用 {% data variables.product.prodname_dependabot_security_updates %} 调查错误
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
+当 {% data variables.product.prodname_dependabot %} 被阻止创建拉取请求以修复 {% data variables.product.prodname_dependabot %} 警报时，它会在警报上发布错误消息。 {% data variables.product.prodname_dependabot_alerts %} 视图显示尚未解决的所有警报列表。 要访问警报视图，请单击仓库 **Security（安全）**选项卡上的 **{% data variables.product.prodname_dependabot_alerts %}**。 如果旨在修复有漏洞依赖项的拉取请求已生成，则警报将包括指向该拉取请求的链接。
 
-![{% data variables.product.prodname_dependabot_alerts %} view showing a pull request link](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
+![{% data variables.product.prodname_dependabot_alerts %} 视图显示拉取请求链接](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
-There are three reasons why an alert may have no pull request link:
+有三个原因可能导致警报中没有拉取请求链接：
 
-1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
-1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
-1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
+1. {% data variables.product.prodname_dependabot_security_updates %} 未对仓库启用。
+1. 警报针对未在锁文件中显式定义的间接或过渡依赖项。
+1. 某个错误阻止了 {% data variables.product.prodname_dependabot %} 创建拉取请求。
 
-If an error blocked {% data variables.product.prodname_dependabot %} from creating a pull request, you can display details of the error by clicking the alert.
+如果某个错误阻止了 {% data variables.product.prodname_dependabot %} 创建拉取请求，您可以通过单击警报来显示错误详情。
 
-![{% data variables.product.prodname_dependabot %} alert showing the error that blocked the creation of a pull request](/assets/images/help/dependabot/dependabot-security-update-error.png)
+![{% data variables.product.prodname_dependabot %} 警报显示阻止创建拉取请求的错误](/assets/images/help/dependabot/dependabot-security-update-error.png)
 
-### Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
+### 使用 {% data variables.product.prodname_dependabot_version_updates %} 调查错误
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+当 {% data variables.product.prodname_dependabot %} 被阻止创建拉取请求以更新生态系统中的依赖项时，它将在清单文件中发布错误图标。 由 {% data variables.product.prodname_dependabot %} 管理的清单文件列于 {% data variables.product.prodname_dependabot %} 选项卡上。 要访问此选项卡，请在仓库的 **Insights（洞察）**选项卡上单击 **Dependency graph（依赖项图）**，然后单击 **{% data variables.product.prodname_dependabot %}** 选项卡。
 
-![{% data variables.product.prodname_dependabot %} view showing an error](/assets/images/help/dependabot/dependabot-tab-view-error-beta.png)
+![{% data variables.product.prodname_dependabot %} 视图显示错误](/assets/images/help/dependabot/dependabot-tab-view-error-beta.png)
 
-To see the log file for any manifest file, click the **Last checked TIME ago** link. When you display the log file for a manifest that's shown with an error symbol (for example, Maven in the screenshot above), any errors are also displayed.
+要查看任何清单文件的日志文件，请单击 **Last checked TIME ago（上次检查时间以前）**链接。 当您显示一个带有错误符号的清单(例如上面截图中的 Maven）的日志文件时，也会显示任何错误。
 
-![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
+![{% data variables.product.prodname_dependabot %} 版本更新错误和日志 ](/assets/images/help/dependabot/dependabot-version-update-error-beta.png)
 
-### Understanding {% data variables.product.prodname_dependabot %} errors
+### 了解 {% data variables.product.prodname_dependabot %} 错误
 
-Pull requests for security updates act to upgrade a vulnerable dependency to the minimum version that includes a fix for the vulnerability. In contrast, pull requests for version updates act to upgrade a dependency to the latest version allowed by the package manifest and {% data variables.product.prodname_dependabot %} configuration files. Consequently, some errors are specific to one type of update.
+安全更新拉取请求用于将有漏洞依赖项升级到包含漏洞修复的最低版本。 而版本更新拉取请求用于将依赖项升级到包清单文件和 {% data variables.product.prodname_dependabot %} 配置文件允许的最新版本。 因此，某些错误特定于一种类型的更新。
 
-#### {% data variables.product.prodname_dependabot %} cannot update DEPENDENCY to a non-vulnerable version
+#### {% data variables.product.prodname_dependabot %} 无法将依赖项更新到无漏洞版本
 
-**Security updates only.** {% data variables.product.prodname_dependabot %} cannot create a pull request to update the vulnerable dependency to a secure version without breaking other dependencies in the dependency graph for this repository.
+**仅限安全更新。** {% data variables.product.prodname_dependabot %} 无法创建拉取请求以将有漏洞依赖项更新到安全版本，而又不破坏此仓库依赖项图中的其他依赖项。
 
-Every application that has dependencies has a dependency graph, that is, a directed acyclic graph of every package version that the application directly or indirectly depends on. Every time a dependency is updated, this graph must resolve otherwise the application won't build. When an ecosystem has a deep and complex dependency graph, for example, npm and RubyGems, it is often impossible to upgrade a single dependency without upgrading the whole ecosystem.
+每个具有依赖项的应用程序都有一个依赖关系图，即应用程序直接或间接依赖的每个包版本的定向非循环图。 每次更新依赖项时，必须解决此图，否则将无法构建应用程序。 当生态系统具有深刻而复杂的依赖关系图（例如 npm 和 RubyGems）时，如果不升级整个生态系统，往往难以升级单个依赖项。
 
-The best way to avoid this problem is to stay up to date with the most recently released versions, for example, by enabling version updates. This increases the likelihood that a vulnerability in one dependency can be resolved by a simple upgrade that doesn't break the dependency graph. 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+避免这个问题的最佳办法是跟上最新发布的版本，例如启用版本更新。 这增加了通过不破坏依赖关系图的简单升级解决一个依赖项中的漏洞的可能性。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
 
-#### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
+#### {% data variables.product.prodname_dependabot %} 无法更新到所需的版本，因为已经为最新版本打开了拉取请求
 
-**Security updates only.** {% data variables.product.prodname_dependabot %} will not create a pull request to update the vulnerable dependency to a secure version because there is already an open pull request to update this dependency. You will see this error when a vulnerability is detected in a single dependency and there's already an open pull request to update the dependency to the latest version.
+**仅限安全更新。** {% data variables.product.prodname_dependabot %} 不会创建拉取请求以将有漏洞依赖项更新到安全版本，因为已存在更新此依赖项的打开拉取请求。 如果在一个依赖项中检测到漏洞，但已经存在将该依赖项更新到最新版本的打开拉取请求时，您将会看到此错误。
 
-There are two options: you can review the open pull request and merge it as soon as you are confident that the change is safe, or close that pull request and trigger a new security update pull request. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
+有两个选项：您可以查看打开的拉取请求，确认更改安全后合并它，或者关闭该拉取请求并触发新的安全更新拉取请求。 更多信息请参阅“[手动触发 {% data variables.product.prodname_dependabot %} 拉取请求](#triggering-a-dependabot-pull-request-manually)”。
 
-#### {% data variables.product.prodname_dependabot %} timed out during its update
+#### {% data variables.product.prodname_dependabot %} 在更新过程中超时
 
-{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of *package.json* files. Updates to the Composer ecosystem also take longer to assess and may time out.
+{% data variables.product.prodname_dependabot %} 评估所需更新和准备拉取请求所用的时间超过了允许的最大时间。 此错误一般只出现在具有许多清单文件的大型仓库，例如具有数百个 *package.json* 文件的 npm 或 yarn 单仓库项目。 对 Composer 生态系统的更新也需要较长的时间来评估，可能会超时。
 
-This error is difficult to address. If a version update times out, you could specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
+此错误难以解决。 如果版本更新超时，您可以使用 `allow` 参数来指定更新最重要的依赖项，或者使用 `ignore` 参数从更新中排除某些依赖项。 更新配置可能使 {% data variables.product.prodname_dependabot %} 能够在规定时间内检查版本更新并生成请求。
 
-If a security update times out, you can reduce the chances of this happening by keeping the dependencies updated, for example, by enabling version updates. 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+如果安全更新超时，您可以通过保持依赖项更新（例如，启用版本更新）来减少更新需要。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
 
-#### {% data variables.product.prodname_dependabot %} cannot open any more pull requests
+#### {% data variables.product.prodname_dependabot %} 无法再打开拉取请求
 
-There's a limit on the number of open pull requests {% data variables.product.prodname_dependabot %} will generate. When this limit is reached, no new pull requests are opened and this error is reported. The best way to resolve this error is to review and merge some of the open pull requests.
+{% data variables.product.prodname_dependabot %} 生成的打开拉取请求数量存在限制。 如果达到此限制，将无法打开新的拉取请求，并报告此错误。 解决此错误的最佳方法是审查并合并一些打开的拉取请求。
 
-There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. The limit for security update pull requests is 10. By default, the limit for version updates is 5 but you can change this using the `open-pull-requests-limit` parameter in the configuration file. 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)。”
+安全性和版本更新拉取请求有各自的限制，因此打开版本更新拉取请求不会阻止安全更新拉取请求的创建。 安全更新拉取请求的限制是 10。 默认情况下，版本更新的限制是 5，但您可以使用配置文件中的 `open-pull-requests-limit` 参数来更改它。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)。”
 
-The best way to resolve this error is to merge or close some of the existing pull requests and trigger a new pull request manually. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
+解决此错误的最佳方法是合并或关闭一些现有拉取请求，然后手动触发新的拉取请求。 更多信息请参阅“[手动触发 {% data variables.product.prodname_dependabot %} 拉取请求](#triggering-a-dependabot-pull-request-manually)”。
 
-### Triggering a {% data variables.product.prodname_dependabot %} pull request manually
+#### {% data variables.product.prodname_dependabot %} 无法解析依赖项文件
 
-If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.
+如果 {% data variables.product.prodname_dependabot %} 尝试检查是否需要更新仓库中的依赖项引用，但无法访问一个或多个依赖项文件，则操作将失败，并返回错误消息“{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files（无法解析语言依赖项文件）”。 API 错误类型为 `git_dependencies_not_reachable`。
 
-- **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
-- **Version updates**—display the log file for the manifest that shows the error that you have fixed and click **Check for updates**.
+要让 {% data variables.product.prodname_dependabot %} 成功更新依赖项引用，请确保所有引用依赖项都托管在可访问的位置。
+
+**仅限版本更新。**{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 更多信息请参阅“[关于 Dependabot 版本更新](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)”。
+
+### 手动触发 {% data variables.product.prodname_dependabot %} 拉取请求
+
+如果取消阻止了 {% data variables.product.prodname_dependabot %}，您可以手动触发新的尝试来创建拉取请求。
+
+- **安全更新**—显示 {% data variables.product.prodname_dependabot %} 警报，查看您修复的错误，然后单击 **Create {% data variables.product.prodname_dependabot %} security update（创建安全更新）**。
+- **版本更新**—在仓库的 **Insights（洞察）**选项卡上单击 **Dependency graph（依赖项图）**，然后单击 **Dependabot** 选项卡。 单击 **Last checked *TIME* ago**（上次检查时间以前），查看 {% data variables.product.prodname_dependabot %} 在上次检查版本更新时生成的日志文件。 单击 **Check for Updates（检查更新）**。

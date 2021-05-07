@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 データサービスクラスタにノードが3つしかない場合、ノードからの待避はできません。`ghe-spokes`に、コピーを作成する別の場所がないからです。 ノードが4つ以上ある場合は、`ghe-spokes`によってすべてのリポジトリが待避元のノードから移動されます。
@@ -25,9 +27,11 @@ versions:
     ghe-spokes evac-status
     ```
     {% data variables.product.prodname_pages %}:
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     ストレージ:
     ```
     ghe-storage evacuation-status
@@ -36,18 +40,26 @@ versions:
 3. コピーが完了したら、ストレージサービスを待避させます。 実行するコマンドは次のいずれかです。
 
     Git:
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     {% data variables.product.prodname_pages %}:
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     ストレージに対して、ノードをオフラインにします。
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       次に、待避を実行します。
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

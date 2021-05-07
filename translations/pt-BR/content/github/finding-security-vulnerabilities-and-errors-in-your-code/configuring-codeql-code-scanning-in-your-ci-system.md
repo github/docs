@@ -4,11 +4,10 @@ shortTitle: Configurar na sua CI
 intro: 'Você pode configurar como o {% data variables.product.prodname_codeql_runner %} faz a varredura do código no seu projeto e faz o upload dos resultados para o {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 4
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -21,13 +20,29 @@ Para integrar {% data variables.product.prodname_code_scanning %} ao seu sistema
 
 De modo geral, você invoca o {% data variables.product.prodname_codeql_runner %} da seguinte forma.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-OS <COMMAND> <FLAGS>
 ```
 
 `/path/to-runner/` depende do local onde você fez o download do {% data variables.product.prodname_codeql_runner %} no seu sistema de CI. `codeql-runner-OS` depende do sistema operacional que você usa. Existem três versões do {% data variables.product.prodname_codeql_runner %}, `codeql-runner-linux`, `codeql-runner-macos` e `codeql-runner-win`, para os sistemas Linux, macOS e Windows, respectivamente.
 
 Para personalizar a maneira como o {% data variables.product.prodname_codeql_runner %} faz a varredura do seu código, você pode usar sinalizadores, como `--languages` e `--queries`, ou você pode especificar configurações personalizadas em um arquivo de configuração separado.
+
+### Fazer a varredura de pull requests
+
+A varredura de código sempre que uma pull request é criada impede que os desenvolvedores introduzam novas vulnerabilidades e erros no código.
+
+Para fazer a varredura de um pull request, execute o comando `analyze` e use o sinalizador `--ref` para especificar o pull request. A referência é `refs/pull/<PR-number>/head` ou `refs/pull/<PR-number>/merge`, dependendo se você verificou o commit HEAD do branch do pull request ou um commit de merge com o branch de base.
+
+```shell
+$ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
+```
+
+{% note %}
+
+**Observação**: Se você analisar o código com uma ferramenta de terceiros e desejar que os resultados apareçam como verificações de pull request, você deverá executar o comando `upload` e usar o sinalizador `--ref` para especificar o pull request em vez do branch. A referência é `refs/pull/<PR-number>/head` ou `refs/pull/<PR-number>/merge`.
+
+{% endnote %}
 
 ### Sobrescrever a detecção automática de linguagem
 
@@ -39,7 +54,7 @@ O {% data variables.product.prodname_codeql_runner %} detecta e faz a varredura 
 
 Para substituir a detecção automática de idioma, execute o comando `init` com o sinalizador `--languages`, seguido de uma lista de palavras-chave de linguagem separada por vírgulas. As palavras-chave para as linguagens compatíveis são `cpp`, `csharp`, `go`, `java`, `javascript` e `python`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java
 ```
 
@@ -55,7 +70,7 @@ Se você também estiver usando um arquivo de configuração para configuraçõe
 
 No exemplo a seguir,. o símbolo `+` garante que o {% data variables.product.prodname_codeql_runner %} usará as consultas adicionais junto com quaisquer consultas especificadas no arquivo de configuração referenciado.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml 
     --queries +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
@@ -68,9 +83,11 @@ O arquivo de configuração é um arquivo YAML. Ele usa uma sintaxe semelhante �
 
 Use o sinalizador `--config-file` do comando `init` para especificar o arquivo de configuração. O valor de <nobr>`--config-file`</nobr> é o caminho para o arquivo de configuração que você deseja usar. Este exemplo carrega o arquivo de configuração _.github/codeql/codeql-config.yml_.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux init --config-file .github/codeql/codeql-config.yml
 ```
+
+{% data reusables.code-scanning.custom-configuration-file %}
 
 #### Exemplo de arquivo de configuração
 
@@ -84,7 +101,7 @@ Para muitos sistemas de criação comuns, o {% data variables.product.prodname_c
 
 O processo `autobuild` sempre tenta criar _uma_ linguagem compilada para um repositório. A linguagem selecionada automaticamente para análise é a linguagem com mais arquivos. Se você quiser escolher um idioma explicitamente, use o sinalizador `--language` do comando `autobuild`.
 
-```
+```shell
 $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 ```
 
@@ -94,7 +111,9 @@ Se o comando `autobuild` não puder criar o seu código, você poderá executar 
 
 Por padrão, o {% data variables.product.prodname_codeql_runner %} faz o upload dos resultados a partir de {% data variables.product.prodname_code_scanning %} quando você executa o comando de `análise`. Você também pode carregar arquivos do SARIF separadamente, usando o comando `upload`.
 
-Depois de enviar os dados, o {% data variables.product.prodname_dotcom %} exibirá os alertas no seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
+Depois de enviar os dados, o {% data variables.product.prodname_dotcom %} exibirá os alertas no seu repositório.
+- Se você fez o upload de um pull request como, por exemplo, `--ref refs/pull/42/merge` ou `--ref refs/pull/42/head`, os resultados aparecerão como alertas em uma verificação de pull request. Para obter mais informações, consulte "[Alertas de varredura de código de triagem em pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
+- Se você fez upload de um branch como, por exemplo `--ref refs/heads/my-branch`, os resultados aparecerão na aba **Segurança** do seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository). "
 
 ### Comando de referência de {% data variables.product.prodname_codeql_runner %}
 
@@ -113,7 +132,7 @@ Inicializa o {% data variables.product.prodname_codeql_runner %} e cria um banco
 | `--queries`                      |             | Lista separada por vírgulas de consultas adicionais a serem executadas, além do conjunto-padrão de consultas de segurança.                                                                             |
 | `--config-file`                  |             | Caminho para o arquivo de configuração personalizado.                                                                                                                                                  |
 | `--codeql-path`                  |             | Caminho para uma cópia do CLI de {% data variables.product.prodname_codeql %} executável a ser usado. Por padrão, o {% data variables.product.prodname_codeql_runner %} faz o download de uma cópia. |
-| `--temp-dir`                     |             | Diretório onde os arquivos temporários são armazenados. O padrão é _./codeql-runner_.                                                                                                                  |
+| `--temp-dir`                     |             | Diretório onde os arquivos temporários são armazenados. O padrão é `./codeql-runner`.                                                                                                                  |
 | `--tools-dir`                    |             | Diretório onde as ferramentas de {% data variables.product.prodname_codeql %} e outros arquivos são armazenados entre as execuções. O padrão é um subdiretório do diretório home.                      |
 | <nobr>`--checkout-path`</nobr> |             | O caminho para o checkout do seu repositório. O padrão é o diretório de trabalho atual.                                                                                                                |
 | `--debug`                        |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                               |
@@ -126,40 +145,49 @@ Tenta construir o código para as linguagens compiladas C/C++, C# e Java. Para e
 | Sinalizador                 | Obrigatório | Valor de entrada                                                                                                                            |
 | --------------------------- |:-----------:| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `--language`                |             | A linguagem a ser criada. Por padrão, o {% data variables.product.prodname_codeql_runner %} cria a linguagem compilada com mais arquivos. |
-| <nobr>`--temp-dir`</nobr> |             | Diretório onde os arquivos temporários são armazenados. O padrão é _./codeql-runner_.                                                       |
+| <nobr>`--temp-dir`</nobr> |             | Diretório onde os arquivos temporários são armazenados. O padrão é `./codeql-runner`.                                                       |
 | `--debug`                   |             | Nenhum. Imprime mais resultados verbose.                                                                                                    |
 | `-h`, `--help`              |             | Nenhum. Exibe ajuda para o comando.                                                                                                         |
 
 #### `analyze`
 
-Analisa o código nos bancos de dados do {% data variables.product.prodname_codeql %} e faz o upload dos resultados para o {% data variables.product.product_location %}.
+Analisa o código nos bancos de dados do {% data variables.product.prodname_codeql %} e faz o upload dos resultados para o {% data variables.product.product_name %}.
 
-| Sinalizador                      | Obrigatório | Valor de entrada                                                                                                                                                                                        |
-| -------------------------------- |:-----------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--repository`                   |      ✓      | Nome do repositório a ser analisado.                                                                                                                                                                    |
-| `--commit`                       |      ✓      | SHA do commit a ser analisado. No Git e no Azure DevOps, isso corresponde ao valor de `git rev-parse HEAD`. No Jenkins, isso corresponde a `$GIT_COMMIT`.                                               |
-| `--ref`                          |      ✓      | Nome da referência para análise, por exemplo `refs/heads/main`. No Git e no Jenkins, isso corresponde ao valor de `git simbolic-ref HEAD`. No Azure DevOps, isso corresponde a `$(Build.SourceBranch)`. |
-| `--github-url`                   |      ✓      | URL da instância do {% data variables.product.prodname_dotcom %} onde seu repositório está hospedado.                                                                                                   |
-| `--github-auth`                  |      ✓      | Um token de {% data variables.product.prodname_github_apps %} ou token de acesso pessoal.                                                                                                             |
-| <nobr>`--checkout-path`</nobr> |             | O caminho para o checkout do seu repositório. O padrão é o diretório de trabalho atual.                                                                                                                 |
-| `--no-upload`                    |             | Nenhum. Impede que o {% data variables.product.prodname_codeql_runner %} faça o upload dos resultados para {% data variables.product.product_location %}.                                             |
-| `--output-dir`                   |             | Diretório onde os arquivos SARIF de saída são armazenados. O padrão está no diretório de arquivos temporários.                                                                                          |
-| `--temp-dir`                     |             | Diretório onde os arquivos temporários são armazenados. O padrão é _./codeql-runner_.                                                                                                                   |
-| `--debug`                        |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                                |
-| `-h`, `--help`                   |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                     |
+| Sinalizador                        | Obrigatório | Valor de entrada                                                                                                                                                                                                                 |
+| ---------------------------------- |:-----------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--repository`                     |      ✓      | Nome do repositório a ser analisado.                                                                                                                                                                                             |
+| `--commit`                         |      ✓      | SHA do commit a ser analisado. No Git e no Azure DevOps, isso corresponde ao valor de `git rev-parse HEAD`. No Jenkins, isso corresponde a `$GIT_COMMIT`.                                                                        |
+| `--ref`                            |      ✓      | Nome da referência para análise, por exemplo `refs/heads/main` ou `refs/pull/42/merge`. No Git ou no Jenkins, isso corresponde ao valor de `git simbolic-ref HEAD`. No Azure DevOps, isso corresponde a `$(Build.SourceBranch)`. |
+| `--github-url`                     |      ✓      | URL da instância do {% data variables.product.prodname_dotcom %} onde seu repositório está hospedado.                                                                                                                            |
+| `--github-auth`                    |      ✓      | Um token de {% data variables.product.prodname_github_apps %} ou token de acesso pessoal.                                                                                                                                      |
+| <nobr>`--checkout-path`</nobr>   |             | O caminho para o checkout do seu repositório. O padrão é o diretório de trabalho atual.                                                                                                                                          |
+| `--no-upload`                      |             | Nenhum. Impede que o {% data variables.product.prodname_codeql_runner %} faça o upload dos resultados para {% data variables.product.product_name %}.                                                                          |
+| `--output-dir`                     |             | Diretório onde os arquivos SARIF de saída são armazenados. O padrão está no diretório de arquivos temporários.                                                                                                                   |
+| `--ram`                            |             | A quantidade de memória a ser usada ao executar consultas. O padrão é usar toda a memória disponível.                                                                                                                            |
+| <nobr>`--no-add-snippets`</nobr> |             | Nenhum. Exclui snippets de código da saída de SARIF.                                                                                                                                                                             |
+| `--threads`                        |             | Número de threads a serem usados ao executar consultas. O padrão é usar todos os núcleos disponíveis.                                                                                                                            |
+| `--temp-dir`                       |             | Diretório onde os arquivos temporários são armazenados. O padrão é `./codeql-runner`.                                                                                                                                            |
+| `--debug`                          |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                                                         |
+| `-h`, `--help`                     |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                                              |
 
 #### `fazer upload`
 
-Faz o upload dos arquivos SARIF para {% data variables.product.product_location %}.
+Faz o upload dos arquivos SARIF para {% data variables.product.product_name %}.
 
-| Sinalizador                      | Obrigatório | Valor de entrada                                                                                                                                                                                             |
-| -------------------------------- |:-----------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--sarif-file`                   |      ✓      | O arquivo SARIF a ser subido ou um diretório que contém vários arquivos SARIF.                                                                                                                               |
-| `--repository`                   |      ✓      | Nome do repositório que foi analisado.                                                                                                                                                                       |
-| `--commit`                       |      ✓      | SHA do commit que foi analisado. No Git e no Azure DevOps, isso corresponde ao valor de `git rev-parse HEAD`. No Jenkins, isso corresponde a `$GIT_COMMIT`.                                                  |
-| `--ref`                          |      ✓      | Nome da referência que foi analisada, por exemplo `refs/heads/main`. No Git e no Jenkins, isso corresponde ao valor de `git simbolic-ref HEAD`. No Azure DevOps, isso corresponde a `$(Build.SourceBranch)`. |
-| `--github-url`                   |      ✓      | URL da instância do {% data variables.product.prodname_dotcom %} onde seu repositório está hospedado.                                                                                                        |
-| `--github-auth`                  |      ✓      | Um token de {% data variables.product.prodname_github_apps %} ou token de acesso pessoal.                                                                                                                  |
-| <nobr>`--checkout-path`</nobr> |             | O caminho para o checkout do seu repositório. O padrão é o diretório de trabalho atual.                                                                                                                      |
-| `--debug`                        |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                                     |
-| `-h`, `--help`                   |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                          |
+{% note %}
+
+**Observação**: Se você analisar o código com o executor do CodeQL, o comando `analyze` irá carregar os resultados SARIF, por padrão. Você pode usar o comando `upload` para carregar os resultados SARIF que foram gerados por outras ferramentas.
+
+{% endnote %}
+
+| Sinalizador                      | Obrigatório | Valor de entrada                                                                                                                                                                                                                      |
+| -------------------------------- |:-----------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--sarif-file`                   |      ✓      | O arquivo SARIF a ser subido ou um diretório que contém vários arquivos SARIF.                                                                                                                                                        |
+| `--repository`                   |      ✓      | Nome do repositório que foi analisado.                                                                                                                                                                                                |
+| `--commit`                       |      ✓      | SHA do commit que foi analisado. No Git e no Azure DevOps, isso corresponde ao valor de `git rev-parse HEAD`. No Jenkins, isso corresponde a `$GIT_COMMIT`.                                                                           |
+| `--ref`                          |      ✓      | Nome da referência que foi analisada, por exemplo `refs/heads/main` ou `refs/pull/42/merge`. No Git ou no Jenkins, isso corresponde ao valor de `git simbolic-ref HEAD`. No Azure DevOps, isso corresponde a `$(Build.SourceBranch)`. |
+| `--github-url`                   |      ✓      | URL da instância do {% data variables.product.prodname_dotcom %} onde seu repositório está hospedado.                                                                                                                                 |
+| `--github-auth`                  |      ✓      | Um token de {% data variables.product.prodname_github_apps %} ou token de acesso pessoal.                                                                                                                                           |
+| <nobr>`--checkout-path`</nobr> |             | O caminho para o checkout do seu repositório. O padrão é o diretório de trabalho atual.                                                                                                                                               |
+| `--debug`                        |             | Nenhum. Imprime mais resultados verbose.                                                                                                                                                                                              |
+| `-h`, `--help`                   |             | Nenhum. Exibe ajuda para o comando.                                                                                                                                                                                                   |

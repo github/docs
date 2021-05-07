@@ -5,6 +5,8 @@ redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 *行動規範*は、コミュニティへの参加方法の標準を定義するものです。 それは、すべてのコントリビューションを尊重する開放的な環境であることを発信します。 また、プロジェクトのコミュニティのメンバー間の問題に対処するための手順の概要も示します。 行動規範がコミュニティへの参加方法についての標準と期待を定義する理由に関して、詳しい情報については[オープンソースガイド](https://opensource.guide/code-of-conduct/)を参照してください。

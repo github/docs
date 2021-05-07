@@ -1,8 +1,10 @@
 ---
 title: 有关 GitHub 计划变更的常见问题解答
-intro: 'GitHub 宣布，从 2020 年 4 月 14 日起，向所有人免费提供所有核心 GitHub 功能。'
+intro: GitHub 宣布，从 2020 年 4 月 14 日起，向所有人免费提供所有核心 GitHub 功能。
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub
 ---
 
 ### GitHub 在 4 月 14 日宣布了哪些计划和价格变更？

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 プロジェクトボードをコピーすると、プロジェクトボードのタイトル、説明、自動化の設定を再利用できます。 プロジェクトボードをコピーすることで、同じようなワークフローのために新しいプロジェクトボードを手動で作成するプロセスをなくすことができます。
@@ -22,5 +24,5 @@ versions:
 5. 必要に応じて、[Project board name] の下に、コピーしたプロジェクトボードの名前を入力します。 ![コピーされたプロジェクトボードの名前を入力するフィールド](/assets/images/help/projects/copied-project-board-name.png)
 6. 必要に応じて、他の人に読んでもらうために、[Description] の下に、コピーしたプロジェクトボードについての説明を入力します。 ![コピーしたプロジェクトボードの説明を入力するフィールド](/assets/images/help/projects/copied-project-board-description.png)
 7. 必要に応じて、[Automation settings] の下で、設定済みの自動化されたワークフローをコピーするかどうかを選択します。 このオプションはデフォルトで有効になっています。 詳しい情報については「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards/)」を参照してください。 ![コピーしたプロジェクトボードの自動化設定を選択](/assets/images/help/projects/copied-project-board-automation-settings.png)
-8. Organization が所有するプロジェクトボードをコピーする場合、[Visibility] の下で、コピーしたプロジェクトボードをパブリックにするかプライベートにするかを選択します。 ![コピーしたプロジェクトボードの表示設定を選択](/assets/images/help/projects/copied-project-board-visibility-settings.png)
+{% data reusables.project-management.choose-visibility %}
 9. [**Copy project**] をクリックします。 ![コピーを確定するボタン](/assets/images/help/projects/confirm-copy-project-board.png)

@@ -4,9 +4,11 @@ intro: '您可以将 {% data variables.product.product_location_enterprise %} �
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
-permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以启用自动用户许可同步。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable automatic user license synchronization.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于许可同步

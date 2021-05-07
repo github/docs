@@ -4,13 +4,19 @@ intro: 'アカウントに含まれるストレージやデータ転送を超え
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### {% data variables.product.prodname_registry %}の支払いについて
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
+
+Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_registry %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 
 データ転送は毎月リセットされますが、ストレージはリセットされません。
 
@@ -50,8 +56,8 @@ versions:
 
 ### 利用上限について
 
-デフォルトでは、アカウントで{% data variables.product.prodname_registry %}を使用する際の利用上限は$0です。 アカウントに含まれる金額を超えてプライベートパッケージのストレージとデータ転送を有効にしたい場合は、利用上限を増やすか、利用を無制限にすることができます。 詳しい情報については「[{% data variables.product.prodname_registry %}の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)」を参照してください。
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_registry %} の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)」を参照してください。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

@@ -41,10 +41,15 @@ Windows virtual machines are configured to run as administrators with User Accou
 
 ### Supported runners and hardware resources
 
-Each virtual machine has the same hardware resources available.
 
+Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU
 - 7 GB of RAM memory
+- 14 GB of SSD disk space
+
+Hardware specification for macOS virtual machines:
+- 3-core CPU
+- 14 GB of RAM memory
 - 14 GB of SSD disk space
 
 {% data reusables.github-actions.supported-github-runners %}
@@ -63,17 +68,21 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 * [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
-* [MacOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
-Workflow logs include a link to the preinstalled tools on the runner. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Virtual Environment` section. The link following `Included Software` will tell you the the preinstalled tools on the runner that ran the workflow. ![Installed software link](/assets/images/actions-runner-installed-software-link.png) For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 
-If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments).
+We recommend using actions to interact with the software installed on runners. This approach has several benefits:
+- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+
+If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments). This repository also contains announcements about all major software updates on runners.
 
 ### IP addresses
 
@@ -83,44 +92,11 @@ If there is a tool that you'd like to request, please open an issue at [actions/
 
 {% endnote %}
 
-Windows and Ubuntu runners are hosted in Azure and have the same IP address ranges as Azure Data centers. Currently, all Windows and Ubuntu {% data variables.product.prodname_dotcom %}-hosted runners are in the following Azure regions:
+Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 
-- East US (`eastus`)
-- East US 2 (`eastus2`)
-- West US 2 (`westus2`)
-- Central US (`centralus`)
-- South Central US (`southcentralus`)
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API . For more information, see the `actions` key in the response of the "[Get GitHub meta information](/rest/reference/meta#get-github-meta-information)" endpoint. You can use this list of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
 
-Microsoft updates the Azure IP address ranges weekly in a JSON file that you can download from the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) website. You can use this range of IP addresses if you require an allow-list to prevent unauthorized access to your internal resources.
-
-The JSON file contains an array called `values`. Inside that array, you can find the supported IP addresses in an object with a `name` and `id` of the Azure region, for example `"AzureCloud.eastus2"`.
-
-You can find the supported IP address ranges in the `"addressPrefixes"` object. This is a condensed example of the JSON file.
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
+The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
 ### File systems
 

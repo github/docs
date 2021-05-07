@@ -1,6 +1,6 @@
 ---
 title: 使用主题对仓库分类
-intro: '为帮助其他人找到并参与您的项目，可以为仓库添加主题，这些主题可以与项目的预期目的、学科领域、关联团队或其他重要特点相关。'
+intro: 为帮助其他人找到并参与您的项目，可以为仓库添加主题，这些主题可以与项目的预期目的、学科领域、关联团队或其他重要特点相关。
 redirect_from:
   - /articles/about-topics/
   - /articles/classifying-your-repository-with-topics
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于主题
@@ -22,7 +24,7 @@ versions:
 
 仓库管理员可以添加他们喜欢的任何主题到仓库。 适用于对仓库分类的主题包括仓库的预期目的、主题领域、社区或语言。{% if currentVersion == "free-pro-team@latest" %}此外，{% data variables.product.product_name %} 也会分析公共仓库内容，生成建议的主题，仓库管理员可以接受或拒绝。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
 
-{% if currentVersion == "github-ae@latest" %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
+{% if currentVersion == "github-ae@latest" %}Internal {% else %}公共、内部{% endif %}和私有仓库可拥有主题，虽然您在主题搜索结果中只会看到您有权访问的私有仓库。
 
 您可以搜索与公共仓库关联的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 更多信息请参阅“[搜索主题](/articles/searching-topics)”。
 

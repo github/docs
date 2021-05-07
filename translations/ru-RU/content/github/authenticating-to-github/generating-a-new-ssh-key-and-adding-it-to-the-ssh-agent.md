@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 If you don't already have an SSH key, you must [generate a new SSH key](#generating-a-new-ssh-key). If you're unsure whether you already have an SSH key, check for [existing keys](/articles/checking-for-existing-ssh-keys).
@@ -127,7 +129,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
   # start the ssh-agent in the background
-  $ eval $(ssh-agent -s)
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

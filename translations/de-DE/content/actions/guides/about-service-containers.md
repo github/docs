@@ -8,10 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Service-Containern
 
@@ -46,7 +52,7 @@ Du kannst das Schlüsselwort `Services` verwenden, um Service-Container zu erste
 Dieses Beispiel erstellt einen Dienst namens `redis` in einem Job namens `container-job`. Der Docker-Host in diesem Beispiel ist der Container `node:10.18-jessie`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
@@ -88,7 +94,7 @@ Wenn Du den Port des Docker-Hosts angibst, aber nicht den des Containers, dann w
 Dieses Beispiel ordnet den Port 6379 des Service-Containers `redis` dem Port 6379 des Docker-Hosts zu.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis Service Example
 on: push
 

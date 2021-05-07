@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 必须在 Git 中[配置指向上游仓库的远程仓库](/articles/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
@@ -49,6 +51,6 @@ versions:
 
 {% tip %}
 
-**提示**：同步复刻仅更新仓库的本地副本。 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/articles/pushing-commits-to-a-remote-repository/)。
+**提示**：同步复刻仅更新仓库的本地副本。 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}

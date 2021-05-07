@@ -2,10 +2,13 @@
 title: Enumeradores
 redirect_from:
   - /v4/enum
+  - /v4/reference/enum
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Sobre os enumeradores

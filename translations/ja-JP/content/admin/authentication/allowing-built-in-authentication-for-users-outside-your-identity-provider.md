@@ -1,11 +1,13 @@
 ---
 title: 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証の許可
-intro: 'LDAP、SAML、CASを使うアイデンティティプロバイダへのアクセスを持たないユーザを認証するために、ビルトイン認証を設定できます。'
+intro: LDAP、SAML、CASを使うアイデンティティプロバイダへのアクセスを持たないユーザを認証するために、ビルトイン認証を設定できます。
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証について

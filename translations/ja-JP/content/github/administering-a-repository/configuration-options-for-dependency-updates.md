@@ -290,7 +290,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# 「ignore」で維持する依存関係をカスタマイズする
+# Customizing the dependencies to maintain with `ignore`
 
 version: 2
 updates:
@@ -300,15 +300,16 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Express の場合、バージョン 4 と 5 のすべての更新を無視する
+        # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # Loadash の場合、すべての更新を無視する
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-構成ファイルの `ignore` オプションにプライベート依存関係を追加しても、{% data variables.product.prodname_dependabot_version_updates %} はプライベート Git 依存関係またはプライベート Git レジストリを含むマニフェストの依存関係のバージョン更新を実行できません。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)」を参照してください。
+**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+
 
 {% endnote %}
 

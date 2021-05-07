@@ -4,11 +4,14 @@ redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **ESTES TERMOS E CONDIÇÕES (O "CONTRATO") REGEM SUA PARTICIPAÇÃO NO PROGRAMA DO GITHUB MARKETPLACE. AO SE INSCREVER PARA PARTICIPAR DO PROGRAMA DE MARKETPLACE OU AO CLICAR EM "ACEITO" ABAIXO, VOCÊ ESTÁ CONFIRMANDO QUE ENTENDE ESTE ACORDO E QUE ACEITA TODOS OS SEUS TERMOS E CONDIÇÕES.  SE VOCÊ ESTÁ FIRMANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA ENTIDADE LEGAL, VOCÊ CONFIRMA QUE POSSUI A AUTORIZAÇÃO LEGAL PARA VINCULAR A ENTIDADE A ESTE CONTRATO, NO QUAL "VOCÊ" REPRESENTARÁ A ENTIDADE QUE VOCÊ REPRESENTA.**
 
-Data de entrada em vigor: 21 de Julho de 2020
+Data de vigência: 1 de janeiro de 2021
 
 ### 1.  DEFINIÇÕES
 
@@ -143,7 +146,7 @@ No caso de sua Listagem ser involuntariamente removida por ser defeituosa, malic
 
 **6.1** O GitHub será o vendedor de registro de Produtos de Desenvolvedor comprados pelos Usuários Finais via Marketplace.
 
-**6.2**  Os preços para as Listagens do Marketplace de Aplicações para Desenvolvedores serão definidos em dólares americanos (USD). O Desenvolvedor tem controle completo sobre a definição de preços para cada Listagem e, uma vez definidos, tais preços não podem ser alterados. Você pode aposentar um plano de preços para uma Listagem existente e adicionar um novo plano de preços para tal Listagem, desde que esse novo plano de preços não impacte negativamente os Usuários Finais existentes. Os preços definidos para Produtos de Desenvolvedor determinarão o valor de pagamento que você receberá. O GitHub repassará 75% do preço de venda em dólares americanos sem redução de impostos, exceto para quaisquer impostos retidos que sejam exigidos pela lei aplicável. Os 25% restantes do preço de venda serão alocados e retidos pelo GitHub.  No final de cada mês, e ao atingir um valor mínimo de 500 dólares, o GitHub efetuará sua parte dos pagamentos.
+**6.2**  Os preços para as Listagens do Marketplace de Aplicações para Desenvolvedores serão definidos em dólares americanos (USD). O Desenvolvedor tem controle completo sobre a definição de preços para cada Listagem e, uma vez definidos, tais preços não podem ser alterados. Você pode aposentar um plano de preços para uma Listagem existente e adicionar um novo plano de preços para tal Listagem, desde que esse novo plano de preços não impacte negativamente os Usuários Finais existentes. Os preços definidos para Produtos de Desenvolvedor determinarão o valor de pagamento que você receberá. O GitHub repassará 95% do preço de venda em dólares americanos sem redução de impostos, exceto para quaisquer impostos retidos que sejam exigidos pela lei aplicável. Os 5% restantes do preço de venda serão alocados e retidos pelo GitHub.  No final de cada mês, e ao atingir um valor mínimo de 500 dólares, o GitHub efetuará sua parte dos pagamentos.
 
 **6.3** Requisitos de Reembolso. Você será responsável por especificar os termos e as condições em relação aos reembolsos aos seus Usuários Finais. Em nenhuma circunstância o GitHub será responsável por oferecer suporte para reembolsos e o GitHUb não terá responsabilidade pelo pagamento de quaisquer reembolsos.
 
@@ -169,7 +172,7 @@ SOB NENHUMA CIRCUNSTÂNCIA E SOB NENHUMA TEORIA JURÍDICA (SEJA POR CONTRATO, RE
 
 **10.3**    O GitHub pode rescindir este Contrato a qualquer momento se (a) você tiver violado qualquer disposição deste Contrato ou (b) o GitHub for obrigado a fazê-lo por lei.
 
-**10.4**    Efeitos da Rescisão pelo Desenvolvedor. Após receber quarenta e cinco (45) dias de aviso prévio por escrito de rescisão do Desenvolvedor, o Desenvolvedor será impedido de assumir novos clientes via Marketplace. Quaisquer taxas pendentes serão remetidas após a rescisão e remoção do Produto de Desenvolvedor do Marketplace. Se a rescisão for iniciada como resultado de uma alteração do GitHub para estes termos (Seção 11), os termos em vigor imediatamente antes de tal modificação regem o período de aviso prévio de 45 dias até a data da rescisão real.
+**10.4**    Efeitos da Rescisão pelo Desenvolvedor. Após receber quarenta e cinco (45) dias de aviso prévio por escrito de rescisão do Desenvolvedor, o Desenvolvedor será impedido de assumir novos clientes via Marketplace. Quaisquer taxas pendentes serão remetidas após a rescisão e remoção do Produto de Desenvolvedor do Marketplace. Se a rescisão for iniciada como resultado de uma modificação do GitHub a estes termos (Seção 11), os termos em vigor imediatamente antes de tal modificação regerão pela duração do período de aviso de 45 dias até a data da rescisão real.
 
 **10.5**    As obrigações das Seções 2, 3, 4, 5, 8, 9 e 12-18 sobreviverão a qualquer expiração ou rescisão deste Contrato.
 

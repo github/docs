@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中查看贡献
-intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
+intro: '您的 {% data variables.product.product_name %} 个人资料突出显示{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}您置顶的仓库以及{% endif %}过去一年的仓库贡献图。'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -9,13 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}您的贡献图显示公共仓库的活动。 {% endif %}您可以选择显示{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}公共和{% endif %}私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)”
+**注：**仅当您用于创作提交的电子邮件地址与您在 {% data variables.product.product_name %} 上的帐户相连时，提交才会显示在您的贡献图中。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)”
 
 {% endnote %}
 
@@ -25,15 +27,17 @@ versions:
 
 - 提交到仓库的默认分支或 `gh-pages` 分支
 - 打开议题
+- 打开讨论
+- 回答讨论
 - 提议拉取请求
-- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- 提交拉取请求审查{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - 合作创作仓库默认分支或 `gh-pages` 分支中的提交{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### 受欢迎的仓库
 
-此部分显示具有最多查看者的仓库。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
+此部分显示具有最多查看者的仓库。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}一旦您[在个人资料置顶仓库](/articles/pinning-repositories-to-your-profile)，此部分将更改为“置顶的仓库”。{% endif %}
 
 ![受欢迎的仓库](/assets/images/help/profile/profile_popular_repositories.png)
 
@@ -58,7 +62,7 @@ versions:
 
 {% note %}
 
-**注：**您可以在贡献日历中选择最多一个月的范围。 如果您选择了更大的时间范围，我们将仅显示一个月的贡献。
+**注：**您可以在贡献日历中选择最多一个月的范围。 如果您选择更大的时间范围，我们将仅显示一个月的贡献。
 
 {% endnote %}
 
@@ -86,9 +90,9 @@ versions:
 
 {% if currentVersion != "github-ae@latest" %}
 ### 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
-If your site administrator has enabled
+如果站点管理员已启用
 
-{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到您的 {% data variables.product.prodname_dotcom_the_website %} 个人资料。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
 {% endif %}
 
 ### 延伸阅读

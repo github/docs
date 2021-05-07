@@ -4,7 +4,7 @@ intro: É possível gerenciar as pessoas e equipes incluídas em métricas e rel
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
-permissions: 'Pessoas com permissões de administrador no {% data variables.product.prodname_insights %} podem gerenciar contribuidores e equipes.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

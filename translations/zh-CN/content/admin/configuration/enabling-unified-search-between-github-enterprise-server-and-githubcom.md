@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
-permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员（同时也是已连接 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户的所有者）可以在 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_dotcom_the_website %} 之间启用统一搜索。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 启用统一搜索后，用户可在从 {% data variables.product.product_location_enterprise %} 进行搜索时查看 {% data variables.product.prodname_dotcom_the_website %} 上公共和私有内容的搜索结果。

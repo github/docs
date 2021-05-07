@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 创建和共享诊断文件
@@ -59,7 +61,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `configuration-logs/ghe-config.log`：{% data variables.product.prodname_ghe_server %} 配置日志
 - `collectd/logs/collectd.log`：Collectd 日志
 - `mail-logs/mail.log`：SMTP 电子邮件交付日志
+{% if currentVersion ver_lt "enterprise-server@3.0" %}
 - `hookshot-logs/exceptions.log`：Web 挂钩交付错误
+{% endif %}
 
 更多信息请参阅“[审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)”。
 

@@ -4,7 +4,7 @@ intro: メトリクスとレポートに含まれる人とTeamを管理できま
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、コントリビューターとTeamを管理できます。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
@@ -90,7 +90,7 @@ Organizationが{% data variables.product.prodname_insights %}に追加される�
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. "Contributors（コントリビューター）"の下で、ドロップダウンメニューを使い、コントリビューターを選択してください。 ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
+3. "Contributors（コントリビューター）"の下で、ドロップダウンメニューを使い、コントリビューターを選択してください。 ![コントリビューターのドロップダウン](/assets/images/help/insights/contributors-drop-down.png)
 4. [**Done**] をクリックします。
 
 #### カスタムTeamからのコントリビューターの削除

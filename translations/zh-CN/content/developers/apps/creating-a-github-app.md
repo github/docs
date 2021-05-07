@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
@@ -42,7 +44,7 @@ versions:
 
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-9. 默认情况下，为了提高应用程序的安全性，应用程序将使用过期用户授权令牌。 要选择不使用过期用户令牌，您必须取消选中“Expire user authorization tokens（过期用户授权令牌）”。 要了解有关设置刷新令牌流程和过期用户令牌的好处，请参阅“[刷新用户到服务器的访问令牌](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)”。 ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+9. 默认情况下，为了提高应用程序的安全性，应用程序将使用过期用户授权令牌。 要选择不使用过期用户令牌，您必须取消选中“Expire user authorization tokens（过期用户授权令牌）”。 要了解有关设置刷新令牌流程和过期用户令牌的好处，请参阅“[刷新用户到服务器的访问令牌](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)”。 ![在 GitHub 应用程序设置过程中选择加入过期用户令牌的选项](/assets/images/github-apps/expire-user-tokens-selection.png)
 {% endif %}
 9. 如果应用程序授权用户使用 OAuth 流程，您可以选择**在安装过程中请求用户授权 (OAuth)**，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则“设置 URL”将不可用，用户在安装应用程序后将被重定向到您的“用户授权回调 URL”。 更多信息请参阅“[在安装过程中授权用户](/apps/installing-github-apps/#authorizing-users-during-installation)”。 ![安装过程中请求用户授权](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
 10. 如果安装后需要附加设置，请添加一个“设置 URL”以便在用户安装应用程序后重定向他们。 ![GitHub 应用程序的设置 URL 字段 ](/assets/images/github-apps/github_apps_setup_url.png)
@@ -64,6 +66,6 @@ versions:
   {% endnote %}
 
 13. 在“Permissions（权限）”中，选择应用程序将请求的权限。 对于每种类型的权限，请使用下拉菜单并单击 **Read-only（只读）**、**Read & write（读取和写入）** 或 **No access（无访问权限）**。 ![GitHub 应用程序的各种权限](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. 在“Subscribe to events（订阅事件）”中，选择是否让应用程序订阅 **Label（标签）**、**Public（公开）**、**Repository（仓库）**或 **Watch（关注）**事件。 ![订阅 GitHub 应用程序的事件选项](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. 在“Subscribe to events（订阅事件）”中，选择您想要应用程序接收的事件。
 15. 要选择可安装应用程序的位置，请选择 **Only on this account（仅在此帐户上）**或 **Any account（任何帐户）**。 有关安装选项的更多信息，请参阅“[将 GitHub 应用程序设为公开或私有](/apps/managing-github-apps/making-a-github-app-public-or-private/)”。 ![GitHub 应用程序的安装选项](/assets/images/github-apps/github_apps_installation_options.png)
 16. 单击 **Create GitHub App（创建 GitHub 应用程序）**。 ![创建 GitHub 应用程序的按钮](/assets/images/github-apps/github_apps_create_github_app.png)

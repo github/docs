@@ -1,0 +1,1 @@
+1. En la barra lateral de la cuenta de empresa, haz clic en {% octicon "law" aria-label="The law icon" %} **Policies** (Políticas). ![Pestaña Policies (Políticas) en la barra lateral de la cuenta de empresa](/assets/images/help/business-accounts/enterprise-account-policies-tab.png)

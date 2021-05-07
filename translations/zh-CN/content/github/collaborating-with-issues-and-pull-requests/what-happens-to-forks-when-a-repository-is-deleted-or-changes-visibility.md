@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -56,7 +58,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-#### Changing the visibility of an internal repository
+#### 更改内部仓库的可见性
 
 {% note %}
 
@@ -64,11 +66,11 @@ versions:
 
 {% endnote %}
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+如果企业策略允许复刻，则内部仓库的任何复刻都将是私有的。 如果您更改内部仓库的可见性，组织或用户帐户拥有的任何复刻都将保持私有。
 
-##### Deleting the internal repository
+##### 删除内部仓库
 
-If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+如果您更改了内部仓库的可见性，然后删除仓库，复刻将继续存在于单独的网络中。
 
 {% endif %}
 
@@ -77,5 +79,5 @@ If you change the visibility of an internal repository and then delete the repos
 - “[设置仓库可见性](/articles/setting-repository-visibility)”
 - "[关于复刻](/articles/about-forks)"
 - "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[管理组织的复刻策略](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
-- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"
+- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "{% if currentversion == "free-proteam@latest" %}[在企业帐户中执行仓库管理策略](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[在企业中执行仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

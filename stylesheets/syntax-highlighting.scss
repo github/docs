@@ -5,37 +5,24 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 
 */
 
-.markdown-body .code-extra {
-  margin-top: $spacer-4;
-
-  pre {
-    margin-top: 0 !important;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-left: 1px $gray-200 solid !important;
-    border-bottom: 1px $gray-200 solid !important;
-    border-right: 1px $gray-200 solid !important;
-  }
-}
-
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: $gray-900;
-  background: $gray-000;
+  color: var(--color-auto-gray-9);
+  background: var(--color-auto-gray-0);
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: $gray-500;
+  color: var(--color-auto-gray-5);
   font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: $gray-900;
+  color: var(--color-auto-gray-9);
   font-weight: bold;
 }
 
@@ -44,18 +31,18 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 .hljs-variable,
 .hljs-template-variable,
 .hljs-tag .hljs-attr {
-  color: $green-700;
+  color: var(--color-auto-green-7);
 }
 
 .hljs-string,
 .hljs-doctag {
-  color: $blue-600;
+  color: var(--color-auto-blue-6);
 }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: $red-800;
+  color: var(--color-auto-red-8);
   font-weight: bold;
 }
 
@@ -65,43 +52,43 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 
 .hljs-type,
 .hljs-class .hljs-title {
-  color: $blue-700;
+  color: var(--color-auto-blue-7);
   font-weight: bold;
 }
 
 .hljs-tag,
 .hljs-name,
 .hljs-attribute {
-  color: $blue-700;
+  color: var(--color-auto-blue-7);
   font-weight: normal;
 }
 
 .hljs-regexp,
 .hljs-link {
-  color: $green-700;
+  color: var(--color-auto-green-7);
 }
 
 .hljs-symbol,
 .hljs-bullet {
-  color: $purple-500;
+  color: var(--color-auto-purple-5);
 }
 
 .hljs-built_in,
 .hljs-builtin-name {
-  color: $blue-700;
+  color: var(--color-auto-blue-7);
 }
 
 .hljs-meta {
-  color: $gray-500;
+  color: var(--color-auto-gray-5);
   font-weight: bold;
 }
 
 .hljs-deletion {
-  background: $red-200;
+  background: var(--color-auto-red-2);
 }
 
 .hljs-addition {
-  background: $green-200;
+  background: var(--color-auto-green-2);
 }
 
 .hljs-emphasis {

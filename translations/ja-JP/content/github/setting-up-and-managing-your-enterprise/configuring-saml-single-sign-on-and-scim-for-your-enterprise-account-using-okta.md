@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
@@ -54,7 +56,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 1. ドロップダウンメニューの右に `.*.*` と入力します。
 1. [**Save**] をクリックします。
 {% data reusables.saml.okta-view-setup-instructions %}
-1. 設定手順の情報を使用して、Enterprise アカウントの SAML を有効にします。 詳細は「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」を参照してください。
+1. 設定手順の情報を使用して、Enterprise アカウントの SAML を有効にします。 詳しい情報については、「[Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」参照してください。
 
 ### Okta でグループを作成する
 

@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 ### 关于 Jekyll 构建错误
 
-Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
+有时，在您推送更改到站点的发布源之后，{% data variables.product.prodname_pages %} 不会尝试构建您的站点。{% if currentVersion == "free-pro-team@latest" %}
 - 推送更改的人尚未验证他们的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 - 您使用部署密钥推送。 如果要自动推送到站点的仓库，您可以改为设置计算机用户。 更多信息请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys#machine-users)”。
 - 您使用的是未配置为构建发布源的 CI 服务。 例如，Travis CI 不会构建 `gh-pages` 分支，除非您将该分支添加到安全列表。 更多信息请参阅 Travis CI 上的“[定制构建](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)”或者 CI 服务的文档。
@@ -44,13 +46,13 @@ Sometimes, {% data variables.product.prodname_pages %} will not attempt to build
 您可以配置第三方服务（例如 [Travis CI](https://travis-ci.org/)）以在每次提交后显示错误消息。
 
 1. 如果尚未在发布源的根目录中添加名为 _Gemfile_、包含以下内容的文件，请添加：
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. 为您选择的测试服务配置站点仓库。 例如，要使用 [Travis CI](https://travis-ci.org/)，请在发布源的根目录下添加一个名为 _.travis.yml_、包含以下内容的文件：
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

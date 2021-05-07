@@ -3,11 +3,13 @@ title: Fazer checkout de pull requests no local
 intro: 'Quando alguém envia a você uma pull request de uma bifurcação ou um branch do seu repositório, talvez você queira fazer merge dela no local para resolver um conflito de merge ou para testar e verificar as alterações antes de fazer merge no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: Qualquer pessoa com acesso de gravação a um repositório pode derrubar uma pull request remota localmente.
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

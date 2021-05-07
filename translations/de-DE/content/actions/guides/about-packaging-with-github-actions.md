@@ -8,10 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Packaging
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu Paketierungsschritten
 
@@ -25,7 +30,11 @@ Das Erstellen eines Pakets am Ende eines Workflows zur kontinuierlichen Integrat
 
 Wenn Du nun einen Pull-Request überprüfst, kannst Du Dir den Ablauf des Workflows ansehen und das erzeugte Artefakt herunterladen.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+![Dropdown-Menü zum Herunterladen von Artefakten](/assets/images/help/repository/artifact-drop-down-updated.png)
+{% else %}
 ![Dropdown-Menü zum Herunterladen von Artefakten](/assets/images/help/repository/artifact-drop-down.png)
+{% endif %}
 
 Dadurch kannst Du den Code im Pull-Request auf Deinem Rechner ausführen, was beim Debuggen oder Testen des Pull-Requests helfen kann.
 

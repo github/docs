@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
@@ -37,7 +39,7 @@ versions:
       ```
     - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 *`UUID`* 替换为您在上一步中检索到的 UUID。
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### 延伸阅读

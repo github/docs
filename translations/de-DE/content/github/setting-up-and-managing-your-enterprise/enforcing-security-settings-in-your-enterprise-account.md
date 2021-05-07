@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben
@@ -47,7 +49,7 @@ Enterprise-Inhaber können den Zugriff auf Objekte im Besitz von Organisationen 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfigurieren. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)."
+Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfigurieren. Weitere Informationen findest Du auf „[Zugelassene IP-Adressen für Deine Organisation verwalten](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
 
 #### Eine zulässige IP-Adresse hinzufügen
 
@@ -88,97 +90,6 @@ Du kannst auch zugelassene IP-Adressen für eine einzelne Organisation konfiguri
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto aktivieren
-
-{% data reusables.saml.dotcom-saml-explanation %} Weitere Informationen findest Du unter „[Informationen über Identitäts- und Zugriffsmanagement mit SAML Single Sign-On](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)."
-
-Enterprise-Inhaber können SAML SSO und zentralisierte Authentifizierung über einen SAML IdP in allen Organisationen eines Enterprise-Kontos ermöglichen. Wenn Du SAML SSO für Dein Enterprise-Konto aktiviert hast, wird SAML SSO standardmäßig für alle Organisationen Deines Enterprise-Kontos aktiviert. Alle Mitglieder müssen sich über SAML SSO authentifizieren, um auf die Organisationen zuzugreifen, bei denen sie Mitglied sind. Enterprise-Inhaber müssen sich über SAML SSO authentifizieren, wenn sie auf ein Enterprise-Konto zugreifen.
-
-{% data reusables.saml.about-saml-access-enterprise-account %} Weitere Informationen findest Du auf „[Anzeigen und Verwalten des SAML-Zugriffs eines Benutzers auf Dein Enterprise-Konto](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)."
-
-{% data reusables.saml.saml-supported-idps %}
-
-{% data reusables.scim.enterprise-account-scim %} If you're not participating in the private beta, SCIM is not supported for enterprise accounts. For more information, see "[Managing user provisioning for organizations in your enterprise account](#managing-user-provisioning-for-organizations-in-your-enterprise-account)."
-
-{% note %}
-
-**Hinweis:** Wenn Du die Authentifizierung mit SAML Single Sign-On für Dein Enterprise-Konto aktivierst, werden alle bestehenden SAML-Konfigurationen auf Organisationsebene überschrieben.
-
-{% endnote %}
-
-For more detailed information about how to enable SAML using Okta, see "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta).
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Wähle unter „SAML single sign-on“ (SAML Single Sign-On) **Enable SAML authentication** (SAML-Authentifizierung aktivieren) aus. ![Kontrollkästchen zum Aktivieren von SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
-6. Gib im Feld **Sign on URL** (Sign-On-URL) den HTTPS-Endpunkt für Deinen IdP für Single Sign-On-Anforderungen ein. Diesen Wert findest Du in der IdP-Konfiguration. ![Feld für die URL, auf die Mitglieder bei der Anmeldung weitergeleitet werden](/assets/images/help/saml/saml_sign_on_url_business.png)
-7. Gib optional im Feld **Issuer** (Aussteller) den Namen Deines SAML-Ausstellers ein. Dadurch wird die Authentizität versendeter Nachrichten verifiziert. ![Feld für den Namen des SAML-Ausstellers](/assets/images/help/saml/saml_issuer.png)
-8. Füge unter **Public Certificate** (Öffentliches Zertifikat) ein Zertifikat ein, um die SAML-Antworten zu verifizieren. ![Feld für das öffentliche Zertifikat des Identity Providers](/assets/images/help/saml/saml_public_certificate.png)
-9. Um die Integrität der Anforderungen von Ihrem SAML-Aussteller zu überprüfen, klicken Sie auf {% octicon "pencil" aria-label="The edit icon" %}. Wähle dann in den Dropdownmenüs „Signature Method“ (Signaturmethode) und „Digest Method“ (Digest-Methode) den Hash-Algorithmus aus, den Dein SAML-Aussteller verwendet. ![Dropdownmenüs für die Hash-Algorithmen für die Signaturmethode und Digest-Methode, die Dein SAML-Aussteller verwendet](/assets/images/help/saml/saml_hashing_method.png)
-10. Bevor Du SAML SSO für Dein Unternehmen aktivierst, klicke auf **Test SAML configuration** (SAML-Konfiguration testen), um sicherzustellen, dass die eingegebenen Informationen korrekt sind. ![Schaltfläche zum Testen der SAML-Konfiguration vor dem Erzwingen](/assets/images/help/saml/saml_test.png)
-11. Klicke auf **Save** (Speichern).
-
-### Managing user provisioning for organizations in your enterprise account
-
-Enterprise owners can manage organization membership in an enterprise account directly from an identity provider (IdP).
-
-{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
-
-{% data reusables.saml.about-user-provisioning-enterprise-account %}
-
-{% data reusables.scim.enterprise-account-scim %} Optionally, you can also enable SAML provisioning and, separately, deprovisioning.
-
-If you configure SCIM in your IdP, each time you make changes to group membership in your IdP, your IdP will make a SCIM call to {% data variables.product.prodname_dotcom %} to update the corresponding organization's membership. If you enable SAML provisioning, each time an enterprise member accesses a resource protected by your enterprise account's SAML configuration, that SAML assertion will trigger provisioning.
-
-For each SCIM call or SAML assertion, {% data variables.product.product_name %} will check the IdP groups the user belongs to and perform the following operations:
-
-- If the user is a member of an IdP group that corresponds to an organization owned by your enterprise account, and the user is not currently a member of that organization, add the user to the organization (SAML assertion) or send the user an email invitation to join the organization (SCIM call).
-- Cancel any existing invitations for the user to join an organization owned by your enterprise account.
-
-For each SCIM call and, if you enable SAML deprovisioning, each SAML assertion, {% data variables.product.product_name %} will also perform the following operation:
-
-- If the user is not a member of an IdP group that corresponds to an organization owned by your enterprise account, and the user is currently a member of that organization, remove the user from the organization.
-
-If deprovisioning removes the last remaining owner from an organization, the organization will become unowned. Enterprise owners can assume ownership of unowned organizations. For more information, see "[Managing unowned organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account)."
-
-To enable user provisioning for your enterprise account using Okta, see "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)."
-
-### Teamsynchronisierung für Organisationen in Deinem Enterprise-Konto verwalten
-
-Enterprise-Inhaber können die Teamsynchronisierung zwischen einem IdP und {% data variables.product.product_name %} ermöglichen, um Organisationsinhabern und Teambetreuern die Verbindung von Teams in den Organisationen Deines Enterprise-Kontos mit IdP-Gruppen zu ermöglichen.
-
-{% data reusables.identity-and-permissions.about-team-sync %}
-
-Mit Deinem Enterprise-Konto kannst Du die Teamsynchronisation mit Azure AD verwenden.
-
-{% data reusables.identity-and-permissions.sync-team-with-idp-group %}
-
-{% data reusables.identity-and-permissions.team-sync-disable %}
-
-Du kannst auch die Teamsynchronisation für eine einzelne Organisation konfigurieren und verwalten. Weitere Informationen findest Du unter „[Teamsynchronisation für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)."
-
-#### Vorrausetzungen
-
-Bevor Du die Teamsynchronisierung für Dein Enterprise-Konto aktivieren kannst:
-  - müssen Du oder Dein Azure AD-Administrator ein Global-Administrator oder ein Privileged Role-Administrator in Azure AD sein.
-  - musst Du SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto mit Deinem unterstützten IdP aktivieren. Weitere Informationen findest Du unter „[SAML Single Sign-On für Organisationen in Deinem Enterprise-Konto aktivieren](#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
-  - musst Du mit SAML SSO und der unterstützten IdP zu Deinem Enterprise-Konto authentifizieren. Weitere Informationen findest Du unter „[Authentifizierung mit SAML Single Sign-On](/articles/authenticating-with-saml-single-sign-on).“
-
-#### Teamsynchronisation für Azure AD verwalten
-
-{% data reusables.identity-and-permissions.team-sync-azure-permissions %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Überprüfe die Mandanteninformation des Identitätsanbieters, den Du zu Deinem Enterprise-Konto verbinden willst, dann klicke auf **Approve** (Genehmigen). ![Ausstehende Anforderung zum Aktivieren der Teamsynchronisierung für einen IdP-Mandanten mit der Option zur Genehmigung oder Ablehnung](/assets/images/help/teams/approve-team-synchronization.png)
-8. Um die Teamsynchronisation zu deaktivieren, klicke auf **Disable team synchronization** (Teamsynchronisation deaktivieren). ![Deaktivieren der Teamsynchronisierung](/assets/images/help/teams/disable-team-synchronization.png)
-
 ### SSH-Zertifizierungsstellen Ihres Enterprise-Kontos verwalten
 
 Enterprise-Inhaber können die SSH-Zertifizierungsstellen eines Enterprise-Kontos hinzufügen und löschen.
@@ -203,3 +114,7 @@ Das Löschen einer Zertifizierungsstelle kann nicht rückgängig gemacht werden.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
+### Weiterführende Informationen
+
+- "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

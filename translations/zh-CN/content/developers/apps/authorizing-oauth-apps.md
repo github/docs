@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 {% data variables.product.product_name %} 的 OAuth 实现支持标准[授权代码授予类型](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}以及 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)（针对无法访问 web 浏览器的应用程序）{% endif %}。
@@ -72,30 +74,30 @@ versions:
 
 ##### 参数
 
-| 名称              | 类型    | 描述                                                                                                                  |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端 ID。 |
-| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端密钥。  |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                              |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                             |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                               |
+| 名称              | 类型    | 描述                                                                                                                 |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。 |
+| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端密钥。  |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                             |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                            |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                              |
 
 ##### 响应
 
 默认情况下，响应采用以下形式：
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 您也可以根据“接受”标头接收不同格式的内容：
 
     Accept: application/json
-    {"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a", "scope":"repo,gist", "token_type":"bearer"}
+    {"access_token":"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
     
     Accept: application/xml
     <OAuth>
       <token_type>bearer</token_type>
       <scope>repo,gist</scope>
-      <access_token>e72e16c7e42f292c6912e7710c838347ae178b4a</access_token>
+      <access_token>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
     </OAuth>
 
 #### 3. 使用访问令牌访问 API
@@ -205,7 +207,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ```json
 {
- "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+ "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "user"
 }
@@ -265,7 +267,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### 为 OAuth 应用程序创建多个令牌
 
@@ -300,3 +304,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[设备流程错误](#errors-for-the-device-flow)"
 {% endif %}
+
+### 延伸阅读
+
+- “[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”

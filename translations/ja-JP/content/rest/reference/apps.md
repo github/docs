@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 GitHub Apps API を使用すると、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。 GitHub App の詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
@@ -32,9 +34,9 @@ REST API v3 エンドポイントのサブセットでは、GitHub App のイン
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Installations
+## インストール
 
-Installations API を使用すると、GitHub App のインストールに関する情報を取得して、それらのインストール内でアクションを実行できます。 _インストレーション_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 インストレーションとして認証し、特定のリポジトリへのアクセスを制限する方法については、「[インストレーションとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
+Installations API を使用すると、GitHub App のインストールに関する情報を取得して、それらのインストール内でアクションを実行できます。 _インストール_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 インストレーションとして認証し、特定のリポジトリへのアクセスを制限する方法については、「[インストレーションとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
 Organization のすべての GitHub App インストレーションを一覧表示するには、「[Organization のアプリケーションインストールの一覧表示](/rest/reference/orgs#list-app-installations-for-an-organization)」を参照してください。
 

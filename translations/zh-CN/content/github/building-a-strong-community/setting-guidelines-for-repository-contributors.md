@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 社区
 ---
 
 为帮助项目参与者做好工作，您可以将含有参与指南的文件添加到项目仓库的根目录 `docs` 或 `.github` 文件夹。 有人打开拉取请求或创建议题时，他们将看到指向该文件的链接。
@@ -58,4 +60,4 @@ versions:
 ### 延伸阅读
 - 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}
+- "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"{% endif %}

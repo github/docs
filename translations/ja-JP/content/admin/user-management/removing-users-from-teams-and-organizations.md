@@ -1,10 +1,12 @@
 ---
 title: Team及びOrganizationからのユーザの削除
-intro: 'Organizationのメンバーが特定のリポジトリへのアクセスを必要としなくなったなら、そのメンバーをアクセスを許可しているTeamから削除できます。 OrganizationのメンバーがOrganizationの所有するすべてのリポジトリへのアクセスを必要としなくなったなら、そのメンバーをOrganizationから削除できます。'
+intro: Organizationのメンバーが特定のリポジトリへのアクセスを必要としなくなったなら、そのメンバーをアクセスを許可しているTeamから削除できます。 OrganizationのメンバーがOrganizationの所有するすべてのリポジトリへのアクセスを必要としなくなったなら、そのメンバーをOrganizationから削除できます。
 redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Organizationのメンバーを削除できるのは、オーナーもしくはTeamの管理者のみです。 ユーザがTeamもしくはOrganizationから削除されても、Organizationのリポジトリ内のそのユーザのIssue、プルリクエスト、コメントはそのまま残り、ユーザのもののままです。

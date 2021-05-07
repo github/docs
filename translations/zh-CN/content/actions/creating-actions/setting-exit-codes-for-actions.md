@@ -8,19 +8,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于退出代码
 
 {% data variables.product.prodname_dotcom %} 使用退出代码设置操作的检查运行状态，可以是 `success` 或 `failure`。
 
-| 退出状态 | 检查运行状态    | 描述                                                                          |
-| ---- | --------- | --------------------------------------------------------------------------- |
-| `0`  | `success` | 操作已成功完成，依赖它的其他操作可以开始。                                                       |
-| 非零值  | `failure` | 任何其他退出代码都表示操作失败。 当操作失败时，所有同时进行的操作都会取消，且跳过未来的操作。 检查运行和检查套件都将收到 `failure` 状态。 |
+| 退出状态           | 检查运行状态    | 描述                                                                          |
+| -------------- | --------- | --------------------------------------------------------------------------- |
+| `0`            | `success` | 操作已成功完成，依赖它的其他操作可以开始。                                                       |
+| 非零值（0 除外的任何整数） | `failure` | 任何其他退出代码都表示操作失败。 当操作失败时，所有同时进行的操作都会取消，且跳过未来的操作。 检查运行和检查套件都将收到 `failure` 状态。 |
 
 ### 在 JavaScript 操作中设置失败退出代码
 

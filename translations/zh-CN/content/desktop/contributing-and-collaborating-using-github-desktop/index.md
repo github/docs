@@ -1,7 +1,7 @@
 ---
 title: 使用 GitHub Desktop 参与和协作
 shortTitle: 参与和协作
-intro: '使用 GitHub Desktop 管理项目，创建有意义的提交，并在应用程序（而非命令行）中跟踪项目的历史记录。'
+intro: 使用 GitHub Desktop 管理项目，创建有意义的提交，并在应用程序（而非命令行）中跟踪项目的历史记录。
 redirect_from:
   - /desktop/contributing-to-projects
 versions:
@@ -19,8 +19,10 @@ versions:
 {% topic_link_in_list /making-changes-in-a-branch %}
     {% link_in_list /managing-branches %}
     {% link_in_list /committing-and-reviewing-changes-to-your-project %}
+    {% link_in_list /stashing-changes %}
     {% link_in_list /pushing-changes-to-github %}
     {% link_in_list /reverting-a-commit %}
+    {% link_in_list /cherry-picking-a-commit %}
     {% link_in_list /managing-tags %}
     {% link_in_list /viewing-the-branch-history %}
 {% topic_link_in_list /working-with-your-remote-repository-on-github-or-github-enterprise %}

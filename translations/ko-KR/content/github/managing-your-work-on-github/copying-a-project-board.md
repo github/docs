@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 Copying a project board allows you to reuse a project board's title, description, and automation configuration. You can copy project boards to eliminate the manual process of creating new project boards for similar workflows.
@@ -22,5 +24,5 @@ A project board's automation is also enabled by default. For more information, s
 5. Optionally, under "Project board name", type the name of the copied project board. ![Field to type a name for the copied project board](/assets/images/help/projects/copied-project-board-name.png)
 6. Optionally, under "Description", type a description of the copied project board that other people will see. ![Field to type a description for the copied project board](/assets/images/help/projects/copied-project-board-description.png)
 7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)." ![Select automation settings for copied project board](/assets/images/help/projects/copied-project-board-automation-settings.png)
-8. If you are copying an organization-owned project board, under "Visibility", select whether you want your copied project board to be private or public. ![Select visibility settings for copied project board](/assets/images/help/projects/copied-project-board-visibility-settings.png)
+{% data reusables.project-management.choose-visibility %}
 9. Click **Copy project**. ![Confirm Copy button](/assets/images/help/projects/confirm-copy-project-board.png)

@@ -1,8 +1,11 @@
 ---
 title: Kontinuität der Inhaberschaft der Repositorys Deines Benutzerkontos sicherstellen
-intro: Du kannst jemanden einladen, Deine eigenen Repositorys zu verwalten, wenn Du nicht dazu in der Lage bist.
+intro: 'Du kannst jemanden einladen, Deine eigenen Repositorys zu verwalten, wenn Du nicht dazu in der Lage bist.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### Über Nachfolger

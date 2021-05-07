@@ -1,5 +1,5 @@
 ---
-title: Migrating data to your enterprise
+title: Enterprise にデータを移行する
 intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
@@ -13,15 +13,19 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
+[移行の準備](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)ができたら、次のステップで移行を完了できます。
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. `ghe-migrator import`コマンドを使ってインポートのプロセスを開始してください。 以下が必要です:
-    * 移行 GUID.
-    * Your personal access token for authentication. The personal access token that you use is only for authentication as a site administrator, and does not require any specific scope. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+    * 移行 GUID. 詳しい情報については、「[Enterprise へのデータ移行を準備する](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。
+    * 認証のための個人アクセストークン。 個人アクセストークンは、サイト管理者としての認証にのみ使用され、特定のスコープは必要ありません。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
     ```shell
     $ ghe-migrator import /home/admin/<em>MIGRATION_GUID</em>.tar.gz -g <em>MIGRATION_GUID</em> -u <em>username</em> -p <em>TOKEN</em>
@@ -108,7 +112,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 
 ### {% data variables.product.prodname_ghe_server %} でインポートを完了する
 
-After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. ソースデータを削除する前に、すべてが期待どおりに機能していることを確認するため2週間ほど待つことをおすすめします。
+ターゲットインスタンスへの移行が適用され、その内容を確認したら、リポジトリのロックを解除して、ソースから削除します。 ソースデータを削除する前に、すべてが期待どおりに機能していることを確認するため2週間ほど待つことをおすすめします。
 
 ### ターゲットインスタンス上でのリポジトリのアンロック
 
@@ -131,7 +135,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをロック解除した後、[リポジトリ削除エンドポイント](/rest/reference/repos/#delete-a-repository)を使用して以前に移行したすべてのリポジトリを削除する必要があります。 認証のためのアクセストークンが必要になります。
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

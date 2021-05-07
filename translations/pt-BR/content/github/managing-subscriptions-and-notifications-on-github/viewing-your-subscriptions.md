@@ -18,6 +18,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 Você recebe notificações para suas assinaturas de atividades contínuas em {% data variables.product.product_name %}. Há muitos motivos para você assinar uma conversa. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
@@ -36,12 +38,12 @@ Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisa
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+**Dica:** Você pode selecionar os tipos de evento a serem notificados utilizando a opção **Personalizar** na lista suspensa **Inspecionar/Cancelar inspeção** na sua [página](https://github.com/watching) ou em qualquer página de repositório em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 
 {% endtip %}
 {% endif %}
 
-Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no passado. Na página "Repositórios inspecionados" você pode rapidamente deixar de acompanhar repositórios. For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
+Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no passado. Na página "Repositórios inspecionados" você pode rapidamente deixar de acompanhar repositórios. Para obter mais informações sobre formas de cancelamento de assinatura, consulte "[Cancelar inspeção de recomendações](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" em {% data variables.product.prodname_blog %} e "[Gerenciar suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)". Também é possível criar um fluxo de trabalho de triagem para ajudar com as notificações que você recebe. Para obter orientação sobre fluxos de trabalho de triagem, consulte "[Personalizar um fluxo de trabalho para triagem das suas notificações](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
 
 ### Revisando todas as suas assinaturas
 
@@ -74,28 +76,8 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" %}when there are updates to issues, pull requests, releases or discussions (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+  **Dica:** Em vez de inspecionar um repositório, considere receber apenas notificações {% if currentVersion == "free-pro-team@latest" %}quando houver atualizações sobre problemas, pull requests, versões ou discussões (se habilitado para o repositório), ou qualquer combinação destas opções,{% else %}para versões em um repositório,{% endif %} ou para cancelar a inspeção por completo de um repositório.
 
-  Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
+  Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. Ao definir a configuração para receber notificações de certos tipos de evento, você só será notificado quando houver atualizações desses tipos de eventos no repositório, quando você estiver participando de um tópico ou quando você ou a sua equipe for @mentioned.
 
   {% endtip %}
-
-### Configurando as configurações de inspeção para um repositório individual
-
-É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
-
-{% data reusables.repositories.navigate-to-repo %}
-2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-  ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-   ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
-The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
-
-   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
-
-If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
-
-{% endif %}

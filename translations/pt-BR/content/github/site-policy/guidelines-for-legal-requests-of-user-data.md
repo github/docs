@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Você é um oficial da lei que está conduzindo uma investigação envolvendo o conteúdo de usuário hospedado no GitHub? Ou talvez você seja uma pessoa consciente de privacidade que gostaria de saber quais informações compartilhamos com um oficial da lei e sob quais circunstâncias. De qualquer forma, você está na página certa.
@@ -146,7 +149,14 @@ Por favor, note que a informação disponível varia de caso a caso. Algumas das
 
 ### Reembolso de custos
 
-Reservamo-nos o direito de solicitar o reembolso dos custos administrativos associados à resposta aos pedidos de informação, tal como permitido pela lei.
+Nos termos das leis estadual e federal, o GitHub pode pedir reembolso por custos associados à conformidade com uma demanda legal válida, como uma intimação, ordem de tribunal ou mandado de busca. Só cobramos a recuperação de alguns custos, e estes reembolsos cobrem apenas uma parte dos custos que efetivamente incorremos para cumprir as disposições legais.
+
+Embora não cobremos em situações de emergência ou em outras circunstâncias exigentes, buscamos o reembolso para todas as outras solicitações legais, de acordo com o cronograma a seguir, a menos que exigido de outra forma por lei:
+
+- Pesquisa inicial de até 25 identificadores: livre
+- Produção de informação/dados de assinantes para até 5 contas: grátis
+- Produção de informação/dados de assinante para mais de 5 contas: US$ 20 por conta
+- Pesquisas secundárias: US$ 10 por pesquisa
 
 ### Conservação de dados
 
@@ -161,8 +171,6 @@ GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N Sacramento, CA 95833-3505
 ```
-
-Você também pode enviar uma cópia de cortesia para legal@support.github.com.
 
 Por favor, faça suas solicitações da forma mais específica e breve quanto for possível, incluindo as seguintes informações:
 

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -25,7 +27,7 @@ versions:
 - Wenn Sie mehrere Versionen zurückliegen, sollten Sie {% data variables.product.product_location %} so weit wie möglich mit jedem Schritt Ihres Upgrade-Prozesses upgraden. Wenn Sie die nach Möglichkeit neueste Version für jedes Upgrade verwenden, können Sie von Leistungsverbesserungen und Bug-Korrekturen profitieren. So können Sie beispielsweise ein Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.8 auf 2.10 vornehmen. Beim Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.9 auf 2.10 wird im zweiten Schritt jedoch eine neuere Version verwendet.
 - Verwenden Sie beim Upgraden die neueste Patch-Veröffentlichung. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Verwenden Sie eine Testinstanz zum Testen der Upgrade-Schritte. Weitere Informationen finden Sie unter „[Testinstanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)“.
-- Warten Sie beim Ausführen mehrerer Upgrades mindestens 24 Stunden zwischen den Feature-Upgrades, damit Datenmigrationen und Upgrade-Hintergrundaufgaben vollständig abgeschlossen werden.
+- When running multiple upgrades, wait at least 24 hours between feature upgrades to allow data migrations and upgrade tasks running in the background to fully complete.
 
 ### Anforderungen
 

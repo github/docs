@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -52,7 +54,7 @@ curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 
 #### 调用 OAuth 授权 API
 
-如果要调用 [OAuth 授权 API](/enterprise-server@2.22/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
+如果要调用 [OAuth 授权 API](/enterprise-server/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
 
 ```bash
 curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'

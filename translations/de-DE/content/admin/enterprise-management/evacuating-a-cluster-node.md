@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Wenn auf Ihrem Datendienstcluster nur drei Knoten vorhanden sind, können Sie die Knoten nicht evakuieren, da `ghe-spokes` keinen anderen Platz besitzt, um eine Kopie vorzunehmen. Bei mindestens vier Knoten verschiebt `ghe-spokes` alle Repositorys vom evakuierten Knoten.
@@ -25,9 +27,11 @@ Wenn Sie einen Knoten offline nehmen, der Datendienste aufweist (wie Git, Pages 
     ghe-spokes evac-status
     ```
     Für {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     Für Storage
     ```
     ghe-storage evacuation-status
@@ -36,18 +40,26 @@ Wenn Sie einen Knoten offline nehmen, der Datendienste aufweist (wie Git, Pages 
 3. Nach Abschluss des Kopiervorgangs können Sie den Speicherdienst evakuieren. Führen Sie einen der folgenden Befehle aus:
 
     Für Git
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     Für {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     Nehmen Sie für Storage den Knoten offline.
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       Evakuieren Sie anschließend
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

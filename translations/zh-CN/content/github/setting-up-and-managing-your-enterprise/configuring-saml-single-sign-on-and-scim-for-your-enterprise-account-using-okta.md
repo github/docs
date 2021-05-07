@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
@@ -54,7 +56,7 @@ SAML SSO 控制并保护对企业帐户资源（如组织、仓库、议题和�
 1. 在下拉菜单右侧键入 `.*.*`。
 1. 单击 **Save（保存）**。
 {% data reusables.saml.okta-view-setup-instructions %}
-1. 使用设置说明中的信息为企业帐户启用 SAML。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
+1. 使用设置说明中的信息为企业帐户启用 SAML。 更多信息请参阅“[为企业帐户中的组织启用 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
 
 ### 在 Okta 中创建组
 

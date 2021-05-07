@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".

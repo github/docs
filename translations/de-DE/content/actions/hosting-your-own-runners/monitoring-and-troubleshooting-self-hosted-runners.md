@@ -1,6 +1,6 @@
 ---
 title: Überwachung und Fehlerbehebung selbst-gehosteter Runner
-intro: Du kannst Deine selbst gehosteten Runner überwachen, um ihre Aktivität zu sehen und gewöhnliche Probleme zu diagnostizieren.
+intro: 'Du kannst Deine selbst gehosteten Runner überwachen, um ihre Aktivität zu sehen und gewöhnliche Probleme zu diagnostizieren.'
 redirect_from:
   - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
@@ -8,10 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+defaultPlatform: linux
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Den Status eines selbst-gehosteten Runners mittels {{ site.data.variables.product.prodname_dotcom }} überprüfen
 

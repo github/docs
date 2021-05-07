@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:
@@ -29,7 +31,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<e
 
 ```shell
 $ git branch -a
-# Lists ALL the branches
+# すべてのブランチをリスト
 >   remotes/origin/awesome
 >   remotes/origin/more-work
 >   remotes/origin/new-main
@@ -39,7 +41,7 @@ $ git branch -a
 
 ```shell
 $ git checkout new-main
-# Create and checkout a tracking branch
+# 追跡ブランチを作成してチェックアウト
 > Branch new-main set up to track remote branch new-main from origin.
 > Switched to a new branch 'new-main'
 ```

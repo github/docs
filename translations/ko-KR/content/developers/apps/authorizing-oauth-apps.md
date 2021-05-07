@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 {% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
@@ -72,30 +74,30 @@ Exchange this `code` for an access token:
 
 ##### 매개변수
 
-| 이름              | 유형    | 설명                                                                                                                                                       |
-| --------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `문자열` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.     |
-| `client_secret` | `문자열` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}. |
-| `코드`            | `문자열` | **Required.** The code you received as a response to Step 1.                                                                                             |
-| `redirect_uri`  | `문자열` | The URL in your application where users are sent after authorization.                                                                                    |
-| `state`         | `문자열` | The unguessable random string you provided in Step 1.                                                                                                    |
+| 이름              | 유형    | 설명                                                                                                                                                      |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `문자열` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.     |
+| `client_secret` | `문자열` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}. |
+| `코드`            | `문자열` | **Required.** The code you received as a response to Step 1.                                                                                            |
+| `redirect_uri`  | `문자열` | The URL in your application where users are sent after authorization.                                                                                   |
+| `state`         | `문자열` | The unguessable random string you provided in Step 1.                                                                                                   |
 
 ##### 응답
 
 By default, the response takes the following form:
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 You can also receive the content in different formats depending on the Accept header:
 
     Accept: application/json
-    {"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a", "scope":"repo,gist", "token_type":"bearer"}
+    {"access_token":"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
     
     Accept: application/xml
     <OAuth>
       <token_type>bearer</token_type>
       <scope>repo,gist</scope>
-      <access_token>e72e16c7e42f292c6912e7710c838347ae178b4a</access_token>
+      <access_token>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
     </OAuth>
 
 #### 3. Use the access token to access the API
@@ -205,7 +207,7 @@ Once the user has authorized, the app will receive an access token that can be u
 
 ```json
 {
- "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+ "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "user"
 }
@@ -213,7 +215,7 @@ Once the user has authorized, the app will receive an access token that can be u
 
 #### Rate limits for the device flow
 
-When a user submits the verification code on the browser, there is a there is a rate limit of 50 submissions in an hour per application.
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
 
@@ -265,7 +267,9 @@ The optional `redirect_uri` parameter can also be used for localhost URLs. If th
 
 For the `http://localhost/path` callback URL, you can use this `redirect_uri`:
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### Creating multiple tokens for OAuth Apps
 
@@ -300,3 +304,7 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Device flow errors](#errors-for-the-device-flow)"
 {% endif %}
+
+### 더 읽을거리
+
+- "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"

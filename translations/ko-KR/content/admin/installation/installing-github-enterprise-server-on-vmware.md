@@ -9,6 +9,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-vmware
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 빌드전 요구 사양
@@ -48,4 +50,5 @@ versions:
 
 ### 더 읽을거리
 
- - "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

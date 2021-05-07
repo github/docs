@@ -1,10 +1,12 @@
 ---
 title: 在 HTTPS 端口使用 SSH
-intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/using-git/caching-your-github-credentials-in-git)，您可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
+intro: '有时，防火墙会完全拒绝允许 SSH 连接。  如果无法选择使用[具有凭据缓存的 HTTPS 克隆](/github/getting-started-with-github/caching-your-github-credentials-in-git)，您可以尝试使用通过 HTTPS 端口建立的 SSH 连接克隆。  大多数防火墙规则应允许此操作，但代理服务器可能会干扰。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:
   free-pro-team: '*'
+topics:
+  - SSH
 ---
 
 {% tip %}
@@ -33,6 +35,7 @@ $ ssh -T -p 443 git@ssh.github.com
 Host {% data variables.command_line.codeblock %}
   Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
+  User git
 ```
 
 您可以通过再次连接到 {% data variables.product.product_location %} 测试此项是否有效：

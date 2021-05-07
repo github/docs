@@ -1,0 +1,5 @@
+{% data variables.contact.enterprise_support %} podría considerar a un ticket como resuelto después de proporcionar una explicación, recomendación, instrucciones de uso, {% if currentVersion == "github-ae@latest" %}o {% endif %} instrucciones de solución alternativa{% if enterpriseServerVersions contains currentVersion %}, o recomendándote un lanzamiento disponible que trate el problema{% endif %}.
+
+Si usas un complemento personalizado o no compatible, módulo o código personalizado, {% data variables.contact.enterprise_support %} puede pedirte que elimines complementos, módulos o códigos no compatibles al intentar resolver el problema. Si el problema se arregla cuando el plug-in, módulo, o código personalizado no compatibles se eliminan, {% data variables.contact.enterprise_support %} podría considerar el ticket como resuelto.
+
+{% data variables.contact.enterprise_support %} podría cerrar un ticket si éste está fuera de su alcance o si han habido varios intentos para contactarte sin éxito. Si {% data variables.contact.enterprise_support %} cierra un ticket por falta de respuesta, puedes solicitar que lo vuelva a abrir.

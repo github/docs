@@ -11,6 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 2 要素認証リカバリコードを安全に保管することに加え、別のリカバリ方法を 1 つ以上設定することを強くおすすめします。
@@ -91,7 +93,7 @@ Recovery Accounts Elsewhere を使用して、あなたの {% data variables.pro
 
 アカウントリカバリトークンを生成し、パートナーリカバリプロバイダを利用して保存できます。
 
-1. Sign in to your Facebook account, then return to
+1. Facebook アカウントにサインインしてから、
 
 {% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。
 {% data reusables.user_settings.access_settings %}

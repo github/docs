@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### 更改头像
@@ -41,7 +43,7 @@ versions:
 
 ### 更改个人资料名称
 
-您可以更改显示在个人资料中的名称。 This name may also be displayed next to comments you make on private repositories owned by an organization. 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
+您可以更改显示在个人资料中的名称。 此名称也可能显示在您对于组织拥有的私有仓库所做的注释旁边。 更多信息请参阅“[管理组织中成员名称的显示](/articles/managing-the-display-of-member-names-in-your-organization)”。
 
 {% data reusables.user_settings.access_settings %}
 2. 在“Name（名称）”下，键入要显示在个人资料中的名称。 ![个人资料设置中的名称字段](/assets/images/help/profile/name-field.png)
@@ -52,7 +54,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 更多信息请参阅“[管理个人资料自述文件](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
 
 {% endif %}
 

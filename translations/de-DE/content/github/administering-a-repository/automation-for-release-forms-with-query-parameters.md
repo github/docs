@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Abfrageparameter sind optionale Bestandteile einer URL, die Sie anpassen können, um eine bestimmte Ansicht einer Webseite weiterzugeben, z. B. gefilterte Suchergebnisse, eine Issue-Vorlage oder die Seite mit dem Veröffentlichungsformular auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.

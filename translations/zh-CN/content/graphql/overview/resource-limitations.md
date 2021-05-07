@@ -7,15 +7,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ## 节点限制
 
-To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
+要通过[架构](/graphql/guides/introduction-to-graphql#schema)验证，所有 GraphQL API v4 [调用](/graphql/guides/forming-calls-with-graphql)都必须满足这些标准：
 
-* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
+* 客户端必须提供任何[连接](/graphql/guides/introduction-to-graphql#connection)上的 `first` 或 `last` 参数。
 * `first` 和 `last` 的值必须在 1 至 100 之间。
-* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
+* 单个调用请求的[节点](/graphql/guides/introduction-to-graphql#node)总数不能超过 500,000。
 
 #### 计算调用中的节点
 
@@ -117,11 +119,11 @@ To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all
 
                    = 22,060 total nodes</pre>
 
-### 速率限制
+## 速率限制
 
 GraphQL API v4 限制不同于 REST API v3 的 [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
-API 速率限制为什么不同？ With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
+API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL 调用可替换[多个 REST 调用](/graphql/guides/migrating-from-rest-to-graphql)。 单个复杂 GraphQL 调用可能相当于数千个 REST 请求。 虽然单个 GraphQL 调用远远低于 REST API v3 速率限制，但对 GitHub 的服务器来说，查询的计算成本可能同样高昂。
 
 要准确表示查询的服务器成本，GraphQL API v4 可根据标准分数量表计算调用的 **rate limit score（速率限制分数）**。 查询分数计入了父连接及其子连接上的第一个和最后一个参数。
 
@@ -129,12 +131,6 @@ API 速率限制为什么不同？ With [GraphQL](/graphql), one GraphQL call ca
 * 每个连接都有自己的点值。 此点值与调用的其他点数相结合，计入总速率限制分数。
 
 GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %}，对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
-
-{% endif %}
 
 请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API v4 和 REST API v3 使用的速率限制不同。
 

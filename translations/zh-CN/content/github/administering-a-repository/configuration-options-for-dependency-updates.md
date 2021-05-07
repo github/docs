@@ -302,13 +302,14 @@ updates:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # For Loadash, ignore all updates
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-**注**：{% data variables.product.prodname_dependabot_version_updates %} 无法为包含私有 git 依赖项或私有 git 注册表的清单中的任何依赖项运行版本更新，即使您将私有依赖项添加到配置文件的 `ignore` 选项。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)”。
+**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 更多信息请参阅“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
+
 
 {% endnote %}
 

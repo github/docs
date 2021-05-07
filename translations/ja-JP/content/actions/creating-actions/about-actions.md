@@ -10,18 +10,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Action development
+  - Fundamentals
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### アクションについて
 
-{% data variables.product.prodname_dotcom %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急の問題が発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。
+{% data variables.product.prodname_dotcom %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急のIssueが発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。
 
 {% if currentVersion == "free-pro-team@latest" %}
-独自のアクションの作成、または
-{% data variables.product.prodname_dotcom %} コミュニティによって共有されるアクションの使用やカスタマイズができます。 ビルドしたアクションをシェアするには、リポジトリをパブリックにする必要があります。
+ワークフローで利用する独自のアクションを作成したり、
+構築したアクションを{% data variables.product.prodname_dotcom %} コミュニティと共有したりできます。 ビルドしたアクションをシェアするには、リポジトリをパブリックにする必要があります。
 {% endif %}
 
 アクションはマシン上で直接実行することも、Dockerコンテナで実行することもできます。 アクションの入力、出力、環境変数を定義できます。
@@ -36,7 +42,7 @@ DockerコンテナのアクションとJavaScriptのアクションをビルド�
 | JavaScript | Linux、MacOS、Windows |
 | 複合実行ステップ   | Linux、MacOS、Windows |
 
-#### Docker コンテナーアクション
+#### Docker コンテナアクション
 
 Dockerコンテナは、{% data variables.product.prodname_actions %}コードで環境をパッケージ化します。 アクションの利用者がツールや依存関係を考慮しなくて済むため、作業単位の一貫性と信頼性が向上します。
 
@@ -44,7 +50,7 @@ Dockerコンテナを使用すると、Osのバージョン、依存関係、ツ
 
 Docker コンテナアクションは、Linux オペレーティングシステムのランナーでのみ実行できます。 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
-#### アクション
+#### JavaScriptアクション
 
 JavaScriptアクションはランナーマシン上で直接実行でき、アクションのコードはそのコードを実行するのに使われた環境から分離できます。 JavaScriptのアクションを使うと、アクションコードが単純になり、実行も Dockerコンテナのアクションより速くなります。
 
@@ -123,7 +129,7 @@ steps:
 
 #### コミットの SHA を使用したリリース管理
 
-各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 省略された値の代わりにコミットの完全な SHA 値を使用すると、同じ省略形を使用する悪意のあるコミットの使用を防ぐことができます。
+各 Git コミットは、計算された SHA 値を受け取ります。これは一意で不変のものです。 アクションのユーザは、コミットの SHA 値に依存することを好む場合があります。削除や移動ができるタグを指定するよりこの方法のほうが信頼できるためです。 ただし、これは、ユーザがアクションに対して行われた更新をそれ以上受け取らないことを意味しています。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}省略値ではなく、コミットの完全な SHA 値を使用する必要があります。{% else %}省略値の代わりにコミットの完全な SHA 値を使用すると、同じ略語を使用する悪意のあるコミットを使用することを防ぐことができます。{% endif %}
 
 ```yaml
 steps:
@@ -157,7 +163,7 @@ steps:
 
 {% data variables.product.prodname_actions %}は：
 * 継続的インテグレーションや継続的デプロイメントを実行する自動化を提供します。
-* ランナーマシン上でもDockerコンテナ内でも直接実行できます。
+* ランナーマシン上で直接、あるいはDockerコンテナ内で実行できます。
 * リポジトリのクローンへのアクセスを含めて、コードにアクセスするツール、コードフォーマッタ、コマンドラインツールをデプロイしたり公開したりできます。
 * コードのデプロイやアプリケーションの提供が必要ありません。
 * シークレットの生成と利用のためのシンプルなインターフェースを持っており、アクションを利用する人の認証情報を保存せずにサードパーティのサービスとアクションを連携できます。

@@ -1,0 +1,1 @@
+1. Desde el mismo nodo, ejecuta `ghe-cluster-config-apply`. Esto validará el archivo de configuración, lo copiará en cada nodo de la agrupación y configurará cada nodo según el archivo `cluster.conf` modificado.

@@ -11,11 +11,13 @@ versions:
 
 リポジトリの {% data variables.product.prodname_dependabot %} アラートタブには、オープンおよびクローズしている {% data variables.product.prodname_dependabot_alerts %}、および対応する {% data variables.product.prodname_dependabot_security_updates %} がすべて一覧表示されます。 ドロップダウンメニューを使用してアラートのリストを並べ替えることができます。また、特定のアラートをクリックしてその詳細を表示することもできます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-{% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用するリポジトリの自動セキュリティ更新を有効にすることができます。 For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+{% data variables.product.prodname_dependabot_alerts %} と依存関係グラフを使用するリポジトリの自動セキュリティ更新を有効にすることができます。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
+
+{% data reusables.repositories.dependency-review %}
 
 ### リポジトリ内の脆弱性のある依存関係の更新について
 
-{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository. {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリで {% data variables.product.product_name %} が脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot %} はプルリクエストを作成して修正します。 プルリクエストは、脆弱性を回避するために必要最低限の安全なバージョンに依存関係をアップグレードします。
+{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known vulnerabilities. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. プルリクエストは、脆弱性を回避するために必要最低限の安全なバージョンに依存関係をアップグレードします。
 
 ### 脆弱性のある依存関係を表示して更新する
 

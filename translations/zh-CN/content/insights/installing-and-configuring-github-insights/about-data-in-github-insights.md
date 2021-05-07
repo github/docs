@@ -19,4 +19,4 @@ versions:
 
 ### 延伸阅读
 - "[可用于 {% data variables.product.prodname_insights %} 的指标](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)"
-- [{% data variables.product.prodname_insights %} 和组织的数据保护](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} 和组织的数据保护</a>"

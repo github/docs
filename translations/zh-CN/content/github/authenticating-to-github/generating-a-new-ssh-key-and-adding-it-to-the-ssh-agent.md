@@ -1,6 +1,6 @@
 ---
 title: 生成新 SSH 密钥并添加到 ssh-agent
-intro: '检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。'
+intro: 检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
   - /articles/generating-a-new-ssh-key/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 如果您还没有 SSH 密钥，则必须[生成新 SSH 密钥](#generating-a-new-ssh-key)。 如果您不确定是否已有 SSH 密钥，请检查[现有密钥](/articles/checking-for-existing-ssh-keys)。
@@ -100,7 +102,7 @@ versions:
 
      {% note %}
 
-     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     **注意：** 如果您选择不向密钥添加密码，应该省略 `UseKeychain` 行。
 
      {% endnote %}
 
@@ -110,7 +112,7 @@ versions:
   ```
   {% note %}
 
-  **注：**`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。 If you chose not to add a passphrase to your key, run the command without the `-K` option.
+  **注：**`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。 如果选择不向密钥添加密码，请运行命令，而不使用 `-K` 选项。
 
   如果您没有安装 Apple 的标准版本，可能会收到错误消息。 有关解决此错误的详细信息，请参阅“[错误：ssh-add：非法选项 -- K](/articles/error-ssh-add-illegal-option-k)”。
 
@@ -126,8 +128,8 @@ versions:
 
 1. 确保 ssh-agent 正在运行。 您可以根据“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”中的“自动启动 ssh-agent”说明，或者手动启动它：
   ```shell
-  # 在后台启动 ssh-agent
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

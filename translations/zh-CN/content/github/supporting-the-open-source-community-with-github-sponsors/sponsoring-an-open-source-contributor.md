@@ -1,23 +1,40 @@
 ---
 title: 赞助开源贡献者
-intro: '您可以向设计、创建或维护您所依赖的开源项目的开发者或组织每月定期付款。'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-a-developer
 versions:
   free-pro-team: '*'
+permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织所有者和帐单管理员可以代表其组织赞助帐户。
+topics:
+  - sponsors
 ---
 
-### 关于赞助开发者和组织
+{% data reusables.sponsors.org-sponsors-release-phase %}
 
-{% data reusables.sponsors.sponsorship-details %} {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
+### 关于赞助
 
-当您赞助开源贡献者后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
+{% data reusables.sponsors.sponsorship-details %}
 
-如果您赞助的开源贡献者退出您的等级，则您仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
+您可以代表您的用户帐户赞助一个帐户，以投资您个人受益的项目。 您可以代表您的组织赞助帐户，原因有很多。
+- 维护组织工作所依赖的特定库
+- 投资于作为一个组织所依赖的生态系统（如区块链）
+- 作为重视开源的组织，培养品牌知名度
+- 感谢开源开发者构建库来补充您的组织提供的产品
 
-如果您想要赞助的开源贡献者没有被赞助开发者或组织资料，您可以鼓励该贡献者创建被赞助开发者或组织资料。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
+
+{% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
+
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
+
+{% data reusables.sponsors.manage-updates-for-orgs %}
+
+如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
+
+如果您要赞助的帐户在 {% data variables.product.prodname_sponsors %} 上还没有个人资料，您可以建议该帐户加入。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -27,30 +44,21 @@ versions:
 
 {% endnote %}
 
-### 赞助开发者
+### 赞助帐户
 
-在赞助开发者之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
+在赞助帐户之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
 
-1. 在 {% data variables.product.product_name %} 上，导航到您要赞助的人员的个人资料。
-2. 在开发者的姓名下方，单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/profile/sponsor-button.png)
+1. 在 {% data variables.product.product_name %} 上，导航到您要赞助的用户或组织的个人资料。
+1. 导航到帐户的赞助仪表板。
+   - 要赞助开发者，请在开发者的名称下单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/profile/sponsor-button.png)
+   - 要赞助组织，请在组织名称的右侧单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/sponsors/sponsor-org-button.png)
+1. （可选），在页面的右侧，要代表您的组织赞助帐户，请使用 **Sponsor as（赞助者）**下拉菜单，然后单击组织。 ![选择将作为赞助者的帐户](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}
   ![编辑付款按钮](/assets/images/help/sponsors/edit-sponsorship-payment-button.png)
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
   ![用于选择谁可以查看您的赞助的单选按钮](/assets/images/help/sponsors/who-can-see-sponsorship.png)
-{% data reusables.sponsors.developer-sponsored-choose-updates %}
-7. 单击 **Sponsor _DEVELOPER_（赞助 *DEVELOPER*）**。 ![赞助开发者按钮](/assets/images/help/sponsors/sponsor-developer-button.png)
-
-### 赞助组织
-
-在赞助组织之前，您必须拥有经过验证的电子邮件地址。 更多信息请参阅“[验证电子邮件地址](/github/getting-started-with-github/verifying-your-email-address)”。
-
-1. 在 {% data variables.product.product_name %} 上，导航到您要赞助的组织的页面。
-2. 在组织名称旁边，单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/sponsors/sponsor-org-button.png)
-{% data reusables.sponsors.select-a-tier %}
-{% data reusables.sponsors.select-sponsorship-billing %}
-  ![编辑付款按钮](/assets/images/help/sponsors/edit-org-sponsorship-payment-button.png)
-{% data reusables.sponsors.who-can-see-your-sponsorship %}
-  ![用于选择谁可以查看您的赞助的单选按钮](/assets/images/help/sponsors/who-can-see-org-sponsorship.png)
-{% data reusables.sponsors.org-sponsored-choose-updates %}
-7. 单击 **Sponsor _ORGANIZATION_（赞助组织）**。 ![赞助组织按钮](/assets/images/help/sponsors/sponsor-org-confirm-button.png)
+{% data reusables.sponsors.choose-updates %}
+{% data reusables.sponsors.sponsor-account %}

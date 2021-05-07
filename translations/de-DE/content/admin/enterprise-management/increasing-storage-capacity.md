@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -30,7 +32,7 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Versetzen Sie die Appliance in den Wartungsmodus. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
 4. Starten Sie die Appliance neu, um die neue Storage-Zuordnung zu ermitteln.
-5. Führen Sie den Befehl `ghe-storage-extend` aus, um das Dateisystem `/data` zu erweitern:
+5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
   ```

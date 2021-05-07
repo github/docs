@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 社区
 ---
 
 在仓库中创建议题和拉取请求后，贡献者可以根据仓库的参与指南使用模板打开议题或描述其拉取请求中提议的更改。 有关向仓库添加参与指南的更多信息，请参阅“[设置仓库贡献者指南](/articles/setting-guidelines-for-repository-contributors)”。
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can create default issue and pull request templates for your organization or user account. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+您可以为组织或用户帐户创建议题和拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
 
 {% endif %}
 

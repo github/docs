@@ -3,6 +3,8 @@ title: 管理用户帐户的安全和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### 关于安全性和分析设置的管理
@@ -25,6 +27,8 @@ versions:
 6. （可选）为组织中的新仓库默认启用该功能。 ![新仓库的"Enable by default（默认启用）"选项](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
 7. 单击 **Disable FEATURE（禁用功能）**或 **Enable FEATURE（启用功能）**以禁用或启用您拥有的所有仓库的功能。 ![用于禁用或启用功能的按钮](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
 
+{% data reusables.security.displayed-information %}
+
 ### 对新仓库启用或禁用功能
 
 {% data reusables.user_settings.access_settings %}
@@ -35,4 +39,4 @@ versions:
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
 - "[管理项目依赖项中的漏洞](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}

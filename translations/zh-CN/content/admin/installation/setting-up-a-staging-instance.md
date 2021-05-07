@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}
@@ -24,3 +26,9 @@ versions:
 1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 执行生产实例备份。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#about-github-enterprise-server-backup-utilities)”的“关于 {% data variables.product.prodname_enterprise_backup_utilities %} ”部分。
 2. 设置新实例作为暂存环境。 配置和安装暂存实例的方法与生产实例所用方法相同。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)”。
 3. 在暂存实例上还原备份。 更多信息请参阅“[在设备上配置备份](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)”的“还原备份”部分。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 延伸阅读
+
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

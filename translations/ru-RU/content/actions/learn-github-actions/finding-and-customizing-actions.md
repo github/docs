@@ -10,10 +10,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Обзор
 
@@ -67,7 +72,7 @@ steps:
 
 #### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}You must use a commit's full SHA value, and not an abbreviated value. {% endif %}This example targets an action's SHA:
 
 ```yaml
 steps:
@@ -76,7 +81,7 @@ steps:
 
 #### Using branches
 
-Referring to a specific branch means that the action will always use include the latest updates on the target branch, but can create problems if those updates include breaking changes. This example targets a branch named `@main`:
+Specifying a target branch for the action means it will always run the version currently on that branch. This approach can create problems if an update to the branch includes breaking changes. This example targets a branch named `@main`:
 
 ```yaml
 steps:
@@ -105,6 +110,13 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
+
+{% if currentVersion == "github-ae@latest" %}
+### Using the actions included with {% data variables.product.prodname_ghe_managed %}
+By default, you can use most of the official
+
+{% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+{% endif %}
 
 ### Referencing an action in the same repository where a workflow file uses the action
 

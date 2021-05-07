@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -36,7 +38,7 @@ For issues, you can also use search to:
 For pull requests, you can also use search to:
 - Filter [draft](/articles/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
 - Filter pull requests that haven't been [reviewed](/articles/about-pull-request-reviews) yet: `state:open type:pr review:none`
-- Filter pull requests that [require a review](/articles/about-required-reviews-for-pull-requests) before they can be merged: `state:open type:pr review:required`
+- Filter pull requests that [require a review](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
 - Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
 - Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
 - Filter pull requests by [reviewer](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`

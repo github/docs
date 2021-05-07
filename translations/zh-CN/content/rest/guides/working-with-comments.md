@@ -1,6 +1,6 @@
 ---
 title: 处理注释
-intro: '使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。'
+intro: 使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -18,7 +20,7 @@ versions:
 
 ### 拉取请求注释
 
-To access comments on a Pull Request, you'll go through [the Issues API][issues]. 乍一看这似乎不符合直觉。 但是，一旦您理解了拉取请求只是一个带有代码的议题，使用议题 API 来创建拉取请求注释就合情合理了。
+要访问拉取请求的注释，需要通过[议题 API][issues]。 乍一看这似乎不符合直觉。 但是，一旦您理解了拉取请求只是一个带有代码的议题，使用议题 API 来创建拉取请求注释就合情合理了。
 
 我们将通过使用 [Octokit.rb][octokit.rb] 创建一个 Ruby 脚本来演示如何获取拉取请求注释 您还需要创建[个人访问令牌][personal token]。
 
@@ -44,7 +46,7 @@ end
 
 ### 拉取请求行注释
 
-在差异视图中，您可以开始讨论在拉取请求中进行的某个更改的特定方面。 这些注释出现在已更改文件中的各个行上。 The endpoint URL for this discussion comes from [the Pull Request Review API][PR Review API].
+在差异视图中，您可以开始讨论在拉取请求中进行的某个更改的特定方面。 这些注释出现在已更改文件中的各个行上。 此讨论的端点 URL 来自[拉取请求审查 API][PR Review API]。
 
 以下代码将获取文件中所做的所有拉取请求注释（给定一个拉取请求编号）：
 
@@ -70,7 +72,7 @@ end
 
 ### 提交注释
 
-最后一类注释专门针对单个提交。 For this reason, they make use of [the commit comment API][commit comment API].
+最后一类注释专门针对单个提交。 因此，它们使用 [提交注释 API][commit comment API]。
 
 要检索对提交的注释，您需要使用该提交的 SHA1。 换句话说，您不能使用与拉取请求相关的任何标识符。 例如：
 

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -43,7 +45,7 @@ The event objects returned from the Events API endpoints have the same structure
 This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -51,7 +53,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +164,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Event `payload` object
 
 This event returns an empty `payload` object.
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -180,6 +182,20 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
+
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Event `payload` object
+
+| Schlüssel      | Typ      | Beschreibung                                          |
+| -------------- | -------- | ----------------------------------------------------- |
+| `action`       | `string` | die Aktion, die durchgeführt wurde. Can be `created`. |
+| `pull_request` | `Objekt` | The pull request the review pertains to.              |
+| `Review`       | `Objekt` | The review that was affected.                         |
 
 ### PullRequestReviewCommentEvent
 
@@ -198,6 +214,8 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
+#### Event `payload` object
+
 | Schlüssel                  | Typ       | Beschreibung                                                                                                                                                                                                                                                                                           |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                                        |
@@ -208,7 +226,7 @@ This event returns an empty `payload` object.
 | `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                            |
 | `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
 | `commits[][sha]`           | `string`  | The SHA of the commit.                                                                                                                                                                                                                                                                                 |
-| `commits[][message]`       | `string`  | The commit message.                                                                                                                                                                                                                                                                                    |
+| `commits[][message]`       | `string`  | Die Commit-Mitteilung.                                                                                                                                                                                                                                                                                 |
 | `commits[][author]`        | `Objekt`  | The git author of the commit.                                                                                                                                                                                                                                                                          |
 | `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                                 |
 | `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                                        |

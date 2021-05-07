@@ -13,6 +13,8 @@ redirect_from:
   - /articles/adding-information-to-your-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 領収書には、{% data variables.product.prodname_dotcom %} プランと合わせて[他の有料の機能や製品](/articles/about-billing-on-github)のプランが含まれます。

@@ -1,12 +1,14 @@
 ---
 title: 'Error: Repository not found'
-intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないことを示しています。{% else %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないか、{% data variables.product.product_location %} がプライベートモードになっていることを示しています。{% endif %} 原因に応じて、このエラーに対するいくつかの解決策があります。'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### スペルを確認する
@@ -15,7 +17,7 @@ versions:
 
 このエラーを回避するには、クローン時は常にリポジトリのページからクローン URL をコピーして貼り付けるようにします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
-既存のリポジトリのリモートを更新するには、「[リモートの URL を変更する](/articles/changing-a-remote-s-url)」を参照してください。
+To update the remote on an existing repository, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### 権限をチェックする
 
@@ -39,7 +41,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 詳しい情報については、「<a href="/github/setting-up-and-managing-organizations-and-teams/about-oauth-app-access-restrictions" class="dotcom-only">OAuth App のアクセス制限について</a>」を参照してください。
+リポジトリが Organization に属し、OAuth App によって生成された SSH キーを使用している場合、OAuth App へのアクセスは Organization のオーナーによって制限されている可能性があります。 For more information, see "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">About OAuth App access restrictions</a>."
 
 詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
 

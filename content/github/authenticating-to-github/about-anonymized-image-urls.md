@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-anonymized-image-urls
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each image which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
@@ -34,7 +37,7 @@ If an image is showing up in your browser but not on {% data variables.product.p
 2. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
-  > HTTP/1.1 200 OK
+  > HTTP/2 200
   > Date: Fri, 06 Jun 2014 07:27:43 GMT
   > Expires: Sun, 06 Jul 2014 07:27:43 GMT
   > Content-Type: image/x-png
@@ -57,7 +60,7 @@ If you changed an image recently and it's showing up in your browser but not {% 
 2. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
-  > HTTP/1.1 200 OK
+  > HTTP/2 200
   > Expires: Fri, 01 Jan 1984 00:00:00 GMT
   > Content-Type: image/png
   > Content-Length: 2339

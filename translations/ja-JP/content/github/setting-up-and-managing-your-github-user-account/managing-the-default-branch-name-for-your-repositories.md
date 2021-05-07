@@ -1,15 +1,17 @@
 ---
 title: リポジトリのデフォルトブランチ名を管理する
-intro: 'You can set the default branch name new repositories that you create on {% data variables.product.product_location %}.'
+intro: '{% data variables.product.product_location %} で作成するデフォルトブランチ名の新しいリポジトリを設定できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### デフォルトブランチ名について
 
-When you create a new repository on {% data variables.product.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
+{% data variables.product.product_location %} に新しいリポジトリを作成すると、リポジトリにはデフォルトブランチである 1 つのブランチが含まれます。 作成する新しいリポジトリのデフォルトブランチに {% data variables.product.product_name %} が使用する名前を変更できます。 デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 {% data reusables.branches.set-default-branch %}
 
@@ -23,4 +25,4 @@ When you create a new repository on {% data variables.product.product_location %
 
 ### 参考リンク
 
-- "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- 「[Organization のリポジトリのデフォルブランチ名を管理する](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)」

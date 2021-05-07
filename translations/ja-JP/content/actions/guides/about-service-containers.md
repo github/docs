@@ -1,6 +1,6 @@
 ---
 title: サービスコンテナについて
-intro: 'サービスコンテナを使って、データベース、Webサービス、メモリキャッシュ、あるいはその他のツールをワークフローに接続できます。'
+intro: サービスコンテナを使って、データベース、Webサービス、メモリキャッシュ、あるいはその他のツールをワークフローに接続できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
@@ -8,10 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Containers
+  - Docker
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### サービスコンテナについて
 
@@ -46,14 +52,14 @@ versions:
 以下の例は、`container-job`というジョブの中に`redis`というサービスを作成します。 この例でのDockerホストは`node:10.18-jessie`コンテナです。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis container example
 on: push
 
 jobs:
   # コンテナジョブのラベル
   container-job:
-    # コンテナはLinuxベースのオペレｰ手イングシステム内で実行する
+    # コンテナはLinuxベースのオペレーティングシステム内で実行する
     runs-on: ubuntu-latest
     # `container-job`が実行されるDocker Hubイメージ
     container: node:10.18-jessie
@@ -88,7 +94,7 @@ Dockerホストのポートを指定して、コンテナのポートを指定�
 以下の例は、サービスコンテナ`redis`のポート6379を、Dockerホストのポート6379にマップします。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Redis Service Example
 on: push
 

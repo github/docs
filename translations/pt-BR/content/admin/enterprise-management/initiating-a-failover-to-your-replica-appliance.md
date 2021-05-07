@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. Em média, o procedimento leva de dois a dez minutos.
@@ -37,7 +39,7 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       ```
     - No novo primário, remova os UUIDs usando `ghe-repl-teardown`. Substitua *`UUID`* por um UUID que você recuperou na etapa anterior.
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### Leia mais

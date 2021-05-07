@@ -1,6 +1,6 @@
 ---
 title: 关于发行版
-intro: '您可以创建包软件的发行版，以及发行说明和二进制文件链接，以供其他人使用。'
+intro: 您可以创建包软件的发行版，以及发行说明和二进制文件链接，以供其他人使用。
 redirect_from:
   - /articles/downloading-files-from-the-command-line/
   - /articles/downloading-files-with-curl/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于发行版
@@ -25,7 +27,7 @@ versions:
 
 对仓库具有读取访问权限的任何人都可以查看和比较发行版，但只有对仓库具有写入权限的人员才能管理发行版。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 对仓库具有管理员权限的人员可以选择是否
 将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}

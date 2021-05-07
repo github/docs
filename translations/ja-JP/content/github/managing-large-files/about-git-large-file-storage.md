@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 Using
-{% data variables.large_files.product_name_short %}, you can store files up to:
+{% data variables.large_files.product_name_short %} を使用すると、最大で次のファイルサイズまで保存できます。
 
 | 製品                                                | 最大ファイルサイズ        |
 | ------------------------------------------------- | ---------------- |
@@ -23,7 +23,7 @@ Using
 | {% data variables.product.prodname_team %}        | 4 GB             |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
  Using
-{% data variables.large_files.product_name_short %}, you can store files up to {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} in your repository.
+{% data variables.large_files.product_name_short %} を使用すると、最大 {% if currentVersion ver_lt "enterprise-server@2.21" %}{% data variables.large_files.max_lfs_size %}{% else %}5 GB{% endif %} のファイルをリポジトリに保存できます。
 {% endif %}
 
 {% data variables.large_files.product_name_short %}を{% data variables.product.prodname_desktop %}と共に使うこともできます。 {% data variables.product.prodname_desktop %}でのGit FLSリポジトリのクローンに関する詳しい情報については、[GitHubからGitHub Desktopへのリポジトリのクローン](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)を参照してください。
@@ -45,8 +45,8 @@ size 84977953
 {% note %}
 
 設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
-- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
+- {% data variables.large_files.product_name_short %} は {% data variables.product.prodname_pages %} サイトでは使用できません。
+- {% data variables.large_files.product_name_short %} はテンプレートリポジトリでは使用できません。
 
 {% endnote %}
 

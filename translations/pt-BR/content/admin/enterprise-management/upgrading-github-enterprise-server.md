@@ -15,12 +15,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Preparar para a atualização
 
 1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
-3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo LEIAME.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 
   {% note %}
@@ -28,6 +30,32 @@ versions:
   **Observação:** o período de manutenção depende do tipo de atualização a ser feita. Atualizações com hotpatch normalmente não exigem período de manutenção. É preciso reinicializar a instância em alguns casos, mas o processo pode ser feito em outro momento. Seguindo o esquema de versões do MAJOR.FEATURE.PATCH, as versões de patch que usam pacote de atualização costumam gerar menos de cinco minutos de tempo de inatividade. Versões de recursos que incluem migrações de dados levam mais tempo, dependendo do desempenho do armazenamento e da quantidade de dados migrados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% endnote %}
+
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### Sobre os requisitos mínimos para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior
+
+Antes de atualizar para {% data variables.product.prodname_ghe_server %} 3.0 ou posterior, revise os recursos de hardware que você forneceu para sua instância. {% data variables.product.prodname_ghe_server %} 3.0 introduz novas funcionalidades, como {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %}, e exige mais recursos do que as versões 2.22 e anteriores. Para obter mais informações, consulte as observações sobre a versão [{% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes).
+
+Os requisitos aumentados para {% data variables.product.prodname_ghe_server %} 3.0 e posterior estão em **negrito** na tabela a seguir.
+
+| Licenças de usuário                      |                         vCPUs |                               Memória |                 Armazenamento anexado | Armazenamento raiz |
+|:---------------------------------------- | -----------------------------:| -------------------------------------:| -------------------------------------:| ------------------:|
+| Teste, demonstração ou 10 usuários leves | **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up de 16 GB_ | **150 GB**<br/>_Up de 100 GB_ |             200 GB |
+| 10-3000                                  |   **8**<br/>_Up de 4_ |   **48 GB**<br/>_Up de 32 GB_ | **300 GB**<br/>_Up de 250 GB_ |             200 GB |
+| 3000-5000                                |  **12**<br/>_Up de 8_ |                                 64 GB |                                500 GB |             200 GB |
+| 5000-8000                                | **16**<br/>_Up de 12_ |                                 96 GB |                                750 GB |             200 GB |
+| 8000-10000+                              | **20**<br/>_Up de 16_ | **160 GB**<br/>_Up de 128 GB_ |                               1000 GB |             200 GB |
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+Para obter mais informações sobre requisitos de hardware para {% data variables.product.prodname_actions %}, consulte "[Introdução a {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+
+{% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
 
 ### Obter um instantâneo
 
@@ -218,3 +246,9 @@ Para obter mais informações, consulte "[Utilitários de linha de comando](/ent
 #### Voltar a uma versão de recurso
 
 Para voltar a partir de uma versão de recurso, faça a restauração partindo de um instantâneo da VM para garantir o estado consistente das partições raiz e de dados. Para obter mais informações, consulte "[Obter um instantâneo](#taking-a-snapshot)".
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Leia mais
+
+- "[Sobre atualizações para novas versões](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

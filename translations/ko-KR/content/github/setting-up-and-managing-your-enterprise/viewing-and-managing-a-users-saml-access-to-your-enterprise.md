@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### About SAML access to your enterprise account
@@ -17,6 +19,8 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 ### Viewing and revoking a linked identity
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -49,4 +53,4 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 
 ### 더 읽을거리
 
-- "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)"
+- "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

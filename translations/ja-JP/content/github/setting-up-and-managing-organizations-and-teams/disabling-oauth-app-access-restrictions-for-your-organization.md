@@ -6,6 +6,9 @@ redirect_from:
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% danger %}
@@ -19,4 +22,4 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. [**Remove restrictions**] をクリックします。 ![[Remove restrictions] ボタン](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. サードパーティアプリケーション制限の無効化に関する情報を確認したら、[**Yes, remove application restrictions**] (はい、アプリケーション制限を削除します) をクリックします。 ![解除確認ボタン](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+6. サードパーティアプリケーション制限の無効化に関する情報を確認したら、[**Yes, remove application restrictions**] (はい、アプリケーション制限を削除します) をクリックします。 ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

@@ -1,5 +1,5 @@
 ---
-title: 在企业帐户中实施 GitHub 操作策略
+title: 在企业帐户中实施 GitHub Actions 策略
 intro: '企业所有者可以对企业帐户禁用、启用和限制 {% data variables.product.prodname_actions %}。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -7,6 +7,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于企业帐户的 {% data variables.product.prodname_actions %} 权限
@@ -17,7 +19,7 @@ versions:
 
 ### 管理企业帐户的 {% data variables.product.prodname_actions %} 权限
 
-You can disable all workflows for an enterprise or set a policy that configures which actions can be used in an organization.
+您可以禁用企业的所有工作流程，或者设置策略来配置哪些操作可用于组织中。
 
 {% data reusables.actions.actions-use-policy-settings %}
 
@@ -34,7 +36,7 @@ You can disable all workflows for an enterprise or set a policy that configures 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。 ![添加操作到允许列表](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### 为私有仓库复刻启用工作流程
 

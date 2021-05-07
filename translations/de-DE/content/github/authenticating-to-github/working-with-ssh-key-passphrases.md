@@ -1,6 +1,6 @@
 ---
 title: SSH-Schlüssel-Passphrasen verwenden
-intro: Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.
+intro: 'Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.'
 redirect_from:
   - /ssh-key-passphrases/
   - /working-with-key-passphrases/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Wenn jemand Zugriff auf Deinen Computer erlangt, kann er mit SSH-Schlüsseln zudem auf jedes System zugreifen, das diese Schlüssel verwendet. Als zusätzliche Sicherheitsebene kannst Du Deinem SSH-Schlüssel eine Passphrase beifügen. Mit `ssh-agent` kannst Du Deine Passphrase sicher speichern, damit Du sie nicht erneut eingeben musst.
@@ -18,12 +20,11 @@ Wenn jemand Zugriff auf Deinen Computer erlangt, kann er mit SSH-Schlüsseln zud
 Durch Eingabe des folgenden Befehls kannst Du die Passphrase für einen vorhandenen privaten Schlüssel ändern, ohne das Schlüsselpaar erneut zu genieren:
 
 ```shell
-$ ssh-keygen -p
-# Start des Prozesses zur SSH-Schluesselerstellung
-> Enter file in which the key is (/Users/<em>you</em>/.ssh/id_rsa): <em>[Hit enter]</em>
-> Key has comment '/Users/<em>you</em>/.ssh/id_rsa'
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
+> Enter old passphrase: <em>[Type old passphrase]</em>
+> Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 

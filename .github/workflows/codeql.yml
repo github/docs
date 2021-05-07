@@ -1,15 +1,24 @@
 name: CodeQL analysis
 
+# **What it does**: This runs CodeQL on our repository.
+# **Why we have it**: Security scanning.
+# **Who does it impact**: Docs engineering.
+
 on:
   push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
     paths:
       - '**/*.js'
       - '.github/workflows/codeql.yml'
 
 jobs:
   build:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
       - uses: github/codeql-action/init@v1

@@ -8,6 +8,9 @@ redirect_from:
   - /articles/dmca-takedown-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Willkommen bei GitHubs Übersicht zum Digital Millennium Copyright Act, allgemein bekannt als "DMCA". Diese Seite ist nicht als eine umfassende Anleitung zu diesem Abkommen gedacht. Wenn Du jedoch eine DMCA-Benachrichtigung erhalten hast, die sich auf Inhalte bezieht, die Sie auf GitHub gepostet haben, oder wenn Du ein Rechtsträger bist, der eine solche Benachrichtigung herausgeben möchte, wird diese Seite hoffentlich dazu beitragen, das Gesetz sowie unsere Richtlinien zur Einhaltung des Gesetzes ein wenig zu veranschaulichen.
@@ -62,6 +65,8 @@ Im Folgenden sind die grundlegenden Schritte des Prozesses aufgeführt.
 Eines der besten Features von GitHub ist die Möglichkeit für Benutzer, die Repositorys des anderen zu "forken". Was bedeutet das? Im Wesentlichen bedeutet dies, dass Benutzer eine Kopie eines Projekts auf GitHub in ihre eigenen Repositorys erstellen können. Wie es die Lizenz oder das Gesetz erlaubt, können die Benutzer dann Änderungen an diesem Fork vornehmen, um ihn entweder auf das Hauptprojekt zurückzuführen oder einfach als ihre eigene Variante eines Projekts beizubehalten. Jede dieser Kopien ist ein "[Fork](/articles/github-glossary#fork)" des ursprünglichen Repositorys, das wiederum auch als "Übergeordnetes Element" des Fork bezeichnet wird.
 
 GitHub deaktiviert Forks *nicht* automatisch, wenn ein übergeordnetes Repository deaktiviert wird. Dies liegt daran, dass Forks verschiedenen Benutzern gehören, unter Umständen erheblich verändert wurden und möglicherweise lizenziert sind oder auf eine andere Art und Weise verwendet werden, die durch die Fair-Use-Doktrin geschützt ist. GitHub führt keine unabhängigen Untersuchungen von Forks durch. Wir erwarten von den Urheberrechtsinhabern, dass sie diese Untersuchung durchführen und, wenn sie der Meinung sind, dass die Forks ebenfalls ihre Rechte verletzen, ausdrücklich Forks in ihre Takedown Notice aufnehmen.
+
+In rare cases, you may be alleging copyright infringement in a full repository that is actively being forked. If at the time that you submitted your notice, you identified all existing forks of that repository as allegedly infringing, we would process a valid claim against all forks in that network at the time we process the notice. We would do this given the likelihood that all newly created forks would contain the same content. In addition, if the reported network that contains the allegedly infringing content is larger than one hundred (100) repositories and thus would be difficult to review in its entirety, we may consider disabling the entire network if you state in your notice that, "Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository." Your sworn statement would apply to this statement.
 
 ### C. Was passiert, wenn ich aus Versehen die Frist verpasst habe, um Änderungen vorzunehmen?
 

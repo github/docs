@@ -33,7 +33,7 @@ Também é possível inspecionar e cancelar versões em um repositório. Para ob
 
 {% note %}
 
-**Observação:** você também pode optar por ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver passando por abuso e deseja ignorar um repositório, [entre em contato com o suporte](/contact) para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
+**Observação:** você também pode optar por ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver passando por abuso e desejar ignorar um repositório, entre em contato com {% data variables.contact.contact_support %} para que possamos ajudar. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

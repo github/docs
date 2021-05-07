@@ -7,21 +7,23 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 * [Generated a new SSH key and added it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)."
+After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)."
 
 {% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
-1. Copy the SSH key to your clipboard.
+1. Copy the SSH public key to your clipboard.
 
-  If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_ed25519.pub
@@ -46,9 +48,9 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% windows %}
 
-1. Copy the SSH key to your clipboard.
+1. Copy the SSH public key to your clipboard.
 
-  If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
   $ clip &lt; ~/.ssh/id_ed25519.pub
@@ -73,9 +75,9 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
 {% linux %}
 
-1. Copy the SSH key to your clipboard.
+1. Copy the SSH public key to your clipboard.
 
-  If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
   $ sudo apt-get install xclip

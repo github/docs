@@ -1,7 +1,7 @@
 ---
 title: 为企业配置数据加密
 shortTitle: 配置数据加密
-intro: '对于休息时加密，您可以提供自己的加密密钥，以在加密策略下加密数据。'
+intro: 对于休息时加密，您可以提供自己的加密密钥，以在加密策略下加密数据。
 versions:
   github-ae: '*'
 ---
@@ -18,9 +18,9 @@ versions:
 
 对于传输中的加密，{% data variables.product.product_name %} 使用传输层安全性 (TLS)。 对于休息时的加密， {% data variables.product.product_name %} 提供默认的 RSA 密钥。 在初始化企业后，您可以选择提供自己的密钥。 密钥应该是采用 PEM 格式的 2048 位 RSA 私钥。
 
-您提供的钥匙存储在 {% data variables.product.company_short %} 管理的密钥保管库的硬件安全模块 (HSM) 中。
+您提供的密钥存储在 {% data variables.product.company_short %} 管理的密钥保管库的 FIPS 140-2 标准硬件安全模块 (HSM) 中。
 
-要配置加密密钥，请使用 REST API。 有许多 API 端点，例如检查加密状态、更新加密密钥以及删除加密密钥的端点。 请注意，删除密钥将冻结企业。 有关 API 端点的详细信息，请参阅 REST API 文档中的“[休息时加密](/rest/reference/enterprise-admin#encryption-at-rest)”。
+要配置加密密钥，请使用 REST API。 有许多 API 端点，例如检查加密状态、更新加密密钥以及禁用加密密钥的端点。 请注意，禁用密钥将冻结企业。 有关 API 端点的详细信息，请参阅 REST API 文档中的“[休息时加密](/rest/reference/enterprise-admin#encryption-at-rest)”。
 
 ### 添加或更新加密密钥
 
@@ -48,23 +48,23 @@ versions:
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### 删除加密密钥
+### 禁用加密密钥
 
-要冻结企业（例如在发生违规的情况下），可以通过删除加密密钥来禁用休息时加密。
+要冻结您的企业（例如在出现违规情况下），可以通过将加密密钥标记为禁用来禁用静态加密。
 
-要在删除加密密钥后解冻企业，请联系支持人员。 更多信息请参阅“[关于 {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)”。
-
-1. 要删除密钥并禁用休息时加密，请使用 `DELETE /enterprise/encryption` 端点。
+1. 要禁用密钥和静态加密，请使用 `DELETE /enterprise/encryption` 端点。 此操作不会永久删除密钥。
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. （可选）检查删除操作的状态。
+2. （可选）检查删除操作的状态。 禁用静态加密大约需要十分钟。
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
+
+要在禁用加密密钥后解冻企业，请联系支持人员。 更多信息请参阅“[关于 {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)”。
 
 ### 延伸阅读
 

@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 集群架构
@@ -23,6 +25,8 @@ versions:
 {% data variables.product.prodname_ghe_server %} 要求节点之间保持较低的延迟，不适用于跨地理位置的冗余。
 
 集群提供了冗余功能，但不适用于替换高可用性配置。 更多信息请参阅[高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)。 主设备/辅助设备故障切换配置远比集群简单，可以满足许多组织的需求。 更多信息请参阅[集群与高可用性之间的差异](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)。
+
+{% data reusables.package_registry.packages-cluster-support %}
 
 ### 如何获得集群？
 

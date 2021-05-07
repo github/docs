@@ -1,7 +1,7 @@
 ---
 title: リポジトリへのプッシュに対するメール通知について
 intro: 誰かがリポジトリにプッシュしたときに、特定のメールアドレスにメール通知を自動的に送信するように設定できます。
-permissions: リポジトリの管理者権限を持つユーザは、リポジトリへのプッシュのためのメール通知を有効にできます。
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}
@@ -25,7 +27,7 @@ versions:
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications)」{% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」を参照してください。 プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
 
 ### リポジトリへのプッシュに対するメール通知の有効化
 

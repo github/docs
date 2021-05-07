@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
+一旦[准备迁移](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)，您即可使用以下步骤来完成迁移。
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. 使用 `ghe-migrator import` 命令启动导入过程。 您需要：
-    * 迁移 GUID.
+    * 迁移 GUID. 更多信息请参阅“[准备迁移数据到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
     * 用于身份验证的个人访问令牌。 您使用的个人访问令牌仅用于站点管理员身份验证，不需要任何特定范围。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
     ```shell
@@ -131,7 +135,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). 您需要身份验证的访问令牌：
+在解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的仓库后，您应当使用[仓库删除端点](/rest/reference/repos/#delete-a-repository)删除之前迁移的每一个仓库。 您需要身份验证的访问令牌：
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Arquitetura de clustering
@@ -23,6 +25,8 @@ Saiba mais sobre os [serviços necessários para os agrupamentos](/enterprise/{{
 O {% data variables.product.prodname_ghe_server %} requer baixa latência entre os nós e não foi feito para a redundância entre locais geográficos.
 
 O clustering fornece redundância, mas não foi feito para substituir uma configuração de alta disponibilidade. Para obter mais informações, consulte [Configuração de alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability). A configuração de um failover primário/secundário é muito mais simples do que o clustering e funcionará perfeitamente para várias organizações. Para obter mais informações, consulte [Diferenças entre clustering e alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/).
+
+{% data reusables.package_registry.packages-cluster-support %}
 
 ### Como faço para obter acesso ao clustering?
 

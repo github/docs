@@ -8,6 +8,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Organization への SAML アクセスについて
@@ -19,6 +22,8 @@ Organization に対する SAML シングルサインオンを有効にすると�
 ### リンクされているアイデンティティの表示と取り消し
 
 {% data reusables.saml.about-linked-identities %}
+
+{% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

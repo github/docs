@@ -7,9 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
-You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
+您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员也可以更改仓库可见性。
 
 {% warning %}
 

@@ -5,10 +5,16 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -45,10 +51,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -62,7 +65,7 @@ jobs:
 
 指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)。
 
-使用 Ruby 的 `ruby/setup-ruby` 操作或 GitHub 的 `actions/setup-ruby` 操作是 Python 与 GitHub Actions 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Ruby 行为一致。
+使用 Ruby 的 `ruby/setup-ruby` 操作是 Python 与 GitHub Actions 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Ruby 行为一致。
 
 `setup-ruby` 操作采用 Ruby 版本作为输入，并在运行器上配置该版本。
 
@@ -118,10 +121,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby ${{ matrix.ruby-version }}
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
     - name: Install dependencies
@@ -148,7 +148,7 @@ steps:
 
 #### 缓存依赖项
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器， `setup-ruby` 操作提供了在运行之间自动处理 gem 缓存的方法。
 
 要启用缓存，请设置以下内容。
 
@@ -165,7 +165,7 @@ steps:
 
 **无 setup-ruby 的缓存**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+为了加强缓存控制，如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器，可以直接使用 `actions/cache` 操作。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% raw %}
 ```yaml
@@ -315,4 +315,3 @@ jobs:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 ```
 {% endraw %}
-

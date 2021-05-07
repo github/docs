@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - コミュニティ
 ---
 
 ### コメントの編集履歴の詳細を表示する
@@ -29,5 +31,5 @@ versions:
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」{% endif %}
 - 「[コメントを編集する](/articles/editing-a-comment)」

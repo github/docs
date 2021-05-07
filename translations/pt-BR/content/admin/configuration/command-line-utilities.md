@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Depois de entrar como usuário administrador com SSH, você pode executar esses comandos de qualquer lugar na VM. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
@@ -74,10 +76,10 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Lista todos os valores de configuração
 ```
-Permite encontrar o uuid do nó em `cluster.conf`.
+Permite encontrar o identificador universalmente exclusivo (UUID) do seu nó em `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -211,7 +213,7 @@ Use este comando para conceder privilégios de proprietário da organização a 
 
 Este utilitário não pode promover um administrador externo a proprietário de todas as organizações. Para promover uma conta de usuário comum a administrador do site, use [ghe-user-promote](#ghe-user-promote).
 
-Conceder privilégios de proprietário da organização a um usuário em uma organização específica
+Conceder privilégios de proprietário da organização em uma organização específica para um administrador específico do site
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -468,18 +470,21 @@ ghe-webhook-logs
 ```
 
 Para exibir todas as entregas de hook falhas do último dia:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+O formato da data deve ser `AAAA-MM-DD`, `AAAA-MM-DD HH:MM:SS`, ou `AAAA-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 Para exibir a carga útil total do hook, o resultado e quaisquer exceções para a entrega:
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-Para exibir entregas globais do webhook:
-```shell
-ghe-webhook-logs --global
 ```
 
 ### Clustering
@@ -542,8 +547,8 @@ ghe-dpages status
 ```
 
 Para evacuar um serviço de armazenamento {% data variables.product.prodname_pages %} antes de evacuar um nó de cluster:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -568,16 +573,16 @@ ghe-spokes route
 
 Para evacuar os serviços de armazenamento em um nó de cluster:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 Este utilitário permite remover todos os serviços de armazenamento antes de remover um nó de cluster.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Se houver somente três nós no seu cluster de serviços de dados, não será possível removê-los porque o `ghe-spokes` não tem outro local para fazer cópia. Se houver quatro ou mais nós, o `ghe-spokes` vai retirar todos os repositórios do nó removido.
@@ -25,9 +27,11 @@ Se você estiver usando um nó offline que tenha qualquer tipo de serviços de d
     ghe-spokes evac-status
     ```
     Para o {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     Para o armazenamento
     ```
     ghe-storage evacuation-status
@@ -36,18 +40,26 @@ Se você estiver usando um nó offline que tenha qualquer tipo de serviços de d
 3. Após a conclusão do processo de cópia, você poderá remover o serviço de armazenamento. Execute qualquer um dos comandos a seguir:
 
     Para o Git
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     Para o {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     Para o armazenamento, use o nó offline
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       e remova
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

@@ -1,12 +1,14 @@
 ---
 title: Sobre repositórios
-intro: Um repositório é como uma pasta para seu projeto. O repositório do seu projeto contém todos os arquivos do projeto e armazena cada histórico de revisão do arquivo. Você também pode discutir e gerenciar o trabalho do projeto dentro do repositório.
+intro: Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo. Você pode discutir e gerenciar o trabalho do projeto dentro do repositório.
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Você pode possuir repositórios individualmente ou compartilhar a propriedade de repositórios com outras pessoas em uma organização.
@@ -22,9 +24,11 @@ Com
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}
 
-Você pode colaborar em seu projeto com outras pessoas usando os problemas, as pull requests e os quadros de projeto do repositório.
-
-![Página principal do repositório octocat/Hello-World](/assets/images/help/repository/repo-main-page.png)
+Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras pessoas.
+- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- É possível usar pull requests para propor alterações em um repositório. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+- Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -35,5 +39,5 @@ Você pode colaborar em seu projeto com outras pessoas usando os problemas, as p
 - "[Gerenciar seu trabalho no {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administrar um repositório](/categories/administering-a-repository)"
 - "[Visualizar dados de repositório com gráficos](/categories/visualizing-repository-data-with-graphs/)"
-- "[Sobre wikis](/articles/about-wikis)"
+- "[Sobre wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[Glossário do {% data variables.product.prodname_dotcom %}](/articles/github-glossary)"

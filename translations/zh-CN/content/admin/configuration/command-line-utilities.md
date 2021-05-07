@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
@@ -74,10 +76,10 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Lists all the configuration values
 ```
-允许您在 `cluster.conf` 中查找节点的 uuid。
+允许您在 `cluster.conf` 中找到节点的通用唯一标识符 (UUID)。
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -211,7 +213,7 @@ ghe-nwo <em>REPOSITORY_ID</em>
 
 此实用程序无法将非站点管理员升级为所有组织的所有者。 您可以使用 [ghe-user-promote](#ghe-user-promote) 将普通用户帐户升级为站点管理员。
 
-将特定组织中的组织所有者权限授予一个用户
+将特定组织中的组织所有者权限授予特定的站点管理员
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -468,18 +470,21 @@ ghe-webhook-logs
 ```
 
 要显示过去一天所有失败的挂钩交付：
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+日期格式应为 `YYYY-MM-DD`、`YYYY-MM-DD HH:MM:SS` 或 `YYYY-MM-DD HH:MM:SS (+/-) HH:M`。
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-要显示全局 web 挂钩交付：
-```shell
-ghe-webhook-logs --global
 ```
 
 ### 集群
@@ -542,8 +547,8 @@ ghe-dpages status
 ```
 
 要在撤出集群节点之前撤出 {% data variables.product.prodname_pages %} 存储服务：
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -568,16 +573,16 @@ ghe-spokes route
 
 要撤出集群节点上的存储服务：
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 此实用程序允许您在撤出集群节点之前撤出所有存储服务。
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git
@@ -751,7 +756,7 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 
 包含下载状态的文件位于 */var/lib/ghe-updates/ghe-update-check.status*。
 
-要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 开关。
+要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 交换字符。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'

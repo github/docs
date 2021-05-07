@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-gifts-and-entertainment-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub 确认，我们的业务建立在正当和透明的关系之上。 虽然非正式的互动和礼品交换可能是培养这种关系的一部分，甚至可能在某些国家/地区被视为惯例，但我们必须确保遵守反贿赂法律。 我们有道德经营的法律义务，包括不利用这种互动来获取特殊优势或影响交易。

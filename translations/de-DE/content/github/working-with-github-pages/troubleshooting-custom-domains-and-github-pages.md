@@ -9,6 +9,8 @@ redirect_from:
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Seiten
 ---
 
 ### _CNAME_-Fehler
@@ -21,8 +23,8 @@ Prüfe anschließend, ob die _CNAME_-Datei ordnungsgemäß formatiert ist.
 
 - Der Name der _CNAME_-Datei darf nur Großbuchstaben enthalten.
 - Die _CNAME_-Datei darf nur eine Domäne umfassen. Sollen mehrere Domänen auf Deine Website verweisen, lass Dir von Deinem DNS-Provider eine Weiterleitung einrichten.
-- Der _CNAME_-Eintrag muss die Bare-Domain umfassen. Beispiel: `www.example.com`,`blog.example.com` oder `example.com`.
-- Der _CNAME_-Eintrag darf nur einmalig auf {% data variables.product.product_name %} verwendet werden. Enthält beispielsweise die _CNAME_-Datei eines anderen Repositorys die Domäne `example.com`, kannst Du `example.com` nicht in die _CNAME_-Datei für Dein Repository aufnehmen.
+- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Enthält beispielsweise die _CNAME_-Datei eines anderen Repositorys die Domäne `example.com`, kannst Du `example.com` nicht in die _CNAME_-Datei für Dein Repository aufnehmen.
 
 ### Fehlerhafte DNS-Konfiguration
 
@@ -39,11 +41,7 @@ Deine Website darf nicht:
 - Mehrere `www`-Subdomänen umfassen. Beispiel: `www.example.com` und `www.anotherexample.com`.
 - Sowohl eine Apex-Domäne als auch eine benutzerdefinierte Subdomäne umfassen. Beispiel: `example.com` und `docs.example.com`.
 
-{% warning %}
-
-**Warnung:** Es wird dringend empfohlen, keine Platzhalter-DNS-Einträge wie `*.example.com` zu verwenden. Dadurch würdest Du jedem ermöglichen, eine {% data variables.product.prodname_pages %}-Website auf Deinen Subdomänen zu hosten.
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 Eine Liste der unterstützten benutzerdefinierten Domänen findest Du unter „[Informationen zu benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains).“
 
@@ -53,7 +51,7 @@ Zugriff über HTTPS ist auf {% data variables.product.prodname_pages %}-Websites
 
 Nach der Konfiguration Deiner benutzerdefinierten Domäne kann es bis zu einer Stunde dauern, bis die Website über HTTPS verfügbar ist. Nach einer Aktualisierung bestehender DNS-Einstellungen musst Du Deine benutzerdefinierte Domäne zudem eventuell aus dem Repository Deiner Website entfernen und erneut dort einfügen, um den Prozess der HTTPS-Aktivierung zu initiieren. Weitere Informationen findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site).“
 
-Wenn Du CAA-Einträge (Certification Authority Authorization) verwendest, muss mindestens ein CAA-Eintrag mit dem Wert `letsencrypt.org` vorhanden sein, wenn Deine Website über HTTPS zugänglich sein soll. Weitere Informationen findest Du in der 'Let's Encrypt'-Dokumentation unter „[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)“.
+Wenn Du CAA-Einträge (Certification Authority Authorization) verwendest, muss mindestens ein CAA-Eintrag mit dem Wert `letsencrypt.org` vorhanden sein, wenn Deine Website über HTTPS zugänglich sein soll. Weitere Informationen finden Sie in der Let's Encrypt-Dokumentation unter „[Certificate Authority Authorization (CAA)](https://letsencrypt.org/docs/caa/)“.
 
 ### URL-Formatierung unter Linux
 

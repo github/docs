@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -15,15 +17,15 @@ versions:
 
 {% data reusables.codespaces.about-configuration %}
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes tools for Node.js, JavaScript, TypeScript, Python, C++, Java, C#, .NET Core, PHP, and PowerShell. For more information about the base Linux image, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) repository.
+リポジトリで設定を定義しない場合、{% data variables.product.prodname_dotcom %} はベースの Linux イメージを使用して Codespaces を作成します。 The base Linux image includes tools for Python, Node.js, JavaScript, TypeScript, C++, Java, C#, F#, .NET Core, PHP, PowerShell, Go, Ruby, and Rust. ベースの Linux イメージの詳細については、[`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) リポジトリを参照してください。
 
 {% data reusables.codespaces.about-personalization %}{% data reusables.codespaces.codespace-config-order %}詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)」を参照してください。
 
 プロジェクトタイプ用にビルド済みコンテナ設定を使用してデフォルトの codespace 設定を作成するか、プロジェクトのニーズに固有のカスタム設定を作成できます。
 
-{% data variables.product.prodname_codespaces %}  uses settings contained in a configuration file named `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+{% data variables.product.prodname_codespaces %} は、`devcontainer.json` という名前の設定ファイルに含まれている設定を使用します。 {% data reusables.codespaces.devcontainer-location %}
 
-You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the {% data variables.product.prodname_vscode %} editor, but you can also set editor-specific settings in a file named `.vscode/settings.json`.
+`devcontainer.json` を使用して、{% data variables.product.prodname_vscode %} エディタを含む Codespaces 環境全体のデフォルト設定を行うことができますが、`.vscode/settings.json` という名前のファイルでエディタ固有の設定を行うこともできます。
 
 リポジトリの codespace 設定への変更は、すべての新しい codespace にのみ適用され、既存の codespace には影響しません。
 
@@ -40,7 +42,7 @@ You can use your `devcontainer.json` to set default settings for the entire code
 
 ### カスタム codespace 設定を作成する
 
-If none of the pre-built configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
+ビルド済みの設定のいずれもニーズを満たさない場合は、`devcontainer.json` ファイルを追加してカスタム設定を作成できます。 {% data reusables.codespaces.devcontainer-location %}
 
 このファイルでは、サポートされている設定キーを使用して、codespace の環境の要素を指定できます。たとえば、{% data variables.product.prodname_vscode %} 拡張機能がインストールできます。
 

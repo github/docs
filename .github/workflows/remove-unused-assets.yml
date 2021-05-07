@@ -1,11 +1,15 @@
 name: Remove unused assets
 
-env:
-  FREEZE: ${{ secrets.FREEZE }}
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
 
 on:
   schedule:
     - cron: '20 15 * * 0' # run every Sunday at 20:15 UTC / 12:15 PST
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
   remove_unused_assets:
@@ -33,7 +37,7 @@ jobs:
       - name: Remove script results file
         run: rm -rf ./results.md
       - name: Create pull request
-        uses: peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8
+        uses: peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}

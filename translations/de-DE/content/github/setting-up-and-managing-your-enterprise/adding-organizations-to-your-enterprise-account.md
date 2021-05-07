@@ -1,17 +1,19 @@
 ---
 title: Organisationen zu Deinem Enterprise-Konto hinzufügen
-intro: Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.
+intro: 'Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Enterprise-Inhaber können in den Einstellungen eines Enterprise-Kontos neue Organisationen erstellen.
 
-Um Deinem Enterprise-Konto eine Organisation hinzuzufügen, musst Du die Organisation in den Einstellungen des Enterprise-Kontos erstellen. Es ist nicht möglich, vorhandene Organisationen an ein Enterprise-Konto zu übertragen.
+Um Deinem Enterprise-Konto eine Organisation hinzuzufügen, musst Du die Organisation in den Einstellungen des Enterprise-Kontos erstellen. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
 
 ### Eine Organisation in Deinem Enterprise-Konto erstellen
 

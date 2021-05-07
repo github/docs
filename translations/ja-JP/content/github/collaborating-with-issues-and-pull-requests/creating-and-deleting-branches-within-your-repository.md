@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### ブランチの作成
@@ -22,9 +24,13 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+{% note %}
 
-If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
+**注釈:** 削除するブランチがリポジトリのデフォルトブランチである場合は、ブランチを削除する前に新しいデフォルトブランチを選択する必要があります。 詳しい情報については「[デフォルトブランチの変更](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
+
+{% endnote %}
+
+削除するブランチがオープンなプルリクエストに関連付けられている場合は、ブランチを削除する前にプルリクエストをマージまたはクローズする必要があります。 詳しい情報については、「[プルリクエストをマージする](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)」または「[プルリクエストをクローズする](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}

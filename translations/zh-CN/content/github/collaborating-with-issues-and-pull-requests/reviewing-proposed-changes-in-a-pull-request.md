@@ -1,12 +1,14 @@
 ---
 title: 审查拉取请求中的建议更改
-intro: '在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。'
+intro: 在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### 关于审查拉取请求
@@ -28,6 +30,20 @@ versions:
 提交审查之前，您的行注释为_待处理_状态并且仅对您可见。 您可以在提交审查之前随时编辑待处理的注释。 要取消待处理的审查（包括所有其待处理的注释），请在 Conversation（对话）选项卡中向下滚动到时间表的末尾，然后单击 **Cancel review（取消审查）**。
 
 ![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
+
+{% if currentVersion == "free-pro-team@latest" %}
+### 查看依赖项更改
+
+如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 更多信息请参阅“[审查拉取请求中的依赖项更改](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+
+{% data reusables.repositories.changed-files %}
+
+1. 在清单或锁定文件标头的右侧，单击 **{% octicon "file" aria-label="The rich diff icon" %}** 多差异按钮以显示依赖项审查。
+
+   ![多差异按钮](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
+{% endif %}
 
 ### 将文件标记为已查看
 
@@ -53,8 +69,5 @@ versions:
 
 ### 延伸阅读
 
-- “[关于拉取请求审查](/articles/about-pull-request-reviews)”
-- "[关于拉取请求的必要审查](/articles/about-required-reviews-for-pull-requests)"
-- “[批准需要审查的拉取请求](/articles/approving-a-pull-request-with-required-reviews)”
-- "[评论拉取请求](/articles/commenting-on-a-pull-request)"
-- "[按审查状态过滤拉取请求](/articles/filtering-pull-requests-by-review-status)"
+- "[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[按审查状态过滤拉取请求](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

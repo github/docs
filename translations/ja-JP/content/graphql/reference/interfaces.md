@@ -2,10 +2,13 @@
 title: インターフェース
 redirect_from:
   - /v4/interface
+  - /v4/reference/interface
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### インターフェースについて

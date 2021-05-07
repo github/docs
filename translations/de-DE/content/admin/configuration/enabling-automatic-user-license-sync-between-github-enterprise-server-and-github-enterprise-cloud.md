@@ -4,9 +4,11 @@ intro: 'Sie können zwischen {% data variables.product.product_location_enterpri
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
-permissions: 'Site-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber der angeschlossenen Organisation oder des angeschlossenen Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können die automatische Synchronisation von Benutzerlizenzen aktivieren.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable automatic user license synchronization.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zur Lizenzsynchronisierung

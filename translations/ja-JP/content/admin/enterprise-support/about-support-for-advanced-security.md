@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -44,7 +46,7 @@ versions:
 
 {% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 （アメリカの祝日は除く）
 
-| アメリカ合衆国の祝日 祝日               | 2018年の祝日                    |
+| アメリカ合衆国の祝日 祝日               | 対象となる日付                     |
 | --------------------------- | --------------------------- |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |
@@ -57,7 +59,7 @@ versions:
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 ### {% data variables.product.prodname_advanced_security %} のアップデートのインストール

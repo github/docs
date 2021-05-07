@@ -2,11 +2,12 @@
 title: Configurar a varredura do código
 intro: 'Você pode configurar como o {% data variables.product.prodname_dotcom %} faz a varredura do código no seu projeto com relação a vulnerabilidades e erros.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_code_scanning %} para o repositório.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for the repository.'
 miniTocMaxHeadingLevel: 4
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -50,9 +51,9 @@ O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pu
 
 Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
-#### Avoiding unnecessary scans of pull requests
+#### Evitar varreduras desnecessárias de pull requests
 
-You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
+Você pode querer evitar que uma varredura de código seja acionada em pull requests específicos para o branch padrão, Independentemente de os arquivos terem sido alterados. Você pode configurar isso, especificando `no:pull_request:paths-ignore` ou `on:pull_request:paths` no fluxo de trabalho de {% data variables.product.prodname_code_scanning %}. Por exemplo, se as únicas alterações em um pull request são para arquivos com extensões de arquivo `.md` ou `.txt`, você poderá usar o seguinte array `paths-ignore`.
 
 ``` yaml
 on:
@@ -69,12 +70,12 @@ on:
 
 **Observações**
 
-* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."
-* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+* `on:pull_request:paths-ignore` e `on:pull_request:paths` definem condições que determinam se as ações no fluxo de trabalho serão executadas em um pull request. Eles não determinam quais arquivos serão analisados quando as ações _são_ executadas. Quando uma pull request contém quaisquer arquivos não correspondidos por `on:pull_request:paths-ignore` ou `on:pull_request:paths`, o fluxo de trabalho executa as ações e faz a varredura de todos os arquivos alterados no pull request, incluindo aqueles que correspondidos por `on:pull_request:paths-ignore` ou `on:pull_request:paths`, a menos que os arquivos tenham sido excluídos. Para obter informações sobre como excluir arquivos da análise, consulte "[Especificar diretórios a serem varridos](#specifying-directories-to-scan)".
+* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. Para resultados precisos, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} precisam conseguir comparar novas alterações com a análise do commit anterior.
 
 {% endnote %}
 
-For more information about using `on:pull_request:paths-ignore` and `on:pull_request:paths` to determine when a workflow will run for a pull request, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."
+Para mais informações sobre como usar `on:pull_request:paths-ignore` e `on:pull_request:paths` para determinar quando um fluxo de trabalho será executado para um pull request, consulte "[sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
 
 #### Fazer a varredura de forma pré-programada
 
@@ -179,17 +180,17 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; 
+        if [ -f requirements.txt ];
         then pip install -r requirements.txt;
         fi
         # Set the `CODEQL-PYTHON` environment variable to the Python executable
         # that includes the dependencies
-        echo "::set-env name=CODEQL_PYTHON::$(which python)"
+        echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
         languages: python
-        # Override the default behavior so that the action doesn't attempt 
+        # Override the default behavior so that the action doesn't attempt
         # to auto-install Python dependencies
         setup-python-dependencies: false
 ```
@@ -257,12 +258,12 @@ Se você desejar apenas executar consultas personalizadas, você poderá desabil
 
 #### Especificar diretórios para serem varridos
 
-Para as linguagens interpretadas com as quais {% data variables.product.prodname_codeql %} é compatível (Python e JavaScript/TypeScript), você pode restringir {% data variables.product.prodname_code_scanning %} para arquivos em diretórios específicos adicionando um array de `caminhos` para o arquivo de configuração. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+Para as linguagens interpretadas com as quais {% data variables.product.prodname_codeql %} é compatível (Python e JavaScript/TypeScript), você pode restringir {% data variables.product.prodname_code_scanning %} para arquivos em diretórios específicos adicionando um array de `caminhos` para o arquivo de configuração. Você pode excluir os arquivos em diretórios específicos das análises, adicionando um array de `paths-ignore`.
 
 ``` yaml
 paths:
-  - src 
-paths-ignore: 
+  - src
+paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
@@ -276,9 +277,9 @@ paths-ignore:
 
 {% endnote %}
 
-For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. Os comandos que você precisa usar para excluir um diretório da criação dependerão do seu sistema de criação. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
+Para linguagens compiladas, se você deseja limitar {% data variables.product.prodname_code_scanning %} a diretórios específicos no seu projeto, você deverá especificar os passos de compilação adequados no fluxo de trabalho. Os comandos que você precisa usar para excluir um diretório da criação dependerão do seu sistema de criação. Para obter mais informações, consulte "[Configurar o fluxo de trabalho do {% data variables.product.prodname_codeql %} para linguagens compiladas](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
-Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://help.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
+Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o código em diretórios específicos. Você deverá excluir diretórios nas suas etapas de criação e usar as palavras-chave `paths-ignore` e `caminhos` para [`on.<push|pull_request>`](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths) no seu arquivo de fluxo de trabalho.
 
 #### Exemplo de arquivo de configuração
 
@@ -292,20 +293,20 @@ Você pode rapidamente analisar pequenas partes de um monorepo ao modificar o c�
 
 ### Acessar repositórios privados
 
-Se o seu fluxo de trabalho para {% data variables.product.prodname_code_scanning %} acessar repositórios privados no {% data variables.product.prodname_dotcom %}, você deverá configurar o Git para efetuar a autenticação com um token de acesso pessoal. Defina o segredo no ambiente do executor usando `jobs.<job_id>.steps.env` no seu fluxo de trabalho antes de qualquer ação do {% data variables.product.prodname_codeql %}. Para mais informações consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)" e "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Se o seu fluxo de trabalho para {% data variables.product.prodname_code_scanning %} acessar repositórios privados no {% data variables.product.prodname_dotcom %}, você deverá configurar o Git para efetuar a autenticação com um token de acesso pessoal. Defina o segredo no ambiente do executor usando `jobs.<job_id>.steps[*].env` no seu fluxo de trabalho antes de qualquer ação do {% data variables.product.prodname_codeql %}. Para mais informações consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)" e "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
-Por exemplo, a configuração a seguir faz com que o Git substitua todas as URLs para os repositórios `github/foo`, `github/bar` e `github/baz` em {% data variables.product.prodname_dotcom_the_website %} por URLs que incluem o token de acesso pessoal que você armazena na variável de ambiente `ACCESS_TOKEN`.
+Por exemplo, a configuração a seguir faz com que o Git substitua todas as URLs para os repositórios de `ghost/foo`, `ghost/bar` e `ghost/baz` em {% data variables.product.prodname_dotcom_the_website %} pelas URLs que incluem o token de acesso pessoal que você armazena na variável de ambiente de `ACCESS_TOKEN`.
 
 {% raw %}
 ```yaml
 steps:
-- name: Configure access to private repository on GitHub.com
+- name: Configure access to private repositories
   env:
     TOKEN: ${{ secrets.ACCESS_TOKEN }}
   run: |
-    git config --global url."https://${TOKEN}@github.com/github/foo".insteadOf "https://github.com/github/foo"
-    git config --global url."https://${TOKEN}@github.com/github/bar".insteadOf "https://github.com/github/bar"
-    git config --global url."https://${TOKEN}@github.com/github/baz".insteadOf "https://github.com/github/baz"
+    git config --global url."https://${TOKEN}@github.com/ghost/foo".insteadOf "https://github.com/ghost/foo"
+    git config --global url."https://${TOKEN}@github.com/ghost/bar".insteadOf "https://github.com/ghost/bar"
+    git config --global url."https://${TOKEN}@github.com/ghost/baz".insteadOf "https://github.com/ghost/baz"
 ```
 {% endraw %}
 

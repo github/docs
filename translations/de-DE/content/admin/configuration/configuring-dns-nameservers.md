@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Die von Ihnen angegebenen Nameserver müssen den Hostnamen Ihrer {% data variables.product.product_location %} auflösen.

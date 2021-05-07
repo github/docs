@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Sie können Repositorys global auf {% data variables.product.product_location %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
@@ -170,7 +172,7 @@ You can search repositories based on whether or not the repositories are archive
 
 ### Suche nach Anzahl der Issues mit der Kennzeichnung `good first issue` oder `help wanted`
 
-Mit den Qualifizierern `good-first-issues:>n` und `help-wanted-issues:>n` kannst Du Repositorys mit einer Mindestanzahl an Issues mit der Kennzeichnung `good-first-issue` oder `help-wanted` suchen. Weitere Informationen findest Du auf „[Ermutigen hilfreicher Beiträge zu Deinem Projekt über Kennzeichnungen](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)."
+Mit den Qualifizierern `good-first-issues:>n` und `help-wanted-issues:>n` kannst Du Repositorys mit einer Mindestanzahl an Issues mit der Kennzeichnung `good-first-issue` oder `help-wanted` suchen. Weitere Informationen findest Du auf „[Ermutigen hilfreicher Beiträge zu Deinem Projekt über Kennzeichnungen](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)."
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                                       |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

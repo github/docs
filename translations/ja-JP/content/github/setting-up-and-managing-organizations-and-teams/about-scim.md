@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-scim
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) を Organization 内で使うと、Organization のメンバーの {% data variables.product.product_name %}へのアクセスの追加、管理、削除のための SCIM を実装できます。 たとえば、管理者は Organization のメンバーのデプロビジョニングに SCIM を使い、自動的にメンバーを Organization から削除できます。
@@ -17,7 +20,7 @@ Organization の {% data variables.product.product_name %} の SCIM API と連�
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)」を参照してください。
+{% data reusables.scim.enterprise-account-scim %} For more information, see "[About user provisioning for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)."
 
 ### 参考リンク
 

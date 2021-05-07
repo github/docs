@@ -1,0 +1,27 @@
+---
+date: '2020-04-23'
+sections:
+  security_fixes:
+    - '**高**：OpenSSL 已经更新，以解决 [CVE-2020-1967](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-1967)。{% comment %} https://github.com/github/enterprise2/pull/19889, https://github.com/github/enterprise2/pull/19885 {% endcomment %}'
+    - '**高**：Git 已更新以解决 [CVE-2020-5260](https://github.com/git/git/security/advisories/GHSA-qm7j-c969-7j4q) 和 [CVE-2020-11008](https://github.com/git/git/security/advisories/GHSA-hjc9-x69f-jqj7)。新限制可防止恶意仓库被推入服务器实例，从而保护尚未修补的客户端。{% comment %} https://github.com/github/git/pull/990 {% endcomment %}'
+    - '**低**：ImageMagick 已经更新，以解决 [CVE-2019-10131](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10131)。{% comment %} https://github.com/github/enterprise2/pull/19655, https://github.com/github/enterprise2/pull/19617 {% endcomment %}'
+    - '包已更新到最新的安全版本。{% comment %} https://github.com/github/enterprise2/pull/19809, https://github.com/github/enterprise2/pull/19792, https://github.com/github/enterprise2/pull/19899, https://github.com/github/enterprise2/pull/19882 {% endcomment %}'
+  bugs:
+    - 'Git 用户没有权限调用使用 Subversion 将格式从 v4 转换到 v3 LRS 所需的流程。 {% comment %} https://github.com/github/enterprise2/pull/19465, https://github.com/github/enterprise2/pull/19150 {% endcomment %}'
+    - 'MySQL 配置中的不匹配可能导致备份在大型安装中失败。 {% comment %} https://github.com/github/enterprise2/pull/1968, https://github.com/github/enterprise2/pull/19409, https://github.com/github/enterprise2/issues/19055 {% endcomment %}'
+    - '从以前的版本升级时，背景作业工人有时不会生成，从而阻止诸如合并拉取请求等基本功能。 {% comment %} https://github.com/github/enterprise2/pull/19771, https://github.com/github/enterprise2/pull/19712 {% endcomment %}'
+    - "当 GitHub Enterprise Server 许可证包含非 ASCII 字符时，对管理控制台的 API `/setup/api/settings` 端点的 `GET` 请求将导致服务器内部错误。 {% comment %} https://github.com/github/enterprise2/pull/19790 {% endcomment %}"
+    - '即使根帐户已锁定，恢复控制台也会提示根密码。{% comment %} https://github.com/github/enterprise2/pull/19810, https://github.com/github/enterprise2/pull/19788, https://github.com/github/enterprise2/issues/18425 {% endcomment %}'
+    - '具有前导 UTF-8 Byte Order Mark 的 CODEOWNERS 文件将导致忽略所有代码所有者规则。 {% comment %} https://github.com/github/github/pull/140974, https://github.com/github/github/pull/140729 {% endcomment %}'
+  changes:
+    - '当协调者-客户端计划任务失败时，将向根帐户发送多封电子邮件。 {% comment %} https://github.com/github/enterprise2/pull/19761, https://github.com/github/enterprise2/pull/19748 {% endcomment %}'
+    - "当外部身份提供商控制用户的站点管理员状态时，无法通过命令行实用程序降级用户。{% comment %} https://github.com/github/github/pull/140522, https://github.com/github/github/pull/137807, https://github.com/github/github/issues/42727 {% endcomment %}"
+  known_issues:
+    - '在没有任何用户的新建 GitHub Enterprise Server 上，攻击者可能创建第一个管理员用户。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - '自定义防火墙规则在升级期间没有维护。{% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - '议题若是包含同一仓库中文件路径长于 255 个字符的 blob 的永久链接，则无法关闭。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - '推送到 gist 时，可能会在后接收挂钩时触发异常。{% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - '在 GitHub Connect 中启用了“用户可以搜索 GitHub.com”时，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - '推送到命令行上的仓库时，不会报告安全警报。（更新时间：2020-06-23）{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '依赖关系图在多个 Redis 节点的集群配置中部署时不会检测依赖项。（更新于 2020-06-30）{% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

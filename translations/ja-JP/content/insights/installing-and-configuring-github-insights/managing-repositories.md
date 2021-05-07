@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_insights %}に接続されている�
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、リポジトリを管理できます。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

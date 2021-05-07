@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Repositories
 ---
 
 ### Choosing the right license
@@ -23,7 +25,7 @@ You're under no obligation to choose a license. However, without a license, the 
 
 ### Determining the location of your license
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
 Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
 
@@ -74,7 +76,7 @@ When you search by a family license, your results will include all licenses in t
 
 ### Detecting a license
 
-[The open source Ruby gem Licensee](https://github.com/benbalter/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](http://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/reference/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](http://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
 

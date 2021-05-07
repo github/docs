@@ -1,12 +1,14 @@
 ---
 title: 关于仓库
-intro: 仓库就像项目的文件夹。 项目的仓库包含项目的所有文件，并存储每个文件的修订记录。 您也可以在仓库中讨论并管理项目的工作。
+intro: 仓库包含项目的所有文件，并存储每个文件的修订记录。 您可以在仓库中讨论并管理项目的工作。
 redirect_from:
   - /articles/about-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 您可以个人拥有仓库，也可以与组织中的其他人共享仓库的所有权。
@@ -22,9 +24,11 @@ versions:
 每个人和组织都可拥有无限的仓库，并且可以邀请无限的协作者参与所有仓库。
 {% endif %}
 
-您可以使用仓库议题、拉取请求及项目板与其他人协作处理您的项目。
-
-![octocat/Hello-World 仓库的主页面](/assets/images/help/repository/repo-main-page.png)
+您可以使用仓库管理您的工作并与他人合作。
+- 您可以使用议题来收集用户反馈，报告软件缺陷，并组织您想要完成的任务。 更多信息请参阅“[关于议题](/github/managing-your-work-on-github/about-issues)”。{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+- 您可以使用拉取请求来建议对仓库的更改。 更多信息请参阅“[关于拉取请求](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)”。
+- 您可以使用项目板来组织议题和拉取请求并排定优先级。 更多信息请参阅“[关于项目板](/github/managing-your-work-on-github/about-project-boards)”。
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -35,5 +39,5 @@ versions:
 - "[在 {% data variables.product.prodname_dotcom %} 上管理您的工作](/categories/managing-your-work-on-github/)"
 - "[管理仓库](/categories/administering-a-repository)"
 - "[使用图表可视化仓库数据](/categories/visualizing-repository-data-with-graphs/)"
-- "[关于 wikis](/articles/about-wikis)"
+- "[关于 wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[{% data variables.product.prodname_dotcom %} 词汇](/articles/github-glossary)"

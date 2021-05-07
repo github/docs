@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 升级个人帐户的订阅
@@ -28,8 +30,8 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Next to "
-{% data variables.product.prodname_free_user %}", click **Upgrade**.
+4. 在“
+{% data variables.product.prodname_free_user %}”旁边，单击 **Upgrade（升级）**。
   ![升级按钮](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
@@ -57,7 +59,7 @@ versions:
 
 #### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
 
-如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/articles/managing-saml-single-sign-on-for-your-organization)”。
+如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization)”。
 
 如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。
 

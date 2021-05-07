@@ -1,2 +1,2 @@
 1. In the left sidebar, click **OAuth Apps**.
-![OAuth Apps section](/assets/images/settings/oauth_apps_post2dot12.png)
+![OAuth Apps section](/assets/images/help/settings/developer-settings-oauth-apps.png)

@@ -3,11 +3,13 @@ title: Pull Requests lokal auschecken
 intro: 'Wenn Dir jemand einen Pull Request aus einem Fork oder Branch Deines Repositorys schickt, kannst Du ihn lokal zusammenführen, um einen Merge-Konflikt zu lösen oder um die Änderungen vor dem Zusammenführen auf {% data variables.product.product_name %} zu testen und zu überprüfen.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: Personen mit Schreibzugriff auf eine Repository können einen Remote-Pull-Request lokal nach unten ziehen.
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

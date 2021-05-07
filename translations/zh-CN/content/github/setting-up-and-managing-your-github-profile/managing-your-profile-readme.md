@@ -4,6 +4,8 @@ intro: '可以向您的 {% data variables.product.prodname_dotcom %} 个人资�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+topics:
+  - Profiles
 ---
 
 ### 关于您的个人资料自述文件
@@ -48,6 +50,8 @@ versions:
 7. 在左边栏上，单击 **Edit README（编辑自述文件）**。 ![编辑自述文件的按钮](/assets/images/help/repository/personal-repository-edit-readme.png)
 
   生成的自述文件用模板预先填充，为您创建个人资料自述文件提供一些启发。 ![带有预填充模板的自述文件](/assets/images/help/repository/personal-repository-readme-template.png)
+
+有关所有可用表情符号及其代码的摘要，请参阅“[表情符号备忘清单](http://www.emoji-cheat-sheet.com/)” 。
 
 ### 删除个人资料自述文件
 

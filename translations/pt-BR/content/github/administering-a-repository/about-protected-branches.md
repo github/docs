@@ -5,17 +5,33 @@ product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
+  - /articles/about-branch-restrictions
+  - /github/administering-a-repository/about-branch-restrictions
+  - /articles/about-required-status-checks
+  - /github/administering-a-repository/about-required-status-checks
+  - /articles/types-of-required-status-checks
+  - /github/administering-a-repository/types-of-required-status-checks
+  - /articles/about-required-commit-signing
+  - /github/administering-a-repository/about-required-commit-signing
+  - /articles/about-required-reviews-for-pull-requests
+  - /github/administering-a-repository/about-required-reviews-for-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
+
+### Sobre branches protegidos
 
 {% data reusables.pull_requests.about-protected-branches %} Você pode optar por aplicar restrições sobre como um pull request é mesclado no seu repositório.
 
 Os proprietários de repositório e as pessoas com permissões de administrador para um repositório podem impor determinados fluxos de trabalho ou requisitos, antes que um colaborador possa fazer merge em seu repositório criando regras de branch protegido.
 
 {% data reusables.repositories.branch-rules-example %} Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)."
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 ### Priorização de regras de branches protegidos
 

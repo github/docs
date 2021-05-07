@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -94,7 +96,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 | Tag nach Thanksgiving   | Vierter Freitag im November    |
 | Heiligabend             | 24. Dezember                   |
 | 1. Weihnachtsfeiertag   | 25. Dezember                   |
-| 2. Weihnachtsfeiertag   | 26. Dezember                   |
+| 2. Weihnachtsfeiertag   | 28. Dezember                   |
 | Silvester               | 31. Dezember                   |
 
 #### Feiertage in Japan

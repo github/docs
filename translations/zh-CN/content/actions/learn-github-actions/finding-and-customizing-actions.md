@@ -1,7 +1,7 @@
 ---
 title: 查找和自定义操作
 shortTitle: 查找和自定义操作
-intro: '操作是支持工作流程的构建块。 工作流程可以包含社区创建的操作，您也可以直接在应用程序的仓库中创建您自己的操作。 本指南说明如何发现、使用和自定义操作。'
+intro: 操作是支持工作流程的构建块。 工作流程可以包含社区创建的操作，您也可以直接在应用程序的仓库中创建您自己的操作。 本指南说明如何发现、使用和自定义操作。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -10,10 +10,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概览
 
@@ -67,7 +72,7 @@ steps:
 
 #### 使用 SHA
 
-如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 此示例针对操作的 SHA：
+如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}您必须使用提交的完整 SHA 值，而不是缩写值。 {% endif %}此示例针对操作的 SHA：
 
 ```yaml
 steps:
@@ -76,7 +81,7 @@ steps:
 
 #### 使用分支
 
-引用特定分支意味着操作将始终使用包括目标分支上的最新更新，但如果这些更新包括重大更改，则可能会造成问题。 此示例针对名为 `@main`的分支：
+为操作指定目标分支意味着它将始终在该分支上运行当前的版本。 如果对分支的更新包含重大更改，此方法可能会造成问题。 此示例针对名为 `@main`的分支：
 
 ```yaml
 steps:
@@ -105,6 +110,13 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
+
+{% if currentVersion == "github-ae@latest" %}
+### 使用 {% data variables.product.prodname_ghe_managed %} 随附的操作
+默认情况下，您可以使用大多数官方
+
+{% data variables.product.prodname_dotcom %} 授权的操作（在 {% data variables.product.prodname_ghe_managed %} 中）。 更多信息请参阅“[使用 {% data variables.product.prodname_ghe_managed %} 中的操作](/admin/github-actions/using-actions-in-github-ae)”。
+{% endif %}
 
 ### 在工作流程文件使用操作的同一仓库中引用操作
 

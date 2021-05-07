@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ![Organization 内の Team のリスト](/assets/images/help/teams/org-list-of-teams.png)
@@ -36,7 +39,7 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 各 Team は、Organization 内に独自のページを持ちます。 Team のページでは、Team メンバー、子チーム、Team のリポジトリを見ることができます。 Organization のオーナーとチームメンテナは、Team のページから Team の設定にアクセスし、Team の説明とプロフィール画像を更新できます。
 
-Organization のメンバーは、Team 内のディスカッションを作成し、参加できます。 詳しい情報については[Team ディスカッションについて](/articles/about-team-discussions)を参照してください。
+Organization のメンバーは、Team 内のディスカッションを作成し、参加できます。 詳しい情報については[Team ディスカッションについて](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)を参照してください。
 
 ![メンバーとディスカッションのリストがある Team ページ](/assets/images/help/organizations/team-page-discussions-tab.png)
 

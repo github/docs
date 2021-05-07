@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Sind Sie ein Strafverfolgungsbeamter, der eine Untersuchung durchführt, die möglicherweise auf GitHub gehostete Benutzerinhalte betrifft? Oder sind Sie eine datenschutzbewusste Person, die wissen möchte, welche Informationen wir mit Strafverfolgungsbehörden teilen und unter welchen Umständen. In jedem Fall sind Sie hier auf der richtigen Seite.
@@ -146,7 +149,14 @@ Bitte beachten Sie, dass die verfügbaren Informationen von Fall zu Fall variier
 
 ### Kostenerstattung
 
-Wir behalten uns das Recht vor, die Erstattung von Verwaltungskosten im Zusammenhang mit der Beantwortung von Informationsanfragen zu beantragen, soweit dies gesetzlich zulässig ist.
+Under state and federal law, GitHub can seek reimbursement for costs associated with compliance with a valid legal demand, such as a subpoena, court order or search warrant. We only charge to recover some costs, and these reimbursements cover only a portion of the costs we actually incur to comply with legal orders.
+
+While we do not charge in emergency situations or in other exigent circumstances, we seek reimbursement for all other legal requests in accordance with the following schedule, unless otherwise required by law:
+
+- Initial search of up to 25 identifiers: Free
+- Production of subscriber information/data for up to 5 accounts: Free
+- Production of subscriber information/data for more than 5 accounts: $20 per account
+- Secondary searches: $10 per search
 
 ### Datenaufbewahrung
 
@@ -162,8 +172,6 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505, USA.
 ```
-
-Sie können auch eine Kopie an legal@support.github.com senden.
 
 Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, einschließlich der folgenden Informationen:
 

@@ -8,18 +8,20 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### API 逻辑差异
 
 从 REST 迁移到 GraphQL 代表了 API 逻辑的一次重大转变。 作为样式的 REST 与作为规范的 GraphQL 之间的差异使得很难&mdash;且通常不可取&mdash;以一对一方式将 REST API 调用替换为 GraphQL API 查询。 我们在下面提供了具体的迁移示例。
 
-To migrate your code from the [REST API](/rest) to the GraphQL API:
+要将代码从 [REST API](/rest) 迁移到 GraphQL API：
 
 - 查看 [GraphQL 规范](https://graphql.github.io/graphql-spec/June2018/)
-- Review GitHub's [GraphQL schema](/graphql/reference)
+- 查看 GitHub 的 [GraphQL 架构](/graphql/reference)
 - 考虑您当前的现有代码如何与 GitHub REST API 交互
-- Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
+- 使用[全局节点 ID](/graphql/guides/using-global-node-ids) 引用 API 版本之间的对象
 
 GraphQL 的重要优势包括：
 
@@ -53,12 +55,12 @@ query {
 }
 ```
 
-考虑另一个示例：检索拉取请求列表并检查每个请求是否可合并。 A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
+考虑另一个示例：检索拉取请求列表并检查每个请求是否可合并。 对 REST API 的调用可检索拉取请求列表及其[摘要陈述](/rest#summary-representations)：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
+确定拉取请求是否可合并需要分别检索每个拉取请求，查看其[详细陈述](/rest#detailed-representations)（大型有效负载），并检查它的 `mergeable` 属性是真还是假：
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
@@ -128,13 +130,13 @@ curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:numbe
 }
 ```
 
-You can also extend the power of this query by [substituting a variable](/graphql/guides/forming-calls-with-graphql#working-with-variables) for the pull request number.
+您也可以通过[用变量替换](/graphql/guides/forming-calls-with-graphql#working-with-variables)拉取请求编号扩大此查询的能力。
 
 ## 示例：强类型化
 
 GraphQL 架构属于强类型化架构，可使数据处理更加安全。
 
-Consider an example of adding a comment to an issue or pull request using a GraphQL [mutation](/graphql/reference/mutations), and mistakenly specifying an integer rather than a string for the value of [`clientMutationId`](/graphql/reference/mutations#addcomment):
+考虑一个利用 GraphQL [突变](/graphql/reference/mutations)向议题或拉取请求添加注释，并错误地将 [`clientMutationId`](/graphql/reference/mutations#addcomment) 值指定为整数而非字符串的示例：
 
 ```graphql
 mutation {

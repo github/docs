@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 ### Informationen zu Jekyll-Build-Fehlern
@@ -17,7 +19,7 @@ versions:
 Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
 - Der Benutzer, der die Änderungen gepusht hat, hat seine E-Mail-Adresse nicht verifiziert. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.{% endif %}
 - Du führst den Push mit einem Deployment-Schlüssel durch. Wenn Du Übertragungen zum Repository Deiner Website automatisieren möchtest, kannst du stattdessen einen Maschinenbenutzer einrichten. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#machine-users)."
-- Du verwendest einen Dienst für die fortlaufende Integration, der nicht zum Erstellen Deiner Veröffentlichungsquelle konfiguriert ist. Travis CI erstellt beispielsweise nicht den Branch `gh-pages`, es sei denn, Du fügst den Branch zu einer Liste mit sicheren Branches hinzu. Weitere Informationen findest Du unter „[Build anpassen](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)“ auf Travis CI oder in der Dokumentation Deines Dienstes für die fortlaufende Integration.
+- Du verwendest einen Dienst für die fortlaufende Integration, der nicht zum Erstellen Deiner Veröffentlichungsquelle konfiguriert ist. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. Weitere Informationen findest Du unter „[Build anpassen](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)“ auf Travis CI oder in der Dokumentation Deines Dienstes für die fortlaufende Integration.
 
 {% note %}
 
@@ -44,13 +46,13 @@ Build-Fehler (aber keine Build-Warnungen) für Ihre Website können Sie auf {% d
 Du kannst einen Drittanbieterdienst, beispielsweise [Travis CI](https://travis-ci.org/), so konfigurieren, dass nach jedem Commit Fehlermeldungen angezeigt werden.
 
 1. Wenn Du dies noch nicht getan hast, füge eine Datei namens _Gemfile_ in das Root-Verzeichnis Deiner Veröffentlichungsquelle ein. Die Gemfile-Datei sollte den folgenden Inhalt aufweisen:
-  ```
+  ```ruby
   source `https://rubygems.org`
   gem `github-pages`
   ```
 
 2. Konfiguriere das Repository Deiner Website für die gewünschte Test-Dienstleistung. Wenn Du beispielsweise [Travis CI](https://travis-ci.org/) verwenden möchtest, füge eine Datei namens _.travis.yml_ in das Root-Verzeichnis Deiner Veröffentlichungsquelle ein, und zwar mit folgendem Inhalt:
-  ```
+  ```yaml
   language: ruby
   rvm:
     - 2.3

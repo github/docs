@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 升级应用程序时，您的付款方式会基于到下一结算日期之前剩余的时间按比例收费。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。

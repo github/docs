@@ -1,0 +1,1 @@
+1. To the right of the tier you want, click **Select**. If want to select a custom amount, enter the sponsorship amount before clicking "Select." ![Caja de selección de nivel](/assets/images/help/sponsors/select-a-tier-box.png)

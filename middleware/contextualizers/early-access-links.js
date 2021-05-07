@@ -7,17 +7,14 @@ module.exports = function earlyAccessContext (req, res, next) {
 
   // Get a list of all hidden pages per version
   const earlyAccessPageLinks = uniq(Object.values(req.context.pages)
-    .filter(page => page.hidden)
-    // Do not include early access landing page
-    .filter(page => page.relativePath !== 'early-access/index.md')
-    // Create Markdown links
-    .map(page => {
-      return page.permalinks.map(permalink => `- [${permalink.title}](${permalink.href})`)
-    })
+    .filter(page => page.hidden && page.relativePath.startsWith('early-access') && !page.relativePath.endsWith('index.md'))
+    .map(page => page.permalinks)
     .flat())
     // Get links for the current version
-    .filter(link => link.includes(req.context.currentVersion))
+    .filter(permalink => req.context.currentVersion === permalink.pageVersion)
     .sort()
+    // Create Markdown links
+    .map(permalink => `- [${permalink.title}](${permalink.href})`)
 
   // Add to the rendering context
   // This is only used in the separate EA repo on local development

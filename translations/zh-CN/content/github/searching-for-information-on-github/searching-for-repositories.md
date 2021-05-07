@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 您可以在所有 {% data variables.product.product_location %} 内全局搜索仓库，也可以在特定组织内搜索仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
@@ -20,22 +22,22 @@ versions:
 
 通过 `in` 限定符，您可以将搜索限制为仓库名称、仓库说明、自述文件内容或这些的任意组合。 如果省略此限定符，则只搜索仓库名称和说明。
 
-| 限定符               | 示例                                                                                                                                                                                       |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) matches repositories with "jquery" in the repository name.                                          |
-| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) matches repositories with "jquery" in the repository name or description. |
-| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) matches repositories mentioning "jquery" in the repository's README file.                       |
-| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) 匹配特定仓库名称。                                                                                       |
+| 限定符               | 示例                                                                                                                                        |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `in:name`         | [**jquery in:name**](https://github.com/search?q=jquery+in%3Aname&type=Repositories) 匹配仓库名称中含有 "jquery" 的仓库。                              |
+| `in:description`  | [**jquery in:name,description**](https://github.com/search?q=jquery+in%3Aname%2Cdescription&type=Repositories) 匹配仓库名称或说明中含有 "jquery" 的仓库。 |
+| `in:readme`       | [**jquery in:readme**](https://github.com/search?q=jquery+in%3Areadme&type=Repositories) 匹配仓库自述文件中提及 "jquery" 的仓库。                        |
+| `repo:owner/name` | [**repo:octocat/hello-world**](https://github.com/search?q=repo%3Aoctocat%2Fhello-world) 匹配特定仓库名称。                                        |
 
 ### 基于仓库的内容搜索
 
-You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. 更多信息请参阅“[关于自述文件](/github/creating-cloning-and-archiving-repositories/about-readmes)”。
+您可以使用 `in:readme` 限定符，通过搜索仓库自述文件中的内容来查找仓库。 更多信息请参阅“[关于自述文件](/github/creating-cloning-and-archiving-repositories/about-readmes)”。
 
 除了使用 `in:readme` 以外，无法通过搜索仓库内的特定内容来查找仓库。 要搜索仓库内的特定文件或内容，您可以使用查找器或代码特定的搜索限定符。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上查找文件](/articles/finding-files-on-github)”和“[搜索代码](/articles/searching-code)”。
 
-| 限定符         | 示例                                                                                                                                                                    |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) matches repositories mentioning "octocat" in the repository's README file. |
+| 限定符         | 示例                                                                                                                    |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| `in:readme` | [**octocat in:readme**](https://github.com/search?q=octocat+in%3Areadme&type=Repositories) 匹配仓库自述文件中提及 "octocat" 的仓库。 |
 
 ### 在用户或组织的仓库内搜索
 
@@ -48,7 +50,7 @@ You can find a repository by searching for content in the repository's README fi
 
 ### 按仓库大小搜索
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+`size` 限定符使用大于、小于和范围限定符查找匹配特定大小（以千字节为单位）的仓库。 更多信息请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符                       | 示例                                                                                                             |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +61,7 @@ The `size` qualifier finds repositories that match a certain size (in kilobytes)
 
 ### 按关注者数量搜索
 
-You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+您可以使用 `followers` 限定符以及大于、小于和范围限定符，基于关注仓库的用户数量过滤仓库。 更多信息请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符                       | 示例                                                                                                                                                                          |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -68,7 +70,7 @@ You can filter repositories based on the number of users who follow the reposito
 
 ### 按复刻数量搜索
 
-The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+`forks` 限定符使用大于、小于和范围限定符指定仓库应具有的复刻数量。 更多信息请参阅“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符                       | 示例                                                                                                             |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -79,7 +81,7 @@ The `forks` qualifier specifies the number of forks a repository should have, us
 
 ### 按星号数量搜索
 
-You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see "[Saving repositories with stars](/github/getting-started-with-github/saving-repositories-with-stars)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+您可以使用大于、小于和范围限定符，基于仓库的星标数量来搜索仓库。 更多信息请参阅“[使用星标保存仓库](/github/getting-started-with-github/saving-repositories-with-stars)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符                       | 示例                                                                                                                                                                                 |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,7 +105,7 @@ You can search repositories based on the number of stars the repositories have, 
 
 ### 按语言搜索
 
-You can search repositories based on the language of the code in the repositories.
+您可以根据仓库中代码的语言搜索仓库。
 
 | 限定符                       | 示例                                                                                                                                             |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -111,7 +113,7 @@ You can search repositories based on the language of the code in the repositorie
 
 ### 按主题搜索
 
-You can find all of the repositories that are classified with a particular topic. 更多信息请参阅“[使用主题对仓库分类](/github/administering-a-repository/classifying-your-repository-with-topics)”。
+您可以找到按特定主题分类的所有仓库。 更多信息请参阅“[使用主题对仓库分类](/github/administering-a-repository/classifying-your-repository-with-topics)”。
 
 | 限定符                       | 示例                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,7 +121,7 @@ You can find all of the repositories that are classified with a particular topic
 
 ### 按主题数量搜索
 
-You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" and "[Understanding the search syntax](/github/searching-for-information-on-github/understanding-the-search-syntax)."
+您可以使用 `topics` 限定符以及大于、小于和范围限定符，根据应用于仓库的主题数量来搜索仓库。 更多信息请参阅“[使用主题对仓库分类](/github/administering-a-repository/classifying-your-repository-with-topics)”和“[了解搜索语法](/github/searching-for-information-on-github/understanding-the-search-syntax)”。
 
 | 限定符                        | 示例                                                                                                                         |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -130,7 +132,7 @@ You can search repositories by the number of topics that have been applied to th
 
 ### 按许可搜索
 
-You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. 更多信息请参阅“[许可仓库](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)”。
+您可以根据仓库中许可的类型搜索仓库。 您必须使用许可关键字，按特定许可或许可系列来过滤仓库。 更多信息请参阅“[许可仓库](/github/creating-cloning-and-archiving-repositories/licensing-a-repository)”。
 
 | 限定符                        | 示例                                                                                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -138,39 +140,39 @@ You can search repositories by the type of license in the repositories. You must
 
 {% endif %}
 
-### Search by repository visibility
+### 按仓库可见性搜索
 
-You can filter your search based on the visibility of the repositories. 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
+您可以根据仓库的可见性过滤搜索。 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
 
-| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test". | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
+| 限定符  | 示例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) 匹配 {% data variables.product.company_short %} 拥有的公共仓库。{% endif %} | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) 匹配您可以访问并且包含单词 "test" 的内部仓库。 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) 匹配您可以访问并且包含单词 "pages" 的私有仓库。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 基于仓库是否为镜像搜索
 
-You can search repositories based on whether the repositories are mirrors and hosted elsewhere. 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+您可以根据仓库是否为镜像以及托管于其他位置托管来搜索仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
-| 限定符            | 示例                                                                                                                                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) matches repositories that are mirrors and contain the word "GNOME."       |
-| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) matches repositories that are not mirrors and contain the word "GNOME." |
+| 限定符            | 示例                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `mirror:true`  | [**mirror:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Atrue+GNOME&type=) 匹配是镜像且包含 "GNOME" 字样的仓库。    |
+| `mirror:false` | [**mirror:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=mirror%3Afalse+GNOME&type=) 匹配并非镜像且包含 "GNOME" 字样的仓库。 |
 
 {% endif %}
 
 ### 基于仓库是否已存档搜索
 
-You can search repositories based on whether or not the repositories are archived. For more information, see "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)."
+您可以基于仓库是否已存档来搜索仓库。 更多信息请参阅“[关于存档仓库](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)”。
 
-| 限定符              | 示例                                                                                                                                                                           |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) matches repositories that are archived and contain the word "GNOME."       |
-| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) matches repositories that are not archived and contain the word "GNOME." |
+| 限定符              | 示例                                                                                                                          |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `archived:true`  | [**archived:true GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Atrue+GNOME&type=) 匹配已存档且包含 "GNOME" 字样的仓库。   |
+| `archived:false` | [**archived:false GNOME**](https://github.com/search?utf8=%E2%9C%93&q=archived%3Afalse+GNOME&type=) 匹配未存档且包含 "GNOME" 字样的仓库。 |
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 基于具有 `good first issue` 或 `help wanted` 标签的议题数量搜索
 
-您可以使用限定符 `help-wanted-issues:>n` 和 `good-first-issues:>n` 搜索具有最少数量标签为 `help-wanted` 或 `good-first-issue` 议题的仓库。 更多信息请参阅“[通过标签鼓励对项目做出有益的贡献](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)”。
+您可以使用限定符 `help-wanted-issues:>n` 和 `good-first-issues:>n` 搜索具有最少数量标签为 `help-wanted` 或 `good-first-issue` 议题的仓库。 更多信息请参阅“[通过标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)”。
 
 | 限定符                        | 示例                                                                                                                                                                                             |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

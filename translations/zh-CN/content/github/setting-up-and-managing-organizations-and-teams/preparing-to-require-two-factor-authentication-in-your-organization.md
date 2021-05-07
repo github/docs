@@ -6,9 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
-We recommend that you notify {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
+如果您的组织中需要 2FA，建议至少提前一周通知{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}。
 
 需要对您的组织使用双重身份验证时，不使用 2FA 的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并且失去访问其仓库的权限。 他们还会失去对组织私有仓库的复刻的访问权限。
 

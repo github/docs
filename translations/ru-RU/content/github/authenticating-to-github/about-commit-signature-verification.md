@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 ### About commit signature verification
@@ -19,11 +22,13 @@ You can sign commits and tags locally, so other people can verify that your work
 
 If a commit or tag has a signature that cannot be verified, {% data variables.product.product_name %} marks the commit or tag as unverified.
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About required commit signing](/articles/about-required-commit-signing)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
 
 You can check the verification status of your signed commits or tags on {% data variables.product.product_name %} and view why your commit signatures might be unverified. For more information, see "[Checking your commit and tag signature verification status](/articles/checking-your-commit-and-tag-signature-verification-status)."
 
-{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+{% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. You can optionally choose to have {% data variables.product.product_name %} sign commits you make in {% data variables.product.prodname_codespaces %}. Commits signed by {% data variables.product.product_name %} will have a verified status on {% data variables.product.product_name %}. You can verify the signature locally using the public key available at https://github.com/web-flow.gpg. For more information about enabling GPG verification for your codespaces, see "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)."
+{% endif %}
 
 ### GPG commit signature verification
 

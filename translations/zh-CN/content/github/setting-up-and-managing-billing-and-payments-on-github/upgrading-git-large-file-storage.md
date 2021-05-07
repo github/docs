@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 为个人帐户购买额外的存储空间和带宽

@@ -9,13 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 2 要素認証を有効にすると、ブラウザから {% data variables.product.product_name %} にアクセスするときに認証コードを入力する必要があります。 API やコマンドラインなどの他の方法を使用して {% data variables.product.product_name %} にアクセスする場合は、別の形式の認証を使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。
 
 ### Web サイトへのサインインの際に 2FA コードを提供
 
-After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
+パスワードを使用して {% data variables.product.product_name %} にサインインすると、{% if currentVersion == "free-pro-team@latest" %} テキストメッセージまたは{% endif %} TOTP アプリから認証コードを入力するように求められます。
 
 {% data variables.product.product_name %}が 2FA 認証コードを再度求めるのは、ログアウトした場合、新しいデバイスを使う場合、またはセッションが期限切れになった場合のみです。
 

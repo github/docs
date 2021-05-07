@@ -7,21 +7,23 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
 * [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
 * [Gerado uma nova chave SSH e adicionado-a ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)".
+Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
 {% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_ed25519.pub
@@ -46,9 +48,9 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% windows %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
   $ clip &lt; ~/.ssh/id_ed25519.pub
@@ -73,9 +75,9 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% linux %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copie a chave pública SSH para a sua área de transferência.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
   $ sudo apt-get install xclip

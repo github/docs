@@ -1,6 +1,6 @@
 ---
 title: 以前の外部のコラボレータの Organization へのアクセスを復帰させる
-intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
+intro: 'You can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
@@ -25,7 +28,7 @@ When an outside collaborator's access to your organization's private repositorie
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
  - 外部コラボレーターの Organization へのアクセスを復帰させることができるのは、Organization のオーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
  - {% data variables.product.product_location %} のメンバー復帰フローでは、外部コラボレーターの復帰を説明するために「メンバー」という用語を使用することがありますが、この個人を復帰させて以前の権限を保持しても、付与されるのはその[外部コラボレーターの以前の権限](/articles/permission-levels-for-an-organization/#outside-collaborators)のみです。{% if currentVersion == "free-pro-team@latest" %}
  - Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳しい情報については、「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。{% endif %}

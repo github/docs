@@ -1,1 +1,1 @@
-{% data variables.product.prodname_codespaces %} is free to use during the beta. When {% data variables.product.prodname_codespaces %} becomes generally available, you will be billed for storage and compute usage.
+{% data variables.product.prodname_codespaces %}はベータの間、無料で利用できます。 {% data variables.product.prodname_codespaces %} が一般提供されると、ストレージとコンピューティングの使用量に対して課金されます。

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。

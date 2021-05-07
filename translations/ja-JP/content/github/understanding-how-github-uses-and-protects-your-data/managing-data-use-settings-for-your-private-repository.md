@@ -6,6 +6,9 @@ redirect_from:
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-data-use-for-your-private-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### プライベートリポジトリ用のデータ利用について
@@ -14,14 +17,12 @@ When you enable data use for your private repository, you'll be able to access t
 
 ### データ利用機能の有効化と無効化
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
-
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
+4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
 
 ### 参考リンク
 

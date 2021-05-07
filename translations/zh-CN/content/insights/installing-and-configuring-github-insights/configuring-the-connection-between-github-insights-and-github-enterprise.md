@@ -2,7 +2,7 @@
 title: 配置 GitHub Insights 与 GitHub Enterprise 之间的连接
 intro: '您可以管理 {% data variables.product.prodname_insights %} 如何连接到 {% data variables.product.prodname_enterprise %}。'
 product: '{% data reusables.gated-features.github-insights %}'
-permissions: '对 {% data variables.product.prodname_insights %} 具有管理权限的人员可以配置到 {% data variables.product.prodname_enterprise %} 的连接。'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can configure the connection to {% data variables.product.prodname_enterprise %}.'
 versions:
   enterprise-server: '*'
 ---

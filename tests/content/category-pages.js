@@ -1,12 +1,14 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
+const matter = require('../../lib/read-frontmatter')
 const { zip, difference } = require('lodash')
 const GithubSlugger = require('github-slugger')
 const { XmlEntities } = require('html-entities')
+const readFileAsync = require('../../lib/readfile-async')
 const loadSiteData = require('../../lib/site-data')
 const renderContent = require('../../lib/render-content')
+const getApplicableVersions = require('../../lib/get-applicable-versions')
 
 const slugger = new GithubSlugger()
 const entities = new XmlEntities()
@@ -25,7 +27,7 @@ describe('category pages', () => {
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
-    ignore: ['{rest,graphql,developers}/**', 'enterprise/index.md', '**/articles/**', 'early-access/**'],
+    ignore: ['{rest,graphql}/**', 'enterprise/index.md', '**/articles/**', 'early-access/**'],
     directories: false,
     includeBasePath: true
   }
@@ -61,17 +63,21 @@ describe('category pages', () => {
       // Combine those to fit Jest's `.each` usage
       const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
 
+      if (!categoryTuples.length) return
+
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
-          let publishedArticlePaths, availableArticlePaths, indexTitle
+          let publishedArticlePaths, availableArticlePaths, indexTitle, categoryVersions
+          const articleVersions = {}
 
           beforeAll(async () => {
             const categoryDir = path.dirname(indexAbsPath)
 
             // Get child article links included in each subdir's index page
-            const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
+            const indexContents = await readFileAsync(indexAbsPath, 'utf8')
             const { data, content } = matter(indexContents)
+            categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
             const articleLinks = getLinks(content)
 
             // Save the index title for later testing
@@ -80,7 +86,7 @@ describe('category pages', () => {
             publishedArticlePaths = (await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
@@ -98,7 +104,7 @@ describe('category pages', () => {
 
             availableArticlePaths = (await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
@@ -108,6 +114,15 @@ describe('category pages', () => {
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
               })
             )).filter(Boolean)
+
+            await Promise.all(
+              childFilePaths.map(async (articlePath) => {
+                const articleContents = await readFileAsync(articlePath, 'utf8')
+                const { data } = matter(articleContents)
+
+                articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
+              })
+            )
           })
 
           test('contains all expected articles', () => {
@@ -120,6 +135,14 @@ describe('category pages', () => {
             const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
             const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
             expect(unexpectedArticles.length, errorMessage).toBe(0)
+          })
+
+          test('contains only articles and map topics with versions that are also available in the parent category', () => {
+            Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
+              const unexpectedVersions = difference(articleVersions, categoryVersions)
+              const errorMessage = `${articleName} has versions that are not available in parent category`
+              expect(unexpectedVersions.length, errorMessage).toBe(0)
+            })
           })
 
           // TODO: Unskip this test once the related script has been executed

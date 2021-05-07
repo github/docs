@@ -1,10 +1,12 @@
 ---
-title: '监控、管理和更新企业'
-intro: '您可以监控设备、升级到较新版本以及配置群集或高可用性'
+title: 监控、管理和更新企业
+intro: 您可以监控设备、升级到较新版本以及配置群集或高可用性
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 
@@ -23,7 +25,6 @@ versions:
     {% link_in_list /increasing-storage-capacity %}
     {% link_in_list /increasing-cpu-or-memory-resources %}
     {% link_in_list /migrating-from-github-enterprise-1110x-to-2123 %}
-    {% link_in_list /migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later %}
 {% topic_link_in_list /configuring-clustering %}
     {% link_in_list /about-clustering %}
     {% link_in_list /differences-between-clustering-and-high-availability-ha %}

@@ -9,10 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 개요
 
@@ -50,9 +55,11 @@ _Actions_ are standalone commands that are combined into _steps_ to create a _jo
 
 #### Runners
 
-A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
-
-{% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% if currentVersion == "github-ae@latest" %}A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. For {% data variables.product.prodname_ghe_managed %}, you can use the security hardened {% data variables.actions.hosted_runner %}s which are bundled with your instance in the cloud. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. {% data variables.actions.hosted_runner %}s run each workflow job in a fresh virtual environment. For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+{% else %}
+A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by
+{% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS, and each job in a workflow runs in a fresh virtual environment.  For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% endif %}
 
 ### Create an example workflow
 
@@ -146,7 +153,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each line nested under this section is a separate action.
+  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell command.
 </td>
 </tr>
 <tr>
@@ -179,7 +186,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package. 
+  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
 </td>
 </tr>
 <tr>
@@ -204,13 +211,18 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ### Viewing the job's activity
 
-Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**. ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
 1. In the left sidebar, click the workflow you want to see. ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see. ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+1. Under **Jobs** or in the visualization graph, click the job you want to see. ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+1. View the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)

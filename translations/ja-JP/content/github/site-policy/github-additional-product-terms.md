@@ -2,15 +2,18 @@
 title: GitHub追加製品の利用規約
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-このバージョンの発効日: 2020 年 11 月 13 日
+このバージョンの発効日: 2021 年 2 月 22 日
 
-アカウントを作成すると利用できるようになる各種の機能と製品は、すべて本サービスの一部です。 このような機能と製品の多くは機能性が異なるため、その機能や製品に固有の利用規約が必要になる場合があります。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
+アカウントを作成すると利用できるようになる各種の機能と製品は、すべて本サービスの一部です。 このような機能と製品の多くは機能性が異なるため、その機能や製品に固有の利用規約が必要になる場合があります。 以下に、こうした機能や製品と、その利用に対して適用される追加の規約を示します
 
-Your use of the Service is subject to your applicable terms (the "Agreement"). By using additional products and features, you also agree to these Additional Product Terms. Any violation of the Additional Product Terms is a violation of the Agreement. Capitalized terms not defined in the Additional Product Terms will have the meaning given to them in the Agreement.
+お客様による本「サービス」の利用は、適用される規約 (「契約」) に従うものとします。 また、追加製品および機能を利用することにより、「本追加製品の利用規約」にも同意することになります。 「追加製品の利用規約」に違反した場合、本「契約」にも違反することになります。 かぎ括弧で括った用語のうち、本「追加条項」で定義されていないものについては、本「契約」に示された意味を持つものとします。
 
-If you are using GitHub AE, then you may only access the following features and products: Third Party Integrations, Git LFS Support, Pages.
+GitHub AE を使用している場合は、「サードパーティとのインテグレーション」、「Git LFSのサポート」、および「Pages」の機能および製品のみにアクセスできます。
 
 ### 1. Marketplace
 
@@ -39,49 +42,53 @@ GitHub Marketplaceを通じて開発者製品を購入する場合は、購入�
 
 ### 4. ページ
 
-Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). このホスティングサービスは、すべてのユーザの静的Webページをホストするためのサービスですが、主に個人および組織のプロジェクトのためのショウケースの役割をはたしています。 ページでは、寄付のボタンやクラウドファンディングのリンクなど、収益化の行為が一部認められています。
+各「アカウント」には、[GitHub Pagesの静的ホスティングサービス](/github/working-with-github-pages/about-github-pages)へのアクセス権があります。 このホスティングサービスは、すべてのユーザの静的Webページをホストするためのサービスですが、主に個人および組織のプロジェクトのためのショウケースの役割をはたしています。
 
-GitHub Pagesは、特定の帯域幅および使用法の制限を受けるため、帯域幅が大きいなど理由で適さない場合には適切でない可能性があります。 詳細は、「[GitHub Pagesのガイドライン](/github/working-with-github-pages/about-github-pages)」を参照してください。 GitHubは、責任を負うことなくGitHubの任意のサブドメインを取得する権利を常に有します。
+GitHub Pagesは、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のいずれかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。 ページでは、寄付のボタンやクラウドファンディングのリンクなど、収益化の行為が一部認められています。
+
+#### a. 帯域幅と利用限度
+GitHub Pagesは、特定の帯域幅を対象とし、利用限度が適用されるため、一定以上の高帯域の利用には適していない場合があります。 詳細は、「[GitHub Pagesのガイドライン](/github/working-with-github-pages/about-github-pages)」を参照してください。
+
+#### b. 禁止される用途
+GitHub Pagesの禁止される用途には以下が含まれます。
+- 法律違反、あるいはそれ以外で当社の「[利用規約](/github/site-policy/github-terms-of-service)」、「[利用規定](/github/site-policy/github-acceptable-use-policies)」、または「[コミュニティガイドライン](/github/site-policy/github-community-guidelines)」に反するコンテンツまたは活動
+- 暴力的または脅迫的なコンテンツまたは活動
+- 過剰な自動一括活動 (スパム送信など)
+- GitHub ユーザまたは GitHub サービスを危険にさらす活動
+- 攻略法詐欺
+- 性的・わいせつなコンテンツ
+- 自分の素性またはサイトの目的を誤って表現しているコンテンツ
+
+お客様の利用または用途がこれらのカテゴリに該当するかどうかについて質問がある場合は、[GitHub Support](https://support.github.com/contact)または[GitHub Premium Support](https://premium.githubsupport.com/)へお問い合わせください。 GitHubは、責任を負うことなくGitHubの任意のサブドメインを取得する権利を常に有します。
 
 ### 5. アクションとパッケージ
 
 #### a. アクションの使用量
-GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). Your Actions compute usage is displayed within [your account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. 付属の量を超えてアクションを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)こともできます。
+GitHub Actionsは、使用量に基づいて課金されます。 [Actionsのドキュメント](/actions)には、計算量やストレージ容量 (アカウントのプランによって異なる)、およびActionsの使用分数の監視方法や利用限度の設定方法などの詳細情報が記載されています。
 
-付属の量と有料の量の計算使用量は、実行するアクションの種類 (Linux、Windows、macOSなど)に基づいて分単位で計算されます。 各アクションのジョブまたはタスクに使用された時間を、分単位で切り上げます。 付属の量の場合は、アクションの種類に応じ、各ジョブまたはタスクの実行に使われた時間に倍数をかけてから、最も近い分単位に切り上げます。 超過使用時間は、実行するアクションの種類に基づいて[申告された分単位の価格](https://github.com/features/actions)で請求されます。 アクションとパッケージはストレージを共有し、ストレージの使用量は、[アカウント設定](https://github.com/settings/billing)に表示されます。 For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
-
-アクションとアクションサービスの要素は、本契約、[利用規定](/github/site-policy/github-acceptable-use-policies)、またはGitHubアクション[サービス制限](/actions/reference/usage-limits-billing-and-administration/#usage-limits)に違反して使用される場合があります。 また、アクションは次の用途には使用しないでください。
+ActionsおよびActionsのサービスに含まれるあらゆる要素は、本「契約」、[「GitHub利用規定」](/github/site-policy/github-acceptable-use-policies)、および[「Actionsのドキュメンテーション」](/actions)に記載されているサービスの制限に反して利用してはなりません。 また、アクションは次の用途には使用しないでください。
 - クリプトマイニング;
-- 当社サーバーを使用して、何らかのサービス、デバイス、データ、アカウントまたはネットワークを妨害すること、またはこれらに不正アクセスするかあるいはこれを試みること ([GitHub Bug Bounty program](https://bounty.github.com) により許可されている場合を除く)、
-- the provision of a stand-alone or integrated application or service offering Actions or any elements of Actions for commercial purposes;
-- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
+- 当社サーバーを使用して、何らかのサービス、デバイス、データ、アカウントまたはネットワークを妨害すること、またはこれらに不正アクセスするかあるいはこれを試みること ([GitHub Bug Bounty Program](https://bounty.github.com) により許可されている場合を除く)、
+- 商用目的でアクションまたはアクションの要素を提供するスタンドアロンまたは統合型のアプリケーションまたはサービスのプロビジョニング、
+- ユーザに与えるメリットと釣り合わない負荷をサーバーにかける行為 (たとえば、Actionsをコンテンツ配信ネットワークやサーバーレスアプリケーションの一部として利用してはなりません。ただし、メリットが低くても、負荷も低い場合は問題ありません。)、
 - gitHubアクションが使用されるリポジトリに関連するソフトウェアプロジェクトの製造、テスト、デプロイ、公開に関連しないその他の行為。
 
-このような使用制限違反や、GitHubアクションの悪用を防ぐために、GitHubはGitHubアクションの使用を監視する場合があります。 GitHubアクションを不正利用した場合には、ジョブが停止されたり、GitHubアクションの使用を制限されたりすることもあります。
+このような使用制限違反や、GitHubアクションの悪用を防ぐために、GitHubはGitHubアクションの使用を監視する場合があります。 GitHub Actionsを不正利用した場合には、ジョブが停止されたり、GitHub Actionsの使用が制限されたり、本「利用規約」を侵害するような方法でActionsを実行するために作成されたリポジトリが無効になったりすることもあります。
 
 #### b. パッケージの使用量
-GitHubパッケージを使用してコンテンツのパッケージをダウンロード、公開、管理することができます。 各アカウントプランには、パッケージで使用できる付属の帯域幅およびストレージ容量が付属しています。これについては、[パッケージのドキュメント](/github/managing-packages-with-github-package-registry/about-github-package-registry)を参照してください。 アクションとパッケージは、2つのサービス機能間でストレージを共有します。 ストレージと帯域幅の使用量は[アカウント設定](https://github.com/settings/billing)に表示され、付属の量の制限に達すると前もってメールで通知されます。 付属の帯域幅およびストレージを超えてパッケージを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)こともできます。
-
-帯域幅の使用量は、パッケージを通じてリポジトリの外部に委譲されたデータの量に基づいて計算されますが、アクションを通じてのパッケージ委譲は、付属の量にも有料の量にも含まれません。 Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [account plan](https://github.com/pricing).
-
-アクションとパッケージのストリーム使用量は、2つのサービス機能間で共有します。 ストレージの使用量は1か月を通じた加重平均で計算され、毎月リセットはされません。 Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [account plan](https://github.com/pricing).
-
-#### c. アカウントとパッケージに対する支払いと請求
-アクションとパッケージに対する請求は従量制です。 アクションまたはパッケージの追加の量を個別に購入することはできません。  月次請求のお客様が、これらのサービス機能の追加料の支払いを選択するには、支払い方法がファイルに指定されている必要があります。 請求書払いでない場合は、前月の使用量に基づいて毎月定期的に請求されます。 請求書払いのお客様の場合は、GitHubの請求日から30日以内にお支払いください。 サービス機能の制限超過分を前払いしたお客様の場合、未使用分数の前払い分は次の請求期間に繰り越されず、返金されません。
-
-[アカウント設定](https://github.com/settings/billing/cost_management)で、毎月の使用制限を設定することができます。 付属の量の制限や、有料で追加した量に指定した使用制限に近づくと、前もってメールで通知されます。
+GitHub Packagesは、使用量に基づいて課金されます。 [Packagesのドキュメント](/packages)には、帯域幅やストレージ容量 (アカウントのプランによって異なる)、およびPackagesの使用量の監視方法や利用限度の設定方法などの詳細情報が記載されています。 Packagesの帯域幅使用量は[「GitHub利用規定」](/github/site-policy/github-acceptable-use-policies)によって制限されます。
 
 ### 6. Learning Lab
 
-**Enrollment.** To complete enrollment in Learning Lab for Organizations, you agree to create a separate organization for Learning Lab purposes, and you authorize us to add Learning Lab course materials to that organization on your behalf.
+**登録。**Learning Lab for Organizationsへの登録を完了するには、お客様がLearning Labのために別途Organizationを作成することに同意し、またお客様に代わってLearning Labのコース資料を追加する権限を当社に与えるものとします。
 
-**Learning Lab Course Materials.** Any course materials GitHub provides are owned solely by GitHub; provided, however, that GitHub grants you a worldwide, non-exclusive, limited-term, non-transferable, royalty-free license to copy, maintain, use and run such course materials for your internal business purposes associated with Learning Lab use. This license grant is subject to any additional open source licensing agreements that may be provided along with the source code.  Course materials you create are owned solely by you, provided, however, that you grant to GitHub a worldwide, non-exclusive, perpetual, non-transferable, royalty-free license to copy, maintain, use, host, and run (as applicable) on the Service, such course materials. Your use of GitHub course materials and your creation and storage of your own course materials does not constitute joint ownership in either party's respective intellectual property by the other party.
+**Learning Labコース資料。**GitHubが提供するコース資料はすべて、GitHubが単独で所有するものとします。ただしGitHubは、Learning Labの使用に関連した内部的な業務目的で、かかるコース資料を複製、保守、使用、および実行するための世界的で非独占的、期間限定、譲渡不可の無料ライセンスをお客様に付与します。 このライセンス付与は、ソースコードと共に提供される可能性がある、あらゆる追加的オープンソースのライセンス契約に従います。  お客様が作成するコース資料は、お客様が単独で所有するものとしますが、お客様はGitHubに対し、かかるコース資料を複製、保守、使用、および実行する (該当する場合) ための世界的で非独占的、期間限定、譲渡不可の無料ライセンスをGitHubに付与します。 お客様によるGitHubコースの使用、ならびにお客様ご自身によるコース資料の作成および保管は、いずれかの当事者による相手方の知的所有権の共同所有権を構成するものではありません。
 
-**Privacy.** Learning Lab may collect personal information. You control what information Learning Lab collects in your GitHub.com profile settings panel. If Learning Lab collects personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement). If you enroll in or are completing a private course through Learning Lab, GitHub may share your enrollment information and course progress through completion with the organization admins. This may include individual data such as your GitHub username, course start date, and course end date. Course completion data may also be presented in aggregate form to help guide improvements to the course content.
+**プライバシー。**Learning Labは、個人情報を収集する場合があります。 お客様は、Learning Labが収集する情報をGitHub.comのプロフィール設定パネルで管理します。 Learning LabがGitHubに代わって個人情報を収集する場合、GitHubはその情報を「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」に従って処理します。 お客様がLearning Labを通じてプライベートコースに登録または修了する場合、GitHubはお客様の登録情報およびコースの進捗や修了の状況をOrganization管理者と共有することができます。 共有される情報には、GitHubユーザ名、コースの開始日、コースの終了日などの個別のデータが含まれる場合があります。 コース修了データも、コースのコンテンツ改善に役立てるため、集計した形で提供されることがあります。
 
 ### 7. Connect
 
-In order to access GitHub Connect, Customer must have at least one (1) Account on GitHub.com and one (1) licensed instance of the Software. Customer's access to and use of github.com through Connect is governed by its Agreement applicable to its use of the Service. GitHub Connectは、自動化されたタスクを実行するために使用できます。 また、GitHub Connectで複数のユーザが特定のアクションを振り向けることもできます。 Customer is responsible for actions that are performed on or through its Accounts. GitHubは、機能の提供と改善を目的にお客様のGitHub Connect 使用状況について情報を収集することがあります。 By using GitHub Connect, Customer authorizes GitHub to collect protected data, which includes Private Repository data and User Personal Information (as defined in the GitHub Privacy Statement), from Customer’s Accounts. またお客様は、GitHub Connectを通じて、身元の特定につながるインスタンス情報がGitHubに転送されることを承認します。この情報には、GitHubのプライバシーについての声明が適用されます。
+GitHub Connectにアクセスするには、お客様がGitHub.comに「アカウント」を少なくとも1つ持ち、ソフトウェアのライセンスを少なくとも1つ持っている必要があります。 お客様によるConnectを通じたgithub.comへのアクセスおよび使用は、本「サービス」の使用に適用される本「契約」に準拠するものとします。 GitHub Connectは、自動化されたタスクを実行するために使用できます。 また、GitHub Connectで複数のユーザが特定のアクションを振り向けることもできます。 お客様は、その「アカウント」で、またはその「アカウント」を通じて実行されるアクションに責任を負います。 GitHubは、機能の提供と改善を目的にお客様のGitHub Connect 使用状況について情報を収集することがあります。 GitHub Connectを使用することにより、お客様は、プライベートリポジトリデータとユーザの個人情報 (GitHubのプライバシーについての声明に定義) を含め、保護されたデータをお客様の「アカウント」から収集する権限をGitHubに付与することになります。 またお客様は、GitHub Connectを通じて、身元の特定につながるインスタンス情報がGitHubに転送されることを承認します。この情報には、GitHubのプライバシーについての声明が適用されます。
 
 ### 8. Sponsorsプログラム
 
@@ -89,7 +96,7 @@ In order to access GitHub Connect, Customer must have at least one (1) Account o
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions.
+GitHub Advanced Securityのライセンスは、「ユニークコミッター」ごとに付与されます。 「ユニークコミッター」とは、GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server、またはGitHub AEのライセンスを付与されており、直近90日間にGitHub Advanced Securityの何らかの機能を有効化してコードのコミットを行ったユーザのことです。 お客様の各「ユニークコミッター」ごとに、GitHub Advanced Securityの「ユーザライセンス」を取得する必要があります。 GitHub Advanced Securityは、お客様によりまたはお客様のために開発されたコードベースにおいてのみ使用できます。 GitHub Advanced SecurityをGitHub Enterprise Cloudの一部として使用している場合、プライベートリポジトリの自動コードスキャンを含む多くのGitHub Advanced Securityの機能には、GitHub Actionsの使用も必要となります。
 
 ### 10. Dependabot Preview
 
@@ -97,7 +104,7 @@ Dependabot Previewの使用には、別の[利用規約](https://dependabot.com/
 
 ### 11. Spectrum
 
-Your use of Spectrum is governed by the GitHub [Terms of Service](/github/site-policy/github-terms-of-service) and [Privacy Statement](/github/site-policy/github-privacy-statement).
+Spectrumの使用には、「GitHub[利用規約](/github/site-policy/github-terms-of-service)」および「[プライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
 ### 12. Advisory Database
 
@@ -108,3 +115,13 @@ Your use of Spectrum is governed by the GitHub [Terms of Service](/github/site-p
 #### b. GitHub Advisory Databaseのライセンス
 
 GitHub Advisory Databaseは、[Creative Commons Attribution 4.0ライセンス](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされています。 帰属条件は、<https://github.com/advisories>のGitHub Advisory Databaseまたは使用される個々のGitHub Advisory Databaseレコード（<https://github.com/advisories>で始まる）にリンクすることで満たすことができます。
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+お客様は、Linuxファイル用のMicrosoft SQL Server Standard Editionコンテナ (「SQL Server Images」) をダウンロードできます。 「ソフトウェア」の使用権が終了した場合は、SQL Server Imagesをアンインストールする必要があります。 Microsoft Corporation may disable SQL Server Images at any time.
+
+#### b. サードパーティのコンポーネント
+
+「ソフトウェア」には、第三者によって GitHub にライセンスを付与されたコンポーネントが含まれており、そうしたソフトウエアの中には、GitHub に対して、それらのコンポーネントのソースコードを入手可能にすることを要求するソフトウェアも含まれています。 これらのコンポーネントのソースコードは、要請に応じて提供いたします。

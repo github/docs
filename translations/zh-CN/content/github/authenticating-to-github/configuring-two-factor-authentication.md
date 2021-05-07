@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 您可以使用移动应用程序{% if currentVersion == "free-pro-team@latest" %} 或通过短信{% endif %} 配置双重身份验证。 您也可以添加安全密钥。

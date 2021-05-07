@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### 要求企业帐户中的组织进行双重身份验证
@@ -47,7 +49,7 @@ versions:
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)”。
+您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
 #### 添加允许的 IP 地址
 
@@ -88,97 +90,6 @@ versions:
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### 为企业帐户中的组织启用 SAML 单点登录
-
-{% data reusables.saml.dotcom-saml-explanation %}更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)”。
-
-企业所有者可以通过 SAML IdP 跨企业帐户拥有的所有组织启用 SAML SSO 和集中式身份验证。 为企业帐户启用 SAML SSO 后，默认情况下会为您的企业帐户拥有的所有组织启用 SAML SSO。 所有成员都需要使用 SAML SSO 进行身份验证才能访问其所属的组织，并且企业所有者在访问企业帐户时需要使用 SAML SSO 进行身份验证。
-
-{% data reusables.saml.about-saml-access-enterprise-account %} 更多信息请参阅“[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)”。
-
-{% data reusables.saml.saml-supported-idps %}
-
-{% data reusables.scim.enterprise-account-scim %} 如果您没有参与私人测试，那么 SIM 卡不支持企业账户。 更多信息请参阅“[管理企业帐户中组织的用户配置](#managing-user-provisioning-for-organizations-in-your-enterprise-account)”。
-
-{% note %}
-
-**注：**对企业帐户启用 SAML 单点登录身份验证将覆盖任何现有的组织级 SAML 配置。
-
-{% endnote %}
-
-有关如何使用 Okta 启用 SAML 的更多详细信息，请参阅[使用 Okta 为企业帐户配置 SAML 单点登录和 SCIM](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)。
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. 在“SAML single sign-on”（SAML 单点登录）下，选择 **Enable SAML authentication（启用 SAML 身份验证）**。 ![用于启用 SAML SSO 的复选框](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
-6. 在 **Sign on URL（登录 URL）**字段中，为单点登录请求输入您的 IdP 的 HTTPS 端点。 此值可在 IdP 配置中找到。 ![登录时将成员转发到的 URL 字段](/assets/images/help/saml/saml_sign_on_url_business.png)
-7. （可选）在 **Issuer（签发者）** 字段中，输入您的 SAML 签发者的姓名。 此操作验证已发送消息的真实性。 ![SAML 签发者姓名字段](/assets/images/help/saml/saml_issuer.png)
-8. 在 **Public Certificate（公共证书）**下，粘贴证书以验证 SAML 响应。 ![身份提供程序的公共证书字段](/assets/images/help/saml/saml_public_certificate.png)
-9. 要验证来自 SAML 签发者的请求的完整性，请单击 {% octicon "pencil" aria-label="The edit icon" %}。 然后，在 Signature Method（签名方法）和 Digest Method（摘要方法）下拉菜单中，选择 SAML 签发者使用的哈希算法。 ![SAML 签发者使用的签名方法和摘要方法哈希算法下拉列表](/assets/images/help/saml/saml_hashing_method.png)
-10. 在为企业启用 SAML SSO 之前，单击 **Test SAML configuration（测试 SMAL 配置）** ，以确保已输入的信息正确。 ![实施前测试 SAML 配置的按钮](/assets/images/help/saml/saml_test.png)
-11. 单击 **Save（保存）**。
-
-### 管理企业帐户中组织的用户配置
-
-企业所有者可直接从身份提供程序 (IdP) 管理企业帐户中的组织成员身份。
-
-{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
-
-{% data reusables.saml.about-user-provisioning-enterprise-account %}
-
-{% data reusables.scim.enterprise-account-scim %}（可选）您也可以启用 SAML 预配和单独取消预配。
-
-如果您在 IdP 中配置 SCIM，每次更改您在 IdP 中的成员身份时， 您的 IdP 将向 {% data variables.product.prodname_dotcom %} 发出 SCIM 呼叫来更新对应组织的成员身份。 如果启用 SAML 预配，则每当企业成员访问受企业帐户 SAML 配置保护的资源时，该 SAML 断言都将触发预配。
-
-对于每个 SCIM 呼叫或 SAML 断言，{% data variables.product.product_name %} 都将检查用户所属的 IdP 组并执行以下操作：
-
-- 如果用户是企业帐户拥有的组织对应的 IdP 组的成员，并且该用户当前不是该组织的成员，请将该用户添加到组织（SAML 断言）或向用户发送电子邮件邀请其加入组织（SCIM 呼叫）。
-- 取消邀请用户加入您的企业帐户所拥有的组织的任何现有邀请。
-
-对于每个 SCIM 呼叫，如果您启用 SAML 解除预配，则对于每个 SAML 断言，{% data variables.product.product_name %} 也会执行以下操作：
-
-- 如果用户不是企业帐户拥有的组织对应的 IdP 组的成员，并且该用户当前是该组织的成员，请将组织中删除该用户。
-
-如果解除预配从组织中删除最后一个剩余的所有者，组织将变得没有所有者。 企业所有者可以接管无所有者组织的所有权。 更多信息请参阅“[管理企业帐户中无所有者的组织](/github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account)”。
-
-要使用 Okta 为您的企业帐户启用用户预配，请参阅“[使用 Okta 为企业帐户配置 SAML 单点登录和 SCIM](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)”。
-
-### 管理企业帐户中组织的团队同步
-
-企业所有者可以在 IdP 与 {% data variables.product.product_name %} 之间启用团队同步，以让组织所有者和团队维护员将企业帐户拥有的组织中的团队与 IdP 组连接起来。
-
-{% data reusables.identity-and-permissions.about-team-sync %}
-
-您可通过 Azure AD 对企业帐户使用团队同步。
-
-{% data reusables.identity-and-permissions.sync-team-with-idp-group %}
-
-{% data reusables.identity-and-permissions.team-sync-disable %}
-
-您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”。
-
-#### 基本要求
-
-在可以为企业帐户启用团队同步之前：
-  - 您或您的 Azure AD 管理员必须是 Azure AD 中的全局管理员或特权角色管理员。
-  - 您必须使用受支持的 IdP 为企业帐户中的组织启用 SAML 单点登录。 更多信息请参阅“[为企业帐户中的组织启用 SAML 单点登录](#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
-  - 您必须使用 SAML SSO 和支持的 IdP 向企业帐户进行身份验证。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
-
-#### 管理 Azure AD 的团队同步
-
-{% data reusables.identity-and-permissions.team-sync-azure-permissions %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. 查看要连接到企业帐户的身份提供程序租户信息，然后单击 **Approve（批准）**。 ![启用特定 IdP 租户团队同步且含有批准或取消请求选项的待处理请求](/assets/images/help/teams/approve-team-synchronization.png)
-8. 要禁用团队同步，单击 **Disable team synchronization（禁用团队同步）**。 ![禁用团队同步](/assets/images/help/teams/disable-team-synchronization.png)
-
 ### 管理企业帐户的 SSH 认证中心
 
 企业所有者可以添加和删除企业帐户的 SSH 认证中心 (CA)。
@@ -203,3 +114,7 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
+### 延伸阅读
+
+- "[为企业帐户配置身份和访问权限管理](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

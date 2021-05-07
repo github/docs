@@ -5,6 +5,8 @@ redirect_from:
   - /articles/referencing-and-citing-content
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### 使用 Zenodo 发出仓库的持久标识符

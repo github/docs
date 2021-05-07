@@ -21,7 +21,7 @@ versions:
 インストールと認証の詳細については、「[{% data variables.product.prodname_desktop %} の設定](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)」を参照してください。
 
 ### パート 2: 新しいリポジトリを作成する
-{% data variables.product.prodname_desktop %} に関連付けられたリポジトリがない場合は、「Let's get started!」ビューが表示されます。ここでは、チュートリアルリポジトリの作成と複製、インターネットからの既存のリポジトリの複製、新しいリポジトリの作成、またはハードドライブからの既存のリポジトリの追加を選択できます。  ![The Let's get started! screen](/assets/images/help/desktop/lets-get-started.png)
+{% data variables.product.prodname_desktop %} に関連付けられたリポジトリがない場合は、「Let's get started!」ビューが表示されます。ここでは、チュートリアルリポジトリの作成と複製、インターネットからの既存のリポジトリの複製、新しいリポジトリの作成、またはハードドライブからの既存のリポジトリの追加を選択できます。  ![さあ、始めましょう！ screen](/assets/images/help/desktop/lets-get-started.png)
 
 #### チュートリアルリポジトリの作成とクローン
 {% data variables.product.prodname_desktop %} を使用して練習する最初のプロジェクトとして、チュートリアルリポジトリを作成してクローンすることをお勧めします。
@@ -38,7 +38,7 @@ versions:
    - [Description] はオプションのフィールドで、リポジトリの目的に関する情報を提供するために使うことができます。
    - [Local path] は、お手元のコンピューターにおけるリポジトリの場所を設定します。 デフォルトでは、{% data variables.product.prodname_desktop %} は _Documents_ フォルダの中に_GitHub_ フォルダを作成して、そこにリポジトリを保存しますが、保存するフォルダは任意の場所に設定可能です。 新しいリポジトリは、選択した場所の中のフォルダになります。 たとえば、リポジトリに `Tutorial` と名付けた場合、選択したローカルパスのフォルダの中に _Tutorial_ という名前のフォルダが作成されます。 {% data variables.product.prodname_desktop %} は、次に新しいリポジトリをクローンするか作成するときに、選択した場所を記憶します。
    - [**Initialize this repository with a README**] は、最初のコミットを _README.md_ ファイル付きで作成します。 README は、人々がプロジェクトの目的を理解するために役立つので、これを選択して、README に役立つ情報を記載することをおすすめします。 {% data variables.product.product_name %} でリポジトリにアクセスした人は、まず README を読んで、そのプロジェクトについて知ります。 詳細は「[README について](/articles/about-readmes)」を参照してください。
-   - [**Git ignore**] ドロップダウンメニューは、バージョン管理で保存したくない、ローカルリポジトリ内で無視するファイルを指定するためのカスタムファイルを追加します。 特定の言語またはフレームワークを使用する場合、利用できるリストからオプションを選択できます。 まだ始めたばかりの場合は、この選択について無視して構いません。 詳細は「[ファイルを無視する](/articles/ignoring-files)」を参照してください。
+   - [**Git ignore**] ドロップダウンメニューは、バージョン管理で保存したくない、ローカルリポジトリ内で無視するファイルを指定するためのカスタムファイルを追加します。 特定の言語またはフレームワークを使用する場合、利用できるリストからオプションを選択できます。 まだ始めたばかりの場合は、この選択について無視して構いません。 詳細は「[ファイルを無視する](/github/getting-started-with-github/ignoring-files)」を参照してください。
    - [**License**] ドロップダウンメニューは、リポジトリの _LICENSE_ ファイルにオープンソースライセンスを追加します。 ライセンスをすぐに追加する必要はありません。 利用可能なオープンソースライセンスと、それらをリポジトリに追加する方法についての詳細は「[リポジトリのライセンス](/articles/licensing-a-repository)」を参照してください。
 3. [**Create repository**] をクリックします。
 
@@ -54,7 +54,7 @@ versions:
   ![GitHub Desktop を探索する](/assets/images/help/desktop/getting-started-guide/explore-github-desktop.png)
 
 #### 変更と履歴
-左サイドバーには、[**Changes**] ビューと [**History**] ビューが表示されています。 ![The Changes and History tabs](/assets/images/help/desktop/changes-and-history.png)
+左サイドバーには、[**Changes**] ビューと [**History**] ビューが表示されています。 ![[Changes] および [History] タブ](/assets/images/help/desktop/changes-and-history.png)
 
   - [**Changes**] ビューは、現在のブランチで変更を行い、まだローカルリポジトリにコミットしていないファイルが表示されます。 ビューの下部には、[Summary] および [Description] テキストボックスのあるボックスと [**Commit to BRANCH**] ボタンがあります。 これが、新しい変更をコミットする場所です。 [**Commit to BRANCH**] ボタンは動的で、変更をコミットするブランチが表示されます。 ![コミットエリア](/assets/images/help/desktop/getting-started-guide/commit-area.png)
 
@@ -81,17 +81,17 @@ versions:
 3. {% data variables.product.prodname_desktop %} で、[**Changes**] ビューに移動します。 ファイルのリストに、_README.md_ が表示されているはずです。 _README.md_ ファイルの左側にあるチェックマークは、ファイルに加えた変更がコミットの一部になることを示しています。 今後、複数のファイルに変更を行って、そのうちの一部のファイルのみの変更をコミットしたい場合があるかもしれません。 ファイルの横にあるチェックマークをクリックすると、そのファイルはコミットに含まれません。 ![変更を表示する](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
 
 4. [**Changes**] リストの下に、コミットメッセージを入力します。 プロフィール画像の右側で、コミットについて簡潔な説明を入力します。 ここでは _README.md_ ファイルを変更するので、「プロジェクトの目的について情報を追加する」などがコミットの要約として良いかもしれません。 概要の下に、コミットの変更詳しい説明を入力できる [Description] テキストフィールドが表示されます。これは、プロジェクトの履歴を振り返ったり、変更理由を確認するときに役立ちます。 今は _README.md_ ファイルの基本的な更新を行っているところなので、この内容は飛ばしてもかまいません。 ![コミットメッセージ](/assets/images/help/desktop/getting-started-guide/commit-message.png)
-5. [**Commit to BRANCH NAME**] をクリックします。 コミットボタンには現在のブランチが表示されるので、必要なブランチに確実にコミットできます。 ![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
+5. [**Commit to BRANCH NAME**] をクリックします。 コミットボタンには現在のブランチが表示されるので、必要なブランチに確実にコミットできます。 ![ブランチへのコミット](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
 6. 変更を {% data variables.product.product_name %} のリモートリポジトリにプッシュするには、[**Push origin**] をクリックします。 ![[Push origin]](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
   - [**Push origin**] ボタンは、リポジトリを {% data variables.product.product_name %} に公開する際にクリックしたボタンと同じです。 このボタンは、Git ワークフローの現在の場所に基づいてコンテキストが変わります。 ボタンが `Push origin` に変わり、横に `1` と表示されます。これは、{% data variables.product.product_name %} にプッシュされていないコミットが 1 つあることを示しています。
   - **Push origin** の「origin」は、`origin` というリモートに変更をプッシュしていることを示しています。この場合は、{% data variables.product.prodname_dotcom_the_website %} 上のプロジェクトのリポジトリです。 {% data variables.product.product_name %} に何か新しいコミットをプッシュするまで、お手元のコンピューターにあるプロジェクトのリポジトリと、{% data variables.product.prodname_dotcom_the_website %} にあるプロジェクトのリポジトリには違いがあります。 これにより、ローカルで作業し、準備ができたときにのみ変更を {% data variables.product.prodname_dotcom_the_website %} にプッシュできます。
-7. [**Changes**] ビューの右側のウィンドウに、次に実行可能なアクションの提案が表示されます。 ブラウザで {% data variables.product.product_name %} のリポジトリを開くには、[**View on {% data variables.product.product_name %}**] をクリックします。 ![Available actions](/assets/images/help/desktop/available-actions.png)
+7. [**Changes**] ビューの右側のウィンドウに、次に実行可能なアクションの提案が表示されます。 ブラウザで {% data variables.product.product_name %} のリポジトリを開くには、[**View on {% data variables.product.product_name %}**] をクリックします。 ![利用可能なアクション](/assets/images/help/desktop/available-actions.png)
 8. ブラウザで、[**2 commits**] をクリックします。 {% data variables.product.product_name %} にあるリポジトリの、コミットのリストが表示されます。 最初のコミットは、{% data variables.product.prodname_desktop %} で行ったコミットである必要があります。 ![2 つのコミットをクリック](/assets/images/help/desktop/getting-started-guide/click-two-commits.png)
 
 ### おわりに
 これで、リポジトリの作成、{% data variables.product.product_name %} へのリポジトリの公開、コミットの実行、{% data variables.product.product_name %} への変更のプッシュが完了しました。 作成やコラボレーションを行う他のプロジェクトに貢献するときに、これと同じワークフローを使用することができます。
 
 ### 参考リンク
-- "[Learning about Git](/github/using-git/learning-about-git)"
-- "[Learning about {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
-- "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
+- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
+- 「[{% data variables.product.prodname_dotcom %} について学ぶ](/github/getting-started-with-github/learning-about-github)」
+- 「[{% data variables.product.prodname_dotcom %} を使ってみる](/github/getting-started-with-github)」

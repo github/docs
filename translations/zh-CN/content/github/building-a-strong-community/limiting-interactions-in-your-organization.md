@@ -1,15 +1,17 @@
 ---
 title: 限制组织中的交互
-intro: '您可以临时为组织拥有的所有公共仓库中的某些用户执行一段时间有限的活动。'
+intro: 您可以临时为组织拥有的所有公共仓库中的某些用户执行一段时间有限的活动。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: 组织所有者可限制组织中的交互。
+topics:
+  - 社区
 ---
 
-### About temporary interaction limits
+### 关于临时交互限制
 
 限制组织中的交互可对组织拥有的所有公共仓库启用临时交互限制。 {% data reusables.community.interaction-limits-restrictions %}
 
@@ -19,7 +21,7 @@ permissions: 组织所有者可限制组织中的交互。
 
 组织成员不受任何限制类型的影响。
 
-在整个组织范围内启用活动限制时，无法对个别仓库启用或禁用交互限制。 For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/articles/limiting-interactions-in-your-repository)."
+在整个组织范围内启用活动限制时，无法对个别仓库启用或禁用交互限制。 有关限制单个仓库活动的更多信息，请参阅“[限制仓库中的交互](/articles/limiting-interactions-in-your-repository)”。
 
 组织所有者也可在特定的时间段内阻止用户。 在阻止到期后，该用户会自动解除阻止。 更多信息请参阅“[阻止用户访问组织](/articles/blocking-a-user-from-your-organization)”。
 

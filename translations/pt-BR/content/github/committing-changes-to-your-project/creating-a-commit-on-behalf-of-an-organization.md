@@ -2,7 +2,7 @@
 title: Criar um commit em nome de uma organização
 intro: 'Você pode criar commits em nome de uma organização adicionando um trailer à mensagem do commit. Os commits atribuídos a uma organização incluem um selo "em nome de" no {% data variables.product.product_name %}.'
 redirect_from:
-  - Creating a commit on behalf of an organization
+  - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
   free-pro-team: '*'
 ---
@@ -26,7 +26,17 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
 
 ### Criar commits com um selo `on-behalf-of` na linha de comando
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Dica:** Se você estiver usando um editor de texto na linha de comando para digitar sua mensagem de commit, certifique-se de que existem duas novas linhas entre o final da sua descrição do commit e o indicador `on-behalf-of:`.
+
+  {% endtip %}
 
 2. Na próxima linha da mensagem do commit, digite `on-behalf-of: @org <name@organization.com>` e, em seguida, aspas de fechamento.
 
@@ -37,7 +47,7 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/articles/pushing-commits-to-a-remote-repository/)".
+O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
 ### Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
 

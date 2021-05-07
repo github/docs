@@ -4,5 +4,7 @@ intro: 'Você pode visualizar seu uso e definir um limite de gastos para {% data
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

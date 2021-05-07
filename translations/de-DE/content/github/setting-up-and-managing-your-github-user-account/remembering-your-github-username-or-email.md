@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% mac %}
@@ -34,7 +37,7 @@ versions:
 
 ### Eigenen Benutzernamen in Deiner `user.name`-Konfiguration finden
 
-Bei der Einrichtung hast Du vermutlich [Deinen Benutzernamen in Git festgelegt](/articles/setting-your-username-in-git). Wenn dies der Fall ist, kannst Du den Wert dieser Konfigurationseinstellung wie folgt abrufen:
+Bei der Einrichtung hast Du vermutlich [Deinen Benutzernamen in Git festgelegt](/github/getting-started-with-github/setting-your-username-in-git). Wenn dies der Fall ist, kannst Du den Wert dieser Konfigurationseinstellung wie folgt abrufen:
 
 ```shell
 $ git config user.name

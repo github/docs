@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+layout: graphql-explorer
+topics:
+  - api
 ---
 
-GitHubのGraphQL Explorerには、https://developer.github.com/v4/explorerからアクセスできます。

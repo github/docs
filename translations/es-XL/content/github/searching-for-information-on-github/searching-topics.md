@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### Buscar temas en {% data variables.product.product_name %}

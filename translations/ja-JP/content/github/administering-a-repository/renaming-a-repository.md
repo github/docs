@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 リポジトリの名前を変更すると、プロジェクトサイトの URL を除くすべての既存の情報は、下記を含む新しい名前に自動的にリダイレクトされます。
@@ -16,7 +18,7 @@ versions:
 * Star
 * フォロワー
 
-プロジェクトサイトに関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Web トラフィックのリダイレクトに加え、前の場所をターゲットにしたすべての `git clone`、`git fetch`、または `git push` 操作は、引き続き新しい場所に対して行われているように機能します。 ただし、混乱を低減するため、既存のローカルクローンが新しいリポジトリ URL を指すよう更新することを強く推奨します。 これを行うには、コマンドラインで  `git remote` を使用します。
 
@@ -24,11 +26,11 @@ Web トラフィックのリダイレクトに加え、前の場所をターゲ�
 $ git remote set-url origin <em>新しい URL</em>
 ```
 
-詳しい情報については、「[リモートの URL を変更する](/github/using-git/changing-a-remotes-url)」を参照してください。
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{% data variables.product.prodname_pages %}サイトを持つリポジトリの名前を変更する場合は、サイトにカスタムドメインを使用することをお勧めします。 これにより、リポジトリの名前を変更してもサイトの URL は影響を受けません。 詳細は「[カスタムドメインおよび{% data variables.product.prodname_pages %}サイトについて](/github/working-with-github-pages/about-custom-domains-and-github-pages)」を参照してください。
+{% data variables.product.prodname_pages %}サイトを持つリポジトリの名前を変更する場合は、サイトにカスタムドメインを使用することをお勧めします。 これにより、リポジトリの名前を変更してもサイトの URL は影響を受けません。 詳細は「[カスタムドメインおよび{% data variables.product.prodname_pages %}サイトについて](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)」を参照してください。
 
 {% endif %}
 

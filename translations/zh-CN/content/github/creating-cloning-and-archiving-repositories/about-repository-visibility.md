@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于仓库可见性
@@ -12,7 +14,7 @@ versions:
 {% if currentversion == "github-ae@latest" %}当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的仓库时，可以选择将仓库设为私有或内部。{% else %}创建仓库时，可以选择使仓库成为公共或私有。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 如果要在组织中创建{% if currentVersion == "free-pro-team@latest" %} 由企业帐户拥有的仓库{% endif %}，也可以选择将仓库设为内部。{% endif %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-If
+如果
 {% data variables.product.product_location %} 不是私人模式或在防火墙后面，所有人都可以在互联网上访问公共仓库。 或者，使用 {% data variables.product.product_location %} 的每个人都可以使用公共仓库，包括外部协作者。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 {% if currentversion ver_gt "enterprise-server@2.19" %} 内部仓库可供企业成员访问。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。{% endif %}
 {% elsif currentVersion == "github-ae@latest" %}
 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 所有企业成员均可访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。
@@ -20,7 +22,7 @@ If
 互联网上的所有人都可以访问公共仓库。 私有仓库仅可供您、您明确与其共享访问权限的人访问，而对于组织仓库，只有某些组织成员可以访问。 企业成员可以访问内部仓库。 更多信息请参阅“[关于内部仓库](#about-internal-repositories)”。
 {% endif %}
 
-组织所有者始终有权访问其组织中创建的每个仓库。 更多信息请参阅“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)”。
+组织所有者始终有权访问其组织中创建的每个仓库。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
 拥有仓库管理员权限的人可更改现有仓库的可见性。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 

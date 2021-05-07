@@ -1,16 +1,20 @@
 ---
-title: '使用制限、支払い、管理'
-intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの空き時間とストレージの量を超えるリポジトリに適用されます。'
+title: 使用制限、支払い、管理
+intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの無料の時間とストレージの量を超えるリポジトリに適用されます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Billing
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
@@ -29,7 +33,7 @@ GitHub アクションの使用は、
 
 {% note %}
 
-**注釈:** セルフホストランナーの場合、さまざまな使用制限が適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
+**ノート:** セルフホストランナーの場合、さまざまな使用制限が適用されます。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 {% endnote %}
 
@@ -56,18 +60,18 @@ GitHub アクションの使用は、
 [GitHub 利用規約](/articles/github-terms-of-service/)で {% data variables.product.prodname_actions %} を使用していることを確認する必要があります。 {% data variables.product.prodname_actions %}の固有の規約に関する詳しい情報については、[GitHubの追加製品規約](/github/site-policy/github-additional-product-terms#a-actions-usage)を参照してください。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### アーティファクトとログの保持ポリシー
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+### 成果物とログの保持ポリシー
 
-リポジトリ、Organization、または Enterprise アカウントのアーティファクトとログの保持期間を設定できます。
+リポジトリ、Organization、または Enterprise アカウントの成果物とログの保持期間を設定できます。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
 詳しい情報については、以下を参照してください。
 
-- [リポジトリ内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [Organization 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
-- [Enterprise 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
+- [リポジトリ内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
+- [Organization 内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Enterprise 内の成果物とログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
 ### リポジトリまたは Organization の {% data variables.product.prodname_actions %} を無効化または制限する
@@ -76,10 +80,10 @@ GitHub アクションの使用は、
 
 詳しい情報については、以下を参照してください。
 - 「[リポジトリの {% data variables.product.prodname_actions %} を無効化または制限する](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)」
-- 「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)」{% if currentVersion == "free-pro-team@latest" %}
+- 「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)」{% if currentVersion == "free-pro-team@latest" %}
 - {% data variables.product.prodname_ghe_cloud %} の「[Enterprise アカウントでの {% data variables.product.prodname_actions %} ポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### ワークフローの無効化と有効化
 
 {% data variables.product.prodname_dotcom %} のリポジトリで個々のワークフローを有効化または無効化できます。

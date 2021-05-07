@@ -27,14 +27,14 @@ If a staging deployment is pending for more than 5-10min, try the following:
 2. If that doesn't work, trigger a new staging deployment by pushing an empty commit on the command line:
 
 ```
-$ git commit --allow-empty -m'empty commit to redeploy staging'
+$ git commit --allow-empty -m 'empty commit to redeploy staging'
 ```
 
 ### CI stalled or stuck
 :yellow_heart: If tests are stuck yellow for more than an hour, rerun CI by pushing an empty commit on the command line:
 
 ```
-$ git commit --allow-empty -m'empty commit to rerun CI'
+$ git commit --allow-empty -m 'empty commit to rerun CI'
 ```
 
 ## Troubleshooting failed deployments and CI

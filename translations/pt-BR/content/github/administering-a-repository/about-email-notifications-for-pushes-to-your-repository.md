@@ -1,7 +1,7 @@
 ---
 title: Sobre notificações de e-mail para pushes no seu repositório
 intro: Você pode optar por enviar notificações por email automaticamente para um endereço de email específico quando alguém fizer push para o repositório.
-permissions: Pessoas com permissões de administrador em um repositório podem habilitar notificações de e-mails para push em seu repositório.
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}
@@ -44,9 +46,9 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 
 5. Digite até dois endereços de e-mail, separados por um espaço, para os quais deseja enviar as notificações. Se desejar enviar e-mails a mais de duas contas, defina um dos endereços para um endereço de e-mail de grupo. ![Caixa de texto de endereço de e-mail](/assets/images/help/settings/email_services_addresses.png)
 
-6. Se você é quem opera o seu próprio servidor, será possível verificar a integridade dos e-mails por meio do token **Secret**. Esse token é enviado com o e-mail como o header `Approved`. Se o header `Approved` corresponder ao token enviado, você poderá confiar que esse e-mail é do {% data variables.product.product_name %}. ![Caixa de texto do segredo do e-mail](/assets/images/help/settings/email_services_token.png)
+1. Se você operar o seu próprio servidor, você poderá verificar a integridade dos e-mails através do **Cabeçalho aprovado**. O **Cabeçalho aprovado** é um token ou segredo que você digita nesse campo e enviado com o e-mail. Se o cabeçalho `Aprovado` de um e-mail corresponder ao token, você poderá confiar que o e-mail é de {% data variables.product.product_name %}. ![Caixa de texto do cabeçalho do e-mail aprovado](/assets/images/help/settings/email_services_approved_header.png)
 
-7. Clique em **Save settings** (Salvar configurações). ![Botão Save settings (Salvar configurações)](/assets/images/help/settings/save_notification_settings.png)
+7. Clique em **Configurar notificações**. ![Botão para configurar notificações](/assets/images/help/settings/setup_notifications_settings.png)
 
 
 

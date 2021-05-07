@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -62,7 +64,7 @@ Nas configurações do seu aplicativo GitHub, você pode especificar se seu apli
 
 #### Assine os webhooks
 
-Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. Consulte "[Editando as permissões do aplicativo Github](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para aprender como se assinar webhooks.
+Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. Consulte "[Editando as permissões do aplicativo GitHub](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para aprender como assinar webhooks.
 
 #### Entenda os diferentes métodos de autenticação
 

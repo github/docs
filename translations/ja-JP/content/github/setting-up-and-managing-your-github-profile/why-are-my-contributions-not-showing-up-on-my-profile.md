@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### カウントされるコントリビューション
 
-#### Issue およびプルリクエスト
+#### Issues, pull requests and discussions
 
-Issue とプルリクエストは、フォークではなく、スタンドアロンのリポジトリで開かれた場合、コントリビューショングラフに表示されます。
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 #### コミット
 次の条件の**すべて**を満たしている場合、コミットはコントリビューショングラフに表示されます。

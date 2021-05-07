@@ -7,6 +7,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
@@ -54,7 +56,7 @@ After you enable SCIM, the following provisioning features are available for any
 1. To the right of the drop-down menu, type `.*.*`.
 1. Click **Save**.
 {% data reusables.saml.okta-view-setup-instructions %}
-1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+1. Enable SAML for your enterprise account using the information in the setup instructions. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 ### Creating groups in Okta
 

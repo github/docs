@@ -4,7 +4,7 @@ intro: 'メトリクスに含まれる{% data variables.product.prodname_enterpr
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、Organizationを管理できます。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
   enterprise-server: '*'
 ---
@@ -36,4 +36,4 @@ versions:
 {% data reusables.github-insights.add-organizations %}
 4. {% data variables.product.prodname_insights %}から削除したいOrganizationをクリックしてください。
 4. "Uninstall {% data variables.product.prodname_insights %}（{% data variables.product.prodname_insights %}のアンインストール）"の下で、**Uninstall（アンインストール）**をクリックしてください。 ![アンインストールボタン](/assets/images/help/insights/uninstall-button.png)
-5. Click **OK**.
+5. [**OK**] をクリックします。

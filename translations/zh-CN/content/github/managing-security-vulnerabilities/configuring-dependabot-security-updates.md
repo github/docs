@@ -1,7 +1,7 @@
 ---
-title: Configuring Dependabot security updates
+title: 配置 Dependabot 安全更新
 intro: '您可以使用 {% data variables.product.prodname_dependabot_security_updates %} 或手动拉取请求轻松地更新有漏洞的依赖项。'
-shortTitle: Configuring Dependabot security updates
+shortTitle: 配置 Dependabot 安全更新
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### About configuring {% data variables.product.prodname_dependabot_security_updates %}
+### 关于配置 {% data variables.product.prodname_dependabot_security_updates %}
 
-You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+您可以为任何使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
 您可以对个别仓库或所有由您的用户帐户或组织拥有的仓库禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅下面的“[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-dependabot-security-updates-for-your-repositories)”。
 
@@ -42,16 +42,18 @@ You can enable {% data variables.product.prodname_dependabot_security_updates %}
 
 ### 管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}
 
-您可以对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}。
+您可以对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}（见下文）。
 
 您也可以为用户帐户或组织拥有的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅“[管理用户帐户的安全和分析设置](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)”或“[管理组织的安全和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”。
 
 {% data variables.product.prodname_dependabot_security_updates %} 需要特定的仓库设置。 更多信息请参阅“[支持的仓库](#supported-repositories)”。
 
+#### 对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}
+
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. 在警报列表的上方，使用下拉菜单并选择或取消选择 **{% data variables.product.prodname_dependabot %} security updates（Dependabot 安全更新）**。 ![包含启用 {% data variables.product.prodname_dependabot_security_updates %} 的选项的下拉菜单](/assets/images/help/repository/enable-dependabot-security-updates-drop-down.png)
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. 在“Configure security and analysis features（配置安全和分析功能）”下，在“{% data variables.product.prodname_dependabot %} security updates（安全更新）”的右侧，单击 **Enable（启用）**或 **Disable（禁用）**。 !["配置安全和分析功能"部分中启用 {% data variables.product.prodname_dependabot_security_updates %} 的按钮](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
 ### 延伸阅读
 

@@ -2,10 +2,13 @@
 title: 枚举
 redirect_from:
   - /v4/enum
+  - /v4/reference/enum
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### 关于枚举

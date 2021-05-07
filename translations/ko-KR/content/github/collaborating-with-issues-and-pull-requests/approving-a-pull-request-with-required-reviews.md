@@ -7,11 +7,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-For more information about required reviews, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)."
+For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
 
-You can comment on a pull request, approve the changes, or request improvements before approving. For more information, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)" and "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
+You can comment on a pull request, approve the changes, or request improvements before approving. For more information, see "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
 {% data reusables.search.requested_reviews_search %}
 
@@ -34,6 +36,5 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 ### 더 읽을거리
 
-- "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"

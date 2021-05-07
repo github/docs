@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ここは、GitHub にホストされているユーザコンテンツを調査する法執行官の方や、 当社が法執行機関とどのような情報をどのような状況で共有するのかを知りたいとお考えの方に ご覧いただきたいページです。
@@ -125,7 +128,7 @@ Organization アカウントの場合、当社はアカウントオーナーの�
 なお、対象となる情報はケースバイケースで異なりますのでご注意ください。 ユーザの任意で提供される情報もあります。 また、当社が情報を収集または保持していない場合もあります。
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**With a court order *or* a search warrant** — We will not disclose account access logs unless compelled to do so by either (i) a court order issued under 18 U.S.C. Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause. 上記の非公開ユーザアカウント情報に加えて、当社は裁判所命令または捜査令状に応じてアカウントアクセスログを提供する場合があります。これには以下が含まれます。
+**裁判所命令*または*捜査令状**がある場合 — 当社は、(i) 求められている情報が進行中の犯罪捜査に関連し、重要であると信じる合理的な根拠があることを示す具体的かつ明確な事実を示した、合衆国法律集第 18 編 第 2703 条 (d) に基づいて発行された裁判所命令、または (ii) 連邦刑事訴訟規則または同等の州令状手続きに記載されている手続きの下で発行された、推定原因を示す捜査令状のいずれかで強制されない限り、アカウントアクセスログを開示しません。 上記の非公開ユーザアカウント情報に加えて、当社は裁判所命令または捜査令状に応じてアカウントアクセスログを提供する場合があります。これには以下が含まれます。
 
   - 一定期間にわたるユーザの動きを明らかにするあらゆるログ
   - アカウントまたはプライベートリポジトリの設定（たとえば、どのユーザが特定の権限を持つかなど）
@@ -146,11 +149,18 @@ Organization アカウントの場合、当社はアカウントオーナーの�
 
 ### 費用の払い戻し
 
-当社は、法律で許可されているとおり、情報の要求への対応に伴う管理費の払い戻しを求める権利を留保します。
+州法および連邦法のもと、GitHubは召喚令状、裁判所の命令、捜索令状などの有効な法的要求を順守することに関する費用の払い戻しを求めることができます。 当社は費用の一部を回収するためにのみ請求を行います。この払い戻しは、当社が法的命令を順守するために負担する費用の一部を補うものに過ぎません。
+
+緊急事態やその他差し迫った状況においては請求を行いませんが、その他の法的要求については、別途法的に求められていない限り、以下の明細に従って払い戻しを求めます。
+
+- 25 個までの識別子の初期調査: 無料
+- 5 アカウントまでの加入者情報/データの提供: 無料
+- 5 アカウントを超える加入者情報/データの提供: 1 アカウントあたり 20 ドル
+- 二次調査: 1 件につき 10 ドル
 
 ### データ保存
 
-We will take steps to preserve account records for up to 90 days upon formal request from U.S. law enforcement in connection with official criminal investigations, and pending the issuance of a court order or other process.
+正式な犯罪捜査に関連する米国の 法執行機関から正式な要求があり、裁判所命令の発行またはその他の手続きが保留されている間、当社はアカウントの記録を最大 90 日間保存する措置を講じます。
 
 ### 要求の提出
 
@@ -161,8 +171,6 @@ GitHub, Inc. c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505
 ```
-
-また、legal@support.github.com に写しを送信することもできます。
 
 要求を送る際は、次の情報を含めて、できるだけ具体的かつ範囲を絞った内容にしてください。
 
@@ -177,7 +185,7 @@ Sacramento, CA 95833-3505
 
 ### 外国の法執行機関からの要求
 
-カリフォルニア州に本拠を置く米国企業である GitHub には、外国当局が発行した法的手続きに応じて、外国政府にデータを提供する義務はありません。 GitHub に情報を要求する外国の法執行官は、米司法省刑事局の国際部に連絡する必要があります。 GitHub は、刑事共助条約（「MLAT」）または証人尋問要求書を経由して、米国の裁判所を介して発行された要求に迅速に対応します。 court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
+カリフォルニア州に本拠を置く米国企業である GitHub には、外国当局が発行した法的手続きに応じて、外国政府にデータを提供する義務はありません。 GitHub に情報を要求する外国の法執行官は、米司法省刑事局の国際部に連絡する必要があります。 GitHub は、刑事共助条約（「MLAT」）または証人尋問要求書を経由して、米国の裁判所を介して発行された要求に迅速に対応します。
 
 ### 質問
 

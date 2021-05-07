@@ -11,6 +11,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### Enterprise アカウントで Organization の 2 要素認証を必須にする
@@ -47,7 +49,7 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
+許可 IP アドレスを、Organization ごとに設定することもできます。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)」を参照してください。
 
 #### 許可 IP アドレスを追加する
 
@@ -88,97 +90,6 @@ Enterprise のオーナーは、特定の IP アドレスに対する許可リ�
 
 {% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
-### Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする
-
-{% data reusables.saml.dotcom-saml-explanation %} 詳細は「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
-
-Enterprise のオーナーは、Enterprise アカウントが所有するすべての Organization 全体で、SAML IdP によって SAML SSO と中央での認証を有効にすることができます。 Enterprise アカウントで SAML SSO を有効にした後は、SAML SSO は Enterprise アカウントによって所有されているすべての Organization に対してデフォルトで有効となります。 すべてのメンバーは、自分がメンバーである Organization にアクセスするために SAML SSO を使用して認証するよう求められ、企業のオーナーは Enterprise アカウントにアクセスする際に SAML SSO を使用して認証するよう求められます。
-
-{% data reusables.saml.about-saml-access-enterprise-account %}詳細は「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)」を参照してください。
-
-{% data reusables.saml.saml-supported-idps %}
-
-{% data reusables.scim.enterprise-account-scim %} プライベートベータに参加していない場合、Enterprise アカウント に対して SCIM はサポートされません。 詳しい情報については、「[Enterprise アカウントで Organization のユーザプロビジョニングを管理する](#managing-user-provisioning-for-organizations-in-your-enterprise-account)」参照してください。
-
-{% note %}
-
-**Note:** Enabling authentication with SAML single sign-on for your enterprise account will override any existing organization-level SAML configurations.
-
-{% endnote %}
-
-Okta を使用して SAML を有効にする方法については、「[Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)」を参照してください。
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択します。 ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
-6. **Sign on URL**フィールドに、使用する IdP のシングルサインオンのリクエストのための HTTPS エンドポイントを入力してください。 この値は Idp の設定で使用できます。 ![メンバーがサインインする際にリダイレクトされる URL のフィールド](/assets/images/help/saml/saml_sign_on_url_business.png)
-7. または、[**Issuer**] フィールドに、SAML の発行者の名前を入力します。 これにより、送信メッセージの信ぴょう性が検証されます。 ![SAMl 発行者の名前のフィールド](/assets/images/help/saml/saml_issuer.png)
-8. [**Public Certificate**] で、証明書を貼り付けて SAML の応答を認証します。 ![アイデンティティプロバイダからの公開の証明書のフィールド](/assets/images/help/saml/saml_public_certificate.png)
-9. SAML 発行者からのリクエストの完全性を確認するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。 その後、[Signature Method] および [Digest Method] のドロップダウンから、SAML 発行者が使用するハッシュアルゴリズムを選択します。 ![SAML 発行者が使用する署名方式とダイジェスト方式のハッシュアルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
-10. Enterprise で SAML SSO を有効化する前に、[**Test SAML configuration**] をクリックして、入力した情報が正しいか確認します。 ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_test.png)
-11. [**Save**] をクリックします。
-
-### Enterprise アカウントで Organization のユーザプロビジョニングを管理す
-
-Enterprise のオーナーは、Enterprise アカウントの Organization のメンバーシップを直接アイデンティティプロバイダ (IdP) から管理できます。
-
-{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
-
-{% data reusables.saml.about-user-provisioning-enterprise-account %}
-
-{% data reusables.scim.enterprise-account-scim %} オプションで、SAML プロビジョニングを有効にして、別々にデプロビジョニングすることもできます。
-
-IdP で SCIM を構成すると、IdP でグループのメンバーシップに変更を加えるたびに IdP が {% data variables.product.prodname_dotcom %} に SCIM 呼び出しを行い、対応する組織のメンバーシップを更新します。 SAML プロビジョニングを有効にすると、Enterprise アカウントの SAML 設定で保護されているリソースに Enterprise のメンバーがアクセスするたびに、その SAML アサーションによってプロビジョニングがトリガーされすま。
-
-SCIM 呼び出しまたは SAML アサーションのたびに、{% data variables.product.product_name %} はユーザが所属する IdP グループをチェックし、以下の操作を実行します。
-
-- ユーザが、Enterprise アカウントによって所有されている Organization に対応する IdP グループのメンバーであり、現在その Organization のメンバーでない場合は、そのユーザーを Organization に追加する (SAML アサーション) か、Organization に参加するよう招待メールを送信 (SCIM 呼び出し) します。
-- Enterprise アカウントによって所有される Organization にそのユーザが参加する既存の招待がある場合は、キャンセルします。
-
-SCIM 呼び出しのたびに、また SAML デプロビジョニングを有効にしている場合には SAML アサーションのたびに、 {% data variables.product.product_name %} は以下の操作も実行します。
-
-- ユーザが、Enterprise アカウントによって所有されている Organization に対応する IdP グループのメンバーではなく、現在その Organization のメンバーである場合は、そのユーザーを Organization から削除します。
-
-デプロビジョニングによって、最後に残ったオーナーが Organization から削除されると、その Organization はオーナーのいない状態になります。 Enterprise オーナーは、オーナーのいない Organization の所有権を取得できます。 詳しい情報については、「[Enterprise アカウントでオーナーのいない Organization を管理する](/github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account)」参照してください。
-
-Okta を使用して Enterprise アカウントのユーザプロビジョニングを有効にするには、「[Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)」を参照してください。
-
-### Enterprise アカウントで Organization の Team 同期を管理する
-
-Enterprise オーナーが IdP と {% data variables.product.product_name %} の間で Team の同期を有効化すると、Organization のオーナーとチームメンテナは Enterprise アカウントで所有されている Organization の Team を IdP グループに接続できるようになります。
-
-{% data reusables.identity-and-permissions.about-team-sync %}
-
-Azure AD で Enterprise アカウントとの Team 同期を使用できます。
-
-{% data reusables.identity-and-permissions.sync-team-with-idp-group %}
-
-{% data reusables.identity-and-permissions.team-sync-disable %}
-
-Organization ごとの Team 同期の設定と管理も可能です。 詳細は「[Organization の Team 同期を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)」を参照してください。
-
-#### 必要な環境
-
-Enterprise アカウントに対して Team の同期を有効化する前提条件は、以下のとおりです。
-  - あなた、または Azure AD の管理者は Azure AD のグローバル管理者、または特権ロール管理者になっている必要があります。
-  - サポート対象の IdP で、Enterprise アカウントの Organization に対して SAMLシングルサインオンを有効にする必要があります。 詳しい情報については、「[Enterprise アカウントで Organization 用に SAML シングルサインオンを有効にする](#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)」参照してください。
-  - SAML SSO とサポートされる IdP を使用して Enterprise アカウントに認証される必要があります。 詳しい情報については「[SAMLシングルサインオンで認証する](/articles/authenticating-with-saml-single-sign-on)」を参照してください。
-
-#### Azure AD で Team の同期を管理する
-
-{% data reusables.identity-and-permissions.team-sync-azure-permissions %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
-{% data reusables.identity-and-permissions.enable-team-sync-azure %}
-{% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Enterprise アカウントに接続するアイデンティティプロバイダのテナント情報を確認してから、[**Approve**] をクリックします。 ![特定の IdP テナントに対して、Team の同期を有効化するペンディングリクエストと、リクエストを承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
-8. Team 同期を無効にするには、 [**Disable team synchronization**] をクリックします。 ![Team の同期を無効化する](/assets/images/help/teams/disable-team-synchronization.png)
-
 ### Enterprise アカウントの SSH 認証局を管理する
 
 Enterprise オーナーは、Enterprise アカウントの SSH 認証局 (CA) を追加および削除できます。
@@ -203,3 +114,7 @@ CAを削除すると、元に戻すことはできません。 同じCAを使用
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
+### 参考リンク
+
+- "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"

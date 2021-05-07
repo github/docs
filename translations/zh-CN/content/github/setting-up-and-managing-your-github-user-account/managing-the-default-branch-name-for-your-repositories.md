@@ -1,15 +1,17 @@
 ---
 title: 管理仓库的默认分支名称
-intro: 'You can set a default branch name for all new repositories that you create.'
+intro: You can set a default branch name for all new repositories that you create.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### About the default branch name
 
-When you create a new repository on {% data variables.product.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+当您在 {% data variables.product.product_location %} 上创建一个新仓库时，仓库将包含一个分支，它就是默认分支。 您可以更改 {% data variables.product.product_name %} 用于您新建仓库中默认分支的名称。 有关默认分支的更多信息，请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)”。
 
 {% data reusables.branches.set-default-branch %}
 
@@ -23,4 +25,4 @@ When you create a new repository on {% data variables.product.product_location %
 
 ### 延伸阅读
 
-- /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
+- "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

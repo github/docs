@@ -4,6 +4,8 @@ intro: '您可以查看 {% data variables.product.prodname_registry %} 的存储
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 查看用户帐户的 {% data variables.product.prodname_registry %} 使用情况
@@ -42,7 +44,7 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. 在“
-{% data variables.product.prodname_registry %}", view details of usage of data transfer by each organization in your enterprise account.
+{% data variables.product.prodname_registry %}”下，查看您的企业帐户中每个组织的数据传输使用详情。
   ![数据传输使用详情](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

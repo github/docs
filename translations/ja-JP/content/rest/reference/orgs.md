@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -38,7 +40,7 @@ Organization に対するブロック呼び出しを実行するには、呼び�
 
 ## webhook
 
-Organization の webhook を使用すると、Organization で特定のイベントが発生するとき必ず HTTP `POST` ペイロードを受け取ることができます。 Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
+Organization の webhook を使用すると、Organization で特定のイベントが発生するとき必ず HTTP `POST` ペイロードを受け取ることができます。 そのようなイベントをサブスクライブすると、 {% data variables.product.product_name %} でのイベントに応答するインテグレーションを構築できます。 サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
 
 ### スコープと制限事項
 

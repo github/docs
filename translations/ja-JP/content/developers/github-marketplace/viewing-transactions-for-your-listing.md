@@ -1,10 +1,12 @@
 ---
 title: リストの取引の表示
-intro: '{% data variables.product.prodname_marketplace %}の取引ページでは、{% data variables.product.prodname_marketplace %}リストのすべての取引をダウンロードしたり表示したりできます。 過去の日（24時間）、週、月、あるいは{% data variables.product.prodname_github_app %}がリストされた期間全体に対する取引を見ることができます。'
+intro: '{% data variables.product.prodname_marketplace %}の取引ページでは、{% data variables.product.prodname_marketplace %}リストのすべての取引をダウンロードしたり表示したりできます。 You can view transactions for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 

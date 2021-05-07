@@ -1,0 +1,1 @@
+1. Dentro de "Agregar asientos", escribe el número de asientos que deseas añadir. ![Entrada para agregar plazas](/assets/images/help/billing/add-seats-amount.png)

@@ -4,9 +4,11 @@ intro: '您可以迁移到内部仓库，以便为同时使用 {% data variables
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
-permissions: 站点 administrator 可以迁移到内部仓库。
+permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - Enterprise
 ---
 
 ### 关于内部仓库
@@ -33,11 +35,11 @@ versions:
 
 1. 连接到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)。”
 2. 导航至 `/data/github/current` 目录。
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. 运行迁移命令。
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

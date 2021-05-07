@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - GitHub search
 ---
 
 {% data variables.product.prodname_ghe_server %} および {% data variables.product.prodname_dotcom_the_website %} を使用しており、{% data variables.product.prodname_ghe_server %} のサイト管理者が {% data variables.product.prodname_github_connect %} および {% data variables.product.prodname_unified_search %} をプライベートリポジトリ向けに有効化している場合、接続された Organization で指定のプライベートリポジトリを検索できます。

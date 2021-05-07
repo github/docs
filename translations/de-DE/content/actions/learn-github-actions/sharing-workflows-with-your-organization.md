@@ -7,10 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Übersicht
 
@@ -31,11 +34,11 @@ In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Meta
    Diese Datei mit dem Namen `octo-organization-ci.yml` veranschaulicht beispielsweise einen grundlegenden Workflow.
 
    ```yaml
-   Name: Octo Organization CI
+   name: Octo Organization CI
 
    on:
      push:
-       branch: [ $default-branch ]
+       branches: [ $default-branch ]
      pull_request:
        branches: [ $default-branch ]
 
@@ -44,10 +47,10 @@ In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Meta
        runs-on: ubuntu-latest
 
        steps:
-       - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
 
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
 1. Erstellen Sie eine Metadatendatei im `Workflow-Vorlagen` Verzeichnis. Die Metadatendatei muss denselben Namen wie die Workflowdatei haben, aber anstelle der Erweiterung `.yml` muss sie mit `.properties.json`angehängt werden. Diese Datei mit dem Namen `octo-organization-ci.properties.json enthält` beispielsweise die Metadaten für eine Workflowdatei mit dem Namen `octo-organization-ci.yml`:
    ```yaml
@@ -75,7 +78,7 @@ Um eine weitere Workflowvorlage hinzuzufügen, fügen Sie Ihre Dateien `Workflow
 
 ![Workflow-Vorlagendateien](/assets/images/help/images/workflow-template-files.png)
 
-### Verwenden einer Workflowvorlage
+### Using a workflow template from your organization
 
 In diesem Verfahren wird veranschaulicht, wie ein Mitglied Ihrer Organisation eine Workflowvorlage finden und verwenden kann, um einen neuen Workflow zu erstellen. Die Workflowvorlagen einer Organisation können von jedem Benutzer verwendet werden, der Mitglied der Organisation ist.
 

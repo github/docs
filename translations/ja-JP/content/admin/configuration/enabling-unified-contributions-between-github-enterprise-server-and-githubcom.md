@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
-permissions: '接続された{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_dotcom_the_website %}間の統合コントリビューションを有効化できます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 サイト管理者は、{% data variables.product.prodname_ghe_server %} からの作業に対する匿名のコントリビューション数の {% data variables.product.prodname_dotcom_the_website %} コントリビューショングラフへの送信をエンドユーザに許可できます。

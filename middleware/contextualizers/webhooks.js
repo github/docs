@@ -4,14 +4,19 @@ const webhookPayloads = require(path.join(process.cwd(), 'lib/webhooks'))
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const allVersions = require('../../lib/all-versions')
 
-module.exports = async (req, res, next) => {
-  if (!req.path.includes('webhook')) return next()
+module.exports = function webhooksContext (req, res, next) {
+  const currentVersionObj = allVersions[req.context.currentVersion]
+  // ignore requests to non-webhook reference paths
+  // and to versions that don't exist
+  if (!req.path.includes('webhook') || !currentVersionObj) {
+    return next()
+  }
 
   // Get the name of the dir under lib/webhooks/static
   // For example, free-pro-team@latest corresponds to dotcom,
   // enterprise-server@2.22 corresponds to ghes-2.22,
   // and github-ae@latest corresponds to ghae
-  const webhookPayloadDir = allVersions[req.context.currentVersion].miscVersionName
+  const webhookPayloadDir = currentVersionObj.miscVersionName
 
   const webhookPayloadsForCurrentVersion = webhookPayloads[webhookPayloadDir]
 

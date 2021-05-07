@@ -1,5 +1,5 @@
 ---
-title: Inviting people to manage your enterprise
+title: 邀请人员管理企业
 intro: 您可以邀请人员成为企业帐户的企业所有者或帐单管理员。 也可以删除不再需要访问企业帐户的企业所有者或帐单管理员。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -9,11 +9,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于邀请人员管理企业帐户
 
-{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).
+{% data reusables.enterprise-accounts.enterprise-administrators %} 更多信息请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)”。
 
 {% tip %}
 

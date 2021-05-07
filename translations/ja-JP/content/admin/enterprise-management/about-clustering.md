@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### クラスタリングのアーキテクチャ
@@ -23,6 +25,8 @@ versions:
 {% data variables.product.prodname_ghe_server %} ではノード間のレイテンシが低いことが必要であり、地理的に離れた場所にまたがる冗長性を意図したものではありません。
 
 クラスタリングは冗長性を提供しますが、High Availability構成を置き換えることを意図したものではありません。 詳細は「[High Availability 構成](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)」を参照してください。 プライマリ／セカンダリフェイルオーバー設定はクラスタリングよりもはるかにシンプルであり、多くの組織の要求に応えます。 詳しくは[クラスタリングと高可用性との違い](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)を参照してください。
+
+{% data reusables.package_registry.packages-cluster-support %}
 
 ### クラスタリングを利用するには？
 

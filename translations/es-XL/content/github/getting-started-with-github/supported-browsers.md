@@ -8,6 +8,7 @@ intro: 'Diseñamos {% data variables.product.product_name %} para admitir las ú
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Lanzamiento de soporte extendido de Firefox

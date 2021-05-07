@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Organisationsinhaber können {% data variables.product.prodname_sponsors %} für eine Organisation einrichten.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### {% data variables.product.prodname_sponsors %} beitreten
@@ -25,7 +27,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 ### Dein Profil als unterstützte Organisation vervollständigen
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,12 +42,13 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Deine Bankinformationen einreichen
@@ -54,7 +57,7 @@ Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkon
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
@@ -63,7 +66,7 @@ For more information about setting up Stripe Connect using Open Collective, see 
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +78,7 @@ Bevor Deine Organisation eine unterstütze Organisation werden kann, muss Du 2FA
 
 ### Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

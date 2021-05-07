@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 您可以取消对帐户订阅的待定更改，以及对其他付费功能和产品订阅的待定更改。

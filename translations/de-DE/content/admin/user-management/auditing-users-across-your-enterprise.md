@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Zugriff auf das Auditprotokoll

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -52,7 +54,7 @@ curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 
 #### Calls to OAuth Authorizations API
 
-If you're making [OAuth Authorization API](/enterprise-server@2.22/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
+If you're making [OAuth Authorization API](/enterprise-server/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
 
 ```bash
 curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'

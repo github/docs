@@ -21,13 +21,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### About labels
 
 You can manage your work on {% data variables.product.product_name %} by creating labels to categorize issues and pull requests. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any issue or pull request within that repository.
 
-Anyone with read access to a repository can view and search the repository’s labels. To create, edit, apply, or delete a label, you must have write access to the repository.
+Anyone with read access to a repository can view and search the repository’s labels. Anyone with triage access to a repository can apply/dismiss existing labels. To create, edit, apply, or delete a label, you must have write access to the repository.
 
 ### About default labels
 
@@ -91,7 +93,6 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ### 더 읽을거리
-- "[About labels](/articles/about-labels)"
 - "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[Encouraging helpful contributions to your project with labels](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
