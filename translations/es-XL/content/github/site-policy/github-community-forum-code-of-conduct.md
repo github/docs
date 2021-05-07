@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-community-forum-code-of-conduct
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ### Descripción y propósito

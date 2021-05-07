@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 自分自身のアカウントで所有していて削除したリポジトリは、誰でも復元できます。 Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。

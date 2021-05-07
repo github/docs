@@ -27,6 +27,9 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Configuring the default visibility of new repositories on your appliance

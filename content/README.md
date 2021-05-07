@@ -21,6 +21,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
   - [`defaultPlatform`](#defaultplatform)
+  - [`defaultTool`](#defaulttool)
   - [`learningTracks`](#learningTracks)
   - [`includeGuides`](#includeGuides)
   - [`type`](#type)
@@ -154,6 +155,8 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Object`.
 - Optional.
 
+The list of popular links are the links displayed on the landing page under the title "Popular." Alternately, you can customize the title "Popular" by setting the `featuredLinks.popularHeading` property to a new string.
+
 Example:
 
 ```yaml
@@ -162,6 +165,10 @@ featuredLinks:
     - /path/to/page
   guides:
     - /guides/example
+  popular:
+    - /path/to/popular/article1
+    - /path/to/popular/article2
+  popularHeading: An alternate heading to Popular
 ```
 
 ### `showMiniToc`
@@ -200,6 +207,16 @@ Example:
 
 ```yaml
 defaultPlatform: linux
+```
+
+### `defaultTool`
+
+- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub, such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop. If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable.
+- Type: `String`, one of: `webui`, `cli`, `desktop`.
+- Optional.
+
+```yaml
+defaultTool: cli
 ```
 
 ### `learningTracks`

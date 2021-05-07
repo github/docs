@@ -16,7 +16,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Acerca de {% data variables.product.prodname_pages %}

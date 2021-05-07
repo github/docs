@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Ein SSH-Zertifikat ist ein Mechanismus, mit dem ein SSH-Schlüssel einen anderen SSH-Schlüssel signieren kann. Wenn Du eine SSH-Zertifizierungsstelle (CA) verwendest, um den Mitgliedern Deiner Organisation signierte SSH-Zertifikate bereitzustellen, kannst Du die Zertifizierungsstelle zu Deinem Enterprise-Konto oder Deiner Organisation hinzufügen, damit die Organisationsmitglieder mit ihren Zertifikaten auf die Ressourcen der Organisation zugreifen können. Weitere Informationen findest Du unter „[SSH-Zertifizierungsstellen Deiner Organisation verwalten](/articles/managing-your-organizations-ssh-certificate-authorities).“

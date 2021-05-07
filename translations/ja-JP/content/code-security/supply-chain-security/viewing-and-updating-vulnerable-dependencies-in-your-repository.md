@@ -4,12 +4,13 @@ intro: '{% data variables.product.product_name %} がプロジェクト内の脆
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: リポジトリ管理者と Organization のオーナーは、依存関係を表示および更新できます。
+permissions: Repository administrators and organization owners can view and update dependencies.
 shortTitle: 脆弱性のある依存関係を表示して更新する
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 リポジトリの {% data variables.product.prodname_dependabot %} アラートタブには、オープンおよびクローズしている {% data variables.product.prodname_dependabot_alerts %}、および対応する {% data variables.product.prodname_dependabot_security_updates %} がすべて一覧表示されます。 ドロップダウンメニューを使用してアラートのリストを並べ替えることができます。また、特定のアラートをクリックしてその詳細を表示することもできます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。

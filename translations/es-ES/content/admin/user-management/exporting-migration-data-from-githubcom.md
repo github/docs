@@ -12,7 +12,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Preparar la orgnanización origen en {% data variables.product.prodname_dotcom %}

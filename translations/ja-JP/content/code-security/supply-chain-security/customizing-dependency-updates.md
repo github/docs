@@ -1,13 +1,13 @@
 ---
 title: 依存関係の更新をカスタマイズする
 intro: '{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。'
-permissions: 'リポジトリへの書き込み権限を持つユーザは、リポジトリの {% data variables.product.prodname_dependabot %} を設定できます。'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### 依存関係の更新のカスタマイズについて

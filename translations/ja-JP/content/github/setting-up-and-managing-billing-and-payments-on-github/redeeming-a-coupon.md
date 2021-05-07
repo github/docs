@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 {% data variables.product.product_name %}では、クーポンを適用する前にアカウントの支払いをした場合の返金はできません。 また、適用先のアカウントを間違えた場合にも、利用したクーポンの移譲や新たなクーポンの発行はできません。 クーポンを利用する前に、クーポンを正しいアカウントに適用していることを確認してください。

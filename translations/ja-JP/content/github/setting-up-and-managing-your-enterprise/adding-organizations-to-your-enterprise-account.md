@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Enterprise のオーナーは、Enterprise アカウント内に新しい Organization を作成できます。

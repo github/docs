@@ -1,6 +1,6 @@
 ---
-title: Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?
-intro: Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.
+title: 'Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?'
+intro: 'Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.'
 redirect_from:
   - /articles/changing-the-visibility-of-a-network/
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

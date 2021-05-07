@@ -8,6 +8,9 @@ product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Las personas con permisos administrativos o de propietario pueden configurar un archivo CODEOWNERS en un repositorio.

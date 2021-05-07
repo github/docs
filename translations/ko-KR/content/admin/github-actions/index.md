@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 {% data reusables.actions.ae-beta %}

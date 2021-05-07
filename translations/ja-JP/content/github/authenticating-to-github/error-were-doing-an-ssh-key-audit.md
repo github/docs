@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 未検証のキーを使用して Git 操作を実行すると、SSH キーの監査を行うように求めるメッセージが表示されます。

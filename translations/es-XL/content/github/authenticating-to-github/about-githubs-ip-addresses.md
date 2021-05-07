@@ -10,6 +10,9 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Puedes recuperar una lista de direcciones IP de {% data variables.product.prodname_dotcom %} desde el punto de conexión de API [meta](https://api.github.com/meta). Para obtener más información, consulta la sección "[Meta](/v3/meta/)".

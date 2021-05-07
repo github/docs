@@ -5,7 +5,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

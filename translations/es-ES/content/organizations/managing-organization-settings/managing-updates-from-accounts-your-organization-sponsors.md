@@ -5,10 +5,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
   free-pro-team: '*'
-permissions: Los propietarios de las organizaciones pueden administrar las actualizaciones de las cuentas que patrocinan dichas organizaciones.
+permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

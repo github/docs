@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise account

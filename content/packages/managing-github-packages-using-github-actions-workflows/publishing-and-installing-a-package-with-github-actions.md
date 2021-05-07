@@ -24,7 +24,7 @@ versions:
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to the {% data variables.product.prodname_capitalized_container_registry %}
+#### Authenticating to the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
