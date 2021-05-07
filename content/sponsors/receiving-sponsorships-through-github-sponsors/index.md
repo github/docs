@@ -20,3 +20,4 @@ versions:
 {% link_with_intro /managing-your-payouts-from-github-sponsors %}
 {% link_with_intro /contacting-your-sponsors %}
 {% link_with_intro /tax-information-for-github-sponsors %}
+{% link_with_intro /unpublishing-your-github-sponsors-profile %}

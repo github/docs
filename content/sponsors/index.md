@@ -14,7 +14,6 @@ featuredLinks:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship
     - /sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization
     - /sponsors/receiving-sponsorships-through-github-sponsors/managing-your-payouts-from-github-sponsors
-    - /sponsors/leaving-github-sponsors
   guideCards:
     - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account
     - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
