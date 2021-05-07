@@ -15,8 +15,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 export const Header = () => {
   const router = useRouter()
   const { currentProduct, relativePath, error } = useMainContext()
-  const { t } = useTranslation('header')
-  const { t: tHomepage } = useTranslation('homepage')
+  const { t } = useTranslation(['header', 'homepage'])
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -58,7 +57,7 @@ export const Header = () => {
               <div className="d-md-flex flex-justify-between flex-items-center">
                 <div className="py-2 py-md-0 d-md-inline-block">
                   <h4 className="text-mono f5 text-normal color-text-secondary d-md-none">
-                    {tHomepage('explore_by_product')}
+                    {t('explore_by_product')}
                   </h4>
                   <details className="dropdown-withArrow position-relative details details-reset d-md-none close-when-clicked-outside">
                     <summary
