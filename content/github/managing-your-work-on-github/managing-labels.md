@@ -49,6 +49,8 @@ Label | Description
 
 Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later.
 
+Issues with the `good first issue` label are used to populate the repository's contribute page.
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
