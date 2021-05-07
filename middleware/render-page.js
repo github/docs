@@ -28,9 +28,7 @@ const cacheableQueries = ['learn']
 
 const renderWithNext = FEATURE_NEXTJS
   ? [
-      '/en/rest',
-      '/en/sponsors',
-      '/ja/sponsors'
+      '/en/rest'
     ]
   : []
 
