@@ -38,6 +38,10 @@ Click **Watch** at the top of a repository to watch it.
 
 {% data reusables.support.ask-and-answer-forum %}
 
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+
 ### Doing even more
 
 #### Creating pull requests
