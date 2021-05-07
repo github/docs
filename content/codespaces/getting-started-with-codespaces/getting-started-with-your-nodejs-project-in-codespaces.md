@@ -30,23 +30,19 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM], [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
-
-The next section shows you how to modify your tools by adding a dev container.
 
 ### Step 2: Add a dev container to your codespace from a template  
 
 The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see [Configuring your codespace](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project). 
-
-This example guides you through adding a `devcontainer.json` file from a template.
+To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)". 
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Node.js**. In practice, you could select any container that’s specific to Node or a combination of tools such as Node and MongoDB.
+3. For this example, click **Node.js**.  If you need additional features you can select any container that’s specific to Node or a combination of tools such as Node and MongoDB.
   ![Select Node option from the list](/assets/images/help/codespaces/add-node-prebuilt-container.png)
 4. Click the recommended version of Node.js.
   ![Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
@@ -96,18 +92,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - We can name our dev container anything, this is just the default
-- **Build** - Our build properties
-  - **Dockerfile** - In our build object, Dockerfile is a reference to the Dockerfile in the same folder that was the second file added to our project. This is the reference path.
+- **Name** - You can name your dev container anything, this is just the default.
+- **Build** - The build properties.
+  - **dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
   - **Args**
-    - **Variant**: We only have one build argument here which is the node variant we want to use which is passed into our Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings we wish to set
-  - **Terminal.integrated.shell.linux** - While bash is the default here, we could use zsh for example by modifying this.
+    - **Variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
+- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
+  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
   - **Dbaeumer.vscode-eslint** - ES lint is a great extension for linting, but for JavaScript there are a number of great Marketplace extensions you could also include.
-- **forwardPorts** - By default we can forward a port, like port 3000, but these will also forward automatically
-- **postCreateCommand** - If we want to run anything after we land in our codespace that’s not defined in our Dockerfile, like yarn install or npm install, we can do that here
-- **remoteUser** - We’re running as the node user, but you can optionally set this to root
+- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
+- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 
 ##### Dockerfile
 
@@ -145,7 +141,7 @@ With your dev container added and a basic understanding of what everything does,
   "forwardPorts": [4000],
   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
+  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) in the {% data variables.product.prodname_vscode %} docs.
 
 3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
 
