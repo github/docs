@@ -11,11 +11,11 @@
 
     <div class="markdown-body">
       {% for patch in releaseNotes %}
-        <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
-          <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
+        <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.date }}" id="{{ patch.date }}">
+          <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.date }}">
             <div class="d-flex flex-items-center">
               <h2 class="border-bottom-0 m-0 p-0">
-                {{ currentVersionObject.versionTitle }} {{ patch.version }}
+                {{ patch.title }}
               </h2>
 
               {% if patch.release_candidate %}
@@ -27,7 +27,11 @@
               </button>
             </div>
 
-            <p class="color-text-secondary mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+            <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {% data ui.release_notes.banner_text %}</p>
+
+            {% if patch.date != latestPatch %}
+            <p class="color-text-secondary mt-1">{% data ui.header.notices.ghae_release_notes_upgrade %}</p>
+            {% endif %}
           </header>
 
           <div class="container-xl px-3">
@@ -86,12 +90,11 @@
               </summary>
               <ul class="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
                 {% for patch in release.patches %}
-                  <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.version }}">
+                  <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.date }}">
                     <a
-                      href="#{{ patch.version }}"
+                      href="#{{ patch.date }}"
                       class="d-flex flex-items-center flex-justify-between">
-                      {{ patch.version }}
-                      <span class="color-text-tertiary text-mono text-small text-normal">{{ patch.date | date: "%B %d, %Y" }}</span>
+                      {{ patch.friendlyDate }}
                     </a>
                   </li>
                 {% endfor %}
