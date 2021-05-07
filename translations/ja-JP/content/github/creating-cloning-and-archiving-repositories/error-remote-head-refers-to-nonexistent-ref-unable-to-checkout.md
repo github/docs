@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:

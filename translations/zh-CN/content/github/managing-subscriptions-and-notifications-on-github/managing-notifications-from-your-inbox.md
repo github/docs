@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - 通知
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

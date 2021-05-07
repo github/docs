@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes agregar propuestas o tarjetas de solicitudes de extracción a un tablero de proyecto al:

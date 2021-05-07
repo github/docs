@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} incluye apps con planes de precios gratuitos y pagos. Después de comprar e instalar una app, puedes actualizar, bajar de categoría o cancerla en cualquier momento.

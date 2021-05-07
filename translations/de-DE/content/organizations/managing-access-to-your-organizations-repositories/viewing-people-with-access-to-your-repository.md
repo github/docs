@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Anhand dieser Informationen können Administratoren außenstehende Personen unterstützen, Daten für Compliance-Zwecke erfassen und andere allgemeine Sicherheitsüberprüfungen durchführen.

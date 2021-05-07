@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.product.prodname_marketplace %}, você poderá enviar o seu aplicativo. Para obter uma visão geral dos requisitos de anúncio de aplicativos, consulte "[Requisitos para anunciar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app)".

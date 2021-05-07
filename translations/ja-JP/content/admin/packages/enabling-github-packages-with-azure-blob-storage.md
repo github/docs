@@ -4,7 +4,7 @@ intro: 'Azure Blob Storage を外部ストレージとして {% data variables.p
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% warning %}

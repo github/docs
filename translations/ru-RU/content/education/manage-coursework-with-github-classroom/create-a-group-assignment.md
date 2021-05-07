@@ -1,6 +1,6 @@
 ---
 title: Create a group assignment
-intro: 'You can create a collaborative assignment for teams of students who participate in your course.'
+intro: You can create a collaborative assignment for teams of students who participate in your course.
 versions:
   free-pro-team: '*'
 redirect_from:

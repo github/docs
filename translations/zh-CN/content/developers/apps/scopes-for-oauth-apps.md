@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 在 GitHub 上设置 OAuth 应用程序时，请求的作用域会在授权表单上显示给用户。

@@ -7,6 +7,9 @@ redirect_from:
 intro: 'Puedes hacer que los miembros no puedan crear organizaciones en tu aparato {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

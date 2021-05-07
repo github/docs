@@ -4,7 +4,7 @@ intro: '配置您的自定义 MinIO 存储桶，用于 {% data variables.product
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

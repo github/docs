@@ -1,13 +1,13 @@
 ---
 title: 自定义依赖项更新
 intro: '您可以自定义 {% data variables.product.prodname_dependabot %} 如何维护依赖项。'
-permissions: '拥有仓库写入权限的人可配置仓库的 {% data variables.product.prodname_dependabot %}。'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于自定义依赖项更新

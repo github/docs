@@ -5,11 +5,11 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Webhooks'
-  - 'Events'
-  - 'Open Source'
+  - Webhooks
+  - Events
+  - Open Source
 ---
 
 ### About webhooks for events in your sponsored account

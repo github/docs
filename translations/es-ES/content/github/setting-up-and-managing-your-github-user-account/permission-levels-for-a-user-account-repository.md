@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acerca de los niveles de permisos para un repositorio de una cuenta de usuario

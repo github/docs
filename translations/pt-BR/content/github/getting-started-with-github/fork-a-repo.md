@@ -11,9 +11,9 @@ versions:
   github-ae: '*'
 topics:
   - Pull requests
-  - Problemas
-  - notificações
-  - contas
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia.

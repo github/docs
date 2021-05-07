@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 请求组织批准您已为个人帐户授权的 {% data variables.product.prodname_oauth_app %}
