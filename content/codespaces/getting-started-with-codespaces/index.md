@@ -11,3 +11,4 @@ versions:
 
 {% link_with_intro /getting-started-with-your-nodejs-project-in-codespaces %}
 
+{% link_with_intro /getting-started-with-your-dotnet-project-in-codespaces %}
