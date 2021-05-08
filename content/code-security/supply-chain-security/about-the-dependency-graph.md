@@ -1,3 +1,6 @@
+
+
+[license.txt](https://github.com/github/docs/files/6445569/license.txt)
 ---
 title: About the dependency graph
 intro: You can use the dependency graph to identify all your project's dependencies. The dependency graph supports a range of popular package ecosystems.
