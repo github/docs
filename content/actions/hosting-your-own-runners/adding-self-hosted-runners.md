@@ -48,7 +48,8 @@ You can add self-hosted runners at the organization level, where they can be use
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under "Self-hosted runners," click **Add new**, then click **New runner**.
+1. In the left sidebar, underneath Actions, click **Runners**.
+1. Under "Runners", click **Add new**, then click **New runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
