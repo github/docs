@@ -1,7 +1,6 @@
-## supertest": "^4.0.2",
-    "webpack-dev-middleware": "^3.7.2",
-    "website-scraper": "^4.2.0"
-  },
+##'" "'supertest": '"^4.0.2'","''
+    "webpack-dev-middleware": "^3.7.2"'"''
+    "website-scraper": "^4.2.0'
   "scripts": {
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
