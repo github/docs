@@ -1,12 +1,12 @@
 ---
 title: Unpublishing your GitHub Sponsors profile
-intro: 'If you don't have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
+intro: 'If you don''t have any sponsors, you can unpublish your {% data variables.product.prodname_sponsors %} profile.'
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'GitHub Sponsors'
+  - Open Source
+  - Sponsors payments
 ---
 
 If you have sponsors, you'll need to contact GitHub Support to help you unpublish your {% data variables.product.prodname_sponsors %} account.
