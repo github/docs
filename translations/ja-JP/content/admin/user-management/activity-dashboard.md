@@ -1,6 +1,6 @@
 ---
 title: アクティビティダッシュボード
-intro: 'アクティビティダッシュボードで、Enterprise 内のすべてのアクティビティの概要を確認できます。'
+intro: アクティビティダッシュボードで、Enterprise 内のすべてのアクティビティの概要を確認できます。
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 アクティビティダッシュボードには、次の数値の週次、月次、年次のグラフが表示されます。

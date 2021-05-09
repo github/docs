@@ -10,14 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
-  - 操作开发
+  - Action development
   - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -83,7 +85,7 @@ runs:
 
 工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包提供一个接口，用于工作流程命令、输入和输出变量、退出状态以及调试消息。
 
-工具包还提供 [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) 包，用于返回经验证的 Octokit REST 客户端和访问 GitHub 操作上下文。
+工具包还提供 [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) 包，用于返回经验证的 Octokit REST 客户端和访问 GitHub Actions 上下文。
 
 工具包不止提供 `core` 和 `github` 包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
@@ -149,13 +151,13 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ### `who-to-greet`
 
-**必填** 要问候的人员的姓名。 默认值为 `"World"`。
+**Required** The name of the person to greet. Default `"World"`.
 
 ## Outputs
 
 ### `time`
 
-我们问候您的时间。
+The time we greeted you.
 
 ## Example usage
 
@@ -245,8 +247,8 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      # 要使用此仓库的私有操作，
-      # 您必须检出仓库
+      # To use this repository's private action,
+      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
@@ -254,15 +256,15 @@ jobs:
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
-      # 使用来自 `hello` 步骤的输出
+      # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
 {% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)

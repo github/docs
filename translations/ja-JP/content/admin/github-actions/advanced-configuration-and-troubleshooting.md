@@ -4,5 +4,7 @@ intro: '{% data variables.product.prodname_actions %} の高可用性を設定�
 mapTopic: true
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 

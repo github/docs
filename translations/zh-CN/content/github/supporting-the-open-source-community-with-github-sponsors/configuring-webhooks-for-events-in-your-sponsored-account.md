@@ -3,6 +3,8 @@ title: 为赞助帐户中的事件配置 web 挂钩
 intro: 您可以配置 web 挂钩以在您获得新的赞助或现有赞助者更改其赞助时收到提醒。
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于被赞助帐户中事件的 web 挂钩

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 [Sort] メニューを使用して、関連性、Star の数、フォークの数、およびアイテムの更新の頻度で検索結果をソートできます。

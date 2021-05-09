@@ -1,6 +1,6 @@
 ---
 title: 搜索审核日志
-intro: '站点管理员可以在企业上搜索已审核操作的广泛列表。'
+intro: 站点管理员可以在企业上搜索已审核操作的广泛列表。
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 搜索查询语法

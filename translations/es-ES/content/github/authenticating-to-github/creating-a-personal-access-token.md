@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas para la autenticación en {% data variables.product.product_name %} cuando utilizas la [API de GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) o la [línea de comandos](#using-a-token-on-the-command-line).
@@ -26,10 +29,22 @@ Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas p
 {% data reusables.user_settings.personal_access_tokens %}
 4. Haz clic en **Generar un nuevo token**. ![Generar el botón para el nuevo token](/assets/images/help/settings/generate_new_token.png)
 5. Asígnale a tu token un nombre descriptivo. ![Campo para la descripción del token](/assets/images/help/settings/token_description.png)
-6. Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona **repo**. ![Seleccionar los alcances del token](/assets/images/help/settings/token_scopes.gif)
+6. Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona **repo**.
+   {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+   ![Seleccionar los alcances del token](/assets/images/help/settings/token_scopes.gif)
+   {% elsif currentVersion == "github-ae@latest" %}
+   ![Seleccionar los alcances del token](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
+   {% endif %}
 7. Haz clic en **Generar token**. ![Generar un botón para el token](/assets/images/help/settings/generate_token.png)
-8. Haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar el token en tu portapapeles. Por razones de seguridad, después de que navegas fuera de la página, no podrás ver el token nuevamente.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Da clic en
+{% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 
@@ -42,7 +57,7 @@ Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas p
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Los tokens de acceso personal solo se pueden usar para operaciones HTTPS Git. Si tu repositorio usa una URL SSH remota, necesitarás [pasar de la URL SSH remota a HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
+Los tokens de acceso personal solo se pueden usar para operaciones HTTPS Git. Si tu repositorio usa una URL SSH remota, necesitarás [pasar de la URL SSH remota a HTTPS](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
 Si no se te solicita tu nombre de usuario y contraseña, tus credenciales pueden estar almacenadas en la caché de tu computadora. Puedes [actualizar tus credenciales en la keychain](/articles/updating-credentials-from-the-osx-keychain) para reemplazar tu contraseña anterior con el token.
 

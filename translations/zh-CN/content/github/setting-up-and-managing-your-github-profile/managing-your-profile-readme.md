@@ -4,6 +4,8 @@ intro: '可以向您的 {% data variables.product.prodname_dotcom %} 个人资�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+topics:
+  - Profiles
 ---
 
 ### 关于您的个人资料自述文件

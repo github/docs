@@ -1,6 +1,6 @@
 ---
 title: 查看推送日志
-intro: '站点管理员可以查看企业上任何仓库的 Git 推送操作列表。'
+intro: 站点管理员可以查看企业上任何仓库的 Git 推送操作列表。
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 推送日志条目会显示：
@@ -22,9 +24,9 @@ versions:
 
 ### 查看仓库的推送日志
 
-1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
+1. 以站点管理员的身份登录 {% data variables.product.prodname_ghe_server %} 。
 1. 导航到仓库。
-1. In the upper-right corner of the repository's page, click
+1. 在仓库页面的右上角，单击
 {% octicon "rocket" aria-label="The rocket ship" %}。
     ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}

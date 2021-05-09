@@ -1,5 +1,5 @@
 ---
-title: Managing organizations in your enterprise
+title: Enterprise の Organization を管理する
 redirect_from:
   - /enterprise/admin/articles/adding-users-and-teams/
   - /enterprise/admin/categories/admin-bootcamp/
@@ -10,5 +10,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

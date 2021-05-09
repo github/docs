@@ -1,6 +1,6 @@
 ---
 title: 活动仪表板
-intro: '活动仪表板提供企业中所有活动的概览。'
+intro: 活动仪表板提供企业中所有活动的概览。
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 活动仪表板提供以下活动数量的周图、月度图和年度图表：

@@ -20,7 +20,7 @@ prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
+  {% if enterpriseServerVersions contains currentVersion %}sua instância do GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}a sua empresa{% else %}GitHub{% endif %}
 #Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 #Do not use in other situations!
 product_location_enterprise: 'sua instância do GitHub Enterprise Server'
@@ -37,10 +37,10 @@ prodname_unified_search: 'pesquisa unificada'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
-prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
+prodname_education_community_with_url: 'a [Comunidade de Treinamento do GitHub](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
-prodname_campus_program: 'GitHub Campus Program'
+prodname_campus_program: 'Programa de campus do GitHub'
 prodname_student_pack: 'GitHub Student Developer Pack'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -63,11 +63,11 @@ prodname_github_apps: 'Aplicativos do GitHub'
 prodname_oauth_app: 'aplicativo OAuth'
 prodname_oauth_apps: 'Aplicativos OAuth'
 #API and developer docs
-prodname_enterprise_api: 'the {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %} APIs'
+prodname_enterprise_api: 'As APIs do {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% endif %}'
 prodname_support_forum_with_url: '[Fórum de Suporte e Desenvolvimento de API GitHub](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Anexos do conteúdo'
 #Azure AD
-ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
+ae_azure_ad_app_link: 'o [aplicativo GitHub AE](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
@@ -87,6 +87,8 @@ prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 #GitHub Advanced Security
 prodname_GH_advanced_security: 'Segurança Avançada GitHub'
 prodname_advanced_security: 'Segurança Avançada'
+#Security Center
+prodname_security_center: 'Security Center'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_vs_codespaces: 'Espaços de códigos Visual Studio'
@@ -126,9 +128,9 @@ prodname_vss_ghe: 'Assinatura do Visual Studio com GitHub Enterprise'
 prodname_vss_admin_portal_with_url: '[portal de administrador para assinaturas do Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
-prodname_dependabot_alerts: 'Dependabot alerts'
-prodname_dependabot_security_updates: 'Dependabot security updates'
-prodname_dependabot_version_updates: 'Dependabot version updates'
+prodname_dependabot_alerts: 'Alertas do Dependabot'
+prodname_dependabot_security_updates: 'Atualizações de segurança do Dependabot'
+prodname_dependabot_version_updates: 'Atualizações de versão do Dependabot'
 #GitHub Archive Program
 prodname_archive: 'Programa Arquivo do GitHub'
 prodname_arctic_vault: 'Cofre de Código do Ártico'

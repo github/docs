@@ -1,9 +1,11 @@
 ---
 title: Sobre a identidade e gestão de acesso para a sua conta corporativa
-intro: Você pode gerenciar centralmente o acesso aos recursos da sua empresa, associação da organização da equipe usando seu provedor de identidade (IdP).
+intro: 'Você pode gerenciar centralmente o acesso aos recursos da sua empresa, associação da organização da equipe usando seu provedor de identidade (IdP).'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre a identidade e gestão de acesso para a sua conta corporativa

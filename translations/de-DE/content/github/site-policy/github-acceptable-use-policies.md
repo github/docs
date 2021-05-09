@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **Kurzversion:** _Wir hosten die unterschiedlichsten Projekte aus der ganzen Welt, an denen viele Benutzer gemeinsam arbeiten. Diese Zusammenarbeit funktioniert nur, wenn unsere Benutzer in gutem Glauben miteinander arbeiten können. Während Sie den Dienst nutzen, müssen Sie unsere akzeptablen Nutzungsbedingungen einhalten. Dazu gehören auch Einschränkungen hinsichtlich der Inhalte, die Sie veröffentlichen können, Ihres Verhaltens bei der Dienstnutzung und andere Beschränkungen. Kurz gesagt erwarten wir einen freundlichen Umgang miteinander._

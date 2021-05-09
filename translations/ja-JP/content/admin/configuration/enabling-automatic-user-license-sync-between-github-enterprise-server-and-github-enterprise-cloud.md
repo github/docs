@@ -4,9 +4,11 @@ intro: '{% data variables.product.product_location_enterprise %}を{% data varia
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
   - /enterprise/admin/configuration/enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud
-permissions: '接続されている{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、ユーザライセンスの自動同期を有効化できます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable automatic user license synchronization.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### ライセンスの同期について

@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Quando houver um servidor proxy habilitado para a {% data variables.product.product_location %}, as mensagens de saída enviadas para o {% data variables.product.prodname_ghe_server %} sairão primeiramente pelo servidor proxy, a menos que o host de destino seja adicionado como exclusão de proxy HTTP. Os tipos de mensagens de saída incluem webhooks de saída, pacotes para upload e fetch de avatares herdados. A URL do servidor proxy é o protocolo, domínio ou endereço IP e o número da porta, por exemplo: `http://127.0.0.1:8123`.

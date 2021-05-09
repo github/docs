@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Crear ganchos de pre-recepción
@@ -54,4 +56,4 @@ Un propietario de repositorio solo puede configurar un gancho si el administrado
 2. Haz clic en **Repositories** (Repositorios) y selecciona el repositorio para el que deseas configurar los ganchos de pre-recepción. ![Repositorios](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
 4. En la barra lateral izquierda, haz clic en **Hooks & Services** (Ganchos y Servicios). ![Ganchos y servicios](/assets/images/enterprise/repos/hooks-services.png)
-5. Junto al gancho de pre-recepción que deseas configurar, haz clic en el menú desplegable **Hook permissions** (Permisos del gancho). Selecciona si deseas habilitar o inhabilitar el gancho de pre-recepción. ![Permisos para ganchos de repositorios](/assets/images/enterprise/repos/repo-hook-permissions.png)
+5. Junto al gancho de pre-recepción que deseas configurar, haz clic en el menú desplegable **Hook permissions** (Permisos del gancho). Selecciona si deseas habilitar o inhabilitar el gancho de pre-recepción. ![Permisos de gancho del repositorio](/assets/images/enterprise/repos/repo-hook-permissions.png)

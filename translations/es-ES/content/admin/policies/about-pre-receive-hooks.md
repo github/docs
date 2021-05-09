@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Cuando se produce una subida, cada script se ejecuta en un entorno aislado y puede realizar verificaciones en el contenido que se subió. Los scripts provocarán la aceptación de la subida si el estado de salida es 0, o rechazado si el estado de salida no es cero.
@@ -17,7 +19,7 @@ Ejemplos de cómo usar los ganchos de pre-recepción:
 
 - Requerir mensajes de confirmación para seguir un patrón o formato específico, como incluir un número de ticket válido o finalizar luego de una determinada duración.
 - Buscar una rama o repositorio al rechazar todas las subidas.
-- Impedir que se agreguen datos sensibles al repositorio al bloquear palabras clave, patrones o tipos de archivo.
+- Impedir que los datos sensibles se agreguen al repositorio al bloquear las palabras clave, patrones o tipos de archivo.
 - Impedir que un autor PR se fusione con sus propios cambios.
 
 ### Impactar en el rendimiento y los flujos de trabajo flujo de trabajo

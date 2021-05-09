@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %}
@@ -45,7 +47,7 @@ versions:
 - [讨论](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [代码](/articles/searching-code)
 - [提交](/articles/searching-commits)
-- [用户](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [用户](/articles/searching-users){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 - [包](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wikis](/articles/searching-wikis)
 

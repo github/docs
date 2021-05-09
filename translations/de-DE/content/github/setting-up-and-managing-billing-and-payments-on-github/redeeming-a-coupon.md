@@ -8,9 +8,13 @@ redirect_from:
   - /articles/redeeming-a-coupon
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data variables.product.product_name %} kann für eine Zahlung, die vor dem Einlösen eines Gutscheins erfolgt, keine Rückerstattung gewähren. Auch kann ein eingelöster Gutschein weder übertragen noch erneut ausgestellt werden, wenn Du ihn auf das falsche Konto anwendest. Vergewissere Dich daher vor dem Einlösen eines Gutscheins, dass Du ihn für das richtige Konto verwendest.
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 Gutscheine können nicht auf bezahlte Pläne für {% data variables.product.prodname_marketplace %}-Apps angewendet werden.
 

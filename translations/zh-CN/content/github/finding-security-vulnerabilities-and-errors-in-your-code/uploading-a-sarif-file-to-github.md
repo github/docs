@@ -2,13 +2,12 @@
 title: 将 SARIF 文件上传到 GitHub
 shortTitle: 上传 SARIF 文件
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: '拥有仓库写入权限的人可从第三方工具上传 {% data variables.product.prodname_code_scanning %} 数据。'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -18,14 +17,14 @@ versions:
 
 {% data variables.product.prodname_dotcom %} 使用静态分析结果交换格式 (SARIF) 文件中的信息创建 {% data variables.product.prodname_code_scanning %} 警报。 SARIF 文件可通过在用于上传文件的 {% data variables.product.prodname_actions %} 工作流程中运行的 SARIF 兼容分析工具生成。 或者，当文件生成为仓库外部的构件时， 您可以直接将 SARIF 文件推送到仓库，并使用工作流程上传 SARIF 文件。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
-您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 更多信息请参阅“[关于代码扫描的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning)”。
+您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 更多信息请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)”。
 
 您可以使用 {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %} （如果您的组织正在参与测试计划，则可以使用）{% endif %}、{% data variables.product.prodname_code_scanning %} API 或 {% data variables.product.prodname_codeql_runner %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
 
 - {% data variables.product.prodname_actions %} 来运行 {% data variables.product.prodname_codeql %} 操作，则无需进一步操作。 {% data variables.product.prodname_codeql %} 操作在完成分析后自动上传 SARIF 文件。
 - "[管理工作流程运行](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)"
-- {% data variables.product.prodname_dotcom %} 将在仓库中显示来自上传的 SARIF 文件的 {% data variables.product.prodname_code_scanning %} 警报。 如果您阻止自动上传，在准备上传结果时可以使用 `upload` 命令（更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”）。
-- 作为仓库外部构件生成结果的工具，您可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（更多信息请参阅“[上传 SARIF 文件](/rest/reference/code-scanning#upload-a-sarif-file)”）。
+- {% data variables.product.prodname_dotcom %} 将在仓库中显示来自上传的 SARIF 文件的 {% data variables.product.prodname_code_scanning %} 警报。 如果您阻止自动上传，在准备上传结果时可以使用 `upload` 命令（更多信息请参阅“[在 CI 系统中运行 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”）。
+- 作为仓库外部构件生成结果的工具，您可以使用 {% data variables.product.prodname_code_scanning %} API 上传文件（更多信息请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”）。
 
 {% data reusables.code-scanning.not-available %}
 
@@ -37,7 +36,7 @@ versions:
 
 `upload-sarif` 操作可配置为在 `push` and `scheduled` 事件发生时运行。 有关 {% data variables.product.prodname_actions %} 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
 
-如果您的 SARIF 文件不含 `partialFingerprints`，则 `upload-sarif` 操作将为您计算 `partialFingerprints` 字段，并尝试防止重复警报。 {% data variables.product.prodname_dotcom %} 仅当仓库同时包含 SARIF 文件和静态分析中使用的源代码时才能创建 `partialFingerprints`。 有关防止重复警报的更多信息，请参阅“[关于代码扫描的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)”。
+如果您的 SARIF 文件不含 `partialFingerprints`，则 `upload-sarif` 操作将为您计算 `partialFingerprints` 字段，并尝试防止重复警报。 {% data variables.product.prodname_dotcom %} 仅当仓库同时包含 SARIF 文件和静态分析中使用的源代码时才能创建 `partialFingerprints`。 有关防止重复警报的更多信息，请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)”。
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -55,11 +54,11 @@ versions:
 name: "Upload SARIF"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Friday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 5'
 
 jobs:
   build:
@@ -87,11 +86,11 @@ jobs:
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Monday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 1'
 
 jobs:
   build:
@@ -114,5 +113,5 @@ jobs:
 
 - "[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)"
 - "[查看工作流程历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)"
-- "[在 CI 系统中运行 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
-- "[上传 SARIF 文件](/rest/reference/code-scanning#upload-a-sarif-file)"
+- "[在 CI 系统中运行 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
+- “[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”

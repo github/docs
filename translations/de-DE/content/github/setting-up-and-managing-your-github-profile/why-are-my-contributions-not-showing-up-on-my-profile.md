@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Gezählte Beiträge
@@ -23,7 +25,7 @@ Commits werden in Deinem Beteiligungsdiagramm angezeigt, falls sie **alle** folg
   - In the repository's default branch
   - im `gh-pages`-Branch vorgenommen (für Repositorys mit Projekt-Websites)
 
-Weitere Informationen zu Projektwebsites findest Du unter „[Über {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Außerdem muss **mindestens eine** der folgenden Voraussetzung erfüllt sein:
 - Du bist ein Repository-Mitarbeiter oder ein Mitglied der Organisation, welcher das Repository gehört.
@@ -64,7 +66,7 @@ Es ist nicht möglich, {% data variables.product.product_name %}-Konten generisc
 
 #### Commit wurde weder auf dem Standard- noch auf dem `gh-pages`-Branch durchgeführt
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Falls sich Deine Commits auf einem Nicht-Standard- oder Nicht-`gh-pages`-Branch befinden und sie auf Deine Beiträge angerechnet werden sollen, musst Du eine der folgenden Aktionen durchführen:
 - [Öffne einen Pull Request](/articles/creating-a-pull-request), damit Deine Änderungen in den Standardbranch oder in den `gh-pages`-Branch zusammengeführt werden.

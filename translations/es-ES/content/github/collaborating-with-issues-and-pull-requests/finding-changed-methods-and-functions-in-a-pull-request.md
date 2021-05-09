@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Cualquier usuario con acceso de lectura a un repositorio puede ver una lista resumida de los cambios en las funciones y los métodos en determinados archivos o solicitud de extracción.

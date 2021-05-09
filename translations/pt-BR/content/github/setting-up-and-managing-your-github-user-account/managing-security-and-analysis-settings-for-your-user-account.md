@@ -3,6 +3,8 @@ title: Gerenciar as configurações de segurança e análise para a sua conta de
 intro: 'Você pode controlar recursos que protegem e analisam o código nos seus projetos no {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Sobre a gestão de configurações de segurança e análise
@@ -24,6 +26,8 @@ Para obter uma visão geral da segurança do repositório, consulte "[Sobre como
 3. Em "Configurar recursos de segurança e análise" à direita do recurso, clique em **Desabilitar tudo** ou **Habilitar tudo**. ![Botão "Habilitar tudo" ou "Desabilitar tudo" para os recursos de "Configurar segurança e análise"](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png)
 6. Opcionalmente, habilite o recurso para novos repositórios na organização por padrão. ![Opção de "Habilitar por padrão" para novos repositórios](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
 7. Clique em **Desabilitar RECURSO** ou **Habilitar RECURSO** para habilitar ou desabilitar o recurso para todos os repositórios que você possui. ![Botão para desabilitar ou habilitar recurso](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
+
+{% data reusables.security.displayed-information %}
 
 ### Habilitar ou desabilitar recursos para novos repositórios
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Ao configurar o SSH, você vai [gerar uma chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) e, em seguida, [adicionar a chave à sua conta do {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account). Adicionar a chave SSH ao ssh-agent garante que sua chave SSH tenha uma camada extra de segurança por meio do uso de uma frase secreta. Para obter mais informações, consulte "[Trabalhar com frases secretas da chave SSH](/articles/working-with-ssh-key-passphrases)".

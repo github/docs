@@ -1,12 +1,14 @@
 ---
 title: GitHub Enterprise を設定する
 shortTitle: GitHub Enterprise を設定する
-intro: "You can configure your enterprise to suit your organization's needs."
+intro: Organization のニーズに合わせて Enterprise を設定できます。
 redirect_from:
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}

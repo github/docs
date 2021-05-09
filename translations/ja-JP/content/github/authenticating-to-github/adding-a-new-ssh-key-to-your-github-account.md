@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 新しい SSH キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
 * [既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)
 * [新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-新しい SSH キーを {% data variables.product.product_name %}アカウントに追加したら、任意のローカルリポジトリで SSH を使うように再設定できます。 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)を参照してください。
+新しい SSH キーを {% data variables.product.product_name %}アカウントに追加したら、任意のローカルリポジトリで SSH を使うように再設定できます。 詳しい情報については[リモート URL の HTTPS から SSH への切り替え](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)を参照してください。
 
 {% data reusables.ssh.dsa-support %}
 

@@ -4,7 +4,7 @@ intro: '您可以安装 {% data variables.product.prodname_insights %} 并将独
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
-permissions: '{% data variables.product.prodname_enterprise %} 中对 "github/insights-releases" 仓库具有读取权限以及对应用程序服务器具有管理权限的组织所有者可以安装 {% data variables.product.prodname_insights %}。'
+permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---
@@ -33,17 +33,17 @@ versions:
 {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-5. 单击**新建 {% data variables.product.prodname_github_app %}**。 ![新建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_new.png)
-6. 在“{% data variables.product.prodname_github_app %} 名称”下，输入应用程序的名称。 您的应用程序不能与现有用户或组织同名，除非该名称是您自己拥有的用户或组织名称。 ![GitHub 应用程序名称字段](/assets/images/help/apps/github_apps_app_name.png)
-7. 在“Homepage URL（主页 URL）”下，输入用于 {% data variables.product.prodname_insights %} 的应用程序服务器的 URL。 更多信息请参阅“[{% data variables.product.prodname_insights %} 的系统概述](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)”。 ![主页 URL 字段](/assets/images/help/apps/github_apps_homepage_url.png)
+5. 单击**新建 {% data variables.product.prodname_github_app %}**。 ![新建 GitHub 应用程序按钮](/assets/images/github-apps/github_apps_new.png)
+6. 在“{% data variables.product.prodname_github_app %} 名称”下，输入应用程序的名称。 您的应用程序不能与现有用户或组织同名，除非该名称是您自己拥有的用户或组织名称。 ![GitHub 应用程序名称字段](/assets/images/github-apps/github_apps_app_name.png)
+7. 在“Homepage URL（主页 URL）”下，输入用于 {% data variables.product.prodname_insights %} 的应用程序服务器的 URL。 更多信息请参阅“[{% data variables.product.prodname_insights %} 的系统概述](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)”。 ![主页 URL 字段](/assets/images/github-apps/github_apps_homepage_url.png)
 8. 在“User authorization callback URL（用户授权回调 URL）”下，输入以下内容，将 `<application-server-url>` 替换为应用程序服务器的 URL。
    ```
    <application-server-url>/public/applogin
    ```
-   ![用户授权回调字段](/assets/images/help/apps/github_apps_user_authorization.png)
+   ![用户授权回调字段](/assets/images/github-apps/github_apps_user_authorization.png)
 9. 在“Setup URL（设置 URL）”下，输入 `<application-server-url>/public/setup`。 ![设置 URL 字段](/assets/images/help/apps/github-apps-setup-url.png)
-9. 在“Webhook URL（Web 挂钩 URL）”，输入 `<application-server-url>/webhooks`。 ![Web 挂钩 URL 字段](/assets/images/help/apps/github_apps_webhook_url.png)
-10. 在“Webhook secret（Web 挂钩密码）”下，输入密码，然后记录该密码供以后参考。 ![Web 挂钩密码字段](/assets/images/help/apps/github_apps_webhook_secret.png)
+9. 在“Webhook URL（Web 挂钩 URL）”，输入 `<application-server-url>/webhooks`。 ![Web 挂钩 URL 字段](/assets/images/github-apps/github_apps_webhook_url.png)
+10. 在“Webhook secret（Web 挂钩密码）”下，输入密码，然后记录该密码供以后参考。 ![Web 挂钩密码字段](/assets/images/github-apps/github_apps_webhook_secret.png)
 11. 在“Permissions（权限）”下，使用下拉菜单为应用程序配置以下权限。
     - 仓库:
       - 内容：**Read-only（只读）**
@@ -63,7 +63,7 @@ versions:
     - 团队 ![订阅事件复选框](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
 13. 要启用 {% data variables.product.prodname_github_app %} 访问 {% data variables.product.product_location %} 中任何用户或组织的数据，请在“此 {% data variables.product.prodname_github_app %} 可安装在何处？”下，选择 **Any account（任何帐户）**。 ![启用访问任何帐户的单选按钮](/assets/images/help/apps/github_apps_installation_options_any_account.png)
-14. 单击**创建 {% data variables.product.prodname_github_app %}**。 ![创建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_create_github_app.png)
+14. 单击**创建 {% data variables.product.prodname_github_app %}**。 ![创建 GitHub 应用程序按钮](/assets/images/github-apps/github_apps_create_github_app.png)
 15. 检查应用程序的配置。
 16. 在“Private keys（私钥）”下，单击 **Generate a private key（生成私钥）**。 ![生成私钥按钮](/assets/images/help/apps/generate-private-key.png)
 17. 保存生成的 PEM 文件供以后参考。

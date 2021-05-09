@@ -4,12 +4,14 @@ intro: 'Después de generar un archivo de migración, puedes importar los datos 
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
-  - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
+  - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
   - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Preparar los datos migrados para importarlos a {% data variables.product.prodname_ghe_server %}
@@ -128,13 +130,13 @@ Se puede usar el mismo proceso para crear asignaciones para cada registro que ad
 
 #### Aplicar datos de migración modificados
 
-1. Después de hacer cambios, usa el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar el *conflicts.csv* modificado (o cualquier otro csv de asignación en el formato correcto) a la instancia de destino:
+1. Después de hacer los cambios, utiliza el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar tu *conflicts.csv* modificado (o cualquier otro archivo de mapeo *.csv* en el formato correcto) a la instancia destino:
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. Vuelve a asignar los datos de migración con el comando `ghe-migrator map`, pasando la ruta al archivo csv modificado y al GUID de migración:
+2. Vuelve a mapear los datos de la migración utilizando el comando `ghe-migrator map`, pasando la ruta a tu archivo *.csv* modificado y a la GUID de la migración:
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>

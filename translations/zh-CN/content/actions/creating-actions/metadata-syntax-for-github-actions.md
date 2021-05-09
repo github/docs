@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的元数据语法
+title: GitHub Actions 的元数据语法
 shortTitle: 元数据语法
 intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
 product: '{% data reusables.gated-features.actions %}'
@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
@@ -56,11 +58,11 @@ inputs:
 
 在指定工作流程文件中某个操作的输入或者使用默认输入值时，{% data variables.product.prodname_dotcom %} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
 
-例如，如果工作流程定义了 numOctocats and octocatEyeColor 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
+例如，如果工作流程定义了 `numOctocats` 和 `octocatEyeColor` 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
 
 #### `inputs.<input_id>`
 
-**必要** 要与输入关联的 `string` 识别符。 `<input_id>` 的值是输入元数据的映射。 `<input_id>` 必须是 `inputs` 对象中的唯一识别符。 `<input_id>` 必须以字母或 `_` 开头，并且只能包含字母数字、`-` 或 `_`。
+**必要** 要与输入关联的 `string` 识别符。 `<input_id>` 的值是输入元数据的映射。 `<input_id>` 必须是 `inputs` 对象中的唯一识别符。 `<input_id>` 必须以字母或 `_` 开关，并且只能包含字母数字、`-` 或 `_`。
 
 #### `inputs.<input_id>.description`
 
@@ -73,6 +75,10 @@ inputs:
 #### `inputs.<input_id>.default`
 
 **可选** 表示默认值的 `string`。 当工作流程文件中未指定输入参数时使用默认值。
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**可选** 如果使用输入参数，此 `string` 将记录为警告消息。 您可以使用此警告通知用户输入已被弃用，并提及任何其他替代方式。
 
 ### `outputs`
 
@@ -310,7 +316,7 @@ runs:
 
 ##### `runs.steps[*].env`
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
+**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
 
 
 
@@ -383,7 +389,7 @@ runs:
 
 #### `runs.image`
 
-**必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，请使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
+**必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，文件必须命名为 `Dockerfile`，并且您必须使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
 
 
 
@@ -485,7 +491,7 @@ branding:
 
 <table>
 <tr>
-<td>活动</td>
+<td>activity</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -500,7 +506,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>存档</td>
+<td>archive</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -578,10 +584,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>代码</td>
+<td>code</td>
 </tr>
 <tr>
-<td>命令</td>
+<td>command</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -624,18 +630,18 @@ branding:
 </tr>
 <tr>
 <td>facebook</td>
-<td>快进</td>
+<td>fast-forward</td>
 <td>feather</td>
 <td>file-minus</td>
 </tr>
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>文件</td>
+<td>file</td>
 <td>film</td>
 </tr>
 <tr>
-<td>过滤</td>
+<td>filter</td>
 <td>flag</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
@@ -654,7 +660,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>哈希</td>
+<td>hash</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -756,7 +762,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>倒回</td>
+<td>rewind</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -781,7 +787,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>边栏</td>
+<td>sidebar</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -793,7 +799,7 @@ branding:
 <tr>
 <td>speaker</td>
 <td>square</td>
-<td>星标</td>
+<td>star</td>
 <td>stop-circle</td>
 </tr>
 <tr>
@@ -803,7 +809,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>标记</td>
+<td>tag</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -833,15 +839,15 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>上传</td>
+<td>upload</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>用户</td>
-<td>用户</td>
+<td>user</td>
+<td>users</td>
 <td>video-off</td>
 </tr>
 <tr>
@@ -853,7 +859,7 @@ branding:
 <tr>
 <td>volume-x</td>
 <td>volume</td>
-<td>查看</td>
+<td>watch</td>
 <td>wifi-off</td>
 </tr>
 <tr>

@@ -97,7 +97,12 @@ module.exports = function (app) {
   app.use(asyncMiddleware(instrument('./archived-enterprise-versions')))
   app.use(instrument('./robots'))
   app.use(/(\/.*)?\/early-access$/, instrument('./contextualizers/early-access-links'))
-  app.use(asyncMiddleware(instrument('./categories-for-support-team')))
+  if (!process.env.FEATURE_NEW_SITETREE) {
+    app.use('/categories.json', asyncMiddleware(instrument('./categories-for-support-team')))
+  }
+  if (process.env.FEATURE_NEW_SITETREE) {
+    app.use('/categories.json', asyncMiddleware(instrument('./categories-for-support')))
+  }
   app.use(instrument('./loaderio-verification'))
   app.get('/_500', asyncMiddleware(instrument('./trigger-error')))
 
@@ -109,15 +114,33 @@ module.exports = function (app) {
   app.use(instrument('./contextualizers/graphql'))
   app.use(instrument('./contextualizers/rest'))
   app.use(instrument('./contextualizers/webhooks'))
-  app.use(asyncMiddleware(instrument('./breadcrumbs')))
-  app.use(asyncMiddleware(instrument('./early-access-breadcrumbs')))
-  app.use(asyncMiddleware(instrument('./enterprise-server-releases')))
+  app.use(asyncMiddleware(instrument('./contextualizers/whats-new-changelog')))
+  app.use(instrument('./contextualizers/layout'))
+
+  if (!process.env.FEATURE_NEW_SITETREE) {
+    app.use(asyncMiddleware(instrument('./breadcrumbs')))
+    app.use(asyncMiddleware(instrument('./early-access-breadcrumbs')))
+  }
+
+  if (process.env.FEATURE_NEW_SITETREE) {
+    app.use(asyncMiddleware(instrument('./contextualizers/render-tree-titles')))
+    app.use(instrument('./contextualizers/current-product-tree'))
+    app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
+    app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))
+    app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
+  }
+
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
   app.use(asyncMiddleware(instrument('./learning-track')))
 
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))
+
+  // handle serving NextJS bundled code (/_next/*)
+  if (process.env.FEATURE_NEXTJS) {
+    app.use(instrument('./next'))
+  }
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

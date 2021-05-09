@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, deberías haber:
 * [Comprobado tus claves SSH existentes](/articles/checking-for-existing-ssh-keys)
 * [Generado una clave SSH nueva y haberla agregado al agente ssh](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product.product_name %}, puedes reconfigurar los repositorios locales para usar SSH. Para obtener más información, consulta "[Alternar URL remota de HTTPS a SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)".
+Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product.product_name %}, puedes reconfigurar los repositorios locales para usar SSH. Para obtener más información, consulta "[Alternar URL remota de HTTPS a SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
 {% data reusables.ssh.dsa-support %}
 

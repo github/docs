@@ -11,13 +11,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 有关身份验证信息，请参阅“[使用 GitHub 应用程序进行身份验证](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
 ### 公共安装流程
 
-公共安装流程有一个供用户开始安装流程的登录页面。 设置您的 GitHub 应用程序时，在“Public link（公共链接）”字段中提供此链接。 更多信息请参阅“[安装 GitHub 应用程序](/apps/installing-github-apps/)”。
+公共安装流程有一个登录页面，可让除应用程序所有者以外的其他人在他们的仓库中安装应用程序。 设置您的 GitHub 应用程序时，在“Public link（公共链接）”字段中提供此链接。 更多信息请参阅“[安装 GitHub 应用程序](/apps/installing-github-apps/)”。
 
 ### 私有安装流程
 

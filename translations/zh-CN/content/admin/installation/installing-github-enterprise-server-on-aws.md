@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 基本要求
@@ -21,6 +23,9 @@ versions:
  - [使用安全组](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)（用于管理对实例的网络访问）
  - [弹性 IP 地址 (EIP)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)（强烈建议用于生产环境）
  - [EC2 和 Virtual Private Cloud](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html)（如果计划启动到 Virtual Private Cloud）
+ - [AWS 定价](https://aws.amazon.com/pricing/)（用于计算和管理成本）
+
+ 本指南建议在 AWS 上设置 {% data variables.product.product_location %} 时使用最小权限原则。 更多信息请参阅 [AWS 身份和访问管理 (IAM) 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)。
 
 ### 硬件考量因素
 
@@ -28,17 +33,11 @@ versions:
 
 ### 确定实例类型
 
-在 AWS 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
-
-#### 支持的实例类型
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 建议的实例类型
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+在 AWS 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的设备类型。 要查看 {% data variables.product.product_name %} 的最低要求，请参阅“[最低要求](#minimum-requirements)”。
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### 选择 {% data variables.product.prodname_ghe_server %} AMI
 
@@ -130,5 +129,5 @@ aws ec2 run-instances \
 
 ### 延伸阅读
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[系统概述](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

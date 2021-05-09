@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Consideraciones de red
@@ -42,34 +44,34 @@ No se requieren puertos administrativos para el uso de la aplicación básica po
 
 Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberán estar accesibles. La comunicación entre los nodos no está cifrada. Estos puertos no deberían estar accesibles externamente.
 
-| Port (Puerto) | Descripción                           |
-|:------------- |:------------------------------------- |
-| 1336/TCP      | API interna                           |
-| 3033/TCP      | Acceso SVN interno                    |
-| 3037/TCP      | Acceso SVN interno                    |
-| 3306/TCP      | MySQL                                 |
-| 4486/TCP      | Acceso del gobernador                 |
-| 5115/TCP      | Respaldo de almacenamiento            |
-| 5208/TCP      | Acceso SVN interno                    |
-| 6379/TCP      | Redis                                 |
-| 8001/TCP      | Grafana                               |
-| 8090/TCP      | Acceso a GPG interno                  |
-| 8149/TCP      | Acceso al servidor de archivos GitRPC |
-| 8300/TCP      | Consul                                |
-| 8301/TCP      | Consul                                |
-| 8302/TCP      | Consul                                |
-| 9000/TCP      | Git Daemon                            |
-| 9102/TCP      | Servidor de archivos de páginas       |
-| 9105/TCP      | Servidor LFS                          |
-| 9200/TCP      | ElasticSearch                         |
-| 9203/TCP      | Servicio de código semántico          |
-| 9300/TCP      | ElasticSearch                         |
-| 11211/TCP     | Memcache                              |
-| 161/UDP       | SNMP                                  |
-| 8125/UDP      | Statsd                                |
-| 8301/UDP      | Consul                                |
-| 8302/UDP      | Consul                                |
-| 25827/UDP     | Collectd                              |
+| Port (Puerto) | Descripción                              |
+|:------------- |:---------------------------------------- |
+| 1336/TCP      | API interna                              |
+| 3033/TCP      | Acceso SVN interno                       |
+| 3037/TCP      | Acceso SVN interno                       |
+| 3306/TCP      | MySQL                                    |
+| 4486/TCP      | Acceso del gobernador                    |
+| 5115/TCP      | Respaldo de almacenamiento               |
+| 5208/TCP      | Acceso SVN interno                       |
+| 6379/TCP      | Redis                                    |
+| 8001/TCP      | Grafana                                  |
+| 8090/TCP      | Acceso a GPG interno                     |
+| 8149/TCP      | Acceso al servidor de archivos de GitRPC |
+| 8300/TCP      | Consul                                   |
+| 8301/TCP      | Consul                                   |
+| 8302/TCP      | Consul                                   |
+| 9000/TCP      | Git Daemon                               |
+| 9102/TCP      | Servidor de archivos de las páginas      |
+| 9105/TCP      | Servidor LFS                             |
+| 9200/TCP      | ElasticSearch                            |
+| 9203/TCP      | Servicio de código semántico             |
+| 9300/TCP      | ElasticSearch                            |
+| 11211/TCP     | Memcache                                 |
+| 161/UDP       | SNMP                                     |
+| 8125/UDP      | Statsd                                   |
+| 8301/UDP      | Consul                                   |
+| 8302/UDP      | Consul                                   |
+| 25827/UDP     | Collectd                                 |
 
 ### Configurar un balanceador de carga
 

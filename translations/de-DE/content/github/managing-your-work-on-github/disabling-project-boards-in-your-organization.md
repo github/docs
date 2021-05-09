@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Wenn Du organisationsweite Projektboards deaktiviert hast, kannst Du keine neuen Projektboards auf Organisationsebene mehr erstellen. Auf vorhandene Projektboards auf Organisationsebene kannst Du nicht mehr über deren frühere URL zugreifen. Projektboards in Repositorys in der Organisation sind nicht betroffen.

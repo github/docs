@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -17,6 +19,18 @@ versions:
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
+
+### 向互联网显示本地主机
+
+在本教程中，我们将使用本地服务器接收来自 {% data variables.product.prodname_dotcom %} 的消息。 因此，首先，我们需要将我们的本地发展环境显示给互联网。 我们将使用 ngrok 实现此目的。 所有主要操作系统均可免费使用 ngrok。 更多信息请参阅 [ngrok 下载页面](https://ngrok.com/download)。
+
+在安装 ngrok 后，您可以在命令行上运行 `./ngrok http 4567` 以暴露本地主机。 4567 是我们服务器侦听消息的端口号。 您应该会看到如下所示的行：
+
+```shell
+$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+```
+
+记录 `*.ngrok.io` URL。 我们将用它来设置 web 挂钩。
 
 ### 设置 web 挂钩
 
@@ -32,7 +46,7 @@ Web 挂钩需要设置几个配置选项才能使用。 我们将在下面介绍
 
 {% data reusables.webhooks.payload_url %}
 
-由于在本教程中，我们将在本地开发，因此将其设置为 `http://localhost:4567/payload`。 我们将在[配置服务器](/webhooks/configuring/)文档中解释原因。
+由于我们正在本地为教程开发，我们将把它设置为 `*.ngrok.io` URL，然后是 `/payload`。 例如 `http://7e9ea9dc.ngrok.io/payload`。
 
 ### 内容类型
 
@@ -58,7 +72,9 @@ Web 挂钩需要设置几个配置选项才能使用。 我们将在下面介绍
 
 由于我们的 web 挂钩与仓库中的议题相关，因此我们单击 **Let me select individual events（让我选择单个事件）**，然后单击 **Issues（议题）**。 确保选择 **Active（激活）**以接收触发 web 挂钩的议题事件。 您还可以使用默认选项选择所有事件。
 
-完成后，单击 **Add webhook（添加 web 挂钩）**。 唷！ 现在您创建了 web 挂钩，是时候设置我们的本地服务器来测试 web 挂钩了。 请参阅[配置服务器](/webhooks/configuring/)了解如何进行测试。
+完成后，单击 **Add webhook（添加 web 挂钩）**。
+
+现在您创建了 web 挂钩，是时候设置我们的本地服务器来测试 web 挂钩了。 请参阅[配置服务器](/webhooks/configuring/)了解如何进行测试。
 
 #### 通配符事件
 

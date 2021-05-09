@@ -5,6 +5,8 @@ redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 Bevor Du Dein Unternehmen verlässt, stelle sicher, dass Du die folgenden Angaben in Deinem Benutzerkonto aktualisierst:

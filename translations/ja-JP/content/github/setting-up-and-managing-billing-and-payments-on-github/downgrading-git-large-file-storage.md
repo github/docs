@@ -7,6 +7,8 @@ redirect_from:
   - /articles/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 データパック数をダウングレードすると、その変更は次回の支払日から有効になります。 詳細は「[{% data variables.large_files.product_name_long %} の支払いについて](/articles/about-billing-for-git-large-file-storage)」を参照してください。

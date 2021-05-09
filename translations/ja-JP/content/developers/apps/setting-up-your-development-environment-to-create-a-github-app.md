@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -115,7 +117,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
     ![webhookのシークレットが入力されたフォーム](/assets/images/webhook-secret.png)
 
-* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 このページはデフォルト値のままにしておいてください。 このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
+* Permissions & Webhooks（権限とwebhook）ページでは、アプリケーションの権限セットを指定できます。これによって、アプリケーションがどれだけのデータにアクセスできるかが決まります。 Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. このテンプレートアプリケーションを拡張することにしたら、後でこれらの権限を更新できます。
 
 * Permissions & Webhooks（権限とwebhook）ページの下部で、これがプライベートのアプリケーションなのか、パブリックのアプリケーションなのかを指定してください。 これは、アプリケーションを誰がインストールできるのか、すなわちあなただけなのか、誰でもできるのかを指します。 この時点では、**Only on this account（このアカウントのみ）**を選択して、アプリケーションをプライベートのままにしておいてください。
 
@@ -137,7 +139,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ### ステップ 4. ランタイム環境の準備
 
-情報を保護するために、アプリケーションに関するすべてのシークレットは、直接コードに埋め込むのではなく、アプリケーションが見つけることができるコンピュータのメモリ中に置いておくことをおすすめします。 [dotenv](https://github.com/bkeepers/dotenv)という便利な開発ツールは、プロジェクトに固有の変数を`.env`ファイルから`ENV`にロードしてくれます。 `.env`ファイルは、決してGitHubにチェックインしないでください。 これは、パブリックなインターネット上にさらしたくない機密情報を保存するローカルファイルです。 そうならないようにするために、すでに`.env`はリポジトリの[`.gitignore`](/articles/ignoring-files/)に含まれています。
+情報を保護するために、アプリケーションに関するすべてのシークレットは、直接コードに埋め込むのではなく、アプリケーションが見つけることができるコンピュータのメモリ中に置いておくことをおすすめします。 [dotenv](https://github.com/bkeepers/dotenv)という便利な開発ツールは、プロジェクトに固有の変数を`.env`ファイルから`ENV`にロードしてくれます。 `.env`ファイルは、決してGitHubにチェックインしないでください。 これは、パブリックなインターネット上にさらしたくない機密情報を保存するローカルファイルです。 The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
 
 [必要な環境のセクション](#prerequisites)でダウンロードしたテンプレートコードには、`.env-example`というサンプルのファイルが用意されています。 このサンプルのファイルの名前を`.env-example`から`.env`に変更するか、`.env`というファイルを`.env-example`をコピーして作成してください。 まだdotenvはインストールしていませんが、このクイックスタートで後に`bundle install`を実行する際にインストールします。 **ノート:**このガイドのステップを参照するクイックスタートは、`.env-example`に追加の環境変数を含んでいることがあります。 それらの追加の環境変数を設定するためのガイダンスについては、GitHub上でクローンしたプロジェクトのクイックスタートガイドを参照してください。
 
@@ -150,7 +152,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 以下は`.env`ファイルの例です。
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 ...
 HkVN9...
 ...
@@ -401,7 +403,7 @@ $ ruby template_server.rb
     **A:** おそらく秘密鍵の環境変数が正しく設定セットアップされていません。 `GITHUB_PRIVATE_KEY`変数は、以下のようになっていなければなりません。
 
     ```
-    PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
     ...
     HkVN9...
     ...
@@ -420,7 +422,7 @@ $ ruby template_server.rb
 
 * **Q:** サーバーがイベントを待ち受けていません! Smeeクライアントはターミナルウィンドウで動作していて、アプリケーションをGitHubのリポジトリにインストールしていますが、サーバーを動作させているターミナルウィンドウに出力がありません。
 
-    **A:** Smeeクライアントを動作させていないか、GitHub Appの設定に正しいSmeeのドメインがないかもしれません。 まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"の`smee -u <unique_channel>` コマンドで使ったドメインと一致することを確認してください。
+    **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. まず、ターミナルのタブでSmeeのクライアントが動作しているかを確認してください。 もしそれが問題ではないなら、「[アプリケーションの設定ページ](https://github.com/settings/apps)にアクセスし、[ステップ2  新しいGitHub Appの登録](#step-2-register-a-new-github-app)」で示されているフィールドを確認してください。 それらのフィールド内のドメインが「[ステップ1  新しいSmeeチャンネルの開始](#step-1-start-a-new-smee-channel)"の`smee -u <unique_channel>` コマンドで使ったドメインと一致することを確認してください。 If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
 
 * **Q:** デバッグ出力に`Octokit::NotFound` 404エラーが出ます。
     ```

@@ -7,6 +7,8 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### 個人アカウントではすでに許可されている {% data variables.product.prodname_oauth_app %} を Organization でも承認するようリクエストする

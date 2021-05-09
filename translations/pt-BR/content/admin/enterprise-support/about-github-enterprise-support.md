@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -16,31 +18,23 @@ versions:
 
 ### Sobre o {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_name %} inclui {% data variables.contact.enterprise_support %} em inglês{% if enterpriseServerVersions contains currentVersion %}e japonês{% endif %}.
+{% data variables.product.product_name %} inclui {% data variables.contact.enterprise_support %} em inglês{% if enterpriseServerVersions contains currentVersion %} e japonês{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
 Você pode entrar em contato com
 {% data variables.contact.enterprise_support %} por meio de {% data variables.contact.contact_enterprise_portal %} para obter ajuda com:
  - Instalar e usar o {% data variables.product.product_name %};
  - Identificar e verificar as causas dos erros.
-{% endif %}
 
-Além de todos os benefícios de {% data variables.contact.enterprise_support %}, {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.premium_support %}{% else %}o suporte para {% data variables.product.product_name %}{% endif %} oferece:
+Além de todos os benefícios de {% data variables.contact.enterprise_support %}, {% data variables.contact.premium_support %} de suporte para ofertas de {% data variables.product.product_name %}:
   - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
   - Suporte por telefone 24 horas por dia, 7 dias por semana
-  - Um{% if currentVersion == "github-ae@latest" %}n melhorou{% endif %} Contrato de Nível de Serviço (SLA) {% if enterpriseServerVersions contains currentVersion %}com tempo de resposta inicial garantido{% endif %}
-{% if currentVersion == "github-ae@latest" %}
-  - Um gerente de conta de serviço técnico atribuído
-  - Revisões de suporte trimestrais
-  - Serviços de administração gerenciados
-{% else if enterpriseServerVersions contains currentVersion %}
+  - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
   - Gerentes técnicos de conta
   - Acesso a conteúdo premium
   - Verificação de integridade agendadas
   - Horas administrativas gerenciadas
 {% endif %}
-
-{% data reusables.support.government-response-times-may-vary %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 Para obter mais informações, consulte a seção "[Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
@@ -52,34 +46,28 @@ Para obter mais informações, consulte a seção "[Sobre o {% data variables.co
 
 Você pode entrar em contato com {% data variables.contact.enterprise_support %} através de {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} o {% data variables.contact.ae_azure_portal %}{% endif %} para relatar problemas por escrito. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Horas de operação
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### Suporte em inglês
-{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
 Para problemas não urgentes, oferecemos suporte em inglês 24 horas por dia e 5 dias por semana, exceto nos fins de semana e feriados nacionais dos EUA. feriados. O tempo padrão de resposta é de 24 horas.
 
-Para problemas urgentes, nós {% else %}Nós{% endif %} estamos disponíveis 24 horas por dia, 7 dias por semana, mesmo durante feriados nacionais nos EUA. feriados.
+Para problemas urgentes, estamos disponíveis 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
 
-{% data reusables.support.government-response-times-may-vary %}
-
-{% if enterpriseServerVersions contains currentVersion  %}
 #### Suporte em japonês
 
 Para problemas não urgentes, o suporte em japonês está disponível de segunda-feira à sexta-feira, das 9h às 17h JST, exceto durante os feriados nacionais no Japão. Para problemas urgentes, oferecemos suporte em inglês 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
 
-Para obter uma lista completa dos EUA. Para ver uma lista de feriados nacionais no Japão observados por {% data variables.contact.enterprise_support %}, consulte "[Cronogramas de feriados](#holiday-schedules){% endif %}
+Para obter uma lista completa dos EUA. Para ver a lista completa de feriados nacionais dos EUA e do Japão segundo o {% data variables.contact.enterprise_support %}, consulte o "[Calendário de feriados](#holiday-schedules)".
 
-{% if enterpriseServerVersions contains currentVersion %}
 ### Calendário de feriados
 
-Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias por semana, incluindo nos EUA. {% if enterpriseServerVersions contains currentVersion  %}e{% endif %} feriados japoneses.
+Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias por semana, incluindo nos EUA. e feriados japoneses.
 
 #### Feriados nos Estados Unidos
 
-O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. feriados{% if enterpriseServerVersions contains currentVersion  %}, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes{% endif %}.
+O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
 
 | EUA Feriado             | Data de observação            |
 | ----------------------- | ----------------------------- |

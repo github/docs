@@ -1,7 +1,7 @@
 ---
 title: 关于推送到仓库的电子邮件通知
 intro: 您可以选择在任何人推送到仓库时自动发送电子邮件通知到特定电子邮件地址。
-permissions: 具有仓库管理员权限的人可以对推送到仓库启用电子邮件通知。
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}

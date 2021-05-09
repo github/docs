@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### {% data variables.product.product_name %}上でのディスカッション
@@ -16,7 +18,7 @@ versions:
 
 Issueは、バグレポートや計画された改善など、プロジェクトの特定の詳細についての議論に役立ちます。 詳細は「[Issue について](/articles/about-issues)」を参照してください。 プルリクエストでは、提案された変更に直接コメントできます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)及び[プルリクエストへコメントする](/articles/commenting-on-a-pull-request)を参照してください。
 
-{% data reusables.organizations.team-discussions-purpose %}詳しい情報については「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
+{% data reusables.organizations.team-discussions-purpose %}詳しい情報については「[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。
 
 ### コメント中のアイデアへの反応
 
@@ -41,7 +43,7 @@ Issueあるいはプルリクエストをオープンする前に、そのリポ
 
 ### 参考リンク
 
-- [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
-- 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- [コメントと会話の管理](/articles/moderating-comments-and-conversations)
+- [健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)
+- 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)」
+- [コメントと会話の管理](/communities/moderating-comments-and-conversations)
 - [{% data variables.product.prodname_dotcom %}での執筆](/articles/writing-on-github)

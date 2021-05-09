@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Repositories
 ---
 
 ### Choosing the right license
@@ -23,7 +25,7 @@ You're under no obligation to choose a license. However, without a license, the 
 
 ### Determining the location of your license
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
 Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
 

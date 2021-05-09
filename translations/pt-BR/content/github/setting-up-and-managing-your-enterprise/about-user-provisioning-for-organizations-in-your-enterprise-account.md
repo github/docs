@@ -4,6 +4,8 @@ intro: Você pode gerenciar a associação das organizações em uma conta corpo
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

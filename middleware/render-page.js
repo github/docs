@@ -7,8 +7,9 @@ const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
 const RedisAccessor = require('../lib/redis-accessor')
 const { isConnectionDropped } = require('./halt-on-dropped-connection')
+const { nextHandleRequest } = require('./next')
 
-const { HEROKU_RELEASE_VERSION } = process.env
+const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
 const pageCacheDatabaseNumber = 1
 const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
 
@@ -16,11 +17,22 @@ const pageCache = new RedisAccessor({
   databaseNumber: pageCacheDatabaseNumber,
   prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
   // Allow for graceful failures if a Redis SET operation fails
-  allowSetFailures: true
+  allowSetFailures: true,
+  // Allow for graceful failures if a Redis GET operation fails
+  allowGetFailures: true,
+  name: 'page-cache'
 })
 
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
+
+const renderWithNext = FEATURE_NEXTJS
+  ? [
+      '/en/rest',
+      '/en/sponsors',
+      '/ja/sponsors'
+    ]
+  : []
 
 function addCsrf (req, text) {
   return text.replace('$CSRFTOKEN$', req.csrfToken())
@@ -62,7 +74,10 @@ module.exports = async function renderPage (req, res, next) {
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  if (isCacheable && !isRequestingJsonForDebugging) {
+  // Should the current path be rendered by NextJS?
+  const isNextJsRequest = renderWithNext.includes(req.path)
+
+  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -104,6 +119,13 @@ module.exports = async function renderPage (req, res, next) {
     context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
+  // handle special-case prerendered GraphQL input objects page
+  if (req.path.endsWith('graphql/reference/input-objects')) {
+    // concat the markdown source miniToc items and the prerendered miniToc items
+    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedInputObjectsForCurrentVersion.miniToc)
+    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedInputObjectsForCurrentVersion.html
+  }
+
   // Create string for <title> tag
   context.page.fullTitle = context.page.title
 
@@ -126,22 +148,19 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  // Layouts can be specified with a `layout` frontmatter value
-  // If unspecified, `layouts/default.html` is used.
-  // Any invalid layout values will be caught by frontmatter schema validation.
-  const layoutName = context.page.layout || 'default'
+  if (FEATURE_NEXTJS && isNextJsRequest) {
+    nextHandleRequest(req, res)
+  } else {
+    // currentLayout is added to the context object in middleware/contextualizers/layouts
+    const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
-  // Set `layout: false` to use no layout
-  const layout = context.page.layout === false ? '' : layouts[layoutName]
+    // First, send the response so the user isn't waiting
+    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+    res.send(addCsrf(req, output))
 
-  const output = await liquid.parseAndRender(layout, context)
-
-  // First, send the response so the user isn't waiting
-  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(addCsrf(req, output))
-
-  // Finally, save output to cache for the next time around
-  if (isCacheable) {
-    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+    // Finally, save output to cache for the next time around
+    if (isCacheable) {
+      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+    }
   }
 }

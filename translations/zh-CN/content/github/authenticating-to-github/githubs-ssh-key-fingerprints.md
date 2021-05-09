@@ -7,6 +7,9 @@ redirect_from:
   - /articles/githubs-ssh-key-fingerprints
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 以下是 {% data variables.product.prodname_dotcom %} 的公钥指纹：

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
+topics:
+  - SSH
 ---
 
 O {% data variables.product.prodname_dotcom %} exclui automaticamente chaves SSH inativas para ajudar a manter as contas seguras, como depois que alguém deixa um emprego ou perde um computador.

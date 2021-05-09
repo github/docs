@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Wenn ein Push vorgenommen wird, wird jedes Skript in einer isolierten Umgebung ausgeführt und kann den Inhalt der Pushs überprüfen. Die Skripts sorgen dafür, dass der Push bei dem Beendigungsstatus 0 akzeptiert und bei einem Beendigungsstatus ungleich 0 abgelehnt wird.
@@ -17,7 +19,7 @@ Beispiele zur möglichen Verwendungsweise von Pre-Receive-Hooks:
 
 - Legen Sie fest, dass Commit-Mitteilungen einem bestimmtem Muster oder Format folgen, also dass sie beispielsweise eine gültige Ticketnummer enthalten oder eine bestimmte Länge aufweisen.
 - Sperren Sie einen Branch oder ein Repository, indem Sie alle Push-Vorgänge ablehnen.
-- Verhindern Sie, dass dem Repository sensible Daten hinzugefügt werden, indem Sie Stichwörter, Muster oder Dateitypen blockieren.
+- Prevent sensitive data from being added to the repository by blocking keywords, patterns or file types.
 - Verhindern Sie, dass der Autor eines privaten Repositorys seine eigenen Änderungen mergen kann.
 
 ### Auswirkung auf die Leistung und Workflows

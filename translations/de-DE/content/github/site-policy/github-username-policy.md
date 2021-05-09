@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-username-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub-Kontonamen sind nach der Reihenfolge ihres Eingangs verfügbar und können nicht reserviert werden.

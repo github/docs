@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}

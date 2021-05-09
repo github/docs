@@ -1,6 +1,6 @@
 ---
 title: Zwei-Faktor-Authentifizierung konfigurieren
-intro: Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.
+intro: 'Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.'
 redirect_from:
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
   - /articles/configuring-two-factor-authentication-via-text-message/
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. Du kannst auch einen Sicherheitsschlüssel hinzufügen.

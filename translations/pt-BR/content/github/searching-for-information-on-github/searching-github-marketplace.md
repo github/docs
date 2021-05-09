@@ -3,6 +3,8 @@ title: Pesquisar no GitHub Marketplace
 intro: 'Você pode pesquisar aplicativos e ações disponíveis em {% data variables.product.prodname_marketplace %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub search
 ---
 
 ### Sobre a busca no {% data variables.product.prodname_marketplace %}

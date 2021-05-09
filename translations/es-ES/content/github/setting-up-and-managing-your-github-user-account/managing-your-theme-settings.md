@@ -1,8 +1,10 @@
 ---
 title: Administrar la configuración de tu tema
-intro: Puedes administrar la vista que tienes de {% data variables.product.product_name %} si configuras una preferencia de tema que ya sea se acople a la configuración de tu sistema o siempre utilice el modo claro u oscuro.
+intro: 'Puedes administrar la vista que tienes de {% data variables.product.product_name %} si configuras una preferencia de tema que ya sea se acople a la configuración de tu sistema o siempre utilice el modo claro u oscuro.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 {% note %}

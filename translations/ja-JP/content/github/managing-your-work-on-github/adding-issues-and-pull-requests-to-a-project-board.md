@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 以下のようにして、プロジェクトボードに Issue またはプルリクエストカードを追加できます:

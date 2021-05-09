@@ -2,11 +2,13 @@
 title: リポジトリのアーカイブで Git LFS オブジェクトを管理する
 shortTitle: 'アーカイブにある {% data variables.large_files.product_name_short %} オブジェクトを管理する'
 intro: '{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリポジトリ用に作成する ZIP ファイルや tarball などのソースコードアーカイブに含めるかどうかを選択できます。'
-permissions: 'リポジトリの管理者権限を持つユーザは、{% data variables.large_files.product_name_short %} オブジェクトがリポジトリのアーカイブに含まれているかどうかを管理できます。'
+permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### アーカイブにある {% data variables.large_files.product_name_short %} オブジェクトについて

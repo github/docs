@@ -4,6 +4,8 @@ intro: 'Clasifica, colabora y administra tu trabajo en {% data variables.product
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

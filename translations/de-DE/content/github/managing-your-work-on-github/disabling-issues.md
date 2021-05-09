@@ -1,12 +1,14 @@
 ---
 title: Issues deaktivieren
-intro: Du kannst Issues für Dein Repository deaktivieren, wenn Du keine Beiträge oder Fehlerberichte akzeptierst.
+intro: 'Du kannst Issues für Dein Repository deaktivieren, wenn Du keine Beiträge oder Fehlerberichte akzeptierst.'
 redirect_from:
   - /articles/disabling-issues
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

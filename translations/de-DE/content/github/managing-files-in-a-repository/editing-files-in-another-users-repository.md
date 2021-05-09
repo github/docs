@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 1. Navigiere im Repository eines anderen Benutzers zu dem Ordner mit der Datei, die Du bearbeiten möchtest. Klicke auf den Namen der Datei, die Du bearbeiten möchtest.

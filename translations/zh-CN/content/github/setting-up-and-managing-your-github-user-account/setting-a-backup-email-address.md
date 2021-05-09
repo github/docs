@@ -1,12 +1,15 @@
 ---
 title: 设置备用电子邮件地址
-intro: 使用备用电子邮件地址作为安全相关帐户通知的额外目标地址{% if currentVersion != "github-ae@latest" %}，在您无法再访问主电子邮件地址时用于安全地重置您的密码{% endif %}。
+intro: '使用备用电子邮件地址作为安全相关帐户通知的额外目标地址{% if currentVersion != "github-ae@latest" %}，在您无法再访问主电子邮件地址时用于安全地重置您的密码{% endif %}。'
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% data reusables.user_settings.access_settings %}

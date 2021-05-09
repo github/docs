@@ -5,19 +5,21 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Action development'
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
-In diesem Handbuch erfahren Sie mehr über die grundlegenden Komponenten, die zum Erstellen und Verwenden einer Aktion für die verwendungsgemäßen zusammengesetzten Ausführungsschritte erforderlich sind. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. Die Aktion druckt "Hello World" und dann "Goodbye", oder wenn Sie einen benutzerdefinierten Namen angeben, druckt sie "Hello [who-to-greet]" und dann "Goodbye". Die Aktion ordnet auch eine Zufallszahl der `Zufallszahl` Ausgabevariablen zu und führt ein Skript mit dem Namen `goodbye.sh`aus.
+In this guide, you'll learn about the basic components needed to create and use a packaged composite run steps action. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
 
-Nachdem Sie dieses Projekt abgeschlossen haben, sollten Sie verstehen, wie Sie Ihre eigene Aktion für zusammengesetzte Ausführungsschritte erstellen und in einem Workflow testen.
+Once you complete this project, you should understand how to build your own composite run steps action and test it in a workflow.
 
 ### Vorrausetzungen
 
@@ -105,7 +107,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
 
 ### Deine Aktion in einem Workflow testen
 
-Der folgende Workflowcode verwendet die abgeschlossene Hello-World-Aktion, die Sie in "[Erstellen einer Aktionsmetadatendatei](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)" ausgeführt haben.
+The following workflow code uses the completed hello world action that you made in "[Creating an action metadata file](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. Darüber hinaus können Sie die Eingabe `who-to-greet` durch Ihren Namen ersetzen.
 
@@ -129,4 +131,4 @@ jobs:
 ```
 {% endraw %}
 
-Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. Die Ausgabe sollte folgendes enthalten: "Hello Mona the Octocat", das Ergebnis des Skripts "Goodbye" und eine Zufallszahl.
+Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.

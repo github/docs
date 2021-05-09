@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -16,6 +18,8 @@ versions:
     - **Ramas activas**: la vista **Active** (Activas) muestra todas las ramas a las que alguien ha confirmado dentro de los últimos tres meses, ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.
     - **Ramas en espera**: la vista **Stale** (En espera) muestra todas las ramas en las que nadie ha confirmado durante los últimos tres meses, ordenadas de forma descendente desde las confirmaciones más antiguas. Utiliza esta lista para determinar [qué ramas eliminar](/articles/creating-and-deleting-branches-within-your-repository).
     - **Todas las ramas**: la vista **All** (Todas) muestra la rama por defecto, seguida por todas las otras ramas ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.
+
+4. Opcionalmente, utiliza el campo de búsqueda en la parte superior derecha. Este proporciona una búsqueda de sub-secuencias simple y que distingue entre mayúsculas y minusculas para el nombre de rama. Esta no es compatible con ninguna sintaxis de consulta adicional.
 
 ![La página de ramas para el repositorio Atom](/assets/images/help/branches/branches-overview-atom.png)
 

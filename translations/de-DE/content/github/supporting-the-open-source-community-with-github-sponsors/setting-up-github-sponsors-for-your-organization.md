@@ -7,6 +7,8 @@ redirect_from:
 permissions: 'Organisationsinhaber können {% data variables.product.prodname_sponsors %} für eine Organisation einrichten.'
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### {% data variables.product.prodname_sponsors %} beitreten
@@ -46,6 +48,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Deine Bankinformationen einreichen

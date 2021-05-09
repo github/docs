@@ -62,7 +62,7 @@ Puedes usar {% data variables.product.prodname_desktop %} para crear una confirm
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
+El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ### Crear confirmaciones conjuntas en {% data variables.product.product_name %}
 

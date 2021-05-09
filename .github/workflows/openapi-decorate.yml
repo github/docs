@@ -7,7 +7,6 @@ name: OpenAPI generate decorated schema files
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
 
 jobs:
   generate-decorated-files:

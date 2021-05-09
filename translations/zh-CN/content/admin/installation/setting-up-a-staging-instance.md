@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}
@@ -28,5 +30,5 @@ versions:
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### 延伸阅读
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- "[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

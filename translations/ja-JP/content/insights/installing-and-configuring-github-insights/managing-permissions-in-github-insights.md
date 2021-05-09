@@ -2,7 +2,7 @@
 title: GitHub Insightsの権限管理
 intro: '{% data variables.product.prodname_insights %}のユーザ権限を更新できます。'
 product: '{% data reusables.gated-features.github-insights %}'
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、権限を管理できます。'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage permissions.'
 versions:
   enterprise-server: '*'
 ---

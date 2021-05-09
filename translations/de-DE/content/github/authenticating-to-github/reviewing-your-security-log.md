@@ -1,6 +1,6 @@
 ---
 title: Dein Sicherheitsprotokoll überprüfen
-intro: Du kannst das Sicherheitsprotokoll für Dein Benutzerkonto überprüfen, um Dich betreffende Aktionen besser zu verstehen, die von Dir oder anderen Benutzern durchgeführt wurden.
+intro: 'Du kannst das Sicherheitsprotokoll für Dein Benutzerkonto überprüfen, um Dich betreffende Aktionen besser zu verstehen, die von Dir oder anderen Benutzern durchgeführt wurden.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 ### Zugriff auf Dein Sicherheitsprotokoll
@@ -190,7 +193,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `sponsored_developer_create`                  | Wird aufgelöst, wenn Dein {% data variables.product.prodname_sponsors %}-Konto erstellt wird (siehe „[{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                                |
 | `sponsored_developer_profile_update`          | Wird ausgelöst, wenn Du Dein „unterstützter Benutzer"-Profil veränderst (siehe „[Deine Profildetails für {% data variables.product.prodname_sponsors %} verändern](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                    |
 | `sponsored_developer_request_approval`        | Wird ausgelöst, wenn Du Deine Bewerbung für {% data variables.product.prodname_sponsors %} für die Bewilligung einreichst (siehe „[{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")   |
-| `sponsored_developer_tier_description_update` | Wird ausgelöst, wenn Sie die Beschreibung einer Sponsoring-Stufe ändern (siehe „[Sponsoring-Stufen ändern](/articles/changing-your-sponsorship-tiers)“).                                                                                                                                                                                    |
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                                                                                                               |
 | `sponsored_developer_update_newsletter_send`  | Wird ausgelöst, wenn Sie Ihren Sponsoren eine E-Mail-Aktualisierung senden (siehe „[Sponsoren kontaktieren](/articles/contacting-your-sponsors)“).                                                                                                                                                                                          |
 | `waitlist_invite_sponsored_developer`         | Wird ausgelöst, wenn Du eingeladen wirst, {% data variables.product.prodname_sponsors %} von der Warteliste her beizutreten (siehe „[{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
 | `waitlist_join`                               | Wird ausgelöst, wenn Du der Warteliste beitrittst, um ein „unterstützter Entwickler" zu werden (siehe [{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto aufsetzen](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                               |
@@ -247,7 +250,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `login`                                                                                                                                                                                                             | Triggered when you log in to {% data variables.product.product_location %}.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 
-`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | |{% endif %}| | `failed_login` | Triggered when you failed to log in successfully. | `remove_email` | Triggered when you remove an email address. | `rename` | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/articles/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+`mandatory_message_viewed`   | Triggered when you view a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | |{% endif %}| | `failed_login` | Triggered when you failed to log in successfully. | `remove_email` | Triggered when you remove an email address. | `rename` | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
 #### `user_status` category actions
 

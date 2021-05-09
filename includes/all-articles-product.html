@@ -2,7 +2,7 @@
 {% assign maxArticles = 10 %}
 
 <div class="py-6 all-articles-list">
-  <h2 class="font-mktg mb-4">All {{ product.title }} docs</h2>
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">All {{ product.title }} docs</a></h2>
 
   <div class="d-flex gutter flex-wrap">
     {% for category in product.categories %}
@@ -21,7 +21,7 @@
                     </a>
                   </li>
                   {% if numArticles > maxArticles %}
-                    <button class="js-all-articles-show-more btn-link link-gray">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+                    <button class="js-all-articles-show-more btn-link Link--secondary">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
                   {% endif %}
                 {% endunless %}
               {% endfor %}
@@ -34,7 +34,7 @@
               {% endfor %}
             </ul>
             {% if numArticles > maxArticles %}
-              <button class="js-all-articles-show-more btn-link link-gray">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+              <button class="js-all-articles-show-more btn-link Link--secondary">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
             {% endif %}
           {% endif %}
         </div>

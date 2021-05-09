@@ -4,16 +4,18 @@ intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share sev
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'GitLab'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - GitLab
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -124,7 +126,7 @@ linux_job:
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Workflow Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
 ### Docker-Images
 
@@ -292,7 +294,7 @@ Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variable
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-Weitere Informationen findest Du unter "[Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
 ### Variables and secrets
 
@@ -479,4 +481,4 @@ jobs:
 </tr>
 </table>
 
-Weitere Informationen findest Du unter "[Über Service-Container](/actions/guides/about-service-containers)."
+For more information, see "[About service containers](/actions/guides/about-service-containers)."

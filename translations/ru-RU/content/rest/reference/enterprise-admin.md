@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 You can use these endpoints to administer your enterprise.
@@ -16,7 +18,7 @@ You can use these endpoints to administer your enterprise.
 
 {% note %}
 
-**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
+**Note:** This article applies to {% data variables.product.prodname_ghe_cloud %}. To see the {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} version, use the **{% data ui.pages.article_version %}** drop-down menu.
 
 {% endnote %}
 
@@ -27,7 +29,7 @@ You can use these endpoints to administer your enterprise.
 REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
-http(s)://<em>hostname</em>/api/v3/
+{% data variables.product.api_url_pre %}
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -76,8 +78,10 @@ The current version of your enterprise is returned in the response header of eve
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ## GitHub Actions
+
+{% data reusables.actions.ae-beta %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'actions' %}{% include rest_operation %}{% endif %}
@@ -96,7 +100,7 @@ The IdP must use `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)."
 
 {% endnote %}
 
@@ -312,7 +316,7 @@ The Pre-receive Environments API allows you to create, list, update and delete e
 | `name`                | `строка`  | The name of the environment as displayed in the UI.                                                |
 | `image_url`           | `строка`  | URL to the tarball that will be downloaded and extracted.                                          |
 | `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
-| `download`            | `объект`  | This environment's download status.                                                                |
+| `скачать`             | `объект`  | This environment's download status.                                                                |
 | `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                         |
 
 #### Pre-receive Environment Download

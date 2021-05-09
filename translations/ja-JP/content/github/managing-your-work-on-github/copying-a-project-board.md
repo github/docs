@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 プロジェクトボードをコピーすると、プロジェクトボードのタイトル、説明、自動化の設定を再利用できます。 プロジェクトボードをコピーすることで、同じようなワークフローのために新しいプロジェクトボードを手動で作成するプロセスをなくすことができます。

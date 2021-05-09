@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### E-Mail-Adresse für die Abrechnung für Dein persönliches Konto festlegen

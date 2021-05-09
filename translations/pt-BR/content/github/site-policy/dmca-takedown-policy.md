@@ -8,6 +8,9 @@ redirect_from:
   - /articles/dmca-takedown-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Bem-vindo ao Guia do GitHub para a Lei dos Direitos Autorais do Milênio Digital, comumente conhecida como "DMCA" - Digital Millenium Copyright Act Policy. Esta página não tem a finalidade de ser uma cartilha abrangente sobre o regimento. No entanto, se você recebeu um aviso de retirada DMCA direcionado ao conteúdo que você postou no GitHub, ou se você é um detentor de direitos que pretende enviar tal aviso, esta página vai ajudá-lo a desmistificar a lei, bem como nossas políticas relacionadas.
@@ -62,6 +65,8 @@ Aqui estão os passos básicos do processo.
 Um dos melhores recursos do GitHub é a possibilidade de os usuários "bifurcarem" repositórios uns dos outros. O que isso significa? Basicamente, isso significa que os usuários podem fazer uma cópia de um projeto no GitHub em seus próprios repositórios. Conforme a licença ou a lei permitirem, os usuários podem fazer alterações nessa bifurcação para ou fazer push de volta para o projeto principal ou simplesmente manter como sua própria variação de um projeto. Cada uma dessas cópias é uma "[bifurcação](/articles/github-glossary#fork)" do repositório original que, por sua vez, também pode ser chamado de "principal" da bifurcação.
 
 O GitHub *não* irá desabilitar bifurcações automaticamente quando desabilitar um repositório principal. Isto ocorre porque as bifurcações pertencem a diferentes usuários, podem ter sido alteradas de maneira significativa e podem ser licenciadas ou utilizadas de uma forma diferente que seja protegida pela doutrina do uso justo. O GitHub não realiza nenhuma investigação independente sobre as bifurcações. Esperamos que os titulares de direitos autorais façam essa investigação e, se acreditarem que as bifurcações também estão violando direitos, incluam expressamente as bifurcações no seu aviso de retirada.
+
+Em casos raros, você pode estar alegando a violação de direitos autorais em um repositório completo que está sendo ativamente bifurcado. Se, no momento em que você enviou a notificação, você identificou todas as bifurcações existentes do repositório como supostamente violadas, nós processaríamos uma reivindicação válida contra todas as bifurcações dessa rede no momento em que processamos a notificação. Nós faríamos isso tendo em conta a probabilidade de todas as novas bifurcações criadas conterem o mesmo conteúdo. Além disso se a rede relatada que contém o conteúdo supostamente violador for superior a 100 (cem) repositórios, seria difícil, portanto, revisá-la na sua totalidade, e podemos considerar a desabilitação de toda a rede se você declarar na sua notificação que, "Com base no número representativo de bifurcações que você analisou, acredito que todos ou a maioria das bifurcações estão cometendo violações na mesma medida que o repositório principal". A sua declaração juramentada será aplicada a esta declaração.
 
 ### C. E se eu, inadvertidamente, deixar passar o período para fazer as alterações?
 

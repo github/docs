@@ -7,6 +7,8 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -31,9 +33,20 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% endif %}
 
-{% data reusables.actions.enterprise-hardware-considerations %}
+The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
 
-For more information about resource requirements for {% data variables.product.prodname_ghe_server %}, see the hardware considerations for your instance's platform.
+Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
+
+| vCPUs | Arbeitsspeicher | Maximum job throughput |
+|:----- |:--------------- |:---------------------- |
+| 4     | 32 GB           | Demo or light testing  |
+| 8     | 64 GB           | 25 jobs                |
+| 16    | 160 GB          | 35 jobs                |
+| 32    | 256 GB          | 100 jobs               |
+
+If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. For more information about monitoring the capacity and performance of {% data variables.product.prodname_ghe_server %}, see "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)."
+
+For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)

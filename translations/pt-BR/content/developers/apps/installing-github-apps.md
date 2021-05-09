@@ -1,12 +1,14 @@
 ---
 title: Instalar aplicativos GitHub
-intro: 'Quando seu aplicativo for público, qualquer pessoa pode instalar seu aplicativo nos seus repositórios através de{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação. Quando seu app é privado, você só pode instalar o aplicativo em repositórios dos quais você é proprietário.'
+intro: 'Quando seu aplicativo é público, qualquer pessoa pode usar {% if currentVersion == "free-pro-team@latest" %} o {% data variables.product.prodname_marketplace %} ou {% endif %}uma URL de instalação para instalar o aplicativo no seu repositório. Quando seu app é privado, somente você pode instalar o aplicativo em repositórios que você possui.'
 redirect_from:
   - /apps/installing-github-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% note %}

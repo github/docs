@@ -2,13 +2,12 @@
 title: Uploading a SARIF file to GitHub
 shortTitle: Uploading a SARIF file
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data from a third-party tool.'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -18,14 +17,14 @@ versions:
 
 If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. To upload results from third-party tools, you must use the Static Analysis Results Interchange Format (SARIF) 2.1.0 format. For more information, see "[About SARIF support for code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning)."
+You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. To upload results from third-party tools, you must use the Static Analysis Results Interchange Format (SARIF) 2.1.0 format. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)."
 
 You can upload the results using {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %} (available if your organization is taking part in the beta program){% endif %}, the {% data variables.product.prodname_code_scanning %} API, or the {% data variables.product.prodname_codeql_runner %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
 
 - {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
 - „[Einen Workflow-Lauf verwalten](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)“
-- {% data variables.product.prodname_dotcom %} will display {% data variables.product.prodname_code_scanning %} alerts from the uploaded SARIF file in your repository. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
-- The SARIF file can be generated from a SARIF-compatible analysis tool that you run in the same {% data variables.product.prodname_actions %} workflow used to upload the file. Alternatively, when the file is generated as an artifact outside of your repository, you can push the SARIF file directly to a repository and use a workflow to upload the SARIF file.
+- {% data variables.product.prodname_dotcom %} will display {% data variables.product.prodname_code_scanning %} alerts from the uploaded SARIF file in your repository. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
+- A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}
 
@@ -37,7 +36,7 @@ Your workflow will need to use the `upload-sarif` action, which has input parame
 
 The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[About SARIF support for code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
+If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` action will calculate the `partialFingerprints` field for you and attempt to prevent duplicate alerts. {% data variables.product.prodname_dotcom %} can only create `partialFingerprints` when the repository contains both the SARIF file and the source code used in the static analysis. For more information about preventing duplicate alerts, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -55,11 +54,11 @@ Alternatively, you could modify this workflow to upload a directory of SARIF fil
 name: "Upload SARIF"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Friday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 5'
 
 jobs:
   build:
@@ -87,11 +86,11 @@ The workflow shows an example of running the ESLint static analysis tool as a st
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
-# The scheduled workflow runs every at 00:00 on Sunday UTC time.
+# The scheduled workflow runs every Monday at 15:45 UTC.
 on:
   push:
   schedule:
-  - cron: '0 0 * * 0'
+  - cron: '45 15 * * 1'
 
 jobs:
   build:
@@ -112,7 +111,7 @@ jobs:
 
 ### Weiterführende Informationen
 
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
+- „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)“
 - "[Viewing your workflow history](/actions/managing-workflow-runs/viewing-workflow-run-history)"
-- "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
-- "[Upload a SARIF file](/rest/reference/code-scanning#upload-a-sarif-file)"
+- "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
+- "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"

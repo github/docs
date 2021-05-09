@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 画像キャッシュを調整する

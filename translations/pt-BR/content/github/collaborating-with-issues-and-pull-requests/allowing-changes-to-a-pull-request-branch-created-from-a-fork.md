@@ -3,11 +3,13 @@ title: Permitir alterações em um branch de pull request criado a partir de bif
 intro: 'Para obter mais colaboração, você pode permitir commits nos branches que criou a partir de bifurcações de propriedade de sua conta de usuário.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
-permissions: Pessoas com acesso push ao repositório upstream de uma bifurcação de propriedade de uma conta de usuário podem fazer commit dos branches bifurcados.
+permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Somente os autores da pull request ou aqueles com acesso push ao repositório upstream podem fornecer aos mantenedores de repositório upstream permissão para fazer commits em seus branch de comparação da pull request em uma bifurcação de propriedade do usuário. Para saber mais sobre repositórios upstream, consulte "[Sobre bifurcações](/articles/about-forks)".

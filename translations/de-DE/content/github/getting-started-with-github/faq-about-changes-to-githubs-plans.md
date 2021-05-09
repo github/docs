@@ -3,6 +3,8 @@ title: Häufig gestellte Fragen zu Änderungen an den GitHub-Plänen
 intro: 'GitHub hat angekündigt, dass ab dem 14. April 2020 alle GitHub-Kernfunktionen kostenlos verfügbar sind.'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub
 ---
 
 ### Welche Pläne und Preisänderungen hat GitHub am 14. April angekündigt?

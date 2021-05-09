@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 プルリクエストのブランチが以下の条件を満たす場合にのみ、コミットを実行できます:

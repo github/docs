@@ -12,6 +12,8 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre o {% data variables.enterprise.management_console %}
@@ -19,7 +21,7 @@ versions:
 Use o {% data variables.enterprise.management_console %} para atividades administrativas básicas:
 - **Configuração inicial**: conheça o processo de configuração inicial ao entrar pela primeira vez na {% data variables.product.product_location %} acessando o endereço IP da {% data variables.product.product_location %} no navegador.
 - **Configurações básicas da instância**: configure DNS, nome do host, SSL, autenticação do usuário, e-mail, serviços de monitoramento e encaminhamento de logs na página Settings (Configurações).
-- **Agendamento de períodos de manutenção**: deixe a {% data variables.product.product_location %} offline durante a manutenção usando o {% data variables.enterprise.management_console %} ou o shell administrativo.
+- **Agendamento de períodos de manutenção**: deixe {% data variables.product.product_location %} off-line durante a manutenção usando o {% data variables.enterprise.management_console %} ou o shell administrativo.
 - **Solução de problemas**: gere um pacote de suporte ou exiba informações de diagnóstico de alto nível.
 - **Gerenciamento de licenças**: exiba ou atualize a licença do {% data variables.product.prodname_enterprise %}.
 

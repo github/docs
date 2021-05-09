@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Bei Ablauf Deines Schlüssels musst Du die [Gültigkeit des Schlüssels verlängern](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), den daraufhin generierten, neuen Schlüssel exportieren, den abgelaufenen Schlüssel in Deinem GitHub-Konto löschen und den [neuen Schlüssel auf GitHub hochladen](/articles/adding-a-new-gpg-key-to-your-github-account/). Deine bisherigen Commits und Tags werden als verifiziert angezeigt, sofern der Schlüssel alle anderen Verifizierungsanforderungen erfüllt.

@@ -8,13 +8,15 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
 
 {% warning %}
 
-If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+Si ofreces una {% data variables.product.prodname_github_app %} en {% data variables.product.prodname_marketplace %}, esta debe identificar a los usuarios siguiendo el flujo de autorizaciones de OAuth. No necesitas configurar una {% data variables.product.prodname_oauth_app %} por separado para admitir este flujo. Consulta la sección "[Identificar y autorizar usuarios para las {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" para obtener más información.
 
 {% endwarning %}
 
@@ -24,7 +26,7 @@ Antes de qeu un cliente compre tu app de {% data variables.product.prodname_mark
 
 El cliente completa la compra dando clic en **Completar orden y comenzar con la instalación**.
 
-{% data variables.product.product_name %} then sends the [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) webhook with the `purchased` action to your app.
+Entonces, {% data variables.product.product_name %} envía el webhook [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) a tu app con la acción `purchased`.
 
 Lee el objeto `effective_date` y `marketplace_purchase` del webhook de `marketplace_purchase` para determinar qué plan compró el cliente, cuándo inicia el ciclo de facturación, y cuándo comienza el siguiente ciclo de facturación.
 
@@ -34,27 +36,27 @@ Consulta la sección "[eventos de webhook de {% data variables.product.prodname_
 
 ### Paso 2. Instalación
 
-If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected  and grants access to the selected repositories.
+Si tu app es una {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} pedirá al cliente que seleccione a qué repositorios puede acceder dicha app cuando la compren. Entonces, {% data variables.product.product_name %} instala la app en la cuenta del cliente seleccionado y le otorga acceso a los repositorios seleccionados.
 
-At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
+En este punto, si especificaste una **URL de configuración** en la configuración de tu {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} redirigirá al cliente a esta. Si no especificaste una URL de configuración, no podrás manejar las compras de tu {% data variables.product.prodname_github_app %}.
 
 {% note %}
 
-**Note:** The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
+**Nota:** La **URL de configuración** se describe como opcional en la configuración de la {% data variables.product.prodname_github_app %}, es un campo requerido si quieres ofrecer tu app en {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}
 
-If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
+Si tu app es una {% data variables.product.prodname_oauth_app %}. {% data variables.product.product_name %} no la instala en ningún lugar. En vez de esto, {% data variables.product.product_name %} redirige al cliente a la **URL de instalación** que especificaste en tu [listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
 
-When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
+Cuando un cliente compra una {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirige al cliente a la URL que eliges (ya sea de configuración o de instalación) y esta incluye el plan de precios que eligió el cliente como un parámetro de consulta: `marketplace_listing_plan_id`.
 
 ### Paso 3. Autorización
 
 Cuando un cliente compra tu app, debes enviar a dicho cliente a través del flujo de autorización de OAuth:
 
-* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+* Si tu app es una {% data variables.product.prodname_github_app %}, inicia el flujo de autorizaciones tan pronto como {% data variables.product.product_name %} redirija al cliente a la **URL de configuración**. Sigue los pasos en la sección "[Identificar y autorizar usuarios para las {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
-* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in "[Authorizing {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)."
+* Si tu app es una {% data variables.product.prodname_oauth_app %}, inicia el flujo de autorización tan pronto como {% data variables.product.product_name %} redirija al cliente a la **URL de instalación**. Sigue los pasos de la sección "[Autorizar las {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)".
 
 Para cualquier tipo de app, el primer paso es redirigir al cliente a https://github.com/login/oauth/authorize.
 

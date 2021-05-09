@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### Informationen zu Änderungen des Benutzernamens
@@ -30,7 +32,7 @@ Wenn Du Deinen Benutzernamen geändert hast, leitet {% data variables.product.pr
 - Weblinks zu Deinen vorhandenen Repositorys funktionieren auch weiterhin. Dieser Vorgang kann einige Minuten dauern, nachdem Du die Änderung vorgenommen hast.
 - Befehlszeilen-Pushes von Deinen lokalen Repository-Klonen zu den alten Remote-Tracking-URLs funktionieren auch weiterhin.
 
-Wenn der neue Inhaber Deines alten Benutzernamens ein Repository mit demselben Namen wie Dein Repository erstellt, wird der Weiterleitungseintrag überschrieben und Deine Weiterleitung wird nicht mehr funktionieren. Angesichts dieser Möglichkeit empfehlen wir Dir, alle vorhandenen Remote-Repository-URLs nach dem Ändern Deines Benutzernamens zu aktualisieren. Weitere Informationen findest Du unter „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url).“
+Wenn der neue Inhaber Deines alten Benutzernamens ein Repository mit demselben Namen wie Dein Repository erstellt, wird der Weiterleitungseintrag überschrieben und Deine Weiterleitung wird nicht mehr funktionieren. Angesichts dieser Möglichkeit empfehlen wir Dir, alle vorhandenen Remote-Repository-URLs nach dem Ändern Deines Benutzernamens zu aktualisieren. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Links zu früheren Profilseiten
 
@@ -52,6 +54,5 @@ Nach dem Ändern Deines Benutzernamens lösen Links zu Deinen früheren Profilse
 
 ### Weiterführende Informationen
 
-- „[URL eines Remote-Repositorys ändern](/articles/changing-a-remote-s-url)“
 - "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - „[{% data variables.product.prodname_dotcom %}-Richtlinie zu Benutzernamen](/articles/github-username-policy)“{% endif %}

@@ -1,10 +1,13 @@
 ---
 title: 個人のメールアドレスを公開するコマンドラインのプッシュのブロック
-intro: 'Web ベースの操作をする際にメールアドレスをプライベートに保つよう選択したなら、個人のメールアドレスを公開してしまうかもしれないコマンドラインのプッシュをブロックするように選択することもできます。'
+intro: Web ベースの操作をする際にメールアドレスをプライベートに保つよう選択したなら、個人のメールアドレスを公開してしまうかもしれないコマンドラインのプッシュをブロックするように選択することもできます。
 redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 コミットをコマンドラインからプッシュする際には、[Git で設定した](/articles/setting-your-commit-email-address)メールアドレスがコミットに関連付けられます。 この設定により、コマンドライン上で個人のメールアドレスを使用してコミットをプッシュすることがブロックされます。

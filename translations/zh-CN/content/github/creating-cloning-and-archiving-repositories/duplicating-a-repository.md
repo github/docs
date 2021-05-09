@@ -1,6 +1,6 @@
 ---
-title: 复制仓库
-intro: '要复制存储库而不对其进行复刻，可以运行特殊克隆命令，然后镜像推送到新仓库。'
+title: 镜像仓库
+intro: 要镜像存储库而不对其进行复刻，可以运行特殊克隆命令，然后镜像推送到新仓库。
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 在复制仓库和和推送到仓库的新副本或_镜像_之前，必须在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository)。 在以下示例中，`exampleuser/new-repository` 或 `exampleuser/mirrored` 是镜像。
@@ -21,13 +23,13 @@ versions:
   ```
 3. 镜像推送至新仓库。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 镜像包含 {% data variables.large_files.product_name_long %} 对象的仓库。
@@ -39,7 +41,7 @@ versions:
   ```
 3. 导航到刚克隆的仓库。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. 拉取仓库的 {% data variables.large_files.product_name_long %} 对象。
   ```shell
@@ -56,7 +58,7 @@ versions:
 7. 删除您之前创建的临时本地仓库。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 镜像其他位置的仓库
@@ -70,7 +72,7 @@ versions:
   ```
 3. 设置到镜像的推送位置。
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

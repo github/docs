@@ -1,10 +1,12 @@
 ---
 title: サブスクリプションを管理する
-intro: '通知を効率的に管理するにあたって、サブスクライブ解除するにはいくつかの方法があります。'
+intro: 通知を効率的に管理するにあたって、サブスクライブ解除するにはいくつかの方法があります。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 サブスクリプションを理解し、サブスクライブ解除するかどうかを決めるため、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。
@@ -39,7 +41,7 @@ versions:
 
 {% data reusables.notifications.access_notifications %}
 1. 通知インボックスから、サブスクライブ解除する通知を選択します。
-2. **選択した** {% octicon "triangle-down" aria-label="The down triangle icon" %} ドロップダウンを使用して、[**Unsubscribe**] をクリックします。 ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. **選択した** {% octicon "triangle-down" aria-label="The down triangle icon" %} ドロップダウンを使用して、[**Unsubscribe**] をクリックします。 ![メインインボックスの [Unsubcribe] オプション](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### サブスクリプションページで通知をサブスクライブ解除する
 

@@ -4,6 +4,8 @@ intro: '{% data variables.product.product_name %} での作業をモバイルデ
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}
@@ -40,15 +42,15 @@ VPN で Enterprise にアクセスする必要がある場合、{% data variable
 
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 詳しい情報については、「[リリースノート](/enterprise-server/admin/release-notes)」と「[Enterprise 向けに {% data variables.product.prodname_mobile %} を管理する](/admin/configuration/managing-github-for-mobile-for-your-enterprise)」を参照してください。
 
-During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_ghe_server %} を使用した {% data variables.product.prodname_mobile %} のベータでは、{% data variables.product.prodname_dotcom_the_website %} のユーザアカウントでサインインする必要があります。
 
-#### Adding, switching, or signing out of accounts
+#### アカウントの追加、切り替え、サインアウト
 
-You can sign into mobile with a user account on {% data variables.product.product_location %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+{% data variables.product.product_location %} のユーザアカウントでモバイルにサインインできます。 アプリの下部にある {% octicon "person" aria-label="The person icon" %} [**Profile**] を長押ししてから、{% octicon "plus" aria-label="The plus icon" %} [**Add Enterprise Account**] をタップします。 プロンプトに従ってサインインします。
 
-After you sign into mobile with a user account on {% data variables.product.product_location %}, you can switch between the account and your account on  {% data variables.product.prodname_dotcom_the_website %}.  At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
+{% data variables.product.product_location %} のユーザアカウントでモバイルにサインインした後、{% data variables.product.prodname_dotcom_the_website %} のアカウントとお使いのアカウントを切り替えることができます。  アプリの下部で、{% octicon "person" aria-label="The person icon" %} [**Profile**] を長押ししてから、切り替えるアカウントをタップします。
 
-If you no longer need to access data for your user account on {% data variables.product.product_location %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+{% data variables.product.prodname_mobile %} から {% data variables.product.product_location %} のユーザアカウントのデータにアクセスする必要がなくなった場合は、アカウントからサインアウトできます。 アプリの下部で、{% octicon "person" aria-label="The person icon" %} [**Profile**] を長押しし、サインアウトするアカウントで左にスワイプして [**Sign out**] をタップします。
 
 ### {% data variables.product.prodname_mobile %} でサポートされている言語
 
@@ -57,7 +59,7 @@ If you no longer need to access data for your user account on {% data variables.
 - 英語
 - 日本語
 - ポルトガル語 (ブラジル)
-- Simplified Chinese
+- 簡体字中国語
 - スペイン語
 
 デバイスの言語をサポートされている言語に設定すると、{% data variables.product.prodname_mobile %} はデフォルトでその言語になります。 {% data variables.product.prodname_mobile %} の [**Settings**] メニューで {% data variables.product.prodname_mobile %} の言語を変更できます。

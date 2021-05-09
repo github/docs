@@ -5,6 +5,9 @@ redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 ### Marketing-E-Mails von {% data variables.product.prodname_dotcom %} kündigen

@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Obrigado por usar o GitHub! Estamos felizes por você estar aqui. Por favor, leia estes Termos de Serviço com cuidado antes de acessar ou usar o GitHub. Por se tratar de um contrato tão importante entre nós e os usuários, tentamos torná-lo o mais claro possível. Para sua conveniência, apresentamos estes termos num breve resumo não vinculativo, seguido da totalidade dos termos jurídicos.
@@ -180,7 +183,7 @@ O GitHub pode oferecer acesso baseado em assinaturas à nossa API para os Usuár
 Alguns recursos do Serviço podem estar sujeitos a termos adicionais específicos para aquele recurso ou produto, conforme definido nos Termos de Produto Adicionais no GitHub. Ao acessar ou utilizar os Serviços, você também concorda com os [Termos de Produto Adicionais do GitHub](/github/site-policy/github-additional-product-terms).
 
 ### J. Visualizações Beta
-**Versão curta:** *Visualizações Beta podem não ser suportadas ou podem mudar a qualquer momento, você pode receber informações confidenciais através desses programas que devem permanecer confidenciais enquanto o programa for privado, e nós adoraríamos receber seus comentários para tornar melhores nossas Visualizações Beta.*
+**Short version:** *Beta Previews may not be supported or may change at any time. You may receive confidential information through those programs that must remain confidential while the program is private. We'd love your feedback to make our Beta Previews better.*
 
 #### 1. Sujeito a alterações
 

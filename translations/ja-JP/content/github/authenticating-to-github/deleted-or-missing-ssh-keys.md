@@ -5,6 +5,8 @@ redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
+topics:
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %}は使われていない SSH キーを自動的に削除し、アカウントを安全に保ちます。たとえば退職者が出たときやコンピューターを紛失したときです。

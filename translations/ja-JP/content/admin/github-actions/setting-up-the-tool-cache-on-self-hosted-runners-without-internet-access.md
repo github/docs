@@ -1,22 +1,25 @@
 ---
-title: Setting up the tool cache on self-hosted runners without internet access
-intro: 'インターネットにアクセスできないセルフホストランナー上の `actions/setup` アクションを使用するには、最初にワークフローのランナーのツールキャッシュにデータを入力する必要があります。'
+title: インターネットにアクセスできないセルフホストランナーにツールキャッシュを設定する
+intro: インターネットにアクセスできないセルフホストランナー上の `actions/setup` アクションを使用するには、最初にワークフローのランナーのツールキャッシュにデータを入力する必要があります。
 redirect_from:
   - /enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### About the included setup actions and the runner tool cache
+### 含まれているセットアップアクションとランナーツールキャッシュについて
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.prodname_ghe_server %} にバンドルされます。 However, self-hosted runners without internet access  will require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
+ほとんどの公式の {% data variables.product.prodname_dotcom %} 作成のアクションは自動的に {% data variables.product.prodname_ghe_server %} にバンドルされます。 ただし、インターネットにアクセスできないセルフホストランナーは、`setup-node` などの含まれている `actions/setup-LANGUAGE` アクションを使用する前に、いくつかの設定が必要になります。
 
-The `actions/setup-LANGUAGE` actions normally need internet access to download the required environment binaries into the runner's tool cache. Self-hosted runners without internet access can't download the binaries, so you must manually populate the tool cache on the runner.
+`actions/setup-LANGUAGE` アクションは通常、必要な環境バイナリをランナーのツールキャッシュにダウンロードするためにインターネットアクセスが必要です。 インターネットにアクセスできないセルフホストのランナーはバイナリをダウンロードできないため、ランナーのツールキャッシュに手動でデータを入力する必要があります。
 
 {% data variables.product.prodname_dotcom_the_website %} で {% data variables.product.prodname_actions %} ワークフローを実行してランナーツールキャッシュにデータを入力できます。このワークフローは、{% data variables.product.prodname_dotcom %} ホストランナーのツールキャッシュをアーティファクトとしてアップロードし、インターネットで切断されたセルフホストランナーで転送および抽出できます。
 
@@ -28,16 +31,16 @@ The `actions/setup-LANGUAGE` actions normally need internet access to download t
 
 ### 必要な環境
 
-* Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
+* セルフホストランナーに必要な開発環境を決定します。 次の例は、Node.js バージョン 10 および 12 を使用して、`setup-node` アクションのツールキャッシュにデータを入力する方法を示しています。
 * ワークフロー実行に使用できる {% data variables.product.prodname_dotcom_the_website %} のリポジトリへのアクセス。
-* Access to your self-hosted runner's file system to populate the tool cache folder.
+* セルフホストのランナーのファイルシステムにアクセスして、ツールのキャッシュフォルダーにデータを入力します。
 
-### Populating the tool cache for a self-hosted runner
+### セルフホストランナーのツールキャッシュに入力する
 
 1. {% data variables.product.prodname_dotcom_the_website %} で、{% data variables.product.prodname_actions %} ワークフローの実行に使用できるリポジトリに移動します。
 1. {% data variables.product.prodname_dotcom %} ホストランナーのツールキャッシュを含むアーティファクトをアップロードする、リポジトリの `.github/workflows` フォルダに新しいワークフローファイルを作成します。
 
-   The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 18.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
+   次の例は、Node.js バージョン 10 および 12 で `setup-node` アクションを使用して、Ubuntu18.04 環境のツールキャッシュをアップロードするワークフローを示しています。
 
    {% raw %}
    ```yaml
@@ -69,10 +72,10 @@ The `actions/setup-LANGUAGE` actions normally need internet access to download t
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```
    {% endraw %}
-1. Download the tool cache artifact from the workflow run. アーティファクトのダウンロード手順については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
-1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
+1. ワークフロー実行からツールキャッシュアーティファクトをダウンロードします。 アーティファクトのダウンロード手順については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
+1. ツールキャッシュアーティファクトをセルフホストランナーに転送し、ローカルツールキャッシュディレクトリに抽出します。 デフォルトのツールキャッシュディレクトリは `RUNNER_DIR/_work/_tool` です。 ランナーがまだジョブを処理していない場合は、`_work/_tool` ディレクトリを作成する必要がある場合があります。
 
-    After extracting the tool cache artifact uploaded in the above example, you should have a directory structure on your self-hosted runner that is similar to the following example:
+    上記の例でアップロードされたツールキャッシュアーティファクトを抽出した後、次の例のようなセルフホストランナーのディレクトリ構造を作成する必要があります。
 
     ```
     RUNNER_DIR
@@ -87,4 +90,4 @@ The `actions/setup-LANGUAGE` actions normally need internet access to download t
                     └── ...
     ```
 
-Your self-hosted runner without internet access should now be able to use the `setup-node` action. If you are having problems, make sure that you have populated the correct tool cache for your workflows. For example, if you need to use the `setup-python` action, you will need to populate the tool cache with the Python environment you want to use.
+これで、インターネットにアクセスできないセルフホストランナーが `setup-node` アクションを使用できるようになります。 問題が発生した場合は、ワークフローに適切なツールキャッシュを設定していることを確認してください。 たとえば、`setup-python` アクションを使用する必要がある場合は、使用する Python 環境をツールキャッシュに入力する必要があります。

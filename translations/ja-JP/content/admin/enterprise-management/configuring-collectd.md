@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 外部 `collectd` サーバーを設置
@@ -34,7 +36,7 @@ versions:
 1. ログの転送設定の下にある、**Enable collectd forwarding** を選択する
 1. **Server address** の欄には {% data variables.product.prodname_enterprise %}のアプライアンスの統計を転送したい`collectd` サーバのアドレスを入力する。
 1. **Port**の欄には、`collectd` サーバーに接続するためのポートを入力する。 (デフォルトは 25826)
-1. **Cryptographic setup** のドロップダウンメニューでは、`collectd` サーバーとのコミュニケーションのセキュリティーレベルを選択する。 (None, signed packets, or encrypted packets.)
+1. **Cryptographic setup** のドロップダウンメニューでは、`collectd` サーバーとのコミュニケーションのセキュリティーレベルを選択する。 （なし、署名付きパケット、または暗号化されたパケット。）
 {% data reusables.enterprise_management_console.save-settings %}
 
 ### collectd データの `ghe-export-graphs`でのエクスポート
@@ -53,6 +55,6 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 #### 中心の collectd サーバはデータを受信していない
 
-{% data variables.product.prodname_enterprise %} は `collectd` バージョン 5.x に付属しています。 `collectd` 5.x is not backwards compatible with the 4.x release series. {% data variables.product.product_location %}から送られるデータを受信するには、中心の`collectd`サーバは 5.x 以上のバージョンでなければなりません。
+{% data variables.product.prodname_enterprise %} は `collectd` バージョン 5.x に付属しています。 `collectd` 5.x は、4.x リリースシリーズとの下位互換性がありません。 {% data variables.product.product_location %}から送られるデータを受信するには、中心の`collectd`サーバは 5.x 以上のバージョンでなければなりません。
 
 他に質問や問題がある場合、{% data variables.contact.contact_ent_support %}までお問い合わせください。

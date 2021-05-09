@@ -1,6 +1,6 @@
 ---
 title: 赞助开源贡献者
-intro: '您可以向设计、创建或维护您所依赖的开源项目的开发者或组织每月定期付款。'
+intro: 'You can make a one-time or monthly recurring payment to a developer or organization who designs, creates, or maintains open source projects you depend on.'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织所有者和帐单管理员可以代表其组织赞助帐户。
+topics:
+  - sponsors
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -22,11 +24,11 @@ permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织
 - 作为重视开源的组织，培养品牌知名度
 - 感谢开源开发者构建库来补充您的组织提供的产品
 
-您可以使用信用卡赞助 {% data variables.product.product_name %} 上的帐户。 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
+You use your normal payment method to sponsor an account on {% data variables.product.product_name %}. 如果您的组织希望按发票付款，请[联系我们](https://support.github.com/contact/org-sponsors-waitlist)。
 
 {% data reusables.sponsors.no-fees %} 更多信息请参阅“[关于 {% data variables.product.prodname_sponsors %} 的计费](/articles/about-billing-for-github-sponsors)”。
 
-使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account the change is effective immediately, unless you are sponsoring on behalf of an organization that pays by invoice. {% data reusables.sponsors.prorated-sponsorship %} Your sponsorship is included in the next scheduled payment to the sponsored account.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -51,6 +53,7 @@ permissions: 任何人都可以代表自己的用户帐户赞助帐户。 组织
    - 要赞助开发者，请在开发者的名称下单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/profile/sponsor-button.png)
    - 要赞助组织，请在组织名称的右侧单击 **Sponsor（赞助）**。 ![赞助按钮](/assets/images/help/sponsors/sponsor-org-button.png)
 1. （可选），在页面的右侧，要代表您的组织赞助帐户，请使用 **Sponsor as（赞助者）**下拉菜单，然后单击组织。 ![选择将作为赞助者的帐户](/assets/images/help/sponsors/sponsor-as-drop-down-menu.png)
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
 {% data reusables.sponsors.select-sponsorship-billing %}

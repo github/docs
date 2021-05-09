@@ -75,11 +75,11 @@ Para obter mais informações, consulte "[Configurar controle de acesso e visibi
 
 To install or publish a package, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
-| Escopo            | Descrição                                                                                                                                                                                                                                                               |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Escopo            | Descrição                                                                                                                                                                                                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `read:packages`   | Faça o download e instale as imagens de contêiner de {% data variables.product.prodname_github_container_registry %}
 | `write:packages`  | Faça o upload e publique as imagens do contêiner para {% data variables.product.prodname_github_container_registry %}
-| `delete:packages` | Exclua versões especificadas de imagens privadas ou públicas de contêiner do {% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Excluir uma imagem de contêiner](/packages/guides/deleting-a-container-image)". |
+| `delete:packages` | Exclua versões especificadas de imagens privadas ou públicas de contêiner do {% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Excluir e restaurar um pacote](/packages/learn-github-packages/deleting-and-restoring-a-package)". |
 
 
 Para aprender sobre escopos e permissões disponíveis para imagens de contêiner, consulte "[Configurar controle de acesso e visibilidade para imagens do contêiner](/packages/guides/configuring-access-control-and-visibility-for-container-images)".

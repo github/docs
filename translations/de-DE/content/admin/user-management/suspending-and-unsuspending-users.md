@@ -10,6 +10,8 @@ redirect_from:
 intro: 'Wenn ein Benutzer das Unternehmen verlässt oder in eine andere Abteilung wechselt, sollten Sie dessen Zugriffsmöglichkeit auf {% data variables.product.product_location %} entfernen oder ändern.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Wenn Mitarbeiter das Unternehmen verlassen, kannst Du ihre {% data variables.product.prodname_ghe_server %}-Konten sperren, um Benutzerlizenzen in Deiner {% data variables.product.prodname_enterprise %}-Lizenz freizugeben und gleichzeitig die von ihnen erstellten Problemtickets, Kommentare, Repositorys, „Gists“ (Ideen) und anderen Daten beizubehalten. Gesperrte Benutzer können sich weder bei Ihrer Instanz anmelden noch Code per Push-Vorgang übertragen oder abrufen.

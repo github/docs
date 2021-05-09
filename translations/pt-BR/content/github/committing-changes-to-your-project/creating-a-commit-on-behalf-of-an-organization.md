@@ -2,7 +2,7 @@
 title: Criar um commit em nome de uma organização
 intro: 'Você pode criar commits em nome de uma organização adicionando um trailer à mensagem do commit. Os commits atribuídos a uma organização incluem um selo "em nome de" no {% data variables.product.product_name %}.'
 redirect_from:
-  - Creating a commit on behalf of an organization
+  - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
   free-pro-team: '*'
 ---
@@ -47,7 +47,7 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/articles/pushing-commits-to-a-remote-repository/)".
+O novo commit, mensagem e selo aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push. Para obter mais informações, consulte "[Fazer push das alterações em um repositório remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)".
 
 ### Criar commits com um selo `on-behalf-of` no {% data variables.product.product_name %}
 

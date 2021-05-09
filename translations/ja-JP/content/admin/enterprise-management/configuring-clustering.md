@@ -1,5 +1,5 @@
 ---
-title: Configuring clustering
+title: クラスタリングの設定
 intro: クラスタリングについて、そしてHigh Availabilityとの差異にについて学んでください。
 redirect_from:
   - /enterprise/admin/clustering/setting-up-the-cluster-instances
@@ -9,5 +9,7 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

@@ -4,5 +4,7 @@ intro: '您可以查看您的 {% data variables.product.prodname_registry %} 使
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

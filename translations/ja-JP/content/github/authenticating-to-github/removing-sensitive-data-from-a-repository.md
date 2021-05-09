@@ -1,6 +1,6 @@
 ---
 title: 機密データをリポジトリから削除する
-intro: 'Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。'
+intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 `git filter-branch` コマンドと BFG Repo-Cleaner は、リポジトリの履歴を書き換えます。変更を加えた既存のコミットや依存関係にあるコミットの SHA を変更します。 コミットの SHA が変更されると、リポジトリでオープンされたプルリクエストに影響する可能性があります。 ファイルをリポジトリから削除する前に、オープンプルリクエストをすべてマージまたはクローズすることを推奨します。

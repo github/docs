@@ -1,6 +1,6 @@
 ---
 title: 自動リンクされた参照と URL
-intro: 'URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。'
+intro: URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。
 redirect_from:
   - /articles/autolinked-references-and-urls
 versions:
@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.product_name %}は自動的に標準的な URL からリンクを生成します。
 
-`https://github.com にアクセスしてください。`
+`Visit https://github.com`
 
 ![変換された自動リンク URL](/assets/images/help/writing/url-autolink-rendered.png)
 

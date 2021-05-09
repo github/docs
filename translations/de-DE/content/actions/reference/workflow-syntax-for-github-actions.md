@@ -1,7 +1,7 @@
 ---
 title: Workflow-Syntax für GitHub Actions
 shortTitle: Syntax für Workflows
-intro: Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.
+intro: 'Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
@@ -10,20 +10,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zur YAML-Syntax für Workflows
 
-Workflow-Dateien verwenden die YAML-Syntax und müssen die Dateierweiterung `.yml` oder `.yaml` aufweisen. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
+Workflow-Dateien verwenden die YAML-Syntax und müssen die Dateierweiterung `.yml` oder `.yaml` aufweisen. {% data reusables.actions.learn-more-about-yaml %}
 
 Workflow-Dateien müssen im Verzeichnis `.github/workflows` im Repository gespeichert werden.
 
 ### `name`
 
-Name des Workflows. {% data variables.product.prodname_dotcom %} zeigt die Namen der Workflows auf der Repository-Seite der Aktionen an. Wenn Du `name`weglässt, setzt {% data variables.product.prodname_dotcom %} den Pfad der Workflow-Datei relativ zum Stammverzeichnis des Repositorys.
+Name des Workflows. {% data variables.product.prodname_dotcom %} zeigt die Namen Deiner Workflows auf der Aktionen-Seite Deines Repositorys an. Wenn Du `name`weglässt, setzt {% data variables.product.prodname_dotcom %} den Pfad der Workflow-Datei relativ zum Stammverzeichnis des Repositorys.
 
 ### `on`
 
@@ -120,7 +122,7 @@ Unter den Schlüsselwörtern `paths-ignore` und `paths` kannst Du Glob-Muster nu
 
 #### Beispiel zum Ignorieren von Pfaden
 
-Immer wenn ein Pfadname zu einem Muster in `paths-ignore` passt, wird der Workflow nicht ausgeführt. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
 
 ```yaml
 on:
@@ -221,7 +223,7 @@ defaults:
 
 ### `jobs`
 
-Ein Workflow-Lauf besteht aus mindestens einem Auftrag. Die Aufträge werden standardmäßig parallel ausgeführt. Sollen Aufträge sequenziell ausgeführt werden, können Sie mit dem Stichwort `jobs.<job_id>.needs` eine Abhängigkeit von anderen Aufträgen definieren.
+Ein Workflow-Lauf besteht aus mindestens einem Job. Die Aufträge werden standardmäßig parallel ausgeführt. Sollen Jobs sequenziell ausgeführt werden, kannst Du mit dem Schlüsselwort `jobs.<job_id>.needs` eine Abhängigkeit von anderen Jobs definieren.
 
 Each job runs in a runner environment specified by `runs-on`.
 
@@ -288,6 +290,20 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 **Required**. The type of machine to run the job on. Die Maschine kann entweder ein {% data variables.product.prodname_dotcom %}-gehosteter oder ein selbst-gehosteter Runner sein.
 
+{% if currentVersion == "github-ae@latest" %}
+#### {% data variables.actions.hosted_runner %}s
+
+If you use an {% data variables.actions.hosted_runner %}, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+
+##### Beispiel
+
+```yaml
+runs-on: [AE-runner-for-CI]
+```
+
+For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+
+{% else %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### {% data variables.product.prodname_dotcom %}-gehostete Runner
@@ -298,7 +314,6 @@ Verfügbare Arten von {% data variables.product.prodname_dotcom %}-gehostete Run
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
 
 ##### Beispiel
@@ -308,8 +323,11 @@ Runs-on: ubuntu-latest
 ```
 
 Weitere Informationen findest Du unter "[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}-gehostete Runner](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+{% endif %}
 
 #### Selbst-gehostete Runner
+
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
@@ -321,7 +339,7 @@ runs-on: [self-hosted, linux]
 
 Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)“ und „[Selbst-gehostete Runner in einem Workflow verwenden](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)“.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
 The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
@@ -590,11 +608,26 @@ jobs:
         verwendet: docker://alpine:3.8
 ```
 
-#### Beispiel mit einer Aktion in einer öffentlichen Docker Registry
+{% if currentVersion == "free-pro-team@latest" %}
+##### Example using the {% data variables.product.prodname_github_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-Ein Docker-Image in einer öffentlichen Registry.
+A Docker image in the {% data variables.product.prodname_github_container_registry %}.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### Beispiel mit einer Aktion in einer öffentlichen Docker Registry
+
+`docker://{host}/{image}:{tag}`
+
+Ein Docker-Image in einer öffentlichen Registry. This example uses the Google Container Registry at `gcr.io`.
 
 ```yaml
 jobs:
@@ -603,6 +636,27 @@ jobs:
       - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
+
+#### Example using action inside a different private repository than the workflow
+
+Your workflow must checkout the private repository and reference the action locally.
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -711,7 +765,13 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+The command used, `perl` in this example, must be installed on the runner.
+
+
+{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
+For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+{% endif %}
 
 #### Exit-Codes und Voreinstellung für Fehleraktionen
 
@@ -882,7 +942,9 @@ steps:
 ```
 {% endraw %}
 
-Unterstützte Konfigurationsoptionen für {% data variables.product.prodname_dotcom %}-gehostete Runner findest Du unter „[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}-gehostete Runner](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)“.
+{% if currentVersion == "github-ae@latest" %}To find supported configuration options for {% data variables.actions.hosted_runner %}s, see "[Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
+{% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+{% endif %}
 
 #### Beispiel mit kombinierten zusätzlichen Werten
 
@@ -1024,7 +1086,7 @@ jobs:
 
 Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.container.credentials`
 
@@ -1108,7 +1170,7 @@ services:
 
 Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 

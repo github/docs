@@ -7,11 +7,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Inhaber und Mitarbeiter eines Repositorys, das einem Benutzerkonto angehört, können Pull Requests zuweisen. Organisationsmitglieder mit Triage-Berechtigungen für ein Repository können einen Pull-Request-Review zuweisen.
 
-Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/articles/access-permissions-on-github) auf ein benutzereigenes Repository gewährt wurde, einen Pull-Request-Review zuweisen. Organisationsmitglieder können jeder Person oder jedem Team mit Lesezugriff auf das Repository einen Pull-Request-Review zuweisen. Der angeforderte Reviewer respektive das angeforderte Team erhält eine Benachrichtigung, dass Du einen Pull-Request-Review von ihm angefordert hast. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. Weitere Informationen findest Du unter „[Code Review-Zuweisung für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 

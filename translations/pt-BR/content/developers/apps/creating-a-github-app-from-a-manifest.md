@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,16 +54,18 @@ A pessoa que está criando o aplicativo será redirecionada para uma página do 
 
 ##### Parâmetros do manifesto do aplicativo GitHub
 
- | Nome                  | Tipo      | Descrição                                                                                                                                                                                                                                                     |
- | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `string`  | O nome do aplicativo GitHub.                                                                                                                                                                                                                                  |
- | `url`                 | `string`  | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                   |
- | `hook_attributes`     | `objeto`  | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                               |
- | `redirect_url`        | `string`  | A URL completa para onde redirecionar depois que a pessoa instalar o aplicativo GitHub.                                                                                                                                                                       |
- | `descrição`           | `string`  | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                           |
- | `público`             | `boolean` | Defina como `verdadeiro` quando o seu aplicativo GitHub estiver disponível para o público ou `falso` quando for acessível somente pelo proprietário do aplicativo.                                                                                            |
- | `default_events`      | `array`   | Lista de [eventos](/webhooks/event-payloads) assinada pelo aplicativo GitHub.                                                                                                                                                                                 |
- | `default_permissions` | `objeto`  | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) exigido pelo aplicativo GitHub. O formato do objeto usa o nome de permissão para a chave (por exemplo, `problemas`) e o tipo de acesso para o valor (por exemplo, `gravar`). |
+ | Nome                  | Tipo               | Descrição                                                                                                                                                                                                                                                     |
+ | --------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name`                | `string`           | O nome do aplicativo GitHub.                                                                                                                                                                                                                                  |
+ | `url`                 | `string`           | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                   |
+ | `hook_attributes`     | `objeto`           | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                               |
+ | `redirect_url`        | `string`           | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `array de strigns` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
+ | `callback_url`        | `string`           | A full URL to redirect to after someone authorizes an installation.{% endif %}
+ | `descrição`           | `string`           | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                           |
+ | `público`             | `boolean`          | Defina como `verdadeiro` quando o seu aplicativo GitHub estiver disponível para o público ou `falso` quando for acessível somente pelo proprietário do aplicativo.                                                                                            |
+ | `default_events`      | `array`            | Lista de [eventos](/webhooks/event-payloads) assinada pelo aplicativo GitHub.                                                                                                                                                                                 |
+ | `default_permissions` | `objeto`           | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) exigido pelo aplicativo GitHub. O formato do objeto usa o nome de permissão para a chave (por exemplo, `problemas`) e o tipo de acesso para o valor (por exemplo, `gravar`). |
 
 O objeto `hook_attributes` tem a chave a seguir:
 
@@ -82,7 +86,7 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
- Criar um manifesto do aplicativo GitHub: <input type="text" name="manifest" id="manifest"><br>
+ Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
 
@@ -94,7 +98,10 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -109,11 +116,12 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
  })
 </script>
 ```
+
 Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta da organização. Substitua `ORGANIZAÇÃO` pelo nome da conta da organização em que você deseja criar o aplicativo.
 
 ```html
-<form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
- Criar um manifesto do aplicativo GitHub: <input type="text" name="manifest" id="manifest"><br>
+<form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
+ Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
 
@@ -125,7 +133,10 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -145,11 +156,11 @@ Este exemplo usa um formulário em uma página web com um botão que aciona a so
 
 Quando a pessoa clica em **Criar aplicativo GitHub**, O GitHub redireciona para o `redirect_url` com um `código` temporário em um parâmetro de código. Por exemplo:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
 Se você forneceu um parâmetro `estado`, você também verá esse parâmetro em `redirect_url`. Por exemplo:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
 
 #### 3. Você troca o código temporário para recuperar a configuração do aplicativo
 

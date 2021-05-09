@@ -2,14 +2,16 @@
 title: Habilitar logon único de SAML para organizações na conta corporativa
 intro: 'É possível controlar e garantir o acesso a recursos como repositórios, problemas, e pull requests habilitando o logon único SAML (SSO) e a autenticação centralizada através de um IdP em todas as organizações pertencentes a uma conta corporativa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Os proprietários das empresas podem habilitar o logon único SAML para organizações em uma conta corporativa.
+permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre o logon único SAML para contas corporativas
 
-{% data reusables.saml.dotcom-saml-explanation %} Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)".
+{% data reusables.saml.dotcom-saml-explanation %} Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)".
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 

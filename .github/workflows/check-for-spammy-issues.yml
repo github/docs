@@ -65,3 +65,14 @@ jobs:
               issue_number: issue.number,
               body: "This issue appears to have been opened accidentally. I'm going to close it now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
             });
+
+            // Add the issue to the Done column on the triage board
+            try {
+              await github.projects.createCard({
+                column_id: 11167427,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }

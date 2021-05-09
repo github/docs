@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}
 
+Una vez que hayas [preparado tu migración](/admin/user-management/preparing-to-migrate-data-to-your-enterprise), puedes utilizar los siguientes pasos para completar la migración.
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Con el comando `ghe-migrator import`, inicia el proceso de importación. Necesitarás:
-    * Tu GUID de migración.
+    * Tu GUID de migración. Para obtener más información, consulta la sección "[Cómo prepararte para migrar datos a tu empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
     * Tu token de acceso personal para autenticación. El token de acceso personal que utilices es solo para autenticación como administrador de sitio, y no requiere ningún alcance específico. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
     ```shell

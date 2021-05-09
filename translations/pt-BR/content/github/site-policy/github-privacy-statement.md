@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 19 de dezembro de 2020
@@ -94,7 +97,7 @@ Não coletamos intencionalmente as Informações Pessoais de Usuário **armazena
 
 ### Como o GitHub usa suas informações
 
-- Podemos usar as suas informações das seguintes maneiras:
+Podemos usar as suas informações das seguintes maneiras:
 - Usamos suas [Informações de Registro](#registration-information) para criar sua conta e prestar o Serviço a você.
 - Usamos suas [Informações de Pagamento](#payment-information) para prestar o serviço de Conta Paga, o serviço do Marketplace, o Programa de Patrocinadores ou qualquer outro serviço pago que você solicitar no GitHub.
 - Usamos suas Informações Pessoais de Usuário, especificamente seu nome de usuário, para identificar você no GitHub.
@@ -189,7 +192,7 @@ De modo semelhante, os projetos no GitHub podem incluir Informações Pessoais d
 
 #### Organizações
 
-Por meio de suas ações no GitHub, você poderá indicar a sua disposição em compartilhar suas Informações Pessoais de Usuário. Se você colaborar com ou se tornar integrante de uma Organização, os proprietários da Conta poderão receber suas Informações Pessoais de Usuário. Ao aceitar um convite para uma Organização, você receberá uma notificação sobre os tipos de informações que os proprietários poderão ver (para mais informações, consulteorganização <[Sobre Associação à Organização](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Se você aceitar um convite para uma Organização com um [domínio verificado](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain), os proprietários da Organização poderão ver seu(s) endereço(s) de e-mail completo(s) no(s) domínio(s) verificado(s) da Organização.
+Por meio de suas ações no GitHub, você poderá indicar a sua disposição em compartilhar suas Informações Pessoais de Usuário. Se você colaborar com ou se tornar integrante de uma Organização, os proprietários da Conta poderão receber suas Informações Pessoais de Usuário. Ao aceitar um convite para uma Organização, você receberá uma notificação sobre os tipos de informações que os proprietários poderão ver (para mais informações, consulteorganização <[Sobre Associação à Organização](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Se você aceitar um convite para uma Organização com um [domínio verificado](/organizations/managing-organization-settings/verifying-your-organizations-domain), os proprietários da Organização poderão ver seu(s) endereço(s) de e-mail completo(s) no(s) domínio(s) verificado(s) da Organização.
 
 Observe que o GitHub poderá compartilhar seu nome de usuário, suas [Informações de Uso](#usage-information) e as [Informações do Dispositivo](#device-information) com a organização da qual você é integrante na medida que as suas informações pessoais sejam fornecidas apenas para investigar ou responder a um incidente de segurança que afeta ou compromete a segurança dessa organização em particular.
 
@@ -245,7 +248,7 @@ Fornecemos mais informações sobre [cookies no GitHub](/github/site-policy/gith
 
 #### DNT
 
-"[Não rastrear](https://www.eff.org/issues/do-not-track)" (DNT) é uma preferência de privacidade que você pode definir no seu navegador se não quiser que os serviços on-line coletem e compartilhem certos tipos de informações sobre a sua atividade on-line de serviços de rastreamento de terceiros. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Se você deseja configurar seu navegador para sinalizar que não gostaria de ser rastreado, verifique a documentação do seu navegador para saber como habilitar essa sinalização. Há também bons aplicativos que bloqueiam o rastreamento online, como [Badger de Privacidade](https://privacybadger.org/).
+"[Não rastrear](https://www.eff.org/issues/do-not-track)" (DNT) é uma preferência de privacidade que você pode definir no seu navegador se não quiser que os serviços on-line coletem e compartilhem certos tipos de informações sobre a sua atividade on-line de serviços de rastreamento de terceiros. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Se você deseja configurar seu navegador para sinalizar que não gostaria de ser rastreado, verifique a documentação do seu navegador para saber como ativar essa sinalização. Há também bons aplicativos que bloqueiam o rastreamento online, como [Badger de Privacidade](https://privacybadger.org/).
 
 ### Como o GitHub protege suas informações
 
@@ -318,7 +321,7 @@ No caso improvável de conflito entre você e o GitHub sobre a manipulação das
 
 ### Mudanças nesta Declaração de Privacidade
 
-Embora grande parte das alterações sejam secundárias, o GitHub pode alterar esta Declaração de Privacidade ocasionalmente. Publicaremos uma notificação para os usuários no site sobre mudanças concretas feitas nesta Declaração de Privacidade pelo menos 30 dias antes de sua entrada em vigor. A notificação será exibida em nossa página inicial ou enviada por e-mail para o endereço de e-mail principal especificado na sua conta do GitHub. Também atualizaremos nosso [repositório da Política do Site](https://github.com/github/site-policy/), que registra e monitora todas as alterações feitas a esta política. Para outras mudanças nesta Declaração de Privacidade, incentivamos os usuários a [observar](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) ou verificar o nosso repositório de Política de Site com frequência.
+Embora grande parte das alterações sejam secundárias, o GitHub pode alterar esta Declaração de Privacidade ocasionalmente. Publicaremos uma notificação para os usuários no site sobre mudanças concretas feitas nesta Declaração de Privacidade pelo menos 30 dias antes de sua entrada em vigor. A notificação será exibida em nossa página inicial ou enviada por e-mail para o endereço de e-mail principal especificado na sua conta do GitHub. Também atualizaremos nosso [repositório da Política do Site](https://github.com/github/site-policy/), que registra e monitora todas as alterações feitas a esta política. Para outras mudanças nesta Declaração de Privacidade, incentivamos os usuários a [observar](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) ou verificar o nosso repositório de Política de Site com frequência.
 
 ### Licença
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 默认情况下，新的 GitHub 应用程序拥有一个自动生成的[默认肖像](https://github.com/blog/1586-identicons)。 默认肖像徽章如下所示：

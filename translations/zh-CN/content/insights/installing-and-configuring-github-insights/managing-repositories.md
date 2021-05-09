@@ -4,7 +4,7 @@ intro: '您可以管理连接到 {% data variables.product.prodname_insights %} 
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
-permissions: '对 {% data variables.product.prodname_insights %} 具有管理员权限的人可管理仓库。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

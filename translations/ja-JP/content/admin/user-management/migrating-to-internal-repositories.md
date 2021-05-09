@@ -4,9 +4,11 @@ intro: 'インターナルリポジトリへ移行して、{% data variables.pro
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
-permissions: サイト管理者はインターナルリポジトリへ移行できます。
+permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - Enterprise
 ---
 
 ### インターナルリポジトリについて

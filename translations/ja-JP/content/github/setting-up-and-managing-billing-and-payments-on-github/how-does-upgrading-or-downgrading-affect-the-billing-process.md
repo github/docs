@@ -1,10 +1,12 @@
 ---
 title: アップグレードやダウングレードは支払い処理にどのように影響しますか?
-intro: '個人アカウントまたは Organization のプランをアップグレードした場合、すぐに変更が適用されます。 プランをダウングレードした場合、現在の支払いサイクルの終了時に変更が適用されます。'
+intro: 個人アカウントまたは Organization のプランをアップグレードした場合、すぐに変更が適用されます。 プランをダウングレードした場合、現在の支払いサイクルの終了時に変更が適用されます。
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 有料ユーザアカウントまたは Organization のプランを変更しても、{% data variables.large_files.product_name_long %} など他の有料 {% data variables.product.prodname_dotcom %} 機能や、{% data variables.product.prodname_marketplace %} で購入した有料アプリケーションには影響しません。

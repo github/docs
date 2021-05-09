@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 您可以在 {% data variables.explore.your_stars_page %} 上搜索、排序和筛选星标仓库和主题。'

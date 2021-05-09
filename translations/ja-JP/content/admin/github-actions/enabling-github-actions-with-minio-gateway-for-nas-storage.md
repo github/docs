@@ -1,9 +1,11 @@
 ---
 title: NAS ストレージ用の MinIO ゲートウェイで GitHub Actions を有効化する
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、NAS ストレージに MinIO Gateway を使用して、ワークフローの実行によって生成されたアーティファクトを保存できます。'
-permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 ### 必要な環境

@@ -6,6 +6,7 @@ redirect_from:
 intro: 'Guías paso a paso para administradores de empresas, administradores de sistemas y especialistas en seguridad que implementan, configuran y administran una instancia de GitHub Enterprise.'
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -16,31 +18,23 @@ versions:
 
 ### Acerca de {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_name %} incluye el {% data variables.contact.enterprise_support %} en inglés{% if enterpriseServerVersions contains currentVersion %} y japonés{% endif %}.
+{% data variables.product.product_name %} incluye {% data variables.contact.enterprise_support %} en inglés{% if enterpriseServerVersions contains currentVersion %} y japonés{% endif %}.
 
 {% if enterpriseServerVersions contains currentVersion %}
 Puedes contactar a
 {% data variables.contact.enterprise_support %} a través de {% data variables.contact.contact_enterprise_portal %} para obtener ayuda sobre:
  - Instalar y usar {% data variables.product.product_name %}
  - Inspeccionar y verificar las causas de errores sospechados
-{% endif %}
 
-Adicionalmente a todos los beneficios de {% data variables.contact.enterprise_support %}, {% if enterpriseServerVersions contains currentVersion %}el {% data variables.contact.premium_support %}{% else %} el soporte para {% data variables.product.product_name %}{% endif %} ofrece:
+Adicionalmente a los beneficios de {% data variables.contact.enterprise_support %}, el soporte de {% data variables.contact.premium_support %} para {% data variables.product.product_name %} te ofrece:
   - Soporte técnico por escrito a través del portal de soporte de 24 horas por día, los 7 días de la semana
   - Soporte técnico telefónico las 24 horas del día, los 7 días de la semana
-  - Un{% if currentVersion == "github-ae@latest" %}n enhanced{% endif %} Acuerdo de Nivel de Servicio (SLA) {% if enterpriseServerVersions contains currentVersion %}con tiempos de respuesta inicial garantizados{% endif %}
-{% if currentVersion == "github-ae@latest" %}
-  - Un Administrador Técnico de la Cuenta de Servicio
-  - Revisiones trimestrales de soporte
-  - Servicios administrativos administrados
-{% else if enterpriseServerVersions contains currentVersion %}
+  - Un Acuerdo de nivel de servicio (SLA) con tiempos de respuesta iniciales garantizados.
   - Administradores técnicos de cuenta
   - Acceso a contenido prémium.
   - Revisiones de estado programadas.
   - Horas administrativas administradas
 {% endif %}
-
-{% data reusables.support.government-response-times-may-vary %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 Para obtener más información, consulta "[Acerca de{% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
@@ -52,34 +46,28 @@ Para obtener más información, consulta "[Acerca de{% data variables.contact.pr
 
 Puedes contactar a {% data variables.contact.enterprise_support %} a través del {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} del {% data variables.contact.ae_azure_portal %}{% endif %} para reportar los problemas por escrito. Para obtener más información, consulta la sección "[Recibir ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Horas de operación
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### Soporte en inglés
-{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
-Para cuestiones estándar no urgentes, ofrecemos soporte en inglés las 24 horas del día, 5 días a la semana, excepto fines de semana y feriados nacionales en EE.UU. El tiempo de respuesta estándar es 24 horas.
+Para cuestiones estándar no urgentes, ofrecemos soporte en inglés las 24 horas del día, 5 días a la semana, excepto fines de semana y feriados nacionales de EE.UU. El tiempo de respuesta estándar es 24 horas.
 
-Para los asuntos urgentes, estamos {% else %}Estamos{% endif %} disponibles las 24 horas del día, los 7 días de la semana, incluso durante los días festivos de EE.UU.
+Para asuntos urgentes, estamos disponibles las 24 horas del día, 7 días a la semana, incluso en días feriados de EE.UU.
 
-{% data reusables.support.government-response-times-may-vary %}
-
-{% if enterpriseServerVersions contains currentVersion  %}
 #### Soporte en japonés
 
-Para cuestiones no urgentes, el soporte en japonés se encuentra disponible de lunes a viernes, de 9:00 a.m. a 5:00 p.m. (hora estándar en Japón), excepto los feriados nacionales en Japón. Para cuestiones urgentes, ofrecemos apoyo en inglés 24 horas al día, 7 días por semana, incluso durante las vacaciones nacionales de los Estados Unidos.
+Para cuestiones no urgentes, el soporte en japonés se encuentra disponible de lunes a viernes, de 9:00 a.m. a 5:00 p.m. (hora estándar en Japón), excepto los feriados nacionales en Japón. Para cuestiones urgentes, ofrecemos apoyo en inglés 24 horas al día, 7 días por semana, incluso durante las vacaciones nacionales de EE.UU.
 
-Para encontrar una lista completa de días festivos de EE.UU. y japoneses que se celebran en {% data variables.contact.enterprise_support %}, consulta la "[Programación de días festivos](#holiday-schedules)".{% endif %}
+Para obtener una lista de los días feriados nacionales de EE. UU. Para conocer una lista de los feriados nacionales de EE. UU. y Japón observados por {% data variables.contact.enterprise_support %}, consulta el [Cronograma de feriados](#holiday-schedules)".
 
-{% if enterpriseServerVersions contains currentVersion %}
 ### Cronograma de feriados
 
-Para asuntos urgentes, podemos ofrecerte ayudaeninglés 24 horas al día, 7 días por semana, incluyendo los días feriados de EE.UU. {% if enterpriseServerVersions contains currentVersion  %}y Japón{% endif %}.
+Para asuntos urgentes, podemos ofrecerte ayudaeninglés 24 horas al día, 7 días por semana, incluyendo los días feriados de EE.UU. y Japón.
 
 #### Feriados en los Estados Unidos
 
-{% data variables.contact.enterprise_support %} observa estos días festivos en Estados Unidos. {% if enterpriseServerVersions contains currentVersion  %}, aunque nuestro equipo de soporte global se encuentra disponible para responder a los tickets urgentes{% endif %}.
+{% data variables.contact.enterprise_support %} observa estos días festivos en Estados Unidos. {{ site.data.variables.contact.enterprise_support }} respeta estos días feriados en los EE.UU, aunque nuestro equipo de soporte global se encuentra disponible para atender tickets urgentes.
 
 | Feriados en EE.UU.                | Fecha en la que se celebra  |
 | --------------------------------- | --------------------------- |

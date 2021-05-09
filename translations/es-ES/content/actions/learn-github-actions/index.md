@@ -4,8 +4,8 @@ shortTitle: Aprende sobre las GitHub Actions
 intro: 'Ya sea que seas nuevo en el uso de {% data variables.product.prodname_actions %} o que te interese aprender sobre todo lo que pueden ofrecer, esta guía te ayudará a utilizar las {% data variables.product.prodname_actions %} para acelerar tus flujos de trabajo de desarrollo de aplicaciones.'
 redirect_from:
   - /articles/about-github-actions
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/about-GitHub-Actions
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/about-GitHub-Actions
+  - /github/automating-your-workflow-with-github-actions/about-github-actions
+  - /actions/automating-your-workflow-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions
   - /actions/getting-started-with-github-actions/about-github-actions
   - /actions/getting-started-with-github-actions/overview
@@ -28,6 +28,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% link_with_intro /introduction-to-github-actions %}

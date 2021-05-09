@@ -5,13 +5,17 @@ redirect_from:
   - /articles/contacting-your-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
-### About sponsorship updates
+### スポンサーシップのアップデートについて
 
 スポンサーは、メールで作業についての最新情報を受信するかどうかを選べます。 詳細は「[スポンサーシップを管理する](/articles/managing-your-sponsorship)」を参照してください。
 
-For sponsored developer accounts, the update will come from your user account's primary email address. ユーザアカウントでメールアドレスのプライバシーを有効化している場合は、`noreply@github.com` から送信されます。 For sponsored organizations, the update will come from the organization's `noreply@github.com` email address. 詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
+スポンサード開発者アカウントの場合、アップデートはユーザーアカウントのプライマリメールアドレスから送信されます。 ユーザアカウントでメールアドレスのプライバシーを有効化している場合は、`noreply@github.com` から送信されます。 スポンサードOrganizationの場合、アップデートはOrganizationの`noreply@github.com` メールアドレスから送信されます。 詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。
+
+You can also contact any one-time sponsors who contributed within the last 30 days and enabled updates.
 
 ### スポンサーに連絡する
 

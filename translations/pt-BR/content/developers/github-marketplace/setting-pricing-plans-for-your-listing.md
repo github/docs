@@ -15,6 +15,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 ### Sobre a configuração dos planos de preços
@@ -26,6 +28,8 @@ Para oferecer um plano pago para seu aplicativo, este deve ser pertencente a uma
 Se seu aplicativo já foi publicado com um plano pago e você é um editor verificado, você poderá publicar um novo plano pago a partir da página "Editar um plano de preços" nas configurações da listagem do seu aplicativo do Marketplace.
 
 ![Botão Publicar este plano](/assets/images/marketplace/publish-this-plan-button.png)
+
+If your app is already published with a paid plan and but you are not a verified publisher, then you can cannot publish a new paid plan until you are a verified publisher. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 ### Sobre como salvar planos de preços
 
@@ -77,3 +81,5 @@ Depois de remover um plano de preços, os usuários não poderão comprar seu ap
 Você pode desativar os testes grátis do GitHub Marketplace sem remover o plano de preços, mas isso impede que você inicie futuros testes grátis para esse plano. Se você optar por desativar os testes grátis para um plano de preços, os usuários já inscritos poderão concluir o seu teste gratuito.
 
 Depois de remover um plano de preços, você poderá criar um novo plano com o mesmo nome do plano de preços removido. Por exemplo, se você tem um plano de preços "Pro", mas precisa alterar o preço fixo, você poderá remover o plano de preços "Pro" e criar um novo plano de preços "Pro" com um preço atualizado. Os usuários poderão comprar o novo plano de preços imediatamente.
+
+If you are not a verified publisher, then you cannot change a pricing plan for your app. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."

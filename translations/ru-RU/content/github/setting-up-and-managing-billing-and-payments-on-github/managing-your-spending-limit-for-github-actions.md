@@ -4,6 +4,8 @@ intro: 'You can set a spending limit for {% data variables.product.prodname_acti
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### About spending limits for {% data variables.product.prodname_actions %}

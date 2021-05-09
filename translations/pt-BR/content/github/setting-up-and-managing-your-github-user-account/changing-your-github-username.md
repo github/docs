@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### Sobre alterações no nome de usuário
@@ -30,7 +32,7 @@ Após alteração do nome de usuário, o {% data variables.product.product_name 
 - Os links da web para repositórios existentes continuarão funcionando. Esse processo pode demorar alguns minutos para ser concluído após a alteração.
 - A linha de comando que faz push dos clones do repositório local para as URLs de controle do remote continuarão funcionando.
 
-Se o novo proprietário do seu antigo nome de usuário criar um repositório com o mesmo nome do seu repositório, isso substituirá a entrada de redirecionamento e o seu redirecionamento para de funcionar. Por conta dessa possibilidade, é recomendável atualizar todas as URLs existentes do repositório remote após alteração do seu nome de usuário. Para obter mais informações, consulte "[Alterar o URL de um remote](/articles/changing-a-remote-s-url)".
+Se o novo proprietário do seu antigo nome de usuário criar um repositório com o mesmo nome do seu repositório, isso substituirá a entrada de redirecionamento e o seu redirecionamento para de funcionar. Por conta dessa possibilidade, é recomendável atualizar todas as URLs existentes do repositório remote após alteração do seu nome de usuário. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Links para a página de perfil anterior
 
@@ -52,6 +54,5 @@ Após alteração do nome de usuário, os links para sua página de perfil anter
 
 ### Leia mais
 
-- "[Alterar o URL de um remote](/articles/changing-a-remote-s-url)"
 - "[Por que os meus commits estão vinculados ao usuário incorreto?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} Política de nome de usuário](/articles/github-username-policy)"{% endif %}

@@ -1,7 +1,7 @@
 ---
 title: Cambiar la rama predeterminada
 intro: 'Si tienes màs de una rama en tu repositorio, puedes configurar cualquiera de ellas como la predeterminada.'
-permissions: Las personas con permisos administrativos en un repositorio pueden cambiar la rama predeterminada para el mismo.
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
+topics:
+  - Repositories
 ---
 
 ### Acerca de cambiar la rama predeterminada
