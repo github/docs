@@ -62,12 +62,12 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
   - Paths can be either directories or single files, and glob patterns are supported.
   - With `v2` of the `cache` action, you can specify a single path, or multiple paths as a block of newline-separated lines. For example:
     ```
-    - name: Cache multiple paths
+    - name: Cache Gradle packages
       uses: actions/cache@v2
       with:
         path: |
-          ~/cache
-          ~/cache/subdir
+          ~/.gradle/caches
+          ~/.gradle/wrapper
     ```
   - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
 - `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
