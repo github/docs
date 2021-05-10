@@ -4,7 +4,7 @@ intro: 'To offer paid plans for your app or to include a marketplace badge in yo
 versions:
   free-pro-team: '*'
 topics:
-  - marktplatz
+  - Marketplace
 ---
 
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.

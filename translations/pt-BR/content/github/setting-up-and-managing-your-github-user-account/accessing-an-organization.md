@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 {% tip %}

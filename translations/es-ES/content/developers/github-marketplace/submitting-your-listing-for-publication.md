@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 Una vez que el listado de tu app cumpla con los requisitos de {% data variables.product.prodname_marketplace %}, puedes emitirla. Para obtener un resumen de los requisitos del listado de la app, consulta la sección "[requisitos para listar una app](/developers/github-marketplace/requirements-for-listing-an-app)".

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 关闭项目板时，默认情况下，为项目板配置的任何工作流程自动化都将暂停。 更多信息请参阅“[关闭项目板](/articles/closing-a-project-board)”。

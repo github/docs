@@ -1,6 +1,6 @@
 ---
 title: 创建组分配
-intro: '您可以为参加您课程的学生团队创建协作作业。'
+intro: 您可以为参加您课程的学生团队创建协作作业。
 versions:
   free-pro-team: '*'
 redirect_from:

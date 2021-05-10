@@ -7,8 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 sudoでプロテクトされたアクションを実行したあとは、数時間アクションがない場合に限り、再認証を要求されます。 Sudo でプロテクトされたアクションを行った場合、このタイマーはリセットされます。

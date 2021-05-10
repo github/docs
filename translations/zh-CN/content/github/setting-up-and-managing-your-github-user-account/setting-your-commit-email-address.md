@@ -15,8 +15,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
-  - 通知
+  - Accounts
+  - Notifications
 ---
 
 ### 关于提交电子邮件地址

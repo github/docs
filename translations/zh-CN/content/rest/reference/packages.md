@@ -4,7 +4,7 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% data variables.product.prodname_registry %} API 允许您使用 REST API 管理包。 要了解有关恢复或删除包的更多信息，请参阅“[恢复和删除包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。

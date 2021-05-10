@@ -1,13 +1,14 @@
 ---
 title: GitHub Connect を使用して GitHub.com アクションへの自動アクセスを有効にする
 intro: 'Enterprise インスタンスの {% data variables.product.prodname_actions %} が {% data variables.product.prodname_dotcom_the_website %} のアクションを使用できるようにするには、{% data variables.product.product_location_enterprise %} を {% data variables.product.prodname_ghe_cloud %} に接続します。'
-permissions: '接続された {% data variables.product.prodname_ghe_cloud %} Organization または Enterprise アカウントの所有者でもある {% data variables.product.prodname_ghe_server %} のサイト管理者は、すべての {% data variables.product.prodname_dotcom_the_website %} アクションへのアクセスを有効にできます。'
+permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

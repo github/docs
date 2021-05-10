@@ -5,6 +5,7 @@ redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

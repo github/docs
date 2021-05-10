@@ -8,7 +8,7 @@ intro: 'Si usas la autenticación integrada, puedes impedir que las personas no 
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

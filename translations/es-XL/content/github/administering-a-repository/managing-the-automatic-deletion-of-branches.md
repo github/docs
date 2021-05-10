@@ -5,7 +5,10 @@ redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Cualquier persona con permisos de administrador a un repositorio puede habilitar e inhabilitar la eliminación automática de ramas.

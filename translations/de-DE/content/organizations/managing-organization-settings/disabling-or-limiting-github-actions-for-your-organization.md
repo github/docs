@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

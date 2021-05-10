@@ -1,6 +1,6 @@
 ---
 title: Organizar integrantes em equipes
-intro: Você pode agrupar os integrantes da organização em equipes que reflitam sua empresa ou a estrutura do grupo, com permissões de acesso em cascata e menções.
+intro: 'Você pode agrupar os integrantes da organização em equipes que reflitam sua empresa ou a estrutura do grupo, com permissões de acesso em cascata e menções.'
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions/
   - /articles/setting-up-teams-for-accessing-organization-repositories/
@@ -17,8 +17,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /about-teams %}

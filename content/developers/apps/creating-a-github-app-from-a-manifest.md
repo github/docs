@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 
@@ -179,7 +179,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-    POST /app-manifests/:code/conversions
+    POST /app-manifests/{code}/conversions
 
 For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/reference/apps#create-a-github-app-from-a-manifest).
 

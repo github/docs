@@ -1,6 +1,6 @@
 ---
 title: 关于受保护分支
-intro: '您可以通过设置分支保护规则来保护重要分支，这些规则定义协作者是否可以删除或强制推送到分支以及设置任何分支推送要求，例如通过状态检查或线性提交历史记录。'
+intro: 您可以通过设置分支保护规则来保护重要分支，这些规则定义协作者是否可以删除或强制推送到分支以及设置任何分支推送要求，例如通过状态检查或线性提交历史记录。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -20,7 +20,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于分支保护规则

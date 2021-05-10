@@ -2,7 +2,7 @@
 title: 推送更改到 GitHub
 shortTitle: 推送更改
 intro: '在本地将更改提交到项目时，您可以将这些更改推送到 {% data variables.product.prodname_dotcom %}，以便其他人可以从远程仓库访问它们。'
-permissions: 具有写入权限的人可以将更改推送到仓库。
+permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
 versions:

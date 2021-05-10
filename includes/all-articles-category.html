@@ -3,7 +3,7 @@
 {% assign maxArticles = 10 %}
 
 <div class="py-6 all-articles-list">
-  <h2 class="font-mktg mb-4">{{ category.title }} docs</h2>
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">{{ category.title }} docs</a></h2>
 
   <div class="d-flex gutter flex-wrap">
     {% for xmaptopic in category.maptopics %}
@@ -22,7 +22,7 @@
             {% endfor %}
             {% assign numArticles = maptopic.childArticles | obj_size %}
             {% if numArticles > maxArticles %}
-              <button class="js-all-articles-show-more btn-link link-gray">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+              <button class="js-all-articles-show-more btn-link Link--secondary">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
             {% endif %}
           </ul>
         </div>

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 You can open a new issue based on code from an existing pull request. For more information, see "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)."

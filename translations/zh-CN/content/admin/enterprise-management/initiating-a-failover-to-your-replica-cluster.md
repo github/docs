@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于到副本群集的故障转移

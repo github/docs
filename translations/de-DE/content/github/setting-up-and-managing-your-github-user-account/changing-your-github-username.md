@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### Informationen zu Änderungen des Benutzernamens

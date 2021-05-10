@@ -1,6 +1,6 @@
 ---
 title: Unterschiede zwischen Subversion und Git
-intro: 'SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.'
+intro: SVN-Repositorys (Subversion) ähneln Git-Repositorys. In Bezug auf die Architektur Deiner Projekte bestehen jedoch mehrere Unterschiede.
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git

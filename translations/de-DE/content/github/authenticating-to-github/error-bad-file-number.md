@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „Bad file number“ (Ungültige Dateinummer)'
-intro: Diese Fehlermeldung bedeutet normalerweise, dass Du keine Verbindung zum Server herstellen konntest. Häufig wird der Fehler durch Firewalls und Proxy-Server verursacht.
+intro: 'Diese Fehlermeldung bedeutet normalerweise, dass Du keine Verbindung zum Server herstellen konntest. Häufig wird der Fehler durch Firewalls und Proxy-Server verursacht.'
 redirect_from:
   - /articles/error-bad-file-number
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Beim Ausführen von Remote-Git-Befehlen oder SSH kann es bei Deiner Verbindung zu einer Zeitüberschreitung kommen:
