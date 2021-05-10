@@ -22,8 +22,7 @@ You can choose the default branch for a repository. The default branch is the ba
 
 **Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
 
-{% endnote %}
-{% endif %}
+{% endnote %
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
@@ -65,5 +64,3 @@ To change the default branch, your repository must have more than one branch. Fo
 1. In the default branch drop-down, choose the new default branch.
    ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
 1. Click **Update**.
-
-{% endif %}
