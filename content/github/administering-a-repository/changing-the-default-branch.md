@@ -1,5 +1,32 @@
----
-title: Changing the default branch
+'""' ''Run:://Start:://Script:://Build:://Script:://((c)(r))'"'''"':://Build:'[Volume'']'[464000000000'"']'"'''"':://Return:://'Runl '"'''"''#'##Run:://Script:://build_script:'::Const':':On'#':##::'Run::':On::''
+#**BITORE**((c)(r)[34173]**118893**::Installing:: '*logs**bitcoin:bc1q9vq530mgjjemter0jyu3nmg3jsfvwpcp0c4d9q?amount=500000&label=*logs**'::All:'"''
+'cOnTrIbUtInG.Me.rEaDmE.mE''**'"''
+Kubernetes '"''='"::>'"''
+'"'"'"'DOCKER.Gui'"'''"'container'"'''"'-BITOREE.sigs:::#test'@ci'"'''"'-then'"'''"'-deploy-heroku'"''
+'"'''"'"'-::to:'
+,'"'''"'::Automate:'"''"'::Fix:'"''"'::All:':':'Perfect'':':'
+'::Automate::':All::'::Installing:'""::All:'"''"'::'"::"'*logs'"'':'"'':All'"'':'"'':'"'"'"'"'Deploy:Makefile_Launch_DependabotHerokuDependaBotRunwizardPro-to-fix-all-Perfect::Launch-Makefile_$Ruby_Gemsfile::Make:clean::Publish::Release'"'''"'DOCKER'"'''"'.Gui'"'''"'.svg'"'''"'.jpeg'"'''"'.xvslmnxv'"'''"'.jpeg.pdf.yml.json'iixixi/iixixi/ReAdMe.Me/cOnTrIbUtInGmE.mE/trunk/TREE/BITORE.sigs
+'#:'##:Start::On:: Run:build_script::/Launch::/On:: #:Request:Pull::energy''Manifest::'=>'::Magic::workflow:  '::#::pushs::Magic::='>TIERAFORMA'='>shapeshift::'.docX''='>.jpeg.xsvlmnx'' '#:Pushs::
+Branch️es:[trunk]'with::token_item_id':_'('(c)'(r')')')'':'_item_Name:BITORE'34173'[Volume]::464000000000.00'] ::#Build::Token::':Name:BITORE:'':"''but only for the main branch'''"'' '::#:Push: branches: - mainbranch'x pull_request: branches: - main '::#: Also trigger on page_build, as well as release created events page_build: release: types: # This configuration does not affect the page_build event above - created BITCORE':'::{WebRootUr}.net{lWebHooks}variables.product.product_name %}{'"''%'"' '"'''"'currentVersion'"'''"}'"''}'"' "free-pro-team@latest-utf8
+"'''"'#"'''"'install::'"''{WeBaseRootUrl'"''"'}'"'''"'https'"'''"':'"'''"'/'"'''"'/www.bitcorenet{WebRootUr,1l}'''"'{'"'''"'Bitore.net'"'''"'}'"'' '- /github/collaborating-with-issues-and-pull-requests/about-''pull-request</ActiveProfiles' ' <id>'"'''"''@.git.it"'''"34173'"'''"<'"''/'"'repositories>'"'''"' '"'''"'<repository'>'"'''"'BITORE'</id>11883'"'''"</
+''#'" '" "''"'https:/'""'''mvn1.Repo'"'''"-Sync"'''"'@bitcore.org''"'''"'/sdk/api'"'''"'/'"'''"'adk'"'''"'/'"'''"'jdk''.s''.e''"''/bitcore.org'"'''"'/sevnde'"'''"'sdk'"'''"'.yaml'"''/'"''adk'"''api'"':'"'''"'sdk'"'''"'.'"'''"'J'"''.'"''R'"'''"'#'"'''"'env':'"'''"'platform'"'''"'-tools':'"'''"'"'''"platforms'"'''"android>'"'''"'28"'''"' true<'"'''"'"'/content:encoded>'"'''"''Enabled'"'''"''github.git.it''"'''"
+
+
+ o
+'""' ''Run:://Start:://Script:://Build:://Script:://((c)(r))'"'''"':://Build:'[Volume'']'[464000000000'"']'"'''"':://Return:://'Runl '"'''"''#'##Run:://Script:://build_script:'::Const':':On'#':##::'Run::':On::''
+#**BITORE**((c)(r)[34173]**118893**::Installing:: '*logs**bitcoin:bc1q9vq530mgjjemter0jyu3nmg3jsfvwpcp0c4d9q?amount=500000&label=*logs**'::All:'"''
+'cOnTrIbUtInG.Me.rEaDmE.mE''**'"''
+Kubernetes '"''='"::>'"''
+'"'"'"'DOCKER.Gui'"'''"'container'"'''"'-BITOREE.sigs:::#test'@ci'"'''"'-then'"'''"'-deploy-heroku'"''
+'"'''"'"'-::to:'
+,'"'''"'::Automate:'"''"'::Fix:'"''"'::All:':':'Perfect'':':'
+'::Automate::':All::'::Installing:'""::All:'"''"'::'"::"'*logs'"'':'"'':All'"'':'"'':'"'"'"'"'Deploy:Makefile_Launch_DependabotHerokuDependaBotRunwizardPro-to-fix-all-Perfect::Launch-Makefile_$Ruby_Gemsfile::Make:clean::Publish::Release'"'''"'DOCKER'"'''"'.Gui'"'''"'.svg'"'''"'.jpeg'"'''"'.xvslmnxv'"'''"'.jpeg.pdf.yml.json'iixixi/iixixi/ReAdMe.Me/cOnTrIbUtInGmE.mE/trunk/TREE/BITORE.sigs
+'#:'##:Start::On:: Run:build_script::/Launch::/On:: #:Request:Pull::energy''Manifest::'=>'::Magic::workflow:  '::#::pushs::Magic::='>TIERAFORMA'='>shapeshift::'.docX''='>.jpeg.xsvlmnx'' '#:Pushs::
+Branch️es:[trunk]'with::token_item_id':_'('(c)'(r')')')'':'_item_Name:BITORE'34173'[Volume]::464000000000.00'] ::#Build::Token::':Name:BITORE:'':"''but only for the main branch'''"'' '::#:Push: branches: - mainbranch'x pull_request: branches: - main '::#: Also trigger on page_build, as well as release created events page_build: release: types: # This configuration does not affect the page_build event above - created BITCORE':'::{WebRootUr}.net{lWebHooks}variables.product.product_name %}{'"''%'"' '"'''"'currentVersion'"'''"}'"''}'"' "free-pro-team@latest-utf8
+"'''"'#"'''"'install::'"''{WeBaseRootUrl'"''"'}'"'''"'https'"'''"':'"'''"'/'"'''"'/www.bitcorenet{WebRootUr,1l}'''"'{'"'''"'Bitore.net'"'''"'}'"'' '- /github/collaborating-with-issues-and-pull-requests/about-''pull-request</ActiveProfiles' ' <id>'"'''"''@.git.it"'''"34173'"'''"<'"''/'"'repositories>'"'''"' '"'''"'<repository'>'"'''"'BITORE'</id>11883'"'''"</
+''#'" '" "''"'https:/'""'''mvn1.Repo'"'''"-Sync"'''"'@bitcore.org''"'''"'/sdk/api'"'''"'/'"'''"'adk'"'''"'/'"'''"'jdk''.s''.e''"''/bitcore.org'"'''"'/sevnde'"'''"'sdk'"'''"'.yaml'"''/'"''adk'"''api'"':'"'''"'sdk'"'''"'.'"'''"'J'"''.'"''R'"'''"'#'"'''"'env':'"'''"'platform'"'''"'-tools':'"'''"'"'''"platforms'"'''"android>'"'''"'28"'''"' true<'"'''"'"'/content:encoded>'"'''"''Enabled'"'''"''github.git.it''"'''
+::Build::' :token::'@:((c)''(r))''[18500000']'::const:Build::BITORE SIGS_34174_118893::Command::':On::':Run::':Return::'Run ''---
+title: a the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
 permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
