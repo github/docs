@@ -24,7 +24,7 @@ A development container, or dev container, is the environment that {% data varia
 
 {% data reusables.codespaces.devcontainer-location %}
 
-You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the editor, but you can also set editor-specific settings for individual Workspaces in a codespace in a file named `.vscode/settings.json`.
+You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the editor, but you can also set editor-specific settings for individual [workspaces](https://code.visualstudio.com/docs/editor/workspaces) in a codespace in a file named `.vscode/settings.json`.
 
 For information about the settings and properties that you can set in a `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -73,7 +73,7 @@ Predefined container definitions include a common configuration for a particular
 
 Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project's setup. 
 
-1. To access the command palette, in the bottom-left corner click **Codespaces**, then start typing "Codespaces: Add Development Container Configuration Files...". Click **Codespaces: Add Development Container Configuration Files...**
+1. To access the command palette, in the upper-left corner, select the Application Menu and click **Command Palette…** from the **View** menu, then start typing "Codespaces: Add Development Container Configuration Files...". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 1. Click the definition you want to use.
   ![List of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
@@ -88,7 +88,7 @@ Using a predefined configuration is a great idea if you need some additional ext
 
 If none of the predefined configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
 
-In the file, you can use supported configuration keys to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode %} extensions will be installed.
+In the file, you can use [supported configuration keys](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode %} extensions will be installed.
 
 {% data reusables.codespaces.vscode-settings-order %}
 
