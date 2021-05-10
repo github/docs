@@ -1,6 +1,6 @@
 ---
 title: Dein Sicherheitsprotokoll überprüfen
-intro: Du kannst das Sicherheitsprotokoll für Dein Benutzerkonto überprüfen, um Dich betreffende Aktionen besser zu verstehen, die von Dir oder anderen Benutzern durchgeführt wurden.
+intro: 'Du kannst das Sicherheitsprotokoll für Dein Benutzerkonto überprüfen, um Dich betreffende Aktionen besser zu verstehen, die von Dir oder anderen Benutzern durchgeführt wurden.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-your-security-log
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 ### Zugriff auf Dein Sicherheitsprotokoll

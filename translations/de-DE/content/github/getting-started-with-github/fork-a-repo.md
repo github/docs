@@ -4,16 +4,16 @@ redirect_from:
   - /fork-a-repo/
   - /forking/
   - /articles/fork-a-repo
-intro: Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Repositorys kannst Du Änderungen uneingeschränkt testen, ohne Auswirkungen auf das Originalprojekt.
+intro: 'Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Repositorys kannst Du Änderungen uneingeschränkt testen, ohne Auswirkungen auf das Originalprojekt.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - Issues (Lieferungen)
-  - notifications
-  - accounts
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Üblicherweise werden Forks genutzt, um Änderungen für ein Projekt eines anderes Benutzers vorzuschlagen oder ein Projekt eines anderen Benutzers als Ausgangspunkt für eigene Ideen zu verwenden.

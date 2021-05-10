@@ -12,7 +12,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。

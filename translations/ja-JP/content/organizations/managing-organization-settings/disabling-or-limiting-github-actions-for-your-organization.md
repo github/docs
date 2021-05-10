@@ -1,6 +1,6 @@
 ---
 title: Organization について GitHub Actions を無効化または制限する
-intro: 'Organization のオーナーは Organization の GitHub Actions を無効化、有効化、制限することができます。'
+intro: Organization のオーナーは Organization の GitHub Actions を無効化、有効化、制限することができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

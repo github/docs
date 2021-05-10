@@ -16,7 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marktplatz
+  - Marketplace
 ---
 
 ### About setting pricing plans

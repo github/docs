@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Die angezeigte Fehlermeldung sieht ähnlich wie die folgende aus:

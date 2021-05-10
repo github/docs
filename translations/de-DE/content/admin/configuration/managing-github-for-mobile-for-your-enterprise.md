@@ -5,7 +5,7 @@ permissions: 'Enterprise owners can manage {% data variables.product.prodname_mo
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

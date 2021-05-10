@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Wenn Du ein Projektboard schließt, wird jede für das Projektboard konfigurierte Workflow-Automatisierung standardmäßig angehalten. Weitere Informationen findest Du unter „[Ein Projektboard schließen](/articles/closing-a-project-board).“

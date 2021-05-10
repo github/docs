@@ -12,7 +12,7 @@ intro: 'LDAP を使えば、既存のアカウントに対して {% data variabl
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

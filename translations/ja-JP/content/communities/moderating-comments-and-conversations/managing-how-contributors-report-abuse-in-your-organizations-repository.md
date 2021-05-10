@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository
 topics:
-  - コミュニティ
+  - Community
 ---
 
 リポジトリに対する管理者権限を持つユーザは、コントリビューターがリポジトリ内の不正利用をレポートする方法を管理できます。

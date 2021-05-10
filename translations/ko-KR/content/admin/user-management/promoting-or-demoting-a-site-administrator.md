@@ -8,7 +8,7 @@ intro: 'Site administrators can promote any normal user account to a site admini
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 {% tip %}
