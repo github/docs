@@ -16,7 +16,9 @@ topics:
 
 ### Table of Contents
 
+{% link_in_list /about-codespaces %}
 {% link_in_list /getting-started-with-codespaces %}
 {% link_in_list /setting-up-your-codespace %}
 {% link_in_list /developing-in-codespaces %}
 {% link_in_list /working-with-your-codespace %}
+{% link_in_list /codespaces-reference %}

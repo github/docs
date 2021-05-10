@@ -6,6 +6,7 @@ versions:
   free-pro-team: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/about-billing-for-codespaces
+  - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
 topics:
   - Codespaces
 ---
