@@ -43,6 +43,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
     "csurf": "^1.11.0",
+    "date-fns": "^2.21.3",
     "directory-tree": "^2.2.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

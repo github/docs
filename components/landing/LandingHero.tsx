@@ -9,25 +9,25 @@ import { useVersion } from 'components/hooks/useVersion'
 
 export const LandingHero = () => {
   const { airGap } = useMainContext()
-  const { product_video, shortTitle, beta_product, intro, heroLinks } = useProductLandingContext()
+  const { product_video, shortTitle, beta_product, intro, introLinks } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
 
   return (
-    <div>
-      <header className="d-lg-flex gutter-lg mb-6">
-        <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
-          <span className="text-mono color-text-secondary">Product</span>
-          <h1 className="mb-3 font-mktg">
-            {shortTitle}{' '}
-            {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
-          </h1>
+    <header className="d-lg-flex gutter-lg mb-6">
+      <div className={cx(product_video && 'col-12 col-lg-6 mb-3 mb-lg-0')}>
+        <span className="text-mono color-text-secondary">Product</span>
+        <h1 className="mb-3 font-mktg">
+          {shortTitle}{' '}
+          {beta_product && <span className="Label Label--success v-align-middle">Beta</span>}
+        </h1>
 
-          <div
-            className="lead-mktg color-text-secondary"
-            dangerouslySetInnerHTML={{ __html: intro }}
-          />
+        <div
+          className="lead-mktg color-text-secondary"
+          dangerouslySetInnerHTML={{ __html: intro }}
+        />
 
-          {heroLinks.map((link) => {
+        {/* idea to abstract the introLinks into something more component-like */}
+        {/* {introLinks.map((link) => {
             return (
               <FullLink
                 href={link.href}
@@ -39,51 +39,50 @@ export const LandingHero = () => {
                 {t(link.translationKeyLabel)}
               </FullLink>
             )
-          })}
+          })} */}
 
-          {/* {introLinks?.quickstart && (
-            <FullLink href={introLinks.quickstart} className="btn-mktg btn-large f4 mt-3 mr-3">
-              {t('quick_start')}
-            </FullLink>
-          )}
-
-          {introLinks?.reference && (
-            <FullLink
-              href={introLinks.reference}
-              className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-            >
-              {t('reference_guides')}
-            </FullLink>
-          )}
-
-          {introLinks?.overview && (
-            <FullLink
-              href={introLinks.overview}
-              className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
-            >
-              {t('overview')}
-            </FullLink>
-          )} */}
-        </div>
-
-        {product_video && (
-          <div className="col-12 col-lg-6">
-            <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
-              {!airGap && (
-                <iframe
-                  title={`${shortTitle} Video`}
-                  className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
-                  src={product_video}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              )}
-            </div>
-          </div>
+        {introLinks?.quickstart && (
+          <FullLink href={introLinks.quickstart} className="btn-mktg btn-large f4 mt-3 mr-3">
+            {t('quickstart')}
+          </FullLink>
         )}
-      </header>
-    </div>
+
+        {introLinks?.reference && (
+          <FullLink
+            href={introLinks.reference}
+            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
+          >
+            {t('reference_guides')}
+          </FullLink>
+        )}
+
+        {introLinks?.overview && (
+          <FullLink
+            href={introLinks.overview}
+            className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
+          >
+            {t('overview')}
+          </FullLink>
+        )}
+      </div>
+
+      {product_video && (
+        <div className="col-12 col-lg-6">
+          <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
+            {!airGap && (
+              <iframe
+                title={`${shortTitle} Video`}
+                className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
+                src={product_video}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            )}
+          </div>
+        </div>
+      )}
+    </header>
   )
 }
 

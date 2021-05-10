@@ -3,10 +3,11 @@ import pick from 'lodash/pick'
 
 export type FeaturedLink = {
   title: string
-  intro: string
   href: string
+  intro?: string
   authors?: Array<string>
   hideIntro?: boolean
+  date?: string
 }
 
 export type ProductLandingContextT = {
@@ -17,23 +18,27 @@ export type ProductLandingContextT = {
   beta_product: boolean
   // primaryAction: LinkButtonT
   // secondaryAction?: LinkButtonT
-  heroLinks: Array<{
-    translationKeyLabel: string
-    secondary: boolean
-    href: string
-  }>
+  introLinks: {
+    quickstart?: string
+    reference?: string
+    overview?: string
+  }
   product_video?: string
   // featuredLinks?: {
   //   guides: Array<FeaturedLink>
   //   popular: Array<FeaturedLink>
   //   guideCards: Array<FeaturedLink>
   // }
+  guideCards?: Array<FeaturedLink>
+  productUserExamples?: Array<{ username: string; description: string }>
   featuredArticles?: Array<{
-    translationKeyLabel: string // Guides
+    label: string // Guides
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
   }>
   changelog: { label: string; prefix: string }
+  changelogUrl?: string
+  whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -62,19 +67,27 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'product_video',
       'changelog',
     ]),
-
-    // TODO - these transformations should be temporary, we should alter the content file to roughly match this shape!
-    heroLinks: Object.entries(req.context.page.introLinks)
-      .filter(([key, val]) => {
-        return !!val && !key.startsWith('raw')
+    whatsNewChangelog: req.context.whatsNewChangelog,
+    changelogUrl: req.context.changelogUrl,
+    productUserExamples: (req.context.productUserExamples || []).map(
+      ({ user, description }: any) => ({
+        username: user,
+        description,
       })
-      .map(([key, val]) => {
-        return {
-          translationKeyLabel: key,
-          secondary: key === 'reference' || key === 'overview', // this parameter would just be set in yaml
-          href: val as string,
-        }
-      }),
+    ),
+
+    introLinks: Object.fromEntries(
+      Object.entries(req.context.page.introLinks || {}).filter(([key, val]) => !!val)
+    ),
+
+    guideCards: (req.context.featuredLinks.guideCards || []).map((link: any) => {
+      return {
+        href: link.href,
+        title: link.title,
+        intro: link.intro,
+        authors: link.page.authors || [],
+      }
+    }),
 
     featuredArticles: Object.entries(req.context.featuredLinks)
       .filter(([key]) => {
@@ -82,7 +95,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
       .map(([key, links]: any) => {
         return {
-          translationKeyLabel: key,
+          label: req.context.site.data.ui.toc[key],
           viewAllHref: key === 'guides' && !currentCategory ? `${currentPath}/${key}` : '',
           articles: links.map((link: any) => {
             return {

@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
 import {
   MainContextT,
@@ -10,51 +11,72 @@ import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
   ProductLandingContext,
+  useProductLandingContext,
 } from 'components/context/ProductLandingContext'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
+import { GuideCards } from 'components/landing/GuideCards'
+import { SponsorsExamples } from 'components/landing/SponsorsExamples'
+import { LandingSection } from 'components/landing/LandingSection'
+import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
 }
 const SponsorsPage = ({ mainContext, productLandingContext }: Props) => {
+  const router = useRouter()
   return (
     <MainContext.Provider value={mainContext}>
       <ProductLandingContext.Provider value={productLandingContext}>
-        <DefaultLayout>
-          <div className="container-xl px-3 px-md-6 pt-3 pb-2">
-            <LandingHero />
-
-            <FeaturedArticles />
-
-            {/* <PageSection title="GitHub Sponsors Community">
-              <Grid>
-                <ArticleList title="Guides"
-                  viewAllLink={'/guides/whatever.md'}
-
-                  articles={[
-                    '/guide/1/a',
-                    {
-                      label: 'Something',
-                      description: 'other'
-                    }
-                  ]}
-                />
-
-                <ArticleList title="Popular" articles={[]} />
-                  
-              </Grid>
-            </PageSection>
-
-      <PageSection title="All GitHub Sponsors Docs">
-        <SiteTreeGrid />
-      </PageSection>  */}
-          </div>
-        </DefaultLayout>
+        <SponsorsPageInner />
       </ProductLandingContext.Provider>
     </MainContext.Provider>
+  )
+}
+
+const SponsorsPageInner = () => {
+  const { guideCards, productUserExamples } = useProductLandingContext()
+  const { t } = useTranslation('product_landing')
+
+  return (
+    <DefaultLayout>
+      <LandingSection className="pt-3">
+        <LandingHero />
+      </LandingSection>
+
+      <LandingSection>
+        <FeaturedArticles />
+      </LandingSection>
+
+      {/* {% if productCodeExamples %}
+        {% include code-examples %}
+        {% endif %}
+
+      {% if productCommunityExamples %}
+      {% include community-examples %}
+      {% endif %}
+      */}
+
+      {productUserExamples && (
+        <LandingSection title={t('sponsor_community')} className="my-6">
+          <SponsorsExamples />
+        </LandingSection>
+      )}
+
+      {guideCards && (
+        <div className="bg-guides-gradient py-6">
+          <LandingSection title={t('guides')} className="my-6">
+            <GuideCards />
+          </LandingSection>
+        </div>
+      )}
+
+      {/* <PageSection title="All GitHub Sponsors Docs">
+        <SiteTreeGrid />
+      </PageSection>  */}
+    </DefaultLayout>
   )
 }
 
