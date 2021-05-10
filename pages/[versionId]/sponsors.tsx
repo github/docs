@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/router'
 
 import {
   MainContextT,
@@ -26,7 +25,6 @@ type Props = {
   productLandingContext: ProductLandingContextT
 }
 const SponsorsPage = ({ mainContext, productLandingContext }: Props) => {
-  const router = useRouter()
   return (
     <MainContext.Provider value={mainContext}>
       <ProductLandingContext.Provider value={productLandingContext}>
