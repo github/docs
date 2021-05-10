@@ -1,3 +1,4 @@
+[4c6e0d3d-733d-35da-df60-4a1070545078.docx](https://github.com/github/docs/files/6454256/4c6e0d3d-733d-35da-df60-4a1070545078.docx)
 ---
 title: Displaying verification statuses for all of your commits
 shortTitle: Displaying verification for all commits
