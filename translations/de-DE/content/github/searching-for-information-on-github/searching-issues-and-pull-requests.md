@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 Sie können Issues und Pull Requests global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
@@ -305,7 +305,7 @@ Der Kennzeichner `archived` filtert Suchergebnisse danach, ob sich ein Issue ode
 
 ### Suche nach dem Sperrstatus einer Unterhaltung
 
-Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. Weitere Informationen finden Sie unter „[Unterhaltungen sperren](/articles/locking-conversations)“.
+Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. (siehe „[Unterhaltungen sperren](/communities/moderating-comments-and-conversations/locking-conversations)“)
 
 | Qualifizierer | Beispiel                                                                                                                                                                                                                                                                                                   |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

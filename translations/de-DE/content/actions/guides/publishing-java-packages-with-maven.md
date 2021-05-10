@@ -1,6 +1,6 @@
 ---
 title: Java-Pakete mit Maven veröffentlichen
-intro: Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.
+intro: 'Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Pakete erstellen'
-  - 'Publishing'
-  - 'Java'
-  - 'Maven'
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -85,9 +85,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -147,9 +148,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
@@ -183,9 +185,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -195,9 +198,10 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:

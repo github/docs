@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Zenodo によってリポジトリの永続的識別子を発行する

@@ -1,20 +1,20 @@
 ---
 title: Eine Sicherheitsrichtlinie zum Repository hinzufügen
-intro: Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.
+intro: 'Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.'
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 ### Informationen zu Sicherheitsrichtlinien
 
 Um Benutzern Anweisungen für das verantwortungsvolle Melden von Sicherheitslücken in Deinem Projekt zu geben, kannst Du eine _SECURITY.md_-Datei in den Root-, `docs`- oder `.github`-Ordner Deines Repositorys einfügen. Wenn jemand einen Issue in Deinem Repository erstellt, wird ihm ein Link zur Sicherheitsrichtlinie Deines Projekts angezeigt.
 
-Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -41,5 +41,5 @@ Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du 
 ### Weiterführende Informationen
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
-- „[Dein Projekt für sinnvolle Beiträge einrichten](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)“
+- „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

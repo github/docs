@@ -29,7 +29,7 @@ versions:
 
 #### 管理来自身份提供商 (IdP) 的团队
 
-使用 SCIM（跨域身份管理系统）的客户现在可以与 {% data variables.product.company_short %} 团队同步Azure Active Directory 中的安全组。 一旦团队已链接到安全组，则当用户从其指定的安全组添加或删除时，会员资格将在 {% data variables.product.product_name %} 中自动更新。 更多信息请参阅“[同步团队与身份提供程序组](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)”。
+使用 SCIM（跨域身份管理系统）的客户现在可以与 {% data variables.product.company_short %} 团队同步Azure Active Directory 中的安全组。 一旦团队已链接到安全组，则当用户从其指定的安全组添加或删除时，会员资格将在 {% data variables.product.product_name %} 中自动更新。 更多信息请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
 #### IP 允许列表测试版
 
@@ -37,7 +37,7 @@ versions:
 
 除了能够申请网络安全组更改以过滤到整个 {% data variables.product.product_name %} 租户的流量之外，还提供了这一功能。
 
-更多信息请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”和“[管理组织允许的 IP 地址](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)”。
+更多信息请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”和“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
 #### 拉取请求自动合并
 
@@ -47,8 +47,8 @@ versions:
 
 #### 开发者更改
 
-- [组织所有者现在可以禁用](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)从组织中的仓库发布 {% data variables.product.prodname_pages %} 站点。 这将不会取消发布现有站点。
-- 使用 {% data variables.product.prodname_pages %} 的仓库现在可以[从任何分支构建和部署](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)。
+- [组织所有者现在可以禁用](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)从组织中的仓库发布 {% data variables.product.prodname_pages %} 站点。 这将不会取消发布现有站点。
+- 使用 {% data variables.product.prodname_pages %} 的仓库现在可以[从任何分支构建和部署](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)。
 - 在编写议题或拉取请求时，按下 `return` 或 `enter`后，项目符号、数字和任务的列表语法现在会自动完成。
 - 您现在可以从仓库页面中删除仓库中的目录。 导航到目录时，“Add file（添加文件）”按钮旁边的新烤肉串按钮会提供删除目录的选项。
 - 现在[引用议题或拉取请求](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests)更加简便、快速，在 "#" 后可搜索多个字词。
@@ -63,9 +63,9 @@ versions:
 - 现在支持 [OAuth 设备授权流程](/developers/apps/authorizing-oauth-apps#device-flow)。 这允许任何 CLI 客户端或开发者工具使用辅助系统进行身份验证。
 - 如果启用了 SCIM 预配，用户不能再删除他们的帐户。
 
-##### Default branch renaming
+##### 默认分支重命名
 
-企业和组织所有者现在可以设置新仓库的默认分支名称。 企业所有者还可以在所有组织中强制选择默认分支名称，或允许各个组织自行选择。 更多信息请参阅“[在您的企业中执行仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)”和“[管理组织中仓库的默认分支名称](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)”。
+企业和组织所有者现在可以设置新仓库的默认分支名称。 企业所有者还可以在所有组织中强制选择默认分支名称，或允许各个组织自行选择。 更多信息请参阅“[在您的企业中执行仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)”和“[管理组织中仓库的默认分支名称](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)”。
 
 现有仓库不受这些设置的影响，其默认分支名称也不会更改。
 

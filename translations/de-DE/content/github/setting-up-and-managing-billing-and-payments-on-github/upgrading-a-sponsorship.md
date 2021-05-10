@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}
@@ -19,5 +19,6 @@ Wenn Sie Ihr Sponsoring upgraden, wird die Änderung sofort wirksam. {% data reu
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}

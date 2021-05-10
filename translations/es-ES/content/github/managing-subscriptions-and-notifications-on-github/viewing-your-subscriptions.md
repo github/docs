@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 Recibes notificaciones para tus suscripciones de la actividad reciente en {% data variables.product.product_name %}. Hay muchas razones por las cuales puedes estar suscrito a una conversación. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
@@ -38,7 +38,7 @@ Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Configurar tus ajustes de observación para repositorios individuales](#configuring-your-watch-settings-for-an-individual-repository)" a continuación.
+**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 
 {% endtip %}
 {% endif %}

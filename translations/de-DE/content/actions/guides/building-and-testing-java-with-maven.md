@@ -1,6 +1,6 @@
 ---
 title: Java bauen und testen mit Maven
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) in GitHub-Aktionen erstellen, um Dein Java-Projekt mit Maven zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) in GitHub-Aktionen erstellen, um Dein Java-Projekt mit Maven zu bauen und zu testen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-maven
@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Maven'
+  - CI
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
 ```
@@ -70,7 +71,7 @@ jobs:
 Dieser Workflow führt die folgenden Schritte aus:
 
 1. Der Schritt `checkout` lädt eine Kopie Deines Repositorys auf den Runner herunter.
-2. Der Schritt `setup-java` konfiguriert das Java 1.8 JDK.
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. Der Schritt "Build with Maven" führt das Maven-„Target“ (Ziel) `package` im nicht-interaktiven Modus aus, um sicherzustellen, dass der Code gebaut, Tests bestanden und ein Paket erstellt werden kann.
 
 Die Standard-Workflow-Vorlagen sind ausgezeichnete Ausgangspunkte beim Erstellen des Build- und Testworkflows, und Du kannst die Vorlage an die Anforderungen Deines Projekts anpassen.
@@ -91,9 +92,10 @@ Wenn Du zum Bauen Deines Projekts andere Befehle verwenden oder ein anderes Ziel
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
@@ -107,10 +109,11 @@ When using {% data variables.product.prodname_dotcom %}-hosted runners, you can 
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Maven packages
     uses: actions/cache@v2
     with:
@@ -134,7 +137,10 @@ Maven erstellt normalerweise Ausgabedateien wie JARs, EARs oder WARs im Verzeich
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2

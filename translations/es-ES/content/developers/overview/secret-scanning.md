@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El {% data variables.product.prodname_secret_scanning_caps %} ocurre predeterminadamente en los repositorios públicos y los administradores de repositorio o propietarios de la organización pueden habilitarlo en los repositorios privados. Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que tus formatos de secreto se incluyan en nuestro {% data variables.product.prodname_secret_scanning %}.
@@ -16,12 +16,6 @@ topics:
 Cuando se encuentra una coincidencia de tu formato secreto en un repositorio público, se envía una carga útil a una terminal HTTP de tu elección.
 
 Cuando se encuentra una coincidencia con tu formato de secreto en un repositorio privado que se haya configurado para el {% data variables.product.prodname_secret_scanning %}, entonces, se alerta a los administradores de repositorio y éstos pueden ver y administrar los resultados del {% data variables.product.prodname_secret_scanning %} en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Administrar alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
-
-{% note %}
-
-**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} para los repositorios privados se encuentran actualmente en beta y está sujeto a cambios.
-
-{% endnote %}
 
 Este artículo describe cómo puedes asociarte con {% data variables.product.prodname_dotcom %} como un proveedor de servicios y unirte al programa del {% data variables.product.prodname_secret_scanning %}.
 

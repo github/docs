@@ -1,6 +1,6 @@
 ---
 title: Create a group assignment
-intro: 'You can create a collaborative assignment for teams of students who participate in your course.'
+intro: You can create a collaborative assignment for teams of students who participate in your course.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -17,7 +17,7 @@ When a student accepts a group assignment, the student can create a new team or 
 
 {% data reusables.classroom.about-assignments %}
 
-You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/github/setting-up-and-managing-organizations-and-teams/about-teams)."
+You can decide how many teams one assignment can have, and how many members each team can have. Each team that a student creates for an assignment is a team within your organization on {% data variables.product.product_name %}. The visibility of the team is secret. Teams that you create on {% data variables.product.product_name %} will not appear in {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 

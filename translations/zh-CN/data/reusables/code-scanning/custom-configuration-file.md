@@ -1,1 +1,1 @@
-The configuration file can be located within the repository you are analyzing, or in an external repository. Using an external repository allows you to specify configuration options for multiple repositories in a single place. When you reference a configuration file located in an external repository, you can use the _OWNER/REPOSITORY/FILENAME@BRANCH_ syntax. 例如，_monacorp/shared/codeql-config.yml@main_。
+配置文件可以放在您分析的仓库内或外部仓库中。 使用外部仓库允许您在一个位置指定多个仓库的配置选项。 引用位于外部仓库中的配置文件时，您可以使用 _OWNER/REPOSITORY/FILENAME@BRANCH_ 语法。 例如，_monacorp/shared/codeql-config.yml@main_。

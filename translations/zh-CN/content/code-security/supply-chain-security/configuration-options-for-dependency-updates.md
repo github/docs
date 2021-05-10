@@ -1,17 +1,15 @@
 ---
 title: 依赖项更新的配置选项
 intro: '可用于自定义 {% data variables.product.prodname_dependabot %} 如何维护仓库的所有选项的详细信息。'
-permissions: '拥有仓库写入权限的人可配置仓库的 {% data variables.product.prodname_dependabot %}。'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### 关于 *dependabot.yml* 文件
 
@@ -323,7 +321,7 @@ updates:
 
 {% note %}
 
-**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 更多信息请参阅“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
+**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
 
 
 {% endnote %}

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 O {% data variables.product.prodname_dotcom %} exclui automaticamente chaves SSH inativas para ajudar a manter as contas seguras, como depois que alguém deixa um emprego ou perde um computador.

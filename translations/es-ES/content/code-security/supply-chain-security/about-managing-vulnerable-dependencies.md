@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
@@ -17,7 +17,7 @@ topics:
 La gráfica de dependencias es un resumen de los archivos de bloqueo y de manifiesto que se almacenan en un repositorio. Te muestra los ecosistemas y paquetes de los cuales depende tu base de código (sus dependencias) y los repositorios y paquetes que dependen de tu proyecto (sus dependencias). Tanto la revisión de dependencias como el {% data variables.product.prodname_dependabot %} utilizan la información en la gráfica de dependencias. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 
 #### Revisión de dependencias
-Si verificas las revisiones de dependencias en las solicitudes de cambios puedes evitar introducir las vulnerabilidades de las dependencias en tu base de código. Si las solicitudes de cambios agregan una dependencia vulnerable o cambian una dependencia a una versión vulnerable, esto se resaltará en la revisión de dependencias. Puedes cambiar la dependencia a una versión parchada antes de fusionar la solicitud de cambios. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Si verificas las revisiones de dependencias en las solicitudes de cambios puedes evitar introducir las vulnerabilidades de las dependencias en tu base de código. Si las solicitudes de cambios agregan una dependencia vulnerable o cambian una dependencia a una versión vulnerable, esto se resaltará en la revisión de dependencias. Puedes cambiar la dependencia a una versión parchada antes de fusionar la solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
 
 #### {% data variables.product.prodname_dependabot_alerts %}
 {% data variables.product.prodname_dotcom %} puede crear {% data variables.product.prodname_dependabot_alerts %} cuando detecta dependencias vulnerables en tu repositorio. La alerta se muestra en la pestaña de seguridad del repositorio. La alerta incluye un enlace al archivo afectado en el proyecto e información acerca de la versión arreglada. {% data variables.product.prodname_dotcom %} también notifica a los mantenedores del repositorio, de acuerdo con sus preferencias de notificación. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".

@@ -1,6 +1,6 @@
 ---
 title: 创建项目板
-intro: '项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。'
+intro: 项目板可用于创建满足您需求的自定义工作流程，例如对特定功能工作、全面路线图甚至发布检查清单进行跟踪和排列优先级。
 redirect_from:
   - /articles/creating-a-project/
   - /articles/creating-a-project-board
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}

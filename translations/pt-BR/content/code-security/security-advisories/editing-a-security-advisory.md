@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 As pessoas com permissão de administrador para uma consultora de segurança podem editar a consultora de segurança.
@@ -16,6 +16,8 @@ As pessoas com permissão de administrador para uma consultora de segurança pod
 Você pode creditar pessoas que ajudaram a descobrir, relatar ou corrigir uma vulnerabilidade de segurança. Se você creditar alguém, essa pessoa poderá optar por aceitar ou recusar crédito.
 
 Se alguém aceitar o crédito, o nome de usuário da pessoa aparecerá na seção "Créditos" da consultoria de segurança. Qualquer pessoa com acesso de leitura ao repositório pode ver a consultoria e as pessoas que aceitaram o crédito por ela.
+
+Se você acredita que deveria ser creditado por uma consultoria de segurança, entre em contato com a pessoa que criou a consultoria e peça que edite a consultoria para incluir o seu crédito. Somente o criador da consultoria pode dar-lhe crédito. Portanto, não entre em contato com o suporte do GitHub com relação a créditos para consultorias de segurança.
 
 ### Editar uma consultoria de segurança
 

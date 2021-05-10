@@ -7,14 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 ### Sobre políticas de segurança
 
 Para dar às pessoas instruções de como relatar de maneira responsável vulnerabilidades de segurança no seu projeto, você pode adicionar um arquivo _SECURITY.md_ à pasta raiz, `docs` ou `.github` do seu repositório. Quando uma pessoa cria um problema no seu repositório, ela vê um link para a política de segurança do seu projeto.
 
-Você pode criar uma política de segurança padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Você pode criar uma política de segurança padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -22,7 +22,7 @@ Você pode criar uma política de segurança padrão para sua organização ou c
 
 {% endtip %}
 
-Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, você pode usar o {% data variables.product.prodname_security_advisories %} para divulgar, corrigir e publicar informações sobre a vulnerabilidade. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[About coordinated disclosure of security vulnerabilities](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about {% data variables.product.prodname_security_advisories %}, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, você pode usar o {% data variables.product.prodname_security_advisories %} para divulgar, corrigir e publicar informações sobre a vulnerabilidade. Para obter mais informações sobre o processo de relatórios e divulgação de vulnerabilidades em {% data variables.product.prodname_dotcom %}, consulte "[Sobre divulgação coordenada das vulnerabilidades de segurança](/code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)". Para obter mais informações sobre {% data variables.product.prodname_security_advisories %}, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 {% data reusables.repositories.github-security-lab %}
 
@@ -41,5 +41,5 @@ Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, vo
 ### Leia mais
 
 - "[Sobre proteger seu repositório](/github/administering-a-repository/about-securing-your-repository)"
-- "[Configurar seu projeto para contribuições úteis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
+- "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

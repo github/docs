@@ -18,7 +18,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - 通知
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -66,7 +66,7 @@ topics:
 
 ### 关于参与和查看通知
 
-关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)”。
+关注仓库，意味着订阅该仓库中的活动更新。 同样，关注特定团队的讨论，意味着订阅该团队页面上的所有对话更新。 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
 要查看您关注的仓库，请参阅[关注页面](https://github.com/watching)。 更多信息请参阅“[在 GitHub 上管理订阅和通知](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)”。
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
@@ -78,7 +78,7 @@ topics:
 #### 关于自定义通知
 {% data reusables.notifications-v2.custom-notifications-beta %}
 您可以自定义仓库的通知，例如，您可以选择仅在仓库中发生一类或多类事件（议题、拉取请求、发布、讨论）的更新时收到通知，或者忽略仓库的所有通知。
-{% endif %} 更多信息请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)”。
+{% endif %} 更多信息请参阅下面的“[配置单个仓库的关注设置](#configuring-your-watch-settings-for-an-individual-repository)”。
 
 #### 参与对话
 每当您在对话中发表评论或有人 @提及您的用户名时，您都在_参与_对话。 默认情况下，当您参与对话时，会自动订阅该对话。 您可以通过单击议题或拉取请求上的 **Unsubscribe（取消订阅）**或通过通知收件箱中的 **Unsubscribe（取消订阅）**选项，手动取消订阅已参与的对话。
@@ -133,7 +133,7 @@ topics:
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `From` 地址              | 此地址始终是 {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'网站管理员配置的无需回复电子邮件地址'{% endif %}。                                                                                                      |
 | `To` 字段                | 此字段直接连接到线程。{% if currentVersion != "github-ae@latest" %} 如果您回复电子邮件，将在对话中添加一个新的评论。{% endif %}
-| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li><li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li>{% endif %}<li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
+| `Cc` 地址                | 如果您订阅了对话，{% data variables.product.product_name %} 将会 `Cc` 给您。 第二个 `Cc` 电子邮件地址与通知原因匹配。 这些通知原因的后缀是 {% data variables.notifications.cc_address %}。 可能的通知原因包括： <ul><li>`assign`：您被分配到议题或拉取请求。</li><li>`author`：您创建了议题或拉取请求。</li>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}<li>`ci_activity`：当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。</li>{% endif %}<li>`comment`：您评论了议题或拉取请求。</li><li>`manual`：您手动订阅的议题或拉取请求有更新。</li><li>`mention`：您提及了议题或拉取请求。</li><li>`push`：有人提交了您订阅的拉取请求。</li><li>`review_requested`：您或您所在的团队已请求审查拉取请求。</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`：{% data variables.product.prodname_dotcom %} 检测到您要接收其漏洞警报的仓库中存在漏洞。</li>{% endif %}<li>`state_change`：您订阅的议题或拉取请求已关闭或打开。</li><li>`subscribed`：您查看的仓库有更新。</li><li>`team_mention`：您所属的团队在议题或拉取请求中被提及。</li><li>`your_activity`：您打开、评论或关闭了议题或拉取请求。</li></ul>                                                |
 | `mailing list` 字段      | 此字段识别仓库名称及其所有者。 此地址的格式始终是 `<仓库名称>.<仓库所有者>.{% data variables.command_line.backticks %}`。 |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | `X-GitHub-Severity` 字段 | {% data reusables.repositories.security-alerts-x-github-severity %} 可能的严重程度等级包括：<ul><li>`低`</li><li>`中`</li><li>`高`</li><li>`严重`</li></ul>更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 
 {% endif %}
@@ -248,8 +248,8 @@ topics:
 
 1. 在底部菜单中，单击 **Profile（个人资料）**。
 2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。
-3. 要更新通知设置，请点击 **Notifications（通知）** ，然后使用切换来启用或禁用首选类型的推送通知。
-4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击 **Receive Notifications（接收通知）**，使用 **Custom working hours（自定义工作时间）** 切换，然后选择何时接收推送通知。
+3. 要更新通知设置，请点击 **Configure Notifications（配置通知）** ，然后使用切换来启用或禁用首选类型的推送通知。
+4. （可选）要安排 {% data variables.product.prodname_mobile %} 何时向移动设备发送推送通知，请点击 **Working Hours（工作时间）**，使用 **Custom working hours（自定义工作时间）** 切换，然后选择何时接收推送通知。
 
 ### 使用 {% data variables.product.prodname_mobile %} 配置个别仓库的关注设置
 
@@ -258,6 +258,5 @@ topics:
 1. 在 {% data variables.product.prodname_mobile %} 上，导航到仓库的主页面。
 2. 点击 **Watch（关注）**。 ![{% data variables.product.prodname_mobile %} 上的关注按钮](/assets/images/help/notifications-v2/mobile-watch-button.png)
 3. 要选择接收通知的活动，请点击首选的关注设置。 ![{% data variables.product.prodname_mobile %} 中的关注设置下拉菜单](/assets/images/help/notifications-v2/mobile-watch-settings.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
 
 {% endif %}

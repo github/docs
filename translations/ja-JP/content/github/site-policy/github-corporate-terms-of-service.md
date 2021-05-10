@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 貴社のビジネスにおけるニーズを満たすために GitHub をお選びいただき、ありがとうございます。 本契約を注意深くお読みください。GitHub がお客様と書面による合意を別途行わない限り、本製品 (以下に定義) の利用に対しては、この契約が適用されます。 「同意する」またはそれに類似するボタンをクリックするか、本製品を利用することにより、お客様は本契約の規約および条件の全てに同意することになります。 お客様が、企業またはその他の法人を代表して契約を締結しようとする場合、お客様は、本契約を締結するためにその企業またはその他の法人に義務を負担させる法的権限を持つことを表明するものとします。
@@ -125,7 +125,7 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 お客様が「製品」を利用する際には、[「GitHub利用規程」](/articles/github-acceptable-use-policies)および[「GitHubコミュニティガイドライン」](/articles/github-community-guidelines)に従う必要があります。 お客様は、いかなる管轄区域内でも、違法、わいせつ、不快、または詐欺的なコンテンツまたは活動 (損害を与えたりそう標榜したりする、ネットワークまたはシステムの完全性またはセキュリティを妨害または侵害する、フィルタを回避する、迷惑・虐待的・虚偽的なメッセージ、ウイルスまたは有害なコードを送信する、あるいは第三者の権利を侵害するなど) の目的で「サービス」を使用してはなりません。
 
 #### 3. プライバシー
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
 
 ### D. コンテンツの責任、所有権、ライセンス権
 

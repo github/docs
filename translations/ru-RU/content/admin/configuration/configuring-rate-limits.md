@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### Enabling rate limits for {% data variables.product.prodname_enterprise_api %}

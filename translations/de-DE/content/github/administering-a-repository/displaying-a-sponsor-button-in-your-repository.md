@@ -1,13 +1,13 @@
 ---
 title: Sponsorenschaltfläche in Deinem Repository anzeigen
-intro: Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.
+intro: 'Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.'
 redirect_from:
   - /github/building-a-strong-community/displaying-a-sponsor-button-in-your-repository
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### Informationen zu FUNDING-Dateien
@@ -54,7 +54,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Da kannst eine Standard-Sponsorenschaltfläche für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Da kannst eine Standard-Sponsorenschaltfläche für Deine Organisation oder Dein Benutzerkonto erstellen. Weitere Informationen findest Du unter „[Eine Standard-Community-Unterstützungsdatei erstellen](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

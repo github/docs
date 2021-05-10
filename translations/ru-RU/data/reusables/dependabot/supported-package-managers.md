@@ -6,7 +6,7 @@ The following table shows, for each package manager:
 
 | Package manager                   | YAML value       | Supported versions             | Private repositories | Private registries | Vendoring |
 | --------------------------------- | ---------------- | ------------------------------ |:--------------------:|:------------------:|:---------:|
-| Средство увязки программ в пакеты | `bundler`        | v1                             |                      |       **✓**        |   **✓**   |
+| Средство увязки программ в пакеты | `bundler`        | v1, v2                         |                      |       **✓**        |   **✓**   |
 | Cargo                             | `cargo`          | v1                             |        **✓**         |       **✓**        |           |
 | Composer                          | `composer`       | v1, v2                         |        **✓**         |       **✓**        |           |
 | Докер                             | `докер`          | v1                             |        **✓**         |       **✓**        |           |

@@ -1,6 +1,6 @@
 ---
 title: Conceder permissões superiores aos melhores colaboradores
-intro: 'Administradores de repositório podem promover qualquer integrante da comunidade a moderador e mantenedor.'
+intro: Administradores de repositório podem promover qualquer integrante da comunidade a moderador e mantenedor.
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +21,7 @@ Os contribuidores mais úteis dos últimos 30 dias são destacados no painel de 
 
 Pessoas com permissões de triagem para um repositório podem ajudar a moderar as discussões de um projeto marcando comentários como respostas, bloqueando discussões que já não são úteis ou prejudicam a comunidade e convertendo os problemas em discussões quando uma ideia ainda está nos primeiros estágios de desenvolvimento. Para obter mais informações, consulte "[Moderação de discussões](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
-Para obter mais informações sobre os níveis de permissão do repositório e {% data variables.product.prodname_discussions %}, consulte "[Níveis de permissões do repositório para uma organização](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Para obter mais informações sobre os níveis de permissão do repositório e {% data variables.product.prodname_discussions %}, consulte "[Níveis de permissões do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 ### Passo 3: Altere os níveis de permissões para os melhores contribuidores
 

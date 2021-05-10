@@ -1,6 +1,6 @@
 ---
 title: Aplicar políticas de equipe na conta corporativa
-intro: 'Os proprietários corporativos podem aplicar determinadas políticas de equipe para todas as organizações pertencentes a uma conta corporativa ou permitir que as políticas sejam definidas em cada organização.'
+intro: Os proprietários corporativos podem aplicar determinadas políticas de equipe para todas as organizações pertencentes a uma conta corporativa ou permitir que as políticas sejam definidas em cada organização.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
@@ -10,12 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Aplicar política para discussões de equipe
 
-Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar discussões de equipe ou permitir que os proprietários administrem a configuração no nível da organização. Para obter mais informações, consulte "[Sobre discussões de equipe](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)".
+Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar discussões de equipe ou permitir que os proprietários administrem a configuração no nível da organização. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions/)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### Discussions on {% data variables.product.product_name %}
@@ -18,7 +18,7 @@ You can create and participate in issues, pull requests, and team discussions, d
 
 Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 ### Reacting to ideas in comments
 
@@ -43,7 +43,7 @@ Similar to contributing guidelines, the repository maintainer may have included 
 
 ### Дополнительная литература
 
-- "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderating comments and conversations](/articles/moderating-comments-and-conversations)"
+- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
 - "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

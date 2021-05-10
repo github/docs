@@ -12,7 +12,7 @@ intro: '使用 LDAP，您可以向 {% data variables.product.prodname_ghe_server
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

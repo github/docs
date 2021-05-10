@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - events
+  - Events
 ---
 
 
@@ -720,7 +720,7 @@ Alguien se desuscribió de recibir notificaciones para un informe de problemas o
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-El propietario de una organización bloqueó a un usuario de la misma. Esto se hizo [a través de uno de los comentarios del usuario bloqueado sobre el informe de problemas](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+El propietario de una organización bloqueó a un usuario de la misma. Esto se hizo [a través de uno de los comentarios del usuario bloqueado sobre el informe de problemas](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
 #### Disponibilidad
 

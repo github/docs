@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
@@ -16,12 +16,6 @@ topics:
 シークレットのフォーマットに対する一致がパブリックリポジトリで見つかった場合、選択したHTTPのエンドポイントにペイロードが送信されます。
 
 When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for private repositories is currently in beta.
-
-{% endnote %}
 
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} program.
 

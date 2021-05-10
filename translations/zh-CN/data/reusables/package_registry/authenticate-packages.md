@@ -4,9 +4,9 @@
 要使用
 {% data variables.product.prodname_actions %} 工作流程验证：
 - 对于包注册表 (`PACKAGE-REGISTRY.pkg.github.com`)，您可以使用 `GITHUB_TOKEN`。
-- For the container registry (`ghcr.io/OWNER/IMAGE-NAME`), you can use a `GITHUB_TOKEN` or a personal access token. We strongly recommend you use a `GITHUB_TOKEN` to avoid unncessary access to your repositories.
+- 对于容器注册表 (`ghcr.io/OWNER/IMAGE-NAME`)，可以使用`GITHUB_TOKEN` 或个人访问令牌。 我们强烈建议您使用 `GITHUB_TOKEN` 来避免对仓库的不必要访问。
 
-For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)."
+有关 {% data variables.product.prodname_actions %} 工作流程中使用的 `GITHUB_TOKEN` 的更多信息，请参阅“[加密密钥](/actions/reference/encrypted-secrets)”和“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)”。
 
 {% else %}
 要

@@ -1,5 +1,5 @@
 ---
-title: '使用限制、计费和管理'
+title: 使用限制、计费和管理
 intro: '{% data variables.product.prodname_actions %} 工作流程有使用限制。 使用费适用于超出仓库免费分钟数和存储空间量的仓库。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -70,7 +70,7 @@ GitHub Actions 使用对
 更多信息请参阅：
 
 - [为仓库中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [为组织中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [为组织中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
 - [为企业中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
@@ -80,7 +80,7 @@ GitHub Actions 使用对
 
 更多信息请参阅：
 - "[对仓库禁用或限制 {% data variables.product.prodname_actions %}](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)"
-- "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
+- "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在企业帐户中实施 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)"{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}

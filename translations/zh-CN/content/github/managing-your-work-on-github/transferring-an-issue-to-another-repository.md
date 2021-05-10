@@ -1,6 +1,6 @@
 ---
 title: 将议题转让给其他仓库
-intro: '要移动议题以更好地过滤仓库，您可以将开放的议题转让给其他仓库。'
+intro: 要移动议题以更好地过滤仓库，您可以将开放的议题转让给其他仓库。
 redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。

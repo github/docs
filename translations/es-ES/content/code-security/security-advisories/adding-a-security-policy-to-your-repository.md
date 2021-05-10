@@ -7,14 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 ### Acerca de las políticas de seguridad
 
 Para brindar instrucciones sobre cómo informar responsablemente las vulnerabilidades de seguridad en tu proyecto, puedes agregar un archivo _SECURITY.md_ a la raíz de tu repositorio, `docs`, o carpeta `.github`. Cuando alguien crea una propuesta en tu repositorio, verán un enlace en la política de seguridad de tu proyecto.
 
-Puedes crear una política de seguridad predeterminada para tu cuenta de usuario o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Puedes crear una política de seguridad predeterminada para tu cuenta de usuario o de organización. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -41,5 +41,5 @@ Después de que alguien reporte una vulnerabilidad de seguridad en tu proyecto, 
 ### Leer más
 
 - [Acerca de asegurar tu repositorio](/github/administering-a-repository/about-securing-your-repository)"
-- "[Configurar tu proyecto para contribuciones positivas](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
+- "[Configurar tu proyecto para contribuciones positivas](/communities/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

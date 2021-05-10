@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Mehrere aktive Replikate können eine kürzere Entfernung zum nächstgelegenen Replikat ermöglichen. Beispielsweise kann eine Organisation mit Niederlassungen in San Francisco, New York und London die primäre Appliance in einem Rechenzentrum in der Nähe von New York und zwei Replikate in Rechenzentren nahe San Francisco und London betreiben. Mittels Geolocation-fähigem DNS können Benutzer an den nächstgelegenen verfügbaren Server weitergeleitet werden und schneller auf Repository-Daten zugreifen. Wenn die Appliance nahe New York als die primäre Instanz festgelegt wird, ist die Latenz zwischen den Hosts niedriger, als dies der Fall wäre, wenn die Appliance nahe San Francisco als die primäre Instanz festgelegt werden würde, deren Verbindung nach London wiederum eine höhere Latenz aufweist.
@@ -21,6 +21,8 @@ Damit die Geo-Replikation ordnungsgemäß funktioniert, ist Geo DNS, beispielswe
 ### Einschränkungen
 
 Zum Senden von Anforderungen an das Replikat müssen die Daten an die primäre Instanz und an alle Replikate gesendet werden. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Von der Geo-Replikation werden einer {% data variables.product.prodname_ghe_server %}-Instanz weder Kapazitäten hinzugefügt noch werden Leistungsprobleme in Bezug auf unzureichende CPU- oder Arbeitsspeicherressourcen behoben. Wenn die primäre Appliance offline ist, können aktive Replikate keine Lese- oder Schreibanforderungen verarbeiten.
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Geo-Replikationskonfiguration überwachen
 

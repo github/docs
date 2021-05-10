@@ -1,6 +1,6 @@
 ---
 title: REST APIを使ってみる
-intro: '認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。'
+intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -57,7 +57,6 @@ $ curl -i https://api.github.com/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57
@@ -170,7 +169,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 同様に、[認証済みのユーザにリポジトリを表示][user repos api]できます。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -207,7 +206,7 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -242,7 +241,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 GitHub.comと同じように、Issues APIは認証されたユーザがIssueを表示するためのメソッドをいくつか提供します。 [すべてのIssueを表示][get issues api]するには、`GET /issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -250,7 +249,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 /orgs/<org>/issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -283,7 +282,7 @@ Issueのリストでページネーションを行う方法を確認したので
 Issueを作成するには認証される必要があるので、ヘッダにOAuthトークンを渡します。 また、タイトル、本文、およびJSONの本文にあるラベルを、Issueを作成したい、リポジトリ以下の`/issues`パスに渡します。
 
 ```shell
-$ curl -i -H 'Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4' \
+$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \

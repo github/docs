@@ -6,12 +6,12 @@ permissions: Enterprise owners can enable SAML single sign-on for organizations 
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### About SAML single sign-on for enterprise accounts
 
-{% data reusables.saml.dotcom-saml-explanation %} Weitere Informationen findest Du unter „[Informationen über Identitäts- und Zugriffsmanagement mit SAML Single Sign-On](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)."
+{% data reusables.saml.dotcom-saml-explanation %} Weitere Informationen findest Du unter „[Informationen über Identitäts- und Zugriffsmanagement mit SAML Single Sign-On](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)."
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 

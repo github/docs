@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 ### セキュリティログにアクセスする
@@ -193,7 +193,7 @@ topics:
 | `sponsored_developer_create`                  | {% data variables.product.prodname_sponsors %}アカウントが作成されるとトリガーされます（「[ユーザアカウントに{% data variables.product.prodname_sponsors %}を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照）             |
 | `sponsored_developer_profile_update`          | スポンサード開発者のプロフィールを編集するとトリガーされます（「[{% data variables.product.prodname_sponsors %}のプロフィール詳細を編集する](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照）                                                 |
 | `sponsored_developer_request_approval`        | 承認のために{% data variables.product.prodname_sponsors %}のアプリケーションをサブミットするとトリガーされます（「[ユーザアカウントに{% data variables.product.prodname_sponsors %}を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照） |
-| `sponsored_developer_tier_description_update` | スポンサーシップ層の説明を変更したときにトリガーされます (「[スポンサーシップ層を変更する](/articles/changing-your-sponsorship-tiers)」を参照)                                                                                                                                                                         |
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                                           |
 | `sponsored_developer_update_newsletter_send`  | スポンサーにメールで最新情報を送信したときにトリガーされます (「[スポンサーに連絡する](/articles/contacting-your-sponsors)」を参照)                                                                                                                                                                                  |
 | `waitlist_invite_sponsored_developer`         | 待ちリストから{% data variables.product.prodname_sponsors %}に参加するよう招待されたときにトリガーされます（「[ユーザアカウントに{% data variables.product.prodname_sponsors %}を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照）   |
 | `waitlist_join`                               | スポンサード開発者になるために待ちリストに参加するとトリガーされます（「[ユーザアカウントに{% data variables.product.prodname_sponsors %}を設定する](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照）                                             |
@@ -250,7 +250,7 @@ topics:
 | `login`                                                                                                                                                                                             | {% data variables.product.product_location %} にログインするとトリガーされます。{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 
-`mandatory_message_viewed`   | 必須メッセージを表示するとトリガーされます (詳細は「[ユーザーメッセージのカスタマイズ](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください) | |{% endif %}| | `failed_login` | 正常にログインできなかったときにトリガーされます。 | `remove_email` | メール アドレスを削除するとトリガーされます。 | `rename` | 自分のアカウント名を変更するとトリガーされます。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | [Issue またはプルリクエスト、または Issue、プルリクエスト、またはコミットにコメントをレポートすると](/articles/reporting-abuse-or-spam)トリガーされます。{% endif %} | `show_private_contributions_count` | [プロフィールでプライベートコントリビューションを公開](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)するとトリガーされます {% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | {% data variables.product.product_name %} が[2要素認証コード](/articles/accessing-github-using-two-factor-authentication)を要求すると{% endif %}トリガーされます。
+`mandatory_message_viewed`   | 必須メッセージを表示するとトリガーされます (詳細は「[ユーザーメッセージのカスタマイズ](/admin/user-management/customizing-user-messages-for-your-enterprise)」を参照してください) | |{% endif %}| | `failed_login` | 正常にログインできなかったときにトリガーされます。 | `remove_email` | メール アドレスを削除するとトリガーされます。 | `rename` | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %} | `report_content` | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).{% endif %} | `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 
 #### `user_status` カテゴリアクション
 

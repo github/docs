@@ -7,12 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
-
-{% data reusables.dependabot.beta-note-no-link %}
 
 ### About version updates for dependencies
 
@@ -117,7 +115,7 @@ updates:
       interval: "daily"
     # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
-      # Ignore updates to packages that start 'aws'
+      # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
       - dependency-name: "aws*"
       # Ignore some updates to the 'express' package

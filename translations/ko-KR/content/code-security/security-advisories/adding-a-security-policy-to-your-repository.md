@@ -7,14 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 보안
+  - Security
 ---
 
 ### About security policies
 
 To give people instructions for responsibly reporting security vulnerabilities in your project, you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's security policy.
 
-You can create a default security policy for your organization or user account. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create a default security policy for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -41,5 +41,5 @@ After someone reports a security vulnerability in your project, you can use {% d
 ### 더 읽을거리
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
-- "[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
+- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

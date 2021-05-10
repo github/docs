@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 关于 {% data variables.product.prodname_GH_advanced_security %}
@@ -25,7 +25,7 @@ topics:
 - **{% data variables.product.prodname_secret_scanning_caps %}** - 检测已检入仓库的密码（例如密钥和令牌）。 更多信息请参阅“[关于 {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+- **依赖项审查** - 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 {% endif %}
 
 有关正在开发中的 {% data variables.product.prodname_advanced_security %} 功能，请参阅“[{% data variables.product.prodname_dotcom %} 公开路线图](https://github.com/github/roadmap)”。 关于所有安全功能的概述，请参阅“[关于保护仓库](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)”。
@@ -38,7 +38,7 @@ topics:
 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_advanced_security %}，您才能使用这些功能。 更多信息请参阅“[配置高级安全功能](/admin/configuration/configuring-advanced-security-features)”。
 {% endif %}
 
-设置系统后，您可以在组织或仓库级别启用和禁用这些功能。 更多信息请参阅“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
+设置系统后，您可以在组织或仓库级别启用和禁用这些功能。 For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
 {% endif %}
 
@@ -47,7 +47,7 @@ topics:
 
 对于 {% data variables.product.prodname_dotcom_the_website %} 上的公共仓库，这些功能是永久性的，仅当您更改项目的可见性使代码不再公开时才会禁用。
 
-对于其他仓库，一旦您拥有企业帐户的许可，就可以在组织或仓库级别启用和禁用这些功能。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}更多信息请参阅“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %}
+对于其他仓库，一旦您拥有企业帐户的许可，就可以在组织或仓库级别启用和禁用这些功能。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
 
 {% endif %}
 

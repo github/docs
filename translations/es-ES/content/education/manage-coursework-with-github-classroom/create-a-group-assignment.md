@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea de grupo
-intro: 'Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.'
+intro: Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -17,7 +17,7 @@ Cuando un alumno acepta una tarea grupal, los alumnos pueden crear un equipo nue
 
 {% data reusables.classroom.about-assignments %}
 
-Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. Para obtener más información, consulta "[Acerca de equipos](/github/setting-up-and-managing-organizations-and-teams/about-teams)."
+Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 Para ver un video demostrativo de la creación de una tarea de grupo, consulta la sección "[Conceptos básicos para configurar un {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
@@ -132,7 +132,7 @@ Puedes ver los equipos que están trabajando o que han emitido una tarea en la p
 
 ### Pasos siguientes
 
-- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)," and the free course on [managing merge conflicts](https://lab.github.com/githubtraining/managing-merge-conflicts) from {% data variables.product.prodname_learning %}.
+- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Comenzar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Crear, clonar y archivar repositorios](/github/creating-cloning-and-archiving-repositories)", [Utilizar Git](/github/getting-started-with-github/using-git)", y "[Colaborar con las propuestas y solicitudes de cambio](/github/collaborating-with-issues-and-pull-requests)", y el curso gratuito sobre [administrar conflictos de fusión](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
 
 - Cuando un equipo termina una tarea, puedes revisar los archivos en el repositorio, o puedes revisar el historial y visualizaciones del mismo para entender mejor cómo colaboró el equipo. Para obtener más información, consulta la sección "[Visualizar los datos del repositorio con gráficas](/github/visualizing-repository-data-with-graphs)".
 

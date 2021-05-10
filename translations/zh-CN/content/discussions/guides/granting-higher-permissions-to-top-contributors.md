@@ -1,6 +1,6 @@
 ---
 title: 向顶级贡献者授予更高的权限
-intro: '仓库管理员可以将任何社区成员提升到主持人和维护员。'
+intro: 仓库管理员可以将任何社区成员提升到主持人和维护员。
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +21,7 @@ versions:
 
 对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持项目的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
 
-有关仓库权限级别和 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)”。
+有关仓库权限级别和 {% data variables.product.prodname_discussions %} 的更多信息，请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
 ### 第 3 步：更改顶级贡献者的权限级别
 

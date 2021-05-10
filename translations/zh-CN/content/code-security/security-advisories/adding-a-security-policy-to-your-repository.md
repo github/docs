@@ -7,14 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 关于安全政策
 
 为了让人们了解如何负责任地报告您的仓库中存在的安全漏洞，您可以将 _SECURITY.md_ 文件添加到仓库的根文件夹 `docs` 或 `.github`。 当有人在您的仓库中创建议题时，就会看到项目安全政策的链接。
 
-您可以为组织或用户帐户创建默认的安全政策。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+您可以为组织或用户帐户创建默认的安全政策。 更多信息请参阅“[创建默认社区健康文件](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)”。
 
 {% tip %}
 
@@ -41,5 +41,5 @@ topics:
 ### 延伸阅读
 
 - “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
-- "[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

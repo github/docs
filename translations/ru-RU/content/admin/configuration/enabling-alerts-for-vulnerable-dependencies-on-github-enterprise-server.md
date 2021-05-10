@@ -9,7 +9,7 @@ permissions: 'Site administrators for {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### About alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}

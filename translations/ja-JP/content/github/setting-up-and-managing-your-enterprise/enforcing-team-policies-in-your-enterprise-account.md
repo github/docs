@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントで Team のポリシーを施行する
-intro: 'Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のチームポリシーを強制したり、各 Organization ごとのポリシーの設定を許可したりすることができます。'
+intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のチームポリシーを強制したり、各 Organization ごとのポリシーの設定を許可したりすることができます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
@@ -10,12 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Team ディスカッションでポリシーを施行する
 
-自分の Enterprise アカウントによって所有されているすべての Organization 全体で、Team ディスカッションを有効または無効にしたり、オーナーに Organization レベルで設定を管理させたりできます。 詳しい情報については[Team ディスカッションについて](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)を参照してください。
+自分の Enterprise アカウントによって所有されているすべての Organization 全体で、Team ディスカッションを有効または無効にしたり、オーナーに Organization レベルで設定を管理させたりできます。 詳しい情報については[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions/)を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

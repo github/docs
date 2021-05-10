@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 {% mac %}
@@ -31,16 +31,16 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. If you aren't using the GPG suite, paste the text below to add the GPG key to your bash profile:
+1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  {% note %}
-
-  **Note:** If you don't have `.bash_profile`, this command adds your GPG key to `.profile`.
-
-  {% endnote %}
+  Alternatively, if you use the `bash` shell, run this command:
+  ```shell
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
 
 {% data reusables.gpg.x-509-key %}
 
@@ -93,10 +93,10 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. To add your GPG key to your bash profile, paste the text below:
+1. To add your GPG key to your bash profile, run the following command:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
   {% note %}
 

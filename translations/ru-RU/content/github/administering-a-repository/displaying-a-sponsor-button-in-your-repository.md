@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About FUNDING files
@@ -54,7 +54,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-You can create a default sponsor button for your organization or user account. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create a default sponsor button for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 

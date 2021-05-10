@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data variables.product.product_name %} no puede emitir un reembolso si pagas una cuenta antes de aplicar un cupón. Tampoco podemos transferir un cupón canjeado o entregarte un cupón nuevo si lo aplicas a la cuenta equivocada. Confirma que estás aplicando el cupón a la cuenta correcta antes de canjear un cupón.
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 No puedes aplicar cupones a planes pagos de {% data variables.product.prodname_marketplace %} apps.
 

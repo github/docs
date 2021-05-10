@@ -9,11 +9,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
-Effective date: **January 29, 2021**
+Effective date: **April 2, 2021**
 
 GitHub bietet viel Transparenz darüber, wie wir Ihre Daten verwenden, wie wir Ihre Daten sammeln und mit wem wir Ihre Daten teilen. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -33,7 +33,6 @@ Wenn wir Ihre Daten an Unterauftragsverarbeiter, wie z. B. unsere Anbieter und D
 | MailChimp                          | Kunden-Ticketing-E-Mail Dienstanbieter                          | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Mailgun                            | Transaktions-Mail-Dienstanbieter                                | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Microsoft                          | Microsoft Services                                              | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
-| Monday.com                         | Plattform für Teamkollaboration und Projektmanagement           | Vereinigte Staaten von Amerika | Israel                         |
 | Nexmo                              | SMS-Benachrichtigungsanbieter                                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Salesforce.com                     | Customer Relations-Management                                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Sentry.io                          | Application monitoring provider                                 | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |

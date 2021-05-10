@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Além de alterar o local do arquivo, também é possível [atualizar o conteúdo de seu arquivo](/articles/editing-files-in-your-repository) ou [dar um novo nome a ele](/articles/renaming-a-file) no mesmo commit.

@@ -4,11 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: 'サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。'
+intro: サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% tip %}

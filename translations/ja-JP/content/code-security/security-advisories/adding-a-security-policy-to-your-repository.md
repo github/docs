@@ -7,14 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 ### セキュリティポリシーについて
 
 プロジェクトにおけるセキュリティの脆弱性について手順を示すには、リポジトリのルート、`docs`、または `.github` フォルダに、_SECURITY.md_ ファイルを追加します。 誰かがリポジトリに Issue を作成すると、プロジェクトのセキュリティポリシーへのリンクが表示されます。
 
-所属する Organization またはユーザアカウント用にデフォルトのセキュリティポリシーを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+所属する Organization またはユーザアカウント用にデフォルトのセキュリティポリシーを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% tip %}
 
@@ -41,5 +41,5 @@ topics:
 ### 参考リンク
 
 - 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
-- [健全なコントリビューションを促すプロジェクトをセットアップする](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)
+- [健全なコントリビューションを促すプロジェクトをセットアップする](/communities/setting-up-your-project-for-healthy-contributions)
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de {% data variables.product.prodname_vss_ghe %}
@@ -39,7 +39,7 @@ Los propietarios de las organizaciones pueden invitar a miembros nuevos a una or
 
 Aunque no es un requisito, te recomendamos que los propietarios de las organizaciones envíen una invitación a la misma dirección de correo electrónico que utilizas para el Nombre Primario de Usuario (UPN) de los suscriptores de {% data variables.product.prodname_vs %}. Cuando la dirección de correo electrónico en {% data variables.product.product_name %} coincida con el UPN del suscriptor, podrás garantizar que ningún otro miembro de la organización será capaz de adjudicarse la licencia de este.
 
-Para obtener más información, consulta las secciones "[Invitar a usuarios para que se unan a tu organización](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)", "[Registrarse para {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)", y "[Administrar las preferencias de correo electrónico](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)".
+Para obtener más información, consulta las secciones "[Invitar a usuarios para que se unan a tu organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)", "[Registrarse para {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)", y "[Administrar las preferencias de correo electrónico](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)".
 
 ### Visualizar el licenciamiento de {% data variables.product.prodname_enterprise %}
 

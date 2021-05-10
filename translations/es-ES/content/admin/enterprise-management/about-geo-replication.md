@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Contar con múltiples réplicas puede permitir una menor distancia a la réplica más cercana. Por ejemplo, una organización con oficinas en San Francisco, Nueva York y Londres podrían ejecutar el aparato principal en un centro de datos cercano a Nueva York y dos réplicas en centros de datos cercanos a San Francisco y Londres. Al usar DNS con información de geolocalización, se puede dirigir a los usuarios al servidor disponible más cercano para que accedan a los datos más rápido. Designar como principal el aparato cercano a Nueva York ayuda a reducir la latencia entre los hosts, a diferencia de si se designa como principal el aparato cercano a San Francisco, que tiene mayor latencia con Londres.
@@ -21,6 +21,8 @@ Se solicita un DNS geográfico, como [Amazon's Route 53 service](http://docs.aws
 ### Limitaciones
 
 Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todos los escritos se limita de acuerdo con la replica más lenta, aunque las geo-replicas nuevas pueden poblar la mayoría de sus datos desde geo-replicas existentes co-ubicadas, en vez de desde el primario. La replicación geográfica no le agregará capacidad a una instancia de {% data variables.product.prodname_ghe_server %} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura.
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Monitorear la configuración de una replicación geográfica
 

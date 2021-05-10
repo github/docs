@@ -1,6 +1,6 @@
 ---
 title: 使用 GraphQL API for Discussions
-intro: '了解如何使用 GitHub Discussions GraphQL API。'
+intro: 了解如何使用 GitHub Discussions GraphQL API。
 versions:
   free-pro-team: '*'
 ---

@@ -7,8 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Criar réplica de alta disponibilidade
 

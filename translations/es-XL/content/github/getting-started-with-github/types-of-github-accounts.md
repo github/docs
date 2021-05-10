@@ -10,6 +10,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

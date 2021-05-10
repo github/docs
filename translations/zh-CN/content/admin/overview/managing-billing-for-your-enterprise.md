@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

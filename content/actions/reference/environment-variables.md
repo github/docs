@@ -22,6 +22,7 @@ versions:
 
 To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. For more information, see "[Workflow syntax for {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
+{% raw %}
 ```yaml
 jobs:
   weekday_job:
@@ -30,13 +31,14 @@ jobs:
       DAY_OF_WEEK: Mon
     steps:
       - name: "Hello world when it's Monday"
-        if: env.DAY_OF_WEEK == 'Mon'
+        if: ${{ env.DAY_OF_WEEK == 'Mon' }}
         run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
 ```
+{% endraw %}
 
 To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
 
@@ -54,6 +56,7 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_WORKFLOW` | The name of the workflow. |
 | `GITHUB_RUN_ID` | {% data reusables.github-actions.run_id_description %} |
 | `GITHUB_RUN_NUMBER` | {% data reusables.github-actions.run_number_description %} |
+| `GITHUB_JOB` | The [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
 | `GITHUB_ACTION` | The unique identifier (`id`) of the action. |
 | `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
 | `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
@@ -81,10 +84,6 @@ We strongly recommend that actions use environment variables to access the files
 
 ### Naming conventions for environment variables
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} reserves the `GITHUB_` environment variable prefix for internal use by {% data variables.product.prodname_dotcom %}. Setting an environment variable or secret with the `GITHUB_` prefix will result in an error.
-
-{% endnote %}
+When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
 Any new environment variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `HOME` and `GITHUB_WORKSPACE` default variables are exceptions to this convention because the words "home" and "workspace" already imply a location.

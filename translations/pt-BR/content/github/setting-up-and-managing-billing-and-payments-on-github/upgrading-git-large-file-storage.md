@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 ### Comprar mais armazenamento e largura de banda para uma conta pessoal

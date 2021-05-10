@@ -1,13 +1,13 @@
 ---
 title: Seguridad de código
 shortTitle: Seguridad de código
-intro: 'Aprende cómo mantener la seguridad en el código almacenado en tus repositorios.'
+intro: Aprende cómo mantener la seguridad en el código almacenado en tus repositorios.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 {% link_with_intro /getting-started %}
@@ -19,3 +19,5 @@ topics:
 {% link_with_intro /security-advisories %}
 
 {% link_with_intro /supply-chain-security %}
+
+{% link_with_intro /security-overview %}

@@ -4,7 +4,7 @@ intro: Você pode usar objetivos para definir metas para métricas principais e 
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: 'Qualquer pessoa com acesso ao {% data variables.product.prodname_insights %} pode gerenciar metas.'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
   enterprise-server: '*'
 ---

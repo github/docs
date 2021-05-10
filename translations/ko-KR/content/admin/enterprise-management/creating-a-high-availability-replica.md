@@ -7,8 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Creating a high availability replica
 

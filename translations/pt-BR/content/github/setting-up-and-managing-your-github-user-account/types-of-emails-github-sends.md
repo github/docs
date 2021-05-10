@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - contas
-  - notificações
+  - Accounts
+  - Notifications
 ---
 
 ### E-mails de notificação

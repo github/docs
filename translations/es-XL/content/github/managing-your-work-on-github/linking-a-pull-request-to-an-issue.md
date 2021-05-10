@@ -9,6 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Acerca de enlazar informes de problemas y solicitudes de extracción

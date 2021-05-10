@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Prerrequisitos
@@ -33,7 +33,7 @@ Esta guía supone que estás familiarizado con los siguientes conceptos de AWS:
 
 ### Determinar el tipo de instancia
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Antes de iniciar {% data variables.product.product_location %} en AWS, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 

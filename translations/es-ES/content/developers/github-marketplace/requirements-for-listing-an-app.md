@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
@@ -50,7 +50,7 @@ Para proteger a tus clientes, te recomendamos que también sigas las mejores pr�
 
 ### Requisitos para las apps de pago
 
-Para publicar un plan de pago para tu app en {% data variables.product.prodname_marketplace %}, esta debe pertenecer a una organización que sea un publicador verificado. For more information about the verification process or transferring ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+Para publicar un plan de pago para tu app en {% data variables.product.prodname_marketplace %}, esta debe pertenecer a una organización que sea un publicador verificado. Para obtener más información sobre el proceso de verificación o de cómo transferir la propiedad de tu app, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
 Si tu app ya se publicó y eres un publicador verificado, entonces puedes publicar un plan de pago nuevo desde el editor de plan de precios. Para obtener más información, consulta la sección "[Configurar planes de precios para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 

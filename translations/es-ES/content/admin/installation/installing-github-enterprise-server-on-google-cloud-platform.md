@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Prerrequisitos
@@ -22,11 +22,11 @@ topics:
 
 ### Determinar el tipo de máquina
 
-Antes de iniciar {% data variables.product.product_location %} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Antes de iniciar {% data variables.product.product_location %} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización. Para revisar los requisitos mínimos para {% data variables.product.product_name %}, consulta la sección "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} recomienda una máquina de propósitos generales con memoria alta para {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección "[Tipos de máquina](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" en la documentación de Google Compute Engine.
 
 ### Seleccionar la imagen {% data variables.product.prodname_ghe_server %}
 

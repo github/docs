@@ -16,7 +16,7 @@ versions:
 保護ルールとシークレットを持つ環境を設定できます。 ワークフローのジョブが環境を参照すると、その環境の保護ルールをすべてパスするまではジョブは開始されません。 すべての環境の保護ルールをパスするまで、ジョブは環境で定義されているシークレットにアクセスできません。
 
 {% if currentVersion == "free-pro-team@latest" %}
-環境の保護ルールと環境のシークレットは、パブリックリポジトリでのみ利用できます。 リポジトリをパブリックからプライベートに変換すると、設定された保護ルールや環境のシークレットは無視されるようになり、環境は設定できなくなります。 リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
+Environment protection rules and environment secrets are only available on public repositories and private repositories on an enterprise plan. If you convert a repository from public to private on a non-enterprise plan, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. リポジトリをパブリックに変換して戻せば、以前に設定されていた保護ルールや環境のシークレットにアクセスできるようになります。
 {% endif %}
 
 #### 環境の保護ルール

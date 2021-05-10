@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Gradle
         run: ./gradlew build
 ```
@@ -70,7 +71,7 @@ jobs:
 このワークフローは以下のステップを実行します。
 
 1. `checkout`ステップは、ランナーにリポジトリのコピーをダウンロードします。
-2. `setup-java`ステップは、Java 1.8 JDKを設定します。
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. "Build with Gradle"ステップは、ラッパースクリプトの`gradlew`を実行し、コードがビルドされ、テストをパスし、パッケージが作成できることを保証します。
 
 デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
@@ -91,9 +92,10 @@ jobs:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Gradle package task
     run: ./gradlew -b ci.gradle package
 ```
@@ -107,10 +109,11 @@ steps:
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
@@ -123,7 +126,7 @@ steps:
   - name: Build with Gradle
     run: ./gradlew build
   - name: Cleanup Gradle Cache
-    # GitHub ActionsでキャッシュされないようにいくつかのファイルをGradleのキャッシュから削除
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
     # これらのファイルをGitHub Actionsのキャッシュからリストアすると、将来のビルドで問題が生じるかもしれない。
     run: |
       rm -f ~/.gradle/caches/modules-2/modules-2.lock
@@ -143,7 +146,11 @@ Gradleは通常、JAR、EAR、WARのような出力ファイルを`build/libs`�
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

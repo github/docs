@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data variables.product.product_name %} está constantemente melhorando, com novas funcionalidades e correções de erros introduzidas por meio de versões maiores e menores. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} é um serviço totalmente gerenciado. Portanto, {% data variables.product.company_short %} conclui o processo de atualização da sua empresa.{% endif %}

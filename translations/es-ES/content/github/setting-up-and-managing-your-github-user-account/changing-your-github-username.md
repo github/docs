@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acerca de los cambios de nombre de usuario
@@ -32,7 +32,7 @@ Después de cambiar tu nombre de usuario, {% data variables.product.product_name
 - Los enlaces web a tus repositorios existentes seguirán funcionando. Esto puede tardar algunos minutos en completarse después de realizar el cambio.
 - Las inserciones de la línea de comando desde tus clones de repositorio local hasta las URL del registro remoto anterior seguirán funcionando.
 
-Si el nuevo propietario de tu nombre de usuario anterior crea un repositorio con el mismo nombre que tu repositorio, se sobrescribirá el registro de redirección y tu redirección dejará de funcionar. Debido a esta posibilidad, recomendamos que actualices todas las URL de repositorios remotos existentes luego de cambiar tu nombre de usuario. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Si el nuevo propietario de tu nombre de usuario anterior crea un repositorio con el mismo nombre que tu repositorio, se sobrescribirá el registro de redirección y tu redirección dejará de funcionar. Debido a esta posibilidad, recomendamos que actualices todas las URL de repositorios remotos existentes luego de cambiar tu nombre de usuario. Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 ### Enlaces a tu página de perfil anterior
 

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidade
-  - gerenciamento de acesso
+  - Identity
+  - Access management
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

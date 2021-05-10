@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 リポジトリを個人として所有することも、リポジトリの所有権を Organization 内の他の人々と共有することもできます。
@@ -39,5 +39,5 @@ With
 - 「[{% data variables.product.prodname_dotcom %}での作業を管理する](/categories/managing-your-work-on-github/)」
 - [リポジトリの管理](/categories/administering-a-repository)
 - [グラフによるリポジトリデータの可視化](/categories/visualizing-repository-data-with-graphs/)
-- 「[ウィキについて](/articles/about-wikis)」
+- 「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」
 - [{% data variables.product.prodname_dotcom %} 用語集](/articles/github-glossary)

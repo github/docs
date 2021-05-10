@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pesquisa do github
+  - GitHub search
 ---
 
 Você pode pesquisar repositórios globalmente no {% data variables.product.product_location %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
@@ -172,7 +172,7 @@ Você pode pesquisar repositórios com base no fato de os repositórios estarem 
 
 ### Pesquisar com base no número de problemas com as etiquetas `good first issue` (um bom primeiro problema) ou `help wanted` (procura-se ajuda)
 
-Você pode pesquisar repositórios que têm um número mínimo de problemas com as etiquetas `help-wanted` (procura-se ajuda) ou `good-first-issue` (um bom primeiro problema) com os qualificadores `help-wanted-issues:>n` e `good-first-issues:>n`. Para obter mais informações, consulte "[Incentivar contribuições úteis para o seu projeto com etiquetas](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)".
+Você pode pesquisar repositórios que têm um número mínimo de problemas com as etiquetas `help-wanted` (procura-se ajuda) ou `good-first-issue` (um bom primeiro problema) com os qualificadores `help-wanted-issues:>n` e `good-first-issues:>n`. Para obter mais informações, consulte "[Incentivar contribuições úteis para o seu projeto com etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)".
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                           |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

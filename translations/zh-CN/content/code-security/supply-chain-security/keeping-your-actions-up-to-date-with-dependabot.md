@@ -7,10 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### 关于操作的 {% data variables.product.prodname_dependabot_version_updates %}
 

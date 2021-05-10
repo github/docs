@@ -1,6 +1,6 @@
 ---
 title: Errores de clonación de HTTPS
-intro: 'Existen algunos errores comunes cuando se utiliza HTTPS con Git. Estos errores suelen indicar que tienes una versión antigua de Git o que no tienes acceso al repositorio.'
+intro: Existen algunos errores comunes cuando se utiliza HTTPS con Git. Estos errores suelen indicar que tienes una versión antigua de Git o que no tienes acceso al repositorio.
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Aquí aparece un ejemplo de un error de HTTPS que puedes recibir:
@@ -79,4 +79,4 @@ Cuando se te solicite un nombre de usuario y contraseña, asegúrate de usar una
 
 ### Usar SSH en su lugar
 
-Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Si ya has configurado claves SSH, puedes usar el clon SSH en lugar de HTTPS.  Para obtener más información, consulta la sección "[Acerca de los repositorios remotos](/github/getting-started-with-github/about-remote-repositories)".
