@@ -60,7 +60,7 @@ Contexts are a way to access information about workflow runs, runner environment
 | Context name | Type | Description |
 |---------------|------|-------------|
 | `github` | `object` | Information about the workflow run. For more information, see [`github` context](#github-context). |
-| `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context) . |
+| `env` | `object` | Contains environment variables set in a workflow, job, or step. For more information, see [`env` context](#env-context). |
 | `job` | `object` | Information about the currently executing job. For more information, see [`job` context](#job-context). |
 | `steps` | `object` | Information about the steps that have been run in this job. For more information, see [`steps` context](#steps-context). |
 | `runner` | `object` | Information about the runner that is running the current job. For more information, see [`runner` context](#runner-context). |
