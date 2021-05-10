@@ -52,7 +52,6 @@ topics:
 <!-- {% link_with_intro /exploring-projects-on-github %} -->
 <!-- {% link_with_intro /using-github %} -->
 
-
 ### Table of Contents
 
 {% topic_link_in_list /quickstart %}
@@ -66,6 +65,7 @@ topics:
 
 {% topic_link_in_list /learning-about-github %}
     {% link_in_list /githubs-products %}
+    {% link_in_list /github-language-support %}
     {% link_in_list /about-github-advanced-security %}
     {% link_in_list /types-of-github-accounts %}    
     {% link_in_list /access-permissions-on-github %}    

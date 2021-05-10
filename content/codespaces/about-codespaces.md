@@ -26,12 +26,11 @@ topics:
 
 A codespace includes everything developers need to develop for a specific repository, including the {% data variables.product.prodname_vscode %} editing experience and common languages, tools, and utilities. {% data variables.product.prodname_codespaces %} is completely configurable, allowing you to create a customized development environment for your project, and allowing developers to personalize their experience with extensions and dotfile settings. 
 
-Codespaces offers many benefits to all teams by allowing for a consistent environment across your entire team, fast onboarding, and creating a secure space for development.
-
+Codespaces offers many benefits to teams by allowing for a consistent environment across your entire team, fast onboarding, and creating a secure space for development.
 
 ### A consistent environment
 
-You can create a single codespace configuration that defines the environment of every new codespace that anyone creates for your repository. Once you've made a configuration, developers don’t have to worry about installing the right tools to comment, review, or contribute. The standard environment is already available for them as soon as they create a codespace from the repository. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)."
+You can create a single codespace configuration that defines the environment (or _dev container_) of every new codespace that anyone creates for your repository. Once you've made a configuration, developers don’t have to worry about installing the right tools to comment, review, or contribute. A standardized environment is already available for them as soon as they create a codespace from the repository. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)."
 
 For help getting started with configurations for specific languages, see the [Getting Started](/codespaces/getting-started-with-codespaces) tutorials.
 
@@ -39,13 +38,13 @@ While every codespace created from your repository has a consistent development 
 
 ### Fast and personal onboarding
 
-With a [dev container](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#about-dev-containers) already configured in your repository, any new developer can quickly onboard with the correct development environment for your project by using the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and selecting **Open with Codespaces**.
+With a [dev container](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#about-dev-containers) configured in your repository, any new developer can quickly onboard with the correct development environment for your project by using the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and selecting **Open with Codespaces**.
 
 ![Open with Codespaces button](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-Developers can start coding faster by reducing time spent configuring their environment.
+As a result of standardizing on a repeatable developer environment, developers can get started with a new codespace without doing any manual configuration and do not need to do continued maintenance of their developer environment. A new codespace can be created when starting a new feature.
 
-Developers can also personalize aspects of their codespace environment by using a [dotfiles](https://dotfiles.github.io/tutorials/) repository. Personalization can include shell preferences, additional tools, editor settings, and extensions, such as Live Share. Personal customizations are stored on a per-user basis, so every codespace a developer opens has their environment ready to go. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
+Developers can also personalize aspects of their codespace environment by using a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and extensions, such as Live Share. Personal customizations are stored on a per-user basis, so every codespace a developer opens has their environment ready to go. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
 
 Because {% data variables.product.prodname_codespaces %} can be accessed in the browser, developers can work on multiple projects by switching between tabs.
 

@@ -199,27 +199,7 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
 ### Step 5: Commit your changes
 
-Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit your changes. Committing changes to your repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, such as adding {% data variables.product.prodname_vscode %} extensions, will appear for all users.
-
-1. In the Activity Bar, click on the **Source Control** view.
-
-  ![Source control view](/assets/images/help/codespaces/codespaces-commit-activity.png)  
-
-2. To stage your changes, click  **+**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
-
-3. Type a commit message and then use `Ctrl+Enter` / `cmd+Enter` to commit the changes.  
-
-  ![Explorer with commit message added](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
-
-4. To create a PR, click the PR icon. 
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-
-5. Select the branches that you want to merge into, then click **Create**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)  
+{% data reusables.codespaces.committing-link-to-procedure %}
 
 ### Next steps
 
