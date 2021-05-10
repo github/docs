@@ -22,9 +22,8 @@ Thanks again!
 <!-- Share artifacts of the changes, be they code snippets, GIFs or screenshots; whatever shares the most context. -->
 
 ### Check off the following:
-- [ ] I have reviewed my changes in staging. (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**)
-- [ ] For content changes, I have reviewed the [localization checklist](https://github.com/github/docs/blob/main/contributing/localization-checklist.md)
-- [ ] For content changes, I have reviewed the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+- [ ] I have reviewed my changes in staging (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**).
+- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
 
 ### Writer impact (This section is for GitHub staff members only):
 

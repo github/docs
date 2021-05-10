@@ -48,6 +48,7 @@ describe('check for repository references', () => {
       '.algolia-cache',
       '.git',
       '.github/actions-scripts/enterprise-server-issue-templates/*.md',
+      '.github/review-template.md',
       'dist',
       'node_modules',
       'translations',
