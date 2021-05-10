@@ -474,11 +474,11 @@ To allow {% data variables.product.prodname_dependabot %} to access a private pa
 
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution).
 
-{% raw %}
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
 # when updating dependency versions for this ecosystem
 
+{% raw %}
 version: 2
 registries:
   maven-github:
@@ -497,8 +497,8 @@ updates:
     - maven-github
     schedule:
       interval: "monthly"
-```
 {% endraw %}
+```
 
 #### `reviewers`
 
