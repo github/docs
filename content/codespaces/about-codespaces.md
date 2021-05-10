@@ -28,7 +28,6 @@ A codespace includes everything developers need to develop for a specific reposi
 
 Codespaces offers many benefits to teams by allowing for a consistent environment across your entire team, fast onboarding, and creating a secure space for development.
 
-
 ### A consistent environment
 
 You can create a single codespace configuration that defines the environment (or _dev container_) of every new codespace that anyone creates for your repository. Once you've made a configuration, developers don’t have to worry about installing the right tools to comment, review, or contribute. A standardized environment is already available for them as soon as they create a codespace from the repository. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)."
