@@ -48,22 +48,13 @@ const SponsorsPageInner = () => {
         <FeaturedArticles />
       </LandingSection>
 
-      {/* {% if productCodeExamples %}
-        {% include code-examples %}
-        {% endif %}
-
-      {% if productCommunityExamples %}
-      {% include community-examples %}
-      {% endif %}
-      */}
-
-      {productUserExamples && (
+      {productUserExamples.length > 0 && (
         <LandingSection title={t('sponsor_community')} className="my-6">
           <SponsorsExamples />
         </LandingSection>
       )}
 
-      {guideCards && (
+      {guideCards.length > 0 && (
         <div className="bg-guides-gradient py-6">
           <LandingSection title={t('guides')} className="my-6">
             <GuideCards />

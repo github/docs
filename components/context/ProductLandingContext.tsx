@@ -29,9 +29,10 @@ export type ProductLandingContextT = {
   //   popular: Array<FeaturedLink>
   //   guideCards: Array<FeaturedLink>
   // }
-  guideCards?: Array<FeaturedLink>
-  productUserExamples?: Array<{ username: string; description: string }>
-  featuredArticles?: Array<{
+  guideCards: Array<FeaturedLink>
+  productUserExamples: Array<{ username: string; description: string }>
+  productCommunityExamples: Array<{ repo: string; description: string }>
+  featuredArticles: Array<{
     label: string // Guides
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
@@ -69,6 +70,9 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     ]),
     whatsNewChangelog: req.context.whatsNewChangelog,
     changelogUrl: req.context.changelogUrl,
+
+    productCommunityExamples: req.context.productCommunityExamples || [],
+
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
         username: user,

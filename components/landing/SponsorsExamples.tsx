@@ -16,17 +16,9 @@ export const SponsorsExamples = () => {
   return (
     <div>
       <div className="d-flex flex-wrap gutter">
-        {productUserExamples.map((user, i) => {
-          if (i > 5) {
-            return null
-          }
+        {productUserExamples.slice(0, 6).map((user) => {
           return (
-            <div
-              key={user.username}
-              className="col-12 col-xl-4 col-lg-6 mb-4 js-filter-card"
-              data-repo={user.username}
-              data-description={user.description}
-            >
+            <div key={user.username} className="col-12 col-xl-4 col-lg-6 mb-4">
               <UserCard href={`https://github.com/sponsors/${user.username}`} user={user} />
             </div>
           )

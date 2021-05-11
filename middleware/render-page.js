@@ -30,6 +30,7 @@ const renderWithNext = FEATURE_NEXTJS
   ? [
       '/en/rest',
       '/en/sponsors',
+      '/en/discussions',
       '/ja/sponsors'
     ]
   : []

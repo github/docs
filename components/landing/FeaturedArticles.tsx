@@ -20,7 +20,10 @@ export const FeaturedArticles = () => {
     <div className="d-lg-flex gutter my-6 py-6">
       {featuredArticles.map((section, i) => {
         return (
-          <div className={cx('col-12 mb-4 mb-lg-0', changelog ? 'col-lg-4' : 'col-lg-6')}>
+          <div
+            key={section.label}
+            className={cx('col-12 mb-4 mb-lg-0', changelog ? 'col-lg-4' : 'col-lg-6')}
+          >
             <ArticleList
               title={section.label}
               viewAllHref={section.viewAllHref}
