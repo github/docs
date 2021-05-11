@@ -46,13 +46,12 @@ describe('redirects', () => {
 
   test('converts single `redirect_from` strings values into arrays', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-conversations-on-github.md',
-      basePath: path.join(__dirname, '../../content'),
+      relativePath: 'article-with-redirect-from-string.md',
+      basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'en'
     })
     page.buildRedirects()
-    const expected = '/en/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github'
-    expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
+    expect(page.redirects['/redirect-string']).toBe('/en/article-with-redirect-from-string')
   })
 
   describe('query params', () => {

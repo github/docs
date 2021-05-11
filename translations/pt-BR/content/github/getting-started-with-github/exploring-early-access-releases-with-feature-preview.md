@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - acesso antecipado
+  - Early access
 ---
 
 ### Ciclo de versões do {% data variables.product.prodname_dotcom %}

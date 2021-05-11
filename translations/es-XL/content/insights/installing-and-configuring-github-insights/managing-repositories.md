@@ -4,7 +4,7 @@ intro: 'Puedes administrar los repositorios conectados a {% data variables.produ
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
-permissions: 'Las personas con permisos de administrador en {% data variables.product.prodname_insights %} puede administrar repositorios.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

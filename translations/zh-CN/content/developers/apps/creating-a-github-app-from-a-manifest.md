@@ -1,6 +1,6 @@
 ---
 title: 从清单创建 GitHub 应用程序
-intro: 'GitHub 应用程序清单是预先配置的 GitHub 应用程序，您可以与希望在其个人仓库中使用您的应用程序的任何用户分享它。 清单流程允许用户快速创建、安装和开始扩展 GitHub 应用程序，而无需注册应用程序或将注册连接到托管应用代码。'
+intro: GitHub 应用程序清单是预先配置的 GitHub 应用程序，您可以与希望在其个人仓库中使用您的应用程序的任何用户分享它。 清单流程允许用户快速创建、安装和开始扩展 GitHub 应用程序，而无需注册应用程序或将注册连接到托管应用代码。
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 

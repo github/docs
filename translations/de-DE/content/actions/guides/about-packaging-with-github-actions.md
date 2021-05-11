@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Pakete erstellen
+  - Packaging
 ---
 
 {% data reusables.actions.enterprise-beta %}

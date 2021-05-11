@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
 ---
 
 {% data reusables.actions.ae-beta %}

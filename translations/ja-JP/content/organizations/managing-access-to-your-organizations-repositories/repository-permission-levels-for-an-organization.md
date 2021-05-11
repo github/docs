@@ -1,6 +1,6 @@
 ---
 title: Organization のリポジトリ権限レベル
-intro: 'Organization の各リポジトリに対するアクセスを、権限レベルを細かく設定することによりカスタマイズできます。これにより、ユーザが必要な機能やタスクにアクセスできるようになります。'
+intro: Organization の各リポジトリに対するアクセスを、権限レベルを細かく設定することによりカスタマイズできます。これにより、ユーザが必要な機能やタスクにアクセスできるようになります。
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/repository-permission-levels-for-an-organization-early-access-program/
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 管理権限を持つ人は、Organization が所有するリポジトリに対する人およびチームのアクセスを管理できます。

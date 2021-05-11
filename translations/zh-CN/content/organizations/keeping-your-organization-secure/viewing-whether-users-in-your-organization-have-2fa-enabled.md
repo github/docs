@@ -1,6 +1,6 @@
 ---
 title: 查看组织中的用户是否已启用 2FA
-intro: '您可以查看哪些组织所有者、成员和外部协作者已启用双因素身份验证。'
+intro: 您可以查看哪些组织所有者、成员和外部协作者已启用双因素身份验证。
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
   - /github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% note %}

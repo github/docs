@@ -1,7 +1,7 @@
 ---
 title: 创建议题
-intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
-permissions: 具有读取权限的人可以在启用了议题的仓库中创建议题。
+intro: 议题可用于跟踪漏洞、增强功能或其他请求。
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 您可以根据现有拉取请求中的代码打开新议题。 更多信息请参阅“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。

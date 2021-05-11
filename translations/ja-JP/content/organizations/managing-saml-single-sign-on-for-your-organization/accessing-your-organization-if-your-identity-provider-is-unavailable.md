@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 そうしたリカバリコードを、すでに [ LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[ Keeper](https://keepersecurity.com/) などのパスワードマネージャーに保存しているかもしれません。

@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.'

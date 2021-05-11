@@ -1,6 +1,6 @@
 ---
 title: 启用调试日志
-intro: '如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。'
+intro: 如果工作流程日志没有提供足够的详细信息来诊断工作流程、作业或步骤未按预期工作的原因，您可以启用额外的调试日志。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

@@ -1,9 +1,9 @@
 ---
 title: Enterprise 向けの SAML シングルサインオンを設定する
 shortTitle: SAML SSO の設定
-intro: Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。
+intro: 'Enterprise の SAML シングルサインオン (SSO) を設定できます。これにより、アイデンティティプロバイダ (IdP) を使用して {% data variables.product.product_location %} の認証を一元的に制御できます。'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Enterprise オーナーは、{% data variables.product.product_name %} で Enterprise の SAML SSO を設定できます。
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
 ---

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Um *código de conduta* define padrões de como se engajar em uma comunidade. Ele sinaliza um ambiente inclusivo que respeita todas as contribuições. Ele também descreve procedimentos para solucionar problemas entre integrantes da comunidade do projeto. Para obter mais informações sobre por que um código de conduta define padrões e expectativas de como se engajar em uma comunidade, consulte [Open Source Guide](https://opensource.guide/code-of-conduct/) (Guia de código aberto).

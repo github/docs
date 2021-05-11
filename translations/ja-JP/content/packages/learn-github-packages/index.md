@@ -4,6 +4,10 @@ shortTitle: GitHub Packages について学ぶ
 intro: '{% data variables.product.prodname_registry %} への新しいパッケージの公開など、GitHub Packages について詳しい情報を掲載しています。'
 redirect_from:
   - /packages/getting-started-with-github-container-registry
+  - /github/managing-packages-with-github-packages/publishing-and-managing-packages
+  - /github/packages/publishing-and-managing-packages
+  - /packages/publishing-and-managing-packages
+  - /packages/manage-packages
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

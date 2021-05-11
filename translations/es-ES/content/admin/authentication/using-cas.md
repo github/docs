@@ -9,7 +9,7 @@ intro: 'CAS es un protocolo de inicio de sesión único (SSO) para varias aplica
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Cuando uses una clave sin verificar para realizar operaciones Git, se te indicará que debes realizar una auditoría de tus claves SSH.

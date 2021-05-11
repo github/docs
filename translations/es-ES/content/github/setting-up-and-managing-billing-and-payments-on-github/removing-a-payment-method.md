@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Si vas a pagar tu {% data variables.product.product_name %} suscripción con un cupón y no vas a usar tu método de pago para ninguna [otra función o producto pago](/articles/about-billing-on-github) en {% data variables.product.product_name %}, puedes eliminar tu información de tarjeta de crédito o de PayPal.

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 个人资料
+  - Profiles
 ---
 
 ### 计算的贡献

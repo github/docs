@@ -21,6 +21,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
   - [`defaultPlatform`](#defaultplatform)
+  - [`defaultTool`](#defaulttool)
   - [`learningTracks`](#learningTracks)
   - [`includeGuides`](#includeGuides)
   - [`type`](#type)
@@ -56,7 +57,7 @@ See [Versioning](#versioning) for more info.
 
 Example that applies to GitHub.com and recent versions of GitHub Enterprise Server:
 
-```yml
+```yaml
 title: About your personal dashboard
 versions:
   free-pro-team: '*'
@@ -66,7 +67,7 @@ versions:
 Example that applies to all supported versions of GitHub Enterprise Server:
 (but not GitHub.com):
 
-```yml
+```yaml
 title: Downloading your license
 versions:
   enterprise-server: '*'
@@ -74,7 +75,7 @@ versions:
 
 You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
 
-```yml
+```yaml
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22 <3.1'
@@ -88,7 +89,7 @@ versions:
 
 Example:
 
-```yml
+```yaml
 title: Getting started with GitHub Desktop
 redirect_from:
   - /articles/first-launch/
@@ -112,7 +113,7 @@ See [`contributing/redirects`](contributing/redirects.md) for more info.
 
 Example:
 
-```yml
+```yaml
 title: Contributing to projects with GitHub Desktop
 shortTitle: Contributing to projects
 ```
@@ -154,6 +155,8 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Object`.
 - Optional.
 
+The list of popular links are the links displayed on the landing page under the title "Popular." Alternately, you can customize the title "Popular" by setting the `featuredLinks.popularHeading` property to a new string.
+
 Example:
 
 ```yaml
@@ -162,6 +165,10 @@ featuredLinks:
     - /path/to/page
   guides:
     - /guides/example
+  popular:
+    - /path/to/popular/article1
+    - /path/to/popular/article2
+  popularHeading: An alternate heading to Popular
 ```
 
 ### `showMiniToc`
@@ -202,6 +209,16 @@ Example:
 defaultPlatform: linux
 ```
 
+### `defaultTool`
+
+- Purpose: Override the initial tool selection for a page, where tool refers to the application the reader is using to work with GitHub, such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop. If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable.
+- Type: `String`, one of: `webui`, `cli`, `desktop`.
+- Optional.
+
+```yaml
+defaultTool: cli
+```
+
 ### `learningTracks`
 - Purpose: Render a list of learning tracks on a product's sub-landing page.
 - type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
@@ -216,7 +233,7 @@ defaultPlatform: linux
 
 Example:
 
-```yml
+```yaml
 includeGuides:
   - /actions/guides/about-continuous-integration
   - /actions/guides/setting-up-continuous-integration-using-workflow-templates
@@ -241,7 +258,7 @@ includeGuides:
 
 Example:
 
-```yml
+```yaml
 contributor:
   name: ACME, inc.
   URL: https://acme.example.com/

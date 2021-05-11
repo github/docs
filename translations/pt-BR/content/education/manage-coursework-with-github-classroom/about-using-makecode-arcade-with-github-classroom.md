@@ -1,7 +1,7 @@
 ---
 title: Sobre o uso de MakeCode Arcade com GitHub Classroom
 shortTitle: Sobre o uso do Arcade MakeCode
-intro: Você pode configurar o MakeCode Arcade como o IDE online para atribuições em {% data variables.product.prodname_classroom %}.
+intro: 'Você pode configurar o MakeCode Arcade como o IDE online para atribuições em {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

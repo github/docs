@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 permissions: 'People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### About file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} and directory{% endif %} deletion

@@ -1,7 +1,7 @@
 ---
 title: GitHub 隐私声明
 redirect_from:
-  - /隐私/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 生效日期：2020 年 12 月 19 日

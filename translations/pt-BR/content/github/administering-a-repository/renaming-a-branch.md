@@ -1,12 +1,12 @@
 ---
 title: Renomear um branch
 intro: É possível alterar o nome de um branch em um repositório.
-permissions: As pessoas com permissões de gravação em um repositório podem renomear um branch no repositório. As pessoas com permissões de administrador podem renomear o branch padrão.
+permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Sobre a renomeação de branches

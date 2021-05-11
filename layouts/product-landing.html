@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="auto" data-dark-theme="dark_dimmed">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -71,9 +71,10 @@
             </ul>
           </div>
 
+          {% if featuredLinks.popular %}
           <div class="col-12 col-lg-{% if page.changelog %}4{% else %}6{% endif %} mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
-              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="popular"><a href="#popular">{% data ui.toc.popular_articles %}</a></h3>
+              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="popular"><a href="#popular">{% if page.featuredLinks.popularHeading %}{{ page.featuredLinks.popularHeading }}{% else %}{% data ui.toc.popular_articles %}{% endif %}</a></h3>
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.popular %}
@@ -85,6 +86,7 @@
               {% endfor %}
             </ul>
           </div>
+          {% endif %}
 
           {% if page.changelog %}
             <div class="col-12 col-lg-4 mb-4 mb-lg-0">
