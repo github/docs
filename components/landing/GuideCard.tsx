@@ -4,7 +4,7 @@ type Props = {
   guide: FeaturedLink
 }
 export const GuideCard = ({ guide }: Props) => {
-  const authors = ['GitHub', ...(guide.authors || [])]
+  const authors = guide.authors && guide.authors.length > 0 ? guide.authors : ['GitHub']
   const authorString = `@${authors.join(', @')}`
 
   return (

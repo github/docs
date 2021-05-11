@@ -3,7 +3,7 @@ import { ArrowRightIcon } from '@primer/octicons-react'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { UserCard } from 'components/UserCard'
+import { UserCard } from 'components/landing/UserCard'
 
 export const SponsorsExamples = () => {
   const { productUserExamples } = useProductLandingContext()

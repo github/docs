@@ -52,7 +52,7 @@ export const LandingHero = () => {
             href={introLinks.reference}
             className="btn-mktg btn-outline-mktg btn-large f4 mt-3 mr-3"
           >
-            {t('reference_guides')}
+            {t('reference')}
           </FullLink>
         )}
 

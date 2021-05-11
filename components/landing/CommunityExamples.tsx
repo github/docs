@@ -3,7 +3,7 @@ import { ArrowRightIcon } from '@primer/octicons-react'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { RepoCard } from 'components/RepoCard'
+import { RepoCard } from 'components/landing/RepoCard'
 
 export const CommunityExamples = () => {
   const { productCommunityExamples } = useProductLandingContext()
@@ -33,20 +33,6 @@ export const CommunityExamples = () => {
           {t('show_more')} <ArrowRightIcon />
         </button>
       )}
-      {/* <div className="js-filter-card-no-results d-none py-4 text-center color-text-secondary font-mktg">
-        <div className="mb-3">
-          <SearchIcon size={24} />{' '}
-        </div>
-        <h3 className="text-normal">
-          {t('sorry')} <strong className="js-filter-card-value"></strong>
-        </h3>
-        <p className="my-3 f4">
-          {t('no_example')} <br /> {t('try_another')}
-        </p>
-        <a href="https://github.com/github/docs/blob/main/data/variables/discussions_community_examples.yml">
-          {t('add_your_community')} <ArrowRightIcon />
-        </a>
-      </div> */}
     </div>
   )
 }

@@ -18,6 +18,7 @@ import { FeaturedArticles } from 'components/landing/FeaturedArticles'
 import { GuideCards } from 'components/landing/GuideCards'
 import { SponsorsExamples } from 'components/landing/SponsorsExamples'
 import { CommunityExamples } from 'components/landing/CommunityExamples'
+import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
 
@@ -36,7 +37,7 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
 }
 
 const ProductPageInner = () => {
-  const { guideCards, productUserExamples, productCommunityExamples } = useProductLandingContext()
+  const { guideCards, productUserExamples, productCommunityExamples, productCodeExamples } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
 
   return (
@@ -49,10 +50,11 @@ const ProductPageInner = () => {
         <FeaturedArticles />
       </LandingSection>
 
-      {/* {% if productCodeExamples %}
-        {% include code-examples %}
-        {% endif %}
-      */}
+      {productCodeExamples.length > 0 && (
+        <LandingSection title={t('code_examples')} className="my-6">
+          <CodeExamples />
+        </LandingSection>
+      )}
 
       {productCommunityExamples.length > 0 && (
         <LandingSection title={t('communities_using_discussions')} className="my-6">

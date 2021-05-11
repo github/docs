@@ -9,6 +9,13 @@ export type FeaturedLink = {
   hideIntro?: boolean
   date?: string
 }
+export type CodeExample = {
+  title: string
+  description: string
+  languages: string // single comma separated string
+  href: string
+  tags: Array<string>
+}
 
 export type ProductLandingContextT = {
   title: string
@@ -30,6 +37,7 @@ export type ProductLandingContextT = {
   //   guideCards: Array<FeaturedLink>
   // }
   guideCards: Array<FeaturedLink>
+  productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
   featuredArticles: Array<{
@@ -70,6 +78,8 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     ]),
     whatsNewChangelog: req.context.whatsNewChangelog,
     changelogUrl: req.context.changelogUrl,
+
+    productCodeExamples: req.context.productCodeExamples || [],
 
     productCommunityExamples: req.context.productCommunityExamples || [],
 
