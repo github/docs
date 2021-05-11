@@ -103,18 +103,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - We can name our dev container anything, this is just the default
-- **Build** - Our build properties
-  - **Dockerfile** - In our build object, Dockerfile is a reference to the Dockerfile in the same folder that was the second file added to our project. This is the reference path.
+- **Name** - You can name your dev container anything, this is just the default.
+- **Build** - The build properties.
+  - **Dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
   - **Args**
-    - **Variant**: We only have one build argument here which is the node variant we want to use which is passed into our Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings.
+    - **Variant**: This file only contains one build argument, which is the Java version that is passed into the Dockerfile.
+- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
   - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
   - **Vscjava.vscode-java-pack** - The Java Extension Pack provides popular extensions for Java development to get you started.
-- **forwardPorts** - By default we can forward a port, like port 3000, but these will also forward automatically.
-- **postCreateCommand** - If we want to run anything after we land in our codespace that’s not defined in our Dockerfile, like yarn install or npm install, we can do that here.
-- **remoteUser** - We’re running as the `vscode` user, but you can optionally set this to `root`.
+- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
+- **remoteUser** - By default, you’re running as the `vscode` user, but you can optionally set this to `root`.
 
 ##### Dockerfile
 
