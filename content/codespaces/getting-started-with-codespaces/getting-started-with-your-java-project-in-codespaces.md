@@ -154,7 +154,7 @@ With your dev container added and a basic understanding of what everything does,
 
   !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)  
 
-2. Add the following lines to your `devcontainer.json` file after `extensions`:
+2. Add the following lines to your `devcontainer.json` file after `extensions`.
 
   ```json{:copy}
   "postCreateCommand": "npm install",
