@@ -212,7 +212,7 @@ If you authored any commit(s) present in the commit history for the listed tag o
 | [HdrHistogram/HdrHistogram](https://github.com/HdrHistogram/HdrHistogram) | 2.1.9 | [HdrHistogram-2.1.9](https://github.com/HdrHistogram/HdrHistogram/releases/tag/HdrHistogram-2.1.9) |
 | [locationtech/spatial4j](https://github.com/locationtech/spatial4j) | 0.7 | [spatial4j-0.7](https://github.com/locationtech/spatial4j/releases/tag/spatial4j-0.7) |
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
-| [apache/log4j](https://github.com/apache/log4j) | 2.11 | [v1_2_11](https://github.com/apache/log4j/releases/tag/v1_2_11) |
+| [apache/log4j](https://github.com/apache/log4j) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
 
 ### Further reading
 
