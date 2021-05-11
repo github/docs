@@ -481,9 +481,15 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### Clustering
 

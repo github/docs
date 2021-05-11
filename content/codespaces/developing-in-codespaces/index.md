@@ -14,6 +14,8 @@ topics:
 
 {% link_with_intro /developing-in-a-codespace %}
 
+{% link_with_intro /using-source-control-in-your-codespace %}
+
 {% link_with_intro /deleting-a-codespace %}
 
 {% link_with_intro /forwarding-ports-in-your-codespace %}
