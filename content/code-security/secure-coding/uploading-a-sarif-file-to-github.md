@@ -91,7 +91,7 @@ This example workflow runs anytime commits are pushed to the repository. The act
 
 The workflow shows an example of running the ESLint static analysis tool as a step in a workflow. The `Run ESLint` step runs the ESLint tool and outputs the `results.sarif` file. The workflow then uploads the `results.sarif` file to {% data variables.product.prodname_dotcom %} using the `upload-sarif` action. For more information about creating a workflow file, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
 
-```yml
+```yaml
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
