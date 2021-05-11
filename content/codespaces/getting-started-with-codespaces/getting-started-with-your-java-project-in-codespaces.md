@@ -1,14 +1,14 @@
 ---
 title: Getting started with your Java project in Codespaces
 shortTitle: Getting started with your Java project
-intro: 'You can create a custom dev container with all the tools necessary to get started with your Java project in {% data variables.product.prodname_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Get started with your Java project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   free-pro-team: '*'
 topics:
   - Codespaces
 ---
 
+{% data reusables.codespaces.release-stage %}
 
 ### Introduction
 
