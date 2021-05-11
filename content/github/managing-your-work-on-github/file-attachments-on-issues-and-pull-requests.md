@@ -1,6 +1,6 @@
 ---
 title: File attachments on issues and pull requests
-intro: 'When you open an issue or update a pull request, you can use issue attachments to upload a variety of files.'
+intro: 'When you open an issue or update a pull request, you can use issue attachments to upload a variety of file types.'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -27,7 +27,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% endtip %}
 
-The maximum size for files is 25MB and the maximum size for images is 10MB.  
+The maximum size for files is 25MB and the maximum size for images and gifs is 10MB.  
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan, otherwise the maximum size is 10MB.
 
