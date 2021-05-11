@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 在[创建里程碑](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)时，您可以[将其与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests)。

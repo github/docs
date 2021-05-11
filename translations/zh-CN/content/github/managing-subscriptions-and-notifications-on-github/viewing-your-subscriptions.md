@@ -1,6 +1,6 @@
 ---
 title: 查看订阅
-intro: '为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。'
+intro: 为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。
 redirect_from:
   - /articles/subscribing-to-conversations/
   - /articles/unsubscribing-from-conversations/
@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - 通知
+  - Notifications
 ---
 
 接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。

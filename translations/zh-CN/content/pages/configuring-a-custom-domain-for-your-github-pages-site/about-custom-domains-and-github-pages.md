@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 ### 支持的自定义域

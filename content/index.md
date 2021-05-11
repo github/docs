@@ -25,6 +25,8 @@ children:
   - graphql
   - insights
   - discussions
+  - codespaces
+  - sponsors
   - communities
   - pages
   - education
@@ -52,4 +54,3 @@ externalProducts:
     href: 'https://codeql.github.com/docs'
     external: true
 ---
-

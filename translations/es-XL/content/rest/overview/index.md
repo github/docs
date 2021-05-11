@@ -5,6 +5,9 @@ intro: 'Aprende sobre los recursos, bibliotecas, vistas previas y solución de p
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### Índice

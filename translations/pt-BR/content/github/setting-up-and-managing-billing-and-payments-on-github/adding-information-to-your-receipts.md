@@ -14,7 +14,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 Seus recibos incluem sua assinatura do {% data variables.product.prodname_dotcom %}, bem como qualquer assinatura para [outros recursos e produtos pagos](/articles/about-billing-on-github).

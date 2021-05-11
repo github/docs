@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Repository-Sprachen
-intro: Die Dateien und Verzeichnisse innerhalb eines Repositorys bestimmen die Sprachen des Repositorys. Du kannst die Sprachen eines Repositorys anzeigen, um Dir einen schnellen Überblick über das Repository zu verschaffen.
+intro: 'Die Dateien und Verzeichnisse innerhalb eines Repositorys bestimmen die Sprachen des Repositorys. Du kannst die Sprachen eines Repositorys anzeigen, um Dir einen schnellen Überblick über das Repository zu verschaffen.'
 redirect_from:
   - /articles/my-repository-is-marked-as-the-wrong-language/
   - /articles/why-isn-t-my-favorite-language-recognized/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to

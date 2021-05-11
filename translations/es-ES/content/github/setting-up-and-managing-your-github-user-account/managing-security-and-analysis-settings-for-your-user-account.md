@@ -4,7 +4,7 @@ intro: 'Puedes controlar las características que dan seguridad y analizan tu c�
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acerca de la administración de los parámetros de seguridad y análisis

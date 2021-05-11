@@ -1,6 +1,6 @@
 ---
 title: 公开或隐藏组织成员关系
-intro: '如果要公开显示您属于哪个组织，可以在个人资料中显示组织的头像。'
+intro: 如果要公开显示您属于哪个组织，可以在个人资料中显示组织的头像。
 redirect_from:
   - /articles/publicizing-or-concealing-organization-membership/
   - /articles/publicizing-or-hiding-organization-membership
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ![个人资料组织框](/assets/images/help/profile/profile_orgs_box.png)

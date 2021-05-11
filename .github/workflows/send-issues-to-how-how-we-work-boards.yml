@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'feature') && !contains(github.event.issue.labels.*.name, 'epic')
+      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'no-hww-board') && !contains(github.event.issue.labels.*.name, 'batch') && !contains(github.event.issue.labels.*.name, 'epic')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
@@ -31,7 +31,7 @@ jobs:
             } catch (error) {
               console.log(error);
             }
-      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'feature')
+      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'no-hww-board') && contains(github.event.issue.labels.*.name, 'batch')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
@@ -46,12 +46,12 @@ jobs:
             } catch (error) {
               console.log(error);
             }
-      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && contains(github.event.issue.labels.*.name, 'epic')
+      - if: (github.repository == 'github/docs-internal') && contains(github.event.issue.labels.*.name, 'engineering') && !contains(github.event.issue.labels.*.name, 'no-hww-board') && contains(github.event.issue.labels.*.name, 'epic')
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
-            var column_id = 13445932;
+            var column_id = 12860544;
             try {
               github.projects.createCard({
                 column_id: column_id,

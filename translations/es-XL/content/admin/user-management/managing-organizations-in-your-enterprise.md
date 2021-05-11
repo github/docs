@@ -9,5 +9,8 @@ intro: 'Las organizaciones son ideales para crear grupos diferentes de usuarios 
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 

@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Muchos de los recursos en la API de los usuarios proporcionan un atajo para obtener información acerca del usuario autenticado actualmente. Si una URL de solicitud no incluye un parámetro de `{username}`, entonces la respuesta será para el usuario que inició sesión (y debes pasar la [información de autenticación](/rest/overview/resources-in-the-rest-api#authentication) con tu solicitud).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} La información privada adicional tal como si un usuario tiene habilitada la autenticación bifactorial se incluye cuando se está autenticado a través de la autenticación básica o a través de OAuth con el alcance de `user`.{% endif %}

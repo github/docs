@@ -480,7 +480,7 @@ For example, you can run a workflow when a project card has been `opened` or `de
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
 
 #### `status`
 

@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
-  - 仓库
+  - Accounts
+  - Repositories
 ---
 

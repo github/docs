@@ -1,6 +1,6 @@
 ---
 title: Zugriff auf ein Projektboard für Organisationsmitglieder verwalten
-intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du eine standardmäßige Berechtigungsebene für ein Projektboard für alle Organisationsmitglieder festlegen.'
+intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du eine standardmäßige Berechtigungsebene für ein Projektboard für alle Organisationsmitglieder festlegen.
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Standardmäßig haben Organisationsmitglieder Schreibzugriff auf die Projektboards ihrer Organisation, sofern die Organisationsinhaber oder Projektboard-Administratoren keine abweichenden Berechtigungen für bestimmte Projektboards festgelegt haben.

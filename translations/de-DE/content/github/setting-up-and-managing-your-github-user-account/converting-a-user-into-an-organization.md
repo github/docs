@@ -4,12 +4,12 @@ redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
   - /articles/explaining-the-account-transformation-warning/
   - /articles/converting-a-user-into-an-organization
-intro: Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind feiner abgestufte Berechtigungen für Repositorys möglich, die zu der Organisation gehören.
+intro: 'Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind feiner abgestufte Berechtigungen für Repositorys möglich, die zu der Organisation gehören.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 {% warning %}

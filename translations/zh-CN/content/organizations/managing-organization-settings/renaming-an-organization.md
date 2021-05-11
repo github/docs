@@ -1,6 +1,6 @@
 ---
 title: 重命名组织
-intro: '如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。'
+intro: 如果您的项目或公司已更改名称，您可以更新组织的名称以匹配。
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% tip %}

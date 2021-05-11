@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### Requiring two-factor authentication for organizations in your enterprise account

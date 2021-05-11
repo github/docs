@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 La {% data variables.large_files.product_name_short %} comprobación de integridad asegura que todos los archivos {% data variables.large_files.product_name_short %} referenciados en una subida se hayan cargado bien. Si la comprobación detecta archivos referenciados que no se cargaron, recibirás un mensaje de error y se bloqueará la subida.

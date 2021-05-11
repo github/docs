@@ -4,7 +4,7 @@ intro: Puedes administrar las personas y los equipos incluidos en las métricas 
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
-permissions: 'Las personas con permisos de administrador en {% data variables.product.prodname_insights %} pueden administrar colaboradores y equipos.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

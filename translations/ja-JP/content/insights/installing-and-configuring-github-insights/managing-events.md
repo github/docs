@@ -4,7 +4,7 @@ intro: '{% data reusables.github-insights.events %}'
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-events
-permissions: '{% data variables.product.prodname_insights %}に対する管理権限を持っている人は、イベントを管理できます。'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
 versions:
   enterprise-server: '*'
 ---

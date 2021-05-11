@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=3.1'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 ### 关于自动合并

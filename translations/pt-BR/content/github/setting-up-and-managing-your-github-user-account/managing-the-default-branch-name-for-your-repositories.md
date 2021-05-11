@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 ### Sobre o gerenciamento do nome do brancc-padrão

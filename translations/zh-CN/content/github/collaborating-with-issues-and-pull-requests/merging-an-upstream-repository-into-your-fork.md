@@ -1,6 +1,6 @@
 ---
 title: 将上游仓库合并到复刻
-intro: '如果您对上游仓库没有推送（写入）权限，便可将提交从该仓库拉入您自己的复刻。'
+intro: 如果您对上游仓库没有推送（写入）权限，便可将提交从该仓库拉入您自己的复刻。
 redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 {% data reusables.command_line.open_the_multi_os_terminal %}

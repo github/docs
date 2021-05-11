@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ![Angeheftete Issues](/assets/images/help/issues/pinned-issues.png)

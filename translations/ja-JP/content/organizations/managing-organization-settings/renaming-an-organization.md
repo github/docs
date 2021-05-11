@@ -1,6 +1,6 @@
 ---
 title: Organization の名前を変更する
-intro: 'プロジェクトや企業の名前が変更になった場合、Organization の名前を更新して一致させることができます。'
+intro: プロジェクトや企業の名前が変更になった場合、Organization の名前を更新して一致させることができます。
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する

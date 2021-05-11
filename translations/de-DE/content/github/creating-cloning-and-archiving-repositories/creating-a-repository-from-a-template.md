@@ -1,6 +1,6 @@
 ---
 title: Ein Repository anhand einer Vorlage erstellen
-intro: Du kannst ein neues Repository mit derselben Verzeichnisstruktur und denselben Dateien erstellen, die ein vorhandenes Repository aufweist.
+intro: 'Du kannst ein neues Repository mit derselben Verzeichnisstruktur und denselben Dateien erstellen, die ein vorhandenes Repository aufweist.'
 redirect_from:
   - /articles/creating-a-repository-from-a-template
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### About repository templates

@@ -4,7 +4,7 @@ intro: 您可以使用“目标”为关键指标设定目标并衡量实现这�
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: '拥有 {% data variables.product.prodname_insights %} 访问权限的任何人都可以管理目标。'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
   enterprise-server: '*'
 ---

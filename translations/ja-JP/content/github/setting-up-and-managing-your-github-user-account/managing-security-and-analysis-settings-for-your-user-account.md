@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} 上のプロジェクトの
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 ### セキュリティおよび分析設定の管理について

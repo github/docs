@@ -12,11 +12,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - cli
-  - móvil
-  - desktop
-  - seguridad
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

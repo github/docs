@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Proprietários da organização podem gerenciar as autoridades certificadas (CA, certificate authorities) de SSH da organização.

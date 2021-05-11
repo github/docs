@@ -6,7 +6,7 @@ const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
   mode: 'development',
-  devtool: 'source-map', // this prevents webpack from using eval
+  devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map', // no 'eval' outside of development
   entry: './javascripts/index.js',
   output: {
     filename: 'index.js',

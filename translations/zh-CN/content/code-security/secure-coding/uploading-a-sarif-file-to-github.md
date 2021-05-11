@@ -2,7 +2,7 @@
 title: 将 SARIF 文件上传到 GitHub
 shortTitle: 上传 SARIF 文件
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: '拥有仓库写入权限的人可从第三方工具上传 {% data variables.product.prodname_code_scanning %} 数据。'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

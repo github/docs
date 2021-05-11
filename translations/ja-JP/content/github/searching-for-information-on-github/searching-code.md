@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索](/articles/about-searching-on-github)」を参照してください。

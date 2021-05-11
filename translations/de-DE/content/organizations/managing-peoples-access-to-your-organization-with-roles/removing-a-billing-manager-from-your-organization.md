@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
-  - Abrechnung
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 {% warning %}

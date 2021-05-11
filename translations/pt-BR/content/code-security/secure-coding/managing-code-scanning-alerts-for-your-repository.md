@@ -3,7 +3,7 @@ title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciando alertas
 intro: 'Da vista da segurança, você pode visualizar, corrigir, {% if currentVersion == "enterprise-server@2. 2" %}ou fechar{% else %}ignorar ou excluir{% endif %} alertas de potenciais vulnerabilidades ou erros no código do seu projeto.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Se você tiver permissão de gravação em um repositório, você poderá gerenciar alertas de {% data variables.product.prodname_code_scanning %} para esse repositório.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -13,7 +13,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

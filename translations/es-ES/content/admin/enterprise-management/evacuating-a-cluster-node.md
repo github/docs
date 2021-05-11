@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Si solo tienes tres nodos en tu agrupación de servicios de datos, no puedes evacuar los nodos, porque `ghe-spokes` no tiene otro lugar para realizar una copia. Si tienes cuatro o más, `ghe-spokes` moverá todos los repositorios del nodo evacuado.

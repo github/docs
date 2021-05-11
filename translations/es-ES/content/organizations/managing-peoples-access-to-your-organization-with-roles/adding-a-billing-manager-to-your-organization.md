@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
-  - facturación
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 Los miembros del equipo Propietarios de tu organización pueden permitir que los *gerentes de facturación* proporcionen permisos a las personas. Una vez que una persona acepta la invitación para convertirse en gerente de facturación para tu organización, puede invitar a otras personas para convertirse en gerentes de facturación.
