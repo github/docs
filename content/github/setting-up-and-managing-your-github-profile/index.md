@@ -1,4 +1,4 @@
----
+---content/codespaces/getting-started-with-codespaces/index.md
 title: Setting up and managing your GitHub profile
 shortTitle: Profiles
 redirect_from:
