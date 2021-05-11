@@ -13,7 +13,7 @@ topics:
 ---
 {% warning %}
 
-**Warning:** If you add an image {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1 or currentVersion == "github-ae@next" %} or video {% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized URLs](/authenticating-to-github/about-anonymized-urls)".{% endif %}
+**Warning:** If you add an image {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} or video {% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -28,7 +28,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 {% endtip %}
 
 The maximum size for files is 25MB and the maximum size for images is 10MB.  
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1 or currentVersion == "github-ae@next" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan, otherwise the maximum size is 10MB.
 
 {% endif %}

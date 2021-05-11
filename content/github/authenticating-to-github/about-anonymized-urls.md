@@ -14,7 +14,7 @@ topics:
 
 To host your images and videos, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image or video. 
 
-Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive files private, restrict them to a private network or a server that requires authentication instead of using Camo.
+Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
 ### Troubleshooting issues with Camo
 
@@ -35,7 +35,7 @@ Windows users will either need to use the Git Powershell (which is installed alo
 If an image or video is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Request the image headers using `curl`.
+2. Request the image or video headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
