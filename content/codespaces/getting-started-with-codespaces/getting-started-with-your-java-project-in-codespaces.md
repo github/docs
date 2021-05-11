@@ -12,7 +12,7 @@ topics:
 
 ### Introduction
 
-This guide shows you how to set up your Java project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace,and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your Java project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
 #### Prerequisites 
 
