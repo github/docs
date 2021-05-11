@@ -201,7 +201,7 @@ For more information, see [github upload-results](https://codeql.github.com/docs
 ##### Basic example
 
 ```
-$ echo $UPLOAD_TOKEN | codeql  github upload --repository=my-org/example-repo \
+$ echo $UPLOAD_TOKEN | codeql  github upload-results --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=/temp/example-repo-js.sarif {% if currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}--github-auth-stdin

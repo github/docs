@@ -1,7 +1,5 @@
 Partner | Supported secret | API slug
 --- | --- | ---
-n/a | JSON Web Token | json_web_token
-n/a | OAuth Client Credential | api_credential_assignment
 Adafruit IO | Adafruit IO Key | adafruit_io_key
 Adobe | Adobe Device Token | adobe_device_token
 Adobe | Adobe Service Token | adobe_service_token
