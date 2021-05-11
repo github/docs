@@ -41,7 +41,7 @@ topics:
     {% link_in_list /reviewing-your-authorized-applications-oauth %}
     {% link_in_list /reviewing-your-security-log %}
     {% link_in_list /removing-sensitive-data-from-a-repository %}
-    {% link_in_list /about-anonymized-image-urls %}
+    {% link_in_list /about-anonymized-urls %}
     {% link_in_list /about-githubs-ip-addresses %}
     {% link_in_list /githubs-ssh-key-fingerprints %}
     {% link_in_list /sudo-mode %}
