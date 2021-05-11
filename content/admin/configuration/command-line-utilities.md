@@ -489,7 +489,7 @@ ghe-webhook-logs -g <em>delivery-guid</em>
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
-{% endif }
+{% endif %}
 
 ### Clustering
 
