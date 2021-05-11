@@ -1,3 +1,4 @@
+![Finally Celebrating](https://user-images.githubusercontent.com/74845789/117759525-2e06a700-b239-11eb-9cbb-31b366994649.png)
 ---
 title: Troubleshooting connectivity problems
 intro: 'If you''re having trouble connecting to {% data variables.product.prodname_dotcom %}, you can troubleshoot your connection, then use the {% data variables.product.prodname_debug %} tool to diagnose problems.'
