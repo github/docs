@@ -28,7 +28,7 @@ This guide shows you how to set up your Java project in {% data variables.produc
 2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, Java, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
+When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
 You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
