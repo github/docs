@@ -83,7 +83,7 @@ If your repository {% if currentVersion == "free-pro-team@latest" or currentVers
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" }
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### Creating encrypted secrets for an environment
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
