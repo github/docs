@@ -1,6 +1,6 @@
 ---
 title: JIRA を個人プロジェクトに統合する
-intro: 'Jira Cloud をユーザ アカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。'
+intro: Jira Cloud をユーザ アカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
 versions:

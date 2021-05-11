@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Puedes implementar {% data variables.product.prodname_ghe_server %} en Azure mundial o Azure Government.

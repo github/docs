@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Packaging'
-  - 'Publishing'
-  - 'Java'
-  - 'Maven'
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -32,7 +32,7 @@ For more information about creating a CI workflow for your Java project with Mav
 
 You may also find it helpful to have a basic understanding of the following:
 
-- "[Configuring npm for use with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[Environment variables](/actions/reference/environment-variables)"
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"

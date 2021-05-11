@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - billing
+  - Billing
 ---
 
 ### Purchasing additional storage and bandwidth for a personal account

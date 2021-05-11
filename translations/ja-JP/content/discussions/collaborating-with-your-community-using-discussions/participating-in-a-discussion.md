@@ -1,7 +1,7 @@
 ---
 title: ディスカッションに参加する
 intro: '{% data variables.product.product_name %} のプロジェクトのリポジトリ内のフォーラムで、コミュニティやメンテナと会話することができます。'
-permissions: リポジトリへの読み取り権限を持つユーザは、リポジトリでのディスカッションに参加できます。
+permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

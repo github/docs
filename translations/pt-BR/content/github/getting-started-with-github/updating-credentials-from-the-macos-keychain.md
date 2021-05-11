@@ -3,7 +3,7 @@ title: Atualizar credenciais da keychain OSX
 intro: 'Você precisará atualizar suas credenciais salvas no auxiliar `git-credential-osxkeychain` se você alterar o seu {% if currentVersion != "github-ae@latest" %} nome de usuário, senha ou{% endif %} token de acesso pessoal em {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
-  - Entrada de senha do GitHub na keychain
+  - /github/using-git/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-macos-keychain
 versions:
   free-pro-team: '*'

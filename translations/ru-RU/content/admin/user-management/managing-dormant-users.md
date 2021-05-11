@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 "Activity" includes, but is not limited to:

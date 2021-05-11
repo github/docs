@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la replicación de disponibilidad alta para clústers

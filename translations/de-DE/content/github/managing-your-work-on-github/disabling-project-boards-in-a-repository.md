@@ -1,6 +1,6 @@
 ---
 title: Projektboards in einem Repository deaktivieren
-intro: Repository-Administratoren können Projektboards für ein Repository deaktivieren, wenn Du oder Dein Team die Arbeit anders verwalten.
+intro: 'Repository-Administratoren können Projektboards für ein Repository deaktivieren, wenn Du oder Dein Team die Arbeit anders verwalten.'
 redirect_from:
   - /articles/disabling-project-boards-in-a-repository
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Wenn Du Projektboards deaktivierst, kannst Du keine Projektboard-Informationen mehr in Zeitleisten oder [Auditprotokollen](/articles/reviewing-your-security-log/) sehen.

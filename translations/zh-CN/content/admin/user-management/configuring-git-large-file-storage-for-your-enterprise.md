@@ -16,7 +16,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于 {% data variables.large_files.product_name_long %}

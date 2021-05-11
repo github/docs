@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: 组织所有者可限制组织中的交互。
+permissions: Organization owners can limit interactions in an organization.
 topics:
-  - 社区
+  - Community
 ---
 
 ### 关于临时交互限制

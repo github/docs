@@ -20,7 +20,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 ### Atualizar a assinatura da sua conta pessoal

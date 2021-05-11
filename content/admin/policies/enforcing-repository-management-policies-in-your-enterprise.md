@@ -29,7 +29,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Configuring the default visibility of new repositories in your enterprise

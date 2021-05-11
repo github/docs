@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-repository-transfers/
   - /move-a-repo/
   - /moving-a-repo/
-  - articles/what-is-transferred-with-a-repository/
+  - /articles/what-is-transferred-with-a-repository/
   - /articles/what-is-transferred-with-a-repo/
   - /articles/how-to-transfer-a-repo/
   - /articles/how-to-transfer-a-repository/
@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### リポジトリの移譲について

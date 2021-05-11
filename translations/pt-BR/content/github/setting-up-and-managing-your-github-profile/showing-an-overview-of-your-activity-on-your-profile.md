@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfis
+  - Profiles
 ---
 
 {% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)".

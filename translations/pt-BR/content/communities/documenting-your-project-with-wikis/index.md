@@ -1,7 +1,7 @@
 ---
 title: Documentar seu projeto com wikis
 shortTitle: Usando wikis
-intro: 'Você pode usar um wiki para compartilhar informações longas e detalhadas sobre seu projeto.'
+intro: Você pode usar um wiki para compartilhar informações longas e detalhadas sobre seu projeto.
 redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 {% link_in_list /about-wikis %}

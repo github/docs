@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.

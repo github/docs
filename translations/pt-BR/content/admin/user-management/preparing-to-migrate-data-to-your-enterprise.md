@@ -11,7 +11,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}

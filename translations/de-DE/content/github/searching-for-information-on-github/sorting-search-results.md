@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 Über das Sortiermenü kannst Du die Ergebnisse nach Relevanz, Anzahl der Sterne, Anzahl der Forks und dem letzten Änderungsdatum sortieren.

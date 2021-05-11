@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### Syntax highlighting
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 You can add an optional language identifier to enable syntax highlighting in your fenced code block.
 

@@ -5,7 +5,7 @@ redirect_from:
   - /subtree-merge/
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
-intro: '如果需要管理单一仓库中的多个项目，可以使用*子树合并*来处理所有引用。'
+intro: 如果需要管理单一仓库中的多个项目，可以使用*子树合并*来处理所有引用。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Cuando una aplicación de terceros desea identificarte mediante tu inicio de sesión de {% data variables.product.product_name %}, verás una página con la información de contacto del programador y una lista de los datos específicos que se han solicitado.

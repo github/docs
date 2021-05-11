@@ -1,6 +1,6 @@
 ---
 title: リポジトリのアーカイブ処理について
-intro: 'リポジトリをアーカイブするということは、そのプロジェクトがアクティブにメンテナンスされなくなるということを人々に伝えることになります。'
+intro: リポジトリをアーカイブするということは、そのプロジェクトがアクティブにメンテナンスされなくなるということを人々に伝えることになります。
 redirect_from:
   - /articles/about-archiving-repositories
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

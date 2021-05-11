@@ -6,14 +6,15 @@ redirect_from:
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
-permissions: Los propietarios de organizaciones pueden promover a cualquier miembro de una organización a propietario de la misma.
+  - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
+permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de mantener la continuidad de propiedad para tu organización

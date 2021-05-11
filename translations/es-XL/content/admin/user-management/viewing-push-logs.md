@@ -7,6 +7,9 @@ redirect_from:
   - /enterprise/admin/user-management/viewing-push-logs
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 Las entradas de registro de subida muestran:

@@ -4,12 +4,13 @@ intro: 'Se o {% data variables.product.product_name %} descobrir dependências v
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: Os administradores e proprietários da organização podem visualizar e atualizar dependências.
+permissions: Repository administrators and organization owners can view and update dependencies.
 shortTitle: Visualizar e atualizar dependências vulneráveis
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
-  - segurança
+  - Security
 ---
 
 A aba de alertas do {% data variables.product.prodname_dependabot %} do seu repositório lista todos {% data variables.product.prodname_dependabot_alerts %} e as {% data variables.product.prodname_dependabot_security_updates %} correspondente. Você pode classificar a lista de alertas usando o menu suspenso e clicar em determinados alertas para ver mais detalhes. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"

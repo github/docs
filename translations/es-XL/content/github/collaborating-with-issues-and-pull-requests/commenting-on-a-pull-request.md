@@ -9,6 +9,9 @@ intro: 'Luego de abrir una solicitud de extracción en un repositorio, los colab
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Acerca de los comentarios de las solicitudes de extracción

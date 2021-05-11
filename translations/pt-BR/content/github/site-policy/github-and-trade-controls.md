@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server, e as informações que você enviar para qualquer produto podem estar sujeitas a regulamentações de controle de negociação, inclusive sob Regulamentos da Administração de Exportação dos EUA (EAR). Regulamentos Administrativos de Exportação (EAR).

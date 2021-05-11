@@ -1,6 +1,6 @@
 ---
 title: 'Error: Permiso denegado (publickey)'
-intro: 'Un error de "Permiso denegado" significa que el servidor rechazó tu conexión. Esto puede suceder por varias razones. A continuación se explican los ejemplos más comunes.'
+intro: Un error de "Permiso denegado" significa que el servidor rechazó tu conexión. Esto puede suceder por varias razones. A continuación se explican los ejemplos más comunes.
 redirect_from:
   - /articles/error-permission-denied-publickey
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 ### ¿El comando `sudo` se debe usar con Git?

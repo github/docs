@@ -7,8 +7,8 @@ versions:
   free-pro-team: '*'
 permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

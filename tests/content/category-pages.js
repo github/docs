@@ -63,6 +63,8 @@ describe('category pages', () => {
       // Combine those to fit Jest's `.each` usage
       const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
 
+      if (!categoryTuples.length) return
+
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {

@@ -1,6 +1,6 @@
 ---
 title: Segredos criptografados
-intro: Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.
+intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets

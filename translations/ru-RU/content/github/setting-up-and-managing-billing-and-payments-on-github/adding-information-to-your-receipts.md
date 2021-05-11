@@ -14,7 +14,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).

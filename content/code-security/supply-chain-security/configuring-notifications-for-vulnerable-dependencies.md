@@ -3,12 +3,12 @@ title: Configuring notifications for vulnerable dependencies
 shortTitle: Configuring notifications
 intro: 'Optimize how you receive notifications about {% data variables.product.prodname_dependabot %} alerts.'
 redirect_from:
-- /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
+  - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - security
+  - Security
 ---
 <!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 

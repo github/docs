@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルにウィキを検索できます。あるいは、特定のリポジトリや Organization のみのウィキの検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。

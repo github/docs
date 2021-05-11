@@ -12,7 +12,7 @@ intro: 'LDAP lets you authenticate {% data variables.product.prodname_ghe_server
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

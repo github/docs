@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 permissions: Organization owners can limit interactions in an organization.
 topics:
-  - community
+  - Community
 ---
 
 ### About temporary interaction limits

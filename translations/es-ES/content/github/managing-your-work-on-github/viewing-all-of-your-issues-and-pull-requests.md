@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Tus tableros de propuestas y solicitudes de extracción están disponibles en la parte superior de cualquier página. En cada tablero, puedes filtrar la lista para encontrar propuestas y solicitudes de extracción que creaste, que están asignadas a ti o en las cuales estás mencionado. También puedes encontrar solicitudes de extracción que te han pedido que revises.

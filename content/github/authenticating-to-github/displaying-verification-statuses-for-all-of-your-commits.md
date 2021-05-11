@@ -5,8 +5,8 @@ intro: You can enable vigilant mode for commit signature verification to mark al
 versions:
   free-pro-team: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 {% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
