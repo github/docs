@@ -57,7 +57,7 @@ See [Versioning](#versioning) for more info.
 
 Example that applies to GitHub.com and recent versions of GitHub Enterprise Server:
 
-```yml
+```yaml
 title: About your personal dashboard
 versions:
   free-pro-team: '*'
@@ -67,7 +67,7 @@ versions:
 Example that applies to all supported versions of GitHub Enterprise Server:
 (but not GitHub.com):
 
-```yml
+```yaml
 title: Downloading your license
 versions:
   enterprise-server: '*'
@@ -75,7 +75,7 @@ versions:
 
 You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
 
-```yml
+```yaml
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22 <3.1'
@@ -89,7 +89,7 @@ versions:
 
 Example:
 
-```yml
+```yaml
 title: Getting started with GitHub Desktop
 redirect_from:
   - /articles/first-launch/
@@ -113,7 +113,7 @@ See [`contributing/redirects`](contributing/redirects.md) for more info.
 
 Example:
 
-```yml
+```yaml
 title: Contributing to projects with GitHub Desktop
 shortTitle: Contributing to projects
 ```
@@ -233,7 +233,7 @@ defaultTool: cli
 
 Example:
 
-```yml
+```yaml
 includeGuides:
   - /actions/guides/about-continuous-integration
   - /actions/guides/setting-up-continuous-integration-using-workflow-templates
@@ -258,7 +258,7 @@ includeGuides:
 
 Example:
 
-```yml
+```yaml
 contributor:
   name: ACME, inc.
   URL: https://acme.example.com/

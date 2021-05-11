@@ -83,7 +83,7 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Next the the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. Click **I understand, delete this environment**.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}
