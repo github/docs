@@ -32,6 +32,8 @@ Use the following command to authenticate to {% data variables.product.prodname_
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
 ```
 
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 #### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
