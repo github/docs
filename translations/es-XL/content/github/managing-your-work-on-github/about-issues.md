@@ -3,10 +3,13 @@ title: Acerca de las propuestas
 intro: 'Usa las propuestas para rastrear ideas, mejoras, tareas o errores para tu trabajo en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-issues/
-  - /articles/about-issues
+  - /articles/about-issues/
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes recopilar opiniones del usuario, informar errores de software y organizar tareas que quieras realizar con las propuestas en un repositorio. Las propuestas pueden actuar como más que un simple lugar para informar errores de software.

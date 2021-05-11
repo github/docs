@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -56,7 +56,7 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 #### 响应
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml

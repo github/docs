@@ -38,10 +38,10 @@ featuredLinks:
     - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
     - /github/getting-started-with-github/troubleshooting-connectivity-problems
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - accounts
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 <div hidden>
@@ -51,7 +51,6 @@ topics:
 <!-- {% link_with_intro /signing-up-for-github %} -->
 <!-- {% link_with_intro /exploring-projects-on-github %} -->
 <!-- {% link_with_intro /using-github %} -->
-
 
 ### Table of Contents
 
@@ -66,6 +65,7 @@ topics:
 
 {% topic_link_in_list /learning-about-github %}
     {% link_in_list /githubs-products %}
+    {% link_in_list /github-language-support %}
     {% link_in_list /about-github-advanced-security %}
     {% link_in_list /types-of-github-accounts %}    
     {% link_in_list /access-permissions-on-github %}    

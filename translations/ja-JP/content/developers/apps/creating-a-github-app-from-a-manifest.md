@@ -1,6 +1,6 @@
 ---
 title: マニフェストから GitHub App を作成する
-intro: 'GitHub App Manifest は、アプリケーションを個人のリポジトリで使いたい人と共有できる、構成済みの GitHub App です。 マニフェストフローにより、ユーザはアプリケーションを登録したり、ホストされたアプリケーションコードに登録を接続したりすることなく、GitHub App の拡張を素早く作成、インストール、開始できるようになります。'
+intro: GitHub App Manifest は、アプリケーションを個人のリポジトリで使いたい人と共有できる、構成済みの GitHub App です。 マニフェストフローにより、ユーザはアプリケーションを登録したり、ホストされたアプリケーションコードに登録を接続したりすることなく、GitHub App の拡張を素早く作成、インストール、開始できるようになります。
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 

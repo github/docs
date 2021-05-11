@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Para obtener más información acerca de las condiciones normativas de {% data variables.product.prodname_insights %}, consulta tu contrato de suscripción de {% data variables.product.prodname_ghe_one %}.

@@ -1,6 +1,6 @@
 ---
 title: 外部のコラボレーターを追加するための権限を設定する
-intro: 'Organization のデータを保護し、Organization 内で使用されている有料ライセンスの数が無駄遣いされないようにするために、外部コラボレーターを Organization のリポジトリに招待することをオーナーのみに許可できます。'
+intro: Organization のデータを保護し、Organization 内で使用されている有料ライセンスの数が無駄遣いされないようにするために、外部コラボレーターを Organization のリポジトリに招待することをオーナーのみに許可できます。
 product: '{% data reusables.gated-features.restict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 リポジトリに対する管理者権限を持つ Organization のオーナーとメンバーは、リポジトリで作業するように外部のコラボレーターを招待できます。 外部のコラボレーターの招待権限を、Organization のオーナーに制限することもできます。

@@ -1,6 +1,6 @@
 ---
 title: Glossário
-intro: Você pode revisar as explicações de terminologia para {% data variables.product.prodname_classroom %}.
+intro: 'Você pode revisar as explicações de terminologia para {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 ---

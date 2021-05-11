@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 具有管理员或所有者权限的人员可以在仓库中创建 CODEOWNERS 文件。

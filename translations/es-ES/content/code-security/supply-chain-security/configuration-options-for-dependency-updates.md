@@ -1,14 +1,14 @@
 ---
 title: Opciones de configuración para actualizaciones de dependencias
 intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus repositorios.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar el {% data variables.product.prodname_dependabot %} para el mismo.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca del archivo *dependabot.yml*

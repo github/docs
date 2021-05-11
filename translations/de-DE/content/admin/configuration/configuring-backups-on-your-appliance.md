@@ -16,7 +16,7 @@ intro: 'Im Rahmen eines Disaster Recovery-Plans können Sie die Produktionsdaten
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}

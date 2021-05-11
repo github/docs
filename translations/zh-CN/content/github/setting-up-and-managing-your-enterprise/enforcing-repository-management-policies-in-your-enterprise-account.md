@@ -1,6 +1,6 @@
 ---
 title: 在企业帐户中实施仓库管理策略
-intro: '企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。'
+intro: 企业所有者可为企业帐户拥有的所有组织实施特定仓库管理策略，或允许在每个组织中设置策略。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。

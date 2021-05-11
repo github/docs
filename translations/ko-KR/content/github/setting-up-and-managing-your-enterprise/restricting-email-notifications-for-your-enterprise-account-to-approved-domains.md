@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
 permissions: Enterprise owners can restrict email notifications for an enterprise account.
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### About email restrictions for your enterprise account

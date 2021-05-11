@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la conmutación por error a tu clúster de réplica

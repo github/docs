@@ -3,7 +3,7 @@ title: Clasificar las alertas del escaneo de código en las solicitudes de cambi
 shortTitle: Clasificar las alertas en las solicitudes de cambios
 intro: 'Cuando el {% data variables.product.prodname_code_scanning %} identifica un problema en una solicitud de extracción, puedes revisar el código que se ha resaltado y resolver la alerta.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permiso de lectura en un repositorio, puedes ver las anotaciones en las solicitudes de cambios. Con los permisos de escritura, puedes ver la información detallada y resolver las alertas del {% data variables.product.prodname_code_scanning %} para el repositorio en cuestión.'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

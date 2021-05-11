@@ -1,6 +1,6 @@
 ---
 title: Hilfreiche Beiträge zu Deinem Projekt über Kennzeichnungen ermutigen
-intro: Nutze die Kennzeichnung „good first issue“ (guter erster Issue) für Issues in Deinem Repository, um Möglichkeiten hervorzuheben, wie sich andere an Deinem Projekt beteiligen können.
+intro: 'Nutze die Kennzeichnung „good first issue“ (guter erster Issue) für Issues in Deinem Repository, um Möglichkeiten hervorzuheben, wie sich andere an Deinem Projekt beteiligen können.'
 redirect_from:
   - /github/building-a-strong-community/helping-new-contributors-find-your-project-with-labels
   - /articles/helping-new-contributors-find-your-project-with-labels
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Du kannst die Kennzeichnung `good first issue` (guter erster Issue) in Dein öffentliches Repository übernehmen, damit sie von Personen auf der Suche nach Kennzeichnungen gesehen wird. Weitere Informationen zur Suche nach Kennzeichnungen findest Du unter „[Nach Issues und Pull Requests suchen](/articles/searching-issues-and-pull-requests/#search-by-label).“

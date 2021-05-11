@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -56,7 +56,7 @@ To get a feed in Atom format, you must specify the `application/atom+xml` type i
 #### 응답
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml

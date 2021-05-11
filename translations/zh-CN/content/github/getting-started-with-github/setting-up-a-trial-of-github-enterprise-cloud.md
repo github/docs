@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 关于 {% data variables.product.prodname_ghe_cloud %} 试用版

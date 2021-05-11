@@ -9,6 +9,8 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Encontrar la próxima fecha de facturación de tu cuenta personal

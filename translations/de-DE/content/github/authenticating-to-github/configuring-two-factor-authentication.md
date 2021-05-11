@@ -1,6 +1,6 @@
 ---
 title: Zwei-Faktor-Authentifizierung konfigurieren
-intro: Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.
+intro: 'Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.'
 redirect_from:
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
   - /articles/configuring-two-factor-authentication-via-text-message/

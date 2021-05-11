@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 

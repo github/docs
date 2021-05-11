@@ -1,6 +1,6 @@
 ---
 title: Pull Requests nach Review-Status filtern
-intro: Mit Filtern kannst Du Pull Requests nach Review-Status auflisten und Pull Requests suchen, die Du überprüft hast oder um deren Review Du von anderen gebeten wurdest.
+intro: 'Mit Filtern kannst Du Pull Requests nach Review-Status auflisten und Pull Requests suchen, die Du überprüft hast oder um deren Review Du von anderen gebeten wurdest.'
 redirect_from:
   - /articles/filtering-pull-requests-by-review-status
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Du kannst die Pull-Request-Liste eines Repositorys filtern, um folgende Pull Requests zu finden:

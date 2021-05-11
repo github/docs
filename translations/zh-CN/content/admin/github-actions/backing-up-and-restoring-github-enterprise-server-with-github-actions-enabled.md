@@ -5,7 +5,7 @@ intro: '外部存储提供程序上的 {% data variables.product.prodname_action
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

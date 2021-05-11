@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
   - Project management
 ---
 

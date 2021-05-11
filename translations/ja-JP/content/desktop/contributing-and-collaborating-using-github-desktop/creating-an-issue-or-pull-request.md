@@ -1,7 +1,7 @@
 ---
 title: Issueもしくはプルリクエストの作成
 intro: リポジトリに対する変更の提案あるいは共同作業のために、Issueあるいはプルリクエストを作成できます。
-permissions: 'Issue が有効になっているパブリックリポジトリに誰でも Issue を作成できます。 リポジトリに対する読み取り権限があるユーザなら誰でもプルリクエストを作成できますが、ブランチの作成には書き込み権限が必要です。'
+permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request

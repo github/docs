@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Profile
 ---
 
 Cuando sigas a personas, verás su actividad pública en la vista de actividad de tus Noticias.{% if currentVersion == "free-pro-team@latest" %} Si alguien que tú sigues coloca una estrella en un repositorio público, {% data variables.product.product_name %} puede recomendarte el repositorio en la vista de descubrimientos de tus Noticias.{% endif %} Para seguir a una persona, visita su página de perfil y haz clic en **Seguir** debajo de su imagen de perfil.

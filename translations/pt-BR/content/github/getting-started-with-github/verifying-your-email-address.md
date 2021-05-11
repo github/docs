@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 ### Sobre a verificação de e-mail
