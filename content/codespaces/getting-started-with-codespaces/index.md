@@ -7,6 +7,9 @@ versions:
 
 {% link_with_intro /getting-started-with-your-nodejs-project-in-codespaces %}
 
-{% link_with_intro /getting-started-with-your-python-project-in-codespaces %}
+{% link_with_intro /getting-started-with-your-dotnet-project %}
 
 {% link_with_intro /getting-started-with-your-java-project-in-codespaces %}
+
+{% link_with_intro /getting-started-with-your-python-project-in-codespaces %}
+
