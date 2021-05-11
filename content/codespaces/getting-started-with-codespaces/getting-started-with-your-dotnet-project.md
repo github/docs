@@ -1,6 +1,7 @@
 ---
 title: Getting started with your C# (.NET) project in Codespaces
 shortTitle: Getting started with your C# (.NET) project
+allowTitleToDifferFromFilename: true
 intro: 'You can create a custom dev container with all the tools necessary to get started with your C# (.NET) project in {% data variables.product.prodname_codespaces %}.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -28,21 +29,20 @@ This guide shows you how to set up your C# (.NET) project in {% data variables.p
 2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
-When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
+When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including .NET. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM], [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
-The next section shows you how to modify your tools by adding a dev container.
 
 ### Step 2: Add a dev container to your codespace from a template  
 
 The default codespaces container comes with the latest .NET version and common tools preinstalled. However, we encourage you to set up a custom container so you can tailor the tools and scripts that run as part of codespace creation to your project's needs and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see [Configuring your codespace](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project). 
+To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project
+](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
-This example guides you through adding a `devcontainer.json` file from a template.
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
@@ -125,18 +125,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - We can name our dev container anything, this is just the default
-- **Build** - Our build properties
-  - **Dockerfile** - In our build object, Dockerfile is a reference to the Dockerfile in the same folder that was the second file added to our project. This is the reference path.
+- **Name** - You can name our dev container anything, this is just the default.
+- **Build** - The build properties.
+  - **Dockerfile** - In the build object, `dockerfile` is a reference to the Dockerfile that was also added from the template.
   - **Args**
-    - **Variant**: We only have one build argument here which is the node variant we want to use which is passed into our Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings we wish to set
-  - **Terminal.integrated.shell.linux** - While bash is the default here, we could use zsh for example by modifying this.
+    - **Variant**: This file only contains one build argument, which is the .NET Core version that we want to use.
+- **Settings** - These are {% data variables.product.prodname_vscode %} settings.
+  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
-  - **ms-python.python** - The Microsoft Python extension provides rich support for the Python language (for all actively supported versions of the language: >=3.6), including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
-- **forwardPorts** - By default we can forward a port, like port 3000, but these will also forward automatically
-- **postCreateCommand** - If we want to run anything after we land in our codespace that’s not defined in our Dockerfile, like `dotnet restore`, we can do that here.
-- **remoteUser** - We’re running as the vscode user, but you can optionally set this to root
+  - **ms-dotnettools.csharp** - The Microsoft C# extension provides rich support for developing in C#, including features such as IntelliSense, linting, debugging, code navigation, code formatting, refactoring, variable explorer, test explorer, and more.
+- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, like `dotnet restore`, you can do that here.
+- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 
 ##### Dockerfile
 
@@ -196,9 +196,9 @@ With your dev container added and a basic understanding of what everything does,
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 
-5. Check your changes were successfully applied by verifying the Code Spell Checker extension was installed.
+5. Check your changes were successfully applied by verifying the "Code Spell Checker" extension was installed.
    
-![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png) 
+    ![Extensions list](/assets/images/help/codespaces/dotnet-extensions.png) 
    
 ### Step 4: Run your application
 
@@ -212,27 +212,7 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
 ### Step 5: Commit your changes
 
-Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit your changes. Committing changes to your repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, such as adding {% data variables.product.prodname_vscode %} extensions, will appear for all users.
-
-1. In the Activity Bar, click on the **Source Control** view.
-
-  ![Source control view](/assets/images/help/codespaces/codespaces-commit-activity.png)  
-
-2. To stage your changes, click  **+**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
-
-3. Type a commit message and then use `Ctrl+Enter` / `cmd+Enter` to commit the changes.  
-
-  ![Explorer with commit message added](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
-
-4. To create a PR, click the PR icon. 
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-
-5. Select the branches that you want to merge into, then click **Create**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)  
+{% data reusables.codespaces.committing-link-to-procedure %} 
 
 ### Next steps
 
