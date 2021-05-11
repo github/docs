@@ -1,7 +1,7 @@
 ---
 title: 使用 wiki 为项目写文档
 shortTitle: 使用 wiki
-intro: '可使用 wiki 分享有关项目的详细、长式信息。'
+intro: 可使用 wiki 分享有关项目的详细、长式信息。
 redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% link_in_list /about-wikis %}

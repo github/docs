@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}

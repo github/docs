@@ -1,6 +1,6 @@
 ---
 title: Sobre wikis
-intro: 'Você pode hospedar a documentação para seu repositório em um wiki para que outras pessoas possam usar e contribuir com seu projeto.'
+intro: Você pode hospedar a documentação para seu repositório em um wiki para que outras pessoas possam usar e contribuir com seu projeto.
 redirect_from:
   - /articles/about-github-wikis/
   - /articles/about-wikis
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Cada repositório do {% data variables.product.product_name %} é equipado com uma seção para hospedar documentação, chamada de wiki. Você pode usar o wiki do repositório para compartilhar conteúdo longo sobre seu projeto, por exemplo, como usá-lo, como ele foi projetado ou seus princípios básicos. Um arquivo README informa rapidamente o que seu projeto pode fazer, enquanto você pode usar um wiki para fornecer documentação adicional. Para obter mais informações, consulte "[Sobre README](/articles/about-readmes)".

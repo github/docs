@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Un entorno de pre-recepción para {% data variables.product.prodname_ghe_server %} es un entorno Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot). Dado que los ganchos de pre-recepción se ejecutan en todos los eventos de extracción, deberían ser rápidos y livianos. Normalmente, el entorno necesario para tales verificaciones será mínimo.

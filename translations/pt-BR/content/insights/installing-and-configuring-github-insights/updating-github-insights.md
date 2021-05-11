@@ -4,7 +4,7 @@ intro: 'Você pode fazer a atualização para a última versão do {% data varia
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
-permissions: 'As pessoas com permissões de leitura para o repositório `github/insights-releases` e acesso administrativo ao servidor do aplicativo podem atualizar {% data variables.product.prodname_insights %}.'
+permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

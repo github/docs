@@ -2,6 +2,9 @@
 title: Política de Usuario Finado de Github
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 En caso de que fallezca un usuario de GitHub, podemos trabajar con un individuo autorizado para determinar qué sucederá con el contenido de la cuenta.

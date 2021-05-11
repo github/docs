@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Sie können zu den verweisenden Websites, mit Ausnahme der Suchmaschinen und {% data variables.product.product_name %} selbst, über die Links navigieren, von denen aus auf die spezifischen Pfade verwiesen wurde. Der beliebte Inhalt wird mit dem spezifischen Inhalt verknüpft, der Traffic generiert hat.

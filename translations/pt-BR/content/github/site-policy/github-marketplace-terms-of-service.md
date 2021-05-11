@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Bem-vindo ao GitHub Marketplace ("Marketplace")! Estamos felizes por você estar aqui. Por favor, leia estes Termos de Serviço  ("Termos do Marketplace") com cuidado antes de acessar ou usar o GitHub Marketplace. GitHub Marketplace é uma plataforma que permite que você selecione apps de desenvolvedores ou ações (gratuitamente ou mediante pagamento de uma taxa) que podem ser usados com sua conta GitHub.com ("Produtos de Desenvolvedor"). Embora oferecido pelo GitHub, Inc. ("GitHub", "nós", "nosso"), Produtos de Desenvolvedor podem ser desenvolvidos e mantidos pelo GitHub ou por provedores de software de terceiros. Sua seleção ou uso de Produtos para Desenvolvedores está sujeito a estes Termos do Marketplace e a quaisquer taxas aplicáveis, e pode exigir que você concorde com termos adicionais, conforme fornecido pelo licenciador de terceiros daquele Produto do Desenvolvedor (o "Fornecedor do Produto").

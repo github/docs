@@ -3,7 +3,7 @@ title: Alertas de varredura de código de triagem em pull requests
 shortTitle: Alertas de triagem em pull requests
 intro: 'Quando {% data variables.product.prodname_code_scanning %} identifica um problema em um pull request, você poderá revisar o código destacado e resolver o alerta.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Se você tiver permissão de leitura em um repositório, você poderá ver anotações em pull requests. Com permissão de gravação, você poderá ver informações detalhadas e resolver alertas de {% data variables.product.prodname_code_scanning %} para esse repositório.'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

@@ -1,6 +1,6 @@
 ---
 title: Usar a API do GraphQL para discussões
-intro: 'Aprenda a usar a API do GraphQL para as discussões do GitHub.'
+intro: Aprenda a usar a API do GraphQL para as discussões do GitHub.
 versions:
   free-pro-team: '*'
 ---

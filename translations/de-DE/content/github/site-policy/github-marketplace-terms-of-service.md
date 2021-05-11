@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Willkommen bei GitHub Marketplace ("Marketplace")! Wir freuen uns, dass Sie hier sind. Bitte lesen Sie diese Nutzungsbedingungen ("Marketplace-Bedingungen") sorgfältig durch, bevor Sie auf GitHub Marketplace zugreifen oder verwenden. GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").

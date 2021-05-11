@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 有关可用于您帐户的产品的更多信息，请参阅“[{% data variables.product.product_name %} 的产品](/articles/github-s-products)”。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data variables.product.product_name %} 不提供自定义产品或订阅。

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 ### 挂起 GitHub 应用程序

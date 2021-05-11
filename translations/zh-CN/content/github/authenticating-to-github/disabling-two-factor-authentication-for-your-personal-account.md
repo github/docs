@@ -1,6 +1,6 @@
 ---
 title: 禁用个人帐户的双重身份验证
-intro: '如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。'
+intro: 如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:

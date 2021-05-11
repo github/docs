@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Este compromiso se refiere a las contribuciones de GitHub a Git, el kernel de Linux y otros programas bajo licencias cubiertas (desplácese hasta el final para las definiciones).

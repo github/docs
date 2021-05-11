@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 O painel Atividade gera gráficos semanais, mensais e anuais informando o número de:

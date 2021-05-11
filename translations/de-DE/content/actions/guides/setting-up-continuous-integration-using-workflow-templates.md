@@ -1,7 +1,7 @@
 ---
 title: Setting up continuous integration using workflow templates
 shortTitle: Setting up CI using templates
-intro: Du kannst die fortlaufende Integration für Dein Projekt mithilfe einer Workflow-Vorlage einrichten, die der Sprache und den Tools entspricht, die Du verwenden möchtest.
+intro: 'Du kannst die fortlaufende Integration für Dein Projekt mithilfe einer Workflow-Vorlage einrichten, die der Sprache und den Tools entspricht, die Du verwenden möchtest.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -11,7 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}

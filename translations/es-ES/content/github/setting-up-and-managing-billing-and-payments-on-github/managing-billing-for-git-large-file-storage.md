@@ -10,6 +10,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 

@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 {% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% if currentversion == "free proteam@latest" %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}

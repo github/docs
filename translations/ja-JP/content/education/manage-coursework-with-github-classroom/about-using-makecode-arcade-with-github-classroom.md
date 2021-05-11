@@ -1,7 +1,7 @@
 ---
 title: GitHub ClassroomでMakeCode Arcadeを使用する
 shortTitle: MakeCode Arcadeの使用について
-intro: MakeCode Arcadeを、{% data variables.product.prodname_classroom %}の課題のためのオンラインIDEとして設定できます。
+intro: 'MakeCode Arcadeを、{% data variables.product.prodname_classroom %}の課題のためのオンラインIDEとして設定できます。'
 versions:
   free-pro-team: '*'
 redirect_from:

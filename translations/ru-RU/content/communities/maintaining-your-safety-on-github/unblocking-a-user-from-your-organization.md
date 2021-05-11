@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.

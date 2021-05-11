@@ -1,7 +1,7 @@
 ---
 title: 创建议题或拉取请求
 intro: 您可以创建议题或拉取请求，以提议并协作更改仓库。
-permissions: '任何人都可以在已启用议题的公共仓库创建议题。 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。'
+permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request

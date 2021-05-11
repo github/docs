@@ -9,7 +9,7 @@ intro: 'Team が作成されると、Organization の管理者はユーザを {%
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 各Teamには、それぞれに定義された[Organizatinが所有するリポジトリへのアクセス権限](/articles/permission-levels-for-an-organization)があります。

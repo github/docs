@@ -1,6 +1,6 @@
 ---
 title: 他のリポジトリへ Issue を移譲する
-intro: 'より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。'
+intro: より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。
 redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 他のリポジトリにオープン Issue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込み権限が必要です。 詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
