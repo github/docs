@@ -84,7 +84,7 @@ jobs:
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data.
         run: node client.js
-        # Environment variable used by the `client.js` script to create a new PostgreSQL table.
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container
           POSTGRES_HOST: postgres
