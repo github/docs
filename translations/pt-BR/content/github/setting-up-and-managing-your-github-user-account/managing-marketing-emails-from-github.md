@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - contas
-  - notificações
+  - Accounts
+  - Notifications
 ---
 
 ### Cancelar a assinatura de e-mails marketing do {% data variables.product.prodname_dotcom %}

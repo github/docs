@@ -11,7 +11,7 @@ intro: 'Abra as portas de rede seletivamente com base nos serviços que você pr
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Portas administrativas

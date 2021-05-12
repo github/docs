@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafiken zur Anzahl der

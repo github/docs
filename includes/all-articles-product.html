@@ -2,7 +2,7 @@
 {% assign maxArticles = 10 %}
 
 <div class="py-6 all-articles-list">
-  <h2 class="font-mktg mb-4">All {{ product.title }} docs</h2>
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">All {{ product.title }} docs</a></h2>
 
   <div class="d-flex gutter flex-wrap">
     {% for category in product.categories %}

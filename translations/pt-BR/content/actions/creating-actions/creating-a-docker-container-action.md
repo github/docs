@@ -1,6 +1,6 @@
 ---
 title: Criar uma ação de contêiner Docker
-intro: 'Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.'
+intro: Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Desenvolvimento da ação'
-  - 'Docker'
+  - Action development
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

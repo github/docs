@@ -11,7 +11,7 @@ intro: 'Öffnen Sie Netzwerkports anhand dessen, welche Netzwerkdienste Sie für
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Verwaltungsports

@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Action 開発
+  - Action development
   - JavaScript
 ---
 

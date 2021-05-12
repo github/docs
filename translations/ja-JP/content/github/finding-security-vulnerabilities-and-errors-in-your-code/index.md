@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 ### 目次

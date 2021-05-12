@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Choosing the right license

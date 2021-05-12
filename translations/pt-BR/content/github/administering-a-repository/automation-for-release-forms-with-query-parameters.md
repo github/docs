@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Os parâmetros de consulta são partes opcionais de um URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa, um modelo de problema ou a página de formulário da versão no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.

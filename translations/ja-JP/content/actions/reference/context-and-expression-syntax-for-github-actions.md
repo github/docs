@@ -5,7 +5,7 @@ intro: ワークフローおよびアクションにおいて、コンテキス�
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
-  - /articles/contexts-and-expression-syntax-for-github-actions
+  - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
 versions:

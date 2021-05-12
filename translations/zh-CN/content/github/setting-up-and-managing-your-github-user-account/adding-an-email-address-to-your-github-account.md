@@ -7,8 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 帐户
-  - 通知
+  - Accounts
+  - Notifications
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

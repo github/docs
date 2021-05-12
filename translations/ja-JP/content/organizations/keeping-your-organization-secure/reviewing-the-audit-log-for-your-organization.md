@@ -1,6 +1,6 @@
 ---
 title: Organization の Audit log をレビューする
-intro: 'Audit log により、Organization の管理者は Organization のメンバーによって行われたアクションをすばやくレビューできます。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。'
+intro: Audit log により、Organization の管理者は Organization のメンバーによって行われたアクションをすばやくレビューできます。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Audit log にアクセスする

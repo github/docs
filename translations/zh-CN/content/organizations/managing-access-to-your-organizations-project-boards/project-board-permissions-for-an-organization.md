@@ -1,6 +1,6 @@
 ---
 title: 组织的项目板权限
-intro: '组织所有者以及具有项目板管理员权限的人员能够自定义谁对您组织的项目板具有读取、写入和管理员权限。'
+intro: 组织所有者以及具有项目板管理员权限的人员能够自定义谁对您组织的项目板具有读取、写入和管理员权限。
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 权限概述

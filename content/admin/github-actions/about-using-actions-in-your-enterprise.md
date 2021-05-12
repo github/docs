@@ -7,9 +7,9 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
 versions:
   enterprise-server: '>=2.22'
-  github-ae: 'next'
+  github-ae: next
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,11 +22,11 @@ topics:
 
 ### Official actions bundled with your enterprise instance
 
-Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.product_name %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}. When {% data variables.product.product_name %} is updated, the bundled official actions are also updated.
+Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.product_name %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}.
 
 The bundled official actions include `actions/checkout`, `actions/upload-artifact`, `actions/download-artifact`, `actions/labeler`, and various `actions/setup-` actions, among others. To see all the official actions included on your enterprise instance, browse to the `actions` organization on your instance: <code>https://<em>HOSTNAME</em>/actions</code>.
 
-Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action.
+Each action is a repository in the `actions` organization, and each action repository includes the necessary tags, branches, and commit SHAs that your workflows can use to reference the action. For information on how to update the bundled official actions, see "[Using the latest version of the official bundled actions](/admin/github-actions/using-the-latest-version-of-the-official-bundled-actions)."
 
 {% note %}
 

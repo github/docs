@@ -1,6 +1,6 @@
 ---
 title: REST APIを使ってみる
-intro: '認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。'
+intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -57,7 +57,6 @@ $ curl -i https://api.github.com/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57

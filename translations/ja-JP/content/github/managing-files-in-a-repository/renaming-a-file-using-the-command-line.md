@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 多くのファイルは[名前を {% data variables.product.product_name %} で直接変更](/articles/renaming-a-file)できますが、画像など一部のファイルは、コマンドラインで名前を変更する必要があります。

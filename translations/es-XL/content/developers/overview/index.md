@@ -4,6 +4,7 @@ intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %}, a
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Índice

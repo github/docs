@@ -7,7 +7,7 @@ permissions: 'If you have write permissions to a repository, you can set up or c
 versions:
   enterprise-server: '2.22'
 topics:
-  - sicherheit
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Wenn Du eine App heraufstufst, wird basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
