@@ -207,7 +207,7 @@ jobs:
         # Runs a script that creates a PostgreSQL table, populates
         # the table with data, and then retrieves the data
         run: node client.js
-        # Environment variable used by the `client.js` script to create
+        # Environment variables used by the `client.js` script to create
         # a new PostgreSQL table.
         env:
           # The hostname used to communicate with the PostgreSQL service container
@@ -271,7 +271,7 @@ steps:
     # Runs a script that creates a PostgreSQL table, populates
     # the table with data, and then retrieves the data
     run: node client.js
-    # Environment variable used by the `client.js` script to create
+    # Environment variables used by the `client.js` script to create
     # a new PostgreSQL table.
     env:
       # The hostname used to communicate with the PostgreSQL service container
@@ -288,7 +288,7 @@ steps:
 
 You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. Your script can use any language you'd like, but this example uses Node.js and the `pg` npm module. For more information, see the [npm pg module](https://www.npmjs.com/package/pg).
 
-You can modify *client.js* to include any PostgreSQL operations needed by your workflow. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` table, inserts some placeholder data, and then retrieves the data.
+You can modify *client.js* to include any PostgreSQL operations needed by your workflow. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -324,7 +324,7 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to define the PostgreSQL service IP address and port. If `host` and `port` are not defined, the default host is `localhost` and the default port is 5432.
+The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to specify the PostgreSQL service IP address and port. If `host` and `port` are not defined, the default host is `localhost` and the default port is 5432.
 
 The script creates a table and populates it with placeholder data. To test that the `postgres` database contains the data, the script prints the contents of the table to the console log.
 
