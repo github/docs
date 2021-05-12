@@ -252,6 +252,24 @@ on:
 
 {% raw %}
   ```yaml
+  - name: Log in to GitHub Docker Registry
+    uses: docker/login-action@v1
+    with:
+      registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+  ```
+{% endraw %}
+  </td>
+  <td>
+    Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are owned by the account defined here.
+  </td>
+  </tr>
+  <tr>
+  <td>
+
+{% raw %}
+  ```yaml
   - name: Build container image
   ```
 {% endraw %}
@@ -265,7 +283,7 @@ on:
 
 {% raw %}
   ```yaml
-uses: docker/build-push-action@v1
+uses: docker/build-push-action@v2
   ```
 {% endraw %}
   </td>
@@ -291,12 +309,12 @@ with:
 
 {% raw %}
   ```yaml
-username: ${{ github.actor }}
+push: true
   ```
 {% endraw %}
   </td>
   <td>
-    Defines the user account that will publish the packages. Once published, the packages are owned by the account defined here.
+    Push this image to the registry if it is built successfully.
   </td>
   </tr>
   <tr>
@@ -304,62 +322,14 @@ username: ${{ github.actor }}
 
 {% raw %}
   ```yaml
-password: ${{ secrets.GITHUB_TOKEN }}
+tags: |
+  docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
+  docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.ref }}
   ```
 {% endraw %}
   </td>
   <td>
-    Defines the password that is used to access {% data variables.product.prodname_registry %}.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-  ```yaml
-registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
-  ```
-  </td>
-  <td>
-    Defines the registry that will host the resulting packages. This example uses {% data variables.product.prodname_registry %}.{% if currentVersion == "github-ae@latest" %} Replace <code>YOUR-HOSTNAME</code> with the name of your enterprise.{% endif %} {% if currentVersion == "free-pro-team@latest" %} If you're using the {% data variables.product.prodname_container_registry %}, then use <code>ghcr.io</code> as the hostname.{% endif %}
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-repository: ${{ github.repository }}/octo-image
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Defines which repository will host the resulting package, and sets the name of the published package. Replace <code>octo-image</code> with the name you want for your package.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_sha: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Tags the published package with the first seven characters of the commit's SHA. For example, <code>sha-2f2d842</code>.
-  </td>
-  </tr>
-  <tr>
-  <td>
-
-{% raw %}
-  ```yaml
-tag_with_ref: true
-  ```
-{% endraw %}
-  </td>
-  <td>
-    Tags the published package with the git ref. This can be the name of the branch used to create the package.
+    Tags the published package with the git ref (for example, the name of the branch used to create the package) as well as the commit SHA.
   </td>
   </tr>
   </table>
