@@ -7,8 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### About subdomain isolation
