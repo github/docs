@@ -59,7 +59,16 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
 
 - `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
 - `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
-  - With `v2` of the `cache` action, you can specify a single path, or multiple paths as a list. Paths can be either directories or single files, and glob patterns are supported.
+  - Paths can be either directories or single files, and glob patterns are supported.
+  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. For example:
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
 - `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
 
