@@ -1,19 +1,17 @@
 ---
-title: Codespaces quickstart
+title: Quickstart for GitHub Codespaces
 intro: 'Try out {% data variables.product.prodname_codespaces %} in 5 minutes or less.'
-product: '{% data reusables.gated-features.codespaces %}'
+allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'
 type: quick_start
 topics:
   - Codespaces
+redirect_from:
+  - /codespaces/codespaces-quickstart
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_codespaces %} is currently in limited public beta and subject to change. During the beta period, {% data variables.product.prodname_dotcom %} does not make any guarantees about the availability of {% data variables.product.prodname_codespaces %}.
-
-{% endnote %}
+{% data reusables.codespaces.release-stage %}
 
 ### Introduction
 
