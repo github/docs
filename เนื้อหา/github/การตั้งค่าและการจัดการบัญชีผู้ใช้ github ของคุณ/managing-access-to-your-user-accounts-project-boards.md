@@ -33,3 +33,4 @@ A collaborator is a person who has permissions to a project board you own. A col
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.remove-collaborator %}
+managing-access-to-your-user-accounts-project-boards.md
