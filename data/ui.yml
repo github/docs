@@ -30,7 +30,7 @@ homepage:
   version_picker: Version
 toc:
   getting_started: Getting started
-  popular_articles: Popular
+  popular: Popular
   guides: Guides
   whats_new: What's new
 pages:
@@ -132,6 +132,7 @@ product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
+  guides: Guides
   code_examples: Code examples
   search_code_examples: Search code examples
   show_more: Show more

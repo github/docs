@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { ThemeProvider } from '@primer/components'
 
 import '@primer/css/index.scss'
 
@@ -26,7 +27,9 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
         <meta name="csrf-token" content="$CSRFTOKEN$" />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }

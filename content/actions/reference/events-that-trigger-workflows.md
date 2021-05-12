@@ -177,16 +177,16 @@ Runs your workflow anytime the `check_run` event occurs. {% data reusables.devel
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Last commit on default branch | Default branch |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | Last commit on default branch | Default branch |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-For example, you can run a workflow when a check run has been `rerequested` or `requested_action`.
+For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
