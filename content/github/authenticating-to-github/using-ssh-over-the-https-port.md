@@ -45,3 +45,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
