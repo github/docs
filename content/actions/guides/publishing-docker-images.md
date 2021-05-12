@@ -51,14 +51,17 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 {% data reusables.github-actions.release-trigger-workflow %}
 
-In the example workflow below, we use the Docker `build-push-action` action to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
+In the example workflow below, we use the Docker `build-push-action` and `login-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
-The `build-push-action` options required for Docker Hub are:
+The `login-action` options required for Docker Hub are:
 
 * `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
-* `repository`: Your Docker Hub repository in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
+
+The `build-push-action` options required for Docker Hub are:
+* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
 
 {% raw %}
 ```yaml{:copy}
@@ -94,12 +97,14 @@ jobs:
 
 In the example workflow below, we use the Docker `build-push-action` and `login-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
-The `build-push-action` options required for {% data variables.product.prodname_registry %} are:
-
+The `login-action` options required for {% data variables.product.prodname_registry %} are:
+* `registry`: Must be set to `docker.pkg.github.com`.
 * `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 * `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
-* `registry`: Must be set to `docker.pkg.github.com`.
-* `tags`: Must be set in the format `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`.
+
+The `build-push-action` options required for {% data variables.product.prodname_registry %} are:
+* `tags`: Must be set in the format `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`. You can set a single tag as shown below, or specify multiple tags in a list.
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
 
 ```yaml{:copy}
 name: Publish Docker image
@@ -135,9 +140,9 @@ jobs:
 
 ### Publishing images to Docker Hub and {% data variables.product.prodname_registry %}
 
-In a single workflow, you can publish your Docker image to multiple registries by using the `build-push-action` action for each registry.
+In a single workflow, you can publish your Docker image to multiple registries by using the `build-push-action` and `login-action` actions for each registry.
 
-The following example workflow uses the `build-push-action` steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
+The following example workflow uses the steps from the previous sections ("[Publishing images to Docker Hub](#publishing-images-to-docker-hub)" and "[Publishing images to {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)") to create a single workflow that pushes to both registries.
 
 ```yaml{:copy}
 name: Publish Docker image
