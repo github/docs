@@ -518,8 +518,8 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`article a[href="${adminPath}/installation"]`).length).toBe(1)
-    expect($.text()).toContain('This guide describes')
+    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
   test('renders an Enterprise Admin category with correct links', async () => {

@@ -1,14 +1,17 @@
 ---
 title: Getting started with your Python project in Codespaces
 shortTitle: Getting started with your Python project
-intro: 'You can create a custom dev container with all the tools necessary to get started with your Python project in {% data variables.product.prodname_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Get started with your Python project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   free-pro-team: '*'
+type: tutorial
 topics:
   - Codespaces
+  - Developer
+  - Python
 ---
 
+{% data reusables.codespaces.release-stage %}
 
 ### Introduction
 

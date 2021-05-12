@@ -1,8 +1,12 @@
 ---
 title: About data residency
-intro: You can choose the geography where {% data variables.product.product_name %} stores all customer data for your enterprise.
+intro: 'You can choose the geography where {% data variables.product.product_name %} stores all customer data for your enterprise.'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 {% data reusables.github-ae.github-ae-enables-you %} You can choose the geography where you store all the customer data for {% data variables.product.product_location %}, and members of your enterprise can access {% data variables.product.product_name %} from anywhere in the world.
