@@ -48,6 +48,12 @@ Use deployment branches to restrict which branches can deploy to the environment
 
 Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
+{% note %}
+
+**Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level as security as repository and organization secrets. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% endnote %}
+
 ### Creating an environment
 
 {% data reusables.github-actions.permissions-statement-environment %}
