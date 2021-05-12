@@ -494,7 +494,7 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     registries:
-    - maven-github
+      - maven-github
     schedule:
       interval: "monthly"
 {% endraw %}
@@ -717,7 +717,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker-registry/dockerhub"
     registries:
-    - dockerhub # Allow version updates for dependencies in this registry
+      - dockerhub # Allow version updates for dependencies in this registry
     schedule:
       interval: "monthly"
 ```
