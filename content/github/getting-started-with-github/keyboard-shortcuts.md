@@ -37,6 +37,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."
+|<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[Discussions wikis](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
 ### Source code editing
 
