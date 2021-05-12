@@ -140,15 +140,19 @@ The following example demonstrates how you can use {% data variables.product.pro
       steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build container image
-        uses: docker/build-push-action@v1
+      - name: Log in to GitHub Docker Registry
+        uses: docker/login-action@v1
         with: {% raw %}
+          registry: {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-          repository: ${{ github.repository }}/octo-image {% endraw %}
-          tag_with_sha: true
-          tag_with_ref: true 
+          password: ${{ secrets.GITHUB_TOKEN }} {% endraw %}
+      - name: Build container image
+        uses: docker/build-push-action@v2
+        with: {% raw %}
+          push: true
+          tags: |
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}
+            {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.ref }} {% endraw %}
   ```
 
   The relevant settings are explained in the following table:
