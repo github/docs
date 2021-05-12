@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Los propietarios, colaboradores actuales y previos, y personas con acceso de escritura pueden reportar los comentarios que se hagan en los informes de problemas, solicitudes de extracción y confirmaciones. Cualquier persona puede informar apps en {% data variables.product.prodname_marketplace %}.

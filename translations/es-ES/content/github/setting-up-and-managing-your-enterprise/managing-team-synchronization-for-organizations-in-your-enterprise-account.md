@@ -2,11 +2,11 @@
 title: Administrar la sincronización de equipos para las organizaciones en tu cuenta empresarial
 intro: 'Puedes habilitar la sincronización de equipos entre un proveedor de identidad (IdP) y {% data variables.product.product_name %} para permitir que las organizaciones que pertenezcan a tu cuenta empresarial administren la membrecía de equipo a través de grupos de IdP.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Los propietarios de las empresas pueden administrar la sincronización de equipos para una cuenta empresarial.
+permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la sincronización de equipos para las cuentas empresariales

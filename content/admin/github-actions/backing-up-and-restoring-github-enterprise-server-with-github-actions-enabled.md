@@ -5,7 +5,7 @@ intro: '{% data variables.product.prodname_actions %} data on your external stor
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."

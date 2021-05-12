@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - api
+  - API
 ---
 
 ### 关于 OpenAPI 描述

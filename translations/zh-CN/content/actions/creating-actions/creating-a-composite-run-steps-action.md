@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 操作开发
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}

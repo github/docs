@@ -16,10 +16,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - アカウント
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 コマンドラインで Git を使うには、あなたのコンピュータに Git をダウンロードし、インストールし、設定する必要があります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} コマンドラインから {% data variables.product.prodname_cli %} をインストールして {% data variables.product.product_name %} を使用することもできます。 {% data variables.product.prodname_cli %} の詳細については、[{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) ドキュメントを参照してください。{% endif %}

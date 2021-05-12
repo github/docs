@@ -19,10 +19,10 @@ versions:
   github-ae: '*'
 topics:
   - 2fa
-  - identity
-  - access management
-  - usernames
-  - device verification
+  - Identity
+  - Access management
+  - Usernames
+  - Device verification
 ---
 
 

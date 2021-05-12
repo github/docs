@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
   enterprise-server: '>=2.22'
 topics:
-  - aplicativos github
+  - GitHub Apps
 ---
 
 {% warning %}

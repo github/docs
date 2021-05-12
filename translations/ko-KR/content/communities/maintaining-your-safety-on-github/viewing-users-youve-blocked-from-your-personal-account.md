@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 커뮤니티
+  - Community
 ---
 
 {% data reusables.user_settings.access_settings %}

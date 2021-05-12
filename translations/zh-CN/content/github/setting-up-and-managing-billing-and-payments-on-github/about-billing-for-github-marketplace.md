@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} 包含的应用程序中有免费和付费定价计划。 在购买并安装应用程序后，您可以随时升级、降级或取消。

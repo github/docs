@@ -4,7 +4,7 @@ intro: 'Você pode visualizar, filtrar e classificar alertas de segurança para 
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'avançar'
+  github-ae: next
 ---
 
 {% data reusables.security-center.beta %}

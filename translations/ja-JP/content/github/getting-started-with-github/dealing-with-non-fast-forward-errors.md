@@ -1,6 +1,6 @@
 ---
 title: non-fast-forward エラーの扱い
-intro: '時として、Git はリモートリポジトリへの変更の際、コミットに失敗することがあります。 その場合、プッシュが拒否されます。'
+intro: 時として、Git はリモートリポジトリへの変更の際、コミットに失敗することがあります。 その場合、プッシュが拒否されます。
 redirect_from:
   - /articles/dealing-with-non-fast-forward-errors
   - /github/using-git/dealing-with-non-fast-forward-errors

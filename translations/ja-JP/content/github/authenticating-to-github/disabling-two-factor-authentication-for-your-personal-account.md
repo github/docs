@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントの 2 要素認証を無効化する
-intro: '自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。'
+intro: 自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:

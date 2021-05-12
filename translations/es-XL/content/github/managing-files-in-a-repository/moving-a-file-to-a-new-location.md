@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Además de cambiar la ubicación del archivo, también puedes [actualizar los contenidos de tu archivo](/articles/editing-files-in-your-repository), o [darle un nuevo nombre](/articles/renaming-a-file) en la misma confirmación.

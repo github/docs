@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Begrenzungen für {% data variables.product.prodname_enterprise_api %} aktivieren

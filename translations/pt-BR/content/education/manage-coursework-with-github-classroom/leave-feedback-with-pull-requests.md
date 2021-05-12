@@ -1,7 +1,7 @@
 ---
 title: Deixar feedback com pull requests
 intro: É possível deixar feedback para seus alunos em um pull request especial dentro do repositório para cada atividade.
-permissions: Pessoas com permissões de leitura em um repositório podem deixar o feedback em um pull request para o repositório.
+permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
   free-pro-team: '*'
 redirect_from:

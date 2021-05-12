@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 要将人们定向到特定的支持资源，您可以将 SUPPORT 文件添加到仓库的根文件夹 `docs` 或 `.github`。 当有人在您的仓库中创建议题时，就会看到项目 SUPPORT 文件的链接。
