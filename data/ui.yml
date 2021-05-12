@@ -145,6 +145,11 @@ product_landing:
   communities_using_discussions: Communities using discussions
   add_your_community: Add your community
   sponsor_community: GitHub Sponsors community
+  supported_releases: Supported releases
+  release_notes_for: Release notes for
+  upgrade_from: Upgrade from
+  browse_all_docs: Browse all docs
+  explore_release_notes: Explore release notes
 product_sublanding:
   start: Start
   start_path: Start path
