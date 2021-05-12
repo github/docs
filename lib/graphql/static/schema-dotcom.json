@@ -22416,6 +22416,14 @@
           ]
         },
         {
+          "name": "claimant",
+          "description": "<p>The user that has claimed the data attributed to this mannequin.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
