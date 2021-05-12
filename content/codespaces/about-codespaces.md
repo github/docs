@@ -1,22 +1,18 @@
 ---
 title: About Codespaces
 intro: '{% data variables.product.prodname_codespaces %} is a configurable online development environment, hosted by {% data variables.product.prodname_dotcom %} and powered by {% data variables.product.prodname_vscode %}, that allows you to develop entirely in the cloud.'
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
   - /github/developing-online-with-codespaces/about-codespaces
   - /codespaces/getting-started-with-codespaces/about-codespaces
 versions:
   free-pro-team: '*'
+type: overview
 topics:
   - Codespaces
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_codespaces %} is currently in limited public beta and subject to change. During the beta period, {% data variables.product.prodname_dotcom %} does not make any guarantees about the availability of {% data variables.product.prodname_codespaces %}.
-
-{% endnote %}
+{% data reusables.codespaces.release-stage %}
 
 ### About {% data variables.product.prodname_codespaces %}
 
@@ -27,7 +23,6 @@ topics:
 A codespace includes everything developers need to develop for a specific repository, including the {% data variables.product.prodname_vscode %} editing experience and common languages, tools, and utilities. {% data variables.product.prodname_codespaces %} is completely configurable, allowing you to create a customized development environment for your project, and allowing developers to personalize their experience with extensions and dotfile settings. 
 
 Codespaces offers many benefits to teams by allowing for a consistent environment across your entire team, fast onboarding, and creating a secure space for development.
-
 
 ### A consistent environment
 
@@ -51,7 +46,7 @@ Because {% data variables.product.prodname_codespaces %} can be accessed in the 
 
 ### A secure environment
 
-{% data variables.product.prodname_codespaces %} allows developers to develop in the cloud instead of locally. This creates one single, trackable, source of truth. Developers can contribute from anywhere, on any machine, including tablets or Chromebooks, and there is no need to maintain local copies of intellectual property. Developers always have to be logged in and provided with access to both {% data variables.product.prodname_codespaces %} and specific repositories. These permissions can be revoked at any time. As soon as you revoke access, those developers will lose all access to protected resources. In addition, authenticated developers create audit trails so you know who is doing what. For more information on access and security, see "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+{% data variables.product.prodname_codespaces %} allows developers to develop in the cloud instead of locally. This creates one single, trackable, source of truth. Developers can contribute from anywhere, on any machine, including tablets or Chromebooks, and there is no need to maintain local copies of intellectual property. Developers always have to be logged in and provided with access to both {% data variables.product.prodname_codespaces %} and specific repositories. These permissions can be revoked at any time. As soon as you revoke access, those developers will lose all access to protected resources. In addition, authenticated developers create audit trails so you know who is doing what. For more information on access and security, see "[Managing access and security for your organization's codespaces](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)."
 
 Using {% data variables.product.prodname_codespaces %} is the most secure when all members of your team are using it. It means that there is no need to clone the repository onto a local machine and that developers don't need to install locally as `root`.
 

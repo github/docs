@@ -23,6 +23,8 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 #### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}

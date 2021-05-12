@@ -1,15 +1,17 @@
 ---
 title: Configuring Codespaces for your project
 intro: You can use a `devcontainer.json` file to define a {% data variables.product.prodname_codespaces %} environment for your repository. 
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Codespaces
+  - Set up
+  - Fundamentals
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -32,7 +34,7 @@ For information about the settings and properties that you can set in a `devcont
 
 A Dockerfile also lives in the `.devcontainer` folder. 
 
-You can add a Dockerfile to your project to define a container image and install software. In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. For example:
+You can add a Dockerfile to your project to define a container image and install software. In the Dockerfile, you can use `FROM` to specify the container image.
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
@@ -46,6 +48,8 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
 # USER codespace
 ```
 
+You can use the `RUN` instruction to install any software and `&&` to join commands.
+
 Reference your Dockerfile in your `devcontainer.json` file by using the `dockerfile` property.
 
 ```json
@@ -56,13 +60,13 @@ Reference your Dockerfile in your `devcontainer.json` file by using the `dockerf
 }
 ```
 
-For more information on using a Dockerfile in a dev container, see [](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile) in the {% data variables.product.prodname_vscode %} documentation. 
+For more information on using a Dockerfile in a dev container, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile) in the {% data variables.product.prodname_vscode %} documentation. 
 
 ### Using the default configuration
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url.
+If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url that the command outputs.
 
-For more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux/history) repository. 
+Alternatively, for more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) repository. 
 
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_codespaces %} provides.
 

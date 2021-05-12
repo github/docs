@@ -36,6 +36,8 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 #### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}

@@ -18,11 +18,6 @@ sections:
 
           Administrators using {% data variables.product.prodname_GH_advanced_security %} can [enable and configure](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} secret scanning. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_GH_advanced_security %} secret scanning.
 
-    - heading: GitHub Advanced Security Code Scanning
-      notes:
-        - |
-          [{% data variables.product.prodname_GH_advanced_security %} code scanning](https://github.com/features/security) is now generally available on {% data variables.product.prodname_ghe_server %} 3.1+. Organizations who have purchased {% data variables.product.prodname_GH_advanced_security %} can use this capability to do static analysis security testing against their code, and prevent vulnerabilities from making it to their production code using CodeQL, our semantic analysis engine. For more information, see "[Configuring code scanning on your appliance](/en/enterprise-server@3.1/admin/configuration/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)."
-
     - heading: GitHub Advanced Security billing improvements
       notes:
         - |

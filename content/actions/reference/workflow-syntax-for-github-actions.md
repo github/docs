@@ -725,7 +725,9 @@ jobs:
 
 #### Example using action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally.
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 {% raw %}
 ```yaml
@@ -737,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action

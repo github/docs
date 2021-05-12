@@ -47,6 +47,14 @@
     border: 0px;
   }
 
+  th[align="center"] {
+    text-align: center;
+  }
+
+  th[align="right"] {
+    text-align: right;
+  }
+
   th:first-child,
   td:first-child {
     padding-left: 0;
