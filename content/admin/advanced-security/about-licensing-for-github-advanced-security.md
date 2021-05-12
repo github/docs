@@ -4,8 +4,12 @@ intro: 'You need a license to use {% data variables.product.prodname_GH_advanced
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
+type: overview
 topics:
+  - Advanced Security
   - Enterprise
+  - Licensing
+  - Security
 ---
 
 ### About licensing for {% data variables.product.prodname_GH_advanced_security %}

@@ -4,6 +4,11 @@ shortTitle: Configuring data encryption
 intro: 'For encryption at rest, you can provide your own encryption key to encrypt your data under your encryption policies.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Fundamentals
+  - Security
 ---
 
 {% note %}
