@@ -1,18 +1,22 @@
 ---
 title: Getting started with your Node.js project in Codespaces
 shortTitle: Getting started with your Node.js project
-intro: 'You can create a custom dev container with all the tools necessary to get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   free-pro-team: '*'
+type: tutorial
 topics:
   - Codespaces
+  - Developer
+  - Node
+  - JavaScript
 ---
 
+{% data reusables.codespaces.release-stage %}
 
 ### Introduction
 
-This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace,and adding and modifying a dev container configuration from a template.
+This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. It will take you through an example of opening your project in a codespace, and adding and modifying a dev container configuration from a template.
 
 #### Prerequisites 
 
@@ -30,23 +34,19 @@ This guide shows you how to set up your JavaScript, Node.js, or TypeScript proje
 
 When you create a codespace, your project is created on a remote VM that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, Typescript, nvm, npm, and yarn. It also includes a common set of tools like git, wget, rsync, openssh, and nano. 
 
-You can customize your codespace by adjusting the amount of vCPUs and RAM], [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
+You can customize your codespace by adjusting the amount of vCPUs and RAM, [adding dotfiles to personalize your environment](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account), or by modifying the tools and scripts installed. 
 
 {% data variables.product.prodname_codespaces %} uses a file called `devcontainer.json` to store configurations. On launch {% data variables.product.prodname_codespaces %} uses the file to install any tools, dependencies, or other set up that might be needed for the project. For more information, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
-
-The next section shows you how to modify your tools by adding a dev container.
 
 ### Step 2: Add a dev container to your codespace from a template  
 
 The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
 
-To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see [Configuring your codespace](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project). 
-
-This example guides you through adding a `devcontainer.json` file from a template.
+To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)". 
 
 1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Node.js**. In practice, you could select any container that’s specific to Node or a combination of tools such as Node and MongoDB.
+3. For this example, click **Node.js**.  If you need additional features you can select any container that’s specific to Node or a combination of tools such as Node and MongoDB.
   ![Select Node option from the list](/assets/images/help/codespaces/add-node-prebuilt-container.png)
 4. Click the recommended version of Node.js.
   ![Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
@@ -96,18 +96,18 @@ The newly added `devcontainer.json` file defines a few properties that are descr
 }
 ```
 
-- **Name** - We can name our dev container anything, this is just the default
-- **Build** - Our build properties
-  - **Dockerfile** - In our build object, Dockerfile is a reference to the Dockerfile in the same folder that was the second file added to our project. This is the reference path.
+- **Name** - You can name your dev container anything, this is just the default.
+- **Build** - The build properties.
+  - **dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
   - **Args**
-    - **Variant**: We only have one build argument here which is the node variant we want to use which is passed into our Dockerfile.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings we wish to set
-  - **Terminal.integrated.shell.linux** - While bash is the default here, we could use zsh for example by modifying this.
+    - **Variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
+- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
+  - **Terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
 - **Extensions** - These are extensions included by default.
   - **Dbaeumer.vscode-eslint** - ES lint is a great extension for linting, but for JavaScript there are a number of great Marketplace extensions you could also include.
-- **forwardPorts** - By default we can forward a port, like port 3000, but these will also forward automatically
-- **postCreateCommand** - If we want to run anything after we land in our codespace that’s not defined in our Dockerfile, like yarn install or npm install, we can do that here
-- **remoteUser** - We’re running as the node user, but you can optionally set this to root
+- **forwardPorts** - Any ports listed here will be forwarded automatically.
+- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
+- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
 
 ##### Dockerfile
 
@@ -145,7 +145,7 @@ With your dev container added and a basic understanding of what everything does,
   "forwardPorts": [4000],
   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
+  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) in the {% data variables.product.prodname_vscode %} docs.
 
 3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
 
@@ -168,33 +168,12 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
 ### Step 5: Commit your changes
 
-Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit your changes. Committing changes to your repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, such as adding {% data variables.product.prodname_vscode %} extensions, will appear for all users.
-
-1. In the Activity Bar, click on the **Source Control** view.
-
-  ![Source control view](/assets/images/help/codespaces/codespaces-commit-activity.png)  
-
-2. To stage your changes, click  **+**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-stage.png)
-
-3. Type a commit message and then use `Ctrl+Enter` / `cmd+Enter` to commit the changes.  
-
-  ![Explorer with commit message added](/assets/images/help/codespaces/codespaces-commit-commit-message.png)  
-
-4. To create a PR, click the PR icon. 
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)  
-
-5. Select the branches that you want to merge into, then click **Create**.
-
-  ![Explorer with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr.png)  
+{% data reusables.codespaces.committing-link-to-procedure %} 
 
 ### Next steps
 
 You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
 
-- [Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
 - [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
-
