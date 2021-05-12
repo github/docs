@@ -90,6 +90,8 @@ For more information about Docker and the {% data variables.product.prodname_con
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 ### Managing packages
 
 {% if currentVersion == "free-pro-team@latest" %}

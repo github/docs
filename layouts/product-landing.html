@@ -74,7 +74,7 @@
           {% if featuredLinks.popular %}
           <div class="col-12 col-lg-{% if page.changelog %}4{% else %}6{% endif %} mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
-              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="popular"><a href="#popular">{% if page.featuredLinks.popularHeading %}{{ page.featuredLinks.popularHeading }}{% else %}{% data ui.toc.popular_articles %}{% endif %}</a></h3>
+              <h3 class="f4 text-normal text-mono text-uppercase color-text-secondary" id="popular"><a href="#popular">{% if page.featuredLinks.popularHeading %}{{ page.featuredLinks.popularHeading }}{% else %}{% data ui.toc.popular %}{% endif %}</a></h3>
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.popular %}

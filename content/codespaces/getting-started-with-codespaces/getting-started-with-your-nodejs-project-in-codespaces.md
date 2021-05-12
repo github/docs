@@ -1,14 +1,18 @@
 ---
 title: Getting started with your Node.js project in Codespaces
 shortTitle: Getting started with your Node.js project
-intro: 'You can create a custom dev container with all the tools necessary to get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
+intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
 versions:
   free-pro-team: '*'
+type: tutorial
 topics:
   - Codespaces
+  - Developer
+  - Node
+  - JavaScript
 ---
 
+{% data reusables.codespaces.release-stage %}
 
 ### Introduction
 
@@ -170,7 +174,6 @@ In the previous section, you used the `postCreateCommand` to installing a set of
 
 You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Here are some additional resources for more advanced scenarios.
 
-- [Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
 - [Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)
-
