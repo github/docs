@@ -33,6 +33,7 @@ topics:
     {% link_in_list /enabling-private-mode %}
     {% link_in_list /managing-github-for-mobile-for-your-enterprise %}
     {% link_in_list /configuring-email-for-notifications %}
+    {% link_in_list /verifying-or-approving-a-domain-for-your-enterprise %}
     {% link_in_list /configuring-rate-limits %}
     {% link_in_list /configuring-applications %}
     {% link_in_list /troubleshooting-ssl-errors %}
