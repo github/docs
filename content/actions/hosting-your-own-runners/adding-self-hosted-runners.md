@@ -37,11 +37,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% else %}
-1. Under "Self-hosted runners," click **Add runner**.
-{% endif %}
+1. Under {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -52,12 +48,7 @@ You can add self-hosted runners at the organization level, where they can be use
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-1. Under "Runners", click **Add new**, then click **New runner**.
-{% else %}
-1. Under "Self-hosted runners," click **Add new**, then click **New runner**.
-{% endif %}
+1. Under {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -76,11 +67,7 @@ To add a self-hosted runner at the enterprise level of {% data variables.product
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% if currentVersion == "free-pro-team@latest" %}
-1. Click the **Runners** tab.
-{% else %}
-1. Click the **Self-hosted runners** tab.
-{% endif %}
+1. Click the {% if currentVersion == "free-pro-team@latest" %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.
 1. Click **Add new**, then click **New runner**. New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see "[Managing access to self-hosted runners](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}

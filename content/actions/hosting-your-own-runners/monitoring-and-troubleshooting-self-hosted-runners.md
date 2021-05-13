@@ -24,9 +24,6 @@ defaultPlatform: linux
 
 {% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
 {% data reusables.organizations.settings-sidebar-actions %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% endif %}
 1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     ![Runner list](/assets/images/help/settings/actions-runner-list.png)
