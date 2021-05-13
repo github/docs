@@ -1,3 +1,104 @@
+You can add query parameters to these URLs to preselect the configuration of a GitHub App on a personal or organization account:
+
+User account: https://github.com/settings/apps/new
+Organization account: https://github.com/organizations/:org/settings/apps/new
+The person creating the app can edit the preselected values from the GitHub App registration page, before submitting the app. If you do not include required parameters in the URL query string, like name, the person creating the app will need to input a value before submitting the app.
+
+The following URL creates a new public app called octocat-github-app with a preconfigured description and callback URL. This URL also selects read and write permissions for checks, subscribes to the check_run and check_suite webhook events, and selects the option to request user authorization (OAuth) during installation:
+
+https://github.com/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+The complete list of available query parameters, permissions, and events is listed in the sections below.
+
+GitHub App configuration parameters
+
+Name	Type	Description
+name	string	The name of the GitHub App. Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+description	string	A description of the GitHub App.
+url	string	The full URL of your GitHub App's website homepage.
+callback_urls	array of strings	A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, callback_urls[]=https://example.com&callback_urls[]=https://example-2.com.
+request_oauth_on_install	boolean	If your app authorizes users using the OAuth flow, you can set this option to true to allow people to authorize the app when they install it, saving a step. If you select this option, the setup_url becomes unavailable and users will be redirected to your callback_url after installing the app.
+setup_url	string	The full URL to redirect to after someone installs the GitHub App if the app requires additional setup after installation.
+setup_on_update	boolean	Set to true to redirect people to the setup URL when installations have been updated, for example, after repositories are added or removed.
+public	boolean	Set to true when your GitHub App is available to the public or false when it is only accessible to the owner of the app.
+webhook_url	string	The full URL that you would like to send webhook event payloads to.
+webhook_secret	string	You can specify a secret to secure your webhooks. See "Securing your webhooks" for more details.
+events	array of strings	Webhook events. Some webhook events require read or write permissions for a resource before you can select the event when registering a new GitHub App. See the "GitHub App webhook events" section for available events and their required permissions. You can select multiple events in a query string. For example, events[]=public&events[]=label.
+domain	string	The URL of a content reference.
+single_file_name	string	This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the single_file permission to read or write, this field provides the path to the single file your GitHub App will manage. If you need to manage multiple files, see single_file_paths below.
+single_file_paths	array of strings	This allows the app to access up ten specified files in a repository. When you set the single_file permission to read or write, this array can store the paths for up to ten files that your GitHub App will manage. These files all receive the same permission set by single_file, and do not have separate individual permissions. When two or more files are configured, the API returns multiple_single_files=true, otherwise it returns multiple_single_files=false.
+GitHub App permissions
+
+You can select permissions in a query string using the permission name in the following table as the query parameter name and the permission type as the query value. For example, to select Read & write permissions in the user interface for contents, your query string would include &contents=write. To select Read-only permissions in the user interface for blocking, your query string would include &blocking=read. To select no-access in the user interface for checks, your query string would not include the checks permission.
+
+Permission	Description
+administration	Grants access to various endpoints for organization and repository administration. Can be one of: none, read, or write.
+blocking	Grants access to the Blocking Users API. Can be one of: none, read, or write.
+checks	Grants access to the Checks API. Can be one of: none, read, or write.
+content_references	Grants access to the "Create a content attachment" endpoint. Can be one of: none, read, or write.
+contents	Grants access to various endpoints that allow you to modify repository contents. Can be one of: none, read, or write.
+deployments	Grants access to the Deployments API. Can be one of: none, read, or write.
+emails	Grants access to the Emails API. Can be one of: none, read, or write.
+followers	Grants access to the Followers API. Can be one of: none, read, or write.
+gpg_keys	Grants access to the GPG Keys API. Can be one of: none, read, or write.
+issues	Grants access to the Issues API. Can be one of: none, read, or write.
+keys	Grants access to the Public Keys API. Can be one of: none, read, or write.
+members	Grants access to manage an organization's members. Can be one of: none, read, or write.
+metadata	Grants access to read-only endpoints that do not leak sensitive data. Can be read or none. Defaults to read when you set any permission, or defaults to none when you don't specify any permissions for the GitHub App.
+organization_administration	Grants access to "Update an organization" endpoint and the Organization Interaction Restrictions API. Can be one of: none, read, or write.
+organization_hooks	Grants access to the Organization Webhooks API. Can be one of: none, read, or write.
+organization_plan	Grants access to get information about an organization's plan using the "Get an organization" endpoint. Can be one of: none or read.
+organization_projects	Grants access to the Projects API. Can be one of: none, read, write, or admin.
+organization_user_blocking	Grants access to the Blocking Organization Users API. Can be one of: none, read, or write.
+pages	Grants access to the Pages API. Can be one of: none, read, or write.
+plan	Grants access to get information about a user's GitHub plan using the "Get a user" endpoint. Can be one of: none or read.
+pull_requests	Grants access to various pull request endpoints. Can be one of: none, read, or write.
+repository_hooks	Grants access to the Repository Webhooks API. Can be one of: none, read, or write.
+repository_projects	Grants access to the Projects API. Can be one of: none, read, write, or admin.
+secret_scanning_alerts	Grants access to the Secret scanning API. Can be one of: none, read, or write.
+security_events	Grants access to the Code scanning API. Can be one of: none, read, or write.
+single_file	Grants access to the Contents API. Can be one of: none, read, or write.
+starring	Grants access to the Starring API. Can be one of: none, read, or write.
+statuses	Grants access to the Statuses API. Can be one of: none, read, or write.
+team_discussions	Grants access to the Team Discussions API and the Team Discussion Comments API. Can be one of: none, read, or write.
+vulnerability_alerts	Grants access to receive security alerts for vulnerable dependencies in a repository. See "About alerts for vulnerable dependencies" to learn more. Can be one of: none or read.
+watching	Grants access to list and change repositories a user is subscribed to. Can be one of: none, read, or write.
+GitHub App webhook events
+
+Webhook event name	Required permission	Description
+check_run	checks	Check run activity has occurred. The type of activity is specified in the action property of the payload object. For more information, see the "check runs" REST API.
+check_suite	checks	Check suite activity has occurred. The type of activity is specified in the action property of the payload object. For more information, see the "check suites" REST API.
+commit_comment	contents	A commit comment is created. The type of activity is specified in the action property of the payload object. For more information, see the "commit comment" REST API.
+content_reference	content_references	A new content reference is created. A new content reference is created when the body or comment of an issue or pull request includes a URL that matches a configured content reference domain. For more information, see "Using content attachments" to learn more about content references and attachments.
+create	contents	A Git branch or tag is created. For more information, see the "Git data" REST API.
+delete	contents	A Git branch or tag is deleted. For more information, see the "Git data" REST API.
+deployment	deployments	A deployment is created. The type of activity is specified in the action property of the payload object. For more information, see the "deployment" REST API.
+deployment_status	deployments	A deployment is created. The type of activity is specified in the action property of the payload object. For more information, see the "deployment statuses" REST API.
+fork	contents	A user forks a repository. For more information, see the "forks" REST API.
+gollum	contents	A wiki page is created or updated. For more information, see the "About wikis".
+issues	issues	Activity related to an issue. The type of activity is specified in the action property of the payload object. For more information, see the "issues" REST API.
+issue_comment	issues	Activity related to an issue comment. The type of activity is specified in the action property of the payload object. For more information, see the "issue comments" REST API.
+label	metadata	Activity related to a label. The type of activity is specified in the action property of the payload object. For more information, see the "labels" REST API.
+member	members	Activity related to repository collaborators. The type of activity is specified in the action property of the payload object. For more information, see the "collaborators" REST API.
+membership	members	Activity related to team membership. The type of activity is specified in the action property of the payload object. For more information, see the "team members" REST API.
+milestone	pull_request	Activity related to milestones. The type of activity is specified in the action property of the payload object. For more information, see the "milestones" REST API.
+org_block	organization_administration	Activity related to people being blocked in an organization. The type of activity is specified in the action property of the payload object. For more information, see the "blocking organization users" REST API.
+organization	members	Activity related to an organization and its members. The type of activity is specified in the action property of the payload object. For more information, see the "organizations" REST API.
+page_build	pages	Represents an attempted build of a GitHub Pages site, whether successful or not. A push to a GitHub Pages enabled branch (gh-pages for project pages, the default branch for user and organization pages) triggers this event.
+project	repository_projects or organization_projects	Activity related to project boards. The type of activity is specified in the action property of the payload object. For more information, see the "projects" REST API.
+project_card	repository_projects or organization_projects	Activity related to project cards. The type of activity is specified in the action property of the payload object. For more information, see the "project cards" REST API.
+project_column	repository_projects or organization_projects	Activity related to columns in a project board. The type of activity is specified in the action property of the payload object. For more information, see the "project columns" REST API.
+public	metadata	When a private repository is made public. Without a doubt: the best GitHub event.
+pull_request	pull_requests	Activity related to pull requests. The type of activity is specified in the action property of the payload object. For more information, see the "pull requests" REST API.
+pull_request_review	pull_request	Activity related to pull request reviews. The type of activity is specified in the action property of the payload object. For more information, see the "pull request reviews" REST API.
+pull_request_review_comment	pull_request	Activity related to pull request review comments in the pull request's unified diff. The type of activity is specified in the action property of the payload object. For more information, see the "pull request review comments" REST API.
+push	contents	One or more commits are pushed to a repository branch or tag.
+release	contents	Activity related to a release. The type of activity is specified in the action property of the payload object. For more information, see the "releases" REST API.
+repository	metadata	Activity related to a repository. The type of activity is specified in the action property of the payload object. For more information, see the "repositories" REST API.
+repository_dispatch	contents	Allows integrators using GitHub Actions to trigger custom events.
+status	statuses	When the status of a Git commit changes. The type of activity is specified in the action property of the payload object. For more information, see the "statuses" REST API.
+team	members	Activity related to an organization's team. The type of activity is specified in the action property of the payload object. For more information, see the "teams" REST API.
+team_add	members	When a repository is added to a team.
+watch	metadata	When someone stars a repository. The type of activity is specified in the action property of the payload object. For more information, see the "starring" REST API.
 ---
 title: Creating a GitHub App using URL parameters
 intro: 'You can preselect the settings of a new {% data variables.product.prodname_github_app %} using URL [query parameters](https://en.wikipedia.org/wiki/Query_string) to quickly set up the new {% data variables.product.prodname_github_app %}''s configuration.'
