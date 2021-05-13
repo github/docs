@@ -1,6 +1,6 @@
 ---
 title: GitHub CLI
-intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for using {% data variables.product.product_name %} features on your computer.'
+intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for using {% data variables.product.product_name %} features from your terminal.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
@@ -11,14 +11,17 @@ topics:
 
 ### About {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
+{% data variables.product.prodname_cli %} is an free and open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
 
-You can use the following {% data variables.product.prodname_dotcom %} features with the {% data variables.product.prodname_cli %}.
+The {% data variables.product.prodname_cli %} includes {% data variables.product.prodname_dotcom %} features such as:
 
 - View, create, clone, and fork repositories
 - Create, close, and list issues and pull requests
 - Review, diff, and merge pull requests
-- Create, edit, list, and view gists
+- Create, edit, list, view, and delete gists
+- Create, list, view, and delete releases
+- Run, list, view, and list workflows
+- List, view, watch, and rerun workflow runs
 
 For more information about what you can do with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
 
