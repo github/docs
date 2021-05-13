@@ -1,24 +1,19 @@
----
-title: About GitHub Campus Program 
-intro: '{% data variables.product.prodname_campus_program %} offers {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} free-of-charge for schools that want to make the most of {% data variables.product.prodname_dotcom %} for their community.'
-redirect_from:
-  - /education/teach-and-learn-with-github-education/about-github-education
-  - /github/teaching-and-learning-with-github-education/about-github-education
-  - /articles/about-github-education
-  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
-versions:
-  free-pro-team: '*'
----
+The [About GitHub Campus Program - GitHub Docs](https://docs.github.com/en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program) article should be expanded to include this info:
 
-{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
-
-- No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
-- Teacher training to master Git and {% data variables.product.prodname_dotcom %} with our Campus Advisor program
-- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
-- Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
-
-Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
-
-For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page.
-
-If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/)."
+- To the list of what the GitHub Campus Program includes, add "50,000 GitHub Actions minutes and 50GB GitHub Packages storage"
+- After the sentence, "Teacher training to master Git and GitHub with our Campus Advisor program," link to the [campus advisor article](https://docs.github.com/en/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors).
+- After the list of what the GitHub Campus Program includes, add a paragraph about the licenses.
+  - the licenses are for use by the whole school
+  - Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use.
+  - Externally funded research groups that are housed at the university may not use the free licenses.
+  - The license is free for one year and will automatically renew for free every 2 years. You may continue on the free license so long as you continue to operate within the terms of the agreement.
+- Mention that if your school does not issue email addresses, GitHub will reach out to your account administrators with an alternative option to allow you to distribute the student developer pack to your students.
+- Add a paragraph about administrating the account:
+  - New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the GitHub Campus Program, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see "[Setting up and managing your enterprise](https://docs.github.com/en/github/setting-up-and-managing-your-enterprise)."
+- To the section that says, "Any school that can agree to the terms of the program is welcome to join", add:
+  - Often, a campus CTO/CIO, dean, department chair, or technology officer signs the terms of the program on behalf of the campus.
+  - You must offer GitHub to all of your technical and academic departments
+  - Your school’s logo will be shared on the [GitHub Education](https://education.github.com/schools) website as a GitHub Campus Program Partner
+  - To read more about GitHub's privacy practices, see "[Global Privacy Practices](https://docs.github.com/en/github/site-policy/global-privacy-practices)"
+- In the paragraph that says, "individually apply for discounts to use GitHub", link to https://education.github.com/discount_requests/new
+- Add a sentence like, "To read about how GitHub is used by educators, see [GitHub Education stories](https://education.github.com/stories)."
