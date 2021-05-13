@@ -229,7 +229,7 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 ### Troubleshooting
 
-The NuGet packages *must* have their `RepositoryUrl` set to the current repository. The package feed will refuse the package if it is incorrect.
+Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
 ### Further reading
 
