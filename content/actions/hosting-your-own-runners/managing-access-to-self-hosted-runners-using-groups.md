@@ -42,9 +42,6 @@ When creating a group, you must choose a policy that defines which repositories 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-{% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
-{% endif %}
 1. In the {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %} section, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
