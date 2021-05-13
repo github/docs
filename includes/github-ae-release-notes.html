@@ -34,12 +34,8 @@
             <div class="mt-3">{{ patch.intro }}</div>
 
             {% for section in patch.sections %}
-              <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
-                <div class="col-12 col-xl-3 mb-5">
-                  {% include release-notes-category-label %}
-                </div>
-
-                <ul class="col-12 col-xl-9 release-notes-list">
+              <div class="release-notes-section-{{ section[0] }} py-6 mx-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                <ul class="col-12 release-notes-list">
                   {% for note in section[1] %}
                     <li class="release-notes-list-item {% if note.heading %}list-style-none{% endif %}">
                       {% if note.heading %}

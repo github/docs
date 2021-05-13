@@ -76,5 +76,7 @@ sections:
         - Organization level pull request templates were not being applied to all pull requests in the organization.
 
   known_issues:
-    - Geographic location data is not shown in the audit log. Location information can otherwise be discerned from the IP address associated with each event.
-    - The link to {% data variables.product.prodname_registry %} from a repository page shows an incorrect search page when that repository does not have any packages.
+    - heading: Known issues
+      notes:
+        - Geographic location data is not shown in the audit log. Location information can otherwise be discerned from the IP address associated with each event.
+        - The link to {% data variables.product.prodname_registry %} from a repository page shows an incorrect search page when that repository does not have any packages.
