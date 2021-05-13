@@ -58,6 +58,7 @@ topics:
     {% link_in_list /set-up-git %}
     {% link_in_list /create-a-repo %}
     {% link_in_list /fork-a-repo %}
+    {% link_in_list /github-flow %}
     {% link_in_list /be-social %}
     {% link_in_list /github-glossary %}
     {% link_in_list /git-cheatsheet %}

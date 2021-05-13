@@ -79,6 +79,7 @@ topics:
     {% link_in_list /error-agent-admitted-failure-to-sign %}
     {% link_in_list /error-ssh-add-illegal-option----k %}
     {% link_in_list /error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok %}
+    {% link_in_list /error-unknown-key-type %}
     {% link_in_list /error-were-doing-an-ssh-key-audit %}
 {% topic_link_in_list /managing-commit-signature-verification %}
     {% link_in_list /about-commit-signature-verification %}

@@ -8,7 +8,9 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: next
+type: overview
 topics:
+  - Actions
   - Enterprise
 ---
 
