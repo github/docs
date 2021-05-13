@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 // import { Sidebar } from 'components/Sidebar'
-// import { Header } from 'components/Header'
+import { Header } from 'components/Header'
 import { SmallFooter } from 'components/SmallFooter'
 import { ScrollButton } from 'components/ScrollButton'
 import { SupportSection } from 'components/SupportSection'
@@ -21,7 +21,7 @@ export const DefaultLayout = (props: Props) => {
       {/* <Sidebar /> */}
 
       <main className="width-full">
-        {/* <Header /> */}
+        <Header />
         <DeprecationBanner />
 
         {props.children}
