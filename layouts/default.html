@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}" data-color-mode="auto" data-dark-theme="dark_dimmed">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -16,7 +16,6 @@
       {% include support-section %}
       {% include small-footer %}
       {% include scroll-button %}
-      {% include toggle-images %}
     </main>
   </body>
 </html>

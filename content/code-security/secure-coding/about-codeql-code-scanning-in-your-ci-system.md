@@ -38,10 +38,13 @@ Use the {% data variables.product.prodname_codeql_cli %} to analyze:
 
 For more information, see "[Running {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/running-codeql-cli-in-your-ci-system)."
 
+{% if currentVersion == "free-pro-team@latest" %}
+If you need to set up the CI system to orchestrate compiler invocations as well as running {% data variables.product.prodname_codeql %} analysis, you must use the {% data variables.product.prodname_codeql_runner %}.
+{% else %}
 You will need to use the {% data variables.product.prodname_codeql_runner %} if you need to:
-
 - Set up the CI system to orchestrate compiler invocations as well as running {% data variables.product.prodname_codeql %} analysis.
 - Analyze more than one language in a repository.
+{% endif %}
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 
@@ -57,4 +60,3 @@ You add the {% data variables.product.prodname_codeql_runner %} to your third-pa
 
 To set up code scanning in your CI system, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}
-
