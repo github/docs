@@ -35,7 +35,7 @@ To change who can install the GitHub App:
 3. Select the GitHub App whose installation option you want to change.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% if currentVersion == "free-pro-team@latest" %}private{% else %}internal{% endif %}**.
+5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**.
 ![Button to change the installation option of your GitHub App](/assets/images/github-apps/github_apps_make_public.png)
-6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% if currentVersion == "free-pro-team@latest" %}private{% else %}internal{% endif %}**.
+6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**.
 ![Button to confirm the change of your installation option](/assets/images/github-apps/github_apps_confirm_installation_option.png)
