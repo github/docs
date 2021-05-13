@@ -2,7 +2,7 @@
 title: Habilitar enlace entre la información de GitHub y GitHub Enterprise
 intro: 'Puedes habilitar un enlace que permitirá a los usuarios navegar desde {% data variables.product.prodname_ghe_server %} hacia {% data variables.product.prodname_insights %}.'
 product: '{% data reusables.gated-features.github-insights %}'
-permissions: 'Los administradores del sitio de {% data variables.product.prodname_ghe_server %} pueden habilitar un enlace entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_insights %}.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} can enable a link between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_insights %}.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
@@ -14,7 +14,7 @@ Una vez que habilitas el enlace, cada usuario puede navegar directamente desde {
 
 1. Conéctate al shell administrativo de {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
 2. Ejecuta el siguiente comando.
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. Regresa a

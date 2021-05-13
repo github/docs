@@ -4,6 +4,8 @@ intro: 'Si quieres utilizar {% data variables.product.prodname_actions %} con m�
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Acerca de la facturación para {% data variables.product.prodname_actions %}
@@ -11,6 +13,8 @@ versions:
 {% data reusables.github-actions.actions-billing %}
 
 {% data reusables.github-actions.actions-spending-limit-brief %} Para obtener más información, consulta la sección "[Acerca de los límites de gasto](#about-spending-limits)".
+
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_actions %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
 
 Los minutos se restablecen cada mes, pero no es el caso para el uso de almacenamiento.
 

@@ -1,69 +1,59 @@
 ---
 title: E-Mail für Benachrichtigungen konfigurieren
+intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.product.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration/
   - /enterprise/admin/articles/configuring-email/
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure your enterprise to send email notifications on issue, pull request, and commit comments{% if enterpriseServerVersions contains currentVersion %}, as well as additional settings to allow inbound email replies{% endif %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
-Benachrichtigungs-E-Mails werden gesendet, wenn auf einem von einem Benutzer beobachteten Repository oder in einem Pull Request oder Issue, an dem er sich beteiligt, Aktivität zu verzeichnen ist, oder wenn der Benutzer oder das Team, von dem er bzw. es ein Mitglied ist, in einem Kommentar @erwähnt wird.
-
 {% if currentVersion == "github-ae@latest" %}
-Your dedicated technical account manager in
-{% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
+Enterprise owners can configure email for notifications.
+{% endif %}
+### Configuring SMTP for your enterprise
 
-- Your SMTP server address
-- Login information to authenticate to the server: username and password
-- The port your SMTP server uses to send email
-- The domain name that your SMTP server will send with a HELO response, if any
-- The type of encryption used by your SMTP server
-- The no-reply email address to use in the `From` and `To` field for all notifications
-
-For more information about contacting support, see "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
-{% else %}
-### SMTP konfigurieren
-
+{% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. Klicken Sie im oberen Bereich der Seite auf **Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen)](/assets/images/enterprise/management-console/settings-tab.png)
 3. Klicken Sie auf der linken Seitenleiste auf **Email** (E-Mail). ![Registerkarte „Email“ (E-Mail)](/assets/images/enterprise/management-console/email-sidebar.png)
 4. Wählen Sie **Enable email** (E-Mail aktivieren) aus. Dadurch werden aus- und eingehende E-Mails aktiviert. Damit eingehende E-Mails funktionieren, müssen Sie jedoch auch Ihre DNS-Einstellungen konfigurieren, wie dies im Folgenden unter „[DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)“ beschrieben ist. ![Option zum Aktivieren ausgehender E-Mails](/assets/images/enterprise/management-console/enable-outbound-email.png)
-5. Tragen Sie die Einstellungen für Ihren E-Mail-Server ein:
-    - Geben Sie im Feld **Server address** (Serveradresse) die Adresse Ihres SMTP-Servers ein.
-    - Geben Sie im Feld **Port** den Port ein, der von Ihrem SMTP-Server zum Senden von E-Mails verwendet wird.
-    - Geben Sie im Feld **Domain** den Domain-Namen ein, der ggf. von Ihrem SMTP-Server mit einer HELO-Antwort gesendet wird.
-    - Wählen Sie im Dropdownmenü **Authentication** (Authentifizierung) den von Ihrem SMTP-Server verwendeten Verschlüsselungstyp aus.
-    - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
-
-    {% note %}
-
-    **Hinweis:** Wenn Sie das Kontrollkästchen **Send from author** (Über Autor senden) im E-Mail-Webhook **Services** (Dienste) in einem Repository aktivieren, werden ausgehende E-Mails für dieses Repository über den Autor und nicht über die „no-reply“-E-Mail-Adresse gesendet. Weitere Informationen findest Du unter "[Informationen zu E-Mail-Benachrichtigungen für Pushes in Dein Repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
-
-    {% endnote %}
-
+5. Type the settings for your SMTP server.
+      - Geben Sie im Feld **Server address** (Serveradresse) die Adresse Ihres SMTP-Servers ein.
+      - Geben Sie im Feld **Port** den Port ein, der von Ihrem SMTP-Server zum Senden von E-Mails verwendet wird.
+      - Geben Sie im Feld **Domain** den Domain-Namen ein, der ggf. von Ihrem SMTP-Server mit einer HELO-Antwort gesendet wird.
+      - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
+      - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
 6. Wenn Sie alle eingehenden E-Mails verwerfen möchten, die an die „no-reply“-E-Mail-Adresse adressiert sind, sollten Sie **Discard email addressed to the no-reply email address** (An die „no-reply“-E-Mail-Adresse adressierte E-Mails verwerfen) aktivieren. ![Kontrollkästchen zum Verwerfen der an die „no-reply“-E-Mail-Adresse adressierten E-Mails](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. Wählen Sie unter **Support** (Unterstützung) einen Linktyp aus, um Ihren Benutzern zusätzliche Unterstützung zu bieten:
+7. Under **Support**, choose a type of link to offer additional support to your users.
     - **Email** (E-Mail): Eine interne E-Mail-Adresse.
     - **URL:** Ein Link zu einer internen Supportwebsite. Sie müssen `http://` oder `https://` verwenden. ![Support-E-Mail oder -URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Testen Sie die E-Mail-Zustellung](#testing-email-delivery).
+{% elsif currentVersion == "github-ae@latest" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.email-tab %}
+2. Wählen Sie **Enable email** (E-Mail aktivieren) aus. !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. Type the settings for your email server.
+    - Geben Sie im Feld **Server address** (Serveradresse) die Adresse Ihres SMTP-Servers ein.
+    - Geben Sie im Feld **Port** den Port ein, der von Ihrem SMTP-Server zum Senden von E-Mails verwendet wird.
+    - Geben Sie im Feld **Domain** den Domain-Namen ein, der ggf. von Ihrem SMTP-Server mit einer HELO-Antwort gesendet wird.
+    - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
+    - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
+4. Wenn Sie alle eingehenden E-Mails verwerfen möchten, die an die „no-reply“-E-Mail-Adresse adressiert sind, sollten Sie **Discard email addressed to the no-reply email address** (An die „no-reply“-E-Mail-Adresse adressierte E-Mails verwerfen) aktivieren. !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. Click **Test email settings**. !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)
+6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**. !["Send test email" button for email settings configuration](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. Klicke auf **Save** (Speichern). !["Save" button for enterprise support contact configuration](/assets/images/enterprise/configuration/ae-save.png)
+{% endif %}
 
-### DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren
-
-Wenn Sie E-Mail-Antworten auf Benachrichtigungen zulassen möchten, müssen Sie Ihre DNS-Einstellungen konfigurieren.
-
-1. Stellen Sie sicher, dass Port 25 auf der Instanz für Ihren SMTP-Server erreichbar ist.
-2. Erstellen Sie einen Datensatz, der auf `reply.[hostname]` verweist. In Abhängigkeit Ihres DNS-Providers und Ihrer Instanz-Host-Konfiguration können Sie ggf. stattdessen einen einzelnen A-Datensatz erstellen, der auf `*.[hostname]` verweist.
-3. Erstellen Sie einen MX-Datensatz, der auf `reply.[hostname]` verweist, sodass an diese Domain gesendete E-Mails zur Instanz weitergeleitet werden.
-4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
-
-In Ihrer DNS-Konfigurationseinrichtung können Sie nun testen, ob die Einrichtung funktioniert.
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### E-Mail-Zustellung testen
 
 1. Klicken Sie im oberen Bereich des Abschnitts **Email** (E-Mail) auf **Test email settings** (Einstellungen für Test-E-Mail). ![Test email settings (Einstellungen für Test-E-Mail)](/assets/images/enterprise/management-console/test-email.png)
@@ -79,6 +69,15 @@ In Ihrer DNS-Konfigurationseinrichtung können Sie nun testen, ob die Einrichtun
 4. Wenn die Test-E-Mail nicht zugestellt werden kann, führen Sie eine [Fehlerbehebung bei Ihren E-Mail-Einstellungen durch](#troubleshooting-email-delivery).
 5. Wenn die Test-E-Mail erfolgreich war, klicken Sie im unteren Bereich der Seite auf **Save settings** (Einstellungen speichern). ![Schaltfläche „Save settings“ (Einstellungen speichern)](/assets/images/enterprise/management-console/save-settings.png)
 6. Warten Sie auf den Abschluss der Konfigurationsausführung.![„Configuring your instance“ (Instanz konfigurieren)](/assets/images/enterprise/management-console/configuration-run.png)
+
+### DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren
+
+Wenn Sie E-Mail-Antworten auf Benachrichtigungen zulassen möchten, müssen Sie Ihre DNS-Einstellungen konfigurieren.
+
+1. Stellen Sie sicher, dass Port 25 auf der Instanz für Ihren SMTP-Server erreichbar ist.
+2. Erstellen Sie einen Datensatz, der auf `reply.[hostname]` verweist. In Abhängigkeit Ihres DNS-Providers und Ihrer Instanz-Host-Konfiguration können Sie ggf. stattdessen einen einzelnen A-Datensatz erstellen, der auf `*.[hostname]` verweist.
+3. Erstellen Sie einen MX-Datensatz, der auf `reply.[hostname]` verweist, sodass an diese Domain gesendete E-Mails zur Instanz weitergeleitet werden.
+4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ### Fehlerbehebung bei der E-Mail-Zustellung
 
@@ -127,7 +126,7 @@ Dieses Protokoll zeigt, dass die Appliance
 
 #### {% data variables.product.product_location %}-Protokolle überprüfen
 
-Es gibt zwei Protokolldateien (*/var/log/mail.log* und */var/log/mail-replies/metroplex.log*), die Sie auf Ihrer Instanz untersuchen können, falls Sie verifizieren müssen, dass Ihre eingehenden E-Mails funktionieren.
+If you need to verify that your inbound email is functioning, there are two log files that you can examine on your instance: To verify that */var/log/mail.log* and */var/log/mail-replies/metroplex.log*.
 
 */var/log/mail.log* verifiziert, dass die Nachrichten Ihren Server erreichen. Im Folgenden finden Sie ein Beispiel einer erfolgreichen E-Mail-Antwort:
 
@@ -151,18 +150,21 @@ Beachten Sie, dass der Client zunächst eine Verbindung herstellt und anschließ
 [2014-10-30T00:47:23.334 DEBUG (5284) #] Moving /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie => /data/user/incoming-mail/success
 ```
 
-Sie werden feststellen, dass `metroplex` die eingehende Nachricht empfängt, sie verarbeitet und die Datei anschließend an `/data/user/incoming-mail/success` sendet.
+You'll notice that `metroplex` catches the inbound message, processes it, then moves the file over to `/data/user/incoming-mail/success`.{% endif %}
 
 #### Ihre DNS-Einstellungen verifizieren
 
-Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine gültigen A-Datensatz (oder CNAME) und einen MX-Datensatz konfigurieren. Weitere Informationen finden Sie unter „[DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)“.
+Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine gültigen A-Datensatz (oder CNAME) und einen MX-Datensatz konfigurieren. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### Einstellungen der Firewall oder der AWS-Sicherheitsgruppe überprüfen
 
 Wenn sich {% data variables.product.product_location %} hinter einer Firewall befindet oder durch eine AWS-Sicherheitsgruppe betrieben wird, muss Port 25 auf allen E-Mail-Servern geöffnet sein, auf denen E-Mails an `reply@reply.[hostname]` gesendet werden.
 
 #### Support kontaktieren
+{% if enterpriseServerVersions contains currentVersion %}
 If you're still unable to resolve the problem, contact
-
 {% data variables.contact.contact_ent_support %}. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
+{% elsif currentVersion == "github-ae@latest" %}
+You can contact
+{% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)."
 {% endif %}

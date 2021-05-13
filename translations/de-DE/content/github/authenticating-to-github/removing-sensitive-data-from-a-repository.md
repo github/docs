@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Der Befehl `git filter-branch` und BFG Repo-Cleaner schreiben den Verlauf Deines Repositorys neu, was die SHAs verändert für bestehende und davon abhängige Commits, die Du veränderst. Geänderte Commit-SHAs können sich auf offene Pull Requests in Deinem Repository auswirken. Wir raten dringend, alle offenen Pull Requests zusammenzuführen oder zu schließen, bevor Du Dateien aus Deinem Repository entfernst.
@@ -28,7 +31,7 @@ In diesem Artikel erfährst Du, wie Du Commits mit vertraulichen Daten für alle
 
 #### Benutze BFG
 
-[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) ist ein von der Open-Source-Community entwickeltes und verwaltetes Tool. Für das Löschen unerwünschter Daten ist es eine schnellere und einfachere Alternative zum Befehl `git filter-branch`. Um beispielsweise Deine Datei mit vertraulichen Daten zu entfernen und Deinen letzten Commit unberührt zu lassen, führe folgenden Befehl aus:
+[BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) ist ein von der Open-Source-Community entwickeltes und verwaltetes Tool. Für das Löschen unerwünschter Daten ist es eine schnellere und einfachere Alternative zum Befehl `git filter-branch`. Um beispielsweise Deine Datei mit vertraulichen Daten zu entfernen und Deinen letzten Commit unberührt zu lassen, führe folgenden Befehl aus:
 
 ```shell
 $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
@@ -46,7 +49,7 @@ After the sensitive data is removed, you must force push your changes to {% data
 $ git push --force
 ```
 
-Ausführliche Informationen zum Download und zur Verwendung von [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) findest Du in seiner Dokumentation.
+Ausführliche Informationen zum Download und zur Verwendung von [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) findest Du in seiner Dokumentation.
 
 #### Mit „filter-branch“
 

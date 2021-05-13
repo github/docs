@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}
@@ -16,8 +18,10 @@ versions:
 {% endnote %}
 
 プルリクエスト中で提案された変更は、Files changed（変更されたファイル）タブで表示できます。
-
-![プルリクエストの変更されたファイルタブ](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% if currentVersion ver_lt "github-enterprise@3.0" %}
+![プルリクエストの変更されたファイルタブ](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
+![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% endif %}
 
 コミットそのものを見るよりは、プルリクエストがマージされた際に提案された変更がファイルに現れるのを見ることができます。 Files changed（変更されたファイル）タブ内では、ファイルはアルファベット順に表示されます。 ファイルへの追加は緑で表示され、先頭に`+`サインが付きます。削除されたコンテンツは赤で表示され、先頭に`-`サインが付きます。
 

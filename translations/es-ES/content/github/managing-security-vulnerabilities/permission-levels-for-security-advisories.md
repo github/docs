@@ -26,7 +26,7 @@ versions:
 | Cerrar el borrador de la asesoría de seguridad                                                                                                                                                                                                                                                              |                       | X                         |
 | Publicar la asesoría de seguridad (consulta la sección "[Publicar una asesoría de seguridad](/github/managing-security-vulnerabilities/publishing-a-security-advisory)")                                                                                                                                    |                       | X                         |
 
-### Further reading
+### Leer más
 
 - "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)"
 - "[Colaborar en una bifurcación privada temporal para resolver una vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)"

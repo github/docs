@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 项目板中的自动化不适用于存档的项目板卡。 例如，如果您关闭项目板存档中的议题，存档的卡不会自动移到 "Done"（完成）列。 从项目板存档恢复卡时，该卡将回到存档它的列。

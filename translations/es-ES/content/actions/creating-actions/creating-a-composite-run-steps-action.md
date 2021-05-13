@@ -1,15 +1,19 @@
 ---
 title: Crear una acción para pasos de ejecución compuestos
-intro: 'En esta guía aprenderás cómo crear una acción para los pasos de ejecución compuestos.'
+intro: En esta guía aprenderás cómo crear una acción para los pasos de ejecución compuestos.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
@@ -65,12 +69,12 @@ Antes de que comiences, crearás un repositorio de {% data variables.product.pro
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -122,7 +126,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

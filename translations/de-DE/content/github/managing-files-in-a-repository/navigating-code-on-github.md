@@ -5,11 +5,13 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Über Code-Navigation auf {% data variables.product.prodname_dotcom %}
 
-Code-Navigationsfunktionen verwenden die [Semantik](https://github.com/github/semantic) der Open-Source-Bibliothek. Die folgenden Sprachen werden unterstützt:
+Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Die folgenden Sprachen werden unterstützt:
 - C#
 - CodeQL
 - Go

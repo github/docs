@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Erwartetes Verhalten bei der Anzeige der Commit-Details über die Zeitleiste

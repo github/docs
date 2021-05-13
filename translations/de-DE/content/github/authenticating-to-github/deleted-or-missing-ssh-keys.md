@@ -5,6 +5,8 @@ redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
+topics:
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %} löscht automatisch inaktive SSH-Schlüssel, um Konten zu schützen, beispielsweise, wenn jemand seine Arbeitsstelle wechselt oder seinen Computer verliert.

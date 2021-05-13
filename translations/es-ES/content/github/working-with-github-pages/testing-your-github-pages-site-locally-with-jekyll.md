@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 Cualquier persona con permisos de lectura para un repositorio puede probar un sitio de {% data variables.product.prodname_pages %} localmente.
@@ -28,6 +30,7 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
+3. Run `bundle install`.
 3. Ejecuta tu sitio Jekyll de forma local.
   ```shell
   $ bundle exec jekyll serve
@@ -53,6 +56,6 @@ Jekyll es un proyecto de código abierto activo que se actualiza de manera frecu
     - Si instalaste Bundler, ejecuta `bundle update github-pages`.
     - Si no tienes instalado Bundler, ejecuta `gem update github-pages`.
 
-### Further reading
+### Leer más
 
 - [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) en la documentación de Jekyll

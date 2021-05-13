@@ -3,6 +3,8 @@ title: 搜索 GitHub Marketplace
 intro: '您可以搜索 {% data variables.product.prodname_marketplace %} 上可用的应用程序和操作。'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub search
 ---
 
 ### 关于搜索 {% data variables.product.prodname_marketplace %}

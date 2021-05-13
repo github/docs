@@ -7,11 +7,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -55,7 +61,7 @@ Docker Hub 需要的 `build-push-action` 选项包括：
 * `repository`：`DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY` 格式的 Docker Hub 仓库。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -87,13 +93,13 @@ jobs:
 
 {% data variables.product.prodname_registry %} 需要的 `build-push-action` 选项包括：
 
-* `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[GitHub 操作的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
+* `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[GitHub Actions 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 * `password`：您可以使用自动生成的 `GITHUB_TOKEN` 密码作为密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 * `registry`：必须设置为 `docker.pkg.github.com`。
 * `repository`：必须以 `OWNER/REPOSITORY/IMAGE_NAME` 格式设置。 例如，对于 `http://github.com/octo-org/octo-repo` 上名为 `octo-image` stored on {% data variables.product.prodname_dotcom %} 的映像，`repository` 选项应设置为 `octo-org/octo-repo/octo-image`。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -126,7 +132,7 @@ jobs:
 下面的示例工作流程使用前面章节中的 `build-push-action` 步骤（“[发布映像到 Docker Hub](#publishing-images-to-docker-hub)”和“[发布映像到 {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)”）来创建同时推送到两个注册表的单一工作流程。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:

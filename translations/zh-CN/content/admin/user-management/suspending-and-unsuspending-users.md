@@ -10,6 +10,8 @@ redirect_from:
 intro: '如果用户离开公司或者调动到公司的其他部门，您应当移除或修改他们访问 {% data variables.product.product_location %} 的能力。'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 如果员工从公司离职，您可以暂停他们的 {% data variables.product.prodname_ghe_server %} 帐户，打开您的 {% data variables.product.prodname_enterprise %} 许可中的用户许可，同时保存他们创建的议题、评论、仓库、Gist 及其他数据。 被挂起的用户既无法登录您的实例，也无法推送或拉取代码。

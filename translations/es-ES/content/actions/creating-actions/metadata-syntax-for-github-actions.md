@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
@@ -56,7 +58,7 @@ inputs:
 
 Cuando especificas una entrada para una acción en un archivo de flujo de trabajo o usas un valor de entrada predeterminado, {% data variables.product.prodname_dotcom %} crea una variable de entorno para la entrada con el nombre `INPUT_<VARIABLE_NAME>`. La variable de entorno creada convierte los nombre de entrada en letras mayúscula y reemplaza los espacios con los caracteres `_`.
 
-Por ejemplo, si un flujo de trabajo definió las entradas numOctocats y octocatEyeColor, el código de acción podría leer los valores de las entradas usando las variables de entorno `INPUT_NUMOCTOCATS` y `INPUT_OCTOCATEYECOLOR`.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -73,6 +75,10 @@ Por ejemplo, si un flujo de trabajo definió las entradas numOctocats y octocatE
 #### `inputs.<input_id>.default`
 
 **Opcional** Una `string` que representa el valor predeterminado. El valor predeterminado se usa cuando un parámetro de entrada no se especifica en un archivo de flujo de trabajo.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs (salidas)`
 
@@ -145,7 +151,7 @@ runs:
 
 #### `pre`
 
-**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. The application specified with the [`using`](#runsusing) syntax will execute this file. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
 
 En este ejemplo, la acción `pre:` ejecuta un script llamado `setup.js`:
 
@@ -168,9 +174,9 @@ En este ejemplo, `cleanup.js` se ejecuta únicamente en los ejecutores basados e
   pre-if: 'runner.os == linux'
 ```
 
-#### `post`
+#### `publicación`
 
-**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 En este ejemplo, la acción `post:` ejecuta un script llamado `cleanup.js`:
 
@@ -246,7 +252,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 ##### `runs.steps[*].env`
 
-**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar las variables de ambiente que se almacenan en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
+**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar la variable de ambiente que se almacena en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
 
 ##### `runs.steps[*].working-directory`
 
@@ -280,7 +286,7 @@ runs:
 
 **Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `pre-entrypoint:` siempre se ejecuta predeterminadamente pero la puedes invalidar utilizando [`pre-if`](#pre-if).
 
-La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 En este ejemplo, la acción `pre.entrypoint:` ejecuta un script llamado `setup.sh`:
 
@@ -296,7 +302,7 @@ runs:
 
 #### `runs.image`
 
-**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local a tu repositorio, utiliza una ruta relativa a tu archivo de metadatos de la acción. La aplicación `docker` ejecutará este archivo.
+**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local de tu repositorio, el archivo debe nombrarse como `Dockerfile` y debes utilizar una ruta relativa a tu archivo de metadatos de acción. La aplicación `docker` ejecutará este archivo.
 
 #### `runs.env`
 
@@ -370,392 +376,391 @@ El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar.
 
 <table>
 <tr>
-<td>actividad</td>
-<td>radiodifusión</td>
-<td>alerta-círculo</td>
-<td>alerta-octágono</td>
+<td>activity</td>
+<td>airplay</td>
+<td>alert-circle</td>
+<td>alert-octagon</td>
 </tr>
 <tr>
-<td>alerta-triángulo</td>
-<td>alinear-centro</td>
-<td>alinear-justificar</td>
-<td>alinear-izquierda</td>
+<td>alert-triangle</td>
+<td>align-center</td>
+<td>align-justify</td>
+<td>align-left</td>
 </tr>
 <tr>
-<td>alinear-derecha</td>
-<td>ancla</td>
-<td>apertura</td>
-<td>archivo</td>
+<td>align-right</td>
+<td>anchor</td>
+<td>aperture</td>
+<td>archive</td>
 </tr>
 <tr>
-<td>flecha-abajo-círculo</td>
-<td>flecha-abajo-izquierda</td>
-<td>flecha-abajo-derecha</td>
-<td>flecha-abajo</td>
+<td>arrow-down-circle</td>
+<td>arrow-down-left</td>
+<td>arrow-down-right</td>
+<td>arrow-down</td>
 </tr>
 <tr>
-<td>flecha-izquierda-círculo</td>
-<td>flecha-izquierda</td>
-<td>flecha-derecha-círculo</td>
-<td>flecha-derecha</td>
+<td>arrow-down</td>
+<td>arrow-left</td>
+<td>arrow-left</td>
+<td>arrow-right</td>
 </tr>
 <tr>
-<td>flecha-arriba-círculo</td>
-<td>flecha-arriba-izquierda</td>
-<td>flecha-arriba-derecha</td>
-<td>flecha-arriba</td>
+<td>arrow-up-circle</td>
+<td>arrow-up-left</td>
+<td>arrow-up-right</td>
+<td>arrow-up</td>
 </tr>
 <tr>
-<td>en-cartel</td>
-<td>premio</td>
-<td>barra-cuadro-2</td>
-<td>barra-cuadro</td>
+<td>at-sign</td>
+<td>award</td>
+<td>bar-chart-2</td>
+<td>bar-chart</td>
 </tr>
 <tr>
-<td>batería-carga</td>
-<td>batería</td>
-<td>campana-apagado</td>
-<td>campana</td>
+<td>battery-charging</td>
+<td>battery</td>
+<td>bell-off</td>
+<td>bell</td>
 </tr>
 <tr>
 <td>bluetooth</td>
-<td>negrita</td>
-<td>libro-abierto</td>
-<td>libro</td>
+<td>bold</td>
+<td>book-open</td>
+<td>book</td>
 </tr>
 <tr>
-<td>marcador</td>
-<td>caja</td>
-<td>maletín</td>
-<td>calendario</td>
+<td>bookmark</td>
+<td>box</td>
+<td>briefcase</td>
+<td>calendar</td>
 </tr>
 <tr>
-<td>cámara-apagado</td>
-<td>cámara</td>
-<td>molde</td>
-<td>verificar-círculo</td>
+<td>camera-off</td>
+<td>camera</td>
+<td>cast</td>
+<td>check-circle</td>
 </tr>
 <tr>
-<td>verificar-cuadrado</td>
-<td>verificar</td>
-<td>comilla angular-abajo</td>
-<td>comilla angular-izquierda</td>
+<td>check-square</td>
+<td>check</td>
+<td>chevron-down</td>
+<td>chevron-left</td>
 </tr>
 <tr>
-<td>comillas angulares-derehca</td>
-<td>comilla angular- arriba</td>
-<td>comillas angulares-abajo</td>
-<td>comillas angulares-izquierda</td>
+<td>chevron-right</td>
+<td>chevron-up</td>
+<td>chevrons-down</td>
+<td>chevrons-left</td>
 </tr>
 <tr>
-<td>comillas angulares-derecha</td>
-<td>comillas angulares- arriba</td>
-<td>círculo</td>
-<td>portapapeles</td>
+<td>chevrons-right</td>
+<td>chevrons-up</td>
+<td>circle</td>
+<td>clipboard</td>
 </tr>
 <tr>
-<td>reloj</td>
-<td>nube-llovizna</td>
-<td>nube-rayo</td>
-<td>nube-apagado</td>
+<td>clock</td>
+<td>cloud-drizzle</td>
+<td>cloud-lightning</td>
+<td>cloud-off</td>
 </tr>
 <tr>
-<td>nube-lluvia</td>
-<td>nube-nieve</td>
-<td>nube</td>
-<td>código</td>
+<td>cloud-rain</td>
+<td>cloud-snow</td>
+<td>cloud</td>
+<td>code</td>
 </tr>
 <tr>
-<td>comando</td>
-<td>brújula</td>
-<td>copiar</td>
-<td>ángulo-abajo-izquierdo</td>
+<td>command</td>
+<td>compass</td>
+<td>copy</td>
+<td>corner-down-left</td>
 </tr>
 <tr>
-<td>ángulo-abajo-derecho</td>
-<td>ángulo-izquierdo-abajo</td>
-<td>ángulo-arriba-izquierdo</td>
-<td>ángulo-derecho-abajo</td>
+<td>corner-down-right</td>
+<td>corner-left-down</td>
+<td>corner-left-up</td>
+<td>corner-right-down</td>
 </tr>
 <tr>
-<td>ángulo-derecho-arriba</td>
-<td>ángulo-arriba-izquierdo</td>
-<td>ángulo-arriba-derecha</td>
+<td>corner-right-up</td>
+<td>corner-up-left</td>
+<td>corner-up-right</td>
 <td>cpu</td>
 </tr>
 <tr>
-<td>tarjeta-de-crédito</td>
-<td>cortar</td>
-<td>punto de mira</td>
-<td>base de datos</td>
+<td>credit-card</td>
+<td>crop</td>
+<td>crosshair</td>
+<td>database</td>
 </tr>
 <tr>
-<td>eliminar</td>
-<td>disco</td>
-<td>dólar-signo</td>
-<td>descargar-nube</td>
+<td>delete</td>
+<td>disc</td>
+<td>dollar-sign</td>
+<td>download-cloud</td>
 </tr>
 <tr>
-<td>descargar</td>
-<td>gota</td>
-<td>editar-2</td>
-<td>editar-3</td>
+<td>download</td>
+<td>droplet</td>
+<td>edit-2</td>
+<td>edit-3</td>
 </tr>
 <tr>
-<td>editar</td>
-<td>externo-enlace</td>
-<td>desviar la mirada</td>
-<td>ojo</td>
+<td>edit</td>
+<td>external-link</td>
+<td>eye-off</td>
+<td>eye</td>
 </tr>
 <tr>
 <td>facebook</td>
-<td>avance-rápido</td>
-<td>pluma</td>
-<td>archivo-menos</td>
+<td>fast-forward</td>
+<td>feather</td>
+<td>file-minus</td>
 </tr>
 <tr>
-<td>archivo-más</td>
-<td>archivo-texto</td>
-<td>archivo</td>
-<td>película</td>
+<td>file-plus</td>
+<td>file-text</td>
+<td>file</td>
+<td>film</td>
 </tr>
 <tr>
-<td>filtro</td>
-<td>bandera</td>
-<td>carpeta-menos</td>
-<td>carpeta-más</td>
+<td>filter</td>
+<td>flag</td>
+<td>folder-minus</td>
+<td>folder-plus</td>
 </tr>
 <tr>
-<td>carpeta</td>
-<td>obsequio</td>
-<td>git-rama</td>
-<td>git-confirmar</td>
+<td>folder</td>
+<td>gift</td>
+<td>git-branch</td>
+<td>git-commit</td>
 </tr>
 <tr>
-<td>git-fusionar</td>
-<td>git-solicitud-extracción</td>
-<td>globo</td>
-<td>cuadrícula</td>
+<td>git-merge</td>
+<td>git-pull-request</td>
+<td>globe</td>
+<td>grid</td>
 </tr>
 <tr>
-<td>disco-duro</td>
+<td>hard-drive</td>
 <td>hash</td>
-<td>auriculares</td>
-<td>corazón</td>
+<td>headphones</td>
+<td>heart</td>
 </tr>
 <tr>
-<td>ayuda-círculo</td>
-<td>hogar</td>
-<td>imagen</td>
-<td>bandeja de entrada</td>
+<td>help-circle</td>
+<td>home</td>
+<td>image</td>
+<td>inbox</td>
 </tr>
 <tr>
 <td>info</td>
-<td>cursiva</td>
-<td>capas</td>
-<td>diseño</td>
+<td>italic</td>
+<td>layers</td>
+<td>layout</td>
 </tr>
 <tr>
-<td>vida-boya</td>
-<td>enlace-2</td>
-<td>enlace</td>
-<td>lista</td>
+<td>life-buoy</td>
+<td>link-2</td>
+<td>link</td>
+<td>list</td>
 </tr>
 <tr>
-<td>cargador</td>
-<td>bloquear</td>
-<td>iniciar-sesión</td>
-<td>cerrar-sesión</td>
+<td>loader</td>
+<td>lock</td>
+<td>log-in</td>
+<td>log-out</td>
 </tr>
 <tr>
-<td>correo</td>
-<td>asignar-pin</td>
-<td>asignar</td>
-<td>maximizar-2</td>
+<td>mail</td>
+<td>map-pin</td>
+<td>map</td>
+<td>maximize-2</td>
 </tr>
 <tr>
-<td>maximizar
-</td>
-<td>menú</td>
-<td>mensaje-círculo</td>
-<td>mensaje-cuadrado</td>
+<td>maximize</td>
+<td>menu</td>
+<td>message-circle</td>
+<td>message-square</td>
 </tr>
 <tr>
-<td>mic-apagado</td>
+<td>mic-off</td>
 <td>mic</td>
-<td>minimizar-2</td>
-<td>minimizar</td>
+<td>minimize-2</td>
+<td>minimize</td>
 </tr>
 <tr>
-<td>menos-círculo</td>
-<td>menos-cuadrado</td>
-<td>menos</td>
+<td>minus-circle</td>
+<td>minus-square</td>
+<td>minus</td>
 <td>monitor</td>
 </tr>
 <tr>
-<td>luna</td>
-<td>más-horizontal</td>
-<td>más-vertical</td>
-<td>mover</td>
+<td>moon</td>
+<td>more-horizontal</td>
+<td>more-vertical</td>
+<td>move</td>
 </tr>
 <tr>
-<td>música</td>
-<td>navegación-2</td>
-<td>navegación</td>
-<td>octágono</td>
+<td>music</td>
+<td>navigation-2</td>
+<td>navigation</td>
+<td>octagon</td>
 </tr>
 <tr>
-<td>paquete</td>
-<td>sujetapapeles</td>
-<td>pausa-círculo</td>
-<td>pausar</td>
+<td>package</td>
+<td>paperclip</td>
+<td>pause-circle</td>
+<td>pause</td>
 </tr>
 <tr>
-<td>porcentaje</td>
-<td>llamada-telefónica</td>
-<td>teléfono-transferencia</td>
-<td>teléfono-entrante</td>
+<td>percent</td>
+<td>phone-call</td>
+<td>phone-forwarded</td>
+<td>phone-incoming</td>
 </tr>
 <tr>
-<td>teléfono-perdido</td>
-<td>teléfono-apagado</td>
-<td>teléfono-salida</td>
-<td>teléfono</td>
+<td>phone-missed</td>
+<td>phone-off</td>
+<td>phone-outgoing</td>
+<td>phone</td>
 </tr>
 <tr>
-<td>gráfico-circular</td>
-<td>reproducir-círculo</td>
-<td>reproducir</td>
-<td>más-círculo</td>
+<td>pie-chart</td>
+<td>play-circle</td>
+<td>play</td>
+<td>plus-circle</td>
 </tr>
 <tr>
-<td>más-cuadrado</td>
-<td>más</td>
-<td>bolsillo</td>
-<td>potencia</td>
+<td>plus-square</td>
+<td>plus</td>
+<td>pocket</td>
+<td>power</td>
 </tr>
 <tr>
-<td>impresora</td>
+<td>printer</td>
 <td>radio</td>
-<td>actualizar-ccw</td>
-<td>actualizar-cw</td>
+<td>refresh-ccw</td>
+<td>refresh-cw</td>
 </tr>
 <tr>
-<td>repetir</td>
-<td>rebobinar</td>
-<td>rotar-ccw</td>
-<td>rotar-cw</td>
+<td>repeat</td>
+<td>rewind</td>
+<td>rotate-ccw</td>
+<td>rotate-cw</td>
 </tr>
 <tr>
 <td>rss</td>
-<td>guardar</td>
-<td>tijeras</td>
-<td>buscar</td>
+<td>save</td>
+<td>scissors</td>
+<td>search</td>
 </tr>
 <tr>
-<td>enviar</td>
-<td>servidor</td>
-<td>parámetros</td>
-<td>compartir-2</td>
+<td>send</td>
+<td>server</td>
+<td>settings</td>
+<td>share-2</td>
 </tr>
 <tr>
-<td>compartir</td>
-<td>escudo-apagar</td>
-<td>escudo</td>
-<td>bolsa-de-compras</td>
+<td>share</td>
+<td>shield-off</td>
+<td>shield</td>
+<td>shopping-bag</td>
 </tr>
 <tr>
-<td>carro-de-compras</td>
-<td>aleatorio</td>
-<td>barra lateral</td>
-<td>omitir-atrás</td>
+<td>shopping-cart</td>
+<td>shuffle</td>
+<td>sidebar</td>
+<td>skip-back</td>
 </tr>
 <tr>
-<td>omitir-adelante</td>
-<td>barra</td>
-<td>deslizadores</td>
+<td>skip-forward</td>
+<td>slash</td>
+<td>sliders</td>
 <td>smartphone</td>
 </tr>
 <tr>
-<td>parlante</td>
-<td>cuadrado</td>
-<td>estrella</td>
-<td>detener-círculo</td>
+<td>speaker</td>
+<td>square</td>
+<td>star</td>
+<td>stop-circle</td>
 </tr>
 <tr>
-<td>sol</td>
-<td>amanecer</td>
-<td>atardecer</td>
+<td>sun</td>
+<td>sunrise</td>
+<td>sunset</td>
 <td>tablet</td>
 </tr>
 <tr>
-<td>etiqueta</td>
-<td>destino</td>
+<td>tag</td>
+<td>target</td>
 <td>terminal</td>
-<td>termómetro</td>
+<td>thermometer</td>
 </tr>
 <tr>
-<td>pulgares-abajo</td>
-<td>pulgares-arriba</td>
-<td>alternar-izquierda</td>
-<td>alternar-derecha</td>
+<td>thumbs-down</td>
+<td>thumbs-up</td>
+<td>toggle-left</td>
+<td>toggle-right</td>
 </tr>
 <tr>
-<td>papelera-2</td>
-<td>papelera</td>
-<td>tendencia-abajo</td>
-<td>tendencia-arriba</td>
+<td>trash-2</td>
+<td>trash</td>
+<td>trending-down</td>
+<td>trending-up</td>
 </tr>
 <tr>
-<td>triángulo</td>
-<td>camión</td>
-<td>TV</td>
+<td>triangle</td>
+<td>truck</td>
+<td>tv</td>
 <td>type</td>
 </tr>
 <tr>
-<td>paraguas</td>
-<td>subrayar</td>
-<td>desbloquear</td>
-<td>cargar-nube</td>
+<td>umbrella</td>
+<td>underline</td>
+<td>unlock</td>
+<td>upload-cloud</td>
 </tr>
 <tr>
-<td>cargar</td>
-<td>usuario-comprobar</td>
-<td>usuario-menos</td>
-<td>usuario-más</td>
+<td>upload</td>
+<td>user-check</td>
+<td>user-minus</td>
+<td>user-plus</td>
 </tr>
 <tr>
-<td>usuario-x</td>
-<td>usuario</td>
+<td>user-x</td>
+<td>user</td>
 <td>users</td>
-<td>video-apagar</td>
+<td>video-off</td>
 </tr>
 <tr>
 <td>video</td>
-<td>correo de voz</td>
-<td>volumen-1</td>
-<td>volumen-2</td>
+<td>voicemail</td>
+<td>volume-1</td>
+<td>volume-2</td>
 </tr>
 <tr>
-<td>volumen-x</td>
-<td>volumen</td>
-<td>observar</td>
-<td>wifi-apagar</td>
+<td>volume-x</td>
+<td>volume</td>
+<td>watch</td>
+<td>wifi-off</td>
 </tr>
 <tr>
 <td>wifi</td>
-<td>viento</td>
-<td>x-círculo</td>
-<td>x-cuadrado</td>
+<td>wind</td>
+<td>x-circle</td>
+<td>x-square</td>
 </tr>
 <tr>
 <td>x</td>
-<td>destruir-apagado</td>
-<td>destruir</td>
-<td>acercarse</td>
+<td>zap-off</td>
+<td>zap</td>
+<td>zoom-in</td>
 </tr>
 <tr>
-<td>alejarse</td>
+<td>zoom-out</td>
 <td></td>
 <td></td>
 <td></td>

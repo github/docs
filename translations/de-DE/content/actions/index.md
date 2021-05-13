@@ -10,34 +10,21 @@ featuredLinks:
     - /actions/learn-github-actions
     - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
-  gettingStarted:
-    - /actions/managing-workflow-runs
-    - /actions/hosting-your-own-runners
   guideCards:
     - /actions/guides/setting-up-continuous-integration-using-workflow-templates
     - /actions/guides/publishing-nodejs-packages
     - /actions/guides/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
-    - /actions/reference/events-that-trigger-workflows
     - /actions/learn-github-actions
+    - /actions/reference/events-that-trigger-workflows
     - /actions/reference/context-and-expression-syntax-for-github-actions
-    - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
+    - /actions/reference/encrypted-secrets
 changelog:
-  - 
-    title: Workflow visualization
-    date: '2020-12-08'
-    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
-  - 
-    title: Removing set-env and add-path commands on November 16
-    date: '2020-11-09'
-    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
-  - 
-    title: Ubuntu-latest workflows will use Ubuntu-20.04
-    date: '2020-10-29'
-    href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
-product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+  label: actions
+  prefix: 'GitHub Actions: '
+product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -49,6 +36,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %} -->
@@ -56,6 +44,7 @@ versions:
 <!-- {% link_with_intro /learn-github-actions %} -->
 <!-- {% link_with_intro /managing-workflow-runs %} -->
 <!-- {% link_with_intro /creating-actions %} -->
+<!-- {% link_with_intro /using-github-hosted-runners %} -->
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
@@ -70,10 +59,10 @@ versions:
   </div>
 
   <div class="d-flex flex-wrap gutter">
-    {% render 'code-example-card' for actionsCodeExamples as example %}
+    {% render code-example-card for actionsCodeExamples as example %}
   </div>
 
-  <button class="js-filter-card-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
+  <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>
 
   <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>

@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -29,7 +32,7 @@ Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se a
 
 * `autoalojado`: Etiqueta por defecto aplicada a todos los ejecutores autoalojados.
 * `linux`, `windows`, o `macOS`: Se aplican dependiendo del sistema operativo.
-* `x86`, `x64`, `ARM`, o `ARM64`: Se aplican dependiendo de la arquitectura del hardware.
+* `x64`, `ARM`, or `ARM64`: Se aplican dependiendo de la arquitectura del hardware.
 
 Puedes utilizar el YAML de tu flujo de trabajo para mandar jobs a las diferentes combinaciones de estas etiquetas. En este ejemplo, un ejecutor auto-hospedado que empate con las tres etiquetas será elegible para ejecutar el job:
 
@@ -64,8 +67,11 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 ### Precedencia de enrutamiento para los ejecutores auto-hospedados
 
-Si utilizas ejecutores tanto a nivel de repositorio como a nivel de organización, {% data variables.product.prodname_dotcom %} sigue un orden de precedencia cuando enruta los jobs hacia los ejecutores auto-hospedados:
+Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-1. Se procesan las etiquetas de `runs-on` del job. Entonces, {% data variables.product.prodname_dotcom %} intenta ubicar un ejecutor que coincida con los requisitos de la etiqueta:
-2. El job se envía a un ejecutor a nivel de repositorio que coincida con las etiquetas del mismo. Si no hay un ejecutor a nivel de repositorio disponible (ya sea que esté ocupado, sin conexión, o no tenga etiquetas que coincidan):
-3. El job se envía a un ejecutor de nivel organizacional que coincida con las etiquetas del mismo. Si hay un ejecutor de nivel organizacional disponible, el la solicitud del job falla con un error.
+1. {% data variables.product.prodname_dotcom %} busca primero un ejecutor a nivel de repositorio, luego a nivel de organización {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}y luego a nivel de empresa{% endif %}.
+2. El job se envía entonces a el ejecutor que coincida primero y que se encuentre en línea e inactivo.
+   - Si los ejecutores en línea coincidentes están ocupados, el job se pondrá en cola con la cantidad máxima de ejecutores coincidentes en línea.
+   - Si todos los ejecutores coincidentes están desconectados, el job se pondrá en cola a nivel de la cantidad máxima de ejecutores coincidentes desconectados.
+   - Si no hay ejecutores coincidentes en ningún nivel, el job fallará.
+   - Si el job permanece en cola por más de 24 horas, este fallará.

@@ -1,6 +1,6 @@
 ---
 title: 管理对用户帐户项目板的访问
-intro: '作为项目板所有者，您可以添加或删除协作者，以及自定义他们对项目板的权限。'
+intro: 作为项目板所有者，您可以添加或删除协作者，以及自定义他们对项目板的权限。
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization/
   - /articles/managing-access-to-your-user-account-s-project-boards
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 协作者是对您拥有的项目板具有访问权限的个人。 协作者的权限默认为读取权限。 更多信息请参阅“[用户项目板的权限级别](/articles/permission-levels-for-user-owned-project-boards)”。

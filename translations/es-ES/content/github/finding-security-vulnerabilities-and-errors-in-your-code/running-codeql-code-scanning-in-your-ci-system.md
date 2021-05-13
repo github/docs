@@ -3,11 +3,10 @@ title: Ejecurar el escaneo de código de CodeQL en tu sistema de IC
 shortTitle: Ejecución en tu IC
 intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_runner %} para llevar a cabo el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en un sistema de integración contínua de terceros.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
@@ -24,24 +23,24 @@ Si utilizas un sistema de integración contínua o de desliegue/entrega contínu
 
 {% data reusables.code-scanning.about-code-scanning %} Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
 
-Puedes utilizar el {% data variables.product.prodname_codeql_runner %} para ejecutar el {% data variables.product.prodname_code_scanning %} en el código que estás procesando en un sistema de integración continua (IC) de terceros. Como alternativa, puedes utilizar {% data variables.product.prodname_actions %} para ejecutar el {% data variables.product.prodname_code_scanning %} en {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Habilitar el {% data variables.product.prodname_code_scanning %} para un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)".
+Puedes utilizar el {% data variables.product.prodname_codeql_runner %} para ejecutar el {% data variables.product.prodname_code_scanning %} en el código que estás procesando en un sistema de integración continua (IC) de terceros. Como alternativa, puedes utilizar {% data variables.product.prodname_actions %} para ejecutar el {% data variables.product.prodname_code_scanning %} en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
-El {% data variables.product.prodname_codeql_runner %} es una herramienta de línea de comandos que ejecuta un análisis de {% data variables.product.prodname_codeql %} en un control de un repositorio de {% data variables.product.prodname_dotcom %}. Agregas el ejecutor a tu sistema de terceros y luego lo llamas para que analice el código y cargue los resultados a {% data variables.product.product_location %}. Estos resultados se muestran como alertas del {% data variables.product.prodname_code_scanning %} en el repositorio.
+El {% data variables.product.prodname_codeql_runner %} es una herramienta de línea de comandos que ejecuta un análisis de {% data variables.product.prodname_codeql %} en un control de un repositorio de {% data variables.product.prodname_dotcom %}. Agregas el ejecutor a tu sistema de terceros y luego lo llamas para que analice el código y cargue los resultados a {% data variables.product.product_name %}. Estos resultados se muestran como alertas del {% data variables.product.prodname_code_scanning %} en el repositorio.
 
 {% note %}
 
 **Notas:**
 {% if currentVersion == "free-pro-team@latest" %}
-* The {% data variables.product.prodname_codeql_runner %} uses the {% data variables.product.prodname_codeql %} CLI to analyze code and therefore has the same license conditions. Se puede utilizar gratuitamente en los repositorios que mantiene {% data variables.product.prodname_dotcom_the_website %}, y está disponible para utilizarse en aquellos que pertenecen a los clientes con una licencia de {% data variables.product.prodname_advanced_security %}. Para obtener información, consulta la sección "[Términos y condiciones del {% data variables.product.prodname_codeql %} de {% data variables.product.product_name %}](https://securitylab.github.com/tools/codeql/license)" y [CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+* El {% data variables.product.prodname_codeql_runner %} utiliza el CLI de {% data variables.product.prodname_codeql %} para analizar el código y, por lo tanto, tiene las mismas condiciones de licencia. Se puede utilizar gratuitamente en los repositorios que mantiene {% data variables.product.prodname_dotcom_the_website %}, y está disponible para utilizarse en aquellos que pertenecen a los clientes con una licencia de {% data variables.product.prodname_advanced_security %}. Para obtener información, consulta la sección "[Términos y condiciones del {% data variables.product.prodname_codeql %} de {% data variables.product.product_name %}](https://securitylab.github.com/tools/codeql/license)" y [CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% else %}
-* The {% data variables.product.prodname_codeql_runner %} is available to customers with an {% data variables.product.prodname_advanced_security %} license.
+* El {% data variables.product.prodname_codeql_runner %} se encuentra disponible para los clientes con una licencia de {% data variables.product.prodname_advanced_security %}.
 {% endif %}
-* The {% data variables.product.prodname_codeql_runner %} shouldn't be confused with the {% data variables.product.prodname_codeql %} CLI. The {% data variables.product.prodname_codeql %} CLI is an interactive command-line interface that lets you create {% data variables.product.prodname_codeql %} databases for security research and run {% data variables.product.prodname_codeql %} queries. For more information, see "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
+* El {% data variables.product.prodname_codeql_runner %} no debe confundirse con el CLI de {% data variables.product.prodname_codeql %}. El CLI de {% data variables.product.prodname_codeql %}es una interface de línea de comandos que te permite crear bases de datos de {% data variables.product.prodname_codeql %} para la investigación de seguridad y ejecutar consultas de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% endnote %}
 
 ### Descargar el {% data variables.product.prodname_codeql_runner %}
 
-Puedes descargar el {% data variables.product.prodname_codeql_runner %} desde https://github.com/github/codeql-action/releases. En algunos sistemas operativos, puede que necesites cambiar permisos para el archivo de descarga antes de que lo puedas ejecutar.
+Puedes descargar el {% data variables.product.prodname_codeql_runner %} desde https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. En algunos sistemas operativos, puede que necesites cambiar permisos para el archivo de descarga antes de que lo puedas ejecutar.
 
 En Linux:
 
@@ -60,42 +59,45 @@ En Windows, el archivo `codeql-runner-win.exe` habitualmente no necesita que se 
 
 ### Agregar el {% data variables.product.prodname_codeql_runner %} a tu sistema de IC
 
-Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from GitHub, for example:
+Una vez que descargas el {% data variables.product.prodname_codeql_runner %} y verificas que puede ejecutarse, debes poner el ejecutor disponible para cada servidor de IC que pretendas utilizar para el {% data variables.product.prodname_code_scanning %}. Por ejemplo, podrías configurar cada servidor para que copie el ejecutor desde una ubicación interna y central. Como alternativa, puedes utilizar la API de REST para obtener el ejecutor directamente de {% data variables.product.prodname_dotcom %}, por ejemplo:
 
 ```shell
-wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
 Además, cada servidor de IC necesitará también:
 
-- Un token de acceso personal o de {% data variables.product.prodname_github_app %} para que utilice el {% data variables.product.prodname_codeql_runner %}. You must use an access token with the `security_events` scope, or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. Para obtener más información, consulta las secciones "[Crear {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" y "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
-- Acceso al paquete de {% data variables.product.prodname_codeql %} asociado con este lanzamiento del {% data variables.product.prodname_codeql_runner %}. This package contains queries and libraries needed for {% data variables.product.prodname_codeql %} analysis, plus the {% data variables.product.prodname_codeql %} CLI, which is used internally by the runner. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
+- Un token de acceso personal o de {% data variables.product.prodname_github_app %} para que utilice el {% data variables.product.prodname_codeql_runner %}. Debes utilizar un token de acceso con el alcance `repo`, o una {% data variables.product.prodname_github_app %} con el permiso de escritura `security_events`, y los permisos de lectura `metadata` y `contents`. Para obtener más información, consulta las secciones "[Crear {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" y "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+- Acceso al paquete de {% data variables.product.prodname_codeql %} asociado con este lanzamiento del {% data variables.product.prodname_codeql_runner %}. Este paquete contiene consultas y bibliotecas necesarias para el análisis de {% data variables.product.prodname_codeql %}, adicionado con el CLI de {% data variables.product.prodname_codeql %}, el cual utiliza internamente el ejecutor. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 
 Las opciones para proporcionar acceso al paquete de {% data variables.product.prodname_codeql %} son:
 
-1. Dar acceso a {% data variables.product.prodname_dotcom_the_website %} a los servidores de IC para que el {% data variables.product.prodname_codeql_runner %} pueda descargar el paquete automáticamente.
-1. Descargar/extraer manualmente el paquete, almacenarlo con otros recursos centrales, y utilizar el marcador de `--codeql-path` para especificar la ubicación del paquete en las llamadas para inicializar el
-{% data variables.product.prodname_codeql_runner %}.
-{% if enterpriseServerVersions contains currentVersion %}
-1. Puedes replicar el repositorio de `github/codeql-action` en {% data variables.product.product_location %}. A menos de que especifiques el marcador de <nobr>`--codeql-path`</nobr> , el ejecutor verificará automáticamente que el paquete esté en esta ubicación y en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
+1. Permite que los servidores de IC accedan a https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action para que el {% data variables.product.prodname_codeql_runner %} pueda descargar el paquete automáticamente.
+{% if currentVersion == "enterprise-server@2.22" %}
+1. Replica el repositorio `github/codeql-action` en {% data variables.product.product_name %}. A menos de que especifiques el marcador de <nobr>`--codeql-path`</nobr> , el ejecutor verificará automáticamente que el paquete esté en esta ubicación y en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
+1. Descarga/extrae manualmente el paquete, almacénalo con otros recursos centrales y utiliza el <nobr>`--codeql-path`</nobr> para especificar la ubicación del paquete en los llamados para inicializar el {% data variables.product.prodname_codeql_runner %}.
 
 ### Llamar al {% data variables.product.prodname_codeql_runner %}
 
 Debes llamar al {% data variables.product.prodname_codeql_runner %} desde la ubicación de verificación del repositorio que quieres analizar. Los dos comandos principales son:
 
 1. `init` que se requiere para inicializar el ejecutor y para crear una base de datos de {% data variables.product.prodname_codeql %} para que se analice cada lenguaje. Estas bases de datos se llenan y analizan mediante comandos subsecuentes.
-1. `analyze` que se requiere para llenar las bases de datos de {% data variables.product.prodname_codeql %}, analizarlas y cargar los resultados a {% data variables.product.product_location %}.
+1. `analyze` que se requiere para llenar las bases de datos de {% data variables.product.prodname_codeql %}, analizarlas y cargar los resultados a {% data variables.product.product_name %}.
 
-Para ambos comandos, debes especificar la URL de {% data variables.product.product_location %}, el repositorio *OWNER/NAME*, y el token de acceso personal o de GitHub Apps que se utilizará para autenticación. También tendrás que especificar la ubicación del paquete de CodeQL a menos de que el servidor de IC tenga acceso para descargarlo directamente desde el repositorio `github/codeql-action` en {% data variables.product.prodname_dotcom_the_website %}{% if enterpriseServerVersions contains currentVersion %} o el que está replicado en {% data variables.product.product_location %}{% endif %}.
+Para ambos comandos, debes especificar la URL de {% data variables.product.product_name %}, el *PROPIETARIO/NOMBRE* del repositorio, y el token de {% data variables.product.prodname_github_apps %} o de acceso personal a utilizar para la autenticación. También necesitas especificar la ubicación del paquete de CodeQL, a menos de que el servidor de IC tenga acceso para descargarlo directamente del repositorio de `github/codeql-action`.
 
 Puedes configurar la ubicación en la que {% data variables.product.prodname_codeql_runner %} almacenará el paquete de CodeQL para un análisis futuro un un servidor utilizando el marcador <nobr>`--tools-dir`</nobr> , así como en dónde almacena archivos temporales utilizando el marcador <nobr>`--temp-dir`</nobr>.
 
 Para ver la referencia de línea de comandos para el ejecutor, utiliza el marcador `-h`. Por ejemplo, para listar todos los comandos, ejecuta: `codeql-runner-OS -h`, o para listar todos los marcadores disponibles para el comando `init`, ejecuta: `codeql-runner-OS init -h` (en donde el `OS` variará de acuerdo con el ejecutable que estés utilizando). Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)".
 
+{% data reusables.code-scanning.upload-sarif-alert-limit %}
+
 #### Ejemplo básico
 
 Este ejemplo ejecuta un análisis de {% data variables.product.prodname_codeql %} en un servidor de IC con Linux para el repositorio de `octo-org/example-repo` en `{% data variables.command_line.git_url_example %}`. El proceso es muy simple, ya que el repositorio contiene únicamente los lenguajes que puede analizar {% data variables.product.prodname_codeql %} directamente, sin que se tenga que compilar (es decir, Go, JavaScript, Python, y TypeScript).
+
+En este ejemplo, el servidor tiene acceso para descargar el paquete de {% data variables.product.prodname_codeql %} directamente desde el repositorio `github/codeql-action`, así que no hay necesidad de utilizar el marcador `--codeql-path`.
 
 1. Verifica el repositorio a analizar.
 1. Posiciónate en el directorio donde se seleccionó el repositorio.
@@ -109,19 +111,7 @@ Este ejemplo ejecuta un análisis de {% data variables.product.prodname_codeql %
     > Created CodeQL database at /srv/checkout/example-repo/codeql-runner/codeql_databases/javascript.
     ```
 
-1. Llena las bases de datos de {% data variables.product.prodname_codeql_runner %}, analízalas, y carga los resultados a{% data variables.product.product_name %}.
-
-    ```shell
-    $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
-        --commit 5b6a3078b31dc346e5ce7b86837d6abbe7a18bbd --ref refs/heads/main
-    > Finalizing database creation
-    > ...
-    > POST /repos/octo-org/example-repo/code-scanning/sarifs - 202 in 786ms
-    > Successfully uploaded results
-    ```
-
-El servidor tiene acceso para descargar el paquete de {% data variables.product.prodname_codeql %} directamente del repositorio de `github/codeql-action` en {% data variables.product.prodname_dotcom_the_website %}{% if enterpriseServerVersions contains currentVersion %} o en el que está replicado en {% data variables.product.product_location %}{% endif %}, así que no se necesita utilizar el marcador `--codeql-path`. Cuando se complete el análisis, el {% data variables.product.prodname_codeql_runner %} cargará los resultados a la vista del {% data variables.product.prodname_code_scanning %}. Para obtener más información, consulta la sección "[Administrar las alertas de {% data variables.product.prodname_code_scanning %} para tu repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
+{% data reusables.code-scanning.codeql-runner-analyze-example %}
 
 #### Ejemplo de lenguaje compilado
 
@@ -138,28 +128,19 @@ Este ejemplo es similar al anterior, sin embargo, esta vez el repositorio tiene 
     > ...
     > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
       and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
-      Please export these variables to future processes so that CodeQL can monitor the build, for example by running "
-      . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
+      Please export these variables to future processes so that CodeQL can monitor the build, for example by running 
+      ". /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
       ```
 
-1. Ejecuta el script que generó la acción `init` para configurar el ambiente para monitorear la compilación.
+1. Proporciona el script que generó la acción `init` para configurar el ambiente para monitorear la compilación. Toma en cuenta el primer punto y espacio en el siguiente extracto de código.
 
     ```shell
     $ . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh
     ```
 
-1. Compila el código.
-1. Llena las bases de datos de {% data variables.product.prodname_codeql %}, analízalas, y carga los resultados a GitHub.
+1. Compila el código. En macOS, necesitarás agregar un prefijo al comando de la compilación con la variable de ambiente `$CODEQL_RUNNER`. Para obtener más información, consulta la sección "[Solucionar problemas en el escaneo de código de CodeQL para tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system#no-code-found-during-the-build)".
 
-    ```shell
-    $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo-2
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
-        --commit ae7b655ef30b50fb726ae7b3daa79571a39d194d --ref refs/heads/main
-    > Finalizing database creation
-    > ...
-    > POST /repos/octo-org/example-repo-2/code-scanning/sarifs - 202 in 573ms
-    > Successfully uploaded results
-    ```
+{% data reusables.code-scanning.codeql-runner-analyze-example %}
 
 {% note %}
 
@@ -167,7 +148,7 @@ Este ejemplo es similar al anterior, sin embargo, esta vez el repositorio tiene 
 
 {% endnote %}
 
-### Further reading
+### Leer más
 
 - "[Configurar el {% data variables.product.prodname_code_scanning %} en tu sistema](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
 - "[Solucionar problemas del {% data variables.product.prodname_code_scanning %} en tu sistema de IC](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"

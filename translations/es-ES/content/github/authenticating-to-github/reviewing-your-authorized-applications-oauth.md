@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data reusables.user_settings.access_settings %}
@@ -14,7 +17,7 @@ versions:
 {% data reusables.user_settings.access_authorized_oauth_apps %}
 {% data reusables.user_settings.review-oauth-apps %}
 
-### Further reading
+### Leer más
 {% if currentVersion == "free-pro-team@latest" %}
 - "[Acerca de las integraciones](/articles/about-integrations)"{% endif %}
 - "[Revisar tus integraciones autorizadas](/articles/reviewing-your-authorized-integrations)"

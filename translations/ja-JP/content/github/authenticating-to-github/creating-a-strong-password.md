@@ -7,17 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.product_name %} アカウントのパスワードを選択または生成する必要があります。パスワードの条件は次のとおりです。
 - 数字と小文字アルファベットを含む場合は長さ 8 文字、または
-- 文字の組み合わせを考慮しない場合は長さ 16 文字
+- 文字の組み合わせを考慮しない場合は長さ 15 文字
 
 アカウントを安全に保つため、以下のベストプラクティスに従うことをお勧めします:
-- [LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのパスワードマネージャを使用して、16 文字を超えるパスワードを生成すること。
+- [LastPass](https://lastpass.com/) や [1Password](https://1password.com/) などのパスワードマネージャを使用して、15 文字以上のパスワードを生成すること。
 - {% data variables.product.product_name %}用に独自のパスワードを生成すること。 {% data variables.product.product_name %} パスワードを他でも使用していて、そのサービスが危険にさらされると、攻撃者や悪意のある者がその情報を使用して {% data variables.product.product_name %} アカウントにアクセスする可能性があります。
 - 個人アカウントに 2 要素認証を設定する。 詳しい情報については「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。
-- 潜在的なコラボレーターであっても誰であっても、パスワードは決して共有しないでください。 {% data variables.product.product_name %}では一人ひとりが自分の個人アカウントを使用すべきです。 コラボレートする方法の詳しい情報については、「[コラボレーターを個人リポジトリに招待する](/articles/inviting-collaborators-to-a-personal-repository)」、「[共同開発モデルについて](/articles/about-collaborative-development-models/)」、または「[Organization のグループでコラボレーションする](/articles/collaborating-with-groups-in-organizations/)」を参照してください。
+- 潜在的なコラボレーターであっても誰であっても、パスワードは決して共有しないでください。 {% data variables.product.product_name %}では一人ひとりが自分の個人アカウントを使用すべきです。 コラボレートする方法の詳しい情報については、「[コラボレーターを個人リポジトリに招待する](/articles/inviting-collaborators-to-a-personal-repository)」、「[共同開発モデルについて](/articles/about-collaborative-development-models/)」、または「[Organization のグループでコラボレーションする](/organizations/collaborating-with-groups-in-organizations/)」を参照してください。
 
 {% data reusables.repositories.blocked-passwords %}
 
@@ -27,5 +30,5 @@ versions:
 
 ### 参考リンク
 
-- "[Git で {% data variables.product.product_name %} 認証情報をキャッシュ](/github/using-git/caching-your-github-credentials-in-git/)"
+- "[Git で {% data variables.product.product_name %} 認証情報をキャッシュ](/github/getting-started-with-github/caching-your-github-credentials-in-git/)"
 - "[アカウントとデータの安全を保つ](/articles/keeping-your-account-and-data-secure/)"

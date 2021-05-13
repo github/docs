@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data variables.product.prodname_ghe_server %} をグローバル Azure または Azure Government にデプロイできます。
@@ -14,7 +16,7 @@ versions:
 
 - {% data reusables.enterprise_installation.software-license %}
 - 新しいコンピューターをプロビジョニングできる Azure アカウントを所有していなければなりません。 詳しい情報については [Microsoft Azure のウェブサイト](https://azure.microsoft.com)を参照してください。
-- 仮想マシン（VM）を起動するのに必要なアクションのほとんどは、Azureポータルを使っても行えます。 とはいえ、初期セットアップ用にはAzureコマンドラインインターフェース（CLI）をインストールすることをお勧めします。 以下の例では、Azure CLI 2.0が使われています。 For more information, see Azure's guide "[Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)."
+- 仮想マシン（VM）を起動するのに必要なアクションのほとんどは、Azureポータルを使っても行えます。 とはいえ、初期セットアップ用にはAzureコマンドラインインターフェース（CLI）をインストールすることをお勧めします。 以下の例では、Azure CLI 2.0が使われています。 詳しい情報については、Azure のガイド「[Azure CLI 2.0 のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)」を参照してください。
 
 ### ハードウェアについて
 
@@ -22,32 +24,21 @@ versions:
 
 ### 仮想マシンタイプの決定
 
-{% data variables.product.product_location %}をAzure上で起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
-
-#### サポートされているVMタイプとリージョン
-
-{% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 For more information, see "[Supported VMs](https://docs.microsoft.com/azure/storage/common/storage-premium-storage#supported-vms)" in the Azure documentation. For general information about available VMs, see [the Azure virtual machines overview page](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
-
-{% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/regions/services/)."
-
-#### 推奨VMタイプ
-
-14 GB 以上の RAM を搭載した DS v2 インスタンスタイプを使用することをおすすめします。 サポートされているあらゆる VM タイプを使用できます。 ユーザライセンス数に応じて、以下のインスタンスタイプをおすすめします。
-
-|          シート数          |       推奨タイプ        |
-|:----------------------:|:------------------:|
-| トライアル、デモ、あるいは10人の軽量ユーザ | Standard_DS11_v2 |
-|       10 - 3000        | Standard_DS12_v2 |
-|      3000 - 8000       | Standard_DS14_v2 |
-|     8000 - 10000+      | Standard_DS15_v2 |
+Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 Azure VM types with the `s` suffix support premium storage. For more information, see "[What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" and "[Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" in the Azure documentation.
+
+{% data variables.product.company_short %} recommends a memory-optimized VM for {% data variables.product.prodname_ghe_server %}. For more information, see "[Memory optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" in the Azure documentation.
+
+{% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 各 VM でサポートされているリージョンの詳細については、Azure の「[リージョン別の利用可能な製品](https://azure.microsoft.com/regions/services/)」を参照してください。
 
 ### {% data variables.product.prodname_ghe_server %} 仮想マシンを作成する
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 For more information about the `vm image list` command, see "[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
+1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 `vm image list` コマンドの詳細については、Microsoft のドキュメントの「[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)」を参照してください。
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
@@ -96,7 +87,7 @@ versions:
   ```
   {% note %}
 
-  **メモ:** Azure は VM 用の FQDN エントリを自動的に作成しません。 For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."
+  **メモ:** Azure は VM 用の FQDN エントリを自動的に作成しません。 詳しい情報については、「[Linux VM 用 Azure Portal での完全修飾ドメイン名の作成](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)」方法に関する Azure のガイドを参照してください。
 
   {% endnote %}
 
@@ -108,6 +99,6 @@ versions:
 
 ### 参考リンク
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}
   

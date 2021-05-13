@@ -1,3 +1,7 @@
 .bg-guides-gradient {
-  background: linear-gradient(0deg, rgba(33, 136, 255, 0.11) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    var(--color-auto-blue-0) 0%,
+    transparent 100%
+  );
 }

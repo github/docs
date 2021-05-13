@@ -1,6 +1,6 @@
 ---
 title: Auditprotokolle für Organisationen in Deinem Enterprise-Konto anzeigen
-intro: Enterprise-Inhaber können im zugehörigen Auditprotokoll aggregierte Aktionen aus allen Organisationen anzeigen, die einem Enterprise-Konto gehören.
+intro: 'Enterprise-Inhaber können im zugehörigen Auditprotokoll aggregierte Aktionen aus allen Organisationen anzeigen, die einem Enterprise-Konto gehören.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Jeder Eintrag im Auditprotokoll zeigt die zutreffenden Informationen zu einem Ereignis an, beispielsweise:

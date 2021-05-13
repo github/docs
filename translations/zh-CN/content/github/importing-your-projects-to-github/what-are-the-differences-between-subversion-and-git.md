@@ -1,6 +1,6 @@
 ---
 title: Subversion 和 Git 有哪些区别？
-intro: 'Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。'
+intro: Subversion (SVN) 仓库与 Git 仓库类似，但涉及项目架构时有一些区别。
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
@@ -51,7 +51,7 @@ Git 工作流程可能类似如下：
 
 ### 保留历史记录
 
-SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`git rebase`](/articles/about-git-rebase) 等工具修改以前的提交和更改。
+SVN 配置为假设项目的历史记录永不更改。 Git 允许您使用 [`git rebase`](/github/getting-started-with-github/about-git-rebase) 等工具修改以前的提交和更改。
 
 {% tip %}
 

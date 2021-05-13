@@ -4,6 +4,8 @@ intro: 'Du kannst Deine Arbeit auf {% data variables.product.product_name %} von
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

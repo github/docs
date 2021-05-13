@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
@@ -45,7 +47,7 @@ versions:
 
 設定した最初のクラスタノードを、`mysql-server` および `mysql-master`で MySQL のプライマリとして指定してください。
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

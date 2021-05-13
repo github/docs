@@ -6,12 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Después de haber realizado una acción sudo-protegida, únicamente se te solicitará volver a autenticarte después de unas pocas horas de inactividad. Cada acción sudo-protegida reinicia este temporizador.
 
 ![Diálogo Modo sudo](/assets/images/help/settings/sudo_mode_popup.png)
 
-### Further reading
+### Leer más
 
 - [Comando `sudo` Unix](http://en.wikipedia.org/wiki/Sudo)

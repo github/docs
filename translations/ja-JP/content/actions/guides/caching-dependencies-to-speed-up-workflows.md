@@ -1,7 +1,7 @@
 ---
 title: 依存関係をキャッシュしてワークフローのスピードを上げる
 shortTitle: 依存関係のキャッシング
-intro: 'ワークフローを高速化して効率を上げるために、依存関係や広く再利用されるファイルに対するキャッシュを作成して利用できます。'
+intro: ワークフローを高速化して効率を上げるために、依存関係や広く再利用されるファイルに対するキャッシュを作成して利用できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -9,8 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### ワークフローの依存関係のキャッシングについて
 
@@ -18,7 +22,7 @@ type: 'tutorial'
 
 {% data variables.product.prodname_dotcom %}ホストランナー上のジョブは、クリーンな仮想環境で開始され、依存関係を毎回ダウンロードしなければならず、ネットワークの利用率を増大させ、実行時間が長くなり、コストが高まってしまいます。 これらのファイルの再生成にかかる時間を短縮しやすくするために、{% data variables.product.prodname_dotcom %}はワークフロー内で頻繁に使われる依存関係をキャッシュできます。
 
-ジョブのために依存関係をキャッシュするには、{% data variables.product.prodname_dotcom %}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
+ジョブのために依存関係をキャッシュするには、{% data variables.product.prodname_dotcom %}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。 Ruby gem をキャッシュする場合は、代わりに、開始時にバンドルインストールをキャッシュ可能な Ruby で維持されているアクションを使用することを検討してください。 詳しい情報については、[`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) を参照してください。
 
 {% warning %}
 
@@ -37,9 +41,9 @@ type: 'tutorial'
 
 `cache` アクションの `v2` を使用すると、`GITHUB_REF` を含むイベントによってトリガーされるワークフローのキャッシュにアクセスできます。 `cache` アクションの `v1` を使用している場合、`pull_request` の `closed` イベントを除いて、`push` イベントと `pull_request` イベントによってトリガーされるワークフローでのみキャッシュにアクセスできます。 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)」を参照してください。
 
-ワークフローは、現在のブランチ、ベースブランチ（フォークされたリポジトリのベースブランチを含む）、またはデフォルトブランチ（通常は `main`）で作成されたキャッシュにアクセスして復元できます。 たとえば、デフォルトブランチで作成されたキャッシュは、どのプルリクエストからもアクセスできます。 また、`feature-b` ブランチに `feature-a` ベースブランチがある場合、`feature-b` でトリガーされたワークフローは、デフォルトのブランチ（`main`）、`feature-a`、および `feature-b` で作成されたキャッシュにアクセスできます。
+ワークフローは、現在のブランチ、ベースブランチ（フォークされたリポジトリのベースブランチを含む）、またはデフォルトブランチ（通常は `main`）で作成されたキャッシュにアクセスして復元できます。 たとえば、デフォルトブランチで作成されたキャッシュは、どのPull Requestからもアクセスできます。 また、`feature-b` ブランチに `feature-a` ベースブランチがある場合、`feature-b` でトリガーされたワークフローは、デフォルトのブランチ（`main`）、`feature-a`、および `feature-b` で作成されたキャッシュにアクセスできます。
 
-アクセス制限は、様々なワークフローとブランチ間の論理的な境界を作成することによって、キャッシュの分離とセキュリティを提供します。 たとえば、`feature-a` ブランチ（ベース `main` を使用）向けに作成されたキャッシュは、`feature-b` ブランチ（ベース `main` を使用）のプルリクエストにアクセスできません。
+アクセス制限は、様々なワークフローとブランチ間の論理的な境界を作成することによって、キャッシュの分離とセキュリティを提供します。 たとえば、`feature-a` ブランチ（ベース `main` を使用）向けに作成されたキャッシュは、`feature-b` ブランチ（ベース `main` を使用）のPull Requestにアクセスできません。
 
 ### `cache`アクションの利用
 
@@ -68,7 +72,7 @@ type: 'tutorial'
 以下の例では、`package-lock.json`ファイル内のパッケージが変更された場合、あるいはランナーのオペレーティングシステムが変更された場合に新しいキャッシュが作成されます。 キャッシュキーはコンテキストと式を使い、ランナーのオペレーティングシステムと`package-lock.json`ファイルのSHA-256ハッシュを含むキーを生成します。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching with npm
 
 on: push
@@ -124,14 +128,14 @@ jobs:
 式を使って`key`を作成すれば、依存関係が変化したときに自動的に新しいキャッシュを作成できます。 たとえばnpmの`package-lock.json`ファイルのハッシュを計算する式を使って`key`を作成できます。
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %}は`hash "package-lock.json"`という式を評価して、最終的な`key`を導出します。
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +148,7 @@ npm-d5ea0750
 #### 複数のリストアキーの利用例
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +159,7 @@ restore-keys: |
 ランナーは式を評価します。この式は以下のような`restore-keys`になります。
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-
@@ -186,7 +190,7 @@ restore-keys: |
 2. `feature`ブランチのスコープ内で`npm-`というキー
 1. `main` ブランチのスコープ内で `npm-feature-d5ea0750` というキー
 3. `main` ブランチのスコープ内で `npm-feature-` というキー
-4. `main` ブランチのスコープ内で `npm` というキー
+4. `main` ブランチのスコープ内で `npm-` というキー
 
 ### 利用制限と退去のポリシー
 

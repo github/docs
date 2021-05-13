@@ -1,1 +1,1 @@
-1. En la parte inferior de la página, da clic en **Agregar un nivel**. ![Botón de agregar nivel](/assets/images/help/sponsors/add-a-tier-button.png)
+1. To create a monthly tier, click **Add a monthly tier** at the right of the page. Alternatively, to create a tier for one-time payments, click **One-time tiers** and then click **Add a one-time tier**. ![Botón de agregar nivel](/assets/images/help/sponsors/add-a-tier-button.png)

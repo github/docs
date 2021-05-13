@@ -6,11 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Cuando configuras la alta disponibilidad, hay una configuración automática unidireccional, una replicación asincrónica de todos los almacenes de datos (repositorios de Git, MySQL, Redis y Elasticsearch) desde el aparato principal hacia la réplica.
 
 {% data variables.product.prodname_ghe_server %} admite una configuración activa/pasiva, en la que el aparato réplica se ejecuta como en un modo de espera con los servicios de base de datos ejecutándose en modo de replicación, pero con los servicios de aplicación detenidos.
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Escenarios de fallas específicas
 
@@ -174,6 +178,6 @@ Exitoso: la réplica se promovió a principal y ahora está aceptando solicitude
 
 El comando `ghe-repl-teardown` inhabilita el modo de replicación por completo, eliminando la configuración de la réplica.
 
-### Further reading
+### Leer más
 
 - "[Crear una réplica de alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica)"

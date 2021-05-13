@@ -1,7 +1,7 @@
 ---
 title: Sobre o uso do Repl.it com GitHub Classroom
 shortTitle: Sobre o uso do Repl.it
-intro: Você pode configurar o Repl.it como o ambiente de desenvolvimento integrado on-line (IDE) para tarefas em {% data variables.product.prodname_classroom %}.
+intro: 'Você pode configurar o Repl.it como o ambiente de desenvolvimento integrado on-line (IDE) para tarefas em {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -16,7 +16,7 @@ Repl.it é um ambiente de desenvolvimento integrado on-line (IDE) compatível co
 
 A primeira vez que o aluno clica no botão para acessar o Repl.it, o aluno deverá efetuar o login em Repl.it com as credenciais de {% data variables.product.product_name %}. Após efetuar o login, o aluno terá acesso a um ambiente de desenvolvimento que contém o código do repositório de atividades, totalmente configurado no Repl.it.
 
-Para obter mais informações sobre como trabalhar no Repl.it, consulte o [Guia de início rápido do Repl.it](https://docs.repl.it/misc/quick-start#the-repl-environment).
+Para obter mais informações sobre como trabalhar no Repl.it, consulte o [Guia de início rápido do Repl.it](https://docs.repl.it/repls/quick-start#the-repl-environment).
 
 Em atividades em grupo, os alunos podem usar o Repl.it Multiplayer para trabalhar de forma colaborativa. Para obter mais informações, consulte o site [Repl.it Multiplayer](https://repl.it/site/multiplayer).
 
@@ -30,4 +30,4 @@ Para obter mais informações sobre o uso do Git no Repl.it, consulte o [Tutoria
 
 ### Leia mais
 
-- "[Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"

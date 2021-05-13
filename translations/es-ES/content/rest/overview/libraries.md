@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -25,7 +27,7 @@ versions:
 
 ### Clojure
 
-Nombre de biblioteca | Repositorio |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
+Nombre de la biblioteca | Repositorio |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
 ### Dart
 
@@ -57,7 +59,7 @@ Nombre de biblioteca | Repositorio | |---|---| **Biblioteca de NodeJS de GitHub*
 
 ### Julia
 
-Nombre de biblioteca | Repositorio | |---|---| **Github.jl**|[WestleyArgentum/Github.jl](https://github.com/WestleyArgentum/GitHub.jl)
+Nombre de biblioteca | Repositorio | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -65,19 +67,27 @@ Nombre de biblioteca | Repositorio | |---|---| **ocaml-github**|[mirage/ocaml-gi
 
 ### Perl
 
-Nombre de biblioteca | Repositorio | Sitio Web de metacpan de la biblioteca |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::Github**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:Github CPAN](https://metacpan.org/pod/Net::GitHub)
+Nombre de la biblioteca | Repositorio| Sitio web de metacpan para la biblioteca |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
-Nombre de biblioteca | Repositorio |---|---| **Cliente PHP de GitHub **|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **API de PHP de GitHub**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **API de GitHub**|[yiiext/github-api](https://github.com/yiiext/github-api) **Paquete de GitHub Joomla! **|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **Extensión de Nette de GitHub**|[kdyby/github](https://github.com/kdyby/github) **Acceso Fácil a la API de GitHub API**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge para Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub) **Cliente de PHP7 & wrapper de WebHook**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+Nombre de biblioteca | Repositorio |---|---| **Cliente PHP de GitHub **|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **API de PHP de GitHub**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **API de GitHub**|[yiiext/github-api](https://github.com/yiiext/github-api) **Paquete de GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **Extensión de Nette para GitHub**|[kdyby/github](https://github.com/kdyby/github) **Acceso Fácil a la API de GitHub**|[milo/github-api](https://github.com/milo/github-api) **Puente de GitHub para Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & wrapper de WebHook**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+
+### PowerShell
+
+Nombre de la biblioteca | Repositorio |---|---| **PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 
-Library name | Repository |---|---| **gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub) **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
+Nombre de la Biblioteca | Repositorio |---|---| **gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub) **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
 
 Nombre de biblioteca | Repositorio |---|---| **Gema de la API de GitHub API**|[peter-murach/github](https://github.com/peter-murach/github) **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
+
+### Rust
+
+Nombre de la biblioteca | Repositorio |---|---| **Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
 
 ### Scala
 

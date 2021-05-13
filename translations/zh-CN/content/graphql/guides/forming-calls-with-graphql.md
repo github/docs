@@ -1,6 +1,6 @@
 ---
 title: 使用 GraphQL 建立调用
-intro: '了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。'
+intro: 了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### 使用 GraphQL 进行身份验证
@@ -26,9 +28,10 @@ versions:
 
 {% endif %}
 
+
 ```
-user
-public_repo
+user{% if currentVersion != "github-ae@latest" %}
+public_repo{% endif %}
 repo
 repo_deployment
 repo:status
@@ -246,7 +249,7 @@ query {
 
   `labels` 字段的类型为 [`LabelConnection`](/graphql/reference/objects#labelconnection)。 与 `issues` 对象一样，`labels` 也是一种连接，因此我们必须将其边缘传送至连接的节点：`label` 对象。 在此节点上，我们可以指定要返回的 `label` 对象字段，在本例中为 `name`。
 
-您可能会注意到，在 Octocat 的公共 `Hello-World` 仓库中运行此查询不会返回很多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
+您可能会注意到，在 Octobert 的 {% if currentVersion != "github-ae@latest" %}公共{% endif %} `Hello-World` 仓库上运行此查询不会返回许多标签。 尝试在您自己的其中一个使用标签的仓库中运行，很可能会看到不同的结果。
 
 ### 突变示例
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -62,7 +64,7 @@ GitHub Appの設定で、アプリケーションがそれぞれの権限の種�
 
 #### webhookのサブスクライブ
 
-新しいGitHub Appを作成し、その権限を選択したら、サブスクライブさせたいwebhookイベントを選択できます。 webhookをサブスクライブする方法を学ぶには、「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
+新しいGitHub Appを作成し、その権限を選択したら、サブスクライブさせたいwebhookイベントを選択できます。 webhookをサブスクライブする方法を学ぶには、「[GitHub Appの権限を編集する](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
 #### 様々な認証方法の理解
 

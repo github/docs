@@ -1,7 +1,7 @@
 ---
 title: Fundamentos das configurações do GitHub Classroom
 shortTitle: 'Noções básicas do {% data variables.product.prodname_classroom %}'
-intro: Aprenda a configurar sua sala de aula, gerenciar atividades e a configurar automação que economiza tempo.
+intro: 'Aprenda a configurar sua sala de aula, gerenciar atividades e a configurar automação que economiza tempo.'
 versions:
   free-pro-team: '*'
 ---
@@ -30,4 +30,4 @@ Para obter mais informações sobre aulas com {% data variables.product.prodname
 
 ### Leia mais
 
-- "[Ensine e aprenda com {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Explore os benefícios do ensino e da aprendizagem com {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -22,7 +24,7 @@ Web 挂钩可以安装在{% if enterpriseServerVersions contains currentVersion 
 
 每个事件对应于您的组织和/或仓库可能发生的一组特定操作。 例如，如果您订阅了 `issues`，则每当议题被打开、关闭、标记等操作时，您都会收到详细的有效负载。
 
-有关可用的 web 挂钩事件及其有效负载的列表，请参阅“[web 挂钩事件有效负载](/webhooks/event-payloads)”。
+要了解可用 web 挂钩事件及其有效负载的完整列表，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。
 
 ### Ping 事件
 

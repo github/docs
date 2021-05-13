@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -28,13 +30,10 @@ Antes de aumentar la CPU o los recursos de memoria para {% data variables.produc
 #### Tipos de instancias AWS admitidos
 
 Debes determinar el tipo de instancia que te gustaría actualizar en base a especificaciones de CPU/memoria.
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Tipos de instancias AWS recomendadas
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### Volver a ajustar el tamaño para AWS
 

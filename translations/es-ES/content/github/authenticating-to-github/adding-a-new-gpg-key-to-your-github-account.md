@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, cerciórate de haber:
@@ -26,7 +29,7 @@ Al verificar una firma, extraemos la firma e intentamos analizar sus id de llave
 5. Haz clic en **Add GPG key** (Agregar llave GPG). ![Botón Add key (Agregar llave)](/assets/images/help/settings/gpg-add-key.png)
 6. Para confirmar la acción, escribe tu contraseña de {% data variables.product.product_name %}.
 
-### Further reading
+### Leer más
 
 * "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
 * "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"

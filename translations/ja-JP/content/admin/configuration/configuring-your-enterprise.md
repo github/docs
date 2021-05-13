@@ -1,6 +1,6 @@
 ---
 title: Enterprise を設定する
-intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
+intro: '{% data variables.product.product_name %} が稼働したら、Organization のニーズに合わせて Enterprise を設定できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -12,5 +12,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

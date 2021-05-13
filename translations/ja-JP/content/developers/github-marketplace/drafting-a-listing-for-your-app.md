@@ -14,6 +14,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
@@ -60,7 +62,7 @@ versions:
 
 ### アプリケーションのサブミット
 
-{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/articles/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、のオンボーディングの専門家から、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。 オンボーディングとセキュリティレビューのプロセスに関する詳細については「[{% data variables.product.prodname_marketplace %}を使い始める](/marketplace/getting-started/)」を参照してください。
+{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/articles/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、のオンボーディングの専門家から、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。
 
 ### {% data variables.product.prodname_marketplace %}リストの削除
 

@@ -4,6 +4,8 @@ intro: 'Si quieres utilizar {% data variables.product.prodname_registry %} con m
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Acerca de la facturación para {% data variables.product.prodname_registry %}
@@ -13,6 +15,8 @@ versions:
 {% data reusables.package_registry.packages-spending-limit-brief %} Para obtener más información, consulta la sección "[Acerca de los límites de gasto](#about-spending-limits)".
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
+
+Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen en tu cuenta. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)".
 
 La transferencia de datos se restablece cada mes, pero no así el uso de almacenamiento.
 
@@ -28,8 +32,8 @@ Todos los datos de transferencia saliente, cuando se desencadenan mediante {% da
 
 |                                               | Hospedado | Auto-Hospedado |
 | --------------------------------------------- | --------- | -------------- |
-| Acceso utilizando un `GITHUB_TOKEN`           | Free      | Free           |
-| Acceso utilizando un token de acceso personal | Free      | $              |
+| Acceso utilizando un `GITHUB_TOKEN`           | Gratis    | Gratis         |
+| Acceso utilizando un token de acceso personal | Gratis    | $              |
 
 El uso de almacenamiento se comparte con los artefactos de compilación que produce {% data variables.product.prodname_actions %} para los repositorios que pertenecen a tu cuenta. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)".
 

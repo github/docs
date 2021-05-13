@@ -11,7 +11,7 @@ Pre-receive フックは、コントリビューションがリポジトリま�
 
 プッシュが受け入れられない場合は、失敗した pre-receive フックに対応するエラーメッセージが表示されます。
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.

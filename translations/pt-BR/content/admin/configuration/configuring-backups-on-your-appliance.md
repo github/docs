@@ -15,6 +15,8 @@ redirect_from:
 intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location %} configurando backups automatizados.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
@@ -23,7 +25,7 @@ O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistem
 
 Somente os dados adicionados desde o último instantâneo serão transferidos pela rede e ocuparão espaço adicional de armazenamento físico. Para minimizar o impacto no desempenho, os backups são feitos online com a menor prioridade de E/S de CPU. Não é necessário programar um período de manutenção para fazer backups.
 
-Para obter informações mais detalhadas sobre recursos, requisitos e uso avançado, consulte o [LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+Para obter informações mais detalhadas sobre recursos, requisitos e uso avançado, consulte o [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
 ### Pré-requisitos
 
@@ -68,17 +70,25 @@ Podem ser necessários mais recursos dependendo do uso, como atividade do usuár
   $ bin/ghe-backup        
   ```
 
-Para obter mais informações sobre uso avançado, consulte o [arquivo LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+Para obter mais informações sobre uso avançado, consulte o [arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 
 ### Programar um backup
 
 É possível programar backups regulares no host de backup com o comando `cron(8)` ou um serviço de agendamento semelhante. A frequência configurada determinará o objetivo do ponto de recuperação (RPO) nos piores cenários do seu plano de recuperação. Por exemplo, ao programar backups diários à meia-noite, você pode perder até 24 horas de dados em caso de desastre. É recomendável começar com backups a cada hora, garantindo a possibilidade de perdas menores (no máximo de uma hora) caso os dados primários do site sejam destruídos.
 
-Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será interrompido com uma mensagem de erro, informando a existência de um backup simultâneo. Nesse caso, é recomendável diminuir a frequência dos backups programados. Para obter mais informações, consulte a seção "Agendar backups" do [ arquivo LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
+Se houver sobreposição de tentativas de backup, o comando `ghe-backup` será interrompido com uma mensagem de erro, informando a existência de um backup simultâneo. Nesse caso, é recomendável diminuir a frequência dos backups programados. Para obter mais informações, consulte a seção "Agendar backups" do [ arquivo README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#scheduling-backups).
 
 ### Restaurar um backup
 
 Em caso de interrupção prolongada ou evento catastrófico no site primário, é possível restaurar a {% data variables.product.product_location %} provisionando outro appliance do {% data variables.product.prodname_enterprise %} e executando uma restauração no host de backup. Antes de restaurar um appliance, você deve adicionar a chave SSH do host de backup ao appliance de destino do {% data variables.product.prodname_enterprise %} como chave SSH autorizada.
+
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Nota:** Se {% data variables.product.product_location %} tiver {% data variables.product.prodname_actions %} habilitado, você deverá primeiro configurar o provedor de armazenamento externo de {% data variables.product.prodname_actions %} no aplicativo de substituição antes de executar o comando `ghe-restore`. Para obter mais informações, consulte "[Backup e restauração de {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %} ativado](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
 
 Para restaurar a {% data variables.product.product_location %} do instantâneo mais recente bem-sucedido, use o comando `ghe-restore`. Você verá um conteúdo semelhante a este:
 
@@ -106,6 +116,5 @@ $ ghe-restore -c 169.154.1.1
 {% endnote %}
 
 Você pode usar estas opções adicionais com o comando `ghe-restore`:
-- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [LEIAME do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
+- O sinalizador `-c` substitui as configurações, os certificados e os dados de licença no host de destino, mesmo que já configurado. Omita esse sinalizador se você estiver configurando uma instância de preparo para fins de teste e se quiser manter a configuração no destino. Para obter mais informações, consulte a seção "Usar comandos de backup e restauração" do [README do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - O sinalizador `-s` permite selecionar outro instantâneo de backup.
-  

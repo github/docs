@@ -1,6 +1,6 @@
 ---
 title: 学習管理システムをGitHub Classroomに接続する
-intro: LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。
+intro: 'LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -18,7 +18,7 @@ redirect_from:
 
 ### 必要な環境
 
-LMSを{% data variables.product.prodname_classroom %}に接続するよう構成するには、まずクラスルームを作成する必要があります。 詳しい情報については、「[クラスルームを管理する](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)」を参照してください。
+LMSを{% data variables.product.prodname_classroom %}に接続するよう構成するには、まずクラスルームを作成する必要があります。 詳しい情報については、「[クラスルームの管理](/education/manage-coursework-with-github-classroom/manage-classrooms#creating-a-classroom)」を参照してください。
 
 ### サポートするLMS
 
@@ -27,7 +27,7 @@ LMSを{% data variables.product.prodname_classroom %}に接続するよう構成
 - LTIバージョン1.0および1.1
 - LTI Names and Roles Provisioning 1.X
 
-LTIは、情報の安全性と機密性を保つために役立ちます。 LTIは業界標準のプロトコルであり、GitHub ClassroomによるLTIの利用は、教育管理システム (IMS) グローバル・ラーニング・コンソーシアムにより認定されています。 詳しい情報については、IMSグローバル・ラーニング・コンソーシアムのウェブサイト上にある[Learning Tools Interoperability (学習ツールの相互運用性) ](https://www.imsglobal.org/activity/learning-tools-interoperability)および[About IMS Global Learning Consortium (IMSグローバル・ラーニング・コンソーシアムについて) ](http://www.imsglobal.org/aboutims.html)を参照してください。
+LTIは、情報の安全性と機密性を保つために役立ちます。 LTIは業界標準のプロトコルであり、GitHub ClassroomによるLTIの使用は、教育管理システム (IMS) グローバル・ラーニング・コンソーシアムにより認定されています。 詳しい情報については、IMSグローバル・ラーニング・コンソーシアムのウェブサイト上にある[Learning Tools Interoperability (学習ツールの相互運用性) ](https://www.imsglobal.org/activity/learning-tools-interoperability)および[About IMS Global Learning Consortium (IMSグローバル・ラーニング・コンソーシアムについて) ](http://www.imsglobal.org/aboutims.html)を参照してください。
 
 {% data variables.product.company_short %}は、以下のLMSから{% data variables.product.prodname_classroom %}への名簿のインポートを確認しています。
 
@@ -58,7 +58,7 @@ LTIは、情報の安全性と機密性を保つために役立ちます。 LTI�
 1. 外部ツールを設定します。
 1. {% data variables.product.prodname_classroom %}で生成された構成認証情報を入力します。
     - Consumer key
-    - Shared secret
+    - 共有シークレット
     - Launch URL (「ツールURL」などと呼ばれることもあります)
 
 ### Canvasを設定する
@@ -100,7 +100,7 @@ Moodleのバージョンは3.0以上である必要があります。
 1. [Moodle](https://moodle.org/login/index.php)にサインインします。
 1. {% data variables.product.prodname_classroom %}と連携するMoodleのコースを選択します。
 1. [**Turn editing on**] をクリックします。
-1. Moodleで{% data variables.product.prodname_classroom %}を利用するところで、[**Add an activity or resource**] をクリックします。
+1. Moodleで{% data variables.product.prodname_classroom %}を使用するところで、[**Add an activity or resource**] をクリックします。
 1. [**External tool**] を選択し、[**Add**] をクリックします。
 1. [Activity name] フィールドに、「GitHub Classroom」と入力します。
 1. [**Preconfigured tool**] フィールドで、ドロップダウンメニューの右にある [**+**] をクリックします。
@@ -113,7 +113,7 @@ Moodleのバージョンは3.0以上である必要があります。
     | **LTI version**              | LTI 1.0/1.1                                                                                                                       |
     | **Default launch container** | 新規ウィンドウ                                                                                                                           |
     | **Consumer key**             | {% data variables.product.prodname_classroom %}からのConsumer key                                                                    |
-    | **Shared secret**            | {% data variables.product.prodname_classroom %}からのShared secret                                                                   |
+    | **共有シークレット**                 | {% data variables.product.prodname_classroom %}からのShared secret                                                                   |
 
 1. [**Services**] までスクロールしてクリックします。
 1. [IMS LTI Names and Role Provisioning] の右にあるドロップダウンメニューを選択し、[**Use this service to retrieve members' information as per privacy settings**] をクリックします。

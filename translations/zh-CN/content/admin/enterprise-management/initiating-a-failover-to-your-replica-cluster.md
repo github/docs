@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
   enterprise-server: '>2.21'
+topics:
+  - Enterprise
 ---
 
 ### 关于到副本群集的故障转移

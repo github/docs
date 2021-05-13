@@ -1,17 +1,24 @@
 ---
 title: Java-Pakete mit Maven veröffentlichen
-intro: Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.
+intro: 'Du kannst Maven verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in eine Registry zu veröffentlichen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-maven
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -47,7 +54,7 @@ In diesem Workflow kannst Du die Aktion `setup-java` verwenden. Diese Aktion ins
 Wenn Du zum Beispiel über das OSSRH-Hosting-Projekt ins „Maven Central Repository“ deployst, kann Deine _pom.xml_ ein  Distributions-Management-Repository mit `ossrh` als `id` angeben.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -67,7 +74,7 @@ Im Deploy-Schritt musst Du die Umgebungsvariablen auf den Benutzernamen setzen, 
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -78,9 +85,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -113,7 +121,7 @@ Für ein Maven-basiertes Projekt kannst Du diese Einstellungen nutzen, indem Du 
 Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {% data variables.product.prodname_registry %}-Konfiguration in _pom.xml_ so ähnlich wie im folgenden Beispiel aus.
 
 {% raw %}
-```xml
+```xml{:copy}
 <project ...>
   ...
   <distributionManagement>
@@ -130,7 +138,7 @@ Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hell
 Mit dieser Konfiguration kannst Du einen Workflow erstellen, der Dein Paket in der {% data variables.product.prodname_registry %} veröffentlicht, indem Du die automatisch generierte _settings.xml_ verwendest.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -140,9 +148,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
@@ -165,7 +174,7 @@ Du kannst Deine Pakete sowohl im Maven Central Repository als auch in der {% dat
 Stelle sicher, dass Deine Datei _pom.xml_ ein Distributionsmanagement-Repository sowohl für Dein {% data variables.product.prodname_dotcom %}-Repository als auch Deinen „Maven Central Repository“-Provider enthält. Wenn Du z.B. über das Hosting-Projekt OSSRH in das Central Repository deployst, solltest Du es vielleicht in einem Distributionsverwaltungs-Repository mit `ossrh` als `id` angeben, und Du solltest {% data variables.product.prodname_registry %} in einem Distributionsverwaltungs-Repository mit `github` als `id` setzen.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
@@ -176,9 +185,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -188,9 +198,10 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:

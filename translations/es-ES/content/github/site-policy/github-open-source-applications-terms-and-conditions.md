@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Estos términos y condiciones de las aplicaciones de código abierto de GitHub ("términos de la aplicación") son un acuerdo legal entre tú (ya sea como individuo o en nombre de una entidad) y GitHub, Inc. sobre el uso de las aplicaciones de GitHub, como GitHub Desktop™ y la documentación asociada ("Software"). Estos Términos de la Aplicación se aplican a la versión ejecutable del Software. El código fuente para el software está disponible por separado y de forma gratuita en los acuerdos de licencia de software de código abierto. Si no estás de acuerdo con todos los términos en los presentes términos de la aplicación, no descargues, instales, uses o copies el software.
@@ -28,7 +31,7 @@ La concesión de licencia incluida con el software no es para las marcas comerci
 
 Los nombres GitHub, GitHub Desktop, GitHub para Mac, GitHub para Windows, Atom, The Octocat y los logotipos de GitHub relacionados y/o los nombres estilizados son marcas comerciales de GitHub. Aceptas no mostrar o usar estas marcas comerciales de ninguna manera sin el permiso previo por escrito de GitHub, excepto según lo permitido por los logotipos y la política de uso de GitHub: https://github.com/logos.
 
-### Privacy
+### Privacidad
 
 El software puede recopilar información personal. Puedes controlar qué información recopila el software en el panel de configuraciones. Si el software recopila información personal en nombre de GitHub, GitHub procesará esa información de acuerdo con la [Declaración de privacidad de GitHub](/articles/github-privacy-statement/).
 
@@ -52,7 +55,7 @@ GitHub se reserva el derecho en cualquier momento y de vez en cuando de modifica
 
 2. Acuerdo completo. Estos términos de la aplicación, junto con cualquier aviso de privacidad aplicable, constituyen el acuerdo completo entre tú y GitHub y rigen tu uso del software, reemplazando cualquier acuerdo anterior entre tú y GitHub (incluyendo, entre otras, cualquier versión anterior de los términos de la aplicación).
 
-3. Governing Law. Aceptas que estos términos de la aplicación y tu uso del software están regidos por la ley de California y cualquier disputa relacionada con el software debe ser llevada a un tribunal de jurisdicción competente ubicado en o cerca de San Francisco, California.
+3. Legislación aplicable. Aceptas que estos términos de la aplicación y tu uso del software están regidos por la ley de California y cualquier disputa relacionada con el software debe ser llevada a un tribunal de jurisdicción competente ubicado en o cerca de San Francisco, California.
 
 4. Paquetes de terceros. El software admite "paquetes" de terceros que pueden modificar, agregar, eliminar o alterar la funcionalidad del software.  Estos paquetes no están cubiertos por los presentes términos de la aplicación y pueden incluir su propia licencia que rige tu uso de ese paquete en particular.
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Cuando configuras SSH, [generarás una clave SSH y la agregarás al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) y luego [agregarás la clave a tu cuenta de {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account). Al agregar la clave SSH al ssh-agent te aseguras de que tu clave SSH tiene una capa extra de seguridad mediante el uso de una frase de contraseña. Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)".
@@ -22,7 +24,7 @@ Si no has utilizado tu llave SSH por un año, entonces
 
 Si eres miembro de una organización que provee certificados SSH, puedes usar tu certificado para acceder a los repositorios de esa organización sin agregar el certificado a tu cuenta de {% data variables.product.product_name %}. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/articles/about-ssh-certificate-authorities)".
 
-### Further reading
+### Leer más
 
 - "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
 - "[Probar tu conexión SSH](/articles/testing-your-ssh-connection)"

@@ -1,33 +1,47 @@
 ---
-title: About upgrades to new releases
-shortTitle: About upgrades
-intro: 'You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.'
+title: 新しいリリースへのアップグレードについて
+shortTitle: アップグレードについて
+intro: '{% if currentVersion == "github-ae@latest" %}{% data variables.product.product_name %} Enterprise は、{% data variables.product.company_short %} によって定期的に最新の機能とバグ修正版で更新されます。{% else %}Enterprise を新しくリリースされたバージョンにアップグレードすることで、{% data variables.product.product_name %} の新機能とバグ修正版を利用できます。{% endif %}'
 versions:
   enterprise-server: '>=3.0'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
-{% data variables.product.product_name %} is constantly improving, with new functionality and bug fixes introduced through major and minor releases.
+{% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}
 
-Major releases include new functionality and feature upgrades and typically occur quarterly.
+メジャーリリースには、新機能と機能のアップグレードが含まれ、通常、{% if currentVersion == "github-ae@latest" %}数週間または数か月{% else %}四半期ごとに発生します。{% endif %} {% if currentVersion == "github-ae@latest" %}{% data variables.product.company_short %} は、Enterprise を最新のメジャーリリースにアップグレードします。 Enterprise で予定されているダウンタイムについては、事前に通知されます。{% endif %}
 
-Starting with {% data variables.product.prodname_ghe_server %} 3.0, all major releases begin with at least one release candidate. Release candidates are proposed major releases, with a complete feature set. There may be bugs or issues in a release candidate which can only be found through feedback from customers actually using {% data variables.product.product_name %}.
+{% if enterpriseServerVersions contains currentVersion %}
 
-You can get early access to the latest features by testing a release candidate as soon as the release candidate is available. You can upgrade to a release candidate from a supported version and can upgrade from the release candidate to later versions when released. You should upgrade any environment running a release candidate as soon as the release is generally available. For more information, see "[Upgrade requirements](/admin/enterprise-management/upgrade-requirements)."
+{% data variables.product.prodname_ghe_server %} 3.0 以降、すべてのメジャーリリースは少なくとも 1 つのリリース候補から始まります。 リリース候補は、完全な機能一式を備えたメジャーリリースとして提案されています。 リリース候補には、実際に {% data variables.product.product_name %} を使用している顧客からのフィードバックを通じてのみ見つけることができるバグまたは問題がある可能性があります。
 
-Release candidates should be deployed on test or staging environments. As you test a release candidate, please provide feedback by contacting support. For more information, see "[Working with {% data variables.contact.github_support %}](/admin/enterprise-support)."
+リリース候補が利用可能になり次第、リリース候補をテストすることで、最新の機能に早期アクセスできます。 サポートされているバージョンからリリース候補にアップグレードでき、リリース時にリリース候補からそれ以降のバージョンにアップグレードできます。 リリースが一般に利用可能になり次第、リリース候補を実行している環境をアップグレードする必要があります。 詳しい情報については、「[アップグレード要件](/admin/enterprise-management/upgrade-requirements)」を参照してください。
 
-We'll use your feedback to apply bug fixes and any other necessary changes to create a stable production release. Each new release candidate adds bug fixes for issues found in prior versions. When the release is ready for widespread adoption, {% data variables.product.company_short %} publishes a stable production release.
+リリース候補は、テスト環境またはステージング環境に展開する必要があります。 リリース候補をテストした際は、サポートに連絡してフィードバックをご提供ください。 詳しい情報については、「[{% data variables.contact.github_support %} での操作](/admin/enterprise-support)」を参照してください。
+
+フィードバックを活用して、バグ修正やその他の必要な変更を適用し、安定した本番リリースを作成します。 新しいリリース候補ごとに、以前のバージョンで見つかった問題のバグ修正が追加されます。 リリースが広く普及可能になったら、{% data variables.product.company_short %} は安定した本番リリースを公開します。
+
+{% endif %}
 
 {% warning %}
 
-**Warning**: The upgrade to a new major release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. For more information, see "[Customizing user messages on your instance](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)" and "[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+**Warning**: 新しいメジャーリリースにアップグレードすると、数時間のダウンタイムが発生し、その間、どのユーザも Enterprise を使用できなくなります。 Enterprise 設定または REST API を使用して、グローバルアナウンスバナーを公開することにより、ダウンタイムについてユーザに通知できます。 詳しい情報については、「[インスタンス上でのユーザメッセージをカスタマイズする](/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」および「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
 
 {% endwarning %}
 
-Minor releases, which consist of hot patches and bug fixes only, happen more frequently. Minor releases are generally available when first released, with no release candidates. Upgrading to a minor release typically requires less than five minutes of downtime.
+{% if enterpriseServerVersions contains currentVersion %}
 
-To upgrade your enterprise to a new release, see "[Release notes](/enterprise-server/admin/release-notes)" and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
+マイナーリリースは、ホットパッチとバグ修正のみで構成されており、より頻繁に発生します。 マイナーリリースは通常、最初のリリース時に利用可能になっています。リリース候補はありません。 マイナーリリースへのアップグレードには、通常 5 分未満のダウンタイムが発生します。
+
+Enterprise を新しいリリースにアップグレードするには、「[リリースノート](/enterprise-server/admin/release-notes)」および「[{% data variables.product.prodname_ghe_server %} へのアップグレード](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。
+
+{% endif %}
 
 ### 参考リンク
 
 - `github/roadmap` リポジトリの [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})
+{% if currentVersion == "github-ae@latest" %}
+- [ {% data variables.product.prodname_ghe_managed %} のリリースノート](/admin/overview/github-ae-release-notes)
+{% endif %}

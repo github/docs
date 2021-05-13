@@ -8,6 +8,8 @@ redirect_from:
 intro: 'SAML ist ein XML-basierter Standard für die Authentifizierung und Autorisierung. {% data variables.product.prodname_ghe_server %} kann als ein Service Provider (SP) mit Ihrem internen SAML Identity Provider (IdP) funktionieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -79,7 +81,7 @@ Die folgenden Attribute sind verfügbar. Mit Ausnahme der `administrator`-Attrib
 
   {% endtip %}
 
-5. Wählen Sie **Disable administrator demotion/promotion** (Hochstufen/Zurücksetzen des Administrators deaktivieren) aus, wenn Sie **nicht** möchten, dass Ihr SAML-Anbieter die Administratorrechte für Benutzer auf {% data variables.product.product_location %} bestimmen kann. ![SAML-Konfiguration zum Deaktivieren der Administratoroption](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+5. Wählen Sie **Disable administrator demotion/promotion** (Hochstufen/Zurücksetzen des Administrators deaktivieren) aus, wenn Sie **nicht** möchten, dass Ihr SAML-Anbieter die Administratorrechte für Benutzer auf {% data variables.product.product_location %} bestimmen kann. ![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
 6. Geben Sie im Feld **Single sign-on URL** (Single Sign-On-URL) den HTTP- oder HTTPS-Endpunkt für Ihren IdP für Single Sign-On-Anforderungen ein. Dieser Wert wird durch Ihre IdP-Konfiguration angegeben. Wenn der Host in Ihrem internen Netzwerk nicht verfügbar ist, müssen Sie [{% data variables.product.product_location %} ggf. zur Verwendung interner Nameserver konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML-Authentifizierung](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 7. Gib optional im Feld **Issuer** (Aussteller) den Namen Deines SAML-Ausstellers ein. Dadurch wird die Authentizität von Nachrichten verifiziert, die an {% data variables.product.product_location %} gesendet werden. ![SAML-Aussteller](/assets/images/enterprise/management-console/saml-issuer.png)
 8. Wählen Sie in den Dropdownmenüs **Signature Method** (Signaturmethode) und **Digest Method** (Digest-Methode) den von Ihrem SAML-Aussteller verwendeten Hashalgorithmus aus, um die Integrität der Anforderungen von {% data variables.product.product_location %} zu verifizieren. Geben Sie das Format mit dem Dropdownmenü **Name Identifier Format** (Format für Namenskennzeichner) an. ![SAML-Methode](/assets/images/enterprise/management-console/saml-method.png)

@@ -4,9 +4,11 @@ intro: 'インターナルリポジトリへ移行して、{% data variables.pro
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
-permissions: サイト管理者はインターナルリポジトリへ移行できます。
+permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - Enterprise
 ---
 
 ### インターナルリポジトリについて
@@ -23,7 +25,7 @@ versions:
 
 インターナルもしくはプライベートになるパブリックリポジトリに対する匿名Git読み取りアクセスは、無効化されます。
 
-リポジトリに対する現在のデフォルトの可視性がパブリックであれば、デフォルトはインターナルになります。 現在のデフォルトがプライベートであれば、デフォルトは変更されません。 デフォルトはいつでも変更できます。 For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)."
+リポジトリに対する現在のデフォルトの可視性がパブリックであれば、デフォルトはインターナルになります。 現在のデフォルトがプライベートであれば、デフォルトは変更されません。 デフォルトはいつでも変更できます。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)」を参照してください。
 
 インスタンスに対するリポジトリの作成ポリシーは、パブリックリポジトリの無効化とプライベート及びインターナルリポジトリの許可に変更されます。 このポリシーはいつでも更新できます。 詳しい情報については「[インスタンスでのリポジトリ作成の制限](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)」を参照してください。
 
@@ -33,11 +35,11 @@ versions:
 
 1. 管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
 2. `/data/github/current`ディレクトリにアクセスしてください。
-   ```
+   ```shell
    cd /data/github/current
    ```
 3. 移行コマンドを実行してください。
-   ```
+   ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
 

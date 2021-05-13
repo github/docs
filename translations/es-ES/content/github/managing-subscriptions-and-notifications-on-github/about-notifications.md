@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -54,7 +56,7 @@ Para darte de baja de las conversaciones a las cuales estás suscrito automátic
 
 ### Personalizar notificaciones y suscripciones
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+Puedes elegir ver tus notificaciones a través de la bandeja de notificaciones en [https://github.com/notifications](https://github.com/notifications){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} y en la app de {% data variables.product.prodname_mobile %}{% endif %}, a través de tu correo electrónico o con cualquier combinación de estas opciones.
 
 Para personalizar los tipos de actualizaciones que deseas recibir y el lugar a donde quieras que se envíen, modifica tu configuración de notificaciones. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)".
 
@@ -63,8 +65,8 @@ Para poder seguir administrando tus suscripciones, revisa los repositorios que s
 Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Categorizar una notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-Puedes habilitar las notificaciones de subida en la
-app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)".
+Puedes personalizar y programar las notificaciones de subida en la
+app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
 {% endif %}
 
 ### Razones para que recibas notificaciones
@@ -93,7 +95,7 @@ También puedes clasificar varias notificaciones al mismo tiempo desde tu bandej
 
 ### Personalizar tu bandeja de entrada de notificaciones
 
-To focus on a group of notifications in your inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. Por ejemplo, puedes crear un filtro personalizado para un proyecto de código abierto en el que contribuyes y únicamente ver notificaciones para el repositorio en el que se te mencione. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para ver más ejemplos de cómo personalizar tu flujo de trabajo de clasificaciones, consulta la sección "[Personalizar un flujo de trabajo para clasificar tus notificaciones](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
+Para enfocarte en un grupo de notificaciones en tu bandeja de entrada en {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} o {% data variables.product.prodname_mobile %}{% endif %}, puedes crear filtros personalizados. Por ejemplo, puedes crear un filtro personalizado para un proyecto de código abierto en el que contribuyes y únicamente ver notificaciones para el repositorio en el que se te mencione. Para obtener más información, consulta la sección "[Administrar notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox)". Para ver más ejemplos de cómo personalizar tu flujo de trabajo de clasificaciones, consulta la sección "[Personalizar un flujo de trabajo para clasificar tus notificaciones](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)".
 
 ### Política de retención de notificaciones
 

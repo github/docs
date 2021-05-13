@@ -1,19 +1,23 @@
 ---
 title: 複合実行ステップ アクションの作成
-intro: 'このガイドでは、複合実行ステップ アクションを構築する方法について説明します。'
+intro: このガイドでは、複合実行ステップ アクションを構築する方法について説明します。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
-このガイドでは、パッケージ化された複合実行ステップ アクションを作成および使用するために必要な基本的なコンポーネントについて説明します。 アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 アクションは「Hello World」と「Goodbye」を出力するか、カスタムの名前を指定すると「Hello  [who-to-greet]」と「Goodbye」を出力します。 このアクションは、乱数を `random-number`という出力変数にマップし、 `goodbye.sh`という名前のスクリプトを実行することもします。
+このガイドでは、パッケージ化された複合実行ステップアクションを作成して使用するために必要な基本コンポーネントについて学びます。 アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 アクションは「Hello World」と「Goodbye」を出力するか、カスタムの名前を指定すると「Hello  [who-to-greet]」と「Goodbye」を出力します。 このアクションは、乱数を `random-number`という出力変数にマップし、 `goodbye.sh`という名前のスクリプトを実行することもします。
 
 このプロジェクトを完了すれば、独自の複合実行ステップ アクションをビルドし、ワークフローでテストする方法を理解できるでしょう。
 
@@ -65,12 +69,12 @@ type: 'tutorial'
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -122,7 +126,7 @@ jobs:
       uses: actions/hello-world-composite-run-steps-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.random-number }}
       shell: bash
 ```
 {% endraw %}

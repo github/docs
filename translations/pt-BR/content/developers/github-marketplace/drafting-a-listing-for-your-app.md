@@ -14,6 +14,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
@@ -60,7 +62,7 @@ Após criar um rascunho da listagem do {% data variables.product.prodname_market
 
 ### Enviar o seu aplicativo
 
-Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração. Você pode saber mais sobre o processo de revisão de segurança e integração em "[Começando com {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)".
+Após concluir a sua listagem do {% data variables.product.prodname_marketplace %}, você poderá enviá-la para revisão na página **Visão geral**. Você vai precisar ler e aceitar o "[{% data variables.product.prodname_marketplace %} Contrato de desenvolvedor](/articles/github-marketplace-developer-agreement/)" e, em seguida, você poderá clicar em **Enviar para revisão**. Depois de enviar seu aplicativo para análise, um especialista em integração entrará em contato com você com informações adicionais sobre o processo de integração.
 
 ### Remover uma listagem do {% data variables.product.prodname_marketplace %}
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Solo puedes resolver los conflictos de fusión en {% data variables.product.product_name %} que hayan sido provocados por realizar cambios de líneas, como cuando las personas hacen cambios diferentes en la misma línea del mismo archivo en ramas diferentes de tu repositorio de Git. Para todos los demás tipos de conflictos de fusión, debes resolver el conflicto de manera local desde la línea de comando. Para obtener más información, consulta "[Resolver un conflicto de fusión en la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".
@@ -56,6 +58,6 @@ Si un administrador de sitio inhabilita el editor de conflicto de fusión para l
 {% endif %}
 1. Para fusionar tu solicitud de extracción, haz clic en **Merge pull request** (Fusionar solicitud de extracción). Para obtener más información acerca de otras opciones de fusión de solicitudes de extracción, consulta "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request/)".
 
-### Further reading
+### Leer más
 
 - "[Acerca de las fusiones de solicitudes de extracción](/articles/about-pull-request-merges/)"

@@ -4,5 +4,7 @@ intro: 'Du kannst Deine Nutzung ansehen und ein Ausgabenlimit für {% data varia
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

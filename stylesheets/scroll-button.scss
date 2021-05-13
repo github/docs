@@ -1,0 +1,20 @@
+button.arrow-for-scrolling-top {
+  opacity: 0;
+  transition: 0.2s;
+  background-color: var(--color-auto-blue-5);
+  color: var(--color-text-inverse);
+  position: fixed;
+  bottom: $spacer-2;
+  right: $spacer-2;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: $spacer-1;
+
+  &.show {
+    opacity: 1;
+    border: none;
+    transition: 0.2s;
+  }
+}

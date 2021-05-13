@@ -4,5 +4,7 @@ intro: '{% data variables.product.prodname_marketplace %}で利用する、開�
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 

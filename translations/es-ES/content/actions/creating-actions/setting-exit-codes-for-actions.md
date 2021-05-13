@@ -8,20 +8,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los códigos de salida
 
 {% data variables.product.prodname_dotcom %} utiliza el código de salida para configurar el estado de verificación de ejecución de las acciones, el cual puede ser `success` o `failure`.
 
-| Estado de salida       | Estado de ejecución de verificación | Descripción                                                                                                                                                                                                                                                      |
-| ---------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`                    | `success`                           | La acción se completó con éxito y pueden comenzar otras tareas que dependen de ella.                                                                                                                                                                             |
-| Valor distinto de cero | `failure`                           | Cualquier otro código de salida indica que la acción fracasó. Cuando una acción fracasa, todas las acciones simultáneas se cancelan y las acciones futuras se omiten. La ejecución de verificación y el conjunto de verificaciones obtienen un estado `failure`. |
+| Estado de salida                                              | Estado de ejecución de verificación | Descripción                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0`                                                           | `success`                           | La acción se completó con éxito y pueden comenzar otras tareas que dependen de ella.                                                                                                                                                                             |
+| Valor diferente a zero (cualquier número entero que no sea 0) | `failure`                           | Cualquier otro código de salida indica que la acción fracasó. Cuando una acción fracasa, todas las acciones simultáneas se cancelan y las acciones futuras se omiten. La ejecución de verificación y el conjunto de verificaciones obtienen un estado `failure`. |
 
 ### Establecer un código de salida fallida en una acción JavaScript
 

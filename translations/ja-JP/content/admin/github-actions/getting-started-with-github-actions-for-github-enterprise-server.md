@@ -1,61 +1,90 @@
 ---
-title: Getting started with GitHub Actions for GitHub Enterprise Server
-intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
-permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
+title: GitHub Enterprise Server の GitHub Actions を使い始める
+intro: '{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の有効化と設定について初めて学びます。'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
-{% if currentVersion == "enterprise-server@2.22" %}
-{% note %}
-
-**注釈:** {% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定パブリックベータです。 Review the external storage requirements below and [sign up for the beta](https://resources.github.com/beta-signup/).
-
-{% endnote %}
-{% endif %}
+{% data reusables.actions.enterprise-beta %}
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-This article explains how site administrators can configure {% data variables.product.prodname_ghe_server %} to use {% data variables.product.prodname_actions %}. It covers the hardware and software requirements, presents the storage options, and describes the security management policies.
-
-### Review hardware considerations
-
-{% data reusables.actions.enterprise-hardware-considerations %}
+この記事では、サイト管理者が {% data variables.product.prodname_actions %} を使用するように {% data variables.product.prodname_ghe_server %} を設定する方法について説明しています。 ハードウェアとソフトウェアの要件、ストレージオプション、セキュリティ管理ポリシーについて説明します。
 
 {% endif %}
 
-### External storage requirements
+### ハードウェアについての留意点を確認する
 
-{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にするには、外部 Blob ストレージにアクセスできる必要があります。
-
-{% data variables.product.prodname_actions %} は、blob ストレージを使用して、ワークフローログやユーザがアップロードしたビルドアーティファクトなど、ワークフロー実行によって生成されたアーティファクトを保存します。 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況によって異なります。 Only a single external storage configuration is supported, and you can't use multiple storage providers at the same time.
-
-{% data variables.product.prodname_actions %} は、次のストレージプロバイダをサポートしています。
-
-* Azure Blob storage
-* Amazon S3
-* S3-compatible MinIO Gateway for NAS
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "enterprise-server@3.0" %}
 
 {% note %}
 
-**Note:** These are the only storage providers that {% data variables.product.company_short %} supports and can provide assistance with. Other S3 API-compatible storage providers are unlikely to work due to differences from the S3 API. [Contact us](https://support.github.com/contact) to request support for additional storage providers.
+**注釈**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} は限定ベータとして {% data variables.product.prodname_ghe_server %} 2.22 で利用可能でした。 {% endif %}既存の {% data variables.product.prodname_ghe_server %} インスタンスを 3.0 以降にアップグレードしていて、{% data variables.product.prodname_actions %} を設定する場合は、ハードウェアの最小要件が増えていることに注意してください。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)」を参照してください。
+
+{% endnote %}
+
+{% endif %}
+
+The CPU and memory resources available to {% data variables.product.product_location %} determine the maximum job throughput for {% data variables.product.prodname_actions %}.
+
+Internal testing at {% data variables.product.company_short %} demonstrated the following maximum throughput for {% data variables.product.prodname_ghe_server %} instances with a range of CPU and memory configurations. You may see different throughput depending on the overall levels of activity on your instance.
+
+| vCPUs | メモリ    | Maximum job throughput |
+|:----- |:------ |:---------------------- |
+| 4     | 32 GB  | Demo or light testing  |
+| 8     | 64 GB  | 25ジョブ                  |
+| 16    | 160 GB | 35ジョブ                  |
+| 32    | 256 GB | 100ジョブ                 |
+
+If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of an existing instance, review the levels of activity for users and automations on the instance and ensure that you have provisioned adequate CPU and memory for your users. {% data variables.product.prodname_ghe_server %}のキャパシティとパフォーマンスのモニタリングに関する詳しい情報については「[アプラインアンスのモニタリング](/admin/enterprise-management/monitoring-your-appliance)」を参照してください。
+
+For more information about minimum hardware requirements for {% data variables.product.product_location %}, see the hardware considerations for your instance's platform.
+
+- [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
+- [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
+- [Google Cloud Platform](/admin/installation/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+- [Hyper-V](/admin/installation/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+- [OpenStack KVM](/admin/installation/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+- [VMware](/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)
+- [XenServer](/admin/installation/installing-github-enterprise-server-on-xenserver#hardware-considerations)
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+### 外部ストレージの要件
+
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にするには、外部 Blob ストレージにアクセスできる必要があります。
+
+{% data variables.product.prodname_actions %} は、blob ストレージを使用して、ワークフローログやユーザがアップロードしたビルドアーティファクトなど、ワークフロー実行によって生成されたアーティファクトを保存します。 必要なストレージ容量は、{% data variables.product.prodname_actions %} の使用状況によって異なります。 単一の外部ストレージ設定のみがサポートされており、複数のストレージプロバイダを同時に使用することはできません。
+
+{% data variables.product.prodname_actions %} は、次のストレージプロバイダをサポートしています。
+
+* Azure Blob ストレージ
+* Amazon S3
+* NAS ストレージ用の S3 対応 MinIO ゲートウェイ
+
+{% note %}
+
+**注釈:** これらは、{% data variables.product.company_short %} がサポートし、支援を提供できる唯一のストレージプロバイダです。 他の S3 API 互換のストレージプロバイダは、S3 API との違いにより、機能しない可能性があります。 追加のストレージプロバイダのサポートをリクエストするには、[お問い合わせ](https://support.github.com/contact)ください。
 
 {% endnote %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Amazon S3 permissions
+#### Amazon S3 の権限
 
 {% data reusables.actions.enterprise-s3-permission %}
 
 ### {% data variables.product.prodname_actions %} の有効化
 
-{% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定パブリックベータです。 [Sign up for the beta](https://resources.github.com/beta-signup/).
+{% data variables.product.prodname_ghe_server %} 2.22 での {% data variables.product.prodname_actions %} サポートは、限定ベータとして利用可能でした。 インスタンスの {% data variables.product.prodname_actions %} を設定するには、{% data variables.product.prodname_ghe_server %} 3.0 以降にアップグレードします。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} 3.0 リリースノート](/enterprise-server@3.0/admin/release-notes)および「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/admin/enterprise-management/upgrading-github-enterprise-server)」を参照してください。
 
 ### 参考リンク
 
@@ -65,32 +94,32 @@ This article explains how site administrators can configure {% data variables.pr
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-### Enabling {% data variables.product.prodname_actions %} with your storage provider
+### ストレージプロバイダで {% data variables.product.prodname_actions %} を有効化する
 
-Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
+以下の手順のいずれかに従って、選択したストレージプロバイダで {% data variables.product.prodname_actions %} を有効にします。
 
-* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
-* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
-* [Enabling GitHub Actions with MinIO Gateway for NAS storage](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
+* [Azure Blob ストレージで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-azure-blob-storage)
+* [Amazon S3 ストレージで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-amazon-s3-storage)
+* [NAS ストレージ用の MinIO ゲートウェイで GitHub Actions を有効化する](/admin/github-actions/enabling-github-actions-with-minio-gateway-for-nas-storage)
 
-### Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
+### Enterprise 内の {% data variables.product.prodname_actions %} のアクセス権限を管理する
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+ポリシーを使用して、{% data variables.product.prodname_actions %} へのアクセスを管理できます。 詳しい情報については、「[Enterprise に GitHub Actions のポリシーを施行する](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。
 
-### 自己ホストランナーの追加
+### セルフホストランナーの追加
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. 詳しい情報については「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
+{% data variables.product.prodname_actions %} ワークフローを実行するには、セルフホストランナーを追加する必要があります。 Enterprise、Organization、リポジトリレベルでセルフホストランナーを追加できます。 詳しい情報については「[セルフホストランナーの追加](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
 
-### Managing which actions can be used in your enterprise
+### Enterprise で使用できるアクションを管理する
 
-You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
+ユーザーが Enterprise で使用できるアクションを制御できます。 これには、{% data variables.product.prodname_dotcom_the_website %} からのアクションへの自動アクセス用の {% data variables.product.prodname_github_connect %} の設定、または {% data variables.product.prodname_dotcom_the_website %} からのアクションの手動同期が含まれます。
 
-For more information, see "[About using actions on {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server)."
+詳しい情報については、「[{% data variables.product.prodname_ghe_server %} でのアクションの使用について](/admin/github-actions/about-using-actions-on-github-enterprise-server)」を参照してください。
 
-### General security hardening for {% data variables.product.prodname_actions %}
+### {% data variables.product.prodname_actions %} の一般的なセキュリティ強化
 
-If you want to learn more about security practices for {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
+{% data variables.product.prodname_actions %} のセキュリティプラクティスについて詳しく学ぶには、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions)」を参照してください。
 
 {% endif %}

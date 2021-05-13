@@ -5,11 +5,13 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 
-Las funciones del código de navegación usan la biblioteca de código abierto [semántica</code>](https://github.com/github/semantic). Los siguientes idiomas son compatibles:
+La navegación de código utiliza la biblioteca de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes idiomas son compatibles:
 - C#
 - CodeQL
 - Go
@@ -38,5 +40,5 @@ Puedes encontrar todas las referencias para una función o método dentro del mi
 
 ![Pestaña Find all references (Buscar todas las referencias)](/assets/images/help/repository/find-all-references-tab.png)
 
-### Further reading
+### Leer más
 - "[Buscar código](/github/searching-for-information-on-github/searching-code)"

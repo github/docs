@@ -4,6 +4,8 @@ intro: 'Wenn Du {% data variables.product.prodname_actions %} über die in Deine
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
@@ -11,6 +13,8 @@ versions:
 {% data reusables.github-actions.actions-billing %}
 
 {% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 Minuten werden jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 

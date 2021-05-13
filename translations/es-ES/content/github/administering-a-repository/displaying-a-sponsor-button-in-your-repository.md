@@ -6,6 +6,8 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de los archivos FUNDING
@@ -14,18 +16,18 @@ Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en
 
 Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes añadir hasta cuatro organizaciones o desarrolladores patrocinadores en {% data variables.product.prodname_sponsors %}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
 
-| Plataforma                                                                    | Sintaxis                                                                |
-| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                        |
-| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` o `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                   |
-| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                       |
-| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                   |
-| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                             |
-| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                     |
-| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                     |
-| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                  |
-| URL personalizada                                                             | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`               |
+| Plataforma                                                                               | Sintaxis                                                                |
+| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [Mentoría LFX (antes CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) | `community_bridge: PROJECT-NAME`                                        |
+| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)            | `github: USERNAME` o `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
+| [IssueHunt](https://issuehunt.io/)                                                       | `issuehunt: USERNAME`                                                   |
+| [Ko-fi](https://ko-fi.com/)                                                              | `ko_fi: USERNAME`                                                       |
+| [Liberapay](https://en.liberapay.com/)                                                   | `liberapay: USERNAME`                                                   |
+| [Open Collective](https://opencollective.com/)                                           | `open_collective: USERNAME`                                             |
+| [Otechie](https://otechie.com/)                                                          | `otechie: USERNAME`                                                     |
+| [Patreon](https://www.patreon.com/)                                                      | `patreon: USERNAME`                                                     |
+| [Tidelift](https://tidelift.com/)                                                        | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                  |
+| URL personalizada                                                                        | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`               |
 
 Para Tidelift, usa la sintaxis `platform-name/package-name` con los siguientes nombres de plataforma:
 
@@ -52,7 +54,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-Puedes crear un botón patrocinador predeterminado para tu organización o cuenta de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Puedes crear un botón patrocinador predeterminado para tu organización o cuenta de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 
@@ -73,6 +75,6 @@ Cualquier usuario que cuente con permisos de administración puede habilitar un 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Further reading
+### Leer más
 - "[Acerca de {% data variables.product.prodname_sponsors %} para colaboradores de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

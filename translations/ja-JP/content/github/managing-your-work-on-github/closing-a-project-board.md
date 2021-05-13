@@ -1,6 +1,6 @@
 ---
 title: プロジェクトボードをクローズする
-intro: 'プロジェクトボードのタスクをすべて完了したか、プロジェクトボードを使う必要がなくなった場合、そのプロジェクトボードをクローズできます。'
+intro: プロジェクトボードのタスクをすべて完了したか、プロジェクトボードを使う必要がなくなった場合、そのプロジェクトボードをクローズできます。
 redirect_from:
   - /articles/closing-a-project/
   - /articles/closing-a-project-board
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 プロジェクトボードをクローズすると、設定されたワークフローの自動化はデフォルトですべて停止します。

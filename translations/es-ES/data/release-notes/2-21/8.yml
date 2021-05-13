@@ -1,5 +1,4 @@
----
-date: '23-09-2020'
+date: '2020-09-23'
 sections:
   security_fixes:
     - '**MEDIO**:  ImageMagick se actualizó a la dirección  [DSA-4715-1](https://www.debian.org/security/2020/dsa-4715). {% comment %} https://github.com/github/enterprise2/pull/22621, https://github.com/github/enterprise2/pull/22610 {% endcomment %}'

@@ -12,6 +12,8 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zur {% data variables.enterprise.management_console %}
@@ -19,7 +21,7 @@ versions:
 {% data variables.enterprise.management_console %} für grundlegende Verwaltungsaktivitäten verwenden:
 - **Initial setup** (Ersteinrichtung): Durchlaufen Sie beim ersten Start von {% data variables.product.product_location %} den Ersteinrichtungsprozess. Rufen Sie dazu in Ihrem Browser die IP-Adresse Ihrer {% data variables.product.product_location %} auf.
 - **Configuring basic settings for your instance** (Grundlegende Einstellungen für Ihre Instanz konfigurieren): Auf der Seite „Settings“ (Einstellungen) können Sie DNS, den Hostnamen, SSL, die Benutzerauthentifizierung, E-Mail, Überwachungsdienste und die Protokollweiterleitung konfigurieren.
-- **Scheduling maintenance windows** (Wartungsfenster planen): Nehmen Sie Ihre {% data variables.product.product_location %} offline, während Sie eine Wartung mithilfe der {% data variables.enterprise.management_console %} oder der Verwaltungsshell durchführen.
+- **Scheduling maintenance windows**: Take {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
 - **Troubleshooting** (Fehlerbehebung): Generieren Sie ein Support-Bundle, oder zeigen Sie allgemeine Diagnoseinformationen an.
 - **License management** (Lizenzverwaltung): Zeigen Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz an, oder aktualisieren Sie sie.
 

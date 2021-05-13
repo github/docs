@@ -7,6 +7,8 @@ redirect_from:
   - /articles/viewing-your-git-large-file-storage-usage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
@@ -29,7 +31,7 @@ versions:
 {% data reusables.user_settings.subscriptions-tab %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-### Further reading
+### Leer más
 
 - "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"
 - "[Actualizar {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

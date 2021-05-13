@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **Versión simplificada:** _Presentamos una amplia variedad de proyectos en equipo en todo el mundo y dicha cooperación solamente funciona cuando nuestros usuarios pueden trabajar juntos con buenas intenciones. Mientras usas el Servicio, debes cumplir con nuestras políticas de uso aceptable, que incluyen algunas restricciones sobre el contenido que puedes publicar o gestionar en el servicio y otras limitaciones. En síntesis, la idea es que sean geniales entre sí._
@@ -62,7 +65,7 @@ No puedes utilizar la información del Servicio (ya sea eliminada, recopilada a 
 
 Tu uso de la información del Servicio debe cumplir con la [Declaración de privacidad de GitHub](/github/site-policy/github-privacy-statement).
 
-### 6. Privacy
+### 6. Privacidad
 Está prohibido el uso indebido de la Información personal del Usuario.
 
 Cualquier persona, entidad o servicio que recopile datos del Servicio debe cumplir con la [Declaración de privacidad de GitHub](/articles/github-privacy-statement), en particular, al respecto de la recopilación de Información personal del Usuario. Si recopilas cualquier Información personal del Usuario desde el Servicio, debes aceptar que solo usarás esa Información personal del Usuario para los fines que ese Usuario autorizó. Aceptas que asegurarás de manera razonable cualquier Información personal del Usuario que hayas reunido desde el Servicio y responderás de inmediato a las quejas, las solicitudes de eliminación y las solicitudes de "no contactar" que hagamos nosotros u otros usuarios.

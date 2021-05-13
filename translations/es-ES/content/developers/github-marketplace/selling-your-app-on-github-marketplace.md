@@ -1,7 +1,7 @@
 ---
 title: Vender tu app en GitHub Marketplace
 intro: 'Aprende sobre los requisitos y mejores prácticas para vender tu app en {% data variables.product.prodname_marketplace %}.'
-mapTopic: verdadero
+mapTopic: true
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/
@@ -11,5 +11,7 @@ redirect_from:
   - /marketplace/selling-your-app
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 

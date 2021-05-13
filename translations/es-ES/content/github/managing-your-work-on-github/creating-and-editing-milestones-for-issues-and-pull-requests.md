@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -27,7 +29,7 @@ Cuando eliminas hitos, las propuestas y las solicitudes de extracción no se ven
 {% data reusables.project-management.milestones %}
 4. Junto al hito que deseas eliminar, haz clic en **Eliminar**. ![Opción Eliminar hito](/assets/images/help/repository/delete-milestone.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los hitos](/articles/about-milestones)"
 - "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"

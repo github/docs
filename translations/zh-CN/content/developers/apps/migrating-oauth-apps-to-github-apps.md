@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,7 +54,7 @@ GitHub 应用程序使用[滑动速率限制规则](/apps/building-github-apps/u
 
 #### 注册新的 GitHub 应用程序
 
-一旦决定要切换到 Github 应用程序，就需要[创建新的 GitHub 应用程序](/apps/building-github-apps/)。
+一旦决定要切换到 GitHub 应用程序，就需要[创建新的 GitHub 应用程序](/apps/building-github-apps/)。
 
 #### 确定应用程序所需的权限
 

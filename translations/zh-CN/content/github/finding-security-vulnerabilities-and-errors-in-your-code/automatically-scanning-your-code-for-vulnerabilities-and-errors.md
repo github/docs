@@ -5,7 +5,8 @@ intro: '您可以在 {% data variables.product.prodname_dotcom %} 上查找项�
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 

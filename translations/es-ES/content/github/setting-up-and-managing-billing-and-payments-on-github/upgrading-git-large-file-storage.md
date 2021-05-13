@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Comprar más almacenamiento y ancho de banda para una cuenta personal
@@ -31,7 +33,7 @@ versions:
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)"
 - "[Acerca del uso de banda ancha y del almacenamiento](/articles/about-storage-and-bandwidth-usage)"

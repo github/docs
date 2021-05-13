@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 如果数据服务集群中只有三个节点，则无法撤出节点，因为 `ghe-spoke` 没有其他位置可以进行复制。 如果您有四个或更多节点，则 `ghe-spoke ` 会将所有仓库移出已撤出的节点。
@@ -25,9 +27,11 @@ versions:
     ghe-spokes evac-status
     ```
     对于 {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
+    {% endraw %}
     对于存储
     ```
     ghe-storage evacuation-status
@@ -36,18 +40,26 @@ versions:
 3. 复制完成后，您可以撤出存储服务。 运行以下任意命令：
 
     对于 Git
+    {% raw %}
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
+    {% endraw %}
     对于 {% data variables.product.prodname_pages %}
+    {% raw %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```
+    {% endraw %}
     对于存储，请使节点离线
+    {% raw %}
     ```
     ghe-storage offline storage-server-<uuid>
     ```
+    {% endraw %}
       然后撤出
+    {% raw %}
     ```
     ghe-storage evacuate storage-server-<uuid>
     ```
+    {% endraw %}

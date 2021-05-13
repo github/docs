@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
@@ -46,14 +48,14 @@ versions:
 4. [Atom](https://atom.io/) などのお気に入りのテキスト エディターを開き、マージ コンフリクトが発生しているファイルに移動します。
 5. ファイル内でマージ コンフリクトの始まりを確認するには、ファイル内のコンフリクト マーカー `<<<<<<<` を検索します。 テキストエディタでファイルを開くと、`<<<<<<< HEAD` 行の後に HEAD ブランチまたはベースブランチからの変更が見えます。 次に、`=======` が見えます。これは、自分の変更と他のブランチの変更を区別するもので、その後に `>>>>>>> BRANCH-NAME` が続きます。 この例では、ある人がベースまたは HEAD ブランチで「open an issue」と書き込み、別の人が compare ブランチまたは `branch-a` に「ask your question in IRC」と書き込みました。
 
- ```
-If you have questions, please
-<<<<<<< HEAD
-open an issue
-=======
-ask your question in IRC.
->>>>>>> branch-a
-  ```
+    ```
+    If you have questions, please
+    <<<<<<< HEAD
+    open an issue
+    =======
+    ask your question in IRC.
+    >>>>>>> branch-a
+    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}この例では、両方の変更が最終的なマージに取り込まれます。
 
   ```shell
@@ -68,7 +70,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 削除したファイルのマージコンフリクト
 
@@ -117,7 +119,7 @@ ask your question in IRC.
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 参考リンク
 

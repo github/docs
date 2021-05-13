@@ -1,18 +1,20 @@
 ---
 title: Hyper-V で GitHub Enterprise Server をインストールする
-intro: '{% data variables.product.prodname_ghe_server %} を Hyper-V にインストールするには、Windows Server 2008 から Windows Server 2016 までを実行しているマシンに配備する必要があります。'
+intro: '{% data variables.product.prodname_ghe_server %} を Hyper-V にインストールするには、Windows Server 2008 から Windows Server 2019 までを実行しているマシンに配備する必要があります。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 必要な環境
 
 - {% data reusables.enterprise_installation.software-license %}
-- Hyper-VをサポートしているWindows Server 2008からWindows Server 2016を持っている必要があります。
-- 仮想マシン（VM）の作成に必要なほとんどのアクションは、 [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts)を使っても行えます。 とはいえ、初期セットアップのためにはWindows PowerShellコマンドラインシェルを使うことをおすすめします。 以下の例ではPowerShellを使っています。 For more information, see the Microsoft guide "[Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)."
+- Hyper-VをサポートしているWindows Server 2008からWindows Server 2019を持っている必要があります。
+- 仮想マシン（VM）の作成に必要なほとんどのアクションは、 [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts)を使っても行えます。 とはいえ、初期セットアップのためにはWindows PowerShellコマンドラインシェルを使うことをおすすめします。 以下の例ではPowerShellを使っています。 詳細については、Microsoft ガイド「[Windows PowerShell 入門](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)」を参照してください。
 
 ### ハードウェアについて
 
@@ -62,5 +64,5 @@ versions:
 
 ### 参考リンク
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- 「[システム概要](/enterprise/admin/guides/installation/system-overview)」{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」{% endif %}

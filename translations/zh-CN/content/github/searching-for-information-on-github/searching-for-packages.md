@@ -2,11 +2,13 @@
 title: 搜索包
 intro: '您可以在 {% data variables.product.product_name %} 上搜索包，并使用搜索限定符缩小结果范围。'
 product: '{% data reusables.gated-features.packages %}'
-permissions: 任何人都可以搜索他们有权访问的包。
+permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

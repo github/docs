@@ -5,6 +5,8 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 Cualquier usuario puede restaurar repositorios eliminados que le pertenecieron a su propia cuenta de usuario. Los propietarios de la organización pueden restaurar repositorios eliminados que le pertenecieron a la organización.
@@ -36,6 +38,6 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}
 
-### Further reading
+### Leer más
 
 - "[Borrar un repositorio](/articles/deleting-a-repository)"

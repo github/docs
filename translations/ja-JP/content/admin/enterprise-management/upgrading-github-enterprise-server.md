@@ -15,6 +15,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### アップグレードの準備
@@ -28,6 +30,32 @@ versions:
   **注釈:** メンテナンスウィンドウは、実行しようとしているアップグレードの種類によります。 ホットパッチを利用するアップグレードは、通常メンテナンスウィンドウを必要としません。 リブートが必要になることもあります。そのリブートは後で行うことができます。 MAJOR.FEATURE.PATCH というバージョン付けのスキームに従い、アップグレードパッケージを使ったパッチのリリースで生じるダウンタイムは、通常 5 分未満です。 データの移行を含むフィーチャリリースは、ストレージの性能および移行するデータの量に応じた時間がかかります。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% endnote %}
+
+{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
+
+### {% data variables.product.prodname_ghe_server %} 3.0 以降の最小要件について
+
+{% data variables.product.prodname_ghe_server %} 3.0 以降にアップグレードする前に、インスタンスにプロビジョニングしたハードウェアリソースを確認してください。 {% data variables.product.prodname_ghe_server %} 3.0 は、{% data variables.product.prodname_actions %} や {% data variables.product.prodname_registry %} などの新機能を導入しているため、バージョン 2.22 以前よりも多くのリソースが必要となります。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} 3.0 のリリースノート](/enterprise-server@3.0/admin/release-notes)を参照してください。
+
+次の表では、{% data variables.product.prodname_ghe_server %} 3.0 以降の要件の増加を**太字**で示しています。
+
+| ユーザライセンス               |                        vCPUs |                                  メモリ |                         アタッチされたストレージ | ルートストレージ |
+|:---------------------- | ----------------------------:| ------------------------------------:| ------------------------------------:| --------:|
+| トライアル、デモ、あるいは10人の軽量ユーザ |   **4**<br/>_2 から増加_ |   **32 GB**<br/>_16 GB から増加_ | **150 GB**<br/>_100 GB から増加_ |   200 GB |
+| 10-3000                |   **8**<br/>_4 から増加_ |   **48 GB**<br/>_32 GB から増加_ | **300 GB**<br/>_250 GB から増加_ |   200 GB |
+| 3000-5000              |  **12**<br/>_8 から増加_ |                                64 GB |                               500 GB |   200 GB |
+| 5000-8000              | **16**<br/>_12 から増加_ |                                96 GB |                               750 GB |   200 GB |
+| 8000-10000+            | **20**<br/>_16 から増加_ | **160 GB**<br/>_128 GB から増加_ |                              1000 GB |   200 GB |
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+
+{% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
+{% endif %}
 
 ### スナップショットの取得
 
@@ -76,7 +104,7 @@ versions:
 4. 新しいホットパッチがダウンロードされたなら、Install package（パッケージのインストール）ドロップダウンメニューを使ってください。
     - すぐにインストールするなら**Now（即時）**を選択してください。
     - 後でインストールするなら、後の日付を選択してください。 ![ホットパッチインストール日のドロップダウン](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**. ![ホットパッチインストールボタン](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+5. [**Install**] をクリックします。 ![ホットパッチインストールボタン](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
 ##### 管理シェルを使ったホットパッチのインストール
 
@@ -114,7 +142,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 「[管理シェルを使ってホットパッチをインストールする](#installing-a-hotpatch-using-the-administrative-shell)」の指示に従ってレプリカインスタンスをアップグレードします。 Geo-replication に複数のレプリカを使用している場合は、この手順を繰り返して、各レプリカを一度に 1 つずつアップグレードする必要があります。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
@@ -183,7 +211,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 「[アップグレードパッケージで単一アプライアンスをアップグレードする](#upgrading-a-single-appliance-with-an-upgrade-package)」の指示に従い、レプリカインスタンスをアップグレードします。 Geo-replication に複数のレプリカを使用している場合は、この手順を繰り返して、各レプリカを一度に 1 つずつアップグレードする必要があります。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
@@ -222,5 +250,5 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 ### 参考リンク
 
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+- 「[新しいリリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)」
 {% endif %}

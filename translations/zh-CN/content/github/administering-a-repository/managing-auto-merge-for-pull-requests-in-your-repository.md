@@ -1,13 +1,15 @@
 ---
 title: 管理仓库中拉取请求的自动合并
-intro: "您可以允许或禁止仓库中拉取请求的自动合并。"
+intro: 您可以允许或禁止仓库中拉取请求的自动合并。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
-permissions: 具有维护员权限的人可以管理仓库中拉取请求的自动合并。
+  enterprise-server: '>=3.1'
+  github-ae: '*'
+permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
+topics:
+  - Repositories
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 如果您允许自动合并仓库中的拉取请求，则用户可以配置仓库中的单个拉取请求在满足所有合并要求时自动合并。 更多信息请参阅“[自动合并拉取请求](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)”。
 

@@ -1,10 +1,13 @@
 ---
 title: GitHub が配信するメールの種類
-intro: '{% data variables.product.product_name %} から受け取るメールには、通知、アカウントの情報、マーケティングの連絡などいくつかの種類があります。'
+intro: '{% data variables.product.product_name %} から受信できるメールには、通知、アカウント情報、顧客調査への招待、マーケティングコミュニケーションなど、いくつかの種類があります。'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 ### 通知メール
@@ -24,6 +27,17 @@ versions:
 ### アカウントのメール
 
 有料の製品や機能にアップグレートしている場合、アカウントのプライマリメールアドレスで支払い領収書を受け取ります。 詳細は「[支払い請求先メールアドレスを設定する](/articles/setting-your-billing-email)」を参照してください。
+
+### 顧客調査のメール
+
+{% data variables.product.product_name %} は、より良い GitHub を構築するために、顧客に調査セッションへの参加を求めることがあります。 これらはリモートで実行され、世界中の顧客に公開されており、次のような内容が含まれる場合があります。
+
+- フィードバック調査
+- 調査インタビュー
+- ユーザビリティテストセッション
+- 初期のプロトタイプまたは概念のプレビュー
+
+これらのメールはまれに送信され、参加するかどうかを選択できます。 調査セッションに参加できるその他の機会に興味がある場合は、GitHub Customer Research Panel に自分を追加します。 詳しい情報については、「[GitHub Customer Experience Research](https://cxr.github.com)」を参照してください。
 
 ### マーケティングメール
 

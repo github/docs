@@ -1,11 +1,13 @@
 ---
 title: リリースの比較
 intro: リリースタグを比較して、異なるリリース間でのリポジトリの変更を確認できます。
-permissions: リポジトリへの読み取りアクセスを持つ人は、リリースを表示および比較できます。
+permissions: People with read access to a repository can view and compare releases.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -3,8 +3,8 @@ title: Ver métricas e informes clave
 intro: Puedes ver y filtrar métricas e informes clave para ayudarte a comprender y mejorar tu proceso de entrega de software mediante datos.
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
-  - /GitHub/Installing-and-Configuring-GitHub-Insights/Viewing-and-Filtering-Key-Metrics-and-Reports
-permissions: 'Cualquier persona con acceso a {% data variables.product.prodname_insights %} puede ver los informes y las métricas clave.'
+  - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
   enterprise-server: '*'
 ---
@@ -33,7 +33,7 @@ Puedes filtrar los datos incluidos en las métricas o los informes clave por equ
 {% data reusables.github-insights.filter-reports %}
 {% data reusables.github-insights.view-events %}
 
-### Further reading
+### Leer más
 
 - "[Administrar colaboradores y equipos](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)"
 - "[Administrar repositorios](/insights/installing-and-configuring-github-insights/managing-repositories)"

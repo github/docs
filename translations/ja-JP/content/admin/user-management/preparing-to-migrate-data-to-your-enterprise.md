@@ -1,5 +1,5 @@
 ---
-title: Preparing to migrate data to your enterprise
+title: Enterprise へのデータ移行の準備
 intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 移行したデータを {% data variables.product.prodname_ghe_server %} にインポートするための準備
@@ -37,7 +39,7 @@ versions:
     ```shell
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
-    - If no conflicts are reported, you can safely import the data by following the steps in "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
+    - コンフリクトが報告されなければ、「[Enterprise にデータを移行する](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)」のステップに従って安全にデータをインポートできます。
 2. コンフリクトがある場合は、[`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って *conflicts.csv* をローカルコンピュータにコピーします。
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop
@@ -79,7 +81,7 @@ versions:
 | `map_or_rename` | ターゲットが存在する場合、そのターゲットにマップします。 そうでない場合はインポートされたモデルの名前を変更します。 | ユーザ                              |
 | `マージ`           | ソースからのデータはターゲット上の既存のデータと組み合わされます。                          | Team                             |
 
-**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[Migrating data to your enterprise](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)".
+***conflicts.csv* ファイルを見直し、[`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) を使って適切なアクションがとられることを確認するよう強くお勧めします。**問題がないようであれば、「[Enterprise へのデータの移行](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)」に進むことができます。
 
 
 ### 移行コンフリクトの解決もしくはカスタムマッピングのセットアップ
@@ -128,13 +130,13 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 #### 修正された移行データの適用
 
-1. 変更を加えた後、修正された *conflicts.csv* (または適切な形式のその他のマッピング CSV) を [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使ってターゲットインスタンスに適用します。
+1. 変更を加えた後、修正された *conflicts.csv* (または適切な形式のその他のマッピング *.csv*) を [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使ってターゲットインスタンスに適用します。
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. 修正された CSV ファイルへのパスと移行 GUID を渡して、`ghe-migrator map` を使い、移行データを再マップします。
+2. 修正された *.csv* ファイルへのパスと移行 GUID を渡して、`ghe-migrator map` を使い、移行データを再マップします。
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>

@@ -1,3 +1,3 @@
-您最多可以创建十个赞助等级供赞助者选择。 每个等级都有自己的每月付款额（美元）和福利，如提早访问新版本或出现在项目的自述文件中。
+您最多可以创建十个赞助等级供赞助者选择。 Each tier has its own monthly or one-time payment amount in US dollars and benefits, such as receiving early access to new versions or being featured in the project's README. In addition, you can choose to enable tiers for custom amounts (monthly and one-time).
 
-一旦您有某个等级的赞助，便不能编辑这个等级的价格。 而只能撤销该等级并新建一个等级。 现有赞助者将保持撤销的等级，直到他们改变赞助等级或取消其赞助。
+一旦您发布某个等级，便不能编辑这个等级的价格。 而只能撤销该等级并新建一个等级。 Existing sponsors will remain on the retired tier until they change their sponsorship tier, cancel their sponsorship, or their one-time sponsorship period expires.

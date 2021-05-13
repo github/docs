@@ -7,12 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Si tu clave está vencida, debes [actualizar el vencimiento](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), exportar la clave nueva, eliminar la clave vencida en tu cuenta de GitHub y [cargar la clave nueva para GitHub](/articles/adding-a-new-gpg-key-to-your-github-account/). Tus confirmaciones y etiquetas previas se mostrarán como verificadas, siempre que la clave reúna todos los demás requisitos de verificación.
 
 Si tu clave es inválida y no utilizas otra clave válida de tu conjunto de claves, pero en su lugar generas una llave GPG nueva con un conjunto nuevo de credenciales, tus confirmaciones hechas con la clave revocada o vencida se seguirán mostrando como no verificadas. Asimismo, tus credenciales nuevas no podrán volver a firmar o verificar tus confirmaciones y etiquetas antiguas.
 
-### Further reading
+### Leer más
 
 - "[Acerca de la verificación de la firma de confirmación](/articles/about-commit-signature-verification)"

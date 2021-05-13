@@ -1,6 +1,6 @@
 ---
 title: Buscar el registro de auditoría
-intro: 'Los administradores de sitio pueden buscar en una lista extensa de acciones auditadas en la empresa.'
+intro: Los administradores de sitio pueden buscar en una lista extensa de acciones auditadas en la empresa.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Buscar sintaxis de consultas
@@ -21,7 +23,7 @@ Redacta una consulta de búsqueda de uno o más pares de clave-valor separados p
 |           `oauth_app_id` | ID de la aplicación OAuth asociada con la acción                             |
 |                 `Acción` | Nombre de la acción auditada                                                 |
 |                `user_id` | ID del usuario afectado por la acción                                        |
-|                   `user` | Nombre del usuario afectado por la acción                                    |
+|                `usuario` | Nombre del usuario afectado por la acción                                    |
 |                `repo_id` | ID del repositorio afectado por la acción (si corresponde)                   |
 |                   `repo` | Nombre del repositorio afectado por la acción (si corresponde)               |
 |               `actor_ip` | Dirección IP desde donde se inició la acción                                 |

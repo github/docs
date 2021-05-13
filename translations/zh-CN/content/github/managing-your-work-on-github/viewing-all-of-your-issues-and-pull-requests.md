@@ -1,12 +1,14 @@
 ---
 title: 查看所有议题和拉取请求
-intro: '议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。'
+intro: 议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。
 redirect_from:
   - /articles/viewing-all-of-your-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 您的议题和拉取请求仪表板在任何页面顶部提供。 在每个仪表板上，您可以过滤列表以查找您创建的、分配给您的或其中提及您的议题或拉取请求。 您还可以查找已要求审查的拉取请求。

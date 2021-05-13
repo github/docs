@@ -1,17 +1,19 @@
 ---
 title: 他のリポジトリへ Issue を移譲する
-intro: 'より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。'
+intro: より適しているリポジトリに Issue を移動するため、オープン Issue を他のリポジトリに移譲できます。
 redirect_from:
   - /articles/transferring-an-issue-to-another-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 他のリポジトリにオープン Issue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込み権限が必要です。 詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
 
-Issue を移動できるのは、同じユーザーまたは Organization アカウントが所有しているリポジトリ間のみです。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}プライベートリポジトリからパブリックリポジトリへ Issue を移譲することはできません。{% endif %}
+同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}プライベートリポジトリからパブリックリポジトリに Issue を転送することはできません。{% endif %}
 
 Issueを委譲する場合、コメントとアサインされた人は保持されます。 Issue のラベルとマイルストーンは保持されません。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 

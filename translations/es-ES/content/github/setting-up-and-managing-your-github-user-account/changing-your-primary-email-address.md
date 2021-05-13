@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% note %}
@@ -25,6 +28,6 @@ versions:
 características de {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)".
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Administrar preferencias de correo electrónico](/articles/managing-email-preferences/)"

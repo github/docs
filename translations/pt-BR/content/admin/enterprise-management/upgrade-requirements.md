@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -25,7 +27,7 @@ versions:
 - Se a sua versão estiver muito defasada, atualize a {% data variables.product.product_location %} para a versão mais atual disponível a cada etapa do processo. Ao usar a versão mais recente em cada atualização, você pode aproveitar as melhorias de desempenho e as correções de erros. Por exemplo, você poderia atualizar do {% data variables.product.prodname_enterprise %} 2.7 para o 2.8 e depois para o 2.10. No entanto, atualizar do {% data variables.product.prodname_enterprise %} 2.7 para o 2.9 e depois para o 2.10 usa uma versão mais recente na segunda etapa.
 - Ao atualizar, use a versão mais recente do patch. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Use uma instância de preparo para testar as etapas da atualização. Para obter mais informações, consulte "[Configurar instância de preparo](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)".
-- Ao fazer várias atualizações, aguarde pelo menos 24 horas entre cada atualização de recursos para permitir a conclusão total das migrações de dados e das tarefas em segundo plano.
+- Ao executar várias atualizações, espere pelo menos 24 horas entre atualizações de recursos para permitir que as migrações de dados e as tarefas de atualização executadas em segundo plano sejam totalmente concluídas.
 
 ### Requisitos
 

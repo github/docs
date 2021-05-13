@@ -4,6 +4,9 @@ intro: Du kannst alle Einladungen für eine Person zurückziehen, externer Mitar
 permissions: Organisationsinhaber können Einladungen zurückziehen, externer Mitarbeiter in der Organisation zu werden.
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Du kannst eine Liste aller Personen mit ausstehenden Einladungen ansehen, externer Mitarbeiter für beliebige Repositorys Deiner Organisation zu werden.

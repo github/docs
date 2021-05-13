@@ -11,11 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 リポジトリへの書き込み権限があるユーザなら誰でも {% data variables.product.prodname_actions %} を使用して継続的インテグレーション (CI) を設定することができます。
 

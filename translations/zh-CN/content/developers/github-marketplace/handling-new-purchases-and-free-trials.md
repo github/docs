@@ -8,13 +8,15 @@ redirect_from:
   - /marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
 
 {% warning %}
 
-如果在 {% data variables.product.prodname_marketplace %} 中提供 GitHub 应用程序，您的应用程序必须按照 OAuth 授权流程来识别用户。 您不需要设置单独的 OAuth 应用程序来支持此流程。 更多信息请参阅“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
+如果在 {% data variables.product.prodname_marketplace %} 中提供 {% data variables.product.prodname_github_app %}，您的应用程序必须按照 OAuth 授权流程来识别用户。 您不需要设置单独的 {% data variables.product.prodname_oauth_app %} 来支持此流程。 更多信息请参阅“[识别和授权 {% data variables.product.prodname_github_apps %} 的用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 {% endwarning %}
 
@@ -24,7 +26,7 @@ versions:
 
 客户通过单击 **Complete order and begin installation（完成订单并开始安装）**来完成购买。
 
-然后，GitHub 将带有 `purchased` 操作的 [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) web 挂钩发送到您的应用程序。
+然后，{% data variables.product.product_name %} 将带有 `purchased` 操作的 [`marketplace_purchase`](/webhooks/event-payloads/#marketplace_purchase) web 挂钩发送到您的应用程序。
 
 从 `marketplace_purchase` web 挂钩读取 `effective_date` 和 `marketplace_purchase` 对象，以确定客户购买了哪个计划、何时开始结算周期以及何时开始下一个结算周期。
 
@@ -34,27 +36,27 @@ versions:
 
 ### 步骤 2. 安装
 
-如果您的应用程序是 GitHub 应用程序，GitHub 会在客户购买时提示客户选择应用程序可以访问的仓库。 然后，GitHub 将应用程序安装在客户选择的帐户上，并授予对所选仓库的访问权限。
+如果您的应用程序是 {% data variables.product.prodname_github_app %}， {% data variables.product.product_name %} 在客户购买时会提示他们选择应用程序可以访问哪些仓库。 然后，{% data variables.product.product_name %} 将应用程序安装在客户选择的帐户上，并授予对所选仓库的访问权限。
 
-如果您在 GitHub 应用程序设置中指定了**设置 URL**，此时 GitHub 会将客户重定向到该 URL。 如果未指定设置 URL，您将无法处理 GitHub 应用程序的购买。
+此时，如果您在 {% data variables.product.prodname_github_app %} 设置中指定了**设置 URL** ，则 {% data variables.product.product_name %} 将客户重定向到该 URL。 如果您没有指定设置 URL，则无法处理购买 {% data variables.product.prodname_github_app %} 的购买。
 
 {% note %}
 
-**注：****设置 URL** 在 GitHub 应用程序设置中被描述为可选项，但如果您要在 {% data variables.product.prodname_marketplace %} 中提供应用程序，则它为必填字段。
+**注：****设置 URL** 在 {% data variables.product.prodname_github_app %} 设置中被描述为可选项，但如果您要在 {% data variables.product.prodname_marketplace %} 中提供应用程序，则它为必填字段。
 
 {% endnote %}
 
-如果您的应用程序是 OAuth 应用程序，GitHub 不会在任何地方安装它。 GitHub 会将客户重定向到您在 [{% data variables.product.prodname_marketplace %} 上架信息](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls)中指定的**安装 URL**。
+如果您的应用程序是 {% data variables.product.prodname_oauth_app %}，{% data variables.product.product_name %} 不会在任何地方安装它。 相反，{% data variables.product.product_name %} 会将客户重定向到您在 [{% data variables.product.prodname_marketplace %} 上架信息](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls)中指定的**安装 URL**。
 
-当客户购买 OAuth 应用程序时，GitHub 会将客户重定向到您选择的 URL（设置 URL 或安装 URL），并且该 URL 将客户选择的定价计划包含为查询参数：`marketplace_listing_plan_id`。
+当客户购买 {% data variables.product.prodname_oauth_app %} 时，{% data variables.product.product_name %} 会将客户重定向到您选择的 URL（设置 URL 或安装 URL），并且该 URL 将客户选择的定价计划包含为查询参数：`marketplace_listing_plan_id`。
 
 ### 步骤 3. 授权
 
 当客户购买您的应用程序时，您必须通过 OAuth 授权流程发送客户：
 
-* 如果您的应用程序是 GitHub 应用程序，则在 GitHub 将客户重定向到**设置 URL** 时开始授权流程。 请遵循“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”中的步骤。
+* 如果您的应用程序是 {% data variables.product.prodname_github_app %}，只要 {% data variables.product.product_name %} 将客户重定向到**设置 URL** 便开始授权。 请遵循“[识别和授权 {% data variables.product.prodname_github_apps %} 的用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”中的步骤。
 
-* 如果您的应用程序是 OAuth 应用程序，则在 GitHub 将客户重定向到**安装 URL** 时开始授权流程。 请遵循“[授权 OAuth 应用程序](/apps/building-oauth-apps/authorizing-oauth-apps/)”中的步骤。
+* 如果您的应用程序是 {% data variables.product.prodname_oauth_app %}，只要 {% data variables.product.product_name %} 将客户重定向到**安装 URL** 便开始授权。 请遵循“[授权 {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)”中的步骤。
 
 对于任一类型的应用程序，第一步都是将客户重定向到 https://github.com/login/oauth/authorize。
 

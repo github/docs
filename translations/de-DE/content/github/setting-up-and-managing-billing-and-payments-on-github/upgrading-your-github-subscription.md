@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Abonnement Deines persönlichen Kontos heraufstufen
@@ -57,7 +59,7 @@ Du kannst Deine Organisation von {% data variables.product.prodname_free_team %}
 
 #### Nächste Schritte für Organisationen mit {% data variables.product.prodname_ghe_cloud %}
 
-Nach dem Heraufstufen Deiner Organisation auf {% data variables.product.prodname_ghe_cloud %} kannst Du die Identitäts- und Zugriffsverwaltung für Deine Organisation einrichten. Weitere Informationen findest Du unter „[SAML Single Sign-On für Deine Organisation verwalten](/articles/managing-saml-single-sign-on-for-your-organization).“
+Nach dem Heraufstufen Deiner Organisation auf {% data variables.product.prodname_ghe_cloud %} kannst Du die Identitäts- und Zugriffsverwaltung für Deine Organisation einrichten. Weitere Informationen finden Sie unter „[SAML Single Sign-On für Ihre Organisation verwalten](/organizations/managing-saml-single-sign-on-for-your-organization)“.
 
 Wenn Du ein Enterprise-Konto mit {% data variables.product.prodname_ghe_cloud %} benutzen möchtest, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. Weitere Informationen findest Du unter „[Informationen zu Enterprise-Konten](/articles/about-enterprise-accounts).“
 

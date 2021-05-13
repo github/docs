@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %}には、無料及び有料の価格プランのアプリケーションが含まれます。 アプリケーションを購入してインストールした後、アップグレード、ダウングレード、キャンセルはいつでもできます。

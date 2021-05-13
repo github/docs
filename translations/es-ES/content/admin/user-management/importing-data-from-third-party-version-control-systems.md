@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Importar proyectos de Mercurial
@@ -68,6 +70,6 @@ versions:
   $ git push --mirror <em>PUSH-URL-ON-GITHUB-ENTERPRISE</em>
   ```
 
-### Further reading
+### Leer más
 
 - "[Command-line-utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#import-and-export)"

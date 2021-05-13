@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Con las claves SSH, si alguien obtiene acceso a tu computadora, también tiene acceso a cada sistema que usa esa clave. Para agregar una capa extra de seguridad, puedes incluir una contraseña a tu clave SSH. Puedes usar `ssh-agent` para guardar tu contraseña de forma segura y no tener que volver a ingresarla.
@@ -107,6 +109,6 @@ De lo contrario, puedes almacenar tu contraseña en la keychain cuando agregues 
 
 {% endmac %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de SSH](/articles/about-ssh)"

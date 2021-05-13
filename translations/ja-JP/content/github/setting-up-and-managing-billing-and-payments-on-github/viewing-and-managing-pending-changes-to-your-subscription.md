@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 アカウントのプランに対する保留中の変更、および他の有料機能や製品へのプランの保留中の変更をキャンセルすることができます。

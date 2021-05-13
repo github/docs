@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 
@@ -18,6 +20,7 @@ versions:
     {% link_in_list /about-enterprise-accounts %}
     {% link_in_list /viewing-the-subscription-and-usage-for-your-enterprise-account %}
     {% link_in_list /managing-licenses-for-visual-studio-subscription-with-github-enterprise %}
+    {% link_in_list /connecting-an-azure-subscription-to-your-enterprise %}
 {% topic_link_in_list /managing-users-in-your-enterprise %}
     {% link_in_list /roles-in-an-enterprise %}
     {% link_in_list /inviting-people-to-manage-your-enterprise %}
@@ -44,4 +47,4 @@ versions:
     {% link_in_list /enforcing-a-policy-on-dependency-insights-in-your-enterprise-account %}
     {% link_in_list /enforcing-github-actions-policies-in-your-enterprise-account %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account %}
-
+    {% link_in_list /enforcing-policies-for-advanced-security-in-your-enterprise-account %}

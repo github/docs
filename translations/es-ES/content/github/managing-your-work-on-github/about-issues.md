@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Acerca de las propuestas
@@ -35,6 +37,6 @@ Con las propuestas, puedes hacer lo siguiente:
 - Transferir propuestas abiertas a otros repositorios. Para obtener más información, consulta "[Transferir una propuesta a otro repositorio](/articles/transferring-an-issue-to-another-repository)".
 - Anclar propuestas importantes para hacer que sea más fácil encontrarlas, evitando las propuestas duplicadas y reduciendo el ruido. Para obtener más información, consulta "[Anclar una propuesta a tu repositorio](/articles/pinning-an-issue-to-your-repository)".
 - Rastrear propuestas duplicadas usando las respuestas guardadas. Para obtener más información, consulta la sección "[Acerca de las respuestas guardadas](/articles/about-saved-replies)".{% if currentVersion == "free-pro-team@latest" %}
-- Informar comentarios que violan las [Pautas de la comunidad](/articles/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Informar abuso o spam](/articles/reporting-abuse-or-spam)".{% endif %}
+- Informar comentarios que violan las [Pautas de la comunidad](/articles/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)".{% endif %}
 
 Las propuestas también se pueden [asignar a otros usuarios](/articles/assigning-issues-and-pull-requests-to-other-github-users), [marcar con etiquetas](/articles/applying-labels-to-issues-and-pull-requests) para una búsqueda más rápida y [agrupar con hitos](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).

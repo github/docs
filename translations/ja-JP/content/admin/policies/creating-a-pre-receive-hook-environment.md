@@ -1,11 +1,13 @@
 ---
 title: pre-receiveフック環境の作成
-intro: 'pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。'
+intro: pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data variables.product.prodname_ghe_server %} の pre-receive 環境は、Linux の [`chroot`](https://en.wikipedia.org/wiki/Chroot) 環境です。 pre-receiveフックはプッシュのイベントごとに実行されるので、高速かつ軽量でなければなりません。 こうしたチェックに必要となる環境は、通常最小限のものです。

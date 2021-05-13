@@ -12,6 +12,10 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### About the {% data variables.enterprise.management_console %}
@@ -19,7 +23,7 @@ versions:
 Use the {% data variables.enterprise.management_console %} for basic administrative activities:
 - **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location %} by visiting {% data variables.product.product_location %}'s IP address in your browser.
 - **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
-- **Scheduling maintenance windows**: Take your {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
+- **Scheduling maintenance windows**: Take {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
 - **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
 - **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
 

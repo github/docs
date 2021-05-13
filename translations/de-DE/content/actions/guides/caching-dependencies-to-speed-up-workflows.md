@@ -9,8 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
+topics:
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zum Zwischenspeichern von Workflow-Abhängigkeiten
 
@@ -18,7 +22,7 @@ Workflow-Läufe verwenden häufig dieselben Ausgaben oder heruntergeladenen Abh�
 
 Jobs bei {% data variables.product.prodname_dotcom %}-gehosteten Läufern beginnen in einer sauberen virtuellen Umgebung und müssen Abhängigkeiten jedes Mal herunterladen. Dies führt zu erhöhter Netzwerkauslastung, längerer Laufzeit und erhöhten Kosten. Um die Zeit zum Neuerstellen dieser Dateien einzusparen, kann {% data variables.product.prodname_dotcom %} in Workflows häufig verwendete Abhängigkeiten zwischenspeichern.
 
-Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache).
+Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache). If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 
@@ -68,7 +72,7 @@ Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/act
 Dieses Beispiel erzeugt einen neuen Cache, wenn sich die Pakete in `package-lock.json` ändern oder wenn das Betriebssystem des Runners wechselt. Das folgende Beispiel verwendet Kontexte und Ausdrücke, um einen Schlüssel zu erzeugen, der eine Kennung des Runner-Betriebssystems und einen SHA-256-Hash der Datei `package-lock.json` enthält.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Caching mit npm
 
 on: push
@@ -124,14 +128,14 @@ Ein Cache-Key (Cache-Schlüssel) kann Kontexte, Funktionen, Literale und Operato
 Wenn Du zum Erstellen eines `key`s Ausdrücke verwendest, kannst Du automatisch einen neuen Cache zu erstellen, sobald sich die Abhängigkeiten geändert haben. Zum Beispiel kannst Du einen `key` mittels eines Ausdrucks erstellen, der den Hash-Code einer npm-Datei `package-lock.json` errechnet.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} wertet den Ausdruck aus `hash "package-lock.json"` um daraus den endgültigen `key` abzuleiten.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -144,7 +148,7 @@ Du kannst eine Liste der `restore-keys` angeben, die verwendet werden sollen, we
 #### Beispiel für die Verwendung mehrerer Restore-Keys
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -155,7 +159,7 @@ restore-keys: |
 Der Runner bewertet die Ausdrücke, die sich in folgende `restore-keys` auflösen lassen:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

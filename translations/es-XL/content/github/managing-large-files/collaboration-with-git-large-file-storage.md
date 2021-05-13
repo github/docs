@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Si los colaboradores en tu repositorio no tienen {% data variables.large_files.product_name_short %} instalado, no tendrán acceso al archivo de gran tamaño original. Si intentan clonar tu repositorio, solo extraerán los archivos punteros, y no tendrán acceso a los datos trues.

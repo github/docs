@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 创建预接收挂钩

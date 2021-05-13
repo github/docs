@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Terminologia do GraphQL
@@ -80,9 +82,25 @@ O GraphQL é [introspectivo](https://graphql.github.io/learn/introspection/). Is
 * Consulte `__schema` para listar todos os tipos definidos no esquema e obter informações sobre cada um:
 
   ```graphql
-query {
-  __schema {
-    types {
+  query {
+    __schema {
+      types {
+        name
+        kind
+        description
+        fields {
+          name
+        }
+      }
+    }
+  }
+  ```
+
+* Consulte `__type` para obter informações sobre qualquer tipo:
+
+  ```graphql
+  query {
+    __type(name: "Repository") {
       name
       kind
       description
@@ -91,22 +109,6 @@ query {
       }
     }
   }
-}
-  ```
-
-* Consulte `__type` para obter informações sobre qualquer tipo:
-
-  ```graphql
-query {
-  __type(name: "Repository") {
-    name
-    kind
-    description
-    fields {
-      name
-    }
-  }
-}
   ```
 
 * Você também pode executar uma _consulta de introspeção_ do esquema através de uma solicitação do `GET`:

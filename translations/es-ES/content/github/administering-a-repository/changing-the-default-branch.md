@@ -1,7 +1,7 @@
 ---
 title: Cambiar la rama predeterminada
 intro: 'Si tienes màs de una rama en tu repositorio, puedes configurar cualquiera de ellas como la predeterminada.'
-permissions: Las personas con permisos administrativos en un repositorio pueden cambiar la rama predeterminada para el mismo.
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
+topics:
+  - Repositories
 ---
 
 ### Acerca de cambiar la rama predeterminada
@@ -23,9 +25,9 @@ Puedes elegir la rama predeterminada para un repositorio. Èsta es la rama base 
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
-You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
+También puedes renombrar la rama predeterminada. Para obtener más información, consulta la sección "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)".
 
 {% endif %}
 

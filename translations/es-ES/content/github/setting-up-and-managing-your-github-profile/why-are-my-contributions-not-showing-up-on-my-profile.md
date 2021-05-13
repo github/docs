@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué mis contribuciones no aparecen en mi perfil?'
+title: ¿Por qué mis contribuciones no aparecen en mi perfil?
 intro: 'Tu gráfico de contribución de perfil es un registro de las contribuciones que hiciste a los repositorios {% data variables.product.product_name %}. Las contribuciones son registros horarios de acuerdo a la zona horaria universal coordinada (UTC) en lugar de tu zona horaria local. Las contribuciones solo se cuentan si cumplen con determinados criterios. En algunos casos, necesitamos reconstruir tu gráfico para que aparezcan las contribuciones.'
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Contribuciones que se cuentan
 
-#### Issues, pull requests and discussions
+#### Propuestas, solicitudes de cambios y debates
 
-Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+Las propuestas, solicitudes de cambios y debates aparecerán en tu gráfica de contribuciones si se abrieron en un repositorio independiente y no en una bifurcación.
 
 #### Confirmaciones
 Las confirmaciones aparecerán en tu gráfico de contribución si cumplen **todas** las condiciones a continuación:
@@ -23,7 +25,7 @@ Las confirmaciones aparecerán en tu gráfico de contribución si cumplen **toda
   - En la rama predeterminada del repositorio
   - En la rama `gh-pages` (para los repositorios con sitios de proyecto)
 
-Para obtener más información sobre los sitios del proyecto, consulta "[Acerca de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)"
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Asimismo, **al menos una** de las siguientes afirmaciones debe ser verdadera:
 - Eres un colaborador en el repositorio o eres miembro de la organización a la que pertenece el repositorio.
@@ -64,7 +66,7 @@ Las direcciones de correo electrónico generales, tales como `jane@computer.loca
 
 #### La confirmación no se hizo en la rama predeterminada o en la rama `gh-pages`
 
-Las confirmaciones solo se cuentan si se realizan en la rama predeterminada o en la rama `gh-pages` (para los repositorios con sitios de proyecto). Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+Las confirmaciones solo se cuentan si se realizan en la rama predeterminada o en la rama `gh-pages` (para los repositorios con sitios de proyecto). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Si tus confirmaciones están en una rama que no es una rama predeterminada ni es la rama `gh-pages` y te gustaría que contaran para tus contribuciones, necesitarás realizar las siguientes acciones:
 - [Abre una solicitud de extracción](/articles/creating-a-pull-request) para obtener la fusión de tus cambios en la rama predeterminada o la rama `gh-pages`.
@@ -82,7 +84,7 @@ Las confirmaciones que se hicieron en una bifurcación no contarán para tus con
 - [Abre una solicitud de extracción](/articles/creating-a-pull-request) para que se fusionen tus cambios en el repositorio padre.
 - Para desconectar la bifurcación y convertirla en un repositorio independiente en {% data variables.product.product_name %}, contacta {% data variables.contact.contact_support %}. Si la bifurcación tiene a su vez más bifurcaciones, indica a {% data variables.contact.github_support %} si éstas deberán moverse junto con tu repositorio a una nueva red o permanecer en la actual. Para obtener más información, consulta "[Acerca de las bifurcaciones](/articles/about-forks/)."
 
-### Further reading
+### Leer más
 
 - "[Divulgar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
 - "[Ver las contribuciones en tu página de perfil](/articles/viewing-contributions-on-your-profile-page)"

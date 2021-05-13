@@ -31,7 +31,7 @@ versions:
 {% mac %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-  ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.create-new-branch %}
   ![Branch（分支）菜单中的 New Branch（新分支）选项](/assets/images/help/desktop/new-branch-button-mac.png)
 {% data reusables.desktop.name-branch %}
@@ -62,12 +62,11 @@ versions:
 
 如果您在 {% data variables.product.product_name %} 上创建一个分支，您需要发布分支以便其可用于在 {% data variables.product.prodname_dotcom %} 上进行协作。
 
-1. 在应用顶部，单击 {% octicon "git-branch" aria-label="The branch icon" %} **当前分支**，然后单击要发布的分支。 ![用于选择要发布的分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+1. 在应用顶部，单击 {% octicon "git-branch" aria-label="The branch icon" %} **当前分支**，然后单击要发布的分支。 ![用于选择要发布的分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 2. 单击 **Publish branch（发布分支）**。 ![发布分支按钮](/assets/images/help/desktop/publish-branch-button.png)
 
 ### 在分支间切换
-您可以查看并提交到任何仓库的分支。 如有未提交但已保存的更改，您需要决定如何处理更改，然后才可切换分支。 您可以在当前分支上提交更改、在当前分支上隐藏更改，或者将更改传送到新分支。 如果要在当前分支上提交更改，请在切换分支之前执行“[提交并审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)”中的步骤。
-
+您可以查看并提交到任何仓库的分支。 如有未提交但已保存的更改，您需要决定如何处理更改，然后才可切换分支。 您可以在当前分支上提交更改、隐藏更改以临时将它们保存在当前分支上，或者将更改传送到新分支。 如果要在切换分支之前提交更改，请参阅“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)”。
 {% tip %}
 
 **提示**：您可以在 **Advanced（高级）**设置中设置切换分支的默认行为。 更多信息请参阅“[配置基本设置](/desktop/getting-started-with-github-desktop/configuring-basic-settings)”。
@@ -76,17 +75,8 @@ versions:
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.switching-between-branches %}
-  ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+  ![仓库中的分支列表](/assets/images/help/desktop/select-branch-from-dropdown.png)
 3. 如有已保存但未提交的更改，请选择 **Leave my changes（留下我的更改）**或 **Bring my changes（带上我的更改）**，然后单击 **Switch Branch（切换分支）**。 ![通过更改选项切换分支](/assets/images/help/desktop/stash-changes-options.png)
-
-### 检索隐藏的更改
-要访问在另一个分支中隐藏的更改，请切换回隐藏更改的分支。
-
-{% data reusables.desktop.current-branch-menu %}
-{% data reusables.desktop.switching-between-branches %}
-  ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-3. 在左侧边栏中，单击 **Stashed Changes（隐藏的更改）**。 ![隐藏的更改选项](/assets/images/help/desktop/stashed-changes.png)
-4. 要删除隐藏的更改，请单击 **Discard（放弃）**，或者，要使用隐藏的更改，则单击 **Restore（恢复）**。 ![放弃或恢复隐藏的更改](/assets/images/help/desktop/discard-restore-stash-buttons.png)
 
 ### 删除分支
 
@@ -95,7 +85,7 @@ versions:
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![用于选择要删除的分支的下拉菜单](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![用于选择要删除的分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
   ![Branch（分支）菜单中的 Delete...（删除...）选项](/assets/images/help/desktop/delete-branch-mac.png)
 
@@ -104,7 +94,7 @@ versions:
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![用于选择要删除的分支的下拉菜单](/assets/images/help/desktop/select-branch-to-delete.png)
+  ![用于选择要删除的分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
   ![Branch（分支）菜单中的 Delete...（删除...）选项](/assets/images/help/desktop/delete-branch-win.png)
 
@@ -116,3 +106,4 @@ versions:
 - {% data variables.product.prodname_dotcom %} 词汇中的“[分支](/articles/github-glossary/#branch)”
 - "[关于分支](/articles/about-branches)"
 - Git 文档中的“[Nutshell 中的分支](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)”
+- “[隐藏更改](/desktop/contributing-and-collaborating-using-github-desktop/stashing-changes)”

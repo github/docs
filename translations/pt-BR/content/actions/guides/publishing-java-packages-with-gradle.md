@@ -7,11 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -43,7 +50,7 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 É possível definir um novo repositório do Maven no bloco de publicação do seu arquivo _build.gradle_ que aponta para o repositório de pacotes.  Por exemplo, se você estava fazendo uma implementaão no Central Repositório do Maven por meio do projeto de hospedagem OSSRH, seu _build.gradle_ poderá especificar um repositório com o nome `"OSSRH"`.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -67,22 +74,23 @@ Na etapa de implementação, você deverá definir variáveis de ambiente para o
 
 
 {% raw %}
-```yaml
-nome: Publicar pacote no Repositório Central do Maven
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to the Maven Central Repository
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Configurar Java
-        usa: actions/setup-java@v1
-        com:
-          java-version: 1.8
-      - nome: Publicar pacote
-        executar: gradle publish
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Publish package
+        run: gradle publish
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
@@ -105,7 +113,7 @@ O `GITHUB_TOKEN` existe no repositório por padrão e tem permissões de leitura
 Por exemplo, se sua organização é denominado "octocat" e seu repositório é denominado de "hello-world", a configuração do {% data variables.product.prodname_registry %} no _build.gradle_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -126,21 +134,22 @@ publicando {
 Com essa configuração, é possível criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven ao executar o comando `publicação do gradle`.
 
 {% raw %}
-```yaml
-nome: Publicar pacote nos pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - usa: actions/setup-java@v1
-        com:
-          java-version: 1.8
-      - nome: Publicar pacote
-        executar: publicação do gradle
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Publish package
+        run: gradle publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -162,7 +171,7 @@ Por exemplo, se fizer a implementação no Repositório Central por meio do proj
 Se sua organização for denominada "octocat" e seu repositório for denominado "hello-world", a configuração de {% data variables.product.prodname_registry %} em _build.gradle_ será parecida ao exemplo abaixo.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publicando {
   ...
 
@@ -191,22 +200,23 @@ publicando {
 Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote no Repositório Central do Maven e em {% data variables.product.prodname_registry %}, executando o comando `publicação do gradle`.
 
 {% raw %}
-```yaml
-nome: Publicar pacote no Repositório Central do Maven e nos Pacotes do GitHub
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  publicar:
+```yaml{:copy}
+name: Publish package to the Maven Central Repository and GitHub Packages
+on:
+  release:
+    types: [created]
+jobs:
+  publish:
     runs-on: ubuntu-latest
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Configura o Java
-        usa: actions/setup-java@v1
-        com:
-          java-version: 1.8
-      - nome: Publica no Repositório Central do Maven
-        executa: publicação do gradle
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Publish to the Maven Central Repository
+        run: gradle publish
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

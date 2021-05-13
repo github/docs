@@ -1,12 +1,14 @@
 ---
 title: 忽略拉取请求审查
-intro: '如果仓库要求审查，可以忽略不再有效或无法被审查者批准的拉取请求审查。'
+intro: 如果仓库要求审查，可以忽略不再有效或无法被审查者批准的拉取请求审查。
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.pull_requests.dismiss_review %}

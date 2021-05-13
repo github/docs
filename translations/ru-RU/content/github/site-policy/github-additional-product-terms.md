@@ -2,9 +2,12 @@
 title: GitHub Additional Product Terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Version Effective Date: December 14, 2020
+Version Effective Date: February 22, 2021
 
 When you create an Account, you're given access to lots of different features and products that are all a part of the Service. Because many of these features and products offer different functionality, they may require additional terms and conditions specific to that feature or product. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -39,9 +42,24 @@ If you enable Git Large File Storage ("Git LFS") on your Account, you'll be able
 
 ### 4. Pages
 
-Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). This hosting service is intended to host static web pages for All Users, but primarily as a showcase for personal and organizational projects. Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links.
+Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). This hosting service is intended to host static web pages for All Users, but primarily as a showcase for personal and organizational projects.
 
-GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses or other prohibited uses. Please see our [GitHub Pages guidelines](/github/working-with-github-pages/about-github-pages) for more information. GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
+GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Some monetization efforts are permitted on Pages, such as donation buttons and crowdfunding links.
+
+#### a. Bandwidth and Usage Limits
+GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Please see our [GitHub Pages guidelines](/github/working-with-github-pages/about-github-pages) for more information.
+
+#### b. Prohibited Uses
+Prohibited uses of GitHub Pages include
+- Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service), [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) or [Community Guidelines](/github/site-policy/github-community-guidelines)
+- Violent or threatening content or activity
+- Excessive automated bulk activity (for example, spamming)
+- Activity that compromises GitHub users or GitHub services
+- Get-rich-quick schemes
+- Sexually obscene content
+- Content that misrepresents your identity or site purpose
+
+If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com/). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 
 ### 5. Actions and Packages
 
@@ -55,7 +73,7 @@ Actions and any elements of the Actions service may not be used in violation of 
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
-In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, or restrictions in your ability to use GitHub Actions.
+In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
 
 #### b. Packages Usage
 GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).

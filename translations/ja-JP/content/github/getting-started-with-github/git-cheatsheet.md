@@ -8,6 +8,6 @@ versions:
   github-ae: '*'
 ---
 
-使用可能なすべての Git コマンドを一回で覚えるのは大変です。 参照用に、[Git チートシート](https://services.github.com/on-demand/resources/cheatsheets/)を 1 枚手元に置いておきましょう。 Git チートシートには複数の言語版があります。 詳細は [GitHub Services ウェブサイトのリソースページ](https://services.github.com/on-demand/resources/)を参照してください。
+使用可能なすべての Git コマンドを一回で覚えるのは大変です。 当社のチートシートでは、最も頻繁に使用するコマンドのクイックリファレンスを提供しています。「[Git チートシート](https://training.github.com/)」を参照してください。 「Git を使用する」のチートシートは、複数の言語で提供されています。
 
 また、ガイドや動画などのリンクが掲載された [Git と GitHub の学習リソース](/articles/git-and-github-learning-resources/)ページもご覧ください。

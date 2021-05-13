@@ -1,6 +1,6 @@
 ---
 title: 使用主题对仓库分类
-intro: '为帮助其他人找到并参与您的项目，可以为仓库添加主题，这些主题可以与项目的预期目的、学科领域、关联团队或其他重要特点相关。'
+intro: 为帮助其他人找到并参与您的项目，可以为仓库添加主题，这些主题可以与项目的预期目的、学科领域、关联团队或其他重要特点相关。
 redirect_from:
   - /articles/about-topics/
   - /articles/classifying-your-repository-with-topics
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于主题

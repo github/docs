@@ -13,6 +13,8 @@ redirect_from:
   - /articles/adding-information-to-your-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Seus recibos incluem sua assinatura do {% data variables.product.prodname_dotcom %}, bem como qualquer assinatura para [outros recursos e produtos pagos](/articles/about-billing-on-github).

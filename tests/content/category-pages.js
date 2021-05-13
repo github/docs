@@ -1,10 +1,11 @@
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
+const matter = require('../../lib/read-frontmatter')
 const { zip, difference } = require('lodash')
 const GithubSlugger = require('github-slugger')
 const { XmlEntities } = require('html-entities')
+const readFileAsync = require('../../lib/readfile-async')
 const loadSiteData = require('../../lib/site-data')
 const renderContent = require('../../lib/render-content')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
@@ -62,6 +63,8 @@ describe('category pages', () => {
       // Combine those to fit Jest's `.each` usage
       const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
 
+      if (!categoryTuples.length) return
+
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
@@ -72,7 +75,7 @@ describe('category pages', () => {
             const categoryDir = path.dirname(indexAbsPath)
 
             // Get child article links included in each subdir's index page
-            const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
+            const indexContents = await readFileAsync(indexAbsPath, 'utf8')
             const { data, content } = matter(indexContents)
             categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
             const articleLinks = getLinks(content)
@@ -83,7 +86,7 @@ describe('category pages', () => {
             publishedArticlePaths = (await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
@@ -101,7 +104,7 @@ describe('category pages', () => {
 
             availableArticlePaths = (await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
@@ -114,7 +117,7 @@ describe('category pages', () => {
 
             await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await readFileAsync(articlePath, 'utf8')
                 const { data } = matter(articleContents)
 
                 articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)

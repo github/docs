@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.
@@ -34,6 +36,6 @@ Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-### Further reading
+### Leer más
 
 - "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

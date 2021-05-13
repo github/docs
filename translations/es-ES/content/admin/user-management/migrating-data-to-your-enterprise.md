@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}
 
+Una vez que hayas [preparado tu migración](/admin/user-management/preparing-to-migrate-data-to-your-enterprise), puedes utilizar los siguientes pasos para completar la migración.
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Con el comando `ghe-migrator import`, inicia el proceso de importación. Necesitarás:
-    * Tu GUID de migración.
+    * Tu GUID de migración. Para obtener más información, consulta la sección "[Cómo prepararte para migrar datos a tu empresa](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
     * Tu token de acceso personal para autenticación. El token de acceso personal que utilices es solo para autenticación como administrador de sitio, y no requiere ningún alcance específico. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
     ```shell
@@ -45,19 +49,19 @@ Los tipos de registro coinciden con los encontrados en los [datos migrados](/ent
 
 | Tipo de registro                                                | Nombre del filtro                                   |
 | --------------------------------------------------------------- | --------------------------------------------------- |
-| Usuarios                                                        | `user`                                              |
+| Usuarios                                                        | `usuario`                                           |
 | Organizaciones                                                  | `organization`                                      |
 | Repositorios                                                    | `repositorio`                                       |
-| Equipos                                                         | `team`                                              |
-| Hitos                                                           | `milestone`                                         |
+| Equipos                                                         | `equipo`                                            |
+| Hitos                                                           | `hito`                                              |
 | Tableros de proyecto                                            | `project`                                           |
-| Problemas                                                       | `issue`                                             |
+| Problemas                                                       | `propuesta`                                         |
 | Comentarios de propuestas                                       | `comentario_propuesta`                              |
 | Solicitudes de cambios                                          | `solicitud_extracción`                              |
 | Revisiones de solicitudes de extracción                         | `revisión_solicitud de extracción`                  |
 | Comentarios sobre confirmación de cambios                       | `comentario_confirmación de cambios`                |
 | Comentarios sobre revisiones de solicitudes de extracción       | `comentarios _revisiones_solicitudes de extracción` |
-| Lanzamientos                                                    | `release`                                           |
+| Lanzamientos                                                    | `lanzamiento`                                       |
 | Medidas adoptadas en las solicitudes de extracción o propuestas | `evento_propuesta`                                  |
 | Ramas protegidas                                                | `rama_protegida`                                    |
 
@@ -67,9 +71,9 @@ Los tipos de registro coinciden con los encontrados en los [datos migrados](/ent
 | --------------------- | ---------------------------------- |
 | `exportar`            | El registro se exportará.          |
 | `importar`            | El registro se importará.          |
-| `asignar`             | El registro se asignará.           |
+| `map`                 | El registro se asignará.           |
 | `rename (renombrar)`  | El registro se renombrará.         |
-| `merge`               | El registro se fusionará.          |
+| `fusionar`            | El registro se fusionará.          |
 | `exportado`           | El registro se exportó con éxito.  |
 | `importado`           | El registro se importó con éxito.  |
 | `asignado`            | El registro se asignó con éxito.   |

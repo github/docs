@@ -3,6 +3,9 @@ title: GitHub para móvil
 intro: 'Clasifica, colabora y administra tu trabajo en {% data variables.product.company_short %} desde tu dispositivo móvil.'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
+topics:
+  - Mobile
 ---
 
 ### Acerca de {% data variables.product.prodname_mobile %}

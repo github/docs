@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com hooks pre-receive
-intro: 'Os *hooks pre-receive* impõem regras para contribuições antes que o push dos commits possa ser feito em um repositório.'
+intro: Os *hooks pre-receive* impõem regras para contribuições antes que o push dos commits possa ser feito em um repositório.
 redirect_from:
   - /articles/working-with-pre-receive-hooks
 versions:
@@ -11,7 +11,7 @@ Os hooks pre-receive executam testes em um código do qual foi feito push em um 
 
 Se o push não for aceito, você receberá uma mensagem de erro correspondente ao hook pre-receive com falha.
 
-```
+```shell
 $ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.

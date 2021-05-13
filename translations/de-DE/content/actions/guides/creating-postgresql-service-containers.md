@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL-Service-Container erstellen
 shortTitle: PostgreSQL service containers
-intro: Du kannst einen PostgreSQL-Service-Container zur Verwendung in Deinem Workflow erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines PostgreSQL-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine laufen.
+intro: 'Du kannst einen PostgreSQL-Service-Container zur Verwendung in Deinem Workflow erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines PostgreSQL-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine laufen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
@@ -9,11 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -37,7 +42,7 @@ Es kann Dir auch helfen, YAML, die Syntax für {% data variables.product.prodnam
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
@@ -94,7 +99,7 @@ jobs:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label des Container-Jobs
   container-job:
@@ -124,7 +129,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI-Tests starten
   - name: Check out repository code
@@ -159,7 +164,7 @@ Wenn Du einen Job direkt auf der Runner-Maschine ausführst, musst Du die Ports 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
@@ -220,7 +225,7 @@ jobs:
 
 Der Workflow ordnet Port 5432 des PostgreSQL-Service-Containers dem Docker-Host zu. Weitere Informationen über das Schlüsselwort `ports` findest Du unter "[Informationen über Service-Container](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
-```yaml
+```yaml{:copy}
 jobs:
   # Label des Runner-Jobs
   runner-job:
@@ -251,7 +256,7 @@ jobs:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 steps:
   # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI-Tests starten
   - name: Check out repository code
@@ -287,7 +292,7 @@ Du kannst *client.js* anpassen, um alle PostgreSQL-Vorgänge einzuschließen, di
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({

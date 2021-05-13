@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Autenticar com o GraphQL
@@ -26,9 +28,10 @@ Recomendam-se os escopos a seguir:
 
 {% endif %}
 
+
 ```
-usuário
-public_repo
+user{% if currentVersion != "github-ae@latest" %}
+public_repo{% endif %}
 repo
 repo_deployment
 repo:status
@@ -103,6 +106,7 @@ As mutações são estruturadas da seguinte forma:
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 Neste exemplo, o objeto de entrada é `MutationNameInput` e o objeto de carga é `MutationNamePayload`.
@@ -245,7 +249,7 @@ Observando a composição linha por linha:
 
   O campo `etiquetas` tem o tipo [`LabelConnection`](/graphql/reference/objects#labelconnection). Assim como no objeto `problemas`, porque `etiquetas` é uma conexão, devemos percorrer suas bordas para um nó conectado: o objeto `etiqueta`. No nó, podemos especificar os campos de objeto `etiqueta` que desejamos retornar, neste caso, o `nome`.
 
-Você pode notar que executar essa consulta no repositório público do Octocat `Hello-World` não retornará muitas etiquetas. Tente executá-la em um dos seus próprios repositórios que usam etiquetas, e provavelmente você verá uma diferença.
+Você pode notar que executar esta consulta no repositório {% if currentVersion != "github-ae@latest" %}público{% endif %} `Hello-World` não retornará muitas etiquetas. Tente executá-la em um dos seus próprios repositórios que usam etiquetas, e provavelmente você verá uma diferença.
 
 ### Exemplo de mutação
 

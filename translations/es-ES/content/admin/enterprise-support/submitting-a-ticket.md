@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca del envío de tickets
@@ -53,11 +55,9 @@ Después de emitir tu solicitud de soporte y la información de diagnóstico opc
 
 Los clientes comerciales pueden emitir una solicitud de soporte en el {% data variables.contact.contact_ae_portal %}. Los clientes de gobierno deben utilizar el [portal de Azure para clientes de gobierno](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para obtener más información, consulta la sección [Crear una solicitud de soporte de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) enla documentación de Microsoft.
 
-Para problemas urgentes, para asegurar una respuesta rápida, después de emitir un ticket, por favor llama a la línea directa de soporte inmediatamente. Tu Administrador de Cuenta de Soporte Técnico (TSAM) te proporcionará el número que debes utilizar en tu sesión de incorporación.
-
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
 - "[Acerca de {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".{% endif %}

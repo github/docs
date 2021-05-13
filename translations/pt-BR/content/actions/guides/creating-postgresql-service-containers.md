@@ -9,11 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -37,7 +42,7 @@ Também pode ser útil ter um entendimento básico de YAML, a sintaxe para {% da
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: exemplo de serviço PostgreSQL
 em: push
 
@@ -94,7 +99,7 @@ trabalhos:
 
 {% data reusables.github-actions.postgres-label-description %}
 
-```yaml
+```yaml{:copy}
 trabalhos:
   # Etiqueta do trabalho do contêiner
   container-job:
@@ -124,7 +129,7 @@ trabalhos:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 etapas:
   # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
   - nome: Verifica o código do repositório
@@ -159,7 +164,7 @@ Ao executar um trabalho diretamente na máquina executora, você deverá mapear 
 {% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Exemplo de serviço do PostgreSQL
 em: push
 
@@ -220,7 +225,7 @@ trabalhos:
 
 O fluxo de trabalho mapeia a porta 5432 no contêiner de serviço do PostgreSQL com o host do Docker. Para obter mais informações sobre a palavra-chave `portas`, consulte "[Sobre contêineres de serviço](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
-```yaml
+```yaml{:copy}
 trabalhos:
   # Etiqueta do trabalho executor
   runner-job:
@@ -251,7 +256,7 @@ trabalhos:
 
 {% data reusables.github-actions.service-template-steps %}
 
-```yaml
+```yaml{:copy}
 etapas:
   # Faz o download de uma cópia do código no seu repositório antes de executar testes de CI
   - nome: Verifica o código do repositório
@@ -287,7 +292,7 @@ Você pode modificar o *client.js* para incluir qualquer operação do PostgreSQ
 
 {% data reusables.github-actions.service-container-add-script %}
 
-```javascript
+```javascript{:copy}
 const { Client } = require('pg');
 
 const pgclient = new Client({

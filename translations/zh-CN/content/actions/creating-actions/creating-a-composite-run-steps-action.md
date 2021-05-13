@@ -1,15 +1,19 @@
 ---
 title: 创建组合运行步骤操作
-intro: '在本指南中，您将学习如何构建组合运行步骤操作。'
+intro: 在本指南中，您将学习如何构建组合运行步骤操作。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 

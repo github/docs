@@ -1,6 +1,6 @@
 ---
 title: Einen Pull Request von einem Fork erstellen
-intro: Du kannst einen Pull Request erstellen, um Änderungen vorzuschlagen, die Du an einer Fork eines vorgelagerten Repositorys vorgenommen hast.
+intro: 'Du kannst einen Pull Request erstellen, um Änderungen vorzuschlagen, die Du an einer Fork eines vorgelagerten Repositorys vorgenommen hast.'
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
 permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Du kannst den Betreuern des vorgelagerten Repository auch die Berechtigung geben, Commits zu einem benutzereigenen Fork zu übertragen. Wenn Dein Pull Request Deinen Themen-Branch mit einem Branch im vorgelagerten Repository als Basis-Branch vergleicht, wird Dein Themen-Branch auch als Vergleichs-Branch des Pull Requests bezeichnet. Weitere Informationen über Pull-Request-Branches sowie Beispiele dazu findest du unter „[Einen Pull Request erstellen](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)."

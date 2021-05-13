@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Sie können Issues und Pull Requests global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
@@ -117,10 +119,10 @@ Der Qualifizierer `commenter` sucht Issues, die einen Kommentar eines bestimmten
 
 Mit dem Qualifizierer `involves` kannst Du Issues suchen, an denen auf die eine oder andere Weise ein bestimmter Benutzer beteiligt ist. Der Qualifizierer `involves` ist ein logisches ODER zwischen den Qualifizierern `author`, `assignee`, `mentions` und `commenter` für einen einzelnen Benutzer. Dieser Qualifizierer sucht also Issues und Pull Requests, die von einem bestimmten Benutzer erstellt wurden, diesem zugewiesen sind, diesen erwähnen oder in denen dieser Benutzer einen Kommentar hinterlassen hat.
 
-| Qualifizierer             | Beispiel                                                                                                                                                                                                          |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.                                      |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body. |
+| Qualifizierer             | Beispiel                                                                                                                                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.                                                     |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) sucht Issues, an denen @mdo beteiligt ist, die im Textteil jedoch nicht das Wort „bootstrap“ enthalten. |
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Suche nach verknüpften Issues und Pull Request
@@ -131,7 +133,8 @@ Du kannst Deine Ergebnisse auf Issues einschränken, die mit einem Pull-Request 
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                                |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) findet geschlossene Pull Requests im `desktop/desktop`-Repository, die zu einem Issue verknüpft waren, den der Pull Request möglicherweise geschlossen hat.          |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) findet offene Issues im `desktop/desktop`-Repository, die nicht mit einer schließenden Referenz zu einem Pull Request verknüpft sind.                                        |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) findet offene Pull Requests im `desktop/desktop`-Repository, die nicht zu einem Issue verknüpft sind, die der Pull Request möglicherweise schließen kann. 
+{% endif %}
 
 ### Suche nach Kennzeichnung
 
@@ -302,7 +305,7 @@ Der Kennzeichner `archived` filtert Suchergebnisse danach, ob sich ein Issue ode
 
 ### Suche nach dem Sperrstatus einer Unterhaltung
 
-Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. Weitere Informationen finden Sie unter „[Unterhaltungen sperren](/articles/locking-conversations)“.
+Mit dem Kennzeichner `is` können Sie Issues oder Pull Requests mit gesperrten Unterhaltungen suchen. (siehe „[Unterhaltungen sperren](/communities/moderating-comments-and-conversations/locking-conversations)“)
 
 | Qualifizierer | Beispiel                                                                                                                                                                                                                                                                                                   |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

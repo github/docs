@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Si todavía no tienes una clave SSH, debes [generar una nueva clave SSH](#generating-a-new-ssh-key). Si no estás seguro de si ya tienes una clave SSH, comprueba las [claves existentes](/articles/checking-for-existing-ssh-keys).
@@ -149,7 +151,7 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
 
 {% endlinux %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de SSH](/articles/about-ssh)"
 - Para obtener más información, consulta "[Trabajar con frases de contraseña de la clave SSH](/articles/working-with-ssh-key-passphrases)"

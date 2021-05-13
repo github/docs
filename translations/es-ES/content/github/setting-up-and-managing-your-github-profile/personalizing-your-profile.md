@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Cambiar tu imagen de perfil
@@ -119,6 +121,6 @@ Puedes inhabilitar algunas de las insignias de los programas de {% data variable
 
 {% endif %}
 
-### Further reading
+### Leer más
 
 - "[Acerca de tu perfil](/articles/about-your-profile)"

@@ -7,6 +7,8 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Von einer Organisation die Genehmigung für eine {% data variables.product.prodname_oauth_app %} anfordern, die Sie bereits für Ihr persönliches Konto zugelassen haben

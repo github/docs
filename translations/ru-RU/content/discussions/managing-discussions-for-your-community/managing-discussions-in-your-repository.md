@@ -1,6 +1,6 @@
 ---
 title: Managing discussions in your repository
-intro: You can categorize, spotlight, transfer, or delete the discussions in a repository.
+intro: 'You can categorize, spotlight, transfer, or delete the discussions in a repository.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -12,11 +12,11 @@ versions:
 
 {% data reusables.discussions.about-discussions %} For more information about discussions, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
-Organization owners can choose the permissions required to create a discussion for repositories owned by the organization. For more information, see "[Managing discussion creation for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)."
+Organization owners can choose the permissions required to create a discussion for repositories owned by the organization. For more information, see "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
 
-As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)."
+As a discussions maintainer, you can create community resources to encourage discussions that are aligned with the overall project goal and maintain a friendly open forum for collaborators. Creating a code of conduct or contribution guidelines for collaborators to follow will help facilitate a collaborative and productive forum. For more information on creating community resources, see "[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)," and "[Setting guidelines for repository contributors](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
-For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/github/building-a-strong-community/moderating-comments-and-conversations)."
+For more information on facilitating a healthy discussion, see "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)."
 
 ### Требования
 
@@ -24,7 +24,7 @@ To manage discussions in a repository, discussions must be enabled for the repos
 
 ### Changing the category for a discussion
 
-You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)" article.
+You can categorize discussions to help community members find related discussions. For more information, see "[Managing categories for discussions in your repository](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
 
 You can also move a discussion to a different category.
 

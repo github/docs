@@ -2,10 +2,10 @@
 title: GitHub InsightsとGitHub Enterprise間のリンクの有効化
 intro: 'ユーザが{% data variables.product.prodname_ghe_server %}から{% data variables.product.prodname_insights %}へアクセスできるようにするリンクを有効化できます。'
 product: '{% data reusables.gated-features.github-insights %}'
-permissions: '{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_insights %}間のリンクを有効化できます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} can enable a link between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_insights %}.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
-  - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
+  - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
 versions:
   enterprise-server: '*'
 ---
@@ -14,7 +14,7 @@ versions:
 
 1. {% data variables.product.prodname_ghe_server %}の管理シェルに接続してください。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
 2. 以下のコマンドを実行してください。
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. 次に、

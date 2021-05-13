@@ -1,13 +1,15 @@
 ---
 title: Criar um repositório de modelos
 intro: 'Você pode fazer um repositório existente um modelo, assim você e outros podem gerar novos repositórios com a mesma estrutura de diretório{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}, branches,{% endif %} e arquivos.'
-permissions: Qualquer pessoa com permissões de administrador em um repositório pode transformar o repositório em um modelo.
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% note %}

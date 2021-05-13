@@ -7,11 +7,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -55,7 +61,7 @@ Um zum „Docker Hub“ zu pushen, benötigst Du ein Benutzerkonto auf „Docker
 * `repository`: Dein „Docker Hub“-Repository im Format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -93,7 +99,7 @@ Die für {% data variables.product.prodname_registry %} erforderlichen `build-pu
 * `repository`: Muss im Format `OWNER/REPOSITORY/IMAGE_NAME` gesetzt werden. Beispiel: Für ein Bild namens `octo-image` auf {% data variables.product.prodname_dotcom %} unter `http://github. om/octo-org/octo-repo` sollte die Option `repository` auf `octo-org/octo-repo/octo-image` gesetzt werden.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:
@@ -126,7 +132,7 @@ In einem einzigen Workflow kannst Du Dein Docker-Image in mehreren Registries ve
 Der folgende Beispiel-Workflow verwendet die Schritte der `build-push-action` aus den vorherigen Abschnitten („[Veröffentlichung von Bildern auf ‚Docker Hub‘](#publishing-images-to-docker-hub)“ und „[Veröffentlichung von Bildern in {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)“), um einen einzigen Workflow zu erstellen, der in beide Registries pusht.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish Docker image
 on:
   release:

@@ -15,6 +15,8 @@ redirect_from:
 intro: '作为灾难恢复计划的一部分，您可以通过配置自动备份的方式保护 {% data variables.product.product_location %} 中的生产数据。'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于 {% data variables.product.prodname_enterprise_backup_utilities %}
@@ -83,7 +85,7 @@ versions:
 {%if currentVersion ver_gt "enterprise-server@2.22"%}
 {% note %}
 
-**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**注：**如果 {% data variables.product.product_location %} 已启用 {% data variables.product.prodname_actions %}，则必须先在替换设备上配置 {% data variables.product.prodname_actions %} 外部存储提供程序，然后再运行 `ghe-restore` 命令。 更多信息请参阅“[在启用 {% data variables.product.prodname_actions %} 的情况下备份和恢复 {% data variables.product.prodname_ghe_server %}](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)”。
 
 {% endnote %}
 {% endif %}
@@ -116,4 +118,3 @@ $ ghe-restore -c 169.154.1.1
 您可以将以下附加选项与 `ghe-restore` 命令结合使用：
 - `-c` 标志会重写目标主机上的设置、证书和许可数据，即使已配置也不例外。 如果您要为测试设置暂存实例，并且希望在目标设备上保留现有配置，请省略此标志。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} 自述文件](https://github.com/github/backup-utils#using-the-backup-and-restore-commands)的“使用备份和还原命令”部分。
 - `-s` 标志允许您选择其他备份快照。
-  

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Escenarios de fallas
@@ -36,7 +38,7 @@ Las características de disponibilidad, especialmente las que tienen conmutació
 
 
 
-### Further reading
+### Leer más
 
 - Para obtener más información acerca del {% data variables.product.prodname_ghe_server %} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
 - Para obtener más información sobre HA, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -14,15 +16,21 @@ versions:
 
 您可以将查询参数添加到这些 URL 中，以便在个人或组织帐户上预选 {% data variables.product.prodname_github_app %} 的配置：
 * **用户帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **组织帐户：** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **组织帐户：** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 创建应用程序的人在提交应用程序之前，可以从 {% data variables.product.prodname_github_app %} 注册页面编辑预选值。 如果您没有在 URL 查询字符串中包含必需的参数，例如 `name`，则创建应用程序的人在提交该应用程序之前需要输入值。
 
 以下 URL 使用预配置的说明和回调 URL 创建名为 `octocat-github-app` 的新公共应用程序。 此 URL 还选择了 `checks` 的读取和写入权限，订阅了 `check_run` 和 `check_suite` web 挂钩事件，并选择了在安装过程中请求用户授权 (OAuth) 的选项：
 
-  ```
-  {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
-  ```
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% else %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% endif %}
 
 下面几节列出了可用查询参数、权限和事件的完整列表。
 
@@ -32,8 +40,9 @@ versions:
  | -------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
  | `name`                     | `字符串`   | {% data variables.product.prodname_github_app %} 的名称。 给应用程序一个清晰简洁的名称。 应用程序不能与现有 GitHub 用户同名，除非它是您自己的用户或组织的名称。 当您的集成执行操作时，应用程序名称的缓存版本将显示在用户界面上。                                                                                                                                                                                                                                                             |
  | `说明`                       | `字符串`   | {% data variables.product.prodname_github_app %} 的说明。                                                                                                                                                                                                                                                                                                                                                      |
- | `url`                      | `字符串`   | 您的 {% data variables.product.prodname_github_app %} 网站主页的完整 URL。                                                                                                                                                                                                                                                                                                                                           |
- | `callback_url`             | `字符串`   | 在用户授权安装后重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。                                                                                                                                                                                                                                                                                                                                                        |
+ | `url`                      | `字符串`   | {% data variables.product.prodname_github_app %} 网站主页的完整 URL。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`            | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用这些 URL。 例如 `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`。{% else %}
+ | `callback_url`             | `字符串`   | 在用户授权安装后重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。{% endif %}
  | `request_oauth_on_install` | `布尔值`   | 如果应用程序授权用户使用 OAuth 流程，您可以将此选项设置为 `true`，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则 `setup_url` 将不可用，用户在安装应用程序后将被重定向到您的 `callback_url`。                                                                                                                                                                                                                                                                            |
  | `setup_url`                | `字符串`   | 在用户安装 {% data variables.product.prodname_github_app %} 后重定向到的完整 URL（如果应用程序在安装之后需要额外设置）。                                                                                                                                                                                                                                                                                                                    |
  | `setup_on_update`          | `布尔值`   | 设置为 `true` 可在更新安装后（例如在添加或删除仓库之后）将用户重定向到设置 URL。                                                                                                                                                                                                                                                                                                                                                               |
@@ -60,7 +69,7 @@ versions:
 | [`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails)                                           | 授予对[电子邮件 API](/rest/reference/users#emails) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}
 | [`关注者`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers)                                           | 授予对[关注者 API](/rest/reference/users#followers) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                |
 | [`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys)                                       | 授予对[GPG 密钥 API](/rest/reference/users#gpg-keys) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                              |
-| [`issues`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues)                                           | 授予对[议题 API](/rest/reference/issues) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                          |
+| [`议题`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues)                                               | 授予对[议题 API](/rest/reference/issues) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                          |
 | [`键`](/rest/reference/permissions-required-for-github-apps/#permission-on-keys)                                                  | 授予对[公钥 API](/rest/reference/users#keys) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                      |
 | [`members`](/rest/reference/permissions-required-for-github-apps/#permission-on-members)                                         | 授予管理组织成员的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% if currentVersion == "free-pro-team@latest" %}
 | [`元数据`](/rest/reference/permissions-required-for-github-apps/#metadata-permissions)                                              | 授予对不泄漏敏感数据的只读端点的访问权限。 可以是 `read` 或 `none`。 设置任何权限时，默认值为 `read`；没有为 {% data variables.product.prodname_github_app %} 指定任何权限时，默认值为 `none`。                                                                                                            |
@@ -78,9 +87,9 @@ versions:
 | [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | 授予对[代码扫描 API](/rest/reference/code-scanning/) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}
 | [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | 授予对[内容 API](/rest/reference/repos#contents) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                  |
 | [`标星`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                             | 授予对[标星 API](/rest/reference/activity#starring) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                               |
-| [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                       | 授予对[状态 API](/rest/reference/repos#statuses) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                  |
+| [`状态`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                             | 授予对[状态 API](/rest/reference/repos#statuses) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                  |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | 授予对[团队讨论 API](/rest/reference/teams#discussions) 和[团队讨论注释 API](/rest/reference/teams#discussion-comments) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | 授予接收仓库漏洞依赖项安全警报的权限。 更多信息请参阅“[关于漏洞依赖项安全警报](/articles/about-security-alerts-for-vulnerable-dependencies)”。 可以是以下项之一：`none` 或 `read`。{% endif %}
+| `vulnerability_alerts`                                                                                                           | 授予接收仓库漏洞依赖项安全警报的权限。 更多信息请参阅“[关于漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。 可以是以下项之一：`none` 或 `read`。{% endif %}
 | `关注`                                                                                                                             | 授予列出和更改用户订阅的仓库的权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                                                  |
 
 ### {% data variables.product.prodname_github_app %} web 挂钩事件
@@ -97,8 +106,8 @@ versions:
 | [`deployment_status`](/webhooks/event-payloads/#deployment_status)                     | `部署`                                            | {% data reusables.webhooks.deployment_status_short_desc %}
 | [`复刻`](/webhooks/event-payloads/#fork)                                                 | `内容`                                            | {% data reusables.webhooks.fork_short_desc %}
 | [`gollum`](/webhooks/event-payloads/#gollum)                                           | `内容`                                            | {% data reusables.webhooks.gollum_short_desc %}
-| [`issues`](/webhooks/event-payloads/#issues)                                           | `issues`                                        | {% data reusables.webhooks.issues_short_desc %}
-| [`issue_comment`](/webhooks/event-payloads/#issue_comment)                             | `issues`                                        | {% data reusables.webhooks.issue_comment_short_desc %}
+| [`议题`](/webhooks/event-payloads/#issues)                                               | `议题`                                            | {% data reusables.webhooks.issues_short_desc %}
+| [`issue_comment`](/webhooks/event-payloads/#issue_comment)                             | `议题`                                            | {% data reusables.webhooks.issue_comment_short_desc %}
 | [`标签`](/webhooks/event-payloads/#label)                                                | `元数据`                                           | {% data reusables.webhooks.label_short_desc %}
 | [`成员`](/webhooks/event-payloads/#member)                                               | `members`                                       | {% data reusables.webhooks.member_short_desc %}
 | [`membership`](/webhooks/event-payloads/#membership)                                   | `members`                                       | {% data reusables.webhooks.membership_short_desc %}
@@ -116,8 +125,8 @@ versions:
 | [`推送`](/webhooks/event-payloads/#push)                                                 | `内容`                                            | {% data reusables.webhooks.push_short_desc %}
 | [`发行版`](/webhooks/event-payloads/#release)                                             | `内容`                                            | {% data reusables.webhooks.release_short_desc %}
 | [`仓库`](/webhooks/event-payloads/#repository)                                           | `元数据`                                           | {% data reusables.webhooks.repository_short_desc %}{% if currentVersion == "free-pro-team@latest"%}
-| [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch)                 | `内容`                                            | 允许集成者使用 GitHub 操作触发自定义事件。{% endif %}
-| [`状态`](/webhooks/event-payloads/#status)                                               | `statuses`                                      | {% data reusables.webhooks.status_short_desc %}
+| [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch)                 | `内容`                                            | 允许集成者使用 GitHub Actions 触发自定义事件。{% endif %}
+| [`状态`](/webhooks/event-payloads/#status)                                               | `状态`                                            | {% data reusables.webhooks.status_short_desc %}
 | [`团队`](/webhooks/event-payloads/#team)                                                 | `members`                                       | {% data reusables.webhooks.team_short_desc %}
 | [`team_add`](/webhooks/event-payloads/#team_add)                                       | `members`                                       | {% data reusables.webhooks.team_add_short_desc %}
 | [`查看`](/webhooks/event-payloads/#watch)                                                | `元数据`                                           | {% data reusables.webhooks.watch_short_desc %}

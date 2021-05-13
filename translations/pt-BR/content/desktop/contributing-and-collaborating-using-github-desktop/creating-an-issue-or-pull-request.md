@@ -1,7 +1,7 @@
 ---
 title: Criar um problema ou um pull request
 intro: É possível criar um problema ou um pull request para propor e colaborar com alterações em um repositório.
-permissions: 'Qualquer pessoa pode criar um problema em um repositório público que tenha problemas habilitados. Qualquer pessoa com permissões de leitura em um repositório pode criar uma pull request, mas você deve ter permissões de gravação para criar um branch.'
+permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request

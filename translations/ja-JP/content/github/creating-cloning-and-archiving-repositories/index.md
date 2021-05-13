@@ -1,5 +1,5 @@
 ---
-title: 'リポジトリの作成、クローン、アーカイブ'
+title: リポジトリの作成、クローン、アーカイブ
 intro: 'リポジトリを作成またはクローンする際に、さまざまな構成オプションから選択できます。 リポジトリを使用して、{% data variables.product.prodname_dotcom %} のコンテンツとデータをアーカイブすることもできます。'
 redirect_from:
   - /categories/repositories/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 

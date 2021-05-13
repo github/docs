@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initializing-the-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
@@ -45,7 +47,7 @@ Die Namen der Knoten können beliebige gültige Hostnamen sein. Die Namen werden
 
 Geben Sie den ersten Clusterknoten an, den Sie als den MySQL-Master über `mysql-server` und `mysql-master` konfiguriert haben.
 
-```
+```ini
 [cluster]
   mysql-master = ghe-data-node-1
   redis-master = ghe-data-node-1

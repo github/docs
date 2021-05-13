@@ -1,9 +1,11 @@
 ---
 title: About identity and access management for your enterprise account
-intro: You can centrally manage access to your enterprise's resources, organization membership, and team membership using your identity provider (IdP).
+intro: 'You can centrally manage access to your enterprise''s resources, organization membership, and team membership using your identity provider (IdP).'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### About identity and access management for your enterprise account
@@ -24,7 +26,7 @@ IdP | SAML | User provisioning | Team synchronization |
 --- | :--: | :---------------: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | | |
 Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-Okta | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label= "The check icon" %} | |
+Okta | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label= "The check icon" %} [<sup>Beta</sup>](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account) | |
 OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |
 PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |
 Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | | |

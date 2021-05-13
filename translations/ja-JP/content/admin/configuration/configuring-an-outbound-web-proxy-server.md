@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data variables.product.product_location %} に対してプロキシサーバーが有効である場合、送信先ホストが HTTP プロキシ除外として追加されていない限り、{% data variables.product.prodname_ghe_server %} によって送信されたアウトバウンドメッセージがプロキシサーバーを経由してまず最初に送信されます。 アウトバウンドのメッセージの種類には、webhook、Bundleのアップロード、レガシーのアバターのフェッチが含まれます。 プロキシサーバのURLは、たとえば`http://127.0.0.1:8123`といったように、プロトコル、ドメインもしくはIPアドレスにポート番号を加えたものです。
@@ -22,6 +24,6 @@ versions:
 {% data reusables.enterprise_management_console.privacy %}
 4. **HTTP Proxy Server（HTTPプロキシサーバ）**の下に、プロキシサーバのURLを入力してください。 ![HTTP プロキシサーバーのURLを入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-field.png)
 
-5. オプションで、プロキシのアクセスを要しないホストがあれば**HTTP Proxy Exclusion（HTTPプロキシの除外）**の下にカンマ区切りで入力してください。 To exclude all hosts in a domain from requiring proxy access, you can use `.` as a wildcard prefix.  For example: `.octo-org.tentacle` ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+5. オプションで、プロキシのアクセスを要しないホストがあれば**HTTP Proxy Exclusion（HTTPプロキシの除外）**の下にカンマ区切りで入力してください。 ドメイン内のすべてのホストをプロキシアクセスの要求から除外するには `.` をワイルドカードプレフィックスとして使用できます。  たとえば、`.octo-org.tentacle` などです。 ![HTTP プロキシの除外を入力するためのフィールド](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
 
 {% data reusables.enterprise_management_console.save-settings %}
