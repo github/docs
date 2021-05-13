@@ -1,9 +1,10 @@
 ---
-title: About anonymized image URLs
-intro: 'If you upload an image to {% data variables.product.product_name %}, the URL of the image will be modified so your information is not trackable.'
+title: About anonymized URLs
+intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
+  - /authenticating-to-github/about-anonymized-image-urls
 versions:
   free-pro-team: '*'
 topics:
@@ -11,9 +12,11 @@ topics:
   - Access management
 ---
 
-To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each image which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
+To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image. 
 
-Anyone who receives your anonymized image URL, directly or indirectly, may view your image. To keep sensitive images private, restrict them to a private network or a server that requires authentication instead of using Camo.
+Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
+
+Anyone who receives your anonymized URL, directly or indirectly, may view your image or video. To keep sensitive media files private, restrict them to a private network or a server that requires authentication instead of using Camo.
 
 ### Troubleshooting issues with Camo
 
@@ -31,10 +34,10 @@ Windows users will either need to use the Git Powershell (which is installed alo
 
 #### An image is not showing up
 
-If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting the image locally.
+If an image is showing up in your browser but not on {% data variables.product.prodname_dotcom %}, you can try requesting it locally.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Request the image headers using `curl`.
+1. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -57,7 +60,7 @@ If your content type is not supported by Camo, you can try several actions:
 If you changed an image recently and it's showing up in your browser but not {% data variables.product.prodname_dotcom %}, you can try resetting the cache of the image.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Request the image headers using `curl`.
+1. Request the image headers using `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
   > HTTP/2 200
@@ -78,7 +81,7 @@ Check the value of `Cache-Control`. In this example, there's no `Cache-Control`.
 Purging the cache forces every {% data variables.product.prodname_dotcom %} user to re-request the image, so you should use it very sparingly and only in the event that the above steps did not work.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Purge the image using `curl -X PURGE` on the Camo URL.
+1. Purge the image using `curl -X PURGE` on the Camo URL.
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
   > {"status": "ok", "id": "216-8675309-1008701"}
