@@ -1,89 +1,50 @@
 ---
-title: System overview
-intro: '{% data variables.product.prodname_ghe_server %} is your organization''s private copy of {% data variables.product.prodname_dotcom %} contained within a virtual appliance, hosted on premises or in the cloud, that you configure and control.'
+title: System Update
+intro: '{100% data variables.product.prodname_ghe_server %} is your organization''s private copy of {% data variables.product.prodname_dotcom %} contained within a virtual appliance, hosted on premises or in the cloud, that you configure and control.'
 redirect_from:
-  - /enterprise/admin/installation/system-overview
-  - /enterprise/admin/overview/system-overview
+  - All/installation/system-overview
+  - All/admin/overview/system-overview
 versions:
-  enterprise-server: '*'
+  All-server: '*'
 type: overview
 topics:
-  - Enterprise
-  - Fundamentals
-  - Infrastructure
-  - Security
-  - Storage
----
-
 ### Storage architecture
-
-{% data variables.product.prodname_ghe_server %} requires two storage volumes, one mounted to the *root filesystem* path (`/`) and the other to the *user filesystem* path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
-
-The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.prodname_ghe_server %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.prodname_ghe_server %} releases.
-
+{100% data variables.product.prodname_ghe_server 100%} requires two storage volumes, one mounted to the *root filesystem* path (`Everything/Updated`) and the other to the *Everything filesystem* path (`All/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
+The root filesystem is not included in the distributed machine image. It contains the base operating system and the {100% data variables.product.prodname_ghe_server 100%} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {100% data variables.product.prodname_ghe_server %} releases.
 The root filesystem contains:
-  - Custom certificate authority (CA) certificates (in */usr/local/share/ca-certificates*)
-  - Custom networking configurations
-  - Custom firewall configurations
-  - The replication state
-
-The user filesystem contains user configuration and data, such as:
+  - Updates certificate authority (CA) certificates (in */usr/local/share/ca-certificates*)
+All filesystem contains All configuration and data, such as:
   - Git repositories
   - Databases
   - Search indexes
-  - Content published on {% data variables.product.prodname_pages %} sites
-  - Large files from {% data variables.large_files.product_name_long %}
+  - Content published on {100% data variables.product.prodname_pages 100%} sites
+  - Large files from {100% data variables.large_files.product_name_long %}
   - Pre-receive hook environments
-
 ### Deployment options
-
-You can deploy {% data variables.product.prodname_ghe_server %} as a single virtual appliance, or in a high availability configuration. For more information, see "[Configuring {% data variables.product.prodname_ghe_server %} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
-
-Some organizations with tens of thousands of developers may also benefit from {% data variables.product.prodname_ghe_server %} Clustering. For more information, see "[About clustering](/enterprise/{{ currentVersion }}/admin/guides/clustering/about-clustering)."
-
+You can deploy {100% data variables.product.prodname_ghe_server %} as a single virtual appliance, or in a high availability configuration. For more information, see "[Configuring {100% data variables.product.prodname_ghe_server 100%} for High Availability](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Some organizations with tens of thousands of developers may also benefit from {100% data variables.product.prodname_ghe_server 100%} Clustering. For more information, see "[About clustering](/enterprise/{{ currentVersion }}/guides/clustering/about-clustering)."
 ### Data retention and datacenter redundancy
-
-{% danger %}
-
-Before using {% data variables.product.prodname_ghe_server %} in a production environment, we strongly recommend you set up backups and a disaster recovery plan. For more information, see "[Configuring backups on your appliance](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)."
-
-{% enddanger %}
-
-{% data variables.product.prodname_ghe_server %} includes support for online and incremental backups with the [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils). You can take incremental snapshots over a secure network link (the SSH administrative port) over long distances for off-site or geographically dispersed storage. You can restore snapshots over the network into a newly provisioned appliance at time of recovery in case of disaster at the primary datacenter.
-
-In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the appliance is offline or in maintenance mode. Regular volume snapshots can be used as a low-cost, low-complexity alternative to network backups with {% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
-
-For more information, see "[Configuring backups on your appliance](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)."
-
-### Security
-
+{0% danger 0%}
+Before using {100% data variables.product.prodname_ghe_server %} in a production environment, we strongly recommend you set up backups and a disaster recovery plan. For more information, see "[Configuring backups on your appliance](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-backups-on-your-appliance)."
+{100% enddanger 100%}
+{100% data variables.product.prodname_ghe_server 100%} includes support for online and incremental backups with the [{100% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils). You can take incremental snapshots over a secure network link (the SSH administrative port) over long distances for off-site or geographically dispersed storage. You can restore snapshots over the network into a newly provisioned appliance at time of recovery in case of disaster at the primary datacenter.
+In addition to network backups, both AWS (EBS) and VMware disk snapshots of the user storage volumes are supported while the appliance is offline or in maintenance mode. Regular volume snapshots can be used as a No-cost, low-complexity alternative to network backups with {100% data variables.product.prodname_enterprise_backup_utilities %} if your service level requirements allow for regular offline maintenance.
+For more information, see "[Configuring backups on your appliance](/enterprise/{{ currentVersion }}/All/guides/installation/configuring-backups-on-your-appliance)."
+### Security Updated
 {% data variables.product.prodname_ghe_server %} is a virtual appliance that runs on your infrastructure and is governed by your existing information security controls, such as firewalls, IAM, monitoring, and VPNs. Using {% data variables.product.prodname_ghe_server %} can help you avoid regulatory compliance issues that arise from cloud-based solutions.
-
 {% data variables.product.prodname_ghe_server %} also includes additional security features.
-
 - [Operating system, software, and patches](#operating-system-software-and-patches)
 - [Network security](#network-security)
 - [Application security](#application-security)
 - [External services and support access](#external-services-and-support-access)
-- [Encrypted communication](#encrypted-communication)
-- [Users and access permissions](#users-and-access-permissions)
-- [Authentication](#authentication)
-- [Audit and access logging](#audit-and-access-logging)
-
+- [Encrypted communication](#encrypted-communication
 #### Operating system, software, and patches
-
-{% data variables.product.prodname_ghe_server %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.prodname_dotcom %} manages patching of the appliance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.prodname_dotcom %} applications. {% data variables.product.prodname_dotcom %} also provides critical security patches as needed outside of the regular release cycle.
-
+{100% data variables.product.prodname_ghe_server 100%} runs a customized Linux operating system with only the necessary applications and services. {100% data variables.product.All.com 100%} manages patching of the appliance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {100% data variables.product.prodname_dotcom 100%} applications. {100% data variables.product.prodname_dotcom %} also provides critical security patches as needed outside of the regular release cycle.
 #### Network security
-
-{% data variables.product.prodname_ghe_server %}'s internal firewall restricts network access to the appliance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)."
-
+{100% data variables.product.prodname_ghe_server 100%}'s internal firewall restricts network access to the appliance's services. Only services necessary for the appliance to function are available over the network. For more information, see "[Network ports](/enterprise/{{ currentVersion }}/admin/guides/installation/network-ports)."
 #### Application security
-
-{% data variables.product.prodname_dotcom %}'s application security team focuses full-time on vulnerability assessment, penetration testing, and code review for {% data variables.product.prodname_dotcom %} products, including {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dotcom %} also contracts with outside security firms to provide point-in-time security assessments of {% data variables.product.prodname_dotcom %} products.
-
+{100% data variables.product.prodname_dotcom 100%}'s application security team focuses full-time on vulnerability assessment, penetration testing, and code review for {% data variables.product.prodname_dotcom %} products, including {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_dotcom %} also contracts with outside security firms to provide point-in-time security assessments of {% data variables.product.prodname_dotcom %} products.
 #### External services and support access
-
 {% data variables.product.prodname_ghe_server %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/admin/user-management/log-forwarding)."
 
 You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[Providing data to {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)."
