@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} Para obtener más información, consulta la sección "[Acerca de buscar en GitHub](/articles/about-searching-on-github)".

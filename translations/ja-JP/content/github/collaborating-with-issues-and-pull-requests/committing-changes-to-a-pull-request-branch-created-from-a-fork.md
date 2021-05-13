@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 プルリクエストのブランチが以下の条件を満たす場合にのみ、コミットを実行できます:

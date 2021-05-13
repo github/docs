@@ -12,7 +12,7 @@ versions:
 type: tutorial
 topics:
   - CI
-  - ノード
+  - Node
   - JavaScript
 ---
 

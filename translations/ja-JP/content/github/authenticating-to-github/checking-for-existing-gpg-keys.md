@@ -1,6 +1,6 @@
 ---
 title: 既存の GPG キーの確認
-intro: 'GPG キーを生成する前に、GPG キーがすでに存在するかどうかを確認できます。'
+intro: GPG キーを生成する前に、GPG キーがすでに存在するかどうかを確認できます。
 redirect_from:
   - /articles/checking-for-existing-gpg-keys
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

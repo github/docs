@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:

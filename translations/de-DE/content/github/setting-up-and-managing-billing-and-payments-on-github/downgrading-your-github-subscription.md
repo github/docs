@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 ### Dein {% data variables.product.product_name %}-Abonnement herunterstufen

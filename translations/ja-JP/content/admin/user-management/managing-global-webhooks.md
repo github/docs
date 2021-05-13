@@ -1,6 +1,6 @@
 ---
 title: グローバルwebhookの管理
-intro: 'サイト管理者は、グローバル webhook を表示、追加、編集、削除して、Enterprise のイベントを追跡できます。'
+intro: サイト管理者は、グローバル webhook を表示、追加、編集、削除して、Enterprise のイベントを追跡できます。
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### グローバルwebhookについて

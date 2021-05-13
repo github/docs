@@ -1,6 +1,6 @@
 ---
 title: Building and testing Node.js
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Node.js-Projekt zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Node.js-Projekt zu bauen und zu testen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
@@ -9,11 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Node'
-  - 'JavaScript'
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}

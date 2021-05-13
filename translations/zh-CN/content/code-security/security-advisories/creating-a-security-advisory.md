@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 任何对仓库有管理员权限的人都可以创建安全通告。

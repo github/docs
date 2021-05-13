@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Proprietários corporativos podem criar novas organizações nas configurações da conta corporativa.

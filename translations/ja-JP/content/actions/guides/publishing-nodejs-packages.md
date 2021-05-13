@@ -11,9 +11,9 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - パッケージ化
-  - 公開
-  - ノード
+  - Packaging
+  - Publishing
+  - Node
   - JavaScript
 ---
 

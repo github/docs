@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Los gráficos de un repositorio te dan información sobre el tráfico de {% if currentVersion == "free-pro-team@latest" %}, los proyectos que dependen del repositorio, {% endif %} los colaboradores y las confirmaciones para el repositorio y la red y las bifurcaciones de un repositorio. Si tú mantienes un repositorio, puedes usar estos datos para comprender mejor quién está usando tu repositorio y por qué lo están usando.

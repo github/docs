@@ -1,6 +1,6 @@
 ---
 title: ラベルを管理する
-intro: 'ラベルを作成、編集、適用、および削除することで、Issue およびプルリクエストを分類できます。'
+intro: ラベルを作成、編集、適用、および削除することで、Issue およびプルリクエストを分類できます。
 redirect_from:
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
@@ -22,7 +22,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### ラベルについて

@@ -16,7 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 ### 価格プランの設定について

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Es muy fácil detectar este error; Git te dará una advertencia cuando intentes clonar el repositorio:

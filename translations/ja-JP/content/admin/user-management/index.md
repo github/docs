@@ -1,7 +1,7 @@
 ---
-title: 'ユーザ、Organization、リポジトリデータを管理する'
-shortTitle: 'ユーザ、Organization、リポジトリデータを管理する'
-intro: 'このガイドでは、Enterprise にサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team を作成する方法、およびユーザセキュリティで推奨されるベストプラクティスについて説明します。'
+title: ユーザ、Organization、リポジトリデータを管理する
+shortTitle: ユーザ、Organization、リポジトリデータを管理する
+intro: このガイドでは、Enterprise にサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team を作成する方法、およびユーザセキュリティで推奨されるベストプラクティスについて説明します。
 redirect_from:
   - /enterprise/admin/categories/user-management/
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 

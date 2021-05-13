@@ -1,7 +1,7 @@
 ---
 title: Administrar la configuración de seguridad y análisis para tu repositorio
 intro: 'Puedes controlar las características que dan seguridad y analizan tu código en tu proyecto dentro de {% data variables.product.prodname_dotcom %}.'
-permissions: Las personas con permisos administrativos en un repositorio pueden gestionar la configuración de análisis y seguridad del mismo.
+permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -9,6 +9,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Habilitar o inhabilitar las características de seguridad y análisis

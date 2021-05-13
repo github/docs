@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 ### Beginne Deine Posteingang-Selektion

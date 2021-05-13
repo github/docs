@@ -1,6 +1,6 @@
 ---
 title: パッケージを削除および復元する
-intro: 'パッケージの削除と復元の方法を学びます。'
+intro: パッケージの削除と復元の方法を学びます。
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package

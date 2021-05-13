@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}

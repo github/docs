@@ -14,7 +14,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% tip %}

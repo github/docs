@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 顶部的图表按周显示整年的提交。

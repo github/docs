@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。

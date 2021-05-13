@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}

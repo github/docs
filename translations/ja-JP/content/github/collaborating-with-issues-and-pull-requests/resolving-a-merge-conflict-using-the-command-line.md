@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zur Firewall der {% data variables.product.product_location %}

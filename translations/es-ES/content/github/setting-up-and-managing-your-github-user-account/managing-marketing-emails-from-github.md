@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 ### Cancelar la suscripción de los correos electrónicos de marketing de {% data variables.product.prodname_dotcom %}

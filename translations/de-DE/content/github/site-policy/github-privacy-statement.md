@@ -1,7 +1,7 @@
 ---
 title: GitHub-Datenschutzerklärung
 redirect_from:
-  - /datenschutz/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Effective date: December 19, 2020

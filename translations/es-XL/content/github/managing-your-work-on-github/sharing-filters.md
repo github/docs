@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes enviar la URL que genera esa propuesta a cualquier usuario, que podrá ver el mismo filtro que tú ves.

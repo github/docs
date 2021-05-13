@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 ### Acerca de la autenticación en {% data variables.product.prodname_dotcom %}

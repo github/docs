@@ -10,7 +10,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 Personen mit Administratorberechtigungen für ein Repository können mit dem Theme Chooser ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.

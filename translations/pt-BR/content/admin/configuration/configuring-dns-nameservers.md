@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Os servidores de nomes que você especificar devem resolver o nome de host da {% data variables.product.product_location %}.

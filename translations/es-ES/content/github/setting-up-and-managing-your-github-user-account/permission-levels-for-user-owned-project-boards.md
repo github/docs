@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Resumen de permisos

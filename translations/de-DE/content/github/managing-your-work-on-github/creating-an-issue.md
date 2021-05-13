@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Du kannst einen neuen Issue basierend auf dem Code eines vorhandenen Pull Requests erstellen. Weitere Informationen findest Du unter „[Einen Issue im Code öffnen](/github/managing-your-work-on-github/opening-an-issue-from-code).“

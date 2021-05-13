@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 Cuando creas una GitHub App, puedes seleccionar los permisos a los que necesita para acceder a los datos del usuario final. Los permisos también se pueden agregar y eliminar. Para obtener más información, consulta la sección "[Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".

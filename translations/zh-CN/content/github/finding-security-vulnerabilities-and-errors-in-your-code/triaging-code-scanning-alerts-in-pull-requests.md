@@ -3,11 +3,11 @@ title: 鉴定拉取请求中的代码扫描警报
 shortTitle: 鉴定拉取请求中的警报
 intro: '当 {% data variables.product.prodname_code_scanning %} 在拉取请求中发现问题时，您可以审查高亮的代码并解决警报。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '如果您拥有仓库的读取权限，您可以查看对拉取请求的注释。 如果拥有写入权限，您可以查看详细信息并解决该仓库的 {% data variables.product.prodname_code_scanning %} 警报。'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   enterprise-server: '2.22'
 topics:
-  - 安全
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 ### 権限の概要

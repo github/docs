@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Milhões de desenvolvedores hospedam milhões de projetos no GitHub — tanto código aberto quanto fechado — e temos orgulho de viabilizarmos a colaboração de toda a comunidade todos os dias. Juntos, temos uma empolgante oportunidade e a responsabilidade de tornar esta comunidade algo do qual podemos nos orgulhar.

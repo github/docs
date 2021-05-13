@@ -1,6 +1,6 @@
 ---
 title: 启用仓库的匿名 Git 读取权限
-intro: '作为仓库管理员，您可以启用或禁用满足特定要求的公共仓库的匿名 Git 读取权限。'
+intro: 作为仓库管理员，您可以启用或禁用满足特定要求的公共仓库的匿名 Git 读取权限。
 redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:

@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /managing-bots-and-service-accounts-with-saml-single-sign-on %}

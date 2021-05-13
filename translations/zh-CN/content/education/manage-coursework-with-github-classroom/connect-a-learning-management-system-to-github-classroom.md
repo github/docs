@@ -1,6 +1,6 @@
 ---
 title: 将学习管理系统连接到 GitHub Classroom
-intro: 您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。
+intro: '您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。'
 versions:
   free-pro-team: '*'
 redirect_from:

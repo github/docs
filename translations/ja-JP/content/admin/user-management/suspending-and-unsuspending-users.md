@@ -11,7 +11,7 @@ intro: 'ユーザが企業を離れたり異動したりした場合には、{% 
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 従業員が企業を退職した場合、その{% data variables.product.prodname_ghe_server %}アカウントをサスペンドすれば、{% data variables.product.prodname_enterprise %}ライセンス中のユーザライセンスを空けながら、Issue、コメント、リポジトリ、Gist、そしてそのユーザが作成した他のデータを保持しておくことができます。 サスペンドされたユーザはインスタンスにサインインすることも、コードをプッシュやプルすることもできません。

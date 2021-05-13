@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Упаковка
+  - Packaging
   - Publishing
   - Node
   - JavaScript

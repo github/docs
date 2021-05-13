@@ -1,6 +1,6 @@
 ---
 title: Aplicar logon único de SAML para sua organização
-intro: Administradores e proprietários da organização podem aplicar logon único (SSO, Single Sign-On) de SAML para que todos os integrantes da organização precisem se autenticar por meio de um provedor de identidade.
+intro: 'Administradores e proprietários da organização podem aplicar logon único (SSO, Single Sign-On) de SAML para que todos os integrantes da organização precisem se autenticar por meio de um provedor de identidade.'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Se você aplicar SAML SSO na sua organização, todos os integrantes, inclusive administradores que não tenham sido autenticados pelo seu provedor de identidade (IdP, Identity Provider) de SAML, serão removidos da organização e receberão um e-mail notificando-os sobre a remoção. Bots e contas de serviço que não tenham identidades externas configuradas no IdP da organização também serão removidos. Para obter mais informações sobre bots e contas de serviço, consulte "[Gerenciar bots e contas de serviço com logon único de SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)". Você poderá restaurar integrantes da organização depois que eles tiverem concluído o logon único com êxito.

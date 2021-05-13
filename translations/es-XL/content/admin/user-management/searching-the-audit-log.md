@@ -7,6 +7,9 @@ redirect_from:
   - /enterprise/admin/user-management/searching-the-audit-log
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Buscar sintaxis de consultas

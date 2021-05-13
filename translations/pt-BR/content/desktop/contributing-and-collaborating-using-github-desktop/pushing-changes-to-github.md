@@ -2,7 +2,7 @@
 title: Fazer push de alterações no GitHub
 shortTitle: Fazer push de alterações
 intro: 'À medida que você faz commit das alterações no seu projeto localmente, você pode fazer push dessas alterações no {% data variables.product.prodname_dotcom %} para que outras pessoas possam acessá-las a partir do repositório remoto.'
-permissions: Pessoas com permissões de gravação podem fazer push de alterações em um repositório.
+permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
 versions:

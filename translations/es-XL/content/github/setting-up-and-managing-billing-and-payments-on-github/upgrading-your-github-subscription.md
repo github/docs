@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Subir de categoría la suscripción de tu cuenta personal

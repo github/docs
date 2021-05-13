@@ -9,7 +9,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 Si el repositorio para tu sitio de {% data variables.product.prodname_pages %} contiene submódulos, sus contenidos se extraerán automáticamente cuando se compile tu sitio.

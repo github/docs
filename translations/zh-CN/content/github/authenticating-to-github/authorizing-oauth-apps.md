@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 身份
-  - 访问管理
+  - Identity
+  - Access management
 ---
 
 当 {% data variables.product.prodname_oauth_app %} 要通过您的 {% data variables.product.product_name %} 帐户识别您时，您会看到一个页面，其中包含应用程序开发者信息，以及申请的特定数据列表。

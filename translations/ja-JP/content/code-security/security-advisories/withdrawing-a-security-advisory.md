@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 誤ってセキュリティアドバイザリを公開した場合は、{% data variables.contact.contact_support %} に連絡するとセキュリティアドバイザリを撤回できます。

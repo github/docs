@@ -7,6 +7,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - events
+  - Events
 ---
 

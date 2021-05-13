@@ -1,6 +1,6 @@
 ---
 title: Borrar y restablecer un paquete
-intro: 'Aprende cómo borrar o restablecer un paquete.'
+intro: Aprende cómo borrar o restablecer un paquete.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package

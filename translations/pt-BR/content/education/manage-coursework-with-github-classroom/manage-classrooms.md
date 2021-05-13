@@ -1,7 +1,7 @@
 ---
 title: Gerenciar salas de aula
-intro: Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.
-permissions: Os proprietários da organização podem gerenciar uma sala de aula para uma organização.
+intro: 'Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.'
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:

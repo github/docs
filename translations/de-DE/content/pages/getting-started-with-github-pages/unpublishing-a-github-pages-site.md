@@ -15,7 +15,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 ### Veröffentlichung einer Projektwebsite zurückziehen

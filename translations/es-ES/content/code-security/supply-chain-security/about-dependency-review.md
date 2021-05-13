@@ -4,7 +4,7 @@ intro: 'La revisión de dependencias te permite detectar las dependencias vulner
 versions:
   free-pro-team: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 {% note %}

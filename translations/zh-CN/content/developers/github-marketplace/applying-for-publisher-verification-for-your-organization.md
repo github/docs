@@ -1,10 +1,10 @@
 ---
 title: 为组织申请发布者验证
-intro: '要为应用程序提供付费计划或在应用程序上架信息中包含 Marketplace 徽章，您必须完成组织的发布者验证流程。'
+intro: 要为应用程序提供付费计划或在应用程序上架信息中包含 Marketplace 徽章，您必须完成组织的发布者验证流程。
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 发布者验证确保 {% data variables.product.prodname_dotcom %} 有方法联系您、您已经为组织启用双重身份验证并且您组织的域已通过验证。

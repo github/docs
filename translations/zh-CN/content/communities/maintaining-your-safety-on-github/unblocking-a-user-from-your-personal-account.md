@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 取消阻止用户后，他们将能够邀请您成为其仓库的协作者。 如果他们在 GitHub 中的任意位置[@提及您](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)，您将收到通知。

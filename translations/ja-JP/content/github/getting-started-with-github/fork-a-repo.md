@@ -10,10 +10,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - アカウント
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 一般的にフォークは、他のユーザのプロジェクトへの変更を提案するため、あるいは他のユーザのプロジェクトを自分のアイディアの出発点として活用するために使用します。

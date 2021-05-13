@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Fecha de entrada en vigencia: **12 de agosto de 2020**

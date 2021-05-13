@@ -4,7 +4,7 @@ intro: 'Aprenda a usar {% data variables.product.prodname_actions %} com ambient
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Pode ser útil ter um ambiente de preparo ou de teste para {% data variables.product.product_location %} para que você possa testar atualizações ou novas funcionalidades antes de implementá-las no seu ambiente de produção.

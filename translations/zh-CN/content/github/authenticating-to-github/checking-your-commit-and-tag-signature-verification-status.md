@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 身份
-  - 访问管理
+  - Identity
+  - Access management
 ---
 
 ### 检查提交签名验证状态

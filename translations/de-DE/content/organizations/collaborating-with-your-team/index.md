@@ -1,6 +1,6 @@
 ---
 title: Mit Deinem Team zusammenarbeiten
-intro: 'Innerhalb einer Organisation kann Dein Team mithilfe von Teamdiskussionen über mehrere Projekte hinweg zusammenarbeiten.'
+intro: Innerhalb einer Organisation kann Dein Team mithilfe von Teamdiskussionen über mehrere Projekte hinweg zusammenarbeiten.
 redirect_from:
   - /articles/collaborating-with-your-team
   - /github/building-a-strong-community/collaborating-with-your-team
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% link_in_list /about-team-discussions %}

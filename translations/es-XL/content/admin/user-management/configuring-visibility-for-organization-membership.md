@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 También puedes implementar tu configuración por defecto en todos los miembros actuales de la organización en tu instancia usando una utilidad de línea de comandos. Por ejemplo, si quieres solicitar que la visibilidad de cada miembro de la organización sea pública, puedes establecer la configuración predeterminada como pública e implementar la predeterminada para todos los nuevos miembros en los parámetros de administración, y luego usar la utilidad de línea de comandos para implementar la configuración pública en los miembros existentes.

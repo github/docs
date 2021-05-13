@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Wenn Du die Anzahl Deiner Datenpakete herabstufst, werden Deine Änderungen zum nächsten Abrechnungsdatum wirksam. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage).“

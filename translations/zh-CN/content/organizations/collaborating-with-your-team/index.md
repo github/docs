@@ -1,6 +1,6 @@
 ---
 title: 与您的团队协作
-intro: '在组织内，您的团队可使用团队讨论功能展开跨项目协作。'
+intro: 在组织内，您的团队可使用团队讨论功能展开跨项目协作。
 redirect_from:
   - /articles/collaborating-with-your-team
   - /github/building-a-strong-community/collaborating-with-your-team
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% link_in_list /about-team-discussions %}

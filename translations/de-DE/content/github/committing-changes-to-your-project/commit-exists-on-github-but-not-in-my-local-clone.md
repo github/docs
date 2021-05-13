@@ -1,5 +1,5 @@
 ---
-title: Commit ist auf GitHub vorhanden, aber nicht in meinem lokalen Klon
+title: 'Commit ist auf GitHub vorhanden, aber nicht in meinem lokalen Klon'
 intro: 'Manchmal kann ein Commit auf {% data variables.product.product_name %} angezeigt werden, befindet sich aber nicht im lokalen Klon des Repositorys.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone

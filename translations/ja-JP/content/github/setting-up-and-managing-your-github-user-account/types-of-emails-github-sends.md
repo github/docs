@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 ### 通知メール

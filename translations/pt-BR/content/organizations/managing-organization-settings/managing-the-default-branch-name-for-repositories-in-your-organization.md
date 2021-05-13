@@ -3,14 +3,14 @@ title: Gerenciar o nome de branch-padrão para repositórios na sua organizaçã
 intro: 'Você pode definir o nome do branch-padrão para repositórios que os integrantes criam na sua organização em {% data variables.product.product_location %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
-permissions: Os proprietários da organização podem gerenciar o nome do branch-padrão para novos repositórios na organização.
+permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre o gerenciamento do nome do brancc-padrão

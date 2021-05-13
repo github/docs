@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アカウント
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{% data variables.product.product_name %}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。

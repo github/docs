@@ -5,6 +5,6 @@ layout: release-notes
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 

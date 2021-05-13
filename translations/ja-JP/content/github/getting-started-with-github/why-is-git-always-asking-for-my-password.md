@@ -1,6 +1,6 @@
 ---
 title: Git が常にパスワードを要求するのはなぜですか？
-intro: 'GitHub とやり取りしようとするたびに Git がユーザ名とパスワードの入力を求めてくる場合は、おそらくリポジトリに HTTPS クローン URL を使用しています。'
+intro: GitHub とやり取りしようとするたびに Git がユーザ名とパスワードの入力を求めてくる場合は、おそらくリポジトリに HTTPS クローン URL を使用しています。
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
   - /github/using-git/why-is-git-always-asking-for-my-password

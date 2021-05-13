@@ -1,6 +1,6 @@
 ---
 title: Building and testing Python
-intro: Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Python-Projekt zu bauen und zu testen.
+intro: 'Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Dein Python-Projekt zu bauen und zu testen.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Python'
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}

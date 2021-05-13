@@ -8,6 +8,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 

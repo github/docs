@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 在提交事件单之前，您应当：

@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されている場合、Organization のメンバーは Organization のリソースへのアクセスを持つ {% data variables.product.prodname_oauth_app %}を承認する前に、Organization のオーナーからの[承認をリクエスト](/articles/requesting-organization-approval-for-oauth-apps)しなければなりません。

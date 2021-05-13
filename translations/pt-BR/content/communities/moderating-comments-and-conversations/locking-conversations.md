@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou viola o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as [diretrizes da comunidade do GitHub](/articles/github-community-guidelines){% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.

@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### Accessing your personal dashboard

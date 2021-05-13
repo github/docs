@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - perfiles
+  - Profiles
 ---
 
 {% note %}

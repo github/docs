@@ -3,12 +3,12 @@ title: Gerenciar criação de discussões para repositórios na sua organizaçã
 intro: Você pode escolher os níveis de permissão exigidos pelos integrantes para criar discussões em repositórios pertencentes à sua organização.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
-permissions: Os proprietários da organização podem gerenciar a criação de discussões para repositórios pertencentes à organização.
+permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}

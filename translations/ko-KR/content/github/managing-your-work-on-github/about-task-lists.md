@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Task lists render with clickable checkboxes in comments. You can select or unselect the checkboxes to mark them as complete or incomplete.

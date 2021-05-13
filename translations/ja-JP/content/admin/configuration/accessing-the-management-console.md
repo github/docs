@@ -13,7 +13,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.enterprise.management_console %}について

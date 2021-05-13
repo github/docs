@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Para encontrar una lista completa, consulta "[Acciones auditadas](/admin/user-management/audited-actions)". Para obtener más información sobre cómo encontrar una acción en particular, consulta la sección "[Buscar la bitácora de auditoría](/admin/user-management/searching-the-audit-log)".

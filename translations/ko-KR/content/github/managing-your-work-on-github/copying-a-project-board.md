@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Copying a project board allows you to reuse a project board's title, description, and automation configuration. You can copy project boards to eliminate the manual process of creating new project boards for similar workflows.

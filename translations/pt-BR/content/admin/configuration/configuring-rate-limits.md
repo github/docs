@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Habilitar limites de taxa para a {% data variables.product.prodname_enterprise_api %}

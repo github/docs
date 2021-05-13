@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 La automatización en tu tablero de proyecto no se aplica a las tarjetas del tablero de proyecto archivado. Por ejemplo, si cierras una propuesta en un archivo del tablero de proyecto, la tarjeta archivada no se mueve automáticamente a la columna "Done" (Listo). Cuando restauras una tarjeta del archivo del tablero de proyecto, la tarjeta volverá a la columna donde fue archivada.

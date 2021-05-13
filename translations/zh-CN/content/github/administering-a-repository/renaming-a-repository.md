@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 重命名仓库时，除项目网站 URL 外，所有现有信息将自动重定向到新名称，包括：

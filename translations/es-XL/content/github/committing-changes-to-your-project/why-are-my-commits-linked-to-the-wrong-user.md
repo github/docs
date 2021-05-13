@@ -7,6 +7,7 @@ intro: '{% data variables.product.product_name %} usa la dirección de correo el
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Passphrase aus Ihrer Schlüsseldatei entfernen

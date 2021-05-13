@@ -1,6 +1,6 @@
 ---
 title: サービスフックのトラブルシューティング
-intro: 'ペイロードが配信されない場合、以下の一般的な問題をチェックしてください。'
+intro: ペイロードが配信されない場合、以下の一般的な問題をチェックしてください。
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### デリバリーについての情報を入手

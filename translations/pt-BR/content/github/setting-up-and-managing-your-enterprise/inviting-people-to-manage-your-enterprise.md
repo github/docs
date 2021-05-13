@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre convidar pessoas para gerenciar sua conta corporativa

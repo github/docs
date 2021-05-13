@@ -1,7 +1,7 @@
 ---
 title: Participar en un debate
-intro: Puedes conversar con la comunidad y con los mantenedores en un foro dentro del repositorio de un proyecto en {% data variables.product.product_name %}.
-permissions: Las personas con permisos de lectura en un repositorio pueden participar en debates dentro del mismo.
+intro: 'Puedes conversar con la comunidad y con los mantenedores en un foro dentro del repositorio de un proyecto en {% data variables.product.product_name %}.'
+permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

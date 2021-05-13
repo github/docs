@@ -4,7 +4,7 @@ intro: 'Learn about using {% data variables.product.prodname_actions %} with {% 
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 It can be useful to have a staging or testing environment for {% data variables.product.product_location %}, so that you can test updates or new features before implementing them in your production environment.

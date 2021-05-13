@@ -14,7 +14,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する

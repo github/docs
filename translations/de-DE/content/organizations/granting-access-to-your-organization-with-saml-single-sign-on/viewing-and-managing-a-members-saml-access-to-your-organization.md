@@ -1,7 +1,7 @@
 ---
 title: SAML-Zugriff eines Mitglieds auf Deine Organisation ansehen und verwalten
 intro: 'Du kannst die verknüpfte Identität, aktive Sitzungen und autorisierte Anmeldeinformationen eines Organisations-Mitglieds ansehen und widerrufen.'
-permissions: Organisationsinhaber können den SAML-Zugriff eines Mitglieds auf eine Organisation ansehen und verwalten.
+permissions: Organization owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über SAML Zugriff auf Deine Organisation

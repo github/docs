@@ -1,6 +1,6 @@
 ---
 title: 编辑 wiki 内容
-intro: '您可以将图片和内容链接添加到您的 wiki，并使用某些受支持的 MediaWiki 格式。'
+intro: 您可以将图片和内容链接添加到您的 wiki，并使用某些受支持的 MediaWiki 格式。
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 ### 添加链接

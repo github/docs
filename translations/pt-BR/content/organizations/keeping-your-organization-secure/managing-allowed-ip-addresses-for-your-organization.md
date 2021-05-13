@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Os proprietários da organização podem gerenciar endereços IP permitidos para uma organização.

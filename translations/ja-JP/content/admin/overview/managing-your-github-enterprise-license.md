@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_enterprise %}ライセンスについて

@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: Cualquier persona con permisos de escritura para un repositorio puede publicar un paquete en ese repositorio.
+permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

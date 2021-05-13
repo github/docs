@@ -1,13 +1,13 @@
 ---
 title: リポジトリへのアクセス権を持つ Team と人を管理する
 intro: リポジトリへのアクセス権を持つすべての人を確認し、権限を調整できます。
-permissions: リポジトリ管理者は、リポジトリへのアクセス権を持つ Team と人を管理できます。
+permissions: Repository administrators can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### リポジトリへのアクセス管理について

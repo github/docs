@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}

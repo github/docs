@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.

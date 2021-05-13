@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - api
+  - API
 ---
 
 ### Sobre descrições da OpenAPI

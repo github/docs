@@ -2,11 +2,11 @@
 title: Habilitar el inicio de sesión único de SAML para las organizaciones en tu cuenta de empresa
 intro: 'Puedes controlar y asegurar el acceso a los recursos tales como repositorios, propuestas y solicitudes de cambios si habilitas el inicio de sesión único (SSO) de SAML y la autenticación centralizada mediante un IdP a través de todas las organizaciones que pertenezcan al acuenta emprearial.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Los propietarios de la empresa pueden habilitar el inicio de sesión único de SAML para las organizaciones en una cuenta empresarial.
+permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca del inicio de sesión único de SAML para las cuentas empresariales

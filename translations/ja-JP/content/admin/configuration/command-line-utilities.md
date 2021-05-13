@@ -10,7 +10,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"

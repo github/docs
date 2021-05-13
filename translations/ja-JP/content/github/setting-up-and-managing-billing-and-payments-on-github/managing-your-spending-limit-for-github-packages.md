@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 ### {% data variables.product.prodname_registry %} の利用上限について

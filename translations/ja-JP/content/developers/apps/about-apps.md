@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 {% data variables.product.prodname_dotcom %} のアプリケーションを使用すると、ワークフローを自動化し改善できます。 アプリケーションを構築して、ワークフローを改善できます。{% if currentVersion == "free-pro-team@latest" %} また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) でアプリケーションを共有または販売することも可能です。 {% data variables.product.prodname_marketplace %} にアプリを掲載する方法については、「[GitHub Marketplace を使ってみる](/marketplace/getting-started/)」を参照してください。{% endif %}

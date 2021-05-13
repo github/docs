@@ -1,6 +1,6 @@
 ---
 title: REST API 入门指南
-intro: '从身份验证和一些端点示例开始，了解使用 REST API 的基础。'
+intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 

@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Generalmente, si alguien elimina un repositorio, estará disponible en el disco por 90 días y se puede restablecer mediante el tablero de administración del sitio. Después de los 90 días, el repositorio se purga y se elimina para siempre. Si asignas un titular legal a un usuario o una organización, los repositorios que ellos poseen se pueden restablecer indefinidamente.

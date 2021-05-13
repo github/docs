@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 En las organizaciones que son propiedad de una cuenta de empresa, los propietarios de la organización pueden establecer limitaciones para la visualización de la información de dependencias de la organización. Para obtener más información, consulta "[Cambiar la visibilidad de la información de dependencias de la organización](/articles/changing-the-visibility-of-your-organizations-dependency-insights)".

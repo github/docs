@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}

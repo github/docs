@@ -1,6 +1,6 @@
 ---
 title: 设置添加外部协作者的权限
-intro: '为了保护组织的数据和组织中使用的付费许可数，您可以只允许所有者邀请外部协作者加入组织仓库。'
+intro: 为了保护组织的数据和组织中使用的付费许可数，您可以只允许所有者邀请外部协作者加入组织仓库。
 product: '{% data reusables.gated-features.restict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 组织所有者和具有仓库管理员权限的成员可以邀请外部协作者处理仓库。 您还可以将外部协作者邀请权限仅限于组织所有者。

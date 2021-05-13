@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica.

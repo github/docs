@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-event-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Al confirmar su asistencia o asistiendo a un evento de GitHub, incluyendo cualquiera de los eventos o actividades organizadas por GitHub en asociación con el evento de GitHub (en conjunto, el "Evento"), señalas que has leído, comprendes y aceptas los siguientes términos y condiciones del evento.

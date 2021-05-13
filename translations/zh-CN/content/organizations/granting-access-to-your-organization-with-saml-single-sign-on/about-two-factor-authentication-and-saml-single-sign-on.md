@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 双重身份验证 (2FA) 为组织成员提供基本验证。 通过启用 2FA，组织管理员可降低成员的 {% data variables.product.product_name %} 帐户被盗的可能性。 有关 2FA 的更多信息，请参阅“[关于双重身份验证](/articles/about-two-factor-authentication)”。

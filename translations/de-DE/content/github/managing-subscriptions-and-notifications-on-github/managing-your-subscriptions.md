@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 Um Dir zu helfen, Deine Abonnements zu verstehen und zu entscheiden, ob du Dich abmelden sollst, findest Du weitere Informationen auf „[Deine Abonnements ansehen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."

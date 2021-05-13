@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %} löscht automatisch inaktive SSH-Schlüssel, um Konten zu schützen, beispielsweise, wenn jemand seine Arbeitsstelle wechselt oder seinen Computer verliert.

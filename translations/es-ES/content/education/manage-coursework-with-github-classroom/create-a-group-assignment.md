@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea de grupo
-intro: 'Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.'
+intro: Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.
 versions:
   free-pro-team: '*'
 redirect_from:

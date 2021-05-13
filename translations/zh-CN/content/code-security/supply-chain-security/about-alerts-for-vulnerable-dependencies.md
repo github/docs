@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - 安全
+  - Security
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->

@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% link_in_list /about-community-management-and-moderation %}

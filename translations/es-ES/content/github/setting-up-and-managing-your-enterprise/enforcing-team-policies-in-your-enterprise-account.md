@@ -1,6 +1,6 @@
 ---
 title: Hacer cumplir políticas de equipo en tu cuenta de empresa
-intro: 'Los propietarios de empresa pueden hacer cumplir determinadas políticas de equipo para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que estas políticas se establezcan en cada organización.'
+intro: Los propietarios de empresa pueden hacer cumplir determinadas políticas de equipo para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que estas políticas se establezcan en cada organización.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Hacer cumplir una política para los debates de equipo

@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - 패키징
+  - Packaging
 ---
 
 {% data reusables.actions.enterprise-beta %}

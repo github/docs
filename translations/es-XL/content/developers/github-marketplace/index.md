@@ -7,6 +7,8 @@ redirect_from:
   - /marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 {% topic_link_in_list /creating-apps-for-github-marketplace %}

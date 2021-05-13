@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}

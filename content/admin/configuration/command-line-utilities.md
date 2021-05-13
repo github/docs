@@ -9,8 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - SSH
 ---
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
 
@@ -481,9 +483,15 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### Clustering
 

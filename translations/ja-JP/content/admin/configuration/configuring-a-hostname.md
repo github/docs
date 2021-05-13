@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ハードコードされたIPアドレスの代わりにホスト名を設定すれば、ユーザやクライアントソフトウェアに影響を与えることなく{% data variables.product.product_location %}を動作させる物理ハードウェアを変更できるようになります。

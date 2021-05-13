@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About renaming branches

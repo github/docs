@@ -1,8 +1,8 @@
 ---
 title: Azure AD を使用して Enterprise の認証とプロビジョニングを設定する
 shortTitle: Azure AD を使用しての設定
-intro: Azure Active Directory (Azure AD) のテナントをアイデンティティプロバイダ (IdP) として使用して、{% data variables.product.product_location %} の認証とユーザプロビジョニングを一元管理できます。
-permissions: Enterprise のオーナーは、{% data variables.product.product_name %} で Enterprise の認証とプロビジョニングを設定できます。
+intro: 'Azure Active Directory (Azure AD) のテナントをアイデンティティプロバイダ (IdP) として使用して、{% data variables.product.product_location %} の認証とユーザプロビジョニングを一元管理できます。'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'

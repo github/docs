@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 身份
-  - 访问管理
+  - Identity
+  - Access management
 ---
 
 您必须为 {% data variables.product.product_name %} 帐户选择或生成密码，密码至少应满足以下条件：

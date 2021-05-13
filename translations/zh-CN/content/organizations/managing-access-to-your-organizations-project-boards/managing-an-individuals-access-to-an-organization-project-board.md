@@ -1,6 +1,6 @@
 ---
 title: 管理个人对组织项目板的访问
-intro: '作为组织所有者或项目板管理员，您可以管理个别成员对组织拥有的项目板的访问。'
+intro: 作为组织所有者或项目板管理员，您可以管理个别成员对组织拥有的项目板的访问。
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% note %}

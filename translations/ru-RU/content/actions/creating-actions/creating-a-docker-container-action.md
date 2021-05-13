@@ -14,7 +14,7 @@ versions:
 type: tutorial
 topics:
   - Action development
-  - Докер
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

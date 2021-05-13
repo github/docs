@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server und die Informationen, die Sie auf eines der beiden Produkte hochladen, können Handelskontrollbestimmungen unterliegen, einschließlich der Bestimmungen der U.S. Export Administration Regulations (EAR). Export Administration Regulations (the EAR).

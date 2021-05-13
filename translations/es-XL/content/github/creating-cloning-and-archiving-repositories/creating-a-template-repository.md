@@ -6,6 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: Anyone with admin permissions to a repository can make the repository a template.
+topics:
+  - Repositories
 ---
 
 Anyone with admin permissions to a repository can make the repository a template.

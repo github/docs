@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 When you close a project board, any workflow automation that was configured for the project board will pause by default. For more information, see "[Closing a project board](/articles/closing-a-project-board)."

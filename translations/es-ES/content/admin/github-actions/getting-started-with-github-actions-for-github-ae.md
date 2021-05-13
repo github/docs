@@ -1,7 +1,7 @@
 ---
 title: Comenzar con las GitHub Actions para GitHub AE
 intro: 'Aprende a configurar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_managed %}.'
-permissions: 'Los administradoresde sitio pueden habilitar {% data variables.product.prodname_actions %} y configurar los ajustes empresariales.'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   github-ae: '*'
 ---

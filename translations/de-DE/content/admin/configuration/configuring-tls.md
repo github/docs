@@ -9,7 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zu Transport Layer Security

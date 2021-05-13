@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 A partir dos links indicados nos caminhos especificados, é possível navegar para sites de referência, exceto mecanismos de pesquisa e o {% data variables.product.product_name %} em si. O conteúdo popular tem links para o conteúdo específico que gerou o tráfego.

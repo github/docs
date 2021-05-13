@@ -1,7 +1,7 @@
 ---
 title: Acerca de utilizar MakeCode Arcade con GitHub Classroom
 shortTitle: Acerca de utilizar MakeCode Arcade
-intro: Puedes configurar a MakeCode Arcade como el IDE en línea para las tareas en {% data variables.product.prodname_classroom %}.
+intro: 'Puedes configurar a MakeCode Arcade como el IDE en línea para las tareas en {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

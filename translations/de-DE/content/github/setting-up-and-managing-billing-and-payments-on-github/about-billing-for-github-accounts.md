@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Weitere Informationen zu den für Dein Konto verfügbaren Produkten findest Du unter „[Produkte von {% data variables.product.product_name %}](/articles/github-s-products)“. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data variables.product.product_name %} bietet keine benutzerdefinierten Produkte oder Abonnements an.

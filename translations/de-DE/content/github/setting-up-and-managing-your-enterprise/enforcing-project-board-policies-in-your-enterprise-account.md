@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Weitere Informationen zu den Projektboard-Typen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“

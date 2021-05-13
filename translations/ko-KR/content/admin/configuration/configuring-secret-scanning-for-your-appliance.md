@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 {% data reusables.secret-scanning.beta %}

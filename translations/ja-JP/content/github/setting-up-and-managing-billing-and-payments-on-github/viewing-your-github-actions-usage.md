@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 個々のワークフロー実行について、請求可能なジョブ実行の時間（分）を確認することもできます。 詳しい情報については、「[ジョブの実行時間を表示する](/actions/managing-workflow-runs/viewing-job-execution-time)」を参照してください。

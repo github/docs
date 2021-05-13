@@ -11,8 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - identidade
-  - gerenciamento de acesso
+  - Identity
+  - Access management
 ---
 
 Você pode recuperar uma lista de endereços IP do {% data variables.product.prodname_dotcom %} no ponto de extremidade da API [meta](https://api.github.com/meta). Para obter mais informações, consulte "[Meta](/rest/reference/meta)".

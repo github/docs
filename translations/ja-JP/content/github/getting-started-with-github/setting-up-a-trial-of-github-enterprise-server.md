@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 ### {% data variables.product.prodname_ghe_server %} のトライアルについて

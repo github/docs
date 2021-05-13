@@ -46,17 +46,6 @@ This script copies any English files that are missing from the translations dire
 ---
 
 
-### [`check-deps.js`](check-deps.js)
-
-This script checks which modules you have used in your code and then makes sure they are listed as dependencies in your package.json, or vice-versa
-
-https://github.com/dependency-check-team/dependency-check
-
-The `ignore` array is for client-side or build-time stuff that doesn't get `require()d` in the normal way.
-
----
-
-
 ### [`check-english-links.js`](check-english-links.js)
 
 This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.

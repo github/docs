@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zum Absenden eines Tickets

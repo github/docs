@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 {% data variables.product.product_location %} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。

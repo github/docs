@@ -2,7 +2,7 @@
 title: Criar um commit em nome de uma organização
 intro: 'Você pode criar commits em nome de uma organização adicionando um trailer à mensagem do commit. Os commits atribuídos a uma organização incluem um selo "em nome de" no {% data variables.product.product_name %}.'
 redirect_from:
-  - Creating a commit on behalf of an organization
+  - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
   free-pro-team: '*'
 ---

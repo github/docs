@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Linux コンピュータで {% data variables.product.product_location %}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:

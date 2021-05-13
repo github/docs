@@ -1,13 +1,13 @@
 ---
 title: Sobre o gráfico de dependências
-intro: 'Você pode usar o gráfico de dependências para identificar todas as dependências do seu projeto. O gráfico de dependências é compatível com uma série de ecossistemas de pacotes populares.'
+intro: Você pode usar o gráfico de dependências para identificar todas as dependências do seu projeto. O gráfico de dependências é compatível com uma série de ecossistemas de pacotes populares.
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/about-the-dependency-graph
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - repositories
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->

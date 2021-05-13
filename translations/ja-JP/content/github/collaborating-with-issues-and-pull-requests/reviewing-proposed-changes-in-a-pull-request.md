@@ -1,6 +1,6 @@
 ---
 title: プルリクエストで提案された変更をレビューする
-intro: 'Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。'
+intro: Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### プルリクエストのレビューについて

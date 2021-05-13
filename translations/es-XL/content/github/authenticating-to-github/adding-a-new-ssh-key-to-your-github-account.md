@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - SSH
 ---
 
 Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, deberías haber:

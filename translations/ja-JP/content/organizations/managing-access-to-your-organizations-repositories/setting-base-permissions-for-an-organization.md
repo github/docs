@@ -1,7 +1,7 @@
 ---
 title: Organization の基本レベルの権限の設定
 intro: Organization が所有しているリポジトリに対して、基本レベルの権限を設定できます。
-permissions: Organization のオーナーは、Organization に対して基本レベルの権限を設定できます。
+permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization の基本レベルの権限について

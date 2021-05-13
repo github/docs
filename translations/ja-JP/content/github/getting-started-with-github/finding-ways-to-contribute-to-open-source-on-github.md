@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - オープンソース
+  - Open Source
 ---
 
 ### 関連プロジェクトを発見する

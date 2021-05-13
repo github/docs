@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### About SAML access to your enterprise account

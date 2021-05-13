@@ -1,13 +1,13 @@
 ---
 title: Missbrauch oder Spam melden
-intro: Du kannst Verhalten und Inhalte melden, die die Community-Richtlinien und -Bedingungen verletzen.
+intro: 'Du kannst Verhalten und Inhalte melden, die die Community-Richtlinien und -Bedingungen verletzen.'
 redirect_from:
   - /articles/reporting-abuse-or-spam
   - /github/building-a-strong-community/reporting-abuse-or-spam
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Inhaber, Mitarbeiter, ehemalige Mitwirkende und Benutzer mit Schreibzugriff können Issues, Pull Requests und Kommentare zu Issues, Pull Requests und Commits melden. Jeder kann Apps auf {% data variables.product.prodname_marketplace %} melden.

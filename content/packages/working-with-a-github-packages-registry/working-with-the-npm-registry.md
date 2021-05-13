@@ -34,6 +34,8 @@ If you reach this limit, consider deleting package versions or contact Support f
 
 {% data reusables.package_registry.authenticate-packages %}
 
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 #### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}

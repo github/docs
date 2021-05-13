@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data variables.product.prodname_ghe_server %} の pre-receive フックの例は、[`github/platform-samples`リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で見ることができます。

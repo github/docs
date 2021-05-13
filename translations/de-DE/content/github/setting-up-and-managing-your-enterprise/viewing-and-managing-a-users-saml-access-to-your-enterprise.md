@@ -1,7 +1,7 @@
 ---
 title: Viewing and managing a user's SAML access to your enterprise
 intro: 'Du kannst die verknüpfte Identität, aktive Sitzungen und autorisierte Anmeldeinformationen eines Enterprise-Mitglieds ansehen und widerrufen.'
-permissions: Enterprise-Inhaber können den SAML-Zugriff eines Mitglieds auf eine Organisation ansehen und verwalten.
+permissions: Enterprise owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Über SAML Zugriff auf Dein Enterprise-Konto

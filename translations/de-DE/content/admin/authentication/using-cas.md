@@ -9,7 +9,7 @@ intro: 'CAS ist ein Single Sign-On-Protokoll (SSO) für mehrere Webanwendungen. 
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

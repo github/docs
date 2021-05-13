@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 To transfer an open issue to another repository, you must have write permissions on the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."

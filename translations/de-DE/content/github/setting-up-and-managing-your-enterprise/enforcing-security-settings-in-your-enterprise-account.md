@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Zwei-Faktor-Authentifizierung für Organisationen in Deinem Enterprise-Konto vorschreiben

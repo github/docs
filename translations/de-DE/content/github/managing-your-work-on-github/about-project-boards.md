@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Projektboards bestehen aus Issues, Pull Requests und Hinweisen, die als Tickets in Spalten Deiner Wahl kategorisiert werden. Du kannst per Drag-and-Drop oder Tastenkürzel Tickets innerhalb einer Spalte neu anordnen, Tickets von Spalte zu Spalte verschieben und die Reihenfolge der Spalten ändern.

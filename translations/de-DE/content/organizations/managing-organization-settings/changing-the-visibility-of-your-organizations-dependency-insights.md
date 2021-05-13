@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organisationsinhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke der Organisation festlegen. Standardmäßig können alle Mitglieder einer Organisation die Abhängigkeiten-Einblicke der Organisation anzeigen.

@@ -1,6 +1,6 @@
 ---
 title: グループ課題の作成
-intro: 'コースに参加している学生のTeamのために、共同課題を作成できます。'
+intro: コースに参加している学生のTeamのために、共同課題を作成できます。
 versions:
   free-pro-team: '*'
 redirect_from:

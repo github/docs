@@ -24,7 +24,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Acerca de Jekyll

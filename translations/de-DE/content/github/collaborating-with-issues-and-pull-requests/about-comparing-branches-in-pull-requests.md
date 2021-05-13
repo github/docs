@@ -1,6 +1,6 @@
 ---
 title: Informationen zum Vergleich von Branches in Pull Requests
-intro: In Pull Requests werden Diffs angezeigt, um die Änderungen, die Du in Deinem Themen-Branch vorgenommen hast, mit dem Basis-Branch zu vergleichen, in den du Deine Änderungen zusammenführen möchtest.
+intro: 'In Pull Requests werden Diffs angezeigt, um die Änderungen, die Du in Deinem Themen-Branch vorgenommen hast, mit dem Basis-Branch zu vergleichen, in den du Deine Änderungen zusammenführen möchtest.'
 redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% note %}

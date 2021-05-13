@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Se você não configurar a foto de perfil da equipe, a foto da equipe será a foto de perfil da organização.

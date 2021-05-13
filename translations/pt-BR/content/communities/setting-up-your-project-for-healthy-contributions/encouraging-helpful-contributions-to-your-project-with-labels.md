@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Você pode aplicar a etiqueta `good first issue` nos problemas em seu repositório público, assim as pessoas podem encontrá-los quando pesquisarem usando etiquetas. Para obter mais informações sobre como pesquisar com etiquetas, consulte "[Pesquisar problemas e pull requests](/articles/searching-issues-and-pull-requests/#search-by-label)".

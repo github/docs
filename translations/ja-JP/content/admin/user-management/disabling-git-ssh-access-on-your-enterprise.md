@@ -18,7 +18,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### 特定のリポジトリへのGit SSHアクセスの無効化

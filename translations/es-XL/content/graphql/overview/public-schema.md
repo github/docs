@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 Puedes [realizar una introspección](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) contra la API de GraphQL directamente.

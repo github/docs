@@ -5,7 +5,7 @@ intro: 'Otimiza como você recebe notificações sobre {% if currentVersion == "
 versions:
   enterprise-server: '>=2.21 <=2.22'
 topics:
-  - segurança
+  - Security
 ---
 
 ### Sobre notificações para dependências vulneráveis

@@ -1,6 +1,6 @@
 ---
 title: Deleting and restoring a package
-intro: 'Learn how to delete or restore a package.'
+intro: Learn how to delete or restore a package.
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/deleting-a-package

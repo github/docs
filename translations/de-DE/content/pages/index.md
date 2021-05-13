@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 {% link_with_intro /getting-started-with-github-pages %}

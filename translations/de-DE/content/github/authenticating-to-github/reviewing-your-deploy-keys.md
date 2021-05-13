@@ -1,6 +1,6 @@
 ---
 title: Deine Deployment-Schlüssel überprüfen
-intro: Du solltest Deine Deployment-Schlüssel überprüfen, um sicherzustellen, dass keine unautorisierten (und möglicherweise kompromittierten) Schlüssel vorhanden sind. Vorhandene Deployment-Schlüssel, die gültig sind, kannst Du auch genehmigen.
+intro: 'Du solltest Deine Deployment-Schlüssel überprüfen, um sicherzustellen, dass keine unautorisierten (und möglicherweise kompromittierten) Schlüssel vorhanden sind. Vorhandene Deployment-Schlüssel, die gültig sind, kannst Du auch genehmigen.'
 redirect_from:
   - /articles/reviewing-your-deploy-keys
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

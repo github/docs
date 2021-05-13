@@ -16,7 +16,7 @@ intro: '作为灾难恢复计划的一部分，您可以通过配置自动备份
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于 {% data variables.product.prodname_enterprise_backup_utilities %}

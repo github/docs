@@ -13,7 +13,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于维护模式

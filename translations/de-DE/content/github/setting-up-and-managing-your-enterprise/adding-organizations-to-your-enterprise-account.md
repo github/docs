@@ -1,6 +1,6 @@
 ---
 title: Organisationen zu Deinem Enterprise-Konto hinzufügen
-intro: Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.
+intro: 'Du kannst neue Organisationen erstellen, um sie in Deinem Enterprise-Konto zu verwalten.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Enterprise-Inhaber können in den Einstellungen eines Enterprise-Kontos neue Organisationen erstellen.

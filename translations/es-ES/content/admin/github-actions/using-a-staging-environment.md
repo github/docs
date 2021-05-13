@@ -4,7 +4,7 @@ intro: 'Aprende sobre cómo utilizar {% data variables.product.prodname_actions 
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Puede ser útil tener un ambiente de montaje o de pruebas para {% data variables.product.product_location %}, para que así puedas probar las actualizaciones o características nuevas antes de implementarlas en tu ambiente productivo.

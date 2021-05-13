@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### Setting up your repository securely

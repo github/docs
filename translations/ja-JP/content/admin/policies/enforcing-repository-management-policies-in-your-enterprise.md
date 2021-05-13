@@ -1,6 +1,6 @@
 ---
 title: Enterprise でリポジトリ管理ポリシーを適用する
-intro: 'Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のリポジトリの管理ポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。'
+intro: Enterprise のオーナーは、自分の Enterprise のアカウントが所有するすべての Organization に対して特定のリポジトリの管理ポリシーを強制したり、Organization ごとのポリシーの設定を許可したりすることができます。
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -29,7 +29,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Enterprise 内の新しいリポジトリのデフォルトの可視性を設定する

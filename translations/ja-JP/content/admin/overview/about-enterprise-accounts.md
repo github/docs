@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.product.product_name %} の Enterprise アカウントについて

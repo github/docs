@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 ### Nächstes Abrechnungsdatum Deines persönlichen Kontos finden

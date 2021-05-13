@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Cuando las restricciones de acceso a {% data variables.product.prodname_oauth_app %} están activadas, los miembros de la organización no pueden autorizar el acceso de {% data variables.product.prodname_oauth_app %} a los recursos de la organización. Los miembros de la organización pueden solicitar la aprobación de los propietarios para las {% data variables.product.prodname_oauth_app %}s que quieran usar y los propietarios de la organización reciben una notificación de solicitudes pendientes.

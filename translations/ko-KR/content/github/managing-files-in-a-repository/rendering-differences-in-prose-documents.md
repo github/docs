@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.

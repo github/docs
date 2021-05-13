@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - notifications
+  - Accounts
+  - Notifications
 ---
 

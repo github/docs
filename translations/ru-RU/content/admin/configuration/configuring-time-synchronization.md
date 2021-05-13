@@ -11,7 +11,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### Changing the default NTP servers

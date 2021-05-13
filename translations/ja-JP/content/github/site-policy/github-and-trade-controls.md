@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub.com、GitHub Enterprise Server、およびあなたがいずれかの製品にアップロードする情報は、米輸出管理規則（EAR）を含む貿易管理規制の対象となる場合があります。

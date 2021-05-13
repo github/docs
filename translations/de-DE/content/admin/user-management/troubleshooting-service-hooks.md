@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zu Auslieferungen abrufen

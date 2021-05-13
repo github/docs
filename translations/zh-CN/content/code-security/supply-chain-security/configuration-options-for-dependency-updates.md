@@ -1,14 +1,14 @@
 ---
 title: 依赖项更新的配置选项
 intro: '可用于自定义 {% data variables.product.prodname_dependabot %} 如何维护仓库的所有选项的详细信息。'
-permissions: '拥有仓库写入权限的人可配置仓库的 {% data variables.product.prodname_dependabot %}。'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于 *dependabot.yml* 文件

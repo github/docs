@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 For more information about the terms that govern {% data variables.product.prodname_insights %}, see your {% data variables.product.prodname_ghe_one %} subscription agreement.

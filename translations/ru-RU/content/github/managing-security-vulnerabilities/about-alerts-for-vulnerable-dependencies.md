@@ -2,9 +2,9 @@
 title: About alerts for vulnerable dependencies
 intro: '{% data variables.product.product_name %} sends {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} when we detect vulnerabilities affecting your repository.'
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - безопасность
+  - Security
 ---
  
 ### About vulnerable dependencies

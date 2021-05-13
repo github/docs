@@ -138,29 +138,29 @@ commit for best results.
 Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
 
 ```yaml
-      with:
-        # We must fetch at least the immediate parents so that if this is
-        # a pull request then we can checkout the head.
-        fetch-depth: 2
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 2
 
-    # If this run was triggered by a pull request event, then checkout
-    # the head of the pull request instead of the merge commit.
-    - run: git checkout HEAD^2
-      if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
-```      
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
+      - run: git checkout HEAD^2
+        if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+```
 
 The revised `steps` section of the workflow will look like this:
 
 ```yaml
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
-    - name: Initialize {% data variables.product.prodname_codeql %}
-      uses: github/codeql-action/init@v1
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
 
-    ...
+      ...
 ```
 
 For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)."

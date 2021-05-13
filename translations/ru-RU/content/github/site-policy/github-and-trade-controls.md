@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server, and the information you upload to either product may be subject to trade control regulations, including under the U.S. Export Administration Regulations (the EAR).

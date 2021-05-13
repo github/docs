@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Acerca de la facturación para {% data variables.product.prodname_registry %}

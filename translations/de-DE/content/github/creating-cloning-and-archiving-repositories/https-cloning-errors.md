@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Hier siehst Du ein Beispiel für einen möglichen HTTPS-Fehler:

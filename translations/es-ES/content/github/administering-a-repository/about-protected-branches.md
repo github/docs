@@ -20,7 +20,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de las reglas de protección de rama

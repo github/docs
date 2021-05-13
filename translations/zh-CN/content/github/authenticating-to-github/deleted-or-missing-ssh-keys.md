@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %} 会自动删除非活动的 SSH 密钥以确保账户安全，例如在某人离职或丢失计算机后。

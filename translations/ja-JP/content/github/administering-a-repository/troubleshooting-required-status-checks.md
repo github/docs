@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. 詳しい情報については、「[チェック](/rest/reference/checks)」を参照してください。

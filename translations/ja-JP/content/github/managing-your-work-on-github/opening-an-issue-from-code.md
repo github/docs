@@ -1,7 +1,7 @@
 ---
 title: コードから Issue を開く
 intro: コードの特定の行または複数の行から、ファイルまたはプルリクエストで Issue を開くことができます。
-permissions: 読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 コードから Issue を開くと、Issue には選択した行またはコードの範囲を示すスニペットが含まれています。 Issue を開くことができるのは、コードを保存したのと同じリポジトリでだけです。

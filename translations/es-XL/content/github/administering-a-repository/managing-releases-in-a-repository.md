@@ -8,10 +8,13 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: 'Los colaboradores del repositorio y las personas con acceso de escritura en el mismo pueden crear, editar y eliminar un lanzamiento.'
+permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de la administración de lanzamientos

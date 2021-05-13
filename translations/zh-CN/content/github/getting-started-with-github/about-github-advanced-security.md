@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 关于 {% data variables.product.prodname_GH_advanced_security %}

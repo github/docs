@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notificações
+  - Notifications
 ---
 
 ### Salvando uma única notificação

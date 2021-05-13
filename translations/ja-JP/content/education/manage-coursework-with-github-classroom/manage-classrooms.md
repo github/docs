@@ -1,7 +1,7 @@
 ---
 title: クラスルームの管理
 intro: '{% data variables.product.prodname_classroom %}を使用して、あなたが教える各コースのクラスルームを作成、管理できます。'
-permissions: Organizationのオーナーは、Organizationのクラスルームを管理できます。
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:

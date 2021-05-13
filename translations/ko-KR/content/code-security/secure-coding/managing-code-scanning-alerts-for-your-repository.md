@@ -13,7 +13,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - 보안
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

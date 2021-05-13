@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Enterprise アカウントが所有する Organization からイベントを受信するように webhook を設定できます。 webhook に関する詳しい情報については、「[webhook](/webhooks/)」を参照してください。

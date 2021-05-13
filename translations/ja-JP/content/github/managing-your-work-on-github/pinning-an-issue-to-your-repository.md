@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ![ピン止めした Issue](/assets/images/help/issues/pinned-issues.png)

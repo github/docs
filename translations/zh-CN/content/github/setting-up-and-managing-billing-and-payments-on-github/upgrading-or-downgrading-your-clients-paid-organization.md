@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}

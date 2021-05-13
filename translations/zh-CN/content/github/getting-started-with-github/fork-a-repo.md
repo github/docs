@@ -10,10 +10,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
-  - 议题
-  - 通知
-  - 帐户
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。

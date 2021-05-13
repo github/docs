@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 Utiliza el menú Sort (Clasificar) para clasificar resultados por relevancia, cantidad de estrellas, cantidad de bifurcaciones y qué tan recientemente se actualizaron los elementos.

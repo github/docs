@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Wenn auf Ihrem Datendienstcluster nur drei Knoten vorhanden sind, können Sie die Knoten nicht evakuieren, da `ghe-spokes` keinen anderen Platz besitzt, um eine Kopie vorzunehmen. Bei mindestens vier Knoten verschiebt `ghe-spokes` alle Repositorys vom evakuierten Knoten.

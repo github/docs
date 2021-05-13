@@ -7,7 +7,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '2.22'
 topics:
-  - seguridad
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}

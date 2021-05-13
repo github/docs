@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Wenn Du eine App kündigst, bleibt Dein Abonnement bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Die Kündigung tritt zum nächsten Abrechnungsdatum in Kraft. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“

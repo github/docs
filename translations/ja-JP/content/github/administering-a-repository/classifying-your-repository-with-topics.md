@@ -1,6 +1,6 @@
 ---
 title: トピックでリポジトリを分類する
-intro: 'あなたのプロジェクトを他の人が見つけて貢献しやすくするために、プロジェクトの目的、分野、主催グループなどの、リポジトリに関するトピックを追加できます。'
+intro: あなたのプロジェクトを他の人が見つけて貢献しやすくするために、プロジェクトの目的、分野、主催グループなどの、リポジトリに関するトピックを追加できます。
 redirect_from:
   - /articles/about-topics/
   - /articles/classifying-your-repository-with-topics
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Topics について

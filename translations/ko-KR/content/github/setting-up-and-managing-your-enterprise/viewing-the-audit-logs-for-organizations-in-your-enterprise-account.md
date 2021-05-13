@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 Each audit log entry shows applicable information about an event, such as:

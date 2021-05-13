@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 GitHub unterstützt das Rendering von PDF-Dokumenten.

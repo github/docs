@@ -1,6 +1,6 @@
 ---
 title: REST APIを使ってみる
-intro: '認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。'
+intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: About coordinated disclosure of security vulnerabilities
-intro: 'Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.'
+intro: Vulnerability disclosure is a coordinated effort between security reporters and repository maintainers.
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

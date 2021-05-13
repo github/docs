@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-Stil unterstützen (z. B. [Logstash](http://logstash.net/) und [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).

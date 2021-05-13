@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 Você pode desbloquear e acessar sua conta atualizando a forma de pagamento da sua organização e retomando o status de pago. sem precisar pagar pelo tempo decorrido no modo bloqueado.

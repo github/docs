@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}

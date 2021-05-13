@@ -4,12 +4,12 @@ intro: 'La página de perspectivas de {% data variables.product.prodname_marketp
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
-  - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
+  - /apps/marketplace/github-marketplace-insights/
   - /marketplace/github-marketplace-insights
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 

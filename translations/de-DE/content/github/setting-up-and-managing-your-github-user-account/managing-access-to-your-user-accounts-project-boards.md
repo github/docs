@@ -1,6 +1,6 @@
 ---
 title: Zugriff auf die Projektboards Deines Benutzerkontos verwalten
-intro: 'Als Projektboard-Inhaber kannst Du einen Mitarbeiter hinzufügen oder entfernen und seine Berechtigungen für das Projektboard anpassen.'
+intro: Als Projektboard-Inhaber kannst Du einen Mitarbeiter hinzufügen oder entfernen und seine Berechtigungen für das Projektboard anpassen.
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization/
   - /articles/managing-access-to-your-user-account-s-project-boards
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 Ein Mitarbeiter ist eine Person, die Berechtigungen für eines Deiner Projektboards besitzt. Die Berechtigung eines Mitarbeiters ist standardmäßig der Lesezugriff. Weitere Informationen findest Du unter „[Berechtigungsebenen für Benutzer-Projektboards](/articles/permission-levels-for-user-owned-project-boards).“

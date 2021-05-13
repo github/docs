@@ -1,6 +1,6 @@
 ---
 title: Criar uma atividade a partir de um repositório de modelo
-intro: Você pode criar uma atividade a partir de um repositório de modelo para fornecer código inicial, documentação e outros recursos aos seus alunos.
+intro: 'Você pode criar uma atividade a partir de um repositório de modelo para fornecer código inicial, documentação e outros recursos aos seus alunos.'
 versions:
   free-pro-team: '*'
 redirect_from:

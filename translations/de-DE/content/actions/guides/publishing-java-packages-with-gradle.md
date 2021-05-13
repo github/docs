@@ -1,6 +1,6 @@
 ---
 title: Java-Pakete mit Gradle veröffentlichen
-intro: Du kannst Gradle verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integration (CI) in einer Registry zu veröffentlichen.
+intro: 'Du kannst Gradle verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integration (CI) in einer Registry zu veröffentlichen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/language-and-framework-guides/publishing-java-packages-with-gradle
@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Pakete erstellen'
-  - 'Publishing'
-  - 'Java'
-  - 'Gradle'
+  - Packaging
+  - Publishing
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Wenn Du einen Issue im Code öffnest, enthält der Issue einen Ausschnitt mit den ausgewählten Codezeilen. Du kannst einen Issue nur in dem Repository öffnen, in dem der Code gespeichert ist.

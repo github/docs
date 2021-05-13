@@ -4,7 +4,7 @@ intro: 'You can control features that secure and analyze the code in your projec
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### About management of security and analysis settings

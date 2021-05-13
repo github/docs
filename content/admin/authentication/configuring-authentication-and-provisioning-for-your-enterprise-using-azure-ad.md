@@ -1,11 +1,18 @@
 ---
 title: Configuring authentication and provisioning for your enterprise using Azure AD
 shortTitle: Configuring with Azure AD
-intro: You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.product.product_location %}.
-permissions: Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.
+intro: 'You can use a tenant in Azure Active Directory (Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### About authentication and user provisioning with Azure AD

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 GitHub 恪守道德经营的承诺，包括禁止贿赂和腐败。 正如[透明国际](https://www.transparency.org/what-is-corruption#costs-of-corruption)所述，腐败的危害极大：

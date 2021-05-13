@@ -4,7 +4,7 @@ intro: 'There are some special considerations for administering {% data variable
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Replication or redundancy of your {% data variables.product.prodname_actions %} data

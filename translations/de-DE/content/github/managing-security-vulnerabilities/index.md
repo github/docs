@@ -1,9 +1,9 @@
 ---
 title: Sicherheitslücken verwalten
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - sicherheit
+  - Security
 ---
 
 

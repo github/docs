@@ -5,7 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 ### 组织的 SCIM 预配

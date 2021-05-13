@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Vielen Dank für die Nutzung von GitHub! Wir freuen uns, dass Sie hier sind. Bitte lesen Sie diese Nutzungsbedingungen sorgfältig durch, bevor Sie auf GitHub zugreifen oder verwenden. Da es sich um einen so wichtigen Vertrag zwischen uns und unseren Benutzer handelt, haben wir versucht, ihn so klar wie möglich zu formulieren. Für Ihre Bequemlichkeit haben wir diese Bedingungen in einer kurzen unverbindlichen Zusammenfassung dargestellt, gefolgt von den vollständigen rechtlichen Bedingungen.

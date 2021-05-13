@@ -540,6 +540,18 @@ describe('Page class', () => {
       expect(page.defaultPlatform).toBe('linux')
     })
   })
+
+  describe('tool specific content', () => {
+    test('page.defaultTool frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'default-tool.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      expect(page.defaultTool).toBeDefined()
+      expect(page.defaultTool).toBe('cli')
+    })
+  })
 })
 
 describe('catches errors thrown in Page class', () => {

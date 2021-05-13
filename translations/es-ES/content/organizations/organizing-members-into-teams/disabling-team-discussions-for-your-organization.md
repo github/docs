@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team-discussions-default %}Para obtener más información acerca de los debates de equipo, consulta "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions)".

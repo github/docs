@@ -1,15 +1,15 @@
 ---
 title: Programar la creación de propuestas
-intro: Puedes utilizar {% data variables.product.prodname_actions %} para crear una propuesta frecuentemente para asuntos como juntas diarias o revisiones trimestrales.
+intro: 'Puedes utilizar {% data variables.product.prodname_actions %} para crear una propuesta frecuentemente para asuntos como juntas diarias o revisiones trimestrales.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

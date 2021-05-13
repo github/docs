@@ -1,12 +1,12 @@
 ---
 title: 管理仓库的默认分支名称
-intro: 'You can set a default branch name for all new repositories that you create.'
+intro: You can set a default branch name for all new repositories that you create.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### About the default branch name

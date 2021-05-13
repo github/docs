@@ -1,11 +1,11 @@
 ---
 title: Enterprise 向けの GitHub for Mobile を管理する
 intro: '認証されたユーザが {% data variables.product.prodname_mobile %} を使用して {% data variables.product.product_location %} に接続できるかどうかを決定できます。'
-permissions: 'Enterprise のオーナーは、{% data variables.product.product_name %} 上の Enterprise の {% data variables.product.prodname_mobile %} を管理できます。'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

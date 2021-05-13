@@ -16,7 +16,7 @@ intro: 'As part of a disaster recovery plan, you can protect production data on 
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### About {% data variables.product.prodname_enterprise_backup_utilities %}

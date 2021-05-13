@@ -10,8 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Você tem algumas opções para converter sua equipe de proprietários legada:

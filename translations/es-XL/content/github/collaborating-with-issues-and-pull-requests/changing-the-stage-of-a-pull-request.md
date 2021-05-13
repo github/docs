@@ -1,13 +1,16 @@
 ---
 title: Cambiar la etapa de una solicitud de extracción
 intro: 'Puedes marcar un borrador de solicitud de extracción como listo para revisión {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} o convertir la solicitud en borrador{% endif %}.'
-permissions: Las personas con permisos de escritura en un repositorio y los autores de las solicitudes de extracción pueden cambiar la etapa de dichas solicitudes.
+permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Marcar una solicitud como lista para revisión

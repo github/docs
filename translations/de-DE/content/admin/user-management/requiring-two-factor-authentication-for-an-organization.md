@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.

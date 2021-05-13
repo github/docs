@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 抢先体验
+  - Early access
 ---
 
 ### {% data variables.product.prodname_dotcom %} 的发行周期

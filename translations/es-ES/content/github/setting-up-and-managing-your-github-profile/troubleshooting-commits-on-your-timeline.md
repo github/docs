@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfiles
+  - Profiles
 ---
 
 ### Comportamiento esperado para ver detalles de confirmaciones

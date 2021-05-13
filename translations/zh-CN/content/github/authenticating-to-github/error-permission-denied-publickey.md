@@ -1,6 +1,6 @@
 ---
-title: '错误：权限被拒绝（公钥）'
-intro: '“权限被拒绝”错误表示服务器拒绝了您的连接。 可能有多个原因，最常见的如下所述。'
+title: 错误：权限被拒绝（公钥）
+intro: “权限被拒绝”错误表示服务器拒绝了您的连接。 可能有多个原因，最常见的如下所述。
 redirect_from:
   - /articles/error-permission-denied-publickey
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 ### 对 Git 是否应该使用 `sudo` 命令？

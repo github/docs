@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 "marked as duplicate (重複としてマークされた)" タイムラインイベントが表示されるには、重複した参照コメントを作成したユーザが、コメントを作成したリポジトリに書き込みアクセス権を持っていなければなりません。

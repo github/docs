@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ステータスチェックは、リポジトリにプッシュをするたびに実行される継続的インテグレーションのビルドのような、外部のプロセスに基づいています。 プルリクエスト中の個々のコミットの隣に、* pending*、*passing*、 *failing* などの、ステータスチェックのステータスが表示されます。

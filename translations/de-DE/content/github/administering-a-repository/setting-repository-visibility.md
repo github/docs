@@ -1,6 +1,6 @@
 ---
 title: Sichtbarkeit eines Repositorys festlegen
-intro: Du kannst festlegen, wer Dein Repository anzeigen kann.
+intro: 'Du kannst festlegen, wer Dein Repository anzeigen kann.'
 redirect_from:
   - /articles/making-a-private-repository-public/
   - /articles/making-a-public-repository-private/
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### Über Änderungen der Repository-Sichtbarkeit

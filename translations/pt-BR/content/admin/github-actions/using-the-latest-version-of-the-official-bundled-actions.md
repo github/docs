@@ -3,8 +3,9 @@ title: Usar a versão mais recente das ações agrupadas oficialmente
 intro: 'Você pode atualizar as ações que estão empacotadas com sua instância de {% data variables.product.prodname_ghe_server %} ou usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

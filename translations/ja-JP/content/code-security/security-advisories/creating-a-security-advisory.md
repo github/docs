@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。

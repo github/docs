@@ -12,7 +12,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Viewing the dependency graph

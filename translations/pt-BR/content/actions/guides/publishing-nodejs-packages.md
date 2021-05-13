@@ -9,12 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Empacotando'
-  - 'Publicar'
-  - 'Nó'
-  - 'JavaScript'
+  - Packaging
+  - Publishing
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}

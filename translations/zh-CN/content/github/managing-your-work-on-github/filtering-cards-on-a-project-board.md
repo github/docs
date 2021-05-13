@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 在卡上，您可以单击任意受理人、里程碑或标签，以便按该限定符过滤项目板。 要清除搜索，您可以再次单击相同的受理人、里程碑或标签。

@@ -1,8 +1,8 @@
 ---
 title: 查看企业帐户的订阅和使用情况
-intro: '您可以查看企业帐户的当前订阅、许可证使用情况、发票、付款历史记录和其他结算信息。'
+intro: 您可以查看企业帐户的当前订阅、许可证使用情况、发票、付款历史记录和其他结算信息。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: 企业所有者和帐单管理员均可访问和管理企业帐户的所有帐单设置。
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于企业帐户的计费

@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 La API de GitHub Apps te permite obtener información de alto nivel acerca de una GitHub App así como la información específica acerca de las instalaciones de la misma. Para conocer más sobre las GitHub Apps, consulta la sección "[Autenticarte como una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".

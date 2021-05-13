@@ -10,10 +10,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - accounts
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 Puedes usar la API de Códigos de Conducta para recuperar la información acerca del código de conducta de un repositorio. Para obtener el código de conducta de un repositorio, utiliza la terminal "[Obtener un repositorio](/v3/repos/#get-a-repository)".

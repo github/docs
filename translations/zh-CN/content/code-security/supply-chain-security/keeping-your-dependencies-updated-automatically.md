@@ -7,6 +7,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 

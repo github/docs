@@ -5,13 +5,13 @@ product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
   - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
-permissions: 'リポジトリの管理者権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを作成できます。'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}

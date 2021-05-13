@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 身份
-  - 访问管理
+  - Identity
+  - Access management
 ---
 
 ### 关于 {% data variables.product.prodname_dotcom %} 向验证身份

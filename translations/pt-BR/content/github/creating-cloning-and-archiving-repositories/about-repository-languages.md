@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data variables.product.product_name %} usa [Biblioteca Linguist](https://github.com/github/linguist) a de código aberto para

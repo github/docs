@@ -6,7 +6,8 @@ redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - empresa
+  - Enterprise
 ---
 

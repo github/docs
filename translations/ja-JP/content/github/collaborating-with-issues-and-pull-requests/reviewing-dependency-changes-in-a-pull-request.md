@@ -1,10 +1,10 @@
 ---
 title: プルリクエスト内の依存関係の変更をレビューする
-intro: 'プルリクエストに依存関係への変更が含まれている場合は、変更内容の概要と、依存関係に既知の脆弱性があるかどうかを確認できます。'
+intro: プルリクエストに依存関係への変更が含まれている場合は、変更内容の概要と、依存関係に既知の脆弱性があるかどうかを確認できます。
 versions:
   free-pro-team: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->

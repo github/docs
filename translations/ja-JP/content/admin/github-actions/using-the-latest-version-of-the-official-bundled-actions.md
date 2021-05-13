@@ -3,8 +3,9 @@ title: Using the latest version of the official bundled actions
 intro: 'You can update the actions that are bundled with your {% data variables.product.prodname_ghe_server %} instance, or use actions directly from {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

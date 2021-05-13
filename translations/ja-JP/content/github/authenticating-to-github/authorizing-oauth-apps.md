@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.prodname_oauth_app %}が {% data variables.product.product_name %}アカウントであなたを識別したい場合、そのアプリケーションの開発者の連絡先情報と、リクエストされている情報のリストのページが表示されます。

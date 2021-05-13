@@ -38,10 +38,10 @@ featuredLinks:
     - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
     - /github/getting-started-with-github/troubleshooting-connectivity-problems
 topics:
-  - pull requests
-  - issues
-  - notifications
-  - アカウント
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 <div hidden>

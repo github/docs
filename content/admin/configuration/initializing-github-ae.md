@@ -3,6 +3,9 @@ title: Initializing GitHub AE
 intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### About initialization

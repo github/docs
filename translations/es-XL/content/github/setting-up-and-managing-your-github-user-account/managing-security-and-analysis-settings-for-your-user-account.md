@@ -3,6 +3,8 @@ title: Administrar la configuración de seguridad y análisis para tu cuenta de 
 intro: 'Puedes controlar las características que dan seguridad y analizan tu código en tus proyectos dentro de {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Acerca de la administración de los parámetros de seguridad y análisis

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Al cambiar la duración de tu ciclo de facturación, tu suscripción a {% data variables.product.prodname_dotcom %}, junto con otras características y productos remunerados, se moverán al nuevo ciclo de facturación en tu próxima fecha de facturación.

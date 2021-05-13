@@ -235,6 +235,10 @@ For general guidelines, see “[Lists](https://brand.github.com/content/grammar#
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
 
+When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
+
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).

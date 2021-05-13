@@ -4,7 +4,7 @@ intro: 自分または自分の Team に対してレビュー待ちのプルリ�
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 ### ユーザのスケジュールされたリマインダーについて

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 社区资料检查列表用于检查项目是否在支持的位置包含建议的社区健康文件，如 README、CODE_OF_CONDUCT、LICENS 或 CONTRIBUTING。 更多信息请参阅"[访问项目的社区资料](/articles/accessing-a-project-s-community-profile)"。

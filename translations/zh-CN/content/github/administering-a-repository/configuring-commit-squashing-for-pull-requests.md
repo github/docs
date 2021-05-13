@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}

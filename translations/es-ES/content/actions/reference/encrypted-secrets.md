@@ -1,6 +1,6 @@
 ---
 title: Secretos cifrados
-intro: Los secretos cifrados te permiten almacenar información sensible en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambientes de repositorio{% else %} o repositorio{% endif %}.
+intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambientes de repositorio{% else %} o repositorio{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets

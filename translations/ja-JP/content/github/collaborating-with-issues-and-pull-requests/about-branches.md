@@ -1,6 +1,6 @@
 ---
 title: ブランチについて
-intro: '開発作業をリポジトリ内の他のブランチに影響することなく分離するために、ブランチを使ってください。 各リポジトリには1つのデフォルトブランチがあり、複数の他のブランチを持つことができます。 プルリクエストを使えば、ブランチを他のブランチにマージできます。'
+intro: 開発作業をリポジトリ内の他のブランチに影響することなく分離するために、ブランチを使ってください。 各リポジトリには1つのデフォルトブランチがあり、複数の他のブランチを持つことができます。 プルリクエストを使えば、ブランチを他のブランチにマージできます。
 redirect_from:
   - /articles/working-with-protected-branches/
   - /articles/about-branches
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 

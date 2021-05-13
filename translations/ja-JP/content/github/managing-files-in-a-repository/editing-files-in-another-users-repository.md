@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 1. 他のユーザーのリポジトリで、編集するファイルが含まれるフォルダに移動します。 編集するファイルの名前をクリックします。

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github 搜索
+  - GitHub search
 ---
 
 ### 查询大于或小于另一个值的值

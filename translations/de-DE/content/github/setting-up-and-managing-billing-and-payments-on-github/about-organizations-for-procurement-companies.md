@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Um auf eine Organisation zugreifen zu können, muss sich jedes Mitglied bei seinem persönlichen Benutzerkonto anmelden.

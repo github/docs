@@ -13,7 +13,7 @@ intro: '要从 {% data variables.product.prodname_enterprise %} 11.10.x 迁移�
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。

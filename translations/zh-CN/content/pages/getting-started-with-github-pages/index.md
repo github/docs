@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 {% link_in_list /about-github-pages %}

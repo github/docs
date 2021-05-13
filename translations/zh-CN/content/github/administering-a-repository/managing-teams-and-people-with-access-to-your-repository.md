@@ -1,13 +1,13 @@
 ---
 title: 管理有权访问仓库的团队和人员
 intro: 您可以查看有权访问仓库的每个人并调整权限。
-permissions: 仓库管理员可管理有权访问仓库的团队和人员。
+permissions: Repository administrators can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于管理仓库的访问权限

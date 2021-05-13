@@ -14,7 +14,7 @@ intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### 管理シェルでのアクセスについて

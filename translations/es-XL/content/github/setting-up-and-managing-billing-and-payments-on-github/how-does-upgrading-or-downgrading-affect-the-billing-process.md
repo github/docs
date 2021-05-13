@@ -5,6 +5,8 @@ redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones pagadas que compraste en {% data variables.product.prodname_marketplace %}.

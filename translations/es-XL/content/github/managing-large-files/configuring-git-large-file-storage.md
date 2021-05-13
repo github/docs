@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Si hay archivos existentes en tu repositorio con los que te gustaría usar {% data variables.product.product_name %}, primero debes eliminarlos del repositorio y luego agregarlas a {% data variables.large_files.product_name_short %} localmente. Para obtener más información, consulta "[Mover un archivo en tu repositorio a {% data variables.large_files.product_name_short %}](/articles/moving-a-file-in-your-repository-to-git-large-file-storage)".

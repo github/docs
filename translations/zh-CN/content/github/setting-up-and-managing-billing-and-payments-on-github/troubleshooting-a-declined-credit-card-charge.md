@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 如果您的卡被拒绝，我们将向您发送一封电子邮件，说明付款被拒绝的原因。 在我们再次尝试向您收费之前，您将有几天的时间来解决该问题。

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Du kannst Repositorys einzeln besitzen oder die Inhaberschaft an Repositorys mit anderen Personen in einer Organisation teilen.

@@ -8,6 +8,8 @@ redirect_from:
 intro: 'SAML は認証と認可のための XML ベースの標準です。 {% data variables.product.prodname_ghe_server %} は、内部的な SAML アイデンティティプロバイダ (IdP) とサービスプロバイダ (SP) として動作できます。'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

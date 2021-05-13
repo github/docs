@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 プロジェクトボードは、Issue、プルリクエスト、選択した列内でカードとして分類されるノートから構成されます。 列内のカードの並び替え、列から列へのカードの移動、および列の順序の変更には、ドラッグアンドドロップまたはキーボードショートカットが利用できます。

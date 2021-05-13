@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### クラスタの High Availability レプリケーションについて

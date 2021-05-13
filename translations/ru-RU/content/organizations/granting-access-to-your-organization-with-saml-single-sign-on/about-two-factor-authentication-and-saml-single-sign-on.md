@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Two-factor authentication (2FA) provides basic authentication for organization members. By enabling 2FA, organization administrators limit the likelihood that a member's {% data variables.product.product_name %} account could be compromised. For more information on 2FA, see "[About two-factor authentication](/articles/about-two-factor-authentication)."

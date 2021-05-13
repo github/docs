@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Diese Verpflichtung bezieht sich auf GitHub-Beiträge zu Git, dem Linux-Kernel und anderen Programmen unter abgedeckten Lizenzen (scrollen Sie zum Ende, um die Definitionen anzusehen).

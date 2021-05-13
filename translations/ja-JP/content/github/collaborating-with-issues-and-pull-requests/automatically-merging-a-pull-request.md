@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=3.1'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### 自動マージについて

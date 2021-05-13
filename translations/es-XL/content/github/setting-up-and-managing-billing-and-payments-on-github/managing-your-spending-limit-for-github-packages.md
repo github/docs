@@ -4,6 +4,8 @@ intro: 'Puedes configurar un límite de gastos para el uso de {% data variables.
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Acerca de los límites de gastos para {% data variables.product.prodname_registry %}

@@ -9,7 +9,7 @@ redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### ドメイン検証について

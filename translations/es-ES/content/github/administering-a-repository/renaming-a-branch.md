@@ -1,12 +1,12 @@
 ---
 title: Renombrar una rama
 intro: Puedes cambiar el nombre de una rama en un repositorio.
-permissions: Las personas con permisos de escritura en un repositorio pueden renombrar las ramas de éste. Las personas con permisos administrartivos pueden renombrar la rama predeterminada.
+permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de renombrar las ramas

@@ -1,6 +1,6 @@
 ---
 title: 通知の表示とトリアージ
-intro: '通知ワークフローを最適化するために、通知の表示方法とトリアージ方法をカスタマイズできます。'
+intro: 通知ワークフローを最適化するために、通知の表示方法とトリアージ方法をカスタマイズできます。
 mapTopic: true
 redirect_from:
   - /articles/managing-notifications/
@@ -10,6 +10,6 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 

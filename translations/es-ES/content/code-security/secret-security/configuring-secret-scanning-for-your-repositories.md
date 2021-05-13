@@ -1,7 +1,7 @@
 ---
 title: Configurar el escaneo de secretos para tus repositorios
 intro: 'Puedes configurar la forma en que {% data variables.product.prodname_dotcom %} escanea tus repositorios para encontrar secretos.'
-permissions: 'Las personas con permisos administrativos en un repositorio pueden habilitar el {% data variables.product.prodname_secret_scanning %} en éste.'
+permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

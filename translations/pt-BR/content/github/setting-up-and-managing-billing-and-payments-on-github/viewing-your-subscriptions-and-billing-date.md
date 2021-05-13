@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 ### Localizar a próxima data de cobrança da sua conta pessoal

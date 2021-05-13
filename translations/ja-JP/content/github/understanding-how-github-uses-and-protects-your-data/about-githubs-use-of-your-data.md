@@ -7,8 +7,8 @@ intro: '{% data variables.product.product_name %}はユーザのリポジトリ�
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
  
 ### {% data variables.product.product_name %} によるユーザのデータの利用について

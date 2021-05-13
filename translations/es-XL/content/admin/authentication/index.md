@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 

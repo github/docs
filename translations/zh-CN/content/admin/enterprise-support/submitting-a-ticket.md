@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于提交事件单

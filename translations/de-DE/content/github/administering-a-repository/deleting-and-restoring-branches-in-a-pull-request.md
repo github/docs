@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### Löschen eines Branches, der für einen Pull-Request verwendet wurde

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zu globalen Webhooks

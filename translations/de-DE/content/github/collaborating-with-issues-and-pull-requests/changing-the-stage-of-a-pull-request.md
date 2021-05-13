@@ -1,7 +1,7 @@
 ---
 title: Die Zustand eines Pull Requests ändern
 intro: 'You can mark a draft pull request as ready for review{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} or convert a pull request to a draft{% endif %}.'
-permissions: Personen mit Schreibberechtigungen in ein Repository sowie Pull-Request-Autoren können den Zustand eines Pull-Requests ändern.
+permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### Einen Pull Request als bereit zum Überprüfung markieren

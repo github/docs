@@ -4,13 +4,13 @@ intro: 'Puedes permitir o prevenir la bifurcación de un repositorio específico
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
-permissions: Las personas con permisos de administrador en un repositorio pueden administrar la política de ramificación del mismo.
+permissions: People with admin permissions for a repository can manage the forking policy for the repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Un propietario de la organización debe permitir las bifurcaciones de repositorios privados{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e internos{% endif %} a nivel organizacional antes de que puedas permitir o dejr de permitir las bifurcaciones en un repositorio específico. Para obtener más información, consulta "[Administrar la política de ramificación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."

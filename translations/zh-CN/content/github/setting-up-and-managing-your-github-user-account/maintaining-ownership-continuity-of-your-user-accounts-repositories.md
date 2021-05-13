@@ -4,8 +4,8 @@ intro: 如果您无法管理用户拥有的仓库，可以邀请他人管理。
 versions:
   free-pro-team: '*'
 topics:
-  - 帐户
-  - 仓库
+  - Accounts
+  - Repositories
 ---
 
 ### 关于继承者

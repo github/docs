@@ -3,6 +3,8 @@ title: Administrar tus recordatorios programados
 intro: Obtén recordatorios en Slack cuando tú o tu equipo tenga solicitudes de extracción pendientes de revisión.
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Acerca de los recordatorios programados para usuarios

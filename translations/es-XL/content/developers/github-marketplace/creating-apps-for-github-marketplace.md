@@ -4,6 +4,7 @@ intro: 'Puedes listar herramientas gratuitas y de pago para que las utilicen los
 mapTopic: true
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+topics:
+  - Marketplace
 ---
 

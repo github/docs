@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
-  - 支払い
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 Organization のオーナーの Team のメンバーは、人に*支払いマネージャー*権限を与えることができます。 Organization の支払いマネージャーになる招待を受け入れた人は、追加で他の人に、支払いマネージャーになるよう招待できます。

@@ -4,7 +4,7 @@ intro: '以 MinIO 作为外部存储设置 {% data variables.product.prodname_re
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% warning %}

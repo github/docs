@@ -1,7 +1,7 @@
 ---
 title: Acerca de utilizar Repl.it con GitHub Clasroom
 shortTitle: Acerca de utilizar Repl.it
-intro: Puedes configurar a Repl.it como el ambiente de desarrollo integrado (IDE, por sus siglas en inglés) en línea para las tareas de {% data variables.product.prodname_classroom %}.
+intro: 'Puedes configurar a Repl.it como el ambiente de desarrollo integrado (IDE, por sus siglas en inglés) en línea para las tareas de {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

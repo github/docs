@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/about-community-management-and-moderation
 topics:
-  - 社区
+  - Community
 ---
 
 ### 关于社区管理和调解

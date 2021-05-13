@@ -4,7 +4,7 @@ intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom
 versions:
   free-pro-team: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 关于安全性和分析设置的管理

@@ -1,15 +1,15 @@
 ---
 title: Cerrar las propuestas inactivas
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar o cerrar las propuestas que han estado inactivas por algún tiempo.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

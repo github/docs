@@ -9,7 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la Seguridad de la capa de transporte

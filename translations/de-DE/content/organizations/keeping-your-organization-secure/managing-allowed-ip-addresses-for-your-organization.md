@@ -1,6 +1,6 @@
 ---
 title: Verwaltung erlaubter IP-Adressen für Deine Organisation
-intro: Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.
+intro: 'Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.'
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organisationsinhaber können erlaubte IP-Adressen für eine Organisation verwalten.

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Beim Konfigurieren der Hochverfügbarkeit gibt es eine automatisierte Einrichtung einer unidirektionalen asynchronen Replikation sämtlicher Datenspeicher (Git-Repositorys, MySQL, Redis und ElasticSearch) von der primären zur Replikat-Appliance.

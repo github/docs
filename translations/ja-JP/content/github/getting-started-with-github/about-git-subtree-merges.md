@@ -5,7 +5,7 @@ redirect_from:
   - /subtree-merge/
   - /articles/about-git-subtree-merges
   - /github/using-git/about-git-subtree-merges
-intro: '複数のプロジェクトを単一のリポジトリで管理する必要がある場合、*サブツリーマージ*を使ってすべての参照を扱うことができます。'
+intro: 複数のプロジェクトを単一のリポジトリで管理する必要がある場合、*サブツリーマージ*を使ってすべての参照を扱うことができます。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

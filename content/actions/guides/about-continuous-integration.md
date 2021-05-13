@@ -48,6 +48,7 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
 ### Supported languages
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 

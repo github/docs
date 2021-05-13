@@ -1,6 +1,6 @@
 ---
 title: 学習管理システムをGitHub Classroomに接続する
-intro: LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。
+intro: 'LTI準拠の学習管理システム (LMS) を{% data variables.product.prodname_classroom %}に接続するよう設定することで、クラスルームの名簿をインポートできます。'
 versions:
   free-pro-team: '*'
 redirect_from:

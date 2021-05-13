@@ -5,7 +5,7 @@ intro: 'Los datos de {% data variables.product.prodname_actions %} en tu proveed
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

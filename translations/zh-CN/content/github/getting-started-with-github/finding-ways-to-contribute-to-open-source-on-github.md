@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 开源
+  - Open Source
 ---
 
 ### 发现相关项目

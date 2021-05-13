@@ -1,5 +1,5 @@
 ---
-title: '错误：文件编号错误'
+title: 错误：文件编号错误
 intro: 此错误通常表示您无法连接到服务器。 这通常由防火墙和代理服务器造成。
 redirect_from:
   - /articles/error-bad-file-number
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 运行远程 Git 命令或 SSH 时，您的连接可能会超时：

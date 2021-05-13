@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_insights %}を最新バージョン�
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
-permissions: '`github/insights-releases`リポジトリの読み取り権限を持ち、アプリケーションサーバーへの管理アクセスを持っている人は、{% data variables.product.prodname_insights %}をアップデートできます。'
+permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

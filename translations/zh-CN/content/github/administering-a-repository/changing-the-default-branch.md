@@ -1,7 +1,7 @@
 ---
 title: 更改默认分支
-intro: '如果仓库中有多个分支，您可以将任何分支配置为默认分支。'
-permissions: 拥有仓库管理员权限的人可更改仓库的默认分支。
+intro: 如果仓库中有多个分支，您可以将任何分支配置为默认分支。
+permissions: People with admin permissions to a repository can change the default branch for the repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于更改默认分支

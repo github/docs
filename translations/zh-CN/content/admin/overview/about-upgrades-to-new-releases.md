@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data variables.product.product_name %} 正在不断改进，通过主要和次要版本引入新功能和漏洞补丁。 {% if currentversion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}

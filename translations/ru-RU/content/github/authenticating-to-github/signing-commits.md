@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

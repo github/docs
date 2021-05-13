@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Ao executar SSH ou comandos do Git remotos, o tempo limite da conexão pode expirar:

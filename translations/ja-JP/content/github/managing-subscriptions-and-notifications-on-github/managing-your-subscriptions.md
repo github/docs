@@ -1,12 +1,12 @@
 ---
 title: サブスクリプションを管理する
-intro: '通知を効率的に管理するにあたって、サブスクライブ解除するにはいくつかの方法があります。'
+intro: 通知を効率的に管理するにあたって、サブスクライブ解除するにはいくつかの方法があります。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 サブスクリプションを理解し、サブスクライブ解除するかどうかを決めるため、「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)」を参照してください。

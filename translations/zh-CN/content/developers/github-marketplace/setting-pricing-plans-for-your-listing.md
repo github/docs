@@ -16,7 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 ### 关于设置定价计划

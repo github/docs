@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Du kannst frei definierbare Nachrichten erstellen, die Benutzern auf den Anmelde- und Abmeldeseiten angezeigt werden. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)“.

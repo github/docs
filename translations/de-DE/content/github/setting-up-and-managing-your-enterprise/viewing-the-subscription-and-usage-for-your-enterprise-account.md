@@ -2,7 +2,7 @@
 title: Abonnement und Nutzung für Dein Enterprise-Konto anzeigen
 intro: 'Du kannst das aktuelle Abonnement, die Lizenznutzung, die Rechnungen, den Zahlungsverlauf und andere Abrechnungsinformationen für Dein Enterprise-Konto anzeigen.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Enterprise-Inhaber und Abrechnungsmanager können auf alle Abrechnungseinstellungen für Enterprise-Konen zugreifen und diese verwalten.
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zur Abrechnung für Enterprise-Konten

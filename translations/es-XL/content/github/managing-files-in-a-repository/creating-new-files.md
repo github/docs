@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Cuando crees un archivo en {% data variables.product.product_name %}, ten en cuenta lo siguiente:

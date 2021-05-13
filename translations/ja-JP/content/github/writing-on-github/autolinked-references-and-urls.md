@@ -1,6 +1,6 @@
 ---
 title: 自動リンクされた参照と URL
-intro: 'URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。'
+intro: URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。
 redirect_from:
   - /articles/autolinked-references-and-urls
 versions:

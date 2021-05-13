@@ -1,7 +1,7 @@
 ---
 title: Administrar los parámetros de seguridad y análisis para tu organización
 intro: 'Puedes controlar las características que aseguran y analizan el código en los proyectos de tu organización en {% data variables.product.prodname_dotcom %}.'
-permissions: Los propietarios de la organización pueden administrar los parámetros de seguridad y de análisis para los repositorios en la organización.
+permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de la administración de los parámetros de seguridad y análisis

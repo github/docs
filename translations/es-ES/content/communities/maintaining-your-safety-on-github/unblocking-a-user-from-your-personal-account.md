@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Cuando desbloqueas un usuario, podrá invitarte a ser colaborador de sus repositorios. Si te [@mention menciona](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) en cualquier parte de GitHub, recibirás notificaciones.

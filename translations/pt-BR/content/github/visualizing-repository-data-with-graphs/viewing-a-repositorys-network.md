@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ![Gráfico de rede do repositório](/assets/images/help/graphs/repo_network_graph.png)

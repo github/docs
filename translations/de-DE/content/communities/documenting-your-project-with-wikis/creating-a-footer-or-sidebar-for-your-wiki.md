@@ -1,6 +1,6 @@
 ---
 title: Eine Fußzeile oder Seitenleiste für Dein Wiki erstellen
-intro: Du kannst eine benutzerdefinierte Seitenleiste oder Fußzeile für Dein Wiki erstellen, um zusätzliche kontextbezogene Informationen für die Leser bereitzustellen.
+intro: 'Du kannst eine benutzerdefinierte Seitenleiste oder Fußzeile für Dein Wiki erstellen, um zusätzliche kontextbezogene Informationen für die Leser bereitzustellen.'
 redirect_from:
   - /articles/creating-a-footer/
   - /articles/creating-a-sidebar/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 ### Eine Fußzeile erstellen

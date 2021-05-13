@@ -1,6 +1,6 @@
 ---
 title: Richtlinien für Repository-Mitarbeiter festlegen
-intro: Du kannst Richtlinien erstellen, wie Personen zu Deinem Projekt beitragen sollten.
+intro: 'Du kannst Richtlinien erstellen, wie Personen zu Deinem Projekt beitragen sollten.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ redirect_from:
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
-  - community
+  - Community
 ---
 
 Um die Beiträge Deiner Projektmitarbeiter zu optimieren, kannst Du ein Dokument mit Beitragsrichtlinien in das Stammverzeichnis, in das Verzeichnis `docs` oder in das Verzeichnis `.github` Deines Projekt-Repositorys hinzufügen. Bei der Eröffnung eines Pull-Requests oder der Erstellung eines Issues wird dem betreffenden Mitarbeiter dann ein Link zu dieser Datei angezeigt.

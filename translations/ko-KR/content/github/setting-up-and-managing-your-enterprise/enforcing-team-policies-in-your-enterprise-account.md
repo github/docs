@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### Enforcing a policy for team discussions

@@ -5,6 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Las confirmaciones y solicitudes de extracción que incluyen documentos en prosa tienen la capacidad de representar esos documentos con vistas *de origen* y *representadas*.

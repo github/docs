@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 Personen mit Administratorberechtigungen für ein Repository können HTTPS für eine {% data variables.product.prodname_pages %}-Website erzwingen.

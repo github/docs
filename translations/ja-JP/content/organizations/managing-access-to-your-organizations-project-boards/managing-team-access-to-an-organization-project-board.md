@@ -1,6 +1,6 @@
 ---
 title: Organization のプロジェクトボードに対するチームのアクセスを管理する
-intro: 'Organization のオーナーまたはプロジェクトボードの管理者は、Organization が所有しているプロジェクトボードへのアクセスをチームに付与できます。'
+intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization が所有しているプロジェクトボードへのアクセスをチームに付与できます。
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-project-board
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% warning %}

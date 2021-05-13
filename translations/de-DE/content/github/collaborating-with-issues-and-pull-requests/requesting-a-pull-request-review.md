@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Inhaber und Mitarbeiter eines Repositorys, das einem Benutzerkonto angehört, können Pull Requests zuweisen. Organisationsmitglieder mit Triage-Berechtigungen für ein Repository können einen Pull-Request-Review zuweisen.

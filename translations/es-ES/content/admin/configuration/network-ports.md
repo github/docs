@@ -11,7 +11,7 @@ intro: 'Abre los puertos de red de forma selectiva en base a los servicios de re
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Puertos administrativos

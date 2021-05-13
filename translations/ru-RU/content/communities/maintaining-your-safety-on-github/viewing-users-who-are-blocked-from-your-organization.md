@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 {% data reusables.profile.access_profile %}

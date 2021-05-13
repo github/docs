@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfil
+  - Profile
   - Pull requests
-  - Problemas
-  - notificações
-  - contas
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".

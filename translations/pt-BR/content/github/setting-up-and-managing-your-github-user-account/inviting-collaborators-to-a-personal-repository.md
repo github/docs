@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - contas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".

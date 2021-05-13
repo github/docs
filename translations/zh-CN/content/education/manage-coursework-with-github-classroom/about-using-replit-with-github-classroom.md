@@ -1,7 +1,7 @@
 ---
 title: 关于使用 Repl.it 与 GitHub Classroom
 shortTitle: 关于使用 Repl.it
-intro: 您可以将 Repl.it 配置为在线集成开发环境 (IDE)，以用于 {% data variables.product.prodname_classroom %} 中的作业。
+intro: '您可以将 Repl.it 配置为在线集成开发环境 (IDE)，以用于 {% data variables.product.prodname_classroom %} 中的作业。'
 versions:
   free-pro-team: '*'
 redirect_from:

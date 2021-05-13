@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 1. No repositório de outro usuário, navegue até a pasta que contém o arquivo que deseja editar. Clique no nome do arquivo a ser editado.

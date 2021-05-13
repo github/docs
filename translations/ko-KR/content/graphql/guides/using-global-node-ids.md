@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 You can access most objects in GitHub (users, issues, pull requests, etc.) using either the REST API or the GraphQL API. With a [recent update](https://developer.github.com/changes/2017-12-19-graphql-node-id/), you can find the **global node ID** of many objects from within the REST API and use these IDs in your GraphQL operations.

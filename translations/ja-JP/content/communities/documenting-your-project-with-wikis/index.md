@@ -1,7 +1,7 @@
 ---
 title: ウィキでプロジェクトを文書化する
 shortTitle: Using wikis
-intro: 'ウィキを使用してプロジェクトに関する具体的な長文形式の情報を共有できます。'
+intro: ウィキを使用してプロジェクトに関する具体的な長文形式の情報を共有できます。
 redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 {% link_in_list /about-wikis %}

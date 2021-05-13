@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Bajar de nivel tu suscripción de {% data variables.product.product_name %}

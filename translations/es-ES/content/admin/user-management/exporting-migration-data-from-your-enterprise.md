@@ -12,7 +12,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}

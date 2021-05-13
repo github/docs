@@ -11,8 +11,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.prodname_dotcom %}のIPアドレスのリストは、[メタ](https://api.github.com/meta)APIエンドポイントから取得できます。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。

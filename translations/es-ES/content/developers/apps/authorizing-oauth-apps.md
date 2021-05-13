@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 La implementación de OAuth de {% data variables.product.product_name %} es compatible con el [tipo de otorgamiento de código de autorización](https://tools.ietf.org/html/rfc6749#section-4.1) estándar{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} y con el [Otorgamiento de autorización de dispositivos](https://tools.ietf.org/html/rfc8628) de OAuth 2.0 para las aplicaciones que no tienen acceso a un buscador web{% endif %}.

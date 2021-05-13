@@ -1,7 +1,7 @@
 ---
 title: Conceptos básicos para configurar GitHub Classroom
 shortTitle: '{% data variables.product.prodname_classroom %} basics'
-intro: Aprende a configurar tu aula, administrar las tareas y configurar la automatización para eficientizar el tiempo.
+intro: 'Aprende a configurar tu aula, administrar las tareas y configurar la automatización para eficientizar el tiempo.'
 versions:
   free-pro-team: '*'
 ---

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 您可以配置 web 挂钩以接收企业帐户所拥有的组织中的事件。 有关 web 挂钩的更多信息，请参阅“[web 挂钩](/webhooks/)”。

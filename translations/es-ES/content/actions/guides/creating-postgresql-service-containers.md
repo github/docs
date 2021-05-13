@@ -1,19 +1,19 @@
 ---
 title: Crear contenedores de servicios PostgreSQL
 shortTitle: Contenedores de servicio de PostgreSQL
-intro: Puedes crear un contenedor de servicios PostgreSQL para usar en tu flujo de trabajo. En esta guía se muestran ejemplos de cómo crear un servicio PostgreSQL para trabajos que se ejecutan en contenedores o, directamente, en la máquina del ejecutor.
+intro: 'Puedes crear un contenedor de servicios PostgreSQL para usar en tu flujo de trabajo. En esta guía se muestran ejemplos de cómo crear un servicio PostgreSQL para trabajos que se ejecutan en contenedores o, directamente, en la máquina del ejecutor.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Creating-PostgreSQL-Service-containers
+  - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
   - /actions/configuring-and-managing-workflows/creating-postgresql-service-containers
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Contenedores'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

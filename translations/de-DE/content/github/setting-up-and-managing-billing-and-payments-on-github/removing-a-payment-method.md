@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Wenn Sie Ihr {% data variables.product.product_name %}-Abonnement mit einem Gutschein bezahlen und Ihre Zahlungsmethode für keine [anderen bezahlten Funktionen oder Produkte](/articles/about-billing-on-github) auf {% data variables.product.product_name %} benötigen, können Sie Ihre Kreditkarten- oder PayPal-Daten entfernen.

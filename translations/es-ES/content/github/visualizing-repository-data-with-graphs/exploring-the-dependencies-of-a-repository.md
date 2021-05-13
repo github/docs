@@ -2,9 +2,9 @@
 title: Explorar las dependencias de un repositorio
 intro: 'Al utilizar la gráfica de dependencias, puedes ver los paquetes de los cuales depende tu proyecto{% if currentVersion == "free-pro-team@latest" %} y los repositorios que dependen de él{% endif %}. Adicionalmente, puedes ver cualquier vulnerabilidad que se detecte en sus dependencias.'
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Visualizar la gráfica de dependencias

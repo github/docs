@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cobrança
+  - Billing
 ---
 
 Para acessar uma organização, cada integrante deve entrar na própria conta de usuário pessoal.

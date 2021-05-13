@@ -1,14 +1,18 @@
 ---
 title: Forwarding ports in your codespace
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
+type: how_to
 topics:
   - Codespaces
+  - Fundamentals
+  - Developer
 ---
+
+{% data reusables.codespaces.release-stage %}
 
 ### About forwarded ports
 
@@ -52,7 +56,7 @@ If you want to share a forwarded port with others, you can make the port public.
 
 ### Adding a port to the codespace configuration
 
-You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces#applying-changes-to-your-configuration)."
+You can add a forwarded port to the {% data variables.product.prodname_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)."
 
 You can manually configure fowarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in your codespace.
 

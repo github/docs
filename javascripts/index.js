@@ -1,6 +1,7 @@
 // Import our SCSS files so webpack will process them
 import '../stylesheets/index.scss'
 import displayPlatformSpecificContent from './display-platform-specific-content'
+import displayToolSpecificContent from './display-tool-specific-content'
 import explorer from './explorer'
 import scrollUp from './scroll-up'
 import search from './search'
@@ -24,6 +25,7 @@ import toggleImages from './toggle-images'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
+  displayToolSpecificContent()
   explorer()
   scrollUp()
   search()

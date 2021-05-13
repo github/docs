@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 ### 设置个人帐户的帐单邮箱

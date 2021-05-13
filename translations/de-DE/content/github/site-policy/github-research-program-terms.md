@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Willkommen beim GitHub Forschungsprogramm (das "Programm")! Um teilnehmen zu können, müssen Sie einem speziellen Satz von Bedingungen zustimmen, den Bedingungen des GitHub-Forschungsprogramms ("Vereinbarung").

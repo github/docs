@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Da der Zugriff auf eine Organisation durch die Anmeldung bei einem persönlichen Konto erfolgt, benötigt jedes Teammitglied ein persönliches Konto. Wenn Du die Benutzernamen aller Personen hast, die Du zu Deiner Organisation hinzufügen möchtest, kannst Du sie zu Teams hinzufügen.

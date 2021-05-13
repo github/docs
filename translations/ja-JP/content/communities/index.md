@@ -1,6 +1,6 @@
 ---
 title: Building communities
-intro: 'オープンソースのプロジェクトでもプライベートなプロジェクトでも、コラボレーションのための健全で効果的な環境を構築できます。'
+intro: オープンソースのプロジェクトでもプライベートなプロジェクトでも、コラボレーションのための健全で効果的な環境を構築できます。
 redirect_from:
   - /categories/building-a-strong-community
   - /github/building-a-strong-community
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 {% link_with_intro /setting-up-your-project-for-healthy-contributions %}

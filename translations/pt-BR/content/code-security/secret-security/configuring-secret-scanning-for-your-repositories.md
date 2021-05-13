@@ -1,7 +1,7 @@
 ---
 title: Configurar a varredura de segredo para os seus repositórios
 intro: 'Você pode configurar como {% data variables.product.prodname_dotcom %} faz a varredura de segredos dos seus repositórios.'
-permissions: 'As pessoas com permissões de administrador para um repositório podem habilitar {% data variables.product.prodname_secret_scanning %} para o repositório.'
+permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

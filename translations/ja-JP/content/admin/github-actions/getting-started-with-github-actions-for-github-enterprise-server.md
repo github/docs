@@ -1,14 +1,14 @@
 ---
 title: GitHub Enterprise Server の GitHub Actions を使い始める
 intro: '{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の有効化と設定について初めて学びます。'
-permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,6 +1,6 @@
 ---
 title: Releases in einem Repository verwalten
-intro: Du kennst Releases erstellen, um Iterationen eines Projektes zu bündeln und an Benutzer zu liefern.
+intro: 'Du kennst Releases erstellen, um Iterationen eines Projektes zu bündeln und an Benutzer zu liefern.'
 redirect_from:
   - /articles/creating-releases
   - /articles/listing-and-editing-releases/
@@ -8,13 +8,13 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: 'Repository-Mitarbeiter und Personen mit Schreibzugriff auf ein Repository können einen Release erstellen, bearbeiten und löschen.'
+permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}

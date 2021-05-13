@@ -1,6 +1,6 @@
 ---
 title: 限制在组织中更改仓库可见性
-intro: '为保护组织的数据，您可以配置在组织中更改仓库可见性的权限。'
+intro: 为保护组织的数据，您可以配置在组织中更改仓库可见性的权限。
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员也可以更改仓库可见性。

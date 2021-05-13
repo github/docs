@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Al cancelar una app, tu suscripción se mantiene activa hasta el final de tu ciclo de facturación actual. La cancelación entra en vigencia en tu siguiente fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

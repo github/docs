@@ -5,10 +5,10 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-updates-from-accounts-your-organization-sponsors
 versions:
   free-pro-team: '*'
-permissions: Organization のオーナーは、Organization のスポンサーアカウントから更新を管理できます。
+permissions: Organization owners can manage updates from accounts the organization sponsors.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

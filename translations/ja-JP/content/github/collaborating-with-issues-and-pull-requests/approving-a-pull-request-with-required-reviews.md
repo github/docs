@@ -1,6 +1,6 @@
 ---
 title: 必須レビューでのプルリクエストの承認
-intro: 'リポジトリでレビューが必須になっているなら、プルリクエストがマージできるようになるためには、リポジトリに _書き込み_ あるいは _管理_ 権限を持つ人からの承認レビューが指定された数だけ必要です。'
+intro: リポジトリでレビューが必須になっているなら、プルリクエストがマージできるようになるためには、リポジトリに _書き込み_ あるいは _管理_ 権限を持つ人からの承認レビューが指定された数だけ必要です。
 redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 必須レビューに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。

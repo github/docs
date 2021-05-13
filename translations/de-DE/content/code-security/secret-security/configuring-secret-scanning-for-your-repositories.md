@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

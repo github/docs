@@ -3,7 +3,7 @@ title: Administrar las alertas del escaneo de código para tu repositorio
 shortTitle: Administrar alertas
 intro: 'Desde la vista de seguridad, puedes ver, arreglar, {% if currentVersion == "enterprise-server@2.22" %}o cerrar{% else %}descartar, o borrar{% endif %} las alertas para las vulnerabilidades potenciales o para los errores en el código de tus proyectos.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permiso de escritura en un repositorio, puedes administrar las alertas del {% data variables.product.prodname_code_scanning %} para éste.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   enterprise-server: '2.22'
 ---

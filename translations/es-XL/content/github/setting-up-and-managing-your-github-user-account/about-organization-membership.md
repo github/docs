@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Accounts
 ---
 
 Un propietario de la organización puede invitarte a unirte a su organización como miembro, gerente de facturación o propietario. Un miembro o propietario de la organización con privilegios de administrador para un repositorio puede invitarte a colaborar en uno o más repositorios como un colaborador externo. Para obtener más información, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization)".

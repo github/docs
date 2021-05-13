@@ -4,7 +4,7 @@ intro: 目標を使って、主要なメトリクスについてターゲット�
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: '{% data variables.product.prodname_insights %}にアクセスできる人は、目標を管理できます。'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
   enterprise-server: '*'
 ---

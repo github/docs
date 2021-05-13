@@ -2,8 +2,11 @@
 title: Trabajar con el soporte de GitHub
 redirect_from:
   - /categories/working-with-github-support
+  - /forum
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 

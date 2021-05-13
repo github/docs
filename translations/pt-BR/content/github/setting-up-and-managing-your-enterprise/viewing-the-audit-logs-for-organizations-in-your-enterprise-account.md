@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Cada entrada do log de auditoria mostra informações aplicáveis sobre um evento, como:

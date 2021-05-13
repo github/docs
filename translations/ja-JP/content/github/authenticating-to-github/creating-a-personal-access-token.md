@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。

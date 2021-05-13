@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.

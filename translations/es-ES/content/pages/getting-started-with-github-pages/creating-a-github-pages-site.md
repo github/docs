@@ -14,7 +14,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}

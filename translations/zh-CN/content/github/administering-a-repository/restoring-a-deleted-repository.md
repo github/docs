@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 任何人都可以恢复其用户帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。

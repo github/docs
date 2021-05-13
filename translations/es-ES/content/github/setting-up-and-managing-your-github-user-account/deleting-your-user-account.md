@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 Al eliminar tu cuenta de usuario se eliminan todos los repositorios, bifurcaciones de repositorios privados, wikis, propuestas, solicitudes de extracción y páginas que sean propiedad de tu cuenta. {% if currentVersion == "free-pro-team@latest" %} Las propuestas y solicitudes de cambios que has creado y los comentarios que has hecho en los repositorios que pertenecen a otros usuarios no se borrarán - en vez de esto, se asociarán con nuestro [Usuario fantasma](https://github.com/ghost).{% else %}Las propuestas y solicitudes de cambios que has creado y los comentarios que has hecho en los repositorios que pertenecen a otros usuarios no se borrarán.{% endif %}

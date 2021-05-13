@@ -1,7 +1,7 @@
 ---
 title: リポジトリへのプッシュに対するメール通知について
 intro: 誰かがリポジトリにプッシュしたときに、特定のメールアドレスにメール通知を自動的に送信するように設定できます。
-permissions: リポジトリの管理者権限を持つユーザは、リポジトリへのプッシュのためのメール通知を有効にできます。
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}

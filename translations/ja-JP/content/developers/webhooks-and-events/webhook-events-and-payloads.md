@@ -1,6 +1,6 @@
 ---
 title: webhook イベントとペイロード
-intro: 'webhook イベントごとに、イベントの発生日時、ペイロードの例、およびペイロードオブジェクトパラメータに関する説明を確認できます。'
+intro: webhook イベントごとに、イベントの発生日時、ペイロードの例、およびペイロードオブジェクトパラメータに関する説明を確認できます。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhook
+  - Webhooks
 ---
 
 

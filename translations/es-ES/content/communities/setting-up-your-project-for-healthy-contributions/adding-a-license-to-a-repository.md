@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Si incluyes una licencia detectable en tu repositorio, las personas que visiten tu repositorio la verán en la parte superior de la página del repositorio. Para leer el archivo de licencia completa, haz clic en el nombre de la licencia.

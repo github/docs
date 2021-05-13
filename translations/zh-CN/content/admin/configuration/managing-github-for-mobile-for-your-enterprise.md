@@ -1,11 +1,11 @@
 ---
 title: 管理企业的手机版 GitHub
 intro: '您可以决定经验证的用户是否可以通过 {% data variables.product.prodname_mobile %} 连接 {% data variables.product.product_location %}。'
-permissions: '企业所有者可在 {% data variables.product.product_name %} 上为企业管理 {% data variables.product.prodname_mobile %}。'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

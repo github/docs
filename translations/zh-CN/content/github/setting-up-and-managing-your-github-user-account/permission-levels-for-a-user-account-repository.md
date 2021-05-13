@@ -1,6 +1,6 @@
 ---
 title: 用户帐户仓库的权限级别
-intro: '用户帐户拥有的仓库有两种权限级别：仓库所有者和协作者。'
+intro: 用户帐户拥有的仓库有两种权限级别：仓库所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 关于用户帐户仓库的权限级别

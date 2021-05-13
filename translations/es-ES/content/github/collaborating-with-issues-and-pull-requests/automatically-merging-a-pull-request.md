@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=3.1'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 ### Acerca de la fusión automática

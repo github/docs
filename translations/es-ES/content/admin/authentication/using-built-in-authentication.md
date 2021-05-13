@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Puedes crear mensajes personalizados que los usuarios verán en las páginas de inicio de sesión y de cierre de sesión. Para obtener más información, consulta "[Personalizar mensajes de usuario en tu instancia](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)."

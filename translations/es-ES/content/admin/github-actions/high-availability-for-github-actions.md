@@ -4,7 +4,7 @@ intro: 'Existen algunas especificaciones especiales para administrar las {% data
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Replicación o redundancia de tus datos de {% data variables.product.prodname_actions %}

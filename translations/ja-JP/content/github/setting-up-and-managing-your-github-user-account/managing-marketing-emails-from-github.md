@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 ### {% data variables.product.prodname_dotcom %} マーケティング メールのサブスクライブを解除する

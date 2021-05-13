@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 企业所有者可在企业帐户的设置中创建新组织。

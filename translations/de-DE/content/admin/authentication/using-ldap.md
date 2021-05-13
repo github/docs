@@ -12,7 +12,7 @@ intro: 'Mithilfe von LDAP können Sie {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

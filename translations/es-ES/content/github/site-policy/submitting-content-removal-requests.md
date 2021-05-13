@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Entendemos que el contenido privado, con derechos de autor o con derechos comerciales podría publicarse en GitHub - ya sea accidentalmente o a propósito - algunas veces en los repositorios que no te pertenecen. Debido a que la naturaleza de este contenido varía y debido a las diferentes leyes aplicables, cada categoría tiene sus propios requisitos de presentación de informes definidos en nuestras políticas.

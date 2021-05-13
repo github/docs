@@ -7,5 +7,8 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 

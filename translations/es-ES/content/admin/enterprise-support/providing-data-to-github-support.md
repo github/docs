@@ -9,7 +9,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Crear y compartir archivos de diagnóstico

@@ -4,8 +4,8 @@ intro: 自分が管理できない場合にユーザ所有のリポジトリを�
 versions:
   free-pro-team: '*'
 topics:
-  - アカウント
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### 後継者について

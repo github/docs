@@ -1,6 +1,6 @@
 ---
 title: Usar grupos para gerenciar o acesso a executores hospedados de AE
-intro: Você pode usar políticas para limitar o acesso a {% data variables.actions.hosted_runner %}s que foram adicionados a uma organização ou empresa.
+intro: 'Você pode usar políticas para limitar o acesso a {% data variables.actions.hosted_runner %}s que foram adicionados a uma organização ou empresa.'
 versions:
   github-ae: '*'
 ---

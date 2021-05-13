@@ -1,6 +1,6 @@
 ---
 title: コメントを扱う
-intro: 'REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。'
+intro: REST API を使用すると、プルリクエスト、Issue、およびコミットにある、コメントにアクセスして管理できます。
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 

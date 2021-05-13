@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 アプリケーションをダウングレードしても、現在の支払いサイクルが終了するまでプランは有効のままです。 ダウングレードは次回の支払い日に有効となります。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Bifurcar un repositorio es similar a copiar un repositorio, con dos diferencias principales:

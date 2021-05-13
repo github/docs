@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
-  - Issues (Lieferungen)
-  - notifications
-  - accounts
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: Managing encrypted secrets for Dependabot
-intro: You can store sensitive information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.
+intro: 'You can store sensitive information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
 versions:

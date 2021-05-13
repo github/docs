@@ -1,7 +1,7 @@
 ---
 title: 限制到企业的网络流量
 shortTitle: 限制网络流量
-intro: '您可以使用 IP 允许列表将企业访问权限限制为来自指定 IP 地址的连接。'
+intro: 您可以使用 IP 允许列表将企业访问权限限制为来自指定 IP 地址的连接。
 versions:
   github-ae: '*'
 ---

@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 ### About default community health files

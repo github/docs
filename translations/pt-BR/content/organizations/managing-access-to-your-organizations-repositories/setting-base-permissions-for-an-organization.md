@@ -1,7 +1,7 @@
 ---
 title: Definir permissões básicas para uma organização
 intro: Você pode definir permissões básicas para repositórios que uma organização possui.
-permissions: Os proprietários da organização podem definir permissões básicas para uma organização.
+permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre as permissões básicas para uma organização

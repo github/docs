@@ -1,6 +1,6 @@
 ---
 title: Criar uma atribuição em grupo
-intro: 'Você pode criar uma atribuição colaborativa para equipes de alunos que participam do seu curso.'
+intro: Você pode criar uma atribuição colaborativa para equipes de alunos que participam do seu curso.
 versions:
   free-pro-team: '*'
 redirect_from:

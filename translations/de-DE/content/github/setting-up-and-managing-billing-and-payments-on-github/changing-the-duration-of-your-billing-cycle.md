@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Wenn Sie die Dauer Ihres Abrechnungszeitraums ändern, werden Ihr {% data variables.product.prodname_dotcom %}-Abonnement und alle weiteren bezahlten Features und Produkte am nächsten Abrechnungsdatum auf den neuen Abrechnungszeitraum umgestellt.

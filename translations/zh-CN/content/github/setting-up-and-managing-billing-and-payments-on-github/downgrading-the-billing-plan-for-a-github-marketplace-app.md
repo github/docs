@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 降级应用程序后，您的订阅在当前结算周期结束之前将保持有效。 降级会在下一个结算日期生效。 更多信息请参阅“[关于 {% data variables.product.prodname_marketplace %} 的计费](/articles/about-billing-for-github-marketplace)”。

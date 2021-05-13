@@ -18,7 +18,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notificações
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于集群的高可用性复制

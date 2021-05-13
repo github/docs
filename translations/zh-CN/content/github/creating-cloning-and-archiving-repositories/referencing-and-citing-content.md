@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 使用 Zenodo 发出仓库的持久标识符

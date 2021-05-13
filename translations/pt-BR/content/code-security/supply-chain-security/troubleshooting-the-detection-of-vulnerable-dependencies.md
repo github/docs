@@ -6,8 +6,9 @@ redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
-  - segurança
+  - Security
 ---
 
 Os resultados da detecção de dependências relatados pelo {% data variables.product.product_name %} podem ser diferentes dos resultados retornados por outras ferramentas. Existem boas razões para isso e é útil entender como {% data variables.product.prodname_dotcom %} determina as dependências para o seu projeto.

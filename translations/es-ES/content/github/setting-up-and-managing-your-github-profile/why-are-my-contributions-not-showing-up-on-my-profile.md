@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué mis contribuciones no aparecen en mi perfil?'
+title: ¿Por qué mis contribuciones no aparecen en mi perfil?
 intro: 'Tu gráfico de contribución de perfil es un registro de las contribuciones que hiciste a los repositorios {% data variables.product.product_name %}. Las contribuciones son registros horarios de acuerdo a la zona horaria universal coordinada (UTC) en lugar de tu zona horaria local. Las contribuciones solo se cuentan si cumplen con determinados criterios. En algunos casos, necesitamos reconstruir tu gráfico para que aparezcan las contribuciones.'
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfiles
+  - Profiles
 ---
 
 ### Contribuciones que se cuentan

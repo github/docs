@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode configurar referências de link automático para vincular problemas, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} mensagens de commit e versão{% else %} e mensagens do commit{% endif %} para serviços externos de terceiros.

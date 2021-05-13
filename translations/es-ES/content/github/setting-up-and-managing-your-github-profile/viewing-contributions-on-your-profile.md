@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfiles
+  - Profiles
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Tu gráfica de contribuciones muestra la actividad de los repositorios públicos. {% endif %}Puedes elegir que se muestre la actividad tanto de {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}los repositorios públicos como la de {% endif %}los privados, con detalles específicos de tu actividad anonimizada en los repositorios privados. Para obtener más información, consulte "[Publicar u ocultar tus contribuciones privadas en tu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."

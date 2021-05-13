@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 {% data reusables.pages.navigate-site-repo %}

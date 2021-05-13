@@ -1,13 +1,13 @@
 ---
 title: Comparar lanzamientos
 intro: Puedes comparar etiquetas de lanzamiento para ver los cambios en tu repositorio entre diferentes lanzamientos.
-permissions: Las personas con acceso de lectura a un repositorio podrán ver y comparar los lanzamientos.
+permissions: People with read access to a repository can view and compare releases.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

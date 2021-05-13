@@ -15,8 +15,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 ### Acerca de las dirección de correo electrónico de confirmación

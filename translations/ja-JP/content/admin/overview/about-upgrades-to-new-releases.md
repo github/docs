@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data variables.product.product_name %} は常に改善されており、メジャーリリースとマイナーリリースで新機能とバグ修正が導入されています。 {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} はフルマネージドサービスであるため、{% data variables.product.company_short %} が Enterprise のアップグレードプロセスを完了します。{% endif %}

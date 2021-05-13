@@ -8,7 +8,8 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-projects-dependencies/
   - /articles/managing-vulnerabilities-in-your-projects-dependencies
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: <=2.22
+topics:
+  - Security
 ---
 

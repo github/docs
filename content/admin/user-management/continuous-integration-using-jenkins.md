@@ -6,7 +6,9 @@ redirect_from:
   - /enterprise/admin/user-management/continuous-integration-using-jenkins
 versions:
   enterprise-server: '*'
+type: reference
 topics:
+  - CI
   - Enterprise
 ---
 

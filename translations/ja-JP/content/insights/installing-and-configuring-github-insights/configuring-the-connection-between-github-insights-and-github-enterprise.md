@@ -2,7 +2,7 @@
 title: GitHub InsightsとGitHub Enterprise間の接続の設定
 intro: '{% data variables.product.prodname_insights %}が{% data variables.product.prodname_enterprise %}に接続する方法を管理できます。'
 product: '{% data reusables.gated-features.github-insights %}'
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、{% data variables.product.prodname_enterprise %}への接続を設定できます。'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can configure the connection to {% data variables.product.prodname_enterprise %}.'
 versions:
   enterprise-server: '*'
 ---

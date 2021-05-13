@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_marketplace %} で使用できるア�
 versions:
   free-pro-team: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 ### {% data variables.product.prodname_marketplace %} の検索について

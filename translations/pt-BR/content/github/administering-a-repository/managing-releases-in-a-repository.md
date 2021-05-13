@@ -8,13 +8,13 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: 'Colaboradores do repositório e pessoas com acesso de gravação a um repositório podem criar, editar e excluir uma versão.'
+permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: 为什么 Git 总是询问我的密码？
-intro: '如果 Git 在您每次尝试与 GitHub 交互时均提示输入用户名和密码，则您可能为仓库使用的是 HTTPS 克隆 URL。'
+intro: 如果 Git 在您每次尝试与 GitHub 交互时均提示输入用户名和密码，则您可能为仓库使用的是 HTTPS 克隆 URL。
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
   - /github/using-git/why-is-git-always-asking-for-my-password

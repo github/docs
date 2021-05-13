@@ -2,12 +2,12 @@
 title: Subir un archivo SARIF a GitHub
 shortTitle: Cargar un archivo SARIF
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden cargar datos de {% data variables.product.prodname_code_scanning %} desde una herramienta de terceros.'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - seguridad
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

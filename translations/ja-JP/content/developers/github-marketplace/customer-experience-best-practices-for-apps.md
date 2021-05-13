@@ -5,7 +5,7 @@ shortTitle: 顧客体験のベストプラクティス
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 以下のベストプラクティスに従えば、優れた顧客体験を提供するための役に立つでしょう。

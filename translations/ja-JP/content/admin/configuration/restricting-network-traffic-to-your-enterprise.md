@@ -1,7 +1,7 @@
 ---
 title: Enterprise へのネットワークトラフィックを制限する
 shortTitle: ネットワークトラフィックを制限する
-intro: 'IP 許可リストを使用して、Enterprise へのアクセスを指定された IP アドレスからの接続に制限できます。'
+intro: IP 許可リストを使用して、Enterprise へのアクセスを指定された IP アドレスからの接続に制限できます。
 versions:
   github-ae: '*'
 ---

@@ -1,13 +1,13 @@
 ---
 title: Geplante Erinnerungen für Deine Organisation verwalten
-intro: Du kannst in Slack Erinnerungen für alle Pull Requests erhalten, für die Teams in Deiner Organisation zum Review angefordert wurden.
+intro: 'Du kannst in Slack Erinnerungen für alle Pull Requests erhalten, für die Teams in Deiner Organisation zum Review angefordert wurden.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über geplante Erinnerungen für Pull Requests

@@ -1,6 +1,6 @@
 ---
 title: Pull Request rückgängig machen
-intro: Du kannst einen Pull Request rückgängig machen, der in den vorgelagerten Branch zusammengeführt wurde.
+intro: 'Du kannst einen Pull Request rückgängig machen, der in den vorgelagerten Branch zusammengeführt wurde.'
 redirect_from:
   - /articles/reverting-a-pull-request
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### About reverting a pull request

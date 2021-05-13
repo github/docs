@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Acerca de los archivos predeterminados del estado de la comunidad

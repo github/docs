@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

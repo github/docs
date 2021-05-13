@@ -1,7 +1,7 @@
 ---
 title: Viewing your GitHub Advanced Security usage
 intro: 'You can view and manage usage of your {% data variables.product.prodname_GH_advanced_security %} license.'
-permissions: Organization and enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.
+permissions: 'Organization and enterprise owners can manage access to {% data variables.product.prodname_GH_advanced_security %} for their organization or enterprise organizations.'
 product: '{% data reusables.gated-features.ghas %}'
 redirect_from: /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 versions:

@@ -4,7 +4,7 @@ intro: 'Você pode pesquisar aplicativos e ações disponíveis em {% data varia
 versions:
   free-pro-team: '*'
 topics:
-  - pesquisa do github
+  - GitHub search
 ---
 
 ### Sobre a busca no {% data variables.product.prodname_marketplace %}

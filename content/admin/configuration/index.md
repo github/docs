@@ -57,6 +57,3 @@ topics:
     {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
     {% link_in_list /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
-{% topic_link_in_list /configuring-advanced-security-features %}
-    {% link_in_list /configuring-code-scanning-for-your-appliance %}
-    {% link_in_list /configuring-secret-scanning-for-your-appliance %}

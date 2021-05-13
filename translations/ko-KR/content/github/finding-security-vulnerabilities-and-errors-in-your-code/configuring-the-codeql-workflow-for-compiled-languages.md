@@ -7,7 +7,7 @@ permissions: 'If you have write permissions to a repository, you can configure {
 versions:
   enterprise-server: '2.22'
 topics:
-  - 보안
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

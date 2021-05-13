@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: Organization のオーナーは、Organization 内のインタラクションを制限できます。
+permissions: Organization owners can limit interactions in an organization.
 topics:
-  - コミュニティ
+  - Community
 ---
 
 ### 一時的なインタラクションの制限について

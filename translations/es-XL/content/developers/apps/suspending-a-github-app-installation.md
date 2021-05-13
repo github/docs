@@ -5,6 +5,10 @@ redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}

@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 Nicht autorisierte (oder möglicherweise kompromittierte) SSH-Schlüssel solltest Du löschen, um möglichen Angreifern den Zugriff auf Deine Repositorys zu verwehren. Vorhandene SSH-Schlüssel, die gültig sind, kannst Du genehmigen.

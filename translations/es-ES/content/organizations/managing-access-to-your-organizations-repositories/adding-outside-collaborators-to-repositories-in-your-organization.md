@@ -1,16 +1,16 @@
 ---
 title: Agregar colaboradores externos a los repositorios en tu organización
-intro: 'Un *colaborador externo* es una persona que no es explícitamente un miembro en tu organización pero tiene premisos de lectura.'
+intro: Un *colaborador externo* es una persona que no es explícitamente un miembro en tu organización pero tiene premisos de lectura.
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
-  - github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} agregar colaboradores externos a un repositorio, a menos que un propietario de la organización haya restringido la capacidad para invitar colaboradores. Para obtener más información, consulta "[Establecer permisos para agregar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".

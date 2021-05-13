@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 リポジトリへの管理者権限を持っているユーザは誰でも、自動リンク参照を設定して、Issue、プルリクエスト{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}、コミットメッセージ、リリースの説明、{% else %}および外部のサードパーティサービスへのコミットメッセージ{% endif %}をリンクすることができます。

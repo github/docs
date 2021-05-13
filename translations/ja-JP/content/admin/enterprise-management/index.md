@@ -1,12 +1,12 @@
 ---
-title: 'Enterprise の監視、管理、および更新'
-intro: 'アプライアンスを監視し、新しいバージョンにアップグレードし、クラスタリングまたは High Availability を設定できます'
+title: Enterprise の監視、管理、および更新
+intro: アプライアンスを監視し、新しいバージョンにアップグレードし、クラスタリングまたは High Availability を設定できます
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 

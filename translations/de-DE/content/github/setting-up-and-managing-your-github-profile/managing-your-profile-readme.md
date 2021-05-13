@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 topics:
-  - profile
+  - Profiles
 ---
 
 ### About your profile README

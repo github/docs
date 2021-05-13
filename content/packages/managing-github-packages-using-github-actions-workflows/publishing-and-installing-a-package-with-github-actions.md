@@ -24,7 +24,7 @@ versions:
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Authenticating to the {% data variables.product.prodname_capitalized_container_registry %}
+#### Authenticating to the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.container-registry-beta %}
 
@@ -138,17 +138,17 @@ The following example demonstrates how you can use {% data variables.product.pro
         packages: write {% endif %}
       needs: run-npm-test
       steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build container image
-        uses: docker/build-push-action@v1
-        with: {% raw %}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-          repository: ${{ github.repository }}/octo-image {% endraw %}
-          tag_with_sha: true
-          tag_with_ref: true 
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Build container image
+          uses: docker/build-push-action@v1
+          with: {% raw %}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+            registry: {% endraw %}{% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
+            repository: ${{ github.repository }}/octo-image {% endraw %}
+            tag_with_sha: true
+            tag_with_ref: true 
   ```
 
   The relevant settings are explained in the following table:

@@ -1,6 +1,6 @@
 ---
 title: Organization ダッシュボードについて
-intro: 'Organization のメンバーは、直近のアクティビティの更新情報を常時受け取り、作業中の Issue やプルリクエストを追跡したり、Organization をフォローしたりするために、Organization のダッシュボードにアクセスできます。'
+intro: Organization のメンバーは、直近のアクティビティの更新情報を常時受け取り、作業中の Issue やプルリクエストを追跡したり、Organization をフォローしたりするために、Organization のダッシュボードにアクセスできます。
 redirect_from:
   - /articles/about-your-organization-dashboard
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organization-dashboard
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization ダッシュボードへのアクセス

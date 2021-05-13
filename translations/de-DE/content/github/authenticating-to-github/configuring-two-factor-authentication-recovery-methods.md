@@ -1,6 +1,6 @@
 ---
 title: Wiederherstellungsmethoden bei der Zwei-Faktor-Authentifizierung konfigurieren
-intro: Du kannst verschiedene Wiederherstellungsmethoden einrichten, um auf Dein Konto zuzugreifen, wenn Du Deine Anmeldeinformation für die Zwei-Faktor-Authentifizierung verloren hast.
+intro: 'Du kannst verschiedene Wiederherstellungsmethoden einrichten, um auf Dein Konto zuzugreifen, wenn Du Deine Anmeldeinformation für die Zwei-Faktor-Authentifizierung verloren hast.'
 redirect_from:
   - /articles/downloading-your-two-factor-authentication-recovery-codes/
   - /articles/setting-a-fallback-authentication-number/

@@ -21,7 +21,9 @@ versions:
 
 ### Authenticating to {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.authenticate-packages %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
+{% data reusables.package_registry.authenticate-packages %}
+
+{% data reusables.package_registry.authenticate-packages-github-token %} For more information about using `GITHUB_TOKEN` with Gradle, see "[Publishing Java packages with Gradle](/actions/guides/publishing-java-packages-with-gradle#publishing-packages-to-github-packages)."
 
 #### Authenticating with a personal access token
 

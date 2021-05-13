@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Are you a law enforcement officer conducting an investigation that may involve user content hosted on GitHub? Or maybe you're a privacy-conscious person who would like to know what information we share with law enforcement and under what circumstances. Either way, you're on the right page.

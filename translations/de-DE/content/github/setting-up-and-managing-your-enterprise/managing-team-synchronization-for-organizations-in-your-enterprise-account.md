@@ -6,7 +6,7 @@ permissions: Enterprise owners can manage team synchronization for an enterprise
 versions:
   free-pro-team: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### About team synchronization for enterprise accounts

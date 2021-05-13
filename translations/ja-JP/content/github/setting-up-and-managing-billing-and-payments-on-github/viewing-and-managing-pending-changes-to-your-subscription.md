@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 アカウントのプランに対する保留中の変更、および他の有料機能や製品へのプランの保留中の変更をキャンセルすることができます。

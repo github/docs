@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.

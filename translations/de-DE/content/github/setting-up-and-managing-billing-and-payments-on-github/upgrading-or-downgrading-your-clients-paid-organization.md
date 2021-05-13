@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}

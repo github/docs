@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Jeder, der Lesezugriff auf ein Repository hat, kann eine zusammenfassende Liste der Funktions- und Methodenänderungen in bestimmten Dateien eines Pull Requests anzeigen.

@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Por defecto, todos los miembros de la organización pueden crear repositorios. Si restringes los [permisos de creación de repositorios](/articles/restricting-repository-creation-in-your-organization) a los propietarios de la organización y tu organización fue creada dentro de la estructura heredada de permisos de organización, los miembros de los equipos de administración heredados seguirán teniendo la capacidad de crear repositorios.

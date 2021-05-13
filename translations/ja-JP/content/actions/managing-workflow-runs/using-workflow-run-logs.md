@@ -1,6 +1,6 @@
 ---
 title: ワークフロー実行ログを使用する
-intro: 'ワークフロー実行の各ジョブのログを表示、検索、およびダウンロードできます。'
+intro: ワークフロー実行の各ジョブのログを表示、検索、およびダウンロードできます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

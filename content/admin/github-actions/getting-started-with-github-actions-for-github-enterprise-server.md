@@ -1,5 +1,6 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Server
+shortTitle: Getting started with GitHub Actions
 intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
@@ -7,7 +8,9 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
+  - Actions
   - Enterprise
 ---
 

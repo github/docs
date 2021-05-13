@@ -4,7 +4,7 @@ intro: '在高可用性配置中管理 {% data variables.product.prodname_action
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_actions %} 数据的复制或冗余

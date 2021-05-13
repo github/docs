@@ -1,7 +1,7 @@
 ---
 title: GitHub ClassroomでRepl.itを使用する
 shortTitle: Repl.itの使用について
-intro: Repl.itを、{% data variables.product.prodname_classroom %}の課題のためのオンライン統合開発環境 (IDE) として設定できます。
+intro: 'Repl.itを、{% data variables.product.prodname_classroom %}の課題のためのオンライン統合開発環境 (IDE) として設定できます。'
 versions:
   free-pro-team: '*'
 redirect_from:

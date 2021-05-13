@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 カードでは、任意のアサインされた人、マイルストーン、またはラベルをクリックして、その修飾子でプロジェクトをフィルタリングできます。 検索をクリアするには、同じアサインされた人、マイルストーン、またはラベルを再度クリックします。

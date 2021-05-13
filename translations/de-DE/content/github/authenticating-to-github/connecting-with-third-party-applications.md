@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 Wenn Sie eine Drittanbieter-Anwendung mit Ihrer {% data variables.product.product_name %}-Anmeldung identifizieren möchte, wird eine Seite mit den Kontaktdaten des Entwicklers und einer Liste der angeforderten Daten angezeigt.

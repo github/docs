@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Solo los propietarios o los administradores del equipo pueden eliminar miembros de la organización. Cuando se elimina un usuario de un equipo o una organización, sus propuestas, solicitudes de extracción y comentarios en los repositorios de la organización permanecen intactos y siguen siendo atribuidos al usuario.

@@ -20,7 +20,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 ### Upgrading your personal account's subscription

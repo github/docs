@@ -2,13 +2,13 @@
 title: Administrar los objetos de LFS de Git en los archivos de tu repositorio
 shortTitle: 'Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos'
 intro: 'Puedes elegir si los objetos de {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) se incluirán en los archivos de código fuente, tales como los archivos ZIP y .tar, que {% data variables.product.product_name %} crea para tu repositorio.'
-permissions: 'Las personas con permisos administrativos en un repositorio pueden administrar si los objetos de {% data variables.large_files.product_name_short %} se incluirán en los archivos de dicho repositorio.'
+permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de los objetos de {% data variables.large_files.product_name_short %} en los archivos

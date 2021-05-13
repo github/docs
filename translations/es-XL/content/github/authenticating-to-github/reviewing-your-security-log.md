@@ -6,6 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+miniTocMaxHeadingLevel: 4
+topics:
+  - Identity
+  - Access management
 ---
 
 ### Accessing your security log

@@ -4,6 +4,9 @@ intro: Puedes configurar el nombre de la rama predeterminada para todos los repo
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### Acerca del nombre de la rama predeterminada

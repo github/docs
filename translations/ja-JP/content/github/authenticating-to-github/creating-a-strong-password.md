@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.product_name %} アカウントのパスワードを選択または生成する必要があります。パスワードの条件は次のとおりです。

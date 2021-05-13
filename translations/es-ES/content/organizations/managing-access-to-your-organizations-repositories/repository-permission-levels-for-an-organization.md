@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Las personas con permisos de administrador pueden administrar el acceso individual o del equipo al repositorio que le pertenece a la organización.

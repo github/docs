@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

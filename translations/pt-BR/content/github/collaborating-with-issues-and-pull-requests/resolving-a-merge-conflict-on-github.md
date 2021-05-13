@@ -1,6 +1,6 @@
 ---
 title: Resolver um conflito de merge no GitHub
-intro: 'Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.'
+intro: Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:

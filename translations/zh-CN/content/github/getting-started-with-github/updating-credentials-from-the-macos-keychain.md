@@ -3,7 +3,7 @@ title: 更新 OSX 密钥链中的凭据
 intro: '如果在 {% data variables.product.product_name %} 上更改您的{% if currentVersion != "github-ae@latest" %}用户名、密码或{% endif %}个人访问令牌，您需要在 "git-credit al-osxkeychain" 小助手中更新您保存的凭据。'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
-  - 密钥链中的 GitHub 密码条目
+  - /github/using-git/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-macos-keychain
 versions:
   free-pro-team: '*'

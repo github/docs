@@ -1,7 +1,7 @@
 ---
 title: 关于使用 MakeCode Arcade 与 GitHub Classroom
 shortTitle: 关于使用 MakeCode Arcade
-intro: 您可以将 MakeCode Arcade 配置为 {% data variables.product.prodname_classroom %} 中作业的在线 IDE。
+intro: '您可以将 MakeCode Arcade 配置为 {% data variables.product.prodname_classroom %} 中作业的在线 IDE。'
 versions:
   free-pro-team: '*'
 redirect_from:

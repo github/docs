@@ -1,12 +1,12 @@
 ---
 title: Teamの作成
-intro: 'Team は Organization がメンバーのグループを作成し、リポジトリへのアクセスを制御できるようにします。 Team のメンバーには特定のリポジトリの読み取り、書き込み、管理権限を与えることができます。'
+intro: Team は Organization がメンバーのグループを作成し、リポジトリへのアクセスを制御できるようにします。 Team のメンバーには特定のリポジトリの読み取り、書き込み、管理権限を与えることができます。
 redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Teamは、team@メンションのように適切なグループに入力や注目を求めたい場合に通知をするような、{% data variables.product.prodname_dotcom %}のコラボレーションの機能の多くにおいて中心的な役割を果たします。 詳しい情報については[Organizationのリポジトリの権限レベル](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)を参照してください。

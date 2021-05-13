@@ -14,7 +14,7 @@ versions:
 type: overview
 topics:
   - CI
-  - DC
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

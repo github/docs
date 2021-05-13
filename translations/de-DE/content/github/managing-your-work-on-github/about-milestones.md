@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Wenn Du [einen Meilenstein erstellst](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), kannst Du ihn [mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests).

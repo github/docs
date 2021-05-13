@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Unterstützung für Subversion-Clients
-intro: Der Zugriff auf GitHub-Repositorys kann von Git- und Subversion (SVN)-Clients erfolgen. In diesem Artikel erhältst Du Informationen zur Ausführung eines Subversion-Clients auf GitHub sowie zu einigen häufigen Problemen, die in Verbindung mit Subversion auftreten können.
+intro: 'Der Zugriff auf GitHub-Repositorys kann von Git- und Subversion (SVN)-Clients erfolgen. In diesem Artikel erhältst Du Informationen zur Ausführung eines Subversion-Clients auf GitHub sowie zu einigen häufigen Problemen, die in Verbindung mit Subversion auftreten können.'
 redirect_from:
   - /articles/support-for-subversion-clients
 versions:

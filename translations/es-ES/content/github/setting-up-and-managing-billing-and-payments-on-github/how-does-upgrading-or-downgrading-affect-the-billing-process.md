@@ -1,12 +1,12 @@
 ---
-title: '¿Cómo impacta subir o bajar de categoría en el proceso de facturación?'
+title: ¿Cómo impacta subir o bajar de categoría en el proceso de facturación?
 intro: 'Cuando subes de categoría la suscripción de tu cuenta personal u organización, las modificaciones se aplican de inmediato. Cuando bajas de categoría tu suscripción, las modificaciones se aplican al final de tu ciclo de facturación actual.'
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones pagadas que compraste en {% data variables.product.prodname_marketplace %}.

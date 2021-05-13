@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 topics:
-  - community
+  - Community
 ---
 
 ### About temporary interaction limits

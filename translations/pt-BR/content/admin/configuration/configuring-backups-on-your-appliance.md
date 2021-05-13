@@ -16,7 +16,7 @@ intro: 'Como parte de um plano de recuperação de desastre, é possível proteg
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}

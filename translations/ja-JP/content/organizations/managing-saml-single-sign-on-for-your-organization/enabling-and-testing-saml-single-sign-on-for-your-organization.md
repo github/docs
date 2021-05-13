@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 すべてのメンバーに使用するように強制する必要なく、Organization 内で SAML SSO を有効化できます。 SAML SSO を Organization 内で強制せずに有効化することで、Organization での SAML SSO の導入がスムーズになります。 Organization 内の大半のメンバーが SAML SSO を使用するようになったら、Organization 内で強制化できます。

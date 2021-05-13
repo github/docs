@@ -3,8 +3,8 @@ title: GitHubs Hinweis zum „California Consumer Privacy Act"
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Datum des Inkrafttretens: 1. Januar 2020

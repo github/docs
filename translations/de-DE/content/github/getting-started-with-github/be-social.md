@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Profil
-  - pull requests
-  - Issues (Lieferungen)
-  - notifications
-  - accounts
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“

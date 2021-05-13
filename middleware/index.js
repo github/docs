@@ -137,6 +137,11 @@ module.exports = function (app) {
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))
 
+  // handle serving NextJS bundled code (/_next/*)
+  if (process.env.FEATURE_NEXTJS) {
+    app.use(instrument('./next'))
+  }
+
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 

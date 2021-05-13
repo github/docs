@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Use a *.gitattributes* file to mark files that match a given "pattern" with the specified attributes. A *.gitattributes* file uses the same rules for matching as _.gitignore_ files. For more information, see [PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format) in the Git documentation.

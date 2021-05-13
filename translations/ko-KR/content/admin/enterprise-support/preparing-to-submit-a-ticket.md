@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 Before submitting a ticket, you should:

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Para obtener más información sobre las revisiones requeridas, consulta "[Acerca de las revisiones requeridas para solicitudes de extracción](/articles/about-required-reviews-for-pull-requests)".

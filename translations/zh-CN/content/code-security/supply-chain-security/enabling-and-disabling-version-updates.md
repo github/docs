@@ -1,13 +1,13 @@
 ---
 title: 启用和禁用版本更新
 intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
-permissions: '拥有仓库写入权限的用户可以启用或禁用仓库的 {% data variables.product.prodname_dependabot_version_updates %}。'
+permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->

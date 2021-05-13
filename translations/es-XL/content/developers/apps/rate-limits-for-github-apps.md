@@ -9,6 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 ### Solicitudes de servidor a servidor

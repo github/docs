@@ -8,7 +8,7 @@ intro: 'Wenn Sie die integrierte Authentifizierung verwenden, können Sie nicht 
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

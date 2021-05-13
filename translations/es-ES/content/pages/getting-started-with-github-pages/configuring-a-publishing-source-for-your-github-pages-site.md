@@ -6,13 +6,13 @@ redirect_from:
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
   - /github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
-permissions: 'Las personas con permisos de administrador o de mantenedor para un repositorio pueden configurar una fuente de publicación para un sitio de {% data variables.product.prodname_pages %}.'
+permissions: 'People with admin or maintainer permissions for a repository can configure a publishing source for a {% data variables.product.prodname_pages %} site.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 Para obtener más información acerca de las fuentes de publicación, consulta "[Acerca de las {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)".

@@ -1,13 +1,13 @@
 ---
 title: Habilitar e desabilitar as atualizações da versão
 intro: 'Você pode configurar seu repositório para que o {% data variables.product.prodname_dependabot %} atualize automaticamente os pacotes que você usa.'
-permissions: 'Pessoas com permissões de gravação para um repositório podem habilitar ou desabilitar {% data variables.product.prodname_dependabot_version_updates %} para o repositório.'
+permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->

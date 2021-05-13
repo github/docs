@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 보안
+  - Security
 ---
 
 People with admin permissions to a security advisory can remove collaborators from the security advisory.

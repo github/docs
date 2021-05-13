@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Enterprise アカウントで Organization の 2 要素認証を必須にする

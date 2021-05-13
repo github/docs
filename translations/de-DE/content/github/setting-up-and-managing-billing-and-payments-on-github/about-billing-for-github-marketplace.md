@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} enthält kostenlose und kostenpflichtige Apps. Nachdem Du eine App gekauft und installiert hast, kannst Du sie jederzeit heraufstufen, herabstufen oder kündigen.

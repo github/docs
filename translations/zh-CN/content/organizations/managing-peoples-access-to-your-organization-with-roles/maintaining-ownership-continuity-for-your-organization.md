@@ -6,14 +6,15 @@ redirect_from:
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
-permissions: 组织所有者可以将组织的任何成员提升为组织所有者。
+  - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
+permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于保持组织的所有权连续性

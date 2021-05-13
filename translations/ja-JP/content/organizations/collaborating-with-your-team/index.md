@@ -1,6 +1,6 @@
 ---
 title: Team とコラボレーションする
-intro: 'Organization 内で、Team は Team ディスカッションを使い、プロジェクトをまたいで協力して作業できます。'
+intro: Organization 内で、Team は Team ディスカッションを使い、プロジェクトをまたいで協力して作業できます。
 redirect_from:
   - /articles/collaborating-with-your-team
   - /github/building-a-strong-community/collaborating-with-your-team
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 {% link_in_list /about-team-discussions %}

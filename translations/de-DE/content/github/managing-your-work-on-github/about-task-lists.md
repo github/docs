@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Aufgabenlisten werden mit anklickbaren Kontrollkästchen in Kommentaren dargestellt. Du kannst die Kontrollkästchen aktivieren oder deaktivieren, um Elemente als abgeschlossen oder nicht abgeschlossen zu kennzeichnen.

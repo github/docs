@@ -1,7 +1,7 @@
 ---
 title: 将 GitHub Classroom 与在线 IDE 集成
 shortTitle: 与在线 IDE 集成
-intro: 您可以为您在 {% data variables.product.prodname_classroom %} 中创建的作业预配置受支持的在线集成开发环境 (IDE)。
+intro: '您可以为您在 {% data variables.product.prodname_classroom %} 中创建的作业预配置受支持的在线集成开发环境 (IDE)。'
 versions:
   free-pro-team: '*'
 redirect_from:

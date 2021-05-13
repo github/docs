@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Wenn Du einen Issue aus einem Kommentar öffnest, wird der Issue ein Ausschnitt enthalten, der zeigt, wo der Kommentar ursprünglich eingestellt wurde.

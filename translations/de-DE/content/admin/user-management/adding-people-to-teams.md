@@ -9,7 +9,7 @@ intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Ben
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigungen für Repositorys, die Ihrer Organisation gehören](/articles/permission-levels-for-an-organization).

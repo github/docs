@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Si haces cumplir el inicio de sesión único de SAML en tu organización, todo miembro que no se haya autenticado mediante tu proveedor de identidad de SAML (IdP), incluidos los administradores, será eliminado de la organización y recibirá un correo electrónico en el que se le notificará la eliminación. También se eliminarán los bots y las cuentas de servicio que no tengan identidades externas configuradas en el IdP de tu organización. Para obtener más información acerca de los bots y las cuentas de servicio, consulta "[Administrar los bots y las cuentas de servicio con el inicio de sesión único de SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)". Puedes restaurar los miembros de la organización una vez que realizas el inicio de sesión único sin problemas.

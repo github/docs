@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de las solicitudes de extracción del {% data variables.product.prodname_dependabot %}

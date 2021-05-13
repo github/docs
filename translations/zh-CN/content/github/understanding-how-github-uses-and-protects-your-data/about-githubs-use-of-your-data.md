@@ -7,8 +7,8 @@ intro: '{% data variables.product.product_name %} 使用您的仓库数据来将
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
  
 ### 关于 {% data variables.product.product_name %} 对数据的使用

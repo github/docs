@@ -11,7 +11,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### 移行したデータを {% data variables.product.prodname_ghe_server %} にインポートするための準備

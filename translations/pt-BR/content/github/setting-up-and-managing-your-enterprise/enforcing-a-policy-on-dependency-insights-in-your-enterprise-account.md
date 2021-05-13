@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Em organizações pertencentes a uma conta corporativa, os proprietários da organização podem definir limites para a visualização de informações de dependência da organização. Para obter mais informações, consulte "[Alterar a visibilidade das informações de dependência da organização](/articles/changing-the-visibility-of-your-organizations-dependency-insights)".

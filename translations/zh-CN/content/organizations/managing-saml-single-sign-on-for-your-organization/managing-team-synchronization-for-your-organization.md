@@ -7,13 +7,13 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-teams-between-your-identity-provider-and-github
   - /github/articles/synchronizing-teams-between-okta-and-github
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization
-permissions: 组织所有者可管理组织的团队同步。
+permissions: Organization owners can manage team synchronization for an organization.
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

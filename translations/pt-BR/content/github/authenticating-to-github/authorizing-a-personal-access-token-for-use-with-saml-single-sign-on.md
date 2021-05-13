@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - sso
+  - SSO
 ---
 
 Você pode autorizar um token de acesso pessoal existente ou [criar um](/github/authenticating-to-github/creating-a-personal-access-token) e autorizá-lo.

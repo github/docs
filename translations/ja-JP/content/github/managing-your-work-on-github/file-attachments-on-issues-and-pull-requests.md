@@ -1,6 +1,6 @@
 ---
 title: Issue およびプルリクエストのファイル添付
-intro: 'Issue を開いたりプルリクエストを更新したりする際に、Issue の添付を使用して機能の提案やバグのスクリーンショットの画像をアップロードできます。'
+intro: Issue を開いたりプルリクエストを更新したりする際に、Issue の添付を使用して機能の提案やバグのスクリーンショットの画像をアップロードできます。
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% warning %}

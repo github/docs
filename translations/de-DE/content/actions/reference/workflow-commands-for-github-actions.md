@@ -1,7 +1,7 @@
 ---
 title: Workflow-Befehle für GitHub-Aktionen
 shortTitle: Workflow-Befehle
-intro: Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.
+intro: 'Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions

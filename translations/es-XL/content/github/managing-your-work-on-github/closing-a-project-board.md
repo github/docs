@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Cuando cierras un tablero de proyecto, todas las automatizaciones del flujo de trabajo configuradas se pausarán por defecto.

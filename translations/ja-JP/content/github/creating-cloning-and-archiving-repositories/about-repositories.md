@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 リポジトリを個人として所有することも、リポジトリの所有権を Organization 内の他の人々と共有することもできます。

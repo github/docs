@@ -1,6 +1,6 @@
 ---
 title: Create an assignment from a template repository
-intro: You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.
+intro: 'You can create an assignment from a template repository to provide starter code, documentation, and other resources to your students.'
 versions:
   free-pro-team: '*'
 redirect_from:

@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?'
+title: ¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?
 intro: 'Revisa las razones comunes por las que las solicitudes para el {% data variables.product.prodname_student_pack %} no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved

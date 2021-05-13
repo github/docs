@@ -1,6 +1,6 @@
 ---
 title: GitHub 流程
-intro: '在 GitHub，我们每天都在研究自己的产品，开发了一个适合项目协作的工作流程。 为了使其适用于不同规模或技术专长的团队，我们确保工作流程中的每个步骤都可以在基于 Web 的界面中完成。'
+intro: 在 GitHub，我们每天都在研究自己的产品，开发了一个适合项目协作的工作流程。 为了使其适用于不同规模或技术专长的团队，我们确保工作流程中的每个步骤都可以在基于 Web 的界面中完成。
 redirect_from:
   - /articles/creating-and-editing-files-in-your-repository/
   - /articles/github-flow-in-the-browser/
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 拉取请求
+  - Pull requests
 ---
 
 ### 遵循 GitHub 流程

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub reconoce que nuestro negocio se basa en relaciones positivas y transparentes. Si bien las interacciones informales y los intercambios de regalos pueden ser parte del desarrollo de esas relaciones e incluso pueden considerarse habituales en algunos países, debemos asegurarnos de que estemos siguiendo las leyes antisoborno. Tenemos la obligación legal de comportarnos éticamente, incluyendo no usar dichas interacciones para crear una ventaja especial o influir en una transacción.

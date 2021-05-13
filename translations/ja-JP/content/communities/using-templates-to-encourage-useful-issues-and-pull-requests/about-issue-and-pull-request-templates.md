@@ -1,6 +1,6 @@
 ---
 title: Issueとプルリクエストのテンプレートについて
-intro: 'Issue及びプルリクエストのテンプレートを使えば、コントリビューターがリポジトリでIssuleやプルリクエストをオープンする際に含めてほしい情報をカスタマイズし、標準化できます。'
+intro: Issue及びプルリクエストのテンプレートを使えば、コントリビューターがリポジトリでIssuleやプルリクエストをオープンする際に含めてほしい情報をカスタマイズし、標準化できます。
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
   - /github/building-a-strong-community/about-issue-and-pull-request-templates
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 リポジトリでIssueやプルリクエストのテンプレートを作成すると、コントリビューターはそのテンプレートを使い、リポジトリのコントリビューションのガイドラインに沿ってIssuelをオープンしたり、プルリクエスト中の変更を提案したりできるようになります。 リポジトリへのコントリビューションのガイドラインの追加に関する詳しい情報については[リポジトリコントリビューターのためのガイドラインを定める](/articles/setting-guidelines-for-repository-contributors)を参照してください。

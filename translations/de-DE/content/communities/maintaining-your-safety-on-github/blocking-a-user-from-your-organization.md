@@ -1,13 +1,13 @@
 ---
 title: Einen Benutzer für Deine Organisation blockieren
-intro: Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.
+intro: 'Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.'
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Du kannst einen Benutzer über die Einstellungen Deiner Organisation oder über einen bestimmten Kommentar dieses Benutzers blockieren. Wenn Du einen Benutzer in einem Kommentar blockierst, kannst Du auswählen, dem Benutzer eine Benachrichtigung über die Sperre und den Grund dazu zu senden. Andernfalls wird er nicht direkt über die Sperre informiert. Blocked users can still delete their existing content.

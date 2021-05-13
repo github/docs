@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 拥有仓库管理员权限的人可为 {% data variables.product.prodname_pages %} 站点配置自定义域。

@@ -1,6 +1,6 @@
 ---
 title: Support-Ressourcen zu Deinem Projekt hinzufügen
-intro: Du kannst eine SUPPORT-Datei erstellen, um anderen mitzuteilen, wie sie Unterstützung in Deinem Projekt erhalten.
+intro: 'Du kannst eine SUPPORT-Datei erstellen, um anderen mitzuteilen, wie sie Unterstützung in Deinem Projekt erhalten.'
 redirect_from:
   - /articles/adding-support-resources-to-your-project
   - /github/building-a-strong-community/adding-support-resources-to-your-project
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 Um Personen auf bestimmte Support-Ressourcen zu verweisen, kannst Du eine SUPPORT-Datei zum Root-, `docs`- oder `.github`-Ordner Deines Repositorys hinzufügen. Wenn jemand einen Issue in Deinem Repository erstellt, wird ihm ein Link zur SUPPORT-Datei Deines Projekts angezeigt.

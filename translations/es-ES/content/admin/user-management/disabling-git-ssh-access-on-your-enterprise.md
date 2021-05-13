@@ -18,7 +18,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Inhabilitar el acceso SSH de Git para un repositorio específico

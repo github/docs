@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Puedes filtrar archivos en una solicitud de extracción por tipo de extensión de archivo, tales como  `.html` o `.js`, sin extensión, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} propietario del código, {% endif %} o archivos de configuración ("dotfiles").

@@ -1,13 +1,13 @@
 ---
 title: Sponsorenschaltfläche in Deinem Repository anzeigen
-intro: Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.
+intro: 'Du kannst eine Sponsorenschaltfläche zu Deinem Repository hinzufügen, um die Sichtbarkeit von Finanzierungsmöglichkeiten für Dein Open-Source-Projekt zu erhöhen.'
 redirect_from:
   - /github/building-a-strong-community/displaying-a-sponsor-button-in-your-repository
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### Informationen zu FUNDING-Dateien

@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Personen mit Administratorberechtigungen können den Zugriff einzelner Benutzer und Teams auf die Repositorys ihrer Organisation steuern.

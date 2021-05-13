@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Ein *Verhaltenskodex* definiert die Standards für die Interaktion in einer Community. Er signalisiert, dass in dieser integrativen Umgebung alle Beiträge respektiert werden. Außerdem beschreibt er Verfahren für die Problembehandlung bei Schwierigkeiten zwischen Mitgliedern Deiner Projekt-Community. Weitere Informationen dazu, warum ein Verhaltenskodex Standards und Erwartungen für die Interaktion in einer Community festlegt, findest Du in den [Open-Source-Leitfäden](https://opensource.guide/code-of-conduct/).

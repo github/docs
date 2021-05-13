@@ -1,6 +1,6 @@
 ---
 title: ユーザーアカウントのリポジトリ権限レベル
-intro: 'ユーザアカウントが所有するリポジトリには、リポジトリオーナーとコラボレータという 2 つの権限レベルがあります。'
+intro: ユーザアカウントが所有するリポジトリには、リポジトリオーナーとコラボレータという 2 つの権限レベルがあります。
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 ### ユーザーアカウントのリポジトリ権限レベルについて

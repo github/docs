@@ -1,6 +1,6 @@
 ---
 title: HTTPS クローニングエラー
-intro: 'Git で HTTPS を使用する際によく生じるエラーがいくつかあります。 これらのエラーは通常、古いバージョンの Git を使用しているか、もしくはリポジトリへのアクセス権を持っていないことが原因です。'
+intro: Git で HTTPS を使用する際によく生じるエラーがいくつかあります。 これらのエラーは通常、古いバージョンの Git を使用しているか、もしくはリポジトリへのアクセス権を持っていないことが原因です。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 HTTPS エラーの例を次に示します:

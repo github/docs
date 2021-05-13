@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 リポジトリのフォークはリポジトリのコピーと似ていますが、次の 2 つの大きな違いがあります。

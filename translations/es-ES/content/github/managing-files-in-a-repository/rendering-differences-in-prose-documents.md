@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Las confirmaciones y solicitudes de extracción que incluyen documentos en prosa tienen la capacidad de representar esos documentos con vistas *de origen* y *representadas*.

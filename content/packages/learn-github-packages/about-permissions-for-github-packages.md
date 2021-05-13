@@ -29,7 +29,7 @@ The {% data variables.product.prodname_registry %} registries below use reposito
 
 Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of the package separately from a repository that is connected (or linked) to a package.
 
-Currently, only the {% data variables.product.prodname_capitalized_container_registry %} offers granular permissions for your container image packages.
+Currently, only the {% data variables.product.prodname_container_registry %} offers granular permissions for your container image packages.
 
 ### Visibility and access permissions for container images
 

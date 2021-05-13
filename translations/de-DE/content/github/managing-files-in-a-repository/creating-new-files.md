@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Wenn Sie eine Datei auf {% data variables.product.product_name %} erstellen, beachten Sie Folgendes:

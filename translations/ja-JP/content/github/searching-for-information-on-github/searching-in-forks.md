@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 [リポジトリの検索](/articles/searching-for-repositories)結果でフォークを表示するには、クエリに `fork:true` または `fork:only` を追加します。

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidade
-  - gerenciamento de acesso
+  - Identity
+  - Access management
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

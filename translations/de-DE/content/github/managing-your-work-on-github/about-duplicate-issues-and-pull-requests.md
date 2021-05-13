@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Duplikaten von Issues und Pull Requests
-intro: Markiere einen Issue oder Pull Request als Duplikat, um ähnliche Issues oder Pull Requests gleichzeitig zu verfolgen und unnötige Belastungen sowohl für Betreuer als auch für Mitarbeiter zu vermeiden.
+intro: 'Markiere einen Issue oder Pull Request als Duplikat, um ähnliche Issues oder Pull Requests gleichzeitig zu verfolgen und unnötige Belastungen sowohl für Betreuer als auch für Mitarbeiter zu vermeiden.'
 redirect_from:
   - /articles/about-duplicate-issues-and-pull-requests
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Damit ein als Duplikat markiertes Zeitleistenereignis angezeigt wird, muss der Benutzer, der den Referenzkommentar „Duplikat" erstellt, Schreibzugriff auf das Repository haben, in dem er den Kommentar erstellt.

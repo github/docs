@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, cerciórate de haber:

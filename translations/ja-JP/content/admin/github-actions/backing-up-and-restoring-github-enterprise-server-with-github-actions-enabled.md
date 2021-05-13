@@ -5,7 +5,7 @@ intro: '外部ストレージプロバイダの {% data variables.product.prodna
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

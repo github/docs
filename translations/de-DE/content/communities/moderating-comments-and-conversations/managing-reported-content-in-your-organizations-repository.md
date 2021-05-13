@@ -6,7 +6,7 @@ versions:
 redirect_from:
   - /github/building-a-strong-community/managing-reported-content-in-your-organizations-repository
 topics:
-  - community
+  - Community
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können gemeldete Inhalte für das Repository anzeigen und verwalten.

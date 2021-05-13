@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Sie können {% data variables.product.prodname_ghe_server %} auf Global Azure oder Azure Government bereitstellen.

@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 Antes de abandonar tu empresa, asegúrate de actualizar la siguiente información en tu cuenta de usuario:

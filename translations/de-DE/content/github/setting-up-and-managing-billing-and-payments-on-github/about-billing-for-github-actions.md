@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}

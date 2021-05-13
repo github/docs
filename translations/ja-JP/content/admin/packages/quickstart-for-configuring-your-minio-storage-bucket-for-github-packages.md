@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_registry %} で使用するために�
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

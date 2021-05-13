@@ -14,7 +14,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据

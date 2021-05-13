@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Organisationen
-intro: Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Projekte übergreifend über mehrere Projekte gleichzeitig zusammenarbeiten können. Inhaber und Administratoren können den Mitgliederzugriff auf Daten und Projekte der Organisation mit komplexen Sicherheits- und Administrationsfunktionen verwalten.
+intro: 'Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Projekte übergreifend über mehrere Projekte gleichzeitig zusammenarbeiten können. Inhaber und Administratoren können den Mitgliederzugriff auf Daten und Projekte der Organisation mit komplexen Sicherheits- und Administrationsfunktionen verwalten.'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.organizations_include %}

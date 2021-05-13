@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 O {% data variables.product.product_name %} pode hospedar e renderizar arquivos 3D com a extensão *.stl*.

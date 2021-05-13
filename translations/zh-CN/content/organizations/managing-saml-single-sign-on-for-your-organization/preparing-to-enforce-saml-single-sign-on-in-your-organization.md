@@ -1,6 +1,6 @@
 ---
 title: 准备在组织中实施 SAML 单点登录
-intro: '在组织中实施 SAML 单点登录之前，应验证组织的成员资格，并配置到身份提供程序的连接设置。'
+intro: 在组织中实施 SAML 单点登录之前，应验证组织的成员资格，并配置到身份提供程序的连接设置。
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 当您在组织中[实施 SAML 单点登录](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)时，未通过身份提供程序 (IdP) 验证的成员将从组织中删除，并且会收到通知删除的电子邮件。

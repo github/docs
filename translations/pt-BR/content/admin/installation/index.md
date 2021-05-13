@@ -12,7 +12,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

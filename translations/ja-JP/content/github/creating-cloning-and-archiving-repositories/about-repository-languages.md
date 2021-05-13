@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data variables.product.product_name %} は、オープンソースの [Linguist ライブラリ](https://github.com/github/linguist)を使用して、

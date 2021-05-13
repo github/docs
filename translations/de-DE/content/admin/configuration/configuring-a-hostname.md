@@ -1,6 +1,6 @@
 ---
 title: Hostname konfigurieren
-intro: Es wird empfohlen, dass Sie einen Hostnamen für Ihre Appliance festlegen, anstatt eine hartcodierte IP-Adresse zu verwenden.
+intro: 'Es wird empfohlen, dass Sie einen Hostnamen für Ihre Appliance festlegen, anstatt eine hartcodierte IP-Adresse zu verwenden.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames/
   - /enterprise/admin/installation/configuring-a-hostname
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Wenn Sie einen Hostnamen konfigurieren, anstatt eine hartcodierte IP-Adresse zu verwenden, können Sie die physische Hardware ändern, auf der {% data variables.product.product_location %} ausgeführt wird, ohne dass sich dies auf die Benutzer oder auf die Clientsoftware auswirkt.

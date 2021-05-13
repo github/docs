@@ -1,5 +1,5 @@
 ---
-title: Ereignisse, die Workflows auslösen
+title: 'Ereignisse, die Workflows auslösen'
 intro: 'Sie können konfigurieren, dass Ihre Workflows zu einem geplanten Zeitpunkt ausgeführt werden oder dann, wenn eine bestimmte Aktivität auf {% data variables.product.product_name %} stattfindet oder ein Ereignis außerhalb von {% data variables.product.product_name %} auftritt.'
 product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 4

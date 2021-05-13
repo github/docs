@@ -1,6 +1,6 @@
 ---
 title: Ein neues Repository erstellen
-intro: Du kannst ein neues Repository in Deinem persönlichen Konto oder in jeder Organisation erstellen, für die Du ausreichend Berechtigungen hast.
+intro: 'Du kannst ein neues Repository in Deinem persönlichen Konto oder in jeder Organisation erstellen, für die Du ausreichend Berechtigungen hast.'
 redirect_from:
   - /creating-a-repo/
   - /articles/creating-a-repository-in-an-organization/
@@ -14,7 +14,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% tip %}

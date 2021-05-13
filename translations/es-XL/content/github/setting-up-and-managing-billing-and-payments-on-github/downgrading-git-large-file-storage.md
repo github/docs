@@ -7,6 +7,8 @@ redirect_from:
   - /articles/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "

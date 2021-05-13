@@ -7,6 +7,10 @@ redirect_from:
   - /enterprise/admin/user-management/audited-actions
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+miniTocMaxHeadingLevel: 4
+topics:
+  - Enterprise
 ---
 
 #### Autenticación

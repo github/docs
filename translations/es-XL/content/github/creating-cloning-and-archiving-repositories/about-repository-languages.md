@@ -11,6 +11,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} usa la [biblioteca lingüista](https://github.com/github/linguist) de código abierto para determinar los idiomas del archivo para el resaltado de la sintaxis y las estadísticas del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.

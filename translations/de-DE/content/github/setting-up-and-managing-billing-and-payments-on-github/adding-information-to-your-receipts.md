@@ -14,7 +14,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 Ihre Quittungen enthalten Ihr {% data variables.product.prodname_dotcom %}-Abonnement sowie alle Abonnements für [sonstige bezahlte Funktionen und Produkte](/articles/about-billing-on-github).

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ![Organization 内の Team のリスト](/assets/images/help/teams/org-list-of-teams.png)

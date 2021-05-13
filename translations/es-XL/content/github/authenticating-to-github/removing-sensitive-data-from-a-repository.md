@@ -9,6 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 El comando `git filter-branch` y el BFG Repo-Cleaner reescriben el historial de tu repositorio, lo cual cambia las SHA de las confirmaciones existentes que modificas y cualquier confirmación de las dependencias. Las SHA de confirmación modificadas pueden afectar las solicitudes de extracción abiertas de tu repositorio. Recomendamos fusionar o cerrar todas las solicitudes de extracción abiertas antes de eliminar archivos de tu repositorio.

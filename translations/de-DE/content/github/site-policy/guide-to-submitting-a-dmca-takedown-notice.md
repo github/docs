@@ -1,14 +1,14 @@
 ---
 title: Leitfaden zum Absenden einer DMCA Takedown Notice
 redirect_from:
-  - /dmca-counter-notice-how-to/
+  - /dmca-notice-how-to/
   - /articles/dmca-notice-how-to/
   - /articles/guide-to-submitting-a-dmca-takedown-notice
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Dieser Leitfaden beschreibt die Informationen, die GitHub benötigt, um einen DMCA Takedown Request zu verarbeiten. Zu allgemeineren Fragen über die DMCA ist oder wie GitHub DMCA Takedown Requests verarbeitet, lesen Sie bitte unsere [DMCA Takedown-Richtlinie](/articles/dmca-takedown-policy).

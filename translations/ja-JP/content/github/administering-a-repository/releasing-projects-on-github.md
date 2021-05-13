@@ -1,6 +1,6 @@
 ---
 title: GitHub でプロジェクトをリリースする
-intro: 'ほかの人がダウンロードできるように、ソフトウェア、リリースノート、およびバイナリファイルをパッケージ化したリリースを作成できます。'
+intro: ほかの人がダウンロードできるように、ソフトウェア、リリースノート、およびバイナリファイルをパッケージ化したリリースを作成できます。
 mapTopic: true
 redirect_from:
   - /categories/85/articles/
@@ -10,6 +10,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 

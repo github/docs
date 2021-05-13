@@ -9,8 +9,10 @@ redirect_from:
   - /enterprise/admin/user-management/managing-projects-using-jira
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Project management
 ---
 
 ### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization

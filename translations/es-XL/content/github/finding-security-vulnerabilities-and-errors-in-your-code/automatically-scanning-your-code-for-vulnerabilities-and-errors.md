@@ -4,7 +4,8 @@ shortTitle: Escanear automáticamente
 intro: 'Puedes encontrar vulnerabilidades y errores en el código de tu proyecto en {% data variables.product.prodname_dotcom %}.'
 mapTopic: true
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 

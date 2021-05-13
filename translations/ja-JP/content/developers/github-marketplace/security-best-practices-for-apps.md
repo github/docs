@@ -9,7 +9,7 @@ shortTitle: セキュリティベストプラクティス
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 以下のベストプラクティスに従えば、セキュアなユーザ体験を提供するための役に立つでしょう。

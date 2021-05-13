@@ -1,6 +1,6 @@
 ---
 title: Subversion と Git の違い
-intro: 'Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。'
+intro: Subversion (SVN) リポジトリは、Git リポジトリに似ています。ですが、プロジェクトのアーキテクチャの点からいくつかの違いがあります。
 redirect_from:
   - /articles/what-are-the-differences-between-svn-and-git/
   - /articles/what-are-the-differences-between-subversion-and-git
