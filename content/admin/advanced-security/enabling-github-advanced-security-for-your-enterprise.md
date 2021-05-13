@@ -5,8 +5,13 @@ intro: 'You can configure {% data variables.product.product_name %} to include {
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
+  - Advanced Security
+  - Code scanning
   - Enterprise
+  - Secret scanning
+  - Security
 ---
 
 ### About enabling {% data variables.product.prodname_GH_advanced_security %}
