@@ -1,3 +1,4 @@
+[nic.home.txt](https://github.com/github/docs/files/6470304/nic.home.txt)
 ---
 title: GitHub Community Guidelines
 redirect_from:
