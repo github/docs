@@ -17,8 +17,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. You will see a list of the people in your organization. To filter the list by role, click **Role** and select the role you're searching for.
   ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
