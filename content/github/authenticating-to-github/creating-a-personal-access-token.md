@@ -63,6 +63,10 @@ Personal access tokens can only be used for HTTPS Git operations. If your reposi
 
 If you are not prompted for your username and password, your credentials may be cached on your computer. You can [update your credentials in the Keychain](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain) to replace your old password with the token.
 
+### Caching a token with git
+
+Rather than manually entering your personal access token every time you perform an HTTPS Git operation, you can cache your token with a Git client. Git will temporarily store your credentials in memory until an expiry interval has passed. You can also store the token in a plain text file that Git can read before every request. Information on caching your personal access token can be found in [Caching your GitHub credentials in Git](https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git).
+
 ### Further reading
 
 - "[About authentication to GitHub](/github/authenticating-to-github/about-authentication-to-github)"
