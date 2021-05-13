@@ -40,6 +40,7 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
 - [Include administrators](#include-administrators)
@@ -95,6 +96,10 @@ You can set up required status checks to either be "loose" or "strict." The type
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
+
+#### Require conversation resolution before merging
+
+This branch protection setting requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
 
 #### Require signed commits
 
