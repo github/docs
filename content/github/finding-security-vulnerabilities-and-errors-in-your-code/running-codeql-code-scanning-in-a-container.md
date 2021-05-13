@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - security
+  - Security
 ---
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
@@ -59,16 +59,16 @@ jobs:
       image: codeql-container:f0f91db
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Initialize {% data variables.product.prodname_codeql %}
-      uses: github/codeql-action/init@v1
-      with:
-        languages: {% raw %}${{ matrix.language }}{% endraw %}
-    - name: Build
-      run: |
-        ./configure
-        make
-    - name: Perform {% data variables.product.prodname_codeql %} Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
+        with:
+          languages: {% raw %}${{ matrix.language }}{% endraw %}
+      - name: Build
+        run: |
+          ./configure
+          make
+      - name: Perform {% data variables.product.prodname_codeql %} Analysis
+        uses: github/codeql-action/analyze@v1
 ```

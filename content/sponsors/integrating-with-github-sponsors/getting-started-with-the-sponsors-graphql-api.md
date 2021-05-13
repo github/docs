@@ -3,10 +3,10 @@ title: Getting started with the Sponsors GraphQL API
 intro: 'Using the GraphQL API, you can build custom integrations to manage or review your sponsorships.'
 versions:
   free-pro-team: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'GraphQL'
-  - 'API'
+  - GraphQL
+  - API
 ---
 
 To get started with the GraphQL API, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql)."

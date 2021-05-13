@@ -1,7 +1,7 @@
 ---
 title: Guias de discussões
 shortTitle: Guias
-intro: 'Descubra caminhos para começar ou aprender as práticas recomendadas para participar ou monitorar as discussões da sua comunidade.'
+intro: Descubra caminhos para começar ou aprender as práticas recomendadas para participar ou monitorar as discussões da sua comunidade.
 versions:
   free-pro-team: '*'
 ---

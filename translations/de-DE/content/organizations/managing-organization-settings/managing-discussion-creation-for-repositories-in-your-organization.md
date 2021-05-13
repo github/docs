@@ -7,8 +7,8 @@ permissions: Organization owners can manage discussion creation for repositories
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}

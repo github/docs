@@ -4,7 +4,7 @@ intro: '您可以安装 {% data variables.product.prodname_insights %} 并将独
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
-permissions: '{% data variables.product.prodname_enterprise %} 中对 "github/insights-releases" 仓库具有读取权限以及对应用程序服务器具有管理权限的组织所有者可以安装 {% data variables.product.prodname_insights %}。'
+permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

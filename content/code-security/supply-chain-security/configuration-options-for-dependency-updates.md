@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About the *dependabot.yml* file
@@ -164,7 +164,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Use the `allow` option to customize which dependencies are updated. This has no impact on security updates for vulnerable dependencies. You can use the following options:
+Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
 - `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
 - `dependency-type`—use to allow updates for dependencies of specific types.
@@ -474,11 +474,11 @@ To allow {% data variables.product.prodname_dependabot %} to access a private pa
 
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution).
 
-{% raw %}
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
 # when updating dependency versions for this ecosystem
 
+{% raw %}
 version: 2
 registries:
   maven-github:
@@ -494,11 +494,11 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     registries:
-    - maven-github
+      - maven-github
     schedule:
       interval: "monthly"
-```
 {% endraw %}
+```
 
 #### `reviewers`
 
@@ -717,7 +717,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker-registry/dockerhub"
     registries:
-    - dockerhub # Allow version updates for dependencies in this registry
+      - dockerhub # Allow version updates for dependencies in this registry
     schedule:
       interval: "monthly"
 ```

@@ -4,8 +4,11 @@ intro: 'You can use the site admin dashboard{% if enterpriseServerVersions conta
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: overview
 topics:
-  - enterprise
+  - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

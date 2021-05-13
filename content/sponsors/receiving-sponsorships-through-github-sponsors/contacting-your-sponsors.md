@@ -6,10 +6,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/contacting-your-sponsors
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'Contacting sponsors'
+  - Open Source
+  - Contacting sponsors
 ---
 
 ### About sponsorship updates

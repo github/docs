@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: '*'
-permissions: Las personas con permisos de mantenedor pueden administrar las fusiones automáticas de solicitudes de cambios en un repositorio.
+permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de la fusión automática

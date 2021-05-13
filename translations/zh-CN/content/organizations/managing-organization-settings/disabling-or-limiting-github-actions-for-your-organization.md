@@ -1,6 +1,6 @@
 ---
 title: 禁用或限制组织的 GitHub Actions
-intro: '组织所有者可禁用、启用和限制组织的 GitHub Actions。'
+intro: 组织所有者可禁用、启用和限制组织的 GitHub Actions。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

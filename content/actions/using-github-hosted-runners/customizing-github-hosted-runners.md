@@ -1,8 +1,6 @@
 ---
 title: Customizing GitHub-hosted runners
-intro: >-
-  You can install additional software on GitHub-hosted runners as a
-  part of your workflow.
+intro: You can install additional software on GitHub-hosted runners as a part of your workflow.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -33,12 +31,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Install jq tool
-      run: |
-        sudo apt-get update
-        sudo apt-get install jq
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install jq tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install jq
 ```
 {% endraw %}
 
@@ -61,16 +59,16 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Install GitHub CLI
-      run: |
-        brew update
-        brew install gh
-    - name: Install Microsoft Edge
-      run: |
-        brew update
-        brew install --cask microsoft-edge
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install GitHub CLI
+        run: |
+          brew update
+          brew install gh
+      - name: Install Microsoft Edge
+        run: |
+          brew update
+          brew install --cask microsoft-edge
 ```
 {% endraw %}
 

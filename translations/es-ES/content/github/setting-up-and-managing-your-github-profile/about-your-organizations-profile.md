@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfiles
+  - Profiles
 ---
 
 Opcionalmente, puedes optar por agregar una descripción, una ubicación, un sitio web y una dirección de correo electrónico para tu organización y anclar repositorios importantes en la parte superior de la página.

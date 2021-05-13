@@ -1,6 +1,6 @@
 ---
 title: Warnungen von „secret scanning" (Durchsuchen nach Geheimnissen) verwalten
-intro: Du kannst Warnungen für Geheimnisse, welche in Deinem Repository geprüft wurden, anschauen und schließen.
+intro: 'Du kannst Warnungen für Geheimnisse, welche in Deinem Repository geprüft wurden, anschauen und schließen.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}

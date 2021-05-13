@@ -7,10 +7,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'Sponsors profile'
+  - Open Source
+  - Sponsors profile
 ---
 
 ### About sponsorship tiers

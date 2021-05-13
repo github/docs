@@ -14,6 +14,7 @@ module.exports = {
     ecmaVersion: 11
   },
   rules: {
+    'import/no-extraneous-dependencies': ['error']
   },
   overrides: [
     {

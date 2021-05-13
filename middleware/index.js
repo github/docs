@@ -130,13 +130,17 @@ module.exports = function (app) {
     app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
   }
 
-  app.use(asyncMiddleware(instrument('./enterprise-server-releases')))
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
   app.use(asyncMiddleware(instrument('./learning-track')))
 
   // *** Headers for pages only ***
   app.use(require('./set-fastly-cache-headers'))
+
+  // handle serving NextJS bundled code (/_next/*)
+  if (process.env.FEATURE_NEXTJS) {
+    app.use(instrument('./next'))
+  }
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

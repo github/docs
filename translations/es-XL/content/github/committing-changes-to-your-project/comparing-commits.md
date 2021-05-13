@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Puedes comparar el estado de tu repositorio a través de ramas, etiquetas, confirmaciones de cambios y fechas. Para comparar versiones diferentes de tu repositorio, añade `/compare` a la ruta del mismo.

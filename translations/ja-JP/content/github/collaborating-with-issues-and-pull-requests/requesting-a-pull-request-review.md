@@ -1,6 +1,6 @@
 ---
 title: Pull Request レビューをリクエストする
-intro: 'Pull Request を作成したら、提案した変更を特定の人にレビューするように依頼できます。 あなたが Organization のメンバーである場合、特定の Team に変更をレビューするようリクエストすることもできます。'
+intro: Pull Request を作成したら、提案した変更を特定の人にレビューするように依頼できます。 あなたが Organization のメンバーである場合、特定の Team に変更をレビューするようリクエストすることもできます。
 redirect_from:
   - /articles/requesting-a-pull-request-review
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ユーザアカウントが所有しているリポジトリのオーナーとコラボレータは、プルリクエストのレビューを割り当てることができます。 リポジトリに対するトリアージ権限を持つ Organization メンバーは、プルリクエストのレビューを割り当てることができます。

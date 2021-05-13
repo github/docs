@@ -6,8 +6,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - enterprise
+  - Enterprise
+  - Organizations
+  - User account
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

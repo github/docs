@@ -1,8 +1,8 @@
 ---
 title: Enterprise アカウントのプランおよび利用状況を表示する
-intro: 'Enterprise アカウントの、現在のプラン、ライセンスの利用、請求書、支払い履歴、その他支払い情報を表示できます。'
+intro: Enterprise アカウントの、現在のプラン、ライセンスの利用、請求書、支払い履歴、その他支払い情報を表示できます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Enterprise オーナーと支払いマネージャーは、Enterprise アカウントの支払い設定すべてに対するアクセスおよび管理が可能です。
+permissions: Enterprise owners and billing managers can access and manage all billing settings for enterprise accounts.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
   - /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Enterprise アカウントの支払いについて

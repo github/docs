@@ -8,13 +8,13 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: '仓库协作者以及对仓库具有写入权限的人员可以创建、编辑和删除发行版。'
+permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}

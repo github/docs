@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 通过 API 创建新的 {% data variables.product.product_name %} 仓库时，您可以指定一个要在创建后应用于仓库的 [.gitignore 模板](/github/getting-started-with-github/ignoring-files)。 .gitignore 模板 API 可列出 {% data variables.product.product_name %} [.gitignore 仓库](https://github.com/github/gitignore)并从中获取模板。

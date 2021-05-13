@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Eliminar bifurcaciones de repositorios privados

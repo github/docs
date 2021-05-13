@@ -5,7 +5,7 @@ permissions: 'Site administrators can enable {% data variables.product.prodname_
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### 빌드전 요구 사양

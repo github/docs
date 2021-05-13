@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 拥有仓库管理员权限的人可对 {% data variables.product.prodname_pages %} 站点实施 HTTPS。

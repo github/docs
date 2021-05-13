@@ -10,7 +10,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。

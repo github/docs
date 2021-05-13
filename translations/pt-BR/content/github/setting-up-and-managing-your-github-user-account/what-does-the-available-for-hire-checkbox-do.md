@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - contas
+  - Accounts
 ---
 
 O quadro do [GitHub Jobs](https://jobs.github.com/) é uma ótima maneira de encontrar emprego no setor de tecnologia. Você pode optar por ver trabalhos postados lá no seu painel do GitHub.

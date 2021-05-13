@@ -11,7 +11,7 @@ permissions: 'Site administrators for {% data variables.product.prodname_ghe_ser
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### About {% data variables.product.prodname_github_connect %}

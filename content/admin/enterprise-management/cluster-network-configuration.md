@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - enterprise
+  - Clustering
+  - Enterprise
+  - Infrastructure
+  - Networking
 ---
 
 ### Network considerations

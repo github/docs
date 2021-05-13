@@ -1,14 +1,14 @@
 ---
 title: 管理项目中的漏洞安全通告
 shortTitle: 安全通告
-intro: '使用安全通告讨论、修正和披露您仓库中的安全漏洞。'
+intro: 使用安全通告讨论、修正和披露您仓库中的安全漏洞。
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
 versions:
   free-pro-team: '*'
 topics:
-  - 安全
+  - Security
 ---
 
 ### 目录

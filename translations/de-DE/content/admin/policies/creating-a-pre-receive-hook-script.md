@@ -1,6 +1,6 @@
 ---
 title: Pre-Receive-Hook-Skript erstellen
-intro: Verwenden Sie Pre-Receive-Hook-Skripts, um Anforderungen zum Akzeptieren oder Ablehnen eines Push-Vorgangs anhand der Inhalte zu erstellen.
+intro: 'Verwenden Sie Pre-Receive-Hook-Skripts, um Anforderungen zum Akzeptieren oder Ablehnen eines Push-Vorgangs anhand der Inhalte zu erstellen.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
@@ -8,7 +8,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 Im [`github/platform-samples`-Repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks) finden Sie Beispiele von Pre-Receive-Hooks für {% data variables.product.prodname_ghe_server %}.

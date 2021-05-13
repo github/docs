@@ -6,8 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - enterprise
+  - Enterprise
+  - Support
 ---
 
 ### About submitting a ticket
