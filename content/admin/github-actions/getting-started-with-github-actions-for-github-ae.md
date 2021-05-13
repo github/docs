@@ -1,9 +1,14 @@
 ---
 title: Getting started with GitHub Actions for GitHub AE
+shortTitle: Getting started with GitHub Actions
 intro: 'Learn configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_managed %}.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 ---
 
 {% data reusables.actions.ae-beta %}
