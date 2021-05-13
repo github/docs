@@ -227,6 +227,10 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   dotnet restore
   ```
 
+### Troubleshooting
+
+Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+
 ### Further reading
 
 - "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
