@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pesquisa do github
+  - GitHub search
 ---
 
 ### Pesquisar tópicos no {% data variables.product.product_name %}

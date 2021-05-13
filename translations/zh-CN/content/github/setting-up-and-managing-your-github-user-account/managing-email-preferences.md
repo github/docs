@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 帐户
-  - 通知
+  - Accounts
+  - Notifications
 ---
 

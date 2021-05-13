@@ -15,6 +15,8 @@ redirect_from:
 intro: 'Como parte de un plan de recuperación ante desastres, puedes proteger los datos de producción en {% data variables.product.product_location_enterprise %} configurando copias de seguridad automáticas.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de {% data variables.product.prodname_enterprise_backup_utilities %}

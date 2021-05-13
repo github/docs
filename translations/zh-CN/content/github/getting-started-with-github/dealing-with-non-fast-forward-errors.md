@@ -1,6 +1,6 @@
 ---
 title: 处理非快进错误
-intro: '有时，Git 无法在不丢失提交的情况下对远程仓库进行更改。 发生此情况时，推送会被拒绝。'
+intro: 有时，Git 无法在不丢失提交的情况下对远程仓库进行更改。 发生此情况时，推送会被拒绝。
 redirect_from:
   - /articles/dealing-with-non-fast-forward-errors
   - /github/using-git/dealing-with-non-fast-forward-errors

@@ -6,10 +6,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-payouts-from-github-sponsors
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Sponsors payments'
-  - 'Open Source'
+  - Sponsors payments
+  - Open Source
 ---
 
 ### About payouts from {% data variables.product.prodname_sponsors %}

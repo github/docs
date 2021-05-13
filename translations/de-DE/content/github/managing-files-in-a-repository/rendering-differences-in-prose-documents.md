@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 Commits und Pull Requests an Fließtextdokumenten unterstützen die Darstellung dieser Dokumente im *Quell-* und im *gerenderten* Format.

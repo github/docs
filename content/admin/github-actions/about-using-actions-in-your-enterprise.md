@@ -7,9 +7,11 @@ redirect_from:
   - /admin/github-actions/about-using-actions-on-github-enterprise-server
 versions:
   enterprise-server: '>=2.22'
-  github-ae: 'next'
+  github-ae: next
+type: overview
 topics:
-  - enterprise
+  - Actions
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -1,6 +1,6 @@
 ---
 title: 自动链接的引用和 URL
-intro: '对 URL、议题、拉取请求和提交的引用会自动缩短并转换为链接。'
+intro: 对 URL、议题、拉取请求和提交的引用会自动缩短并转换为链接。
 redirect_from:
   - /articles/autolinked-references-and-urls
 versions:

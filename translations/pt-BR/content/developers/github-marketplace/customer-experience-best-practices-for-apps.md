@@ -5,7 +5,7 @@ shortTitle: Práticas recomendadas de experiência do cliente
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 Se você seguir essas práticas recomendadas, elas ajudarão você a oferecer uma boa experiência para o cliente.

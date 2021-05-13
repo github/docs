@@ -1,14 +1,14 @@
 ---
 title: Crear una acción para pasos de ejecución compuestos
-intro: 'En esta guía aprenderás cómo crear una acción para los pasos de ejecución compuestos.'
+intro: En esta guía aprenderás cómo crear una acción para los pasos de ejecución compuestos.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Desarrollo de las acciones'
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -4,7 +4,7 @@ intro: 'A partir de 14 de abril de 2020, o GitHub anunciou que todos os principa
 versions:
   free-pro-team: '*'
 topics:
-  - github
+  - GitHub
 ---
 
 ### Quais planos e mudanças de preços o GitHub anunciou em 14 de abril?

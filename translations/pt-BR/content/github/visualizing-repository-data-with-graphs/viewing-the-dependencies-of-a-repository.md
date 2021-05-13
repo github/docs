@@ -1,6 +1,6 @@
 ---
 title: Visualizar as dependências de um repositório
-intro: 'Você pode usar o gráfico de dependências para explorar o código do qual seu repositório depende.'
+intro: Você pode usar o gráfico de dependências para explorar o código do qual seu repositório depende.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'

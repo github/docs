@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 帐户
+  - Accounts
 ---
 
 ### 关于用户名更改

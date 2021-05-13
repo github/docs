@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 各 Audit log エントリには、次のようなイベントに関する適切な情報が表示されます:

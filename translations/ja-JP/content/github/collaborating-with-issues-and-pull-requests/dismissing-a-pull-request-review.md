@@ -1,6 +1,6 @@
 ---
 title: プルリクエストレビューの却下
-intro: 'リポジトリにレビューが必要な場合は、有効でなくなった、またはレビュー担当者による承認不可のプルリクエストレビューを却下できます。'
+intro: リポジトリにレビューが必要な場合は、有効でなくなった、またはレビュー担当者による承認不可のプルリクエストレビューを却下できます。
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% data reusables.pull_requests.dismiss_review %}

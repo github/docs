@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, lo cual permite a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)".{% endif %}

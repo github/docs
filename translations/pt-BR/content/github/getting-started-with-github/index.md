@@ -39,9 +39,9 @@ featuredLinks:
     - /github/getting-started-with-github/troubleshooting-connectivity-problems
 topics:
   - Pull requests
-  - Problemas
-  - notificações
-  - contas
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 <div hidden>

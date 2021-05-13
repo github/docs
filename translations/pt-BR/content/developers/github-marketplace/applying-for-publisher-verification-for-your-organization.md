@@ -4,7 +4,7 @@ intro: 'Para oferecer planos pagos para seu aplicativo ou para incluir um selo n
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 A verificação do editor garante que {% data variables.product.prodname_dotcom %} tem uma forma de entrar em contato com você, que você habilitou a autenticação de dois fatores para a sua organização e que o domínio da sua organização foi verificado.

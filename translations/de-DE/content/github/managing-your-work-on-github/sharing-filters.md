@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 Die hierbei generierte URL kannst Du anderen Benutzern senden, damit diese die gleiche Filteransicht aufrufen können.

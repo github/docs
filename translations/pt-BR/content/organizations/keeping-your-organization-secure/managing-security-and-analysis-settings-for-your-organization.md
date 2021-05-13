@@ -1,7 +1,7 @@
 ---
 title: Gerenciar as configurações de segurança e análise para a sua organização
 intro: 'Você pode controlar recursos que protegem e analisam o código nos projetos da sua organização no {% data variables.product.prodname_dotcom %}.'
-permissions: Os proprietários da organização podem gerenciar as configurações de segurança e análise de repositórios na organização.
+permissions: Organization owners can manage security and analysis settings for repositories in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre a gestão de configurações de segurança e análise

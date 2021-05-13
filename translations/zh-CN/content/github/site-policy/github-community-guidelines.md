@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 数百万开发者在 GitHub 上托管了数百万个项目，包括开源和闭源项目，我们很荣幸能够为促进社区的日常协作发挥作用。 走在一起，我们都有机会和责任让这个社区成为我们值得骄傲的地方。

@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
-  - 결제
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 {% warning %}

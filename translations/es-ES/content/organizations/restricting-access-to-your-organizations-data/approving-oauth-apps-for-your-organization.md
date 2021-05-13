@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Cuando las restricciones de acceso a {% data variables.product.prodname_oauth_app %} están habilitadas, los miembros de la organización deben [solicitar la aprobación](/articles/requesting-organization-approval-for-oauth-apps) de un propietario de la organización antes de que puedan autorizar una {% data variables.product.prodname_oauth_app %} que tiene acceso a los recursos de la organización.

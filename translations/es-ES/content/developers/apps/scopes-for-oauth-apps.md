@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 Cuando estás configurando una App de OAuth en GitHub, los alcances solicitados se muestran al usuario en el formato de autorización.

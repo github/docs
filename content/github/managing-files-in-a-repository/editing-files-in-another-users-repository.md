@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.

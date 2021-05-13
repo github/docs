@@ -3,13 +3,13 @@ title: Permitir cambios para una rama de solicitud de extracción creada desde u
 intro: 'Para tener una mejor colaboración, puedes permitir confirmaciones de cambios en ramas que hayas creado a partir de bifurcaciones de las cuales sea dueño tu usuario.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
-permissions: Las personas con acceso de escritura en el repositorio ascendente de una bifurcación de la cual tu usuario sea dueño pueden confirmar cambios en las ramas bifurcadas.
+permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Solo los autores de las solicitudes de extracción pueden otorgar permisos a los mantenedores del repositorio ascendente, o a aquellos con acceso de escritura en dicho repositorio, para realizar confirmaciones de cambios en sus solicitudes de extracción para comparar ramas en una bifurcación propiedad de un usuario. Para conocer más sobre los repositorios ascendentes, consulta "[Acerca de las bifurcaciones](/articles/about-forks)".
