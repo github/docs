@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Viewing enterprise owners{% if currentVersion == "free-pro-team@latest" %} and billing managers{% endif %}
@@ -23,7 +25,7 @@ You can view enterprise owners {% if currentVersion == "free-pro-team@latest" %}
 
 ### Mitglieder und externe Mitarbeiter anzeigen
 
-Du kannst die Anzahl der ausstehenden Mitglieder und externen Mitarbeiter anzeigen. You can filter the list of members by {% if currentVersion == "free-pro-team@latest" %}deployment ({% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}),{% endif %}role {% if currentVersion == "free-pro-team@latest" %}, and{% elsif currentVersion == "github-ae@latest" %}or {% endif %}organization. Du kannst die Liste der externen Mitarbeiter nach der Sichtbarkeit der Repositorys filtern, auf die der Mitarbeiter zugreifen kann. Du kannst eine bestimmte Person nach ihrem Benutzernamen oder Anzeigenamen suchen.
+Du kannst die Anzahl der ausstehenden Mitglieder und externen Mitarbeiter anzeigen. You can filter the list of members by {% if currentVersion == "free-pro-team@latest" %}deployment ({% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}),{% endif %} role{% if currentVersion == "free-pro-team@latest" %}, and{% else %} or {% endif %} organization. Du kannst die Liste der externen Mitarbeiter nach der Sichtbarkeit der Repositorys filtern, auf die der Mitarbeiter zugreifen kann. Du kannst eine bestimmte Person nach ihrem Benutzernamen oder Anzeigenamen suchen.
 
 You can view {% if currentVersion == "free-pro-team@latest" %}all the {% data variables.product.prodname_ghe_cloud %} organizations and {% data variables.product.prodname_ghe_server %} instances that a member belongs to, and {% endif %}which repositories an outside collaborator has access to{% if currentVersion == "free-pro-team@latest" %}, {% endif %} by clicking on the person's name.
 

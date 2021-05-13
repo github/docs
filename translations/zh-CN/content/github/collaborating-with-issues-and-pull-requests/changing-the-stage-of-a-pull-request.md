@@ -1,7 +1,7 @@
 ---
 title: 更改拉取请求的阶段
 intro: '您可以将拉取请求草稿标记为可供审查{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 或将拉取请求转换为草稿{% endif %}。'
-permissions: 具有仓库写入权限的人员和拉取请求作者可以更改拉取请求的阶段。
+permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### 将拉取请求草稿标记为可供审查

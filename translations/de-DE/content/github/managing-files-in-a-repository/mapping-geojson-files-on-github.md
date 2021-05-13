@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} unterstützt die Zuordnung von geoJSON- und topoJSON-Daten in {% data variables.product.product_name %}-Repositorys. Gib die Datei einfach wie gewohnt mit Commit frei, und verwende die Erweiterung `.geojson` oder `.topojson`. Dateien mit der Erweiterung `.json` werden auch unterstützt, aber nur wenn `type` auf `FeatureCollection`, `GeometryCollection` oder `topology` festgelegt ist. Navigiere dann zum Pfad der geoJSON-Datei auf GitHub.com.

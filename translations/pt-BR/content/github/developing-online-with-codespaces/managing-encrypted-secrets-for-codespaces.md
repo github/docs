@@ -1,9 +1,11 @@
 ---
 title: Gerenciar segredos criptografados para codespaces
-intro: Você pode armazenar informações confidenciais, como tokens, que você deseja acessar nos seus codespaces por meio de variáveis de ambiente.
+intro: 'Você pode armazenar informações confidenciais, como tokens, que você deseja acessar nos seus codespaces por meio de variáveis de ambiente.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   free-pro-team: '*'
+topics:
+  - espaços de código
 ---
 
 {% note %}
@@ -11,6 +13,7 @@ versions:
 **Observação:** Os segredos criptografados para {% data variables.product.prodname_codespaces %} estão atualmente na versão beta e sujeitos a alterações.
 
 {% endnote %}
+
 
 ### Sobre os segredos criptografados para {% data variables.product.prodname_codespaces %}
 
@@ -23,6 +26,12 @@ Você pode adicionar segredos criptografados à sua conta de usuário que deseja
 Você pode escolher quais repositórios devem ter acesso a cada segredo. Em seguida, você pode usar o segredo em qualquer código que criar para um repositório que tiver acesso ao segredo.
 
 ### Adicionar um segredo
+
+{% note %}
+
+**Observação:** Os tokens que começam com GITHUB_ são reservados
+
+{% endnote %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.codespaces-tab %}

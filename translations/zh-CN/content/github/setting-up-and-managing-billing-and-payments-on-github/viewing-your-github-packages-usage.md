@@ -4,6 +4,8 @@ intro: '您可以查看 {% data variables.product.prodname_registry %} 的存储
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 查看用户帐户的 {% data variables.product.prodname_registry %} 使用情况

@@ -8,9 +8,12 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Entrada em vigor: **29 de janeiro de 2021**
+Effective date: **April 2, 2021**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para essa finalidade, disponibilizamos esta página, que detalha os [nossos subprocessadores](#github-subprocessors) e como usamos [cookies](#cookies-on-github).
 
@@ -30,7 +33,6 @@ Quando compartilhamos suas informações com terceiros subprocessadores, tais co
 | MailChimp                | Fornecedor de serviços de correio para emissão de bilhetes a clientes       | Estados Unidos         | Estados Unidos          |
 | Mailgun                  | Provedor de serviços de correio transacional                                | Estados Unidos         | Estados Unidos          |
 | Microsoft                | Microsoft Services                                                          | Estados Unidos         | Estados Unidos          |
-| Monday.com               | Colaboração da equipe e plataforma de gerenciamento de projetos             | Estados Unidos         | Israel                  |
 | Nexmo                    | Provedor de notificação de SMS                                              | Estados Unidos         | Estados Unidos          |
 | Salesforce.com           | Gerenciamento de relacionamento com clientes                                | Estados Unidos         | Estados Unidos          |
 | Sentry.io                | Provedor de monitoramento de aplicativo                                     | Estados Unidos         | Estados Unidos          |
@@ -50,8 +52,9 @@ Como o número e os nomes dos cookies podem mudar, a tabela abaixo pode ser atua
 | Provedor de serviço | Nome do cookie                       | Descrição                                                                                                                                                                                | Vencimento*                                                                  |
 |:------------------- |:------------------------------------ |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------- |
 | GitHub              | `app_manifest_token`                 | Este cookie é usado durante o fluxo do manifesto do aplicativo para manter o estado do fluxo durante o redirecionamento para buscar uma sessão do usuário.                               | cinco minutos                                                                |
+| GitHub              | `color_mode`                         | Este cookie é usado para indicar a preferência de tema selecionada pelo usuário.                                                                                                         | sessão                                                                       |
 | GitHub              | `_device_id`                         | Este cookie é usado para rastrear dispositivos reconhecidos para fins de segurança.                                                                                                      | um ano                                                                       |
-| GitHub              | `dotcom_user`                        | Este cookie é usado para sinalizar que o usuário já está logado.                                                                                                                         | um ano                                                                       |
+| GitHub              | `dotcom_user`                        | Este cookie é usado para sinalizar que o usuário já está conectado.                                                                                                                      | um ano                                                                       |
 | GitHub              | `_gh_ent`                            | Este cookie é usado para aplicação temporária e para o estado da estrutura entre páginas, como em que etapa o cliente se encontra em um processo de várias etapas.                       | duas semanas                                                                 |
 | GitHub              | `_gh_sess`                           | Este cookie é usado para aplicação temporária e para o estado do framework entre páginas, como por exemplo, em qual etapa o usuário está em um formulário de várias etapas.              | sessão                                                                       |
 | GitHub              | `gist_oauth_csrf`                    | Este cookie é definido pelo Gist para garantir que o usuário que iniciou o fluxo de autenticação seja o mesmo usuário que o completa.                                                    | excluído quando o estado do oauth é validado                                 |
@@ -59,7 +62,7 @@ Como o número e os nomes dos cookies podem mudar, a tabela abaixo pode ser atua
 | GitHub              | `has_recent_activity`                | Este cookie é usado para impedir a exibição de intersticial de segurança para usuários que visitaram o aplicativo recentemente.                                                          | uma hora                                                                     |
 | GitHub              | `__Host-gist_user_session_same_site` | Este cookie foi definido para garantir que os navegadores que suportam cookies do SameSite possam verificar se uma solicitação é originária do GitHub.                                   | duas semanas                                                                 |
 | GitHub              | `__Host-user_session_same_site`      | Este cookie foi definido para garantir que os navegadores que suportam cookies do SameSite possam verificar se uma solicitação é originária do GitHub.                                   | duas semanas                                                                 |
-| GitHub              | `logged_in`                          | Este cookie é usado para sinalizar que o usuário já está logado.                                                                                                                         | um ano                                                                       |
+| GitHub              | `logged_in`                          | Este cookie é usado para sinalizar que o usuário já está conectado.                                                                                                                      | um ano                                                                       |
 | GitHub              | `marketplace_repository_ids`         | Este cookie é usado para o fluxo de instalação do marketplace.                                                                                                                           | uma hora                                                                     |
 | GitHub              | `marketplace_suggested_target_id`    | Este cookie é usado para o fluxo de instalação do marketplace.                                                                                                                           | uma hora                                                                     |
 | GitHub              | `_octo`                              | Este cookie é usado para o gerenciamento de sessões, incluindo o cache de conteúdo dinâmico, acesso condicional a recursos, suporte a metadados solicitados e análise da primeira parte. | um ano                                                                       |

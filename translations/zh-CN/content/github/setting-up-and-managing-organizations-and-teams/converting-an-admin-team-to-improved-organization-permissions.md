@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 要删除旧管理员团队成员创建仓库的权限，请为这些成员创建新团队，确保该团队对组织仓库具有必要的权限，然后删除旧管理员团队。

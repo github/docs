@@ -5,6 +5,9 @@ product: '{% data reusables.gated-features.saml-sso %}'
 permissions: 组织所有者可以使用 Okta 为组织配置 SAML SSO 和 SCIM。
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于 SAML 和 SCIM 与 Octa

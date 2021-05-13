@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### Abfrage nach Werten mit einem Vergleichsoperator
@@ -48,7 +50,7 @@ Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-rang
 | <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** findet Issues mit dem Wort „cats", die am oder vor dem 4. Juli 2012 erstellt wurden.                                                                |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** sucht Repositorys, die das Wort „cats“ enthalten und zu denen zwischen dem 30. April und dem 4. Juli 2016 ein Push erfolgt ist. |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und nach dem 30. April 2012 erstellt wurden.                                                              |
-| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und vor dem 30. April 2012 erstellt wurden.                                                               |
+| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und vor dem 30. April 2012 erstellt wurden.                                                               |
 
 {% data reusables.time_date.time_format %}
 

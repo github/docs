@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -64,7 +66,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
 您可以在
-{% data variables.product.prodname_mobile %} 应用中启用推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)”。
+{% data variables.product.prodname_mobile %} 应用中自定义并计划推送通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)”。
 {% endif %}
 
 ### 接收通知的原因

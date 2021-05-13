@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}Para aprender como usar Manifestos do aplicativo GitHub, que permite às pessoas criar aplicativos GitHub pré-configurados, consulte "[Criar aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
@@ -64,6 +66,6 @@ versions:
   {% endnote %}
 
 13. Em "Permissões", escolha as permissões que o seu aplicativo irá solicitar. Para cada tipo de permissão, use o menu suspenso e clique em **somente leitura**, **leitura & gravação** ou **Sem acesso**. ![Várias permissões para o seu aplicativo GitHub](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. Em "Assinar eventos", escolha se deseja assinar seu aplicativo para eventos de **etiqueta**, **públicos**, **repositório** or **inspeção**. ![Inscreva-se nas opções de eventos para seu aplicativo GitHub](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. Em "Assinar eventos", escolha os eventos que você deseja que seu aplicativo receba.
 15. Para escolher o local onde o aplicativo pode ser instalado, selecione **somente nesta conta** ou **qualquer conta**. Para obter mais informações sobre as opções de instalação, consulte "[Tornando um aplicativo GitHub público ou privado](/apps/managing-github-apps/making-a-github-app-public-or-private/)". ![Opções de instalação para o seu aplicativo GitHub](/assets/images/github-apps/github_apps_installation_options.png)
 16. Click **Criar aplicativo GitHub**. ![Botão para criar o seu aplicativo GitHub](/assets/images/github-apps/github_apps_create_github_app.png)

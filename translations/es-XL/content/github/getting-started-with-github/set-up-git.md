@@ -14,6 +14,12 @@ intro: 'En el centro de {% data variables.product.product_name %} hay un sistema
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}

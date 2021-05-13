@@ -13,6 +13,8 @@ redirect_from:
   - /articles/adding-information-to-your-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotcom %} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).

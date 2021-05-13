@@ -15,17 +15,21 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 ### Acerca de configurar planes de precios
 
-{% data variables.product.prodname_marketplace %} offers several different types of pricing plans. Para obener información detallada, consulta la sección "[Planes de precios para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
+{% data variables.product.prodname_marketplace %} ofrece varios tipos diferentes de planes de pago. Para obener información detallada, consulta la sección "[Planes de precios para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".
 
-To offer a paid plan for your app, your app must be owned by an organization that has completed the publisher verification process and met certain criteria. For more information, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" and "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+Para ofrecer un plan de pago para tu app, esta debe pertenecer a una organización que haya completado el proceso de verificación de publicadores y debe cumplir con ciertos criterios. Para obtener más información, consulta las secciones "[Solicitar una verificación de publicador para tu organizción](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)" y "[Requisitos para listar una app en {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)".
 
-If your app is already published with a paid plan and you're a verified publisher, then you can publish a new paid plan from the "Edit a pricing plan" page in your Marketplace app listing settings.
+Si tu app ya se publicó con un plan de pago y eres un publicador verificado, entonces puedes publicar un plan de pago nuevo desde la página de "Editar plan de precios" en la configuración del listado de tu app de Marketplace.
 
-![Publish this plan button](/assets/images/marketplace/publish-this-plan-button.png)
+![Botón de publicar este plan](/assets/images/marketplace/publish-this-plan-button.png)
+
+Si tu app ya se publicó con un plan de pago, pero no puedes verificar al publicador, entonces no podrás publicar un plan de pago nuevo hasta que seas un publicador verificado. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
 ### Acerca de guardar los planes de precios
 
@@ -77,3 +81,5 @@ Una vez que elimines el plan de precios, los usuarios ya no podrán comprar tu a
 Puedes inhabilitar los periodos de prueba gratuitos en GitHub Marketplace sin retirar el plan de precios, pero esto te impide inciar periodos de prueba gratuitos en el futuro para este plan. Si eliges inhabilitar los periodos de prueba gratuitos para un plan de precios, los usuarios que ya se hayan registrado pueden completar su periodo de prueba gratuito.
 
 Después de dar de baja un plan de precios, puedes crear uno nuevo con el mismo nombre que aquél que eliminaste. Por ejemplo, si tienes un plan de precios "Pro" pero necesitas cambiar el precio de tasa fija, puedes eliminar el plan "Pro" y crear uno nuevo, que también sea "Pro" con un precio actualizado. Los usuarios podrán comprar el nuevo plan de precios inmediatamente.
+
+Si no eres un publicador verificado, entonces no podrás cambiar el plan de precios para tu app. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".

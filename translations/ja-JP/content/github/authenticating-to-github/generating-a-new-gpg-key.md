@@ -1,12 +1,15 @@
 ---
 title: 新しい GPG キーを生成する
-intro: '既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。'
+intro: 既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。
 redirect_from:
   - /articles/generating-a-new-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

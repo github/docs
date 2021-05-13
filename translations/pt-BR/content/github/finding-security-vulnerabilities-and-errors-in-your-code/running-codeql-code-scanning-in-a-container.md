@@ -4,8 +4,9 @@ shortTitle: '{% data variables.product.prodname_code_scanning_capc %} em um cont
 intro: 'Você pode executar {% data variables.product.prodname_code_scanning %} em um contêiner garantindo que todos os processos sejam executados no mesmo container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -14,7 +15,7 @@ versions:
 
 Se você estiver configurando {% data variables.product.prodname_code_scanning %} para um idioma compilado e estiver criando o código em um ambiente de contêiner, a análise pode falhar com a mensagem de erro "Nenhum código fonte foi visto durante a compilação." Isso indica que {% data variables.product.prodname_codeql %} não conseguiu monitorar seu código da forma como foi compilado.
 
-Você precisa executar {% data variables.product.prodname_codeql %} no mesmo contêiner em que você cria o seu código. Isto se aplica independentemente de você usar {% data variables.product.prodname_codeql_runner %} ou {% data variables.product.prodname_actions %}. Se você estiver usando {% data variables.product.prodname_codeql_runner %}, execute-o no contêiner onde seu código é criado. Para obter mais informações sobre o {% data variables.product.prodname_codeql_runner %}, consulte "[Executar {% data variables.product.prodname_codeql %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)". Se estiver usando {% data variables.product.prodname_actions %}, configure seu fluxo de trabalho para executar todas as ações no mesmo contêiner. Para obter mais informações, consulte "[Exemplo de fluxo de trabalho](#example-workflow)".
+Você precisa executar {% data variables.product.prodname_codeql %} no mesmo contêiner em que você cria o seu código. Isto se aplica independentemente de você usar {% data variables.product.prodname_codeql_runner %} ou {% data variables.product.prodname_actions %}. Se você estiver usando {% data variables.product.prodname_codeql_runner %}, execute-o no contêiner onde seu código é criado. For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)." Se estiver usando {% data variables.product.prodname_actions %}, configure seu fluxo de trabalho para executar todas as ações no mesmo contêiner. Para obter mais informações, consulte "[Exemplo de fluxo de trabalho](#example-workflow)".
 
 ### Dependências
 
@@ -37,7 +38,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '45 15 * * 2'
 
 jobs:
   analyze:

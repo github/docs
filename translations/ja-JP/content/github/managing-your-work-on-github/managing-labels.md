@@ -1,6 +1,6 @@
 ---
-title: Managing labels
-intro: 'You can classify issues and pull requests by creating, editing, applying, and deleting labels.'
+title: ラベルを管理する
+intro: ラベルを作成、編集、適用、および削除することで、Issue およびプルリクエストを分類できます。
 redirect_from:
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
@@ -21,29 +21,31 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### ラベルについて
 
-作業を管理するとき、{% data variables.product.product_name %} ラベルを作成して Issue とプルリクエストを分類することができます。 You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any issue or pull request within that repository.
+作業を管理するとき、{% data variables.product.product_name %} ラベルを作成して Issue とプルリクエストを分類することができます。 ラベルが作成されたリポジトリ内にラベルを適用できます。 ラベルが作成されると、そのリポジトリ内の任意の Issue またはプルリクエストでラベルを使用できます。
 
-リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 Anyone with triage access to a repository can apply/dismiss existing labels. ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
+リポジトリへの読み取りアクセスを持つ人は、誰でもリポジトリのラベルを表示・検索できます。 リポジトリへのトリアージアクセスを持つすべてのユーザは、既存のラベルを適用/却下できます。 ラベルの作成、編集、適用、削除をするためには、リポジトリに書き込みアクセスができなければなりません。
 
-### About default labels
+### デフォルトラベルについて
 
-{% data variables.product.product_name %} は、すべての新しいリポジトリにデフォルトのラベルを提供します。 You can use these default labels to help create a standard workflow in a repository.
+{% data variables.product.product_name %} は、すべての新しいリポジトリにデフォルトのラベルを提供します。 これらのデフォルトラベルを使用して、リポジトリに標準のワークフローを作成しやすくすることができます。
 
-| ラベル                | 説明                                                                                                                                                        |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Indicates an unexpected problem or unintended behavior{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+| ラベル                | 説明                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `bug`              | 予期しない問題または意図しない動作を示します{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 | `documentation`    | ドキュメンテーションに改善や追加が必要であることを示します{% endif %}
-| `duplicate`        | 同様の Issue あるいはプルリクエストを示します                                                                                                                                |
-| `enhancement`      | 新しい機能のリクエストを示します                                                                                                                                          |
-| `good first issue` | 初回のコントリビューターに適した Issue を示します                                                                                                                              |
-| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します                                                                                                                  |
-| `invalid`          | Issue あるいはプルリクエストに関連性がなくなったことを示します                                                                                                                        |
-| `question`         | Issue あるいはプルリクエストにさらなる情報が必要なことを示します                                                                                                                       |
-| `wontfix`          | Issue あるいはプルリクエストの作業が継続されないことを示します                                                                                                                        |
+| `duplicate`        | 同様の Issue あるいはプルリクエストを示します                                                                                                |
+| `enhancement`      | 新しい機能のリクエストを示します                                                                                                          |
+| `good first issue` | 初回のコントリビューターに適した Issue を示します                                                                                              |
+| `help wanted`      | メンテナーが Issue もしくはプルリクエストに助けを求めていることを示します                                                                                  |
+| `invalid`          | Issue あるいはプルリクエストに関連性がなくなったことを示します                                                                                        |
+| `question`         | Issue あるいはプルリクエストにさらなる情報が必要なことを示します                                                                                       |
+| `wontfix`          | Issue あるいはプルリクエストの作業が継続されないことを示します                                                                                        |
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。
 
@@ -83,7 +85,7 @@ Organization のオーナーは、Organization 内のリポジトリのための
 {% data reusables.project-management.save-label %}
 
 ### ラベルの削除
-Deleting a label will remove the label from issues and pull requests.
+ラベルを削除すると、Issue とプルリクエストからラベルが削除されます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -91,6 +93,6 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ### 参考リンク
-- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[Encouraging helpful contributions to your project with labels](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- 「[Issue およびプルリクエストをラベルでフィルタリングする](/articles/filtering-issues-and-pull-requests-by-labels)」{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}

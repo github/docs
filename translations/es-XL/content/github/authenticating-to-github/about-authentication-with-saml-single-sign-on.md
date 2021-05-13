@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+  github-ae: '*'
+topics:
+  - SSO
 ---
 
 {% data reusables.saml.dotcom-saml-explanation %} Los propietarios de la organización pueden invitar a tu cuenta de usuario en {% data variables.product.prodname_dotcom %} para unirse a la organización que utiliza SAML SSO, lo cual te permite contribuir con ella y mantener tu identidad actual y las contribuciones con {% data variables.product.prodname_dotcom %}.

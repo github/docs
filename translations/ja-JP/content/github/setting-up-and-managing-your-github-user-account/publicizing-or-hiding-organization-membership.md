@@ -1,6 +1,6 @@
 ---
 title: Organization のメンバーシップを公開または非公開にする
-intro: '自分がどの Organization に属しているかを知らせたい場合は、Organization のアバターをプロフィールに表示することができます。'
+intro: 自分がどの Organization に属しているかを知らせたい場合は、Organization のアバターをプロフィールに表示することができます。
 redirect_from:
   - /articles/publicizing-or-concealing-organization-membership/
   - /articles/publicizing-or-hiding-organization-membership
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ![[Profile organizations] ボックス](/assets/images/help/profile/profile_orgs_box.png)

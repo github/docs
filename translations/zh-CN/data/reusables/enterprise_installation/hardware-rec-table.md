@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: If you joined the beta for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} and enabled the features, your instance requires additional hardware resources. 启用测试功能的实例的最低要求在下表中用**粗体**表示。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)”。
+**注**：如果您加入了 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %} 的测试版，则您的实例需要额外的硬件资源。 启用测试功能的实例的最低要求在下表中用**粗体**表示。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)”。
 
 {% endnote %}
 {% endif %}
@@ -28,20 +28,22 @@
 
 {% endif %}
 
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-If you plan to configure {% data variables.product.prodname_actions %} for your instance, you should provision additional resources. You must also configure at least one self-hosted runner to execute workflows. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+如果您计划为实例用户启用 {% data variables.product.prodname_actions %}，请在“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)”中查阅硬件、外部存储和运行器的要求。
 
 {% endif %}
+
+{% data reusables.enterprise_installation.about-adjusting-resources %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
 #### {% data variables.product.prodname_ghe_server %} 2.22 中的测试功能
 
-{% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
+{% data variables.product.prodname_ghe_server %} 2.22 在测试版中提供了功能，例如 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅 [{% data variables.product.prodname_ghe_server %} 2.22 发行说明](/enterprise-server@2.22/admin/release-notes#2.22.0)。
 
-If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. 更多信息请参阅“[最低要求](#minimum-requirements)”。
+如果您为 {% data variables.product.prodname_ghe_server %} 2.22 启用测试功能，则您的实例需要额外的硬件资源。 关于最低要求的更多信息，请参阅“[最低要求](#minimum-requirements)”。
+
+有关 {% data variables.product.prodname_actions %} 硬件要求的详细信息，请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
 
 {% endif %}

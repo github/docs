@@ -1,4 +1,4 @@
-1. Click **Choose...** and navigate to a local path where you want to clone the repository.
+1. 单击 **Choose...（选择...）**并找到要克隆仓库的本地路径。
 
   {% mac %}
 

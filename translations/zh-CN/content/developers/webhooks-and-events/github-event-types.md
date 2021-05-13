@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -43,7 +45,7 @@ versions:
 此示例显示了使用[事件 API](/rest/reference/activity#events) 时 [WatchEvent](#watchevent) 响应的格式。
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -51,7 +53,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +164,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### 事件 `payload` 对象
 
 此事件返回一个空 `payload` 对象。
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -180,6 +182,20 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
+
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### 事件 `payload` 对象
+
+| 键              | 类型    | 描述                      |
+| -------------- | ----- | ----------------------- |
+| `action`       | `字符串` | 执行的操作内容. 可以是 `created`。 |
+| `pull_request` | `对象`  | 与审查相关的拉取请求。             |
+| `审查`           | `对象`  | 受影响的审查。                 |
 
 ### PullRequestReviewCommentEvent
 
@@ -197,6 +213,8 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### 事件 `payload` 对象
 
 | 键                          | 类型    | 描述                                                                                                                     |
 | -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------- |

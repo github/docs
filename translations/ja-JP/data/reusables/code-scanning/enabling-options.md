@@ -1,11 +1,11 @@
-<table spaces-before="0" line-breaks-before="1">
+<table spaces-before="0">
   <tr>
     <th>
-      <nobr>Type of analysis</nobr>
+      <nobr>分析の種類</nobr>
     </th>
     
     <th>
-      Options for generating alerts
+      アラート生成のオプション
     </th>
   </tr>
   
@@ -15,17 +15,17 @@
     </td>
     
     <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or using the {% data variables.product.prodname_codeql_runner %} in a third-party continuous integration (CI) system (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system">Running code scanning in your CI system</a>").
+      {% data variables.product.prodname_actions %}の利用（「<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">アクションを使う{% data variables.product.prodname_code_scanning %}のセットアップ</a>」参照）あるいはサードパーティの継続的インテグレーション（CI）システム中での{% data variables.product.prodname_codeql_runner %}の利用（「<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system">CIシステム中での{% data variables.product.prodname_codeql %}コードスキャンの実行</a>」参照）。
     </td>
   </tr>
   
   <tr>
     <td>
-      Third&#8209;party
+      サードパーティ
     </td>
     
     <td>
-      Using {% data variables.product.prodname_actions %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">Setting up {% data variables.product.prodname_code_scanning %} using actions</a>") or generated externally and uploaded to {% data variables.product.product_name %} (see "<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">Uploading a SARIF file to {% data variables.product.prodname_dotcom %}</a>").
+      {% data variables.product.prodname_actions %}の利用（「<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions">アクションを使う{% data variables.product.prodname_code_scanning %}のセットアップ</a>」）あるいは外部で生成して{% data variables.product.product_name %}へアップロード（「<a href="/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github">{% data variables.product.prodname_dotcom %}へのSARIFファイルのアップロード</a>」）。
     </td>
   </tr>
 </table>

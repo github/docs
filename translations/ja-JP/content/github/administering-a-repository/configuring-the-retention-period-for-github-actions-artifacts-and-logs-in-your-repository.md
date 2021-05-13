@@ -1,16 +1,19 @@
 ---
-title: Configuring the retention period for GitHub Actions artifacts and logs in your repository
-intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.'
+title: リポジトリ内の GitHub Actions アーティファクトとログの保持期間を設定する
+intro: 'リポジトリ内の {% data variables.product.prodname_actions %} アーティファクトとログの保持期間を設定できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+ワークフローによって作成された特定のアーティファクトのカスタム保存期間を定義することもできます。 詳しい情報については、「[アーティファクトの保持期間を設定する](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)」を参照してください。
 
-## Setting the retention period for a repository
+## リポジトリの保持期間を設定する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

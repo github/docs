@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -22,19 +24,16 @@ versions:
 
 {% data variables.product.product_location %} の CPU またはメモリリソースを増加させる前に、以下のことを行ってください:
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign an Elastic IP address to the instance**. Elastic IP が割り当てられていない場合は、パブリック IP アドレスでの変更を考慮して、再起動後に {% data variables.product.prodname_ghe_server %} ホストの DNS A レコードを調整する必要があります。 インスタンスがVPC内で起動していれば、インスタンスが再起動してもElastic IP（EIP）は自動的に保持されます。 インスタンスがEC2-Classic内で起動されていれば、Elastic IPは手動で際割り当てが必要です。
+- **CPUでメモリをスケーリングします**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Elastic IP アドレスをインスタンスに割り当てます**。 Elastic IP が割り当てられていない場合は、パブリック IP アドレスでの変更を考慮して、再起動後に {% data variables.product.prodname_ghe_server %} ホストの DNS A レコードを調整する必要があります。 インスタンスがVPC内で起動していれば、インスタンスが再起動してもElastic IP（EIP）は自動的に保持されます。 インスタンスがEC2-Classic内で起動されていれば、Elastic IPは手動で際割り当てが必要です。
 
 #### サポートされているAWSインスタンスタイプ
 
 アップグレードするインスタンスタイプは、CPU／メモリの仕様に基づいて決定しなければなりません。
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 推奨されるAWSインスタンスタイプ
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### AWSでのリサイズ
 
@@ -59,7 +58,7 @@ versions:
 2. インスタンスを停止する。
 3. 希望するCPUやメモリリソースを持つ新しいインスタンスフレーバーを選択する。
 
-### Adding CPU or memory resources for VMware
+### VMware の CPU またはメモリリソースを追加する
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

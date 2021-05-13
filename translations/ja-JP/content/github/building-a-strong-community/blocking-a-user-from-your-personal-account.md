@@ -5,15 +5,17 @@ redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - コミュニティ
 ---
 
 ### ユーザのブロックについて
 
-自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {% data variables.product.prodname_dotcom %}は、ユーザをブロックしてもユーザに通知しません。 If you want to avoid contributing to the same project as someone you've blocked, you can choose to display a warning on any repositories with prior contributions from a blocked user. For more information, see "[Blocking a user in your account settings](#blocking-a-user-in-your-account-settings)." 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
+自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {% data variables.product.prodname_dotcom %}は、ユーザをブロックしてもユーザに通知しません。 ブロックした人と同じプロジェクトへのコントリビューションをしたくない場合には、ブロックしたユーザから以前にコントリビューションされているリポジトリで警告を表示するように選択できます。 詳細は「[カウント設定でのユーザのブロック](#blocking-a-user-in-your-account-settings)」を参照してください。 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
 
 {% tip %}
 
-**Tip:** If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
+**ヒント:**過熱した会話を鎮めるためにユーザをブロックする場合、コラボレータだけがコメントできるように会話をロックすることを検討してください。 詳細は「[会話をロックする](/github/building-a-strong-community/locking-conversations)」を参照してください。
 
 {% endtip %}
 

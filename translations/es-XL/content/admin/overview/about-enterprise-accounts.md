@@ -5,7 +5,10 @@ redirect_from:
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
 versions:
-  enterprise-server: '*'
+  enterprise-server: '>=2.20'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de las cuentas empresariales en {% data variables.product.prodname_ghe_server %}

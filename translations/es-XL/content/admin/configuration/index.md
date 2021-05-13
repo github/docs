@@ -6,6 +6,9 @@ redirect_from:
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 

@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% tip %}
@@ -37,7 +39,7 @@ versions:
 {% data reusables.repositories.choose-repo-visibility %}
 6. Si no estás utilizando una plantilla, hay varios elementos opcionales que puedes pre-cargar en tu repositorio. Si estás importando un repositorio existente a {% data variables.product.product_name %}, no elijas ninguna de estas opciones, ya que producirás un conflicto de fusión. Puedes agregar o crear nuevos archivos usando la interfaz de usuario o elegir agregar nuevos archivos usando luego la línea de comando. Para obtener más información, consulta "[Importar un repositorio Git usando la línea de comando](/articles/importing-a-git-repository-using-the-command-line/)," "[Agregar un archivo a un repositorio usando la línea de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)," y "[Resolver conflictos de fusión](/articles/addressing-merge-conflicts/)".
     - Puedes crear un README, que es un documento que describe tu proyecto. Para obtener más información, consulta "[Acerca de los README](/articles/about-readmes/)".
-    - Puedes crear un archivo *.gitignore*, que es un conjunto de reglas de ignorar. Para obtener más información, consulta la sección "[Ignorar archivos](/articles/ignoring-files)".{% if currentVersion == "free-pro-team@latest" %}
+    - Puedes crear un archivo *.gitignore*, que es un conjunto de reglas de ignorar. Para obtener más información, consulta la sección "[Ignorar archivos](/github/getting-started-with-github/ignoring-files)".{% if currentVersion == "free-pro-team@latest" %}
     - Puedes elegir agregar una licencia de software a tu proyecto. Para más información, consulta "[Licenciando un repositorio](/articles/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}

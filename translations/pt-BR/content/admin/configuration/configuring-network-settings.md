@@ -11,5 +11,7 @@ intro: 'Configure o {% data variables.product.prodname_ghe_server %} com os nome
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### ホットパッチでのアップグレード

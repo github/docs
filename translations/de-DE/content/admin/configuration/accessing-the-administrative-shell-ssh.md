@@ -13,6 +13,8 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zum Verwaltungsshellzugriff
@@ -54,7 +56,7 @@ Führen Sie zum Angeben eines privaten SSH-Schlüssels an der Befehlszeile `ssh`
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-Darüber hinaus können Sie einen privaten SSH-Schlüssel mithilfe der SSH-Konfigurationsdatei (`~/.ssh/config`) angeben.
+You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>

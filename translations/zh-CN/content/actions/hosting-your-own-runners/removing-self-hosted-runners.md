@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 从仓库中删除运行器
 
@@ -63,7 +66,7 @@ type: tutorial
 
 {% if currentVersion == "free-pro-team@latest" %}
 要从企业帐户删除自托管运行器，您必须是组织所有者。 建议您也访问自托管的运行器机器。
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
 要在
 {% data variables.product.product_location %} 的企业级删除自托管运行器，您必须是网站管理员。 建议您也访问自托管的运行器机器。
 {% endif %}

@@ -1,1 +1,1 @@
-1. ** Add seats（シートの追加）**をクリックしてください。 ![Add seats button](/assets/images/help/billing/add-seats-button.png)
+1. ** Add seats（シートの追加）**をクリックしてください。 ![シートの追加ボタン](/assets/images/help/billing/add-seats-button.png)

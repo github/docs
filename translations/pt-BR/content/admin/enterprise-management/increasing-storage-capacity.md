@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -30,7 +32,7 @@ versions:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Deixe o appliance em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 4. Reinicie o appliance para detectar a alocação do novo armazenamento.
-5. Execute o comando `ghe-storage-extend` para expandir o sistema de arquivos `/data`:
+5. Execute o comando `ghe-storage-extend` para expandir o sistema de arquivos `/data/user`:
   ```shell
   $ ghe-storage-extend
   ```

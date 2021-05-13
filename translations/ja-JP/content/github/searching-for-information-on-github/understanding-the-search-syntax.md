@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### ある値より大きいまたは小さい値のクエリ
@@ -48,7 +50,7 @@ versions:
 | <code><=<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:<=2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A%3C%3D2012-07-04&type=Issues)** は、2012 年 7 月 4 日以前に作成された、「cats」という単語のある Issue にマッチします。                                   |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats pushed:2016-04-30..2016-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+pushed%3A2016-04-30..2016-07-04&type=Repositories)** は、2016 年 4 月末から 2017 年 7 月 4 日の間にプッシュされた、「cats」という単語のあるリポジトリにマッチします。 |
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** は、「cats」という単語を含む、2012 年 4 月 30 日より後に作成された Issue にマッチします。                                   |
-| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** は、「cats」という単語のある、2012 年 7 月 4 日より前に作成された Issue にマッチします。                                    |
+| <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-07-04](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** は、「cats」という単語のある、2012 年 7 月 4 日より前に作成された Issue にマッチします。                                    |
 
 {% data reusables.time_date.time_format %}
 

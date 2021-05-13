@@ -1,6 +1,7 @@
 ---
 date: '2021-01-29'
 release_candidate: true
+deprecated: true
 intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
 sections:
   bugs:

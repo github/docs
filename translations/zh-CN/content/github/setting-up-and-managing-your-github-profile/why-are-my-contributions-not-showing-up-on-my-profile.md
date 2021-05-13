@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### 计算的贡献
@@ -23,7 +25,7 @@ versions:
   - 在仓库的默认分支中
   - 在 `gh-pages` 分支中（对于包含项目站点的仓库）
 
-有关项目网站的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+有关项目网站的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 此外，必须**至少**满足以下条件之一：
 - 您是仓库中的协作者，或者是拥有该仓库的组织的成员。
@@ -64,7 +66,7 @@ Subject: [PATCH] updated index for better welcome message
 
 #### 提交没有在默认或 `gh-pages` 分支中进行
 
-仅发生在默认分支或 `gh-pages` 分支（对于包含项目站点的仓库）中的提交才会计入。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+仅发生在默认分支或 `gh-pages` 分支（对于包含项目站点的仓库）中的提交才会计入。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 如果您的提交位于非默认或非 `gh-pages` 分支中，并且您希望将其计入您的贡献，则需要执行以下操作之一：
 - [打开拉取请求](/articles/creating-a-pull-request)以将您的更改合并到默认分支或 `gh-pages` 分支。

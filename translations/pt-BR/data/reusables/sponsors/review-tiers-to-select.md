@@ -1,0 +1,1 @@
+1. No lado direito da página, em "Selecione uma camada", reveja as camadas de patrocínio disponíveis. If more than one type of tier is available "Monthly" tiers are shown, click **One-time** to show the tiers for one-time payments. ![Show "One-time" tiers](/assets/images/help/sponsors/show-one-time-tiers.png)

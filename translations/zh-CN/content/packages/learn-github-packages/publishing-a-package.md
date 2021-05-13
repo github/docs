@@ -5,13 +5,15 @@ product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-a-package
   - /packages/publishing-and-managing-packages/publishing-a-package
-permissions: 对仓库有写入权限的任何人都可以向该仓库发布包。
+permissions: Anyone with write permissions for a repository can publish a package to that repository.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### 关于发布的包
 
@@ -26,7 +28,7 @@ versions:
 
 ### 发布包
 
-您可以按照一般准则，使用任何{% if currentVersion == "free-pro-team@latest" %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}将包发布到 {% data variables.product.prodname_registry %}。
+您可以按照一般准则，使用任何 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}支持的包客户端{% else %}为您的实例启用的包类型{% endif %}将包发布到 {% data variables.product.prodname_registry %}。
 
 1. 针对要完成的任务，创建具有适当作用域的访问令牌或使用现有的此类令牌。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)”。
 2. 按照包客户端的说明，使用访问令牌向 {% data variables.product.prodname_registry %} 验证。

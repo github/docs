@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Quando um pacote de atualização for baixado automaticamente para a {% data variables.product.product_location %}, você receberá uma mensagem informando que pode atualizar o {% data variables.product.prodname_ghe_server %}. Os pacotes baixados ficam no diretório `/var/lib/ghe-updates` na {% data variables.product.product_location %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)".

@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### About repository visibility changes
 
-Organization owners can restrict the ability to change repository visibility to organization owners only. For more information, see "[Restricting repository visibility changes in your organization](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)."
+Organization owners can restrict the ability to change repository visibility to organization owners only. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
@@ -25,7 +27,7 @@ We recommend reviewing the following caveats before you change the visibility of
 * If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. {% data reusables.gated-features.more-info %}{% endif %}
 * Any published {% data variables.product.prodname_pages %} site will be automatically unpublished.{% if currentVersion == "free-pro-team@latest" %} If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 * {% data variables.product.prodname_dotcom %} will no longer include the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that has a license for {% data variables.product.prodname_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
+* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
 * Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
@@ -61,10 +63,15 @@ For information about improving repository security, see "[About securing your r
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Under "Danger Zone", to the right of to "Change repository visibility", click **Change visibility**. ![Change visibility button](/assets/images/help/repository/repo-change-vis.png)
-4. Select a visibility. ![Dialog of options for repository visibility](/assets/images/help/repository/repo-change-select.png)
+4. Select a visibility.
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Dialog of options for repository visibility](/assets/images/help/repository/repo-change-select.png){% else %}
+![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
 5. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
-6. Click **I understand, change repository visibility**. ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png)
-
+6. Click **I understand, change repository visibility**.
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Confirm change of repository visibility button](/assets/images/help/repository/repo-change-confirm.png){% else %}
+![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
 {% endif %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}

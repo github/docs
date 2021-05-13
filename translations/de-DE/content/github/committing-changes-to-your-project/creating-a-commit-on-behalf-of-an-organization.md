@@ -47,7 +47,7 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/articles/pushing-commits-to-a-remote-repository/).“
+Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).“
 
 ### Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
 

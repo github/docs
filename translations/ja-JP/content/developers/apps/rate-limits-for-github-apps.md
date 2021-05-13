@@ -10,9 +10,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
-### さーばーからサーバーへのリクエスト
+### サーバーからサーバーへのリクエスト
 
 {% if currentVersion == "free-pro-team@latest" %}
 

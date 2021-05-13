@@ -1,17 +1,15 @@
 ---
 title: About GitHub AE
-intro: '{% data variables.product.prodname_ghe_managed %} is the most secure and compliant way to use {% data variables.product.prodname_dotcom %}.'
+intro: '{% data variables.product.prodname_ghe_managed %} is a security-enhanced and compliant way to use {% data variables.product.prodname_dotcom %} in the cloud.'
 versions:
   github-ae: '*'
 ---
 
 ### Informationen zu {% data variables.product.prodname_ghe_managed %}
 
-{% data reusables.github-ae.github-ae-enables-you %}
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery without sacrificing risk management.
 
-{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase developer velocity, automate entire workflows, secure your code, and collaborate in developers’ favorite tool.
-
-{% data variables.product.prodname_ghe_managed %} provides your organization with all the power of [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise). With {% data variables.product.prodname_ghe_managed %}, you can also meet security and compliance goals with a suite of features and certifications that put you in control.
+{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with unique security and access controls, workflow automation, and policy enforcement.
 
 ### A highly available and planet-scale cloud
 
@@ -36,11 +34,3 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 ### Commercial and government environments
 
 {% data variables.product.prodname_ghe_managed %} is available in the Azure Government cloud, the trusted cloud for US government agencies and their partners. {% data variables.product.prodname_ghe_managed %} is also available in the commercial cloud, so you can choose the hosting environment that is right for your organization.
-
-### Premium Plus support
-
-Premium Plus support is available for all {% data variables.product.prodname_ghe_managed %} customers, to ensure you have the fastest and most personal support experience. A dedicated Account Manager will work with you to help you get the most out of {% data variables.product.prodname_dotcom %}. Our support team will resolve issues any time of day, in the shortest possible time.
-
-### Informationen zur Abrechnung für {% data variables.product.prodname_ghe_managed %}
-
-{% data reusables.github-ae.about-billing %} For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."

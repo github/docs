@@ -4,6 +4,9 @@ intro: '您可以为仓库中的 {% data variables.product.prodname_actions %} �
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

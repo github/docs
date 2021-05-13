@@ -3,6 +3,8 @@ title: 管理用户帐户的安全和分析设置
 intro: '您可以控制功能以保护 {% data variables.product.prodname_dotcom %} 上项目的安全并分析其中的代码。'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### 关于安全性和分析设置的管理
@@ -24,6 +26,8 @@ versions:
 3. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。 !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png)
 6. （可选）为组织中的新仓库默认启用该功能。 ![新仓库的"Enable by default（默认启用）"选项](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
 7. 单击 **Disable FEATURE（禁用功能）**或 **Enable FEATURE（启用功能）**以禁用或启用您拥有的所有仓库的功能。 ![用于禁用或启用功能的按钮](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
+
+{% data reusables.security.displayed-information %}
 
 ### 对新仓库启用或禁用功能
 

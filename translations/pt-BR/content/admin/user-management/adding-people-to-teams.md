@@ -8,6 +8,8 @@ redirect_from:
 intro: 'Após a criação de uma equipe, os administradores da organização podem adicionar usuários da {% data variables.product.product_location %} e determinar quais repositórios eles poderão acessar.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Cada equipe tem suas próprias [ permissões de acesso definidas individualmente para os repositórios pertencentes à organização](/articles/permission-levels-for-an-organization).

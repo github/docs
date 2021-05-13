@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% tip %}
@@ -36,8 +38,8 @@ versions:
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 6. Se você não estiver usando um modelo, haverá um número de itens opcionais com os quais você pode preencher previamente o seu repositório. Se for importar um repositório existente para o {% data variables.product.product_name %}, não escolha qualquer uma destas opções, pois isso poderá criar um conflito de merge. É possível adicionar ou criar arquivos usando a interface de usuário ou optar por adicionar novos arquivos posteriormente usando a linha de comando. Para obter mais informações, consulte "[Importar um repositório Git usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line/)", "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)" e "[Solucionar conflitos de merge](/articles/addressing-merge-conflicts/)."
-    - Você pode criar um LEIAME, que é um documento que descreve seu projeto. Para obter mais informações, consulte "[Sobre arquivos LEIAME](/articles/about-readmes/)".
-    - Você pode criar um arquivo *.gitignore*, que é um conjunto de regras com instruções para ignorar. Para obter mais informações, consulte "[Ignorar arquivos](/articles/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
+    - Você pode criar um README, que é um documento que descreve seu projeto. Para obter mais informações, consulte "[Sobre arquivos README](/articles/about-readmes/)".
+    - Você pode criar um arquivo *.gitignore*, que é um conjunto de regras com instruções para ignorar. Para obter mais informações, consulte "[Ignorar arquivos](/github/getting-started-with-github/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
     - Você pode optar por adicionar uma licença de software para seu projeto. Para obter mais informações, consulte "[Licenciar um repositório](/articles/licensing-a-repository)".{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}

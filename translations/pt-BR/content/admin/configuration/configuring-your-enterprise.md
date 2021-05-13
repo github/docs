@@ -1,6 +1,6 @@
 ---
 title: Configurar a sua empresa
-intro: "Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização."
+intro: 'Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -12,5 +12,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

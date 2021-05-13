@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 您可以配置 web 挂钩以接收企业帐户所拥有的组织中的事件。 有关 web 挂钩的更多信息，请参阅“[web 挂钩](/webhooks/)”。

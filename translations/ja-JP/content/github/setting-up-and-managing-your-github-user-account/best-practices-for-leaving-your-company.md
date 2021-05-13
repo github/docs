@@ -1,10 +1,12 @@
 ---
 title: 退職のためのベストプラクティス
-intro: '転職は人生の現実です。 GitHub のアカウントを個人と仕事の*両方で*使っているなら、会社や組織を辞める際に念頭に置いておくべきことがあります。'
+intro: 転職は人生の現実です。 GitHub のアカウントを個人と仕事の*両方で*使っているなら、会社や組織を辞める際に念頭に置いておくべきことがあります。
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 会社を辞める前に、ユーザアカウントの以下の情報を必ず更新しておきましょう:

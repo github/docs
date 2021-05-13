@@ -1,6 +1,6 @@
 ---
 title: 在企业帐户中实施项目板策略
-intro: '企业所有者可实施企业帐户拥有的所有组织的特定项目板策略，或允许在每个组织中设置策略。'
+intro: 企业所有者可实施企业帐户拥有的所有组织的特定项目板策略，或允许在每个组织中设置策略。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 有关项目板类型的更多信息，请参阅“[关于项目板](/articles/about-project-boards)”。

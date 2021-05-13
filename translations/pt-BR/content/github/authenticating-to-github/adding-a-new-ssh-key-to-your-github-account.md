@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
 * [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
 * [Gerado uma nova chave SSH e adicionado-a ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)".
+Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
 {% data reusables.ssh.dsa-support %}
 

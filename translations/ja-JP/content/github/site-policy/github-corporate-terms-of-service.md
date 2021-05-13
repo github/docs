@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 貴社のビジネスにおけるニーズを満たすために GitHub をお選びいただき、ありがとうございます。 本契約を注意深くお読みください。GitHub がお客様と書面による合意を別途行わない限り、本製品 (以下に定義) の利用に対しては、この契約が適用されます。 「同意する」またはそれに類似するボタンをクリックするか、本製品を利用することにより、お客様は本契約の規約および条件の全てに同意することになります。 お客様が、企業またはその他の法人を代表して契約を締結しようとする場合、お客様は、本契約を締結するためにその企業またはその他の法人に義務を負担させる法的権限を持つことを表明するものとします。
@@ -122,7 +125,7 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 お客様が「製品」を利用する際には、[「GitHub利用規程」](/articles/github-acceptable-use-policies)および[「GitHubコミュニティガイドライン」](/articles/github-community-guidelines)に従う必要があります。 お客様は、いかなる管轄区域内でも、違法、わいせつ、不快、または詐欺的なコンテンツまたは活動 (損害を与えたりそう標榜したりする、ネットワークまたはシステムの完全性またはセキュリティを妨害または侵害する、フィルタを回避する、迷惑・虐待的・虚偽的なメッセージ、ウイルスまたは有害なコードを送信する、あるいは第三者の権利を侵害するなど) の目的で「サービス」を使用してはなりません。
 
 #### 3. プライバシー
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 「サービス」からデータを収集する個人、団体、またはサービスは、特にユーザの個人情報 (「GitHub のプライバシーについての声明」に規定) の収集に関して、GitHubの プライバシーについての声明に従う必要があります。 お客様がGitHubから「ユーザ個人情報」を収集した場合、お客様は「外部ユーザ」が承認した目的にのみその個人情報を使用するものとします。 お客様は、かかる個人情報を合理的に保護するものとし、GitHubはGitHubまたは「外部ユーザ」からの苦情、削除要請、および連絡拒否の要請に速やかに対応するものとします。
 
 ### D. コンテンツの責任、所有権、ライセンス権
 
@@ -191,7 +194,7 @@ GitHub will provide notice regarding our access to private repository content, u
 
 #### 1. 価格、料金
 
-**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 設定しなければなりません。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**支払い条件** 料金については、[github.com/pricing](https://github.com/pricing) に掲載されているものが適用されます (ただし、関係者による協議を行い、「注文書」に記載されている場合を除きます)。 お客様は、減額や相殺などに類することを行わず、アメリカ合衆国ドルにより「料金」の全額を前払いで支払うことに同意します。 。 お客様は、GitHub による請求の日付から 30 日以内に「料金」を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 Amounts payable under this Agreement are non-refundable, except as provided in Sections 13 and 14.1. 本契約に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
 **従量制支払い:** 「サービス」の一部の機能は、使用量に基づいて請求されます。 かかる「サービス」機能は、限られた使用量および期間であれば、追加料金なしでご利用のプランで使用できる場合があります。 ご利用のプランに含まれる数量を超えて有料の「サービス」機能を購入することを選択した場合、お客様は前月の実際の使用量に基づいてかかる「サービス」機能の料金を支払います。 かかる購入に対する毎月の支払いは、後払いで定期的に請求されます。ただし、請求書払いのお客様については、有料の「サービス」機能は前払いとなります。 詳しくは、[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)を参照してください。
 

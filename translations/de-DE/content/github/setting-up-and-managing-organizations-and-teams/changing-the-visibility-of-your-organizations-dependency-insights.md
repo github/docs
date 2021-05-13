@@ -6,6 +6,9 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Organisationsinhaber können Einschränkungen für die Anzeige der Abhängigkeiten-Einblicke der Organisation festlegen. Standardmäßig können alle Mitglieder einer Organisation die Abhängigkeiten-Einblicke der Organisation anzeigen.

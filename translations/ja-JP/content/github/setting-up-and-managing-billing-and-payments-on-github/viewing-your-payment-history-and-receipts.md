@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-your-payment-history-and-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 個人アカウントの領収書を表示する

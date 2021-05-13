@@ -12,6 +12,8 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.enterprise.management_console %}について
@@ -19,7 +21,7 @@ versions:
 次の基本的な管理作業には {% data variables.enterprise.management_console %} を使用します。
 - **初期セットアップ**: ブラウザで {% data variables.product.product_location %} の IP アドレスにアクセスすることで {% data variables.product.product_location %} を最初に起動したときに、初期セットアッププロセスを段階的に実行します。
 - **インスタンスの基本設定**: [Settings] ページで、DNS、ホスト名、SSL、ユーザ認証、メール、モニタリングサービス、ログの転送を設定します。
-- **スケジュールメンテナンスウィンドウ**: {% data variables.enterprise.management_console %} または管理シェルを使用してメンテナンスを実行する際に、{% data variables.product.product_location %} をオフラインにします。
+- **メンテナンスウィンドウのスケジュール**: {% data variables.enterprise.management_console %} または管理シェルを使用してメンテナンスを実行する際に、{% data variables.product.product_location %} をオフラインにします。
 - **トラブルシューティング**: Support Bundle を生成するか、高レベルの診断情報を一覧表示します。
 - **ライセンス管理**: {% data variables.product.prodname_enterprise %} ライセンスを一覧表示または更新します。
 

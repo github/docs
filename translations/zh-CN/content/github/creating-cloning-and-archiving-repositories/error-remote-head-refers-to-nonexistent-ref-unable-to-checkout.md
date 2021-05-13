@@ -1,5 +1,5 @@
 ---
-title: '错误：远程 HEAD 引用不存在的 ref，无法检出'
+title: 错误：远程 HEAD 引用不存在的 ref，无法检出
 intro: '如果已在 {% data variables.product.product_location %} 上删除仓库的默认分支，会发生此错误。'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 检测此错误很简单；当您尝试克隆以下仓库时，Git 会警告您：

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 为 {% data variables.product.prodname_enterprise_api %} 启用速率限制

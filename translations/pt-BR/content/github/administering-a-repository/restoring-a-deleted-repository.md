@@ -5,6 +5,8 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.

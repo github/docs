@@ -2,8 +2,9 @@
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: <=2.22
+topics:
+  - Repositories
 ---
 
 ### Dependency graph availability
@@ -65,13 +66,16 @@ When the dependency graph is first enabled, any manifest and lock files for supp
 
 The recommended formats explicitly define which versions are used for all direct and all indirect dependencies. If you use these formats, your dependency graph is more accurate. It also reflects the current build set up and enables the dependency graph to report vulnerabilities in both direct and indirect dependencies.{% if currentVersion == "free-pro-team@latest" %} Indirect dependencies that are inferred from a manifest file (or equivalent) are excluded from the checks for vulnerable dependencies.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}The ecosystems listed below are supported for the dependency graph, {% data variables.product.prodname_dependabot_alerts %}, and {% data variables.product.prodname_dependabot_security_updates %}.{% endif %}
+|
+{% if currentVersion ver_gt "enterprise-server@2.21" %}The ecosystems listed below are supported for the dependency graph and {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
 | Package manager | Языки                            | Recommended formats                                    | All supported formats                                                     |
 | --------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
 | Composer        | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
 | `dotnet` CLI    | .NET languages (C#, C++, F#, VB) | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 | Maven           | Java, Scala                      | `pom.xml`                                              | `pom.xml`                                                                 |
 | npm             | JavaScript                       | `package-lock.json`                                    | `package-lock.json`, `package.json`                                       |
-| Python PIP      | Python                           | `requirements.txt`, `pipfile.lock`                     | `requirements.txt`, `pipfile.lock`, `setup.py`*                           |
+| Python PIP      | Python                           | `requirements.txt`, `pipfile.lock`                     | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`*                |
 | RubyGems        | Ruby                             | `Gemfile.lock`                                         | `Gemfile.lock`, `Gemfile`, `*.gemspec`                                    |
 | Yarn            | JavaScript                       | `yarn.lock`                                            | `package.json`, `yarn.lock`                                               |
 
@@ -85,6 +89,6 @@ The recommended formats explicitly define which versions are used for all direct
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
 - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
+- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"{% endif %}

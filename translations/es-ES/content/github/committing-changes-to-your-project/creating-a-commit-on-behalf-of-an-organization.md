@@ -47,7 +47,7 @@ Las organizaciones pueden usar el correo electrónico `name@organization.com` co
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-El nuevo mensaje de confirmación y el distintivo aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
+El nuevo mensaje de confirmación y el distintivo aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)."
 
 ### Crear confirmaciones con un distintivo `on-behalf-of` en {% data variables.product.product_name %}
 

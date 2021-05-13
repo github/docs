@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Enterprise アカウントが所有する Organization からイベントを受信するように webhook を設定できます。 webhook に関する詳しい情報については、「[webhook](/webhooks/)」を参照してください。

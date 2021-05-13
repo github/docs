@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 これを修正するには、リポジトリの所有者 (`user`) が、あなたのアカウント (`other-user`) をリポジトリのコラボレーターとして追加するか、リポジトリへの書き込みアクセスを持つチームに追加する必要があります。

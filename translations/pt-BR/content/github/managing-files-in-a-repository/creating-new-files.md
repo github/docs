@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Ao criar um arquivo no {% data variables.product.product_name %}, lembre-se do seguinte:

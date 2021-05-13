@@ -2,7 +2,7 @@
 title: GitHub に変更をプッシュする
 shortTitle: 変更をプッシュする
 intro: 'プロジェクトへの変更をローカルにコミットするときに、それらの変更を {% data variables.product.prodname_dotcom %} にプッシュして、他の人がリモートリポジトリから変更にアクセスできるようにすることができます。'
-permissions: 書き込み権限を持つユーザは、変更をリポジトリにプッシュできます。
+permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
 versions:

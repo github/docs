@@ -4,6 +4,9 @@ intro: 'You can restrict who has access to a repository by choosing a repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### About repository visibility

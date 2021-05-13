@@ -1,13 +1,15 @@
 ---
 title: 创建议题
-intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
-permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
+intro: 议题可用于跟踪漏洞、增强功能或其他请求。
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 您可以根据现有拉取请求中的代码打开新议题。 更多信息请参阅“[从代码打开议题](/github/managing-your-work-on-github/opening-an-issue-from-code)”。
@@ -27,7 +29,7 @@ versions:
 {% tip %}
 
 **提示**：项目维护员可选择：
-  - 为仓库创建议题模板。 模板包括议题正文中的信息提示。 更多信息请参阅“[关于议题和拉取请求模板](/github/building-a-strong-community/about-issue-and-pull-request-templates)”。
+  - 为仓库创建议题模板。 模板包括议题正文中的信息提示。 更多信息请参阅“[关于议题和拉取请求模板](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)”。
   - 对仓库禁用议题。 更多信息请参阅“[禁用议题](/github/managing-your-work-on-github/disabling-issues)”。 拉取请求无法禁用，始终可用。
 
 {% endtip %}

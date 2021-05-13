@@ -16,6 +16,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### About repository transfers
@@ -46,7 +48,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   $ git remote set-url origin <em>new_url</em>
   ```
 
-For more information, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)".
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### Repository transfers and organizations
 

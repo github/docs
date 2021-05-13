@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Como enviar um tíquete
@@ -52,8 +54,6 @@ Após enviar a sua solicitação de suporte e informações opcionais de diagnó
 ### Enviar um tíquete usando o {% data variables.contact.ae_azure_portal %}
 
 Os clientes comerciais podem enviar um pedido de suporte no {% data variables.contact.contact_ae_portal %}. Clientes do governo devem usar os [Portal do Azure para clientes do governo](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para obter mais informações, consulte [Criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) na documentação da Microsoft.
-
-Para problemas urgentes, a fim de garantir uma resposta rápida, depois que enviar um ticket, chame a linha suporte imediatamente. Seu Administrador de Conta de Suporte Técnico (TSAM) irá fornecer a você o número a ser usado na sua sessão de integração.
 
 {% endif %}
 

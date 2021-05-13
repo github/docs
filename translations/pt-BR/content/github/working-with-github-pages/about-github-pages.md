@@ -14,6 +14,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Sobre o {% data variables.product.prodname_pages %}
@@ -134,19 +136,9 @@ Se o seu site exceder essas cotas de uso, talvez não possamos atender a ele ou 
 #### Usos proibidos
 
 O {% data variables.product.prodname_pages %} não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS).
+Além disso,
 
-Além disso, os sites do {% data variables.product.prodname_pages %} não devem apresentar:
-
-  - Conteúdo ou atividade ilegal ou proibido por nossos [Termos de Serviço](/articles/github-terms-of-service/) ou pelas [Diretrizes da Comunidade](/articles/github-community-guidelines/);
-  - Atividade ou conteúdo violento ou ameaçador
-  - Excesso de atividade automatizada em massa (spam, por exemplo)
-  - Atividade que comprometa serviços ou usuários do GitHub
-  - Esquemas para enriquecer rapidamente
-  - Conteúdo sexual obsceno
-  - Conteúdo que deturpe sua identidade ou a finalidade do site
-Caso não tenha certeza se o seu uso ou o uso previsto se enquadra nessas categorias, entre em contato com o
-
-{% data variables.contact.contact_support %}.
+{% data variables.product.prodname_dotcom %} não permite que {% data variables.product.prodname_pages %} seja usado para certos propósitos ou atividades. Para uma lista de usos proibidos, consulte "[Termos Adicionais do Produto de {% data variables.product.prodname_dotcom %} para {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
 {% endif %}
 
 ### Tipos de MIME no {% data variables.product.prodname_pages %}

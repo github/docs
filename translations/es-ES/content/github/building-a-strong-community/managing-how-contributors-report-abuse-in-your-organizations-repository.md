@@ -3,6 +3,8 @@ title: Administrar la forma en que los colaboradores reportan abusos en el repos
 intro: Puedes permitir que los colaboradores reporten el comportamiento ofensivo directamente a los mantenedores de los repositorios.
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Cualquiera con permisos de administrador en el repositorio puede administrar la forma en la que los colaboradores reportan los abusos en el mismo.

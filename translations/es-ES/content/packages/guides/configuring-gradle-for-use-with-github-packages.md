@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
@@ -29,6 +31,9 @@ Puedes autenticar a {% data variables.product.prodname_registry %} con Gradle us
 {% if enterpriseServerVersions contains currentVersion %}
 Reemplaza *REGISTRY-URL* con la URL para el registro Maven de tu instancia. Si tu instancia tiene habilitado el aislamiento de subdominios, utiliza `maven.HOSTNAME`. Si tu instancia tiene inhabilitado el aislamiento de subdominios, utiliza `HOSTNAME/_registry/maven`. En cualquiera de los casos, reemplaza *HOSTNAME* con el nombre del host de tu
 instancia de {% data variables.product.prodname_ghe_server %}.
+{% elsif currentVersion == "github-ae@latest" %}
+Reemplaza a *REGISTRY-URL* con la URL del registro de MAven de tu empresa, `maven.HOSTNAME`. Reemplaza a *HOSTNAME* con el nombre del host de
+{% data variables.product.product_location %}.
 {% endif %}
 
 Reemplaza *USERNAME* con tu nombre de usuario {% data variables.product.prodname_dotcom %}, *TOKEN* con tu token de acceso personal, *REPOSITORY* con el nombre del repositorio que contiene el paquete que deseas publicar y *OWNER* con el nombre de la cuenta de usuario o de organización en {% data variables.product.prodname_dotcom %} que posee el repositorio. Dado que las letras mayúsculas no son compatibles, debes usar minúsculas para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.
@@ -212,4 +217,4 @@ Puedes instalar un paquete agregando el paquete como una dependencia a tu proyec
 ### Leer más
 
 - "[Configurar Apache Maven para usar con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
-- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

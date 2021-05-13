@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Visualizar proprietários corporativos{% if currentVersion == "free-pro-team@latest" %} e gerentes de cobrança{% endif %}
@@ -23,7 +25,7 @@ Você pode ver os proprietários corporativos {% if currentVersion == "free-pro-
 
 ### Exibir integrantes e colaboradores externos
 
-Você pode ver o número de integrantes ou colaboradores externos pendentes. Você pode filtrar a lista de integrantes por {% if currentVersion == "free-pro-team@latest" %}deploy ({% data variables.product.prodname_ghe_cloud %} ou {% data variables.product.prodname_ghe_server %}),{% endif %}função{% if currentVersion == "free-pro-team@latest" %} e {% elsif currentVersion == "github-ae@latest" %}ou {% endif %}organização. Também é possível filtrar a lista de colaboradores externos pela visibilidade dos repositórios aos quais o colaborador tem acesso. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
+Você pode ver o número de integrantes ou colaboradores externos pendentes. Você pode filtrar a lista de integrantes por {% if currentVersion == "free-pro-team@latest" %}implantação ({% data variables.product.prodname_ghe_cloud %} ou {% data variables.product.prodname_ghe_server %}),{% endif %} função{% if currentVersion == "free-pro-team@latest" %} e{% else %} ou {% endif %} organização. Também é possível filtrar a lista de colaboradores externos pela visibilidade dos repositórios aos quais o colaborador tem acesso. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
 
 Você pode visualizar {% if currentVersion == "free-pro-team@latest" %}todas as organizações de {% data variables.product.prodname_ghe_cloud %} e as instâncias de {% data variables.product.prodname_ghe_server %} às quais um membro pertence e {% endif %}quais repositórios um colaborador externo tem acesso a{% if currentVersion == "free-pro-team@latest" %}, {% endif %} clicando no nome da pessoa.
 

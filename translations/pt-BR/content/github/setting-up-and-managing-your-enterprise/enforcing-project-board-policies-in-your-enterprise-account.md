@@ -1,6 +1,6 @@
 ---
 title: Aplicar políticas de quadros de projeto na conta corporativa
-intro: 'Os proprietários corporativos podem aplicar determinadas políticas de quadros de projeto para todas as organizações pertencentes a uma conta corporativa ou permitir que as políticas sejam definidas em cada organização.'
+intro: Os proprietários corporativos podem aplicar determinadas políticas de quadros de projeto para todas as organizações pertencentes a uma conta corporativa ou permitir que as políticas sejam definidas em cada organização.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-project-board-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Para obter mais informações sobre tipos de quadros de projeto, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".

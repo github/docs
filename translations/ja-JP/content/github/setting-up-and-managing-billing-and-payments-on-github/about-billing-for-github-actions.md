@@ -4,15 +4,17 @@ intro: 'アカウントに含まれるストレージや利用時間 (分) を�
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### {% data variables.product.prodname_actions %}の支払いについて
 
 {% data reusables.github-actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.github-actions.actions-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
 
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
+Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_actions %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 
 利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
 
@@ -55,7 +57,7 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 月末に、{% data variables.product.prodname_dotcom %}はアカウントに含まれている量に対して使用された分とストレージのコストを計算します。 たとえば、Organizationが{% data variables.product.prodname_team %}を使用しており、使用量に制限をしていない場合、15,000分を使用すればジョブを実行しているオペレーティングシステムによって、合計でストレージと分は56ドルの超過コストになるかもしれません。
 
 - 5,000 (3,000 Linux と 2,000 Windows) 分 = $56 ($24 + $32)。
-  - 3,000 Linux minutes at $0.008 per minute = $24.
+  - 単価 $0.008 で 3,000 Linux 分 = $24。
   - 単価$0.016で2,000 Windows分 = $32。
 
 月末に、{% data variables.product.prodname_dotcom %}はデータ転送を最も近いGBに丸めます。
@@ -75,6 +77,6 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 {% data reusables.github-actions.actions-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_actions %} の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)」を参照してください。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

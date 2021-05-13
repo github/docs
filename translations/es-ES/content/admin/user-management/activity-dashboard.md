@@ -1,6 +1,6 @@
 ---
 title: Tablero de actividades
-intro: 'El tablero de actividades te proporciona un resumen de toda la actividad en tu empresa.'
+intro: El tablero de actividades te proporciona un resumen de toda la actividad en tu empresa.
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 El Tablero de actividades te proporciona gráficos semanales, mensuales y anuales de la cantidad de:

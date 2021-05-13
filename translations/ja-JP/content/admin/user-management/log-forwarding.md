@@ -1,6 +1,6 @@
 ---
 title: ログの転送
-intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% if enterpriseServerVersions contains currentVersion %}system{% elsif currentVersion == "github-ae@latest" %}Git{% endif %} and application logs to the server you specify.'
+intro: '{% data variables.product.product_name %} は `syslog-ng` を使用して、{% if enterpriseServerVersions contains currentVersion %} システム {% elsif currentVersion == "github-ae@latest" %} Git{% endif %} とアプリケーションログを指定したサーバーに転送します。'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 syslog-style 式のログストリームに対応するログ回収システムは、サポートしています。（例えば、[Logstash](http://logstash.net/) や [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)など）
@@ -25,18 +27,18 @@ syslog-style 式のログストリームに対応するログ回収システム�
 {% elsif currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**. ![Log forwarding tab](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
-1. Under "Log forwarding", select **Enable log forwarding**. ![Checkbox to enable log forwarding](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
-1. Under "Server address", enter the address of the server you want to forward logs to. ![Server address field](/assets/images/enterprise/business-accounts/server-address-field.png)
-1. Use the "Protocol" drop-down menu, and select a protocol. ![Protocol drop-down menu](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
-1. Optionally, to enable TLS encrypted communication between syslog endpoints, select **Enable TLS**. ![Checkbox to enable TLS](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
-1. Under "Public certificate", paste your x509 certificate. ![Text box for public certificate](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
-1. [**Save**] をクリックします。 ![Save button for log forwarding](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
+1. {% octicon "gear" aria-label="The Settings gear" %} [**Settings**] の下で、[**Log forwarding**] をクリックします。 ![[Log forwarding] タブ](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
+1. [Log forwarding] の下で、[**Enable log forwarding**] を選択します。 ![ログ転送を有効にするチェックボックス](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
+1. [Server address] の下に、ログを転送するサーバーのアドレスを入力します。 ![[Server address] フィールド](/assets/images/enterprise/business-accounts/server-address-field.png)
+1. [Protocol] ドロップダウンメニューを使用して、プロトコルを選択します。 ![[Protocol] ドロップダウンメニュー](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
+1. 必要に応じて、syslog エンドポイント間の TLS 暗号化通信を有効にするには、[**Enable TLS**] を選択します。 ![TLS を有効にするチェックボックス](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
+1. [Public certificate] の下に、x509 証明書を貼り付けます。 ![公開証明書のテキストボックス](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
+1. [**Save**] をクリックします。 ![ログ転送用の [Save] ボタン](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### トラブルシューティング
-If you run into issues with log forwarding, contact
+ログ転送で問題が発生した場合は、
 
-{% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
+`http(s)://[hostname]/setup/diagnostics` からの出力ファイルをメールに添付して、{% data variables.contact.contact_ent_support %} に連絡してください。
 {% endif %}

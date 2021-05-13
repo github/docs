@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Grundlegendes zu Netzwerken
 
-Das einfachste Netzwerkdesign für Clustering besteht darin, die Knoten in einem einzelnen LAN zu platzieren. Wenn ein redundanter Cluster mehrere Subnetze abdecken muss, sollten zwischen den Subnetzen entsprechende Routen verfügbar sein. Zudem sollte die Latenz kleiner als 1 ms sein.
+Das einfachste Netzwerkdesign für Clustering besteht darin, die Knoten in einem einzelnen LAN zu platzieren. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. Zudem sollte die Latenz kleiner als 1 ms sein.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
@@ -54,12 +56,12 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
 | 6379/TCP  | Redis                        |
 | 8001/TCP  | Grafana                      |
 | 8090/TCP  | Interner GPG-Zugriff         |
-| 8149/TCP  | GitRPC-Dateiserverzugriff    |
+| 8149/TCP  | GitRPC file server access    |
 | 8300/TCP  | Consul                       |
 | 8301/TCP  | Consul                       |
 | 8302/TCP  | Consul                       |
 | 9000/TCP  | Git-Daemon                   |
-| 9102/TCP  | Pages-Dateiserver            |
+| 9102/TCP  | Pages file server            |
 | 9105/TCP  | LFS-Server                   |
 | 9200/TCP  | ElasticSearch                |
 | 9203/TCP  | Dienst für semantischen Code |

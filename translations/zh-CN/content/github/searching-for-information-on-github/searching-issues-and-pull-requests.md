@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索议题和拉取请求，也可以在特定组织内搜索议题和拉取请求。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
@@ -303,7 +305,7 @@ versions:
 
 ### 基于对话是否已锁定搜索
 
-您可以使用 `is` 限定符搜索具有已锁定对话的议题或拉取请求。 更多信息请参阅“[锁定对话](/articles/locking-conversations)”。
+您可以使用 `is` 限定符搜索具有已锁定对话的议题或拉取请求。 更多信息请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。
 
 | 限定符           | 示例                                                                                                                                                                                            |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

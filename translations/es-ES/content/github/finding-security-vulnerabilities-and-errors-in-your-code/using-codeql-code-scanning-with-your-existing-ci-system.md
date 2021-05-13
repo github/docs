@@ -5,7 +5,8 @@ intro: 'El {% data variables.product.prodname_codeql_runner %} te permite utiliz
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 

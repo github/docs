@@ -4,6 +4,8 @@ redirect_from:
   - /v3/scim
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 ### Aprovisionamiento de SCIM para las Organizaciones
@@ -12,7 +14,7 @@ Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM
 
 {% note %}
 
-**Nota:** La API de SCIM está disponible solo para las organizaciones en [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que tienen habilitado el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso). Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
+**Nota:** La API de SCIM está disponible solo para las organizaciones en [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que tienen habilitado el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso). Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 {% endnote %}
 

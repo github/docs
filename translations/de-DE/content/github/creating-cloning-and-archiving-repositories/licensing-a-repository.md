@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Repositories
 ---
 
 ### Die richtige Lizenz auswählen
@@ -23,7 +25,7 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 ### Den Speicherort der Lizenz festlegen
 
-Meistens wird der Lizenztext in einer Datei mit dem Namen `LICENSE.txt` (oder `LICENSE.md`) im Root des Repositorys gespeichert. [Hier ist ein Beispiel von Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
 
 Bei manchen Projekten finden sich Informationen zur Lizenz in der README-Datei. Beispielsweise kann die README-Datei eines Projekts den Hinweis „This project is licensed under the terms of the MIT license“ (Dieses Projekt ist gemäß den Bedingungen der MIT-Lizenz lizenziert) enthalten.
 

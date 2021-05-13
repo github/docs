@@ -6,6 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 Te recomendamos encarecidamente que uses la autenticación de dos factores para proteger tu cuenta. Si necesitas inhabilitar la autenticación de dos factores, te recomendamos habilitarla nuevamente lo antes posible.

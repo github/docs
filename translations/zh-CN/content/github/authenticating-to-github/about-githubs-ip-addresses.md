@@ -10,6 +10,9 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 您可以从 [meta](https://api.github.com/meta) API 端点检索 {% data variables.product.prodname_dotcom %} 的 IP 地址列表。 更多信息请参阅“[元数据](/rest/reference/meta)”。

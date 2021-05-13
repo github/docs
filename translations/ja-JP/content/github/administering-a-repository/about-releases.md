@@ -1,6 +1,6 @@
 ---
 title: リリースについて
-intro: '他の人が使用できるようにソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージしたリリースを作成できます。'
+intro: 他の人が使用できるようにソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージしたリリースを作成できます。
 redirect_from:
   - /articles/downloading-files-from-the-command-line/
   - /articles/downloading-files-with-curl/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### リリースについて

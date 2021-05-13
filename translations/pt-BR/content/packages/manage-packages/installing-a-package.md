@@ -9,9 +9,11 @@ permissions: Qualquer pessoa com permissões de leitura para um repositório pod
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Sobre a instalação do pacote
 
@@ -21,7 +23,7 @@ Depois de encontrar um pacote, você pode ler a descrição e as instruções de
 
 ### Instalar um pacote
 
-Você pode instalar um pacote de {% data variables.product.prodname_registry %} usando qualquer {% if currentVersion == "free-pro-team@latest" %}tipo de pacote cliente compatível{% else %}pacote habilitado para sua instância{% endif %}, seguindo as mesmas diretrizes gerais.
+Você pode instalar um pacote de {% data variables.product.prodname_registry %} usando qualquer {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}cliente de pacote compatível{% else %}tipo de pacote habilitado para a sua instância{% endif %}, seguindo as mesmas diretrizes gerais.
 
 1. Efetue a autenticação com {% data variables.product.prodname_registry %} usando as instruções para seu cliente de pacote. Para obter mais informações, consulte "[Sobre tokens](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)".
 2. Instale o pacote usando as instruções para seu cliente de pacote.

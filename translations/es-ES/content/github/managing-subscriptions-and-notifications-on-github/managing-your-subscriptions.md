@@ -1,10 +1,12 @@
 ---
 title: Administrar tus suscripciones
-intro: 'Hay varias maneras de darte de baja para ayudarte a administrar tus notificaciones de manera eficiente.'
+intro: Hay varias maneras de darte de baja para ayudarte a administrar tus notificaciones de manera eficiente.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, consulta la sección "[Visualizar tus suscripciones](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".

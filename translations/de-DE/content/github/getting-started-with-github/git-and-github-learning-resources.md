@@ -15,7 +15,7 @@ authors:
 
 ### Git verwenden
 
-Mache Dich mit Git vertraut: Besuche die [offizielle Git-Projekt-Website](https://git-scm.com), und lies das [ProGit E-Book](http://git-scm.com/book). Sieh Dir die [Liste der Git-Befehle](https://git-scm.com/docs) oder die [Git-Befehlsreferenz](http://gitref.org) an, und verwende den Simulator [Try Git](https://try.github.com).
+Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). Sieh Dir die [Liste der Git-Befehle](https://git-scm.com/docs) oder die [Git-Befehlsreferenz](http://gitref.org) an, und verwende den Simulator [Try Git](https://try.github.com).
 
 ### {% data variables.product.product_name %} verwenden
 

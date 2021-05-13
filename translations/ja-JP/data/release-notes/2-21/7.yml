@@ -4,6 +4,7 @@ sections:
   bugs:
     - 'サービスのへするチェックでセッションが増加し、ファイルシステムのinodeが枯渇しました。{% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
     - "ホットパッチを使用したアップグレードが`'libdbi1' was not found`というエラーで失敗することがありました。{% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - "リポジトリの権限を`Triage`もしくは`Maintain`に設定しようとしても、失敗しなくなりました。"
   known_issues:
     - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

@@ -6,16 +6,18 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### スポンサープロフィールについて
 
-{% data variables.product.prodname_sponsors %} プロフィールは、スポンサーとなる可能性がある人に、サポートが必要な理由を伝えます。 People see your sponsor profile when they click the **Sponsor** button on your profile. 次の情報を設定しておくことをお勧めします。
+{% data variables.product.prodname_sponsors %} プロフィールは、スポンサーとなる可能性がある人に、サポートが必要な理由を伝えます。 スポンサーとなる人は、あなたのプロフィールの [**Sponsor**] ボタンをクリックして、あなたのスポンサープロフィールを見ることができます。 次の情報を設定しておくことをお勧めします。
 
-- Open source work that you contribute to
-- Why you are committed to open source development
+- あなたが貢献しているオープンソースの作業
+- オープンソース開発に携わっている理由
 
-### Editing your profile details
+### プロフィールの詳細を編集する
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

@@ -1,0 +1,1 @@
+1. ページの右側で、"Select a tire（層の選択）"の下で利用可能なスポンサーシップ層をレビューしてください。 If more than one type of tier is available "Monthly" tiers are shown, click **One-time** to show the tiers for one-time payments. ![Show "One-time" tiers](/assets/images/help/sponsors/show-one-time-tiers.png)

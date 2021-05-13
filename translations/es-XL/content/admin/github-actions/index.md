@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/github-actions
 versions:
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

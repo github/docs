@@ -10,6 +10,8 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
@@ -48,7 +50,7 @@ Para proteger seus clientes, recomendamos que siga as práticas recomendadas em 
 
 ### Requisitos para aplicativos pagos
 
-Para publicar um plano pago para o seu aplicativo em {% data variables.product.prodname_marketplace %}, seu aplicativo deverá pertencer a uma organização que seja um publicador verificado. Para obter mais informações sobre o processo de verificação ou transferência da propriedade do seu aplicativo, consulte "[Candidatar-se para a verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
+Para publicar um plano pago para o seu aplicativo em {% data variables.product.prodname_marketplace %}, seu aplicativo deverá pertencer a uma organização que seja um publicador verificado. For more information about the verification process or transferring ownership of your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 Se seu aplicativo já está publicado e você é um editor verificado, você poderá publicar um novo plano pago no editor do plano de preços. Para obter mais informações, consulte "[Configurar planos de preços para sua listagem](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 

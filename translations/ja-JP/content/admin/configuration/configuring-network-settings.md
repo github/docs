@@ -11,5 +11,7 @@ intro: 'ネットワークで必要な DNS ネームサーバーとホスト名�
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

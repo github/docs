@@ -2,11 +2,12 @@
 title: Alojar tus propios corredores
 intro: Puedes crear ejecutores autohospedados para ejecutar flujos de trabajo en un entorno altamente personalizable.
 redirect_from:
-  - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/Hosting-Your-Own-Runners
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Hosting-Your-Own-Runners
+  - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
+  - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}

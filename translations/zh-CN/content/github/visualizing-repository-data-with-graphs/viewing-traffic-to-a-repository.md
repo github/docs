@@ -1,11 +1,13 @@
 ---
 title: 查看仓库的流量
-intro: '具有仓库推送权限的任何人都可以查看其流量，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点以及流量图中的热门内容。'
+intro: 具有仓库推送权限的任何人都可以查看其流量，包括完整克隆（不是提取）、过去 14 天的访问者、推荐站点以及流量图中的热门内容。
 product: '此仓库洞察图可用于具有 {% data variables.product.prodname_free_user %} 和 {% data variables.product.prodname_free_team %}（对于组织）的公共仓库，以及具有 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 和 {% data variables.product.prodname_ghe_cloud %} 的公共和私有仓库。{% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[关于仓库图](/articles/about-repository-graphs)”和“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)。”{% endif %}'
 redirect_from:
   - /articles/viewing-traffic-to-a-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 您可以从推荐特定路径的链接导航到推荐站点，不包括搜索引擎和 {% data variables.product.product_name %} 本身。 热门内容会链接到生成流量的特定内容。

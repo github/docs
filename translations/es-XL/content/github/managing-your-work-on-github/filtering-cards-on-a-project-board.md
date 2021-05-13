@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 En una tarjeta, puedes hacer clic en cualquier asignatario {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, hito,{% endif %} o etiqueta para filtrar el tablero de proyecto en función de ese calificador. Para borrar la búsqueda, puedes hacer clic otra vez en el mismo asignatario {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, hito,{% endif %} o etiqueta.

@@ -8,14 +8,14 @@ versions:
   free-pro-team: '*'
 ---
 
-### About local repositories
-Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+### 关于本地仓库
+{% data variables.product.prodname_dotcom %} 上的仓库是远程仓库。 您可以通过 {% data variables.product.prodname_desktop %} 克隆或复刻仓库以在计算机上创建本地仓库。
 
-You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
+您可以通过克隆仓库创建 {% data variables.product.product_name %} 上您可以访问的任何仓库的本地副本。 如果您拥有一个仓库或拥有写入权限，您可以在本地和远程位置之间进行同步。 更多信息请参阅“[同步分支](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)”。
 
-When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
+当您克隆仓库时，您推送到 {% data variables.product.product_name %} 的任何更改都将影响原始仓库。 要在不影响原始项目的情况下进行更改，您可以通过复刻仓库来创建单独的副本。 您可以创建拉取请求来提议维护员将您的复刻中的更改加入原始上游仓库。 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-forks)。”
 
-When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
+当您尝试使用 {% data variables.product.prodname_desktop %} 克隆您没有写入权限的仓库时，{% data variables.product.prodname_desktop %} 会自动提示您创建复刻。 您可以选择使用复刻参加原始上游仓库，或者在您自己的项目上独立工作。 任何现有复刻都默认对其上游仓库进行更改。 您可以随时修改此选项。 更多信息请参阅“[管理复刻行为](#managing-fork-behavior)”。
 
 也可以直接从 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 克隆仓库。 更多信息请参阅“[将仓库从 {% data variables.product.prodname_dotcom %} 克隆至 {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)。”
 
@@ -28,7 +28,7 @@ When you try to use {% data variables.product.prodname_desktop %} to clone a rep
 {% data reusables.desktop.click-clone %}
 
 ### 复刻仓库
-If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
+如果您克隆一个您没有写入权限的仓库，{% data variables.product.prodname_desktop %} 将创建一个复刻。 在创建或克隆复刻后，{% data variables.product.prodname_desktop %} 会问您打算如何使用该复刻。
 
 {% data reusables.desktop.choose-clone-repository %}
 {% data reusables.desktop.cloning-location-tab %}
@@ -37,11 +37,11 @@ If you clone a repository that you do not have write access to, {% data variable
 {% data reusables.desktop.click-clone %}
 {% data reusables.desktop.fork-type-prompt %}
 
-### Managing fork behavior
-You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
+### 管理复刻行为
+您可以更改复刻对 {% data variables.product.prodname_desktop %} 中上游仓库的行为。
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
 
 ### 延伸阅读
-- [关于远程仓库](/github/using-git/about-remote-repositories)
+- [关于远程仓库](/github/getting-started-with-github/about-remote-repositories)

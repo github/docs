@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ![Repository-Netzwerkdiagramm](/assets/images/help/graphs/repo_network_graph.png)

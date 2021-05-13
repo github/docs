@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Sind Sie ein Strafverfolgungsbeamter, der eine Untersuchung durchführt, die möglicherweise auf GitHub gehostete Benutzerinhalte betrifft? Oder sind Sie eine datenschutzbewusste Person, die wissen möchte, welche Informationen wir mit Strafverfolgungsbehörden teilen und unter welchen Umständen. In jedem Fall sind Sie hier auf der richtigen Seite.

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/reaching-github-support
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 自動チケットシステムを使用する

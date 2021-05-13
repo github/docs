@@ -1,10 +1,12 @@
 ---
-title: '“招聘职位”复选框有什么作用？'
+title: “招聘职位”复选框有什么作用？
 intro: 使用 **Available for hire（招聘职位）**复选框可查看 GitHub 内的 GitHub Jobs 岗位。
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 [GitHub Jobs](https://jobs.github.com/) 版块是在技术领域求职的一种绝佳途径。 您可选择查看在 GitHub 仪表板上发布的职位。

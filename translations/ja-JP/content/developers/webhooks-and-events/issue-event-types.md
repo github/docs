@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -152,19 +154,19 @@ Issue またはプルリクエストにコメントが追加された。
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前            | 種類                 | 説明                                                                                                   |
-| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
-| `sha`         | `string`           | プルリクエスト内のコミットの SHA。                                                                                  |
-| `node_id`     | `string`           | イベントの[グローバルノード ID](/graphql/guides/using-global-node-ids)。                                           |
-| `url`         | `string`           | コミットを取得する REST API URL。                                                                              |
-| `html_url`    | `string`           | コミットの HTML URL。                                                                                      |
-| `作者`          | `オブジェクト`           | コミットの作者。                                                                                             |
-| `コミッター`       | `オブジェクト`           | 作者に代わってコミットしたユーザ。                                                                                    |
-| `ツリー`         | `オブジェクト`           | コミットの Git ツリー。                                                                                       |
-| `message`     | `string`           | コミットメッセージ。                                                                                           |
-| `親`           | `array of objects` | 親コミットのリスト。                                                                                           |
-| `verfication` | `オブジェクト`           | コミットの署名の検証結果。 詳しい情報については、「[署名検証オブジェクト](/rest/reference/git#signature-verification-object)」を参照してください。 |
-| `event`       | `string`           | イベントの値は `"committed"` です。                                                                            |
+| 名前         | 種類                 | 説明                                                                                  |
+| ---------- | ------------------ | ----------------------------------------------------------------------------------- |
+| `sha`      | `string`           | プルリクエスト内のコミットの SHA。                                                                 |
+| `node_id`  | `string`           | イベントの[グローバルノード ID](/graphql/guides/using-global-node-ids)。                          |
+| `url`      | `string`           | コミットを取得する REST API URL。                                                             |
+| `html_url` | `string`           | コミットの HTML URL。                                                                     |
+| `作者`       | `オブジェクト`           | コミットの作者。                                                                            |
+| `コミッター`    | `オブジェクト`           | 作者に代わってコミットしたユーザ。                                                                   |
+| `ツリー`      | `オブジェクト`           | コミットの Git ツリー。                                                                      |
+| `message`  | `string`           | コミットメッセージ。                                                                          |
+| `親`        | `array of objects` | 親コミットのリスト。                                                                          |
+| `検証`       | `オブジェクト`           | コミットの署名の検証結果。 詳しい情報については、「[署名検証オブジェクト](/rest/reference/git#get-a-commit)」を参照してください。 |
+| `event`    | `string`           | イベントの値は `"committed"` です。                                                           |
 
 ### connected
 
@@ -718,7 +720,7 @@ Issue がピン留め解除された。
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-Organization のオーナーがユーザを Organization からブロックした。 これは、[Issue に関するブロックされたユーザのコメントの 1 つを介して](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)行われました。
+Organization のオーナーがユーザを Organization からブロックした。 これは、[Issue に関するブロックされたユーザのコメントの 1 つを介して](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment)行われました。
 
 #### 利用の可否
 

@@ -7,18 +7,32 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
 
-Agora que entendemos [os conceitos básicos de webhooks][webhooks-overview], vamos analisar o processo de criação da nossa própria integração com o webhook. Neste tutorial, vamos criar um webhook de repositório que será responsável por listar quão popular é o nosso repositório, com base no número de problemas que recebe por dia.
+Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-Criar um webhook é um processo de duas etapas. Primeiro, você deverá configurar como deseja que seu webhook se comporte através do {% data variables.product.product_name %} - quais eventos devem ser ouvidos. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
+Criar um webhook é um processo de duas etapas. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}: what events should it listen to. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Configurar um Webhook
+### Exposing localhost to the internet
+
+For the purposes of this tutorial, we're going to use a local server to receive messages from {% data variables.product.prodname_dotcom %}. So, first of all, we need to expose our local development environment to the internet. We'll use ngrok to do this. ngrok is available, free of charge, for all major operating systems. For more information, see [the ngrok download page](https://ngrok.com/download).
+
+After installing ngrok, you can expose your localhost by running `./ngrok http 4567` on the command line. 4567 is the port number on which our server will listen for messages. Você deve ver uma linha parecida mais ou menos com isso:
+
+```shell
+$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+```
+
+Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
+
+### Setting up a webhook
 
 É possível instalar webhooks em uma organização ou em um repositório específico.
 
@@ -32,7 +46,7 @@ Os webhooks exigem algumas opções de configuração antes de você poder usá-
 
 {% data reusables.webhooks.payload_url %}
 
-Já que estamos desenvolvendo localmente para nosso tutorial, vamos definir como `http://localhost:4567/payload`. Vamos explicar o porquê na documentação [Configurando seu servidor](/webhooks/configuring/).
+Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
 
 ### Tipo de conteúdo
 
@@ -42,7 +56,7 @@ Já que estamos desenvolvendo localmente para nosso tutorial, vamos definir como
 
 {% data reusables.webhooks.secret %}
 
-### Verificação de SSL
+### SSL verification
 
 {% data reusables.webhooks.webhooks_ssl %}
 
@@ -56,11 +70,13 @@ Os eventos encontram-se no núcleo dos webhooks. Esses webhooks são acionados s
 
 Uma lista completa de eventos de webhook e quando são executados pode ser encontrada na referência [da API de webhooks][hooks-api].
 
-Como nosso webhook está gerenciando problemas em um repositório, clicaremos em **Deixe-me selecionar eventos individuais** e, em seguida, **problemas**. Certifique-se de selecionar **Ativo** para receber eventos de problemas para webhooks acionados. Você também pode selecionar todos os eventos usando a opção-padrão.
+Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Certifique-se de selecionar **Ativo** para receber eventos de problemas para webhooks acionados. Você também pode selecionar todos os eventos usando a opção-padrão.
 
-Ao terminar, clique em **Adicionar webhook**. Ufa! Agora que você criou o webhook, é hora de configurar nosso servidor local para testar o webhook. Vá até [Configurar seu servidor](/webhooks/configuring/) para aprender como fazê-lo.
+Ao terminar, clique em **Adicionar webhook**.
 
-#### Evento curinga
+Now that you've created the webhook, it's time to set up our local server to test the webhook. Vá até [Configurar seu servidor](/webhooks/configuring/) para aprender como fazê-lo.
+
+#### Wildcard event
 
 Para configurar um webhook para todos os eventos, use o caractere curinga (`*`) para especificar os eventos de webhook. Ao adicionar o evento curinga, substituiremos todos os eventos existentes que você tenha configurado pelo evento curinga e enviaremos todas as cargas para os eventos compatíveis. Você também obterá automaticamente todos os novos eventos que possamos adicionar no futuro.
 

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 O {% data variables.product.product_name %} solicita uma senha para executar ações confidenciais, como adicionar novas chaves SSH, autorizar aplicativos ou modificar os integrantes da equipe.

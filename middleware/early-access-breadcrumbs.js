@@ -5,7 +5,7 @@ const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
 // Early Access content doesn't conform to the same structure as other products, so we
 // can't derive breadcrumbs from the siteTree in the same way. Hence, this separate middleware.
-module.exports = async (req, res, next) => {
+module.exports = async function earlyAccessBreadcrumbs (req, res, next) {
   if (!req.context.page) return next()
   if (!req.context.page.hidden) return next()
 

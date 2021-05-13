@@ -22,7 +22,7 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. 在“{% data variables.product.prodname_dotcom_the_website %}”右边单击 **Sign In（登录）**。 ![GitHub 的登录按钮](/assets/images/help/desktop/mac-sign-in-github.png)
-4. 在“Sign in（登录）”窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 {% data variables.product.prodname_desktop %} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. 在“Sign in（登录）”窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 {% data variables.product.prodname_desktop %} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -51,7 +51,7 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. 在 "GitHub.com" 右边单击 **Sign in（登录）**。 ![GitHub 的登录按钮](/assets/images/help/desktop/windows-sign-in-github.png)
-4. 在 Sign in（登录）窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 ![使用浏览器链接登录](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. 在 Sign in（登录）窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 ![使用浏览器链接登录](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 

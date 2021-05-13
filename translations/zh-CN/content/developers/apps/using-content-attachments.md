@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -77,7 +79,7 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 
 **步骤 5.** 在拉取请求或议题注释中，您将看到新的内容附件显示在链接下：
 
-![附加到议题引用的内容](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![附加到议题引用的内容](/assets/images/github-apps/content_reference_attachment.png)
 
 ### 在 GraphQL 中使用内容附件
 我们在 [`content_reference` web 挂钩](/webhooks/event-payloads/#content_reference)中提供 `node_id`，以便您可以在 GraphQL API 中引用 `createContentAttachment` 突变。
@@ -175,4 +177,4 @@ curl -X "POST" "https://api.github.com/graphql" \
 7. 将注释添加到您打开的议题，包括您在 `app.yml` 文件中配置的 URL。
 8. 查看议题注释，您将看到如下所示的更新：
 
-   ![附加到议题引用的内容](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![附加到议题引用的内容](/assets/images/github-apps/content_reference_attachment.png)

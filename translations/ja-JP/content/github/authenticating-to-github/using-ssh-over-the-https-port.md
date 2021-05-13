@@ -1,10 +1,12 @@
 ---
 title: HTTPS ポートを介して SSH を使用する
-intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  [HTTPS cloning with credential caching] (/github/using-git/caching-your-github-credentials-in-git) を使用できない場合は、HTTPS ポートを介して作成された SSH 接続を使用してクローンを試みることができます。  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
+intro: '時々、ファイアウォールは SSH 接続を完全に許可することを拒否します。  If using [HTTPS cloning with credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git) is not an option, you can attempt to clone using an SSH connection made over the HTTPS port.  ほとんどのファイアウォールルールでこれを許可する必要がありますが、プロキシサーバーが干渉する可能性があります。'
 redirect_from:
   - /articles/using-ssh-over-the-https-port
 versions:
   free-pro-team: '*'
+topics:
+  - SSH
 ---
 
 {% tip %}
@@ -33,6 +35,7 @@ ssh 設定でこれを設定するには、`~/.ssh/config` のファイルを編
 Host {% data variables.command_line.codeblock %}
   Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
+  User git
 ```
 
 もう一度 {% data variables.product.product_location %} に接続することでこれが機能するかテストできます:

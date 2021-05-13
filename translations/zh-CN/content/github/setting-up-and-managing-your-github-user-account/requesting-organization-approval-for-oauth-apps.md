@@ -7,6 +7,8 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### 请求组织批准您已为个人帐户授权的 {% data variables.product.prodname_oauth_app %}

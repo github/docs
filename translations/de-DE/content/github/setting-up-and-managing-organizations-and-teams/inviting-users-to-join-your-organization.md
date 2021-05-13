@@ -7,6 +7,9 @@ redirect_from:
   - /articles/inviting-users-to-join-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% tip %}

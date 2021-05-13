@@ -1,12 +1,14 @@
 ---
 title: 用户拥有的项目板的权限级别
-intro: '用户帐户拥有的项目板有两种权限级别：项目板所有者和协作者。'
+intro: 用户帐户拥有的项目板有两种权限级别：项目板所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### 权限概述

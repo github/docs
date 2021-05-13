@@ -8,11 +8,13 @@ redirect_from:
   - /articles/managing-releases-in-a-repository
   - /github/administering-a-repository/creating-releases
   - /github/administering-a-repository/editing-and-deleting-releases
-permissions: 'リポジトリのコラボレータと、リポジトリへの書き込みアクセスを持つ人は、リリースを作成、編集、削除できます。'
+permissions: 'Repository collaborators and people with write access to a repository can create, edit, and delete a release.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
@@ -22,7 +24,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. 詳しい情報については、「<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">アクションを {% data variables.product.prodname_marketplace %} で公開する</a>」を参照してください。
 {% endif %}
-You can choose whether
+リポジトリに対して
 
 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) オブジェクトを {% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
@@ -45,6 +47,9 @@ You can choose whether
 6. リリースのタイトルと説明を入力します。 ![リリースの説明](/assets/images/help/releases/releases_description.png)
 7. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
 8. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
+{%- if currentVersion == "free-pro-team@latest" %}
+1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+{%- endif %}
 9. リリースを公開する準備ができている場合は、[**Publish release**] をクリックします。 リリースの作業を後でする場合は、[**Save draft**] をクリックします。 ![[Publish release] と [Save draft] ボタン](/assets/images/help/releases/release_buttons.png)
 
 コマンドラインから、またはスクリプトでリリースを自動的に作成することもできます。 詳しい情報については、「[リリース](/rest/reference/repos/#create-a-release)」を参照してください。

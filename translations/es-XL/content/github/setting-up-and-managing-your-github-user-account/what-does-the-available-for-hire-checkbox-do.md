@@ -5,6 +5,8 @@ redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 El tablero [Empleos de GitHub](https://jobs.github.com/) es una buena manera de encontrar trabajo en el sector de tecnología. Puedes elegir para ver los trabajos publicados allí en tu tablero de GitHub.

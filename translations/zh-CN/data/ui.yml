@@ -5,9 +5,13 @@ header:
   notices:
     ghae_silent_launch: GitHub AE 目前是有限发行版。请<a href="https://enterprise.github.com/contact">联系我们的销售团队</a>了解更多信息。
     release_candidate: '# 版本名称是通过 includes/header-notification.html 在以下文本之前呈现：目前可用作发行版候选。更多信息请参阅“<a href="/admin/overview/about-upgrades-to-new-releases">关于升级到新版本</a>”。'
-    localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">告诉我们</a>。
+    localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
     early_access: '📣请<b>不要公开分享</b>此 URL。此页包含有关早期访问功能的内容。'
+    ghes_release_notes_use_latest: 请使用最新版本获取最新的安全性、性能和错误修复。
+    ghes_release_notes_upgrade_patch_only: '📣 这不是企业服务器的<a href="#{{ latestPatch }}">最新修补版</a> 。{% data ui.header.notices.ghes_release_notes_use_latest %}'
+    ghes_release_notes_upgrade_release_only: '📣 这不是企业服务器的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。{% data ui.header.notices.ghes_release_notes_use_latest %}'
+    ghes_release_notes_upgrade_patch_and_release: '📣 这不是此版本系列的<a href="#{{ latestPatch }}">最新修补版</a>，也不是企业服务器的<a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">最新版本</a>。{% data ui.header.notices.ghes_release_notes_use_latest %}'
 search:
   need_help: 需要帮助？
   placeholder: 搜索主题、产品...
@@ -38,12 +42,6 @@ helpfulness:
   yes_feedback: 想了解新的文档功能和更新？注册更新！
   email_placeholder: email@example.com
   no_feedback: 我们在不断改进文档，希望听到您的改进建议。
-  category_label: 您遇到了什么问题？
-  category_default: 选择一个选项
-  category_unclear: 信息不清楚
-  category_confusing: 内容令人困惑
-  category_unhelpful: 这篇文章没有回答我的问题
-  category_other: 其他
   comment_label: 告诉我们如何改进
   optional: 可选
   required: 必选
@@ -135,11 +133,12 @@ product_landing:
 product_sublanding:
   start: 开始
   start_path: 开始路径
-  learning_paths: 学习路径
+  learning_paths: '{{ allProducts[currentProduct].name }} 学习路径'
   learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
+  guides: '{{ allProducts[currentProduct].name }} 指南'
   more_guides: 更多指南
   load_more: 加载更多指南
-  all_guides: 所有指南
+  all_guides: '所有 {{ allProducts[currentProduct].name }} 指南'
   no_result: 抱歉，没有与过滤条件匹配的指南。
   filters:
     type: 类型
@@ -154,3 +153,4 @@ product_sublanding:
 learning_track_nav:
   prevGuide: 上一个指南
   nextGuide: 下一个指南
+contributor_callout: 这篇文章的参与者和维护者是

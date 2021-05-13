@@ -7,17 +7,19 @@ redirect_from:
   - /early-access/integrations/install-an-integration/
   - /apps/adding-integrations/
   - /apps/building-integrations/setting-up-a-new-integration/about-integrations/
-  - /앱
+  - /apps
   - /v3/integrations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}
     {% link_in_list /about-apps %}
-    {% link_in_list /activating-beta-features-for-apps %}
+    {% link_in_list /activating-optional-features-for-apps %}
     {% link_in_list /differences-between-github-apps-and-oauth-apps %}
     {% link_in_list /migrating-oauth-apps-to-github-apps %}
     {% link_in_list /setting-up-your-development-environment-to-create-a-github-app %}

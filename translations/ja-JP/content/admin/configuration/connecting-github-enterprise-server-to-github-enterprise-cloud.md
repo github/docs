@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom/
   - /enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
-permissions: '{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_github_connect %}を有効化できます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_github_connect %} について

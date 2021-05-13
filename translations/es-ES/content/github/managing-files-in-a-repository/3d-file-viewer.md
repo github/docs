@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} puede alojar y representar archivos 3D con la extensión *.stl*.

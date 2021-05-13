@@ -18,6 +18,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 Recibes notificaciones para tus suscripciones de la actividad reciente en {% data variables.product.product_name %}. Hay muchas razones por las cuales puedes estar suscrito a una conversación. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
@@ -36,7 +38,7 @@ Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Configurar tus ajustes de observación para repositorios individuales](#configuring-your-watch-settings-for-an-individual-repository)" a continuación.
+**Tip:** Puedes seleccionar los tipos de evento para los cuales quieres recibir notificaciones si utilizas la opción **Personalizar** de la lista desplegable **Observar/Dejar de observar** en tu [página de observados](https://github.com/watching) o en cualquier página de repositorio en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 
 {% endtip %}
 {% endif %}
@@ -79,23 +81,3 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
   Cuando dejas de seguir un repositorio, aún se te puede notificar cuando te @mencionan o cuando participas en un hilo. Cuando configuras el recibir notificaciones para ciertos tipos de evento, solo se te notificará cuando existan actualizaciones en éstos dentro del repositorio, si estás participando en un hilo, o si tú o un equipo al que perteneces tiene alguna @mención.
 
   {% endtip %}
-
-### Configurar los ajustes de observación para un repositorio individual
-
-Puedes elegir si quieres observar o dejar de observar un repositorio individual. También puedes elegir que solo se te notifique de {% if currentVersion == "free-pro-team@latest" %}algunos tipos de eventos, tales como propuestas, solicitudes de cambios, debates (si se habilitaron en el repositorio) y {% endif %}lanzamientos nuevos, o puedes ignorar completamente un repositorio específico.
-
-{% data reusables.repositories.navigate-to-repo %}
-2. En la esquina superior derecha, da clic en el menú desplegable "Observar" para seleccionar una opción de observación.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-  ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-   ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
-La opción **Personalizar** te permite personalizar aún más las notificaciones para que solo se te notifique cuando suceden eventos específicos en el repositorio, adicionalmente a participar y tener @menciones.
-
-   ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
-
-Si seleccionas "propuestas", se te notificará sobre y suscribirá a las actualizaciones de cada propuesta (incluyendo aquellas que existieron antes de que seleccionaras esta opción) del repositorio. Si se te @menciona en una solicitud de cambios de este repositorio, también recibirás notificaciones por este evento y se te suscribirá a las actualizaciones de esa solicitud de cambios específica adicionalmente a las notificaciones que tendrás sobre las propuestas.
-
-{% endif %}

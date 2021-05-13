@@ -1,5 +1,9 @@
 name: autoupdate branch
 
+# **What it does**: Any pull requests with "autoupdate" label will get main branch updates.
+# **Why we have it**: Our repo-sync automation relies on it.
+# **Who does it impact**: Our ability to support the open-source repository.
+
 #
 # This workflow checks all open PRs targeting `main` as their base branch and
 # will attempt to update them if they have the `autoupdate` label applied.

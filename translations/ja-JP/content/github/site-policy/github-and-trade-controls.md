@@ -7,15 +7,18 @@ redirect_from:
   - /github/site-policy/github-and-export-controls
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-GitHub.com、GitHub Enterprise Server、およびあなたがいずれかの製品にアップロードする情報は、米輸出管理規則（EAR）を含む貿易管理規制の対象となる場合があります。 Export Administration Regulations (the EAR).
+GitHub.com、GitHub Enterprise Server、およびあなたがいずれかの製品にアップロードする情報は、米輸出管理規則（EAR）を含む貿易管理規制の対象となる場合があります。
 
-GitHub のビジョンは、開発者たちがどこからでもコラボレーションに参加できるグローバルなプラットフォームを築くことです。 当社は、政府の命令を精査し、ユーザーおよびお客様が法律で要求される範囲を超えた影響を受けることがないようにする責任を真摯に受け止めています。 This includes keeping public repository services, including those for open source projects, available and accessible to support personal communications involving developers in sanctioned regions. This also means GitHub will advocate for developers in sanctioned regions to enjoy greater access to the platform and full access to the global open source community.
+GitHub のビジョンは、開発者たちがどこからでもコラボレーションに参加できるグローバルなプラットフォームを築くことです。 当社は、政府の命令を精査し、ユーザーおよびお客様が法律で要求される範囲を超えた影響を受けることがないようにする責任を真摯に受け止めています。 こうした取り組みには、オープンソースプロジェクトを含むパブリックリポジトリサービスを利用可能かつアクセス可能に保つことで、制裁対象地域の開発者が参加する個人的なコミュニケーションをサポートすることも含まれます。 This also means GitHub will advocate for developers in sanctioned regions to enjoy greater access to the platform and full access to the global open source community.
 
 As a result of our advocacy and hard work with U.S. regulators, GitHub has secured a license from the U.S. Treasury Department’s Office of Foreign Assets Control (OFAC) to restore our cloud services to developers in Iran. And we will continue to work with U.S. regulators to secure similar licenses to offer collaboration services to developers in Syria and Crimea. We are committed to advocating for the broadest possible developer access, as we believe offering code collaboration services for developers in sanctioned regions makes the global developer community stronger, advances human progress, and supports the enduring U.S. foreign policy of promoting free speech and the free flow of information. For information about the license we secured for developers in Iran, read [the blog post](https://github.blog/2021-01-05-advancing-developer-freedom-github-is-fully-available-in-iran).
 
-Although we've provided the following information below for your convenience, it is ultimately your responsibility to ensure that your use of GitHub's products and services complies with all applicable laws and regulations, including U.S. export control laws.
+なお、以下の情報は便宜上提供されるものであり、GitHub の製品およびサービスをご利用になる際は、ご自身の責任のもと米 輸出管理法を含む適用されるすべての法律および規制を遵守してください。
 
 ### 輸出の概要
 

@@ -4,9 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: 'Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.'
+intro: Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}

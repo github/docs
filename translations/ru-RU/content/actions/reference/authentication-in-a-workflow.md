@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About the `GITHUB_TOKEN` secret
 
@@ -38,7 +40,7 @@ This example workflow uses the [labeler action](https://github.com/actions/label
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -71,7 +73,8 @@ You can use the `GITHUB_TOKEN` to make authenticated API calls. This example wor
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
@@ -91,6 +94,8 @@ For information about the API endpoints {% data variables.product.prodname_githu
 | pull requests       | read/write  | read                   |
 | repository projects | read/write  | read                   |
 | statuses            | read/write  | read                   |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a personal access token and set it as a secret in your repository:
 

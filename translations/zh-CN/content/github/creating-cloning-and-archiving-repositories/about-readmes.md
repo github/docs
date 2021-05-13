@@ -1,6 +1,6 @@
 ---
 title: 关于自述文件
-intro: '您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。'
+intro: 您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages/
   - /articles/relative-links-in-readmes/
@@ -9,13 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于自述文件
 
 您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 README 连同仓库许可{% if currentVersion == "free-pro-team@latest" %}、参与指南以及行为准则{% elsif enterpriseServerVersions contains currentVersion %} 和参与指南{% endif %}，用于传达项目的要求，并且帮助您管理参与。
 
-有关为项目提供指南的更多信息，请参阅 {% if currentVersion == "free-pro-team@latest" %}“[为项目添加行为准则](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)”。
+有关为项目提供指南的更多信息，请参阅 {% if currentVersion == "free-pro-team@latest" %}“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么

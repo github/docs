@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Eliminar la contraseña de un archivo clave

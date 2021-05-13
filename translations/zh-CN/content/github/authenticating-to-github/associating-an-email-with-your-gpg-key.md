@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% note %}
@@ -33,9 +36,9 @@ versions:
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to confirm your selections.
+7. 输入 `O` 以确认选择。
 8. 输入密钥的密码。
-9. Enter `gpg> save` to save the changes
+9. 输入 `gpg> save` 以保存更改
   ```shell
   $ gpg> save
   ```

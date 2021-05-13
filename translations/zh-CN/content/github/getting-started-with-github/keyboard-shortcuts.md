@@ -36,7 +36,7 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                           |
-| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wikis](/articles/about-wikis)”。                                                                                                                        |
+| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。                                                                                 |
 
 ### 源代码编辑
 
@@ -52,6 +52,7 @@ versions:
 | <kbd>control z</kbd> 或 <kbd>command z</kbd>                    | 撤消                                                       |
 | <kbd>control y</kbd> 或 <kbd>command y</kbd>                    | 重做                                                       |
 | <kbd>cmd + shift + p</kbd>                                     | 在 **Edit file（编辑文件）** 与 **Preview changes（预览更改）**选项卡之间切换 |
+| <kbd>control s</kbd> 或 <kbd>command s</kbd>                    | 填写提交消息                                                   |
 
 有关更多键盘快捷键，请参阅 [CodeMirror 文档](https://codemirror.net/doc/manual.html#commands)。
 
@@ -64,6 +65,7 @@ versions:
 | <kbd>w</kbd> | 切换到新分支或标记                                                                               |
 | <kbd>y</kbd> | 将 URL 展开为其规范形式。 更多信息请参阅“[获取文件的永久链接](/articles/getting-permanent-links-to-files)”。       |
 | <kbd>i</kbd> | 显示或隐藏有关差异的评论。 更多信息请参阅“[评论拉取请求的差异](/articles/commenting-on-the-diff-of-a-pull-request)”。 |
+| <kbd>a</kbd> | 在差异上显示或隐藏注释                                                                             |
 | <kbd>b</kbd> | 打开追溯视图。 更多信息请参阅“[跟踪文件中的更改](/articles/tracing-changes-in-a-file)”。                       |
 
 ### 评论

@@ -1,6 +1,6 @@
 ---
 title: Otorgar permisos superiores a los contribuyentes principales
-intro: 'Los administradores de repositorio pueden promover a cualquier miembro de la comunidad para que sea un moderador o un mantenedor.'
+intro: Los administradores de repositorio pueden promover a cualquier miembro de la comunidad para que sea un moderador o un mantenedor.
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +21,7 @@ Los colaboradores más útiles en los últimos 30 días se resaltarán en el tab
 
 Las personas con permisos de clasificación en un repositorio pueden ayudar a moderar los debates de un proyecto si marcan los comentarios como respuestas, fijar los debates que ya no son útiles o que están haciendo daño a la comunidad, y convertir las propuestas en debates cuando una idea aún se encuentra en una etapa temprana de desarrollo. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
-Para obtener más información sobre los niveles de permiso y los {% data variables.product.prodname_discussions %} de un repositorio, consulta la sección "[Niveles de permiso de un repositorio en una organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Para obtener más información sobre los niveles de permiso y los {% data variables.product.prodname_discussions %} de un repositorio, consulta la sección "[Niveles de permiso de un repositorio en una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 ### Paso 3: Cambia los niveles de permiso para los contribuyentes principales
 

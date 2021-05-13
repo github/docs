@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 多个活动副本可以提供到达最近副本的较短距离。 举例来说，一个在旧金山、纽约和伦敦均设有办事处的组织可以在靠近纽约的数据中心运行主设备，在靠近旧金山和伦敦的数据中心运行两个副本。 利用地理位置感知 DNS，用户可以转到距离最近的可用服务器，并更快地访问仓库数据。 如果将靠近旧金山的设备指定为主设备，则与伦敦的延迟会比较大，相比而言，将靠近纽约的设备指定为主设备有助于减小主机之间的延迟。
@@ -19,6 +21,8 @@ Git 请求和特定的文件服务器请求（例如 LFS 和文件上传）可�
 ### 限制
 
 将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### 监视 Geo-replication 配置
 

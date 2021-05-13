@@ -4,6 +4,8 @@ intro: '从移动设备对 {% data variables.product.product_name %} 上的工�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+topics:
+  - Mobile
 ---
 
 {% data reusables.mobile.ghes-release-phase %}

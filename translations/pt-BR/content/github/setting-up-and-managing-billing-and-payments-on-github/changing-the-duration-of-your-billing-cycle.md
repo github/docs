@@ -1,6 +1,6 @@
 ---
 title: Alterar a duração do ciclo de cobrança
-intro: Você pode pagar pela assinatura da sua conta, bem como de outros recursos e produtos pagos em um ciclo de cobrança mensal ou anual.
+intro: 'Você pode pagar pela assinatura da sua conta, bem como de outros recursos e produtos pagos em um ciclo de cobrança mensal ou anual.'
 redirect_from:
   - /articles/monthly-and-yearly-billing/
   - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/
@@ -8,6 +8,8 @@ redirect_from:
   - /articles/changing-the-duration-of-your-billing-cycle
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Quando você altera a duração do ciclo de cobrança, sua assinatura do {% data variables.product.prodname_dotcom %}, em conjunto com outros recursos e produtos pagos, são movidos para o novo ciclo de cobrança na próxima data de cobrança.

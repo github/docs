@@ -4,10 +4,12 @@ redirect_from:
   - /enterprise/admin/articles/preventing-users-from-creating-organizations/
   - /enterprise/admin/hidden/preventing-users-from-creating-organizations/
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
-intro: 'Puedes prevenir que los usuarios creen organizaciones en tu empresa.'
+intro: Puedes prevenir que los usuarios creen organizaciones en tu empresa.
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}

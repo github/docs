@@ -1,12 +1,14 @@
 ---
 title: Iniciar con GitHub Actions para GitHub Enterprise Server
 intro: 'Aprende cómo habilitar y configurar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} por primera vez.'
-permissions: 'Los administradoresde sitio pueden habilitar {% data variables.product.prodname_actions %} y configurar los ajustes empresariales.'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -25,15 +27,26 @@ Este artículo explica cómo los administradores de sitio pueden habilitar {% da
 
 {% note %}
 
-**Note**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} was available for {% data variables.product.prodname_ghe_server %} 2.22 as a limited beta. {% endif %}If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
+**Nota**: {% if currentVersion == "enterprise-server@2.22" %}{% data variables.product.prodname_actions %} estuvo disponible para {% data variables.product.prodname_ghe_server %} 2.22 como beta limitado. {% endif %}Si estás actualizando una instancia existente de {% data variables.product.prodname_ghe_server %} hacia la versión 3.0 o superior y quieres configurar las {% data variables.product.prodname_actions %}, nota que los requisitos mínimos de hardware han aumentado. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.actions.enterprise-hardware-considerations %}
+Los recursos de CPU y de memoria que están disponibles para {% data variables.product.product_location %} determinan el rendimiento máximo de jobs para {% data variables.product.prodname_actions %}.
 
-For more information about resource requirements for {% data variables.product.prodname_ghe_server %}, see the hardware considerations for your instance's platform.
+Las pruebas internas de {% data variables.product.company_short %} demostraron el siguiente rendimiento máximo para las instancias de {% data variables.product.prodname_ghe_server %} con un rango de CPU y configuraciones de memoria. Puede que vas rendimientos diferentes dependiendo de los niveles generales de actividad en tu instancia.
+
+| vCPU | Memoria | Rendimiento máximo del job |
+|:---- |:------- |:-------------------------- |
+| 4    | 32 GB   | Demo o pruebas leves       |
+| 8    | 64 GB   | 25 puestos de trabajo      |
+| 16   | 160 GB  | 35 puestos de trabajo      |
+| 32   | 256 GB  | 100 puestos de trabajo     |
+
+Si {% if currentVersion == "enterprise-server@2.22" %}habilitaste el beta de{% else %}planeas habilitar{% endif %} {% data variables.product.prodname_actions %} para los usuarios de una instancia existente, revisa los niveles de actividad para los usuarios y las automatizaciones en la instancia y asegúrate de que hayas aprovisionado la memoria y CPU adecuados para tus usuarios. Para obtener más información acerca de cómo monitorear la capacidad y rendimiento de {% data variables.product.prodname_ghe_server %}, consulta la sección "[Monitorear tu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
+
+Para obtener más información acerca de los requisitos mínimos de {% data variables.product.product_location %}, consulta las consideraciones de hardware para la plataforma de tu instancia.
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)
@@ -71,7 +84,7 @@ Para habilitar {% data variables.product.prodname_actions %} en {% data variable
 
 ### Habilitar {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_actions %} support on {% data variables.product.prodname_ghe_server %} 2.22 was available as a limited beta. To configure {% data variables.product.prodname_actions %} for your instance, upgrade to {% data variables.product.prodname_ghe_server %} 3.0 or later. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes) and "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)."
+El soporte para {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %} 2.22 estuvo disponible com un beta limitado. Para configurar las {% data variables.product.prodname_actions %} para tu instancia, mejora a {% data variables.product.prodname_ghe_server %} 3.0 o superior. Para obtener más información, consulta las [notas de lanzamiento para {% data variables.product.prodname_ghe_server %} 3.0](/enterprise-server@3.0/admin/release-notes) y la sección "[Mejorar {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)".
 
 ### Leer más
 

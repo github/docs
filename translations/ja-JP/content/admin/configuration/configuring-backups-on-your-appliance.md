@@ -15,6 +15,8 @@ redirect_from:
 intro: 'システム災害復旧計画の一部として、自動化バックアップを設定して{% data variables.product.product_location %}のプロダクションデータを保護できます。'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_enterprise_backup_utilities %}について
@@ -83,7 +85,7 @@ versions:
 {%if currentVersion ver_gt "enterprise-server@2.22"%}
 {% note %}
 
-**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**注釈:** {% data variables.product.product_location %} で {% data variables.product.prodname_actions %} が有効になっている場合は、`ghe-restore` コマンドを実行する前に、まず交換用アプライアンスで {% data variables.product.prodname_actions %} 外部ストレージプロバイダを設定する必要があります。 詳しい情報については、「[{% data variables.product.prodname_actions %} を有効にして {% data variables.product.prodname_ghe_server %} をバックアップおよび復元する](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -116,4 +118,3 @@ $ ghe-restore -c 169.154.1.1
 以下の追加オプションは、`ghe-restore` コマンドで使用できます。
 - `-c` フラグは、すでに設定されている場合でも、ターゲットホストで設定、証明書、およびライセンスデータを上書きします。 テストのためにステージングインスタンスを設定しており、ターゲット上の依存の設定を残しておきたい場合には、このフラグを省いてください。 詳しい情報については[{% data variables.product.prodname_enterprise_backup_utilities %}README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands)の"バックアップ及びリストアコマンドの利用"セクションを参照してください。
 - `-s` フラグにより、異なるバックアップスナップショットを選択できます。
-  

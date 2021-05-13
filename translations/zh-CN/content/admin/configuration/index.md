@@ -1,12 +1,14 @@
 ---
 title: 配置 GitHub Enterprise
 shortTitle: 配置 GitHub Enterprise
-intro: "您可以配置企业以适应组织的需求。"
+intro: 您可以配置企业以适应组织的需求。
 redirect_from:
   - /enterprise/admin/configuration
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}

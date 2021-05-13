@@ -7,7 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+  github-ae: '*'
+type: overview
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -120,6 +121,7 @@ You must ensure that the machine has the appropriate network access to communica
 github.com
 api.github.com
 *.actions.githubusercontent.com
+github-releases.githubusercontent.com
 codeload.github.com
 ```
 

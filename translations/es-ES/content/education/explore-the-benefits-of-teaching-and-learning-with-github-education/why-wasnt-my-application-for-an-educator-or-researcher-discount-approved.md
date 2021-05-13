@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué mi solicitud para un descuento de educador o de investigador no se aprobó?'
+title: ¿Por qué mi solicitud para un descuento de educador o de investigador no se aprobó?
 intro: Revisa las razones comunes por las que las solicitudes para un descuento de educador o de investigador no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved

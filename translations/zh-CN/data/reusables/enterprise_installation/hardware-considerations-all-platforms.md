@@ -1,5 +1,5 @@
 - [最低要求](#minimum-requirements){% if currentversion == "enterprise-server@2.22" %}
-- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
+- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222){% endif %}
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)
 
@@ -17,7 +17,7 @@
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-To configure{% if currentVersion == "enterprise-server@2.22" %} the beta of{% endif %} {% data variables.product.prodname_actions %}, you must provide external blob storage. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+要配置{% if currentVersion == "enterprise-server@2.22" %} {% endif %}{% data variables.product.prodname_actions %}测试版，您必须提供外部 Blob 存储。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)”。
 
 {% endif %}
 
@@ -25,7 +25,13 @@ To configure{% if currentVersion == "enterprise-server@2.22" %} the beta of{% en
 
 #### CPU 和内存
 
-The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations. {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data reusables.actions.enterprise-hardware-considerations %}{% endif %}
+{% data variables.product.prodname_ghe_server %} 需要的 CPU 和内存资源取决于用户的活动水平、自动化和集成。
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+如果您对 {% data variables.product.prodname_ghe_server %} 实例的{% if currentVersion == "enterprise-server@2.22" %}已启用{% else %}计划启用{% endif %} {% data variables.product.prodname_actions %} 测试版，可能需要为实例提供附加的 CPU 和内存资源。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
@@ -34,5 +40,7 @@ The CPU and memory resources that {% data variables.product.prodname_ghe_server 
 **警告：** 我们建议用户配置 web 挂钩事件来通知外部系统有关 {% data variables.product.prodname_ghe_server %} 上的活动。 自动检查更改或 _轮询_将对实例的性能和可扩展性产生不利影响。 更多信息请参阅“[关于 web 挂钩](/github/extending-github/about-webhooks)”。
 
 {% endwarning %}
+
+有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
 
 您可以增加实例的 CPU 或内存资源。 更多信息请参阅“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。

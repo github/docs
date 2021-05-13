@@ -3,6 +3,8 @@ title: Managing security and analysis settings for your user account
 intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### About management of security and analysis settings
@@ -24,6 +26,8 @@ For an overview of repository-level security, see "[About securing your reposito
 3. Under "Configure security and analysis features", to the right of the feature, click **Disable all** or **Enable all**. !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png)
 6. Optionally, enable the feature by default for new repositories in your organization. !["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png)
 7. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own. ![Button to disable or enable feature](/assets/images/help/settings/security-and-analysis-enable-dependency-graph.png)
+
+{% data reusables.security.displayed-information %}
 
 ### Enabling or disabling features for new repositories
 

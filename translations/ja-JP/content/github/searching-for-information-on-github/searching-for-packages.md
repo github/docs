@@ -2,11 +2,13 @@
 title: パッケージを検索する
 intro: '{% data variables.product.product_name %} 上のパッケージを検索し、検索修飾子を使用して検索結果を絞ることができます。'
 product: '{% data reusables.gated-features.packages %}'
-permissions: 自分がアクセス権を持つパッケージは、誰でも検索できます。
+permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

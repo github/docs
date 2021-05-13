@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 为使“标记为重复”时间轴事件出现，创建重复参考评论的用户必须对在其中创建评论的仓库具有写入权限。

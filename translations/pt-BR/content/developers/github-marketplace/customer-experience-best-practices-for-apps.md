@@ -1,9 +1,11 @@
 ---
 title: Práticas recomendadas de experiência do cliente para aplicativos
-intro: 'Diretrizes para a criação de um aplicativo fácil de usar e entender.'
+intro: Diretrizes para a criação de um aplicativo fácil de usar e entender.
 shortTitle: Práticas recomendadas de experiência do cliente
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 Se você seguir essas práticas recomendadas, elas ajudarão você a oferecer uma boa experiência para o cliente.

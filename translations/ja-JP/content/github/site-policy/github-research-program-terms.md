@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-research-program-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub Research Program (「Program」) へようこそ。 「Program」に参加するためには、GitHub Research Program利用規約 (「利用規約」) という特別な規約に同意する必要があります。

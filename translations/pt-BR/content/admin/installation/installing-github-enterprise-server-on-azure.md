@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure global ou Azure Government.
@@ -22,26 +24,15 @@ Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure
 
 ### Determinar o tipo de máquina virtual
 
-Antes de iniciar a {% data variables.product.product_location %} no Azure, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
-
-#### Regiões e tipos de VM compatíveis
-
-O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Para obter mais informações, consulte "[VMs compatíveis](https://docs.microsoft.com/azure/storage/common/storage-premium-storage#supported-vms)" na documentação do Azure. Para ver informações gerais sobre as VMs disponíveis, consulte a [página de visão geral das máquinas virtuais do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux).
-
-O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
-
-#### Tipos recomendados de VM
-
-É recomendável usar um tipo de instância DS v2 com no mínimo 14 GB de RAM. Você pode usar qualquer tipo de VM compatível. Com base na contagem de licenças de usuário, recomendamos os seguintes tipos de instâncias.
-
-|                 Estações                 |  Tipo recomendado  |
-|:----------------------------------------:|:------------------:|
-| Teste, demonstração ou 10 usuários leves | Standard_DS11_v2 |
-|                10 - 3000                 | Standard_DS12_v2 |
-|               3000 - 8000                | Standard_DS14_v2 |
-|              8000 - 10000+               | Standard_DS15_v2 |
+Antes de lançar {% data variables.product.product_location %} no Azure, você deverá determinar o tipo de máquina que melhor atende às necessidades da sua organização. Para revisar os requisitos mínimos para {% data variables.product.product_name %}, consulte "[Requisitos mínimos](#minimum-requirements)".
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+O appliance do {% data variables.product.prodname_ghe_server %} requer um disco de dados de armazenamento premium e é compatível com qualquer VM do Azure que tenha suporte ao armazenamento premium. Tipos de Azure VM com `s` sufixo são compatíveis com o armazenamento premium. Para obter mais informações, consulte "[Quais tipos de disco estão disponíveis no Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types#premium-ssd)" e "[Armazenamento premium do Azure: design para alto desempenho](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)" na documentação do Azure.
+
+{% data variables.product.company_short %} recomenda uma VM com memória otimizada para {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Tamanhos de máquinas virtuais com memória otimizada ](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-memory)" na documentação do Azure.
+
+O {% data variables.product.prodname_ghe_server %} dá suporte a qualquer região compatível com o seu tipo de VM. Para obter mais informações sobre as regiões compatíveis com cada VM, consulte "[Produtos disponíveis por região](https://azure.microsoft.com/regions/services/)".
 
 ### Criar a instância da máquina virtual do {% data variables.product.prodname_ghe_server %}
 

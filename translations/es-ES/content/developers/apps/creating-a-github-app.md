@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}Para aprender cómo utilizar los manifiestos de las GitHub Apps, los cuales le permiten a las personas crear GitHub Apps preconfiguradas, consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
@@ -64,6 +66,6 @@ versions:
   {% endnote %}
 
 13. En "Permisos", elige aquellos permisos que solicitará tu app. Para cada tipo de permiso, utiliza el menú desplegable, y da clic en **Solo lectura**, **Lectura& escritura**, o **Sin acceso**. ![Varios permisos para tu GitHub App](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. En "Suscribirse a los eventos", elige si quieres suscribir a tu app a los eventos de **Etiquetas**, **Públicos**, **Repositorios**, o **Observar**. ![Opciones de suscripción a los eventos para tu GitHub App](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. En "Suscribirse a los eventos", elige aquellos que quieras que reciba tu app.
 15. Para elegir si la app se podrá instalar, selecciona ya sea **Únicamente en esta cuenta** o **Cualquier cuenta**. Para obtener más información sobre las opciones de instalación, selecciona "[Convertir una GitHub App en pública o privada](/apps/managing-github-apps/making-a-github-app-public-or-private/)". ![Opciones de instalación para tu GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
 16. Da clic en **Crear GitHub App**. ![Botón para crear tu GitHub App](/assets/images/github-apps/github_apps_create_github_app.png)

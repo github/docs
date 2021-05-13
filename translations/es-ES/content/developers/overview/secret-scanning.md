@@ -7,6 +7,8 @@ redirect_from:
   - /partnerships/secret-scanning
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El {% data variables.product.prodname_secret_scanning_caps %} ocurre predeterminadamente en los repositorios públicos y los administradores de repositorio o propietarios de la organización pueden habilitarlo en los repositorios privados. Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que tus formatos de secreto se incluyan en nuestro {% data variables.product.prodname_secret_scanning %}.
@@ -14,12 +16,6 @@ versions:
 Cuando se encuentra una coincidencia de tu formato secreto en un repositorio público, se envía una carga útil a una terminal HTTP de tu elección.
 
 Cuando se encuentra una coincidencia con tu formato de secreto en un repositorio privado que se haya configurado para el {% data variables.product.prodname_secret_scanning %}, entonces, se alerta a los administradores de repositorio y éstos pueden ver y administrar los resultados del {% data variables.product.prodname_secret_scanning %} en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Administrar alertas de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
-
-{% note %}
-
-**Nota:** El {% data variables.product.prodname_secret_scanning_caps %} para los repositorios privados se encuentran actualmente en beta y está sujeto a cambios.
-
-{% endnote %}
 
 Este artículo describe cómo puedes asociarte con {% data variables.product.prodname_dotcom %} como un proveedor de servicios y unirte al programa del {% data variables.product.prodname_secret_scanning %}.
 
@@ -274,6 +270,48 @@ current_key = current_key_object["key"]
 openssl_key = OpenSSL::PKey::EC.new(current_key)
 
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
+```
+
+**Ejemplo de validación en JavaScript**
+```js
+const crypto = require("crypto");
+const axios = require("axios");
+
+const GITHUB_KEYS_URI = "https://api.github.com/meta/public_keys/secret_scanning";
+
+/**
+ * Verify a payload and signature against a public key
+ * @param {String} payload the value to verify
+ * @param {String} signature the expected value
+ * @param {String} keyID the id of the key used to generated the signature
+ * @return {void} throws if the signature is invalid
+ */
+const verify_signature = async (payload, signature, keyID) => {
+  if (typeof payload !== "string" || payload.length === 0) {
+    throw new Error("Invalid payload");
+  }
+  if (typeof signature !== "string" || signature.length === 0) {
+    throw new Error("Invalid signature");
+  }
+  if (typeof keyID !== "string" || keyID.length === 0) {
+    throw new Error("Invalid keyID");
+  }
+
+  const keys = (await axios.get(GITHUB_KEYS_URI)).data;
+  if (!(keys?.public_keys instanceof Array) || keys.length === 0) {
+    throw new Error("No public keys found");
+  }
+
+  const publicKey = keys.public_keys.find((k) => k.key_identifier === keyID) ?? null;
+  if (publicKey === null) {
+    throw new Error("No public key found matching key identifier");
+  }
+
+  const verify = crypto.createVerify("SHA256").update(payload);
+  if (!verify.verify(publicKey.key, Buffer.from(signature, "base64"), "base64")) {
+    throw new Error("Signature does not match payload");
+  }
+};
 ```
 
 #### Implementa la revocación de secretos y la notificación a usuarios en tu servicio de alerta de secretos

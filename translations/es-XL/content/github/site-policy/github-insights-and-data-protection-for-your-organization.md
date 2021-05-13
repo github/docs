@@ -4,9 +4,14 @@ intro: '{% data variables.product.prodname_insights %} analyzes your {% data var
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 For more information about the terms that govern {% data variables.product.prodname_insights %}, see your {% data variables.product.prodname_ghe_one %} subscription agreement.

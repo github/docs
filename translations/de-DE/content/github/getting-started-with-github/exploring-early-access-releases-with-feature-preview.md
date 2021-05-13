@@ -1,10 +1,12 @@
 ---
 title: Early-Access-Versionen mit Funktionsvorschau erkunden
-intro: Du kannst die Funktions-Vorschau benutzen, um Produkte oder Funktionen zu sehen, die sich in der Beta-Version befinden und um jede der Funktionen für Dein Konto zu aktivieren oder zu deaktivieren.
+intro: 'Du kannst die Funktions-Vorschau benutzen, um Produkte oder Funktionen zu sehen, die sich in der Beta-Version befinden und um jede der Funktionen für Dein Konto zu aktivieren oder zu deaktivieren.'
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
   free-pro-team: '*'
+topics:
+  - Early access
 ---
 
 ### Release-Zyklus von {% data variables.product.prodname_dotcom %}

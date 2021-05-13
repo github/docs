@@ -3,6 +3,8 @@ title: Managing your scheduled reminders
 intro: Get reminders in Slack when you or your team have pull requests waiting for review.
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### About scheduled reminders for users
@@ -11,7 +13,9 @@ Scheduled reminders are used to make sure that users focus on the most important
 
 For certain events, you can also enable real-time alerts for scheduled reminders. Real-time alerts get sent to your Slack channel as soon as an important event, such as when you are assigned a review, takes place.
 
-You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
+You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Creating scheduled reminders for your user account
 
@@ -46,5 +50,5 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 ### 더 읽을거리
 
-- "[Managing scheduled reminders for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)"
-- "[Managing scheduled reminders for your team](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)"
+- "[Managing scheduled reminders for your organization](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
+- "[Managing scheduled reminders for your team](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

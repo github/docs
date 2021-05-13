@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - páginas
 ---
 
 Las personas con permisos de escritura para un repositorio pueden agregar un tema a un sitio de {% data variables.product.prodname_pages %} con Jekyll.

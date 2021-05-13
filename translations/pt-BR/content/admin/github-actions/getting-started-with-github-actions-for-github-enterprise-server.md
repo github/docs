@@ -1,12 +1,14 @@
 ---
 title: Primeiros passos com o GitHub Actions para o GitHub Enterprise Server
 intro: 'Saiba mais sobre como habilitar e configurar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} pela primeira vez.'
-permissions: 'Os administradores de site podem ativar o {% data variables.product.prodname_actions %} e definir as configurações empresariais.'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -31,9 +33,20 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% endif %}
 
-{% data reusables.actions.enterprise-hardware-considerations %}
+Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}.
 
-Para obter mais informações sobre requisitos de recursos para {% data variables.product.prodname_ghe_server %}, consulte considerações de hardware para a plataforma da sua instância.
+O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
+
+| vCPUs | Memória | Rendimento máximo do trabalho  |
+|:----- |:------- |:------------------------------ |
+| 4     | 32 GB   | Demonstração ou testes rápidos |
+| 8     | 64 GB   | 25 trabalhos                   |
+| 16    | 160 GB  | 35 trabalhos                   |
+| 32    | 256 GB  | 100 trabalhos                  |
+
+Se você{% if currentVersion == "enterprise-server@2.22" %}habilitou o plano beta de{% else %}plano para habilitar{% endif %} {% data variables.product.prodname_actions %} para os usuários de uma instância existente, revise os níveis de atividade para usuários e automações na instância e garantir que você tenha fornecido CPU e memória adequadas para seus usuários. Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
+
+Para obter mais informações sobre os requisitos mínimos de hardware para {% data variables.product.product_location %}, consulte as considerações sobre hardware para a plataforma da sua instância.
 
 - [AWS](/admin/installation/installing-github-enterprise-server-on-aws#hardware-considerations)
 - [Azure](/admin/installation/installing-github-enterprise-server-on-azure#hardware-considerations)

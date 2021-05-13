@@ -5,13 +5,17 @@ redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
+{% data reusables.actions.ae-beta %}
 {% data reusables.actions.enterprise-beta %}
 
 ### Sobre as permissões de {% data variables.product.prodname_actions %} para sua empresa
 
-Ao habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, ele fica habilitado para todas as organizações da sua empresa. Você pode optar por desativar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou permitir apenas organizações específicas. Você também pode limitar o uso de ações públicas, de modo que as pessoas só possam usar ações locais que existem na sua empresa.
+{% if currentVersion == "github-ae@latest" %}{% else %}Ao habilitar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, isso será habilitado para todas as organizações da sua empresa. {% endif %}Você pode escolher desabilitar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou apenas permitir organizações específicas. Você também pode limitar o uso de ações públicas, de modo que as pessoas só possam usar ações locais que existem na sua empresa.
 
 ### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua empresa
 
@@ -20,7 +24,7 @@ Ao habilitar o {% data variables.product.prodname_actions %} em {% data variable
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
 
-{% if currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%}
 ### Habilitar fluxos de trabalho para bifurcações privadas do repositório
 
 {% data reusables.github-actions.private-repository-forks-overview %}

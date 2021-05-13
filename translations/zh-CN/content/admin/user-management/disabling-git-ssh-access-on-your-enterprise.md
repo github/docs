@@ -13,10 +13,12 @@ redirect_from:
   - /enterprise/admin/installation/disabling-git-ssh-access-on-github-enterprise-server
   - /enterprise/admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
   - /admin/user-management/disabling-git-ssh-access-on-github-enterprise-server
-intro: '您可以阻止用户为企业上的某些仓库或所有仓库使用 Git over SSH。'
+intro: 您可以阻止用户为企业上的某些仓库或所有仓库使用 Git over SSH。
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 禁止对特定仓库进行 Git SSH 访问

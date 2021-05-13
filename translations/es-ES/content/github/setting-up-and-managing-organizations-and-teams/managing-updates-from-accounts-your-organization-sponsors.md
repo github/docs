@@ -4,6 +4,9 @@ intro: Puedes administrar la dirección de correo electrónico que recibe las ac
 versions:
   free-pro-team: '*'
 permissions: Los propietarios de las organizaciones pueden administrar las actualizaciones de las cuentas que patrocinan dichas organizaciones.
+topics:
+  - organizations
+  - equipos
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

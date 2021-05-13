@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.project-management.automate-project-board-permissions %}  更多信息请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”。

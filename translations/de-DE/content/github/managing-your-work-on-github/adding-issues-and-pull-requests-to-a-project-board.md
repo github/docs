@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Issues oder Pull Requests kannst Du zu Deinem Projektboard hinzufügen, indem Du:

@@ -4,8 +4,9 @@ shortTitle: Acerca de la integración
 intro: 'Puedes llevar a cabo un {% data variables.product.prodname_code_scanning %} externamente y luego mostrar los resultados en {% data variables.product.prodname_dotcom %}, o configurar webhooks que escuchen a la actividad de {% data variables.product.prodname_code_scanning %} en tu repositorio.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -17,7 +18,7 @@ Si utilizas una herramienta de análisis estático de terceros que pueda produci
 
 ### Integraciones con webhooks
 
-Puedes utilizar los webhooks del {% data variables.product.prodname_code_scanning %} para crear o configurar integraciones, tales como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que se suscriban a los eventos de {% data variables.product.prodname_code_scanning %} en tu repositorio. Por ejemplo, puedes crear una integración que cree una propuesta en {% data variables.product.product_location %} o que te envíe una notificación de Slack cuando se agregue una alerta de {% data variables.product.prodname_code_scanning %} en tu repositorio. Para obtener más información, consulta las secciones "[Crear webhooks](/developers/webhooks-and-events/creating-webhooks)" y "[Eventos de webhook y cargas útiles](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
+Puedes utilizar los webhooks del {% data variables.product.prodname_code_scanning %} para crear o configurar integraciones, tales como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) o [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que se suscriban a los eventos de {% data variables.product.prodname_code_scanning %} en tu repositorio. Por ejemplo, puedes crear una integración que cree una propuesta en {% data variables.product.product_name %} o que te envíe una notificación de Slack cuando se agregue una alerta de {% data variables.product.prodname_code_scanning %} en tu repositorio. Para obtener más información, consulta las secciones "[Crear webhooks](/developers/webhooks-and-events/creating-webhooks)" y "[Eventos de webhook y cargas útiles](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
 
 ### Leer más
 

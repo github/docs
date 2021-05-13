@@ -15,6 +15,8 @@ redirect_from:
 intro: 'Como parte de un plan de recuperación ante desastres, puedes proteger los datos de producción en {% data variables.product.product_location %} configurando copias de seguridad automáticas.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de {% data variables.product.prodname_enterprise_backup_utilities %}
@@ -83,7 +85,7 @@ En el caso de una interrupción de red prolongada o de un evento catastrófico e
 {%if currentVersion ver_gt "enterprise-server@2.22"%}
 {% note %}
 
-**Nota:** Si {% data variables.product.product_location %} cuenta con {% data variables.product.prodname_actions %} habilitadas, primero deberás configurar el proveedor de almacenamiento externo de las {% data variables.product.prodname_actions %} en el aplicativo de reemplazo antes de ejecutar el comando `ghe-restore`. Para obtener más información, consulta la sección "[Respaldar y restablecer a {% data variables.product.prodname_ghe_server %} con las {% data variables.product.prodname_actions %} habilitadas](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
+**Nota:** Si {% data variables.product.product_location %} tiene habilitadas las {% data variables.product.prodname_actions %}, primero deberás configurar el proveedor de almacenamiento externo de {% data variables.product.prodname_actions %} en el aplicativo de repuesto antes de ejecutar el comando `ghe-restore`. Para obtener más información, consulta la sección "[Respaldar y restablecer a {% data variables.product.prodname_ghe_server %} con las {% data variables.product.prodname_actions %} habilitadas](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)".
 
 {% endnote %}
 {% endif %}
@@ -116,4 +118,3 @@ $ ghe-restore -c 169.154.1.1
 Puedes utilizar estas otras opciones con el comando `ghe-restore`:
 - La marca `-c` sobrescribe los ajustes, el certificado y los datos de licencia en el host objetivo, incluso si ya está configurado. Omite esta marca si estás configurando una instancia de preparación con fines de prueba y si quieres conservar la configuración existente en el objetivo. Para obtener más información, consulta la sección "Utilizar una copia de seguridad y restablecer los comandos" de [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - La marca `-s` te permite seleccionar otra instantánea de copias de seguridad.
-  

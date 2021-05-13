@@ -1,7 +1,7 @@
 ---
 title: GitHub-Datenschutzerklärung
 redirect_from:
-  - /datenschutz/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Effective date: December 19, 2020
@@ -94,7 +97,7 @@ Wir erfassen nicht absichtlich persönliche Benutzerdaten, die **in Ihren Reposi
 
 ### Wie verwendet GitHub Ihre Informationen
 
-- Wir können Ihre Daten für folgende Zwecke verwenden:
+Wir können Ihre Daten für folgende Zwecke verwenden:
 - Wir verwenden Ihre [Registrierungsinformationen](#registration-information), um Ihr Konto zu erstellen und Ihnen den Dienst zur Verfügung zu stellen.
 - Wir verwenden Ihre [Zahlungsinformationen](#payment-information), um Ihnen die bezahlten Konto-Dienste, Marketplace-Dienste, das Sponsorenprogramm oder einen anderen von Ihnen angeforderten bezahlten GitHub-Dienst bereitzustellen.
 - Wir verwenden Ihre personenbezogenen Daten, insbesondere Ihren Benutzernamen, um Sie auf GitHub zu identifizieren.
@@ -189,7 +192,7 @@ Ebenso können Projekte auf GitHub öffentlich zugängliche personenbezogene Ben
 
 #### Organisationen
 
-Sie können durch Ihre Aktionen auf GitHub angeben, dass Sie bereit sind, Ihre personenbezogenen Benutzerdaten zu teilen. Wenn Sie an einer Organisation mitarbeiten oder Mitglied einer Organisation werden, erhalten die Kontoinhaber möglicherweise Ihre personenbezogenen Benutzerdaten. Wenn Sie eine Einladung zu einer Organisation annehmen, werden Sie über die Arten von Informationen informiert, die Besitzer möglicherweise einsehen können (weitere Informationen finden Sie unter [Informationen zur Organisationsmitgliedschaft](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Wenn Sie eine Einladung zu einer Organisation mit [verifizierter Domäne](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain) annehmen, dann können die Eigentümer dieser Organisation Ihre vollständige(n) E-Mail-Adresse(en) innerhalb der verifizierten Domänen dieser Organisation sehen.
+Sie können durch Ihre Aktionen auf GitHub angeben, dass Sie bereit sind, Ihre personenbezogenen Benutzerdaten zu teilen. Wenn Sie an einer Organisation mitarbeiten oder Mitglied einer Organisation werden, erhalten die Kontoinhaber möglicherweise Ihre personenbezogenen Benutzerdaten. Wenn Sie eine Einladung zu einer Organisation annehmen, werden Sie über die Arten von Informationen informiert, die Besitzer möglicherweise einsehen können (weitere Informationen finden Sie unter [Informationen zur Organisationsmitgliedschaft](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). Wenn Sie eine Einladung zu einer Organisation mit [verifizierter Domäne](/organizations/managing-organization-settings/verifying-your-organizations-domain) annehmen, dann können die Eigentümer dieser Organisation Ihre vollständige(n) E-Mail-Adresse(en) innerhalb der verifizierten Domänen dieser Organisation sehen.
 
 Please note, GitHub may share your username, [Usage Information](#usage-information), and [Device Information](#device-information) with the owner(s) of the Organization you are a member of, to the extent that your User Personal Information is provided only to investigate or respond to a security incident that affects or compromises the security of that particular Organization.
 
@@ -245,7 +248,7 @@ Auf unserer Webseite [Cookies und Tracking](/github/site-policy/github-subproces
 
 #### DNT
 
-"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub reagiert auf Browser-DNT-Signale und folgt dem [W3C-Standard für das Reagieren auf DNT-Signale](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. Es gibt auch gute Anwendungen, die die Online-Verfolgung verhindern. Ein gutes Beispiel dafür ist [Privacy Badger](https://privacybadger.org/).
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub reagiert auf Browser-DNT-Signale und folgt dem [W3C-Standard für das Reagieren auf DNT-Signale](https://www.w3.org/TR/tracking-dnt/). Wenn Sie diese Einstellung in Ihrem Browser setzen wollen, schauen Sie sich die Dokumentation Ihres Browsers an. Es gibt auch gute Anwendungen, die die Online-Verfolgung verhindern. Ein gutes Beispiel dafür ist [Privacy Badger](https://privacybadger.org/).
 
 ### Wie GitHub Ihre Daten schützt
 
@@ -318,7 +321,7 @@ Im unwahrscheinlichen Fall, dass es zu einem Streit zwischen Ihnen und GitHub ü
 
 ### Änderungen an unserer Datenschutzerklärung
 
-GitHub kann unsere Datenschutzerklärung von Zeit zu Zeit ändern, wobei die meisten Änderungen eher geringfügig sein dürften. Wir werden die Benutzer über unsere Website mindestens 30 Tage vor Inkrafttreten der Änderung über wesentliche Änderungen dieser Datenschutzerklärung informieren, indem wir eine Benachrichtigung auf unserer Homepage veröffentlichen oder E-Mails an die primäre E-Mail-Adresse versenden, die in Ihrem GitHub-Konto angegeben ist. Wir werden auch unser [Websiterichtlinien-Repository](https://github.com/github/site-policy/) aktualisieren, das alle Änderungen an dieser Richtlinie nachverfolgt. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
+GitHub kann unsere Datenschutzerklärung von Zeit zu Zeit ändern, wobei die meisten Änderungen eher geringfügig sein dürften. Wir werden die Benutzer über unsere Website mindestens 30 Tage vor Inkrafttreten der Änderung über wesentliche Änderungen dieser Datenschutzerklärung informieren, indem wir eine Benachrichtigung auf unserer Homepage veröffentlichen oder E-Mails an die primäre E-Mail-Adresse versenden, die in Ihrem GitHub-Konto angegeben ist. Wir werden auch unser [Websiterichtlinien-Repository](https://github.com/github/site-policy/) aktualisieren, das alle Änderungen an dieser Richtlinie nachverfolgt. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### Lizenz
 

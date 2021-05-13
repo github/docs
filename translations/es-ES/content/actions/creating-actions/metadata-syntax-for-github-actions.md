@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de la nueva sintaxis YAML para {% data variables.product.prodname_actions %}
 
@@ -56,7 +58,7 @@ inputs:
 
 Cuando especificas una entrada para una acción en un archivo de flujo de trabajo o usas un valor de entrada predeterminado, {% data variables.product.prodname_dotcom %} crea una variable de entorno para la entrada con el nombre `INPUT_<VARIABLE_NAME>`. La variable de entorno creada convierte los nombre de entrada en letras mayúscula y reemplaza los espacios con los caracteres `_`.
 
-Por ejemplo, si un flujo de trabajo definió las entradas numOctocats y octocatEyeColor, el código de acción podría leer los valores de las entradas usando las variables de entorno `INPUT_NUMOCTOCATS` y `INPUT_OCTOCATEYECOLOR`.
+For example, if a workflow defined the `numOctocats` and `octocatEyeColor` inputs, the action code could read the values of the inputs using the `INPUT_NUMOCTOCATS` and `INPUT_OCTOCATEYECOLOR` environment variables.
 
 #### `inputs.<input_id>`
 
@@ -73,6 +75,10 @@ Por ejemplo, si un flujo de trabajo definió las entradas numOctocats y octocatE
 #### `inputs.<input_id>.default`
 
 **Opcional** Una `string` que representa el valor predeterminado. El valor predeterminado se usa cuando un parámetro de entrada no se especifica en un archivo de flujo de trabajo.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
 
 ### `outputs (salidas)`
 
@@ -145,7 +151,7 @@ runs:
 
 #### `pre`
 
-**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
+**Opcional** Te permite ejecutar un script al inicio de un job, antes de que la acción `main:` comience. Por ejemplo, puedes utilizar `pre:` para ejecutar un script de configuración de pre-requisitos. The application specified with the [`using`](#runsusing) syntax will execute this file. La acción `pre:` siempre se ejecuta predeterminadamente pero puedes invalidarla utilizando [`pre-if`](#pre-if).
 
 En este ejemplo, la acción `pre:` ejecuta un script llamado `setup.js`:
 
@@ -168,9 +174,9 @@ En este ejemplo, `cleanup.js` se ejecuta únicamente en los ejecutores basados e
   pre-if: 'runner.os == linux'
 ```
 
-#### `post`
+#### `publicación`
 
-**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+**Opcional** Te permite ejecutar un script al final de un job, una vez que se haya completado la acción `main:`. Por ejemplo, puedes utilizar `post:` para finalizar algunos procesos o eliminar los archivos innecesarios. The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 En este ejemplo, la acción `post:` ejecuta un script llamado `cleanup.js`:
 
@@ -246,7 +252,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 ##### `runs.steps[*].env`
 
-**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar las variables de ambiente que se almacenan en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
+**Opcional**  Configura un `map` de variables de ambiente únicamente para este paso. Si quieres modificar la variable de ambiente que se almacena en el flujo de trabajo, utiliza {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} en un paso de ejecución compuesto.
 
 ##### `runs.steps[*].working-directory`
 
@@ -280,7 +286,7 @@ runs:
 
 **Opcional** Te permite ejecutar un script antes de que comience la acción `entrypoint`. Por ejemplo, puedes utilizar `pre-entrypoint` para ejecutar un script de configuración de pre-requisitos. {% data variables.product.prodname_actions %} utiliza `docker run` para lanzar esta acción, y ejecuta el script dentro de un contenedor nuevo que utiliza la misma imagen base. Esto significa que el estado del tiempo de ejecución difiere de el contenedor principal `entrypoint`, y se deberá acceder a cualquier estado que requieras ya sea en el espacio de trabajo, `HOME`, o como una variable `STATE_`. La acción `pre-entrypoint:` siempre se ejecuta predeterminadamente pero la puedes invalidar utilizando [`pre-if`](#pre-if).
 
-La aplicación especificada con la sintaxis [using</code>](#runsusing) (mediante) ejecutará este archivo.
+The application specified with the [`using`](#runsusing) syntax will execute this file.
 
 En este ejemplo, la acción `pre.entrypoint:` ejecuta un script llamado `setup.sh`:
 
@@ -296,7 +302,7 @@ runs:
 
 #### `runs.image`
 
-**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local a tu repositorio, utiliza una ruta relativa a tu archivo de metadatos de la acción. La aplicación `docker` ejecutará este archivo.
+**Requerido** La imagen de Docker a utilizar como el contenedor para ejecutar la acción. El valor puede ser el nombre de la imagen base de Docker, un `Dockerfile` local en tu repositorio, o una imagen pública en Docker Hub u otro registro. Para referenciar un `Dockerfile` local de tu repositorio, el archivo debe nombrarse como `Dockerfile` y debes utilizar una ruta relativa a tu archivo de metadatos de acción. La aplicación `docker` ejecutará este archivo.
 
 #### `runs.env`
 
@@ -330,7 +336,7 @@ Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si u
 
 {% data reusables.github-actions.dockerfile-guidelines %}
 
-Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entonces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
+Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 
 Para obtener más información sobre el uso de la instrucción `CMD` con {% data variables.product.prodname_actions %}, consulta la sección "[Soporte de Dockerfile para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
@@ -350,7 +356,7 @@ runs:
 
 ### `branding (marca)`
 
-Puedes usar un color y un icono de [Feather](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Las insignias se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+Puedes usar un color y un icono de [Pluma](https://feathericons.com/) para crear una insignia que personalice y diferencie tu acción. Los distintivos se muestran junto al nombre de tu acción en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 #### Ejemplo
 
@@ -362,11 +368,11 @@ branding:
 
 #### `branding.color`
 
-El color de fondo de la insignia. Puede ser: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, o `gray-dark`.
+El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `verde`, `anaranjado`, `rojo`, `púrpura` o `gris oscuro`.
 
 #### `branding.icon`
 
-El nombre del icono de [Feather](https://feathericons.com/) que se debe usar.
+El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar.
 
 <table>
 <tr>

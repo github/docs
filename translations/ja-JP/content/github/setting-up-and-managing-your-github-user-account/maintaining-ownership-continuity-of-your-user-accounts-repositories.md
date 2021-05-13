@@ -3,6 +3,9 @@ title: ユーザアカウントのリポジトリの所有権の継続性を管�
 intro: 自分が管理できない場合にユーザ所有のリポジトリを管理してもらえるように、他のユーザを招待することができます。
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### 後継者について

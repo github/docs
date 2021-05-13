@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/reaching-github-support
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Usar sistemas automatizados de geração de tíquetes

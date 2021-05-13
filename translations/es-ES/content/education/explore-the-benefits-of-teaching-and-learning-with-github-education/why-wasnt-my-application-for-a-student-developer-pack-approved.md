@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?'
+title: ¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?
 intro: 'Revisa las razones comunes por las que las solicitudes para el {% data variables.product.prodname_student_pack %} no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -19,7 +19,9 @@ versions:
 
 ### Documentos de afiliación académica poco claros
 
-Si la imagen que cargaste no identifica claramente tu situación académica actual, solicitamos más pruebas de tu situación académica. {% data reusables.education.upload-proof-reapply %}
+Si las fechas o programación que se mencionan en tu imagen cargada no coinciden con nuestros criterios de elegibilidad, necesitaremos más pruebas de tu estado académico.
+
+Si la imagen que cargaste no identifica claramente tu estado académico o si está borrosa, necesitaremos más pruebas de tu estado académico. {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -57,10 +59,11 @@ Para obtener más información, consulta:
 ### Situación de estudiante inadmisible
 
 No eres apto para un {% data variables.product.prodname_student_pack %} si:
-- Estás inscrito en un programa de aprendizaje informal que no forma parte del [Programa del Campus de {% data variables.product.prodname_dotcom %}](https://education.github.com/schools) y no estás inscrito en un diploma o título que otorgue un reconocimiento de estudios.
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- Estás buscando obtener un título que se terminará en la sesión académica actual.
 - Tienes menos de 13 años.
 
-Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. Si estás estudiando en una escuela o programa intensivo de codificación, podrás inscribirte en {% data variables.product.prodname_student_pack %} si tu escuela se une al [Programa del campus de {% data variables.product.prodname_dotcom %}](https://education.github.com/schools).
+Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Leer más
 

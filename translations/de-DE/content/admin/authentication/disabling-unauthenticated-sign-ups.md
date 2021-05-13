@@ -7,6 +7,8 @@ redirect_from:
 intro: 'Wenn Sie die integrierte Authentifizierung verwenden, können Sie nicht authentifizierte Personen mittels Blockierung daran hindern, ein Konto zu erstellen.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

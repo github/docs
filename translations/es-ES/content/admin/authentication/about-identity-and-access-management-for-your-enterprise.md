@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.saml.ae-uses-saml-sso %}{% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-Después de que configuras la aplicación para {% data variables.product.product_name %} en tu IdP, puedes otorgar acceso a {% data variables.product.product_location %} si asignas la aplicación a los usuarios en tu IdP. Para obtener más información acerca del SSO de SAML para {% data variables.product.product_name %}, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
+Después de que configuras la aplicación para {% data variables.product.product_name %} en tu IdP, puedes otorgar acceso a {% data variables.product.product_location %} si asignas la aplicación a los usuarios y grupos en tu IdP. Para obtener más información acerca del SSO de SAML para {% data variables.product.product_name %}, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% data reusables.scim.after-you-configure-saml %} Para obtener más información, consulta la sección "[Configurar el aprovisionamiento de usuarios para tu empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
 
@@ -25,3 +25,4 @@ Para aprender cómo configurar tanto la autenticación como el aprovisionamiento
 
 - [Wiki de SAML](https://wiki.oasis-open.org/security) en el sitio de OASIS
 - [Sistema para la Administración de Identidad entre Dominios: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) en el sitio web de IETF
+- [Restringir el tráfico de red en tu empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)

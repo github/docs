@@ -1,10 +1,12 @@
 ---
 title: 从团队和组织中移除用户
-intro: '如果组织的成员不再需要某些仓库的访问权限，您可以从允许权限的团队中移除他们。 如果组织的成员不再需要组织拥有的任何仓库的访问权限 ，则可以从组织中移除他们。'
+intro: 如果组织的成员不再需要某些仓库的访问权限，您可以从允许权限的团队中移除他们。 如果组织的成员不再需要组织拥有的任何仓库的访问权限 ，则可以从组织中移除他们。
 redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 只有所有者或团队管理员可以移除组织成员。 从团队或组织中移除用户时，他们在组织仓库中的问题、拉取请求和评论都会保持原样且仍归属于用户。

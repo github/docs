@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ![Gráfico de red del repositorio](/assets/images/help/graphs/repo_network_graph.png)

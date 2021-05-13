@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -43,7 +45,7 @@ Os objetos de evento retornados dos pontos de extremidade da API de eventos têm
 Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -51,7 +53,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 [
   {
     "type": "WatchEvent",
-    "public": true,
+    "public": false,
     "payload": {
     },
     "repo": {
@@ -162,14 +164,14 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### Objeto da `carga` do evento
 
 Este evento retorna um objeto de `carga` vazio.
-
+{% endif %}
 ### PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -180,6 +182,20 @@ Este evento retorna um objeto de `carga` vazio.
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
+
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Objeto da `carga` do evento
+
+| Tecla          | Tipo     | Descrição                                    |
+| -------------- | -------- | -------------------------------------------- |
+| `Ação`         | `string` | A ação que foi executada. Pode ser `criado`. |
+| `pull_request` | `objeto` | The pull request the review pertains to.     |
+| `revisar`      | `objeto` | A revisão que foi afetada.                   |
 
 ### PullRequestReviewCommentEvent
 
@@ -197,6 +213,8 @@ Este evento retorna um objeto de `carga` vazio.
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### Objeto da `carga` do evento
 
 | Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                        |
 | -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

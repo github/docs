@@ -1,6 +1,6 @@
 ---
 title: Exibir logs de push
-intro: 'Os administradores do site podem ver uma lista de operações de push do Git para qualquer repositório na empresa.'
+intro: Os administradores do site podem ver uma lista de operações de push do Git para qualquer repositório na empresa.
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 As entradas de log de push mostram o seguinte:

@@ -1,6 +1,6 @@
 ---
 title: 排查 SSL 错误
-intro: '如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。'
+intro: 如果您的设备遇到 SSL 问题，可以采取相应措施加以解决。
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors/
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 将密码从密钥文件中移除

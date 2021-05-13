@@ -1,6 +1,6 @@
 ---
-title: Configuring the retention period for GitHub Actions artifacts and logs in your enterprise account
-intro: 'Enterprise owners can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in an enterprise account.'
+title: Enterprise アカウント内の GitHub Actions アーティファクトとログの保持期間を設定する
+intro: 'Enterprise オーナーは、{% data variables.product.prodname_actions %} アーティファクトの保持期間を設定して Enterprise アカウントにログインできます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
@@ -8,11 +8,14 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-## Setting the retention period for an enterprise
+## Enterprise の保持期間を設定する
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}

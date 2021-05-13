@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca del envío de tickets

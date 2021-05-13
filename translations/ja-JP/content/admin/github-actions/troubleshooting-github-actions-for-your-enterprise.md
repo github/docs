@@ -1,9 +1,11 @@
 ---
 title: Enterprise 向け GitHub Actions のトラブルシューティング
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を使用するときに発生する一般的な問題のトラブルシューティング。'
-permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} の問題をトラブルシューティングし、{% data variables.product.prodname_ghe_server %} 設定を変更できます。'
+permissions: 'Site administrators can troubleshoot {% data variables.product.prodname_actions %} issues and modify {% data variables.product.prodname_ghe_server %} configurations.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_ghe_server %} に自己署名証明書を使用する場合のセルフホストランナーの設定

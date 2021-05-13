@@ -1,6 +1,6 @@
 ---
 title: Web 挂钩事件和有效负载
-intro: '对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。'
+intro: 对于每个 web 挂钩事件，您可以查看事件发生的时间、示例有效负载以及有关有效负载对象参数的说明。
 product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -145,7 +147,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -162,7 +164,8 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 对于所有其他操作，`sender` 对象都为空。
+`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象
+对所有其他操作为{% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}空 {% endif %}。
 
 #### Web 挂钩有效负载示例
 
@@ -222,6 +225,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载对象
 
 {% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -250,6 +254,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载对象
 
 {% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.pusher_type_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -332,6 +337,60 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
+
+{% if currentVersion == "free-pro-team@latest" %}
+### 讨论
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+与讨论有关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+#### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
+
+#### Web 挂钩有效负载对象
+
+| 键        | 类型    | 描述                                                                                                                                          |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited`、`deleted`、`pinned`、`unpinned`、`locked`、`unlocked`、`transferred`、`category_changed`、`answered` 或 `unanswered`。 |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.discussion.created }}
+
+### discussion_comment
+
+{% data reusables.webhooks.discussions-webhooks-beta %}
+
+与讨论中的评论相关的活动。 更多信息请参阅“[使用 GraphQL API 进行讨论](/graphql/guides/using-the-graphql-api-for-discussions)”。
+
+#### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `discussions` 权限的 {% data variables.product.prodname_github_app %}
+
+#### Web 挂钩有效负载对象
+
+| 键        | 类型    | 描述                                                                                                  |
+| -------- | ----- | --------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作。 可以是 `created`、`edited` 或 `deleted`。                                                          |
+| `注释，评论`  | `对象`  | [`discussion comment`](/graphql/guides/using-the-graphql-api-for-discussions#discussioncomment) 资源。 |
+{% data reusables.webhooks.discussion_desc %}
+{% data reusables.webhooks.repo_desc_graphql %}
+{% data reusables.webhooks.org_desc_graphql %}
+{% data reusables.webhooks.sender_desc %}
+
+#### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.discussion_comment.created }}
+{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -429,14 +488,6 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 **注：**此事件替换将被弃用的事件。 订阅此事件时，您还会收到已弃用事件 `integration_installation`，直到它被永久删除。
 
 {% endnote %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**注：**{% data reusables.pre-release-program.suspend-installation-beta %} 更多信息请参阅“[挂起 {% data variables.product.prodname_github_app %} 安装](/apps/managing-github-apps/suspending-a-github-app-installation/)”。
-
-{% endnote %}
-{% endif %}
 
 #### 可用性
 
@@ -713,6 +764,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.org_block.blocked }}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+
 ### package
 
 与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %}更多信息请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
@@ -851,10 +906,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.project.created }}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### public
 
 {% data reusables.webhooks.public_short_desc %}
-
 #### 可用性
 
 - 仓库 web 挂钩
@@ -874,7 +929,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.public }}
-
+{% endif %}
 ### pull_request
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -1128,7 +1183,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
-与安全通告相关的活动。 安全通告提供有关 GitHub 软件中安全漏洞的信息。 安全通告数据集还支持 GitHub 安全警报，请参阅“[关于漏洞依赖项的安全警报](/articles/about-security-alerts-for-vulnerable-dependencies/)”。
+与安全通告相关的活动。 安全通告提供有关 GitHub 软件中安全漏洞的信息。 安全通告数据集还支持 GitHub 安全警报，请参阅“[关于漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 {% endif %}
 
 #### 可用性
@@ -1340,9 +1395,8 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-| 键        | 类型    | 描述                                           |
-| -------- | ----- | -------------------------------------------- |
-| `action` | `字符串` | 大多数 web 挂钩有效负载都包括 `action` 属性，其中包含触发事件的特定活动。 |
+{% data reusables.webhooks.workflow_run_properties %}
+{% data reusables.webhooks.workflow_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.sender_desc %}

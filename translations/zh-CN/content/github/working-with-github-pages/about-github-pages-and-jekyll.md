@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 页面
 ---
 
 ### 关于 Jekyll
@@ -92,9 +94,9 @@ kramdown:
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-您可以通过在 *_config.yml* 文件中添加插件的 gem 到 `plugins` 设置来启用额外的插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。 有关支持的插件列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。
+您可以通过在 *_config.yml* 文件中添加插件的 gem 到 `plugins` 设置来启用额外的插件。 更多信息请参阅 Jekyll 文档中的“[配置](https://jekyllrb.com/docs/configuration/)”。
 
-有关特定插件的使用信息，请参阅插件的文档。
+有关支持的插件列表，请参阅 {% data variables.product.prodname_pages %} 网站上的“[依赖项版本](https://pages.github.com/versions/)”。  有关特定插件的使用信息，请参阅插件的文档。
 
 {% tip %}
 

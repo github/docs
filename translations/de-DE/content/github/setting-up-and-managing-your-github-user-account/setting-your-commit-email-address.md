@@ -14,6 +14,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 ### Informationen zu E-Mail-Adressen für Commits

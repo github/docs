@@ -6,6 +6,9 @@ redirect_from:
 intro: '作成した Organization にユーザを追加することはできますが、個人のアカウントを代理で作成することはできません。'
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Organization にアクセスするには個人アカウントでログインする必要があるため、各 Team メンバーは個人アカウントが必要です。 Organization に追加したい人のユーザ名があれば、その人を Team に追加できます。

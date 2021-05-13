@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Você pode pesquisar problemas e pull requests globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
@@ -303,7 +305,7 @@ O qualificador `archived` restringe os resultados a problemas ou pull requests e
 
 ### Pesquisar conversas bloqueadas e não bloqueadas
 
-Você pode pesquisar problema ou pull requests que têm uma conversa bloqueada usando o qualificador `is`. Para obter mais informações, consulte "[Bloquear conversas](/articles/locking-conversations)".
+Você pode pesquisar problema ou pull requests que têm uma conversa bloqueada usando o qualificador `is`. Para obter mais informações, consulte "[Bloquear conversas](/communities/moderating-comments-and-conversations/locking-conversations)".
 
 | Qualifier     | Exemplo                                                                                                                                                                                                                                                                                       |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Depois que você tiver realizado uma ação protegida por sudo, só precisará autenticar novamente após algumas horas de inatividade. Toda ação protegida por sudo redefine esse temporizador.

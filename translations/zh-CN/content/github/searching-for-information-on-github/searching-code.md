@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。

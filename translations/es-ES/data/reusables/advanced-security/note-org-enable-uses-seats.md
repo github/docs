@@ -1,7 +1,7 @@
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 {% note %}
+**Nota:** Si habilitas
 
-**Nota:** Si habilitas la {% data variables.product.prodname_GH_advanced_security %}, las personas que hagan confirmaciones en estos repositorios utilizarán plazas de tu licencia de {% data variables.product.prodname_GH_advanced_security %}. This option controls access to all {% data variables.product.prodname_advanced_security %} features including {% if currentVersion == "free-pro-team@latest" %}dependency review,{% endif %} {% data variables.product.prodname_code_scanning %}, and {% data variables.product.prodname_secret_scanning %}.
-
+{% data variables.product.prodname_GH_advanced_security %}, los confirmantes de estos repositorios utilizarán las plazas en tu licencia de {% data variables.product.prodname_GH_advanced_security %}. Esta opción se inhabilita si excediste la capacidad de tu licencia. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta la sección "[Acerca del licenciamiento de {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)".{% endif %}
 {% endnote %}
 {% endif %}

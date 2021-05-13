@@ -1,6 +1,6 @@
 ---
 title: 排查服务挂钩问题
-intro: '如果没有交付有效负载，请检查这些常见问题。'
+intro: 如果没有交付有效负载，请检查这些常见问题。
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 获取有关交付的信息

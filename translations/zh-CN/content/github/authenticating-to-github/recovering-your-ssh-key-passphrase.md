@@ -1,6 +1,6 @@
 ---
 title: 恢复 SSH 密钥密码
-intro: '如果您丢失 SSH 密钥密码，则根据您使用的操作系统，您可能可以恢复它，也可能需要生成新的 SSH 密钥密码。'
+intro: 如果您丢失 SSH 密钥密码，则根据您使用的操作系统，您可能可以恢复它，也可能需要生成新的 SSH 密钥密码。
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase/
   - /articles/how-do-i-recover-my-ssh-key-passphrase/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
@@ -26,12 +28,12 @@ versions:
 
 {% windows %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 您需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https)，以便能够使用 GitHub 密码代替。
+如果您丢失 SSH 密钥密码，则无法进行恢复。 您需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/managing-remote-repositories)，以便能够使用 GitHub 密码代替。
 
 {% endwindows %}
 
 {% linux %}
 
-如果您丢失 SSH 密钥密码，则无法进行恢复。 您需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)，以便能够使用 GitHub 密码代替。
+如果您丢失 SSH 密钥密码，则无法进行恢复。 您需要[生成全新的 SSH 密钥对](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)或[切换到 HTTPS 克隆](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)，以便能够使用 GitHub 密码代替。
 
 {% endlinux %}

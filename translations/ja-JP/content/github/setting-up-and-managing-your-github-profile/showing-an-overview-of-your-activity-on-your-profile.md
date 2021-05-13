@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 {% data reusables.profile.activity-overview-summary %} 詳細は「[プロフィールでコントリビューションを表示する](/articles/viewing-contributions-on-your-profile)」を参照してください。

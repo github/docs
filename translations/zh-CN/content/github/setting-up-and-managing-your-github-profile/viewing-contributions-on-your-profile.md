@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}您的贡献图显示公共仓库的活动。 {% endif %}您可以选择显示{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}公共和{% endif %}私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
@@ -25,6 +27,8 @@ versions:
 
 - 提交到仓库的默认分支或 `gh-pages` 分支
 - 打开议题
+- 打开讨论
+- 回答讨论
 - 提议拉取请求
 - 提交拉取请求审查{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - 合作创作仓库默认分支或 `gh-pages` 分支中的提交{% endif %}
@@ -58,7 +62,7 @@ versions:
 
 {% note %}
 
-**注：**您可以在贡献日历中选择最多一个月的范围。 如果您选择了更大的时间范围，我们将仅显示一个月的贡献。
+**注：**您可以在贡献日历中选择最多一个月的范围。 如果您选择更大的时间范围，我们将仅显示一个月的贡献。
 
 {% endnote %}
 

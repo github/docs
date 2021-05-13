@@ -4,6 +4,9 @@ intro: É possível cancelar todos os convites para que uma pessoa se torne um c
 permissions: Os proprietários da organização podem cancelar um convite para se tornarem colaboradores externos na organização.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Você pode visualizar uma lista de todas as pessoas com convites pendentes para se tornar um colaborador externo em qualquer repositório que pertence à sua organização.

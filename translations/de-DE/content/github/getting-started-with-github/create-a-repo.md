@@ -8,6 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -16,7 +21,7 @@ Sie können die unterschiedlichsten Projekte in {% data variables.product.produc
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. Weitere Informationen zu InnerSource finden Sie im Whitepaper „[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)“ (Einführung in InnerSource) von {% data variables.product.company_short %}.
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
 {% endif %}
 
@@ -57,7 +62,7 @@ Wenn Du Dein neues Repository erstellt hast, initialisiere es mit einer *README*
 
 Nun geben wir eine Änderung der *README*-Datei frei.
 
-1. Klicke in der Dateiliste Deines Repositorys auf die Datei ***README.md***. ![README-Datei in Dateiliste](/assets/images/help/repository/create-commit-open-readme.png)
+1. Klicke in der Dateiliste Deines Repositorys auf die Datei ***README.md***. ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
 2. Klicken Sie über dem Inhalt der Datei auf {% octicon "pencil" aria-label="The edit icon" %}.
 3. Gib auf der Registerkarte **Edit file** (Datei ändern) einige Informationen zu Deiner Person ein. ![Neuer Inhalt in Datei](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}

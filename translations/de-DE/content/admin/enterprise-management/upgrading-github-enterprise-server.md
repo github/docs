@@ -15,6 +15,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Upgrade vorbereiten
@@ -44,6 +46,12 @@ Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 
 | 3000–5000                                                  |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB |       200 GB |
 | 5000–8000                                                  | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB |       200 GB |
 | 8000–10000+                                                | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB |       200 GB |
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
+
+{% endif %}
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 

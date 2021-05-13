@@ -1,6 +1,6 @@
 ---
 title: Painel Atividade
-intro: 'O painel de atividades oferece uma visão geral de toda a atividade da sua empresa.'
+intro: O painel de atividades oferece uma visão geral de toda a atividade da sua empresa.
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 O painel Atividade gera gráficos semanais, mensais e anuais informando o número de:

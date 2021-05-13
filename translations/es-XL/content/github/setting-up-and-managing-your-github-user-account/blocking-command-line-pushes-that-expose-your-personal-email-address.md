@@ -5,6 +5,9 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 Cuando subes las confirmaciones de la línea de comando, la dirección de correo electrónico que has [establecido en Git](/articles/setting-your-commit-email-address) están asociadas con tus confirmaciones. Este parámetro impide que subas confirmaciones a la línea de comando que usa tu dirección de correo electrónico personal.

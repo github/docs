@@ -7,6 +7,8 @@ redirect_from:
 intro: '{% data variables.product.prodname_ghe_cloud %} umfasst eine angestrebte Reaktionszeit von acht Stunden für Supportanfragen mit hoher Priorität, von Montag bis Freitag in Deiner lokalen Zeitzone.'
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 {% note %}

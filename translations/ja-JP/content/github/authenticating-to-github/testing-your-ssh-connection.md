@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 SSH 接続をテストする前に、次のことを済ませておく必要があります:
@@ -31,7 +33,7 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+3. 表示されるメッセージのフィンガープリントが {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %} の RSA パブリックキーのフィンガープリント](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} Enterprise のパブリックキーのフィンガープリント{% endif %} に一致するかどうかを確認します。 一致する場合は、`yes` と入力します。
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

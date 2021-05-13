@@ -10,6 +10,9 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.prodname_dotcom %}のIPアドレスのリストは、[メタ](https://api.github.com/meta)APIエンドポイントから取得できます。 詳しい情報については、「[メタ](/rest/reference/meta)」を参照してください。

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} 包含的应用程序中有免费和付费定价计划。 在购买并安装应用程序后，您可以随时升级、降级或取消。

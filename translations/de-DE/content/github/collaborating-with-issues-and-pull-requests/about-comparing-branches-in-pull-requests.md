@@ -1,12 +1,14 @@
 ---
 title: Informationen zum Vergleich von Branches in Pull Requests
-intro: In Pull Requests werden Diffs angezeigt, um die Änderungen, die Du in Deinem Themen-Branch vorgenommen hast, mit dem Basis-Branch zu vergleichen, in den du Deine Änderungen zusammenführen möchtest.
+intro: 'In Pull Requests werden Diffs angezeigt, um die Änderungen, die Du in Deinem Themen-Branch vorgenommen hast, mit dem Basis-Branch zu vergleichen, in den du Deine Änderungen zusammenführen möchtest.'
 redirect_from:
   - /articles/about-comparing-branches-in-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}
@@ -16,32 +18,33 @@ versions:
 {% endnote %}
 
 Du kannst die vorgeschlagenen Änderungen in einem Pull Request auf der Registerkarte „Files changed“ (Geänderte Dateien) anzeigen.
+{% if currentVersion ver_lt "github-enterprise@3.0" %}
+![Registerkarte für geänderte Pull-Request-Dateien](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
+![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
-![Registerkarte „Pull Request Files changed" (geänderte Pull-Request-Dateien)](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
-
-Anstatt die Commits selbst anzuzeigen, kannst Du die vorgeschlagenen Änderungen so anzeigen, wie sie in den Dateien erscheinen werden, sobald der Pull Request übertragen wurde. Die Dateien werden in alphabetischer Reihenfolge auf der Registerkarte „Files changed“ (Geänderte Dateien) angezeigt. Ergänzungen zu den Dateien erscheinen grün und sind durch ein „`+`“-Zeichen gekennzeichnet , wohingegen entfernte Inhalte rot erscheinen und durch ein „`-`“-Zeichen gekennzeichnet sind.
+Anstatt die Commits selbst anzuzeigen, können Sie die vorgeschlagenen Änderungen so anzeigen, wie sie in den Dateien erscheinen, sobald der Pull Request gemergt wurde. Die Dateien werden in alphabetischer Reihenfolge auf der Registerkarte „Files changed“ (Geänderte Dateien) angezeigt. Ergänzungen zu den Dateien erscheinen grün und sind durch ein „`+`“-Zeichen gekennzeichnet , wohingegen entfernte Inhalte rot erscheinen und durch ein „`-`“-Zeichen gekennzeichnet sind.
 
 ### Anzeigeoptionen für Diffs
 
 {% tip %}
 
-**Tipp:** Wenn Du den Kontext einer Änderung nicht nachvollziehen kannst, kannst Du auf der Registerkarte „Files changed“ (Geänderte Dateien) auf **View** (Anzeigen) klicken, um die gesamte Datei mit den vorgeschlagenen Änderungen anzuzeigen.
+**Tipp:** Wenn Sie den Kontext einer Änderung nicht nachvollziehen können, können Sie auf der Registerkarte „Files changed“ (Geänderte Dateien) auf **View** (Anzeigen) klicken, um die gesamte Datei mit den vorgeschlagenen Änderungen anzuzeigen.
 
 {% endtip %}
 
-Du hast mehrere Möglichkeiten für die Anzeige eines Diff:
+Sie haben mehrere Möglichkeiten für die Anzeige eines Diff:
 - Die einheitliche Ansicht zeigt aktualisierte und vorhandene Inhalte gemeinsam in einer linearen Ansicht.
 - Die geteilte Ansicht zeigt alte Inhalte auf der einen Seite und neue Inhalte auf der anderen Seite.
 - Die Rich-Diff-Ansicht zeigt eine Vorschau, wie die Änderungen nach dem Merge des Pull Requests aussehen werden.
 - Die Quellansicht zeigt die Änderungen in der Quelle ohne die Formatierung der Rich-Diff-Ansicht.
 
-Du kannst außerdem Leerzeichenänderungen ignorieren, um eine genauere Ansicht der wesentlichen Änderungen in einem Pull Request zu erhalten.
+Sie können außerdem Leerzeichenänderungen ignorieren, um eine genauere Ansicht der wesentlichen Änderungen in einem Pull Request zu erhalten.
 
-![Menü „Diff viewing options" (Diff-Anzeigeoptionen)](/assets/images/help/pull_requests/diff-settings-menu.png)
+![Menü mit Diff-Anzeigeoptionen](/assets/images/help/pull_requests/diff-settings-menu.png)
 
 To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. Weitere Informationen findest Du unter „[Dateien in einem Pull Request nach Dateityp filtern](/articles/filtering-files-in-a-pull-request).“
 
-  ![Dropdownmenü „File filter" (Dateifilter)](/assets/images/help/pull_requests/file-filter-menu.png)
+  ![Dropdownmenü mit Dateifiltern](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ### Vergleiche von Three-Dot- (Dreipunkte-) und Two-Dot- (Zweipunkte-) Diffs von Git
 
@@ -51,9 +54,9 @@ Um zwei Committish-Referenzen in einem Two-Dot-Diff-Vergleich auf {% data variab
 
 {% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-Ein Two-Dot-Diff (Zweipunkte-Diff) vergleicht zwei Git-Committish-Referenzen, wie SHAs oder OIDs (Objekt-IDs), direkt miteinander. Auf {% data variables.product.prodname_dotcom %} müssen die Git-Committish-Referenzen in einem Two-Dot-Diff-Vergleich an das gleiche Repository oder seine Forks gepusht werden.
+Ein Two-Dot-Diff vergleicht zwei Git-Committish-Referenzen, wie SHAs oder OIDs (Objekt-IDs), direkt miteinander. Auf {% data variables.product.prodname_dotcom %} müssen die Git-Committish-Referenzen in einem Two-Dot-Diff-Vergleich an das gleiche Repository oder seine Forks gepusht werden.
 
-Wenn Du einen Two-Dot-Diff in einem Pull Request simulieren und einen Vergleich zwischen den neuesten Versionen jedes Branch sehen möchtest, kannst Du den Basis-Branch in Deinen Themen-Branch zusammenführen, wodurch der letzte gemeinsame Vorgänger Deiner Branches aktualisiert wird.
+Wenn Sie einen Two-Dot-Diff in einem Pull Request simulieren und einen Vergleich zwischen den neuesten Versionen jedes Branch sehen möchten, können Sie den Basis-Branch in Ihren Themen-Branch mergen, wodurch der letzte gemeinsame Vorgänger Ihrer Branches aktualisiert wird.
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 

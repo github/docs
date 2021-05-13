@@ -6,6 +6,8 @@ redirect_from:
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -26,13 +28,13 @@ Para usar
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Conectar ao registro oficial do NPM
+### Conectar ao registro oficial do npm
 
-Se você habilitou os pacotes do npm na sua empresa e deseja permitir acesso ao registro oficial do NPM, bem como ao registro npm do {% data variables.product.prodname_registry %}, você deverá executar uma configuração adicional.
+Se você habilitou os pacotes do npm na sua empresa e deseja permitir acesso ao registro oficial do npm, bem como ao registro npm do {% data variables.product.prodname_registry %}, você deverá executar uma configuração adicional.
 
-{% data variables.product.prodname_registry %} usa um proxy transparente para o tráfego de rede que se conecta ao registro NPM oficial em `registry.npmjs.com`. O proxy está habilitado por padrão e não pode ser desabilitado.
+{% data variables.product.prodname_registry %} usa um proxy transparente para o tráfego de rede que se conecta ao registro npm oficial em `registry.npmjs.com`. O proxy está habilitado por padrão e não pode ser desabilitado.
 
-Para permitir conexões de rede para o registro NPM, você precisa configurar as ACLs de rede que permitem que {% data variables.product.prodname_ghe_server %} envie tráfego de HTTPS para o `registry.npmjs.com` por meio da porta 443:
+Para permitir conexões de rede para o registro npm, você precisa configurar as ACLs de rede que permitem que {% data variables.product.prodname_ghe_server %} envie tráfego de HTTPS para o `registry.npmjs.com` por meio da porta 443:
 
 | Fonte                                              | Destino              | Porta   | Tipo  |
 | -------------------------------------------------- | -------------------- | ------- | ----- |

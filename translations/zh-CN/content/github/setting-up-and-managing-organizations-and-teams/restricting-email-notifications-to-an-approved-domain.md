@@ -7,6 +7,9 @@ redirect_from:
   - /articles/restricting-email-notifications-to-an-approved-domain
 versions:
   free-pro-team: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 ### 关于电子邮件限制

@@ -6,7 +6,10 @@ redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Cualquiera con permisos administrativos en un repositorio puede configurar las referencias auto-vinculadas para vincular informes de problemas, solicitudes de extracción,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} mensajes de confirmación, y descripciones de lanzamientos{% else %} y mensajes de confirmación {% endif %} a servicios externos de terceros.

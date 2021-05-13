@@ -15,7 +15,7 @@ authors:
 
 ### Git を使用する
 
-[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして[ProGit ebook](http://git-scm.com/book) を読み、Git に慣れましょう。 [Try Git](https://try.github.com) シミュレーターを使用しながら、[Git コマンドリスト](https://git-scm.com/docs)や[Git コマンドルックアップ参照](http://gitref.org)を確認できます。
+[公式 Git プロジェクトサイト](https://git-scm.com)にアクセスして [ProGit book](http://git-scm.com/book) を読み、Git に慣れましょう。 [Try Git](https://try.github.com) シミュレーターを使用しながら、[Git コマンドリスト](https://git-scm.com/docs)や[Git コマンドルックアップ参照](http://gitref.org)を確認できます。
 
 ### {% data variables.product.product_name %}を使用する
 
@@ -25,13 +25,13 @@ authors:
 
 {% endif %}
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/categories/getting-started-with-github/) articles. [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
+[使ってみる](/categories/getting-started-with-github/)という記事を通して、{% data variables.product.product_name %} について理解を深めましょう。 [{% data variables.product.prodname_dotcom %} のフロー](https://guides.github.com/introduction/flow)でプロセスの紹介をご確認ください。 [概要ガイド](https://guides.github.com)を参照して基本的な概念をご覧ください。
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### ブランチ、フォーク、プルリクエスト
 
-インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+インタラクティブなツールを使用して、[Git のブランチ](http://learngitbranching.js.org/)について学びましょう。 [フォーク](/articles/about-forks)や[プルリクエスト](/articles/using-pull-requests)、および {% data variables.product.prodname_dotcom %} で[プルリクエストがどのように使用されているのか](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github)をお読みください。 [コマンドライン](https://cli.github.com/)から {% data variables.product.prodname_dotcom %} の使用に関するリファレンスにアクセスしてください。
 
 #### 動画
 
@@ -39,9 +39,9 @@ Become better acquainted with {% data variables.product.product_name %} through 
 
 ### トレーニング
 
-#### Free courses
+#### 無料コース
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
+{% data variables.product.product_name %} は、[{% data variables.product.prodname_dotcom %} の紹介](https://lab.github.com/githubtraining/introduction-to-github)を含む一連のインタラクティブな[オンデマンドトレーニングコース](https://lab.github.com/)を提供しています。HTML、Python、NodeJS などのプログラミング言語とツールに関するコースや、{% data variables.product.prodname_actions %} などの {% data variables.product.product_name %} 固有のツールに関するコースがあります。
 
 #### {% data variables.product.prodname_dotcom %}のウェブベース教育プログラム
 
@@ -49,7 +49,7 @@ Become better acquainted with {% data variables.product.product_name %} through 
 
 #### 企業向けトレーニング
 
-{% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
+{% data variables.product.prodname_dotcom %} では、経験豊富な教育者による[対面式のクラス](https://services.github.com/#offerings)を提供しています。 トレーニングに関するお問い合わせについては、[こちら](https://services.github.com/#contact)までどうぞ。
 
 ### その他
 

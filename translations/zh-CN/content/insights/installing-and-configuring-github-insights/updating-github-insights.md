@@ -4,7 +4,7 @@ intro: '您可以更新到 {% data variables.product.prodname_insights %} 的最
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
-permissions: '对 `github/insights-releases` 仓库具有读取权限并对应用程序服务器具有管理权限的人可更新 {% data variables.product.prodname_insights %}。'
+permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---

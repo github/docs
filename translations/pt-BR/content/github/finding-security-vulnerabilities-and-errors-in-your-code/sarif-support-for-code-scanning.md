@@ -3,11 +3,10 @@ title: Suporte SARIF para a varredura de código
 shortTitle: Suporte SARIF
 intro: 'Para exibir os resultados de uma ferramenta de análise estática de terceiros no seu repositório no {% data variables.product.prodname_dotcom %}, você precisará dos resultados armazenados em um arquivo SARIF que seja compatível com um subconjunto específico do esquema SARIF 2.1.0 JSON para varredura de código. Se você usar o mecanismo de análise estática padrão do {% data variables.product.prodname_codeql %}, os resultados aparecerão automaticamente no seu repositório no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -18,7 +17,7 @@ SARIF (Formato de Intercâmbio de Resultados de Análise Estática) é um [OASIS
 
 Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para obter mais informações, consulte "[Enviar um arquivo SARIF para o {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)". Para obter mais informações sobre o esquema SARIF 2.1.0 JSON, consulte [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json).
 
-Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF para o {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)".
+Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
 {% data variables.product.prodname_dotcom %} usa propriedades no arquivo SARIF para exibir alertas. Por exemplo, `shortDescription` e `fullDescription` aparecem na parte superior de um alerta de {% data variables.product.prodname_code_scanning %}. O `local` permite que {% data variables.product.prodname_dotcom %} mostre anotações no seu arquivo de código. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 
@@ -32,7 +31,7 @@ O {% data variables.product.prodname_dotcom %} usa a propriedade `partialFingerp
 
 OS arquivos do SARIF criados pelo {% data variables.product.prodname_codeql_workflow %} ou usando {% data variables.product.prodname_codeql_runner %} incluem dados de impressão digital. Se você enviar um arquivo SARIF usando a ação `upload-sarif` e estes dados estiverem faltando, {% data variables.product.prodname_dotcom %} tenta preencher o campo `partialFingerprints` a partir dos arquivos de origem. Para obter mais informações sobre o upload de resultados, consulte "[Fazer o upload de um arquivo SARIF para o {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)".
 
-Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para evitar ver alertas duplicados, você deve calcular dados de impressão digital e preencher a propriedade `partialFingerprints` antes de enviar o arquivo SARIF. Você pode encontrar o script que a ação `upload-sarif` usa como um ponto inicial útil: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. Para obter mais informações sobre a API, consulte "[Fazer o upload de um arquivo SARIF](/rest/reference/code-scanning#upload-a-sarif-file)".
+Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para evitar ver alertas duplicados, você deve calcular dados de impressão digital e preencher a propriedade `partialFingerprints` antes de enviar o arquivo SARIF. Você pode encontrar o script que a ação `upload-sarif` usa como um ponto inicial útil: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. Para obter mais informações sobre a API, consulte "[Fazer o upload de uma análise como dados do SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)".
 
 ### Validar seu arquivo SARIF
 

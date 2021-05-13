@@ -1,12 +1,14 @@
 ---
 title: 关于存档仓库
-intro: '在存档仓库时，要让人们知道不再主动维护项目。'
+intro: 在存档仓库时，要让人们知道不再主动维护项目。
 redirect_from:
   - /articles/about-archiving-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

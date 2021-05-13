@@ -10,6 +10,7 @@ coverage/
 /content/early-access
 /data/early-access
 dist
+.next
 
 # blc: broken link checker
 blc_output.log

@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% tip %}
@@ -37,7 +39,7 @@ versions:
 {% data reusables.repositories.choose-repo-visibility %}
 6. 如果您不使用模板，可以使用许多可选项预填充仓库。 如果要将现有仓库导入 {% data variables.product.product_name %}，请不要选择上述任何选项，否则可能会导致合并冲突。 您可以通过用户界面添加或创建新文件，或者选择稍后使用命令行添加新文件。 更多信息请参阅“[使用命令行导入 Git 仓库](/articles/importing-a-git-repository-using-the-command-line/)”、“[使用命令行将文件添加到仓库](/articles/adding-a-file-to-a-repository-using-the-command-line)”和“[解决合并冲突](/articles/addressing-merge-conflicts/)”。
     - 您可以创建自述文件以介绍您的项目。 更多信息请参阅“[关于自述文件](/articles/about-readmes/)”。
-    - 您可以创建 *.gitignore* 文件以设置忽略规则。 更多信息请参阅“[忽略文件](/articles/ignoring-files)”。{% if currentVersion == "free-pro-team@latest" %}
+    - 您可以创建 *.gitignore* 文件以设置忽略规则。 更多信息请参阅“[忽略文件](/github/getting-started-with-github/ignoring-files)”。{% if currentVersion == "free-pro-team@latest" %}
     - 您可以选择为项目添加软件许可。 更多信息请参阅“[许可仓库](/articles/licensing-a-repository)”。{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}

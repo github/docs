@@ -4,6 +4,8 @@ intro: 'Puedes ver los detalles de tu uso de minutos y almacenamiento para {% da
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 También puedes ver los minutos de ejecución facturables para los jobs en una ejecución de flujo de trabajo individual. Para obtener más información, consulta la sección "[Administrar la ejecución de un flujo de trabajo](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-billable-job-execution-minutes)".

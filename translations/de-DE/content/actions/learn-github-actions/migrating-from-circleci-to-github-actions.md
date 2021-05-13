@@ -6,16 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CircleCI'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -33,7 +35,9 @@ Weitere Informationen findest Du unter „[Kernkonzepte für {% data variables.p
 Betrachte bei der Migration von CircleCI folgende Unterschiede:
 
 - Die automatische Testparallelität des CircleCI gruppiert die Tests automatisch nach benutzerdefinierten Regeln oder historischen Zeitinformationen. Diese Funktionalität ist in {% data variables.product.prodname_actions %} nicht eingebaut.
-- Aktionen, die in Docker-Containern ausgeführt werden, sind sensibel für Berechtigungsprobleme, da Container eine andere Zuordnung von Benutzern haben. Du kannst viele dieser Probleme vermeiden, indem Du die Anweisung `USER` in Deinem *Dockerfile* nicht verwendest. Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+- Aktionen, die in Docker-Containern ausgeführt werden, sind sensibel für Berechtigungsprobleme, da Container eine andere Zuordnung von Benutzern haben. Du kannst viele dieser Probleme vermeiden, indem Du die Anweisung `USER` in Deinem *Dockerfile* nicht verwendest. {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images).".
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+{% endif %}
 
 ### Workflows und Jobs migrieren
 
@@ -56,9 +60,17 @@ CircleCI stellt eine Reihe von vordefinierten Images mit üblichen Abhängigkeit
 
 Wir empfehlen Dir, von vordefinierten CircleCI-Images zu wegzugehen, wenn Du zu {% data variables.product.prodname_actions %} migrierst. In vielen Fällen kannst Du die zusätzlich benötigten Abhängigkeiten mithilfe von Aktionen installieren.
 
-Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+{% if currentVersion == "github-ae@latest" %}
+For more information about the Docker filesystem, see "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+For instructions on how to make sure your
 
-For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
+Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+For more information about the tools and packages available on
+
+{% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Variablen und Geheimnisse verwenden
 
@@ -107,7 +119,7 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
+{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 {% data variables.product.prodname_actions %} hat kein Äquivalent zum „Docker Layer Caching“ („DLC“, im Cache auf Docker-Ebene zwischenspeichern).
 

@@ -9,13 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'overview'
+  github-ae: '*'
+type: overview
 topics:
-  - '基础'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概览
 
@@ -53,9 +55,11 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
 
 #### 运行器
 
-运行器是安装了 [{% data variables.product.prodname_actions %} 运行器应用程序](https://github.com/actions/runner)的服务器。 您可以使用 {% data variables.product.prodname_dotcom %} 托管的运行器或托管您自己的运行器。 运行器将侦听可用的作业，每次运行一个作业，并将进度、日志和结果报告回 {% data variables.product.prodname_dotcom %}。 对于 {% data variables.product.prodname_dotcom %} 托管的运行器，工作流程中的每项作业都会在一个新的虚拟环境中运行。
-
-{% data variables.product.prodname_dotcom %} 托管的运行器基于 Ubuntu Linux、Microsoft Windows 和 macOS 。 有关 {% data variables.product.prodname_dotcom %} 托管的运行器的信息，请参阅“[ {% data variables.product.prodname_dotcom %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners)”。 如果您需要不同的操作系统或需要特定的硬件配置，可以托管自己的运行器。 有关自托管运行器的信息，请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
+{% if currentVersion == "github-ae@latest" %}运行器是安装了 [{% data variables.product.prodname_actions %} 运行器应用程序](https://github.com/actions/runner)的服务器。 对于 {% data variables.product.prodname_ghe_managed %}，您可以使用与云端实例捆绑的安全性增强的 {% data variables.actions.hosted_runner %}。 运行器将侦听可用的作业，每次运行一个作业，并将进度、日志和结果报告回 {% data variables.product.prodname_dotcom %}。 {% data variables.actions.hosted_runner %} 在新的虚拟环境中运行每个工作流程作业。 更多信息请参阅“[关于 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)”。
+{% else %}
+运行器是安装了 [{% data variables.product.prodname_actions %} 运行器应用程序](https://github.com/actions/runner)的服务器。 您可以使用
+{% data variables.product.prodname_dotcom %} 托管的运行器，也可以托管您自己的运行器。 运行器将侦听可用的作业，每次运行一个作业，并将进度、日志和结果报告回 {% data variables.product.prodname_dotcom %}。 {% data variables.product.prodname_dotcom %} 托管的运行器基于 Ubuntu Linux、Microsoft Windows 和 macOS，并且工作流程中的每个作业都在新的虚拟环境中运行。  有关 {% data variables.product.prodname_dotcom %} 托管的运行器的信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners)”。 如果您需要不同的操作系统或需要特定的硬件配置，可以托管自己的运行器。 有关自托管运行器的信息，请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
+{% endif %}
 
 ### 创建示例工作流程
 
@@ -207,16 +211,16 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
 
 ### 查看作业的活动
 
-作业开始运行后，您可以 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}查看运行进度的可视化图{% endif %}以及查看 {% data variables.product.prodname_dotcom %} 上每个步骤的活动。
+作业开始运行后，您可以 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}查看运行进度的可视化图{% endif %}以及查看 {% data variables.product.prodname_dotcom %} 上每个步骤的活动。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在仓库名称下，单击 **Actions（操作）**。 ![导航到仓库](/assets/images/help/images/learn-github-actions-repository.png)
 1. 在左侧边栏中，单击您想要查看的工作流程。 ![工作流程结果的屏幕截图](/assets/images/help/images/learn-github-actions-workflow.png)
 1. 在“Workflow runs（工作流程运行）”下，单击您想要查看的运行的名称。 ![工作流程运行的屏幕截图](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. 在 **Jobs（作业）**下或可视化图中，单击您要查看的作业。 ![选择作业](/assets/images/help/images/overview-actions-result-navigate.png)
 {% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 1. 查看每个步骤的结果。 ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated-2.png)
 {% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. 单击作业名称以查看每个步骤的结果。 ![工作流程运行详细信息的屏幕截图](/assets/images/help/images/overview-actions-result-updated.png)

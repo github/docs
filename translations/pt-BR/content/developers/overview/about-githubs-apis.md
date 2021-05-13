@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 Existem duas versões estáveis da API do GitHub: a [API REST](/rest) e a [API do GraphQL](/graphql). Ao usar a API REST, incentivamos que você a [solicite a v3 por meio do cabeçalho `Aceitar`](/v3/media/#request-specific-version). Para obter informações sobre como usar a API do GraphQL, consulte a [documentação da v4](/graphql).

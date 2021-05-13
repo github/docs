@@ -1,12 +1,14 @@
 ---
 title: 限制仓库中的交互
-intro: '您可以临时对公共仓库中的某些用户限制活动一段时间。'
+intro: 您可以临时对公共仓库中的某些用户限制活动一段时间。
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
 permissions: 对仓库具有管理员权限的人可以临时限制该仓库中的交互。
+topics:
+  - 社区
 ---
 
 ### 关于临时交互限制

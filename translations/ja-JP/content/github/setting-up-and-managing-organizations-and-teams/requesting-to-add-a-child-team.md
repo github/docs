@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ある Team を子として追加するようにリクエストすると、その子チームのメンテナーにリクエストが送信されます。 子チームのメンテナーがリクエストを受諾すると、その子チームは Organization の階層内で親チームの下にネストされます。

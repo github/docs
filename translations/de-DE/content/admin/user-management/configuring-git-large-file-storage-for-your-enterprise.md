@@ -15,6 +15,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.large_files.product_name_long %}
@@ -99,7 +101,7 @@ Weitere Informationen finden Sie unter „[Informationen zu {% data variables.la
 
 ### Zu einem anderen Git Large File Storage-Server migrieren
 
-Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+Bevor Sie eine Migration zu einem anderen {% data variables.large_files.product_name_long %}-Server durchführen, müssen Sie {% data variables.large_files.product_name_short %} für die Verwendung eines Drittanbieterservers konfigurieren. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
 
 1. Konfigurieren Sie das Repository mit einer zweiten Remote-Instanz.
   ```shell

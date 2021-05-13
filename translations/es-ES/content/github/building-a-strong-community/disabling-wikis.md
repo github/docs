@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 Cuando desactivas una wiki, su contenido se oculta pero no se borra. Si eliges habilitar nuevamente las wikis en el futuro, se restaurarán tus páginas anteriores.

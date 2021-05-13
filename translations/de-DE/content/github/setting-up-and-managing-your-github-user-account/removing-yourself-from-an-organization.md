@@ -1,6 +1,6 @@
 ---
 title: Dich selbst aus einer Organisation entfernen
-intro: 'Als externer Mitarbeiter oder Mitglied einer Organisation kannst Du die Organisation jederzeit aus eigener Initiative verlassen.'
+intro: Als externer Mitarbeiter oder Mitglied einer Organisation kannst Du die Organisation jederzeit aus eigener Initiative verlassen.
 redirect_from:
   - /articles/how-do-i-remove-myself-from-an-organization/
   - /articles/removing-yourself-from-an-organization
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

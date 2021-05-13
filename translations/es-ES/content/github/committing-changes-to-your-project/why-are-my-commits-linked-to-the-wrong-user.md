@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?'
+title: ¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user

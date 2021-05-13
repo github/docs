@@ -1,12 +1,14 @@
 ---
 title: Tickets auf einem Projektboard filtern
-intro: Du kannst die Tickets auf einem Projektboard filtern, um bestimmte Tickets zu suchen oder eine Teilmenge der Tickets anzuzeigen.
+intro: 'Du kannst die Tickets auf einem Projektboard filtern, um bestimmte Tickets zu suchen oder eine Teilmenge der Tickets anzuzeigen.'
 redirect_from:
   - /articles/filtering-cards-on-a-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.

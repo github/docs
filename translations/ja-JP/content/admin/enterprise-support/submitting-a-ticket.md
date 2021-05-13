@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### チケットのサブミットについて
@@ -52,8 +54,6 @@ versions:
 ### {% data variables.contact.ae_azure_portal %} を使ってチケットをサブミットする
 
 法人のお客様は、{% data variables.contact.contact_ae_portal %} でサポートリクエストをサブミットできます。 政府機関のお客様は、[政府機関のお客様向けの Azure ポータル](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)をご利用ください。 詳しい情報については、Microsoft ドキュメントの「[Azure サポートリクエストの作成](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)」を参照してください。
-
-緊急の問題については、確実に迅速な対応を行うため、チケットをサブミットした後、すぐにサポートホットラインに電話してください。 テクニカルサポートアカウントマネージャー (TSAM) から、オンボーディングセッションで使用する番号が提供されます。
 
 {% endif %}
 

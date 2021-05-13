@@ -1,8 +1,10 @@
 ---
 title: Buscar debates
-intro: Puedes buscar debates en {% data variables.product.product_name %} y reducir los resultados utilizando calificadores.
+intro: 'Puedes buscar debates en {% data variables.product.product_name %} y reducir los resultados utilizando calificadores.'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.discussions.beta %}

@@ -1,10 +1,12 @@
 ---
 title: Restoring a deleted repository
-intro: Bestimmte gelöschte Repositorys können wiederhergestellt werden, sodass ihr Inhalt wieder zur Verfügung steht.
+intro: 'Bestimmte gelöschte Repositorys können wiederhergestellt werden, sodass ihr Inhalt wieder zur Verfügung steht.'
 redirect_from:
   - /articles/restoring-a-deleted-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 Alle Benutzer können gelöschte Repositorys wiederherstellen, die zu ihrem eigenen Benutzerkonto gehörten. Organisationsinhaber können gelöschte Repositorys wiederherstellen, die im Eigentum der Organisation standen.

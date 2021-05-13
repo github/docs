@@ -15,6 +15,8 @@ redirect_from:
   - /marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 ### 关于设置定价计划
@@ -26,6 +28,8 @@ versions:
 如果含有付费计划的应用程序已发布，并且您是经验证的发布者，则您可以在 Marketplace 应用程序上架设置中的“Edit a pricing plan（编辑定价计划）”页面发布新的付费计划。
 
 ![发布此计划按钮](/assets/images/marketplace/publish-this-plan-button.png)
+
+如果您的应用已经在付费计划中发布，但您不是验证的发布者，则您可以发布新的付费计划，直到您成为验证的发布者。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。
 
 ### 关于保存定价计划
 
@@ -77,3 +81,5 @@ versions:
 您可以禁用 GitHub Marketplace 免费试用而不撤销定价计划，但这会阻止您在未来为该计划启动免费试用。 如果您选择禁用定价计划的免费试用，则已注册的用户仍可以完成其免费试用。
 
 撤销定价计划后，您可以创建与已删除的定价计划同名的新定价计划。 例如，如果您有一个 "Pro" 定价计划，但需要更改统一价格，您可以删除该 "Pro" 定价计划，然后使用更新后的价格创建新的 "Pro" 定价计划。 用户将能够立即购买新的定价计划。
+
+如果您不是经过验证的发布者，则无法更改应用的定价计划。 有关成为验证的发布者的更多信息，请参阅“[为组织申请发布者验证](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)”。

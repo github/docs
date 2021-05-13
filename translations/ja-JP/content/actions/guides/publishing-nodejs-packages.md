@@ -8,16 +8,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
-  - パッケージ化
+  - Packaging
   - Publishing
-  - ノード
+  - Node
   - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -69,8 +71,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # npmへの公開のための.npmrcファイルのセットアップ
-    - uses: actions/setup-node@v1
+    # npm に公開するように .npmrc ファイルを設定する
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
@@ -129,8 +131,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # GitHub パッケージに公開する .npmrc ファイルを設定する
-    - uses: actions/setup-node@v1
+    # .npmrc ファイルをセットアップして GitHub Packages に公開する
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
@@ -166,12 +168,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    # npm に公開する .npmrc ファイルを設定する
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-        # Defaults to the user or organization that owns the workflow file
+        # デフォルトはワークフローファイルを所有するユーザまたは Organization
         scope: '@octocat'
     - run: yarn
     - run: yarn publish

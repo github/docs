@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 Copiar um quadro de projeto permite reutilizar o título, a descrição e a configuração de automação desse quadro. É possível copiar quadros de projeto para eliminar o processo manual de criar outros quadros para fluxos de trabalho semelhantes.

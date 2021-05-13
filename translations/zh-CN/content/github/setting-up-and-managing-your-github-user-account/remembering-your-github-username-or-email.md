@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% mac %}
@@ -34,7 +37,7 @@ versions:
 
 ### 在 `user.name` 配置中查找您的用户名
 
-设置期间，您可能已[在 Git 中设置用户名](/articles/setting-your-username-in-git)。 如果这样，您可以查看此配置设置的值：
+设置期间，您可能已[在 Git 中设置用户名](/github/getting-started-with-github/setting-your-username-in-git)。 如果这样，您可以查看此配置设置的值：
 
 ```shell
 $ git config user.name

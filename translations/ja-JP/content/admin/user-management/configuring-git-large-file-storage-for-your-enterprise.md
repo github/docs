@@ -1,5 +1,5 @@
 ---
-title: Configuring Git Large File Storage for your enterprise
+title: Enterprise 向けの Git Large File Storage を設定する
 intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
@@ -15,6 +15,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.large_files.product_name_long %}について
@@ -69,14 +71,14 @@ versions:
 
 2. サードパーティのサーバーを指し示す {% data variables.large_files.product_name_short %} の設定ファイルを作成します。
   ```shell
-  # Show default configuration
+  # デフォルト設定を表示
   $ git lfs env
   > git-lfs/1.1.0 (GitHub; darwin amd64; go 1.5.1; git 94d356c)
   > git version 2.7.4 (Apple Git-66)
   &nbsp;
   > Endpoint=https://<em>GITHUB-ENTERPRISE-HOST</em>/path/to/repo/info/lfs (auth=basic)
   &nbsp;
-  # Create .lfsconfig that points to third party server.
+  # サードパーティサーバーを指す .lfsconfig を作成します。
   $ git config -f .lfsconfig remote.origin.lfsurl https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
   $ git lfs env
   > git-lfs/1.1.0 (GitHub; darwin amd64; go 1.5.1; git 94d356c)
@@ -84,7 +86,7 @@ versions:
   &nbsp;
   > Endpoint=https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo/info/lfs (auth=none)
   &nbsp;
-  # Show the contents of .lfsconfig
+  # .lfsconfig の内容を表示する
   $ cat .lfsconfig
   [remote "origin"]
   lfsurl = https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo

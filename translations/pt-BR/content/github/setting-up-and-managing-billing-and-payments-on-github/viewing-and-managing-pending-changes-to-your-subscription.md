@@ -8,6 +8,8 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Você pode cancelar alterações pendentes na assinatura da sua conta ou de outros recursos e produtos pagos.

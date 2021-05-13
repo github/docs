@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Autenticarse con GraphQL
@@ -26,9 +28,10 @@ Se recomiendan los siguientes alcances:
 
 {% endif %}
 
+
 ```
-user
-public_repo
+user{% if currentVersion != "github-ae@latest" %}
+public_repo{% endif %}
 repo
 repo_deployment
 repo:status
@@ -246,7 +249,7 @@ Analizando la composición línea por línea:
 
   El campo `labels` tiene el tipo [`LabelConnection`](/graphql/reference/objects#labelconnection). Así como el con el objeto `issues`, ya que `labels` es una conexión, debemos navegar por sus bordes hacia un nodo conectado: el objeto `label`. En el nodo, podemos especificar los campos del objeto `label` que intentamos recuperar, en este caso, `name`.
 
-Notarás que ejecutar esta consulta en el repositorio público `Hello-World` de Octocat no recuperará muchas etiquetas. Intenta ejecutarlo en uno de tus propios repositorios que utilice etiquetas, y seguramente verás la diferencia.
+Tal vez notes que el ejecutar esta consulta en el repositorio {% if currentVersion != "github-ae@latest" %}público de Octocat{% endif %} repositorio de `Hello-World`no devolverá muchas etiquetas. Intenta ejecutarlo en uno de tus propios repositorios que utilice etiquetas, y seguramente verás la diferencia.
 
 ### Mutación de ejemplo
 

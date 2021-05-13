@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -29,7 +32,7 @@ Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se a
 
 * `autoalojado`: Etiqueta por defecto aplicada a todos los ejecutores autoalojados.
 * `linux`, `windows`, o `macOS`: Se aplican dependiendo del sistema operativo.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `x64`, `ARM`, or `ARM64`: Se aplican dependiendo de la arquitectura del hardware.
 
 Puedes utilizar el YAML de tu flujo de trabajo para mandar jobs a las diferentes combinaciones de estas etiquetas. En este ejemplo, un ejecutor auto-hospedado que empate con las tres etiquetas será elegible para ejecutar el job:
 
@@ -64,11 +67,11 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 ### Precedencia de enrutamiento para los ejecutores auto-hospedados
 
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
+Cuando enrutas un job hacia un ejecutor auto-hospedado, {% data variables.product.prodname_dotcom %} busca un ejecutor que coincida con las etiquetas `runs-on` del job:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
-2. The job is then sent to the first matching runner that is online and idle.
-   - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
-   - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.
-   - If there are no matching runners at any level, the job will fail.
-   - If the job remains queued for more than 24 hours, the job will fail.
+1. {% data variables.product.prodname_dotcom %} busca primero un ejecutor a nivel de repositorio, luego a nivel de organización {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}y luego a nivel de empresa{% endif %}.
+2. El job se envía entonces a el ejecutor que coincida primero y que se encuentre en línea e inactivo.
+   - Si los ejecutores en línea coincidentes están ocupados, el job se pondrá en cola con la cantidad máxima de ejecutores coincidentes en línea.
+   - Si todos los ejecutores coincidentes están desconectados, el job se pondrá en cola a nivel de la cantidad máxima de ejecutores coincidentes desconectados.
+   - Si no hay ejecutores coincidentes en ningún nivel, el job fallará.
+   - Si el job permanece en cola por más de 24 horas, este fallará.

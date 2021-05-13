@@ -1,12 +1,14 @@
 ---
-title: Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde
-intro: Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.
+title: 'Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde'
+intro: 'Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.'
 redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Commits sind nur an Pull-Request-Branches möglich, auf die Folgendes zutrifft:

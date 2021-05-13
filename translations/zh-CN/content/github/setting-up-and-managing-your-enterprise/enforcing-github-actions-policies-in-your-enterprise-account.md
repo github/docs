@@ -1,5 +1,5 @@
 ---
-title: 在企业帐户中实施 GitHub 操作策略
+title: 在企业帐户中实施 GitHub Actions 策略
 intro: '企业所有者可以对企业帐户禁用、启用和限制 {% data variables.product.prodname_actions %}。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -7,6 +7,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于企业帐户的 {% data variables.product.prodname_actions %} 权限

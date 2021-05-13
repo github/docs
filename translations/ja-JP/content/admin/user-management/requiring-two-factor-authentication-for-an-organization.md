@@ -1,10 +1,12 @@
 ---
 title: Organizationに2要素認証を要求する
-intro: 'Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。'
+intro: Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
@@ -49,7 +51,7 @@ Organizationのメンバーと外部のコラボレータに2FAの利用を求�
 
   また、Organization 名を使えば、特定の Organization から削除された人を見ることができます:
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
-5. Click **Search**.
+5. [**Search**] をクリックします。
 
 ### 削除されたメンバーと外部コラボレーターを Organization に復帰できるようにする
 

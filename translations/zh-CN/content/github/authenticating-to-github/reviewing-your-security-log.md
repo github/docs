@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 ### 访问安全日志
@@ -190,7 +193,7 @@ versions:
 | `sponsored_developer_create`                  | 当您的 {% data variables.product.prodname_sponsors %} 帐户创建时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）      |
 | `sponsored_developer_profile_update`          | 在编辑您的被赞助开发者个人资料时触发（请参阅“[编辑 {% data variables.product.prodname_sponsors %} 的个人资料详细信息](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)”）                                           |
 | `sponsored_developer_request_approval`        | 提交您对 {% data variables.product.prodname_sponsors %} 的申请以供审批时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）  |
-| `sponsored_developer_tier_description_update` | 当您更改赞助等级的说明时触发（请参阅“[更改赞助等级](/articles/changing-your-sponsorship-tiers)”）                                                                                                                                                                             |
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Managing your sponsorship tiers](/github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship-tiers)")                                        |
 | `sponsored_developer_update_newsletter_send`  | 当您向赞助者发送电子邮件更新时触发（请参阅“[联系赞助者](/articles/contacting-your-sponsors)”）                                                                                                                                                                                  |
 | `waitlist_invite_sponsored_developer`         | 当您从等候名单被邀请加入 {% data variables.product.prodname_sponsors %} 时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”） |
 | `waitlist_join`                               | 当您加入成为被赞助开发者的等候名单时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）                                            |
@@ -247,7 +250,7 @@ versions:
 | `login`                                                                                                                                                                                    | 当您登录到 {% data variables.product.product_location %} 时触发。{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 
-`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | 当您重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | 当您[举报议题或拉取请求，或者举报对议题、拉取请求或提交的评论](/articles/reporting-abuse-or-spam)时触发。{% endif %} | `show_private_contributions_count` | 当您[在个人资料中公布私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
+`mandatory_message_viewed`   | 当您查看必读消息时触发（更多信息请参阅“[自定义用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise)” | |{% endif %}| | `failed_login` | 当您未能成功登录时触发。 | `remove_email` | 当您删除电子邮件地址时触发。 | `rename` | 当您重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %} | `report_content` | 当您[报告议题或拉取请求，或者报告对议题、拉取请求或提交的评论](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)时触发。{% endif %} | `show_private_contributions_count` | 当您[在个人资料中公布私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %} | `two_factor_requested` | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
 
 #### `user_status` 类操作
 

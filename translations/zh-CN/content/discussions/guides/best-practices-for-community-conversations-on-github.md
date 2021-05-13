@@ -1,7 +1,7 @@
 ---
 title: GitHub 上社区对话的最佳实践
 shortTitle: 社区对话的最佳实践
-intro: '您可以使用讨论与团队进行头脑风暴，并在准备好确定工作范围时最终将对话移动到讨论中。'
+intro: 您可以使用讨论与团队进行头脑风暴，并在准备好确定工作范围时最终将对话移动到讨论中。
 versions:
   free-pro-team: '*'
 ---
@@ -29,13 +29,13 @@ versions:
 
 议题适用于讨论项目的具体细节，如漏洞修复和计划的改进。 更多信息请参阅“[关于议题](/articles/about-issues)”。 拉取请求允许您直接评论提议的更改。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”和“[评论拉取请求](/articles/commenting-on-a-pull-request)”。
 
-{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+{% data reusables.organizations.team-discussions-purpose %} 更多信息请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”。
 
 ### 遵守参与指南
 
 在打开讨论之前，检查仓库是否有参与指南。 CONTRIBUTING 文件包含仓库维护员希望您如何向项目贡献想法的信息。
 
-更多信息请参阅“[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)”。
+更多信息请参阅“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
 ### 后续步骤
 
@@ -43,7 +43,7 @@ versions:
 
 ### 延伸阅读
 
-- "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[调解评论和对话](/articles/moderating-comments-and-conversations)"
+- "[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[使用模板鼓励有用的议题和拉取请求](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[调解评论和对话](/communities/moderating-comments-and-conversations)"
 - "[在 {% data variables.product.prodname_dotcom %} 上编写](/articles/writing-on-github)"

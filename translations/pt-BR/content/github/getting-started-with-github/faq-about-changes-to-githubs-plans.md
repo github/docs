@@ -3,6 +3,8 @@ title: PERGUNTAS FREQUENTES sobre mudanças nos planos do GitHub
 intro: 'A partir de 14 de abril de 2020, o GitHub anunciou que todos os principais recursos do GitHub agora são gratuitos para todos.'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub
 ---
 
 ### Quais planos e mudanças de preços o GitHub anunciou em 14 de abril?

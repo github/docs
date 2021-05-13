@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
@@ -26,12 +28,12 @@ Si [configuraste tu contraseña de clave SSH con OS X Keychain](/articles/workin
 
 {% windows %}
 
-Si pierdes tu contraseña de clave SSH, no hay forma de recuperarla. Tendrás que [generar un nuevo par de claves SSH comercial](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) o [cambiar a la clonación de HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https) para poder utilizar tu contraseña de GitHub en su lugar.
+Si pierdes tu contraseña de clave SSH, no hay forma de recuperarla. Tendrás que [generar un nuevo par de claves SSH comercial](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) o [cambiar a la clonación de HTTPS](/github/getting-started-with-github/managing-remote-repositories) para poder utilizar tu contraseña de GitHub en su lugar.
 
 {% endwindows %}
 
 {% linux %}
 
-Si pierdes tu contraseña de clave SSH, no hay forma de recuperarla. Tendrás que [generar un nuevo par de claves SSH comercial](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) o [cambiar a la clonación de HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls) para poder utilizar tu contraseña de GitHub en su lugar.
+Si pierdes tu contraseña de clave SSH, no hay forma de recuperarla. Tendrás que [generar un nuevo par de claves SSH comercial](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) o [cambiar a la clonación de HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls) para poder utilizar tu contraseña de GitHub en su lugar.
 
 {% endlinux %}

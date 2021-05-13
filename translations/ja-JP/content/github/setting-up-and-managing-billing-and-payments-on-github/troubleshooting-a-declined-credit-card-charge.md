@@ -6,6 +6,8 @@ redirect_from:
   - /articles/troubleshooting-a-declined-credit-card-charge
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 カードが拒否された場合、その支払いが拒否された理由についてメールが送られます。 再び請求される前、その問題を解決するための数日間の猶予があります。

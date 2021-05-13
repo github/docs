@@ -1,9 +1,11 @@
 ---
 title: Amazon S3 ストレージで GitHub Actions を有効化する
 intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効化し、Amazon S3 ストレージを使用してワークフローの実行によって生成されたアーティファクトを保存できます。'
-permissions: 'サイト管理者は、{% data variables.product.prodname_actions %} を有効化して、Enterprise 設定を構成できます。'
+permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 ### 必要な環境
@@ -26,9 +28,9 @@ versions:
 
    * **AWS Service URL**: バケットのサービス URL。 たとえば、S3 バケットが `us-west-2` リージョンで作成された場合、この値は `https://s3.us-west-2.amazonaws.com` である必要があります。
 
-     For more information, see "[AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html)" in the AWS documentation.
+     詳しい情報については、AWS ドキュメントの「[AWS サービスエンドポイント](https://docs.aws.amazon.com/general/latest/gr/rande.html)」を参照してください。
    * **AWS S3 Bucket**: S3 バケットの名前。
-   * **AWS S3 Access Key** および **AWS S3 Secret Key**: バケットの AWS アクセスキー IDと シークレットキー。 For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
+   * **AWS S3 Access Key** および **AWS S3 Secret Key**: バケットの AWS アクセスキー IDと シークレットキー。 AWS アクセスキーの管理の詳細については、「[AWS ID およびアクセス管理のドキュメント](https://docs.aws.amazon.com/iam/index.html)」を参照してください。
 
    ![Amazon S3 ストレージを選択するためのラジオボタンと S3 設定のフィールド](/assets/images/enterprise/management-console/actions-aws-s3-storage.png)
 {% data reusables.enterprise_management_console.save-settings %}

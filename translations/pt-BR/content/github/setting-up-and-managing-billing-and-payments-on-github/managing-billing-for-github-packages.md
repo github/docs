@@ -4,5 +4,7 @@ intro: 'Você pode visualizar seu uso de {% data variables.product.prodname_regi
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

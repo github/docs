@@ -4,6 +4,8 @@ shortTitle: バックアップと復元
 intro: '外部ストレージプロバイダの {% data variables.product.prodname_actions %} データは、通常の {% data variables.product.prodname_ghe_server %} バックアップに含まれていないため、個別にバックアップする必要があります。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

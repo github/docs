@@ -5,6 +5,8 @@ redirect_from:
   - /articles/upgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %} 
@@ -17,5 +19,6 @@ When you upgrade your sponsorship tier, the change will become effective immedia
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
+{% data reusables.sponsors.review-tiers-to-select %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}

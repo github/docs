@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于子域隔离
@@ -22,24 +24,24 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
-| 未使用子域隔离的路径                                                                                                                                                                          | 使用子域隔离的路径                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `http(s)://HOSTNAME/assets/`                                                                                                                                                        | `http(s)://assets.HOSTNAME/`                                                                   |
-| `http(s)://HOSTNAME/avatars/`                                                                                                                                                       | `http(s)://avatars.HOSTNAME/`                                                                  |
-| `http(s)://HOSTNAME/codeload/`                                                                                                                                                      | `http(s)://codeload.HOSTNAME/`                                                                 |
-| `http(s)://HOSTNAME/gist/`                                                                                                                                                          | `http(s)://gist.HOSTNAME/`                                                                     |
-| `http(s)://HOSTNAME/media/`                                                                                                                                                         | `http(s)://media.HOSTNAME/`                                                                    |
-| `http(s)://HOSTNAME/pages/`                                                                                                                                                         | `http(s)://pages.HOSTNAME/`                                                                    |
-| `http(s)://HOSTNAME/raw/`                                                                                                                                                           | `http(s)://raw.HOSTNAME/`                                                                      |
-| `http(s)://HOSTNAME/render/`                                                                                                                                                        | `http(s)://render.HOSTNAME/`                                                                   |
-| `http(s)://HOSTNAME/reply/`                                                                                                                                                         | `http(s)://reply.HOSTNAME/`                                                                    |
-| `http(s)://HOSTNAME/uploads/`                                                                                                                                                       | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion == "enterprise-server@2.22" %}
-| N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled for the {% data variables.product.prodname_registry %} 2.22 beta. | `http(s)://docker.HOSTNAME/` |{% endif %}                                                      |{% if currentVersion ver_gt "enterprise-server@2.22" %}
-| `https://HOSTNAME/_registry/docker/`                                                                                                                                                | `http(s)://docker.HOSTNAME/`{% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
-| `https://HOSTNAME/_registry/npm/`                                                                                                                                                   | `https://npm.HOSTNAME/`                                                                        |
-| `https://HOSTNAME/_registry/rubygems/`                                                                                                                                              | `https://rubygems.HOSTNAME/`                                                                   |
-| `https://HOSTNAME/_registry/maven/`                                                                                                                                                 | `https://maven.HOSTNAME/`                                                                      |
-| `https://HOSTNAME/_registry/nuget/`                                                                                                                                                 | `https://nuget.HOSTNAME/`{% endif %}
+| 未使用子域隔离的路径                                                                                                                                 | 使用子域隔离的路径                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`                                                                                                               | `http(s)://assets.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/avatars/`                                                                                                              | `http(s)://avatars.HOSTNAME/`                                                                  |
+| `http(s)://HOSTNAME/codeload/`                                                                                                             | `http(s)://codeload.HOSTNAME/`                                                                 |
+| `http(s)://HOSTNAME/gist/`                                                                                                                 | `http(s)://gist.HOSTNAME/`                                                                     |
+| `http(s)://HOSTNAME/media/`                                                                                                                | `http(s)://media.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/pages/`                                                                                                                | `http(s)://pages.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/raw/`                                                                                                                  | `http(s)://raw.HOSTNAME/`                                                                      |
+| `http(s)://HOSTNAME/render/`                                                                                                               | `http(s)://render.HOSTNAME/`                                                                   |
+| `http(s)://HOSTNAME/reply/`                                                                                                                | `http(s)://reply.HOSTNAME/`                                                                    |
+| `http(s)://HOSTNAME/uploads/`                                                                                                              | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion == "enterprise-server@2.22" %}
+| 不适用，带有 {% data variables.product.prodname_registry %} 的 Docker 将无法在 {% data variables.product.prodname_registry %} 2.22 测试版禁用子域隔离的情况下工作。 | `http(s)://docker.HOSTNAME/` |{% endif %}                                                      |{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/docker/`                                                                                                       | `http(s)://docker.HOSTNAME/`{% endif %}{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| `https://HOSTNAME/_registry/npm/`                                                                                                          | `https://npm.HOSTNAME/`                                                                        |
+| `https://HOSTNAME/_registry/rubygems/`                                                                                                     | `https://rubygems.HOSTNAME/`                                                                   |
+| `https://HOSTNAME/_registry/maven/`                                                                                                        | `https://maven.HOSTNAME/`                                                                      |
+| `https://HOSTNAME/_registry/nuget/`                                                                                                        | `https://nuget.HOSTNAME/`{% endif %}
 
 ### 基本要求
 

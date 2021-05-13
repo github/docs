@@ -1,1 +1,1 @@
-You cannot convert a discussion to an issue.
+您无法将讨论转换为议题。

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Si tu confirmación no está en la rama predeterminada, un indicador mostarará las ramas que contienen la confirmación. Si la confirmación es parte de una solicitud de extracción no fusionada, mostrará un enlace.

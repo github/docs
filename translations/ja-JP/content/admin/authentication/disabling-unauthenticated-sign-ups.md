@@ -4,9 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/disabling-sign-ups/
   - /enterprise/admin/user-management/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/disabling-unauthenticated-sign-ups
-intro: 'ビルトイン認証を使っている場合、認証されていない人がアカウントを作成するのをブロックできます。'
+intro: ビルトイン認証を使っている場合、認証されていない人がアカウントを作成するのをブロックできます。
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

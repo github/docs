@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -16,6 +18,8 @@ versions:
     - **Active branches（活动分支）**：**Active（活动）**视图显示过去三个月内任何人提交的所有分支，按最近的提交最先显示的顺序排序分支。
     - **Stale branches（过时的分支）**：**Stale（过时）**视图显示过去三个月内没有人提交的所有分支，按最早的提交最先显示的顺序排序分支。 使用此列表可确定[要删除的分支](/articles/creating-and-deleting-branches-within-your-repository)。
     - **All branches（所有分支）**：**All（所有）**视图显示默认分支，后跟所有其他分支，按最近的提交最先显示的顺序排序分支。
+
+4. （可选）使用右上角的搜索字段。 它在分支名称上提供简单、不区分大小写的子字符串搜索。 它不支持任何其他查询语法。
 
 ![Atom 仓库的分支页面](/assets/images/help/branches/branches-overview-atom.png)
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -14,15 +16,21 @@ versions:
 
 個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
 * **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Organization アカウント:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。
 
 以下の URL は、説明とコールバック URL が事前設定された、`octocat-github-app` という新しい公開アプリケーションを作成します。 また、この URL は`checks` の読み取りおよび書き込み権限を選択し、`check_run` および `check_suite` webhook イベントにサブスクライブし、インストール時にユーザの認可 (OAuth) をリクエストするオプションを選択します。
 
-  ```
-  {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
-  ```
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% else %}
+```
+{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+```
+{% endif %}
 
 使用可能なクエリパラメータ、権限、およびイベントの完全なリストを、以下のセクションに記載します。
 
@@ -32,8 +40,9 @@ versions:
  | -------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | `name`                     | `string`           | {% data variables.product.prodname_github_app %} の名前。 アプリケーションには簡潔で明快な名前を付けましょう。 アプリケーションの名前は、既存の GitHub ユーザと同じ名前にできません。ただし、その名前があなた自身のユーザ名や Organization 名である場合は例外です。 インテグレーションが動作すると、ユーザインターフェース上にアプリケーション名のスラッグが表示されます。                                                                                                                                                                                                                                    |
  | `description`              | `string`           | {% data variables.product.prodname_github_app %} の説明。                                                                                                                                                                                                                                                                                                                                                                                                         |
- | `url`                      | `string`           | {% data variables.product.prodname_github_app %} のホームページの完全な URL。                                                                                                                                                                                                                                                                                                                                                                                             |
- | `callback_url`             | `string`           | インストールの承認後にリダイレクトする完全な URL。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。                                                                                                                                                                                                                                                                                                                                                                           |
+ | `url`                      | `string`           | The full URL of your {% data variables.product.prodname_github_app %}'s website homepage.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`            | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs. These URLs are used if your app needs to identify and authorize user-to-server requests. For example, `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`.{% else %}
+ | `callback_url`             | `string`           | インストールの承認後にリダイレクトする完全な URL。 This URL is used if your app needs to identify and authorize user-to-server requests.{% endif %}
  | `request_oauth_on_install` | `boolean`          | アプリケーションが OAuth フローを使用してユーザを認可する場合、このオプションを `true` にして、インストール時にアプリケーションを認可し、ステップを省略するように設定できます。 このオプションを選択した場合、`setup_url` が利用できなくなり、アプリケーションのインストール後はあなたが設定した `callback_url` にリダイレクトされます。                                                                                                                                                                                                                                                                      |
  | `setup_url`                | `string`           | {% data variables.product.prodname_github_app %} アプリケーションをインストール後に追加セットアップが必要な場合に、リダイレクトする完全な URL。                                                                                                                                                                                                                                                                                                                                                            |
  | `setup_on_update`          | `boolean`          | `true` に設定すると、たとえばリポジトリが追加や削除された後など、インストールしたアプリケーションが更新された場合に、ユーザをセットアップ URL にリダイレクトします。                                                                                                                                                                                                                                                                                                                                                                        |
@@ -41,7 +50,7 @@ versions:
  | `webhook_url`              | `string`           | webhook イベントペイロードを送信する完全な URL。                                                                                                                                                                                                                                                                                                                                                                                                                                  |
  | `webhook_secret`           | `string`           | webhook を保護するためのシークレットを指定できます。 詳細は「[webhook を保護する](/webhooks/securing/)」を参照。                                                                                                                                                                                                                                                                                                                                                                                    |
  | `events`                   | `array of strings` | webhook イベント. 一部の webhook イベントでは、新しい {% data variables.product.prodname_github_app %} を登録する際、イベントを選択するために`read` または `write` 権限が必要です。 利用可能なイベントと、それに必要な権限については、「[{% data variables.product.prodname_github_app %} webhook イベント](#github-app-webhook-events)」セクションを参照してください。 クエリ文字列では、複数のイベントを選択できます。 たとえば、`events[]=public&events[]=label` とできます。                                                                                                        |
- | `domain`                   | `string`           | コンテンツ参照の URL。                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+ | `ドメイン`                     | `string`           | コンテンツ参照の URL。                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
  | `single_file_name`         | `string`           | これは、アプリケーションが任意のリポジトリの単一のファイルにアクセスできるようにするための、スコープの狭い権限です。 `single_file` 権限を `read` または `write` に設定すると、このフィールドは {% data variables.product.prodname_github_app %} が扱う単一のファイルへのパスを指定します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}複数のファイルを扱う必要がある場合、以下の `single_file_paths` を参照してください。 {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
  | `single_file_paths`        | `array of strings` | アプリケーションが、リポジトリ内の指定した最大 10 ファイルにアクセスできるようにします。 `single_file` 権限を `read` または `write` に設定すると、この配列は {% data variables.product.prodname_github_app %} が扱う最大 10 個のファイルへのパスを格納できます。 これらのファイルには、それぞれ別々の権限があたえられるでのではなく、すべて `single_file` が設定したものと同じ権限が与えられます。 2 つ以上のファイルが設定されている場合、API は `multiple_single_files=true` を返し、それ以外の場合は `multiple_single_files=false` を返します。{% endif %}
 
@@ -80,7 +89,7 @@ versions:
 | [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring)                                       | [Starring API](/rest/reference/activity#starring) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                          |
 | [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses)                                       | [Statuses API](/rest/reference/repos#statuses) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                             |
 | [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions)                       | [Team Discussions API](/rest/reference/teams#discussions) および [Team Discussion Comments API](/rest/reference/teams#discussion-comments) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
-| `vulnerability_alerts`                                                                                                           | リポジトリ内の脆弱性のある依存関係に対するセキュリティアラートを受信するためのアクセス権を付与します。 詳細は「[脆弱性のある依存関係に対するセキュリティアラートについて](/articles/about-security-alerts-for-vulnerable-dependencies)」を参照。 `none`、`read` のいずれかです。{% endif %}
+| `vulnerability_alerts`                                                                                                           | リポジトリ内の脆弱性のある依存関係に対するセキュリティアラートを受信するためのアクセス権を付与します。 See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. `none`、`read` のいずれかです。{% endif %}
 | `Watch`                                                                                                                          | リストへのアクセス権を付与し、ユーザがサブスクライブするリポジトリの変更を許可します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                                               |
 
 ### {% data variables.product.prodname_github_app %} webhook イベント

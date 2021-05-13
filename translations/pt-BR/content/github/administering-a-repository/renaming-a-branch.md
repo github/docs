@@ -1,17 +1,21 @@
 ---
 title: Renomear um branch
 intro: É possível alterar o nome de um branch em um repositório.
-permissions: As pessoas com permissões de gravação em um repositório podem renomear um branch no repositório. As pessoas com permissões de administrador podem renomear o branch padrão.
+permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.1'
+  enterprise-server: '>=3.2'
+topics:
+  - Repositories
 ---
 
 ### Sobre a renomeação de branches
 
 Você pode renomear um branch em um repositório em {% data variables.product.product_location %}. Para obter mais informações sobre os branches, consulte "[Sobre os branches](/github/collaborating-with-issues-and-pull-requests/about-branches)".
 
-Se você renomear um branch, {% data variables.product.prodname_dotcom %} irá redirecionar automaticamente links em {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_location_enterprise %}{% endif %} que contêm o nome do branch antigo para o link equivalente no branch renomeado. {% data variables.product.prodname_dotcom %} também atualizará as políticas de proteção do branch, bem como o branch de base para pull requests abertos e versões de rascunho.
+When you rename a branch on {% data variables.product.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
+
+Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
 
 ### Renomear um branch
 

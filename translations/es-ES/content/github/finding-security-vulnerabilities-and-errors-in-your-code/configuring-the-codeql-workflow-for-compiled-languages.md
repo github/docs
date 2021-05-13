@@ -3,13 +3,11 @@ title: Configurar el flujo de trabajo de CodeQL para los lenguajes compilados
 shortTitle: Configurar para los lenguajes compilados
 intro: 'Puedes configurar cómo {% data variables.product.prodname_dotcom %} utiliza el {% data variables.product.prodname_codeql_workflow %} para escanear el código escrito en los lenguajes compilados para las vulnerabilidades y errores.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permisos de escritura en un repositorio, puedes configurar el {% data variables.product.prodname_code_scanning %} para éste.'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -17,7 +15,7 @@ versions:
 
 ### Acerca de {% data variables.product.prodname_codeql_workflow %} y los lenguajes compilados
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
+Puedes configurar a {% data variables.product.prodname_dotcom %} para que ejecute el {% data variables.product.prodname_code_scanning %} en tu repositorio si agregas un flujo de trabajo de {% data variables.product.prodname_actions %} a este. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %}
 Para obtener información general acerca de cómo configurar
@@ -33,7 +31,11 @@ Si tu flujo de trabajo utiliza una matriz de `language`, el `autobuild` intentar
 
 {% note %}
 
-**Nota**: Si utilizas los ejecutores auto-hospedados para {% data variables.product.prodname_actions %}, tal vez necesites instalar software adicional para utilizar el proceso de `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% if currentVersion == "github-ae@latest" %}**Nota**: Para obtener instrucciones sobre cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}
+**Nota**: Si usas ejecutores auto-hospedados para
+{% data variables.product.prodname_actions %}, puede que necesites instalar el software adicional para utilizar el proceso `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 {% endnote %}
 

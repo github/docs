@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 個人アカウントのプランをアップグレードする
@@ -57,7 +59,7 @@ Organization を {% data variables.product.prodname_free_team %} から {% data 
 
 #### {% data variables.product.prodname_ghe_cloud %} を使用する Organization の次のステップ
 
-Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳細は「[Organization で SAML シングルサインオンを管理する](/articles/managing-saml-single-sign-on-for-your-organization)」を参照してください。
+Organization を {% data variables.product.prodname_ghe_cloud %} にアップグレードした場合は、ここで Organization の ID とアクセス管理を設定できます。 詳細は「[Organization で SAML シングルサインオンを管理する](/organizations/managing-saml-single-sign-on-for-your-organization)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} で Enterprise アカウントを使いたい場合は、{% data variables.contact.contact_enterprise_sales %} に連絡してください。 詳細は「[Enterprise アカウントについて](/articles/about-enterprise-accounts)」を参照してください。
 

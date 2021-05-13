@@ -6,11 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+topics:
+  - Enterprise
 ---
 
 ### 关于集群的高可用性复制
 
-您可以配置 {% data variables.product.prodname_ghe_server %} 的群集部署以实现高可用性，其中一组相同的被动节点与活动群集中的节点同步。 If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
+您可以配置 {% data variables.product.prodname_ghe_server %} 的群集部署以实现高可用性，其中一组相同的被动节点与活动群集中的节点同步。 如果硬件或软件故障影响具有活动群集的数据中心，您可以手动故障转移到副本节点，继续处理用户请求，以尽可能减少中断的影响。
 
 在高可用性模式下，每个活动节点定期与相应的被动节点同步。 被动节点在待机状态下运行，不服务于应用程序或处理用户请求。
 

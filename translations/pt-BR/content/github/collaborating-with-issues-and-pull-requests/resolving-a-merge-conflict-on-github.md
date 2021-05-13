@@ -1,12 +1,14 @@
 ---
 title: Resolver um conflito de merge no GitHub
-intro: 'Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.'
+intro: Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Você só pode resolver conflitos de merge no {% data variables.product.product_name %} causados por alterações concorrentes na linha, como quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo em diferentes branches no seu repositório Git. Para todos os outros tipos de conflito de merge, você deve resolver o conflito localmente na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line/)".

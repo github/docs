@@ -1,6 +1,6 @@
 ---
 title: 审核整个企业的用户
-intro: '审核日志仪表板向站点管理员显示过去 90 天内企业中所有用户和组织执行的操作，包括操作执行者、操作内容以及操作执行时间等详细信息。'
+intro: 审核日志仪表板向站点管理员显示过去 90 天内企业中所有用户和组织执行的操作，包括操作执行者、操作内容以及操作执行时间等详细信息。
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 访问审核日志

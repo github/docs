@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -77,7 +79,7 @@ For more information about creating an installation token, see "[Authenticating 
 
 **Step 5.** You'll see the new content attachment appear under the link in a pull request or issue comment:
 
-![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)
 
 ### Using content attachments in GraphQL
 We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
@@ -175,4 +177,4 @@ To create a Probot App, follow these steps:
 7. Add a comment to the issue you opened that includes the URL you configured in the `app.yml` file.
 8. Take a look at the issue comment and you'll see an update that looks like this:
 
-   ![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)

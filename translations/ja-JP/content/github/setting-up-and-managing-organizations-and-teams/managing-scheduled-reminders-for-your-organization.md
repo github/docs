@@ -3,6 +3,9 @@ title: Organization にスケジュールされたリマインダーを管理す
 intro: Organization の Team がレビューをリクエストされたすべてのプルリクエストについて、Slack でリマインダーを受け取ることができます。
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### プルリクエストのスケジュールされたリマインダーについて
@@ -10,6 +13,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Organization のオーナーは、Team がレビューをリクエストされたすべてのプルリクエストについて、その Organization の 1 つ以上の Team にリマインダーをスケジュールできます。
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Organization のスケジュールされたリマインダーを作成する
 {% data reusables.profile.access_profile %}

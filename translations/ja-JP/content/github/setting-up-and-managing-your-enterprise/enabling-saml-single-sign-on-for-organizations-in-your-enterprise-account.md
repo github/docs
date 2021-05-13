@@ -5,11 +5,13 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can enable SAML single sign-on for organizations in an enterprise account.
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### About SAML single sign-on for enterprise accounts
 
-{% data reusables.saml.dotcom-saml-explanation %} 詳細は「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
+{% data reusables.saml.dotcom-saml-explanation %} 詳細は「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」を参照してください。
 
 {% data reusables.saml.about-saml-enterprise-accounts %}
 
@@ -23,7 +25,7 @@ versions:
 
 {% note %}
 
-**Note:** Enabling authentication with SAML single sign-on for your enterprise account will override any existing organization-level SAML configurations.
+**注釈:** Enterprise アカウントで SAML シングルサインオンを使用した認証を有効にすると、既存の Organization レベルの SAML 設定が上書きされます。
 
 {% endnote %}
 

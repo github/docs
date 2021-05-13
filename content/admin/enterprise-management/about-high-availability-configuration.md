@@ -6,11 +6,18 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 
 {% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
+
+{% data reusables.enterprise_installation.replica-limit %}
 
 ### Targeted failure scenarios
 

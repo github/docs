@@ -1,6 +1,6 @@
 ---
 title: SSH キーのパスフレーズのリカバリ
-intro: 'SSH キーのパスフレーズをなくした場合、ご使用のオペレーティングシステムによって、リカバリができることもあれば、SSH キーのパスフレーズを新たに生成することが必要なこともあります。'
+intro: SSH キーのパスフレーズをなくした場合、ご使用のオペレーティングシステムによって、リカバリができることもあれば、SSH キーのパスフレーズを新たに生成することが必要なこともあります。
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase/
   - /articles/how-do-i-recover-my-ssh-key-passphrase/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
@@ -26,12 +28,12 @@ versions:
 
 {% windows %}
 
-SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https)かして、GitHub パスワードを代替で使用できるようにする必要があります。
+SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/github/getting-started-with-github/managing-remote-repositories)かして、GitHub パスワードを代替で使用できるようにする必要があります。
 
 {% endwindows %}
 
 {% linux %}
 
-SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)かして、GitHub パスワードを代替で使用できるようにする必要があります。
+SSH キーパスフレーズをなくした場合、リカバリの方法はありません。 [まったく新しく SSH キーペアを生成する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)か [HTTPS クローニングに切り替える](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)かして、GitHub パスワードを代替で使用できるようにする必要があります。
 
 {% endlinux %}

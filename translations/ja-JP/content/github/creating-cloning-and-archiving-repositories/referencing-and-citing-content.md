@@ -5,6 +5,8 @@ redirect_from:
   - /articles/referencing-and-citing-content
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Zenodo によってリポジトリの永続的識別子を発行する

@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Puedes buscar propuestas y solicitudes de extracción globalmente a través de todos los {% data variables.product.product_name %}, o buscar propuestas y solicitudes de extracción dentro de una organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
@@ -303,7 +305,7 @@ El calificador `archived` (archivado) filtra tus resultados en base a si una pro
 
 ### Buscar en base a si una conversación está bloqueada
 
-Puedes buscar por una propuesta o solicitud de extracción que tiene una conversación utilizando el calificador `is`. Para obtener más información, consulta "[Bloquear conversaciones](/articles/locking-conversations)."
+Puedes buscar por una propuesta o solicitud de extracción que tiene una conversación utilizando el calificador `is`. Para obtener más información, consulta "[Bloquear conversaciones](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 | Qualifier     | Ejemplo                                                                                                                                                                                                                                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

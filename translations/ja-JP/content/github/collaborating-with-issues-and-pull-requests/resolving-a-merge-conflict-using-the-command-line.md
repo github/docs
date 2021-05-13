@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
@@ -68,7 +70,7 @@ versions:
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 削除したファイルのマージコンフリクト
 
@@ -117,7 +119,7 @@ versions:
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 参考リンク
 

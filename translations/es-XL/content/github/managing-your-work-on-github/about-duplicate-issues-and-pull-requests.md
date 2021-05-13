@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Para que aparezca un evento cronológico "marcado como duplicado", el usuario que crea el comentario de referencia duplicado debe tener acceso de escritura al repositorio donde crea el comentario.

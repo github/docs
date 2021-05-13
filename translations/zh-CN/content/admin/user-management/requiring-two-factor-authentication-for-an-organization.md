@@ -1,10 +1,12 @@
 ---
 title: 为组织要求双重身份验证
-intro: '您可以要求组织成员和外部协作者为他们在组织中的个人帐户启用双重身份验证，使恶意操作者更难以访问组织的仓库和设置。'
+intro: 您可以要求组织成员和外部协作者为他们在组织中的个人帐户启用双重身份验证，使恶意操作者更难以访问组织的仓库和设置。
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。

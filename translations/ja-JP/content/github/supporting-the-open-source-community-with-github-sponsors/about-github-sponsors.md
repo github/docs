@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### {% data variables.product.prodname_sponsors %} について
@@ -23,11 +25,11 @@ versions:
 
 {% note %}
 
-**Note:** {% data reusables.sponsors.matching-fund-eligible %}
+**ノート:** {% data reusables.sponsors.matching-fund-eligible %}
 
 {% endnote %}
 
-{% data variables.product.prodname_matching_fund %} は、{% data variables.product.prodname_dotcom %} コミュニティのメンバーが[{% data variables.product.prodname_dotcom %} コミュニティガイドライン](/github/site-policy/github-community-guidelines)を推進するオープンソースソフトウェアを開発するのを支援することを目的としています。 Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+{% data variables.product.prodname_matching_fund %} は、{% data variables.product.prodname_dotcom %} コミュニティのメンバーが[{% data variables.product.prodname_dotcom %} コミュニティガイドライン](/github/site-policy/github-community-guidelines)を推進するオープンソースソフトウェアを開発するのを支援することを目的としています。 スポンサード Organization に対する支払いと Organization からの支払は {% data variables.product.prodname_matching_fund %} を利用できません。
 
 {% data variables.product.prodname_matching_fund %} の資格を得るには、長期にわたって支えてくれるコミュニティを引き付けるようなプロフィールを作成する必要があります。 強力なプロフィールの作成については、「[{% data variables.product.prodname_sponsors %}のプロフィール詳細を編集する](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)」を参照してください。
 
@@ -35,7 +37,7 @@ versions:
 
 ### {% data variables.product.prodname_sponsors %} についてのフィードバックを共有する
 
-これは単なる始めに過ぎません。{% data variables.product.prodname_sponsors %} が将来皆さんのお役に立てるよう、ぜひともご意見をお寄せください。 フィードバックやご提案は、[{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors) からお送りください。
+{% data reusables.sponsors.feedback %}
 
 ### 参考リンク
 - [オープンソースコントリビューターをスポンサーする](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)

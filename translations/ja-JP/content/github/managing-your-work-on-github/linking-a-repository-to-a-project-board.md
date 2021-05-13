@@ -7,13 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-{% note %}
-
-**注釈:** 自分の Organization またはユーザ所有のプロジェクトボードにリポジトリをリンクするには、リポジトリで Issue が有効になっている必要があります。 リポジトリに対して Issue が有効かどうかを確認する方法にいては、「[Issue を無効化する](/github/managing-your-work-on-github/disabling-issues)」を参照してください。
-
-{% endnote %}
 
 プロジェクトボードへの書き込み権限があれば誰でも、その Organization またはユーザアカウントが所有するリポジトリをプロジェクトボードにリンクできます。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization/)」または「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards/)」を参照してください。
 
@@ -26,6 +23,12 @@ versions:
 5. [**Link a repository**] をクリックします。 ![[Linked repositories] タブにある [Link a repository] ボタン](/assets/images/help/projects/link-repository-button.png)
 6. リンクしたいリポジトリを検索します。 ![[Link a repository] ウィンドウの [Search] フィールド](/assets/images/help/projects/search-to-link-repository.png)
 7. [**Link**] をクリックします。 リンクを解除するには、[**Unlink**] をクリックします。 ![[Link] ボタン](/assets/images/help/projects/link-button.png)
+
+{% note %}
+
+**注釈:** 自分の Organization またはユーザ所有のプロジェクトボードにリポジトリをリンクするには、リポジトリで Issue が有効になっている必要があります。 つまり、リポジトリには [Issue] タブがあるということです（フォークされたリポジトリでは、Issue はデフォルトで無効になっています）。  リポジトリの Issue を有効または無効にする方法については、「[リポジトリの Issue の無効化する](/github/managing-your-work-on-github/disabling-issues)」を参照してください。
+
+{% endnote %}
 
 ### 参考リンク
 

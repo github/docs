@@ -32,8 +32,7 @@ Antes que os proprietários ou integrantes da organização possam publicar imag
 {% data reusables.organizations.org_settings %}
 4. À esquerda, clique em **Pacotes**.
 5. Em "Melhorar suporte ao container", selecione "Suporte ao contêiner aprimorado" e clique em **Salvar**. ![Opção de habilitar suporte de registro do contêiner e botão de salvar](/assets/images/help/package-registry/enable-improved-container-support-for-orgs.png)
-6. Em "Criação de contêiner", escolha se deseja habilitar a criação de imagens de recipientes públicas e/ou privadas.
+6. Under "Container creation", choose whether you want to enable the creation of public, private, or internal container images.
     - Para permitir que os integrantes da organização criem imagens de contêiner público, clique em **Público**.
     - Para permitir que os integrantes da organização criem imagens privadas de contêiner visíveis apenas para outros integrantes da organização, clique em **Privado**. Você pode personalizar ainda mais a visibilidade de imagens de contêiner privado. Para obter mais informações, consulte "[Configurar controle de acesso e visibilidade para imagens de contêiner](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)".
-
-    ![Opções para habilitar pacotes públicos ou privados ](/assets/images/help/package-registry/package-creation-org-settings.png)
+    - **For {% data variables.product.prodname_ghe_cloud %} only:** To enable organization members to create internal container images that are only visible to other organization members, click **Internal**. ![Visibility options for container images published by organization members](/assets/images/help/package-registry/container-creation-org-settings.png)

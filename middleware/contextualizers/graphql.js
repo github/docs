@@ -2,13 +2,14 @@ const previews = require('../../lib/graphql/static/previews')
 const upcomingChanges = require('../../lib/graphql/static/upcoming-changes')
 const changelog = require('../../lib/graphql/static/changelog')
 const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects')
+const prerenderedInputObjects = require('../../lib/graphql/static/prerendered-input-objects')
 const allVersions = require('../../lib/all-versions')
 
 const explorerUrl = process.env.NODE_ENV === 'production'
   ? 'https://graphql.github.com/explorer'
   : 'http://localhost:3000'
 
-module.exports = async (req, res, next) => {
+module.exports = function graphqlContext (req, res, next) {
   const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-GraphQL reference paths
   // and to versions that don't exist
@@ -26,6 +27,7 @@ module.exports = async (req, res, next) => {
     previewsForCurrentVersion: previews[graphqlVersion],
     upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
     prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
+    prerenderedInputObjectsForCurrentVersion: prerenderedInputObjects[graphqlVersion],
     explorerUrl,
     changelog
   }

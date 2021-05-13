@@ -1,18 +1,20 @@
 ---
-title: Dockerfile 对 GitHub 操作的支持
+title: Dockerfile 对 GitHub Actions 的支持
 shortTitle: Docker
-intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub 操作及操作的元数据文件交互。
+intro: 为 Docker 容器创建 `Dockerfile` 时， 您应该知道一些 Docker 指令如何与 GitHub Actions 及操作的元数据文件交互。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于 Dockerfile 指令
 

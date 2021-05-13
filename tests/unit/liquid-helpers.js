@@ -98,16 +98,16 @@ describe('liquid helper tags', () => {
     const template = '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
     const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="" data-topics="">
   <a class="no-underline d-flex flex-column py-3 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
-    <h4 class="h4 text-gray-dark mb-1">Contributing and collaborating using GitHub Desktop</h4>
-    <div class="text-purple h6 text-uppercase"></div>
-    <p class="text-gray my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>`
+    <h4 class="h4 color-text-primary mb-1">Contributing and collaborating using GitHub Desktop</h4>
+    <div class="h6 text-uppercase"></div>
+    <p class="color-text-secondary my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>`
     const output = await liquid.parseAndRender(template, context)
     expect(output.includes(expected)).toBe(true)
   })
 
   describe('indented_data_reference tag', () => {
     test('without any number of spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example %}'
+      const template = '{% indented_data_reference reusables.example %}'
       const expected = `  a rose by any other name
   would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -115,7 +115,7 @@ describe('liquid helper tags', () => {
     })
 
     test('with 0 spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces=0 %}'
+      const template = '{% indented_data_reference reusables.example spaces=0 %}'
       const expected = `a rose by any other name
 would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -123,7 +123,7 @@ would smell as sweet`
     })
 
     test('with 0 spaces specified and whitespace around equals sign', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces = 0 %}'
+      const template = '{% indented_data_reference reusables.example spaces = 0 %}'
       const expected = `a rose by any other name
 would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
@@ -131,7 +131,7 @@ would smell as sweet`
     })
 
     test('with 5 spaces specified', async () => {
-      const template = '{% indented_data_reference site.data.reusables.example spaces=5 %}'
+      const template = '{% indented_data_reference reusables.example spaces=5 %}'
       const expected = `     a rose by any other name
      would smell as sweet`
       const output = await liquid.parseAndRender(template, context)

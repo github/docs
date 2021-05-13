@@ -1,12 +1,14 @@
 ---
 title: ファイルを新しい場所に移動する
-intro: '編集中のファイルは、たとえディレクトリが存在していない場合でも、リポジトリ内のどこにでも移動することができます。'
+intro: 編集中のファイルは、たとえディレクトリが存在していない場合でも、リポジトリ内のどこにでも移動することができます。
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ファイルの場所を変えるだけでなく、同じコミットで[ファイルの内容を更新](/articles/editing-files-in-your-repository)したり、

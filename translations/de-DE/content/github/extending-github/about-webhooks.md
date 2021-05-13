@@ -5,7 +5,7 @@ redirect_from:
   - /articles/post-receive-hooks/
   - /articles/creating-webhooks/
   - /articles/about-webhooks
-intro: Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation auftreten.
+intro: 'Webhooks bieten die Möglichkeit, Benachrichtigungen an einen externen Webserver zu senden, wenn bestimmte Aktionen in einem Repository oder in einer Organisation auftreten.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

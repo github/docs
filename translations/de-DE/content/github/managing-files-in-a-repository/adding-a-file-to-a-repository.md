@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Für Dateien, die Sie über einen Browser zu einem Repository hinzufügen, gilt eine Beschränkung von {% data variables.large_files.max_github_browser_size %} pro Datei. Größere Dateien mit bis zu jeweils {% data variables.large_files.max_github_size %} können Sie über die Befehlszeile hinzufügen. Weitere Informationen findest Du unter „[Eine Datei über die Befehlszeile zu einem Repository hinzufügen](/articles/adding-a-file-to-a-repository-using-the-command-line).“

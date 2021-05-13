@@ -1,12 +1,14 @@
 ---
 title: 检查现有 SSH 密钥
-intro: '在生成 SSH 密钥之前，您可以检查是否有任何现有的 SSH 密钥。'
+intro: 在生成 SSH 密钥之前，您可以检查是否有任何现有的 SSH 密钥。
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% data reusables.ssh.dsa-support %}

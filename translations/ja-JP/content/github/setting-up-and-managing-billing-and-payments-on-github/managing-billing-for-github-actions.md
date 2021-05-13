@@ -4,5 +4,7 @@ intro: '{% data variables.product.prodname_actions %} の利用状況を確認�
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

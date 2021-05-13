@@ -1,5 +1,5 @@
 ---
-title: Publicar imagens do Docker
+title: Publicando imagens do Docker
 intro: 'Você pode publicar imagens Docker para um registro, como o Docker Hub ou {% data variables.product.prodname_registry %}, como parte do seu fluxo de trabalho de integração contínua (CI).'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -7,15 +7,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Empacotando'
-  - 'Publicar'
-  - 'Docker'
+  - Packaging
+  - Publishing
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -60,23 +62,23 @@ As opções `build-push-action` necessárias para o Docker Hub são:
 
 {% raw %}
 ```yaml{:copy}
-nome: Publicar imagem do Docker
-em:
-  versão:
-    tipos: [published]
-trabalhos:
+name: Publish Docker image
+on:
+  release:
+    types: [published]
+jobs:
   push_to_registry:
-    Nome: Push Docker image to Docker Hub
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
-    etapas:
-      - nome: Verificar repo
-        usa: actions/checkout@v2
-      - nome: Push to Docker Hub
-        usa: docker/build-push-action@v1
-        com:
-          nome de usuário: ${{ secrets.DOCKER_USERNAME }}
-          senha: ${{ secrets.DOCKER_PASSWORD }}
-          repositório: my-docker-hub-namespace/my-docker-hub-repository
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: my-docker-hub-namespace/my-docker-hub-repository
           tag_with_ref: true
 ```
 {% endraw %}

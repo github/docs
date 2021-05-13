@@ -1,8 +1,10 @@
 ---
 title: 搜索讨论
-intro: 您可以在 {% data variables.product.product_name %} 上搜索讨论，并使用搜索限定符缩小结果范围。
+intro: '您可以在 {% data variables.product.product_name %} 上搜索讨论，并使用搜索限定符缩小结果范围。'
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.discussions.beta %}

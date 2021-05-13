@@ -1,6 +1,6 @@
 ---
 title: Audit log を検索する
-intro: 'サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。'
+intro: サイト管理者は、Enterprise で監査されたアクションの広範なリストを検索できます。
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 検索クエリの構文

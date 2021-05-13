@@ -1,71 +1,71 @@
 ---
-title: Configuring data encryption for your enterprise
-shortTitle: Configuring data encryption
-intro: 'For encryption at rest, you can provide your own encryption key to encrypt your data under your encryption policies.'
+title: Enterprise 向けのデータ暗号化を設定する
+shortTitle: データ暗号化を設定する
+intro: 保存時の暗号化時、独自の暗号化キーを提供し、暗号化ポリシーに基づいてデータを暗号化できます。
 versions:
   github-ae: '*'
 ---
 
 {% note %}
 
-**Note:** Configuring encryption at rest with a customer-managed key is currently in beta and subject to change.
+**注釈:** お客様が管理するキーを使用した保存時の暗号化設定は現在ベータであり、変更される可能性があります。
 
 {% endnote %}
 
-### About data encryption
+### データ暗号化について
 
-To provide a high level of security, {% data variables.product.product_name %} encrypts your data while at rest in the data centers and while your data is in transit between users' machines and the data centers.
+高レベルのセキュリティを提供するため、{% data variables.product.product_name %} は、データセンターでの保存中、およびユーザのマシンとデータセンター間でのデータの転送中にデータを暗号化します。
 
-For encryption in transit, {% data variables.product.product_name %} uses Transport Layer Security (TLS). For encryption at rest, {% data variables.product.product_name %} provides a default RSA key. After you've initialized your enterprise, you can choose to provide your own key instead. Your key should be a 2048 bit RSA private key in PEM format.
+転送中の暗号化では、{% data variables.product.product_name %} は Transport Layer Security (TLS) を使用します。 保存データの暗号化では、{% data variables.product.product_name %} がデフォルトの RSA キーを提供します。 Enterprise を初期化した後、代わりに独自のキーを提供することができます。 キーは、PEM 形式の 2048 ビット RSA 秘密鍵である必要があります。
 
-The key that you provide is stored in a hardware security module (HSM) in a key vault that {% data variables.product.company_short %} manages.
+指定したキーは、{% data variables.product.company_short %} が管理する Key Vault の FIPS 140-2 準拠のハードウェアセキュリティモジュール (HSM) に保存されます。
 
-To configure your encryption key, use the REST API. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. For more information about the API endpoints, see "[Encryption at rest](/rest/reference/enterprise-admin#encryption-at-rest)" in the REST API documentation.
+暗号鍵を設定するには、REST API を使用します。 暗号のステータスの確認、暗号鍵の更新、暗号鍵の無効化など、多くの API エンドポイントがあります。 キーを無効にすると、Enterprise がフリーズするためご注意ください。 API エンドポイントの詳細については、REST API ドキュメントの「[保存時の暗号化](/rest/reference/enterprise-admin#encryption-at-rest)」を参照してください。
 
-### Adding or updating an encryption key
+### 暗号鍵の追加または更新
 
-You can add a new encryption key as often as you need. When you add a new key, the old key is discarded. Your enterprise won't experience downtime when you update the key.
+新しい暗号鍵は、必要に応じて何度でも追加できます。 新しい鍵を追加すると、古い鍵は破棄されます。 鍵を更新しても、Enterprise でダウンタイムが発生することはありません。
 
-Your 2048 bit RSA private key should be in PEM format, for example in a file called _private-key.pem_.
+2048 ビットの RSA 秘密鍵は、PEM 形式である必要があります（たとえば、_private-key.pem_ というファイル）。
 
    ```
-   -----BEGIN RSA PRIVATE KEY-----
+   -----ここから RSA 秘密鍵-----
    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-   -----END RSA PRIVATE KEY-----
+   -----ここまで RSA 秘密鍵-----
    ```
 
-1. To add your key, use the `PATCH /enterprise/encryption` endpoint, replacing *~/private-key.pem* with the path to your private key.
+1. キーを追加するには、`PATCH /enterprise/encryption` エンドポイントを使用し、*~/private-key.pem* を秘密鍵へのパスに置き換えます。
 
    ```shell
    curl -X PATCH http(s)://<em>hostname</em>/api/v3/enterprise/encryption \
      -d "{ \"key\": \"$(awk '{printf "%s\\n", $0}' ~/private-key.pem)\" }"
    ```
 
-2. Optionally, check the status of the update operation.
+2. 必要に応じて、更新作業のステータスを確認します。
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Disabling your encryption key
+### 暗号鍵を無効化する
 
-To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by marking your encryption key as disabled.
+たとえば違反が発生した場合に Enterprise を凍結するには、暗号鍵を無効としてマークすることで、保存時の暗号化を無効にすることができます。
 
-1. To disable your key and encryption at rest, use the `DELETE /enterprise/encryption` endpoint. This operation does not delete the key permanently.
+1. 保存時に鍵と暗号化を無効にするには、`DELETE /enterprise/encryption` エンドポイントを使用します。 この作業で鍵が完全に削除されるわけではありません。
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. Optionally, check the status of the delete operation. It takes approximately ten minutes to disable encryption at rest.
+2. 必要に応じて、削除作業のステータスを確認します。 保存時に暗号化を無効にするには、約 10 分かかります。
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-To unfreeze your enterprise after you've disabled your encryption key, contact support. 詳しい情報については、「[{% data variables.contact.enterprise_support %} について](/admin/enterprise-support/about-github-enterprise-support)」を参照してください。
+暗号鍵を無効にした後で Enterprise の凍結を解除するには、サポートにお問い合わせください。 詳しい情報については、「[{% data variables.contact.enterprise_support %} について](/admin/enterprise-support/about-github-enterprise-support)」を参照してください。
 
 ### 参考リンク
 
-- "[Encryption at rest](/rest/reference/enterprise-admin#encryption-at-rest)" in the REST API documentation 
+- REST APIドキュメントの「[保存時の暗号化](/rest/reference/enterprise-admin#encryption-at-rest)」 

@@ -14,7 +14,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
   - /articles/creating-a-workflow-with-github-actions/
   - /articles/configuring-a-workflow
-  - /github/automatisieren-ihren-workflow-mit-github-aktionen/configuring-a-workflow
+  - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
   - /actions/creating-workflows/workflow-configuration-options
   - /articles/configuring-workflows
@@ -28,6 +28,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% link_with_intro /introduction-to-github-actions %}

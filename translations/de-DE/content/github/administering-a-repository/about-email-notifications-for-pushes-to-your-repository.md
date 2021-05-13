@@ -1,7 +1,7 @@
 ---
 title: Informationen zu E-Mail-Benachrichtigungen für Pushes an Dein Repository
-intro: Du kannst festlegen, dass E-Mail-Benachrichtigungen automatisch an eine bestimmte E-Mail-Adresse gesendet werden, wenn jemand an das Repository überträgt.
-permissions: Personen mit Administratorberechtigung in einem Repository können E-Mail-Benachrichtigungen für Pushes in Dein Repository aktivieren.
+intro: 'Du kannst festlegen, dass E-Mail-Benachrichtigungen automatisch an eine bestimmte E-Mail-Adresse gesendet werden, wenn jemand an das Repository überträgt.'
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}

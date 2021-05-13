@@ -7,11 +7,13 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Enterprise のオーナーは、Enterprise アカウント内に新しい Organization を作成できます。
 
-Organization を Enterprise アカウントに追加するには、 Enterprise アカウント設定から Organization を作成する必要があります。 既存の Organization を Enterprise アカウントに切り替えることはできません。
+Organization を Enterprise アカウントに追加するには、 Enterprise アカウント設定から Organization を作成する必要があります。 If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
 
 ### Enterprise アカウント内で Organization を作成する
 
@@ -24,4 +26,4 @@ Enterprise アカウントにより所有される Organization を作成した 
 3. [Organization name] の下に Organization の名前を入力します。 ![新しい Organization 名を入力するフィールド](/assets/images/help/business-accounts/new-organization-name-field.png)
 4. **Create organization（Organizationの作成）**をクリックしてください。
 5. [Invite owners] の下で、Organization のオーナーになるよう招待したい人のユーザ名を入力し、[**Invite**] をクリックします。 ![Organization オーナーの検索フィールドと招待ボタン](/assets/images/help/business-accounts/invite-org-owner.png)
-6. Click **Finish**.
+6. [**Finish**] をクリックします。

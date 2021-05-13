@@ -74,7 +74,7 @@ describe('header', () => {
 
       const ghe = $(`#homepages a[href="/en/enterprise-server@${latest}/admin"]`)
       expect(ghe.length).toBe(1)
-      expect(ghe.text().trim()).toBe('Enterprise Administrators')
+      expect(ghe.text().trim()).toBe('GitHub Enterprise')
       expect(ghe.attr('class').includes('active')).toBe(false)
     })
 

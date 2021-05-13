@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.product_name %} 需要密码来执行敏感的操作，如新增 SSH 密钥、授权应用程序或修改团队成员。

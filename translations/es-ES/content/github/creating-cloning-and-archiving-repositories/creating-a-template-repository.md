@@ -1,13 +1,15 @@
 ---
 title: Crear un repositorio desde una plantilla
 intro: 'Puedes hacer una plantilla a partir de un repositorio existente para que tú y otras personas puedan generar repositorios nuevos con la misma estructura de directorios{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, ramas,{% endif %} y archivos.'
-permissions: Cualquier usuario con permisos de administrador para un repositorio puede convertir el repositorio en una plantilla.
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% note %}

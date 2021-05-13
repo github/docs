@@ -1,7 +1,7 @@
 const request = require('supertest')
 const nock = require('nock')
 const cheerio = require('cheerio')
-const app = require('../../server')
+const app = require('../../lib/app')
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)
@@ -74,7 +74,7 @@ describe('POST /events', () => {
     const pageExample = { ...baseExample, type: 'page' }
 
     it('should record a page event', () =>
-      checkEvent(pageExample, 201)
+      checkEvent(pageExample, 200)
     )
 
     it('should require a type', () =>
@@ -128,7 +128,7 @@ describe('POST /events', () => {
           ...pageExample.context,
           page_event_id: baseExample.context.event_id
         }
-      }, 201)
+      }, 200)
     )
 
     it('should not allow a honeypot token', () =>
@@ -201,7 +201,7 @@ describe('POST /events', () => {
       }, 400)
     )
 
-    it('should a valid os option', () =>
+    it('should os a valid os option', () =>
       checkEvent({
         ...pageExample,
         context: {
@@ -295,7 +295,7 @@ describe('POST /events', () => {
     }
 
     it('should record an exit event', () =>
-      checkEvent(exitExample, 201)
+      checkEvent(exitExample, 200)
     )
 
     it('should exit_render_duration is a positive number', () =>
@@ -330,7 +330,7 @@ describe('POST /events', () => {
     }
 
     it('should send a link event', () =>
-      checkEvent(linkExample, 201)
+      checkEvent(linkExample, 200)
     )
 
     it('link_url is a required uri formatted string', () =>
@@ -347,7 +347,7 @@ describe('POST /events', () => {
     }
 
     it('should record a search event', () =>
-      checkEvent(searchExample, 201)
+      checkEvent(searchExample, 200)
     )
 
     it('search_query is required string', () =>
@@ -355,7 +355,7 @@ describe('POST /events', () => {
     )
 
     it('search_context is optional string', () =>
-      checkEvent({ ...searchExample, search_context: undefined }, 201)
+      checkEvent({ ...searchExample, search_context: undefined }, 200)
     )
   })
 
@@ -367,11 +367,11 @@ describe('POST /events', () => {
     }
 
     it('should record a navigate event', () =>
-      checkEvent(navigateExample, 201)
+      checkEvent(navigateExample, 200)
     )
 
     it('navigate_label is optional string', () =>
-      checkEvent({ ...navigateExample, navigate_label: undefined }, 201)
+      checkEvent({ ...navigateExample, navigate_label: undefined }, 200)
     )
   })
 
@@ -385,7 +385,7 @@ describe('POST /events', () => {
     }
 
     it('should record a survey event', () =>
-      checkEvent(surveyExample, 201)
+      checkEvent(surveyExample, 200)
     )
 
     it('survey_vote is boolean', () =>
@@ -411,7 +411,7 @@ describe('POST /events', () => {
     }
 
     it('should record an experiment event', () =>
-      checkEvent(experimentExample, 201)
+      checkEvent(experimentExample, 200)
     )
 
     it('experiment_name is required string', () =>
@@ -423,7 +423,7 @@ describe('POST /events', () => {
     )
 
     it('experiment_success is optional boolean', () =>
-      checkEvent({ ...experimentExample, experiment_success: undefined }, 201)
+      checkEvent({ ...experimentExample, experiment_success: undefined }, 200)
     )
   })
 
@@ -436,7 +436,7 @@ describe('POST /events', () => {
     }
 
     it('should record an redirect event', () =>
-      checkEvent(redirectExample, 201)
+      checkEvent(redirectExample, 200)
     )
 
     it('redirect_from is required url', () =>
@@ -456,7 +456,7 @@ describe('POST /events', () => {
     }
 
     it('should record an clipboard event', () =>
-      checkEvent(clipboardExample, 201)
+      checkEvent(clipboardExample, 200)
     )
 
     it('clipboard_operation is required copy, paste, cut', () =>
@@ -471,7 +471,7 @@ describe('POST /events', () => {
     }
 
     it('should record a print event', () =>
-      checkEvent(printExample, 201)
+      checkEvent(printExample, 200)
     )
   })
 })

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -22,7 +24,7 @@ webhookは、{% if enterpriseServerVersions contains currentVersion or currentVe
 
 それぞれのイベントは、Organizationやリポジトリに生じうる一連のアクションに対応します。 たとえば、`issues`イベントにサブスクライブしているなら、Issueのオープン、クローズ、ラベル付けなどが生じるたびに詳細なペイロードを受信することになります。
 
-利用できるwebhookのイベントとそれらのペイロードのリストについては「[webhookイベントのペイロード](/webhooks/event-payloads)」を参照してください。
+For a complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
 ### Pingイベント
 

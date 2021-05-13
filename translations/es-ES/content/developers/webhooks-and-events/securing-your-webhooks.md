@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -40,7 +42,7 @@ Cuando se configura tu token secreto, {% data variables.product.product_name %} 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**Nota:** Para tener compatibilidad en versiones anteriores, también incluimos el encabezado `X-Hub-Signature` que se genera utilizando la función de hash SHA-1. De ser posible, te recomendamos que utilices el encabezado de `X-Hub-Signature-256` para mejorar la seguridad. El siguiente ejemplo ilustra el uso del encabezado `X-Hub-Signature-256`.
+**Nota:** Para tener compatibilidad en versiones anteriores, también incluimos el encabezado `X-Hub-Signature` que se genera utilizando la función de hash SHA-1. De ser posible, te recomendamos que utilices el encabezado de `X-Hub-Signature-256` para mejorar la seguridad. El ejemplo siguiente demuestra cómo utilizar el encabezado `X-Hub-Signature-256`.
 
 {% endnote %}
 {% endif %}
@@ -79,10 +81,16 @@ def verify_signature(payload_body)
 end{% endif %}
 ```
 
+{% note %}
+
+**Nota:** Las cargas útiles de los webhooks pueden contener caracteres en unicode. Si tu implementación de idioma y servidor especifican un cifrado de caracteres, asegúrate de que estés manejando la carga útil como UTF-8.
+
+{% endnote %}
+
 Tus implementaciones de lenguaje y de servidor pueden diferir de esta muestra de código. Sin embargo, hay varias cosas muy importantes que destacar:
 
 * Sin importar qué implementación utilices, la firma de hash comienza con {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
 
-* **No se recomienda** utilizar un simple operador de `==`. Un método como el de [`secure_compare`][secure_compare] lleva a cabo una secuencia de comparación de "tiempo constante" que ayuda a mitigar algunos ataques de temporalidad en contra de las operaciones de igualdad habituales.
+* **No se recomienda** utilizar un simple operador de `==`. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
-[secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

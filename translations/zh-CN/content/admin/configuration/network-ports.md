@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/guides/installation/network-ports-to-open/
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
-intro: '根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。'
+intro: 根据您需要为管理员、最终用户和电子邮件支持显示的网络服务有选择地打开网络端口。
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 管理端口

@@ -1,11 +1,13 @@
 ---
 title: 必須ステータスチェックのトラブルシューティング
-intro: 'You can check for common errors and resolve issues with required status checks.'
+intro: You can check for common errors and resolve issues with required status checks.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. 詳しい情報については、「[チェック](/rest/reference/checks)」を参照してください。
@@ -14,7 +16,7 @@ After you enable required status checks, your branch may need to be up-to-date w
 
 {% note %}
 
-**注釈:** Git リベースを使用してブランチをベースブランチに対して最新にすることもできます。 詳しい情報については、「[Git リベースについて](/github/using-git/about-git-rebase)」を参照してください。
+**注釈:** Git リベースを使用してブランチをベースブランチに対して最新にすることもできます。 詳しい情報については、「[Git リベースについて](/github/getting-started-with-github/about-git-rebase)」を参照してください。
 
 {% endnote %}
 

@@ -4,6 +4,8 @@ intro: 'Wenn Du {% data variables.product.prodname_registry %} über die in Dein
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_registry %}

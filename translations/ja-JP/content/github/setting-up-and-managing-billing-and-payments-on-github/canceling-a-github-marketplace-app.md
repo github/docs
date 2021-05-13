@@ -7,6 +7,8 @@ redirect_from:
   - /articles/canceling-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 アプリケーションをキャンセルすると、そのプランは現在の支払いサイクルが終わるまで有効のままとなり、 次の支払いサイクルで無効となります。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

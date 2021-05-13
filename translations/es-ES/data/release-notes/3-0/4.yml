@@ -1,0 +1,24 @@
+date: '2021-04-01'
+intro: 'Los requisitos mínimos de infraestructura incrementaron para {% data variables.product.prodname_ghe_server %}3.0+. Para obtener más información, consulta la sección "[Acerca de los requisitos mínimos para GitHub Enterprise Server 3.0 y posterior](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".'
+sections:
+  security_fixes:
+    - '**HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed access tokens generated from a GitHub App''s [web authentication flow](https://docs.github.com/en/developers/apps/identifying-and-authorizing-users-for-github-apps#web-application-flow) to read private repository metadata via the REST API without having been granted the appropriate permissions. To exploit this vulnerability, an attacker would need to create a GitHub App on the instance and have a user authorize the application through the web authentication flow. The private repository metadata returned would be limited to repositories owned by the user the token identifies. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.0.4 and was fixed in versions 3.0.4, 2.22.10, 2.21.18. This vulnerability has been assigned CVE-2021-22865 and was reported via the [GitHub Bug Bounty Program](https://bounty.github.com).'
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - 'When maintenance mode was enabled, some services continued to be listed as "active processes" even though they were expected to be running, and should not have been listed.'
+    - 'After upgrading from 2.22.x to 3.0.x with GitHub Actions enabled, the self-hosted runner version was not updated and no self-hosted updates were made.'
+    - Old GitHub Pages builds were not cleaned up leading to increased disk usage.
+    - '`memcached` was not running on active replicas.'
+    - Upgrade failed when updating file permissions when GitHub Actions was enabled.
+    - A timezone set on GitHub Enterprise 11.10.x or earlier was not being used by some services which were defaulting to UTC time.
+    - 'Services were not transitioning to new log files as part of log rotation, resulting in increased disk usage.'
+    - The `ghe-saml-mapping-csv` command-line utility produced a warning message.
+    - The label on search results for internal repositories was shown as "Private" instead of "Internal".
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.

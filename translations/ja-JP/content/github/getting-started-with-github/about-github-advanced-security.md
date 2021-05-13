@@ -4,6 +4,9 @@ intro: '{% data variables.product.prodname_dotcom %}では、{% data variables.p
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+  github-ae: '*'
+topics:
+  - Security
 ---
 
 ### {% data variables.product.prodname_GH_advanced_security %} について

@@ -1,10 +1,12 @@
 ---
 title: ユーザごとの価格付けについて
-intro: 'ユーザごとの価格付けでは、Organization は Team のための高度なコラボレーションと管理のツールへのアクセス、そして場合によってはセキュリティ、コンプライアンス、デプロイメントの制御のために、Team のサイズに基づいて支払いを行います。'
+intro: ユーザごとの価格付けでは、Organization は Team のための高度なコラボレーションと管理のツールへのアクセス、そして場合によってはセキュリティ、コンプライアンス、デプロイメントの制御のために、Team のサイズに基づいて支払いを行います。
 redirect_from:
   - /articles/about-per-user-pricing
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 新しい Organization は {% data variables.product.prodname_free_team %} でパブリックなオープンソースプロジェクトを構築できます。あるいはユーザごとの価格付けがされた有料製品へ[アップグレード]({% data variables.product.pricing_url %})することもできます。

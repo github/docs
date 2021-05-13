@@ -4,9 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: '站点管理员可以将任何普通用户升级为站点管理员，也可以将其他站点管理员降级为普通用户。'
+intro: 站点管理员可以将任何普通用户升级为站点管理员，也可以将其他站点管理员降级为普通用户。
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}

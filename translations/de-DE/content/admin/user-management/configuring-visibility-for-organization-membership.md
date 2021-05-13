@@ -1,11 +1,13 @@
 ---
 title: Sichtbarkeit für die Organisationsmitgliedschaft konfigurieren
-intro: You can set visibility for new organization members across your enterprise to public or private. Darüber hinaus können Sie Mitglieder daran hindern, die für sie standardmäßig festgelegte Sichtbarkeit zu ändern.
+intro: 'You can set visibility for new organization members across your enterprise to public or private. Darüber hinaus können Sie Mitglieder daran hindern, die für sie standardmäßig festgelegte Sichtbarkeit zu ändern.'
 redirect_from:
   - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

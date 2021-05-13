@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% mac %}
@@ -25,7 +28,7 @@ versions:
 
 ### {% data variables.product.prodname_desktop %}ユーザ
 
-1. In the **File** menu, click **Options**.
+1. [**File**] メニューで、[**Options**] をクリックします。
 2. [Options] ウィンドウで、次のことについて検証します:
     - {% data variables.product.product_name %}ユーザ名を表示するには [**Accounts**] をクリックします。
     - Git メールを表示するには [**Git**] をクリックします。 このメールは [{% data variables.product.product_name %} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
@@ -34,7 +37,7 @@ versions:
 
 ### `user.name` 設定からユーザ名を見つける
 
-セットアップ時に、[Git でユーザ名を設定](/articles/setting-your-username-in-git)してあることがあります。 その場合は、次の設定で値をレビューします:
+セットアップ時に、[Git でユーザ名を設定](/github/getting-started-with-github/setting-your-username-in-git)してあることがあります。 その場合は、次の設定で値をレビューします:
 
 ```shell
 $ git config user.name

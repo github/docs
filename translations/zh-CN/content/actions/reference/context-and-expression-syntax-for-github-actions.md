@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的上下文和表达式语法
+title: GitHub Actions 的上下文和表达式语法
 shortTitle: 上下文和表达式语法
 intro: 您可以访问上下文信息并对工作流程和操作中的表达式求值。
 product: '{% data reusables.gated-features.actions %}'
@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于上下文和表达式
 
@@ -152,11 +154,12 @@ env:
 
 `runner` 上下文包含正在执行当前作业的运行器相关信息。
 
-| 属性名称                | 类型    | 描述                                                                                                                                                                                                                    |
-| ------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `字符串` | 执行作业的运行器的操作系统。 可能的值为 `Linux`、`Windows` 或 `macOS`。                                                                                                                                                                     |
-| `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                                                          |
-| `runner.tool_cache` | `字符串` | 包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 |
+| 属性名称                | 类型    | 描述                                                                                                                                                                                     |
+| ------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `字符串` | 执行作业的运行器的操作系统。 可能的值为 `Linux`、`Windows` 或 `macOS`。                                                                                                                                      |
+| `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                           |
+| `runner.tool_cache` | `字符串` | {% if currentversion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。 |
+{% else %}包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 {% endif %}
 
 #### `needs` 上下文
 
@@ -259,13 +262,13 @@ env:
 
 * 如果类型不匹配，{% data variables.product.prodname_dotcom %} 强制转换类型为数字。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为数字：
 
-  | 类型      | 结果                                                      |
-  | ------- | ------------------------------------------------------- |
-  | Null    | `0`                                                     |
-  | Boolean | `true` 返回 `1` <br /> `false` 返回 `0`               |
-  | 字符串     | 从任何合法 JSON 数字格式剖析，否则为 `NaN`。 <br /> 注：空字符串返回 `0`。 |
-  | Array   | `NaN`                                                   |
-  | Object  | `NaN`                                                   |
+  | 类型   | 结果                                                      |
+  | ---- | ------------------------------------------------------- |
+  | Null | `0`                                                     |
+  | 布尔值  | `true` 返回 `1` <br /> `false` 返回 `0`               |
+  | 字符串  | 从任何合法 JSON 数字格式剖析，否则为 `NaN`。 <br /> 注：空字符串返回 `0`。 |
+  | 数组   | `NaN`                                                   |
+  | 对象   | `NaN`                                                   |
 * 一个 `NaN` 与另一个 `NaN` 的比较不会产生 `true`。 更多信息请参阅“[NaN Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)”。
 * {% data variables.product.prodname_dotcom %} 在比较字符串时忽略大小写。
 * 对象和数组仅在为同一实例时才视为相等。
@@ -274,13 +277,13 @@ env:
 
 {% data variables.product.prodname_dotcom %} 提供一组内置的函数，可用于表达式。 有些函数抛出值到字符串以进行比较。 {% data variables.product.prodname_dotcom %} 使用这些转换将数据类型转换为字符串：
 
-| 类型      | 结果                   |
-| ------- | -------------------- |
-| Null    | `''`                 |
-| Boolean | `'true'` 或 `'false'` |
-| Number  | 十进制格式，对大数字使用指数       |
-| Array   | 数组不转换为字符串            |
-| Object  | 对象不转换为字符串            |
+| 类型   | 结果                   |
+| ---- | -------------------- |
+| Null | `''`                 |
+| 布尔值  | `'true'` 或 `'false'` |
+| 数字   | 十进制格式，对大数字使用指数       |
+| 数组   | 数组不转换为字符串            |
+| 对象   | 对象不转换为字符串            |
 
 #### contains
 

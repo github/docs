@@ -5,6 +5,8 @@ redirect_from:
   - /articles/copying-a-project-board
 versions:
   free-pro-team: '*'
+topics:
+  - Pull requests
 ---
 
 复制项目板可以重用项目板的标题、说明和自动化配置。 您可以复制项目板以消除为类似工作流程创建新项目板的手动过程。

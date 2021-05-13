@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Enterprise アカウントを管理するようユーザを招待することについて

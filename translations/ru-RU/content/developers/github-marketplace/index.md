@@ -4,9 +4,11 @@ intro: 'List your tools in {% data variables.product.prodname_dotcom %} Marketpl
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace/
   - /apps/marketplace/
-  - /рынок
+  - /marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 {% topic_link_in_list /github-marketplace-overview %}

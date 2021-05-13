@@ -1,6 +1,6 @@
 ---
 title: HTTPS クローニングエラー
-intro: 'Git で HTTPS を使用する際によく生じるエラーがいくつかあります。 これらのエラーは通常、古いバージョンの Git を使用しているか、もしくはリポジトリへのアクセス権を持っていないことが原因です。'
+intro: Git で HTTPS を使用する際によく生じるエラーがいくつかあります。 これらのエラーは通常、古いバージョンの Git を使用しているか、もしくはリポジトリへのアクセス権を持っていないことが原因です。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 HTTPS エラーの例を次に示します:
@@ -71,10 +73,10 @@ $ git remote -v
 
 {% tip %}
 
-**ヒント**: リモートリポジトリを操作するときの毎回の認証情報の入力を省くには、[認証情報のキャッシュ](/github/using-git/caching-your-github-credentials-in-git)をオンにします。 すでに認証情報のキャッシュを使用している場合は、コンピューターに正しい認証情報がキャッシュされていることを確認してください。 認証情報が正しくない、または古い場合、認証に失敗します。
+**ヒント**: リモートリポジトリを操作するときの毎回の認証情報の入力を省くには、[認証情報のキャッシュ](/github/getting-started-with-github/caching-your-github-credentials-in-git)をオンにします。 すでに認証情報のキャッシュを使用している場合は、コンピューターに正しい認証情報がキャッシュされていることを確認してください。 認証情報が正しくない、または古い場合、認証に失敗します。
 
 {% endtip %}
 
 ### 代わりに SSH を使用する
 
-すでに SSH キーをセットアップしている場合は、HTTPS の代わりに SSH クローン URL を使用できます。  詳細は「[どのリモート URL を使うべきか?](/articles/which-remote-url-should-i-use)」を参照してください。
+すでに SSH キーをセットアップしている場合は、HTTPS の代わりに SSH クローン URL を使用できます。  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."

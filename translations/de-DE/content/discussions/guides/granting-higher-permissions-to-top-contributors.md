@@ -1,6 +1,6 @@
 ---
 title: Granting higher permissions to top contributors
-intro: 'Repository administrators can promote any community member to a moderator and maintainer.'
+intro: Repository administrators can promote any community member to a moderator and maintainer.
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +21,7 @@ The most helpful contributors for the past 30 days are highlighted on the {% dat
 
 People with triage permissions for a repository can help moderate a project's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
 
-For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[Repository permissions levels for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)."
 
 ### Step 3: Change permissions levels for top contributors
 

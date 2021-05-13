@@ -4,5 +4,7 @@ intro: '您可以在 {% data variables.product.prodname_marketplace %} 中上架
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 

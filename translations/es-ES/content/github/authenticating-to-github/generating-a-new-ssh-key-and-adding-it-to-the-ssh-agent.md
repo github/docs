@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Si todavía no tienes una clave SSH, debes [generar una nueva clave SSH](#generating-a-new-ssh-key). Si no estás seguro de si ya tienes una clave SSH, comprueba las [claves existentes](/articles/checking-for-existing-ssh-keys).

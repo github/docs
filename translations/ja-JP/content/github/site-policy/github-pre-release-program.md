@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub Pre-release Program への参加にご登録いただきありがとうございます。  コミュニティの信頼できるメンバーであるお客様の、新機能や実験的な機能に対するフィードバックは当社にとって重要です。  このプログラムで提供する新製品やサービスは、その多くがまだ機密扱いで、開発中であるため、お客様には特別な規約に合意していただく必要があります。 Pre-release Program契約（「契約」）へようこそ。

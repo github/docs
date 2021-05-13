@@ -3,6 +3,8 @@ title: Gerenciando o conteúdo denunciado no repositório da sua organização
 intro: 'Depois que um colaborador relata conteúdo disruptivo em um repositório, os mantenedores do repositório podem exibir e gerenciar o relatório.'
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode visualizar e gerenciar conteúdo denunciado no repositório.

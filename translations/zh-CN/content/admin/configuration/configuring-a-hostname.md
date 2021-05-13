@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 如果配置的是主机名，而不是硬编码 IP 地址，您将能够更改运行 {% data variables.product.product_location %} 的物理硬件，而不会影响用户或客户端软件。

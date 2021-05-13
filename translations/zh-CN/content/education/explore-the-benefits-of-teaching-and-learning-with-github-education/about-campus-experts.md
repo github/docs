@@ -9,4 +9,6 @@ versions:
   free-pro-team: '*'
 ---
 
-作为 {% data variables.product.prodname_dotcom %} Campus Expert，学习公共演讲技能、技术写作、社区领导和软件开发技能。 更多信息请参阅 "[Campus Experts](https://education.github.com/students/experts)"。
+作为 {% data variables.product.prodname_dotcom %} Campus Expert，学习公共演讲技能、技术写作、社区领导和软件开发技能。
+
+要详细了解学生领导者和教师的培训计划，请参阅 "[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)" 和 "[Campus Advisors](https://education.github.com/teachers/advisors)"。

@@ -1,6 +1,6 @@
 ---
 title: ブランチについて
-intro: '開発作業をリポジトリ内の他のブランチに影響することなく分離するために、ブランチを使ってください。 各リポジトリには1つのデフォルトブランチがあり、複数の他のブランチを持つことができます。 プルリクエストを使えば、ブランチを他のブランチにマージできます。'
+intro: 開発作業をリポジトリ内の他のブランチに影響することなく分離するために、ブランチを使ってください。 各リポジトリには1つのデフォルトブランチがあり、複数の他のブランチを持つことができます。 プルリクエストを使えば、ブランチを他のブランチにマージできます。
 redirect_from:
   - /articles/working-with-protected-branches/
   - /articles/about-branches
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 
@@ -74,7 +76,7 @@ versions:
 - ブランチでステータスチェック必須が有効化されていると、必要なCIテストがすべてパスするまで、変更をブランチにマージできません。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
 - ブランチでプルリクエストレビュー必須が有効化されている場合、プルリクエストレビューポリシー中のすべての要求が満たされるまでは、ブランチに変更をマージできません。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
 - ブランチでコードオーナーからの必須レビューが有効化されており、プルリクエストがオーナーを持つコードを変更している場合、コードオーナーがプルリクエストを承認しなければ、そのプルリクエストはマージできません。 詳細は「[コードオーナーについて](/articles/about-code-owners)」を参照してください。
-- ブランチでコミット署名必須が有効化されている場合、署名および検証されていないコミットはブランチにプッシュできません。 For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- ブランチでコミット署名必須が有効化されている場合、署名および検証されていないコミットはブランチにプッシュできません。 詳しい情報については、「[コミット署名の検証について](/articles/about-commit-signature-verification)」および「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-signed-commits)」を参照してください。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - {% data variables.product.prodname_dotcom %} のコンフリクトエディタを使用して、保護されたブランチから作成したプルリクエストのコンフリクトを修正する場合、{% data variables.product.prodname_dotcom %} はプルリクエストの代替ブランチを作成して、コンフリクトの解決をマージできるようにします。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でマージコンフリクトを解決する](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)」を参照してください。{% endif %}
 
 ### 参考リンク

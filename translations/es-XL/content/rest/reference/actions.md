@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 La API de {% data variables.product.prodname_actions %} te permite administrar las {% data variables.product.prodname_actions %} utilizando la API de REST. La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_app %} necesitan los mismos permisos que se mencionan en cada terminal. Para obtener más información, consulta la sección "[Documentación de {% data variables.product.prodname_actions %}](/actions)".

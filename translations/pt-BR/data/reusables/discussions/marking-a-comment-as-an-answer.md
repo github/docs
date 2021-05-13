@@ -4,7 +4,7 @@ Ao marcar uma pergunta como resposta, {% data variables.product.product_name %} 
 
 ![Comentário marcado como resposta para uma discussão](/assets/images/help/discussions/comment-marked-as-answer.png)
 
-You can't mark a threaded comment in response to a comment as the answer to a discussion. Você também não pode marcar um comentário minimizado como resposta para uma discussão.
+Você não pode marcar um comentário em resposta a um comentário como resposta a uma discussão. Você também não pode marcar um comentário minimizado como resposta para uma discussão.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

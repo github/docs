@@ -1,6 +1,6 @@
 ---
 title: 配置企业
-intro: "在 {% data variables.product.product_name %} 启动并运行后，您可以配置企业适应组织需求。"
+intro: '在 {% data variables.product.product_name %} 启动并运行后，您可以配置企业适应组织需求。'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -12,5 +12,7 @@ mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

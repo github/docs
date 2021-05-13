@@ -1,5 +1,9 @@
 name: Algolia Sync Single English Index
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
 on:
   pull_request:
     types:
@@ -43,4 +47,6 @@ jobs:
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run sync-search
+        run: |
+          npm run build
+          npm run sync-search

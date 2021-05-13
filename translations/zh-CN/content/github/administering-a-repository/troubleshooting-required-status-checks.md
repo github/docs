@@ -1,11 +1,13 @@
 ---
 title: 必需状态检查故障排除
-intro: '您可以检查必需状态检查的常见错误并解决问题，'
+intro: 您可以检查必需状态检查的常见错误并解决问题，
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 如果您有名称相同的检查和状态，并且选择该名称作为必需状态检查，则检查和状态都是必需的。 更多信息请参阅“[检查](/rest/reference/checks)”。
@@ -14,7 +16,7 @@ versions:
 
 {% note %}
 
-**注：**您也可以使用 Git 变基以基础分支更新您的分支。 更多信息请参阅“[关于 Git 变基](/github/using-git/about-git-rebase)”。
+**注：**您也可以使用 Git 变基以基础分支更新您的分支。 更多信息请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”。
 
 {% endnote %}
 

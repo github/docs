@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Deine Dashboards für Issues und Pull Requests sind im oberen Bereich jeder Seite verfügbar. In jedem Dashboard kannst Du die Liste filtern, um nach Issues oder Pull Requests zu suchen, die von Dir erstellt wurden, die Dir zugewiesen sind oder in denen Du erwähnt wurdest. Darüber hinaus kannst Du nach Pull Requests suchen, für die Du einen Review ausführen sollst.

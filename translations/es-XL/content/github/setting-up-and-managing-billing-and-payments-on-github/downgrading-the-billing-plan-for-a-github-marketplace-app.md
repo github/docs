@@ -7,6 +7,8 @@ redirect_from:
   - /articles/downgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Cuando bajas de categoría una app, tu suscripción permanece activa hasta el final de tu ciclo de facturación actual. El cambio entra en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

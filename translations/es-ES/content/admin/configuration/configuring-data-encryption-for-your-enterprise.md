@@ -18,9 +18,9 @@ Para proporcionar un nivel alto de seguridad, {% data variables.product.product_
 
 Para el cifrado en tránsito, {% data variables.product.product_name %} utiliza la Seguridad de Capas de Transporte (TLS). Para el cifrado estático, {% data variables.product.product_name %} proporciona una llave RSA predeterminada. Después de que hayas inicializado tu empresa, puedes elegir mejor proporcionar tu propia llave. Tu llave debe ser una llave privada de RSA de 2048 bits en formato PEM.
 
-La llave que proporciones se almacena en un módulo de seguridad de hardware (HSM) en una bóveda de llaves que administra {% data variables.product.company_short %}.
+La clave que proporcionas se almacena en un módulo de seguridad de hardware (HSM) que cumple con el FIPS 140-2 en una bóveda de llaves que administra {% data variables.product.company_short %}.
 
-Para configurar tu llave de cifrado, utiliza la API de REST. There are a number of API endpoints, for example to check the status of encryption, update your encryption key, and disable your encryption key. Note that disabling your key will freeze your enterprise. Para obtener más información acerca de las terminales de la API, consulta la sección "[Cifrado estático](/rest/reference/enterprise-admin#encryption-at-rest)" en la documentación de la API de REST.
+Para configurar tu llave de cifrado, utiliza la API de REST. Hay muchas terminales de la API, por ejemplo, para verificar el estado del cifrado, actualizar tu llave de cifrado, e inhabilitar tu llave de cifrado. Toma en cuenta que el inhabilitar tu llave ocasionará que tu empresa se congele. Para obtener más información acerca de las terminales de la API, consulta la sección "[Cifrado estático](/rest/reference/enterprise-admin#encryption-at-rest)" en la documentación de la API de REST.
 
 ### Agregar o actualizar una llave de cifrado
 
@@ -48,23 +48,23 @@ Tu llave privada de RSA de 2048 bits deberá estar en formato PEM, por ejemplo, 
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-### Disabling your encryption key
+### Inhabilitar tu llave de cifrado
 
-To freeze your enterprise, for example in the case of a breach, you can disable encryption at rest by marking your encryption key as disabled.
+Para congelar tu empresa, por ejemplo, en caso de una irrupción, puedes inhabilitar el cifrado estático si marcas tu llave de cifrado como inhabilitada.
 
-1. To disable your key and encryption at rest, use the `DELETE /enterprise/encryption` endpoint. This operation does not delete the key permanently.
+1. Para inhabilitar tu llave y cifrado estáticos, utiliza la terminal `DELETE /enterprise/encryption`. Esta operación no borra la llave permanentemente.
 
    ```shell
    curl -X DELETE http(s)://<em>hostname</em>/api/v3/enterprise/encryption
    ```
 
-2. Opcionalmente, verifica el estado de la operación de borrado. It takes approximately ten minutes to disable encryption at rest.
+2. Opcionalmente, verifica el estado de la operación de borrado. Toma aproximadamente diez minutos el inhabilitar el cifrado estático.
 
    ```shell
    curl -X GET http(s)://<em>hostname</em>/api/v3/enterprise/encryption/status/<em>request_id</em>
    ```
 
-To unfreeze your enterprise after you've disabled your encryption key, contact support. Para obtener más información, consulta la sección "[Acerca de {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
+Para descongelar tu empresa después de que inhabilitaste tu llave de cifrado, contacta a soporte. Para obtener más información, consulta la sección "[Acerca de {% data variables.contact.enterprise_support %}](/admin/enterprise-support/about-github-enterprise-support)".
 
 ### Leer más
 

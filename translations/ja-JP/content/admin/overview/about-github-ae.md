@@ -1,17 +1,15 @@
 ---
 title: GitHub AE について
-intro: '{% data variables.product.prodname_ghe_managed %} は、{% data variables.product.prodname_dotcom %} を使用するための最も安全で準拠した方法です。'
+intro: '{% data variables.product.prodname_ghe_managed %} は、クラウドで {% data variables.product.prodname_dotcom %} を使用するためにセキュリティが強化された準拠した方法です。'
 versions:
   github-ae: '*'
 ---
 
 ### {% data variables.product.prodname_ghe_managed %} について
 
-{% data reusables.github-ae.github-ae-enables-you %}
+{% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} は完全に管理され、信頼性が高く、スケーラブルであるため、リスク管理を犠牲にすることなくデリバリを迅速化できます。
 
-{% data variables.product.prodname_ghe_managed %} は、アイデアから本番まで1つの開発者プラットフォームを提供します。 開発者の作業を加速させ、ワークフロー全体を自動化し、コードを保護して、開発者のお気に入りのツールでコラボレーションを行うことができます。
-
-{% data variables.product.prodname_ghe_managed %} は、Organization に [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) のすべての機能を提供しています。 {% data variables.product.prodname_ghe_managed %} を使用すると、一連の機能と認定でセキュリティとコンプライアンスの目標を達成することもできます。
+{% data variables.product.prodname_ghe_managed %} は、アイデアから本番まで1つの開発者プラットフォームを提供します。 Team が使い慣れたツールを使用して開発速度を上げることができます。また、独自のセキュリティとアクセス制御、ワークフローの自動化、およびポリシーの適用により、業界と規制のコンプライアンスを維持できます。
 
 ### 高可用性および地球規模のクラウド
 
@@ -36,11 +34,3 @@ versions:
 ### 商用および政府環境
 
 {% data variables.product.prodname_ghe_managed %} は、Azure Government クラウドという、米国政府機関とそのパートナー向けの信頼できるクラウドで利用できます。 {% data variables.product.prodname_ghe_managed %} は商用クラウドでも利用できるため、Organization に適したホスティング環境を選択できます。
-
-### Premium Plus サポート
-
-Premium Plus サポートは、すべての {% data variables.product.prodname_ghe_managed %} のお客様にご利用いただけます。これにより、最速かつ最もパーソナルなサポートエクスペリエンスを確実に実現できます。 専任の営業チームがお客様と協力して、{% data variables.product.prodname_dotcom %} を最大限に活用できるよう支援します。 当社のサポートチームは、可能な限り短時間で、いつでも問題を解決します。
-
-### {% data variables.product.prodname_ghe_managed %}の支払いについて
-
-{% data reusables.github-ae.about-billing %} 詳しい情報については、「[Enterprise の支払いを管理する](/admin/overview/managing-billing-for-your-enterprise)」を参照してください。

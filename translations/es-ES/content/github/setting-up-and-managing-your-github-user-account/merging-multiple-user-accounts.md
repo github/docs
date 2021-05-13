@@ -7,6 +7,8 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 {% tip %}
@@ -16,7 +18,7 @@ versions:
 {% endtip %}
 
 1. [Transfiere cualquier repositorio](/articles/how-to-transfer-a-repository) desde la cuenta que deseas eliminar a la cuenta que deseas mantener. También se transfieren propuestas, solicitudes de extracción y wikis. Verifica que los repositorios existan en la cuenta que deseas mantener.
-2. [Actualiza las URL remotas](/articles/changing-a-remote-s-url) en cualquier clon local de los repositorios que se movieron.
+2. [Actualiza las URL remotas](/github/getting-started-with-github/managing-remote-repositories) en cualquier clon local de los repositorios que se movieron.
 3. [Elimina la cuenta](/articles/deleting-your-user-account) que ya no deseas utilizar.
 
 ### Leer más

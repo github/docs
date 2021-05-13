@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
   github-ae: '*'
+topics:
+  - CLI
 ---
 
 ### {% data variables.product.prodname_cli %} について

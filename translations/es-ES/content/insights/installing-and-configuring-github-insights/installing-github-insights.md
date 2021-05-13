@@ -4,7 +4,7 @@ intro: 'Puedes instalar {% data variables.product.prodname_insights %} y conecta
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
-permissions: 'Los propietarios de la organización en {% data variables.product.prodname_enterprise %} con los permisos de lectura para el repositorio `github/insights-releases` y el acceso administrativo al servidor de aplicaciones pueden instalar {% data variables.product.prodname_insights %}.'
+permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
 versions:
   enterprise-server: '*'
 ---
@@ -33,17 +33,17 @@ Para conectar {% data variables.product.prodname_insights %} a {% data variables
 {% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-5. Haz clic en **New (nuevo) {% data variables.product.prodname_github_app %}**. ![Botón nueva app de GitHub](/assets/images/help/apps/github_apps_new.png)
-6. En "Name (nombre) {% data variables.product.prodname_github_app %}", escribe un nombre para la app. Tu app no puede tener el mismo nombre que un usuario o una organización existente, a menos que el nombre sea tu propio nombre de usuario o de organización. ![Campo de nombre de app de GitHub](/assets/images/help/apps/github_apps_app_name.png)
-7. En "Homepage URL" (URL de página principal), escribe la URL del servidor de aplicaciones para {% data variables.product.prodname_insights %}. Para obtener más información, consulta "[Descripción general del sistema para {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)". ![Campo de URL de página principal](/assets/images/help/apps/github_apps_homepage_url.png)
+5. Haz clic en **New (nuevo) {% data variables.product.prodname_github_app %}**. ![Botón nueva app de GitHub](/assets/images/github-apps/github_apps_new.png)
+6. En "Name (nombre) {% data variables.product.prodname_github_app %}", escribe un nombre para la app. Tu app no puede tener el mismo nombre que un usuario o una organización existente, a menos que el nombre sea tu propio nombre de usuario o de organización. ![Campo de nombre de app de GitHub](/assets/images/github-apps/github_apps_app_name.png)
+7. En "Homepage URL" (URL de página principal), escribe la URL del servidor de aplicaciones para {% data variables.product.prodname_insights %}. Para obtener más información, consulta "[Descripción general del sistema para {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/system-overview-for-github-insights#requirements-for-running-github-insights)". ![Campo de URL de página principal](/assets/images/github-apps/github_apps_homepage_url.png)
 8. En "User authorization callback URL" (URL de llamada de vuelta de autorización del usuario), escribe lo siguiente, reemplazando `<application-server-url>` con la URL del servidor de aplicaciones.
    ```
    <application-server-url>/Public/applogin
    ```
-   ![Campo llamada de vuelta de autorización del usuario](/assets/images/help/apps/github_apps_user_authorization.png)
+   ![Campo llamada de vuelta de autorización del usuario](/assets/images/github-apps/github_apps_user_authorization.png)
 9. En "Setup URL" (configurar URL), escribe `<application-server-url>/public/setup`. ![Campo de configuración de URL](/assets/images/help/apps/github-apps-setup-url.png)
-9. En "Webhook URL" (URL de webhook), escribe `<application-server-url>/webhooks`. ![Campo de URL de webhook](/assets/images/help/apps/github_apps_webhook_url.png)
-10. En "Secreto de webhook", escribe un secreto y luego graba el secreto para una referencia posterior. ![Campo secreto de webhook](/assets/images/help/apps/github_apps_webhook_secret.png)
+9. En "Webhook URL" (URL de webhook), escribe `<application-server-url>/webhooks`. ![Campo de URL de webhook](/assets/images/github-apps/github_apps_webhook_url.png)
+10. En "Secreto de webhook", escribe un secreto y luego graba el secreto para una referencia posterior. ![Campo secreto de webhook](/assets/images/github-apps/github_apps_webhook_secret.png)
 11. En "Permissions" (permisos), usa los menús desplegables y configura los siguientes permisos para la app.
     - Repositorio:
       - Contenido: **De solo lectura**
@@ -63,7 +63,7 @@ Para conectar {% data variables.product.prodname_insights %} a {% data variables
     - Equipo![Casillas de verificación para suscribirse a eventos](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
 13. Para habilitar el {% data variables.product.prodname_github_app %} para acceder a los datos de cualquier usuario u organización en {% data variables.product.product_location %}, en "¿Dónde puede {% data variables.product.prodname_github_app %} ser instalado? ", selecciona **Cualquier cuenta**. ![Botones de opción para habilitar el acceso a cualquier cuenta](/assets/images/help/apps/github_apps_installation_options_any_account.png)
-14. Haz clic en **Create (crear) {% data variables.product.prodname_github_app %}**. ![Botón crear una app de GitHub](/assets/images/help/apps/github_apps_create_github_app.png)
+14. Haz clic en **Create (crear) {% data variables.product.prodname_github_app %}**. ![Botón crear una app de GitHub](/assets/images/github-apps/github_apps_create_github_app.png)
 15. Revisa la configuración de tu app.
 16. En "Private Keys" (claves privadas), haz clic en **Generar una clave privada**. ![Genera un botón de llave privada](/assets/images/help/apps/generate-private-key.png)
 17. Guarda el archivo PEM resultante para una referencia posterior.

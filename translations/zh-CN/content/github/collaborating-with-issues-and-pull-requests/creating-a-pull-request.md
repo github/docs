@@ -1,12 +1,14 @@
 ---
 title: 创建拉取请求
-intro: '创建拉取请求以提议和协作处理对仓库的更改。 这些更改在*分支*中提议，以确保默认分支只包含已完成和已批准的工作。'
+intro: 创建拉取请求以提议和协作处理对仓库的更改。 这些更改在*分支*中提议，以确保默认分支只包含已完成和已批准的工作。
 redirect_from:
   - /articles/creating-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。 如果要为拉取请求创建新分支，又没有仓库的写入权限，可以先对仓库复刻。 更多信息请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”和“[关于复刻](/articles/about-forks)”。

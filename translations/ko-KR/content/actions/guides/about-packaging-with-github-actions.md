@@ -8,13 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: overview
 topics:
-  - 패키징
+  - Packaging
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About packaging steps
 
@@ -28,7 +30,7 @@ Creating a package at the end of a continuous integration workflow can help duri
 
 Now, when reviewing a pull request, you'll be able to look at the workflow run and download the artifact that was produced.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
 {% else %}
 ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)

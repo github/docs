@@ -12,16 +12,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre os comandos do fluxo de trabalho
 
 As ações podem comunicar-se com a máquina do executor para definir as variáveis de ambiente, valores de saída usados por outras ações, adicionar mensagens de depuração aos registros de saída e outras tarefas.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 A maioria dos comandos de fluxo de trabalho usa o comando `echo` em um formato específico, enquanto outros são chamados escrevendo um arquivo. Para obter mais informações, consulte ["Arquivos de ambiente".](#environment-files)
 {% else %}
 Os comandos do gluxo de trabalho usam o comando `echo` em um formato específico.
@@ -65,26 +67,26 @@ Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o m
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
-| Função do kit de ferramentas                                                                                                                                                        | Comando equivalente do fluxo de trabalho                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `core.addPath`                                                                                                                                                                      |                                                                  |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                                                  |
-|                                                                                                                                                                                     |                                                                  |
-| `core.debug`                                                                                                                                                                        | `debug`                                                          |
-| `core.error`                                                                                                                                                                        | `erro`                                                           |
-| `core.endGroup`                                                                                                                                                                     | `endgroup`                                                       |
-| `core.exportVariable`                                                                                                                                                               |                                                                  |
-| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}   |                                                                  |
-|                                                                                                                                                                                     |                                                                  |
-| `core.getInput`                                                                                                                                                                     | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
-| `core.getState`                                                                                                                                                                     | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
-| `core.isDebug`                                                                                                                                                                      | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
-| `core.saveState`                                                                                                                                                                    | `save-state`                                                     |
-| `core.setFailed`                                                                                                                                                                    | Usado como um atalho para `::error` e `exit 1`                   |
-| `core.setOutput`                                                                                                                                                                    | `set-output`                                                     |
-| `core.setSecret`                                                                                                                                                                    | `add-mask`                                                       |
-| `core.startGroup`                                                                                                                                                                   | `grupo`                                                          |
-| `core.warning`                                                                                                                                                                      | `arquivo de aviso`                                               |
+| Função do kit de ferramentas                                                                                                                                                                                                              | Comando equivalente do fluxo de trabalho                         |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `core.addPath`                                                                                                                                                                                                                            |                                                                  |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Pode ser acessado usando um arquivo de ambiente `GITHUB_PATH`{% else %} `add-path` {% endif %} |                                                                  |
+|                                                                                                                                                                                                                                           |                                                                  |
+| `core.debug`                                                                                                                                                                                                                              | `debug`                                                          |
+| `core.error`                                                                                                                                                                                                                              | `erro`                                                           |
+| `core.endGroup`                                                                                                                                                                                                                           | `endgroup`                                                       |
+| `core.exportVariable`                                                                                                                                                                                                                     |                                                                  |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}Pode ser acessado usando um arquivo de ambiente `GITHUB_ENV`{% else %} `set-env` {% endif %}   |                                                                  |
+|                                                                                                                                                                                                                                           |                                                                  |
+| `core.getInput`                                                                                                                                                                                                                           | Acessível por meio do uso da variável de ambiente `INPUT_{NAME}` |
+| `core.getState`                                                                                                                                                                                                                           | Acessível por meio do uso da variável de ambiente `STATE_{NAME}` |
+| `core.isDebug`                                                                                                                                                                                                                            | Acessível por meio do uso da variável de ambiente `RUNNER_DEBUG` |
+| `core.saveState`                                                                                                                                                                                                                          | `save-state`                                                     |
+| `core.setFailed`                                                                                                                                                                                                                          | Usado como um atalho para `::error` e `exit 1`                   |
+| `core.setOutput`                                                                                                                                                                                                                          | `set-output`                                                     |
+| `core.setSecret`                                                                                                                                                                                                                          | `add-mask`                                                       |
+| `core.startGroup`                                                                                                                                                                                                                         | `grupo`                                                          |
+| `core.warning`                                                                                                                                                                                                                            | `arquivo de aviso`                                               |
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Definir uma variável de ambiente
@@ -248,7 +250,7 @@ A variável `STATE_processID` está exclusivamente disponível para o script de 
 console.log("O PID em execução a partir da ação principal é: " +  process.env.STATE_processID);
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ## Arquivos de Ambiente
 
 Durante a execução de um fluxo de trabalho, o executor gera arquivos temporários que podem ser usados para executar certas ações. O caminho para esses arquivos são expostos através de variáveis de ambiente. Você precisará usar a codificação UTF-8 ao escrever para esses arquivos para garantir o processamento adequado dos comandos. Vários comandos podem ser escritos no mesmo arquivo, separados por novas linhas.

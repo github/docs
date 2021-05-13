@@ -3,11 +3,13 @@ title: Criando uma pull request a partir de uma bifurcação
 intro: É possível criar uma pull request para propor alterações que você fez em uma bifurcação de um repositório upstream.
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
-permissions: Qualquer pessoa com acesso de gravação a um repositório pode criar um pull request a partir de uma bifurcação pertencente ao usuário.
+permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Você também pode dar permissão aos mantenedores do repositório upstream para fazer push de commits em uma bifurcação de propriedade do usuário. Se sua pull request comparar o branch de tópico com um branch no repositório upstream como o branch base, o branch de tópico também será chamado de branch de comparação da pull request. Para obter mais informações sobre branches de pull request, incluindo exemplos, consulte "[Criar uma pull request](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)".

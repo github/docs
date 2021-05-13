@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-event-code-of-conduct
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Eventos do GitHub são eventos da comunidade destinados a networking e colaboração na comunidade tecnológica.

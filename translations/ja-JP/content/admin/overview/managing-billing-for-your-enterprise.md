@@ -1,6 +1,6 @@
 ---
 title: Enterprise の支払いを管理する
-intro: 'Enterprise の支払情報を確認できます。'
+intro: Enterprise の支払情報を確認できます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

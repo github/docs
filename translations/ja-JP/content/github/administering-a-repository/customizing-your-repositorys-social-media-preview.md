@@ -7,11 +7,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 画像を追加するまでは、リポジトリへのリンクは、リポジトリの基本的な情報とオーナーのアバターを表示します。 リポジトリに画像を追加すると、さまざまなソーシャルプラットフォーム上で、あなたのプロジェクトが見つかりやすくなります。
 
-{% if currentVersion != "github-ae@latest" %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
+{% if currentVersion != "github-ae@latest" %}画像をプライベートリポジトリにアップロードできますが、画像はパブリックリポジトリからのみ共有できます。{% endif %}
 
 {% tip %}
 ヒント: 画像は、1 MB 未満の PNG、JPG または GIF である必要があります。 最高の画質を得るため、画像は 640 × 320 ピクセルに収めるようおすすめします。

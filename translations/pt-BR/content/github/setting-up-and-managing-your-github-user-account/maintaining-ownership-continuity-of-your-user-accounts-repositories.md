@@ -3,6 +3,9 @@ title: Manter a continuidade da propriedade dos repositórios da sua conta de us
 intro: Você pode convidar alguém para gerenciar seus repositórios pertencentes ao usuário se você não for capaz de fazê-lo.
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### Sobre os sucessores

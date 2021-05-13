@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %}
@@ -41,11 +43,11 @@ versions:
 
 - [リポジトリ](/articles/searching-for-repositories)
 - [Topics](/articles/searching-topics)
-- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
-- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
+- [Issue およびプルリクエスト](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [ディスカッション](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [コード](/articles/searching-code)
 - [コミット](/articles/searching-commits)
-- [ユーザ](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [ユーザ](/articles/searching-users){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 - [パッケージ](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wiki](/articles/searching-wikis)
 

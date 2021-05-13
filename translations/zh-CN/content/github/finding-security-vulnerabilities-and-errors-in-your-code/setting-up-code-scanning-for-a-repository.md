@@ -1,35 +1,32 @@
 ---
-title: Setting up code scanning for a repository
-shortTitle: Setting up code scanning
-intro: 'You can set up {% data variables.product.prodname_code_scanning %} by adding a workflow to your repository.'
+title: 为仓库设置代码扫描
+shortTitle: 设置代码扫描
+intro: '您可以通过添加工作流程到仓库来设置 {% data variables.product.prodname_code_scanning %}。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
-redirect_from:
-  - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Options for setting up {% data variables.product.prodname_code_scanning %}
+### 设置 {% data variables.product.prodname_code_scanning %} 的选项
 
-You decide how to generate {% data variables.product.prodname_code_scanning %} alerts, and which tools to use, at a repository level. {% data variables.product.product_name %} 对 {% data variables.product.prodname_codeql %} 分析提供完全集成的支持，还支持使用第三方工具进行分析。 更多信息请参阅“[关于 {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)”。
+在仓库级别决定如何生成 {% data variables.product.prodname_code_scanning %} 警报，以及使用哪些工具。 {% data variables.product.product_name %} 对 {% data variables.product.prodname_codeql %} 分析提供完全集成的支持，还支持使用第三方工具进行分析。 更多信息请参阅“[关于 {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)”。
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Setting up {% data variables.product.prodname_code_scanning %} using actions
+### 使用操作设置 {% data variables.product.prodname_code_scanning %}
 
 {% if currentVersion == "free-pro-team@latest" %}使用操作运行 {% data variables.product.prodname_code_scanning %} 需时数分钟。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).”{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. To the right of "Code scanning", click **Set up code scanning**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}If {% data variables.product.prodname_code_scanning %} is missing, you need to ask an organization owner or repository administrator to enable {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)" or "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. Under "Get started with code scanning", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with code scanning" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)
+3. 在“{% data variables.product.prodname_code_scanning_capc %} 警报”右侧，单击**设置 {% data variables.product.prodname_code_scanning %}**。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}如果 {% data variables.product.prodname_code_scanning %} 缺少，您必须要求组织所有者或仓库管理员启用 {% data variables.product.prodname_GH_advanced_security %}。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %} !["Set up code scanning" button to the right of "Code scanning" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. Under "Get started with code scanning", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 2" %}工作流程仅在与仓库中检测到的编程语言相关时才会显示。 {% data variables.product.prodname_codeql_workflow %} 始终显示，但仅在 {% data variables.product.prodname_codeql %} 分析支持仓库中存在的语言时才启用“Set up this workflow（设置此工作流程）”按钮。{% endif %}
 5. Optionally, to customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
 
    一般来说，您可以提交 {% data variables.product.prodname_codeql_workflow %} 而不对其做任何更改。 但是，许多第三方工作流程需要额外的配置，因此在提交之前请阅读工作流程中的注释。
@@ -41,12 +38,12 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 在默认 {% data variables.product.prodname_codeql_workflow %} 中，{% data variables.product.prodname_code_scanning %} 配置为在每次将更改推送到默认分支或任何受保护分支或者对默认分支提出拉取请求时分析代码。 因此，{% data variables.product.prodname_code_scanning %} 将立即开始。
 
-### Bulk set up of {% data variables.product.prodname_code_scanning %}
-You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. 有关提出拉取请求以向多个仓库添加 {% data variables.product.prodname_actions %} 工作流程的脚本示例，请参阅 [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) 仓库。
+### 批量设置 {% data variables.product.prodname_code_scanning %}
+您可以使用脚本在多个仓库中一次设置 {% data variables.product.prodname_code_scanning %}。 有关提出拉取请求以向多个仓库添加 {% data variables.product.prodname_actions %} 工作流程的脚本示例，请参阅 [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) 仓库。
 
 ### You decide how you generate {% data variables.product.prodname_code_scanning %} alerts, and which tools you use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see "[About {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
 
-After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
+为仓库设置 {% data variables.product.prodname_code_scanning %} 后，您可以关注操作运行时的输出。
 
 {% data reusables.repositories.actions-tab %}
 
@@ -68,13 +65,13 @@ After setting up {% data variables.product.prodname_code_scanning %} for your re
 
 **注意：** 如果您提出拉取请求以将 {% data variables.product.prodname_code_scanning %} 工作流程添加到仓库，则在合并拉取请求之前，来自该拉取请求的警报不会直接显示在 {% data variables.product.prodname_code_scanning_capc %} 页面上。 如果发现任何警报，您可以在合并拉取请求之前查看这些警报，方法是在 {% data variables.product.prodname_code_scanning_capc %} 页面上的横幅中点击**发现的 _n_ 条警报**链接。
 
-  ![点击"发现的 n 条警报"链接](/assets/images/help/repository/code-scanning-alerts-found-link.png)
+  ![点击"发现的 n 条警报"链接](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
 ### 了解拉取请求检查
 
-Each {% data variables.product.prodname_code_scanning %} workflow you set to run on pull requests always has at least two entries listed in the checks section of a pull request. 工作流程中每个分析作业有一个条目，最后还有一个对应于分析结果的条目。
+设置在拉取请求上运行的每个 {% data variables.product.prodname_code_scanning %} 工作流程始终有至少两个条目列在拉取请求的检查部分中。 工作流程中每个分析作业有一个条目，最后还有一个对应于分析结果的条目。
 
 {% data variables.product.prodname_code_scanning %} 分析检查的名称采用形式："TOOL NAME / JOB NAME (TRIGGER)"。 例如，对于 {% data variables.product.prodname_codeql %}，C++ 代码的分析有条目 "{% data variables.product.prodname_codeql %} / Analyze (cpp) (pull_request)"。 您可以单击 {% data variables.product.prodname_code_scanning %} 分析条目上的**Details（详细信息）**来查看日志记录数据。 这允许您在分析作业失败时调试问题。 例如，对于编译的语言的 {% data variables.product.prodname_code_scanning %} 分析，如果操作无法生成代码，则可能会发生这种情况。
 
@@ -94,7 +91,7 @@ Each {% data variables.product.prodname_code_scanning %} workflow you set to run
 
   要检查是否扫描了分支，请转到 {% data variables.product.prodname_code_scanning_capc %} 页面，单击 **Branch<（分支）**下拉菜单并选择相关分支。
 
-  ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![从 Branch（分支）下拉菜单中选择一个分支](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
 
   {% if currentVersion == "free-pro-team@latest" %}Using actions to run {% data variables.product.prodname_code_scanning %} will use minutes. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."{% endif %}
 
@@ -108,10 +105,10 @@ Each {% data variables.product.prodname_code_scanning %} workflow you set to run
 
 ### 后续步骤
 
-After setting up {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
+设置 {% data variables.product.prodname_code_scanning %} 并允许其操作完成后，您可以：
 
 - 查看为此仓库生成的所有 {% data variables.product.prodname_code_scanning %} 警报。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
-- View any alerts generated for a pull request submitted after you set up {% data variables.product.prodname_code_scanning %}. 更多信息请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”。
+- 查看在设置 {% data variables.product.prodname_code_scanning %} 后提交的拉取请求生成的任何警报。 更多信息请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”。
 - 为已完成的运行设置通知。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)”。
 - 调查初始设置 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} 时发生的任何问题。 更多信息请参阅“[{% data variables.product.prodname_codeql %} 工作流程疑难解答](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)”。
 - 自定义 {% data variables.product.prodname_code_scanning %} 如何扫描您的仓库中的代码。 更多信息请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)。”

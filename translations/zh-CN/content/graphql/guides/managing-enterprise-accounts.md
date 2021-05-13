@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### 关于使用 GraphQL 管理企业帐户
@@ -59,8 +61,6 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
     - `manage_billing:enterprise`：读取和写入企业帐单数据。
     - `read:enterprise`：读取企业简介数据。
 
-  ![个人访问令牌的权限选项](/assets/images/developer/graphql/permissions-for-access-token.png)
-
 4. 复制个人访问令牌并保存在安全的位置，直到将其添加至您的 GraphQL 客户端。
 
 #### 2. 选择 GraphQL 客户端
@@ -68,7 +68,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 建议您使用 GraphiQL 或可用于配置基准 URL 的其他独立 GraphQL 客户端。
 
 也可以考虑使用以下 GraphQL 客户端：
-  - [Insomnia](https://insomnia.rest/graphql/)
+  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
@@ -93,7 +93,9 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 
 ### 使用企业账户 API 的查询示例
 
-此 GraphQL 查询可使用企业账户 API 请求每个设备组织中的 `public` 仓库的总数。 要自定义此查询，请用企业实例 slug 的 slug 替换 `<enterprise-account-name>`。
+此 GraphQL 查询使用 Enterprise Accounts API 请求每个设备的组织中 {% if currentVersion != "github-ae@latest" %}`公共`{% else %}`私有`{% endif %} 仓库的总数。 要自定义此查询，请用企业实例 slug 的 slug 替换 `<enterprise-account-name>`。
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization($slug: String!) query publicRepositoriesByOrganization($slug: String!) {
@@ -125,8 +127,42 @@ variables {
 }
 ```
 
-下一个 GraphQL 查询示例显示了在不使用企业账户 API 的情况下检索各个组织中的 `public` 仓库总数时的挑战性。  请注意，GraphQL 企业账户 API 已使企业执行此任务变得更简单，因为您只需要自定义单个变量。 要自定义此查询，请将 `<name-of-organization-one>` 和 `<name-of-organization-one>` 等参数替换为 实例中的组织名称。
+{% else %}
 
+```graphql
+query privateRepositoriesByOrganization($slug: String!) {
+  enterprise(slug: $slug) {
+    ...enterpriseFragment
+  }
+}
+
+fragment enterpriseFragment on Enterprise {
+  ... on Enterprise{
+    name
+    organizations(first: 100){
+      nodes{
+        name
+        ... on Organization{
+          name
+          repositories(privacy: PRIVATE){
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+# Passing our Enterprise Account as a variable
+variables {
+  "slug": "<enterprise-account-name>"
+}
+```
+{% endif %}
+
+新 GraphQL 查询示例显示了不使用 Enterprise Account API 时检索每个组织中的{% if currentVersion != "github-ae@latest" %}`公共`{% else %}`私有`{% endif %} 仓库数的难度。  请注意，GraphQL 企业账户 API 已使企业执行此任务变得更简单，因为您只需要自定义单个变量。 要自定义此查询，请将 `<name-of-organization-one>` 和 `<name-of-organization-two>` 等参数替换为 实例中的组织名称。
+
+{% if currentVersion != "github-ae@latest" %}
 ```graphql
 # Each organization is queried separately
 {
@@ -148,8 +184,33 @@ fragment repositories on Organization {
   }
 }
 ```
+{% else %}
+```graphql
+# Each organization is queried separately
+{
+  organizationOneAlias: organization(login: "name-of-organization-one") {
+    # How to use a fragment
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "name-of-organization-two") {
+    ...repositories
+  }
+  # organizationThreeAlias ... and so on up-to lets say 100
+}
+
+## How to define a fragment
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+{% endif %}
 
 ### 分别查询每个组织
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -170,6 +231,30 @@ fragment repositories on Organization {
   }
 }
 ```
+
+{% else %}
+
+```graphql
+query privateRepositoriesByOrganization {
+  organizationOneAlias: organization(login: "<name-of-organization-one>") {
+    # How to use a fragment
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
+    ...repositories
+  }
+  # organizationThreeAlias ... and so on up-to lets say 100
+}
+# How to define a fragment
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+
+{% endif %}
 
 此 GraphQL 查询用于请求企业组织的最后 5 个日志条目。 要自定义此查询，请替换 `<org-name>` 和 `<user-name>`。
 

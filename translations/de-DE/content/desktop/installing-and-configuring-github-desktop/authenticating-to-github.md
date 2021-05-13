@@ -22,7 +22,7 @@ Vor Ihrer Authentifizierung {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 3. To the right of "{% data variables.product.prodname_dotcom_the_website %}," click **Sign In**. ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser. ![Der Link „Sign in using your browser“ (Mit Deinem Browser anmelden)](/assets/images/help/desktop/mac-sign-in-browser.png)
+4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser. ![Der Link „Sign in using your browser“ (Mit Deinem Browser anmelden)](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
@@ -51,7 +51,7 @@ Vor Ihrer Authentifizierung {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 3. To the right of "GitHub.com," click **Sign in**. ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
-4. Klicke im Bereich „Sign in“ (Anmelden) auf **Sign in using your browser** (Mit Deinem Browser anmelden). ![Der Link „Sign in using your browser“ (Mit Deinem Browser anmelden)](/assets/images/help/desktop/windows-sign-in-browser.png)
+4. Klicke im Bereich „Sign in“ (Anmelden) auf **Sign in using your browser** (Mit Deinem Browser anmelden). ![Der Link „Sign in using your browser“ (Mit Deinem Browser anmelden)](/assets/images/help/desktop/sign-in-browser.png)
 
   {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 

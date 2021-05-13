@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 组织
+  - 团队
 ---
 
 默认情况下，组织成员对其组织的项目板具有写入权限，除非组织所有者或项目板管理员对特定项目板设置不同的权限。

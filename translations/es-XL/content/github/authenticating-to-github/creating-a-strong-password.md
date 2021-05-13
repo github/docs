@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Debes elegir o generar una contraseña para tu cuenta de {% data variables.product.product_name %} que contenga lo siguiente:

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Contribuições que são contabilizadas
@@ -23,7 +25,7 @@ Os commits aparecerão no gráfico de contribuições se atenderem a **todas** e
   - No branch-padrão do repositório
   - No branch `gh-pages` (para repositórios com sites de projetos)
 
-Para obter mais informações sobre sites de projeto, consulte "[Sobre {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Além disso, **pelo menos uma** das seguintes afirmativas devem ser verdadeiras:
 - Você é um colaborador no repositório ou um integrante da organização que possui o repositório.
@@ -64,7 +66,7 @@ Não é possível adicionar endereços de e-mail genéricos, como `jane@computer
 
 #### O commit não foi criado no branch `gh-pages` ou padrão
 
-Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-pages` (para repositórios com sites de projeto). Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)".
+Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-pages` (para repositórios com sites de projeto). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e você quiser que eles sejam contabilizados para suas contribuições, precisará seguir um destes procedimentos:
 - [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no branch `gh-pages` ou padrão.

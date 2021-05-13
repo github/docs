@@ -1,8 +1,10 @@
 ---
 title: Verwalten Deiner geplanten Erinnerungen
-intro: Du kannst in Slack Erinnerungen erhalten, wenn für Dich oder Dein Team Pull Requests auf einen Review warten.
+intro: 'Du kannst in Slack Erinnerungen erhalten, wenn für Dich oder Dein Team Pull Requests auf einen Review warten.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### Über geplante Erinnerungen für Benutzer
@@ -11,7 +13,9 @@ Geplante Erinnerungen werden verwendet, um sicherzustellen, dass Benutzer sich a
 
 Für bestimmte Ereignisse kannst Du auch Echtzeit-Alarmierung für geplante Erinnerungen einrichten. Echtzeit-Alarme werden in Deinen Slack-Kanal gesendet, sobald ein wichtiges Ereignis stattfindet, beispielsweise wenn Du einem Review zugewiesen wirst.
 
-Du kannst geplante Erinnerungen für persönliche oder für Team-Review-Anfragen für Pull Requests in Organisationen festlegen, in denen Du Mitglied bist. Bevor Du eine geplante Erinnerung für Dich selbst erstellen kannst, muss ein Organisationsinhaber Deinen Slack-Arbeitsbereich autorisieren. Weitere Informationen findest Du unter „[Geplante Erinnerungen für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
+Du kannst geplante Erinnerungen für persönliche oder für Team-Review-Anfragen für Pull Requests in Organisationen festlegen, in denen Du Mitglied bist. Bevor Du eine geplante Erinnerung für Dich selbst erstellen kannst, muss ein Organisationsinhaber Deinen Slack-Arbeitsbereich autorisieren. Weitere Informationen findest Du unter „[Geplante Erinnerungen für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Geplante Erinnerungen für Dein Benutzerkonto erstellen
 
@@ -46,5 +50,5 @@ Du kannst geplante Erinnerungen für persönliche oder für Team-Review-Anfragen
 
 ### Weiterführende Informationen
 
-- „[Geplante Erinnerungen für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)"
-- „[Geplante Erinnerungen für Dein Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)"
+- „[Geplante Erinnerungen für Deine Organisation verwalten](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
+- „[Geplante Erinnerungen für Dein Team verwalten](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"

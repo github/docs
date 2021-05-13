@@ -19,7 +19,9 @@ versions:
 
 ### 所属文書の不明確な証明
 
-アップロードした画像があなたの現在の学術ステータスを明確に識別していない場合は、学術ステータスのさらなる証明が必要です。 {% data reusables.education.upload-proof-reapply %}
+アップロードした画像に記載されている日付またはスケジュールが資格条件に適合していない場合、在学状況の証明が追加で必要です。
+
+アップロードした画像が、あなたの現在の在学状況を明示していない場合や、アップロードした画像が不鮮明な場合は、在学状況の証明が追加で必要です。 {% data reusables.education.upload-proof-reapply %}
 
 {% data reusables.education.pdf-support %}
 
@@ -57,10 +59,11 @@ versions:
 ### 対象外の学生ステータス
 
 以下の場合、{% data variables.product.prodname_student_pack %} の対象外となります:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_dotcom %} Campus Program](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- 取得を目指している学位が、現学期で終わる場合。
 - 13 歳未満の場合。
 
-インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 コーディングスクールやブートキャンプの学生は、学校が[{% data variables.product.prodname_dotcom %} キャンパスプログラム](https://education.github.com/schools)に参加した場合、{% data variables.product.prodname_student_pack %} を利用できるようになります。
+インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### 参考リンク
 

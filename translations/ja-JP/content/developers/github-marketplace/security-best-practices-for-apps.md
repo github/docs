@@ -8,6 +8,8 @@ redirect_from:
 shortTitle: セキュリティベストプラクティス
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 以下のベストプラクティスに従えば、セキュアなユーザ体験を提供するための役に立つでしょう。

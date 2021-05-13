@@ -1,6 +1,6 @@
 ---
-title: Create an individual assignment
-intro: You can create an assignment for students in your course to complete individually.
+title: 個人課題の作成
+intro: コースにおいて、個人で修了するための課題を学生のために作成できます。
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -8,7 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 ---
 
-### About individual assignments
+### 個人課題について
 
 {% data reusables.classroom.assignments-individual-definition %}
 
@@ -16,7 +16,7 @@ redirect_from:
 
 {% data reusables.classroom.about-assignments %}
 
-For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
+個人課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 
 ### 必要な環境
 
@@ -28,7 +28,7 @@ For a video demonstration of the creation of an individual assignment, see "[Bas
 
 ### 課題の基本情報をセットアップする
 
-Name your assignment, decide whether to assign a deadline, and choose the visibility of assignment repositories.
+課題に名前を付け、期限を設定するかを決定し、課題リポジトリの可視性を選択します。
 
 - [課題に名前を付ける](#naming-an-assignment)
 - [課題に期限を設定する](#assigning-a-deadline-for-an-assignment)
@@ -37,7 +37,7 @@ Name your assignment, decide whether to assign a deadline, and choose the visibi
 
 #### 課題に名前を付ける
 
-For an individual assignment, {% data variables.product.prodname_classroom %} names repositories by the repository prefix and the student's {% data variables.product.product_name %} username. デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 For example, if you name an assignment "assignment-1" and the student's username on {% data variables.product.product_name %} is @octocat, the name of the assignment repository for @octocat will be `assignment-1-octocat`.
+個人課題では、{% data variables.product.prodname_classroom %}はリポジトリのプレフィックスと学生の{% data variables.product.product_name %}ユーザ名から、リポジトリに名前を付けます。 デフォルトでは、リポジトリのプレフィックスが課題のタイトルとなります。 たとえば、課題に「assignment-1」と名付け、学生の{% data variables.product.product_name %}ユーザ名が「@octocat」である場合、「@octocat」の課題リポジトリ名は「`assignment-1-octocat`」となります。
 
 {% data reusables.classroom.assignments-type-a-title %}
 
@@ -47,7 +47,7 @@ For an individual assignment, {% data variables.product.prodname_classroom %} na
 
 #### 課題のタイプを選択する
 
-Under "Individual or group assignment", select the drop-down menu, and click **Individual assignment**. 課題の作成後は、課題タイプを変更できません。 If you'd rather create a group assignment, see "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+[Individual or group assignment] の下で、ドロップダウンメニューを選択し、[**Individual assignment**] をクリックします。 課題の作成後は、課題タイプを変更できません。 グループ課題を作成する場合は、[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」を参照してください。
 
 #### 課題リポジトリの可視性を選択する
 
@@ -64,7 +64,7 @@ Under "Individual or group assignment", select the drop-down menu, and click **I
 
 #### テンプレートリポジトリを作成する
 
-By default, a new assignment will create an empty repository for each student on the roster for the classroom. {% data reusables.classroom.you-can-choose-a-template-repository %}テンプレートリポジトリに関する詳しい情報については、「[テンプレートリポジトリを作成する](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)」を参照してください。
+デフォルトでは、新しい課題ではクラスルームの名簿に掲載されている各学生に対し、空のリポジトリが作成されます。 {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -76,9 +76,9 @@ By default, a new assignment will create an empty repository for each student on
 
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
-### Providing feedback for an assignment
+### 課題にフィードバックを行う
 
-Optionally, you can automatically grade assignments and create a space for discussing each submission with the student.
+必要に応じて、課題を自動的に採点し、各提出物を学生と議論するための場を作成できます。
 
 - [課題を自動的にテストする](#testing-assignments-automatically)
 - [重要なファイルへの変更を防ぐ](#preventing-changes-to-important-files)
@@ -104,21 +104,21 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
 
-You can see whether a student has joined the classroom and accepted or submitted an assignment in the **All students** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
+課題の [**All students**] タブで、学生がクラスルームに参加して課題を受け入れたかや、サブミットしたかを表示できます。 {% data reusables.classroom.assignments-to-prevent-submission %}
 
 <div class="procedural-image-wrapper">
-  <img alt="Individual assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
+  <img alt="個人課題" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignment-individual-hero.png">
 </div>
 
 ### 次のステップ
 
-- Once you create the assignment, students can start work on the assignment using Git and {% data variables.product.product_name %}'s features. 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 Both you and student can review the commit history for the repository. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
+- 課題を作成した後、学生はGitおよび{% data variables.product.product_name %}の機能を使用して課題を開始できます。 学生はリポジトリのクローン、コミットのプッシュ、ブランチの管理、プルリクエストの作成およびレビュー、マージコンフリクトへの対処、およびIssueの変更に関するディスカッションが可能です。 あなたも学生も、リポジトリのコミット履歴をレビューできます。 For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
-- When a student finishes an assignment, you can review the files in the repository, or you can review the history and visualizations for the repository to better understand the student's work. For more information, see "[Visualizing repository data with graphs](/github/visualizing-repository-data-with-graphs)."
+- 課題を完了した学生がいる場合には、その学生のリポジトリにあるファイルをレビューできます。また、学生の作業についてをより深く理解するため、リポジトリの履歴や視覚化されたデータを確認できます。 詳しい情報については、「[リポジトリデータをグラフで可視化する](/github/visualizing-repository-data-with-graphs)」を参照してください。
 
-- You can provide feedback for an assignment by commenting on individual commits or lines in a pull request. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)" and "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)." For more information about creating saved replies to provide feedback for common errors, see "[About saved replies](/github/writing-on-github/about-saved-replies)."
+- プルリクエストの内の個々のコミットや行にコメントすることで、課題にフィードバックを行うことができます。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)」および「[コードから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-code)」を参照してください。 一般的なエラーに対するフィードバックを行うための、返信テンプレートの作成に関する詳しい情報については、「[返信テンプレートについて](/github/writing-on-github/about-saved-replies)」を参照してください。
 
 ### 参考リンク
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
-- "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
+- 「[教室や研究で{% data variables.product.prodname_dotcom %}を使う](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)」
+- 「[学習管理システムを{% data variables.product.prodname_classroom %}に接続する](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)」

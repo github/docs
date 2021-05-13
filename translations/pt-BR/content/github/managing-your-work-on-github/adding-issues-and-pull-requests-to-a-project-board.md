@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Você pode adicionar cartões de problema ou pull request ao seu quadro de projeto ao:

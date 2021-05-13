@@ -22,15 +22,8 @@ featuredLinks:
     - /actions/reference/environment-variables
     - /actions/reference/encrypted-secrets
 changelog:
-  - title: 'Ambientes, reglas de protección de ambiente y secretos de ambiente (beta)'
-    date: '2020-12-15'
-    href: 'https://github.blog/changelog/2020-12-15-github-actions-environments-environment-protection-rules-and-environment-secrets-beta/'
-  - title: Visualización de flujos de trabajo
-    date: '2020-12-08'
-    href: 'https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/'
-  - title: Eliminación de los comandos de set-env y add-path en el 16 de Noviembre
-    date: '2020-11-09'
-    href: 'https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/'
+  label: actions
+  prefix: 'GitHub Actions: '
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
@@ -43,6 +36,7 @@ layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 <!-- {% link_with_intro /quickstart %} -->
@@ -50,6 +44,7 @@ versions:
 <!-- {% link_with_intro /learn-github-actions %} -->
 <!-- {% link_with_intro /managing-workflow-runs %} -->
 <!-- {% link_with_intro /creating-actions %} -->
+<!-- {% link_with_intro /using-github-hosted-runners %} -->
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 

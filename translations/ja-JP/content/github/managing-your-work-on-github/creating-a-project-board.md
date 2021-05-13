@@ -1,6 +1,6 @@
 ---
 title: プロジェクトボードの作成
-intro: 'プロジェクトボードは、特定機能の働きの追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。'
+intro: プロジェクトボードは、特定機能の働きの追跡と優先度付け、総合的なロードマップ、さらにはリリースチェックリストなど、ニーズを満たすカスタマイズワークフローを作成するために使用できます。
 redirect_from:
   - /articles/creating-a-project/
   - /articles/creating-a-project-board
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.project-management.use-automated-template %}

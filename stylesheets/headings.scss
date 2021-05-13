@@ -1,0 +1,41 @@
+h1,
+h2,
+h3,
+h4 {
+  a {
+    color: var(--color-auto-gray-9);
+  }
+}
+
+// all h3 headers that are links should be blue-500
+h3 a {
+  color: var(--color-auto-blue-5);
+}
+
+// ... except those on each product's toc
+.product-landing h3 a {
+  color: var(--color-auto-gray-9);
+}
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-mktg;
+    font-weight: $font-weight-semibold;
+    padding-top: $spacer-3;
+  }
+}
+
+// needs specificity to override
+.markdown-body .lead-mktg p {
+  color: var(--color-auto-gray-9);
+}
+
+.product-callout p,
+.contributor-callout p {
+  margin: 0;
+}

@@ -1,8 +1,10 @@
 ---
 title: 管理主题设置
-intro: 通过设置主题首选项以遵循系统设置或始终使用浅色模式或深色模式，您可以管理 {% data variables.product.product_name %} 的外观，
+intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模式或深色模式，您可以管理 {% data variables.product.product_name %} 的外观，'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 {% note %}

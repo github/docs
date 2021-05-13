@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 Los cambios sustanciales incluyen aquellos que modificarán las consultas existentes o que podrían afectar el comportamiento del tiempo de ejecución de los clientes. Para un listado de cambios sustanciales y cuándo ocurrirán, consulta nuestra [bitácora de cambios sustanciales](/graphql/overview/breaking-changes).

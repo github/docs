@@ -4,9 +4,11 @@ intro: '您可以迁移到内部仓库，以便为同时使用 {% data variables
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
-permissions: 站点 administrator 可以迁移到内部仓库。
+permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - Enterprise
 ---
 
 ### 关于内部仓库

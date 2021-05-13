@@ -1,9 +1,12 @@
 ---
-title: GitHub GPL Cooperation Commitment
+title: GitHubのGPL協力へのコミットメント
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 このコミットメントは、Git、Linuxカーネル、およびその他の対象プログラムの下にあるGitHubのコントリビューションに関するものです。

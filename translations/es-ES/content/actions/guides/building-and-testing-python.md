@@ -7,20 +7,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Python'
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
 Esta guía te muestra cómo construir, probar y publicar un paquete de Python.
 
-Los ejecutores alojados {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con un software preinstalado, que incluye Python y PyPy. ¡No tienes que instalar nada! Para obtener una lista completa de software actualizado y de las versiones preinstaladas de Python y PyPy, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% if currentVersion == "github-ae@latest" %} Consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)" para obtener las instrucciones para asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario.
+{% else %}Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} tienen una caché de herramientas con un software preinstalado que incluye Python y PyPy. ¡No tienes que instalar nada! Para obtener una lista completa de software actualizado y de las versiones preinstaladas de Python y PyPy, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Prerrequisitos
 
@@ -234,7 +238,7 @@ steps:
 
 Cuando utilizas ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes guardar las dependencias pip en el caché utilizando una clave única y restaurar las dependencias cuando ejecutes flujos de trabajo subsecuentes, utilizando la acción [`cache`](https://github.com/marketplace/actions/cache). Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 
-Pip almacena en caché las dependencias en diferentes ubicaciones, en función del sistema operativo del ejecutor. La ruta que necesitarás para almacenar en caché puede diferir del ejemplo de Ubuntu que aparece a continuación, según el sistema operativo que uses. Para obtener más información, consulta [Ejemplos de almacenamiento en caché de Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
+Pip almacena en caché las dependencias en diferentes ubicaciones, en función del sistema operativo del ejecutor. La ruta que necesitarás para almacenar en caché puede diferir del ejemplo de Ubuntu que aparece a continuación, según el sistema operativo que uses. Para obtener más información, consulta los [Ejemplos de almacenamiento en caché de Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
 {% raw %}
 ```yaml{:copy}
@@ -428,4 +432,4 @@ jobs:
 ```
 {% endraw %}
 
-Para obtener más información acerca del flujo de trabajo de la plantilla, consulta [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+Para obtener más información sobre la plantilla de flujo de trabajo, consulta a [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

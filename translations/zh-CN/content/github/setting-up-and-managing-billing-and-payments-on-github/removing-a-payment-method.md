@@ -9,9 +9,13 @@ redirect_from:
   - /articles/removing-a-payment-method
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 如果您使用优惠券为 {% data variables.product.product_name %} 订阅付款，并且不会将付款方式用于 {% data variables.product.product_name %} 上的任何[其他付费功能或产品](/articles/about-billing-on-github)，则可以删除信用卡或 PayPal 信息。
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 {% tip %}
 

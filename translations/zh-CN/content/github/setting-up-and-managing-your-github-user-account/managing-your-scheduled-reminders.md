@@ -3,6 +3,8 @@ title: 管理您的预定提醒
 intro: 当您或您的团队有等待审查的拉取请求时，您会在 Slack 中收到提醒。
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### 关于用户的预定提醒
@@ -11,7 +13,9 @@ versions:
 
 对于某些事件，您还可以为预定提醒启用实时警报。 实时警报会在重要事件（例如分配审查时）发生时立即发送到您的 Slack 通道。
 
-对于您所在组织的拉取请求，您可以为个人或团队级审查请求设置预定提醒。 组织所有者必须先授权您的 Slack 工作区，然后您才可为自己创建预定提醒。 更多信息请参阅“[管理组织的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)”。
+对于您所在组织的拉取请求，您可以为个人或团队级审查请求设置预定提醒。 组织所有者必须先授权您的 Slack 工作区，然后您才可为自己创建预定提醒。 更多信息请参阅“[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”。
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### 为您的用户帐户创建预定提醒
 
@@ -46,5 +50,5 @@ versions:
 
 ### 延伸阅读
 
-- “[管理组织的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)”
-- “[管理团队的预定提醒](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)”
+- “[管理组织的预定提醒](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)”
+- “[管理团队的预定提醒](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)”

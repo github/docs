@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -23,24 +25,16 @@ versions:
 {% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
  - 安装和使用 {% data variables.product.product_name %}
  - 识别并验证可疑错误的原因
-{% endif %}
 
-除了 {% data variables.contact.enterprise_support %} 的所有优点之外，{% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.premium_support %}{% else %}支持 {% data variables.product.product_name %}{% endif %} 还提供：
+除了 {% data variables.contact.enterprise_support %} 的所有优点之外，{% data variables.product.product_name %} 的 {% data variables.contact.premium_support %} 支持还提供：
   - 通过我们的支持门户网站全天候提供书面支持
   - 全天候电话支持
-  - {% if currentVersion == "github-ae@latest" %}增强的{% endif %}服务水平协议 (SLA) {% if enterpriseServerVersions contains currentVersion %}，包括保证的初始响应时间{% endif %}
-{% if currentVersion == "github-ae@latest" %}
-  - 分配的技术服务客户经理
-  - 季度支持审核
-  - 管理的管理员服务
-{% else if enterpriseServerVersions contains currentVersion %}
+  - 保证初始响应时间的服务等级协议 (SLA)
   - 技术客户经理
   - 高级内容访问权限
   - 按时健康状态检查
   - 管理的管理员小时数
 {% endif %}
-
-{% data reusables.support.government-response-times-may-vary %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”。
@@ -52,34 +46,28 @@ versions:
 
 您可以通过 {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} {% data variables.contact.ae_azure_portal %}{% endif %} 联系 {% data variables.contact.enterprise_support %}，以书面报告问题。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### 运行时间
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### 英语支持
-{% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
 对于标准的非紧急问题，我们提供每天 24 小时、每周 5 天的英语支持，不包括周末和美国国家法定节假日。 </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。 标准响应时间为 24 小时。
 
-对于紧急问题，{% else %}我们{% endif %}每周 7 天、每天 24 小时提供服务，即使在美国法定节假日也不例外。 </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
+对于紧急问题，我们每周 7 天、每天 24 小时提供服务，即使在美国法定节假日也不例外。 </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
 
-{% data reusables.support.government-response-times-may-vary %}
-
-{% if enterpriseServerVersions contains currentVersion  %}
 #### 日语支持
 
 对于非紧急问题，日语支持的服务时间为周一至周五上午 9:00 至下午 5:00（日本标准时间），不包括日本的法定节假日。 对于紧急问题，我们每周 7 天、每天 24 小时提供英语支持，即使在美国法定节假日也不例外。 </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
 
-有关 有关 {% data variables.contact.enterprise_support %} 遵守的美国和日本法定节假日的完整列表，请参阅“[节假日安排](#holiday-schedules)”。{% endif %}
+有关 有关 {% data variables.contact.enterprise_support %} 遵守的美国和日本法定节假日的完整列表，请参阅“[节假日安排](#holiday-schedules)”。
 
-{% if enterpriseServerVersions contains currentVersion %}
 ### 节假日安排
 
-对于紧急问题，我们全天候为您提供英语帮助，包括美国 {% if enterpriseServerVersions contains currentVersion  %}和日本{% endif %}假期。
+对于紧急问题，我们全天候为您提供英语帮助，包括美国 和日本的节假日。
 
 #### 美国的节假日
 
-{% data variables.contact.enterprise_support %} observes these U.S. holidays. 节假日{% if enterpriseServerVersions contains currentVersion  %} ，但我们的全球支持团队可以回答紧急事件单{% endif %}。
+{% data variables.contact.enterprise_support %} observes these U.S. holidays. {{ site.data.variables.contact.enterprise_support }} 会庆祝这些美国节假日，但我们的全球支持团队可以回答紧急事件单。
 
 | 美国 美国节假日    | 观察日期        |
 | ----------- | ----------- |

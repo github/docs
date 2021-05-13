@@ -10,5 +10,7 @@ intro: '{% data variables.product.prodname_ghe_server %} 支持高可用性操�
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

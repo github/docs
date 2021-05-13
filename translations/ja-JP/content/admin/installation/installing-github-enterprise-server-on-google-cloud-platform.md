@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 必要な環境
@@ -20,34 +22,11 @@ versions:
 
 ### マシンタイプの決定
 
-Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。
-
-#### サポートされているマシンタイプ
-
-{% data variables.product.prodname_ghe_server %} は、次の Google Compute Engine (GCE) マシンタイプでサポートされています。 詳しい情報については[Google Cloud Platformのマシンタイプの記事](https://cloud.google.com/compute/docs/machine-types)を参照してください。
-
-| ハイメモリ         |
-| ------------- |
-| n1-highmem-4  |
-| n1-highmem-8  |
-| n1-highmem-16 |
-| n1-highmem-32 |
-| n1-highmem-64 |
-| n1-highmem-96 |
-
-#### 推奨マシンタイプ
-
-ユーザライセンス数に基づいて、以下のマシンタイプをおすすめします。
-
-|          シート数          |     推奨タイプ     |
-|:----------------------:|:-------------:|
-| トライアル、デモ、あるいは10人の軽量ユーザ | n1-standard-4 |
-|       10 - 3000        | n1-standard-8 |
-|      3000 - 5000       | n1-highmem-8  |
-|      5000 - 8000       | n1-highmem-16 |
-|     8000 - 10000+      | n1-highmem-32 |
+Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。 To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
 ### {% data variables.product.prodname_ghe_server %} イメージを選択する
 

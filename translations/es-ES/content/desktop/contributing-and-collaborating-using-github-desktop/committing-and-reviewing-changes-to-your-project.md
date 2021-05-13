@@ -15,10 +15,9 @@ versions:
 
 ### 1. Elegir una rama y realizar cambios
 
-1. [Crea una rama nueva](/desktop/guides/contributing-to-projects/managing-branches), o selecciona una rama existente dando clic
+1. [Crear una rama nueva](/desktop/guides/contributing-to-projects/managing-branches) o seleccionar una rama existente haciendo clic en {% octicon "git-branch" aria-label="The branch icon" %}**Current Branch** (Rama actual) en la barra de herramientas y seleccionando la rama de la lista.
 
-{% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** en la barra de herramientas y seleccionando la rama de la lista.
-  ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/click-branch-in-drop-down.png)
+  ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ### 2. Seleccionar cambios para incluirlos en una confirmación
@@ -28,9 +27,15 @@ A medida que realizas cambios en los archivos en tu editor de texto y que los gu
 * El icono rojo {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} hace referencia a los archivos eliminados.
 * El icono amarillo {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} hace referencia a los archivos modificados.
 * El icono verde {% octicon "diff-added" aria-label="The diff added icon color-green" %} hace referencia a los archivos agregados.
-* Para acceder a los cambios acumulados, haz clic en **Stashed Changes** (Cambios acumulados). ![Opción de cambios acumulados](/assets/images/help/desktop/stashed-changes.png)
-* {% data reusables.desktop.commit-all-desc %}![Selecciona la casilla de verificación para confirmar todos los archivos cambiados](/assets/images/help/desktop/commit-all.png)
-* {% data reusables.desktop.commit-some-desc %}![Selecciona las casillas de verificación junto a los archivos que deseas confirmar](/assets/images/help/desktop/commit-some.png)
+* Para acceder a los cambios acumulados, haz clic en **Stashed Changes** (Cambios acumulados).
+
+  ![Opción de cambios acumulados](/assets/images/help/desktop/stashed-changes.png)
+* {% data reusables.desktop.commit-all-desc %}
+
+  ![Selecciona la casilla de verificación para confirmar todos los archivos cambiados](/assets/images/help/desktop/commit-all.png)
+* {% data reusables.desktop.commit-some-desc %}
+
+  ![Selecciona las casillas de verificación junto a los archivos que deseas confirmar](/assets/images/help/desktop/commit-some.png)
 
 #### Crear una confirmación parcial
 
@@ -42,8 +47,12 @@ Si un archivo contiene varios cambios pero solo quieres que algunos de ellos se 
 
 {% endnote %}
 
-1. Para elegir cómo se muestran tus cambios, en la esquina superior derecha del archivo que presenta estos cambios, utiliza el {% octicon "gear" aria-label="The Gear icon" %} para seleccionar **Unificada** o **Dividida**. ![Icono de engrane con diffs unificados y divididos](/assets/images/help/desktop/gear-diff-select.png)
-2. Para excluir de tu confirmación las líneas que cambiaron, da clic en una o más de ellas para que las azules desaparezcan. Las líneas que aún se resalten en azul se incluirán en la confirmación. ![Líneas no seleccionadas en un archivo](/assets/images/help/desktop/partial-commit.png)
+1. Para elegir cómo se muestran tus cambios, en la esquina superior derecha del archivo que presenta estos cambios, utiliza el {% octicon "gear" aria-label="The Gear icon" %} para seleccionar **Unificada** o **Dividida**.
+
+  ![Icono de engrane con diffs unificados y divididos](/assets/images/help/desktop/gear-diff-select.png)
+2. Para excluir de tu confirmación las líneas que cambiaron, da clic en una o más de ellas para que las azules desaparezcan. Las líneas que aún se resalten en azul se incluirán en la confirmación.
+
+  ![Líneas no seleccionadas en un archivo](/assets/images/help/desktop/partial-commit.png)
 
 ### 3. Descartar cambios
 Si retiraste la confirmación de los cambios que no quieres mantener, puedes descartarlos. Esto eliminará los cambios de los archivos en tu computadora. Puedes descartar todos los cambios que dejaste de confirmar en uno o más archivos, o puedes descartar las líneas específicas que agregaste.
@@ -54,8 +63,10 @@ Los cambios que descartas se guardan en un archivo con fecha en la sección de b
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
+
   ![Opción Discard Changes (Descartar cambios) en el menú contextual](/assets/images/help/desktop/discard-changes-mac.png)
 {% data reusables.desktop.confirm-discard-files %}
+
   ![Botón Discard Changes (Descartar cambios) en el cuadro de diálogo de confirmación](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 #### Descartar los cambios en una o más líneas
@@ -87,13 +98,19 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
 {% endnote %}
 
 {% data reusables.desktop.commit-message %}
+
   ![Campo para mensaje de confirmación](/assets/images/help/desktop/commit-message.png)
-2. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir. ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png)
+2. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir.
+
+  ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
+
   ![Botón Commit (Confirmar)](/assets/images/help/desktop/commit-button.png)
 4. Si la rama a la que intentas comprometerte está protegida, Desktop te avisará.
     - Para mover tus cambios, haz clic en **switch btanches (cambiar ramas)**.
     - Para confirmar tus cambios en la rama protegida, haz clic en **Commit to _BRANCH_****(Enviar a _RAMA)_**.
 
-  Para más información sobre ramas protegidas, ve "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches)". ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
+  Para más información sobre ramas protegidas, ve "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+
+  ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}

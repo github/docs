@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### Jekyllについて
@@ -92,9 +94,9 @@ Jekyllプラグインをダウンロードまたは作成すると、サイト�
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-追加のプラグインは、*config.yml*ファイルでそのプラグインのgemを`プラグイン`設定に追加すると有効にできます。 詳しい情報については、Jekyllのドキュメンテーションの「[Configuration](https://jekyllrb.com/docs/configuration/)」を参照してください。 サポートされているプラグインのリストについては、{% data variables.product.prodname_pages %}サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
+追加のプラグインは、*config.yml*ファイルでそのプラグインのgemを`プラグイン`設定に追加すると有効にできます。 詳しい情報については、Jekyllのドキュメンテーションの「[Configuration](https://jekyllrb.com/docs/configuration/)」を参照してください。
 
-特定のプラグインの使い方については、そのプラグインのドキュメンテーションを参照してください。
+サポートされているプラグインのリストについては、{% data variables.product.prodname_pages %}サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。  特定のプラグインの使い方については、そのプラグインのドキュメンテーションを参照してください。
 
 {% tip %}
 

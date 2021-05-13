@@ -1,0 +1,1 @@
+1. En la barra lateral, haz clic en **{% data variables.product.prodname_dependabot %}**. ![Opción de la barra lateral de secretos del {% data variables.product.prodname_dependabot %}](/assets/images/help/dependabot/dependabot-secrets.png)

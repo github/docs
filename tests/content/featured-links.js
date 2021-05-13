@@ -42,14 +42,22 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).children('p').text().startsWith('GitHub Insights provides metrics')).toBe(true)
     })
 
+    // If any of these tests fail, check to see if the content has changed and update text if needed.
     test('featured links respect versioning', async () => {
-      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/packages`)
+      const enterpriseVersionedLandingPage = `/en/enterprise-server@${enterpriseServerReleases.latest}/packages`
+      const $ = await getDOM(enterpriseVersionedLandingPage)
       const $featuredLinks = $('.all-articles-list a')
-      expect($featuredLinks.length).toBeGreaterThan(2)
-      expect($featuredLinks.text().includes('Package client guides for GitHub Packages')).toBe(true)
-      // does not include dotcom-only links
-      expect($featuredLinks.text().includes('About GitHub Container Registry')).toBe(false)
-      expect($featuredLinks.text().includes('Getting started with GitHub Container Registry')).toBe(false)
+      let msg = `Featured links are not rendered as expected on ${enterpriseVersionedLandingPage}`
+      expect($featuredLinks.length, msg).toBeGreaterThan(2)
+
+      // Confirm that the following Enterprise link IS included on this Enterprise page.
+      msg = `Enterprise featured link is not rendered as expected on ${enterpriseVersionedLandingPage}`
+      expect($featuredLinks.text().includes('Working with a GitHub Packages registry'), msg).toBe(true)
+
+      // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
+      msg = `Dotcom-only featured link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
+      expect($featuredLinks.text().includes('Enabling improved container support with the Container registry')).toBe(false)
+      expect($featuredLinks.text().includes('Migrating to the Container registry from the Docker registry'), msg).toBe(false)
     })
   })
 

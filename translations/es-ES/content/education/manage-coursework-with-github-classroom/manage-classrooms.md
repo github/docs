@@ -1,7 +1,7 @@
 ---
 title: Administrar aulas
-intro: Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.
-permissions: Los propietarios de las organizaciones pueden administrar las aulas de éstas.
+intro: 'Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.'
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -20,7 +20,7 @@ redirect_from:
 
 Después de crear un aula, {% data variables.product.prodname_classroom %} te pedirá que invites a los asistentes del maestro (TA) y a los administradores a formar parte de ella. Cada aula puede tener uno o más administradores. Los administradores pueden ser maestros, TA o cualquier otro administrador de curso que quieras tenga control sobre las aulas de {% data variables.product.prodname_classroom %}.
 
-Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y compartiendo la URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulta la sección "[Niveles de permiso para una organización](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)" y "[Invitar a los usuarios a unirse a tu organización](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)".
+Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y compartiendo la URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulta la sección "[Niveles de permiso para una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)" y "[Invitar a los usuarios a unirse a tu organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su registro de alumnos o a sus tareas posteriormente, o puedes borrarla si ya no la necesitas.
 
@@ -34,7 +34,7 @@ Cuando compartes la URL de una tarea con un alumno por primera vez, dicho alumno
 
 ### Prerrequisitos
 
-Debes tener una cuenta de organización en {% data variables.product.product_name %} para administrar las aulas en {% data variables.product.prodname_classroom %}. Para obtener más información, consulta las secciones "[Tipos de cuentas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" y "[Crear una organización nueva desde cero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)".
+Debes tener una cuenta de organización en {% data variables.product.product_name %} para administrar las aulas en {% data variables.product.prodname_classroom %}. Para obtener más información, consulta las secciones "[Tipos de cuentas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" y "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
 Debes autorizar a la app de OAuth de {% data variables.product.prodname_classroom %} para que tu organización administre aulas para tu cuenta organizacional. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 

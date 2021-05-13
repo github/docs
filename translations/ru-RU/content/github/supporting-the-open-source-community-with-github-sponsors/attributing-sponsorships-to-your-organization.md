@@ -1,9 +1,11 @@
 ---
 title: Attributing sponsorships to your organization
-intro: 'You can attribute the sponsorships paid by one of your organizations to another organization.'
+intro: You can attribute the sponsorships paid by one of your organizations to another organization.
 versions:
   free-pro-team: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
+topics:
+  - sponsors
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.

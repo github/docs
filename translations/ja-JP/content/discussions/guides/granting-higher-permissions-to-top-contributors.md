@@ -1,6 +1,6 @@
 ---
 title: 上位コントリビューターにより高い権限を付与する
-intro: 'リポジトリ管理者は、コミュニティメンバーをモデレータおよびメンテナに昇格させることができます。'
+intro: リポジトリ管理者は、コミュニティメンバーをモデレータおよびメンテナに昇格させることができます。
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +21,7 @@ versions:
 
 リポジトリのトリアージ権限を持つユーザは、コメントを回答としてマークし、役に立たなくなった、またはコミュニティに損害を与えているディスカッションをロックし、アイデアがまだ開発の初期段階にあるときに Issue をディスカッションに変換することで、プロジェクトのディスカッションをモデレートするのに役立ちます。 詳しい情報については、「[ ディスカッションをモデレートする](/discussions/managing-discussions-for-your-community/moderating-discussions)」を参照してください。
 
-リポジトリの権限レベルおよび {% data variables.product.prodname_discussions %} に関する詳しい情報については、「[Organization のリポジトリの権限レベル](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)」を参照してください。
+リポジトリの権限レベルおよび {% data variables.product.prodname_discussions %} に関する詳しい情報については、「[Organization のリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 
 ### ステップ 3: 上位コントリビューターのアクセス権限レベルを変更する
 

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Los Términos de servicio estándar son un acuerdo entre {% data variables.product.prodname_dotcom %} y tú como individualidad. Para suscribir un acuerdo con {% data variables.product.prodname_dotcom %} en nombre de una entidad, como una empresa, una organización sin fines de lucro o un grupo, los propietarios de la organización pueden subir de categoría a los Términos de servicio corporativos.

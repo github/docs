@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-oauth-app-access-restrictions
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data variables.product.prodname_oauth_app %}のアクセス制限が有効化されると、Organizationのメンバーは{% data variables.product.prodname_oauth_app %}のOrganizationのリソースへのアクセスを認可できなくなります。 Organizationのメンバーは、オーナーに対して使用したい{% data variables.product.prodname_oauth_app %}の認可をリクエストでき、Organizationのオーナーはペンディングになっているリクエストの通知を受信します。

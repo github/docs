@@ -5,6 +5,8 @@ redirect_from:
   - /articles/upgrading-a-sponsorship
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Cuando subes de categoría tu nivel de patrocinio, el cambio entrará en vigor de inmediato. {% data reusables.sponsors.prorated-sponsorship %}

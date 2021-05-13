@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Puedes ser propietario de repositorios individualmente o puedes compartir la propiedad de los repositorios con otras personas en una organización.
@@ -37,5 +39,5 @@ Puedes utilizar repositorios para administrar tu trabajo y colaborar con otros.
 - "[Administrar tu trabajo en {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administrar un repositorio](/categories/administering-a-repository)"
 - "[Visualizar datos del repositorio con gráficos](/categories/visualizing-repository-data-with-graphs/)"
-- "[Acerca de los wikis](/articles/about-wikis)"
+- "[Acerca de los wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[Glosario de {% data variables.product.prodname_dotcom %}](/articles/github-glossary)"

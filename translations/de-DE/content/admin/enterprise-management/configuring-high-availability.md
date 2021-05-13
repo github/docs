@@ -10,5 +10,7 @@ intro: '{% data variables.product.prodname_ghe_server %} unterstützt eine Hochv
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

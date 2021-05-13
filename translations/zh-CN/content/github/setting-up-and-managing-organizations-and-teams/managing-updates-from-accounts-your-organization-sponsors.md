@@ -4,6 +4,9 @@ intro: 您可以管理用于接收组织赞助帐户更新的电子邮件地址�
 versions:
   free-pro-team: '*'
 permissions: 组织所有者可管理组织赞助帐户的更新。
+topics:
+  - 组织
+  - 团队
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

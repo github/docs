@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Por defecto, los miembros de una organización tienen acceso de escritura a sus tableros de proyecto de la organización excepto que los propietarios de la organización o los administradores de un tablero de proyecto configuren permisos diferentes para tableros de proyecto específicos.

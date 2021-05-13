@@ -4,11 +4,14 @@ redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **ESTES TERMOS E CONDIÇÕES (O "CONTRATO") REGEM SUA PARTICIPAÇÃO NO PROGRAMA DO GITHUB MARKETPLACE. AO SE INSCREVER PARA PARTICIPAR DO PROGRAMA DE MARKETPLACE OU AO CLICAR EM "ACEITO" ABAIXO, VOCÊ ESTÁ CONFIRMANDO QUE ENTENDE ESTE ACORDO E QUE ACEITA TODOS OS SEUS TERMOS E CONDIÇÕES.  SE VOCÊ ESTÁ FIRMANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA ENTIDADE LEGAL, VOCÊ CONFIRMA QUE POSSUI A AUTORIZAÇÃO LEGAL PARA VINCULAR A ENTIDADE A ESTE CONTRATO, NO QUAL "VOCÊ" REPRESENTARÁ A ENTIDADE QUE VOCÊ REPRESENTA.**
 
-Effective Date: January 1, 2021
+Data de vigência: 1 de janeiro de 2021
 
 ### 1.  DEFINIÇÕES
 
@@ -169,7 +172,7 @@ SOB NENHUMA CIRCUNSTÂNCIA E SOB NENHUMA TEORIA JURÍDICA (SEJA POR CONTRATO, RE
 
 **10.3**    O GitHub pode rescindir este Contrato a qualquer momento se (a) você tiver violado qualquer disposição deste Contrato ou (b) o GitHub for obrigado a fazê-lo por lei.
 
-**10.4**    Efeitos da Rescisão pelo Desenvolvedor. Após receber quarenta e cinco (45) dias de aviso prévio por escrito de rescisão do Desenvolvedor, o Desenvolvedor será impedido de assumir novos clientes via Marketplace. Quaisquer taxas pendentes serão remetidas após a rescisão e remoção do Produto de Desenvolvedor do Marketplace. If termination is initiated as a result of a GitHub modification to these terms (Section 11), the terms in effect immediately prior to such modification shall govern for the duration of the 45-day notice period until the date of actual termination.
+**10.4**    Efeitos da Rescisão pelo Desenvolvedor. Após receber quarenta e cinco (45) dias de aviso prévio por escrito de rescisão do Desenvolvedor, o Desenvolvedor será impedido de assumir novos clientes via Marketplace. Quaisquer taxas pendentes serão remetidas após a rescisão e remoção do Produto de Desenvolvedor do Marketplace. Se a rescisão for iniciada como resultado de uma modificação do GitHub a estes termos (Seção 11), os termos em vigor imediatamente antes de tal modificação regerão pela duração do período de aviso de 45 dias até a data da rescisão real.
 
 **10.5**    As obrigações das Seções 2, 3, 4, 5, 8, 9 e 12-18 sobreviverão a qualquer expiração ou rescisão deste Contrato.
 

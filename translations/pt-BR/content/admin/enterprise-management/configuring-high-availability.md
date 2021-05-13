@@ -10,5 +10,7 @@ intro: 'O {% data variables.product.prodname_ghe_server %} dá suporte ao modo d
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

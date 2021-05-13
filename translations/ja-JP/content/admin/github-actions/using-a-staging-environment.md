@@ -3,6 +3,8 @@ title: ステージング環境を使用する
 intro: '{% data variables.product.prodname_actions %} を {% data variables.product.prodname_ghe_server %} ステージング環境で使用する方法について説明します。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data variables.product.product_location %} のステージング環境またはテスト環境があると便利な場合があります。これにより、更新または新機能を本番環境に実装する前にテストできます。

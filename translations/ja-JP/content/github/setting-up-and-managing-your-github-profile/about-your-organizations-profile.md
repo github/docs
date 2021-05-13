@@ -8,11 +8,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 Organization の説明、場所、Web サイト、メールアドレスをオプションで追加することや、重要なリポジトリをページの上部にピン止めすることもできます。
 
-{% if currentVersion == "free-pro-team@latest" %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. 詳しい情報については [Organization のドメインの検証](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)を参照してください。
+{% if currentVersion == "free-pro-team@latest" %}Organization の ID を確認し、Organization のプロファイルページに「Verified」のバッジを表示するには、{% data variables.product.product_name %} を使用して Organization のドメインを検証する必要があります。 詳しい情報については [Organization のドメインの検証](/organizations/managing-organization-settings/verifying-your-organizations-domain)を参照してください。
 
 ![検証済み Organization プロフィールページのサンプル](/assets/images/help/profile/org_profile_verified.png)
 {% else %}
@@ -21,4 +23,4 @@ Organization の説明、場所、Web サイト、メールアドレスをオプ
 
 ### 参考リンク
 
-- [Organization について](/github/setting-up-and-managing-organizations-and-teams/about-organizations)
+- [Organization について](/organizations/collaborating-with-groups-in-organizations/about-organizations)

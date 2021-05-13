@@ -1,0 +1,33 @@
+---
+name: Batch Status Update
+description: Batch Status Update
+body:
+  - type: dropdown
+    attributes:
+      label: Status
+      options:
+        - label: "GREEN \U0001F7E2 (All good, smooth sailing)"
+          value: 'Status: GREEN'
+        - label:
+            "YELLOW \U0001F7E1 (We've identified areas of concern, but have them under
+            control at this time)"
+          value: 'Status: YELLOW'
+        - label: "RED \U0001F534 (We need help, there are blockers beyond our control)"
+          value: 'Status: RED'
+        - label: GREY ⚪️ (Not started, paused, not currently being worked on)
+          value: 'Status: GREY'
+        - label: "BLACK ⚫️ (We shipped it \U0001F389)"
+          value: 'Status: BLACK'
+  - type: input
+    attributes:
+      label: Target date
+      format: date
+  - type: textarea
+    attributes:
+      label: Update
+      placeholder: A few words on how it's going
+  - type: input
+    attributes:
+      label: 'Attribution'
+      value: '_created with :heart: by typing_ `/status`'
+      format: text

@@ -9,10 +9,12 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Workflows'
+  - Workflows
 ---
+
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zum Zwischenspeichern von Workflow-Abhängigkeiten
 
@@ -20,7 +22,7 @@ Workflow-Läufe verwenden häufig dieselben Ausgaben oder heruntergeladenen Abh�
 
 Jobs bei {% data variables.product.prodname_dotcom %}-gehosteten Läufern beginnen in einer sauberen virtuellen Umgebung und müssen Abhängigkeiten jedes Mal herunterladen. Dies führt zu erhöhter Netzwerkauslastung, längerer Laufzeit und erhöhten Kosten. Um die Zeit zum Neuerstellen dieser Dateien einzusparen, kann {% data variables.product.prodname_dotcom %} in Workflows häufig verwendete Abhängigkeiten zwischenspeichern.
 
-Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache).
+Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache). If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 

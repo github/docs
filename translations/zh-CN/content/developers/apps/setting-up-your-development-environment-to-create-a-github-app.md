@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -115,7 +117,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
     ![填写 web 挂钩密钥的表单](/assets/images/webhook-secret.png)
 
-* 在 Permissions & Webhooks（权限和 web 挂钩）页面上，您可以为应用程序指定一组权限，这些权限决定了应用程序有权访问多少数据。 保留此页面的默认值。 如果您决定扩展此模板应用程序，可以在以后更新这些权限。
+* 在 Permissions & Webhooks（权限和 web 挂钩）页面上，您可以为应用程序指定一组权限，这些权限决定了应用程序有权访问多少数据。 在“Repository permissions（仓库权限）”部分下，向下滚动到“Metadata（元数据）”并选择 `Access: Read-only（访问：只读）`。 如果您决定扩展此模板应用程序，可以在以后更新这些权限。
 
 * 在 Permissions & Webhooks（权限和 web 挂钩）页面的底部，指定这是私有应用程序还是公共应用程序。 这是指谁可以安装它：是只有您自己，还是世界上任何人？ 现在，选择 **Only on this account（仅在此帐户上）**将应用程序保留为私有应用程序。
 
@@ -137,7 +139,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ### 步骤 4. 准备运行时环境
 
-为了保证您的信息安全，我们建议将与应用程序相关的所有密钥放在应用程序可以找到的计算机内存中，而不是直接将它们放在代码中。 一种称为 [dotenv](https://github.com/bkeepers/dotenv) 的便捷开发工具将特定于项目的环境变量从 `.env` 文件加载到 `ENV`。 切勿将 `.env` 文件检入 GitHub。 这是一个本地文件，用于存储您不希望在公共互联网上公开的敏感信息。 为了防止这种情况，`.env` 文件已包含在仓库的 [`.gitignore`](/articles/ignoring-files/) 文件中。
+为了保证您的信息安全，我们建议将与应用程序相关的所有密钥放在应用程序可以找到的计算机内存中，而不是直接将它们放在代码中。 一种称为 [dotenv](https://github.com/bkeepers/dotenv) 的便捷开发工具将特定于项目的环境变量从 `.env` 文件加载到 `ENV`。 切勿将 `.env` 文件检入 GitHub。 这是一个本地文件，用于存储您不希望在公共互联网上公开的敏感信息。 为了防止这种情况，`.env` 文件已包含在仓库的 [`.gitignore`](/github/getting-started-with-github/ignoring-files/) 文件中。
 
 您在[前提条件](#prerequisites)部分下载的模板代码已经有一个名为 `.env-example` 的示例文件。 将示例文件 `.env-example` 重命名为 `.env`，或者创建 `.env-example` 文件的副本，命名为 `.env`。 您尚未安装 dotenv，但您将在本快速入门后面运行 `bundle install` 时安装它。 **注：**引用本指南步骤的快速入门可能在 `.env-example` 文件中包含其他环境变量。 有关设置这些附加环境变量的指南，请参考 GitHub 上克隆的项目的快速入门指南。
 
@@ -150,7 +152,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 以下是 `.env` 文件示例：
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 ...
 HkVN9...
 ...
@@ -401,7 +403,7 @@ $ ruby template_server.rb
     **答：**您可能还没有正确设置您的私钥环境变量。 您的 `GITHUB_PRIVATE_KEY` 变量应如下所示：
 
     ```
-    PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
     ...
     HkVN9...
     ...
@@ -420,7 +422,7 @@ $ ruby template_server.rb
 
 * **问：**我的服务器没有侦听事件！ Smee 客户端在终端窗口中运行，我正在将应用程序安装到 GitHub 上的仓库中，但是在运行服务器的终端窗口中没有看到任何输出。
 
-    **答：**您可能没有运行 Smee 客户端，或者您的 GitHub 应用程序设置中没有正确的 Smee 域。 首先检查以确保 Smee 客户端在终端选项卡中运行。 如果这不是问题所在，请访问您的[应用程序设置页面](https://github.com/settings/apps)并检查“[步骤 2. 注册新 GitHub 应用程序](#step-2-register-a-new-github-app)”中显示的字段。 确保这些字段中的域与您在“[步骤 1”的 `smee -u <unique_channel>` 命令中使用的域相匹配。 启动新的 Sme 通道](#step-1-start-a-new-smee-channel)”中将 web 挂钩有效负载重定向到的端口。
+    **答：**您可能没有运行 Smee 客户端、使用错误的参数运行 Smee 命令，或者您的 GitHub 应用程序设置中没有正确的 Smee 域。 首先检查以确保 Smee 客户端在终端选项卡中运行。 如果这不是问题所在，请访问您的[应用程序设置页面](https://github.com/settings/apps)并检查“[步骤 2. 注册新 GitHub 应用程序](#step-2-register-a-new-github-app)”中显示的字段。 确保这些字段中的域与您在“[步骤 1”的 `smee -u <unique_channel>` 命令中使用的域相匹配。 启动新的 Sme 通道](#step-1-start-a-new-smee-channel)”中将 web 挂钩有效负载重定向到的端口。 如果上述任何一项都不能奏效，请检查您是否运行完整的 Smee 命令，包括 `--path` 和 `--port` 选项， 例如： `smee --url https://smee。 o/qrfeVRbFffd6vD --path/event_handler --port 3000`（将 `https://sme.io/qrfeVRbFffd6vD` 替换为您自己的 Smee 域名）。
 
 * **问：**我的调试输出中出现 `Octokit::NotFound` 404 错误：
     ```

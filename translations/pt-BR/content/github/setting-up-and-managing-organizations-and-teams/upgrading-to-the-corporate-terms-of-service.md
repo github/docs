@@ -5,6 +5,9 @@ redirect_from:
   - /articles/upgrading-to-the-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os Termos de serviço padrão são um acordo entre o {% data variables.product.prodname_dotcom %} e você como indivíduo. Para fazer um acordo com o {% data variables.product.prodname_dotcom %} em nome de uma entidade, como uma empresa, um grupo ou uma organização sem fins lucrativos, os proprietários da organização podem atualizar para os Termos de serviço corporativos.

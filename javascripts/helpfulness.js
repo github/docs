@@ -8,7 +8,7 @@ function hideElement (el) {
   el.setAttribute('hidden', true)
 }
 
-export function updateDisplay (form, state) {
+function updateDisplay (form, state) {
   Array.from(
     form.querySelectorAll(
       ['start', 'yes', 'no', 'end']
@@ -21,7 +21,7 @@ export function updateDisplay (form, state) {
     .forEach(showElement)
 }
 
-export function submitForm (form) {
+function submitForm (form) {
   const formData = new FormData(form)
   const data = Object.fromEntries(
     Array.from(formData.entries())

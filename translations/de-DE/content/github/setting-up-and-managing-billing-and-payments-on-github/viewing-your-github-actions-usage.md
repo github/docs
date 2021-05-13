@@ -4,6 +4,8 @@ intro: 'Du kannst Details über Deine Nutzung von Minuten und Speicher für {% d
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Du kannst auch die verrechenbaren Auftrags-Ausführungsminuten für eine einzelne Workflow-Ausführung anzeigen. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."

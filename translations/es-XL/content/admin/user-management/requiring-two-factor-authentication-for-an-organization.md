@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Al usar la autenticación integrada o LDAP, el aparato {% data variables.product.prodname_ghe_server %} admite la autenticación de dos factores. Los administradores de la organización le pueden solicitar a los miembros que tengan la autenticación de dos factores activada.

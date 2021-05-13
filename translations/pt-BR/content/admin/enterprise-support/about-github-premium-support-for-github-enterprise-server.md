@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% note %}
@@ -35,7 +37,7 @@ Além de todos os benefícios do {% data variables.contact.enterprise_support %}
 
 {% data reusables.support.signing-up-for-premium-support %}
 
-{% data reusables.support.scope-of-support %} Para obter mais informações, consulte "[Entrar em contato com o Suporte do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/reaching-github-support)".
+{% data reusables.support.scope-of-support %}
 
 {% data reusables.support.contacting-premium-support %}
 

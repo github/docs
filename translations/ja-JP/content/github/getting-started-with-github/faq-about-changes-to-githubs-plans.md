@@ -1,8 +1,10 @@
 ---
 title: GitHub のプランの変更に関する FAQ
-intro: '2020 年 4 月 14 日時点で、GitHub は GitHub の主要機能がすべて無料で利用可能になったことを発表しました。'
+intro: 2020 年 4 月 14 日時点で、GitHub は GitHub の主要機能がすべて無料で利用可能になったことを発表しました。
 versions:
   free-pro-team: '*'
+topics:
+  - GitHub
 ---
 
 ### GitHub が 4 月 14 日に発表したプランと料金の変更

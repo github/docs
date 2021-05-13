@@ -3,8 +3,9 @@ title: Configurar notificações para dependências vulneráveis
 shortTitle: Configurar notificações
 intro: 'Otimiza como você recebe notificações sobre {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}alertas de segurança{% endif %}.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.21'
+  enterprise-server: '>=2.21 <=2.22'
+topics:
+  - Security
 ---
 
 ### Sobre notificações para dependências vulneráveis
@@ -12,7 +13,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}Quando {% data variables.product.prodname_dependabot %} detecta dependências vulneráveis nos seus repositórios, geramos um alerta {% data variables.product.prodname_dependabot %} e exibimo-lo na aba Segurança do repositório. {% data variables.product.product_name %} notifica os mantenedores dos repositórios afetados sobre o novo alerta de acordo com suas preferências de notificação.{% else %}Quando {% data variables.product.product_name %} detecta dependências vulneráveis no seu repositório, ele envia alertas de segurança.{% endif %}{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_dependabot %} está habilitado por padrão em todos os repositórios públicos. Para {% data variables.product.prodname_dependabot_alerts %}, por padrão, você receberá {% data variables.product.prodname_dependabot_alerts %} por e-mail, agrupado pela vulnerabilidade específica.
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}Se você é proprietário de uma organização, você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios da sua organização com um clique. Você também pode definir se a detecção de dependências vulneráveis será habilitada ou desabilitada para repositórios recém-criados. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)".
+{% if currentVersion == "free-pro-team@latest" %}Se você é proprietário de uma organização, você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios da sua organização com um clique. Você também pode definir se a detecção de dependências vulneráveis será habilitada ou desabilitada para repositórios recém-criados. For more information, see "[Managing security and analysis settings for your organization](/organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added)."
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.21" %}

@@ -64,7 +64,7 @@ Debajo de "Tarea individual o grupal", selecciona el menú desplegable y da clic
 
 #### Elegir un repositorio de plantilla
 
-Predeterminadamente, una tarea nueva creará un repositorio en blanco para cada alumno del registro de alumnos del aula. {% data reusables.classroom.you-can-choose-a-template-repository %} Para obener más información sobre los repositorios de plantilla, consulta la sección "[Crear un repositorio de plantilla](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
+Predeterminadamente, una tarea nueva creará un repositorio en blanco para cada alumno del registro de alumnos del aula. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -82,7 +82,7 @@ Opcionalmente, puedes calificar tareas automáticamente y crear un espacio para 
 
 - [Probar las tareas automáticamente](#testing-assignments-automatically)
 - [Prevenir que se hagan cambios en los archivos importantes](#preventing-changes-to-important-files)
-- [Crear una solicitud de cambios para retroalimentación](#creating-a-pull-request-for-feedback)
+- [Crear una solicitud de cambios para retroalimentación](#preventing-changes-to-important-files)
 
 #### Probar las tareas automáticamente
 
@@ -112,7 +112,7 @@ Puedes ver si un alumno se unió al aula y aceptó o emitió una tarea en la pes
 
 ### Pasos siguientes
 
-- Después de que creas la tarea, los alumnos pueden comenzar a trabajar en ella utilizando las características de Git y {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el alumno pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Iniciar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Crear, clonar y archivar repositorios](/github/creating-cloning-and-archiving-repositories)", "[Utilizar Git](/github/using-git)", y "[Colaborar con las propuestas y solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests)".
+- Después de que creas la tarea, los alumnos pueden comenzar a trabajar en ella utilizando las características de Git y {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el alumno pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Iniciar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Crear, clonar y archivar repositorios](/github/creating-cloning-and-archiving-repositories)", "[Utilizar Git](/github/getting-started-with-github/using-git)", y "[Colaborar con las propuestas y solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests)".
 
 - Cuando un alumno termina una tarea, puedes revisar los archivos en el repositorio, o puedes revisar el historial y las visualizaciones del repositorio para entender mejor su trabajo. Para obtener más información, consulta la sección "[Visualizar los datos del repositorio con gráficas](/github/visualizing-repository-data-with-graphs)".
 
@@ -120,5 +120,5 @@ Puedes ver si un alumno se unió al aula y aceptó o emitió una tarea en la pes
 
 ### Leer más
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Utiliza {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Conectar un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"

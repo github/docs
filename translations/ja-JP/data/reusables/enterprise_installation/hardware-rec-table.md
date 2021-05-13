@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: If you joined the beta for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} and enabled the features, your instance requires additional hardware resources. Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)."
+**ノート**: {% data variables.product.prodname_actions %}もしくは{% data variables.product.prodname_registry %}のベータに参加してこれらの機能を有効化している場合、インスタンスには追加のハードウェアリソースが必要になります。 ベータ機能を使うインスタンスの最小要件は、以下のテーブル中の**太字**に示されています。 詳しい情報については「[{% data variables.product.prodname_ghe_server %} 2.22のベータの機能](#beta-features-in-github-enterprise-server-222)」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -28,20 +28,22 @@
 
 {% endif %}
 
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 
-If you plan to configure {% data variables.product.prodname_actions %} for your instance, you should provision additional resources. You must also configure at least one self-hosted runner to execute workflows. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)."
+インスタンスのユーザに{% data variables.product.prodname_actions %}を有効化する計画なら、ハードウェア、外部ストレージ、ランナーの要件を「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)」でレビューしてください。
 
 {% endif %}
 
+{% data reusables.enterprise_installation.about-adjusting-resources %}
+
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
+#### {% data variables.product.prodname_ghe_server %} 2.22のベータの機能
 
-{% data variables.product.prodname_ghe_server %} 2.22 offered features in beta, such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [{% data variables.product.prodname_ghe_server %} 2.22 release notes](/enterprise-server@2.22/admin/release-notes#2.22.0).
+{% data variables.product.prodname_ghe_server %} 2.22は、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %}、{% data variables.product.prodname_code_scanning %}といった機能をベータで提供しています。 詳しい情報については「[{% data variables.product.prodname_ghe_server %} 2.22 リリースノート](/enterprise-server@2.22/admin/release-notes#2.22.0)を参照してください。
 
-If you enabled beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+{% data variables.product.prodname_ghe_server %} 2.22のベータの機能を有効化した場合、インスタンスには追加のハードウェアリソースが必要です。 最小要件に関する詳しい情報については「[最小要件](#minimum-requirements)」を参照してください。
+
+{% data variables.product.prodname_actions %}のハードウェアの要件に関する詳しい情報については「[{% data variables.product.prodname_ghe_server %}で{% data variables.product.prodname_actions %}を利用しはじめる](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)」を参照してください。
 
 {% endif %}

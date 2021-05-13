@@ -9,6 +9,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Casi siempre las bifurcaciones se usan para proponer cambios al proyecto de otra persona o para usar el proyecto de otra persona como inicio de tu propia idea.
@@ -25,11 +30,11 @@ Por ejemplo, puedes utilizar ramificaciones para proponer cambios relacionados c
 
 El software de código abierto se basa en la idea de que, si compartimos el código, podemos crear software más confiable y mejor. Para obtener más información, consulta la sección "[Acerca de la Iniciativa de Código Abierto](http://opensource.org/about)" en la Iniciativa de Código Abierto.
 
-Para obtener más información sobre cómo aplicar los principios de código abierto en el trabajo de desarrollo de tu organización en {% data variables.product.product_location %}, consulta la documentación técnica de {% data variables.product.prodname_dotcom %} en "[Introducción al innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
+Para obtener más información acerca de aplicar los principios de código abierto al trabajo de desarrollo de tu organización en {% data variables.product.product_location %}, consulta la documentación técnica de {% data variables.product.prodname_dotcom %} "[Introducción al innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Cuando creas tu repositorio público desde una ramificación del proyecto de alguien más, asegúrate de incluir el archivo de licencia que determine cómo quieres que se comparta tu proyecto con los demás. Para obtener más información, consulta la sección "[Elegir una licencia de código abierto](http://choosealicense.com/)" en choosealicense.
+Cuando creas tu repositorio público desde una ramificación del proyecto de alguien más, asegúrate de incluir el archivo de licencia que determine cómo quieres que se comparta tu proyecto con los demás. Para obtener más información, consulta la sección "[Elegir una licencia de código abierto](http://choosealicense.com/)" en choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
 

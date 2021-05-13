@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 必要な環境
@@ -21,6 +23,9 @@ versions:
  - [セキュリティグループの利用](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-network-security.html)（インスタンスへのネットワークアクセスの管理用）
  - [Elastic IPアドレス](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)（プロダクション環境では強く推奨）
  - [Amazon EC2 と Amazon Virtual Private Cloud](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/using-vpc.html)（Virtual Private Cloud内での起動を計画しているなら）
+ - [AWS の価格](https://aws.amazon.com/pricing/)（コストの計算と管理）
+
+ このガイドでは、AWS で {% data variables.product.product_location %} を設定する際に最小権限の原則を推奨しています。 詳細については、[AWS ID およびアクセス管理 (IAM)のドキュメント](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege)を参照してください。
 
 ### ハードウェアについて
 
@@ -28,17 +33,11 @@ versions:
 
 ### インスタンスタイプの決定
 
-AWSで{% data variables.product.product_location %}を起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
-
-#### サポートされているインスタンスタイプ
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 推奨されるインスタンスタイプ
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### {% data variables.product.prodname_ghe_server %} AMI を選択する
 

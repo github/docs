@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data variables.product.prodname_marketplace %} enthält kostenlose und kostenpflichtige Apps. Nachdem Du eine App gekauft und installiert hast, kannst Du sie jederzeit heraufstufen, herabstufen oder kündigen.

@@ -1,4 +1,4 @@
-1. Click **Choose...** and navigate to a local path where you want to clone the repository.
+1. **Choose...（選択...）**をクリックし、リポジトリをクローンしたいローカルのパスに移動してください。
 
   {% mac %}
 

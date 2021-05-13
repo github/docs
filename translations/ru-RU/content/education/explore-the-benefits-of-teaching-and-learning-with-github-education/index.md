@@ -13,7 +13,7 @@ versions:
 ### Table of Contents
 
 {% topic_link_in_list /use-github-at-your-educational-institution %}
-    {% link_in_list /about-github-education %}
+    {% link_in_list /about-github-campus-program %}
     {% link_in_list /about-campus-experts %}
     {% link_in_list /about-campus-advisors %}
 {% topic_link_in_list /use-github-for-your-schoolwork %}

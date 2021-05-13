@@ -1,6 +1,6 @@
 ---
 title: Hinweise zu einem Projektboard hinzufügen
-intro: Du kannst Hinweise zu einem Projektboard hinzufügen, um an Aufgaben zu erinnern oder Informationen im Zusammenhang mit dem Projektboard hinzuzufügen.
+intro: 'Du kannst Hinweise zu einem Projektboard hinzufügen, um an Aufgaben zu erinnern oder Informationen im Zusammenhang mit dem Projektboard hinzuzufügen.'
 redirect_from:
   - /articles/adding-notes-to-a-project/
   - /articles/adding-notes-to-a-project-board
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% tip %}

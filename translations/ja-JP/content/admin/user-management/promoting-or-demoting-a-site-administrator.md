@@ -4,9 +4,11 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: 'サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。'
+intro: サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% tip %}
@@ -32,7 +34,7 @@ versions:
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. ウィンドウの左上にある [Find an administrator] 検索フィールドに、降格させたい人物のユーザ名を入力します。 ![管理者を見つけるための検索フィールド](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
-1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**. ![Enterprise から削除するオプション](/assets/images/help/business-accounts/demote-admin-button.png)
+1. 検索結果から、降格させるユーザ名を探し、{% octicon "gear" %} ドロップダウンメニューを使って **Remove owner** を選択してください。 ![Enterprise から削除するオプション](/assets/images/help/business-accounts/demote-admin-button.png)
 
 ### コマンドラインからユーザを昇格させる
 

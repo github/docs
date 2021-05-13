@@ -1,0 +1,47 @@
+/* Code style overrides
+------------------------------------------------------------------------------*/
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  margin-top: 10px;
+}
+
+.height-constrained-code-block pre {
+  max-height: 500px;
+  overflow: auto;
+}
+
+.markdown-body .code-extra {
+  margin-top: $spacer-4;
+
+  pre {
+    margin-top: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-left: 1px var(--color-auto-gray-2) solid !important;
+    border-bottom: 1px var(--color-auto-gray-2) solid !important;
+    border-right: 1px var(--color-auto-gray-2) solid !important;
+  }
+}
+
+/* code styles */
+pre .redbox {
+  border: 2px solid var(--color-auto-red-5);
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+pre .greenbox {
+  border: 2px solid var(--color-auto-green-5);
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+pre .bluebox {
+  border: 2px solid var(--color-auto-blue-5);
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}

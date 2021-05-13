@@ -1,6 +1,6 @@
 ---
 title: Pesquisar no log de auditoria
-intro: 'Os administradores do site podem pesquisar uma extensa lista de ações auditadas sobre a empresa.'
+intro: Os administradores do site podem pesquisar uma extensa lista de ações auditadas sobre a empresa.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Sintaxe de consulta de pesquisa

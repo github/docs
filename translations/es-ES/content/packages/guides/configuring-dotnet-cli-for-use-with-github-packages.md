@@ -11,9 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 **Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
@@ -30,10 +32,10 @@ Para autenticarte en {% data variables.product.prodname_registry %} con la inter
 Debes reemplazar:
 - `USERNAME` (nombre de usuario) por el nombre de tu cuenta de usuario en {% data variables.product.prodname_dotcom %}.
 - `TOKEN` por tu token de acceso personal.
-- `OWNER` con el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.{% if enterpriseServerVersions contains currentVersion %}
-- `HOSTNAME` con el nombre de host para tu instancia de {% data variables.product.prodname_ghe_server %}.
+- `OWNER` com el nombre de la cuenta de usuario u organización a la que pertenece el repositorio que contiene tu proyecto.{%if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- `HOSTNAME` con el nombre de host de {% data variables.product.product_location %}.{% endif %}
 
-Para obtener más información acerca de cómo crear un paquete, consulta la [documentación maven.apache.org](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+{%if enterpriseServerVersions contains currentVersion %}Si tu instancia tiene habilitado el aislamiento de subdominio:
 {% endif %}
 
 ```xml
@@ -79,9 +81,9 @@ Por ejemplo, los proyectos *OctodogApp* y *OctocatApp* publicarán en el mismo r
 
 ### Publicar un paquete
 
-Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si te autenticas con un archivo de *nuget.config*{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, o si utilizas la opción de línea de comandos `--api-key` con tu token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.
+Puedes publicar un paquete en el {% data variables.product.prodname_registry %} si te autenticas con un archivo de *nuget.config*{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%}, o si utilizas la opción de línea de comandos `--api-key` con tu token de acceso personal (PAT) de {% data variables.product.prodname_dotcom %}{% endif %}.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 #### Publicar un paquete utilizando el PAT de GitHub como tu clave de la API
 
 Si aún no tienes un PAT para utilizar con tu cuenta de {% data variables.product.prodname_dotcom %}, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
@@ -116,8 +118,8 @@ Al publicar, debes usar el mismo valor para `OWNER` en tu archivo *csproj* que u
 3. Agrega la información específica de tu proyecto al archivo de tu proyecto, que finaliza en *.csproj*.  Debes reemplazar:
     - `OWNER` por el nombre de la cuenta de usuario o de organización a la que pertenece el repositorio que contiene tu proyecto.
     - `REPOSITORY` por el nombre del repositorio que contiene el paquete que deseas publicar.
-    - `1.0.0` con el número de versión del paquete.{% if enterpriseServerVersions contains currentVersion %}
-    - `HOSTNAME` con el nombre de host para tu instancia de {% data variables.product.prodname_ghe_server %}.{% endif %}
+    - `1.0.0` con el número de versión del paquete.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+    - `HOSTNAME` con el nombre de host de {% data variables.product.product_location %}.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -221,4 +223,4 @@ El uso de paquetes desde {% data variables.product.prodname_dotcom %} en tu proy
 
 ### Leer más
 
-- "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[Borrar un paquete](/packages/learn-github-packages/deleting-a-package){% endif %}"

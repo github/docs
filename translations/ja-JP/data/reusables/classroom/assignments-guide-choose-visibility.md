@@ -1,9 +1,9 @@
-The repositories for an assignment can be public or private. If you use private repositories, only the student or team can see the feedback you provide.
+課題のためのリポジトリは、パブリックにもプライベートにもできます。 プライベートリポジトリを使うと、学生あるいはTeamだけが提供されたフィードバックを見ることができます。
 
-You can also decide whether to grant students admin permissions to the repository for an assignment. Grant admin permissions if the student should be able to perform administrative tasks for the assignment repository. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)" and "[Repository permission levels for an organization](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)."
+また、課題のためのリポジトリに対する管理権限を学生に与えるかを決定することもできます。 学生が課題のリポジトリに対して管理タスクを行えなければならないのであれば、管理権限を与えてください。 詳しい情報については「[リポジトリの可視性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」及び「[Organizationのためのリポジトリの権限レベル](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)」を参照してください。
 
-Under "Repository visibility", select a visibility. Optionally, select **Grant students admin access to their repository**.
+"Repository visibility（リポジトリの可視性）"の下で、可視性を選択してください。 あるいは、**Grant students admin access to their repository（リポジトリに対する管理アクセスを学生に付与）**を選択してください。
 
 <div class="procedural-image-wrapper">
-  <img alt="Visibility options for assignment repositories" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-choose-repository-visibility.png">
+  <img alt="課題のリポジトリに対する可視性のオプション" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-choose-repository-visibility.png">
 </div>

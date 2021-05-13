@@ -1,13 +1,15 @@
 ---
 title: 从代码打开议题
 intro: 您可以从文件或拉取请求的特定代码行打开新议题。
-permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 从代码打开议题时，议题包含小片段，其中显示所选代码的行或范围。 只能打开存储代码的仓库中的议题。

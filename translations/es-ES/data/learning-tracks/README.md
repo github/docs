@@ -1,3 +1,3 @@
-# Learning Tracks (aka Learning Paths)
+# Enfoques de Aprendizaje (conocidas como Rutas de Aprendizaje)
 
-Learning tracks are a collection of articles that help you master a particular subject. Learning tracks are defined on a per-product basis.
+Los enfoques de aprendizaje son una recolección de artículos que te ayudan a dominar un tema específico. Los enfoques de aprendizaje se definen por producto.

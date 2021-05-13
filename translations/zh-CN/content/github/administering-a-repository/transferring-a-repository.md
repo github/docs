@@ -16,6 +16,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于仓库转让
@@ -46,7 +48,7 @@ versions:
   $ git remote set-url origin <em>new_url</em>
   ```
 
-更多信息请参阅“[更改远程仓库的 URL](/articles/changing-a-remote-s-url)”。
+更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 #### 仓库转让和组织
 

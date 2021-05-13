@@ -1,7 +1,7 @@
 ---
 title: Discussions guides
 shortTitle: Руководства
-intro: 'Discover pathways to get started or learn best practices for participating or monitoring your community''s discussions.'
+intro: Discover pathways to get started or learn best practices for participating or monitoring your community's discussions.
 versions:
   free-pro-team: '*'
 ---

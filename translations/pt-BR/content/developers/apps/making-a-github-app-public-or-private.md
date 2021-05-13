@@ -11,13 +11,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 Para obter informações de autenticação, consulte "[Efetuando autenticação com aplicativos GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
 ### Fluxo público de instalação
 
-Os fluxos públicos de instalação têm uma página inicial onde os usuários iniciam o fluxo de instalação. Este link é fornecido no campo "Link público" ao configurar seu aplicativo GitHub. Para obter mais informações, consulte "[Instalando aplicativos GitHub](/apps/installing-github-apps/)".
+Os fluxos de instalação pública têm uma página inicial para permitir que outras pessoas, além do proprietário do aplicativo, instalem o aplicativo nos seus repositórios. Este link é fornecido no campo "Link público" ao configurar seu aplicativo GitHub. Para obter mais informações, consulte "[Instalando aplicativos GitHub](/apps/installing-github-apps/)".
 
 ### Fluxo privado de instalação
 

@@ -1,6 +1,6 @@
 ---
 title: リポジトリに対する匿名 Git 読み取りアクセスを有効化する
-intro: 'リポジトリの管理者として、特定の要件を満たす公開リポジトリの匿名 Git 読み取りアクセスを有効または無効にできます。'
+intro: リポジトリの管理者として、特定の要件を満たす公開リポジトリの匿名 Git 読み取りアクセスを有効または無効にできます。
 redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:

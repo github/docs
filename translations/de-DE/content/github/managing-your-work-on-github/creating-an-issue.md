@@ -1,13 +1,15 @@
 ---
 title: Einen Issue erstellen
 intro: 'Mit Issues kannst Du Fehler, Verbesserungen oder andere Anforderungen nachverfolgen.'
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Du kannst einen neuen Issue basierend auf dem Code eines vorhandenen Pull Requests erstellen. Weitere Informationen findest Du unter „[Einen Issue im Code öffnen](/github/managing-your-work-on-github/opening-an-issue-from-code).“
@@ -27,7 +29,7 @@ Wenn Du ein Projektboard verwendest, um Deine Arbeit zu verfolgen und zu prioris
 {% tip %}
 
 **Tipp:** Projekt-Betreuer können:
-  - Issue-Vorlagen für ein Repository erstellen. Vorlagen umfassen Aufforderungen für Informationen im Text eines Issues. Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/github/building-a-strong-community/about-issue-and-pull-request-templates).“
+  - Issue-Vorlagen für ein Repository erstellen. Vorlagen umfassen Aufforderungen für Informationen im Text eines Issues. Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)“
   - Issues für ein Repository deaktivieren. Weitere Informationen findest Du unter „[Issues deaktivieren](/github/managing-your-work-on-github/disabling-issues)." Pull Requests können nicht deaktiviert werden und stehen immer zur Verfügung.
 
 {% endtip %}

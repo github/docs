@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Vorrausetzungen
@@ -20,34 +22,11 @@ versions:
 
 ### Maschinentyp bestimmen
 
-Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
-
-#### Unterstützte Maschinentypen
-
-{% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“.
-
-| Oberer Speicher |
-| --------------- |
-| n1-highmem-4    |
-| n1-highmem-8    |
-| n1-highmem-16   |
-| n1-highmem-32   |
-| n1-highmem-64   |
-| n1-highmem-96   |
-
-#### Empfohlene Maschinentypen
-
-Basierend auf der Anzahl Deiner Benutzerlizenzen empfehlen wir die folgenden Maschinentypen.
-
-|                          Benutzer                          | Empfohlener Typ |
-|:----------------------------------------------------------:|:---------------:|
-| Test, Demo oder 10 Benutzer mit eingeschränkten Funktionen |  n1-standard-4  |
-|                          10–3000                           |  n1-standard-8  |
-|                         3000–5000                          |  n1-highmem-8   |
-|                         5000–8000                          |  n1-highmem-16  |
-|                        8000–10000+                         |  n1-highmem-32  |
+Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
 ### {% data variables.product.prodname_ghe_server %}-Image auswählen
 

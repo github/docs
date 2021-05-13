@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Diese Nutzungsbedingungen für GitHub-Open-Source-Anwendungen ("Anwendungsbedingungen") sind eine rechtliche Vereinbarung zwischen Ihnen (entweder als Einzelperson oder im Namen eines Unternehmens) und GitHub, Inc. in Bezug auf Ihre Nutzung von GitHub-Anwendungen wie GitHub Desktop™ und zugehöriger Dokumentation ("Software"). Diese Anwendungsbedingungen gelten für die ausführbare Codeversion der Software. Der Quellcode für die Software ist im Rahmen von Open-Source-Software-Lizenzverträgen separat und kostenlos verfügbar. Wenn Sie nicht mit allen Bedingungen dieser Anwendungsbedingungen einverstanden sind, laden Sie die Software nicht herunter und installieren, verwenden oder kopieren Sie sie nicht.

@@ -16,6 +16,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Sobre transferências de repositório
@@ -46,7 +48,7 @@ Quando você transfere um repositório, também são transferidos problemas, pul
   $ git remote set-url origin <em>new_url</em>
   ```
 
-Para obter mais informações, consulte "[Alterar a URL de um remote](/articles/changing-a-remote-s-url)".
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### Transferências de repositório e organizações
 

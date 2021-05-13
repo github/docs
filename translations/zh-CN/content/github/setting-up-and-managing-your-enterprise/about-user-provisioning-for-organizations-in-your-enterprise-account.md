@@ -4,6 +4,8 @@ intro: 您可以直接从身份提供程序 (IdP) 管理企业帐户中的组织
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

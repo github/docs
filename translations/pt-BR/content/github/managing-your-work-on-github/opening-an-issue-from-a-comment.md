@@ -1,11 +1,13 @@
 ---
 title: Abrindo um problema a partir de um comentário
 intro: É possível abrir um problema novo a partir de um comentário específico em um problema ou uma pull request.
-permissions: 'Pessoas com permissões de leitura podem criar um problema em um repositório onde os problemas estão habilitados.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Quando você abre um problema a partir de um comentário, o problema contém um trecho mostrando onde o comentário foi originalmente publicado.

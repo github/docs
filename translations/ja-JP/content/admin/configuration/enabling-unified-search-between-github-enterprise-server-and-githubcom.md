@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
-permissions: '接続された{% data variables.product.prodname_ghe_cloud %}のOrganizationあるいはEnterpriseアカウントの所有者でもある{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_dotcom_the_website %}間のUnified Searchを有効化できます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Unified Searchを有効化すると、ユーザは{% data variables.product.product_location_enterprise %}から検索をした際に、{% data variables.product.prodname_dotcom_the_website %}上のパブリックおよびプライベートコンテンツからの検索結果を見ることができます。

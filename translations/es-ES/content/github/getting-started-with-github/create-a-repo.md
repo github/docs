@@ -8,6 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -57,7 +62,7 @@ Cuando creaste tu nuevo repositorio, lo inicializaste con un archivo *README*. L
 
 Confirmemos un cambio en el archivo *README*.
 
-1. Es la lista de archivos de tu repositorio, haz clic en ***README.md***. ![Archivo Readme en la lista de archivos](/assets/images/help/repository/create-commit-open-readme.png)
+1. Es la lista de archivos de tu repositorio, haz clic en ***README.md***. ![Archivo README en la lista de archivos](/assets/images/help/repository/create-commit-open-readme.png)
 2. En el contenido del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %}.
 3. En la pestaña **Editar archivo**, escribe alguna información sobre ti. ![Nuevo contenido en el archivo](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}

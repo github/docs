@@ -7,6 +7,9 @@ redirect_from:
   - /articles/githubs-ssh-key-fingerprints
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.prodname_dotcom %} の公開鍵のフィンガープリントは次のとおりです。

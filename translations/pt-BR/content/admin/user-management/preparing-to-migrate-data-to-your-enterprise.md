@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}
@@ -128,13 +130,13 @@ O mesmo processo pode ser usado para criar mapeamentos em cada registro compatí
 
 #### Aplicar dados de migração modificados
 
-1. Depois de fazer as alterações, use o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar seu arquivo  *conflicts.csv* modificado (ou qualquer outro csv de mapeamento no formato correto) à instância de destino:
+1. Depois de fazer as alterações, use o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) para aplicar o seu *conflicts.csv* modificado (ou qualquer outro arquivo de mapeamento *.csv* no formato correto) para a instância de destino:
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. Remapeie os dados de migração usando o comando `ghe-migrator map`, passando pelo caminho do seu arquivo csv modificado e do GUID de Migração:
+2. Mapeie novamente os dados de migração usando o comando `mapa do ghe-migrator`, passando pelo caminho para o seu arquivo *.csv* modificado e pelo GUID de Migração:
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>

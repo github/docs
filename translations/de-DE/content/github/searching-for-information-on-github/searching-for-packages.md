@@ -2,11 +2,13 @@
 title: Suche nach Paketen
 intro: 'Du kannst auf {% data variables.product.product_name %} nach Paketen suchen und die Suchresultate mit Qualifizierern einschränken.'
 product: '{% data reusables.gated-features.packages %}'
-permissions: Jeder kann nach Paketen suchen, auf die er Zugriff hat.
+permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

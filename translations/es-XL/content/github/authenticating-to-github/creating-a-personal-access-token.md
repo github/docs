@@ -9,6 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas para la autenticación en {% data variables.product.product_name %} cuando utilizas la [API de GitHub](/v3/auth/#via-oauth-and-personal-access-tokens) o la [línea de comandos](#using-a-token-on-the-command-line).

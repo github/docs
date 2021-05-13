@@ -2,8 +2,9 @@
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: <=2.22
+topics:
+  - Repositories
 ---
 
 ### Dependency graph availability

@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -28,13 +30,10 @@ versions:
 #### 支持的 AWS 实例类型
 
 您需要根据 CPU/内存规范确定升级的目标实例类型。
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### 建议的 AWS 实例类型
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### 针对 AWS 进行调整
 

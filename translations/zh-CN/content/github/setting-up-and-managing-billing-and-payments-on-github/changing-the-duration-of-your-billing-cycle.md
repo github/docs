@@ -8,6 +8,8 @@ redirect_from:
   - /articles/changing-the-duration-of-your-billing-cycle
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 更改结算周期的时长后，您的 {% data variables.product.prodname_dotcom %} 订阅，以及任何其他付费功能和产品，将在下一个结算日期转用新的结算周期。

@@ -1,1 +1,1 @@
-**Existing users:** When you limit interactions to `existing_users`, new users with accounts less than 24 hours old who have not previously contributed and are not collaborators will be temporarily restricted
+**Existing users（既存のユーザ）:** インタラクションを`existing_users`に制限すると、24時間以下しか経過していないアカウントの新規ユーザで、以前にコントリビューションしておらず、コラボレーターでもないユーザは、一時的に制限されます。

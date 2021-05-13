@@ -1,12 +1,14 @@
 ---
 title: Restringir interações no repositório
-intro: 'É possível aplicar temporariamente um período de atividades limitadas para certos usuários em um repositório público.'
+intro: É possível aplicar temporariamente um período de atividades limitadas para certos usuários em um repositório público.
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
 permissions: As pessoas com permissões de administrador em um repositório podem limitar temporariamente as interações nesse repositório.
+topics:
+  - comunidade
 ---
 
 ### Sobre limites temporários de interação

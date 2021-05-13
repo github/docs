@@ -1,12 +1,14 @@
 ---
 title: 在 GitHub 上解决合并冲突
-intro: '您可以使用冲突编辑器在 GitHub 上解决涉及竞争行更改的简单合并冲突。'
+intro: 您可以使用冲突编辑器在 GitHub 上解决涉及竞争行更改的简单合并冲突。
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 您只能在 {% data variables.product.product_name %} 上解决由竞争行更改引起的合并冲突，例如当人们对 Git 仓库中不同分支上同一文件的同一行进行不同的更改时。 对于所有其他类型的合并冲突，您必须在命令行上本地解决冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line/)”。

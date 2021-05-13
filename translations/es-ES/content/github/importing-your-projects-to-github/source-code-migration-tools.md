@@ -41,7 +41,7 @@ Recomendamos estas herramientas para mover cambios entre Team Foundation Server 
 
 {% tip %}
 
-**Sugerencia:** después de haber convertido con éxito tu proyecto a Git, puedes [subirlo a {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/).
+**Sugerencia:** después de haber convertido con éxito tu proyecto a Git, puedes [subirlo a {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 

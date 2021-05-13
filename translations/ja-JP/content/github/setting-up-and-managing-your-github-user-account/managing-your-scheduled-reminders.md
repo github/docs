@@ -3,6 +3,8 @@ title: スケジュールされたリマインダーの管理
 intro: 自分または自分の Team に対してレビュー待ちのプルリクエストがあるとき、Slack でリマインダーを受け取ります。
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 ### ユーザのスケジュールされたリマインダーについて
@@ -11,7 +13,9 @@ versions:
 
 特定のイベントに対しては、スケジュールされたリマインダーにリアルタイムのアラートを有効にすることもできます。 リアルタイムアラートは、自分がレビューを割り当てられたなど、重要なイベントが発生したときすぐに Slack チャネルで送信されます。
 
-メンバーになっている Organization のプルリクエストについて、個人または Team レベルのレビューリクエストのスケジュールされたリマインダーを設定できます。 自分自身のスケジュールされたリマインダーを作成するには、Organization のオーナーが Slack ワークスペースを承認する必要があります。 詳しい情報については、「[Organization にスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)」を参照してください。
+メンバーになっている Organization のプルリクエストについて、個人または Team レベルのレビューリクエストのスケジュールされたリマインダーを設定できます。 自分自身のスケジュールされたリマインダーを作成するには、Organization のオーナーが Slack ワークスペースを承認する必要があります。 詳しい情報については、「[Organization にスケジュールされたリマインダーを管理する](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)」を参照してください。
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### ユーザアカウントのスケジュールされたリマインダーを作成する
 
@@ -46,5 +50,5 @@ versions:
 
 ### 参考リンク
 
-- [Organization にスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)
-- [Team のスケジュールされたリマインダーを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-team)
+- [Organization にスケジュールされたリマインダーを管理する](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)
+- [Team のスケジュールされたリマインダーを管理する](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)

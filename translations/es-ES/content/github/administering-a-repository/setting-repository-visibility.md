@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de los cambios a la visibilidad de un repositorio
 
-Los propietarios de las organizaciones pueden restringir la capacidad de cambiar la visibilidad de un repositorio únicamente para otros propietarios de organizaciones. Para obtener más información, consulta "[Restringir los cambios a la visibilidad del repositorio en tu organización](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)."
+Los propietarios de las organizaciones pueden restringir la capacidad de cambiar la visibilidad de un repositorio únicamente para otros propietarios de organizaciones. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 Te recomendamos revisar las siguientes consideraciones antes de que cambies la visibilidad de un repositorio.
 
@@ -24,8 +26,8 @@ Te recomendamos revisar las siguientes consideraciones antes de que cambies la v
 * Si cambias la visibilidad de un repositorio de interna a privada, {% data variables.product.prodname_dotcom %} eliminará las bifurcaciones que pertenezcan a cualquiera de los usuarios sin acceso al repositorio que recientemente se hizo privado. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}La visibilidad de cualquier bifurcación también cambiará a privada.{% elsif currentVersion == "github-ae@latest" %}Si el repositorio interno tiene cualquier bifurcación, la visibilidad de éstas ya será privada.{% endif %} Para obtener más información, consulta la sección "[¿Qué pasa con las bifurcaciones cuando un repositorio se borra o cambia su visibilidad?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"{% if currentVersion == "free-pro-team@latest" %}
 * Si utilizas {% data variables.product.prodname_free_user %} para cuentas de usuario o de organización, algunas características no estarán disponibles en el repositorio después de que cambies la visibilidad a privada. {% data reusables.gated-features.more-info %}{% endif %}
 * Cualquier sitio de {% data variables.product.prodname_pages %} publicado se dejará de publicar automáticamente.{% if currentVersion == "free-pro-team@latest" %} Si agregaste un dominio personalizado al sitio de {% data variables.product.prodname_pages %}, deberás eliminar o actualizar tus registros de DNS antes de que hagas al repositorio privado para evitar el riesgo de que alguien más tome el dominio. Para obtener más información, consulta la sección "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_dotcom %} ya no incluirá el repositorio en el {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* Las características de la {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %}, dejarán de funcionar a menos de que el repositorio pertenezca a una organización que tenga una licencia para la {% data variables.product.prodname_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
+* {% data variables.product.prodname_dotcom %} ya no incluirá el repositorio en el {% data variables.product.prodname_archive %}. Para obtener más información, consulta la sección "[Acerca de archivar el contenido y datos en {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+* Las características de la {% data variables.product.prodname_GH_advanced_security %}, tales como el {% data variables.product.prodname_code_scanning %}, dejarán de funcionar a menos de que el repositorio pertenezca a una organización que sea parte de una empresa con una licencia para {% data variables.product.prodname_advanced_security %} y suficientes plazas disponibles. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
 * El acceso anónimo de Git ya no está disponible. Para obtener más información, consulta la sección "[Habilitar el acceso de lectura anónima en Git para un repositorio](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
@@ -61,10 +63,15 @@ Para obtener más información sobre cómo mejorar la seguridad del repositorio,
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. Debajo de "Zona de Peligro", a la derecha de "Cambiar la visibilidad del repositorio", da clic en **Cambiar la visibilidad**. ![Botón de cambiar la visibilidad](/assets/images/help/repository/repo-change-vis.png)
-4. Selecciona una visibilidad. ![Diálogo de opciones para la visbilidad del repositorio](/assets/images/help/repository/repo-change-select.png)
+4. Selecciona una visibilidad.
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Diálogo de opciones para la visbilidad del repositorio](/assets/images/help/repository/repo-change-select.png){% else %}
+![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
 5. Para verificar que estás cambiando la visibilidad del repositorio correcto, teclea el nombre del repositorio para el cual quieres cambiar la visibilidad.
-6. Da clic en **Entiendo, cambiar la visibilidad del repositorio**. ![Botón de confirmar cambio para la visibilidad de un repositorio](/assets/images/help/repository/repo-change-confirm.png)
-
+6. Da clic en **Entiendo, cambiar la visibilidad del repositorio**.
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Botón de confirmar cambio para la visibilidad de un repositorio](/assets/images/help/repository/repo-change-confirm.png){% else %}
+![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
 {% endif %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}

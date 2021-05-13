@@ -11,6 +11,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Organization の支払い方法をアップデートして支払いステータスを回復することで、アカウントのロックを解除しアクセスできるようになります。 ロックされたモードで経過した時間の分については、お支払いを請求いたしません。

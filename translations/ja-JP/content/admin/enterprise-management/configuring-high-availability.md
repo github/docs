@@ -1,5 +1,5 @@
 ---
-title: Configuring high availability
+title: High Availability の設定
 redirect_from:
   - /enterprise/admin/installation/configuring-github-enterprise-server-for-high-availability
   - /enterprise/admin/guides/installation/high-availability-cluster-configuration/
@@ -10,5 +10,7 @@ intro: '{% data variables.product.prodname_ghe_server %} は、プライマリ�
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

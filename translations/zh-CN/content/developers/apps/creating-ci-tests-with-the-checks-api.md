@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
 ### 简介
 
-This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+本指南将介绍 [GitHub 应用程序](/apps/)和[检查 API](/rest/reference/checks)，您将使用它们来构建运行测试的持续集成 (CI) 服务器。
 
 CI 是一种需要频繁提交代码到共享仓库的软件实践。 频繁提交代码能较早检测到错误，减少在查找错误来源时开发者需要调试的代码量。 频繁的代码更新也更便于从软件开发团队的不同成员合并更改。 这对开发者非常有益，他们可以将更多时间用于编写代码，而减少在调试错误或解决合并冲突上所花的时间。 🙌
 
@@ -49,7 +51,7 @@ _检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行�
 
 ### 基本要求
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
+在开始之前，如果您尚未熟悉 [GitHub 应用程序](/apps/)、[web 挂钩](/webhooks)和[检查 API](/rest/reference/checks)，可能需要先熟悉一下。 您将在 [REST API 文档](/rest)中找到更多 API。 检查 API 也可用于 [GraphQL](/graphql)，但本快速入门指南侧重于 REST。 更多信息请参阅 GraphQL [检查套件](/graphql/reference/objects#checksuite)和[检查运行](/graphql/reference/objects#checkrun)对象。
 
 您将使用 [Ruby 编程语言](https://www.ruby-lang.org/en/)、[Smee](https://smee.io/) web 挂钩有效负载交付服务、用于 GitHub REST API 的 [Octokit.rb Ruby 库](http://octokit.github.io/octokit.rb/)以及 [Sinatra web 框架](http://sinatrarb.com/)来创建检查 API CI 服务器应用程序。
 
@@ -203,7 +205,7 @@ $ ruby template_server.rb
 
 ### 步骤 1.4. 更新检查运行
 
-当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. 该事件是您开始运行检查的信号。
+当 `create_check_run` 方法运行时，它会要求 GitHub 创建新的检查运行。 当 GitHub 完成创建检查运行时，您将收到带有 `created` 操作的 `check_run` web 挂钩事件。 该事件是您开始运行检查的信号。
 
 您需要更新事件处理程序以查找 `created` 操作。 在更新事件处理程序时，可以为 `rerequested` 操作添加条件。 当某人通过单击“Re-run（重新运行）”按钮在 GitHub 上重新运行单个测试时，GitHub 将 `rerequested` 检查运行事件发送到您的应用程序。 当检查运行为 `rerequested` 时，您需要启动整个进程并创建新的检查运行。
 
@@ -721,7 +723,7 @@ RuboCop 工具[提供](https://docs.rubocop.org/rubocop/usage/basic_usage.html#a
 
 要推送到仓库，您的应用程序必须具备“仓库内容”的写入权限。 您在[步骤 2.2 中重新设置了该权限。 将仓库克隆](#step-22-cloning-the-repository)为**Read & write（读取和写入）**，现在所有设置就绪。
 
-要提交文件，Git 必须知道哪些[用户名](/articles/setting-your-username-in-git/)和[电子邮件](/articles/setting-your-commit-email-address-in-git/)与提交关联。 在 `.env` 文件中再添加两个变量，以存储名称 (`GITHUB_APP_USER_NAME`) 和电子邮件 (`GITHUB_APP_USER_EMAIL`) 设置。 您的名称可以是应用程序名称，电子邮件可以是您在本例中想使用的任何电子邮件地址。 例如：
+要提交文件，Git 必须知道哪些[用户名](/github/getting-started-with-github/setting-your-username-in-git/)和[电子邮件](/articles/setting-your-commit-email-address-in-git/)与提交关联。 在 `.env` 文件中再添加两个变量，以存储名称 (`GITHUB_APP_USER_NAME`) 和电子邮件 (`GITHUB_APP_USER_EMAIL`) 设置。 您的名称可以是应用程序名称，电子邮件可以是您在本例中想使用的任何电子邮件地址。 例如：
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
@@ -842,7 +844,7 @@ end
     **答：**如果您看到以下错误，则说明您没有在 `initiate_check_run` 和/或 `take_requested_action` 方法中删除仓库的检出：
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     将您的代码与 `server.rb` 文件进行比较，以确保您的 `initiate_check_run` 和 `take_requested_action` 方法中具有相同的代码。

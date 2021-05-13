@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zu „Enterprise“ (Unternehmens)-Konten
@@ -16,7 +18,7 @@ versions:
 Mit einem Unternehmens-Konto kannst Du mehrere {% data variables.product.prodname_dotcom %}-Organisationen und {% data variables.product.prodname_ghe_server %}-Instanzen verwalten. Ihr Enterprise-Konto benötigt einen Handle, beispielsweise eine Organisation oder ein persönliches Konto auf {% data variables.product.prodname_dotcom %}. Enterprise-Administratoren können Einstellungen und Voreinstellungen verwalten, darunter folgende:
 
 - Mitgliederzugang und -verwaltung (Organisationsmitglieder, externe Mitarbeiter)
-- Abrechnung und Nutzung ({% data variables.product.prodname_ghe_server %}-Instanzen, Benutzerlizenzen, {% data variables.large_files.product_name_short %}-Pakete)
+- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}, {% data variables.product.prodname_GH_advanced_security %} usage{% endif %})
 - Sicherheit (Single-Sign-On, Zwei-Faktor-Authentifizierung)
 - Anfragen und Unterstützen von Bundle-Sharing mit {% data variables.contact.enterprise_support %}
 

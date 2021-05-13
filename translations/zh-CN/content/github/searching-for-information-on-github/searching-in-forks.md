@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 要在[仓库搜索](/articles/searching-for-repositories)结果中显示复刻，请将 `fork:true` 或 `fork:only` 添加到查询。

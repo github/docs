@@ -4,6 +4,9 @@ intro: 'Documentación de referencia para la construcción de acciones, la creac
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+redirect_from:
+  - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 ---
 
 {% data reusables.actions.enterprise-beta %}

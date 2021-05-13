@@ -1,10 +1,12 @@
 ---
-title: '「Available for hire」チェックボックスは何をするのか？'
+title: 「Available for hire」チェックボックスは何をするのか？
 intro: '[**Available for hire**] を使って、GitHub の GitHub Jobs ポストを表示します。'
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 [GitHub Jobs](https://jobs.github.com/) ボードは、テック業界の仕事を探す優れた方法です。 GitHub ダッシュボードにポストされた仕事を見るために選択できます。

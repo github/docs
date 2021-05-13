@@ -1,7 +1,7 @@
 ---
 title: GitHub 隐私声明
 redirect_from:
-  - /隐私/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 生效日期：2020 年 12 月 19 日
@@ -94,7 +97,7 @@ GitHub 可能会从第三方收集用户个人信息。 例如，如果您报名
 
 ### GitHub 如何使用您的信息
 
-- 我们可能将您的信息用于以下目的：
+我们可能将您的信息用于以下目的：
 - 我们使用您的[注册信息](#registration-information)创建您的帐户并为您提供服务。
 - 我们使用您的[付款信息](#payment-information)为您提供付费帐户服务、Marketplace 服务、赞助计划或您要求的任何其他 GitHub 付费服务。
 - 我们使用您的用户个人信息，特别是您的用户名，在 GitHub 上识别您的身份。
@@ -189,7 +192,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 #### 组织
 
-您可以通过在 GitHub 上的操作来表明您愿意分享自己的用户个人信息。 如果您与组织协作或成为组织成员，则其帐户所有者可能会收到您的用户个人信息。 当您接受组织邀请时，您将被告知所有者可以看到的信息类型（更多信息请参阅[关于组织成员](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)）。 如果您接受含有[验证域](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)的组织的邀请，则该组织的所有者将能够在该组织的验证域中查看您的完整电子邮件地址。
+您可以通过在 GitHub 上的操作来表明您愿意分享自己的用户个人信息。 如果您与组织协作或成为组织成员，则其帐户所有者可能会收到您的用户个人信息。 当您接受组织邀请时，您将被告知所有者可以看到的信息类型（更多信息请参阅[关于组织成员](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)）。 如果您接受含有[验证域](/organizations/managing-organization-settings/verifying-your-organizations-domain)的组织的邀请，则该组织的所有者将能够在该组织的验证域中查看您的完整电子邮件地址。
 
 请注意，GitHub 可能会将您的用户名、[使用信息](#usage-information)和[设备信息](#device-information)分享给您所属组织的所有者，但提供这些用户个人信息的目的仅限于调查或响应可能影响或损害该特定组织安全性的安全事件。
 
@@ -318,7 +321,7 @@ GitHub 处理美国境内外的个人信息，并依靠标准合同条款作为�
 
 ### 隐私声明的变更
 
-GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 对于本隐私声明的其他更改，我们建议用户[关注](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)或经常查看我们的网站政策仓库。
+GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 对于本隐私声明的其他更改，我们建议用户[关注](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)或经常查看我们的网站政策仓库。
 
 ### 许可
 

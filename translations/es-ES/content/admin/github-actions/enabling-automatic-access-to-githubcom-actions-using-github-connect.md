@@ -1,11 +1,14 @@
 ---
 title: Habilitar el acceso automático a las acciones de GitHub.com utilizando GitHub Connect
 intro: 'Para permitir que {% data variables.product.prodname_actions %} utilice acciones de {% data variables.product.prodname_dotcom_the_website %} en tu instancia empresarial, puedes conectar a{% data variables.product.product_location_enterprise %} con {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Los administradores de sitio para {% data variables.product.prodname_ghe_server %} que sean también propietarios de la cuenta organizacional o empresarial de {% data variables.product.prodname_ghe_cloud %} conectada pueden habilitar el acceso a todas las acciones de {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}

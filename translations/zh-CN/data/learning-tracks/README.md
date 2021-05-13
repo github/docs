@@ -1,3 +1,3 @@
-# Learning Tracks (aka Learning Paths)
+# 学习轨迹（又名学习路径）
 
-Learning tracks are a collection of articles that help you master a particular subject. Learning tracks are defined on a per-product basis.
+学习轨迹是一系列帮助您掌握特定主题的文章。 学习轨迹按每个产品定义。

@@ -10,9 +10,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
@@ -56,8 +58,10 @@ gem.metadata = { "github_repo" => "ssh://github.com/OWNER/REPOSITORY" }
 gemをインストールするには、プロジェクトの*~/.gemrc*ファイルを編集し、`https://USERNAME:TOKEN@{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER/`を含めることによって{% data variables.product.prodname_registry %}の認証を受けなければなりません。 以下のように置き換えてください。
   - `USERNAME`を{% data variables.product.prodname_dotcom %}のユーザ名で。
   - `TOKEN`を個人アクセストークンで。
-  - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+  - `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザまたはOrganizationアカウント名で。{% if enterpriseServerVersions contains currentVersion %}
   - `REGISTRY-URL` をインスタンスの Rubygems レジストリの URL で。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。
+{% elsif currentVersion == "github-ae@latest" %}
+  - `REGISTRY-URL` をインスタンスの Rubygems レジストリである `rubygems.HOSTNAME` のURL で。 *HOSTNAME* を {% data variables.product.product_location %} のホスト名で。
 {% endif %}
 
 *~/.gemrc*ファイルがないなら、以下の例を使って新しい*~/.gemrc*ファイルを作成してください。
@@ -74,7 +78,7 @@ gemをインストールするには、プロジェクトの*~/.gemrc*ファイ�
 
 ```
 
-To authenticate with Bundler, configure Bundler to use your personal access token, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% endif %}
+Bundlerで認証を受けるには、個人アクセストークンを使うようにBundlerを設定してください。 *USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*OWNER*をプロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で置き換えます。{% if enterpriseServerVersions contains currentVersion %}}`REGISTRY-URL` をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif currentVersion == "github-ae@latest" %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
 
 ```shell
 $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
@@ -95,7 +99,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
   ```shell
   gem build OCTO-GEM.gemspec
   ```
-3. Publish a package to {% data variables.product.prodname_registry %}, replacing `OWNER` with the name of the user or organization account that owns the repository containing your project and `OCTO-GEM` with the name of your gem package.{% if enterpriseServerVersions contains currentVersion %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% endif %}
+3. {% data variables.product.prodname_registry %}にパッケージを公開してください。 `OWNER`をプロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で、`OCTO-GEM`をgemパッケージ名で置き換えます。{% if enterpriseServerVersions contains currentVersion %}`REGISTRY-URL` をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、*HOSTNAME* を{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif currentVersion == "github-ae@latest" %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
 
   ```shell
   $ gem push --key github \
@@ -105,7 +109,7 @@ $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygem
 
 ### 同じリポジトリへの複数パッケージの公開
 
-複数のgemを同じリポジトリに公開したい場合は、{% data variables.product.prodname_dotcom %}リポジトリの`gem.metadata`にある`github_repo`フィールドに、URL を記述できます。 If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% if enterpriseServerVersions contains currentVersion %} Replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+複数のgemを同じリポジトリに公開したい場合は、{% data variables.product.prodname_dotcom %}リポジトリの`gem.metadata`にある`github_repo`フィールドに、URL を記述できます。 このフィールドを含めた場合、{% data variables.product.prodname_dotcom %} は、gem 名の代わりに、この値を元にしてリポジトリを照合します。{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}*HOSTNAME*を、{% data variables.product.product_location %} のホスト名に置き換えます。{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
@@ -116,7 +120,7 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 {% data variables.product.prodname_registry %}からのgemsは、*rubygems.org*からのgemsを使うのと同じように利用できます。 {% data variables.product.prodname_dotcom %}ユーザあるいはOrganizationをソースとして*~/.gemrc*ファイルに追加するか、Bundlerを使い、*Gemfile*を編集することで、{% data variables.product.prodname_registry %}の認証を受けなければなりません。
 
 {% data reusables.package_registry.authenticate-step %}
-2. Bundlerについては、{% data variables.product.prodname_dotcom %}ユーザもしくはOrganizationをソースとして*Gemfile*に追加して、この新しいソースからgemsをフェッチするようにしてください。 For example, you can add a new `source` block to your *Gemfile* that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing *GEM NAME* with the package you want to install from {% data variables.product.prodname_registry %} and *OWNER* with the user or organization that owns the repository containing the gem you want to install.{% if enterpriseServerVersions contains currentVersion %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% endif %}
+1. Bundlerについては、{% data variables.product.prodname_dotcom %}ユーザもしくはOrganizationをソースとして*Gemfile*に追加して、この新しいソースからgemsをフェッチするようにしてください。 たとえば、指定したパッケージに対してのみ{% data variables.product.prodname_registry %}を使用する*Gemfile*に新しい`source`ブロックを追加できます。*GEM NAME*を {% data variables.product.prodname_registry %}からインストールするパッケージで、*OWNER*をインストールしたいgemを含むリポジトリを所有するユーザまたはOrganizationで置き換えてください。{% if enterpriseServerVersions contains currentVersion %}`REGISTRY-URL`をインスタンスのRubygemsレジストリのURLで置き換えてください。 インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、*HOSTNAME* を{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% elsif currentVersion == "github-ae@latest" %}`REGISTRY-URL` を、インスタンスの Rubygems レジストリの URL である `rubygems.HOSTNAME` に置き換えてください。 *HOSTNAME* を、{% data variables.product.product_location %} のホスト名に置き換えてください。{% endif %}
 
   ```ruby
   source "https://rubygems.org"
@@ -145,4 +149,4 @@ gem.metadata = { "github_repo" => "ssh://{% if currentVersion == "free-pro-team@
 
 ### 参考リンク
 
-- [パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package/)
+- 「{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」

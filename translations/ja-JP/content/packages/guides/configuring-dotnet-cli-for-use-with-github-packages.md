@@ -11,9 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
@@ -30,10 +32,10 @@ versions:
 以下のように置き換えてください。
 - `USERNAME`を{% data variables.product.prodname_dotcom %}上のユーザアカウント名で。
 - `TOKEN`を個人アクセストークンで。
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
-- `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。
+- `OWNER` を、プロジェクトを含むリポジトリを所有しているユーザまたはOrganizationアカウント名で。{%if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- `HOSTNAME` を、{% data variables.product.product_location %}インスタンスのホスト名で。{% endif %}
 
-パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
+{%if enterpriseServerVersions contains currentVersion %} インスタンスで Subdomain Isolation を有効化している場合:
 {% endif %}
 
 ```xml
@@ -79,12 +81,13 @@ versions:
 
 ### パッケージを公開する
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+*nuget.config*ファイルにより認証する{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest"%か、{% data variables.product.prodname_dotcom %}個人アクセストークン (PAT) で`--api-key`コマンドラインオプションを使用する
+{% endif %}ことにより、パッケージを{% data variables.product.prodname_registry %}に公開できます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### Publishing a package using a GitHub PAT as your API key
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+#### GitHub PATをAPIキーとして使用してパッケージを公開する
 
-If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+{% data variables.product.prodname_dotcom %}アカウントで使用するPATをまだ持っていない場合は、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 1. 新しいプロジェクトを作成してください。
   ```shell
@@ -95,7 +98,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
   dotnet pack --configuration Release
   ```
 
-3. Publish the package using your PAT as the API key.
+3. PATをAPIキーとして使用して、パッケージを公開します。
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
   ```
@@ -104,9 +107,9 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 {% endif %}
 
-#### Publishing a package using a *nuget.config* file
+#### *nuget.config*ファイルを使用してパッケージを公開する
 
-公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 パッケージの作成に関する詳しい情報については、Microsoftのドキュメンテーション中の「[クイック スタート: パッケージの作成と公開 (dotnet CLI)](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)」を参照してください。
 
 {% data reusables.package_registry.authenticate-step %}
 2. 新しいプロジェクトを作成してください。
@@ -116,8 +119,8 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 3. プロジェクト固有の情報をプロジェクトファイルに追加してください。プロジェクトファイルは*.csproj*で終わります。  以下のように置き換えてください。
     - `OWNER`を、プロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で。
     - `REPOSITORY`を、公開したいパッケージを含むリポジトリの名前で。
-    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
-    - `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。{% endif %}
+    - `1.0.0`を、パッケージのバージョン番号で。{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+    - `HOSTNAME` を、{% data variables.product.product_location %}インスタンスのホスト名で。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -188,7 +191,7 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 ### パッケージをインストールする
 
-プロジェクトで{% data variables.product.prodname_dotcom %}からパッケージを利用するのは、*nuget.org*からパッケージを使用するのに似ています。 パッケージの依存関係を*.csproj*ファイルに追加し、パッケージ名とバージョンを指定してください。 For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+プロジェクトで{% data variables.product.prodname_dotcom %}からパッケージを利用するのは、*nuget.org*からパッケージを使用するのに似ています。 パッケージの依存関係を*.csproj*ファイルに追加し、パッケージ名とバージョンを指定してください。 プロジェクトでの*.csproj*ファイルの利用に関する詳しい情報については、Microsoftのドキュメンテーションの「[パッケージ利用のワークフロー](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)」を参照してください。
 
 {% data reusables.package_registry.authenticate-step %}
 
@@ -221,4 +224,4 @@ If you don't already have a PAT to use for your {% data variables.product.prodna
 
 ### 参考リンク
 
-- [パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package/)
+- 「{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[パッケージを削除および復元する](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif currentVersion ver_lt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %}[パッケージを削除する](/packages/learn-github-packages/deleting-a-package){% endif %}」

@@ -1,6 +1,6 @@
 ---
 title: リポジトリを複製する
-intro: 'フォークせずにリポジトリを複製するため、特別なクローンコマンドを実行して、新しいリポジトリにミラープッシュすることができます。'
+intro: フォークせずにリポジトリを複製するため、特別なクローンコマンドを実行して、新しいリポジトリにミラープッシュすることができます。
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 リポジトリを複製してリポジトリの新しいコピー、つまり_ミラー_にプッシュできるようにするには、その前に {% data variables.product.product_location %} に[新しいリポジトリを作成](/articles/creating-a-new-repository)する必要があります。 以下の例では、`exampleuser/new-repository` および `exampleuser/mirrored` がミラーです。
@@ -21,13 +23,13 @@ versions:
   ```
 3. 新しいリポジトリをミラープッシュします。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### {% data variables.large_files.product_name_long %} オブジェクトを含むリポジトリをミラーする
@@ -39,7 +41,7 @@ versions:
   ```
 3. クローンしたリポジトリに移動します。
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. リポジトリの {% data variables.large_files.product_name_long %} オブジェクトをプルします。
   ```shell
@@ -56,7 +58,7 @@ versions:
 7. 先ほど作成した一時ローカルリポジトリを削除します。
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### 別の場所にあるリポジトリをミラーする
@@ -70,7 +72,7 @@ versions:
   ```
 3. プッシュの場所をミラーに設定します。
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 

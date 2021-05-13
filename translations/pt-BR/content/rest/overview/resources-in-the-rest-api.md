@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -36,7 +38,6 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
@@ -158,7 +159,7 @@ Neste exemplo, os valores 'vmg' e 'redcarpet' são fornecidos para os parâmetro
 Para solicitações de `POST`, `PATCH`, `PUT`e `EXCLUIR`, os parâmetros não incluídos na URL devem ser codificados como JSON com um Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Ponto de extremidade raiz
@@ -321,6 +322,8 @@ Para usuários que pertencem a uma conta {% data variables.product.prodname_ghe_
 
 {% endif %}
 
+Ao usar o `GITHUB_TOKEN` embutido no GitHub Actions, o limite de taxa será de 1.000 solicitações por hora por repositório. Para organizações que pertencem a uma conta no GitHub Enterprise Cloud, este limite é de 15.000 solicitações por hora por repositório.
+
 Para solicitações não autenticadas, o limite de taxa permite até 60 solicitações por hora. Solicitações não autenticadas estão associadas ao endereço IP original, e não ao usuário que faz solicitações.
 
 {% data reusables.enterprise.rate_limit %}
@@ -333,7 +336,6 @@ Os cabeçalhos HTTP retornados de qualquer solicitação de API mostram o seu st
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -357,7 +359,6 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 ```shell
 > HTTP/1.1 403 Forbidden
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
@@ -378,7 +379,6 @@ Se o seu aplicativo OAuth precisar fazer chamadas não autenticadas com um limit
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -460,7 +460,6 @@ $ curl -I {% data variables.product.api_url_pre %}/user
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -471,7 +470,6 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -481,7 +479,6 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996

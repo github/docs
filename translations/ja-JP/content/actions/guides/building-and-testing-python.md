@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - CI
@@ -15,12 +16,15 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
 このガイドは、Pythonパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、Python及びPyPyを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% if currentVersion == "github-ae@latest" %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、Python および PyPy などのソフトウェアがプリインストールされたツールキャッシュがあります。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% endif %}
 
 ### 必要な環境
 
@@ -35,7 +39,7 @@ Python、PyPy、pipの基本的な理解をしておくことをおすすめし�
 
 ### Pythonワークフローテンプレートでの開始
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については[Pythonのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については、「[Python のワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)」を参照してください。
 
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
@@ -234,7 +238,7 @@ steps:
 
 {% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してpipの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
-ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については[Pythonのキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)を参照してください。
+ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については、「[Python のキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)」を参照してください。
 
 {% raw %}
 ```yaml{:copy}
@@ -428,4 +432,4 @@ jobs:
 ```
 {% endraw %}
 
-テンプレートワークフローに関する詳しい情報については[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)を参照してください。
+テンプレートワークフローに関する詳しい情報については、「[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)」を参照してください。

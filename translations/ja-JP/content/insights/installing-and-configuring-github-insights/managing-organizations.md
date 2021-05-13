@@ -4,7 +4,7 @@ intro: 'メトリクスに含まれる{% data variables.product.prodname_enterpr
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
-permissions: '{% data variables.product.prodname_insights %}の管理権限を持つ人は、Organizationを管理できます。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'
 versions:
   enterprise-server: '*'
 ---

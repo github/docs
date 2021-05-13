@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -26,8 +29,21 @@ A ferramenta `actions-sync` só pode fazer download de ações de {% data variab
 
 ### Pré-requisitos
 
-* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino já existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. Para obter mais informações, consulte "[Criar uma nova organização do zero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)".
+* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino já existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. Para obter mais informações, consulte "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 * Você deve criar um token de acesso pessoal (PAT) na instância corporativa que pode criar e gravar em repositórios nas organizações de destino. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+* If you want to sync the bundled actions in the `actions` organization on {% data variables.product.product_location %}, you must be an owner of the `actions` organization.
+
+  {% note %}
+
+  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
+
+  {% endnote %}
+
+  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+
+  ```shell
+  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ```
 
 ### Exemplo: Usando a ferramenta de `actions-sync`
 
@@ -35,7 +51,7 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
 
 {% note %}
 
-**Observação:** Este exemplo usa o comando `actions-sync`, que exige acesso simultâneo à API do {% data variables.product.prodname_dotcom_the_website %} e à API da instância do {% data variables.product.prodname_ghe_server %} a partir da sua máquina. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
+**Observação:** Este exemplo usa o comando `actions-sync`, que exige acesso simultâneo à API do {% data variables.product.prodname_dotcom_the_website %} e à API da instância do {% data variables.product.prodname_ghe_server %} a partir da sua máquina. Se você só puder acessar um sistema de cada vez, pode usar os comandos `actions-sync pull` e `push`. Para obter mais informações, consulte o README de [`actions-sync`](https://github.com/actions/actions-sync#not-connected-instances).
 
 {% endnote %}
 
@@ -60,7 +76,7 @@ Este exemplo demonstra o uso da ferramenta de `actions-sync` para sincronizar um
 
      * O exemplo acima sincroniza o repositório [`docker/build-push-action`](https://github.com/docker/build-push-action) com o repositório `synced-actions/docker-build-push-action` na instância de destino de {% data variables.product.prodname_ghe_server %}. Você deve criar a organização denominada `synced-actions` na instância da empresa antes de executar o comando acima.
      * Se você omitir `:destination_owner/destination_repository`, a ferramenta usará o proprietário original e o nome do repositório para a instância corporativa. Antes de executar o comando, você deve criar uma nova organização na sua instância que corresponde ao nome do proprietário da ação. Considere usar uma organização central para armazenar as ações sincronizadas na sua instância, já que isso significa que você não precisará criar várias novas organizações se sincronizar ações de diferentes proprietários.
-     * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o LEIAME de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
+     * Você pode sincronizar várias ações substituindo o parâmetro `--repo-name` por `--repo-name-list` ou `--repo-name-list-file`. Para obter mais informações, consulte o README de [`actions-sync`](https://github.com/actions/actions-sync#actions-sync).
 1. Depois que o repositório de ação é criada na instância corporativa, as pessoas da sua empresa podem usar o repositório de destino para fazer referência à ação nos fluxos de trabalho. Para o exemplo da ação mostrado acima:
 
    ```yaml

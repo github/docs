@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 集群架构

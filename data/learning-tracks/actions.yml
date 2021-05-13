@@ -7,6 +7,7 @@ getting_started:
     - /actions/learn-github-actions/essential-features-of-github-actions
     - /actions/learn-github-actions/managing-complex-workflows
     - /actions/learn-github-actions/security-hardening-for-github-actions
+  featured_track: true
 continuous_integration:
   title: 'Build and test code'
   description: 'You can create custom continuous integration (CI) workflows right in your repository.'

@@ -1,7 +1,7 @@
 ---
 title: Integra a GitHub Classroom con un IDE en línea
 shortTitle: Integrar con un IDE en línea
-intro: Puedes preconfigurar un ambiente de desarrollo integrado (IDE) en línea para las tareas que crees en {% data variables.product.prodname_classroom %}.
+intro: 'Puedes preconfigurar un ambiente de desarrollo integrado (IDE) en línea para las tareas que crees en {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

@@ -21,6 +21,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
+topics:
+  - Repositories
 ---
 
 ### About branch protection rules

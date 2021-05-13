@@ -9,10 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于 `GITHUB_TOKEN` 密码
 
@@ -38,7 +40,7 @@ versions:
   ```yaml
   name: Pull request labeler
   on:
-  - pull_request
+  - pull_request_target
   jobs:
     triage:
       runs-on: ubuntu-latest
@@ -71,7 +73,8 @@ versions:
           --data '{
             "title": "Automated issue for commit: ${{ github.sha }}",
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n 提交哈希是： _${{ github.sha }}_"
-            }'
+            }' \
+          --fail
   ```
   {% endraw %}
 
@@ -91,6 +94,8 @@ versions:
 | 拉取请求 | 读/写  | 读取        |
 | 仓库项目 | 读/写  | 读取        |
 | 状态   | 读/写  | 读取        |
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 如果您需要的令牌需要 `GITHUB_TOKEN` 中未提供的权限，您可以创建个人访问令牌并将其设置为仓库中的密码：
 

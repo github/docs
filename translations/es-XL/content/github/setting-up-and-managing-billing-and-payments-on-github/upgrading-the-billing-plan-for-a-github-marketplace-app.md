@@ -7,6 +7,8 @@ redirect_from:
   - /articles/upgrading-the-billing-plan-for-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Cuando subes de categoría una app, a tu método de pago se le cobra un monto prorrateado en función del tiempo restante hasta tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

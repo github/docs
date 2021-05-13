@@ -33,7 +33,7 @@ Crea un token de acceso personal en tu página de configuración de la aplicaci�
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Para evadir estos mensajes, puedes utilizar el almacenamiento de contraseñas en caché de Git. Para obtener más información, consulta la sección "[Almacenar tus credenciales de GitHub en caché dentro de Git](/github/using-git/caching-your-github-credentials-in-git)".
+Para evadir estos mensajes, puedes utilizar el almacenamiento de contraseñas en caché de Git. Para obtener más información, consulta la sección "[Almacenar tus credenciales de GitHub en caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
 {% warning %}
 

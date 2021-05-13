@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os proprietários da organização podem gerenciar as etiquetas padrão para repositórios na organização.

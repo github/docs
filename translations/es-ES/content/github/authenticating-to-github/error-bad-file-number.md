@@ -1,12 +1,14 @@
 ---
 title: 'Error: Número de archivo erróneo'
-intro: Este error, por lo general, significa que no has podido conectarte al servidor. A menudo es causado por los firewalls y los servidores proxy.
+intro: 'Este error, por lo general, significa que no has podido conectarte al servidor. A menudo es causado por los firewalls y los servidores proxy.'
 redirect_from:
   - /articles/error-bad-file-number
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Cuando ejecutes comandos Git remotos o SSH, tu conexión puede quedar inactiva:
@@ -24,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### Usa HTTPS
 
-A menudo la solución más sencilla es simplemente evitar por completo el SSH. La mayoría de los firewalls y los proxys permiten el tráfico de HTTPS sin problemas. Para aprovechar esto, cambia [la URL remota](/articles/which-remote-url-should-i-use) que estás usando:
+A menudo la solución más sencilla es simplemente evitar por completo el SSH. La mayoría de los firewalls y los proxys permiten el tráfico de HTTPS sin problemas. Para aprovechar esto, cambia [la URL remota](/github/getting-started-with-github/about-remote-repositories) que estás usando:
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

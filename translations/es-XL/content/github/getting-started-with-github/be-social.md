@@ -7,6 +7,13 @@ intro: 'Puedes interactuar con personas, repositorios y organizaciones en {% dat
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Profile
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".

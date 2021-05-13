@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 
@@ -25,5 +27,6 @@ versions:
 {% topic_link_in_list /understanding-connections-between-repositories %}
     {% link_in_list /viewing-a-repositorys-network %}
     {% link_in_list /listing-the-forks-of-a-repository %}
-    {% link_in_list /about-the-dependency-graph %}
-    {% link_in_list /exploring-the-dependencies-of-a-repository %}
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}{% link_in_list /viewing-the-dependencies-of-a-repository %}{% endif %}
+    {% if currentVersion ver_lt "enterprise-server@3.0" %}{% link_in_list /about-the-dependency-graph %}
+    {% link_in_list /exploring-the-dependencies-of-a-repository %}{% endif %}

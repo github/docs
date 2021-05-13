@@ -13,6 +13,8 @@ redirect_from:
 intro: 'El acceso al SSH te permite ejecutar las utilidades de la línea de comando del {% data variables.product.prodname_ghe_server %} y es útil para la solución de problemas, para ejecutar copias de seguridad y para configurar la replicación.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca del acceso al shell administrativo

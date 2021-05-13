@@ -1,29 +1,31 @@
 ---
-title: High availability for GitHub Actions
-intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
+title: GitHub Actions 的高可用性
+intro: '在高可用性配置中管理 {% data variables.product.prodname_actions %} 有一些特殊注意事项。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
-### Replication or redundancy of your {% data variables.product.prodname_actions %} data
+### {% data variables.product.prodname_actions %} 数据的复制或冗余
 
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-We strongly recommend that you configure your {% data variables.product.prodname_actions %} external storage to use data redundancy or replication. For more information, refer to your storage provider's documentation:
+我们强烈建议您配置 {% data variables.product.prodname_actions %} 外部存储设备以使用数据冗余或复制功能。 更多信息请参阅存储提供商的文档。
 
-* [Azure Storage redundancy documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-* [Amazon S3 replication documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
+* [Azure 存储冗余文档](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+* [Amazon S3 复制文档](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
 
-### High availability replicas
+### 高可用性副本
 
-#### Promoting a replica
+#### 升级副本
 
-When enabling a high availability configuration, any replicas are automatically configured to use the {% data variables.product.prodname_actions %} external storage configuration. If you need to initiate a failover to promote a replica, no extra configuration changes are required for {% data variables.product.prodname_actions %}.
+启用高可用性配置时，任何副本都会自动配置为使用 {% data variables.product.prodname_actions %} 外部存储配置。 如果您需要启动故障转移来升级副本，则 {% data variables.product.prodname_actions %} 不需要额外的配置更改。
 
-For more information, see "[Initiating a failover to your replica appliance](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)."
+更多信息请参阅“[发起到副本设备的故障转移](/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance)”。
 
 #### 移除高可用性副本
 
-Avoid letting multiple instances to write to the same {% data variables.product.prodname_actions %} external storage. This could occur when using the `ghe-repl-teardown` command to stop and permanently remove a {% data variables.product.prodname_actions %}-enabled replica. This is because the replica will be converted into a standalone {% data variables.product.prodname_ghe_server %}, and after the teardown it will still use the same external storage configuration as the primary.
+避免让多个实例写入同一 {% data variables.product.prodname_actions %} 外部存储。 当使用 `ghe-rewardown` 命令停止并永久移除启用 {% data variables.product.prodname_actions %} 的副本时，可能会发生这种情况。 这是因为副本将转换为独立的 {% data variables.product.prodname_ghe_server %}，在拆解后仍将使用与原本相同的外部存储配置。
 
-To help avoid this issue, we recommend either decommissioning the replica server or updating its {% data variables.product.prodname_actions %} configuration with different external storage.
+为了帮助避免这个问题，我们建议停用副本服务器或使用不同的外部存储更新其 {% data variables.product.prodname_actions %} 配置。

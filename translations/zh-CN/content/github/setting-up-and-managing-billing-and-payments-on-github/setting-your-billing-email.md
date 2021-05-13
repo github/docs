@@ -9,6 +9,8 @@ redirect_from:
   - /articles/setting-your-billing-email
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 设置个人帐户的帐单邮箱

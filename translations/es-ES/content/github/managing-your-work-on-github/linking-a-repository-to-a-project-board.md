@@ -7,13 +7,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
-{% note %}
-
-**Nota:** Para poder vincular el repositorio a tu tablero de proyectos que pertenece a tu organización o usuario, el repositorio necesita que se le habiliten las propuestas. Para obtener información sobre cómo ver si las propuestas están inhabilitadas para un repositorio, consulta la sección "[Inhabilitar las propuestas](/github/managing-your-work-on-github/disabling-issues)".
-
-{% endnote %}
 
 Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar repositorios que sean propiedad de la cuenta de usuario u organización al mismo. Para obtener más información, consulta la sección "[Permisos para una organización sobre el tablero de proyecto](/articles/project-board-permissions-for-an-organization/)" o "[Niveles de permiso para tableros de proyecto propiedad de un usuario](/articles/permission-levels-for-user-owned-project-boards/)".
 
@@ -26,6 +23,12 @@ Cualquiera con permisos de escritura en un tablero de proyecto puede enlazar rep
 5. Haz clic en **Link a repository** (Vincular un repositorio). ![Botón Link a repository (Vincular un repositorio) en la pestaña Linked repositories (Repositorios vinculados)](/assets/images/help/projects/link-repository-button.png)
 6. Busca el repositorio que quieras vincular. ![Campo de búsqueda en la ventana Link a repository (Vincular un repositorio)](/assets/images/help/projects/search-to-link-repository.png)
 7. Da clic en **Enlace**. Para desvincular, haz clic en **Unlink** (Desvincular). ![Botón Link (Vincular)](/assets/images/help/projects/link-button.png)
+
+{% note %}
+
+**Nota:** Para poder vincular el repositorio a tu tablero de proyectos que pertenece a tu organización o usuario, el repositorio necesita que se le habiliten las propuestas. Es decir, el repositorio tiene una pestaña de "Propuestas" (en los repositorios bifurcados, las propuestas se inhabilitan predeterminadamente).  Para obtener más información sobre cómo habilitar o inhabilitar las propuestas en un repositorio, consulta la sección "[Inhabilitar las propuestas en un repositorio](/github/managing-your-work-on-github/disabling-issues)".
+
+{% endnote %}
 
 ### Leer más
 

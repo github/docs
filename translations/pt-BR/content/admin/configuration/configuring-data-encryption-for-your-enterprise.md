@@ -18,7 +18,7 @@ Proporcionar um alto nível de segurança {% data variables.product.product_name
 
 Para criptografia em trânsito, {% data variables.product.product_name %} usa o Transport Layer Security (TLS). Para criptografia em modo estático, {% data variables.product.product_name %} fornece uma chave RSA padrão. Depois de ter inicializado a sua empresa, você pode escolher fornecer a sua própria chave. A sua chave deve ser uma chave RSA privada de 2048 bits no formato PEM.
 
-A chave que você fornecer é armazenada em um módulo de segurança de hardware (HSM) em um cofre chave que {% data variables.product.company_short %} gerencia.
+A chave que você fornecer é armazenada em um módulo de segurança de hardware compatível com o FIPS 140-2 (HSM) em um cofre de chave que {% data variables.product.company_short %} gerencia.
 
 Para configurar sua chave de criptografia, use a API REST. Existem vários pontos de extremidade da API, por exemplo, para verificar o status da criptografia, atualizar sua chave de criptografia e desabilitar sua chave de criptografia. Observe que que desabilitar a sua chave irá congelar a sua empresa. Para obter mais informações sobre os pontos de extremidade da API, consulte "[Criptografia estática](/rest/reference/enterprise-admin#encryption-at-rest)" na documentação da API REST.
 

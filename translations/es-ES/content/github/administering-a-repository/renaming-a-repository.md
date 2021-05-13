@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Cuando cambias el nombre de un repositorio, toda la información existente, a excepción de las URL del sitio del proyecto, se redirige automáticamente al nuevo nombre, incluyendo:
@@ -16,7 +18,7 @@ Cuando cambias el nombre de un repositorio, toda la información existente, a ex
 * Estrellas
 * Seguidores
 
-Para obtener más información sobre los sitios del proyecto, consulta "[Acerca de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)"
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 Adicionalmente a redirigir el tráfico web, todas las operaciones de `git clone`, `git fetch`, o`git push` que apunten a la ubicación anterior seguirán funcionando como si se hubieran hecho en la nueva. Sin embargo, para evitar la confusión, recomendamos ampliamente actualizar cualquier clon local para que lleve a la URL del nuevo repositorio. Puedes hacer esto utilizando `git remote` en la línea de comandos:
 
@@ -24,11 +26,11 @@ Adicionalmente a redirigir el tráfico web, todas las operaciones de `git clone`
 $ git remote set-url origin <em>new_url</em>
 ```
 
-Para obtener más información, consulta "[Cambiar la URL de un remoto](/github/using-git/changing-a-remotes-url)."
+Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Si planeas renombrar un repositorio que tenga un sitio {% data variables.product.prodname_pages %}, recomendamos utilizar un dominio personalizado para el mismo. Esto garantiza que la URL del sitio no se vea impactada cuando se renombre el repositorio. Para obtener más información, consulta "[Acerca de los dominios personalizados y sitio de {% data variables.product.prodname_pages %} ](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
+Si planeas renombrar un repositorio que tenga un sitio {% data variables.product.prodname_pages %}, recomendamos utilizar un dominio personalizado para el mismo. Esto garantiza que la URL del sitio no se vea impactada cuando se renombre el repositorio. Para obtener más información, consulta "[Acerca de los dominios personalizados y sitio de {% data variables.product.prodname_pages %} ](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)."
 
 {% endif %}
 

@@ -1,22 +1,24 @@
 ---
-title: Backing up and restoring GitHub Enterprise Server with GitHub Actions enabled
-shortTitle: Backing up and restoring
-intro: '{% data variables.product.prodname_actions %} data on your external storage provider is not included in regular {% data variables.product.prodname_ghe_server %} backups, and must be backed up separately.'
+title: 在启用 GitHub Actions 的情况下备份和恢复 GitHub Enterprise Server
+shortTitle: 备份和恢复
+intro: '外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在常规 {% data variables.product.prodname_ghe_server %} 备份中，必须单独备份。'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}
 
-If you use {% data variables.product.prodname_enterprise_backup_utilities %} to back up {% data variables.product.product_location %}, it's important to note that {% data variables.product.prodname_actions %} data stored on your external storage provider is not included in the backup.
+如果您使用 {% data variables.product.prodname_enterprise_backup_utilities %} 来备份 {% data variables.product.product_location %}，请务必注意，存储在外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在备份中。
 
-This is an overview of the steps required to restore {% data variables.product.product_location %} with {% data variables.product.prodname_actions %} to a new appliance:
+以下是将带有 {% data variables.product.prodname_actions %} 的 {% data variables.product.product_location %} 恢复到新设备所需步骤的概述：
 
-1. Confirm that the original appliance is offline.
-1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} appliance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`.
-1. Configure the replacement appliance to use the same {% data variables.product.prodname_actions %} external storage configuration as the original appliance.
-1. Enable {% data variables.product.prodname_actions %} on the replacement appliance. This will connect the replacement appliance to the same  external storage for {% data variables.product.prodname_actions %}.
-1. After {% data variables.product.prodname_actions %} is configured with the external storage provider, use the `ghe-restore` command to restore the rest of the data from the backup. For more information, see "[Restoring a backup](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)."
-1. Re-register your self-hosted runners on the replacement appliance. For more information, see [Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners).
+1. 确认原始设备处于脱机状态。
+1. 在替换 {% data variables.product.prodname_ghe_server %} 设备上手动配置网络设置。 网络设置被排除在备份快照之外，不会被 `ghe-resturn` 覆盖。
+1. 配置替换设备以使用与原设备相同的 {% data variables.product.prodname_actions %} 外部存储配置。
+1. 在替换设备上启用 {% data variables.product.prodname_actions %}。 这将把替换设备连接到 {% data variables.product.prodname_actions %} 的相同外部存储。
+1. 在使用外部存储提供程序配置 {% data variables.product.prodname_actions %} 后，使用 `ghe-resting` 命令从备份中恢复其余数据。 更多信息请参阅“[恢复备份](/admin/configuration/configuring-backups-on-your-appliance#restoring-a-backup)”。
+1. 在替换设备上重新注册自托管运行器。 更多信息请参阅[添加自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)。
 
-For more information on backing up and restoring {% data variables.product.prodname_ghe_server %}, see "[Configuring backups on your appliance](/admin/configuration/configuring-backups-on-your-appliance)."
+有关备份和恢复 {% data variables.product.prodname_ghe_server %} 的更多信息，请参阅“[在设备上配置备份](/admin/configuration/configuring-backups-on-your-appliance)”。

@@ -11,6 +11,10 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 {% data reusables.user_settings.access_settings %}

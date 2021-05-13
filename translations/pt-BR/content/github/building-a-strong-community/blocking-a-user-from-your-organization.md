@@ -5,6 +5,8 @@ redirect_from:
   - /articles/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 Você pode bloquear um usuário nas configurações da organização ou em um comentário específico feito pelo usuário. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.

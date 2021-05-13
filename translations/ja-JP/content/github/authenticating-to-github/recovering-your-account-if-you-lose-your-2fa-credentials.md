@@ -1,6 +1,6 @@
 ---
 title: 2 要素認証クレデンシャルをなくした際のアカウントの回復
-intro: '2 要素認証の認証情報にアクセスできなくなった場合、リカバリコードまたはその他のリカバリ方法を使用して、アカウントへのアクセスを回復できます。'
+intro: 2 要素認証の認証情報にアクセスできなくなった場合、リカバリコードまたはその他のリカバリ方法を使用して、アカウントへのアクセスを回復できます。
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
   - /articles/authenticating-with-an-account-recovery-token/
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

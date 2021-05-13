@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的健康状态并了解何时向主机增加更多内存、存储空间或处理器能力。
@@ -59,7 +61,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 
 ##### 查询 SNMP 数据
 
-关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全等级缺乏加密和隐私，因此我们的结果 SNMP 报告中不包括 `hrSWRun` 表 (1.1.3.6.1.2.1.25.41)。 如果您使用的是 `authPriv` 安全等级，我们将包括此表。
+关于您的设备的硬件和软件级信息都适用于 SNMP v3。 由于 `noAuthNoPriv` 和 `authNoPriv` 安全等级缺乏加密和隐私，因此我们的结果 SNMP 报告中不包括 `hrSWRun` 表 (1.3.6.1.2.1.25.4.)。 如果您使用的是 `authPriv` 安全等级，我们将包括此表。 更多信息请参阅“[OID 参考文档](http://oidref.com/1.3.6.1.2.1.25.4)。
 
 如果使用 SNMP v2c，则仅会提供关于您的设备的硬件级信息。 {% data variables.product.prodname_enterprise %} 中的应用程序和服务未配置 OID 来报告指标。 有多个 MIB 可用，在网络中 SNMP 的支持下，在单独的工作站上运行 `smpwaste` 可以看到：
 
@@ -69,16 +71,16 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
 $ snmpwalk -v 2c -c <em>community-string</em> -O e <em>hostname</em>
 ```
 
-在 SNMP 的可用 MIB 中，最有用的是 `HOST-RESOURCES-MIB` (.1.3.6.1.2.1.25)。 请参见下表，了解此 MIB 中的一些重要对象：
+在 SNMP 的可用 MIB 中，最有用的是 `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25)。 请参见下表，了解此 MIB 中的一些重要对象：
 
-| 名称                         | OID                       | 描述                                           |
-| -------------------------- | ------------------------- | -------------------------------------------- |
-| hrSystemDate.2             | .1.3.6.1.2.1.25.1.2       | 本地日期和时间的主机标记。                                |
-| hrSystemUptime.0           | .1.3.6.1.2.1.25.1.1.0     | 自主机上次初始化以来的时间。                               |
-| hrMemorySize.0             | .1.3.6.1.2.1.25.2.2.0     | 主机上 RAM 的大小。                                 |
-| hrSystemProcesses.0        | .1.3.6.1.2.1.25.1.6.0     | 主机上当前加载或运行的进程上下文数。                           |
-| hrStorageUsed.1            | .1.3.6.1.2.1.25.2.3.1.6.1 | 主机上已占用的存储空间大小（单位为 hrStorageAllocationUnits）。 |
-| hrStorageAllocationUnits.1 | .1.3.6.1.2.1.25.2.3.1.4.1 | hrStorageAllocationUnit 的大小（单位为字节）           |
+| 名称                         | OID                      | 描述                                           |
+| -------------------------- | ------------------------ | -------------------------------------------- |
+| hrSystemDate.2             | 1.3.6.1.2.1.25.1.2       | 本地日期和时间的主机标记。                                |
+| hrSystemUptime.0           | 1.3.6.1.2.1.25.1.1.0     | 自主机上次初始化以来的时间。                               |
+| hrMemorySize.0             | 1.3.6.1.2.1.25.2.2.0     | 主机上 RAM 的大小。                                 |
+| hrSystemProcesses.0        | 1.3.6.1.2.1.25.1.6.0     | 主机上当前加载或运行的进程上下文数。                           |
+| hrStorageUsed.1            | 1.3.6.1.2.1.25.2.3.1.6.1 | 主机上已占用的存储空间大小（单位为 hrStorageAllocationUnits）。 |
+| hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | hrStorageAllocationUnit 的大小（单位为字节）           |
 
 例如，要通过 SNMP v3 查询 `hrMemorySize`，请在您的网络中支持 SNMP 的单独工作站上运行以下命令：
 ```shell
@@ -101,7 +103,7 @@ snmpget -v 2c -c <em>community-string</em> <em>hostname</em> HOST-RESOURCES-MIB:
 
 {% tip %}
 
-**注**：为避免泄漏关于设备上所运行服务的信息，我们会将 `hrSWRun` 表 (1.1.3.6.1.2.1.25.41) 从生成的 SNMP 报告中排除，除非您对 SNMP v3 使用的是 `authPriv` 安全级别。 如果您使用的安全级别为 `authPriv`，我们将包含 `hrSWRun` 表。
+**注**：为避免泄漏关于设备上所运行服务的信息，我们会将 `hrSWRun` 表 (1.3.6.1.2.1.25.4) 从生成的 SNMP 报告中排除，除非您对 SNMP v3 使用的是 `authPriv` 安全级别。 如果您使用的安全级别为 `authPriv`，我们将包含 `hrSWRun` 表。
 
 {% endtip %}
 

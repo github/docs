@@ -1,0 +1,1 @@
+1. 在页面右侧的“Select a tier（选择等级）”下，审查可用的赞助等级。 If more than one type of tier is available "Monthly" tiers are shown, click **One-time** to show the tiers for one-time payments. ![Show "One-time" tiers](/assets/images/help/sponsors/show-one-time-tiers.png)

@@ -4,5 +4,7 @@ intro: 'Du kannst Deine {% data variables.product.prodname_registry %}-Nutzung a
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 

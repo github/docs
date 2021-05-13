@@ -1,6 +1,6 @@
 ---
-title: Connecting an Azure subscription to your enterprise
-intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} usage beyond the included amounts for your enterprise.'
+title: Conectar una suscripción de Azure a tu empresa
+intro: 'Puedes utilizar tu Acuerdo de Microsoft Enterprise para habilitar y pagar por el uso de las {% data variables.product.prodname_actions %} y del {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen para tu empresa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -8,33 +8,33 @@ versions:
   free-pro-team: '*'
 ---
 
-### About Azure subscriptions and {% data variables.product.product_name %}
+### Acerca de las suscripciones a Azure y de {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} Para obtener más información, consulta las secciones "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)" y "[Acerca de la facturación para el {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)".
 
-After you connect an Azure subscription, you can also manage your spending limit. For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)" and "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+Una vez que conectes una suscripción de Azure, también podrás administrar tu límite de gastos. Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu cuenta, consulta las secciones "[Administrar tu límite de gastos para el {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)" y "[Administrar tu límite de gastos para las {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
 
-### Connecting your Azure subscription to your enterprise account
+### Conectar tu suscripción de Azure con tu cuenta empresarial
 
-To connect your Azure subscription, you must have owner permissions to the subscription.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Payment Information", click **Add Azure Subscription**.
-1. To sign in to your Microsoft account, follow the prompts.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
-1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
-1. Click **Connect**.
-
-### Disconnecting your Azure subscription from your enterprise account
-
-After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
+Para conectar tu suscripción de Azure, debes tener permisos de propietario para la suscripción.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
-1. Review the prompt, then click **Remove**.
+1. Debajo de "Información de Pago", da clic en **Agregar una suscripción de Azure**.
+1. Para iniciar sesión en tu cuenta de Microsoft, sigue las indicaciones.
+1. Revisa la indicación de "Permisos solicitados". Si estás de acuerdo con las condiciones, da clic en **Aceptar**.
+1. Debajo de "Selecciona una suscripción", selecciona la ID de Suscripción de Azure que quieras conectar a tu empresa.
+1. Da clic en **Conectar**.
+
+### Desconectar tu suscripción de Azure de tu cuenta empresarial
+
+Después de que desconectas tu suscripción de Azure de tu cuenta empresarial, tu uso ya no podrá exceder las cantidades que se incluyen en tu plan.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.enterprise-accounts.payment-information-tab %}
+1. Debajo de "Suscripción de Azure", a la derecha de la ID de suscripción que quieres desconectar, haz clic en **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
+1. Revisa el mensaje emergente y da clic en **Eliminar**.

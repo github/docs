@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,7 +54,7 @@ Os aplicativos GitHub usam [regras móveis para limites de taxa](/apps/building-
 
 #### Cadastre um novo aplicativo GitHub
 
-Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/building-github-apps/).
+Uma vez que você decidiu fazer a troca para os aplicativos GitHub, você precisará [criar um novo aplicativo GitHub](/apps/building-github-apps/).
 
 #### Determine as permissões de que seu aplicativo precisa
 
@@ -62,7 +64,7 @@ Nas configurações do seu aplicativo GitHub, você pode especificar se seu apli
 
 #### Assine os webhooks
 
-Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. See "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" to learn how to subscribe to webhooks.
+Após criar um novo aplicativo GitHub e selecionar suas permissões, você poderá selecionar os eventos do webhook que você deseja que ele assine. Consulte "[Editando as permissões do aplicativo GitHub](/apps/managing-github-apps/editing-a-github-app-s-permissions/)" para aprender como assinar webhooks.
 
 #### Entenda os diferentes métodos de autenticação
 

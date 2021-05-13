@@ -6,6 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
   github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 Team-Betreuer und Organisationsinhaber können Code-Review-Zuweisungen konfigurieren.

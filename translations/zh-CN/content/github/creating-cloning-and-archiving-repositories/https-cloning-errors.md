@@ -1,6 +1,6 @@
 ---
 title: HTTPS 克隆错误
-intro: '对 Git 使用 HTTPS 时有几种常见错误。 这些错误通常表示您有旧版 Git，或无法访问仓库。'
+intro: 对 Git 使用 HTTPS 时有几种常见错误。 这些错误通常表示您有旧版 Git，或无法访问仓库。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 下面是您可能收到的 HTTPS 错误示例：
@@ -71,10 +73,10 @@ $ git remote -v
 
 {% tip %}
 
-**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/using-git/caching-your-github-credentials-in-git)。 如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。 不正确或过期的凭据将导致身份验证失败。
+**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/getting-started-with-github/caching-your-github-credentials-in-git)。 如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。 不正确或过期的凭据将导致身份验证失败。
 
 {% endtip %}
 
 ### 改用 SSH
 
-如果您以前设置了 SSH 密钥，便可使用 SSH 克隆 URL，而不使用 HTTPS。  更多信息请参阅“[我应使用哪个远程 URL？](/articles/which-remote-url-should-i-use)”
+如果您以前设置了 SSH 密钥，便可使用 SSH 克隆 URL，而不使用 HTTPS。  更多信息请参阅“[关于远程仓库](/github/getting-started-with-github/about-remote-repositories)”。

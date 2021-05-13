@@ -1,7 +1,7 @@
 ---
 title: Administrar ejecuciones de flujo de trabajo
 shortTitle: Administrar ejecuciones de flujo de trabajo
-intro: 'Puedes ver el estado y resultados de cada paso en tu flujo de trabajo, cancelar un flujo de trabajo pendiente, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}revisar los despliegues, {% endif %}ver los minutos de ejecución facturables de los jobs, depurar y volver a ejecutar un flujo de trabajo fallido, buscar y descargar bitácoras, y descargar artefactos.'
+intro: 'Puedes ver el estado y resultados de cada paso de tu flujo de trabajo, cancelar un flujo de trabajo pendiente, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}revisar los despliegues, {% endif %}ver los minutos de ejecución de jobs que se van a facturar, depurar y volver a ejecutar un flujo de trabajo fallido, buscar y descargar las bitácoras y descargar artefactos.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows
@@ -13,12 +13,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
 {% link_in_list /viewing-workflow-run-history %}
 {% link_in_list /using-workflow-run-logs %}
 {% link_in_list /manually-running-a-workflow %}

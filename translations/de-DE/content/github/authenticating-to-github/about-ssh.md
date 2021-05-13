@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Wenn Sie die SSH einrichten, [generieren Sie einen SSH-Schlüssel und fügen ihn zu ssh-agent hinzu](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Dann [fügen Sie den Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account). Durch das Hinzufügen des SSH-Schlüssels zum SSH-Agenten wird sichergestellt, dass Dein SSH-Schlüssel durch die Verwendung einer Passphrase eine zusätzliche Sicherheitsebene hat. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/articles/working-with-ssh-key-passphrases).“

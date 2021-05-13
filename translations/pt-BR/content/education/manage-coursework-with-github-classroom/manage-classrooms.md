@@ -1,7 +1,7 @@
 ---
 title: Gerenciar salas de aula
-intro: Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.
-permissions: Os proprietários da organização podem gerenciar uma sala de aula para uma organização.
+intro: 'Você pode criar e gerenciar uma sala de aula para cada curso que você der usando {% data variables.product.prodname_classroom %}.'
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -20,7 +20,7 @@ redirect_from:
 
 Depois de criar uma sala de aula, {% data variables.product.prodname_classroom %} solicitará que você convide assistentes de ensino (ETI) e administradores para a sala de aula. Cada sala de aula pode ter um ou mais administradores. Os administradores podem ser professores, TAs ou qualquer outro administrador do curso o qual que você gostaria que tivesse controle das suas salas de aula em {% data variables.product.prodname_classroom %}.
 
-Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)" e "[Convidar usuários a participar da sua organização](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)".
+Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)" e "[Convidar usuários a participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consultar a sala de aula, lista, e recomendações posteriormente, ou você pode excluir a sala de aula se não precisar mais dela.
 
@@ -34,7 +34,7 @@ A primeira vez que você compartilha a URL de uma atividade com um estudante, o 
 
 ### Pré-requisitos
 
-Você precisa ter uma conta de organização em {% data variables.product.product_name %} para gerenciar as salas de aula em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" e "[Criar uma nova organização do zero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)".
+Você precisa ter uma conta de organização em {% data variables.product.product_name %} para gerenciar as salas de aula em {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Tipos de contas de {% data variables.product.company_short %}](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)" e "[Criar uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
 Você deve autorizar o aplicativo OAuth {% data variables.product.prodname_classroom %} para sua organização gerenciar salas de aula para sua conta da organização. Para obter mais informações, consulte "[Autorizar aplicativos OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
 

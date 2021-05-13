@@ -8,6 +8,9 @@ intro: 'Puedes visitar tu tablero personal para hacer un seguimiento de las prop
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### Acceder a tu tablero personal

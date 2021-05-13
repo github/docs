@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} Para obtener más información, consulta la sección "[Acerca de buscar en GitHub](/articles/about-searching-on-github)".

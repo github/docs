@@ -1,11 +1,13 @@
 ---
 title: Solução de problemas de verificações de status necessárias
-intro: 'Você pode verificar erros comuns e resolver problemas com as verificações de status necessárias.'
+intro: Você pode verificar erros comuns e resolver problemas com as verificações de status necessárias.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Se você tiver uma verificação e um status com o mesmo nome e selecionar esse nome como uma verificação de status obrigatória, a verificação e o status serão obrigatórios. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)".
@@ -14,7 +16,7 @@ Depois que você habilitar as verificações de status solicitadas, seu branch p
 
 {% note %}
 
-**Observação:** também é possível atualizar o seu branch com o branch base usando o rebase do Git. Para obter mais informações, consulte "[Rebase no Git](/github/using-git/about-git-rebase)".
+**Observação:** também é possível atualizar o seu branch com o branch base usando o rebase do Git. Para obter mais informações, consulte "[Rebase no Git](/github/getting-started-with-github/about-git-rebase)".
 
 {% endnote %}
 

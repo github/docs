@@ -1,12 +1,14 @@
 ---
 title: Fixar itens no seu perfil
-intro: 'Você pode fixar gists e repositórios no seu perfil para que outras pessoas possam ver seu melhor trabalho rapidamente.'
+intro: Você pode fixar gists e repositórios no seu perfil para que outras pessoas possam ver seu melhor trabalho rapidamente.
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Profiles
 ---
 
 É possível fixar um repositório público se você detém o repositório ou se fez contribuições ao repositório. Os commits em bifurcações não contam como contribuições e não é possível fixar uma bifurcação que não pertence a você. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

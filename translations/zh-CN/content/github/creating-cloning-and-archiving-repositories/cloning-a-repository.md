@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于克隆仓库
 
 您可以将仓库从 {% data variables.product.product_location %} 克隆到本地计算机，以便修复合并冲突、添加或删除文件以及推送较大的提交。 克隆仓库时，将仓库从 {% data variables.product.product_location %} 复制到本地计算机。
 
-克隆仓库将提取 {% data variables.product.product_location %} 在当时拥有的所有仓库数据的完整副本，包括项目每个文件和文件夹的所有版本。 您可以将更改推送到 {% data variables.product.product_location %} 上的远程仓库，或者从 {% data variables.product.product_location %} 拉取其他人的更改。 更多信息请参阅“[使用常见的 Git 命令](/github/using-git/using-common-git-commands)”。
+克隆仓库将提取 {% data variables.product.product_location %} 在当时拥有的所有仓库数据的完整副本，包括项目每个文件和文件夹的所有版本。 您可以将更改推送到 {% data variables.product.product_location %} 上的远程仓库，或者从 {% data variables.product.product_location %} 拉取其他人的更改。 更多信息请参阅“[使用 Git](/github/getting-started-with-github/using-git)”。
 
 您可以克隆自己的现有仓库或克隆其他人的现有仓库以参与项目。
 

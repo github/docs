@@ -1,6 +1,6 @@
 ---
 title: 管理企业的帐单
-intro: '您可以查看企业的帐单信息。'
+intro: 您可以查看企业的帐单信息。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,6 +9,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}

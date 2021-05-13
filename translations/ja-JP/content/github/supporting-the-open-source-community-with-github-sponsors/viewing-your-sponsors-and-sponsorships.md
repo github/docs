@@ -5,9 +5,11 @@ redirect_from:
   - /articles/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
-### About sponsors and sponsorships
+### スポンサーとスポンサーシップについて
 
 現在と過去のスポンサーシップについての分析、スポンサーから受領した支払い、キャンセルなどのイベント、スポンサーシップのスポンサー層の変更を表示できます。 新しいスポンサーシップ、スポンサーシップの変更、スポンサーシップのキャンセルといったアクティビティも確認できます。 アクティビティのリストは、日付でフィルタリングできます。 表示しているアカウントのスポンサーシップデータを CSV または JSON 形式でエクスポートすることもできます。
 
@@ -23,9 +25,9 @@ versions:
 
 ### スポンサーシップデータをエクスポートする
 
-You can export your sponsorship transactions by month. {% data variables.product.company_short %} will send you an email with transaction data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+スポンサーシップのトランザクションは 月単位でエクスポートできます。 {% data variables.product.company_short %} で、選択した月のスポンサーすべてのトランザクションデータがメールでエクスポートされます。 エクスポートが完了したら、別の月のデータをエクスポートできます。 スポンサードアカウントごとに、1 時間に 10 セットまでのデータをエクスポートできます。
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.activity-tab %}
-1. Click {% octicon "download" aria-label="The download icon" %} **Export**. ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
+1. {% octicon "download" aria-label="The download icon" %}[**Export**] をクリックします。 ![エクスポートボタン](/assets/images/help/sponsors/export-all.png)
 1. エクスポートしたいデータの時間枠と形式を選択し、[**Start export**] をクリックします。 ![データエクスポートのオプション](/assets/images/help/sponsors/export-your-sponsors.png)

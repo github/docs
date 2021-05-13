@@ -3,11 +3,10 @@ title: 对代码扫描的 SARIF 支持
 shortTitle: SARIF 支持
 intro: '要在 {% data variables.product.prodname_dotcom %} 上的仓库中显示第三方静态分析工具的结果，您需要将结果存储在 SARIF 文件中，以支持用于 {% data variables.product.prodname_code_scanning %} 的 SARIF 2.1.0 JSON 架构的特定子集。 如果使用默认 {% data variables.product.prodname_codeql %} 静态分析引擎，结果将自动显示于您在 {% data variables.product.prodname_dotcom %} 上的仓库中。'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -18,7 +17,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 要从第三方静态代码分析引擎上传 SARIF 文件，需确保上传的文件使用 SARIF 2.1.0 版本。 {% data variables.product.prodname_dotcom %} 将剖析 SARIF 文件，并在 {% data variables.product.prodname_code_scanning %} 过程中使用仓库中的结果显示警报。 更多信息请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)”。 有关 SARIF 2.1.0 JSON 架构的更多信息，请参阅 [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)。
 
-如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 更多信息请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”或“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”。
+如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)”或“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)”。
 
 {% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
@@ -32,7 +31,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 通过 {% data variables.product.prodname_codeql_workflow %} 或 {% data variables.product.prodname_codeql_runner %} 创建的 SARIF 文件包含指纹数据。 如果使用 `upload-sarif` 操作上传 SARIF 文件且此数据缺少，则 {% data variables.product.prodname_dotcom %} 会尝试从源文件填充 `partialFingerprints` 字段。 有关上传结果的更多信息，请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)”。
 
-如果您使用 `/code-scaning/sarifs` API 端点上传无指纹数据的 SARIF 文件，{% data variables.product.prodname_code_scanning %} 警报将被处理并显示，但用户可能会看到重复的警报。 为了避免看到重复的警报，您应该在上传 SARIF 文件之前计算指纹数据并填充 `partialFingerprints` 属性。 您可能发现 `upload-sarif` 操作的脚本使用一个有用的起点：https://github.com/github/codeql-action/blob/main/src/fingprints。 有关 API 的更多信息，请参阅“[上传 SARIF 文件](/rest/reference/code-scanning#upload-a-sarif-file)”。
+如果您使用 `/code-scaning/sarifs` API 端点上传无指纹数据的 SARIF 文件，{% data variables.product.prodname_code_scanning %} 警报将被处理并显示，但用户可能会看到重复的警报。 为了避免看到重复的警报，您应该在上传 SARIF 文件之前计算指纹数据并填充 `partialFingerprints` 属性。 您可能发现 `upload-sarif` 操作的脚本使用一个有用的起点：https://github.com/github/codeql-action/blob/main/src/fingprints。 有关 API 的更多信息，请参阅“[将分析作为 SARIF 数据上传](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)”。
 
 ### 验证 SARIF 文件
 

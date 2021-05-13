@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,16 +54,18 @@ Se redirigirá al creador de la app a una página de GitHub en donde encontrará
 
 ##### Parámetros del Manifiesto de la GitHub App
 
- | Nombre                | Type        | Descripción                                                                                                                                                                                                                                                     |
- | --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `name (nombre)`       | `secuencia` | El nombre dela GitHub App.                                                                                                                                                                                                                                      |
- | `url`                 | `secuencia` | **Requerido.** La página principal de tu GitHub App.                                                                                                                                                                                                            |
- | `hook_attributes`     | `objeto`    | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
- | `redirect_url`        | `secuencia` | La URL completa a la cual se redireccionará a la persona después de que instale la GitHub App.                                                                                                                                                                  |
- | `descripción`         | `secuencia` | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
- | `public`              | `boolean`   | Configúralo como `true` cuando tu GitHub App esté disponible al público o como `false` si solo puede acceder el propietario de la misma.                                                                                                                        |
- | `default_events`      | `arreglo`   | La lista de [eventos](/webhooks/event-payloads) a la cual se suscribe la GitHub App.                                                                                                                                                                            |
- | `default_permissions` | `objeto`    | El conjunto de [permisos](/rest/reference/permissions-required-for-github-apps) que requiere la GitHub App. El formato del objeto utiliza el nombre del permiso para la clave (por ejemplo, `issues`) y el tipo de acceso para el valor (por ejemplo, `write`). |
+ | Nombre                | Type                     | Descripción                                                                                                                                                                                                                                                     |
+ | --------------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name (nombre)`       | `secuencia`              | El nombre dela GitHub App.                                                                                                                                                                                                                                      |
+ | `url`                 | `secuencia`              | **Requerido.** La página principal de tu GitHub App.                                                                                                                                                                                                            |
+ | `hook_attributes`     | `objeto`                 | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
+ | `redirect_url`        | `secuencia`              | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `conjunto de secuencias` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
+ | `callback_url`        | `secuencia`              | A full URL to redirect to after someone authorizes an installation.{% endif %}
+ | `descripción`         | `secuencia`              | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
+ | `public`              | `boolean`                | Configúralo como `true` cuando tu GitHub App esté disponible al público o como `false` si solo puede acceder el propietario de la misma.                                                                                                                        |
+ | `default_events`      | `arreglo`                | La lista de [eventos](/webhooks/event-payloads) a la cual se suscribe la GitHub App.                                                                                                                                                                            |
+ | `default_permissions` | `objeto`                 | El conjunto de [permisos](/rest/reference/permissions-required-for-github-apps) que requiere la GitHub App. El formato del objeto utiliza el nombre del permiso para la clave (por ejemplo, `issues`) y el tipo de acceso para el valor (por ejemplo, `write`). |
 
 El objeto `hook_attributes` tiene la siguiente clave:
 
@@ -94,7 +98,10 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -109,10 +116,11 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
  })
 </script>
 ```
+
 Este ejemplo utiliza un formato en una página web con un botón que activa la solicitud de tipo `POST` para una cuenta de organización. Reemplaza a `ORGANIZATION` con el nombre de la cuenta de organización en donde quieras crear la app.
 
 ```html
-<form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
+<form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
@@ -125,7 +133,10 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -145,11 +156,11 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
 
 Cuando la persona dé clic en **Crear GitHub App**, Github lo redirigirá a la `redirect_url` con un `code` temporal en un parámetro de código. Por ejemplo:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
 Si proporcionaste un parámetro de `state`, también verás este parámetro en la `redirect_url`. Por ejemplo:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
 
 #### 3. Intercambias el código temporal para recuperar la configuración de la app
 

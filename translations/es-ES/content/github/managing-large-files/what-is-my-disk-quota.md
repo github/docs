@@ -1,5 +1,5 @@
 ---
-title: '¿Cuál es mi cuota de disco?'
+title: ¿Cuál es mi cuota de disco?
 redirect_from:
   - /articles/what-is-the-size-limit-for-a-repository/
   - /articles/what-is-my-disk-quota

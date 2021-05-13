@@ -6,6 +6,9 @@ redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 Os proprietários da organização podem definir limitações para exibir informações de dependência da organização. Todos os integrantes de uma organização podem exibir informações de dependência da organização por padrão.

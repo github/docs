@@ -1,5 +1,9 @@
 name: Lint Yaml
 
+# **What it does**: This lints our yaml files in the docs repository.
+# **Why we have it**: We want some level of consistent formatting for YAML files.
+# **Who does it impact**: Docs engineering, docs content.
+
 on:
   workflow_dispatch:
   push:

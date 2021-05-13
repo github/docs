@@ -1,6 +1,6 @@
 ---
 title: Git Deinen Signaturschlüssel mitteilen
-intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% mac %}
@@ -28,16 +31,16 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Wenn Du die GPG-Suite nicht verwendest, füge den nachfolgenden Text ein, um den GPG-Schlüssel Deinem Bash-Profil hinzuzufügen:
+1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  {% note %}
-
-  **Hinweis:** Wenn Du kein `.bash_profile` hast, fügt dieser Befehl Deinen GPG-Schlüssel zu `.profile` hinzu.
-
-  {% endnote %}
+  Alternatively, if you use the `bash` shell, run this command:
+  ```shell
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
 
 {% data reusables.gpg.x-509-key %}
 
@@ -90,10 +93,10 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Um Deinen GPG-Schlüssel zu Deinem Bash-Profil hinzuzufügen, füge den folgenden Text ein:
+1. To add your GPG key to your bash profile, run the following command:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
   {% note %}
 

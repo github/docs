@@ -2,11 +2,13 @@
 title: Pesquisar pacotes
 intro: 'Você pode procurar pacotes no {% data variables.product.product_name %} e limitar os resultados usando qualificadores de pesquisa.'
 product: '{% data reusables.gated-features.packages %}'
-permissions: Qualquer pessoa pode pesquisar pacotes aos quais tem acesso.
+permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

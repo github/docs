@@ -6,11 +6,13 @@ redirect_from:
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
 
-Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen a las listas verificadas.
+Los planes de precios de {% data variables.product.prodname_marketplace %} pueden ser gratuitos, de tasa fija, o por unidad. Los precios se configuran, muestran y procesan en dólares estadounidenses. Los planes de pago se restringen para las apps que publican los publicadores verificados. Para obtener más información acerca de cómo convertirse en un publicador verificado, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
 Los clientes compran tu app utilizando un método de pago adjunto a su cuenta de {% data variables.product.product_name %}, sin tener que salir del {% data variables.product.prodname_dotcom_the_website %}. No tienes que escribir código para realizar las transacciones de facturación, pero tendrás que administrar los eventos desde la API de {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 

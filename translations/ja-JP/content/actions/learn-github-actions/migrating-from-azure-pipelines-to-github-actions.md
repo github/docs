@@ -6,16 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - Azure Pipelines
-  - 移行
+  - Migration
   - CI
   - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -152,7 +154,7 @@ jobs:
 </tr>
 </table>
 
-詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)」を参照してください。
+詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)」を参照してください。
 
 ### 条件と式の構文の移行
 

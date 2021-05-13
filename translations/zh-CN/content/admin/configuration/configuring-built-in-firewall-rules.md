@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于 {% data variables.product.product_location %} 的防火墙

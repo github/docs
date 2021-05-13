@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.explore.your_stars_page %} の Star 付きリポジトリとトピックを検索、ソート、フィルタできます。

@@ -1,12 +1,16 @@
 ---
 title: Adicionar um arquivo a um repositório
-intro: "Você pode fazer upload e commit de um arquivo existente em um repositório\n do {% data variables.product.product_name %}. Arraste e solte um arquivo em qualquer diretório na árvore de arquivos ou faça upload de arquivos da página principal do repositório."
+intro: |-
+  Você pode fazer upload e commit de um arquivo existente em um repositório
+   do {% data variables.product.product_name %}. Arraste e solte um arquivo em qualquer diretório na árvore de arquivos ou faça upload de arquivos da página principal do repositório.
 redirect_from:
   - /articles/adding-a-file-to-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Os arquivos que você adiciona a um repositório por meio do navegador são limitados a {% data variables.large_files.max_github_browser_size %} por arquivo. É possível adicionar arquivos maiores, de até {% data variables.large_files.max_github_size %} cada um, usando a linha de comando. Para obter mais informações, consulte "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)".

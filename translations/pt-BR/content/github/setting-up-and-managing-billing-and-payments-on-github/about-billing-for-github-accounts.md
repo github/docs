@@ -12,6 +12,8 @@ redirect_from:
   - /articles/about-billing-for-github-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Para obter mais informações sobre os produtos disponíveis para sua conta, consulte "[Produtos do {% data variables.product.product_name %}](/articles/github-s-products)". Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. O {% data variables.product.product_name %} não oferece assinaturas nem produtos personalizados.

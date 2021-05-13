@@ -7,6 +7,9 @@ redirect_from:
   - /enterprise/admin/user-management/audit-logging
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 Para encontrar un listado completo, consulta la sección "[Acciones auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)". Para obtener más información sobre cómo encontrar una acción en particular, consulta la sección "[Buscar la bitácora de auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)".

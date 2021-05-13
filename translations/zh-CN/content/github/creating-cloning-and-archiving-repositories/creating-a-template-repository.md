@@ -1,13 +1,15 @@
 ---
 title: 创建模板仓库
 intro: '您可以将现有仓库设置为模板，以便您与其他人能够生成目录结构相同的新仓库{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}、分支{% endif %} 和文件。'
-permissions: 任何对仓库有管理员权限的人都可以将该仓库设置为模板。
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% note %}

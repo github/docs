@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Pre-Receive-Hooks erstellen
@@ -54,4 +56,4 @@ Ein Repository-Inhaber kann einen Hook nur dann konfigurieren, wenn der Websitea
 2. Klicken Sie auf **Repositories** (Repositorys), und wählen Sie aus, für welches Repository Sie die Pre-Receive-Hooks konfigurieren möchten. ![Repositorys](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
 4. Klicken Sie auf der linken Seitenleiste auf **Hooks & Services** (Hooks und Dienste). ![„Hooks & services“ (Hooks und Dienste)](/assets/images/enterprise/repos/hooks-services.png)
-5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll. ![Hook-Berechtigungen für das Repository](/assets/images/enterprise/repos/repo-hook-permissions.png)
+5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll. ![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)

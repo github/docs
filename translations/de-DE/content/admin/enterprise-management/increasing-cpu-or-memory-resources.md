@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -28,13 +30,10 @@ Bevor Sie die CPU- oder Arbeitsspeicherressourcen für {% data variables.product
 #### Unterstützte AWS Instance-Typen
 
 Sie müssen anhand der CPU-/Arbeitsspeicherspezifikationen den Instanztyp bestimmen, für den Sie ein Upgrade vornehmen möchten.
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Empfohlene AWS Instance-Typen
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 #### Größenanpassung für AWS
 

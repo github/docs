@@ -3,6 +3,7 @@ sections:
   bugs:
     - 'Uma verificação de saúde do serviço causou o crescimento da sessão, o que gerou um esgotamento do sistema de arquivos. {% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
     - 'A atualização que usa um hotpatch pode falhar com um erro: `''libdbi1'' was not found` {% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}'
+    - Configurar a permissão de um repositório para "Triagem" ou "Manter" não irá mais falhar.
   known_issues:
     - 'Em uma nova configuração do GitHub Enterprise Server sem qualquer usuário, um invasor pode criar o primeiro usuário administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'As regras personalizadas do firewall não são mantidas em um upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

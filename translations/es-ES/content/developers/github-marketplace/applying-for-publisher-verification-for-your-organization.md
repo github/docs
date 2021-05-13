@@ -1,32 +1,34 @@
 ---
-title: Applying for publisher verification for your organization
-intro: 'To offer paid plans for your app or to include a marketplace badge in your app listing, you must complete the publisher verification process for your organization.'
+title: Solicitar una verificación de publicador para tu organización
+intro: 'Para ofrecer planes de pago para tu app o para incluir una insgnia de marketplace en el listado de tu app, debes completar el proceso de verificación de publicador para tu organización.'
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
-Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
+La verificación del publicador garantiza que {% data variables.product.prodname_dotcom %} tiene una forma de contactarte, que habilitas la autenticación bifactorial para tu organización y que el dominio de tu organización se verificó.
 
-Once your organization has been verified, you can publish paid plans for your app. For information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
+Una vez que se haya verificado tu organización, podrás publicar planes de pago para tu app. Para obtener más información, consulta la sección "[Configurar los planes de pago para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-To offer paid plans for your app, the app must be owned by an organization and you must have owner permissions in the organization. If your app is currently owned by a user account, you'll need to transfer the ownership of the app to an organization. For more information, see "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)."
+Para ofrecer planes de pago para tu app, esta debe pertenecer a una organización y debes tener permisos de propietario en ella. Si tu app pertenece actualmente a una cuenta de usuario, necesitarás transferir la propiedad de esta a una organización. Para obtener más información, consulta la sección "[Transferir la propiedad de una GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" o "[Transferir la propiedad de una App de OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)".
 
-### Requesting publisher verification
+### Solicitar la verificación de publicador
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-1. En la barra lateral izquierda, haz clic en **Developer settings** (Parámetros del desarrollador). ![Developer settings option in the organization settings sidebar](/assets/images/marketplace/developer-settings-in-org-settings.png)
-1. Under "Developer settings", click **Publisher Verification**. ![Publisher verification option in the organization settings sidebar](/assets/images/marketplace/publisher-verification-settings-option.png)
-1. Under "Publisher Verification", complete the information in the checklist:
-   - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
-   - Ensure that Two-factor authentication is enabled for your organization. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en tu organización](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
-   - Submit a verified domain. For related information, see "[Verifying your organization's domain](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
+1. En la barra lateral izquierda, haz clic en **Developer settings** (Parámetros del desarrollador). ![La opción de configuración de desarrollador en la barra lateral de ajustes de la organización](/assets/images/marketplace/developer-settings-in-org-settings.png)
+1. Debajo de "Ajustes de desarrollador", da clic en **Verificación del publicador**. ![Opción de verificación del publicador en la barra lateral de ajustes de la organización](/assets/images/marketplace/publisher-verification-settings-option.png)
+1. Debajo de "Verificación del publicador", completa la información de la lista de verificación:
+   - Asegúrate de que tu información de perfil básica está presente y es correcta. También, asegúrate de que hayas incluido la mejor dirección de correo electrónico para recibir soporte y actualizaciones de {% data variables.product.company_short %}.
+   - Asegúrate de que se encuentre habilitada la autenticación bifactorial para tu organización. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
+   - Emite un dominio verificado y asegúrate que se muestre la insignia de "Verificado" en el perfil de página de tu organización. Para la información relacionada, consulta la sección "[Verificar el dominio de tu organización](/organizations/managing-organization-settings/verifying-your-organizations-domain)".
 
-  ![Publisher Verification checklist](/assets/images/marketplace/publisher-verification-checklist.png)
+  ![Lista de verificación para la verificación del publicador](/assets/images/marketplace/publisher-verification-checklist.png)
 
-1. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
+2. Da clic en **Solicitar verificación**. {% data variables.product.company_short %} revisará tus detalles y te avisará cuando se haya completado tu verificación de publicador.
 
 ### Leer más
 
-For information about the process of publishing apps, see "[About GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)."
+Para obtener más información sobre el proceso de publicación de apps, consulta la sección "[Acerca de GitHub Marketplace](/developers/github-marketplace/about-github-marketplace)".

@@ -4,5 +4,7 @@ intro: 'Aprenda como configurar o armazenamento e habilitar {% data variables.pr
 mapTopic: true
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 

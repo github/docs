@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
@@ -26,10 +29,22 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 {% data reusables.user_settings.personal_access_tokens %}
 4. Klicke auf **Generate new token** (Neues Token erzeugen). ![Schaltfläche „Generate new token“ (Neues Token erzeugen)](/assets/images/help/settings/generate_new_token.png)
 5. Gib dem Token einen beschreibenden Namen. ![Feld „Token description“ (Token-Beschreibung)](/assets/images/help/settings/token_description.png)
-6. Wähle die Scopes oder Berechtigungen aus, die Du diesem Token zuweisen möchtest. Um das Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wähle **repo** aus. ![Token-Scopes auswählen](/assets/images/help/settings/token_scopes.gif)
+6. Wähle die Scopes oder Berechtigungen aus, die Du diesem Token zuweisen möchtest. Um das Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wähle **repo** aus.
+   {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+   ![Token-Scopes auswählen](/assets/images/help/settings/token_scopes.gif)
+   {% elsif currentVersion == "github-ae@latest" %}
+   ![Token-Scopes auswählen](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
+   {% endif %}
 7. Klicke auf **Generate token** (Token erzeugen). ![Schaltfläche „Generate token“ (Token erzeugen)](/assets/images/help/settings/generate_token.png)
-8. Klicke auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um das Token in die Zwischenablage zu kopieren. For security reasons, after you navigate off the page, you will not be able to see the token again.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Click
+{% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 
@@ -42,7 +57,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Persönliche Zugriffstoken können nur für HTTPS-Git-Vorgänge verwendet werden. Wenn Ihr Repository eine SSH-Remote-URL verwendet, müssen Sie [das Remote-Repository von SSH auf HTTPS umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
+Persönliche Zugriffstoken können nur für HTTPS-Git-Vorgänge verwendet werden. Wenn Ihr Repository eine SSH-Remote-URL verwendet, müssen Sie [das Remote-Repository von SSH auf HTTPS umstellen](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
 Wenn Sie nicht nach einem Benutzernamen und einem Passwort gefragt werden, wurden Ihre Anmeldeinformationen möglicherweise auf Ihrem Computer zwischengespeichert. Sie können [Ihre Anmeldeinformationen in der Keychain aktualisieren](/articles/updating-credentials-from-the-osx-keychain), um das alte Passwort durch den Token zu ersetzen.
 

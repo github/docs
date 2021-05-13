@@ -4,7 +4,7 @@ intro: '您可以在整个 {% data variables.product.prodname_insights %} 中启
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-settings-in-github-insights
-permissions: '对 {% data variables.product.prodname_insights %} 具有管理员权限的人可管理可用指标和报告。'
+permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'
 versions:
   enterprise-server: '*'
 ---

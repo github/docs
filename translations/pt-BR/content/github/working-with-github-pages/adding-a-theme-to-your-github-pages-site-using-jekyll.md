@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 Pessoas com permissões de gravação para um repositório podem adicionar um tema a um site do {% data variables.product.prodname_pages %} usando Jekyll.
@@ -23,8 +25,8 @@ Pessoas com permissões de gravação para um repositório podem adicionar um te
 2. Navegue até *_config.yml*.
 {% data reusables.repositories.edit-file %}
 4. Adicione uma nova linha ao arquivo para o nome do tema.
-   - Para usar um tema compatível, digite `theme: THEME-NAME`, substituindo _THEME-NAME_ pelo nome do tema, conforme mostrado no LEIAME do repositório do tema. Para obter uma lista de temas compatíveis, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %}. ![Tema compatível no arquivo de configuração](/assets/images/help/pages/add-theme-to-config-file.png)
-   - Para usar qualquer outro tema do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, digite `remote_theme: THEME-NAME`, substituindo THEME-NAME pelo nome do tema, como mostrado no LEIAME do repositório do tema. ![Tema não compatível no arquivo de configuração](/assets/images/help/pages/add-remote-theme-to-config-file.png)
+   - Para usar um tema compatível, digite `theme: THEME-NAME`, substituindo _THEME-NAME_ pelo nome do tema, conforme mostrado no README do repositório do tema. Para obter uma lista de temas compatíveis, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %}. ![Tema compatível no arquivo de configuração](/assets/images/help/pages/add-theme-to-config-file.png)
+   - Para usar qualquer outro tema do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, digite `remote_theme: THEME-NAME`, substituindo THEME-NAME pelo nome do tema, como mostrado no README do repositório do tema. ![Tema não compatível no arquivo de configuração](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

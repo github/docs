@@ -1,7 +1,7 @@
 ---
 title: 管理教室
-intro: 您可以为您使用 {% data variables.product.prodname_classroom %} 教授的每个课程创建和管理一个教室。
-permissions: 组织所有者可管理组织的教室。
+intro: '您可以为您使用 {% data variables.product.prodname_classroom %} 教授的每个课程创建和管理一个教室。'
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -20,7 +20,7 @@ redirect_from:
 
 创建教室后，{% data variables.product.prodname_classroom %} 将提示您邀请助教 (TA) 和管理员到教室。 每个教室可以有一个或多个管理员。 管理员可以是教师、TA 或您希望其控制您在 {% data variables.product.prodname_classroom %} 上的教室的任何其他课程管理员。
 
-邀请 TA 和管理员进入您的教室，操作方法是以组织所有者身份邀请 {% data variables.product.product_name %} 上的用户帐户到您的组织，并共享您教室的 URL。 组织所有者可以管理组织的任何教室。 更多信息请参阅“[组织的权限级别](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization)”和“[邀请用户加入您的组织](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)”。
+邀请 TA 和管理员进入您的教室，操作方法是以组织所有者身份邀请 {% data variables.product.product_name %} 上的用户帐户到您的组织，并共享您教室的 URL。 组织所有者可以管理组织的任何教室。 更多信息请参阅“[组织的权限级别](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization)”和“[邀请用户加入您的组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”。
 
 使用完教室后，可以存档教室，以后可以参考该教室、名册和作业，或者如果您不再需要该教室，也可以将其删除。
 
@@ -34,7 +34,7 @@ redirect_from:
 
 ### 基本要求
 
-您必须在 {% data variables.product.product_name %} 上拥有组织帐户才能管理 {% data variables.product.prodname_classroom %} 上的教室。 更多信息请参阅“[{% data variables.product.company_short %} 帐户的类型](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)”和“[从头开始创建新组织](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)”。
+您必须在 {% data variables.product.product_name %} 上拥有组织帐户才能管理 {% data variables.product.prodname_classroom %} 上的教室。 更多信息请参阅“[{% data variables.product.company_short %} 帐户的类型](/github/getting-started-with-github/types-of-github-accounts#organization-accounts)”和“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
 您必须为组织授权 {% data variables.product.prodname_classroom %} 的 OAuth 应用程序才可管理组织帐户的教室。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
 

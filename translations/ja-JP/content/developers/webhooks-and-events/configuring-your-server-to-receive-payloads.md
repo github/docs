@@ -7,33 +7,23 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
 
 webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
 
-webhookのURLは`http://localhost:4567/payload`に設定したことを思い出してください。 開発をローカルで行っているので、ローカルの開発環境をインターネットに公開し、GitHubがメッセージを送信して、ローカルサーバーでそれを処理できるようにしてやらなければなりません。
+{% note %}
 
-注釈: このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
+**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
 
-### ngrokの利用
-
-最初に、ローカルホストをインターネットに公開するプログラムをインストールします。 そのためにngrokを使用します。 すべての主要なオペレーティングシステムについて、[ngrokは無料でダウンロード](https://ngrok.com/download)できます。
-
-ダウンロードができたら、コマンドラインで`./ngrok http 4567`と実行すればローカルホストを公開できます。 以下のような行が表示されるはずです。
-
-```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
-```
-
-この格好いい`*.ngrok.io` というURLをコピーしてください! ここでペイロードのURLに*もどり*、このサーバーをそのフィールドに貼り付けます。 `http://7e9ea9dc.ngrok.io/payload`のようになるはずです。
-
-こうすることで、ローカルホストを`/payload`というパスでインターネットに公開するようセットアップできました。
+{% endnote %}
 
 ### サーバーの作成
 
-ここからが面白いところです! サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 ngrokはローカル環境を公開しているので、オンラインでどこかに本物のサーバーをセットアップする必要はなく、ローカルでコードをうまくテストできます。
+サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
 
 小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになるでしょう。
 
@@ -51,7 +41,7 @@ end
 
 このサーバーを起動してください。
 
-webhookは`Issues`と関連するイベントを待ち受けるようにセットアップしたので、先へ進んで新しいIssueをテストしているリポジトリで作成してください。 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
+Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb

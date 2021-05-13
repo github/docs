@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 
@@ -51,6 +54,11 @@ versions:
     {% link_in_list /disabling-team-discussions-for-your-organization %}
     {% link_in_list /managing-scheduled-reminders-for-your-team %}
     {% link_in_list /deleting-a-team %}
+{% topic_link_in_list /collaborating-with-your-team %}
+    {% link_in_list /about-team-discussions %}
+    {% link_in_list /creating-a-team-discussion %}
+    {% link_in_list /editing-or-deleting-a-team-discussion %}
+    {% link_in_list /pinning-a-team-discussion %}
 {% topic_link_in_list /managing-access-to-your-organizations-repositories %}
     {% link_in_list /repository-permission-levels-for-an-organization %}
     {% link_in_list /setting-base-permissions-for-an-organization %}

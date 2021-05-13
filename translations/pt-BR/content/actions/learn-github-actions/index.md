@@ -12,11 +12,11 @@ redirect_from:
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /artigos/criando-um-fluxo de trabalho-com-github-actions/
-  - /artigos/configuração-a-fluxo de trabalho
+  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
-  - /ações/automatizando-seu-fluxo de trabalho-com-github-actions/configurando-um-fluxo de trabalho
-  - /ações/criação de fluxos de trabalho/opções de configuração de fluxo de trabalho
+  - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
+  - /actions/creating-workflows/workflow-configuration-options
   - /articles/configuring-workflows
   - /github/automating-your-workflow-with-github-actions/configuring-workflows
   - /actions/automating-your-workflow-with-github-actions/configuring-workflows
@@ -28,6 +28,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% link_with_intro /introduction-to-github-actions %}

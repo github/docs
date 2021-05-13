@@ -1,8 +1,9 @@
 const chalk = require('chalk')
+const stripAnsi = require('strip-ansi')
 const { groupBy } = require('lodash')
 
 // we don't want to print all the stack traces
-const stackTrackRegExp = /^\s+at\s.+/i
+const stackTraceRegExp = /^\s+at\s.+/img
 
 class TranslationReporter {
   constructor (globalConfig, options) {
@@ -18,7 +19,9 @@ class TranslationReporter {
           return {
             fileName: ancestorTitles[1],
             failedTests: title,
-            failureMessage: failureMessages.map((message) => message.split('\n').filter(line => !stackTrackRegExp.test(line)).join('\n'))
+            failureMessage: failureMessages.map((message) => {
+              return message.split('\n').filter(line => !stackTraceRegExp.test(stripAnsi(line))).join('\n')
+            })
           }
         })
       return [...fails, ...formattedFails]
@@ -34,9 +37,6 @@ class TranslationReporter {
       })
       console.groupEnd()
     }
-
-    console.log(chalk.bold('\nthese files should not be included: '))
-    console.dir(Object.keys(failuresByFile), { maxArrayLength: null })
   }
 }
 

@@ -10,6 +10,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Aquí aparece un ejemplo de un error de HTTPS que puedes recibir:

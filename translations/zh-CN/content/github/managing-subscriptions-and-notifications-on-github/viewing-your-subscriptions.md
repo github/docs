@@ -1,6 +1,6 @@
 ---
 title: 查看订阅
-intro: '为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。'
+intro: 为了解通知来自何处以及通知量，建议定期查看订阅和关注的仓库。
 redirect_from:
   - /articles/subscribing-to-conversations/
   - /articles/unsubscribing-from-conversations/
@@ -18,6 +18,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 有很多原因可能导致您订阅对话。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
@@ -36,7 +38,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**提示：**您可以在[关注页面](https://github.com/watching)或 {% data variables.product.prodname_dotcom_the_website %} 上的任何仓库页面，使用 **Watch/Unwatch（关注/取消关注）**下拉列表中的 **Custom（自定义）**选项选择要通知的事件类型。 更多信息请参阅下面的“[配置单个仓库的关注设置](#configuring-your-watch-settings-for-an-individual-repository)”。
+**提示：**您可以在[关注页面](https://github.com/watching)或 {% data variables.product.prodname_dotcom_the_website %} 上的任何仓库页面，使用 **Watch/Unwatch（关注/取消关注）**下拉列表中的 **Custom（自定义）**选项选择要通知的事件类型。 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 
 {% endtip %}
 {% endif %}
@@ -79,23 +81,3 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
   取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 当您配置接收某些事件类型的通知时，仅在仓库中有这些事件类型的更新、您参与了线程或者您或您所在团队被 @提及时才收到通知。
 
   {% endtip %}
-
-### 配置单个仓库的关注设置
-
-您可以选择关注还是取消关注单个仓库。 您也可以选择接收{% if currentVersion == "free-pro-team@latest" %}特定事件类型，如议题、拉取请求、讨论（如已对仓库启用）以及{% endif %}新版本的通知，或者完全忽略单个仓库。
-
-{% data reusables.repositories.navigate-to-repo %}
-2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-  ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-   ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
-**Custom（自定义）** 选项可用于进一步自定义通知，以便除了参与和 @提及之外，您仅在仓库中发生特定事件时才收到通知。
-
-   ![仓库下拉菜单中的自定义关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
-
-如果选择“Issues（议题）”，您将收到仓库中每个议题（包括在您选择此选项之前存在的议题）的更新通知并订阅它们。 如果您被此仓库中的拉取请求 @提及，则除了收到有关议题的通知外，您还将收到有关该特定拉取请求更新的通知并订阅它们。
-
-{% endif %}

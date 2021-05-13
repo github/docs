@@ -4,6 +4,9 @@ intro: 'Los dueños de repositorios pueden inhabilitar, habilitar y limitar {% d
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.actions.enterprise-beta %}

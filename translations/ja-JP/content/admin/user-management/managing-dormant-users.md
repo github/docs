@@ -5,10 +5,12 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% if enterpriseServerVersions contains currentVersion %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}
+intro: 'ユーザアカウントが少なくとも 1 か月間アクティブになっていない場合、休眠状態であると見なされます。{% if enterpriseServerVersions contains currentVersion %} 休眠ユーザを一時停止してユーザライセンスを解放することができます。{% endif %}'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 「活動」には以下のことが含まれますが、以下に限定はされません:
@@ -16,7 +18,7 @@ versions:
 - Issue やプルリクエストへのコメント。
 - リポジトリの作成、削除、Watch、スター付け。
 - コミットのプッシュ。{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
+- 個人アクセストークンまたは SSH キーを使用してリソースにアクセスします。{% endif %}
 
 ### 休眠ユーザの表示
 

@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
@@ -74,7 +76,7 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # コンフィグレーションの全ての値を表示
 ```
-`cluster.conf`で有効なUUIDを検索できます。
+`cluster.conf` でノードの Universally Unique Identifier (UUID) を見つけることができます。
 
 ```shell
   $ ghe-config <em>HOSTNAME</em>.uuid
@@ -211,7 +213,7 @@ ghe-nwo <em>REPOSITORY_ID</em>
 
 このユーティリティは、非サイト管理者をすべての Organization のオーナーに昇格させることはできません。 [ghe-user-promote](#ghe-user-promote)を使用すれば、通常のユーザーアカウントをサイト管理者に昇格させることができます。
 
-1人のユーザに 特定の Organization で Organization のオーナー権限を与える
+特定の Organization の Organization のオーナーの権限を特定のサイト管理者に与える
 
 ```shell
 ghe-org-admin-promote -u <em>ユーザ名</em> -o <em>ORGANIZATION</em>
@@ -472,7 +474,7 @@ ghe-webhook-logs
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
 
-The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+日付のフォーマットは、`YYYY-MM-DD`、`YYYY-MM-DD HH:MM:SS`、または `YYYY-MM-DD HH:MM:SS (+/-) HH:M` である必要があります。
 {% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>

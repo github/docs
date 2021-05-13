@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:

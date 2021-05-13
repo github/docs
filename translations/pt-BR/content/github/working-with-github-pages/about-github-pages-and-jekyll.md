@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Páginas
 ---
 
 ### Sobre o Jekyll
@@ -92,9 +94,9 @@ O {% data variables.product.prodname_pages %} usa plugins que são habilitados p
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-Você pode habilitar plugins adicionais incluindo a gem do plugin à configuração `plugins` em seu arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll. Para obter uma lista de plugins compatíveis, consulte "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.
+Você pode habilitar plugins adicionais incluindo a gem do plugin à configuração `plugins` em seu arquivo *_config.yml*. Para obter mais informações, consulte "[Configuração](https://jekyllrb.com/docs/configuration/)" na documentação do Jekyll.
 
-Para obter informações de uso para um plugin específico, consulte a documentação do plugin.
+Para obter uma lista de plugins compatíveis, consulte "[Versões de dependência](https://pages.github.com/versions/)" no site do {% data variables.product.prodname_pages %}.  Para obter informações de uso para um plugin específico, consulte a documentação do plugin.
 
 {% tip %}
 

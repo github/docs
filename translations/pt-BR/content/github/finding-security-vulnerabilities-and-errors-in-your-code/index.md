@@ -2,11 +2,10 @@
 title: Encontrar vulnerabilidades e erros de segurança no seu código
 shortTitle: Encontrar vulnerabilidades e erros de codificação
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 ### Índice

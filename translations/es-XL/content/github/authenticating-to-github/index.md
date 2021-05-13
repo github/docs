@@ -16,6 +16,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - 2fa
+  - Identity
+  - Access management
+  - Usernames
+  - Device verification
 ---
 
 

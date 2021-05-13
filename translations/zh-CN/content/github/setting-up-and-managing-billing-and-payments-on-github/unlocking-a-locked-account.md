@@ -11,6 +11,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。

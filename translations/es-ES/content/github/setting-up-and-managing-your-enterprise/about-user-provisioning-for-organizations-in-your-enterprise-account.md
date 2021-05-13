@@ -4,6 +4,8 @@ intro: Puedes administrar la membrecía organizacional en una cuenta empresarial
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}

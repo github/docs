@@ -1,6 +1,6 @@
 ---
 title: プランと請求日を表示する
-intro: 'アカウントのプラン、有料機能と製品、および次の請求日は、アカウントの支払い設定で確認できます。'
+intro: アカウントのプラン、有料機能と製品、および次の請求日は、アカウントの支払い設定で確認できます。
 redirect_from:
   - /articles/finding-your-next-billing-date/
   - /articles/finding-your-personal-account-s-next-billing-date/
@@ -9,6 +9,8 @@ redirect_from:
   - /articles/viewing-your-subscriptions-and-billing-date
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 個人アカウントの次の請求日を確認する

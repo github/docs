@@ -1,8 +1,8 @@
 ---
 title: 使用 Azure AD 为企业配置身份验证和预配
 shortTitle: 使用 Azure AD 配置
-intro: 您可以使用 Azure Active Directory (Azure AD) 中的租户作为身份提供程序 (IDP) 来集中管理 {% data variables.product.product_location %} 的身份验证和用户预配。
-permissions: 企业所有者可在 {% data variables.product.product_name %} 上为企业配置身份验证和预配。
+intro: '您可以使用 Azure Active Directory (Azure AD) 中的租户作为身份提供程序 (IDP) 来集中管理 {% data variables.product.product_location %} 的身份验证和用户预配。'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
@@ -12,9 +12,16 @@ versions:
 
 Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允许您集中管理用户帐户和 web 应用程序访问。 更多信息请参阅 Microsoft 文档中的[什么是 Azure Active Directory？](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)。
 
-要管理身份以及对 {% data variables.product.product_name %} 的访问，您可以使用 Azure AD 租户作为 SAML IdP 进行身份验证。 您还可以配置 Azure AD 以使用 SCIM自动预配帐户和访问权限。 此配置允许您为 Azure AD 租户中的用户帐户分配或取消分配 {% data variables.product.prodname_ghe_managed %} 应用程序，以在 {% data variables.product.product_name %} 上自动创建、授予访问权限或停用相应的用户帐户 。
+要管理身份以及对 {% data variables.product.product_name %} 的访问，您可以使用 Azure AD 租户作为 SAML IdP 进行身份验证。 您也可以配置 Azure AD 自动预配帐户并获取 SCIM 会员资格，这样您可以创建 {% data variables.product.prodname_ghe_managed %} 用户，并从您的 Azure AD 租户管理团队和组织成员资格。
 
-有关在 {% data variables.product.product_location %} 上管理企业的身份和访问权限的详细信息，请参阅“[管理企业的身份和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。
+使用 Azure AD 对 {% data variables.product.prodname_ghe_managed %} 启用 SAML SSO 和 SCIM 后，您可以从 Azure AD 租户完成以下任务。
+
+* 将 Azure AD 上的 {% data variables.product.prodname_ghe_managed %} 应用程序分配给用户帐户，以便在 {% data variables.product.product_name %} 上自动创建并授予对相应用户帐户的访问权限。
+* 为 Azure AD 上的用户帐户取消分配 {% data variables.product.prodname_ghe_managed %} 应用程序，以在 {% data variables.product.product_name %} 上停用相应的用户帐户 。
+* 为 Azure AD 上的 IdP 组分配 {% data variables.product.prodname_ghe_managed %} 应用程序，以为 IdP 组的所有成员授予对 {% data variables.product.product_name %} 上用户帐户的访问权限 。 此外，IdP 组也可以在 {% data variables.product.prodname_ghe_managed %} 上连接到团队及其父组织。
+* 从 IdP 组取消分配 {% data variables.product.prodname_ghe_managed %} 应用程序来停用仅通过 IdP 组访问的所有 IdP 用户的 {% data variables.product.product_name %} 用户帐户，并从父组织中删除这些用户。 IdP 组将与 {% data variables.product.product_name %} 上的任何团队断开连接。
+
+有关在 {% data variables.product.product_location %} 上管理企业的身份和访问权限的详细信息，请参阅“[管理企业的身份和访问权限](/admin/authentication/managing-identity-and-access-for-your-enterprise)”。 有关与 IdP 组同步团队的更多信息，请参阅“[同步团队与身份提供程序组](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)”。
 
 ### 基本要求
 

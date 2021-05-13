@@ -1,13 +1,15 @@
 ---
 title: フォークから作成されたプルリクエストブランチへの変更を許可する
-intro: 'コラボレーションを強化するために、ユーザアカウントが所有するフォークから作成したブランチでのコミットを許可します。'
+intro: コラボレーションを強化するために、ユーザアカウントが所有するフォークから作成したブランチでのコミットを許可します。
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
-permissions: ユーザアカウントが所有するフォークの上流リポジトリへのプッシュアクセスを持つ人は、フォークされたブランチにコミットできます。
+permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 プルリクエストの作者だけが、上流のリポジトリメンテナ、あるいは上流のリポジトリへのプッシュアクセスを持っている人に対し、ユーザ所有のフォークでプルリクエストの比較ブランチにコミットする権限を与えることができます。 上流リポジトリについて詳しく学ぶには[フォークについて](/articles/about-forks)を参照してください。

@@ -1,10 +1,13 @@
 ---
-title: Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen
+title: 'Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen'
 intro: 'Wenn Du festgelegt hast, dass Deine E-Mail-Adresse beim Durchführen webbasierter Vorgänge nicht offengelegt wird, kannst Du auch Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen könnten.'
 redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 Wenn Du Commits über die Befehlszeile freigibst, wird die E-Mail-Adresse, die Du [in Git festgelegt](/articles/setting-your-commit-email-address) hast, mit Deinen Commits verknüpft. Diese Einstellung verhindert Commit-Pushes über die Befehlszeile, die Deine private E-Mail-Adresse verwenden.

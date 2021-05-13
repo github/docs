@@ -14,6 +14,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Seiten
 ---
 
 ### Informationen zu {% data variables.product.prodname_pages %}
@@ -134,19 +136,9 @@ Wenn Ihre Website diese Nutzungskontingente überschreitet, kann Ihre Website gg
 #### Verbotene Verwendungen
 
 {% data variables.product.prodname_pages %} soll oder darf nicht als kostenloser Web-Hosting-Dienst zum Betreiben Ihrer Online-Geschäfts-, E-Commerce-Website oder jeder anderen Website verwendet werden, die in erster Linie darauf ausgerichtet ist, kommerzielle Transaktionen zu erleichtern oder kommerzielle Software-as-a-Service-Lösungen (SaaS) bereitzustellen.
+In addition,
 
-Zusätzlich darf in {% data variables.product.prodname_pages %}-Websites Folgendes nicht enthalten sein:
-
-  - Illegale oder gemäß unseren [Nutzungsbedingungen](/articles/github-terms-of-service/) oder den [Community-Richtlinien](/articles/github-community-guidelines/) untersagte Inhalte oder Aktivitäten
-  - Gewalttätige oder bedrohende Inhalte oder Aktivitäten
-  - Übermäßig automatisierte Massenaktivitäten (beispielsweise Spam)
-  - GitHub-Benutzer oder GitHub-Dienste kompromittierende Aktivitäten
-  - Schnell-reich-werden-Schemas
-  - Sexuell anstößige Inhalte
-  - Deine Identität oder den Zweck Deiner Website falsch darstellende Inhalte
-If you have questions about whether your use or intended use falls into these categories, please contact
-
-{% data variables.contact.contact_support %}.
+{% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. For a list of prohibited uses, see "[{% data variables.product.prodname_dotcom %}'s Additional Product Terms for {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)."
 {% endif %}
 
 ### MIME-Typen auf {% data variables.product.prodname_pages %}

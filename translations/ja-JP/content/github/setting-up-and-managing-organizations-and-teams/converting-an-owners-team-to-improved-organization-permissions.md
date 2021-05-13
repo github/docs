@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 レガシーのオーナー Team を変換する方法はいくつかあります:

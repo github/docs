@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Eine Pre-Receive-Umgebung für {% data variables.product.prodname_ghe_server %} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 

@@ -6,13 +6,15 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### ネットワークに関する考慮
 
-クラスタリングのための最もシンプルなネットワーク設計は、ノード群を単一のLANに置くことです。 If a cluster must span subnets, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
+クラスタリングのための最もシンプルなネットワーク設計は、ノード群を単一のLANに置くことです。 クラスタがサブネットワークにまたがる必要がある場合は、ネットワーク間にファイアウォールルールを設定することはお勧めしません。 ノード間の遅延は 1 ミリ秒未満である必要があります。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %} 高可用性を実現するには、アクティブノードを備えたネットワークとパッシブノードを備えたネットワーク間の遅延が 70 ミリ秒未満である必要があります。 We don't recommend configuring a firewall between the two networks.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %} 高可用性を実現するには、アクティブノードを備えたネットワークとパッシブノードを備えたネットワーク間の遅延が 70 ミリ秒未満である必要があります。 2 つのネットワーク間にファイアウォールを設定することはお勧めしません。{% endif %}
 
 #### エンドユーザーのためのアプリケーションポート
 

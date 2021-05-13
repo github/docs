@@ -8,8 +8,9 @@ redirect_from:
   - /github/visualizing-repository-data-with-graphs/listing-the-projects-that-depend-on-a-repository
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: <=2.22
+topics:
+  - Repositories
 ---
 
 ### Visualizar la gráfica de dependencias

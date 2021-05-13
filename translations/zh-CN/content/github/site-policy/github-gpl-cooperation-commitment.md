@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 本承诺适用于 GitHub 对 Git、Linux 内核以及涵盖许可（具体定义请滚动到最后的定义部分）下其他程序的贡献。

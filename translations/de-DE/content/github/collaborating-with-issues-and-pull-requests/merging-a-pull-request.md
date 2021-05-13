@@ -1,12 +1,14 @@
 ---
 title: Einen Pull Request zusammenführen
-intro: Führe einen Pull Request in den vorgelagerten Branch zusammen, wenn die Arbeit abgeschlossen ist. Jede Person mit Push-Zugriff auf das Repository kann den Merge abschließen.
+intro: 'Führe einen Pull Request in den vorgelagerten Branch zusammen, wenn die Arbeit abgeschlossen ist. Jede Person mit Push-Zugriff auf das Repository kann den Merge abschließen.'
 redirect_from:
   - /articles/merging-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Informationen zum Zusammenführen von Pull Requests

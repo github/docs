@@ -2,6 +2,9 @@
 title: Aviso do GitHub sobre a Lei de Privacidade do Consumidor da Califórnia
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 1 de janeiro de 2020

@@ -16,6 +16,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de las transferencias de repositorios
@@ -46,7 +48,7 @@ Cuando transfieres un repositorio, también se transfieren sus propuestas, solic
   $ git remote set-url origin <em>new_url</em>
   ```
 
-Para obtener más información, consulta "[Cambiar la URL de un remoto](/articles/changing-a-remote-s-url)".
+Para obtener más información, consulta "[Administrar repositorios remotos](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### Transferencias de repositorios y organizaciones
 

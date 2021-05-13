@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-IdP で {% data variables.product.product_name %} のアプリケーションを設定した後、IdP のユーザにアプリケーションを割り当てることで、{% data variables.product.product_location %} へのアクセスを許可できます。 {% data variables.product.product_name %} の SAML SSO の詳細については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
+IdP で {% data variables.product.product_name %} のアプリケーションを設定した後、IdP のユーザおよびグループにアプリケーションを割り当てることで、{% data variables.product.product_location %} へのアクセスを許可できます。 {% data variables.product.product_name %} の SAML SSO の詳細については、「[Enterprise 向けの SAML シングルサインオンを設定する](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
 
 {% data reusables.scim.after-you-configure-saml %}詳しい情報については、「[Enterprise 向けのユーザプロビジョニングを設定する](/admin/authentication/configuring-user-provisioning-for-your-enterprise)」を参照してください。
 
@@ -25,3 +25,4 @@ IdP で {% data variables.product.product_name %} のアプリケーションを
 
 - OASIS Web サイトの [SAML Wiki](https://wiki.oasis-open.org/security)
 - IETF Web サイトの [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644)
+- [Enterprise へのネットワークトラフィックを制限する](/admin/configuration/restricting-network-traffic-to-your-enterprise)

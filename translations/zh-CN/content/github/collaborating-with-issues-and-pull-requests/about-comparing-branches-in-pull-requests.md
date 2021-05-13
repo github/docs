@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}
@@ -16,8 +18,9 @@ versions:
 {% endnote %}
 
 您可以在 Files changed（更改的文件）选项卡的拉取请求中查看提议的更改。
-
-![拉取请求文件已更改选项卡](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+{% if currentVersion ver_lt "github-enterprise@3.0" %}
+![拉取请求文件已更改选项卡](/assets/images/enterprise/2.22/pull-request-tabs-changed-files.png){% else %}
+![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png){% endif %}
 
 无需查看提交本身，您可以查看提议的更改，因为它们在拉取请求合并后就会出现在文件中。 这些文件在 Files changed（更改的文件）选项卡中按字母数字顺序显示。 添加的文件以绿色显示，前缀 `+` 号，而删除的内容以红色显示，前缀 `-` 号。
 

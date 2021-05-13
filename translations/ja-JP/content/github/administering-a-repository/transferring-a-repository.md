@@ -5,7 +5,7 @@ redirect_from:
   - /articles/about-repository-transfers/
   - /move-a-repo/
   - /moving-a-repo/
-  - articles/what-is-transferred-with-a-repository/
+  - /articles/what-is-transferred-with-a-repository/
   - /articles/what-is-transferred-with-a-repo/
   - /articles/how-to-transfer-a-repo/
   - /articles/how-to-transfer-a-repository/
@@ -16,6 +16,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### リポジトリの移譲について
@@ -46,7 +48,7 @@ Prerequisites for repository transfers: {% if currentVersion == "free-pro-team@l
   $ git remote set-url origin <em>新しい URL</em>
   ```
 
-詳細は「[リモートの URL を変更する](/articles/changing-a-remote-s-url)」を参照してください。
+For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 
 #### リポジトリの移譲および Organization
 

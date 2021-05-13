@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-per-user-pricing
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Neue Unternehmen können mit {% data variables.product.prodname_free_team %} öffentliche und Open-Source-Projekte erstellen, oder zu einem kostenpflichtigen Produkt mit benutzerabhängiger Preisgestaltung [wechseln]({% data variables.product.pricing_url %}).

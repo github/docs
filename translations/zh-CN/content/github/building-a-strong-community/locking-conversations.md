@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - 社区
 ---
 
 当整个对话没有建设性或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %} 时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。

@@ -1,5 +1,5 @@
 ---
-title: Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen
+title: 'Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen'
 intro: 'Du kannst Möglichkeiten finden, um zu Open-Source-Projekten auf {% data variables.product.product_name %} beizutragen, die für Dich relevant sind.'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
@@ -10,6 +10,8 @@ redirect_from:
   - /github/getting-started-with-github/finding-open-source-projects-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Open Source
 ---
 
 ### Relevante Projekte finden

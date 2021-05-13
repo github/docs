@@ -4,6 +4,8 @@ intro: 'Du kannst ein Ausgabenlimit für {% data variables.product.prodname_regi
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Über Ausgabenlimits für {% data variables.product.prodname_registry %}

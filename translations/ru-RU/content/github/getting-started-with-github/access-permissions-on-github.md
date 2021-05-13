@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Permissions
+  - Accounts
 ---
 
 ### Personal user accounts

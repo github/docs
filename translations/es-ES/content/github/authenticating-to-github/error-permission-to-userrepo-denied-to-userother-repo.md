@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 Para resolverlo, elimina la llave de implementación del repositorio y [agrega la clave a tu cuenta](/articles/adding-a-new-ssh-key-to-your-github-account) en lugar de esa llave.

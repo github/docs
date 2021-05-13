@@ -25,3 +25,4 @@ sections:
     - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
     - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
     - '監査ログは実際のソースIPアドレスの代わりに127.0.0.1に起因する可能性があります。(updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "リポジトリの権限を`Triage`もしくは`Maintain`に設定しようとすると、失敗してエラーメッセージが表示されます。"

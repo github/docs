@@ -1,9 +1,11 @@
 ---
 title: Gerenciamento do GitHub para dispositivos móveis para sua empresa
-intro: Você pode decidir se usuários autenticados podem se conectar-se a {% data variables.product.product_location %} com {% data variables.product.prodname_mobile %}.
-permissions: Os proprietários da empresa podem gerenciar {% data variables.product.prodname_mobile %} para uma empresa em {% data variables.product.product_name %}.
+intro: 'Você pode decidir se usuários autenticados podem se conectar-se a {% data variables.product.product_location %} com {% data variables.product.prodname_mobile %}.'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

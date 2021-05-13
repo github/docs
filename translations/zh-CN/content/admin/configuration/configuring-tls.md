@@ -8,6 +8,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-tls
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于传输层安全

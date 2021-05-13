@@ -1,5 +1,5 @@
 ---
-title: Monitoring activity in your enterprise
+title: Enterprise でアクティビティを監視する
 mapTopic: true
 redirect_from:
   - /enterprise/admin/installation/monitoring-activity-on-your-github-enterprise-server-instance
@@ -7,5 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 La lista de verificación del perfil de comunidad se comprueba para ver si un proyecto incluye un archivo de salud de comunidad recomendado, como README, CODE_OF_CONDUCT, LICENSE o CONTRIBUTING, en una ubicación admitida. Para obtener más información, consulta "[ una ubicación admitida](/articles/accessing-a-project-s-community-profile)".

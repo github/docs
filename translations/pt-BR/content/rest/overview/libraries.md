@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -25,7 +27,7 @@ versions:
 
 ### Clojure
 
-Library name | Repository |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
+Nome da biblioteca | Repositório |---|---| **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
 ### Dart
 
@@ -57,7 +59,7 @@ Nome da biblioteca | Repositório | |---|---| **NodeJS GitHub library**| [pksunk
 
 ### Julia
 
-Library name | Repository | |---|---| **GitHub.jl**|[WestleyArgentum/GitHub.jl](https://github.com/WestleyArgentum/GitHub.jl)
+Library name | Repository | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -65,11 +67,15 @@ Nome da biblioteca | Repositório | |---|---| **ocaml-github**|[mirage/ocaml-git
 
 ### Perl
 
-Library name | Repository | metacpan Website for the Library |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
+Nome da biblioteca | Repositório | metacpan Website for the Library |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
 Nome da biblioteca | Repositório |---|---| **GitHub PHP Client**|[tan-tan-kanarek/github-php-client](https://github.com/tan-tan-kanarek/github-php-client) **PHP GitHub API**|[KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api) **GitHub API**|[yiiext/github-api](https://github.com/yiiext/github-api) **GitHub Joomla! Package**|[joomla-framework/github-api](https://github.com/joomla-framework/github-api) **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github) **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api) **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub) **PHP7 Client & WebHook wrapper**|[FlexyProject/GitHubAPI](https://github.com/FlexyProject/GitHubAPI)
+
+### PowerShell
+
+Library name | Repository |---|---| **PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 

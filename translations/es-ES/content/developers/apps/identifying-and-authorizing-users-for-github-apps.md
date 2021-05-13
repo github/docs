@@ -9,10 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 Cuando tu GitHub App actúe en nombre de un usuario, ésta realiza solicitudes de usuario a servidor. Estas solicitudes deben autorizarse con un token de acceso de usuario. Las solicitudes de usuario a servidor incluyen el solicitar datos para un usuario, como el determinar qué repositorios mostrar a un usuario en particular. Estas solicitudes también incluyen las acciones que activa un usuario, como ejecutar una compilación.
 
@@ -50,6 +52,7 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 | `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Esta debe ser una copia exacta de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} una de las URL que proporcionaste como **URL de rellamado** {% else %} la URL que proporcionaste en el campo **URL de rellamado de autorización de usuario** {% endif %} cuando configuraste tu GitHub App y no puede contener ningún parámetro adicional. |
 | `state`        | `secuencia` | Este deberá contener una secuencia aleatoria para dar protección contra los ataques de falsificación y podría contener cualquier otros datos arbitrarios.                                                                                                                                                                                                                                                                                                                             |
 | `login`        | `secuencia` | Sugiere una cuenta específica para utilizar para registrarse y autorizar la app.                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `allow_signup` | `secuencia` | Ya sea que se ofrezca no una opción para que los usuarios autenticados se registren para {% data variables.product.prodname_dotcom %} durante el flujo de OAuth. la opción predeterminada es `true`. Utiliza `false` cuando una política prohíba los registros.                                                                                                                                                                                                                       |
 
 {% note %}
 
@@ -67,9 +70,9 @@ Si el usuario acepta tu solicitud, GitHub te redirecciona de regreso a tu sitio 
 
 {% endnote %}
 
-Intercambia este `code` por un token de acceso. {% if currentVersion == "free-pro-team@latest" %} Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas yel token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
+Intercambia este `code` por un token de acceso. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} Cuando los tokens con vigencia se habilitan, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualizar los tokens de acceso de usuario a servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
 
-Los tokens de usuario con caducidad son parte del beta de caducidad de tokens de usuario a servidor actualmente y están sujetos a cambios. Para participar en la característica beta de tokens de usuario a servidor con caducidad, consulta la sección "[Activar las características beta para las aplicaciones](/developers/apps/activating-beta-features-for-apps)".{% endif %}
+Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. Para decidir unirse a la característica de vigencia determinada de los tokens de usuario a servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)".{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -87,14 +90,14 @@ Los tokens de usuario con caducidad son parte del beta de caducidad de tokens de
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
-Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in`  solo se devuelven cuando habilitas el beta para la caducidad de los tokens de acceso de usuario a servidor.
+Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in` solo se devuelven cuando habilitas la vigencia determinada para los tokens de acceso de usuario a servidor.
 
 ```json
 {
-  "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-  "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
-  "refresh_token_expires_in": "15811200",
+  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "expires_in": 28800,
+  "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }
@@ -103,7 +106,7 @@ Predeterminadamente, la respuesta toma la siguiente forma. Los parámetros de re
 
 Predeterminadamente, la respuesta toma la siguiente forma:
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 {% endif %}
 
@@ -213,7 +216,7 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Artefactos
 
-* [Listar artefactos para un repositorio](/rest/reference/actions#list-artifacts-for-a-repository)
+* [Listar artefactos para un repositorio](/rest/reference/actions#delete-an-organization-secret)
 * [Listar artefactos de ejecución de flujo de trabajo](/rest/reference/actions#list-workflow-run-artifacts)
 * [Obtener un artefacto](/rest/reference/actions#get-an-artifact)
 * [Borrar un artefacto](/rest/reference/actions#delete-an-artifact)
@@ -930,4 +933,12 @@ Mientras que la mayoría de tu interacción con la API deberá darse utilizando 
 * [Listar los flujos de trabajo del repositorio](/rest/reference/actions#list-repository-workflows)
 * [Obtener un flujo de trabajo](/rest/reference/actions#get-a-workflow)
 * [Obtener el uso de un flujo de trabajo](/rest/reference/actions#get-workflow-usage)
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+
+### Leer más
+
+- "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+
 {% endif %}

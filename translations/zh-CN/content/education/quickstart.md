@@ -1,6 +1,6 @@
 ---
 title: GitHub Educators 快速入门
-intro: 大约 15 分钟后，教师就可以开始享受 {% data variables.product.company_short %} 的优惠、培训和工具，然后使用 {% data variables.product.prodname_classroom %} 在软件开发课程中为学生创建教室。
+intro: '大约 15 分钟后，教师就可以开始享受 {% data variables.product.company_short %} 的优惠、培训和工具，然后使用 {% data variables.product.prodname_classroom %} 在软件开发课程中为学生创建教室。'
 allowTitleToDifferFromFilename: true
 versions:
   free-pro-team: '*'

@@ -1,6 +1,6 @@
 ---
 title: プルリクエスト内のファイルをフィルタリングする
-intro: '巨大なプルリクエスト内の変更を素早く確認できるように、変更されたファイルをフィルタリングできます。'
+intro: 巨大なプルリクエスト内の変更を素早く確認できるように、変更されたファイルをフィルタリングできます。
 redirect_from:
   - /articles/filtering-files-in-a-pull-request-by-file-type/
   - /articles/filtering-files-in-a-pull-request
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 プルリクエスト内のファイルは、`.html` や `.js` などのファイル拡張子の種類、拡張子の欠如、コードの所有権、ドットファイルでフィルタリングできます。

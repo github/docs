@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 GitHub unterstützt das Rendering von Tabellendaten in den Formaten *.csv* (kommagetrennt) und *.tsv* (tabulatorgetrennt).

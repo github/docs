@@ -1,10 +1,12 @@
 ---
-title: Länder, in denen die SMS-Authentifizierung unterstützt wird
+title: 'Länder, in denen die SMS-Authentifizierung unterstützt wird'
 intro: 'Wegen der Auslieferungserfolgsquoten unterstützt {% data variables.product.product_name %} die Zwei-Faktor-Authentifizierung per SMS nur in bestimmten Ländern.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:
   free-pro-team: '*'
+topics:
+  - 2fa
 ---
 
 Wenn wir die Zwei-Faktor-Authentifizierung per SMS in Deinem Land nicht unterstützen, kannst Du die Authentifizierung per TOTP-Mobilanwendung einrichten. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.

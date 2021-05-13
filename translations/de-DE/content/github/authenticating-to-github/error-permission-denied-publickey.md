@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 ### Kann ich den Befehl `sudo` bei Git verwenden?
@@ -38,7 +40,7 @@ Alle Verbindungen, auch die zu Remote-URLs, müssen als „git“-Benutzer herge
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-Wenn Ihre Verbindung fehlgeschlagen ist und Sie eine Remote-URL mit Ihrem {% data variables.product.product_name %}-Benutzernamen verwenden, können Sie [die Remote-URL für die Verwendung des „git“-Benutzers ändern](/articles/changing-a-remote-s-url/).
+Wenn Ihre Verbindung fehlgeschlagen ist und Sie eine Remote-URL mit Ihrem {% data variables.product.product_name %}-Benutzernamen verwenden, können Sie [die Remote-URL für die Verwendung des „git“-Benutzers ändern](/github/getting-started-with-github/managing-remote-repositories).
 
 Du solltest Deine Verbindung mit der folgenden Eingabe überprüfen:
 

@@ -5,11 +5,13 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### {% data variables.product.prodname_dotcom %} のナビゲーションコードについて
 
-Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). 以下の言語がサポートされています:
+コードナビゲーションでは、オープンソースライブラリの [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) を使用します。 以下の言語がサポートされています:
 - C#
 - CodeQL
 - Go

@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/guides/installation/network-ports-to-open/
   - /enterprise/admin/installation/network-ports
   - /enterprise/admin/configuration/network-ports
-intro: 'オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。'
+intro: オープンするネットワークポートは、管理者、エンドユーザ、メールサポートへ公開する必要があるネットワークサービスに応じて選択してください。
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 管理ポート

@@ -1,8 +1,10 @@
 ---
 title: Gerenciar as configurações de temas
-intro: Você pode gerenciar como {% data variables.product.product_name %} se parece com você definindo uma preferência de um tema que segue as configurações do sistema ou sempre usa o modo claro ou escuro.
+intro: 'Você pode gerenciar como {% data variables.product.product_name %} se parece com você definindo uma preferência de um tema que segue as configurações do sistema ou sempre usa o modo claro ou escuro.'
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 {% note %}

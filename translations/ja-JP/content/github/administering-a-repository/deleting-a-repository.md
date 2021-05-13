@@ -9,18 +9,20 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.organizations.owners-and-admins-can %}Organization のリポジトリを削除できます。 [**Allow members to delete or transfer repositories for this organization**] が無効化されていると、Organization のオーナーだけが Organization のリポジトリを削除できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% if currentVersion != "github-ae@latest" %}パブリックリポジトリを削除しても、リポジトリのフォークは削除されません。{% endif %}
 
 {% warning %}
 
 **警告**:
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. このアクションは取り消すことが**できません**。
-- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
+- リポジトリを削除すると、リリースの添付ファイルと Team の権限が**完全に**削除されます。 このアクションは取り消すことが**できません**。
+- プライベートリポジトリ{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}または内部{% endif %}リポジトリを削除すると、リポジトリのすべてのフォークが削除されます。
 
 {% endwarning %}
 

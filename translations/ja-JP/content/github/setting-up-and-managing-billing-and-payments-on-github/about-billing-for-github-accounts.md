@@ -12,6 +12,8 @@ redirect_from:
   - /articles/about-billing-for-github-accounts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 アカウントで利用できる製品に関する詳しい情報については「[{% data variables.product.product_name %}の製品](/articles/github-s-products)」を参照してください。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。

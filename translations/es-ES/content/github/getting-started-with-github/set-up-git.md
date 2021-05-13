@@ -15,6 +15,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} También puedes instalar {% data variables.product.prodname_cli %} para utilizar {% data variables.product.product_name %} desde la línea de comandos. Para obtener más información sobre {% data variables.product.prodname_cli %}, consulta la [documentación de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/).{% endif %}
@@ -31,7 +36,7 @@ Si no deseas trabajar con archivos de forma local, {% data variables.product.pro
 ### Configurar Git
 
 1. [Descarga e instala la última versión de Git](https://git-scm.com/downloads).
-2. [Configura tu nombre de usuario en Git](/articles/setting-your-username-in-git).
+2. [Configura tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Configura tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address).
 
 ### Pasos siguientes: Autenticación con {% data variables.product.prodname_dotcom %} desde Git
@@ -40,11 +45,11 @@ Cuando te conectas a un repositorio {% data variables.product.product_name %} de
 
 #### Conectar por HTTPS (recomendado)
 
-Si [clonas con HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), puedes [almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/using-git/caching-your-github-credentials-in-git) utilizando un asistente de credenciales.
+Si [clonas con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), puedes [almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) utilizando un asistente de credenciales.
 
 #### Conectar por SSH
 
-Si clonas [con SSH](/articles/which-remote-url-should-i-use#cloning-with-ssh-urls), debes [generar las claves de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) en cada computadora que utilices para subir o extraer desde {% data variables.product.product_name %}.
+Si clonas [con SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), debes [generar las claves de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) en cada computadora que utilices para subir o extraer desde {% data variables.product.product_name %}.
 
 ### Celebrar
 

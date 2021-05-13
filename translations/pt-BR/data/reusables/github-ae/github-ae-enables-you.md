@@ -1,1 +1,1 @@
-{% data variables.product.prodname_ghe_managed %} permite que você mova o desenvolvimento do seu software para a nuvem ao mesmo tempo que satisfaz os requisitos de segurança e conformidade mais rigorosos.
+{% data variables.product.prodname_ghe_managed %} enables you to move your DevOps workload to the cloud while meeting stringent security and compliance requirements.

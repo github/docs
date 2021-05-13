@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 A API do banco de dados do Git dá acesso para ler e gravar objetos do Git sem processamento no seu banco de dados do Git no {% data variables.product.product_name %} e para listar e atualizar suas referências (cabeçalhos de branch e etiquetas). Para obter mais informações sobre como usar a API do banco de dados do Git, consulte "[Começar com a API de dados do Git](/rest/guides/getting-started-with-the-git-database-api)".

@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-server-to-githubcom/
   - /enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud
   - /enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud
-permissions: 'Website-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber einer Organisation oder eines Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können {% data variables.product.prodname_github_connect %} aktivieren.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.product.prodname_github_connect %}

@@ -9,10 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
-{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
+{% data reusables.pre-release-program.expiring-user-access-tokens %}
 
 Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicitações de usuário para servidor. Essas solicitações devem ser autorizadas com o token de acesso de um usuário. As solicitações de usuário para servidor incluem a solicitação de dados para um usuário, como determinar quais repositórios devem ser exibidos para um determinado usuário. Essas solicitações também incluem ações acionadas por um usuário, como executar uma criação.
 
@@ -50,6 +52,7 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 | `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
 | `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                                                                          |
 | `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                                                                                |
+| `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                                                                                                             |
 
 {% note %}
 
@@ -67,9 +70,9 @@ Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para 
 
 {% endnote %}
 
-Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-team@latest" %} Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
+Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} Quando os tokens com expiração estão habilitados, o token de acesso expira em 8 horas e o token de atualização expira em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Os tokens de usuário expirados atualmente fazem parte da expiração do token beta de usuário para servidor e estão sujeitos a alterações. Para optar por participar do recurso beta do token de usuário para servidor com expiração, consulte "[Ativar os recursos beta para aplicativos](/developers/apps/activating-beta-features-for-apps)".{% endif %}
+Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. Para optar por participar do recurso de expiração de token de usuário para servidor, consulte "[Habilitar funcionalidades opcionais para aplicativos](/developers/apps/activating-optional-features-for-apps)."{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
@@ -87,14 +90,14 @@ Os tokens de usuário expirados atualmente fazem parte da expiração do token b
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
-Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `expires_in`, `atualizar_token`, e `refresh_token_expires_in` são apenas retornados quando você ativar o beta para expirar os tokens de acesso do usuário para servidor.
+Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `expires_in`, `refresh_token`, e `refresh_token_expires_in` só são retornados quando você habilita os token de acesso de usuário para servidor vencidos.
 
 ```json
 {
-  "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
-  "expires_in": "28800",
-  "refresh_token": "r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692",
-  "refresh_token_expires_in": "15811200",
+  "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
+  "expires_in": 28800,
+  "refresh_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghr_1B4a2e77838347a7E420ce178F2E7c6912E169246c34E1ccbF66C46812d16D5B1A9Dc86A1498{% else %}r1.c1b4a2e77838347a7e420ce178f2e7c6912e1692{% endif %}",
+  "refresh_token_expires_in": 15811200,
   "scope": "",
   "token_type": "bearer"
 }
@@ -103,7 +106,7 @@ Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `e
 
 Por padrão, a resposta assume o seguinte formato:
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghu_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 {% endif %}
 
@@ -719,7 +722,7 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Obter conteúdo de repositório](/rest/reference/repos#get-repository-content)
 * [Criar ou atualizar conteúdo do arquivo](/rest/reference/repos#create-or-update-file-contents)
 * [Excluir um arquivo](/rest/reference/repos#delete-a-file)
-* [Obter um LEIAME do repositório](/rest/reference/repos#get-a-repository-readme)
+* [Obter um README do repositório](/rest/reference/repos#get-a-repository-readme)
 * [Obter a licença para um repositório](/rest/reference/licenses#get-the-license-for-a-repository)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
@@ -930,4 +933,12 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 * [Listar fluxos de trabalho do repositório](/rest/reference/actions#list-repository-workflows)
 * [Obter um fluxo de trabalho](/rest/reference/actions#get-a-workflow)
 * [Obter uso do workflow](/rest/reference/actions#get-workflow-usage)
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+
+### Leia mais
+
+- "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
+
 {% endif %}

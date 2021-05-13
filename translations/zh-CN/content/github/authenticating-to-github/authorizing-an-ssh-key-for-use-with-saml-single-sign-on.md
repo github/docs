@@ -1,11 +1,13 @@
 ---
 title: 授权用于 SAML 单点登录的 SSH 密钥
-intro: '要将 SSH 密钥用于使用 SAML 单点登录 (SSO) 的组织，必须先授权该密钥。'
+intro: 要将 SSH 密钥用于使用 SAML 单点登录 (SSO) 的组织，必须先授权该密钥。
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 您可以授权现有 SSH 密钥，或者创建新 SSH 密钥后再授权。 有关创建新 SSH 密钥的更多信息，请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。

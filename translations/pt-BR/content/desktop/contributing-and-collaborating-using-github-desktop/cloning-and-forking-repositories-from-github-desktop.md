@@ -8,14 +8,14 @@ versions:
   free-pro-team: '*'
 ---
 
-### About local repositories
-Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
+### Sobre repositórios locais
+Repositórios em {% data variables.product.prodname_dotcom %} são repositórios remotos. É possível clonar ou bifurcar um repositório com {% data variables.product.prodname_desktop %} para criar um repositório local no seu computador.
 
-You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. Para obter mais informações, consulte "[Sincronizando seu branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
+É possível criar uma cópia local de qualquer repositório em {% data variables.product.product_name %} que que tem acesso ao clonar o repositório. Se você tem um repositório ou tem permissões de gravação, você pode fazer a sincronização entre os locais e os locais remotos. Para obter mais informações, consulte "[Sincronizando seu branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)".
 
-When you clone a repository, any changes you push to {% data variables.product.product_name %} will affect the original repository. To make changes without affecting the original project, you can create a separate copy by forking the repository. You can create a pull request to propose that maintainers incorporate the changes in your fork into the original upstream repository. Para obter mais informações, consulte "[Sobre bifurcações](/github/collaborating-with-issues-and-pull-requests/about-forks)".
+Ao clonar um repositório, todas as alterações que você fizer push em {% data variables.product.product_name %} afetarão o repositório original. Para fazer alterações sem afetar o projeto original, é possível criar uma cópia separada fazendo uma bifurcação do repositório. É possível criar uma pull request para propor que os mantenedores incorporem as alterações na sua bifurcação no repositório original ascendente. Para obter mais informações, consulte "[Sobre bifurcações](/github/collaborating-with-issues-and-pull-requests/about-forks)".
 
-When you try to use {% data variables.product.prodname_desktop %} to clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will prompt you to create a fork automatically. You can choose to use your fork to contribute to the original upstream repository or to work independently on your own project. Any existing forks default to contributing changes to their upstream repositories. You can modify this choice at any time. For more information, see "[Managing fork behavior](#managing-fork-behavior)".
+Ao tentar usar {% data variables.product.prodname_desktop %} para clonar um repositório no qual você não tem acesso de gravação, {% data variables.product.prodname_desktop %} irá solicitar que você crie uma bifurcação automaticamente. Você pode optar por usar a sua bifurcação para contribuir para o repositório original a ascendente ou trabalhar de forma independente no seu próprio projeto. Todas as bifurcações existentes contribuem, por padrão, com alterações nos seus repositórios ascendentes. Você pode modificar esta escolha a qualquer momento. Para obter mais informações, consulte "[Gerenciar comportamento da bifurcação](#managing-fork-behavior)".
 
 Também é possível clonar um repositório diretamente no {% data variables.product.prodname_dotcom %} ou no {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Clonar um repositório do {% data variables.product.prodname_dotcom %} para o {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)".
 
@@ -28,7 +28,7 @@ Também é possível clonar um repositório diretamente no {% data variables.pro
 {% data reusables.desktop.click-clone %}
 
 ### Bifurcar um repositório
-If you clone a repository that you do not have write access to, {% data variables.product.prodname_desktop %} will create a fork. After creating or cloning a fork, {% data variables.product.prodname_desktop %} will ask how you are planning to use the fork.
+Caso você clone um repositório que não tenha acesso de gravação, {% data variables.product.prodname_desktop %} criará uma bifurcação. Depois de criar ou clonar uma bifurcação, {% data variables.product.prodname_desktop %} perguntará como você planeja usar a bifurcação.
 
 {% data reusables.desktop.choose-clone-repository %}
 {% data reusables.desktop.cloning-location-tab %}
@@ -37,11 +37,11 @@ If you clone a repository that you do not have write access to, {% data variable
 {% data reusables.desktop.click-clone %}
 {% data reusables.desktop.fork-type-prompt %}
 
-### Managing fork behavior
-You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
+### Gerenciar o comportamento da bifurcação
+Você pode alterar como uma bifurcação se comporta com o repositório ascendente em {% data variables.product.prodname_desktop %}.
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
 
 ### Leia mais
-- [Sobre repositórios remotos](/github/using-git/about-remote-repositories)
+- [Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)

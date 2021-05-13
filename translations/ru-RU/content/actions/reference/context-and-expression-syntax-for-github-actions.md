@@ -11,10 +11,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About contexts and expressions
 
@@ -152,11 +154,12 @@ The `steps` context contains information about the steps in the current job that
 
 The `runner` context contains information about the runner that is executing the current job.
 
-| Property name       | Тип      | Description                                                                                                                                                                                                                                                                                                                         |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`         | `строка` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                                                                                           |
-| `runner.temp`       | `строка` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                                                                                 |
-| `runner.tool_cache` | `строка` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Property name       | Тип      | Description                                                                                                                                                                                                                                                         |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`         | `строка` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.                                                                                                                                                           |
+| `runner.temp`       | `строка` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.                                                                                                                 |
+| `runner.tool_cache` | `строка` | {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)." |
+{% else %}The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### `needs` context
 

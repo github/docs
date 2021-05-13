@@ -5,6 +5,9 @@ redirect_from:
   - /articles/global-privacy-practices
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 生效日期：2020 年 7 月 22 日。

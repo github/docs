@@ -1,6 +1,6 @@
 ---
 title: Conectar un sistema de administración de aprendizaje a GitHub Classroom
-intro: Puedes configurar un sistema de administración de aprendizaje (LMS) que cumpla con LTI para conectarte a {% data variables.product.prodname_classroom %} y que puedas importar un registro de alumno para tu aula.
+intro: 'Puedes configurar un sistema de administración de aprendizaje (LMS) que cumpla con LTI para conectarte a {% data variables.product.prodname_classroom %} y que puedas importar un registro de alumno para tu aula.'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -36,7 +36,7 @@ Utilizar LTI ayuda a mantener tu información segura y protegida. LTI es un prot
 - Moodle
 - Sakai
 
-Actualmente, {% data variables.product.prodname_classroom %} no es compatible para importar datos de registro de alumnos desde Blackboard o Brightspace
+Actualmente, {% data variables.product.prodname_classroom %} no es compatible para importar datos de registro de alumnos desde Blackboard o Brightspace.
 
 ### Generar credenciales de configuración para tu aula
 

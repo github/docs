@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Du kannst jede gefilterte Ansicht nach folgenden Aspekten sortieren:

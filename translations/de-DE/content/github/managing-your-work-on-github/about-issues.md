@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Informationen zu Issues
@@ -35,6 +37,6 @@ Issues ermöglichen Ihnen Folgendes:
 - Übertrage offene Issues in andere Repositorys. Weitere Informationen finden Sie unter „[Einen Issue in ein anderes Repository übertragen](/articles/transferring-an-issue-to-another-repository)“.
 - Hefte wichtige Issues an, um sie leichter auffindbar zu machen, doppelte Issues zu vermeiden und Störungen zu unterdrücken. Weitere Informationen findest Du unter „[Einen Issue an Dein Repository anheften](/articles/pinning-an-issue-to-your-repository).“
 - Verfolge doppelte Issues anhand gespeicherter Antworten. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
-- Melden Sie Kommentare, die gegen die [Community-Richtlinien](/articles/github-community-guidelines) von {% data variables.product.prodname_dotcom %} verstoßen. Weitere Informationen findest Du unter „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“.{% endif %}
+- Melden Sie Kommentare, die gegen die [Community-Richtlinien](/articles/github-community-guidelines) von {% data variables.product.prodname_dotcom %} verstoßen. Weitere Informationen findest Du unter „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“.{% endif %}
 
 Issues können außerdem [anderen Benutzern zugewiesen](/articles/assigning-issues-and-pull-requests-to-other-github-users), [mit Kennzeichnungen für eine schnellere Suche versehen](/articles/applying-labels-to-issues-and-pull-requests) und [mit Meilensteinen gruppiert](/articles/creating-and-editing-milestones-for-issues-and-pull-requests) werden.

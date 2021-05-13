@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **短版本：** _我们托管全球各地大量的协作项目，仅当用户能够善意一起工作时，该协作才能正常进行。 在使用服务时，必须遵守我们的可接受使用政策，包括对您可以发布的内容、对服务的操作的一些限制，以及其他限制规定。 简言之，要互惠互利。_

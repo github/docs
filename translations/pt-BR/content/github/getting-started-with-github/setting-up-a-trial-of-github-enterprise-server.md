@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### Sobre as versões de avaliação do {% data variables.product.prodname_ghe_server %}

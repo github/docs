@@ -1,5 +1,5 @@
 ---
-title: '错误：文件编号错误'
+title: 错误：文件编号错误
 intro: 此错误通常表示您无法连接到服务器。 这通常由防火墙和代理服务器造成。
 redirect_from:
   - /articles/error-bad-file-number
@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 运行远程 Git 命令或 SSH 时，您的连接可能会超时：
@@ -24,7 +26,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 #### 使用 HTTPS
 
-通常，最简单的解决方案是完全避免使用 SSH。 大多数防火墙和代理都允许无问题的 HTTPS 流量。 要利用此解决方案，请更改正在使用的[远程 URL](/articles/which-remote-url-should-i-use)：
+通常，最简单的解决方案是完全避免使用 SSH。 大多数防火墙和代理都允许无问题的 HTTPS 流量。 要利用此解决方案，请更改正在使用的[远程 URL](/github/getting-started-with-github/about-remote-repositories)：
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git

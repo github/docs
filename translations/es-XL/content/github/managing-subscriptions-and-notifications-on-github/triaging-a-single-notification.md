@@ -4,6 +4,9 @@ intro: 'Cuando revisas e investigas solo una notificación, tienes varias opcion
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - Notifications
 ---
 
 ### Guardar solo una notificación

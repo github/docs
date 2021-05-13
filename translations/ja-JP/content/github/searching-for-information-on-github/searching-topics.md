@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 ### トピックを {% data variables.product.product_name %} で検索
@@ -27,7 +29,7 @@ versions:
 
 `is:featured` 検索修飾子は、{% data variables.product.product_name %} 上のほとんどのリポジトリのトピックの検索結果を絞り込みます。 また、これらのトピックは、https://github.com/topics/ に特集されています。
 
-`is:curated` 検索修飾子は、検索結果を、コミュニティのメンバーが特別な情報を追加したトピックに限定します。 For more information, see the [explore repository](https://github.com/github/explore).
+`is:curated` 検索修飾子は、検索結果を、コミュニティのメンバーが特別な情報を追加したトピックに限定します。 詳しい情報については、「[リポジトリを調べる](https://github.com/github/explore)」を参照してください。
 
 トピックは、日付パラメータと `created:` を使って、作成した日付に基づいてフィルタリングできます。また、`repositories:n` を使って、トピックに関連付けられているリポジトリの数でフィルタリングすることも可能です。 これら両方の修飾子では、[不等号や範囲の修飾子](/articles/understanding-the-search-syntax)を使うことができます。
 

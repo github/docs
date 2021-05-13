@@ -7,6 +7,7 @@ intro: 'Si un mensaje de confirmación contiene información poco clara, incorre
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Volver a escribir el mensaje de confirmación más reciente

@@ -64,7 +64,7 @@ Em "Tarefa individual ou de grupo", selecione o menu suspenso e clique em **Tare
 
 #### Escolher um repositório de modelo
 
-Por padrão, uma nova atividade criará um repositório vazio para cada aluno na lista da sala de aula. {% data reusables.classroom.you-can-choose-a-template-repository %} Para obter mais informações sobre repositórios de modelos, consulte "[Criar um repositório de modelo](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
+Por padrão, uma nova atividade criará um repositório vazio para cada aluno na lista da sala de aula. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -112,7 +112,7 @@ Você pode ver se um aluno juntou-se à sala de aula e aceitou ou enviou uma ati
 
 ### Próximas etapas
 
-- Depois de criar a atividade, os alunos poderão começar a trabalhar na atividade usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Você e o aluno podem revisar o histórico do commit do repositório. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Criar, clonar e arquivar repositórios](/github/creating-cloning-and-archiving-repositories)", "[Usar o Git](/github/using-git)" e "[Colaborar com problemas e pull requests](/github/collaborating-with-issues-and-pull-requests)".
+- Depois de criar a atividade, os alunos poderão começar a trabalhar na atividade usando os recursos do Git e do {% data variables.product.product_name %}. Os alunos podem clonar o repositório, realizar commits de push, gerenciar branches, criar e revisar pull requests, resolver conflitos de merge e discutir alterações com problemas. Você e o aluno podem revisar o histórico do commit do repositório. For more information, see "[Getting started with {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)," "[Creating, cloning, and archiving repositories](/github/creating-cloning-and-archiving-repositories)," "[Using Git](/github/getting-started-with-github/using-git)," and "[Collaborating with issues and pull requests](/github/collaborating-with-issues-and-pull-requests)."
 
 - Quando um aluno concluir uma atividade, você poderá revisar os arquivos no repositório ou você poderá revisar o histórico e as visualizações do repositório para entender melhor o trabalho do aluno. Para obter mais informações, consulte "[Visualizar dados do repositório com gráficos](/github/visualizing-repository-data-with-graphs)".
 

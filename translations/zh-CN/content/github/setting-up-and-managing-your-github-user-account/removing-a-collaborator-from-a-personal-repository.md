@@ -1,6 +1,6 @@
 ---
 title: 从个人仓库中删除协作者
-intro: '当您从项目中删除协作者时，他们将失去对您仓库的读取/写入权限。 如果仓库为私有并且该人员已创建复刻，则该复刻也将删除。'
+intro: 当您从项目中删除协作者时，他们将失去对您仓库的读取/写入权限。 如果仓库为私有并且该人员已创建复刻，则该复刻也将删除。
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator/
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
@@ -13,6 +13,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 ### 删除私有仓库的复刻

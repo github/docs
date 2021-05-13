@@ -1,6 +1,6 @@
 ---
 title: 从仓库中删除敏感数据
-intro: '如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-branch` 命令或 BFG Repo-Cleaner 开源工具。'
+intro: 如果将敏感数据（例如密码或 SSH 密钥）提交到 Git 仓库，您可以将其从历史记录中删除。 要从仓库的历史记录中彻底删除不需要的文件，您可以使用 `git filter-branch` 命令或 BFG Repo-Cleaner 开源工具。
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 `git filter-branch` 命令和 BFG Repo-Cleaner 可重写仓库的历史记录，从而更改您所更改的现有提交以及任何依赖提交的 SHA。 更改的提交 SHA 可能会影响仓库中的打开拉取请求。 我们建议在从仓库中删除文件之前合并或关闭所有打开的拉取请求。

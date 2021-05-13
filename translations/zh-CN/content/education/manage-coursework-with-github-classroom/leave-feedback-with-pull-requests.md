@@ -1,7 +1,7 @@
 ---
 title: 通过拉取请求留下反馈
 intro: 您可以仓库内的特定拉取请求中给学生的每个作业留反馈。
-permissions: 对仓库具有读取权限的用户可以在仓库的拉取请求中留下反馈。
+permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
   free-pro-team: '*'
 redirect_from:

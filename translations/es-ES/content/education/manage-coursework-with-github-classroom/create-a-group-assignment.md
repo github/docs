@@ -1,6 +1,6 @@
 ---
 title: Crear una tarea de grupo
-intro: 'Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.'
+intro: Puedes crear una tarea colaborativa para que los equipos de alumnos participen en tu curso.
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -17,7 +17,7 @@ Cuando un alumno acepta una tarea grupal, los alumnos pueden crear un equipo nue
 
 {% data reusables.classroom.about-assignments %}
 
-Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. Para obtener más información, consulta "[Acerca de equipos](/github/setting-up-and-managing-organizations-and-teams/about-teams)."
+Puedes decidir cuántos equipos puede tener una tarea y cuántos miembros puede tener cada equipo. Cada equipo que crea un alumno para una tarea constituye un equipo dentro de tu organización en {% data variables.product.product_name %}. La visibilidad del equipo es secreta. Los equipos que crees en {% data variables.product.product_name %} no aparecerán en {% data variables.product.prodname_classroom %}. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
 
 Para ver un video demostrativo de la creación de una tarea de grupo, consulta la sección "[Conceptos básicos para configurar un {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
@@ -84,7 +84,7 @@ Si ya creaste una tarea grupal para el aula, puedes reutilizar un conjunto de eq
 
 #### Elegir un repositorio de plantilla
 
-Predeterminadamente, una tarea nueva creará un repositorio en blanco para cada equipo que cree el alumno. {% data reusables.classroom.you-can-choose-a-template-repository %} Para obener más información sobre los repositorios de plantilla, consulta la sección "[Crear un repositorio de plantilla](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)".
+Predeterminadamente, una tarea nueva creará un repositorio en blanco para cada equipo que cree el alumno. {% data reusables.classroom.you-can-choose-a-template-repository %}
 
 {% data reusables.classroom.assignments-guide-choose-template-repository %}
 
@@ -102,7 +102,7 @@ Opcionalmente, puedes calificar tareas automáticamente y crear un espacio para 
 
 - [Probar las tareas automáticamente](#testing-assignments-automatically)
 - [Prevenir que se hagan cambios en los archivos importantes](#preventing-changes-to-important-files)
-- [Crear una solicitud de cambios para retroalimentación](#creating-a-pull-request-for-feedback)
+- [Crear una solicitud de cambios para retroalimentación](#preventing-changes-to-important-files)
 
 #### Probar las tareas automáticamente
 
@@ -132,7 +132,7 @@ Puedes ver los equipos que están trabajando o que han emitido una tarea en la p
 
 ### Pasos siguientes
 
-- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Iniciar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Crear, clonar y archivar repositorios](/github/creating-cloning-and-archiving-repositories)", "[Utilizar Git](/github/using-git)", y "[Colaborar con las propeustas y solicitudes de cambios](/github/collaborating-with-issues-and-pull-requests)", así como el curso gratuito sobre [administrar conflictos de fusión](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
+- Después de que creas una tarea y de que tus alumnos forme equipos, los miembros de dichos equipos pueden comenzar a trabajar en la tarea utilizando las características de Git y de {% data variables.product.product_name %}. Los alumnos pueden clonar el repositorio, subir confirmaciones, administrar ramas, crear y revisar solicitudes de cambio, tratar los confluctos de fusión y debatir los cambios con propuestas. Tanto tú como el equipo pueden revisar el historial de confirmaciones del repositorio. Para obtener más información, consulta las secciones "[Comenzar con {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)", "[Crear, clonar y archivar repositorios](/github/creating-cloning-and-archiving-repositories)", [Utilizar Git](/github/getting-started-with-github/using-git)", y "[Colaborar con las propuestas y solicitudes de cambio](/github/collaborating-with-issues-and-pull-requests)", y el curso gratuito sobre [administrar conflictos de fusión](https://lab.github.com/githubtraining/managing-merge-conflicts) de {% data variables.product.prodname_learning %}.
 
 - Cuando un equipo termina una tarea, puedes revisar los archivos en el repositorio, o puedes revisar el historial y visualizaciones del mismo para entender mejor cómo colaboró el equipo. Para obtener más información, consulta la sección "[Visualizar los datos del repositorio con gráficas](/github/visualizing-repository-data-with-graphs)".
 
@@ -140,6 +140,6 @@ Puedes ver los equipos que están trabajando o que han emitido una tarea en la p
 
 ### Leer más
 
-- "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
+- "[Utiliza {% data variables.product.prodname_dotcom %} en tu aula y en tu investigación](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research)"
 - "[Conectar un sistema de administración de aprendizaje a {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)"
 - [Utilizar equipos existentes en tareas grupales](https://education.github.community/t/using-existing-teams-in-group-assignments/6999) en la comunidad de {% data variables.product.prodname_education %}

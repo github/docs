@@ -1,15 +1,17 @@
 ---
 title: Referencia
-intro: 'Documentación de referencia para crear flujos de trabajo utilizando autenticación y ejecutores hospedados en Github.'
+intro: Documentación de referencia para crear flujos de trabajo utilizando autenticación y ejecutores hospedados en Github.
 redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sintaxis de flujos de trabajo
 
@@ -27,12 +29,12 @@ Puedes configurar flujos de trabajo para que se ejecuten cuando ocurren eventos 
 
 ### Autenticación y secretos
 
-{% data variables.product.prodname_dotcom %} proporciona un token que puedes usar para autenticar en nombre de {% data variables.product.prodname_actions %}. También puedes almacenar información sensible como un secreto en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositorio o ambiente{% else %} o repositorio{% endif %}. {% data variables.product.prodname_dotcom %} cifra todos los secretos.
+{% data variables.product.prodname_dotcom %} proporciona un token que puedes usar para autenticar en nombre de {% data variables.product.prodname_actions %}. También puedes almacenar la información sensible como un secreto en tu organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repositorio o ambientes{% else %} o repositorio{% endif %}. {% data variables.product.prodname_dotcom %} cifra todos los secretos.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### Ambientes
 
 Los jobs de un flujo de trabajo pueden referenciar ambientes que tienen reglas de protección o secretos de ambiente específico.
@@ -40,12 +42,11 @@ Los jobs de un flujo de trabajo pueden referenciar ambientes que tienen reglas d
 {% link_in_list /environments %}
 {% endif %}
 
-### Ejecutores alojados {% data variables.product.prodname_dotcom %}
+### Variables del entorno
 
-GitHub ofrece máquinas virtuales hospedadas para ejecutar flujos de trabajo. La máquina virtual contiene un ambiente con herramientas, paquetes y variables de ambiente para que las utilicen las GitHub Actions.
+{% data variables.product.prodname_dotcom %} establece variables de entorno predeterminadas para cada ejecución de flujo de trabajo de {% data variables.product.prodname_actions %}. También puedes establecer variables de entorno personalizadas en tu archivo de flujo de trabajo.
 
 {% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Administración

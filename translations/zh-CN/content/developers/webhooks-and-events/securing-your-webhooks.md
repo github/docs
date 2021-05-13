@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -79,10 +81,16 @@ def verify_signature(payload_body)
 end{% endif %}
 ```
 
+{% note %}
+
+**注意：**web 挂钩有效载荷可以包含 unicode 字符。 如果您的语言和服务器实现指定了字符编码，请确保您将有效负载处理为 UTF-8。
+
+{% endnote %}
+
 您的语言和服务器实现可能与此示例代码不同。 但是，需要指出一些非常重要的事情：
 
 * 无论您使用哪种实现，哈希签名都以 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %} 开头，使用密钥令牌和有效负载正文的键。
 
 * **不建议**使用普通的 `==` 运算符。 像 [`secure_compare`][secure_compare] 这样的方法执行“恒定时间”字符串比较，这有助于减轻针对常规相等运算符的某些定时攻击。
 
-[secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
+[secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

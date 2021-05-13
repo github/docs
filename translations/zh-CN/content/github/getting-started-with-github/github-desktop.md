@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Desktop
 ---
 
 ### 关于 {% data variables.product.prodname_desktop %}

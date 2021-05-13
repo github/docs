@@ -3,11 +3,10 @@ title: Solução de problemas de varredura de código do CodeQL no seu sistema d
 shortTitle: Solução de problemas na sua CI
 intro: 'Se você tiver problemas com {% data variables.product.prodname_codeql_runner %}, você poderá solucionar esses problemas usando essas dicas.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -49,5 +48,7 @@ Se o comando `analisar` para o {% data variables.product.prodname_codeql_runner 
    **Observação:**Se você usou o sinalizador `--temp-dir` do comando `init` para especificar um diretório personalizado para arquivos temporários, o caminho para os arquivos `codeql-env` podem ser diferentes.
 
    {% endnote %}
+
+1. Você está analisando uma linguagem compilada no macOS sem usar o comando `autobuild` e você mesmo executa os passos de compilação após a etapa `init`. Se a opção SIP (Proteção da Integridade do Sistema) estiver habilitada, que é o padrão nas versões recentes do OSX, poderá ocorrer uma falha na análise. Para corrigir isso, prefixe o comando de compilação com a variável de ambiente `$CODEQL_RUNNER`. Por exemplo, se seu comando de criação for `cmd arg1 arg2`, você deverá executar `$CODEQL_RUNNER cmd arg1 arg2`.
 
 1. O código é criado em um contêiner ou em uma máquina separada. Se você usar uma criação em contêiner ou se você externalizar a criação para outra máquina, certifique-se de executar {% data variables.product.prodname_codeql_runner %} no contêiner ou na máquina onde a tarefa de criação ocorrer. Para obter mais informações, consulte "[Executar a varredura de código do CodeQL em um contêiner](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)".

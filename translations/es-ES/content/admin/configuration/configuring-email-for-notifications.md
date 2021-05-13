@@ -1,63 +1,59 @@
 ---
 title: Configurar el correo electrónico para notificaciones
+intro: 'Para que sea más fácil para los usuarios el responder rápidamente a la actividad de {% data variables.product.product_name %}, puedes configurar a {% data variables.product.product_location %} para que envíe notificaciones por correo electrónico para las propuestas, solicitudes de cambio y comentarios de las confirmaciones.'
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration/
   - /enterprise/admin/articles/configuring-email/
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'Para facilitar que los usuarios respondan rápidamente a la actividad de {% data variables.product.product_name %}, puedes configurar tu empresa para que envíe notificaciones por correo electrónico sobre las propuestas, solicitudes de cambios, y comentarios de confirmaciones{% if enterpriseServerVersions contains currentVersion %}, así como puedes configurar ajustes adicionales para permitir las respuestas de correo externo{% endif %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
-Los correos electrónicos para notificaciones se envían si hay una actividad en un repositorio que un usuario está observando, si hay una actividad en una solicitud de extracción o en una propuesta en la que están participando o si el usuario o equipo del que son un miembro son @mencionados en un comentario.
-
 {% if currentVersion == "github-ae@latest" %}
-Tu administrador de cuenta técnico dedicado en
-{% data variables.contact.github_support %} puede configurar el correo electrónico para que las notificaciones se envíen a través de tu servidor de SMTP. Asegúrate de incluir los siguientes detalles en tu solicitud de soporte.
+Los propietarios de las empresas pueden configurar los correos electrónicos para las notificaciones.
+{% endif %}
+### Configurar el SMTP para tu empresa
 
-- La dirección de tu servidor SMTP
-- Información de inicio de sesión para autenticarse en el servidor: nombre de usuario y contraseña
-- El puerto que utiliza tu servidor SMTP para enviar correos electrónicos
-- El nombre del dominio que tu servidor SMTP enviará con una respuesta de HELO, en caso de que exista
-- El tipo de cifrado que utiliza tu servidor SMTP
-- La dirección de correo electrónico de "no-reply" a utilizar en los campos `From` y `To` para todas las notificaciones
-
-Para obtener más información sobre contactar a soporte, consulta la sección "[Acerca de {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)".
-{% else %}
-### Configurar SMTP
-
+{% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 2. En la parte superior de la página, haz clic en **Parámetros**. ![Pestaña Parámetros](/assets/images/enterprise/management-console/settings-tab.png)
 3. En la barra lateral de la izquierda, haz clic en **Correo electrónico**. ![Pestaña Correo electrónico](/assets/images/enterprise/management-console/email-sidebar.png)
 4. Selecciona **Activar correo electrónico**. Esto activará tanto el correo electrónico de salida como el de entrada, sin embargo para trabajar con el correo electrónico entrante también necesitarás configurar los parámetros de tu DNS como se describe a continuación en ["Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Activar correo electrónico de salida](/assets/images/enterprise/management-console/enable-outbound-email.png)
-5. Completa los parámetros de tu servidor de correo electrónico:
-    - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
-    - En el campo **Puerto**, escribe el puerto que usa tu servidor SMTP para enviar correo electrónico.
-    - En el campo **Dominio**, escribe el nombre de dominio que enviará tu servidor SMTP con una respuesta HELO, de ser el caso.
-    - En el desplegable **Autenticación**, elige el tipo de cifrado usado por tu servidor SMTP.
-    - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
-
+5. Teclea la configuración para tu servidor de SMTP.
+      - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
+      - En el campo **Puerto**, escribe el puerto que usa tu servidor SMTP para enviar correo electrónico.
+      - En el campo **Dominio**, escribe el nombre de dominio que enviará tu servidor SMTP con una respuesta HELO, de ser el caso.
+      - Selecciona el menú desplegable de **Autenticación** y elige el tipo de cifrado que utiliza tu servidor SMTP.
+      - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
 6. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de verificación para descartar los correos electrónicos dirigidos a la dirección de correo electrónico sin respuesta](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. En **Soporte**, elige un tipo de enlace para ofrecer un soporte adicional a tus usuarios:
+7. En **Soporte**, elige un tipo de enlace para ofrecer un soporte adicional a tus usuarios.
     - **Correo electrónico:** Una dirección de correo electrónico interna.
     - **URL:** Un enlace a un sitio de soporte interno. Debes incluir tanto `http://` como `https://`. ![Correo de soporte técnico o URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Prueba de entrega del correo electrónico](#testing-email-delivery).
+{% elsif currentVersion == "github-ae@latest" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.email-tab %}
+2. Selecciona **Activar correo electrónico**. ![Casilla de "Habilitar" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
+3. Teclea la configuración para tu servidor de correo electrónico.
+    - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
+    - En el campo **Puerto**, escribe el puerto que usa tu servidor SMTP para enviar correo electrónico.
+    - En el campo **Dominio**, escribe el nombre de dominio que enviará tu servidor SMTP con una respuesta HELO, de ser el caso.
+    - Selecciona el menú desplegable de **Autenticación** y elige el tipo de cifrado que utiliza tu servidor SMTP.
+    - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
+4. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de "Descartar" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-discard-email.png)
+5. Haz clic en **Prueba la configuración de correo electrónico**. ![Botón de "Probar la configuración de correo electrónico" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-test-email.png)
+6. Debajo de "Enviar correo electrónico de pruebas a," teclea la dirección de correo electrónico a donde quieras enviar un mensaje de prueba y haz clic en **Enviar correo electrónico de pruebas**. ![Botón de "Enviar correo electrónico de pruebas" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-send-test-email.png)
+7. Haz clic en **Save ** (guardar). ![Botón de "Guardar" para la configuración del contacto de soporte empresarial](/assets/images/enterprise/configuration/ae-save.png)
+{% endif %}
 
-### Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
-
-Si quieres permitir respuestas de correo electrónico para las notificaciones, debes configurar los parámetros de tu DNS.
-
-1. Asegúrate de que el puerto 25 en la instancia esté accesible para tu servidor SMTP.
-2. Crea un registro A que apunte a `reply.[hostname]`. Dependiendo de tu proveedor DNS y de la configuración del host de instancia, es posible que puedas crear un registro A único que apunte a `*.[hostname]`.
-3. Crea un registro MX que apunte a `reply.[hostname]` para que los correos electrónicos para ese dominio sean enrutados a la instancia.
-4. Crea un registro MX que apunte a `noreply.[hostname]` para `[hostname]` para que las respuestas a la dirección `cc` en los correos electrónicos para notificación sean enrutados a la instancia. Para obtener más información, consulta la sección {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
-
-Con la configuración de tu DNS, ahora puedes probar si la configuración funciona.
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### Probar entrega del correo electrónico
 
 1. En la parte superior de la sección **Correo electrónico**, haz clic en **Probar parámetros del correo electrónico**. ![Probar parámetros del correo electrónico](/assets/images/enterprise/management-console/test-email.png)
@@ -73,6 +69,15 @@ Con la configuración de tu DNS, ahora puedes probar si la configuración funcio
 4. Si el correo electrónico de prueba falla, [soluciona los problemas de los parámetros de tu correo electrónico](#troubleshooting-email-delivery).
 5. Cuando el correo electrónico de prueba es exitoso, en la parte inferior de la página, haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/enterprise/management-console/save-settings.png)
 6. Espera que se complete la fase de configuración. ![Configurar tu instancia](/assets/images/enterprise/management-console/configuration-run.png)
+
+### Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
+
+Si quieres permitir respuestas de correo electrónico para las notificaciones, debes configurar los parámetros de tu DNS.
+
+1. Asegúrate de que el puerto 25 en la instancia esté accesible para tu servidor SMTP.
+2. Crea un registro A que apunte a `reply.[hostname]`. Dependiendo de tu proveedor DNS y de la configuración del host de instancia, es posible que puedas crear un registro A único que apunte a `*.[hostname]`.
+3. Crea un registro MX que apunte a `reply.[hostname]` para que los correos electrónicos para ese dominio sean enrutados a la instancia.
+4. Crea un registro MX que apunte a `noreply.[hostname]` para `[hostname]` para que las respuestas a la dirección `cc` en los correos electrónicos para notificación sean enrutados a la instancia. Para obtener más información, consulta la sección {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 ### Solución de problemas de entrega de correo electrónico
 
@@ -145,18 +150,21 @@ Ten en cuenta que el cliente primero se conecta; luego, la cola se vuelve activa
 [2014-10-30T00:47:23.334 DEBUG (5284) #] Moving /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie => /data/user/incoming-mail/success
 ```
 
-Notarás que `metroplex` captura el mensaje entrante, lo procesa y luego desplaza el archivo a `/data/user/incoming-mail/success`.
+Notarás que `metroplex` captura el mensaje de entrada, lo procesa y luego mueve el archivo a `/data/user/incoming-mail/success`.{% endif %}
 
 #### Verificar los parámetros de tu DNS
 
-Para procesar los correos electrónicos entrantes de manera adecuada, debes configurar un Registro A válido (o CNAME), así como un Registro MX. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+Para procesar los correos electrónicos entrantes de manera adecuada, debes configurar un Registro A válido (o CNAME), así como un Registro MX. Para obtener más información, consulta "[Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)".
 
 #### Controlar los parámetros de AWS Security Group o firewall
 
 Si {% data variables.product.product_location %} está detrás de un firewall o está siendo servido a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
 
 #### Contactar con soporte técnico
+{% if enterpriseServerVersions contains currentVersion %}
 Si aún no puedes resolver el problema, contacta a
-
 {% data variables.contact.contact_ent_support %}. Adjunta el archivo de salida desde `http(s)://[hostname]/setup/diagnostics` en tu correo electrónico para ayudarnos a resolver tu problema.
+{% elsif currentVersion == "github-ae@latest" %}
+Puedes contactar a
+{% data variables.contact.github_support %} para obtener ayuda para configurar el correo electrónico para que las notificaciones se envíen a tu servidor de SMTP. Para obtener más información, consulta la sección "[Recibir ayuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 {% endif %}

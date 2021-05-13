@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data variables.product.product_name %} schreibt ein Passwort vor, um vertrauliche Aktionen durchzuführen, beispielsweise das Hinzufügen neuer SSH-Schlüssel, das Autorisieren von Anwendungen oder die Bearbeitung von Teammitgliedern.

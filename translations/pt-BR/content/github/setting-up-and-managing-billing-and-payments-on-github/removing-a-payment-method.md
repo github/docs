@@ -9,9 +9,13 @@ redirect_from:
   - /articles/removing-a-payment-method
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Se estiver pagando a assinatura do {% data variables.product.product_name %} com um cupom e não estiver usando a forma de pagamento para qualquer outro [recurso ou produto pago](/articles/about-billing-on-github) no {% data variables.product.product_name %}, você poderá remover as informações do cartão de crédito ou do PayPal.
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 {% tip %}
 

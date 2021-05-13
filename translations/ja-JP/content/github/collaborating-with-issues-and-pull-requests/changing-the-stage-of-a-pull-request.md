@@ -1,7 +1,7 @@
 ---
 title: プルリクエストのステージの変更
 intro: 'ドラフトのプルリクエストをレビューの準備完了 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} としてマークするか、プルリクエストをドラフトに変換することができます{% endif %}。'
-permissions: リポジトリへの書き込み権限を持つユーザとプルリクエストの作者は、プルリクエストのステージを変更できます。
+permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### プルリクエストをレビュー準備完了としてマークする

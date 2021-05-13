@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-anonymized-image-urls
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). Camo gera um proxy de URL anônimo para cada imagem que oculta os detalhes do seu navegador e informações relacionadas de outros usuários. A URL começa `https://<subdomain>.githubusercontent.com/`, com subdomínios diferentes dependendo de como você fez o upload da imagem.

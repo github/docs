@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 删除用户帐户会移除帐户所拥有的所有仓库、私有仓库分支、wiki、议题、拉取请求和页面。 {% if currentVersion == "free-pro-team@latest" %} 在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除，而是与我们的[Ghost 用户](https://github.com/ghost)关联。{% else %}在其他用户拥有的仓库中创建的议题和拉取请求以及所做的评论将不会被删除。{% endif %}

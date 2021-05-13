@@ -6,6 +6,8 @@ redirect_from:
   - /articles/troubleshooting-a-declined-credit-card-charge
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Bei einer Ablehnung Deiner Kreditkarte senden wir Dir eine E-Mail mit dem Grund der Ablehnung. Du hast dann einige Tage Zeit, das Problem zu beheben, bevor wir erneut versuchen, Deine Kreditkarte zu belasten.

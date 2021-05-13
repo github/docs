@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
@@ -74,7 +76,7 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Lists all the configuration values
 ```
-允许您在 `cluster.conf` 中查找节点的 uuid。
+允许您在 `cluster.conf` 中找到节点的通用唯一标识符 (UUID)。
 
 ```shell
   $ ghe-config <em>HOSTNAME</em>.uuid
@@ -211,7 +213,7 @@ ghe-nwo <em>REPOSITORY_ID</em>
 
 此实用程序无法将非站点管理员升级为所有组织的所有者。 您可以使用 [ghe-user-promote](#ghe-user-promote) 将普通用户帐户升级为站点管理员。
 
-将特定组织中的组织所有者权限授予一个用户
+将特定组织中的组织所有者权限授予特定的站点管理员
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -473,7 +475,7 @@ ghe-webhook-logs
 ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
 ```
 
-The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+日期格式应为 `YYYY-MM-DD`、`YYYY-MM-DD HH:MM:SS` 或 `YYYY-MM-DD HH:MM:SS (+/-) HH:M`。
 {% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
@@ -754,7 +756,7 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 
 包含下载状态的文件位于 */var/lib/ghe-updates/ghe-update-check.status*。
 
-要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 开关。
+要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 交换字符。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'

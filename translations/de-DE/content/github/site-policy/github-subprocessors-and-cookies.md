@@ -8,9 +8,12 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Effective date: **January 29, 2021**
+Effective date: **April 2, 2021**
 
 GitHub bietet viel Transparenz darüber, wie wir Ihre Daten verwenden, wie wir Ihre Daten sammeln und mit wem wir Ihre Daten teilen. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -30,7 +33,6 @@ Wenn wir Ihre Daten an Unterauftragsverarbeiter, wie z. B. unsere Anbieter und D
 | MailChimp                          | Kunden-Ticketing-E-Mail Dienstanbieter                          | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Mailgun                            | Transaktions-Mail-Dienstanbieter                                | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Microsoft                          | Microsoft Services                                              | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
-| Monday.com                         | Plattform für Teamkollaboration und Projektmanagement           | Vereinigte Staaten von Amerika | Israel                         |
 | Nexmo                              | SMS-Benachrichtigungsanbieter                                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Salesforce.com                     | Customer Relations-Management                                   | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Sentry.io                          | Application monitoring provider                                 | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
@@ -50,6 +52,7 @@ Since the number and names of cookies may change, the table below may be updated
 | Service Provider | Cookie Name                          | Beschreibung                                                                                                                                                                     | Expiration*                                                   |
 |:---------------- |:------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------- |
 | GitHub           | `app_manifest_token`                 | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session.                                                  | five minutes                                                  |
+| GitHub           | `color_mode`                         | This cookie is used to indicate the user selected theme preference.                                                                                                              | Session, Sitzung                                              |
 | GitHub           | `_device_id`                         | This cookie is used to track recognized devices for security purposes.                                                                                                           | one year                                                      |
 | GitHub           | `dotcom_user`                        | Dieses Cookie wird verwendet, um uns zu signalisieren, dass der Benutzer bereits angemeldet ist.                                                                                 | one year                                                      |
 | GitHub           | `_gh_ent`                            | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form.                                       | two weeks                                                     |

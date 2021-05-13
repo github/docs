@@ -1,15 +1,17 @@
 ---
 title: リファレンス
-intro: 'ワークフローの作成、GitHub ホストランナーの使用、および認証に関するリファレンスドキュメント。'
+intro: ワークフローの作成、GitHub ホストランナーの使用、および認証に関するリファレンスドキュメント。
 redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### ワークフロー構文
 
@@ -27,12 +29,12 @@ versions:
 
 ### 認証とシークレット
 
-{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 機密情報をOrganization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、リポジトリ、環境{% else %}あるいはリポジトリ{% endif %}のシークレットとして保存することもできます。 {% data variables.product.prodname_dotcom %} はすべてのシークレットを暗号化します。
+{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。 機密情報を Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}、リポジトリ、環境{% else %}あるいはリポジトリ{% endif %}のシークレットとして保存することもできます。 {% data variables.product.prodname_dotcom %} はすべてのシークレットを暗号化します。
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### 環境
 
 ワークフロージョブは、保護ルールあるいは環境固有のシークレットを持つ環境を参照できます。
@@ -40,12 +42,11 @@ versions:
 {% link_in_list /environments %}
 {% endif %}
 
-### {% data variables.product.prodname_dotcom %}ホストランナー
+### 環境変数
 
-GitHub は、ワークフローを実行するホストされた仮想マシンを提供します。 仮想マシンには、GitHub Actions が使用するツール、パッケージ、および環境変数を備えた環境が含まれます。
+{% data variables.product.prodname_dotcom %}はそれぞれの{% data variables.product.prodname_actions %}ワークフローの実行に対してデフォルトの環境変数を設定します。 ワークフローファイル中でカスタムの環境変数を設定することもできます。
 
 {% link_in_list /environment-variables %}
-{% link_in_list /specifications-for-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 管理

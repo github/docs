@@ -1,8 +1,8 @@
 ---
 title: Azure AD を使用して Enterprise の認証とプロビジョニングを設定する
 shortTitle: Azure AD を使用しての設定
-intro: Azure Active Directory (Azure AD) のテナントをアイデンティティプロバイダ (IdP) として使用して、{% data variables.product.product_location %} の認証とユーザプロビジョニングを一元管理できます。
-permissions: Enterprise のオーナーは、{% data variables.product.product_name %} で Enterprise の認証とプロビジョニングを設定できます。
+intro: 'Azure Active Directory (Azure AD) のテナントをアイデンティティプロバイダ (IdP) として使用して、{% data variables.product.product_location %} の認証とユーザプロビジョニングを一元管理できます。'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
@@ -12,9 +12,16 @@ versions:
 
 Azure Active Directory (Azure AD) は、ユーザアカウントと Web アプリケーションへのアクセスを一元管理できる Microsoft のサービスです。 詳しい情報については、Microsoft Docs の「[Azure Active Directory とは](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)」を参照してください。
 
-{% data variables.product.product_name %} のアイデンティティとアクセスを管理するために、Azure AD テナントを認証用の SAML IdP として使用できます。 アカウントを自動的にプロビジョニングし、SCIM でアクセスするように Azure AD を設定することもできます。 この設定により、Azure AD テナントのユーザアカウントに {% data variables.product.prodname_ghe_managed %} アプリケーションを割り当てたり、割り当てを解除したりして、{% data variables.product.product_name %} の対応するユーザアカウントを自動作成、アクセス許可、または非アクティブ化できます。
+{% data variables.product.product_name %} のアイデンティティとアクセスを管理するために、Azure AD テナントを認証用の SAML IdP として使用できます。 アカウントを自動的にプロビジョニングし、SCIM でメンバーシップにアクセスするように Azure AD を設定することもできます。これにより、{% data variables.product.prodname_ghe_managed %} ユーザを作成し、Azure AD テナントから Team と Organization のメンバーシップを管理できます。
 
-{% data variables.product.product_location %} での Enterprise のアイデンティティとアクセスの管理の詳細については、「[Enterprise のアイデンティティとアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」を参照してください。
+Azure AD を使用して {% data variables.product.prodname_ghe_managed %} に対して SAML SSO と SCIM を有効にした後、Azure AD テナントから以下を実行できます。
+
+* Azure AD の {% data variables.product.prodname_ghe_managed %} アプリケーションをユーザアカウントに割り当てて、{% data variables.product.product_name %} の対応するユーザアカウントを自動的に作成し、アクセスを許可します。
+* {% data variables.product.prodname_ghe_managed %} アプリケーションの Azure AD のユーザアカウントへの割り当てを解除して、{% data variables.product.product_name %} の対応するユーザアカウントを非アクティブ化します。
+* {% data variables.product.prodname_ghe_managed %} アプリケーションを Azure AD の IdP グループに割り当てて、IdP グループのすべてのメンバーの {% data variables.product.product_name %} 上のユーザアカウントを自動的に作成し、アクセスを許可します。 さらに、IdP グループは {% data variables.product.prodname_ghe_managed %} で利用でき、Team とその親 Organization に接続できます。
+* IdP グループから {% data variables.product.prodname_ghe_managed %} アプリケーションの割り当てを解除して、その IdP グループを介してのみアクセスできるすべての IdP ユーザの {% data variables.product.product_name %} ユーザアカウントを非アクティブ化し、親 Organization からユーザを削除します。 IdP グループは {% data variables.product.product_name %} のどの Team からも切断されます
+
+{% data variables.product.product_location %} での Enterprise のアイデンティティとアクセスの管理の詳細については、「[Enterprise のアイデンティティとアクセスを管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise)」を参照してください。 Team を IdP グループと同期する方法について詳しくは、「[アイデンティティプロバイダグループとTeamの同期](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)」を参照してください。
 
 ### 必要な環境
 

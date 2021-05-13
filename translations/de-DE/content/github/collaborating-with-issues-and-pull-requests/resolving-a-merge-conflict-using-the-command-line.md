@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Mergekonflikte entstehen, wenn in der gleichen Zeile derselben Datei von verschiedenen Personen konkurrierende Änderungen vorgenommen werden oder wenn eine Person eine Datei bearbeitet und eine andere Person die Datei löscht. Weitere Informationen findest Du unter „[Informationen zu Mergekonflikten](/articles/about-merge-conflicts/).“
@@ -68,7 +70,7 @@ Ein Beispiel: Du und eine andere Person haben die gleichen Zeilen der Datei _sty
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Sie können die Branches nun in der Befehlszeile mergen oder [die Änderungen mittels Push an Ihr Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Ihre Änderungen mit einem Pull Request mergen](/articles/merging-a-pull-request/).
+Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
 ### Mergekonflikte durch das Entfernen einer Datei
 
@@ -117,7 +119,7 @@ Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Sie können die Branches nun in der Befehlszeile mergen oder [die Änderungen mittels Push an Ihr Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Ihre Änderungen mit einem Pull Request mergen](/articles/merging-a-pull-request/).
+Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
 ### Weiterführende Informationen
 

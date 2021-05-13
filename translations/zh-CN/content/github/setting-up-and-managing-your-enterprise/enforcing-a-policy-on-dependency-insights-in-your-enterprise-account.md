@@ -1,6 +1,6 @@
 ---
 title: 在企业帐户中实施关于依赖项洞察的策略
-intro: '在企业帐户拥有的所有组织中，可以允许或禁止成员查看依赖项洞察，或允许所有者管理组织级别的设置。'
+intro: 在企业帐户拥有的所有组织中，可以允许或禁止成员查看依赖项洞察，或允许所有者管理组织级别的设置。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-a-policy-on-dependency-insights/
@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 在企业帐户拥有的组织中，组织所有者可以设置查看组织依赖项洞察的限制。 更多信息请参阅“[更改组织依赖项洞察的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”。

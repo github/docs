@@ -14,7 +14,7 @@ Si los colaboradores en tu repositorio no tienen {% data variables.large_files.p
 
 {% tip %}
 
-**Tip:** Te recomendamos configurar lineamientos para los contribuyentes del repositorio, los cuales describan la forma de trabajar con archivos grandes, para todo usuario que no tenga {% data variables.large_files.product_name_short %} habilitado. Por ejemplo, puedes pedirles a los colaboradores que no modifiquen archivos de gran tamaño o que carguen los cambios a un servicio de intercambio de archivos como [Dropbox](http://www.dropbox.com/) o <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obtener más información, consulta "[Establecer pautas para los colaboradores del repositorio](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)".
+**Tip:** Te recomendamos configurar lineamientos para los contribuyentes del repositorio, los cuales describan la forma de trabajar con archivos grandes, para todo usuario que no tenga {% data variables.large_files.product_name_short %} habilitado. Por ejemplo, puedes pedirles a los colaboradores que no modifiquen archivos de gran tamaño o que carguen los cambios a un servicio de intercambio de archivos como [Dropbox](http://www.dropbox.com/) o <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. Para obtener más información, consulta "[Establecer pautas para los colaboradores del repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
 {% endtip %}
 

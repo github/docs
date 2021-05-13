@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Atualizar a assinatura da sua conta pessoal
@@ -57,7 +59,7 @@ Você pode atualizar sua organização de {% data variables.product.prodname_fre
 
 #### Próximas etapas para organizações que usam o {% data variables.product.prodname_ghe_cloud %}
 
-Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. For more information, see "[Gerenciar logon único de SAML para sua organização](/articles/managing-saml-single-sign-on-for-your-organization)".
+Se você tiver atualizado sua organização para o {% data variables.product.prodname_ghe_cloud %}, você poderá configurar a identidade e a gestão de acesso para a sua organização. For more information, see "[Gerenciar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization)".
 
 Caso queira usar uma conta corporativa com o {% data variables.product.prodname_ghe_cloud %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. Para obter mais informações, consulte "[Sobre contas corporativas](/articles/about-enterprise-accounts)".
 

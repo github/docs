@@ -1,0 +1,1 @@
+1. "GitHub Advanced Security"の下で、ドロップダウンメニューを選択し、Enterpriseが所有するOrganizationのためのポリシーをクリックしてください。 ![Enterpriseアカウント中のOrganizationに対するAdvanced Securityポリシーを選択するドロップダウン](/assets/images/help/enterprises/select-advanced-security-organization-policy.png)

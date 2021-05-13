@@ -20,7 +20,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: As pessoas com permissões de administrador em um repositório podem gerenciar as regras de proteção do branch.
+permissions: People with admin permissions to a repository can manage branch protection rules.
+topics:
+  - Repositories
 ---
 
 ### Sobre as regras de proteção do branch

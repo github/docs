@@ -3,6 +3,8 @@ title: Über Community-Verwaltung und -Moderation
 intro: '{% data variables.product.prodname_dotcom %} bietet Werkzeuge für Repository-Betreuer, die helfen, Verhaltensstandards in ihren Gemeinschaften auf {% data variables.product.prodname_dotcom_the_website %} zu etablieren und durchzusetzen.'
 versions:
   free-pro-team: '*'
+topics:
+  - community
 ---
 
 ### Über Community-Verwaltung und -Moderation

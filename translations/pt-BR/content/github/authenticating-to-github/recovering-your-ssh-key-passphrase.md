@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 {% mac %}
@@ -26,12 +28,12 @@ Se a [ frase secreta da SSH tiver sido configurada com o app Keychain (Chaves) d
 
 {% windows %}
 
-Se você perder a frase secreta da chave SSH, não haverá como recuperá-la. Você precisará [gerar uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) ou [mudar para o clone HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https) para poder usar a senha do GitHub.
+Se você perder a frase secreta da chave SSH, não haverá como recuperá-la. Você precisará [gerar uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) ou [mudar para o clone HTTPS](/github/getting-started-with-github/managing-remote-repositories) para poder usar a senha do GitHub.
 
 {% endwindows %}
 
 {% linux %}
 
-Se você perder a frase secreta da chave SSH, não haverá como recuperá-la. Você precisará [gerar uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) ou [mudar para o clone HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls) para poder usar a senha do GitHub.
+Se você perder a frase secreta da chave SSH, não haverá como recuperá-la. Você precisará [gerar uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) ou [mudar para o clone HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls) para poder usar a senha do GitHub.
 
 {% endlinux %}

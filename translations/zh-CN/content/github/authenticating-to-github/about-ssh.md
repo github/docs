@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 在设置 SSH 时，将会[生成 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)，然后[将该密钥添加到您的 {% data variables.product.product_name %} 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。 将 SSH 密钥添加到 ssh-agent，通过使用密码确保 SSH 密钥增加一层保护。 更多信息请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。

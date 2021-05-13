@@ -4,6 +4,9 @@ intro: Puedes cancelar todas las invitaciones para que las personas se convierta
 permissions: Los propietarios de la organización pueden cancelar una invitación para convertirse en un colaborador externo en la misma.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Puedes ver una lista de todas las personas con invitaciones pendientes para convertirse en colaboradores externos en cualquier repositorio que pertenezca a tu organización.

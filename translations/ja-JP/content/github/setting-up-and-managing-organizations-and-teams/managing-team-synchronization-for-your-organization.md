@@ -10,6 +10,9 @@ permissions: Organization のオーナーは、Organization の Team 同期を�
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

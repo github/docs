@@ -5,6 +5,8 @@ redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - comunidade
 ---
 
 ### Sobre o bloqueio de usuários

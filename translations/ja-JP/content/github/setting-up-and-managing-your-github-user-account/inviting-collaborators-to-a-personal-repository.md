@@ -1,6 +1,6 @@
 ---
 title: コラボレーターを個人リポジトリに招待する
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+intro: '個人リポジトリにコラボレータとして{% if currentVersion == "free-pro-team@latest" %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{% data variables.product.product_name %}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
@@ -30,7 +33,7 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 
 1. コラボレーターとして招待する人のユーザ名を確認してください。
 
-{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳しい情報については、「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -53,4 +56,4 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 - "[ユーザ アカウントリポジトリの権限レベル](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - [個人リポジトリからコラボレーターを削除する](/articles/removing-a-collaborator-from-a-personal-repository)
 - [コラボレーターのリポジトリから自分を削除する](/articles/removing-yourself-from-a-collaborator-s-repository)
-- [メンバーを Team に編成する](/articles/organizing-members-into-teams)
+- [メンバーを Team に編成する](/organizations/organizing-members-into-teams)

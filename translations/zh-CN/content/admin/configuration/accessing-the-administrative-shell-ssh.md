@@ -13,6 +13,8 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于管理 shell 访问

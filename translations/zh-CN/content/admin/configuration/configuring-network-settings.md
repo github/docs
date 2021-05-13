@@ -11,5 +11,7 @@ intro: '使用网络所需的 DNS 域名服务器和主机名配置 {% data vari
 mapTopic: true
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 

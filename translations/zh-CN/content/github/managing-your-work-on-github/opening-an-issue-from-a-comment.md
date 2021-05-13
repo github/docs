@@ -1,11 +1,13 @@
 ---
 title: 从评论打开议题
 intro: 您可以从议题或拉取请求中的特定评论行打开新议题。
-permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 从评论打开议题时，该议题包含一个代码段，显示评论的原始发布位置。

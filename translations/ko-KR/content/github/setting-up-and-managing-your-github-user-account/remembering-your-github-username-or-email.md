@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
+  - Notifications
 ---
 
 {% mac %}
@@ -34,7 +37,7 @@ versions:
 
 ### Finding your username in your `user.name` configuration
 
-During set up, you may have [set your username in Git](/articles/setting-your-username-in-git). If so, you can review the value of this configuration setting:
+During set up, you may have [set your username in Git](/github/getting-started-with-github/setting-your-username-in-git). If so, you can review the value of this configuration setting:
 
 ```shell
 $ git config user.name

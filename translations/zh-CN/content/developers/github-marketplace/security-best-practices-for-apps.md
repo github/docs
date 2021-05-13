@@ -8,6 +8,8 @@ redirect_from:
 shortTitle: 安全最佳实践
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 遵循这些最佳实践将有助于您提供安全的用户体验。

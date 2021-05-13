@@ -9,4 +9,6 @@ versions:
   free-pro-team: '*'
 ---
 
-Aprende habilidades comunicativas en público, escritura técnica, liderazgo comunitario y habilidades de desarrollo de software como un Experto en campus de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Expertos en campus](https://education.github.com/students/experts)".
+Aprende habilidades comunicativas en público, escritura técnica, liderazgo comunitario y habilidades de desarrollo de software como un Experto en campus de {% data variables.product.prodname_dotcom %}.
+
+Para conocer más acerca de los programas de capacitación para líderes estudiantiles y docentes, consulta "[{% data variables.product.prodname_dotcom %} Expertos en campus](https://education.github.com/students/experts)" y "[Asesores de campus](https://education.github.com/teachers/advisors)".

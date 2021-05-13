@@ -1,10 +1,12 @@
 ---
 title: Funktionsweise des Kontrollkästchens „Available for hire“ (Zur Anstellung verfügbar)
-intro: Verwende das Kontrollkästchen **Available for hire** (Zur Anstellung verfügbar), um GitHub Jobs-Beiträge in GitHub anzuzeigen.
+intro: 'Verwende das Kontrollkästchen **Available for hire** (Zur Anstellung verfügbar), um GitHub Jobs-Beiträge in GitHub anzuzeigen.'
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
+topics:
+  - Accounts
 ---
 
 Das [GitHub Jobs](https://jobs.github.com/)-Board ist eine tolle Möglichkeit, um im technischen Bereich eine Stelle zu finden. Du kannst die in Deinem GitHub-Dashboard eingestellten Stellenangebote ansehen.

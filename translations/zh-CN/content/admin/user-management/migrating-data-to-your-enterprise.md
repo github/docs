@@ -13,14 +13,18 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据
 
+一旦[准备迁移](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)，您即可使用以下步骤来完成迁移。
+
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. 使用 `ghe-migrator import` 命令启动导入过程。 您需要：
-    * 迁移 GUID.
+    * 迁移 GUID. 更多信息请参阅“[准备迁移数据到企业](/admin/user-management/preparing-to-migrate-data-to-your-enterprise)”。
     * 用于身份验证的个人访问令牌。 您使用的个人访问令牌仅用于站点管理员身份验证，不需要任何特定范围。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
     ```shell

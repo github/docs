@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}構成済みの GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
@@ -64,6 +66,6 @@ versions:
   {% endnote %}
 
 13. [Permissions] で、アプリケーションが要求する権限を選択します。 権限の各タイプで、ドロップダウンメニューを使用して [**Read-only**]、[**Read & write**]、または[**No access**] をクリックします。 ![GitHub App のさまざまな権限](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. [Subscribe to events] で、アプリケーションが [**Label**]、[**Public**]、 [**Repository**]、[**Watch**] イベントにサブスクライブするかどうかを選択します。 ![GitHub App のイベントオプションにサブスクライブする](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. In "Subscribe to events", choose the events you want your app to receive.
 15. アプリケーションをインストールする場所を、[**Only on this account**] (このアカウントのみ) と [**Any account**] (すべてのアカウント) から選びます。 これらのオプションに関する詳しい情報については、「[GitHub App をパブリックまたはプライベートにする](/apps/managing-github-apps/making-a-github-app-public-or-private/)」を参照してください。 ![GitHub App のインストールオプション](/assets/images/github-apps/github_apps_installation_options.png)
 16. [**Create GitHub App**] をクリックします。 ![GitHub App を作成するボタン](/assets/images/github-apps/github_apps_create_github_app.png)

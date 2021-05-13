@@ -4,6 +4,8 @@ shortTitle: Backup e restauração
 intro: 'Os dados de {% data variables.product.prodname_actions %} no seu provedor de armazenamento externo não estão incluídos em backups regulares de {% data variables.product.prodname_ghe_server %} e precisam ser salvos separadamente.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

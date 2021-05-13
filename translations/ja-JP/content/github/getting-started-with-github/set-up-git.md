@@ -15,6 +15,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
 
 コマンドラインで Git を使うには、あなたのコンピュータに Git をダウンロードし、インストールし、設定する必要があります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} コマンドラインから {% data variables.product.prodname_cli %} をインストールして {% data variables.product.product_name %} を使用することもできます。 {% data variables.product.prodname_cli %} の詳細については、[{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) ドキュメントを参照してください。{% endif %}
@@ -31,7 +36,7 @@ versions:
 ### Git をセットアップする
 
 1. [Git の最新バージョンをダウンロードしてインストールする](https://git-scm.com/downloads)。
-2. [Git でユーザ名を設定する](/articles/setting-your-username-in-git)。
+2. [Git でユーザ名を設定する](/github/getting-started-with-github/setting-your-username-in-git)。
 3. [Git のコミットメールアドレスを設定する](/articles/setting-your-commit-email-address)。
 
 ### 次のステップ: Git から {% data variables.product.prodname_dotcom %} で認証する
@@ -40,11 +45,11 @@ Git から {% data variables.product.product_name %} リポジトリに接続し
 
 #### HTTPS で接続 (推奨)
 
-[HTTPS でクローンする](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)場合、認証情報ヘルパーを使用して [Git で {% data variables.product.prodname_dotcom %} の認証情報をキャッシュ](/github/using-git/caching-your-github-credentials-in-git)できます。
+[HTTPS でクローンする](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)場合、認証情報ヘルパーを使用して [Git で {% data variables.product.prodname_dotcom %} の認証情報をキャッシュ](/github/getting-started-with-github/caching-your-github-credentials-in-git)できます。
 
 #### SSH で接続
 
-[SSH でクローンする場合](/articles/which-remote-url-should-i-use#cloning-with-ssh-urls)、{% data variables.product.product_name %} からプッシュまたはプルするには、使っているそれぞれのコンピュータに [SSH キー](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)を生成する必要があります。
+[SSH でクローンする場合](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)、{% data variables.product.product_name %} からプッシュまたはプルするには、使っているそれぞれのコンピュータに [SSH キー](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)を生成する必要があります。
 
 ### おめでとうございます
 

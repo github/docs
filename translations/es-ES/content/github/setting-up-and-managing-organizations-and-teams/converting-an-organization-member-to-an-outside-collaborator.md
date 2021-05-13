@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} convertir a los miembros de la organización en colaboradores externos.

@@ -4,6 +4,8 @@ intro: '您可以使用站点管理员仪表板{% if enterpriseServerVersions co
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

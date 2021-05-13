@@ -5,11 +5,12 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
 intro: A user account is considered to be dormant if it has not been active for at least a month. You may choose to suspend dormant users to free up user licenses.
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 "Activity" includes, but is not limited to:

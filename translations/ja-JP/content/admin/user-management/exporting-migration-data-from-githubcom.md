@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_dotcom %} でソース Organization を準備する
@@ -21,7 +23,7 @@ versions:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the organization's repositories
+### Organization のリポジトリのエクスポート
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

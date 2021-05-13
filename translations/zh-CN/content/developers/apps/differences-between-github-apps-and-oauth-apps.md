@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
+  - OAuth Apps
 ---
 
 ### 谁可以安装 GitHub 应用程序并授权 OAuth 应用程序？

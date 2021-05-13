@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid')
 
-module.exports = function (req, res, next) {
+module.exports = function recordRedirects (req, res, next) {
   if (!req.hydro.maySend()) return next()
 
   res.on('finish', async function recordRedirect () {

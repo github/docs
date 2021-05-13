@@ -6,11 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre grupos de executores auto-hospedados
 
@@ -45,7 +48,7 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 1
 Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, os repositórios públicos não podem acessar executores em um grupo de executor, mas você pode usar a opção **Permitir repositórios públicos** para substituir isso.{% else if currentVersion == "enterprise-server@2.22"%}Você pode configurar um grupo de executores para ser acessível por uma lista específica de repositórios, todos os repositórios privados ou todos os repositórios na organização.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" ou currentVersion == "github-ae@latest" %} Você pode configurar um grupo de executores para que sejam acessíveis a uma lista específica de repositórios, ou para todos os repositórios da organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executor, mas você pode substituir isso.{% elsif currentVersion == "enterprise-server@2.22"%}Você pode configurar um grupo de executor para ser acessível a uma lista específica de repositórios, todos os repositórios privados ou todos os repositórios na organização.{% endif %}
 
    {% warning %}
 
@@ -78,7 +81,7 @@ Ao criar um grupo, você deve escolher uma política que defina quais organizaç
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso à organização.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %} Você pode configurar um grupo para ser acessível para uma lista específica de organizações ou todas as organizações da empresa. Por padrão, os repositórios públicos não podem acessar executores em um grupo de executores, mas você pode usar a opção **Permitir repositórios públicos** para substituir isso.{% else if currentVersion == "enterprise-server@2.22"%}Você pode configurar um grupo de executores para ser acessível por todas as organizações da empresa ou escolher organizações específicas.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} Você pode configurar um grupo de executores para ser acessível a uma lista específica de organizações, ou todas as organizações da empresa. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso.% elsif currentVersion == "enterprise-server@2.22"%}}Você pode configurar um grupo de corredores para estar acessível a todas as organizações da empresa ou escolher organizações específicas.{% endif %}
 
    {% warning %}
 
@@ -103,7 +106,7 @@ Você pode atualizar a política de acesso de um grupo de executores ou renomear
 
 Os novos executores auto-hospedados são automaticamente atribuídos ao grupo-padrão e podem ser movidos para outro grupo.
 
-1. Na seção **executores auto-hospedados** da página de configurações, localize o grupo atual do executor que deseja mover o grupo e expandir a lista de membros do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. Na seção **executores auto-hospedados** da página de configurações, localize o grupo atual do executor que deseja mover e expandir a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Marque a caixa de seleção ao lado do executor auto-hospedado e, em seguida, clique em **Mover para o grupo** para ver os destinos disponíveis. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. Para mover o executor, clique no grupo de destino. ![Mover um membro do grupo de executores](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 

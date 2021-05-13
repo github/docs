@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %}
@@ -45,7 +47,7 @@ Você pode pesquisar as seguintes informações em todos os repositórios que vo
 - [Discussões](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Código](/articles/searching-code)
 - [Commits](/articles/searching-commits)
-- [Usuários](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [Usuários](/articles/searching-users){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest"  or currentVersion ver_gt "enterprise-server@2.21" %}
 - [Pacotes](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wikis](/articles/searching-wikis)
 

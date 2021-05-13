@@ -1,12 +1,15 @@
 ---
 title: 生成新 GPG 密钥
-intro: '如果没有现有的 GPG 密钥，您可以生成新的 GPG 密钥以用于签名提交和标记。'
+intro: 如果没有现有的 GPG 密钥，您可以生成新的 GPG 密钥以用于签名提交和标记。
 redirect_from:
   - /articles/generating-a-new-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

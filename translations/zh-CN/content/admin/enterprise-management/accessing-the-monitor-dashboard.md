@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 访问监视仪表板

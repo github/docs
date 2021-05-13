@@ -13,6 +13,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
@@ -50,6 +52,10 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
 8. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
    ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
+{%- if currentVersion == "free-pro-team@latest" %}
+1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
+  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+{%- endif %}
 9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -22,7 +24,7 @@ Puedes crear hasta {% if enterpriseServerVersions contains currentVersion or cur
 
 Cada evento corresponde a conjuntos de acciones específicos que pueden suceder en tu organización y/o repositorio. Por ejemplo, si te suscribes al evento `issues`, recibirás cargas útiles detalladas cada vez que un informe de problemas se abra, cierre, etiquete, etc.
 
-Consulta la sección "[Cargas útiles de los eventos de webhook](/webhooks/event-payloads)" para encontrar una lista de los eventos de webhook disponibles y de sus cargas útiles.
+Para encontrar una lista completa de eventos de webhook disponibles y sus cargas útiles, consulta la sección "[Eventos de webhook y cargas útiles](/developers/webhooks-and-events/webhook-events-and-payloads)".
 
 ### Evento de Ping
 

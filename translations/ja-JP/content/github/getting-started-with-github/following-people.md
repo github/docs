@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profile
 ---
 
 ユーザをフォローすると、ニュースフィードのアクティビティビューに、公開されたアクティビティが表示されます。{% if currentVersion == "free-pro-team@latest" %}フォローしているユーザがパブリックリポジトリに Star を付けると、ニュースフィードのディスカバリービューで {% data variables.product.product_name %} によっておすすめのリポジトリが紹介されます。{% endif %}ユーザをフォローするには、ユーザのプロフィールページにアクセスし、プロフィール画像の下にある [**Follow**] をクリックします。

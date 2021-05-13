@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Ingressar no {% data variables.product.prodname_sponsors %}
@@ -46,6 +48,7 @@ Depois de {% data variables.product.prodname_dotcom %} avaliar sua solicitação
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Enviando informações bancárias

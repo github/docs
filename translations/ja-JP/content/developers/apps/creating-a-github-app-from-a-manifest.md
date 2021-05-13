@@ -1,12 +1,14 @@
 ---
 title: マニフェストから GitHub App を作成する
-intro: 'GitHub App Manifest は、アプリケーションを個人のリポジトリで使いたい人と共有できる、構成済みの GitHub App です。 マニフェストフローにより、ユーザはアプリケーションを登録したり、ホストされたアプリケーションコードに登録を接続したりすることなく、GitHub App の拡張を素早く作成、インストール、開始できるようになります。'
+intro: GitHub App Manifest は、アプリケーションを個人のリポジトリで使いたい人と共有できる、構成済みの GitHub App です。 マニフェストフローにより、ユーザはアプリケーションを登録したり、ホストされたアプリケーションコードに登録を接続したりすることなく、GitHub App の拡張を素早く作成、インストール、開始できるようになります。
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,16 +54,18 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 ##### GitHub App Manifest のパラメータ
 
- | 名前                    | 種類        | 説明                                                                                                                                                     |
- | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
- | `name`                | `string`  | GitHub App の名前。                                                                                                                                        |
- | `url`                 | `string`  | **必須。**GitHub App のホームページ。                                                                                                                             |
- | `hook_attributes`     | `オブジェクト`  | GitHub App の webhook の構成。                                                                                                                              |
- | `redirect_url`        | `string`  | GitHub App をインストール後にユーザをリダイレクトする完全な URL。                                                                                                               |
- | `説明`                  | `string`  | GitHub App の説明。                                                                                                                                        |
- | `public`              | `boolean` | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                               |
- | `default_events`      | `array`   | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                                                             |
- | `default_permissions` | `オブジェクト`  | GitHub App が必要とする[権限](/rest/reference/permissions-required-for-github-apps)のセット。 オブジェクトのフォーマットでは、キーの権限名 (`issues` など) と、値のアクセスタイプ (`write` など) を使用します。 |
+ | 名前                    | 種類                 | 説明                                                                                                                                                                                                                                       |
+ | --------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name`                | `string`           | GitHub App の名前。                                                                                                                                                                                                                          |
+ | `url`                 | `string`           | **必須。**GitHub App のホームページ。                                                                                                                                                                                                               |
+ | `hook_attributes`     | `オブジェクト`           | GitHub App の webhook の構成。                                                                                                                                                                                                                |
+ | `redirect_url`        | `string`           | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
+ | `callback_url`        | `string`           | A full URL to redirect to after someone authorizes an installation.{% endif %}
+ | `説明`                  | `string`           | GitHub App の説明。                                                                                                                                                                                                                          |
+ | `public`              | `boolean`          | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                                                                                                                 |
+ | `default_events`      | `array`            | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                                                                                                                                               |
+ | `default_permissions` | `オブジェクト`           | GitHub App が必要とする[権限](/rest/reference/permissions-required-for-github-apps)のセット。 オブジェクトのフォーマットでは、キーの権限名 (`issues` など) と、値のアクセスタイプ (`write` など) を使用します。                                                                                   |
 
 `hook_attributes` オブジェクトは、以下のキーを持っています。
 
@@ -94,7 +98,10 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -109,10 +116,11 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
  })
 </script>
 ```
+
 この例では、ウェブページ上に Organization アカウントに対して `POST` リクエストをトリガするボタンがあるフォームを使用します。 `ORGANIZATION` は、アプリケーションを作成する場所の Organization アカウントの名前に置き換えます。
 
 ```html
-<form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
+<form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
@@ -125,7 +133,10 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -145,11 +156,11 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 **Create GitHub App** をクリックすると、GitHub はコードパラメータに一時的 `code` を付けて `redirect_url` にリダイレクトして戻します。 例:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
 `state` パラメータを指定した場合、`redirect_url` にもそのパラメータが表示されます。 例:
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
 
 #### 3. 一時コードをやり取りして、アプリケーションの構成を取得する
 
