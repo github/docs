@@ -6,6 +6,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
 const { get } = require('../helpers/supertest')
+const versionSatisfiesRange = require('../../lib/version-satisfies-range')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -195,11 +196,16 @@ describe('redirects', () => {
   })
 
   describe('enterprise admin', () => {
-    const enterpriseAdmin = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
+    // firstRestoredAdminGuides = 2.21
+    // lastBeforeRestoredAdminGuides = 2.20
+    // (these won't change but it's more convenient to use constants)
+    const { firstRestoredAdminGuides, getPreviousReleaseNumber, latest } = enterpriseServerReleases
+    const lastBeforeRestoredAdminGuides = getPreviousReleaseNumber(firstRestoredAdminGuides)
+    const enterpriseAdmin = `/en/enterprise-server@${latest}/admin`
     const japaneseEnterpriseAdmin = enterpriseAdmin.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/admin`)
+      const res = await get(`/enterprise/${latest}/admin`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseAdmin)
     })
@@ -210,24 +216,39 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(enterpriseAdmin)
     })
 
-    test('admin/guides redirects to admin', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
+    test('admin/guides redirects to admin on <2.21', async () => {
+      const res = await get(`/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(enterpriseAdmin)
+      expect(res.headers.location).toBe(enterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides))
     })
 
-    test('no version plus admin/guides redirects to admin on latest version', async () => {
-      const res = await get('/en/enterprise/admin/guides')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(enterpriseAdmin)
+    test('admin/guides does not redirect to admin on >=2.21', async () => {
+      const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides`)
+      expect(res.statusCode).toBe(200)
     })
 
-    test('admin/guides redirects to admin in redirects', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides/installation/upgrading-github-enterprise`)
+    test('no version plus admin/guides redirects to the right place on latest version', async () => {
+      const shouldRedirect = versionSatisfiesRange(latest, `<${firstRestoredAdminGuides}`)
+      const expectedStatusCode = shouldRedirect ? 301 : 200
+      const res = await get(`/en/enterprise-server@${latest}/admin/guides`)
+      expect(res.statusCode).toBe(expectedStatusCode)
+    })
+
+    test('admin/guides redirects to admin in deep links on <2.21', async () => {
+      const res = await get(`/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
       expect(redirectRes.statusCode).toBe(200)
-      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/upgrading-github-enterprise-server`
+      const expected = `/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test('admin/guides still redirects to admin in deep links on >=2.21', async () => {
+      const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
+      expect(res.statusCode).toBe(301)
+      const redirectRes = await get(res.headers.location)
+      expect(redirectRes.statusCode).toBe(200)
+      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -237,10 +258,15 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
     })
 
-    test('admin/guides redirects to admin (japanese)', async () => {
-      const res = await get(`/ja/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
+    test('admin/guides redirects to admin on <2.21 (japanese)', async () => {
+      const res = await get(`/ja/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
       expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
+      expect(res.headers.location).toBe(japaneseEnterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides))
+    })
+
+    test('admin/guides does not redirect to admin on >=2.21 (japanese)', async () => {
+      const res = await get(`/ja/enterprise-server@${firstRestoredAdminGuides}/admin/guides`)
+      expect(res.statusCode).toBe(200)
     })
   })
 

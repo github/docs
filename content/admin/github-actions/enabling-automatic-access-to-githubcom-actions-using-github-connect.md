@@ -7,8 +7,11 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: next
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 ---
 
 {% data reusables.actions.enterprise-beta %}
