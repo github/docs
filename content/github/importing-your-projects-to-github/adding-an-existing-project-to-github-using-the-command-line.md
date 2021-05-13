@@ -29,6 +29,12 @@ versions:
   ```shell
   $ git init -b main
   ```
+4.5. Pull eventual commits from origin.
+  ```shell
+  $ git pull origin main
+  # in case some changes have been already
+  # committed on the remote side.
+  ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
   $ git add .
