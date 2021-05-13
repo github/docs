@@ -1,5 +1,5 @@
 ---
-title: Building GitHub Apps
+title: Building GitHub Apps {% jimbojr55 %}
 intro: You can build GitHub Apps for yourself or others to use. Learn how to register and set up permissions and authentication options for GitHub Apps.
 mapTopic: true
 redirect_from:
