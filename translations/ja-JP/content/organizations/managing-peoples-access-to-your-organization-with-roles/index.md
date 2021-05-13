@@ -1,6 +1,6 @@
 ---
 title: Organization へのアクセスをロールで管理する
-intro: 'Organization における個人のロールは、Organization、その設定、およびデータにアクセスできるレベルを決めるものです。 個人を Organization のオーナー、メンバー、支払いマネージャーに指定したり、チームメンテナの権限を付与したりできます。'
+intro: Organization における個人のロールは、Organization、その設定、およびデータにアクセスできるレベルを決めるものです。 個人を Organization のオーナー、メンバー、支払いマネージャーに指定したり、チームメンテナの権限を付与したりできます。
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /permission-levels-for-an-organization %}

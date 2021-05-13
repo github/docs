@@ -4,7 +4,7 @@ intro: 'Los propietarios de empresa pueden requerir políticas para adminsitrar 
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
-  github-ae: 'next'
+  github-ae: next
 ---
 
 ### Acerca de {% data variables.product.prodname_GH_advanced_security %}

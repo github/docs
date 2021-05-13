@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Ver los recibos de tu cuenta personal

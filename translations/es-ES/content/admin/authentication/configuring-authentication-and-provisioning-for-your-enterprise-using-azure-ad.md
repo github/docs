@@ -1,8 +1,8 @@
 ---
 title: Configurar la autenticación y el aprovisionamiento para tu empresa utilizando Azure AD
 shortTitle: Configurar con Azure AD
-intro: Puedes utilizar un inquilino en Azure Active Directory (Azure AD) como proveedor de identidad (IdP) para administrar centralmente la autenticación y el aprovisionamiento de usuarios para {% data variables.product.product_location %}.
-permissions: Los propietarios de empresas pueden configurar la autenticación y el aprovisionamiento para una empresa en {% data variables.product.product_name %}.
+intro: 'Puedes utilizar un inquilino en Azure Active Directory (Azure AD) como proveedor de identidad (IdP) para administrar centralmente la autenticación y el aprovisionamiento de usuarios para {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'

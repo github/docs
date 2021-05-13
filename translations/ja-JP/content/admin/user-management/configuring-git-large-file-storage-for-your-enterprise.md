@@ -16,7 +16,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.large_files.product_name_long %}について

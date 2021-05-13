@@ -1,6 +1,6 @@
 ---
 title: リファレンス
-intro: 'ワークフローの作成、GitHub ホストランナーの使用、および認証に関するリファレンスドキュメント。'
+intro: ワークフローの作成、GitHub ホストランナーの使用、および認証に関するリファレンスドキュメント。
 redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:

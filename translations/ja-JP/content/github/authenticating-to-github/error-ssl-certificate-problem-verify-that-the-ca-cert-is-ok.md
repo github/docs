@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 以下のようなエラーが表示されます:

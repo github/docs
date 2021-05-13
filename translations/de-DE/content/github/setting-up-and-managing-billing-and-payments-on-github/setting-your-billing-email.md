@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 ### E-Mail-Adresse für die Abrechnung für Dein persönliches Konto festlegen

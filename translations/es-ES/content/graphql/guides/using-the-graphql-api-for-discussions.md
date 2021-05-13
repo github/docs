@@ -1,6 +1,6 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: 'Aprende cómo utilizar la API de GraphQL para los debates de GitHub.'
+intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
 versions:
   free-pro-team: '*'
 ---

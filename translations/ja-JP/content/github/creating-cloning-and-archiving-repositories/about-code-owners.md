@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。

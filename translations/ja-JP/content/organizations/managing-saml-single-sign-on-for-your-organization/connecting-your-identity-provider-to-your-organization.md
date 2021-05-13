@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data variables.product.product_name %} Organization で [SAML SSO を有効化する](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)前に、アイデンティティプロバイダ (IdP) を Organization に接続する必要があります。

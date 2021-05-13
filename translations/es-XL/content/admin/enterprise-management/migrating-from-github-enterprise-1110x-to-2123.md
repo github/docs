@@ -12,6 +12,8 @@ redirect_from:
 intro: 'Para migrar desde {% data variables.product.prodname_enterprise %} 11.10.x a 2.1.23, deberás configurar una nueva instancia de aparato y migrar los datos de la instancia anterior.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 y superior. No se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 o inferior. Primero debes actualizar a 11.10.348 en varias actualizaciones. Para obtener más información, consulta el procedimiento de actualización 11.10.348, "[Actualizar al lanzamiento más reciente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."

@@ -20,9 +20,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: Las personas con permisos administrativos en un repositorio pueden administrar las reglas de protección de rama.
+permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de las reglas de protección de rama

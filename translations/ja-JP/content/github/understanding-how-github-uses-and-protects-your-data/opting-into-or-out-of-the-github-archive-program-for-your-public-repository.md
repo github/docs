@@ -1,12 +1,12 @@
 ---
 title: パブリックリポジトリ用の GitHub Archive Program のオプトインまたはオプトアウト
 intro: '世界のオープンソースソフトウェアを長期的に維持できるように、{% data variables.product.prodname_dotcom %} で {% data variables.product.prodname_archive %} にパブリックリポジトリを含めるかどうかを管理できます。'
-permissions: 'パブリックリポジトリに対する管理者権限があるユーザは、{% data variables.product.prodname_archive %} をオプトインまたはオプトアウトできます。'
+permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} 詳細は「[{% data variables.product.prodname_dotcom %} 上のコンテンツとデータのアーカイブ処理について](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。

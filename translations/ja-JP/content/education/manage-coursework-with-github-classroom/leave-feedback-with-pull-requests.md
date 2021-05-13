@@ -1,7 +1,7 @@
 ---
 title: プルリクエストでフィードバックをする
 intro: 各課題のリポジトリ内の、特別なプルリクエストで学生にフィードバックをすることができます。
-permissions: リポジトリへの読み取り権限を持つユーザは、リポジトリへのプルリクエストにおいてフィードバックをすることができます。
+permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
   free-pro-team: '*'
 redirect_from:

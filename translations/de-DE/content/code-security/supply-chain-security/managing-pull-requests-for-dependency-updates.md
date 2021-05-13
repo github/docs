@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 ### About {% data variables.product.prodname_dependabot %} pull requests

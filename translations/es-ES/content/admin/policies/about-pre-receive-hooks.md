@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Cuando se produce una subida, cada script se ejecuta en un entorno aislado y puede realizar verificaciones en el contenido que se subió. Los scripts provocarán la aceptación de la subida si el estado de salida es 0, o rechazado si el estado de salida no es cero.

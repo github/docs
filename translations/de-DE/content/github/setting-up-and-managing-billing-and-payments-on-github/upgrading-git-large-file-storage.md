@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - Abrechnung
+  - Billing
 ---
 
 ### Zusätzlichen Speicher und Bandbreite für ein persönliches Konto kaufen

@@ -1,7 +1,7 @@
 ---
 title: Sicherheits- und Analyseeinstellungen für Dein Repository verwalten
 intro: 'Du kannst Funktionen steuern, die Code in Deinem Projekt auf {% data variables.product.prodname_dotcom %} sichern und analysieren.'
-permissions: Personen mit Administratorberechtigungen für ein Repository können Sicherheits- und Analyseeinstellungen für das Repository verwalten.
+permissions: People with admin permissions to a repository can manage security and analysis settings for the repository.
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
