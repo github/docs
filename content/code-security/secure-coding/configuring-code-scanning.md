@@ -223,6 +223,35 @@ jobs:
 ```
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Configuring a category for the analysis
+
+Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file. 
+
+This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+
+{% raw %}
+``` yaml
+   - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze
+      with:
+      # Optional. Specify a category to distinguish between multiple analyses
+      # for the same tool and ref. If you don't use `category` in your workflow, 
+      # GitHub will generate a default category name for you
+       category: "my_category"
+```
+{% endraw %}
+
+If you don't specify a `category` parameter in your workflow, {% data variables.product.prodname_dotcom %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
+- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
+- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+
+The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)." 
+
+Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+
+{% endif %}
+
 ### Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
