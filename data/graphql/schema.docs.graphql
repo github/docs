@@ -13803,6 +13803,11 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
   ): URI!
 
   """
+  The user that has claimed the data attributed to this mannequin.
+  """
+  claimant: User
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
