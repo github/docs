@@ -1,5 +1,6 @@
 ---
 title: Setting up and managing your GitHub profile
+intro: Learn how to customize your GitHub profile and manage your contribution graphs. 
 shortTitle: Profiles
 redirect_from:
   - /categories/setting-up-and-managing-your-github-profile

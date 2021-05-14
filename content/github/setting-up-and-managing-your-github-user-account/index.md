@@ -1,5 +1,6 @@
 ---
 title: Setting up and managing your GitHub user account
+intro: Learn how to manage your GitHub user account settings, email preferences, collaborator access for personal repositories and organization memberships.
 shortTitle: User accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
