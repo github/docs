@@ -18,7 +18,159 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - Backups
+  SandboxProduction
+API Explorer
+
+2021-05-13
+
+Payments
+
+Create payment
+Create payment
+POST /v2/payments
+Creates a payment using the provided source. Open in API Reference
+Access tokenEAAAELfab3r4LaUkhki4LMUcXAhc60_1A8E4F_ctSV34VWezmPpP1juKdSFgu6dD
+Body
+amount_money 
+Money
+
+amount
+integer
+$100.00denom×298776530745.78
+currency
+string
+USD
+idempotency_key 
+string
+f815f002-4bbd-41b9-b7c0-216c30f3a945
+source_id 
+string
+CASH
+accept_partial_authorization
+boolean
+
+Select One
+app_fee_money
+Money
+autocomplete
+boolean
+
+true
+billing_address
+Address
+buyer_email_address
+string
+buyer email address
+cash_details
+CashPaymentDetails
+customer_id
+string
+customer id
+delay_duration
+string
+delay duration
+external_details
+ExternalPaymentDetails
+location_id
+string
+location id
+note
+string
+note
+order_id
+string
+order id
+reference_id
+string
+reference id
+shipping_address
+Address
+statement_description_identifier
+string
+statement description identifier
+tip_money
+Money
+verification_token
+string
+verification token
+Request
+curl https://connect.squareupsandbox.com/v2/payments \
+  -X POST \
+  -H 'Square-Version: 2021-05-13' \
+  -H 'Authorization: Bearer EAAAELfab3r4LaUkhki4LMUcXAhc60_1A8E4F_ctSV34VWezmPpP1juKdSFgu6dD' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "amount_money": {
+      "currency": "USD",
+      "amount": "$100.00denom×298776530745.78"
+    },
+    "idempotency_key": "f815f002-4bbd-41b9-b7c0-216c30f3a945",
+    "source_id": "CASH",
+    "autocomplete": true
+  }'
+400 Response
+cache-control: no-cache
+content-length: 171
+content-type: text/plain; charset=utf-8
+date: Fri, 14 May 2021 06:36:50 GMT
+
+
+{
+  "errors": [
+    {
+      "code": "EXPECTED_INTEGER",
+      "detail": "Expected an integer value (line 1, character 44)",
+      "field": "amount_money.amount",
+      "category": "INVALID_REQUEST_ERROR"
+    }
+  ]
+}
+'$'
+'#'" 'SandboxProduction
+API Explorer
+
+2021-05-13
+
+Payments
+
+Complete payment
+Complete payment
+POST /v2/payments/{payment_id}/complete
+Completes (captures) a payment. Open in API Reference
+Access tokenEAAAELfab3r4LaUkhki4LMUcXAhc60_1A8E4F_ctSV34VWezmPpP1juKdSFgu6dD
+Parameters
+payment_id 
+string
+payment id
+Body
+Request
+curl https://connect.squareupsandbox.com/v2/payments/{payment_id}/complete \
+  -X POST \
+  -H 'Square-Version: 2021-05-13' \
+  -H 'Authorization: Bearer ((c)(r))'"''
+  'installing:'" 'plug'-ins''{'{webhooks'}}'"''
+  :Content-Type: application/json'
+Response
+// No response received yet.
+
+Development
+Documentation
+API Explorer
+Square SDKs
+Sample Apps
+API Status
+Community
+Developer Blog
+Slack
+YouTube
+Twitter
+More
+Contact Support
+Developer Forum
+Solution Partners
+Privacy Policy
+Terms of Service
+© 2021 Square, Inc.- Backups
   - Enterprise
   - Fundamentals
   - Infrastructure
