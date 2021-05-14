@@ -1,11 +1,10 @@
----
-title: GitHub Desktop Documentation
-shortTitle: GitHub Desktop
-intro: Step-by-step guides to set up and use GitHub Desktop to manage your project work.
-versions:
-  free-pro-team: '*'
----
+### Check off the following:
 
-{% link_with_intro /installing-and-configuring-github-desktop %}
+- [ ] I have reviewed my changes in staging (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**).
+- [ ] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/CONTRIBUTING.md#self-review).
 
-{% link_with_intro /contributing-and-collaborating-using-github-desktop %}
+### Writer impact (This section is for GitHub staff members only):
+
+- [ ] This pull request impacts the contribution experience
+  - [ ] I have added the 'writer impact' label
+  - [ ] I have added a description and/or a video demo of the changes below (eg. a "before and after video")
