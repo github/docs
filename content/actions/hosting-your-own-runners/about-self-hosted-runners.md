@@ -65,7 +65,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 - **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
 {% data reusables.github-actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
-- **Workflow queue** - No more than 100 workflows can be queued in a 10 second interval per repository. If a workflow reaches this limit, the workflow is terminated and fails to complete.
+{% data reusables.github-actions.usage-workflow-queue-limits %}
 
 ### Workflow continuity for self-hosted runners
 
