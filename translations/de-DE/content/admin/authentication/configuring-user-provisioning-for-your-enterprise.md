@@ -1,8 +1,8 @@
 ---
 title: Configuring user provisioning for your enterprise
 shortTitle: Configuring user provisioning
-intro: You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).
-permissions: Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.
+intro: 'You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).'
+permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
@@ -28,7 +28,7 @@ The provisioning application on your IdP communicates with {% data variables.pro
 
 {% data reusables.scim.supported-idps %}
 
-When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. Weitere Informationen findest Du unter „[Ein Team mit einer Identitätsanbieter-Gruppe synchronisieren](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)."
+When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. Weitere Informationen findest Du unter „[Ein Team mit einer Identitätsanbieter-Gruppe synchronisieren](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 ### Vorrausetzungen
 

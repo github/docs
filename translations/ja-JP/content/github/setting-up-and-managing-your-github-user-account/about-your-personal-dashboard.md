@@ -4,13 +4,13 @@ redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
   - /articles/opting-into-the-public-beta-for-a-new-dashboard/
   - /articles/about-your-personal-dashboard
-intro: 'パーソナルダッシュボードにアクセスして、作業したりフォローしたりしている Issue やプルリクエストを追跡したり、トップリポジトリや Team のページにアクセスしたり、Organization やサブスクライブしているリポジトリの最近のアクティビティを知ったり、推奨されたリポジトリを調べたりできます。'
+intro: パーソナルダッシュボードにアクセスして、作業したりフォローしたりしている Issue やプルリクエストを追跡したり、トップリポジトリや Team のページにアクセスしたり、Organization やサブスクライブしているリポジトリの最近のアクティビティを知ったり、推奨されたリポジトリを調べたりできます。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アカウント
+  - Accounts
 ---
 
 ### パーソナルダッシュボードにアクセスする
@@ -42,7 +42,7 @@ topics:
 ニュースフィードでは、あなたがフォローしているユーザが以下のことをした場合に更新情報が示されます:
 - リポジトリに Star を付ける。
 - 別のユーザをフォローする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- Creates a public repository.{% endif %}
+- パブリックリポジトリを作成する{% endif %}
 - あなたが Watch しているリポジトリ上で "help wanted" あるいは "good first issue" のラベルを付けた Issue あるいはプルリクエストをオープンする。
 - Watch しているリポジトリにコミットをプッシュする。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - パブリックリポジトリをフォークする。{% endif %}

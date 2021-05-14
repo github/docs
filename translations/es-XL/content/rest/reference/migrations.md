@@ -6,6 +6,8 @@ redirect_from:
   - /v3/migration/migrations
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}

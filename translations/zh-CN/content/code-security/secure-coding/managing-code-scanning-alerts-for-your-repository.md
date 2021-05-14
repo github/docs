@@ -3,7 +3,7 @@ title: 管理仓库的代码扫描警报
 shortTitle: 管理警报
 intro: '从安全视图中，您可以查看、修复、{% if currentVersion == "enterprise-server@2.22" %}或关闭{% else %}忽略或删除{% endif %}项目代码中潜在漏洞或错误的警报。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '如果您拥有仓库的写入权限，您可以管理该仓库的 {% data variables.product.prodname_code_scanning %} 警报。'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -13,7 +13,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - 安全
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}
@@ -45,7 +45,14 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. 在 "{% data variables.product.prodname_code_scanning_capc %}" 下，单击要探索的警报。 ![警报摘要](/assets/images/help/repository/code-scanning-click-alert.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+1. （可选）使用下拉菜单过滤警报。 例如，您可以通过用于识别警报的工具进行过滤。 ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
+1. 在 "{% data variables.product.prodname_code_scanning_capc %}" 下，单击要探索的警报。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
+  ![警报摘要](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![来自 {% data variables.product.prodname_code_scanning %} 的警报列表](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 1. （可选）如果警报突出显示数据流的问题，请单击 **Show paths（显示路径）**以显示从数据源到使用它的接收者的路径。 ![警报上的"显示路径"链接](/assets/images/help/repository/code-scanning-show-paths.png)
 1. 来自 {% data variables.product.prodname_codeql %} 分析的警报包括对问题的描述。 单击 **Show more（显示更多）**以获取有关如何修复代码的指导。 ![警报的详细信息](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -57,7 +64,11 @@ topics:
 
 警报只能在一个分支中修复。 您可以在警报摘要上使用“Branch（分支）”下拉菜单检查警报是否是在特定分支中修复的。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
 ![按分支过滤警报](/assets/images/help/repository/code-scanning-branch-filter.png)
+{% else %}
+![按分支过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+{% endif %}
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
@@ -110,11 +121,19 @@ topics:
 
    （可选）您可以使用过滤器显示警报子集，然后一次删除所有匹配的警报。 例如，如果您从 {% data variables.product.prodname_codeql %} 分析中删除了查询，您可以使用“Rule（规则）”过滤器仅列出该查询的警报，然后选择并删除所有这些警报。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
   ![按规则过滤警报](/assets/images/help/repository/code-scanning-filter-by-rule.png)
+{% else %}
+  ![按规则过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
+{% endif %}
 
 1. 如果要忽略警报，请务必先了解警报，以便选择正确的忽略原因。 单击要了解的警报。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
    ![从摘要列表中打开警报](/assets/images/help/repository/code-scanning-click-alert.png)
+{% else %}
+  ![来自 {% data variables.product.prodname_code_scanning %} 的警报列表](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
+{% endif %}
 
 1. 查看警报，然后单击 **Dismiss（忽略）**并选择关闭警报的原因。 ![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 

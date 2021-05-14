@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 Only owners or team admins can remove organization members. When a user is removed from a team or organization, their issues, pull requests, and comments in the organization's repositories remain intact and are still attributed to the user.

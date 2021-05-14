@@ -1,7 +1,7 @@
 ---
 title: 管理仓库中的讨论
 intro: 您可以对仓库中的讨论进行分类、聚焦、转让或删除。
-permissions: 仓库管理员以及对仓库具有写入或更大访问权限的人员可以管理仓库中的讨论。
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} 有关讨论的更多信息，请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-组织所有者可以选择为组织拥有的仓库创建讨论所需的权限。 更多信息请参阅“[管理组织中仓库的讨论创建](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)”。
+组织所有者可以选择为组织拥有的仓库创建讨论所需的权限。 更多信息请参阅“[管理组织中仓库的讨论创建](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)”。
 
 作为讨论维护者，您可以创建社区资源，以鼓励与总体项目目标一致的讨论，并为协作者维护一个友好、开放的论坛。 为协作者制定行为守则或参与指南将有助于促进协作和富有成效的论坛。 有关创建社区资源的更多信息，请参阅“[为项目中添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置仓库参与者指南](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)”。
 

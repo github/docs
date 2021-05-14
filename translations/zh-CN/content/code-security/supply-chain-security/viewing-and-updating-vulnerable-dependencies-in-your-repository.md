@@ -4,12 +4,13 @@ intro: '如果 {% data variables.product.product_name %} 发现项目中存在�
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository
-permissions: 仓库管理员和组织所有者可以查看和更新依赖项。
+permissions: Repository administrators and organization owners can view and update dependencies.
 shortTitle: 查看和更新有漏洞的依赖项
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 topics:
-  - 安全
+  - Security
 ---
 
 仓库的 {% data variables.product.prodname_dependabot %} 警报选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}。 您可以使用下拉菜单对警报列表进行排序，并且可以单击特定警报以获取更多详细信息。 更多信息请参阅“[关于易受攻击的依赖项的警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。

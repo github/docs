@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Cuando una {% data variables.product.prodname_oauth_app %} quiere identificarte a través de tu cuenta de {% data variables.product.product_name %}, verás una página con la información de contacto del desarrollador de la app y una lista de los datos específicos que se han solicitado.

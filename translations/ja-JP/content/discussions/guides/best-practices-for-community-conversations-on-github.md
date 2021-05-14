@@ -1,7 +1,7 @@
 ---
 title: GitHub におけるコミュニティの会話のベストプラクティス
 shortTitle: コミュニティの会話のベストプラクティス
-intro: 'ディスカッションを使用して Team とブレインストーミングを行い、作業を確認する状況が整ったら、最終的に会話をディスカッションに移すことができます。'
+intro: ディスカッションを使用して Team とブレインストーミングを行い、作業を確認する状況が整ったら、最終的に会話をディスカッションに移すことができます。
 versions:
   free-pro-team: '*'
 ---
@@ -29,7 +29,7 @@ Issue のオープンおよびディスカッションの相互参照につい�
 
 Issueは、バグレポートや計画された改善など、プロジェクトの特定の詳細についての議論に役立ちます。 詳細は「[Issue について](/articles/about-issues)」を参照してください。 プルリクエストでは、提案された変更に直接コメントできます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)及び[プルリクエストへコメントする](/articles/commenting-on-a-pull-request)を参照してください。
 
-{% data reusables.organizations.team-discussions-purpose %}詳しい情報については「[Team ディスカッションについて](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions)」を参照してください。
+{% data reusables.organizations.team-discussions-purpose %}詳しい情報については「[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。
 
 ### コントリビューションガイドラインに従う
 

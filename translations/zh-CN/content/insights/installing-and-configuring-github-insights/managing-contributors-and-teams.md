@@ -4,7 +4,7 @@ intro: 您可以管理指标和报告中包含的人员和团队。
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
-permissions: '对 {% data variables.product.prodname_insights %} 具有管理员权限的人可管理贡献者和团队。'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'

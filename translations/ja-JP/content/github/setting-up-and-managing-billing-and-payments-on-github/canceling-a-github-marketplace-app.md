@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 アプリケーションをキャンセルすると、そのプランは現在の支払いサイクルが終わるまで有効のままとなり、 次の支払いサイクルで無効となります。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

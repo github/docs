@@ -6,7 +6,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 Somente proprietários ou administradores de equipe podem remover integrantes da organização. Quando um usuário é removido de uma equipe ou organização, seus problemas, pull requests e comentários nos repositórios da organização continuam intactos e atribuídos a ele.

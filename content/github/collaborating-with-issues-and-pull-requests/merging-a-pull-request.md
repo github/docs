@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### About pull request merges
@@ -24,6 +24,14 @@ You can't merge a draft pull request. For more information about draft pull requ
 {% data reusables.pull_requests.automatically-delete-branches %}
 
 If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/articles/closing-a-pull-request) without merging.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 ### Merging a pull request on {% data variables.product.prodname_dotcom %}
 

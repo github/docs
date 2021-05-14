@@ -1,5 +1,5 @@
 ---
-title: Warum werde ich von Git immer aufgefordert, mein Passwort einzugeben?
+title: 'Warum werde ich von Git immer aufgefordert, mein Passwort einzugeben?'
 intro: 'Wenn Du durch Git jedes Mal zur Eingabe eines Benutzernamens und Passworts aufgefordert wirst, wenn Du versuchst, mit GitHub zu interagieren, verwendest Du wahrscheinlich die HTTPS-Klon-URL für Dein Repository.'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password

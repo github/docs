@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de los permisos de las {% data variables.product.prodname_actions %} para tu cuenta empresarial

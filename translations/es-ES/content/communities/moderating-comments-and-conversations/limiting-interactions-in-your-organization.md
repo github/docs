@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: Los propietarios de la organización pueden limitar las interacciones en la misma.
+permissions: Organization owners can limit interactions in an organization.
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Acerca de los límites de interacción temporales

@@ -1,8 +1,8 @@
 ---
 title: Configurar a autenticação e provisionamento para sua empresa usando o Azure AD
 shortTitle: Configurar com Azure AD
-intro: Você pode usar um inquilino no Azure Active Directory (Azure AD) como um provedor de identidade (IdP) para gerenciar centralizadamente autenticação e provisionamento de usuário para {% data variables.product.product_location %}.
-permissions: Os proprietários das empresas podem configurar a autenticação e o provisionamento de uma empresa em {% data variables.product.product_name %}.
+intro: 'Você pode usar um inquilino no Azure Active Directory (Azure AD) como um provedor de identidade (IdP) para gerenciar centralizadamente autenticação e provisionamento de usuário para {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
@@ -21,7 +21,7 @@ Após habilitar o SAML SSO e SCIM durante {% data variables.product.prodname_ghe
 * Atribua o aplicativo {% data variables.product.prodname_ghe_managed %} a um grupo IdP no Azure AD para criar automaticamente e conceder acesso a contas de usuário em {% data variables.product.product_name %} para todos os integrantes do grupo IdP. Além disso, o grupo IdP está disponível em {% data variables.product.prodname_ghe_managed %} para conexão com uma equipe e sua organização principal.
 * Desatribua o aplicativo de {% data variables.product.prodname_ghe_managed %} de um grupo de IdP para desativar as contas de usuário de {% data variables.product.product_name %} de todos os usuários de IdP que tiveram acesso somente através desse grupo de IdP e remova os usuários da organização principal. O grupo IdP será desconectado de qualquer equipe em {% data variables.product.product_name %}.
 
-Para obter mais informações sobre gerenciamento de identidade e acesso para a sua empresa em {% data variables.product.product_location %}, consulte "[Gerenciar identidade e acesso da sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)". Para obter mais informações sobre como sincronizar equipes com grupos de IdP, consulte "[Sincronizar uma equipe com um grupo de provedores de identidade](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)".
+Para obter mais informações sobre gerenciamento de identidade e acesso para a sua empresa em {% data variables.product.product_location %}, consulte "[Gerenciar identidade e acesso da sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise)". Para obter mais informações sobre como sincronizar equipes com grupos de IdP, consulte "[Sincronizar uma equipe com um grupo de provedores de identidade](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
 
 ### Pré-requisitos
 

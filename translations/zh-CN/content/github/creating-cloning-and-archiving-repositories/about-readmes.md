@@ -1,6 +1,6 @@
 ---
 title: 关于自述文件
-intro: '您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。'
+intro: 您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages/
   - /articles/relative-links-in-readmes/
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 关于自述文件

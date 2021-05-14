@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于企业帐户的 {% data variables.product.prodname_actions %} 权限

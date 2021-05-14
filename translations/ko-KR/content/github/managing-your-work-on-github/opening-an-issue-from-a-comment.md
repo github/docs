@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.

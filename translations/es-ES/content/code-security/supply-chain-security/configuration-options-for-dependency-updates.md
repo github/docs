@@ -1,17 +1,15 @@
 ---
 title: Opciones de configuración para actualizaciones de dependencias
 intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus repositorios.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar el {% data variables.product.prodname_dependabot %} para el mismo.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### Acerca del archivo *dependabot.yml*
 
@@ -323,7 +321,7 @@ updates:
 
 {% note %}
 
-**Nota**: El {% data variables.product.prodname_dependabot %} solo puede ejecutar actualizaciones de versión en los archivos de bloqueo o de manifiesto si puede acceder a todas las dependencias en estos archivos, aún si agregas dependencias inaccesibles a la opción `ignore` de tu archivo de configuración. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y deanálisis para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" y "[Solucionar los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+**Nota**: El {% data variables.product.prodname_dependabot %} solo puede ejecutar actualizaciones de versión en los archivos de bloqueo o de manifiesto si puede acceder a todas las dependencias en estos archivos, aún si agregas dependencias inaccesibles a la opción `ignore` de tu archivo de configuración. Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y deanálisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" y "[Solucionar los errores del {% data variables.product.prodname_dependabot %}](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
 
 
 {% endnote %}

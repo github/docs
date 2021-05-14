@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidade
-  - gerenciamento de acesso
+  - Identity
+  - Access management
 ---
 
 Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
@@ -36,8 +36,15 @@ Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas par
    ![Selecionar escopos do token](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. Clique em **Generate token** (Gerar token). ![Botão Generate token (Gerar token)](/assets/images/help/settings/generate_token.png)
-8. Clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar o token na sua área de transferência. Por motivos de segurança, depois que você sair da página, você não poderá ver o token novamente.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Clique em
+{% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 

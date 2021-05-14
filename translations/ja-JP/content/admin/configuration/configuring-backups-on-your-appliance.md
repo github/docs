@@ -16,7 +16,7 @@ intro: 'システム災害復旧計画の一部として、自動化バックア
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_enterprise_backup_utilities %}について

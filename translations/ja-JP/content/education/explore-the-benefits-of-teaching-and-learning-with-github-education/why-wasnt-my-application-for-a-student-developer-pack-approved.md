@@ -59,11 +59,11 @@ versions:
 ### 対象外の学生ステータス
 
 以下の場合、{% data variables.product.prodname_student_pack %} の対象外となります:
-- [{% data variables.product.prodname_dotcom %} キャンパスプログラム](https://education.github.com/schools)の一部ではない非公式の学習プログラムに登録していて、学位または卒業証書を授与するコースに現在在籍していない場合。
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
 - 取得を目指している学位が、現学期で終わる場合。
 - 13 歳未満の場合。
 
-インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 コーディングスクールやブートキャンプの学生は、学校が[{% data variables.product.prodname_dotcom %} キャンパスプログラム](https://education.github.com/schools)に参加した場合、{% data variables.product.prodname_student_pack %} を利用できるようになります。
+インストラクターは、教室での使用に対して、{% data variables.product.prodname_education %} 割引を適用できます。 If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### 参考リンク
 

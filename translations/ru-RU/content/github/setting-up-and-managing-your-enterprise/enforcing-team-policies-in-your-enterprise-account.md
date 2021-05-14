@@ -10,12 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### Enforcing a policy for team discussions
 
-Across all organizations owned by your enterprise account, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see "[About team discussions](/github/setting-up-and-managing-organizations-and-teams/about-team-discussions/)."
+Across all organizations owned by your enterprise account, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -21,7 +21,7 @@
 
           <div class="mt-2">
             <div>
-              {% if process.env.AIRGAP %}
+              {% if AIRGAP %}
                 <p>GraphQL explorer is not available on this environment.</p>
               {% else %}
                 <iframe id="graphiql" class="graphql-explorer" scrolling="no" src="{{ graphql.explorerUrl }}">

@@ -1,8 +1,8 @@
 ---
 title: Configurar el aprovisionamiento de usuarios para tu empresa
 shortTitle: Configurar el aprovisionamiento de usuarios
-intro: Puedes configurar el Sistema para la Administración de Identidad entre Dominios (SCIM) para tu empresa, el cual aprovisiona las cuentas de usuario automáticamente en {% data variables.product.product_location %} cuando asignas la aplicación para {% data variables.product.product_location %} a un usuario en tu proveedor de identidad (IdP).
-permissions: Los propietarios de empresas pueden configurar el aprovisionamiento de usuarios para una empresa en {% data variables.product.product_name %}.
+intro: 'Puedes configurar el Sistema para la Administración de Identidad entre Dominios (SCIM) para tu empresa, el cual aprovisiona las cuentas de usuario automáticamente en {% data variables.product.product_location %} cuando asignas la aplicación para {% data variables.product.product_location %} a un usuario en tu proveedor de identidad (IdP).'
+permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
@@ -28,7 +28,7 @@ La aplicación de aprovisionamiento en tu IdP se comunica con {% data variables.
 
 {% data reusables.scim.supported-idps %}
 
-Cuando configuras el aprovisionamiento de usuarios con un IdP compatible, también puedes asignar o desasignar la aplicación para {% data variables.product.product_name %} a grupos de usuarios. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)".
+Cuando configuras el aprovisionamiento de usuarios con un IdP compatible, también puedes asignar o desasignar la aplicación para {% data variables.product.product_name %} a grupos de usuarios. Estos grupos estarán entonces disponibles para que los propietarios de organización y mantenedores de equipo en {% data variables.product.product_location %} los mapeen a los equipos de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sincronizar a un equipo con un grupo de proveedor de identidad](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)".
 
 ### Prerrequisitos
 

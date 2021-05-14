@@ -9,8 +9,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: reference
 topics:
-  - enterprise
+  - Auditing
+  - Enterprise
+  - Security
 ---
 #### Authentication
 

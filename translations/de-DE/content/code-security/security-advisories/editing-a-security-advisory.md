@@ -1,12 +1,12 @@
 ---
 title: Einen Sicherheitshinweis bearbeiten
-intro: Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.
+intro: 'Du kannst die Metadaten und die Beschreibung für einen Sicherheitshinweis bearbeiten, wenn Du Details aktualisieren oder Fehler korrigieren musst.'
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 Personen mit Administratorberechtigungen für einen Sicherheitshinweis können den Hinweise bearbeiten.
@@ -16,6 +16,8 @@ Personen mit Administratorberechtigungen für einen Sicherheitshinweis können d
 You can credit people who helped discover, report, or fix a security vulnerability. If you credit someone, they can choose to accept or decline credit.
 
 If someone accepts credit, the person's username appears in the "Credits" section of the security advisory. Anyone with read access to the repository can see the advisory and the people who accepted credit for it.
+
+If you believe you should be credited for a security advisory, please contact the person who created the advisory and ask them to edit the advisory to include your credit. Only the creator of the advisory can credit you, so please don't contact GitHub Support about credits for security advisories.
 
 ### Einen Sicherheitshinweis bearbeiten
 

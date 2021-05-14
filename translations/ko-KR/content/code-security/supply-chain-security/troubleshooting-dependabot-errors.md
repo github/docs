@@ -8,10 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 보안
+  - Security
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### About {% data variables.product.prodname_dependabot %} errors
 

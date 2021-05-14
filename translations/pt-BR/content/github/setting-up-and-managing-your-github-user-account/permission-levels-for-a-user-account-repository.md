@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### Sobre os níveis de permissões para um repositório de conta de usuário

@@ -1,15 +1,15 @@
 ---
 title: Remover uma etiqueta quando um cartão é adicionado à coluna de um quadro de projeto
-intro: Você pode usar {% data variables.product.prodname_actions %} para remover automaticamente uma etiqueta quando um problema ou pull request for adicionado a uma coluna específica no quadro de um projeto.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para remover automaticamente uma etiqueta quando um problema ou pull request for adicionado a uma coluna específica no quadro de um projeto.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}

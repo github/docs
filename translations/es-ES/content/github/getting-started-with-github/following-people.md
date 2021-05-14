@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - perfil
+  - Profile
 ---
 
 Cuando sigues a las personas, verás su actividad pública en la vista de actividad de tus noticias.{% if currentVersion == "free-pro-team@latest" %} Si alguien que sigues marca como favorito un repositorio público, {% data variables.product.product_name %} podría recomendártelo en la vista de descubrimientos de tus noticias.{% endif %} Para seguir a alguien, visita su página de perfil y da clic en la opción **Seguir** debajo de su imagen de perfil.

@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,10 +20,10 @@ type: 'how_to'
 
 O {% data variables.product.prodname_dotcom %} usa o código de saída para definir o status de execução de verificação da ação, que pode ser `sucesso` ou `falha`.
 
-| Status de saída                   | Status de verificação de execução | Descrição                                                                                                                                                                                                                                  |
-| --------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `0`                               | `success`                         | A ação foi concluída com êxito, outras tarefas que dependem dela podem começar.                                                                                                                                                            |
-| Nonzero value (any integer but 0) | `failure`                         | Qualquer outro código de saída indica falha na ação. Quando uma ação falha, todas as ações simultâneas são canceladas e as ações futuras são ignoradas. A execução de verificação e o conjunto de verificações ficam com status `failure`. |
+| Status de saída                                                  | Status de verificação de execução | Descrição                                                                                                                                                                                                                                  |
+| ---------------------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `0`                                                              | `success`                         | A ação foi concluída com êxito, outras tarefas que dependem dela podem começar.                                                                                                                                                            |
+| Valor diferente de zero (qualquer número inteiro que não seja 0) | `failure`                         | Qualquer outro código de saída indica falha na ação. Quando uma ação falha, todas as ações simultâneas são canceladas e as ações futuras são ignoradas. A execução de verificação e o conjunto de verificações ficam com status `failure`. |
 
 ### Definir um código de saída de falha em uma ação JavaScript
 

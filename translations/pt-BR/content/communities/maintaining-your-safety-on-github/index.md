@@ -1,6 +1,6 @@
 ---
 title: Mantendo sua segurança no GitHub
-shortTitle: Maintaining safety
+shortTitle: Mantendo a segurança
 intro: 'Para criar um ambiente positivo e seguro para você e a comunidade para o seu projeto em {% data variables.product.prodname_dotcom %}, você pode bloquear e desbloquear usuários e relatar conteúdo disruptivo.'
 redirect_from:
   - /articles/encouraging-positive-contributions-in-your-organization
@@ -11,7 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 {% link_in_list /blocking-a-user-from-your-personal-account %}

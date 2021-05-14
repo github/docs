@@ -9,10 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositorys
+  - Repositories
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### Informationen zum {% data variables.product.prodname_dependabot_version_updates %}
 

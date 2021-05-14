@@ -7,6 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -43,7 +46,7 @@ Los objetos de los eventos que se devuelven de las terminales de la API de Event
 Este ejemplo te muestra el formato de la respuesta de [WatchEvent](#watchevent) cuando utilizas la [API de Eventos](/v3/activity/events).
 
 ```
-Status: 200 OK
+HTTP/1.1 200 OK
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```

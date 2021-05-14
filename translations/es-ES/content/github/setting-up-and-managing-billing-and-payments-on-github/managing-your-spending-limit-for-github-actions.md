@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Acerca de los límites de gastos para {% data variables.product.prodname_actions %}

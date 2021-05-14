@@ -13,6 +13,12 @@ You can set a funding goal for your sponsored account and share the goal with yo
 
 Du kannst Ziele setzen für die Anzahl der Sponsoren, die Du suchst, oder die finanziellen Beiträge, Du Du jeden Monat erzielen möchtest. Du kannst jeweils nur ein Ziel festlegen. Nachdem du ein Ziel erreicht hast, kannst Du ein neues Ziel setzen.
 
+{% note %}
+
+**Note:** Goals are intended to help people track momentum so only monthly sponsors contribute toward your goal.
+
+{% endnote %}
+
 ### Setting a goal
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}

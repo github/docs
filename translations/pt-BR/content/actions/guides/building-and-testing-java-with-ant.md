@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Java'
-  - 'Ant'
+  - CI
+  - Java
+  - Ant
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -58,10 +58,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
@@ -70,7 +71,7 @@ jobs:
 Este fluxo de trabalho executa os seguintes passos:
 
 1. O `checkout` faz o download de uma cópia do seu repositório no executor.
-2. A etapa `setup-java` configura o Java 1.8 JDK.
+2. A etapa `setup-java` configura o Java 11 JDK pelo Adoptium.
 3. A etapa "Criar com Ant" executa o alvo-padrão em seu `build.xml` de modo não interativo.
 
 Os modelos-padrão do fluxo de trabalho são excelentes pontos de partida ao criar seu fluxo de trabalho de compilação e teste, e você pode personalizar o modelo para atender às necessidades do seu projeto.
@@ -91,9 +92,10 @@ Se você usa comandos diferentes para criar seu projeto ou se você quer executa
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
@@ -109,7 +111,11 @@ De modo geral, o Ant cria arquivos de saída como JARs, EARs ou WARs no diretór
 ```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ant -noinput -buildfile build.xml
   - uses: actions/upload-artifact@v2
     with:

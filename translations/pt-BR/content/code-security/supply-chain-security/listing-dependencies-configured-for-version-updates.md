@@ -6,10 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
-
-{% data reusables.dependabot.beta-note %}
 
 ### Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 

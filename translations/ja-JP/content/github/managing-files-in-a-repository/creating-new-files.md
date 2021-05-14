@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data variables.product.product_name %}上でファイルを作成するときは、以下にご注意ください:
