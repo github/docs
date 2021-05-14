@@ -12,7 +12,7 @@ Thank you for your interest in contributing to the GitHub documentation.
 
 This issue template is only for use by GitHub's Technology Partners who wish to contribute documentation explaining how the partner's product works with GitHub, making it straightforward for our shared customers to adopt the product into their workflow.
 
-As a general guide, we estimate we have bandwidth for prioritizing and reviewing up to 3 partner contributions per quarter.
+As a general guide, we estimate a have bandwidth for prioritizing and reviewing up to 3 partner contributions per quarter.
 
 Please be sure to complete all items in the checklists that follow, and feel free to comment with any questions. A member of the team will be glad to support you.
 -->
