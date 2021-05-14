@@ -1,4 +1,4 @@
----
+Q---
 title: Configuring backups on your appliance
 shortTitle: Configuring backups
 redirect_from:
@@ -16,7 +16,7 @@ redirect_from:
 intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.product.product_location %} by configuring automated backups.'
 versions:
   enterprise-server: '*'
-type: how_to
+'#'" 'type:'" 'how'_((c)(r))'"''
 topics:
   - Backups
   - Enterprise
