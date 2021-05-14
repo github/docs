@@ -28,27 +28,28 @@ Keep up with recent activity from repositories you watch and people you follow i
 
 If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
 
-### Open source projects with mirrors on {% data variables.product.prodname_dotcom %}
+### Open an Issue
 
-Some open-source projects provide mirrors on {% data variables.product.prodname_dotcom_the_website %} in addition to their official repositories, which are hosted elsewhere.
+If you encounter a bug in an open source project you are currently working with, check if this problem has already been reported. Confirm that this is also happening on your side. Add any other details you think would help. Report it. That's a contribution!
 
-Here are a few prominent repositories that are mirrored on {% data variables.product.prodname_dotcom_the_website %}:
+### Validate PR/Issue
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
-- [The Apache Software Foundation](https://github.com/apache)
-- [The Chromium Project](https://github.com/chromium)
-- [Eclipse Foundation](https://github.com/eclipse)
-- [The FreeBSD Project](https://github.com/freebsd)
-- [Glasgow Haskell Compiler](https://github.com/ghc)
-- [GNOME](https://github.com/GNOME)
-- [Linux kernel source tree](https://github.com/torvalds/linux)
-- [Qt](https://github.com/qt)
+A lot of emphasis is put on contributing code, but did you know that you can significantly help the maintainers by validating the contributions of others?  Here are three ways to do that:
+* **See if you can duplicate an issue** reported by someone else. If you validate an issue, add any additional context, steps or observations that might be missing or otherwise feel important. 
+* **Validate that a PR fixes an issue as intended**. Merge a PR into the related version and test. Update the PR comments with your test outcome.
+* **Updating issues**, or tasks with additional information that helped you test, or work through the solution.
 
-To set up your own mirror, you can configure [a post-receive hook](https://git-scm.com/book/en/Customizing-Git-Git-Hooks) on your official project repository to automatically push commits to a mirror repository on {% data variables.product.product_name %}.
+### Documentation & Writing
+Writing and updating documentation is a very valuable contribution. A few options might be:
 
-You can search repositories based on whether they're a mirror. To learn more, see "[Searching for repositories](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-a-mirror)."
+* Search for any feature you use on [GitHub Docs](https://github.com/github/docs/blob/main/CONTRIBUTING.md), review and improve the documentation if you can, or make suggestions.
+* Simplify any open source onboarding project documentation like 'how to get started', 'how to setup project locally' etc.
+* Translate documentation to another language.
+
 
 ### Further reading
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
 - "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+
+
