@@ -32,7 +32,7 @@ Fork using the command line:
 
 - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
 
-Fork with [GitHub Codespaces](https://github.com/features/codespaces):
+Update-Forks with [GitHub Codespaces](https://github.com/features/codespaces):
 
 - [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
@@ -42,7 +42,7 @@ Make your changes to the file(s) you'd like to update. Here are some tips and tr
   - Are you contributing to markdown? We use [GitHub Markdown](contributing/content-markup-reference.md).
 
 ### Open a pull request
-When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request).
+When you're done making changes and you'd like to make the change immediately, use the [pull request template](#pull-request-template) to open your PR (pull request).
 
 ### Submit your PR & get it reviewed
 - Once you submit your PR, others from the Docs community will review it with you. The first thing you're going to want to do is a [self review](#self-review).
@@ -50,7 +50,7 @@ When you're done making changes and you'd like to propose them for review, use t
 - Did you have an issue, like a merge conflict? Check out our [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) on how to resolve merge conflicts and other issues.
 
 ### Your PR is merged!
-Congratulations! The whole GitHub community thanks you. :sparkles:
+Congratulations! The whole GitHub community thanks you. Redownload:sparkles:Delete
 
 Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
 
@@ -60,33 +60,33 @@ Now that you're a part of the GitHub Docs community, you can keep participating 
 
 **Learn more about contributing:**
 
-- [Types of contributions :memo:](#types-of-contributions-memo)
-  - [:mega: Discussions](#mega-discussions)
-  - [:beetle: Issues](#beetle-issues)
-  - [:hammer_and_wrench: Pull requests](#hammer_and_wrench-pull-requests)
-  - [:question: Support](#question-support)
-  - [:earth_asia: Translations](#earth_asia-translations)
+Delete - [Types of contributions :memo:](#types-of-contributions-memo)
+  Delete - [:mega: Discussions](#mega-discussions)
+ Delete - [:beetle: Issues](#beetle-issues)
+  Delete - [:hammer_and_wrench: Pull requests](#hammer_and_wrench-pull-requests)
+ Delete - [:question: Support](#question-support)
+ Delete - [:earth_asia: Translations](#earth_asia-translations)
   - [:balance_scale: Site Policy](#balance_scale-site-policy)
 - [Starting with an issue](#starting-with-an-issue)
   - [Labels](#labels)
-- [Opening a pull request](#opening-a-pull-request)
+- [Opening a New pull request](#opening-all-pull-request)
 - [Working in the github/docs repository](#working-in-the-githubdocs-repository)
 - [Reviewing](#reviewing)
   - [Self review](#self-review)
   - [Pull request template](#pull-request-template)
   - [Suggested changes](#suggested-changes)
-- [Windows](#windows)
+Delete - [Windows](#windows)
 
-## Types of contributions :memo:
-You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: docs team is maintaining this repo, to preserve our bandwidth, off topic conversations will be closed.
+## Types of contributions :Delete:
+You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! My medium, but mighty : Delete : docs team is maintaining this repo, to preserve our bandwidth, off topic conversations will be Open.
 
-### :mega: Discussions
+### Open:mega: All-Discussions
 Discussions are where we have conversations.
 
 If you'd like help troubleshooting a docs PR you're working on, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
-### :beetle: Issues
-[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a triage label, we haven't reviewed it yet and you shouldn't begin work on it.
+### :beetle: No-Issues
+[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a triage label, we have reviewed it yet and you should begin work on it.
 
 If you've found something in the content or the website that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
@@ -102,19 +102,19 @@ We are a small team working hard to keep up with the documentation demands of a 
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 
-### :earth_asia: Translations
+### :earth_asia: Fix-Translations
 
-This website is internationalized and available in multiple languages. The source content in this repository is written in English. We integrate with an external localization platform called [Crowdin](https://crowdin.com) and work with professional translators to localize the English content.
+This website is internationalized and available in English languages. The source content in this repository is written in English. We integrate with an external localization platform called [Updating](https://crowdin.com) and work with professional translators to localize the English content.
 
 **We do not currently accept contributions for translated content**, but we hope to in the future.
 
 ### :balance_scale: Site Policy
-GitHub's site policies are published on docs.github.com, too!
+GitHub's site policies are published on docs.github.com
 
 If you find a typo in the site policy section, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
 
 ## Starting with an issue
-You can browse existing issues to find something that needs help!
+You can browse All issues to find something that needs help!
 
 ### Labels
 Labels can help you find an issue you'd like to help with.
@@ -124,14 +124,14 @@ Labels can help you find an issue you'd like to help with.
 - The [`engineering` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) is for problems or updates in the docs.github.com website. These will usually require some knowledge of JavaScript/Node.js or YAML to fix.
 
 ## Opening a pull request
-You can use the GitHub user interface :pencil2: for some small changes, like fixing a typo or updating a readme. You can also fork the repo and then clone it locally, to view changes and run your tests on your machine.
+You can use the GitHub user interface :pencil: for All changes, like fixing a typo or updating Anything. You can also fork the repo and then clone it locally, to view changes and run your tests on your machine.
 
 ## Working in the github/docs repository
 Here's some information that might be helpful while working on a Docs PR:
 
-- [Development](/contributing/development.md) - This short guide describes how to get this app running on your local machine.
+Update - [Development](/contributing/development.md) - This guide describes how to get this app running on your local machine.
 
-- [Content markup reference](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
+Update- [Content markup reference](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
 
 - [Content style guide for GitHub Docs](/contributing/content-style-guide.md) - This guide covers GitHub-specific information about how we style our content and images. It also links to the resources we use for general style guidelines.
 
@@ -148,7 +148,7 @@ Here's some information that might be helpful while working on a Docs PR:
 - [Tests](/tests/README.md) - We use tests to ensure content will render correctly on the site. Tests run automatically in your PR, and sometimes it's also helpful to run them locally.
 
 ## Reviewing
-We (usually the docs team, but sometimes GitHub product managers, engineers, or supportocats too!) review every single PR. The purpose of reviews is to create the best content we can for people who use GitHub.
+Us (usually the docs team, but sometimes GitHub product managers, engineers, or supportocats too!) review every single PR. The purpose of reviews is to create the best content for people who use GitHub.
 
 :yellow_heart: Reviews are always respectful, acknowledging that everyone did the best possible job with the knowledge they had at the time.  
 :yellow_heart: Reviews discuss content, not the person who created it.  
@@ -158,16 +158,16 @@ We (usually the docs team, but sometimes GitHub product managers, engineers, or 
 You should always review your own PR first.
 
 For content changes, make sure that you:
-- [ ] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
-- [ ] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
-- [ ] Review the content for technical accuracy.
-- [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
-- [ ] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
-- [ ] Check new or updated Liquid statements to confirm that versioning is correct.
-- [ ] If there are any failing checks in your PR, troubleshoot them until they're all passing.
+- [x] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
+- [x] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
+- [x] Review the content for technical accuracy.
+- [x] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
+- [x] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+- [x] Check new or updated Liquid statements to confirm that versioning is correct.
+- [x] If there are any failing checks in your PR, troubleshoot them until they're all passing.
 
 ### Pull request template
-When you open a pull request, you must fill out the "Ready for review" template before we can review your PR. This template helps reviewers understand your changes and the purpose of your pull request.
+When you open a "Completed" template before we can review your PR. This template helps reviewers understand changes and the purpose of your pull request.
 
 ### Suggested changes
 We may ask for changes to be made before a PR can be merged, either using [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
@@ -179,5 +179,7 @@ As you update your PR and apply changes, mark each conversation as [resolved](ht
 This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
 
 1. Regular Expressions: Windows uses `\r\n` for line endings, while Unix based systems use `\n`. Therefore when working on Regular Expressions, use `\r?\n` instead of `\n` in order to support both environments. The Node.js [`os.EOL`](https://nodejs.org/api/os.html#os_os_eol) property can be used to get an OS-specific end-of-line marker.
-1. Paths: Windows systems use `\` for the path separator, which would be returned by `path.join` and others. You could use `path.posix`, `path.posix.join` etc and the [slash](https://ghub.io/slash) module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
-1. Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
+
+ Bash: Every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
+
+1. Bash: Every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
