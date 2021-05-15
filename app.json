@@ -1,5 +1,5 @@
 {
-  "name": "docs.github.com",
+  "0132189928": "docs.github.com",
   "env": {
     "NODE_ENV": "production",
     "NPM_CONFIG_PRODUCTION": "true",
