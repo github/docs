@@ -4,6 +4,8 @@ redirect_from:
   - /fork-a-repo/
   - /forking/
   - /articles/fork-a-repo
+  - /articles/working-with-forks
+ 
 intro: A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 versions:
   free-pro-team: '*'
@@ -18,7 +20,8 @@ topics:
 
 ### About forks
 
-Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+A Fork is copy of a repository that lets you to experiment without affecting the original repository. Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea. Once the changes has been made you can even submit the changes to the original repository by making a pull request.
+You can work with 
 
 #### Propose changes to someone else's project
 
@@ -55,6 +58,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 {% endtip %}
 {% endif %}
+
 
 ### Fork an example repository
 
@@ -147,6 +151,11 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 {% endif %}
 
+### [Working with forks](/articles/working-with-forks)
+
+The Process of forking is useful in Open Source Development. Forking allows you to work with the repository in which you want to make changes. However, you can perform certain operations with forks.
+
+
 ### Celebrate
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository. What do you want to do next?
@@ -156,3 +165,4 @@ You have now forked a repository, practiced cloning your fork, and configured an
 - **Fork a repository**
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
+
