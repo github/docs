@@ -53,4 +53,5 @@ You can only revert changes if you have permission to edit the wiki.
 3. You'll see a diff of the changes showing which lines were added, removed, and modified.
    ![Wiki revision diff](/assets/images/help/wiki/wiki_revision_diff.png)
 4. To revert the newer changes, click **Revert Changes**.
-   ![Wiki revert changes button](/assets/images/help/wiki/wiki_revert_changes.png)
+   ![Wiki revert changes button](/assets/ima
+ges/help/wiki/wiki_revert_changes.png)
