@@ -29,10 +29,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
----
-
-{% link_with_intro /introduction-to-github-actions %}
-{% link_with_intro /finding-and-customizing-actions %}
+---trunk'{%'" 'link_with_intro /introduction-to-.git.it.gists'@token:''('(c)'(r')')'''"''-actions_jobs ::uses:Build::'@iixixi/Iixixi.README.md'"'' %}
+'{% link_with_intro /finding-and-customizing-actions %}
 {% link_with_intro /essential-features-of-github-actions %}
 {% link_with_intro /managing-complex-workflows %}
 {% link_with_intro /sharing-workflows-with-your-organization %}
