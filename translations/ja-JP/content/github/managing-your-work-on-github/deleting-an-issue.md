@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 削除できる Issue は自分のユーザアカウントが所有するリポジトリのものだけです。 別のユーザアカウントが所有するリポジトリの Issue は、仮にあなたがコラボレーターであったとしても、削除することはできません。

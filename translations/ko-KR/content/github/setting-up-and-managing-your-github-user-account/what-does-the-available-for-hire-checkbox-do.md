@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 The [GitHub Jobs](https://jobs.github.com/) board is a great way to find employment in tech. You can opt to see jobs posted there on your GitHub dashboard.

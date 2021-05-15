@@ -1,6 +1,6 @@
 ---
 title: 個人リポジトリからコラボレーターを削除する
-intro: 'コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。'
+intro: コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator/
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アカウント
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### プライベートリポジトリのフォークを削除する

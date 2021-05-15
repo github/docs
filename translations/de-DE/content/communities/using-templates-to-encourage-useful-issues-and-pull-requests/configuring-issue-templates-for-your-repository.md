@@ -1,6 +1,6 @@
 ---
 title: Issuevorlagen für Dein Repository konfigurieren
-intro: Du kannst die Vorlagen anpassen, die für Mitarbeiter zur Verfügung stehen, wenn sie neue Issues in Deinem Repository eröffnen.
+intro: 'Du kannst die Vorlagen anpassen, die für Mitarbeiter zur Verfügung stehen, wenn sie neue Issues in Deinem Repository eröffnen.'
 redirect_from:
   - /github/building-a-strong-community/creating-issue-templates-for-your-repository
   - /articles/configuring-issue-templates-for-your-repository
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}

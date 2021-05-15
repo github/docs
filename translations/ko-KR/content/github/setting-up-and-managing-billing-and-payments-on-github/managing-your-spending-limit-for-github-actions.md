@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 ### About spending limits for {% data variables.product.prodname_actions %}

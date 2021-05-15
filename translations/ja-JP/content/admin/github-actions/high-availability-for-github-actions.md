@@ -4,7 +4,7 @@ intro: 'High Availability 設定で {% data variables.product.prodname_actions %
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_actions %} データのレプリケーションまたは冗長性

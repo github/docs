@@ -14,7 +14,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}

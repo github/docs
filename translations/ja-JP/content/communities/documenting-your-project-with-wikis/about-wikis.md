@@ -1,6 +1,6 @@
 ---
 title: ウィキについて
-intro: 'リポジトリのドキュメンテーションをウィキでホストして、他者が利用してプロジェクトにコントリビュートすることを可能にできます。'
+intro: リポジトリのドキュメンテーションをウィキでホストして、他者が利用してプロジェクトにコントリビュートすることを可能にできます。
 redirect_from:
   - /articles/about-github-wikis/
   - /articles/about-wikis
@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 すべての {% data variables.product.product_name %} リポジトリには、ウィキと呼ばれる、ドキュメンテーションをホストするセクションが付属しています。 リポジトリのウィキは、プロジェクトの利用方法、設計方法、中核的な原理など、プロジェクトに関する長いコンテンツを共有するために利用できます。 README ファイルは、プロジェクトができることを手短に述べますが、ウィキを使えば追加のドキュメンテーションを提供できます。 詳細は「[README について](/articles/about-readmes)」を参照してください。

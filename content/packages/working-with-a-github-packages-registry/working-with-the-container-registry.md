@@ -1,6 +1,6 @@
 ---
 title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_capitalized_container_registry %}, which uses the package namespace `https://ghcr.io`.'
+intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://ghcr.io`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -18,16 +18,16 @@ versions:
 
 ### About {% data variables.product.prodname_container_registry %} support
 
-To push and pull container images, an organization admin or the owner of a personal account must enable the {% data variables.product.prodname_capitalized_container_registry %}. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_capitalized_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
+To push and pull container images, an organization admin or the owner of a personal account must enable the {% data variables.product.prodname_container_registry %}. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
 
 When installing or publishing a Docker image, the Container registry supports foreign layers, such as Windows images.
 
-The {% data variables.product.prodname_capitalized_container_registry %} currently supports the following container image formats:
+The {% data variables.product.prodname_container_registry %} currently supports the following container image formats:
 
 * [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
 * [Open Container Initiative (OCI) Specifications](https://github.com/opencontainers/image-spec)
 
-### Authenticating to the {% data variables.product.prodname_capitalized_container_registry %}
+### Authenticating to the {% data variables.product.prodname_container_registry %}
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 

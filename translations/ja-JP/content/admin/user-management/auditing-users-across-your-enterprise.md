@@ -1,6 +1,6 @@
 ---
 title: Enterprise にわたるユーザの監査
-intro: 'Audit log ダッシュボードには、サイト管理者に、過去 90 日間に企業全体のすべてのユーザと Organization によって実行されたアクションが表示されます。これには、アクションを実行したユーザ、アクションの内容、アクションの実行時期などの詳細が含まれます。'
+intro: Audit log ダッシュボードには、サイト管理者に、過去 90 日間に企業全体のすべてのユーザと Organization によって実行されたアクションが表示されます。これには、アクションを実行したユーザ、アクションの内容、アクションの実行時期などの詳細が含まれます。
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Audit log にアクセスする

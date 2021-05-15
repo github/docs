@@ -4,6 +4,10 @@ intro: Puedes abrir un nuevo informe de problemas desde un comentario específic
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
+topics:
+  - Pull requests
 ---
 
 Cuando abres un informe de problemas desde un comentario, este informe contiene un fragmento de código que muestra en dónde se hizo el comentario originalmente.

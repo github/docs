@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Administración de proyectos
+  - Project management
 ---
 
 Puedes utilizar las {% data variables.product.prodname_actions %} para automatizar tus tareas de administración de proyectos si creas flujos de trabajo. Cada flujo de trabajo contiene una serie de tareas que se llevan a cabo automáticamente cada que se ejecuta el flujo de trabajo. Por ejemplo, puedes crear un flujo de trabajo que se ejecute cada vez que se crea una propuesta para que se agregue una etiqueta, se deje un comentario y se mueva la propuesta a otro tablero de proyecto.

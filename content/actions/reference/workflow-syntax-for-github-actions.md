@@ -401,7 +401,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/stale@v3
+      - uses: actions/stale@v3
 ```
 {% endif %}
 
@@ -695,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_capitalized_container_registry %}
+##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_capitalized_container_registry %}.
+A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -725,7 +725,9 @@ jobs:
 
 #### Example using action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally.
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 {% raw %}
 ```yaml
@@ -737,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action

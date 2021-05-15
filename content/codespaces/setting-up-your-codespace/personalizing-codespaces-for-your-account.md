@@ -1,26 +1,49 @@
 ---
 title: Personalizing Codespaces for your account
-intro: '{% data variables.product.prodname_codespaces %} uses your `dotfiles` repository on {% data variables.product.product_name %} to personalize every new codespace that you create.'
-product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'Anyone can create a `dotfiles` repository to personalize {% data variables.product.prodname_codespaces %} for their user account.'
+intro: 'You can personalize {% data variables.product.prodname_codespaces %} by using a `dotfiles` repository on {% data variables.product.product_name %} or by using Settings Sync.'
+permissions: 'Anyone can personalize {% data variables.product.prodname_codespaces %} for their user account.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Codespaces
+  - Set up
+  - Fundamentals
 ---
 
 {% data reusables.codespaces.release-stage %}
+
+### About personalizing {% data variables.product.prodname_codespaces %}
+ 
+When using any development environment, customizing the settings and tools to your preferences and workflows is an important step. {% data variables.product.prodname_codespaces %} allows for two main ways of personalizing your codespaces. 
+
+- [Settings Sync](#settings-sync) - You can use and share {% data variables.product.prodname_vscode %} settings between {% data variables.product.prodname_codespaces %} and other instances of {% data variables.product.prodname_vscode %}.
+- [Dotfiles](#dotfiles) – You can use a public `dotfiles` repository to specify scripts, shell preferences, and other configurations.
+
+{% data variables.product.prodname_codespaces %} personalization applies to any codespace you create.
+
+Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)." 
+
+### Settings Sync
+
+Settings Sync allows you to share configurations such as settings, keyboard shortcuts, snippets, extensions, and UI state across machines and instances of {% data variables.product.prodname_vscode %}.
+
+Settings Sync is on by default. To configure any settings, in the bottom-left corner of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is on**. From the dialog, you can choose to configure, show settings and data, or turn off Settings Sync.
+
+![Setting Sync option in manage menu](/assets/images/help/codespaces/codespaces-manage-settings-sync.png)
+
+For more information, see the [Settings Sync guide](https://code.visualstudio.com/docs/editor/settings-sync) in the {% data variables.product.prodname_vscode %} documentation.
+
+### Dotfiles
 
 Dotfiles are files and folders on Unix-like systems starting with `.` that control the configuration of applications and shells on your system. You can store and manage your dotfiles in a repository on {% data variables.product.prodname_dotcom %}. For advice and tutorials about what to include in your `dotfiles` repository, see [GitHub does dotfiles](https://dotfiles.github.io/).
 
 If your user account on {% data variables.product.prodname_dotcom %} owns a public repository named `dotfiles`, {% data variables.product.prodname_dotcom %} automatically uses this repository to personalize your codespace environment. Private `dotfiles` repositories are not currently supported.
 
 Your `dotfiles` repository might include your shell aliases and preferences, any tools you want to install, or any other codespace personalization you want to make.
-
-Codespace personalization using your `dotfiles` repository applies to any codespace you create. Project maintainers can also define a default configuration that applies to every codespace for a repository, created by anyone. {% data reusables.codespaces.codespace-config-order %} For more information, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project)." 
 
 When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your `dotfiles` repository to the codespace environment, and looks for one of the following files to set up the environment.
 

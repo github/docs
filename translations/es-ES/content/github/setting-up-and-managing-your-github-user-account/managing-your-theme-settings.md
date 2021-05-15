@@ -4,7 +4,7 @@ intro: 'Puedes administrar la vista que tienes de {% data variables.product.prod
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 {% note %}
