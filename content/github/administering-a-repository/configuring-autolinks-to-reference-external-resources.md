@@ -4,7 +4,7 @@ intro: You can add autolinks to external resources like JIRA issues and Zendesk 
 product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
-versions:
+versions: 
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
