@@ -1,15 +1,17 @@
 ---
 title: Configuring Codespaces for your project
 intro: You can use a `devcontainer.json` file to define a {% data variables.product.prodname_codespaces %} environment for your repository. 
-product: '{% data reusables.gated-features.codespaces %}'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
   - /github/developing-online-with-codespaces/configuring-codespaces-for-your-project
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Codespaces
+  - Set up
+  - Fundamentals
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -24,7 +26,7 @@ A development container, or dev container, is the environment that {% data varia
 
 {% data reusables.codespaces.devcontainer-location %}
 
-You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the editor, but you can also set editor-specific settings for individual Workspaces in a codespace in a file named `.vscode/settings.json`.
+You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the editor, but you can also set editor-specific settings for individual [workspaces](https://code.visualstudio.com/docs/editor/workspaces) in a codespace in a file named `.vscode/settings.json`.
 
 For information about the settings and properties that you can set in a `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -32,7 +34,7 @@ For information about the settings and properties that you can set in a `devcont
 
 A Dockerfile also lives in the `.devcontainer` folder. 
 
-You can add a Dockerfile to your project to define a container image and install software. In your Dockerfile, use `FROM` to designate the image, and the `RUN` instruction to install any software. For example:
+You can add a Dockerfile to your project to define a container image and install software. In the Dockerfile, you can use `FROM` to specify the container image.
 
 ```Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
@@ -46,6 +48,8 @@ FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
 # USER codespace
 ```
 
+You can use the `RUN` instruction to install any software and `&&` to join commands.
+
 Reference your Dockerfile in your `devcontainer.json` file by using the `dockerfile` property.
 
 ```json
@@ -56,13 +60,13 @@ Reference your Dockerfile in your `devcontainer.json` file by using the `dockerf
 }
 ```
 
-For more information on using a Dockerfile in a dev container, see [](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile) in the {% data variables.product.prodname_vscode %} documentation. 
+For more information on using a Dockerfile in a dev container, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container#_dockerfile) in the {% data variables.product.prodname_vscode %} documentation. 
 
 ### Using the default configuration
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url.
+If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the url that the command outputs.
 
-For more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux/history) repository. 
+Alternatively, for more information about everything that is included in the base Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) repository. 
 
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_codespaces %} provides.
 
@@ -73,7 +77,7 @@ Predefined container definitions include a common configuration for a particular
 
 Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project's setup. 
 
-1. To access the command palette, in the bottom-left corner click **Codespaces**, then start typing "Codespaces: Add Development Container Configuration Files...". Click **Codespaces: Add Development Container Configuration Files...**
+1. To access the command palette, in the upper-left corner, select the Application Menu and click **Command Palette…** from the **View** menu, then start typing "Codespaces: Add Development Container Configuration Files...". Click **Codespaces: Add Development Container Configuration Files...**
   !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 1. Click the definition you want to use.
   ![List of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
@@ -88,7 +92,7 @@ Using a predefined configuration is a great idea if you need some additional ext
 
 If none of the predefined configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
 
-In the file, you can use supported configuration keys to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode %} extensions will be installed.
+In the file, you can use [supported configuration keys](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) to specify aspects of the codespace's environment, like which {% data variables.product.prodname_vscode %} extensions will be installed.
 
 {% data reusables.codespaces.vscode-settings-order %}
 

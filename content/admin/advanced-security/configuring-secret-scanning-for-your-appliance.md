@@ -8,8 +8,12 @@ redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
 versions:
   enterprise-server: '>=3.0'
+type: how_to
 topics:
+  - Advanced Security
   - Enterprise
+  - Secret scanning
+  - Security
 ---
 
 {% data reusables.secret-scanning.beta %}

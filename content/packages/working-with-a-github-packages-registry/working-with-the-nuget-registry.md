@@ -24,6 +24,16 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
+#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+
+Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+
+```shell
+dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
+```
+
+{% data reusables.package_registry.authenticate-packages-github-token %}
+
 #### Authenticating with a personal access token
 
 {% data reusables.package_registry.required-scopes %}
@@ -216,6 +226,10 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   ```shell
   dotnet restore
   ```
+
+### Troubleshooting
+
+Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
 ### Further reading
 
