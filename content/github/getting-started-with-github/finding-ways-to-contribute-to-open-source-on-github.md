@@ -28,7 +28,7 @@ Keep up with recent activity from repositories you watch and people you follow i
 
 If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
 
-### Open an Issue
+### Opening an Issue
 
 If you encounter a bug in an open source project you are currently working with, check if this problem has already been reported. Confirm that this is also happening on your side. Add any other details you think would help. Report it. That's a contribution!
 
@@ -51,5 +51,4 @@ Writing and updating documentation is a very valuable contribution. A few option
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
 - "[About your organization dashboard](/articles/about-your-organization-dashboard)"
-
 
