@@ -95,11 +95,43 @@ async function getContents (owner, repo, ref, path) {
   }
 }
 
+// https://docs.github.com/en/rest/reference/pulls#list-pull-requests
+async function listPulls (owner, repo) {
+  try {
+    const { data } = await github.pulls.list({
+      owner,
+      repo,
+      per_page: 100
+    })
+    return data
+  } catch (err) {
+    console.log(`error listing pulls in ${owner}/${repo}`)
+    throw (err)
+  }
+}
+
+async function createReviewComment (owner, repo, pullNumber, body) {
+  try {
+    const { data } = await github.pulls.createReviewComment({
+      owner,
+      repo,
+      pull_number: pullNumber,
+      body
+    })
+    return data
+  } catch (err) {
+    console.log(`error creating a review comment on PR ${pullNumber} in ${owner}/${repo}`)
+    throw (err)
+  }
+}
+
 module.exports = {
   getTree,
   getTreeSha,
   getCommitSha,
   getContentsForBlob,
   getContents,
-  listMatchingRefs
+  listMatchingRefs,
+  listPulls,
+  createReviewComment
 }
