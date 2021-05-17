@@ -110,12 +110,12 @@ async function listPulls (owner, repo) {
   }
 }
 
-async function createReviewComment (owner, repo, pullNumber, body) {
+async function createIssueComment (owner, repo, pullNumber, body) {
   try {
-    const { data } = await github.pulls.createReviewComment({
+    const { data } = await github.issues.createComment({
       owner,
       repo,
-      pull_number: pullNumber,
+      issue_number: pullNumber,
       body
     })
     return data
@@ -133,5 +133,5 @@ module.exports = {
   getContents,
   listMatchingRefs,
   listPulls,
-  createReviewComment
+  createIssueComment
 }

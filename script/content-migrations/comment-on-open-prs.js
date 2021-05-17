@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-const { listPulls, createReviewComment } = require('../helpers/git-utils')
+const { listPulls, createIssueComment } = require('../helpers/git-utils')
 
 // [start-readme]
 //
 // This script finds all open PRs from active branches that touch content files, and adds a comment
-// with a prompt to enter a slash command and update files. The idea is to help writers and other Hubbers
-// update their open branches and mitigate conflicts with the main branch.
+// with steps to run some commands. The idea is to help writers and other Hubbers update their
+// open branches and mitigate conflicts with the main branch.
 //
 // [end-readme]
 
@@ -22,21 +22,18 @@ const options = {
 }
 
 const comment = `
-Hello! The docs-engineering team has just published an update that touches all content files in the repo. To reduce conflicts with \`main\`, we wanted to offer a programmatic option to update your branch.
+👋 Hello! The docs-engineering team has just published an update that touches all content files in the repo. To reduce conflicts with \`main\`, we are sending out this message to help folks update their branches.
 
-To take advantage of this option, in a new comment on this PR, type and enter: \`/update-content-in-branch\`.
+You'll need to do the following steps in Terminal. If you're not into that, ask in #docs-engineering and we'll help out!
 
-This is a custom slash command that will trigger a GitHub Action workflow to do the following:
+1. Check out the branch associated with this PR. Don't update from \`main\` yet.
+2. Run: \`script/content-migrations/remove-map-topics.js && script/content-migrations/update-tocs.js\`
+3. Commit: \`git add . && git commit -m 'ran content migration scripts'\`
+4. Update: \`git pull origin main\`
 
-1. Check out your branch.
-2. Run some special scripts.
-3. Commit and push the results back to your branch.
+You may still have some conflicts to resolve. Feel free to ask us if you have questions or need help!
 
-Once that's done, you can update from \`main\`. You may still have some conflicts to resolve.
-
-Feel free to ask if you have questions or need help!
-
-For a 5min demo of what the scripts do and why they're needed, check out https://www.loom.com/share/fa6501580b2a44d7a8a4357ee51e0c99.
+For a 5min demo of what the scripts do and why they're needed, check out [this screencast](https://www.loom.com/share/fa6501580b2a44d7a8a4357ee51e0c99).
 `
 
 main()
@@ -51,7 +48,7 @@ async function main () {
 
   // for every open PR, create a review comment
   await Promise.all(openPullNumbers.map(async (pullNumber) => {
-    await createReviewComment(options.owner, options.repo, pullNumber, comment)
-    console.log(`added a comment to PR #${pullNumber}`)
+    await createIssueComment(options.owner, options.repo, pullNumber, comment)
+    console.log(`Added a comment to PR #${pullNumber}`)
   }))
 }
