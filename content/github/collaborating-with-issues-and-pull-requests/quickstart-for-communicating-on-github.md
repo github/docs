@@ -85,9 +85,11 @@ This example illustrates how a {% data variables.product.prodname_dotcom %} user
 This example illustrates how a {% data variables.product.prodname_dotcom %} user created a pull request in our documentation open source repository to fix a typo. 
 
 In the **Conversation** tab of the pull request, the author explain why they created the pull request.
+
 ![Example of pull request - Conversation tab](/assets/images/help/pull_requests/pr-conversation-example.png)
 
 The **Files changed** tab of the pull request shows the implemented fix.
+
 ![Example of pull request - Files changed tab](/assets/images/help/pull_requests/pr-files-changed-example.png)
 
 - This contributor notices a typo in the repository.
