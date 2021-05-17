@@ -41,7 +41,7 @@ main()
 async function main () {
   const allPulls = await listPulls(options.owner, options.repo)
 
-  // get the URL of open PRs only
+  // get the number of open PRs only
   const openPullNumbers = allPulls
     .filter(pull => pull.state === 'open')
     .map(pull => pull.number)
