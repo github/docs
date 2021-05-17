@@ -1,0 +1,8 @@
+trigger: update-content-in-branch
+title: Update content in branch
+description: Run scripts to update content in the current branch and commit it, to prevent conflicts with the main branch.
+surfaces: pull_request
+steps:
+  - type: repository_dispatch
+    eventType: update_content_in_branch
+    repository: github/docs-internal
