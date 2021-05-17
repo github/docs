@@ -9,6 +9,19 @@ type ProductT = {
   name: string
 }
 
+type LanguageItem = {
+  name: string
+  nativeName: string
+  code: string
+  hreflang: string
+  wip?: boolean
+}
+
+type VersionItem = {
+  version: string
+  versionTitle: string
+}
+
 type DataT = {
   ui: Record<string, any>
   reusables: {
@@ -18,6 +31,12 @@ type DataT = {
       deprecation_details: string
       isOldestReleaseDeprecated: boolean
     }
+    policies: {
+      translation: string
+    }
+  }
+  variables: {
+    release_candidate: { version: string }
   }
 }
 type EnterpriseServerReleases = {
@@ -34,9 +53,13 @@ export type MainContextT = {
   currentLayoutName: string
   data: DataT
   airGap?: boolean
+  error: string
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentLanguage: string
+  languages: Record<string, LanguageItem>
+  allVersions: Record<string, VersionItem>
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -47,16 +70,36 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct],
     currentLayoutName: req.context.currentLayoutName,
+    error: req.context.error || '',
     data: {
       ui: req.context.site.data.ui,
       reusables: {
         enterprise_deprecation: req.context.site.data.reusables.enterprise_deprecation,
+        policies: req.context.site.data.reusables.policies,
+      },
+      variables: {
+        release_candidate: req.context.site.data.variables.release_candidate,
       },
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
     relativePath: req.context.page.relativePath,
     enterpriseServerReleases: req.context.enterpriseServerReleases,
+    currentLanguage: req.context.currentLanguage,
+    languages: Object.fromEntries(
+      Object.entries(req.context.languages).map(([key, entry]: any) => {
+        return [
+          key,
+          {
+            name: entry.name,
+            nativeName: entry.nativeName || '',
+            code: entry.code,
+            hreflang: entry.hreflang,
+          },
+        ]
+      })
+    ),
+    allVersions: req.context.allVersions,
   }
 }
 
