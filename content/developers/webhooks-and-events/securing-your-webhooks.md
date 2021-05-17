@@ -55,7 +55,8 @@ require 'sinatra'
 require 'json'
 
 post '/payload' do
-  push = JSON.parse(params[:payload])
+  request.body.rewind
+  push = JSON.parse(request.body.read)
   "I got some JSON: #{push.inspect}"
 end
 ```
@@ -67,7 +68,7 @@ post '/payload' do
   request.body.rewind
   payload_body = request.body.read
   verify_signature(payload_body)
-  push = JSON.parse(params[:payload])
+  push = JSON.parse(payload_body)
   "I got some JSON: #{push.inspect}"
 end
 
