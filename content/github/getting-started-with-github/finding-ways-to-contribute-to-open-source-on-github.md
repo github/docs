@@ -30,7 +30,7 @@ If you already know what project you want to work on, you can find beginner-frie
 
 ### Opening an Issue
 
-If you encounter a bug in an open source project you are currently working with, check if this problem has already been reported. Confirm that this is also happening on your side. Add any other details you think would help. Report it. That's a contribution!
+If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
 ### Validating an issue or pull request
 
