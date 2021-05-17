@@ -1,6 +1,6 @@
 ---
 title: 許可されたアプリケーション (OAuth) をレビューする
-intro: 'プライベート リポジトリにアクセス権があるような、広範囲な権限がある新しいアプリケーションが許可されていないことを検証するために、許可されたお使いのアプリケーションをレビューしてください。'
+intro: プライベート リポジトリにアクセス権があるような、広範囲な権限がある新しいアプリケーションが許可されていないことを検証するために、許可されたお使いのアプリケーションをレビューしてください。
 redirect_from:
   - /articles/reviewing-your-authorized-applications-oauth
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - アイデンティティ
-  - アクセス管理
+  - Identity
+  - Access management
 ---
 
 {% data reusables.user_settings.access_settings %}

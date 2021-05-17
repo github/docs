@@ -1,6 +1,6 @@
 ---
 title: 保護されたブランチについて
-intro: '重要なブランチを保護するには、ブランチ保護ルールを設定します。このルールは、コラボレータがブランチへのプッシュを削除または強制できるかどうかを定義し、ステータスチェックのパスや直線状のコミット履歴など、ブランチへのプッシュの要件を設定します。'
+intro: 重要なブランチを保護するには、ブランチ保護ルールを設定します。このルールは、コラボレータがブランチへのプッシュを削除または強制できるかどうかを定義し、ステータスチェックのパスや直線状のコミット履歴など、ブランチへのプッシュの要件を設定します。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -20,7 +20,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### ブランチ保護ルールについて

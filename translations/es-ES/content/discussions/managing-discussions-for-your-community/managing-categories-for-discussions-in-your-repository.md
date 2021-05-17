@@ -1,7 +1,7 @@
 ---
 title: Administrar las categorías de los debates en tu repositorio
-intro: Puedes categorizar los debates en tu repositorio para organizar las conversaciones para los miembros de tu comunidad, y puedes elegir un formato para cada categoría.
-permissions: Los administradores de repositorio y las personas con acceso de escritura o superior en el mismo pueden habilitar los debates para éste.
+intro: 'Puedes categorizar los debates en tu repositorio para organizar las conversaciones para los miembros de tu comunidad, y puedes elegir un formato para cada categoría.'
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

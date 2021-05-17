@@ -1,13 +1,13 @@
 ---
 title: 查看被阻止访问组织的用户
-intro: '您可以查看您或其他所有者已阻止访问组织的所有用户的列表。 如果用户在特定时间内被阻止，您可以看到他们被阻止的时间。'
+intro: 您可以查看您或其他所有者已阻止访问组织的所有用户的列表。 如果用户在特定时间内被阻止，您可以看到他们被阻止的时间。
 redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
   - /github/building-a-strong-community/viewing-users-who-are-blocked-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 {% data reusables.profile.access_profile %}

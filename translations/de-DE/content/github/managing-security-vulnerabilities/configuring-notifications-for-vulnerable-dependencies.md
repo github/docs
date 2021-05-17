@@ -5,7 +5,7 @@ intro: 'Optimize how you receive notifications about  {% if currentVersion == "f
 versions:
   enterprise-server: '>=2.21 <=2.22'
 topics:
-  - sicherheit
+  - Security
 ---
 
 ### About notifications for vulnerable dependencies

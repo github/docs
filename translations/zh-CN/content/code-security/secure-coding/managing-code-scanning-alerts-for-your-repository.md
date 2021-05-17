@@ -3,7 +3,7 @@ title: 管理仓库的代码扫描警报
 shortTitle: 管理警报
 intro: '从安全视图中，您可以查看、修复、{% if currentVersion == "enterprise-server@2.22" %}或关闭{% else %}忽略或删除{% endif %}项目代码中潜在漏洞或错误的警报。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '如果您拥有仓库的写入权限，您可以管理该仓库的 {% data variables.product.prodname_code_scanning %} 警报。'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -13,7 +13,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - 安全
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

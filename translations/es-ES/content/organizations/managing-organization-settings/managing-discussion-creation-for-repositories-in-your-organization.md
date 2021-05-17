@@ -3,12 +3,12 @@ title: Administrar la creación de debates para los repositorios de tu organizac
 intro: Puedes elegir los niveles de permiso que requieren los miembros para crear los debates en los repositorios que pertenezcan a tu organización.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization
-permissions: Los propietarios de las organizaciones pueden administrar la creación de debates para los repositorios que pertenecen a éstas.
+permissions: Organization owners can manage discussion creation for repositories owned by the organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.discussions.beta %}

@@ -4,7 +4,7 @@ intro: 'AWS を外部ストレージとして {% data variables.product.prodname
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% warning %}

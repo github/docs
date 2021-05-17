@@ -1,6 +1,6 @@
 ---
 title: 关于 GitHub 导入工具
-intro: '如果您在 Subversion、Mercurial、Team Foundation Server 或其他 Git 仓库中有源代码，可使用 GitHub 导入工具将其移至 GitHub。'
+intro: 如果您在 Subversion、Mercurial、Team Foundation Server 或其他 Git 仓库中有源代码，可使用 GitHub 导入工具将其移至 GitHub。
 redirect_from:
   - /articles/about-github-importer
 versions:

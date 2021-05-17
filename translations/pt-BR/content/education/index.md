@@ -1,7 +1,7 @@
 ---
 title: Documentação do GitHub Education
 shortTitle: Educação
-intro: "{% data variables.product.prodname_education %} ajuda você a ensinar ou aprender desenvolvimento de software com as ferramentas e suporte da plataforma e comunidade de {% data variables.product.company_short %}."
+intro: '{% data variables.product.prodname_education %} ajuda você a ensinar ou aprender desenvolvimento de software com as ferramentas e suporte da plataforma e comunidade de {% data variables.product.company_short %}.'
 introLinks:
   quickstart: /education/quickstart
 featuredLinks:
@@ -20,7 +20,7 @@ featuredLinks:
     - /github/getting-started-with-github/github-cli
     - /education/manage-coursework-with-github-classroom/teach-with-github-classroom
 changelog:
-  label: 'educação'
+  label: education
 layout: product-landing
 versions:
   free-pro-team: '*'

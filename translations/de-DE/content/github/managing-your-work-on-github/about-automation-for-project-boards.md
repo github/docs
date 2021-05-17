@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Automatisierung für Projektboards
-intro: Du kannst automatische Workflows konfigurieren, um zu gewährleisten, dass der Status der Projektboard-Tickets mit den zugehörigen Issues und Pull Requests synchronisiert wird.
+intro: 'Du kannst automatische Workflows konfigurieren, um zu gewährleisten, dass der Status der Projektboard-Tickets mit den zugehörigen Issues und Pull Requests synchronisiert wird.'
 redirect_from:
   - /articles/about-automation-for-project-boards
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% data reusables.project-management.automate-project-board-permissions %}  Weitere Informationen findest Du unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization).“

@@ -1,5 +1,5 @@
 ---
-title: '　ユーザからサーバーへのアクセストークンの更新'
+title: 　ユーザからサーバーへのアクセストークンの更新
 intro: '定期的なトークンのローテーションを強制し、侵害されたトークンの影響を抑えるために、ユーザアクセストークンの期限を利用するように{% data variables.product.prodname_github_app %}を設定できます。'
 redirect_from:
   - /apps/building-github-apps/refreshing-user-to-server-access-tokens
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - github apps
+  - GitHub Apps
 ---
 
 

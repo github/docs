@@ -1,6 +1,6 @@
 ---
 title: Codeblöcke erstellen und markieren
-intro: Gib Codebeispiele mit Fenced-Code-Blöcken frei, und aktiviere die Syntaxmarkierung.
+intro: 'Gib Codebeispiele mit Fenced-Code-Blöcken frei, und aktiviere die Syntaxmarkierung.'
 redirect_from:
   - /articles/creating-and-highlighting-code-blocks
 versions:

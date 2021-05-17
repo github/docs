@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 如果您在组织中实施 SAML SSO，则任何成员（包括未通过 SAML 身份提供程序 (IdP) 进行身份验证的管理员）都将从组织中删除，并会收到一封告知此类删除的电子邮件。 未在组织的 IdP 中设置外部身份的自动程序和服务帐户也将被删除。 有关自动程序和服务帐户的更多信息，请参阅“[使用 SAML 单点登录管理自动程序和服务帐户](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)”。 成功完成单点登录后，可以恢复组织成员。

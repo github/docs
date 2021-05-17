@@ -9,7 +9,7 @@ intro: 'CAS 是一种适用于多种网络应用程序的单点登录 (SSO) 协�
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

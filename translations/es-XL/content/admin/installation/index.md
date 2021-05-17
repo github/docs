@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/installation
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Para obtener más información, o para comprar {% data variables.product.prodname_enterprise %}, consulta [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
