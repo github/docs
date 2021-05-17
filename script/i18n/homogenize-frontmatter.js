@@ -53,8 +53,8 @@ async function main () {
 
     // Look for differences between the english and localised non-translatable properties
     let overwroteSomething = false
-    for (const prop in englishFrontmatter.data) {
-      if (!fm.schema.properties[prop].translatable && localisedFrontmatter.data[prop] !== englishFrontmatter.data[prop]) {
+    for (const prop in localisedFrontmatter.data) {
+      if (!fm.schema.properties[prop].translatable && englishFrontmatter.data[prop] && localisedFrontmatter.data[prop] !== englishFrontmatter.data[prop]) {
         localisedFrontmatter.data[prop] = englishFrontmatter.data[prop]
         overwroteSomething = true
       }
