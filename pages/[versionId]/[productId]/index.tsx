@@ -12,7 +12,6 @@ import {
   ProductLandingContext,
   useProductLandingContext,
 } from 'components/context/ProductLandingContext'
-import { getThemeProps } from 'components/lib/getThemeProps'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
@@ -101,7 +100,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      themeProps: getThemeProps(req),
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
     },
