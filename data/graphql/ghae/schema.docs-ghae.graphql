@@ -36577,6 +36577,16 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryOwne
   bioHTML: HTML!
 
   """
+  Could this user receive email notifications, if the organization had notification restrictions enabled?
+  """
+  canReceiveOrganizationEmailsWhenNotificationsRestricted(
+    """
+    The login of the organization to check.
+    """
+    login: String!
+  ): Boolean!
+
+  """
   A list of commit comments made by this user.
   """
   commitComments(
