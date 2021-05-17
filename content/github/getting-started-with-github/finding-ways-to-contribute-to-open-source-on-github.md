@@ -42,13 +42,6 @@ You can contribute to an open source project by merging a pull request into your
 #### Updating issues
 You can contribute to an open source project by adding additional information to existing issues.
 
-### Documentation & Writing
-Writing and updating documentation is a very valuable contribution. A few options might be:
-
-* Search for any feature you use on [GitHub Docs](https://github.com/github/docs/blob/main/CONTRIBUTING.md), review and improve the documentation if you can, or make suggestions.
-* Simplify any open source onboarding project documentation like 'how to get started', 'how to setup project locally' etc.
-* Translate documentation to another language.
-
 
 ### Further reading
 
