@@ -38,7 +38,8 @@ A lot of emphasis is put on contributing code, but did you know that you can sig
 #### Reproducing a reported bug
 You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
 * **Validate that a PR fixes an issue as intended**. Merge a PR into the related version and test. Update the PR comments with your test outcome.
-* **Updating issues**, or tasks with additional information that helped you test, or work through the solution.
+#### Updating issues
+You can contribute to an open source project by adding additional information to existing issues.
 
 ### Documentation & Writing
 Writing and updating documentation is a very valuable contribution. A few options might be:
