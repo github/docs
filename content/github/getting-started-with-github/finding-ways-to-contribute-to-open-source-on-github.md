@@ -28,17 +28,20 @@ Keep up with recent activity from repositories you watch and people you follow i
 
 If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
 
-### Opening an Issue
+### Opening an issue
 
 If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
 ### Validating an issue or pull request
 
 There are a variety of ways that you can contribute to open source projects.
+
 #### Reproducing a reported bug
 You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
+
 #### Testing a pull request
 You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+
 #### Updating issues
 You can contribute to an open source project by adding additional information to existing issues.
 
