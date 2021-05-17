@@ -5,5 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 

@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Antes de adicionar uma nova chave GPG à suas conta do {% data variables.product.product_name %}, você deve ter:

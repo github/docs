@@ -6,6 +6,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于提交事件单
@@ -52,8 +54,6 @@ versions:
 ### 使用 {% data variables.contact.ae_azure_portal %}提交事件单
 
 商业客户可以在 {% data variables.contact.contact_ae_portal %} 中提交支持请求。 政府客户应该使用[政府客户的 Azure 门户网站](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 更多信息请参阅 Microsoft 文档中的 "[创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)"。
-
-对于紧急问题，为了确保快速反应，在提交支持单后，请立即呼叫支持热线。 技术支持客户经理 (TSAM) 将为您提供一个编号供在登录会话中使用。
 
 {% endif %}
 

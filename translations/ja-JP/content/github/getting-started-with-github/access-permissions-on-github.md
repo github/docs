@@ -5,11 +5,14 @@ redirect_from:
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
   - /articles/access-permissions-on-github
-intro: '個人のリポジトリにはコラボレータに読み取り/書き込みアクセスを許可できる一方、Organization のメンバーは、Organization のリポジトリに対してより精細なアクセス権限を持つことができます。'
+intro: 個人のリポジトリにはコラボレータに読み取り/書き込みアクセスを許可できる一方、Organization のメンバーは、Organization のリポジトリに対してより精細なアクセス権限を持つことができます。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Permissions
+  - Accounts
 ---
 
 ### 個人ユーザアカウント

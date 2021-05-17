@@ -1,6 +1,6 @@
 ---
 title: Segredos criptografados
-intro: Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.
+intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -9,19 +9,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.environments-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre os segredos encriptados
 
-Os segredos são variáveis de ambiente criptografadas que você cria em uma organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambiente do repositório{% else %} ou repositório{% endif %}. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
+Os segredos são variáveis de ambiente criptografadas que você cria em uma organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repositório ou ambiente do repositório{% else %} ou repositório{% endif %}. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 Para segredos armazenados no nível do ambiente, você pode habilitar os revisores necessários para controlar o acesso aos segredos. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por aprovadores necessários.
 {% endif %}
 
@@ -33,15 +35,15 @@ As regras a seguir aplicam-se aos nomes dos segredos:
 * Os nomes dos segredos não devem começar com o prefixo `GITHUB_`.
 * Os nomes dos segredos não devem começar com um número.
 * Nomes dos segredos não diferenciam maiúsculas de minúsculas.
-* Os nomes dos segredos devem ser únicos no nível em que são criados. Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}um segredo criado no nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
+* Os nomes dos segredos devem ser únicos no nível em que são criados. Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}um segredo criado a nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
 
-  Se existir um segredo com o mesmo nome em vários níveis, o segredo no nível inferior tem prioridade. Por exemplo, se um segredo a nível de organização tiver o mesmo nome que um segredo a nível de repositório, o segredo a nível de repositório terá prioridade.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Da mesma forma, se uma organização, repositório e ambiente tiverem um segredo com o mesmo nome, o segredo do ambiente terá prioridade.{% endif %}
+  Se existir um segredo com o mesmo nome em vários níveis, o segredo no nível inferior tem prioridade. Por exemplo, se um segredo no nível de organização tiver o mesmo nome que um segredo no nível de repositório, o segredo no nível de repositório terá prioridade.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Da mesma forma, se uma organização, repositório, e ambiente tiverem um segredo com o mesmo nome, o segredo do ambiente terá prioridade.{% endif %}
 
 Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou Git blobs.
 
 #### Acessar os seus segredos
 
-Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo LEIAME da ação para saber quais entradas e variáveis de ambientes a ação exige. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
+Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo README da ação para saber quais entradas e variáveis de ambientes a ação exige. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
 Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se tiver permissão para editar o arquivo. Para obter mais informações, consulte "[Permissões de acesso em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
@@ -51,7 +53,7 @@ Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se
 
 {% endwarning %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 Os segredos da organização e do repositório são lidos quando uma execução de fluxo de trabalho é enfileirada e os segredos de ambiente são lidos quando um trabalho que faz referência ao ambiente é iniciado.
 {% endif %}
 
@@ -73,9 +75,15 @@ Ao gerar credenciais, recomendamos que você conceda as permissões mínimas pos
 1. Insira o valor para o seu segredo.
 1. Clique em **Add secret** (Adicionar segredo).
 
-Se o seu repositório {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}tiver segredos de ambiente ou {% endif %}puderem acessar os segredos da organização principal, esses segredos também serão listados nesta página.
+Se o seu repositório {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}tiver segredos de ambiente ou {% endif %}, eles poderão acessar os segredos da organização principal. Portanto, esses segredos também serão listados nesta página.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% note %}
+
+**Observação:** Os usuários com acesso de colaborador podem usar a API REST para gerenciar segredos de um repositório. Para obter mais informações, consulte "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+
+{% endnote %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" }
 ### Criar segredos criptografados para um ambiente
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
@@ -177,7 +185,7 @@ etapas:
 
 ### Limites para segredos
 
-Você pode armazenar até 1.000 segredos por organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, 100 segredos por repositório e 100 segredos por ambiente{% else %} e 100 segredos por repositório{% endif %}. Um fluxo de trabalho pode usar até 100 segredos da organização e 100 segredos de repositório.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} Além disso, um trabalho que faz referência a um ambiente pode usar até 100 segredos de ambiente.{% endif %}
+Você pode armazenar até 1.000 segredos por organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 segredos por repositório e 100 segredos por ambiente{% else %} e 100 segredos por repositório{% endif %}. Um fluxo de trabalho pode usar até 100 segredos da organização e 100 segredos de repositórios.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Além disso, um trabalho que faz referência a um ambiente pode usar até 100 segredos de ambiente.{% endif %}
 
 Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {% data variables.product.prodname_dotcom %}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 

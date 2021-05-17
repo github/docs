@@ -5,10 +5,12 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: 如果用户帐户至少在一个月内未激活，则被视为休眠状态。{% if enterpriseServerVersions contains currentVersion %} 您可以选择暂停休眠用户以释放用户许可。{% endif %}
+intro: '如果用户帐户至少在一个月内未激活，则被视为休眠状态。{% if enterpriseServerVersions contains currentVersion %} 您可以选择暂停休眠用户以释放用户许可。{% endif %}'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 “活动”包括但不限于：

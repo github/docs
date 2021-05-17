@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if currentVersion == "free-pro-team@latest" %} 要了解如何使用 GitHub 应用程序清单允许用户创建预配置 GitHub 应用程序，请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)。”{% endif %}
@@ -64,6 +66,6 @@ versions:
   {% endnote %}
 
 13. 在“Permissions（权限）”中，选择应用程序将请求的权限。 对于每种类型的权限，请使用下拉菜单并单击 **Read-only（只读）**、**Read & write（读取和写入）** 或 **No access（无访问权限）**。 ![GitHub 应用程序的各种权限](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. 在“Subscribe to events（订阅事件）”中，选择是否让应用程序订阅 **Label（标签）**、**Public（公开）**、**Repository（仓库）**或 **Watch（关注）**事件。 ![订阅 GitHub 应用程序的事件选项](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+14. 在“Subscribe to events（订阅事件）”中，选择您想要应用程序接收的事件。
 15. 要选择可安装应用程序的位置，请选择 **Only on this account（仅在此帐户上）**或 **Any account（任何帐户）**。 有关安装选项的更多信息，请参阅“[将 GitHub 应用程序设为公开或私有](/apps/managing-github-apps/making-a-github-app-public-or-private/)”。 ![GitHub 应用程序的安装选项](/assets/images/github-apps/github_apps_installation_options.png)
 16. 单击 **Create GitHub App（创建 GitHub 应用程序）**。 ![创建 GitHub 应用程序的按钮](/assets/images/github-apps/github_apps_create_github_app.png)

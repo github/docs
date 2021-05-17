@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Wenn Du ein Projektboard schließt, wird jede konfigurierte Workflow-Automatisierung standardmäßig pausiert.

@@ -15,6 +15,8 @@ redirect_from:
 intro: 'Im Rahmen eines Disaster Recovery-Plans können Sie die Produktionsdaten auf {% data variables.product.product_location %} schützen, indem Sie automatisierte Backups konfigurieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.product.prodname_enterprise_backup_utilities %}
@@ -83,7 +85,7 @@ Im Falle eines längeren Ausfalls oder einer Katastrophe am Hauptstandort könne
 {%if currentVersion ver_gt "enterprise-server@2.22"%}
 {% note %}
 
-**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 {% endnote %}
 {% endif %}
@@ -116,4 +118,3 @@ $ ghe-restore -c 169.154.1.1
 Sie können diese zusätzlichen Optionen mit dem Befehl `ghe-restore` verwenden:
 - Das Flag `-c` überschreibt die Einstellungen, Zertifikate und Lizenzdaten auf dem Ziel-Host, selbst wenn es bereits konfiguriert ist. Lassen Sie dieses Flag weg, wenn Sie eine Testinstanz für Testzwecke einrichten und Sie die vorhandene Konfiguration auf dem Ziel beibehalten möchten. Weitere Informationen finden Sie unter „Backup- und Wiederherstellungsbefehle verwenden“ der [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands).
 - Mit dem Flag `-s` können Sie einen anderen Backup-Snapshot auswählen.
-  

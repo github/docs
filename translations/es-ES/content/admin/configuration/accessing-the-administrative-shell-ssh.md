@@ -13,6 +13,8 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca del acceso al shell administrativo
@@ -54,7 +56,7 @@ Para especificar una clave SSH utilizando la línea de comando, ejecuta `ssh` co
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-También puedes especificar una clave SSH privada utilizando el archivo de configuración de SSH (`~/.ssh/config`).
+También puedes especificar una llave SSH privada utilizando el archivo de configuración SSH (`~/.ssh/config`).
 
 ```shell
 Host <em>hostname</em>

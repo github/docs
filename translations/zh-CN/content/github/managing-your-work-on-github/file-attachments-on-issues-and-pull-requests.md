@@ -1,6 +1,6 @@
 ---
 title: 议题和拉取请求中的文件附件
-intro: '在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。'
+intro: 在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% warning %}
@@ -27,6 +29,16 @@ versions:
 {% endtip %}
 
 文件大小不得超过 25MB，图像大小不得超过 10MB。
+{% if currentVersion == "free-pro-team@latest" %}
+如果仓库由付费 GitHub 计划的用户或组织拥有，则视频大小可达 100 MB。
+
+{% note %}
+
+**注意：**视频附件支持目前处于测试阶段，可能会更改。
+
+{% endnote %}
+
+{% endif %}
 
 我们支持这些文件：
 
@@ -37,6 +49,7 @@ versions:
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
 * PDF (*.pdf*)
-* ZIP (*.zip*、*.gz*)
+* ZIP（*.zip*、*.gz*）{% if currentVersion == "free-pro-team@latest" %}
+* 视频（*.mp4*、*.mov*）{% endif %}
 
 ![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)

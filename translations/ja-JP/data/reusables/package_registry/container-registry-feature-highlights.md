@@ -1,4 +1,4 @@
-With the container registry you can:
-- Store container images within your organization and user account, rather than a repository.
-- Set fine-grained permissions and visibility independent of repository permissions and visibility.
-- Access public container images anonymously.
+コンテナレジストリを使用すると、以下が行えます。
+- コンテナイメージを、リポジトリではなくOrganization及びユーザアカウント内に保存する。
+- リポジトリの権限と可視性とは独立に、詳細な権限と可視性を設定する。
+- 匿名でパブリックなコンテナイメージにアクセスする。

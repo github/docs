@@ -19,6 +19,8 @@ redirect_from:
   - /articles/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### 升级个人帐户的订阅
@@ -57,7 +59,7 @@ versions:
 
 #### 使用 {% data variables.product.prodname_ghe_cloud %} 的组织的后续步骤
 
-如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/articles/managing-saml-single-sign-on-for-your-organization)”。
+如果您已将组织升级到 {% data variables.product.prodname_ghe_cloud %}，便可设置组织的身份和访问管理。 更多信息请参阅“[管理组织的 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization)”。
 
 如果想要将企业帐户与 {% data variables.product.prodname_ghe_cloud %} 一起使用，请联系 {% data variables.contact.contact_enterprise_sales %}。 更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。
 

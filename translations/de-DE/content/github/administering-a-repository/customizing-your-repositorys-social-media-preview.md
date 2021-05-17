@@ -1,12 +1,14 @@
 ---
 title: Social-Media-Vorschau Deines Repositorys anpassen
-intro: Du kannst das Bild anpassen, das auf Social-Media-Plattformen angezeigt wird, wenn jemand auf Dein Repository verknüpft.
+intro: 'Du kannst das Bild anpassen, das auf Social-Media-Plattformen angezeigt wird, wenn jemand auf Dein Repository verknüpft.'
 redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Wenn Du noch kein Bild hinzugefügt hast, werden sich Repository-Links erweitern, um grundlegende Informationen zum Repository sowie den Avatar des Inhabers anzeigen. Durch das Hinzufügen eines Bildes zu Deinem Repository vereinfachst Du die Identifizierung Deines Projekts auf den verschiedenen Social-Media-Kanälen.

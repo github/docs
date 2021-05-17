@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.product_location %}のファイアウォールについて
@@ -15,7 +17,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} をインストールすると、接続を受け入れるために必要なすべてのネットワークポートが自動的に開かれます。 不必要なすべてのポートは自動的に`deny`に設定され、デフォルトの送信ポリシーは`allow`に設定されます。 ステートフルな追跡は、任意の新しいコネクションに対して有効化されます。それらは通常、`SYN`ビットが立てられているネットワークパケットです。 詳しい情報については"[ネットワークポート](/enterprise/admin/guides/installation/network-ports)"を参照してください。
 
-UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFWのルールセットに関する詳しい情報については[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)を参照してください。
+UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFW のルールセットに関する詳しい情報については、[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213) を参照してください。
 
 ### デフォルトのファイアウォールルールの表示
 

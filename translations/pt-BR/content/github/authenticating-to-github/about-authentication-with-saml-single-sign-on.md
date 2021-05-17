@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   github-ae: '*'
+topics:
+  - SSO
 ---
 
 ### Sobre autenticação com SSO do SAML
@@ -49,5 +51,5 @@ Após o proprietário de uma empresa ou organização habilitar ou aplicar o SSO
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Sobre identidade e gerenciamento de acesso com logon único SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
 {% if currentVersion == "github-ae@latest" %}- "[Sobre identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}

@@ -8,6 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - CLI
+  - Mobile
+  - Desktop
+  - Security
 ---
 
 O {% data variables.product.prodname_dotcom %} oferece produtos grátis e pagos. Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
@@ -79,13 +85,14 @@ Além dos recursos disponíveis no {% data variables.product.prodname_team %}, o
 - Segurança adicional, conformidade e controles de instalação
 - Autenticação com SAML de logon único
 - Provisionamento de acesso com SAML ou SCIM
-- {% data variables.product.prodname_github_connect %}
+- {% data variables.product.prodname_github_connect %}{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- A opção de comprar {% data variables.product.prodname_GH_advanced_security %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security){% endif %}
 
 O {% data variables.product.prodname_ghe_cloud %} também inclui:
 - {% data variables.contact.enterprise_support %}. Para obter mais informações, consulte "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} suporte</a>" e "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Adendo</a>"
 - 50.000 {% data variables.product.prodname_actions %} minutos
 - 50GB {% data variables.product.prodname_registry %} de armazenamento
-- Controle de acesso para sites de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte <a href="/github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}</a>"
+- Controle de acesso para sites de {% data variables.product.prodname_pages %}. Para obter mais informações, consulte <a href="/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site" class="dotcom-only">Alterar a visibilidade do seu site de {% data variables.product.prodname_pages %}</a>"
 - Um acordo de nível de serviço para tempo de atividade de 99,9% por mês
 - A opção de gerenciar de forma centralizada a política e cobrança para várias organizações {% data variables.product.prodname_dotcom_the_website %} com uma conta corporativa. Para obter mais informações, consulte "<a href="/articles/about-enterprise-accounts" class="dotcom-only">Sobre contas corporativas</a>".
 

@@ -1,10 +1,12 @@
 ---
 title: 启用或禁用仓库的 GitHub 讨论
-intro: '您可以使用仓库中的讨论为社区提供对话、提问和发布答案的空间，而无需界定议题的范围。'
+intro: 您可以使用仓库中的讨论为社区提供对话、提问和发布答案的空间，而无需界定议题的范围。
 product: '{% data reusables.gated-features.discussions %}'
-permissions: 拥有仓库管理员权限的人可为仓库启用讨论。
+permissions: People with admin permissions to a repository can enable discussions for the repository.
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.discussions.beta %}

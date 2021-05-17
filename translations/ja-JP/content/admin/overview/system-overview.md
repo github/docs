@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### ストレージアーキテクチャ
@@ -108,7 +110,7 @@ versions:
 
 #### 監査およびアクセスのログ取得
 
-{% data variables.product.prodname_ghe_server %} は、従来型オペレーティングシステムおよびアプリケーションの両方のログを保存します。 また、アプリケーションは詳細な監査およびセキュリティログも記録し、{% data variables.product.prodname_ghe_server %} はこれを永続的に保存します。 `syslog-ng` プロトコルにより、両タイプのログをリアルタイムで複数の宛先に転送できます。 詳しい情報については、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
+{% data variables.product.prodname_ghe_server %} は、従来型オペレーティングシステムおよびアプリケーションの両方のログを保存します。 また、アプリケーションは詳細な監査およびセキュリティログも記録し、{% data variables.product.prodname_ghe_server %} はこれを永続的に保存します。 `syslog-ng` プロトコルを介して、両タイプのログをリアルタイムで複数の宛先に転送できます。 詳しい情報については、「[ログの転送](/admin/user-management/log-forwarding)」を参照してください。
 
 アクセスログと監査ログには、以下のような情報が含まれています。
 

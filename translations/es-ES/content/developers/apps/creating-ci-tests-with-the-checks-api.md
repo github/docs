@@ -7,12 +7,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
 ### Introducción
 
-This guide will introduce you to [GitHub Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+Esta guía te presentará las [GitHub Apps](/apps/) y la [API de Verificaciones](/rest/reference/checks), las cuales utilizarás para crear un servidor de integración continua (IC) que ejecute pruebas.
 
 La IC es una práctica de software que requiere código confirmado frecuente en un repositorio compartido. El código de confirmación generar errores de manera temprana frecuentemente, así como reduce la cantidad de código que necesita un desarrollador para hacer depuraciones cuando encuentra la fuente de un error. Las actualizaciones frecuentes de código facilitan también la fusión de cambios de diferentes miembros de un equipo de desarrollo de software. Esto es excelente para los desarrolladores, que pueden dedicar más tiempo a escribir código y menos tiempo a depurar errores o resolver conflictos de fusión. 🙌
 
@@ -49,7 +51,7 @@ Para obtener una idea de lo que hará tu servidor de IC para la API de Verificac
 
 ### Prerrequisitos
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL](/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones](/graphql/reference/objects#checksuite) y [Ejecución de Verificación](/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
+Antes de comenzar, deberás familiarizarte con las [GitHub Apps](/apps/), los [Webhooks](/webhooks), y la [API de Verificaciones](/rest/reference/checks), en caso de que aún no lo estés. Encontrarás más API en los [documentos de la API de REST](/rest). La API de Verificaciones también se encuentra disponible para su uso en [GraphQL](/graphql), pero este inicio rápido se enfoca en REST. Consulta los objetos de [Conjuntos de Verificaciones](/graphql/reference/objects#checksuite) y [Ejecución de Verificación](/graphql/reference/objects#checkrun) de GraphQL para obtener más detalles.
 
 Utilizarás el [Lenguaje de Programación Ruby](https://www.ruby-lang.org/en/), el servicio de entrega de carga útil para el webhook de [Smee](https://smee.io/), la [biblioteca de Ruby Ocktokit.rb](http://octokit.github.io/octokit.rb/) para la API de REST de GitHub, y el [marco de trabajo web Sinatra](http://sinatrarb.com/) para crear tu aplicación de servidor de IC para la API de Verificaciones.
 
@@ -203,7 +205,7 @@ Si ves otras apps en la pestaña de verificaciones, significa que tienes otras a
 
 ### Paso 1.4. Actualizar una ejecución de verificación
 
-Cuando tu método de `create_check_run` se ejecuta, éste solicita a GitHub crear una ejecución de verificación nueva. When GitHub finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. Este evento es tu señal para comenzar a ejecutar la verificación.
+Cuando tu método de `create_check_run` se ejecuta, éste solicita a GitHub crear una ejecución de verificación nueva. Cuando GitHub termina de crear la ejecución de verificación, recibirás el evento de webhook `check_run` con la acción `created`. Este evento es tu señal para comenzar a ejecutar la verificación.
 
 Necesitas actualizar tu gestor de eventos para buscar la acción que se encuentra como `created`. Mientras actualizas el gestor de eventos, puedes agregar una condicional para la acción que se encuentra como `rerequested`. Cuando alguien re-ejecuta una sola prueba en GitHub, al dar clic en el botón de "Re-ejecutar", GitHub envía a tu app el evento de ejecución de verificación que está como `rerequested`. Cuando una ejecución de verificación se pone como `rerequested`, necesitarás iniciar el proceso desde cero y crear una ejecución de verificación nueva.
 
@@ -722,7 +724,7 @@ La herramienta de RuboCop [ofrece](https://docs.rubocop.org/rubocop/usage/basic_
 
 Para cargar un repositorio, tu app debe tener permisos de escritura para "contenido de repositorio". Estos permisos los configuraste en el [Paso 2.2. Clonar el repositorio](#step-22-cloning-the-repository) como **Lectura & escritura**, así que estás listo.
 
-Para confirmar los archivos, Git debe saber qué [nombre de usuario](/articles/setting-your-username-in-git/) y [correo electrónico](/articles/setting-your-commit-email-address-in-git/) asociará con la confirmación. Agrega dos variables de ambiente adicionales en tu archivo `.env` para almacenar las configuraciones de nombre(`GITHUB_APP_USER_NAME`) y de correo electrónico (`GITHUB_APP_USER_EMAIL`). Tu nombre puede ser aquél de tu app y la dirección de correo electrónico puede ser cualquiera para este ejemplo. Por ejemplo:
+Para confirmar los archivos, Git debe saber qué [nombre de usuario](/github/getting-started-with-github/setting-your-username-in-git/) y [correo electrónico](/articles/setting-your-commit-email-address-in-git/) asociará con la confirmación. Agrega dos variables de ambiente adicionales en tu archivo `.env` para almacenar las configuraciones de nombre(`GITHUB_APP_USER_NAME`) y de correo electrónico (`GITHUB_APP_USER_EMAIL`). Tu nombre puede ser aquél de tu app y la dirección de correo electrónico puede ser cualquiera para este ejemplo. Por ejemplo:
 
 ```ini
 GITHUB_APP_USER_NAME=Octoapp
@@ -843,7 +845,7 @@ Aquí te presentamos algunos problemas comunes y sus soluciones sugeridas. Si te
     **R:** Si ves el siguiente error, no has borrado la salida del repositorio en uno o ambos de los métodos de `initiate_check_run` o `take_requested_action`:
 
     ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:v1.9b2080277016f797074c4debd350745f4257f8dd@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
+    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
     ```
 
     Compara tu código con el archivo `server.rb` para garantizar que tienes el mismo código en tus métodos de `initiate_check_run` y de `take_requested_action`.

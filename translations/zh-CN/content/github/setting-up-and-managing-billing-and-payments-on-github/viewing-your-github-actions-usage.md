@@ -1,9 +1,11 @@
 ---
-title: 查看 GitHub 操作使用情况
+title: 查看 GitHub Actions 使用情况
 intro: '您可以查看 {% data variables.product.prodname_actions %} 的分钟数和存储空间使用详情。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 还可以查看单个工作流程运行的计费作业执行分钟数。 更多信息请参阅“[查看作业执行时间](/actions/managing-workflow-runs/viewing-job-execution-time)”。

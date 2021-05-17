@@ -9,6 +9,8 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ein SSH-Administratorbenutzer angemeldet haben. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
@@ -74,7 +76,7 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Listet alle Konfigurationswerte auf
 ```
-Dadurch können Sie den UUID Ihres Knotens in `cluster.conf` ermitteln.
+Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
   $ ghe-config <em>HOSTNAME</em>.uuid
@@ -211,7 +213,7 @@ Die folgenden Optionen können Sie mit dem Dienstprogramm verwenden:
 
 Mit diesem Dienstprogramm ist es nicht möglich, einen Nicht-Websiteadministrator auf einen Inhaber sämtlicher Organisationen hochzustufen. Mit [ghe-user-promote](#ghe-user-promote) können Sie ein gewöhnliches Benutzerkonto auf einen Websiteadministrator hochstufen.
 
-Einem einzelnen Benutzer in einer bestimmten Organisation Organisationsinhaberberechtigungen erteilen
+Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>

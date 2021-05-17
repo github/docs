@@ -1,10 +1,12 @@
 ---
 title: 升级或降级对结算过程有何影响？
-intro: '升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。'
+intro: 升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 对付费用户帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。

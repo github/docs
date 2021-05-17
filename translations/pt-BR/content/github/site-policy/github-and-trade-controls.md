@@ -7,6 +7,9 @@ redirect_from:
   - /github/site-policy/github-and-export-controls
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server, e as informações que você enviar para qualquer produto podem estar sujeitas a regulamentações de controle de negociação, inclusive sob Regulamentos da Administração de Exportação dos EUA (EAR). Regulamentos Administrativos de Exportação (EAR).
@@ -77,7 +80,7 @@ Se o GitHub determinar que um usuário ou cliente está localizado em uma regiã
 
 If an organization is based out of, or the key individuals or membership of an organization shows sufficient ties to, a sanctioned territory or country for which GitHub does not yet have a license from the U.S. government, or if the organization otherwise appears to be subject to U.S. sanções econômicas e, posteriormente, a conta de organização e a conta de proprietário afiliado serão restritas.
 
-A restrição suspende o acesso a serviços de repositório privados e serviços pagos, como disponibilidade de repositórios privados gratuitos ou pagos, gists secretas, minutos de Ação pagos, Sponsors (patrocinadores) e serviços do GitHub Marketplace. For paid organizational accounts associated with such sanctioned regions, users may have limited access to their public repositories, which have been downgraded to archived read-only repositories. For free organizational accounts associated with such sanctioned regions, users will continue to have full access to free public repositories for open source projects (and associated public Pages), public gists, and allotted free Action minutes.
+A restrição suspende o acesso a serviços de repositório privados e serviços pagos, como disponibilidade de repositórios privados gratuitos ou pagos, gists secretas, minutos de Ação pagos, Sponsors (patrocinadores) e serviços do GitHub Marketplace. Para contas organizacionais pagas associadas a regiões sancionadas, os usuários podem ter acesso limitado aos seus repositórios públicos, que foram rebaixados para repositórios arquivados somente leitura. Para contas organizacionais gratuitas em tais regiões sancionadas, os usuários continuarão a ter acesso total a repositórios públicos gratuitos para projetos de código aberto (e Páginas públicas associadas), gists públicos e minutos de Ação alocados gratuitos.
 
 #### Os repositórios privados dos usuários com negociação restrita podem ser tornados públicos?
 
@@ -99,7 +102,7 @@ If GitHub determines that an individual or organization falls into a restricted 
 
 #### Will Iranian GitHub users be able to use paid services under the license?
 
-Pursuant to the license we have received from OFAC, we are restoring all cloud services to Iranian users, including paid services. We accept all major credit cards, but third parties process payments for us, so payments are subject to the terms and conditions of our payment processors. Those third parties may include restrictions that block payments from Iran.
+Pursuant to the license we have received from OFAC, we are restoring all cloud services to Iranian users, including paid services. Aceitamos todos os principais cartões de crédito, mas terceiros processam pagamentos para nós. Portanto, os pagamentos estão sujeitos aos termos e condições de nossos processadores de pagamento. Those third parties may include restrictions that block payments from Iran.
 
 #### Can you clarify availability of GitHub to Cuban developers?
 

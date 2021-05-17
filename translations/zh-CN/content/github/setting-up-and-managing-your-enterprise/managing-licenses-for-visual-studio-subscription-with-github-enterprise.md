@@ -9,6 +9,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于 {% data variables.product.prodname_vss_ghe %}
@@ -37,7 +39,7 @@ versions:
 
 虽然不是必需的，但我们建议组织所有者将邀请发送到 {% data variables.product.prodname_vs %} 订阅者的用户主名 (UPN) 使用的同一电子邮件地址。 当 {% data variables.product.product_name %} 上的电子邮件地址与订阅者的 UPN 匹配时，您可以确保组织的其他成员不会索要该订阅者的许可证。
 
-更多信息请参阅“[邀请用户加入组织](/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization)”、“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”和“[管理电子邮件首选项](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)”。
+更多信息请参阅“[邀请用户加入组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”、“[注册 {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-github)”和“[管理电子邮件首选项](/github/setting-up-and-managing-your-github-user-account/managing-email-preferences)”。
 
 ### 查看 {% data variables.product.prodname_enterprise %} 许可
 

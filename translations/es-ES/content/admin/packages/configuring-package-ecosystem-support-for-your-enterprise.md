@@ -6,6 +6,8 @@ redirect_from:
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -26,13 +28,13 @@ el {% data variables.product.prodname_registry %} con Docker, debes tener habili
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Conectarse al registro oficial de NPM
+### Conectarse al registro oficial de npm
 
-Si habilitaste los paquetes de npm en tu empresa y quieres permitir el acceso al registro oficial de NPM así como al registro de npm del {% data variables.product.prodname_registry %}, entonces debes realizar algunos ajustes adicionales.
+Si habilitaste los paquetes de npm en tu empresa y quieres permitir el acceso tanto al registro oficial de npm como al registro de npm del {% data variables.product.prodname_registry %}, entonces debes realizar algunas configuraciones adicionales.
 
-El {% data variables.product.prodname_registry %} utiliza un proxy transparente para el tráfico de red que conecta el registro oficial de NPM en `registry.npmjs.com`. El proxy se habilita predeterminadamente y no puede inhabilitarse.
+El {% data variables.product.prodname_registry %} utiliza un proxy transparente para el tráfico de red que se conecta al registro oficial de npm en `registry.npmjs.com`. El proxy se habilita predeterminadamente y no puede inhabilitarse.
 
-Para permitir las conexiones de red en el registro de NPM, necesitarás configurar las ACL de red que permitan a {% data variables.product.prodname_ghe_server %} enviar el tráfico de HTTPS a `registry.npmjs.com` por el puerto 443:
+Para permitir las conexiones al registro de npm, deberás configurar las ACLs de red que permitan que {% data variables.product.prodname_ghe_server %} envíe tráfico HTTPS a `registry.npmjs.com` por el puerto 443:
 
 | Origen                                             | Destino              | Port (Puerto) | Tipo  |
 | -------------------------------------------------- | -------------------- | ------------- | ----- |

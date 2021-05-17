@@ -2,9 +2,11 @@
 title: GitHub スポンサーの支払いについて
 intro: スポンサーとなっている、他の有料の製品および機能について請求されます。
 redirect_from:
-  - /articles/about-billing-for-github-accounts
+  - /articles/about-billing-for-github-sponsors
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 {% data reusables.sponsors.sponsorship-details %}

@@ -2,6 +2,9 @@
 title: GitHub Additional Product Terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Version Effective Date: February 22, 2021

@@ -1,41 +1,41 @@
 ---
-title: Integrate GitHub Classroom with an online IDE
-shortTitle: Integrate with an online IDE
-intro: You can preconfigure a supported online integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.
+title: GitHub ClassroomとオンラインIDEの統合
+shortTitle: オンラインIDEとの統合
+intro: '{% data variables.product.prodname_classroom %}で作成した課題のために、サポートされているオンライン統合開発環境 (IDE) を事前に設定できます。'
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
 ---
 
-### About integration with an online IDE
+### オンラインIDEとの統合について
 
 {% data reusables.classroom.about-online-ides %}
 
-After a student accepts an assignment with an online IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+学生がオンラインIDEで課題を受け入れた後、学生の課題リポジトリにあるREADMEファイルには、IDEで課題を開くためのボタンが表示されます。 学生はただちに作業を開始でき、追加の設定は必要ありません。
 
-![Button for online IDE in README.md for assignment repository](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
+![課題リポジトリのREADME.mdにあるオンラインIDEのボタン](/assets/images/help/classroom/assignment-repository-ide-button-in-readme.png)
 
-### Supported online IDEs
+### サポートされているオンラインIDE
 
-{% data variables.product.prodname_classroom %} supports the following online IDEs. You can learn more about the student experience for each IDE.
+{% data variables.product.prodname_classroom %}は、次のオンラインIDEをサポートしています。 各IDEについて、学生としての使い方を詳しく知ることができます。
 
-| IDE                       | 詳細情報                                                                                                                                                                                       |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Repl.it                   | "[About using Repl.it with GitHub Classroom](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)"                                                 |
+| IDE                       | 詳細情報                                                                                                                                                                           |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Microsoft MakeCode Arcade | 「[{% data variables.product.prodname_classroom %}でMakeCode Arcadeを使用する](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)」 |
+| Repl.it                   | 「[GitHub ClassroomでRepl.itを使用する](/education/manage-coursework-with-github-classroom/about-using-replit-with-github-classroom)」                                                 |
 
-### Configuring an online IDE for an assignment
+### 課題用のオンラインIDEを設定する
 
-You can choose the online IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an online IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+課題の作成時に、課題で使用するオンラインIDEを選択できます。 オンラインIDEを使用する新しい課題の作成方法については、「[個人課題の作成](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)」または「[グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)」を参照してください。
 
-### Authorizing the OAuth app for an online IDE
+### オンラインIDE用にOAuth Appを承認する
 
-The first time you configure an assignment with an online IDE, you must authorize the OAuth app for the online IDE for your organization.
+オンラインIDEで課題を最初に作成する際は、あなたのOrganizationのオンラインIDEのためにOAuth Appを承認する必要があります。
 
-!["Go grant access" button in popover for authorizing OAuth app for online IDE](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
+![オンラインIDEに対してOAuth Appを承認するための、ポップオーバーにある [Go grant access] ボタン](/assets/images/help/classroom/assignment-ide-go-grant-access-button.png)
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. 詳しい情報については、「[OAuth App を認証する](/github/authenticating-to-github/authorizing-oauth-apps)」を参照してください。
+すべてのリポジトリに対する、メタデータ、管理、コードへの**読み取り**アクセス、および管理、コードへの**書き込み**アクセスをアプリケーションに付与します。 詳しい情報については、「[OAuth App を認証する](/github/authenticating-to-github/authorizing-oauth-apps)」を参照してください。
 
 ### 参考リンク
 

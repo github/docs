@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -163,7 +165,7 @@ Name | Type | Description
 `tree` | `object` | The Git tree of the commit.
 `message` | `string` | The commit message.
 `parents` | `array of objects` | A list of parent commits.
-`verfication` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
+`verification` | `object` | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)."
 `event` | `string` | The event value is `"committed"`.
 
 ### connected
@@ -722,7 +724,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
 #### Availability
 

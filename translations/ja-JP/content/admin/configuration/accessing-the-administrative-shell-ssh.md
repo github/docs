@@ -13,6 +13,8 @@ redirect_from:
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 管理シェルでのアクセスについて
@@ -54,7 +56,7 @@ SSH 経由で {% data variables.product.product_location %} に接続しよう�
 ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 ```
 
-SSH 設定ファイル (`~/.ssh/config`) を使用することでもプライベートな SSH キーを指定できます。
+SSH 設定ファイル (`~/.ssh/config`) を使用して SSH 秘密キーを指定することもできます。
 
 ```shell
 Host <em>hostname</em>

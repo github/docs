@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### About managing enterprise accounts with GraphQL
@@ -66,7 +68,7 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
 
 You may also consider using these GraphQL clients:
-  - [Insomnia](https://insomnia.rest/graphql/)
+  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 

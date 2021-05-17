@@ -2,9 +2,11 @@
 title: 管理企业帐户中组织的团队同步
 intro: '您可以启用身份提供程序 (IdP) 与 {% data variables.product.product_name %} 之间的团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: 企业所有者可以管理企业帐户的团队同步。
+permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### 关于企业帐户的团队同步
@@ -17,7 +19,7 @@ versions:
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”。
+您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”。
 
 ### 基本要求
 

@@ -1,7 +1,7 @@
 ---
 title: Redis-Service-Container erstellen
 shortTitle: Redis service containers
-intro: Du kannst Service-Container verwenden, um einen Redis-Client in Deinem Workflow zu erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines Redis-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine ausgeführt werden.
+intro: 'Du kannst Service-Container verwenden, um einen Redis-Client in Deinem Workflow zu erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines Redis-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine ausgeführt werden.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
@@ -9,14 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Containers'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 

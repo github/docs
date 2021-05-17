@@ -7,6 +7,8 @@ redirect_from:
   - /partnerships/secret-scanning
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。 作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
@@ -14,12 +16,6 @@ versions:
 在公共仓库中找到密码格式的匹配项时，将发送有效负载到您选择的 HTTP 端点。
 
 在配置为 {% data variables.product.prodname_secret_scanning %} 的私有仓库中找到密码格式的匹配项时，仓库管理员将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
-
-{% note %}
-
-**注：**私有仓库的 {% data variables.product.prodname_secret_scanning_caps %} 目前处于测试阶段。
-
-{% endnote %}
 
 本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 计划。
 
@@ -316,6 +312,48 @@ current_key = current_key_object["key"]
 openssl_key = OpenSSL::PKey::EC.new(current_key)
 
 puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), payload.chomp)
+```
+
+**JavaScript 中的验证示例**
+```js
+const crypto = require("crypto");
+const axios = require("axios");
+
+const GITHUB_KEYS_URI = "https://api.github.com/meta/public_keys/secret_scanning";
+
+/**
+ * Verify a payload and signature against a public key
+ * @param {String} payload the value to verify
+ * @param {String} signature the expected value
+ * @param {String} keyID the id of the key used to generated the signature
+ * @return {void} throws if the signature is invalid
+ */
+const verify_signature = async (payload, signature, keyID) => {
+  if (typeof payload !== "string" || payload.length === 0) {
+    throw new Error("Invalid payload");
+  }
+  if (typeof signature !== "string" || signature.length === 0) {
+    throw new Error("Invalid signature");
+  }
+  if (typeof keyID !== "string" || keyID.length === 0) {
+    throw new Error("Invalid keyID");
+  }
+
+  const keys = (await axios.get(GITHUB_KEYS_URI)).data;
+  if (!(keys?.public_keys instanceof Array) || keys.length === 0) {
+    throw new Error("No public keys found");
+  }
+
+  const publicKey = keys.public_keys.find((k) => k.key_identifier === keyID) ?? null;
+  if (publicKey === null) {
+    throw new Error("No public key found matching key identifier");
+  }
+
+  const verify = crypto.createVerify("SHA256").update(payload);
+  if (!verify.verify(publicKey.key, Buffer.from(signature, "base64"), "base64")) {
+    throw new Error("Signature does not match payload");
+  }
+};
 ```
 
 #### 在密码警报服务中实施密码撤销和用户通知

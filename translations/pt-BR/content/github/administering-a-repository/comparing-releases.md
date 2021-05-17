@@ -1,11 +1,13 @@
 ---
 title: Comparando versões
 intro: Você pode comparar as tags de versão para ver as alterações no seu repositório entre diferentes versões.
-permissions: Pessoas com acesso de leitura a um repositório podem ver e comparar versões.
+permissions: People with read access to a repository can view and compare releases.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

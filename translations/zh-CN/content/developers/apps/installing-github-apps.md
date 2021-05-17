@@ -1,12 +1,14 @@
 ---
 title: 安装 GitHub 应用程序
-intro: '当您的应用程序为公共时，任何人都可以通过 {% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_marketplace %} 或{% endif %}安装 URL 将您的应用程序安装在他们的仓库中。 当您的应用程序为私有时，您只能将该应用程序安装在您自己的仓库中。'
+intro: '当您的应用程序公开时， 任何人都可以使用 {% if currentversion == "free proteam@latest" %} {% data variables.product.prodname_marketplace %} 或 {% endif %}安装 URL 在其仓库中安装该应用程序。 当您的应用程序为私有时，只有您能将该应用程序安装在您自己的仓库中。'
 redirect_from:
   - /apps/installing-github-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% note %}

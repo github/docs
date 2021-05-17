@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} 詳細については、「[GitHub での検索](/articles/about-searching-on-github)」を参照してください。
@@ -27,8 +29,8 @@ versions:
 - コード検索では、_デフォルトブランチ_のみインデックスされます。{% if currentVersion == "free-pro-team@latest" %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
-- Only repositories with fewer than 500,000 files are searchable.{% if currentVersion == "free-pro-team@latest" %}
-- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+- 500,000 ファイル未満のリポジトリのみが検索可能です。{% if currentVersion == "free-pro-team@latest" %}
+- 昨年アクティビティがあった、または検索結果に返されたリポジトリのみが検索可能です。{% endif %}
 - [`filename`](#search-by-filename) の検索を除き、ソースコードを検索する場合、常に少なくとも検索単語を 1 つ含める必要があります。 たとえば[`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) は有効な検索ではありませんが、[`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) は有効な検索です。
 - 検索結果では、同一ファイルから取り出される部分は 2 つまでです。そのファイルはさらに多くの部分でヒットしている可能性があります。
 - クエリの一部として次のワイルドカード文字を用いることはできません: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>。 検索では、これらのシンボルは単に無視されます。

@@ -3,11 +3,13 @@ title: プルリクエストをローカルでチェック アウトする
 intro: '誰かがリポジトリのフォークまたはブランチからプルリクエストを送信した場合、ローカルでマージして、マージコンフリクトを解決するか、{% data variables.product.product_name %} でマージする前に変更をテストおよび検証できます。'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: リポジトリへの書き込みアクセスを持つユーザは、リモートプルリクエストをローカルにプルダウンできます。
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
   {% note %}

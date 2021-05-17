@@ -1,12 +1,14 @@
 ---
 title: 从清单创建 GitHub 应用程序
-intro: 'GitHub 应用程序清单是预先配置的 GitHub 应用程序，您可以与希望在其个人仓库中使用您的应用程序的任何用户分享它。 清单流程允许用户快速创建、安装和开始扩展 GitHub 应用程序，而无需注册应用程序或将注册连接到托管应用代码。'
+intro: GitHub 应用程序清单是预先配置的 GitHub 应用程序，您可以与希望在其个人仓库中使用您的应用程序的任何用户分享它。 清单流程允许用户快速创建、安装和开始扩展 GitHub 应用程序，而无需注册应用程序或将注册连接到托管应用代码。
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -52,16 +54,18 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 
 ##### GitHub 应用程序清单参数
 
- | 名称                    | 类型    | 描述                                                                                                                        |
- | --------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `字符串` | GitHub 应用程序的名称。                                                                                                           |
- | `url`                 | `字符串` | **必填。**GitHub 应用程序的主页。                                                                                                    |
- | `hook_attributes`     | `对象`  | GitHub 应用程序 web 挂钩的配置                                                                                                     |
- | `redirect_url`        | `字符串` | 用户安装 GitHub 应用程序后要重定向到的完整 URL。                                                                                            |
- | `说明`                  | `字符串` | GitHub 应用程序的说明。                                                                                                           |
- | `public`              | `布尔值` | 当 GitHub 应用程序可供公众使用时，设置为 `true` ；当它仅供应用程序的所有者访问时，设置为 `false`。                                                             |
- | `default_events`      | `数组`  | GitHub 应用程序订阅的[事件](/webhooks/event-payloads)列表。                                                                           |
- | `default_permissions` | `对象`  | GitHub 应用程序所需的[权限](/rest/reference/permissions-required-for-github-apps)集。 对象的格式使用键的权限名称（例如 `issues`）和值的访问类型（例如 `write`）。 |
+ | 名称                    | 类型      | 描述                                                                                                                                                                        |
+ | --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name`                | `字符串`   | GitHub 应用程序的名称。                                                                                                                                                           |
+ | `url`                 | `字符串`   | **必填。**GitHub 应用程序的主页。                                                                                                                                                    |
+ | `hook_attributes`     | `对象`    | GitHub 应用程序 web 挂钩的配置                                                                                                                                                     |
+ | `redirect_url`        | `字符串`   | 在用户从清单创建 GitHub 应用程序后重定向到的完整 URL。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。{% else %}
+ | `callback_url`        | `字符串`   | 在用户授权安装后重定向到的完整 URL。{% endif %}
+ | `说明`                  | `字符串`   | GitHub 应用程序的说明。                                                                                                                                                           |
+ | `public`              | `布尔值`   | 当 GitHub 应用程序可供公众使用时，设置为 `true` ；当它仅供应用程序的所有者访问时，设置为 `false`。                                                                                                             |
+ | `default_events`      | `数组`    | GitHub 应用程序订阅的[事件](/webhooks/event-payloads)列表。                                                                                                                           |
+ | `default_permissions` | `对象`    | GitHub 应用程序所需的[权限](/rest/reference/permissions-required-for-github-apps)集。 对象的格式使用键的权限名称（例如 `issues`）和值的访问类型（例如 `write`）。                                                 |
 
 `hook_attributes` 对象含有以下键：
 
@@ -94,7 +98,10 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -109,10 +116,11 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
  })
 </script>
 ```
+
 此示例使用网页上的表单，其中包含一个按钮，该按钮可触发组织帐户的 `POST` 请求： 将 `ORGANIZATION` 替换为要在其中创建应用程序的组织帐户的名称。
 
 ```html
-<form action="https://github.com/organizations/<em>ORGANIZATION</em>/settings/apps/new?state=abc123" method="post">
+<form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
  Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
@@ -125,7 +133,10 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
    "hook_attributes": {
      "url": "https://example.com/github/events",
    },
-   "redirect_url": "https://example.com/callback",
+   "redirect_url": "https://example.com/redirect",
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}"callback_urls": [
+     "https://example.com/callback"
+   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -145,11 +156,11 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 
 当用户单击**创建 GitHub 应用程序**时，GitHub 将使用代码参数中的临时 `code` 重定向回 `redirect_url` 。 例如：
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
 如果您提供了 `state` 参数，您还会在 `redirect_url` 中看到该参数。 例如：
 
-    https://example.com/callback?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
+    https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679&state=abc123
 
 #### 3. 交换临时代码以检索应用程序配置
 

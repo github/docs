@@ -12,6 +12,8 @@ redirect_from:
 intro: 'Um {% data variables.product.prodname_enterprise %} von 11.10.x zu 2.1.23 zu migrieren, müssen Sie eine neue Appliance-Instanz einrichten und Daten aus der vorherigen Instanz migrieren.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und höher werden unterstützt. Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und früher werden nicht unterstützt. Sie müssen zunächst in verschiedenen Upgrades ein Upgrade auf die Version 11.10.348 durchführen. Weitere Informationen finden Sie in der 11.10.348-Upgrade-Prozedur „[Upgrade auf die neueste Version durchführen](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)“.
@@ -77,7 +79,7 @@ Um ein Upgrade auf die neueste Version von {% data variables.product.prodname_en
   Visit https://169.254.1.1/setup/settings to review appliance configuration.
   ```
 
-12. Kehren Sie zum Bildschirm mit dem Wiederherstellungsstatus der neuen Instanz zurück, um zu sehen, dass die Wiederherstellung abgeschlossen ist.![Bildschirm zur abgeschlossenen Wiederherstellung](/assets/images/enterprise/migration/restore-complete-screen.png)
+12. Kehren Sie zum Bildschirm mit dem Wiederherstellungsstatus der neuen Instanz zurück, um zu sehen, dass die Wiederherstellung abgeschlossen ist.![Bildschirm zur abgeschlossenen Wiederherstellung](/assets/images/enterprise/migration/migration-status-complete.png)
 13. Klicken Sie auf **Continue to settings** (Weiter zu den Einstellungen), um die von der vorherigen Instanz importierten Konfigurationsinformationen und -einstellungen zu überprüfen und anzupassen. ![Importierte Einstellungen überprüfen](/assets/images/enterprise/migration/migration-status-complete.png)
 14. Klicke auf **Save settings** (Einstellungen speichern).
 

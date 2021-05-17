@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 
@@ -115,7 +117,7 @@ Você verá um formulário em que poderá inserir informações sobre o seu apli
 
     ![Formulário com segredo do webhook preenchido](/assets/images/webhook-secret.png)
 
-* Na página de permissões & dos Webhooks, você pode especificar um conjunto de permissões para o seu aplicativo, que determina quantos dados seu aplicativo tem acesso. Saia desta página com seus valores-padrão. Se você decidir estender este aplicativo do modelo, você pode atualizar essas permissões mais tarde.
+* Na página de permissões & dos Webhooks, você pode especificar um conjunto de permissões para o seu aplicativo, que determina quantos dados seu aplicativo tem acesso. Na seção "Permissões do repositório", desça a barra de rolagem até "Metadados" e selecione `Access: Read-only`. Se você decidir estender este aplicativo do modelo, você pode atualizar essas permissões mais tarde.
 
 * Na parte inferior da página de permissões & dos webhooks, especifique se este é um aplicativo privado ou público. Isto se refere a quem pode instalá-lo: apenas você ou qualquer pessoa? Por enquanto, deixe o aplicativo como privado, selecionando **Apenas nesta conta**.
 
@@ -137,7 +139,7 @@ Após criar seu aplicativo, você será levado de volta para a [página de confi
 
 ### Etapa 4. Prepare o ambiente do tempo de execução
 
-Para manter suas informações seguras, recomendamos colocar todos os segredos referentes ao aplicativo na memória do computador onde seu aplicativo poderá encontrá-los, em vez de colocá-los diretamente no seu código. Uma ferramenta útil de desenvolvimento denominada [dotenv](https://github.com/bkeepers/dotenv) carrega variáveis de ambiente específicas do projeto a partir de um arquivo `.env` para `ENV`. Nunca verifique o seu arquivo `.env` no GitHub. Este é um arquivo local que armazena informações confidenciais que você não deseja que estejam na internet pública. O arquivo `.env` já está incluído no arquivo do repositório [`.gitignore`](/articles/ignoring-files/) para evitar isso.
+Para manter suas informações seguras, recomendamos colocar todos os segredos referentes ao aplicativo na memória do computador onde seu aplicativo poderá encontrá-los, em vez de colocá-los diretamente no seu código. Uma ferramenta útil de desenvolvimento denominada [dotenv](https://github.com/bkeepers/dotenv) carrega variáveis de ambiente específicas do projeto a partir de um arquivo `.env` para `ENV`. Nunca verifique o seu arquivo `.env` no GitHub. Este é um arquivo local que armazena informações confidenciais que você não deseja que estejam na internet pública. The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
 
 O código do modelo que você baixou na seção [Pré-requisitos](#prerequisites) já tem um exemplo de arquivo denominado `.env-example`. Renomeie o arquivo de exemplo de `.env-example` para `.env` ou crie uma cópia do arquivo `.env-example` denominada `.env`. Você ainda não instalou a dotenv, mas você irá instalá-la mais adiante neste início rápido ao executar o `pacote de instalação`. **Observação:** Os inícios rápidos que fazem referência às etapas neste guia pode incluir variáveis de ambiente adicionais no arquivo `.env-example`. Faça referência ao guia de início rápido para o projeto que você clonou no GitHub para orientação que define essas variáveis de ambiente adicionais.
 
@@ -150,7 +152,7 @@ Você precisa adicionar estas variáveis ao arquivo `.env`:
 Aqui está um arquivo de exemplo `.env`:
 
 ```
-PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
 ...
 HkVN9...
 ...
@@ -401,7 +403,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
     **R:** Você provavelmente não configurou sua variável de ambiente de chave privada de forma correta. A sua variável `GITHUB_PRIVATE_KEY` deve ficar assim:
 
     ```
-    PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
     ...
     HkVN9...
     ...
@@ -420,7 +422,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
 * **P:** Meu servidor não está ouvindo eventos! O cliente da Smee está sendo executado em uma janela do Terminal, e eu estou instalando o aplicativo em um repositório no GitHub, mas não vejo nenhuma saída na janela do Terminal onde estou executando o servidor.
 
-    **R:** Você pode não estar executando o cliente da Smee ou você pode não ter o domínio Smee correto nas configurações do seu aplicativo GitHub. Primeiro verifique para certificar-se de que o cliente da Smee está em execução em uma aba do Terminal. Se esse não for o problema, acesse a sua [página de configurações do aplicativo](https://github.com/settings/apps) e verifique os campos exibidos na "[Etapa 2. Registre um novo aplicativo GitHub](#step-2-register-a-new-github-app)." Certifique-se de que o domínio nesses campos corresponde ao domínio que você usou no seu comando `smee -u <unique_channel>` na "[Etapa 1. Inicie um novo canal da Smee](#step-1-start-a-new-smee-channel)."
+    **R:** Você pode não estar executando o cliente Smee, executando o comando Smee com os parâmetros incorretos, ou você pode não ter o domínio Smee correto nas suas configurações do aplicativo GitHub. Primeiro verifique para certificar-se de que o cliente da Smee está em execução em uma aba do Terminal. Se esse não for o problema, acesse a sua [página de configurações do aplicativo](https://github.com/settings/apps) e verifique os campos exibidos na "[Etapa 2. Registre um novo aplicativo GitHub](#step-2-register-a-new-github-app)." Certifique-se de que o domínio nesses campos corresponde ao domínio que você usou no seu comando `smee -u <unique_channel>` na "[Etapa 1. Inicie um novo canal da Smee](#step-1-start-a-new-smee-channel)." Se nenhuma das tarefas acima funcionar, marque se você está executando o comando Smee completo, incluindo as opções `--path` e `--port`, por exemplo: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
 
 * **P:** Eu recebi uma mensagem de erro `Octokit::NotFound` 404 error na minha saída de depuração:
     ```

@@ -1,6 +1,6 @@
 ---
 title: Buscar el registro de auditoría
-intro: 'Los administradores de sitio pueden buscar en una lista extensa de acciones auditadas en la empresa.'
+intro: Los administradores de sitio pueden buscar en una lista extensa de acciones auditadas en la empresa.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Buscar sintaxis de consultas

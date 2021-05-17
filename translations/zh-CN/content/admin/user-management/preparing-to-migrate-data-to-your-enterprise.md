@@ -10,6 +10,8 @@ redirect_from:
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### 准备迁移的数据以导入到 {% data variables.product.prodname_ghe_server %}
@@ -128,13 +130,13 @@ $ ghe-migrator audit -m user -g <em>MIGRATION_GUID</em> > users.csv
 
 #### 应用修改的迁移数据
 
-1. 进行更改后，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 csv）应用到目标实例：
+1. 进行更改后，请使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将修改后的 *conflicts.csv*（或格式正确的任何其他映射 *.csv* 文件）应用到目标实例：
 
     ```shell
     $ scp -P 122 ~/Desktop/conflicts.csv admin@<em>hostname</em>:/home/admin/
     ```
 
-2. 使用 `ghe-migrator map` 命令重新映射迁移数据，并传入修改后的 csv 文件的路径和迁移 GUID：
+2. 使用 `ghe-migrator map` 命令重新映射迁移数据，并传入修改后的 *.csv* 文件的路径和迁移 GUID：
 
     ```shell
     $ ghe-migrator map -i conflicts.csv  -g <em>MIGRATION_GUID</em>

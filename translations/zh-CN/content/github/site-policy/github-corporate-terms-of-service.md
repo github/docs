@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 感谢您选择 GitHub 满足贵公司的业务需求。 请仔细阅读本协议，因为它管辖对产品（定义如下）的使用，除非 GITHUB 在这方面与客户签订了单独的书面协议。 单击“I AGREE（我同意）”或类似按钮或者使用产品，即表示客户接受本协议的所有条款和条件。 如果客户代表公司或其他法律实体签订本协议，则表示其拥有让该公司或其他法律实体受本协议约束的法律权限。
@@ -122,7 +125,7 @@ GitHub 在[企业服务等级协议](/github/site-policy/github-enterprise-servi
 客户对服务的使用必须遵守 [GitHub 可接受的使用政策](/articles/github-acceptable-use-policies)和 [GitHub 社区指导方针](/articles/github-community-guidelines)。 客户不得在任何司法管辖区将服务用于非法、淫秽、冒犯性或欺诈性内容或活动，例如鼓吹或造成伤害；干扰或违反网络或系统的完整性或安全性；避开过滤器；发送主动、辱骂或欺诈性消息、病毒或有害代码；或者违反第三方权利。
 
 #### 3. 隐私
-[GitHub 隐私声明](/articles/github-privacy-statement)和 [GitHub 数据保护附录](/github/site-policy/github-data-protection-addendum)详细介绍了 GitHub 的隐私保护和数据使用实践，以及 GitHub 在处理和保护客户个人数据方面的义务。 任何个人、实体或服务从服务收集数据都必须遵守 GitHub 隐私声明，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
+[GitHub 隐私声明](/articles/github-privacy-statement)和 [GitHub 数据保护协议](/github/site-policy/github-data-protection-agreement-non-enterprise-customers)详细介绍了 GitHub 的隐私保护和数据使用实践，以及 GitHub 在处理和保护客户个人数据方面的义务。 任何个人、实体或服务从服务收集数据都必须遵守 GitHub 隐私声明，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
 
 ### D. 内容责任；所有权；许可权利
 

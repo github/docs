@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -77,7 +79,7 @@ GitHub App の権限やイベントのサブスクリプションを設定する
 
 **ステップ5。** Pull RequestもしくはIssueコメント内のリンクの下に、新しい添付コンテンツが表示されます。
 
-![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/content_reference_attachment.png)
 
 ### GraphQLでの添付コンテンツの利用
 [`content_reference` webhook](/webhooks/event-payloads/#content_reference)イベント中で`node_id`を提供しているので、GraphQL APIの`createContentAttachment`ミューテーションを参照できます。
@@ -175,4 +177,4 @@ Probotアプリケーションを作成するには、以下のステップに�
 7. オープンしたIssueに`app.yml`ファイルで設定したURLを含むコメントを追加してください。
 8. Issueのコメントを見ると、以下のように更新されています。
 
-   ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![Issueのリファレンスに添付されたコンテンツ](/assets/images/github-apps/content_reference_attachment.png)

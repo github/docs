@@ -9,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - GitHub search
 ---
 
 如果使用 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_dotcom_the_website %}，并且 {% data variables.product.prodname_ghe_server %} 站点管理员已启用私有仓库的 {% data variables.product.prodname_github_connect %} 和 {% data variables.product.prodname_unified_search %}，则可以在关联的组织中搜索指定的私有仓库。

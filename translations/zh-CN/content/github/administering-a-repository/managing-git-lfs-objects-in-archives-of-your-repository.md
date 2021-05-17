@@ -2,11 +2,13 @@
 title: 管理仓库存档中的 Git LFS 对象
 shortTitle: '管理存档中的 {% data variables.large_files.product_name_short %} 对象'
 intro: '您可以选择是否将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在源代码存档（例如 {% data variables.product.product_name %} 为仓库创建的 ZIP 文件和 tarball）中。'
-permissions: '对仓库具有管理员权限的人可以管理是否将 {% data variables.large_files.product_name_short %} 对象包含在仓库的存档中。'
+permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于存档中的 {% data variables.large_files.product_name_short %} 对象

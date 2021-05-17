@@ -7,6 +7,8 @@ redirect_from:
   - /articles/canceling-a-github-marketplace-app
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Quando você cancela um app, sua assinatura permanece ativa até o fim do ciclo de cobrança atual. O cancelamento entra em vigor na próxima data de cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

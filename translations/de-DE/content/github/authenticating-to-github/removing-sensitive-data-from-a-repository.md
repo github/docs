@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Der Befehl `git filter-branch` und BFG Repo-Cleaner schreiben den Verlauf Deines Repositorys neu, was die SHAs verändert für bestehende und davon abhängige Commits, die Du veränderst. Geänderte Commit-SHAs können sich auf offene Pull Requests in Deinem Repository auswirken. Wir raten dringend, alle offenen Pull Requests zusammenzuführen oder zu schließen, bevor Du Dateien aus Deinem Repository entfernst.

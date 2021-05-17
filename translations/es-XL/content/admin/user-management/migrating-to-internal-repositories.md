@@ -4,9 +4,11 @@ intro: 'Puedes migrar hacia repositorios internos para unificar la experiencia d
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
-permissions: Los administradores de sitio pueden migrar hacia repositorios internos.
+permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de los repositorios internos

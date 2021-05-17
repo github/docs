@@ -1,6 +1,6 @@
 ---
 title: 将您的签名密钥告知 Git
-intro: "要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。"
+intro: 要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% mac %}
@@ -28,16 +31,16 @@ versions:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. 如果没有使用 GPG Suite，请粘贴下面的文本以将 GPG 密钥添加到您的 bash 配置文件：
+1. 如果您使用的不是 GPG 套件， 在 `zsh` shell 中运行以下命令将GPG 密钥添加到您的 `shrc` 文件或 `.zprofile` 文件（如果存在）：
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  {% note %}
-
-  **注：**如果您没有 `.bash_profile`，此命令会将 GPG 密钥添加到 `.profile`。
-
-  {% endnote %}
+  或者，如果您使用 `bash` shell，则运行皮命令：
+  ```shell
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+  ```
 
 {% data reusables.gpg.x-509-key %}
 
@@ -90,10 +93,10 @@ versions:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. 要将 GPG 密钥添加到 bash 配置文件，请粘贴下面的文本：
+1. 要将 GPG 密钥添加到您的 bash 配置文件中，请运行以下命令：
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
+    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
   {% note %}
 

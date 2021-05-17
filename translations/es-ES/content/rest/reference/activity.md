@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -33,8 +35,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Los eventos son compatibles con la paginación, sin embargo, la opción `per_page` no es compatible. El tamaño de página fijo es de 30 elementos. Se puede obtener hasta diez páginas para obtener un total de 300 eventos. Para obtener más información, consulta la sección "[Desplazarse con la paginación](/rest/guides/traversing-with-pagination)".
-
 Solo los eventos creados en los últimos 90 días se incluirán en las líneas de tiempo. Los eventos de más de 90 días de antigüedad no se incluirán (aún si la cantidad total de eventos en la línea de tiempo es de 300).
 
 {% for operation in currentRestOperations %}
@@ -56,7 +56,7 @@ Para obtener un canal en formato de Atom, debes especificar el tipo `application
 #### Respuesta
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml

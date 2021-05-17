@@ -10,6 +10,9 @@ redirect_from:
   - /articles/about-githubs-ip-addresses
 versions:
   free-pro-team: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 Sie können eine Liste der IP-Adressen von {% data variables.product.prodname_dotcom %} über den [meta](https://api.github.com/meta)-API-Endpunkt abrufen. For more information, see "[Meta](/rest/reference/meta)."

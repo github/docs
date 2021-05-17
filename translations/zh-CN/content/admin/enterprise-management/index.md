@@ -1,10 +1,12 @@
 ---
-title: '监控、管理和更新企业'
-intro: '您可以监控设备、升级到较新版本以及配置群集或高可用性'
+title: 监控、管理和更新企业
+intro: 您可以监控设备、升级到较新版本以及配置群集或高可用性
 redirect_from:
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 

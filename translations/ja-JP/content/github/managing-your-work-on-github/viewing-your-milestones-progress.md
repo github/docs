@@ -1,6 +1,6 @@
 ---
 title: マイルストーンの進捗状況を表示する
-intro: 'マイルストーンを追跡するためには、未解決の Issue とプルリクエストがいくつ残っているかをよく理解しておく必要があります。'
+intro: マイルストーンを追跡するためには、未解決の Issue とプルリクエストがいくつ残っているかをよく理解しておく必要があります。
 redirect_from:
   - /articles/viewing-your-milestone-s-progress
   - /articles/viewing-your-milestones-progress
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

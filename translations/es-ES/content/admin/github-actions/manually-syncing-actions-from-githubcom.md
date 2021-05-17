@@ -5,6 +5,9 @@ redirect_from:
   - /enterprise/admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -26,8 +29,21 @@ La herramienta `actions-sync` solo puede descargar acciones de {% data variables
 
 ### Prerrequisitos
 
-* Antes de utilizar la herramienta `actions-sync`, debes asegurarte de que todas las organizaciones de destino ya existan en tu instancia empresarial. El siguiente ejemplo demuestra cómo sincronizar acciones a una organización que se llama `synced-actions` en una instancia empresarial. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)".
+* Antes de utilizar la herramienta `actions-sync`, debes asegurarte de que todas las organizaciones de destino ya existan en tu instancia empresarial. El siguiente ejemplo demuestra cómo sincronizar acciones a una organización que se llama `synced-actions` en una instancia empresarial. Para obtener más información, consulta la sección "[Crear una organización nueva desde cero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 * Debes crear un token de acceso personal (PAT) en tu instancia empresarial que pueda crear y escribir en los repositorios de las organizaciones destino. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+* If you want to sync the bundled actions in the `actions` organization on {% data variables.product.product_location %}, you must be an owner of the `actions` organization.
+
+  {% note %}
+
+  **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
+
+  {% endnote %}
+
+  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+
+  ```shell
+  ghe-org-admin-promote -u <em>USERNAME</em> -o actions
+  ```
 
 ### Ejemplo: Utilizar la herramienta `actions-sync`
 

@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_registry %} について、ストレ�
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### ユーザアカウントの {% data variables.product.prodname_registry %} の使用状況を表示する

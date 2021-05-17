@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 A exclusão da conta de usuário remove todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% if currentVersion == "free-pro-team@latest" %} Os problemas e pull requests que você criou e comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos - em vez disso, eles serão associados ao nosso [Usuário fantasma](https://github.com/ghost).{% else %}Problemas e pull requests que você criou e comentários que você fez em repositórios pertencentes a outros usuários não serão excluídos.{% endif %}

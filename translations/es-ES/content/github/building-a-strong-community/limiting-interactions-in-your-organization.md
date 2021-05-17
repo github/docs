@@ -1,12 +1,14 @@
 ---
 title: Limitar las interacciones en tu organización
-intro: 'Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu organización.'
+intro: Puedes requerir temporalmente un periodo de actividad limitada para usuarios específicos en todos los repositorios públicos que pertenezcan a tu organización.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
 permissions: Los propietarios de la organización pueden limitar las interacciones en la misma.
+topics:
+  - comunidad
 ---
 
 ### Acerca de los límites de interacción temporales

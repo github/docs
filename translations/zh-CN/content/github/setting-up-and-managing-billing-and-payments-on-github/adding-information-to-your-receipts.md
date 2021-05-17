@@ -13,6 +13,8 @@ redirect_from:
   - /articles/adding-information-to-your-receipts
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 收据包括 {% data variables.product.prodname_dotcom %} 订阅以及[其他付费功能和产品](/articles/about-billing-on-github)的订阅。

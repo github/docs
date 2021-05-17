@@ -1,13 +1,15 @@
 ---
 title: Einen Issue im Code öffnen
 intro: Du kannst neue Issues von einer bestimmten Codezeile oder über mehreren Codezeilen in einer Datei oder einem Pull Request öffnen.
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Wenn Du einen Issue im Code öffnest, enthält der Issue einen Ausschnitt mit den ausgewählten Codezeilen. Du kannst einen Issue nur in dem Repository öffnen, in dem der Code gespeichert ist.

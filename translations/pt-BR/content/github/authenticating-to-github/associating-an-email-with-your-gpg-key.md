@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% note %}
@@ -35,7 +38,7 @@ Se você estiver usando uma chave GPG que corresponda à identidade do committer
   ```
 7. Insira `O` para confirmar suas seleções.
 8. Insira a frase secreta da sua chave.
-9. Enter `gpg> save` to save the changes
+9. Insira `gpg> salvar` para salvar as alterações
   ```shell
   $ gpg> save
   ```

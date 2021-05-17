@@ -1,8 +1,10 @@
 ---
-title: Quickstart for configuring your MinIO storage bucket for GitHub Packages
-intro: 'Configure your custom MinIO storage bucket for use with {% data variables.product.prodname_registry %}.'
+title: 为 GitHub Packages 配置 MinIO 存储桶的快速入门
+intro: '配置您的自定义 MinIO 存储桶，用于 {% data variables.product.prodname_registry %}。'
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -129,4 +131,4 @@ MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.produ
   echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
   ```
 
-For the next steps, see "[Enabling {% data variables.product.prodname_registry %} with  MinIO](/admin/packages/enabling-github-packages-with-minio)."
+关于后续步骤，请参阅“[使用 MinIO 启用 {% data variables.product.prodname_registry %}](/admin/packages/enabling-github-packages-with-minio)”。

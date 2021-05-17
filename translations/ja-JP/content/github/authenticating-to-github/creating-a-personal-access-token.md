@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
@@ -26,10 +29,21 @@ versions:
 {% data reusables.user_settings.personal_access_tokens %}
 4. [**Generate new token**] をクリックします。 ![[Generate new token] ボタン](/assets/images/help/settings/generate_new_token.png)
 5. トークンにわかりやすい名前を付けます。 ![トークンの説明フィールド](/assets/images/help/settings/token_description.png)
-6. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。 ![トークンスコープの選択](/assets/images/help/settings/token_scopes.gif)
+6. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。
+   {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+   ![トークンスコープの選択](/assets/images/help/settings/token_scopes.gif)
+   {% elsif currentVersion == "github-ae@latest" %}
+   ![トークンスコープの選択](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
+   {% endif %}
 7. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
-8. {% octicon "clippy" aria-label="The copy to clipboard icon" %}をクリックしてトークンをクリップボードにコピーします。 セキュリティ上の理由により、ページの外に移動すると、再びこのトークンを見ることはできません。{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
+   {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
+   {% else %}
+   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
+   {% endif %}
 
    {% warning %}
 
@@ -42,7 +56,7 @@ versions:
 
 {% data reusables.command_line.providing-token-as-password %}
 
-個人アクセストークンは HTTPS Git 操作だけにしか使用できません。 SSH リモート URL を使用するリポジトリの場合、[リモートを SSH から HTTPS に切り替える](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https)必要があります。
+個人アクセストークンは HTTPS Git 操作だけにしか使用できません。 SSH リモート URL を使用するリポジトリの場合、[リモートを SSH から HTTPS に切り替える](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https)必要があります。
 
 ユーザ名とパスワードの入力を求められない場合、資格情報がコンピュータにキャッシュされている可能性があります。 古いパスワードをトークンに交換するよう[キーチェーンで資格情報を更新](/articles/updating-credentials-from-the-osx-keychain)できます。
 

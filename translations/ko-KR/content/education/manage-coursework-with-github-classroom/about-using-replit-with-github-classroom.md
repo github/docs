@@ -1,7 +1,7 @@
 ---
 title: About using Repl.it with GitHub Classroom
 shortTitle: About using Repl.it
-intro: You can configure Repl.it as the online  integrated development environment (IDE) for assignments in {% data variables.product.prodname_classroom %}.
+intro: 'You can configure Repl.it as the online  integrated development environment (IDE) for assignments in {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

@@ -8,16 +8,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'Empacotando'
-  - 'Publicar'
-  - 'Nó'
-  - 'JavaScript'
+  - Packaging
+  - Publishing
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -60,22 +62,22 @@ Este exemplo armazena o segredo `NPM_TOKEN` na variável de ambiente `NODE_AUTH_
 
 {% raw %}
 ```yaml{:copy}
-nome: Pacote Node.js
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  criar:
+name: Node.js Package
+on:
+  release:
+    types: [created]
+jobs:
+  build:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/checkout@v2
-    # Configura o arquivo .npmrc a ser publicado no npm
-    - usa: actions/setup-node@v1
-      com:
+    steps:
+    - uses: actions/checkout@v2
+    # Setup .npmrc file to publish to npm
+    - uses: actions/setup-node@v2
+      with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-    - executar: npm install
-    - executar: npm publish
+    - run: npm install
+    - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
@@ -120,23 +122,23 @@ Este exemplo armazena o segredo `GITHUB_TOKEN` na variável de ambiente `NODE_AU
 
 {% raw %}
 ```yaml{:copy}
-nome: Pacote Node.js
-em:
-  versão:
-    tipos: [created]
-trabalhos:
-  criar:
+name: Node.js Package
+on:
+  release:
+    types: [created]
+jobs:
+  build:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/checkout@v2
-    # Configura o arquivo .npmrc a ser publicado nos pacotes do GitHub
-    - usa: actions/setup-node@v1
-      com:
+    steps:
+    - uses: actions/checkout@v2
+    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/setup-node@v2
+      with:
         node-version: '12.x'
         registry-url: 'https://npm.pkg.github.com'
-        # Tem como padrão o usuário ou organização proprietário do arquivo do fluxo de trabalho
-        escopo: '@octocat'
-    - executar: npm install
+        # Defaults to the user or organization that owns the workflow file
+        scope: '@octocat'
+    - run: npm install
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -167,7 +169,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'

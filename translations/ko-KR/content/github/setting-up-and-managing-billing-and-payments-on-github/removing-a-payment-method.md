@@ -9,9 +9,13 @@ redirect_from:
   - /articles/removing-a-payment-method
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 If you're paying for your {% data variables.product.product_name %} subscription with a coupon, and you aren't using your payment method for any [other paid features or products](/articles/about-billing-on-github) on {% data variables.product.product_name %}, you can remove your credit card or PayPal information.
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 {% tip %}
 

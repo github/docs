@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profile
 ---
 
 Ao seguir pessoas, você verá sua atividade pública na exibição de atividades do seu feed de notícias.{% if currentVersion == "free-pro-team@latest" %} Se alguém que você segue favoritar um repositório público, {% data variables.product.product_name %} pode recomendar o repositório para você na visualização de descoberta do seu feed de notícias.{% endif %} Para seguir alguém, visite sua página de perfil e clique em **Seguir** na imagem de perfil.

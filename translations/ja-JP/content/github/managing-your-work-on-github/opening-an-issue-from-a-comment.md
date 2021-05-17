@@ -1,11 +1,13 @@
 ---
 title: コメントからIssueを開く
 intro: Issueまたはプルリクエストの特定のコメントから新しいIssueを開くことができます。
-permissions: '読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 コメントから開いたIssueには、コメントの元の投稿場所を示すスニペットが含まれています。

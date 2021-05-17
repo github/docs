@@ -10,6 +10,8 @@ redirect_from:
 intro: 'Se um usuário sair da empresa ou mudar para outro departamento, você deve remover ou modificar a forma como ele acessa a {% data variables.product.product_location %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Se funcionários saírem da empresa, você poderá suspender suas contas do {% data variables.product.prodname_ghe_server %} para disponibilizar licenças de usuário em sua licença {% data variables.product.prodname_enterprise %}, embora os problemas, comentários, repositórios, gists e outros dados que eles criaram continuem existindo. Usuários suspensos não podem entrar na sua instância nem fazer push ou pull de códigos.

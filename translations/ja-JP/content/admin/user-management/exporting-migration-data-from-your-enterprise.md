@@ -1,5 +1,5 @@
 ---
-title: Exporting migration data from your enterprise
+title: Enterprise から移行データをエクスポートする
 intro: 'プラットフォームの変更、およびトライアルインスタンスから本番インスタンスに移行するには、インスタンスを準備して、リポジトリをロックし、移行アーカイブを生成することで、{% data variables.product.prodname_ghe_server %} インスタンスから移行データをエクスポートできます。'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する

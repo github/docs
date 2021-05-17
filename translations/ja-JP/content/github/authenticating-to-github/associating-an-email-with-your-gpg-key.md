@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% note %}
@@ -33,9 +36,9 @@ versions:
   Comment: <em>GitHub key</em>
   Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
   ```
-7. Enter `O` to confirm your selections.
+7. `O` を入力して選択した内容を確認してください。
 8. キーのパスフレーズを入力してください。
-9. Enter `gpg> save` to save the changes
+9. `gpg> save` と入力して、変更した内容を保存します。
   ```shell
   $ gpg> save
   ```

@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -33,8 +35,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-イベントはページネーションをサポートしていますが、`per_page` オプションはサポートされていません。 固定ページサイズは 30 項目です。 最大 10 ページ、合計 300 イベントのフェッチがサポートされています。 詳細については、「[ページネーションをトラバースする](/rest/guides/traversing-with-pagination) 」を参照してください。
-
 過去 90 日以内に作成されたイベントのみがタイムラインに含まれます。 90 日以上経過しているイベントは含まれません（タイムラインのイベントの総数が300 未満の場合でも）。
 
 {% for operation in currentRestOperations %}
@@ -56,7 +56,7 @@ Atom 形式のフィードを取得するには、`Accept` ヘッダで `applica
 #### レスポンス
 
 ```shell
-Status: 200 OK
+HTTP/1.1 200 OK
 ```
 
 ```xml

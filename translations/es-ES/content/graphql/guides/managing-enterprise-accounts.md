@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Acerca de administrar cuentas empresariales con GraphQL
@@ -59,8 +61,6 @@ Para encontrar algunas consultas de ejemplo, visita la sección "[Una consulta d
     - `manage_billing:enterprise`: Lee y escribe datos de facturación de la empresa.
     - `read:enterprise`: Lee datos del perfil empresarial.
 
-  ![Opciones de permisos para el token de acceso personal](/assets/images/developer/graphql/permissions-for-access-token.png)
-
 4. Copia tu token de acceso personal y mantenlo en un lugar seguro hasta que lo agregues a tu cliente de GraphQL.
 
 #### 2. Elige un cliente de GraphQL
@@ -68,7 +68,7 @@ Para encontrar algunas consultas de ejemplo, visita la sección "[Una consulta d
 Te recomendamos utilizar GraphiQL u otro cliente independiente de GraphQL que te permita configurar la URL base.
 
 También podrás considerar utilizar estos clientes de GraphQL:
-  - [Insomnia](https://insomnia.rest/graphql/)
+  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
   - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
   - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
@@ -93,7 +93,9 @@ Ahora estás listo para comenzar a hacer consultas.
 
 ### Un ejemplo de consulta utilizando la API de Cuentas Empresariales
 
-Esta consulta de GraphQL solicita la cantidad total de repositorios `public` en cada una de las organizaciones de tus aplicativos utilizando la API de cuentas empresariales. Para personalizar esta consulta, reemplaza `<enterprise-account-name>` con el slug de tu instancia empresarial.
+Esta consulta de GraphQL solicita la cantidad total de {% if currentVersion != "github-ae@latest" %} repositorios `public`{% else %} repositorios`private`{% endif %} en cada una de las organizaciones de tu aplicativo que utilizan la API de cuentas empresariales. Para personalizar esta consulta, reemplaza `<enterprise-account-name>` con el slug de tu instancia empresarial.
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -115,8 +117,42 @@ fragment repositories on Organization {
 }
 ```
 
-La siguiente consulta de GraphQL muestra lo retador que es recuperar la cantidad de repositorios `public` en cada organización sin utilizar la API de Cuenta Empresarial.  Nota que la API de Cuentas Empresariales de GraphQL ha hecho esta tarea más simple para las empresas, ya que solo necesitas personalizar una sola variable. Para personalizar esta consulta, reemplaza `<name-of-organization-one>` y `<name-of-organization-one>`, etc. con los nombres de organización en tu instancia.
+{% else %}
 
+```graphql
+query privateRepositoriesByOrganization($slug: String!) {
+  enterprise(slug: $slug) {
+    ...enterpriseFragment
+  }
+}
+
+fragment enterpriseFragment on Enterprise {
+  ... on Enterprise{
+    name
+    organizations(first: 100){
+      nodes{
+        name
+        ... on Organization{
+          name
+          repositories(privacy: PRIVATE){
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+# Passing our Enterprise Account as a variable
+variables {
+  "slug": "<enterprise-account-name>"
+}
+```
+{% endif %}
+
+El siguiente ejemplo de consulta de GraphQL muestra lo retador que es el recuperar la cantidad de repositorios {% if currentVersion != "github-ae@latest" %}`public`{% else %}`private`{% endif %} en cada organización sin utilizar la API de Cuenta Empresarial.  Nota que la API de Cuentas Empresariales de GraphQL ha hecho esta tarea más simple para las empresas, ya que solo necesitas personalizar una sola variable. Para personalizar esta consulta, reemplaza `<name-of-organization-one>` y `<name-of-organization-two>`, etc. con los nombres de organización en tu instancia.
+
+{% if currentVersion != "github-ae@latest" %}
 ```graphql
 # Each organization is queried separately
 {
@@ -138,8 +174,33 @@ fragment repositories on Organization {
   }
 }
 ```
+{% else %}
+```graphql
+# Each organization is queried separately
+{
+  organizationOneAlias: organization(login: "name-of-organization-one") {
+    # How to use a fragment
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "name-of-organization-two") {
+    ...repositories
+  }
+  # organizationThreeAlias ... and so on up-to lets say 100
+}
+
+## How to define a fragment
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+{% endif %}
 
 ### Consulta a cada organización por separado
+
+{% if currentVersion != "github-ae@latest" %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -160,6 +221,30 @@ fragment repositories on Organization {
   }
 }
 ```
+
+{% else %}
+
+```graphql
+query privateRepositoriesByOrganization {
+  organizationOneAlias: organization(login: "<name-of-organization-one>") {
+    # How to use a fragment
+    ...repositories
+  }
+  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
+    ...repositories
+  }
+  # organizationThreeAlias ... and so on up-to lets say 100
+}
+# How to define a fragment
+fragment repositories on Organization {
+  name
+  repositories(privacy: PRIVATE){
+    totalCount
+  }
+}
+```
+
+{% endif %}
 
 Esta consulta de GraphQL solicita las últimas 5 entradas de bitácora para una organización empresarial. Para personalizar este query, reemplaza `<org-name>` y `<user-name>`.
 

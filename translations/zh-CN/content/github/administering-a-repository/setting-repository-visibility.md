@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### 关于仓库可见性更改
 
-组织所有者可以限制只有组织所有者才能更改仓库可见性。 更多信息请参阅“[限制组织的仓库可见性更改](/github/setting-up-and-managing-organizations-and-teams/restricting-repository-visibility-changes-in-your-organization)”。
+组织所有者可以限制只有组织所有者才能更改仓库可见性。 For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
 
 我们建议在您更改仓库可见性之前审查以下注意事项。
 
@@ -24,8 +26,8 @@ versions:
 * 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}任何复刻的可见性也将更改为私有。{% elsif currentVersion == "github-ae@latest" %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”{% if currentversion == "free proteam@latest" %}
 * 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 {% data reusables.gated-features.more-info %}{% endif %}
 * 任何已发布的 {% data variables.product.prodname_pages %} 站点将自动取消发布。{% if currentVersion == "free-pro-team@latest" %} 如果将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应先删除或更新 DNS 记录后再将仓库设为私有，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %}，将停止工作，除非拥有仓库的组织具有 {% data variables.product.prodname_advanced_security %} 许可。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
+* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容和数据](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+* {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %}，将停止工作，除非拥有仓库的组织具有 {% data variables.product.prodname_advanced_security %} 许可证和充分的备用席位。 {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% if enterpriseServerVersions contains currentVersion %}
 * 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
@@ -61,10 +63,15 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 3. 在“Danger Zone（危险区域）”下的“Change repository visibility（更改仓库可见性）”右侧，单击 **Change visibility（更改可见性）**。 ![更改可见性按钮](/assets/images/help/repository/repo-change-vis.png)
-4. 选择可见性。 ![仓库可见性选项对话框](/assets/images/help/repository/repo-change-select.png)
+4. 选择可见性。
+{% if currentVersion == "free-pro-team@latest" %}
+   ![仓库可见性选项对话框](/assets/images/help/repository/repo-change-select.png){% else %}
+![Dialog of options for repository visibility](/assets/images/enterprise/repos/repo-change-select.png){% endif %}
 5. 要验证您是否正在更改正确仓库的可见性，请键入您想要更改其可见性的仓库名称。
-6. 单击 **I understand, change repository visibility（我了解，更改仓库可见性）**。 ![确认更改仓库可见性按钮](/assets/images/help/repository/repo-change-confirm.png)
-
+6. 单击 **I understand, change repository visibility（我了解，更改仓库可见性）**。
+{% if currentVersion == "free-pro-team@latest" %}
+   ![确认更改仓库可见性按钮](/assets/images/help/repository/repo-change-confirm.png){% else %}
+![Confirm change of repository visibility button](/assets/images/enterprise/repos/repo-change-confirm.png){% endif %}
 {% endif %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}

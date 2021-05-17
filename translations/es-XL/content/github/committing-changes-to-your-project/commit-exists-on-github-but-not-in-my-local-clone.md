@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Cuando usas `git show` para ver una confirmación específica en la línea de comando, puedes obtener un error fatal.

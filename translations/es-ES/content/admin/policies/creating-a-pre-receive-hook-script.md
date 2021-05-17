@@ -1,69 +1,122 @@
 ---
 title: Crear un script de ganchos de pre-recepción
 intro: Usa los scripts de los ganchos de pre-recepción para crear requisitos para aceptar o rechazar una subida en función de los contenidos.
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Puedes ver los ejemplos de los ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %} en el repositorio [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ### Escribir un script de ganchos de pre-recepción
-Un script de gancho de pre-recepción se ejecuta en un entorno de gancho de pre-recepcion en el aparato {% data variables.product.prodname_ghe_server %}. Cuando crees un script de gancho de pre-recepción, considera la entrada, salida, el estado de salida y las variables de entorno.
+Un script de gancho de pre-recepción se ejecuta en un ambiente de gancho de pre-recepción en {% data variables.product.product_location %}. Cuando creas un script de gancho de pre-recepción, considera las entradas, resultados, estado de salida y variables de ambiente.
 
-#### Entrada (stdin)
-Después de que se produce la subida y antes de que las ref se actualicen en el repositorio remoto, el proceso `git-receive-pack` invoca el script del gancho de pre-recepción con la entrada estándar de una línea por ref que se actualizará:
+#### Input (`stdin`)
+Después de que ocurre una subida y antes de que se actualice cualquier referencia para el repositorio remoto, el proceso de `git-receive-pack` en {% data variables.product.product_location %} invoca el script de gancho de pre-recepción. La entrada estándar para el script, `stdin`, es una secuencia que contiene una línea que cada referencia actualizará. Cada línea contiene el nombre anterior del objeto para la referencia, el nombre nuevo del objeto para la referencia, y el nombre completo de la referencia.
 
-`<old-value> SP <new-value> SP <ref-name> LF`
+```
+<old-value> SP <new-value> SP <ref-name> LF
+```
 
-Esta cadena representa estos argumentos:
+Esta secuencia representa los siguientes argumentos.
 
-| Argumento           | Descripción                                                                                                          |
-|:------------------- |:-------------------------------------------------------------------------------------------------------------------- |
-| `<old-value>` | Nombre del objeto antiguo almacenado en la `ref`.<br> Cuando *creas* una nueva`ref`, esto equivale a 40 ceros. |
-| `<new-value>` | El nombre del objeto nuevo se almacenará en la `ref`.<br> Cuando *eliminas* una `ref`, equivale a 40 ceros.    |
-| `<ref-name>`  | El nombre completo de la `ref`.                                                                                      |
+| Argumento           | Descripción                                                                                                                       |
+|:------------------- |:--------------------------------------------------------------------------------------------------------------------------------- |
+| `<old-value>` | El nombre anterior del objeto se almacena en la referencia.<br> Cuando creas una referencia nueva, el valor es de 40 ceros. |
+| `<new-value>` | Nombre del objeto nuevo que se almacenará en la referencia.<br> Cuando borras una referencia, el valor es de 40 ceros.      |
+| `<ref-name>`  | El nombre completo de la referencia.                                                                                              |
 
-Para obtener más información sobre `git-receive-pack`, consulta "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" en la documentación de Git. Para obtener más información sobre `refs`, consulta "[Referencias de Git](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" en *Pro Git*.
+Para obtener más información sobre `git-receive-pack`, consulta "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" en la documentación de Git. Para obtener más información sobre las referencias, consulta la sección "[Referencias de Git](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" en *Pro Git*.
 
-#### Salida (stdout)
+#### Output (`stdout`)
 
-La salida del script (`stdout`) se vuelve a pasar al cliente, de manera que los enunciados `eco` estén visibles para el usuario en la línea de comando o en la interfaz del usuario.
+La salida estándar para el script, `stdout`, se pasa de vuelta al cliente. El usuario en la línea de comando o en la interface de usuario podrá ver cualquier declaración de tipo `echo`.
 
 #### Estado de salida
 
-El `estado de salida` de un script de pre-recepción determina si la subida se aceptará.
+El estado de salida de un script de pre-recepción determina si la subida se aceptará.
 
-| Valor del estado de salida |          Acción           |
-|:--------------------------:|:-------------------------:|
-|             0              | La subida será aceptada.  |
-|          no cero           | La subida será rechazada. |
+| Valor del estado de salida | Acción                    |
+|:-------------------------- |:------------------------- |
+| 0                          | La subida será aceptada.  |
+| no cero                    | La subida será rechazada. |
 
 #### Variables del entorno
-Fuera de los valores que se brindan a `stdin`, existen variables adicionales que están disponibles para un script de gancho de pre-recepción en {% data variables.product.prodname_ghe_server %}.
 
-| Variable                              | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|:------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| $GITHUB_USER_LOGIN                  | El id de usuario que creó el `ref`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| $GIT_DIR                              | La ruta del repositorio remoto en el aparato.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| $GITHUB_USER_IP                     | La dirección IP del usuario que realiza la subida.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| $GITHUB_REPO_NAME                   | El nombre en el formato `owner`/`repo` del repositorio que se actualiza.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| $GITHUB_PULL_REQUEST_AUTHOR_LOGIN | El ID de usuario para el autor de una solicitud de extracción en tu instancia.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| $GITHUB_REPO_PUBLIC                 | Un valor booleano que cuando `true` representa un repositorio público, y cuando `false` representa un repositorio privado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| $GITHUB_PUBLIC_KEY_FINGERPRINT      | La huella digital de clave pública del usuario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| $GITHUB_PULL_REQUEST_HEAD           | Una cadena en el formato: `user:branch` para el HEAD del PR.<br> Ejemplo: `octocat:fix-bug`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| $GITHUB_PULL_REQUEST_BASE           | Una secuencia en el formato: `user:branch` para la BASE de la Solicitud de Extracción.<br> Ejemplo: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| $GITHUB_VIA                           | Método usado para crear la ref.<br> **Valores posibles:**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
-| $GIT_PUSH_OPTION_COUNT              | El número de opciones de extracción que envió el cliente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| $GIT_PUSH_OPTION_N                  | En donde <em>N</em> es un número entero que comienza con 0, esta variable contiene la cadena de opción de subida que envió el cliente. La primera opción que se envió se almacenó en GIT_PUSH_OPTION_0, la segunda opción que se envió se almacenó en GIT_PUSH_OPTION_1, y así sucesivamente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | La secuencia de usuario-agente que envió el cliente que subió los cambios. 
-{% endif %}
+Adicionalmente a la entrada estándar de tu script de gancho de pre-recepción, `stdin`, {% data variables.product.prodname_ghe_server %} pone a disposición las siguientes variables en el ambiente Bash para la ejecución de tu script. Para obtener más información sobre `stdin` para tu script de gancho de pre-recepción, consulta la sección "[Input(`stdin`)](#input-stdin)".
+
+Hay diversas variables de ambiente disponibles para tu script de gancho de pre-recepción dependiendo de lo que active a dicho script para su ejecución.
+
+- [Siempre disponible](#always-available)
+- [Disponible para subidas desde la interface web o API](#available-for-pushes-from-the-web-interface-or-api)
+- [Disponible para las fusiones de solicitudes de cambio](#available-for-pull-request-merges)
+- [Disponible para las subidas utilizando autenticación por SSH](#available-for-pushes-using-ssh-authentication)
+
+##### Siempre disponible
+
+Las siguientes variables siempre están disponibles en el ambiente de gancho de pre-recepción.
+
+| Variable                  | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Valor de ejemplo                                                   |
+|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------ |
+| <pre>$GIT_DIR</pre> | Ruta al repositorio remoto en la instancia                                                                                                                                                                                                                                                                                                                                                                                                                               | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+| <pre>$GIT_PUSH_OPTION_COUNT</pre> | La cantidad de opciones de subida que envió el cliente con `--push-option`. Para obtener más información, consulta la sección "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" en la documentación de Git.                                                                                                                                                                                                             | 1                                                                  |
+| <pre>$GIT\_PUSH\_OPTION\_<em>N</em></pre> | Donde _N_ es un número entero que comienza con 0, esta variable contiene la cadena de opción de subida que envió el cliente. La primera opción que se envió se almacena en `GIT_PUSH_OPTION_0`, la segunda opción que se envió se almacena en `GIT_PUSH_OPTION_1`, y así sucesivamente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git. | abcd |{% if currentVersion ver_gt "enterprise-server@2.21" %}
+| <pre>$GIT_USER_AGENT</pre> | El cliente de Git que subió los cambios envía la secuencia de usuario-agente                                                                                                                                                                                                                                                                                                                                                                                             | git/2.0.0{% endif %}
+| <pre>$GITHUB_REPO_NAME</pre> | Nombre del repositorio que se está actualizando en formato _NAME_/_OWNER_                                                                                                                                                                                                                                                                                                                                                                                                | octo-org/hello-enterprise                                          |
+| <pre>$GITHUB_REPO_PUBLIC</pre> | Valor booleano que representa si el repositorio que se está actualizando es público                                                                                                                                                                                                                                                                                                                                                                                      | <ul><li>true: La visibilidad del repositorio es pública</li><li>false: La visibilidad del repositorio es privada o interna</li></ul>                                          |
+| <pre>$GITHUB_USER_IP</pre> | La dirección IP del cliente que inició la subida                                                                                                                                                                                                                                                                                                                                                                                                                         | 192.0.2.1                                                          |
+| <pre>$GITHUB_USER_LOGIN</pre> | El nombre de usuario de la cuenta que inició la subida                                                                                                                                                                                                                                                                                                                                                                                                                   | octocat                                                            |
+
+##### Disponible para subidas desde la interface web o API
+
+La variable `$GITHUB_VIA` se encuentra disponible en el ambiente de gancho de pre-recepción cuando la actualización de la referencia que activa el gancho ocurre a través ya sea de la interface web o de la API para {% data variables.product.prodname_ghe_server %}. El valor describe la acción que actualizó la referencia.
+
+| Valor                      | Acción                                                                                                                                                                                     | Más información                                                                                                                                                                             |
+|:-------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <pre>auto-merge deployment api</pre>  | Fusión automática de la rama base a través del despliegue que se creó con la API                                                                                                           | "[Repositorios](/rest/reference/repos#create-a-deployment)" en la documentación de la API de REST                                                                                           |
+| <pre>blob edit</pre> | Cambio al contenido de un archivo en la interface web                                                                                                                                      | "[Editar archivos en tu repositorio](/github/managing-files-in-a-repository/editing-files-in-your-repository)"                                                                              |
+| <pre>branch merge api</pre> | Fusión de una rama a través de la API                                                                                                                                                      | "[Repositorios](/rest/reference/repos#merge-a-branch)" en la documentación de la API de REST                                                                                                |
+| <pre>branches page delete button</pre> | Borrado de una rama en la interface web                                                                                                                                                    | "[Crear y borrar ramas dentro de tu repositorio](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)"              |
+| <pre>git refs create api</pre> | Creación de una referencia a través de la API                                                                                                                                              | "[Base de datos de Git](/rest/reference/git#create-a-reference)" en la documentación de la API de REST                                                                                      |
+| <pre>git refs delete api</pre> | Borrado de una referencia a través de la API                                                                                                                                               | "[Bases de datos de Git](/rest/reference/git#delete-a-reference)" En la documentación de la API de REST                                                                                     |
+| <pre>git refs update api</pre> | Actualización de una referencia a tracvés de la API                                                                                                                                        | "[Base de datos de Git](/rest/reference/git#update-a-reference)" en la documentación de la API de REST                                                                                      |
+| <pre>git repo contents api</pre> | Cambio al contenido de un archivo a través de la API                                                                                                                                       | "[Repositorios](/rest/reference/repos#create-or-update-file-contents)" en la documentación de la API de REST                                                                                |
+| <pre>merge base into head</pre> | Actualiza la rama de tema de la rama base cuando la rama base requiere verificaciones de estado estrictas (a través de **Actualización de rama** en una solicitud de cambios, por ejemplo) | "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)"                                                        |
+| <pre>pull request branch delete button</pre> | Borrado de una rama de tema desde una solicitud de cambios en la interface web                                                                                                             | "[Borrar y restaurar ramas en una solicitud de extracción](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
+| <pre>pull request branch undo button</pre> | Restablecimiento de una rama de tema desde una solicitud de cambios en la interface web                                                                                                    | "[Borrar y restaurar ramas en una solicitud de extracción](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)"                |
+| <pre>pull request merge api</pre> | Fusión de una solicitud de cambios a través de la API                                                                                                                                      | "[Cambios](/rest/reference/pulls#merge-a-pull-request)" en la documentación de la API de REST                                                                                               |
+| <pre>pull request merge button</pre> | Fusión de una solicitud de cambios en la interface web                                                                                                                                     | "[Fusionar una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)"                                       |
+| <pre>pull request revert button</pre> | Revertir una solicitud de cambios                                                                                                                                                          | "[Revertir una solicitud de extracción](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"                                                                      |
+| <pre>releases delete button</pre> | Borrado de una solicitud                                                                                                                                                                   | "[Administrar los lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)"                                                 |
+| <pre>stafftools branch restore</pre> | Restablecimiento de una rama desde el panel de administrador del sitio                                                                                                                     | "[Panel de administrador del sitio](/admin/configuration/site-admin-dashboard#repositories)"                                                                                                |
+| <pre>tag create api</pre> | Creación de una etiqueta a través de la API                                                                                                                                                | "[Base de datos de Git](/rest/reference/git#create-a-tag-object)" en la documentación de la API de REST                                                                                     |
+| <pre>slumlord (#<em>SHA</em>)</pre> | Confirmar a través de Subversion                                                                                                                                                           | "[Compatibilidad para los clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)"                                   |
+| <pre>web branch create</pre> | Creación de una rama a través de la interface web                                                                                                                                          | "[Crear y borrar ramas dentro de tu repositorio](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)"              |
+
+##### Disponible para las fusiones de solicitudes de cambio
+
+Las siguientes variables se encuentran disponibles en el ambiente de gancho de pre-recepción cuando la subida que activa el gancho se debe a la fusión de una solicitud de cambios.
+
+| Variable                   | Descripción                                                                             | Valor de ejemplo             |
+|:-------------------------- |:--------------------------------------------------------------------------------------- |:---------------------------- |
+| <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Nombre de usuario de la cuenta que creó la solicitud de cambios                         | octocat                      |
+| <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | El nombre de la rama de tema de la solicitud de cambios en el formato `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+| <pre>$GITHUB_PULL_REQUEST_BASE</pre> | El nombre de la rama base de la solicitud de cambios en el formato `USERNAME:BRANCH`    | octocat:main                 |
+
+##### Disponible para las subidas utilizando autenticación por SSH
+
+| Variable                   | Descripción                                                                  | Valor de ejemplo                                |
+|:-------------------------- |:---------------------------------------------------------------------------- |:----------------------------------------------- |
+| <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | La huella dactilar de la llave pública para el usuario que subió los cambios | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
 ### Establecer permisos y subidas a un ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %}
 
-Un script de gancho de pre-recepción se encuentra en un repositorio en el aparato {% data variables.product.prodname_ghe_server %}. Un administrador del sitio debe tener en cuenta los permisos del repositorio y garantizar que solo los usuarios correspondientes tengan acceso.
+Un script de gancho de pre-recepción se contiene en un repositorio de {% data variables.product.product_location %}. Un administrador del sitio debe tener en cuenta los permisos del repositorio y garantizar que solo los usuarios correspondientes tengan acceso.
 
 Recomendamos los ganchos de consolidación a un solo repositorio. Si el repositorio de gancho consolidado es público, `README.md` puede usarse para explicar los cumplimientos de la política. Además, las contribuciones pueden aceptarse mediante solicitudes de extracción. Sin embargo, los ganchos de pre-recepción solo pueden agregarse desde la rama por defecto. Para un flujo de trabajo de prueba, se deben usar las bifurcaciones del repositorio con la configuración.
 
@@ -78,7 +131,7 @@ Recomendamos los ganchos de consolidación a un solo repositorio. Si el reposito
    git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
    ```
 
-2. Confirmar y subir a tus repositorio de ganchos pre-recibidos en la instancia {% data variables.product.prodname_ghe_server %}.
+2. Confirma y sube al repositorio designado para los ganchos de pre-recepción en {% data variables.product.product_location %}.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
@@ -88,36 +141,36 @@ Recomendamos los ganchos de consolidación a un solo repositorio. Si el reposito
 3. [Crear la instancia de ganchos de pre-recepción](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %}.
 
 ### Probar scripts de pre-recepción localmente
-Puedes probar un script de gancho de pre-recepción localmente antes de crear o actualizar en tu aparato {% data variables.product.prodname_ghe_server %}. Un método es crear un entorno de Docker local para que actúe como un repositorio remoto que pueda ejecutar el gancho de pre-recepción.
+Puedes probar un script de gancho de pre-recepción localmente antes de que lo crees o actualices en {% data variables.product.product_location %}. Un método es crear un entorno de Docker local para que actúe como un repositorio remoto que pueda ejecutar el gancho de pre-recepción.
 
 {% data reusables.linux.ensure-docker %}
 
 2. Crear un archivo denominado `Dockerfile.dev` que contenga:
 
-      ```dockerfile
-      FROM gliderlabs/alpine:3.3
-      RUN \
-      apk add --no-cache git openssh bash && \
-      ssh-keygen -A && \
-      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-      adduser git -D -G root -h /home/git -s /bin/bash && \
-      passwd -d git && \
-      su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-      mkdir /home/git/test.git && \
-      git --bare init /home/git/test.git"
+   ```dockerfile
+   FROM gliderlabs/alpine:3.3
+   RUN \
+     apk add --no-cache git openssh bash && \
+     ssh-keygen -A && \
+     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+     adduser git -D -G root -h /home/git -s /bin/bash && \
+     passwd -d git && \
+     su git -c "mkdir /home/git/.ssh && \
+     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+     mkdir /home/git/test.git && \
+     git --bare init /home/git/test.git"
 
-      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-      WORKDIR /home/git
+   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+   WORKDIR /home/git
 
-      CMD ["/usr/sbin/sshd", "-D"]
-      ```
+   CMD ["/usr/sbin/sshd", "-D"]
+   ```
 
-   3. Crear un script de pre-recepción de prueba denominado `always_reject.sh`. Este script del ejemplo rechazará todas las subidas, lo cual es útil para bloquear un repositorio:
+3. Crear un script de pre-recepción de prueba denominado `always_reject.sh`. Este script del ejemplo rechazará todas las subidas, lo cual es útil para bloquear un repositorio:
 
-      ```shell
-      #!/usr/bin/env bash
+   ```
+   #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1
@@ -177,7 +230,7 @@ Puedes probar un script de gancho de pre-recepción localmente antes de crear o 
    $ docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. Modificar el remoto de un repositorio de prueba y subirlo al repositorio `test.git` dentro del contenedor Docker. Este ejemplo usa `git@github.com:octocat/Hello-World.git` pero puedes usar cualquier repositorio que desees. Este ejemplo asume que tu máquina local (127.0.01) es el puerto vinculante 52311, pero puedes usar una dirección IP diferente si el docker está ejecutándose en una máquina remota.
+10. Modificar el remoto de un repositorio de prueba y subirlo al repositorio `test.git` dentro del contenedor Docker. Este ejemplo utiliza `git@github.com:octocat/Hello-World.git`, pero puedes utilizar cualquier repositorio que quieras. Este ejemplo asume que tu máquina local (127.0.01) es el puerto vinculante 52311, pero puedes usar una dirección IP diferente si el docker está ejecutándose en una máquina remota.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git

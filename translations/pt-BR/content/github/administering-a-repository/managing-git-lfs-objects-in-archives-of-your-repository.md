@@ -2,11 +2,13 @@
 title: Gerenciando objetos LFS do Git em arquivos do seu repositório
 shortTitle: 'Gerenciando objetos {% data variables.large_files.product_name_short %} nos arquivos'
 intro: 'Você pode escolher se os objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos de código-fonte, como arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para seu repositório.'
-permissions: 'Pessoas com permissões de administrador para um repositório podem gerenciar se os objetos {% data variables.large_files.product_name_short %} estão incluídos nos arquivos do repositório.'
+permissions: 'People with admin permissions for a repository can manage whether {% data variables.large_files.product_name_short %} objects are included in archives of the repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>3.0'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Sobre os objetos {% data variables.large_files.product_name_short %} nos arquivos

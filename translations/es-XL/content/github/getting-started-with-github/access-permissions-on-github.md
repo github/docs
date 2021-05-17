@@ -9,6 +9,10 @@ intro: 'Si bien puedes otorgar acceso de lectura/escritura a los colaboradores e
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - Permissions
+  - Accounts
 ---
 
 ### Cuentas de usuarios personales

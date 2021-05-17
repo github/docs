@@ -12,12 +12,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} は、オープンソースの [Linguist ライブラリ](https://github.com/github/linguist)を使用して、
 構文の強調表示とリポジトリ統計のファイル言語を決定します。 デフォルトブランチに変更をプッシュすると、言語統計が更新されます。
 
-ファイルによっては特定しにくいものもあります。また、プロジェクトによっては、主たるコード以外のライブラリやベンダーファイルが含まれていることもあります。 誤った結果が返される場合は、Linguist の [トラブルシューティングガイド](https://github.com/github/linguist#troubleshooting)を調べてみてください。
+ファイルによっては特定しにくいものもあります。また、プロジェクトによっては、主たるコード以外のライブラリやベンダーファイルが含まれていることもあります。 誤った結果が返される場合は、Linguist の [トラブルシューティングガイド](https://github.com/github/linguist/blob/master/docs/troubleshooting.md)を調べてみてください。
 
 ### マークアップ言語
 

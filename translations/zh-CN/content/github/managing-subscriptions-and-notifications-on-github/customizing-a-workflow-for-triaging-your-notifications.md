@@ -1,10 +1,12 @@
 ---
 title: 自定义对通知分类的工作流程
-intro: '要创建对通知分类的理想工作流程，可以调整和自定义以下示例工作流程。'
+intro: 要创建对通知分类的理想工作流程，可以调整和自定义以下示例工作流程。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 ### 开始收件箱分类

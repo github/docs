@@ -4,5 +4,7 @@ intro: 'ストレージを設定し、{% data variables.product.prodname_ghe_ser
 mapTopic: true
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 

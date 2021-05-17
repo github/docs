@@ -1,6 +1,6 @@
 ---
 title: 将学习管理系统连接到 GitHub Classroom
-intro: 您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。
+intro: '您可以配置 LTI 兼容的学习管理系统 (LMS) 连接到 {% data variables.product.prodname_classroom %}，以便导入用于课堂的名册。'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -36,7 +36,7 @@ redirect_from:
 - Moodle
 - Sakai
 
-目前， {% data variables.product.prodname_classroom %} 不支持从 Blackboard 或 Brightspace 导入名册数据
+目前， {% data variables.product.prodname_classroom %} 不支持从 Blackboard 或 Brightspace 导入名册数据.
 
 ### 为教室生成配置凭据
 

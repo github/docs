@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: overview
 topics:
   - CI
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de la integración continua
 
@@ -29,7 +31,9 @@ Para crear y probar tu código es necesario un servidor. Puedes crear y probar l
 
 ### Acerca de la integración continua utilizando {% data variables.product.prodname_actions %}
 
-La IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código en tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales hospedadas en {% data variables.product.prodname_dotcom %}, o en máquinas que hospedes tú mismo. Para obtener más información, consulta las secciones "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+{% if currentVersion == "github-ae@latest" %}Tener una IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código en tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales que hospede {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca de los {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+{% else %} Tener una IC utilizando {% data variables.product.prodname_actions %} ofrece flujos de trabajo que pueden compilar el código de tu repositorio y ejecutar tus pruebas. Los flujos de trabajo pueden ejecutarse en máquinas virtuales hospedadas en {% data variables.product.prodname_dotcom %}, o en máquinas que hospedes tú mismo. Para obtener más información, consulta las secciones "[Ambientes virtuales para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)".
+{% endif %}
 
 Puedes configurar tu flujo de trabajo de IC para que se ejecute cuando ocurre un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a tu repositorio), en una programación configurada, o cuando ocurre un evento externo utilizando el webhook de envío del repositorio.
 
@@ -48,6 +52,26 @@ Para obtener una definición de términos comunes, consulta "[Conceptos básicos
 {% data variables.product.product_name %} ofrece plantillas de flujo de trabajo de IC para varios lenguajes y marcos de trabajo.
 
 Busca en la lista completa de plantillas de flujo de trabajo para IC que ofrece {% data variables.product.product_name %} en el repositorio [actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) de {% if currentVersion == "free-pro-team@latest" %}{% else %} repositorio `actions/starter-workflows` en {% data variables.product.product_location %}{% endif %}.
+
+### Saltarse las ejecuciones de código
+
+Si quieres prevenir temporalmente que un flujo de trabajo se active, puedes agregar una instrucción de salto en el mensaje de la confirmación. Los flujos de trabajo `on: push` o `on: pull_request` que se activarían, pueden no hacerlo si agregas cualquiera de las secuencias siguientes al mensaje de confirmación en una confirmación de subida o de encabezado (HEAD) de una solicitud de cambios:
+
+* `[skip ci]`
+* `[ci skip]`
+* `[no ci]`
+* `[skip actions]`
+* `[actions skip]`
+
+Como alternativa, puedes finalizar el mensaje de confirmación con dos líneas vacías seguidas de ya sea `skip-checks: true` o `skip-checks:true`.
+
+No podrás fusionar la solicitud de cambios si tu repositorio se cofiguró para requerir que las verificaciones específicas pasen primero. Para permitir que la solicitud de cambios se fusione, puedes subir una confirmación nueva a la solicitud de cambios sin la instrucción de salto en el mensaje de confirmación.
+
+{% note %}
+
+**Nota:** Las instrucciones de salto solo aplican para los eventos de `push` y `pull_request`. Por ejemplo, el agregar `[skip ci]` a un mensaje de confirmación no impedirá que se ejecute un flujo de trabajo que se activa con `on: pull_request_target`.
+
+{% endnote %}
 
 ### Notificaciones para ejecuciones de flujo de trabajo
 

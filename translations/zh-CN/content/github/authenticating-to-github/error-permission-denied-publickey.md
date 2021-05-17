@@ -1,12 +1,14 @@
 ---
-title: '错误：权限被拒绝（公钥）'
-intro: '“权限被拒绝”错误表示服务器拒绝了您的连接。 可能有多个原因，最常见的如下所述。'
+title: 错误：权限被拒绝（公钥）
+intro: “权限被拒绝”错误表示服务器拒绝了您的连接。 可能有多个原因，最常见的如下所述。
 redirect_from:
   - /articles/error-permission-denied-publickey
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 ### 对 Git 是否应该使用 `sudo` 命令？
@@ -38,7 +40,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-如果连接失败且您通过 {% data variables.product.product_name %} 用户名使用远程 URL，可以[更改远程 URL 以使用 "git" 用户](/articles/changing-a-remote-s-url/)。
+如果连接失败且您通过 {% data variables.product.product_name %} 用户名使用远程 URL，可以[更改远程 URL 以使用 "git" 用户](/github/getting-started-with-github/managing-remote-repositories)。
 
 应键入以下命令来验证连接：
 

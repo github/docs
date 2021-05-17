@@ -15,39 +15,47 @@ versions:
 
 Please note that when {% data variables.product.prodname_actions %} is enabled during this upgrade, two organizations named "GitHub Actions" (@**actions** and @**github**) will appear in {% data variables.product.product_location %}. These organizations are required by {% data variables.product.prodname_actions %}. Users named @**ghost** and @**actions** appear as the actors for creation of these organizations in the audit log.
 
-
 #### {% data variables.product.prodname_registry %} beta
 
-[{% data variables.product.prodname_registry %}](https://github.com/features/packages) is a package hosting service, natively integrated with {% data variables.product.prodname_actions %}, APIs, and webhooks. Create an [end-to-end DevOps workflow](/github-ae@latest/packages/quickstart) that includes your code, continuous integration, and deployment solutions. During this beta, {% data variables.product.prodname_registry %} is offered free of charge to {% data variables.product.product_name %} customers.
+[{% data variables.product.prodname_registry %}](https://github.com/features/packages) is a package hosting service, natively integrated with {% data variables.product.prodname_actions %}, APIs, and webhooks. Create an [end-to-end DevOps workflow](/github-ae@latest/packages/quickstart) that includes your code, continuous integration, and deployment solutions. For more information, see "[About {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-github-packages)."
+
+During this beta, {% data variables.product.prodname_registry %} is free of charge to {% data variables.product.product_name %} customers.
 
 #### {% data variables.product.prodname_GH_advanced_security %} beta
 
-{% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both code scanning and secret scanning. During this beta, {% data variables.product.prodname_GH_advanced_security %} features are being offered free of charge to {% data variables.product.product_name %} customers. Repository and organization administrators can opt-in to use {% data variables.product.prodname_GH_advanced_security %} in the Security and Analysis tab under settings.
+{% data variables.product.prodname_GH_advanced_security %} is available in beta and includes both {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. Repository administrators and organization owners can opt into {% data variables.product.prodname_advanced_security %} features in the settings for a repository or organization, within the **Security and analysis** tab. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
-Learn more about {% data variables.product.prodname_GH_advanced_security %} [code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) and [secret scanning](/github/administering-a-repository/about-secret-scanning) on {% data variables.product.prodname_ghe_managed %}.
+During this beta, {% data variables.product.prodname_advanced_security %} features are free of charge to {% data variables.product.product_name %} customers.
 
 #### Manage teams from your identity provider (IdP)
 
-Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams.  Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group.
+Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams. Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 #### IP allow lists beta
 
-[{% data variables.product.company_short %} IP allow lists](/admin/configuration/restricting-network-traffic-to-your-enterprise) provide the ability to filter traffic from administrator-specified IP ranges, defined by CIDR notation. The allow list is defined at the enterprise or organization account level in Security > Settings. All traffic that attempts to reach resources within the enterprise account and organizations are filtered by the IP allow lists. This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the GHAE tenant.
+Enterprise and organization owners can now use IP allow lists to restrict traffic to the enterprise or specific organizations. After you configure an IP allow list, only visitors from IP addresses on the list are permitted to access the resources protected by the list.
 
+This functionality is provided in addition to the ability to request network security group changes that filter traffic to the entirety of the {% data variables.product.product_name %} tenant.
+
+For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)" and "[Managing allowed IP addresses for your organization](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)."
+
+#### Pull request auto-merge
+
+With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements (like missing approvals or pending or failing required status checks). For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
 
 ### Changes
 
 #### Developer changes
 
-- [Organization owners can now disable publication](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
-- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
+- [Organization owners can now disable publication](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization) of {% data variables.product.prodname_pages %} sites from repositories in the organization. This will not unpublish existing sites.
+- Repositories that use {% data variables.product.prodname_pages %} can now [build and deploy from any branch](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites).
 - When writing an issue or pull request, the list syntax for bullets, numbers, and tasks will now be autocompleted after you press `return` or `enter`.
 - You can now delete a directory in a repository from the repository page. When navigating to a directory, a new kebab button next to the "Add file" button gives the option to delete the directory.
 - It’s now easier and faster to [reference issues or pull requests](/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests), with search across multiple words after the "#".  
 
 ##### Administration changes
 
-- Enterprise owners can now publish a mandatory message. The message is shown to all users and they must acknowledge it. This can be used to display important information, terms of service or policies.
+- Enterprise owners can now [publish a mandatory message](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message). The message is shown to all users and they must acknowledge it. This can be used to display important information, terms of service or policies.
 - The {% data variables.product.prodname_github_app%} single file path permission can now [support up to ten files](/developers/apps/creating-a-github-app-using-url-parameters).
 - When configuring a {% data variables.product.prodname_github_app%}, the authorization callback URL is a required field. Now we will permit the integrator to specify multiple callback URLs. {% data variables.product.product_name %} denies authorization if the callback URL from the request is not listed.
 - A [new API endpoint](/rest/reference/apps#create-a-scoped-access-token) enables the exchange of a user to server token for a user to server token scoped to specific repositories.
@@ -57,7 +65,7 @@ Customers using SCIM (System for Cross-domain Identity Management) can now sync 
 
 ##### Default branch renaming
 
-Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own.
+Enterprise and organization owners can now set the default branch name for new repositories. Enterprise owners can also enforce their choice of default branch name across all organizations or allow individual organizations to choose their own. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)" and "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 
 Existing repositories are unaffected by these settings, and their default branch name will not be changed.
 

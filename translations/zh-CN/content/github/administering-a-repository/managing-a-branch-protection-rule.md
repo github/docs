@@ -1,6 +1,6 @@
 ---
 title: 管理分支保护规则
-intro: '您可以创建分支保护规则对一个或多个分支实施某些工作流程，例如要求批准审查或通过状态检查才能将拉取请求合并到受保护分支。'
+intro: 您可以创建分支保护规则对一个或多个分支实施某些工作流程，例如要求批准审查或通过状态检查才能将拉取请求合并到受保护分支。
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -20,7 +20,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 拥有仓库管理员权限的人可以管理分支保护规则。
+permissions: People with admin permissions to a repository can manage branch protection rules.
+topics:
+  - Repositories
 ---
 
 ### 关于分支保护规则

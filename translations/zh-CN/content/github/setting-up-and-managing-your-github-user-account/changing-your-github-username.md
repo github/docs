@@ -10,6 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### 关于用户名更改
@@ -30,7 +32,7 @@ versions:
 - 指向现有仓库的 Web 链接仍然有效。 进行更改后，可能需要几分钟时间才能完成。
 - 从本地仓库克隆推送到旧的远程跟踪 URL 的命令行仍然有效。
 
-如果旧用户名的新所有者创建与您的仓库同名的仓库，则会覆盖重定向条目，并且您的重定向将停止工作。 由于这种可能性，我们建议您在更改用户名后更新所有现有的远程仓库 URL。 更多信息请参阅“[更改远程的 URL](/articles/changing-a-remote-s-url)”。
+如果旧用户名的新所有者创建与您的仓库同名的仓库，则会覆盖重定向条目，并且您的重定向将停止工作。 由于这种可能性，我们建议您在更改用户名后更新所有现有的远程仓库 URL。 更多信息请参阅“[管理远程仓库](/github/getting-started-with-github/managing-remote-repositories)”。
 
 ### 指向以前的个人资料页面的链接
 
@@ -52,6 +54,5 @@ versions:
 
 ### 延伸阅读
 
-- “[更改远程的 URL](/articles/changing-a-remote-s-url)”
 - “[我的提交为什么链接到错误的用户？](/articles/why-are-my-commits-linked-to-the-wrong-user)”{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} 用户名策略](/articles/github-username-policy)"{% endif %}

@@ -10,6 +10,8 @@ redirect_from:
 intro: 'ユーザが企業を離れたり異動したりした場合には、{% data variables.product.product_location %} に対するそのユーザのアクセス権を削除したり変更したりしなければなりません。'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 従業員が企業を退職した場合、その{% data variables.product.prodname_ghe_server %}アカウントをサスペンドすれば、{% data variables.product.prodname_enterprise %}ライセンス中のユーザライセンスを空けながら、Issue、コメント、リポジトリ、Gist、そしてそのユーザが作成した他のデータを保持しておくことができます。 サスペンドされたユーザはインスタンスにサインインすることも、コードをプッシュやプルすることもできません。

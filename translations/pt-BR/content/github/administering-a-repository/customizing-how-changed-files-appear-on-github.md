@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Use um arquivo *.gitattributes* para marcar arquivos que correspondem a um determinado "padrão" com os atributos especificados. Um arquivo *.gitattributes* usa as mesmas regras para correspondência que os arquivos _.gitignore_. Para obter mais informações, consulte [FORMATO PADRÃO](https://www.git-scm.com/docs/gitignore#_pattern_format) na documentação do Git.

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 GraphQL APIに対しては、直接[イントロスペクションを行え](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)ます。

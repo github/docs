@@ -1,6 +1,6 @@
 ---
 title: Requerir políticas de administración de repositorios en tu empresa
-intro: 'Los propietarios de empresas pueden hacer cumplir determinadas políticas de administración de repositorios para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.'
+intro: Los propietarios de empresas pueden hacer cumplir determinadas políticas de administración de repositorios para todas las organizaciones que son propiedad de una cuenta de empresa o pueden permitir que las políticas se establezcan en cada organización.
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -28,6 +28,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 ### Configurar la visibilidad predeterminada para los repositorios nuevos en tu empresa

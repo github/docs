@@ -14,17 +14,23 @@ redirect_from:
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### About {% data variables.product.prodname_enterprise %} licenses
 
-When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you download and install {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use.
+When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you download and install {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use. For more information about downloading {% data variables.product.prodname_enterprise %}, see the [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website. For information about setting up {% data variables.product.product_location %}, see "[Setting up a {% data variables.product.prodname_enterprise %} instance](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+
 
 You can allocate the user licenses included in your {% data variables.product.prodname_enterprise %} license to users in {% data variables.product.product_location_enterprise %} and a {% data variables.product.prodname_ghe_cloud %} enterprise account. When you add a user to either environment, they will consume a license. If a user has accounts in both environments, to consume only one license, their primary {% data variables.product.prodname_enterprise %} email address must be the same as their verified {% data variables.product.prodname_ghe_cloud %} email address. You can sync license count and usage between the environments.
 
 If your {% data variables.product.prodname_ghe_server %} license expires, you won't be able to access {% data variables.product.product_location_enterprise %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data. For more information, see "[Configuring backups on your appliance](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)." If you have any questions about renewing your license, contact {% data variables.contact.contact_enterprise_sales %}.
 
+You can download your {% data variables.product.prodname_ghe_server %} license from your [enterprise account](https://enterprise.github.com/download). For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)."
+
 ### Uploading a new license to {% data variables.product.prodname_ghe_server %}
+
 
 After you purchase a new license or upgrade an existing license from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file, then upload the file to {% data variables.product.prodname_ghe_server %} to unlock your new user licenses.
 

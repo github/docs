@@ -1,6 +1,6 @@
 ---
 title: 丢失 2FA 凭据时恢复帐户
-intro: '如果无法访问双重身份验证凭据，您可以使用恢复代码或其他恢复选项重新获取对帐户的访问权限。'
+intro: 如果无法访问双重身份验证凭据，您可以使用恢复代码或其他恢复选项重新获取对帐户的访问权限。
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
   - /articles/authenticating-with-an-account-recovery-token/
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - 2fa
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: 生成新 SSH 密钥并添加到 ssh-agent
-intro: '检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。'
+intro: 检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证，然后将其添加到 ssh-agent。
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
   - /articles/generating-a-new-ssh-key/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
 如果您还没有 SSH 密钥，则必须[生成新 SSH 密钥](#generating-a-new-ssh-key)。 如果您不确定是否已有 SSH 密钥，请检查[现有密钥](/articles/checking-for-existing-ssh-keys)。

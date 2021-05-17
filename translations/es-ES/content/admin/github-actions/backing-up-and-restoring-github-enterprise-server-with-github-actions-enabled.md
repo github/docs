@@ -4,6 +4,8 @@ shortTitle: Respaldar y restablecer
 intro: 'Los datos de {% data variables.product.prodname_actions %} en tu proveedor de almacenamiento externo no se incluyen en los respaldos normales de {% data variables.product.prodname_ghe_server %} y deben respaldarse por separado.'
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

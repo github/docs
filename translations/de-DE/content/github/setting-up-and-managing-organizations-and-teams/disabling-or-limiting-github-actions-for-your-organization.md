@@ -4,6 +4,10 @@ intro: 'Organisationsinhaber können GitHub Actions für eine Organisation deakt
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - organisationen
+  - teams
 ---
 
 {% data reusables.actions.enterprise-beta %}

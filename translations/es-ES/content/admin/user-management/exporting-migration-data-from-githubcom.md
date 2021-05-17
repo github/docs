@@ -11,6 +11,8 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Preparar la orgnanización origen en {% data variables.product.prodname_dotcom %}
@@ -35,7 +37,7 @@ La API de Migraciones se encuentra actualmente en un período de previsualizaci�
 
 1. Notifica a los miembros de tu organización que harás una migración. La exportación puede durar varios minutos, en función de la cantidad de repositorios que se exporten. La migración completa, incluida la importación, puede durar varias horas. Por lo tanto, te recomendamos que hagas una prueba para determinar cuánto tiempo tomará el proceso completo. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 
-2. Inicia una migración mediante `POST` al <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">punto final de migración</a>. Necesitarás:
+2. Inicia una migración enviando una solicitud de `POST` a <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">la terminal de migración</a>. Necesitarás:
     * Tu token de acceso para autenticación.
     * Una [lista de los repositorios](/rest/reference/repos#list-organization-repositories) que deseas migrar:
       ```shell

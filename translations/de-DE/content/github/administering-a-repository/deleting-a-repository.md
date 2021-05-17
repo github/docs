@@ -1,6 +1,6 @@
 ---
 title: Repository löschen
-intro: Du kannst ein Repository oder einen Fork löschen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository oder den Fork verfügst. Durch das Löschen eines geforkten Repositorys wird das vorgelagerte Repository nicht gelöscht.
+intro: 'Du kannst ein Repository oder einen Fork löschen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository oder den Fork verfügst. Durch das Löschen eines geforkten Repositorys wird das vorgelagerte Repository nicht gelöscht.'
 redirect_from:
   - /delete-a-repo/
   - /deleting-a-repo/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} ein Organisations-Repository löschen. Wenn **Allow members to delete or transfer repositories for this organization** (Mitgliedern das Löschen oder Übertragen von Repositorys für diese Organisation erlauben) deaktiviert wurde, können nur Organisationsinhaber Repositorys der Organisation löschen. {% data reusables.organizations.new-repo-permissions-more-info %}

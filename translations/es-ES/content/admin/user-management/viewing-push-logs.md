@@ -1,6 +1,6 @@
 ---
 title: Ver registros de subidas
-intro: 'Los administradores de sitio pueden ver una lista de operaciones de subida de git para cualquier repositorio en la empresa.'
+intro: Los administradores de sitio pueden ver una lista de operaciones de subida de git para cualquier repositorio en la empresa.
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -8,6 +8,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 Las entradas de registro de subida muestran:
@@ -22,9 +24,9 @@ Las entradas de registro de subida muestran:
 
 ### Ver registros de subida de un repositorio
 
-1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
+1. Inicia sesión en {% data variables.product.prodname_ghe_server %} como administrador de sitio.
 1. Navegar a un repositorio.
-1. In the upper-right corner of the repository's page, click
+1. En la esquina superior derecha de la página del repositorio, da clic en
 {% octicon "rocket" aria-label="The rocket ship" %}.
     ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}

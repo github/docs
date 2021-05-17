@@ -1,11 +1,13 @@
 ---
 title: 認証
-intro: ユーザが {% data variables.product.product_name %} にサインインする方法を設定できます。
+intro: 'ユーザが {% data variables.product.product_name %} にサインインする方法を設定できます。'
 redirect_from:
   - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 

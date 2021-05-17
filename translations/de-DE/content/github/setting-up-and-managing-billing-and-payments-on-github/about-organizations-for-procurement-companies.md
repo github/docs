@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-organizations-for-procurement-companies
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Um auf eine Organisation zugreifen zu können, muss sich jedes Mitglied bei seinem persönlichen Benutzerkonto anmelden.

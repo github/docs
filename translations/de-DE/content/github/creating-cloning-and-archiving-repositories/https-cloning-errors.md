@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Hier siehst Du ein Beispiel für einen möglichen HTTPS-Fehler:
@@ -71,10 +73,10 @@ Wenn Du zur Eingabe eines Benutzernamens und Passworts aufgefordert wirst, stell
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
 
 {% endtip %}
 
 ### Stattdessen SSH verwenden
 
-Wenn Du zuvor SSH-Schlüssel eingerichtet hast, kannst Du statt HTTPS die SSH-Klon-URL verwenden.  Weitere Informationen findest Du unter „[Welche Remote-URL sollte ich verwenden?](/articles/which-remote-url-should-i-use).“
+Wenn Du zuvor SSH-Schlüssel eingerichtet hast, kannst Du statt HTTPS die SSH-Klon-URL verwenden.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."

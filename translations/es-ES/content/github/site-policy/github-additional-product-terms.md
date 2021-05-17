@@ -2,9 +2,12 @@
 title: Términos adicionales de los productos de GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Fecha de entrada en vigencia de la versión: 14 de diciembre de 2020
+Fecha de entrada en vigencia de la versión: 22 de febrero de 2021
 
 Al crear una Cuenta, se le da acceso a muchas características y productos diferentes que forman parte del Servicio. Debido a que muchas de estas características y productos ofrecen una funcionalidad diferente, pueden requerir términos y condiciones adicionales específicas de esa característica o producto. A continuación, listamos estas características y productos, junto con las condiciones adicionales correspondientes que aplican a el uso que les des.
 
@@ -39,9 +42,24 @@ Si activas Git Large File Storage ("Git LFS") en tu Cuenta, podrás obtener, mod
 
 ### 4. Pages
 
-Cada cuenta incluye acceso al [servicio de hospedaje estático de GitHub pages](/github/working-with-github-pages/about-github-pages). Este servicio de alojamiento está destinado a albergar páginas web estáticas para todos los usuarios, pero principalmente como escaparate para proyectos personales y organizativos. Se permiten algunas iniciativas de monetización en las Páginas, tales como botones de donación y enlaces de financiación colectiva.
+Cada cuenta incluye acceso al [servicio de hospedaje estático de GitHub pages](/github/working-with-github-pages/about-github-pages). Este servicio de alojamiento está destinado a albergar páginas web estáticas para todos los usuarios, pero principalmente como escaparate para proyectos personales y organizativos.
 
-Las páginas de GitHub están sujetas a algunos límites específicos de ancho de banda y uso y podrían no ser adecuadas para algunos usos de alto ancho de banda u otros usos prohibidos. Consulte nuestras [directrices de páginas de GitHub](/github/working-with-github-pages/about-github-pages) para obtener más información. GitHub se reserva el derecho en todo momento de reclamar cualquier subdominio de GitHub sin responsabilidad.
+No se pretende ni se permite que las Páginas de GitHub se utilicen como un servicio de alojamiento web gratuito para ejecutar tus negocios en línea, ni como un sitio de comercio electrónico ni ningún otro tipo de sitio web que se dirija principalmente ya sea a facilitartransacciones comerciales o a proporcionar software comercial como un servicio (SaaS). Se permiten algunas iniciativas de monetización en las Páginas, tales como botones de donación y enlaces de financiación colectiva.
+
+#### a. Límites de uso y de ancho de banda
+Las páginas de GitHub están sujetas a algunos límites específicos de ancho de banda y de uso, y podrían no ser adecuadas para algunos usos de ancho de banda alto. Consulte nuestras [directrices de páginas de GitHub](/github/working-with-github-pages/about-github-pages) para obtener más información.
+
+#### b. Usos prohibidos
+Los usos prohiubidos de las Páginas de GitHub incluyen
+- Contenido o actividad que es prohibida o ilegal de acuerdo con nuestras [Condiciones de Servicio](/github/site-policy/github-terms-of-service), [Políticas de Uso Aceptable](/github/site-policy/github-acceptable-use-policies) o [Lineamientos Comunitarios](/github/site-policy/github-community-guidelines)
+- el contenido o la actividad violentas o amenazadoras
+- la actividad masiva automatizada excesiva (por ejemplo, envío de spam)
+- la actividad que comprometa a los usuarios o los servicios de GitHub
+- los esquemas del tipo 'hágase rico rápidamente'
+- el contenido sexualmente obsceno
+- el contenido que falsea de manera fraudulenta tu identidad o el propósito del sitio
+
+Si tienes dudas sobre si el uso real o previsto de este servicio cae en alguna de estas categorías, por favor, contacta al [Soporte de GitHub](https://support.github.com/contact) o al [Soporte Premium de GitHub](https://premium.githubsupport.com/). GitHub se reserva el derecho en todo momento de reclamar cualquier subdominio de GitHub sin responsabilidad.
 
 ### 5. Acciones y paquetes
 
@@ -55,7 +73,7 @@ Las acciones y cualquier elemento del servicio de ellas no puede utilizarse para
 - cualquier actividad que coloque un peso en nuestros servidores, ya sea que dicho peso sea excesivo para los beneficios que se proporcionan a los usuarios (por ejemplo, no utilizamos acciones como una red de entrega de contenido o como parte de una aplicación sin servidores, pero una acción de beneficio mínimo podría estar bien si también implica un peso mínimo); o
 - cualquier otra actividad no relacionada con la producción, prueba, despliegue o publicación del proyecto de software asociado con el repositorio donde se utilizan las Acciones de GitHub.
 
-Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
+Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. El mal uso de las GitHub Actions podría dar como resultado la terminación de jobs, restricciones en tu capacidad para utilizar las GitHub Actions, o inhabilitar los repositorios que se crearon para ejecutar las acciones de una forma que viole estas condiciones.
 
 #### b. Uso de paquetes
 GitHub Packages se factura de acuerdo con su uso. La [Documentación de paquetes](/packages) incluye los detalles como las cantidades de ancho de banda y almacenamiento (dependiendo del plan de tu cuenta), y la forma en la que puedes monitorear el uso de los paquetes y configurar los límites de uso. El uso de ancho de banda de los paquetes se limita por las [Políticas de uso aceptable de GitHub](/github/site-policy/github-acceptable-use-policies).

@@ -1,6 +1,6 @@
 ---
 title: Ein Projektboard löschen
-intro: Du kannst ein vorhandenes Projektboard löschen, wenn Du nicht mehr auf seine Inhalte zugreifen musst.
+intro: 'Du kannst ein vorhandenes Projektboard löschen, wenn Du nicht mehr auf seine Inhalte zugreifen musst.'
 redirect_from:
   - /articles/deleting-a-project/
   - /articles/deleting-a-project-board
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% tip %}

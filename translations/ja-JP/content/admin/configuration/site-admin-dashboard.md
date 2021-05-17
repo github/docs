@@ -7,6 +7,8 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ダッシュボードへアクセスするには、ページ右上の隅にある {% octicon "rocket" aria-label="The rocket ship" %}をクリックしてください。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

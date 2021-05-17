@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### ブランチの作成
@@ -24,7 +26,7 @@ versions:
 
 {% note %}
 
-**注釈:** 削除するブランチがリポジトリのデフォルトブランチである場合は、ブランチを削除する前に新しいデフォルトブランチを選択する必要があります。 For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+**注釈:** 削除するブランチがリポジトリのデフォルトブランチである場合は、ブランチを削除する前に新しいデフォルトブランチを選択する必要があります。 詳しい情報については「[デフォルトブランチの変更](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
 
 {% endnote %}
 

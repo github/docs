@@ -5,11 +5,13 @@ redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 
-Code navigation uses the open source library [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes idiomas son compatibles:
+La navegación de código utiliza la biblioteca de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes idiomas son compatibles:
 - C#
 - CodeQL
 - Go

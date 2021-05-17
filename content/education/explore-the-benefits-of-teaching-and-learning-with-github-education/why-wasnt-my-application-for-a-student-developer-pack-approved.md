@@ -41,7 +41,7 @@ If you have other questions or concerns about the school domain please ask your 
 
 ### Academic email address already used
 
-If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %} until that discount expires.
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
@@ -59,11 +59,11 @@ For more information, see:
 ### Ineligible student status
 
 You're ineligible for a {% data variables.product.prodname_student_pack %} if:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_dotcom %} Campus Program](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
 - You're pursuing a degree which will be terminated in the current academic session.
 - You're under 13 years old.
 
-Your instructor may still apply for a {% data variables.product.prodname_education %} discount for classroom use. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_dotcom %} Campus Program](https://education.github.com/schools).
+Your instructor may still apply for a {% data variables.product.prodname_education %} discount for classroom use. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Further reading
 

@@ -8,9 +8,13 @@ redirect_from:
   - /articles/redeeming-a-coupon
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 如果您在应用优惠券之前为帐户付款，则 {% data variables.product.product_name %} 无法发起退款。 如果您将优惠券应用到错误的帐户，我们也无法转移已兑换的优惠券或为您提供一张新的优惠券。 在兑换优惠券之前，请确认是否将优惠券应用到正确的帐户。
+
+{% data reusables.dotcom_billing.coupon-expires %}
 
 您无法将优惠券应用到 {% data variables.product.prodname_marketplace %} 应用程序的付费计划。
 

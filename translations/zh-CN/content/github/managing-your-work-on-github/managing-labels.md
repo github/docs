@@ -1,6 +1,6 @@
 ---
 title: 管理标签
-intro: '您可以通过创建、编辑、应用和删除标签对议题和拉取请求进行分类。'
+intro: 您可以通过创建、编辑、应用和删除标签对议题和拉取请求进行分类。
 redirect_from:
   - /articles/managing-Labels
   - /articles/labeling-issues-and-pull-requests
@@ -21,6 +21,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### 关于标签
@@ -93,4 +95,4 @@ versions:
 ### 延伸阅读
 - "[按标签过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- "[通过标签鼓励对项目做出有益的贡献](/github/building-a-strong-community/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- "[通过标签鼓励对项目做出有益的贡献](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

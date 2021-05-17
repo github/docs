@@ -1,6 +1,6 @@
 ---
 title: Participating in a discussion
-intro: You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.
+intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
 permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -14,7 +14,7 @@ versions:
 
 In addition to starting or viewing a discussion, you can comment in response to the original comment from the author of the discussion. You can also create a comment thread by replying to an individual comment that another community member made within the discussion, and react to comments with emoji. For more information about reactions, see "[About conversations on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github#reacting-to-ideas-in-comments)."
 
-You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)."
+You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)."
 
 ### 빌드전 요구 사양
 

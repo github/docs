@@ -1,1 +1,1 @@
-When you enable an interaction limit, you can choose a duration for the limit: 24 hours, 3 days, 1 week, 1 month, or 6 months.
+インタラクションの制限を有効化する際には、制限の期間を24時間、3日間、1週間、1ヶ月、6ヶ月から選択できます。

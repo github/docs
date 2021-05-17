@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 仅可删除个人用户帐户拥有的仓库中的议题。 无法删除其他用户帐户拥有仓库中的议题，即使是该帐户的协作者也一样。

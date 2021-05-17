@@ -14,17 +14,23 @@ redirect_from:
   - /enterprise/admin/overview/managing-your-github-enterprise-license
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de las licencias {% data variables.product.prodname_enterprise %}
 
-Cuando compras o renuevas {% data variables.product.prodname_enterprise %}, recibes un archivo de licencia para validar tu aplicación. Un archivo de licencia tiene una fecha de caducidad y controla la cantidad de licencias de usuario que puedes agregar a {% data variables.product.prodname_enterprise %}. Después de que hayas descargado e instalado {% data variables.product.prodname_enterprise %}, subir el archivo de licencia desbloquea la aplicación para que la puedas usar.
+Cuando compras o renuevas {% data variables.product.prodname_enterprise %}, recibes un archivo de licencia para validar tu aplicación. Un archivo de licencia tiene una fecha de caducidad y controla la cantidad de licencias de usuario que puedes agregar a {% data variables.product.prodname_enterprise %}. Después de que hayas descargado e instalado {% data variables.product.prodname_enterprise %}, subir el archivo de licencia desbloquea la aplicación para que la puedas usar. Para obtener más información sobre cómo descargar {% data variables.product.prodname_enterprise %}, consulta el sitio web de [Lanzamientos de {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/releases/). Para obtener más información sobre cómo configurar {% data variables.product.product_location %}, consulta la sección "[Configurar una instancia de {% data variables.product.prodname_enterprise %}](/admin/installation/setting-up-a-github-enterprise-server-instance)".
+
 
 Puedes asignar las licencias de usuario incluidas en tu licencia de {% data variables.product.prodname_enterprise %} a los usuarios en {% data variables.product.product_location_enterprise %} y en una cuenta empresarial de {% data variables.product.prodname_ghe_cloud %}. Cuando agregas un usuario a algún entorno, se consumirá una licencia. Si un usuario tiene cuentas en ambos ambientes, para consumir únicamente una licencia, su dirección de correo primaria de {% data variables.product.prodname_enterprise %} debe ser la misma que su dirección de correo verificada de {% data variables.product.prodname_ghe_cloud %}. Puedes sincronizar la cantidad de licencias y el uso entre los ambientes.
 
 Si tu licencia vence {% data variables.product.prodname_ghe_server %}, no podrás acceder a {% data variables.product.product_location_enterprise %} por medio de un navegador web o Git. Si es necesario, podrás usar herramientas de línea de comando para hacer un respaldo de seguridad de todos tus datos. Para obtener más información, consulta "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)" Si tienes cualquier duda sobre el renovamiento de tu licencia, contacta a {% data variables.contact.contact_enterprise_sales %}.
 
+Puedes descargar tu licencia de {% data variables.product.prodname_ghe_server %} desde tu [cuenta empresarial](https://enterprise.github.com/download). Para obtener más información, consulta "[Administrar tu licencia {% data variables.product.prodname_enterprise %}](/admin/overview/managing-your-github-enterprise-license#uploading-a-new-license-to-github-enterprise-server)".
+
 ### Subir una nueva licencia a {% data variables.product.prodname_ghe_server %}
+
 
 Después de que compras una nueva licencia o actualizas una licencia existente de {% data variables.contact.contact_enterprise_sales %}, debes descargar tu nuevo archivo de licencia. Posteriormente, carga el archivo a {% data variables.product.prodname_ghe_server %} para desbloquear tu nueva licencia de usuario.
 
@@ -41,9 +47,9 @@ instancia de {% data variables.product.prodname_ghe_server %} como administrador
 {% data reusables.enterprise-accounts.license-tab %}
 12. Dentro de "Quick links (Vínculos rápidos)", haz clic en **Update license (Actualizar licencia)**. ![Actualizar enlace de la licencia](/assets/images/enterprise/business-accounts/update-license-link.png)
 13. Para seleccionar tu licencia, da clic en **Archivo de licencia**, o arrastra tu archivo de licencia a **Archivo de licencia**. ![Sube el archivo de licencia](/assets/images/enterprise/management-console/upload-license.png)
-14. Da clic en **Cargar**. ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
+14. Da clic en **Cargar**. ![Comenzar carga](/assets/images/enterprise/management-console/begin-upload.png)
 
-{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}If the web UI for {% data variables.product.prodname_ghe_server %} doesn't reflect your updated license immediately, see "[Troubleshooting](#troubleshooting)."{% endif %}
+{% if enterpriseVersion ver_lt "enterprise-server@3.0" %}Si la IU web de {% data variables.product.prodname_ghe_server %} no refleja tu licencia actualizada de inmediato, consulta la sección de "[Solución de problemas](#troubleshooting)".{% endif %}
 
 ### Ver el uso de la licencia
 
@@ -77,18 +83,18 @@ Puedes descargar un archivo JSON desde {% data variables.product.prodname_ghe_se
 
 ### Solución de problemas
 
-In some scenarios, the web UI for {% data variables.product.prodname_ghe_server %} may not immediately reflect your new license. You can force the system to detect the license by restarting two system services.
+En algunos casos, la IU web de {% data variables.product.prodname_ghe_server %} podría no reflejar tu licencia nueva de inmediato. Puedes forzar al sistema para que detecte la licencia si restableces dos servicios de sistema.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Restart the services for Git authentication and the HTTP server.
+1. Restablece los servicios para la autenticación de Git y el servidor HTTP.
 
     {% warning %}
 
-    **Warning**: Running the following command will result in a few minutes of user-facing downtime for {% data variables.product.prodname_ghe_server %}. Run the command with care.
+    **Advertencia**: El ejecutar el siguiente comando dará como resultado algunos minutos de inactividad del servicio de cara al usuario en {% data variables.product.prodname_ghe_server %}. Ten cuidado al ejecutar el comando.
 
     {% endwarning %}
    
         sudo systemctl restart github-gitauth github-unicorn
-1. After {% data variables.product.prodname_ghe_server %} returns you to a prompt, try accessing {% data variables.product.prodname_ghe_server %} via the command line or web UI again.
+1. Después de que {% data variables.product.prodname_ghe_server %} te regrese al prompt, intenta acceder a {% data variables.product.prodname_ghe_server %} nuevamente a través de la línea de comandos o IU.
 
 {% endif %}

@@ -1,17 +1,19 @@
 ---
 title: GitHub Enterprise Server auf Hyper-V installieren
-intro: 'Um {% data variables.product.prodname_ghe_server %} auf Hyper-V zu installieren, müssen Sie es auf einem Computer bereitstellen, auf dem Windows Server 2008 bis Windows Server 2016 ausgeführt wird.'
+intro: 'Um {% data variables.product.prodname_ghe_server %} auf Hyper-V zu installieren, müssen Sie es auf einem Computer bereitstellen, auf dem Windows Server 2008 bis Windows Server 2019 ausgeführt wird.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-hyper-v/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-hyper-v
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Vorrausetzungen
 
 - {% data reusables.enterprise_installation.software-license %}
-- Sie müssen über Windows Server 2008 bis Windows Server 2016 mit Hyper-V-Unterstützung verfügen.
+- Sie müssen über Windows Server 2008 bis Windows Server 2019 mit Hyper-V-Unterstützung verfügen.
 - Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). Zur Ersteinrichtung sollten Sie jedoch die Windows PowerShell-Befehlszeilenshell verwenden. Im Folgenden finden Sie Beispiele zur Verwendung der PowerShell. For more information, see the Microsoft guide "[Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1)."
 
 ### Grundlegendes zur Hardware

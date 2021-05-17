@@ -1,1 +1,1 @@
-`label` | `object` | The label removed from the issue `label[name]` | `string` | The name of the label. `label[color]` | `string` | The hex color code. 
+`label` | `object` | Issueから差k除されたラベル `label[name]` | `string` | ラベルの名前。 `label[color]` | `string` | 16進のカラーコード。 

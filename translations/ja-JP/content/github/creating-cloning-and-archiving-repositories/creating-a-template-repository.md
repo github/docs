@@ -1,13 +1,15 @@
 ---
 title: テンプレートリポジトリを作成する
 intro: '既存のリポジトリをテンプレートにして、自分や他のユーザが同じディレクトリ構造{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}、ブランチ、{% endif %}およびファイルで新しいリポジトリを生成できるようにすることができます。'
-permissions: リポジトリに対する管理者権限があるユーザなら誰でも、リポジトリをテンプレート化できます。
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% note %}

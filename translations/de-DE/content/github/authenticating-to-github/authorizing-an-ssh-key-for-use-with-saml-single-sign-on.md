@@ -6,6 +6,8 @@ redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 Du kannst einen vorhandenen SSH-Schlüssel autorisieren oder einen neuen SSH-Schlüssel erstellen und ihn anschließend autorisieren. Weitere Informationen zum Erstellen eines neuen SSH-Schlüssels findest Du unter „[Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).“

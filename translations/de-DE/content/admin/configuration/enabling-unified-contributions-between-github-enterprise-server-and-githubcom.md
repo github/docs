@@ -7,9 +7,11 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
-permissions: 'Website-Administratoren für {% data variables.product.prodname_ghe_server %} , die auch Inhaber einer Organisation oder eines Unternehmenskontos in der {% data variables.product.prodname_ghe_cloud %} sind, können vereinheitlichte Beiträge zwischen {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_dotcom_the_website %} aktivieren.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 Als Websiteadministrator können Sie zulassen, dass Endbenutzer anonymisierte Beitragsanzahlen für ihre Arbeit auf {% data variables.product.prodname_ghe_server %} an ihr {% data variables.product.prodname_dotcom_the_website %}-Beteiligungsdiagramm senden können.

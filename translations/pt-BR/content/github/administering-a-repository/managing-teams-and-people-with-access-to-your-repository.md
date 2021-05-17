@@ -1,11 +1,13 @@
 ---
 title: Gerenciando equipes e pessoas com acesso ao seu repositório
 intro: Você pode ver todos os que têm acesso ao seu repositório e ajustar as permissões.
-permissions: Administradores de repositórios podem gerenciar equipes e pessoas com acesso a um repositório.
+permissions: Repository administrators can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Sobre gerenciar o acesso ao seu repositório
@@ -14,7 +16,7 @@ Para cada repositório que você administra no {% data variables.product.prodnam
 
 Esta visão geral pode ajudá-lo a auditar o acesso ao seu repositório, incluir ou excluir funcionários ou colaboradores, e responder efetivamente aos incidentes de segurança.
 
-Para obter mais informações, consulte "[Níveis de permissão para um repositório de conta de usuário](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" e "[Níveis de permissão de repositório para uma organização](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Para obter mais informações, consulte "[Níveis de permissão para um repositório de conta de usuário](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" e "[Níveis de permissão de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 ![Acessar visão geral do gerenciamento ](/assets/images/help/repository/manage-access-overview.png)
 
@@ -51,4 +53,4 @@ Para obter mais informações, consulte "[Níveis de permissão para um reposit�
 ### Leia mais
 
 - "[Definir a visibilidade de um repositório](/github/administering-a-repository/setting-repository-visibility)"
-- "[Configurando permissões de base para uma organização](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
+- "[Configurando permissões de base para uma organização](/organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"

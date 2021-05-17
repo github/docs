@@ -1,6 +1,6 @@
 ---
 title: SSHエージェント転送の利用
-intro: 'サーバーへのデプロイを簡単にするために、SSHエージェント転送をセットアップして、安全にローカルのSSHキーを使うことができます。'
+intro: サーバーへのデプロイを簡単にするために、SSHエージェント転送をセットアップして、安全にローカルのSSHキーを使うことができます。
 redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 

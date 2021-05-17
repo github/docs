@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Prerequisites
@@ -31,17 +33,11 @@ This guide assumes you are familiar with the following AWS concepts:
 
 ### Determining the instance type
 
-Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the type of virtual machine that best fits the needs of your organization.
-
-#### Supported instance types
-
-{% data reusables.enterprise_installation.aws-supported-instance-types %}
-
-#### Recommended instance types
-
-{% data reusables.enterprise_installation.aws-recommended-instance-types %}
+Before launching {% data variables.product.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data reusables.enterprise_installation.aws-instance-recommendation %}
 
 ### Selecting the {% data variables.product.prodname_ghe_server %} AMI
 

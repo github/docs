@@ -5,11 +5,14 @@ redirect_from:
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
   - /articles/access-permissions-on-github
-intro: '您可以授权协作者对个人仓库的读取/写入权限，但组织成员对组织的仓库可有更细致的访问权限。'
+intro: 您可以授权协作者对个人仓库的读取/写入权限，但组织成员对组织的仓库可有更细致的访问权限。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Permissions
+  - Accounts
 ---
 
 ### 个人用户帐户

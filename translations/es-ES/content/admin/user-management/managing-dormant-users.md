@@ -5,10 +5,12 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: Se considera una cuenta de usuario como durmiente si no ha tenido actividad por lo menos en todo un mes.{% if enterpriseServerVersions contains currentVersion %} Puedes elegir suspender a los usuarios durmientes para liberar licencias de usuario.{% endif %}
+intro: 'Se considera una cuenta de usuario como durmiente si no ha tenido actividad por lo menos en todo un mes.{% if enterpriseServerVersions contains currentVersion %} Puedes elegir suspender a los usuarios durmientes para liberar licencias de usuario.{% endif %}'
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 "Actividad" incluye, entre otros:

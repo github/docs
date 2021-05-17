@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -43,7 +45,7 @@ The event objects returned from the Events API endpoints have the same structure
 This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -181,6 +183,20 @@ This event returns an empty `payload` object.
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
 
+### PullRequestReviewEvent
+
+{% data reusables.webhooks.pull_request_review_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+#### Event `payload` object
+
+Key | Type | Description
+----|------|-------------
+`action` | `string` | The action that was performed. Can be `created`.
+`pull_request` | `object` | The pull request the review pertains to.
+`review` | `object` |	The review that was affected.
+
 ### PullRequestReviewCommentEvent
 
 {% data reusables.webhooks.pull_request_review_comment_short_desc %}
@@ -197,6 +213,8 @@ This event returns an empty `payload` object.
 {% data reusables.webhooks.push_short_desc %}
 
 {% data reusables.webhooks.events_api_payload %}
+
+#### Event `payload` object
 
 Key | Type | Description
 ----|------|-------------

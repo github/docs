@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) des Repositorys übertragen kannst, musst Du auf {% data variables.product.product_location %} [das neue Repository erstellen](/articles/creating-a-new-repository). In diesen Beispielen sind `exampleuser/new-repository` oder `exampleuser/mirrored` die Spiegel.
@@ -21,13 +23,13 @@ Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) de
   ```
 3. Führe den Spiegel-Push in das neue Repository durch.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Entferne das temporäre lokale Repository, dass Du früher erstellt hast.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### Ein Repository spiegeln, das {% data variables.large_files.product_name_long %}-Objekte enthält
@@ -39,7 +41,7 @@ Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) de
   ```
 3. Navigiere zu dem Repository, das Du gerade geklont hast.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd <em>old-repository</em>
   ```
 4. Rufe die {% data variables.large_files.product_name_long %}-Objekte des Repositorys ab.
   ```shell
@@ -56,7 +58,7 @@ Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) de
 7. Entferne das temporäre lokale Repository, dass Du früher erstellt hast.
   ```shell
   $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ rm -rf <em>old-repository</em>
   ```
 
 ### Ein Repository an einem anderen Ort spiegeln
@@ -70,7 +72,7 @@ Wenn Du ein Repository an einem anderen Ort spiegeln und Aktualisierungen vom Or
   ```
 3. Lege den Push-Ort auf Deinen Spiegel fest.
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd <em>repository-to-mirror</em>
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 
