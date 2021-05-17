@@ -41,7 +41,7 @@ If you have other questions or concerns about the school domain please ask your 
 
 ### Academic email address already used
 
-If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %} until that discount expires.
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 
