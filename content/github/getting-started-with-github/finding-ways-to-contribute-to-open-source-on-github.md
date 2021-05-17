@@ -34,7 +34,7 @@ If you encounter a bug in an open source project, check if the bug has already b
 
 ### Validating an issue or pull request
 
-A lot of emphasis is put on contributing code, but did you know that you can significantly help the maintainers by validating the contributions of others?  Here are three ways to do that:
+There are a variety of ways that you can contribute to open source projects.
 #### Reproducing a reported bug
 You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
 * **Validate that a PR fixes an issue as intended**. Merge a PR into the related version and test. Update the PR comments with your test outcome.
