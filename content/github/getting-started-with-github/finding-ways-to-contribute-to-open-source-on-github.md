@@ -32,7 +32,7 @@ If you already know what project you want to work on, you can find beginner-frie
 
 If you encounter a bug in an open source project you are currently working with, check if this problem has already been reported. Confirm that this is also happening on your side. Add any other details you think would help. Report it. That's a contribution!
 
-### Validate PR/Issue
+### Validating an issue or pull request
 
 A lot of emphasis is put on contributing code, but did you know that you can significantly help the maintainers by validating the contributions of others?  Here are three ways to do that:
 * **See if you can duplicate an issue** reported by someone else. If you validate an issue, add any additional context, steps or observations that might be missing or otherwise feel important. 
@@ -51,4 +51,3 @@ Writing and updating documentation is a very valuable contribution. A few option
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
 - "[About your organization dashboard](/articles/about-your-organization-dashboard)"
-
