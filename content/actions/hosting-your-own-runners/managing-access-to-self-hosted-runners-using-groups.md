@@ -42,7 +42,7 @@ When creating a group, you must choose a policy that defines which repositories 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. In the {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %} section, click **Add new**, and then **New group**.
+1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for repository access.
@@ -104,7 +104,7 @@ You can update the access policy of a runner group, or rename a runner group.
 
 New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
-1. In the {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
+1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members.
     ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Select the checkbox next to the self-hosted runner, and then click **Move to group** to see the available destinations.
     ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move.png)
@@ -115,7 +115,7 @@ New self-hosted runners are automatically assigned to the default group, and can
 
 Self-hosted runners are automatically returned to the default group when their group is removed.
 
-1. In the {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %} section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
+1. In the {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %} section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button.
     ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. To remove the group, click **Remove group**.
