@@ -37,7 +37,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %}, click **Add runner**.
+1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
@@ -48,7 +48,7 @@ You can add self-hosted runners at the organization level, where they can be use
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. Under {% if currentVersion == "free-pro-team@latest" %}_Runners_{% else %}_Self-hosted runners_{% endif %}, click **Add runner**.
+1. Under {% if currentVersion == "free-pro-team@latest" %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
