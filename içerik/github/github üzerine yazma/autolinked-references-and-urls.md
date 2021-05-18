@@ -1,3 +1,5 @@
+
+[![thread-loader](https://github.com/webpack-contrib/thread-loader/actions/workflows/nodejs.yml/badge.svg?branch=chore-deps-update)](https://github.com/webpack-contrib/thread-loader/actions/workflows/nodejs.yml)
 ---
 title: Autolinked references and URLs
 intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
