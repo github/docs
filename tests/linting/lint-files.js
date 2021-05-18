@@ -209,7 +209,7 @@ if (!process.env.TEST_TRANSLATION) {
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
-  const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
+  const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
   if (changedFilesRelPaths === '') process.exit(0)
 
   console.log('testing translations.')

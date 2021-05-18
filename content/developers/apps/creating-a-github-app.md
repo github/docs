@@ -31,7 +31,7 @@ topics:
 5. In "GitHub App name", type the name of your app.
 ![Field for the name of your GitHub App](/assets/images/github-apps/github_apps_app_name.png)
 
-  Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+  Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub account, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 
 6. Optionally, in "Description", type a description of your app that users will see.
 ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
