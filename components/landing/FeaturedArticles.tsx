@@ -61,7 +61,7 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
   return (
     <>
       <div className="featured-links-heading mb-4 d-flex flex-items-baseline">
-        <h3 className="f4 text-normal text-mono text-uppercase color-text-secondary">{title}</h3>
+        <h3 className="f4 text-normal text-mono text-uppercase">{title}</h3>
         {viewAllHref && (
           <Link href={viewAllHref}>
             <a className="ml-4">
