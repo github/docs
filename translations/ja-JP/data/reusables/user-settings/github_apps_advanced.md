@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Advanced**. ![Advanced tab](/assets/images/github-apps/github_apps_advanced.png)
+1. 左のサイドバーで** Advanced（高度）**をクリックしてください。 ![高度のタブ](/assets/images/github-apps/github_apps_advanced.png)

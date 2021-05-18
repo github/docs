@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+type: overview
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。

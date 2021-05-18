@@ -7,7 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '>2.21'
 topics:
+  - Clustering
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### About high availability replication for clusters

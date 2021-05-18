@@ -19,11 +19,11 @@ Du kannst jede gefilterte Ansicht nach folgenden Aspekten sortieren:
 * Die Issues oder Pull Requests mit den wenigsten Kommentaren
 * Die neuesten Issues oder Pull Requests (nach Änderungsdatum)
 * Die ältesten Issues oder Pull Requests (nach Änderungsdatum)
-* Die am häufigsten zu Issues oder Pull Requests hinzugefügte [Reaktion](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)
+* The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Wähle oben rechts im Dropdownmenü „Sort“ (Sortieren) eine Option aus. ![Verwenden des Dropdownmenüs „Sort“ (Sortieren)](/assets/images/help/issues/issues_sort_dropdown.png)
+1. Wähle oben rechts im Dropdownmenü „Sort“ (Sortieren) eine Option aus. ![Verwenden des Dropdownmenüs „Sort“ (Sortieren)](/assets/images/help/issues/issues_sort_dropdown.png)
 
 Zum Aufheben der Sortierung klicke auf **Sort** > **Newest** (Sortieren > Neueste).
 

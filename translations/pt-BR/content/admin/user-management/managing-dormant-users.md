@@ -9,8 +9,11 @@ intro: 'Uma conta de usuário é considerada inativa se não estiver ativa por p
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Accounts
   - Enterprise
+  - Licensing
 ---
 
 O termo "atividade" inclui, entre outros:

@@ -12,6 +12,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 ### Cambiar los servidores NTP predeterminados

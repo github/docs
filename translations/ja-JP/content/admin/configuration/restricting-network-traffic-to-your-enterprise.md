@@ -4,6 +4,13 @@ shortTitle: ネットワークトラフィックを制限する
 intro: IP 許可リストを使用して、Enterprise へのアクセスを指定された IP アドレスからの接続に制限できます。
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Access management
+  - Enterprise
+  - Fundamentals
+  - Networking
+  - Security
 ---
 
 ### IP 許可リストについて

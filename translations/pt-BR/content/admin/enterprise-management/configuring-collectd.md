@@ -7,8 +7,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Configurar um servidor externo `collectd`

@@ -15,8 +15,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Git
   - Enterprise
+  - LFS
+  - Storage
 ---
 
 ### Informationen zu {% data variables.large_files.product_name_long %}
@@ -97,11 +101,11 @@ Weitere Informationen finden Sie unter „[Informationen zu {% data variables.la
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. Migrieren Sie vorhandene {% data variables.large_files.product_name_short %}-Assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+3. Migrieren Sie vorhandene {% data variables.large_files.product_name_short %}-Assets. Weitere Informationen finden Sie unter „[Zu einem anderen {% data variables.large_files.product_name_long %}-Server migrieren](#migrating-to-a-different-git-large-file-storage-server)“.
 
 ### Zu einem anderen Git Large File Storage-Server migrieren
 
-Bevor Sie eine Migration zu einem anderen {% data variables.large_files.product_name_long %}-Server durchführen, müssen Sie {% data variables.large_files.product_name_short %} für die Verwendung eines Drittanbieterservers konfigurieren. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+Bevor Sie eine Migration zu einem anderen {% data variables.large_files.product_name_long %}-Server durchführen, müssen Sie {% data variables.large_files.product_name_short %} für die Verwendung eines Drittanbieterservers konfigurieren. Weitere Informationen finden Sie unter „[{% data variables.large_files.product_name_long %} zur Verwendung eines Drittanbieterservers konfigurieren](#configuring-git-large-file-storage-to-use-a-third-party-server)“.
 
 1. Konfigurieren Sie das Repository mit einer zweiten Remote-Instanz.
   ```shell

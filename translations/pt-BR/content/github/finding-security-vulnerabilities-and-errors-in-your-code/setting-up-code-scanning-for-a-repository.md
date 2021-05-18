@@ -10,6 +10,8 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -21,12 +23,10 @@ Você decide como gerar alertas de {% data variables.product.prodname_code_scann
 
 ### Configurar {% data variables.product.prodname_code_scanning %} usando ações
 
-{% if currentVersion == "free-pro-team@latest" %}Usar ações para executar {% data variables.product.prodname_code_scanning %} levará minutos. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. À direita dos " alertas de {% data variables.product.prodname_code_scanning_capc %}", clique em **Configurar {% data variables.product.prodname_code_scanning %}**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3. " %}Se {% data variables.product.prodname_code_scanning %} estiver faltando, peça para um proprietário da organização ou administrador de repositório habilitar {% data variables.product.prodname_GH_advanced_security %}. Para mais informações consulte "[Gerenciar as configurações de segurança e análise para a sua organização](/organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization)" ou "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %} ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. Em "Começar com {% data variables.product.prodname_code_scanning %}", clique em **Configurar este fluxo de trabalho** no {% data variables.product.prodname_codeql_workflow %} ou em um fluxo de trabalho de terceiros. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Os fluxos de trabalho são exibidos apenas se forem relevantes para as linguagens de programação detectadas no repositório. O {% data variables.product.prodname_codeql_workflow %} é sempre exibido, mas o botão "Configurar este fluxo de trabalho" só é habilitado se a análise de {% data variables.product.prodname_codeql %} for compatível com as linguagens presentes no repositório.{% endif %}
+3. À direita dos " alertas de {% data variables.product.prodname_code_scanning_capc %}", clique em **Configurar {% data variables.product.prodname_code_scanning %}**. ![Botão "Configurar {% data variables.product.prodname_code_scanning %}" à direita de "{% data variables.product.prodname_code_scanning_capc %}" na Visão Geral de Segurança](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. Em "Começar com {% data variables.product.prodname_code_scanning %}", clique em **Configurar este fluxo de trabalho** no {% data variables.product.prodname_codeql_workflow %} ou em um fluxo de trabalho de terceiros. ![Botão "Configurar este fluxo de trabalho" em "Começar com cabeçalho de {% data variables.product.prodname_code_scanning %}"](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)
 5. Para personalizar como {% data variables.product.prodname_code_scanning %} faz a varredura do seu código, edite o fluxo de trabalho.
 
    Geralmente, você pode fazer commit do {% data variables.product.prodname_codeql_workflow %} sem fazer nenhuma alteração nele. No entanto, muitos dos fluxos de trabalho de terceiros exigem uma configuração adicional. Portanto, leia os comentários no fluxo de trabalho antes de fazer o commit.

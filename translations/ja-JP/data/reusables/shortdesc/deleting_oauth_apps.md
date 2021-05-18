@@ -1,1 +1,1 @@
-You can delete OAuth Apps when you no longer use them.
+もう使わなくなったOAuth Appは削除できます。

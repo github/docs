@@ -21,7 +21,7 @@ versions:
 
 ### 议题和拉取请求
 
-在 {% data variables.product.product_name %} 上的对话中，对议题和拉取请求的引用将自动转换为缩短的链接。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的对话](/articles/about-conversations-on-github)”。
+在 {% data variables.product.product_name %} 上的对话中，对议题和拉取请求的引用将自动转换为缩短的链接。
 
 {% note %}
 

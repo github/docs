@@ -6,6 +6,13 @@ permissions: 'Enterprise owners can configure authentication and provisioning fo
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### 关于使用 Azure AD 进行身份验证和用户预配

@@ -8,6 +8,8 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 ### Inhaltsverzeichnis
 
 {% topic_link_in_list /automatically-scanning-your-code-for-vulnerabilities-and-errors %}

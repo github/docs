@@ -12,8 +12,11 @@ redirect_from:
 intro: 'Para migrar do {% data variables.product.prodname_enterprise %} 11.10.x para o 2.1.23, você precisará configurar uma nova instância do appliance e migrar os dados da instância anterior.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 Há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e mais recentes. Não há suporte para migrações do {% data variables.product.prodname_enterprise %} 11.10.348 e versões anteriores. Você deve atualizar o 11.10.348 em várias etapas de atualização. Para obter mais informações, consulte o procedimento de atualização do 11.10.348, "[Atualizar para a versão mais recente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)".

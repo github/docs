@@ -15,8 +15,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Upgrades
 ---
 
 ### アップグレードの準備
@@ -31,31 +33,7 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
-
-### {% data variables.product.prodname_ghe_server %} 3.0 以降の最小要件について
-
-{% data variables.product.prodname_ghe_server %} 3.0 以降にアップグレードする前に、インスタンスにプロビジョニングしたハードウェアリソースを確認してください。 {% data variables.product.prodname_ghe_server %} 3.0 は、{% data variables.product.prodname_actions %} や {% data variables.product.prodname_registry %} などの新機能を導入しているため、バージョン 2.22 以前よりも多くのリソースが必要となります。 詳しい情報については、[{% data variables.product.prodname_ghe_server %} 3.0 のリリースノート](/enterprise-server@3.0/admin/release-notes)を参照してください。
-
-次の表では、{% data variables.product.prodname_ghe_server %} 3.0 以降の要件の増加を**太字**で示しています。
-
-| ユーザライセンス               |                        vCPUs |                                  メモリ |                         アタッチされたストレージ | ルートストレージ |
-|:---------------------- | ----------------------------:| ------------------------------------:| ------------------------------------:| --------:|
-| トライアル、デモ、あるいは10人の軽量ユーザ |   **4**<br/>_2 から増加_ |   **32 GB**<br/>_16 GB から増加_ | **150 GB**<br/>_100 GB から増加_ |   200 GB |
-| 10-3000                |   **8**<br/>_4 から増加_ |   **48 GB**<br/>_32 GB から増加_ | **300 GB**<br/>_250 GB から増加_ |   200 GB |
-| 3000-5000              |  **12**<br/>_8 から増加_ |                                64 GB |                               500 GB |   200 GB |
-| 5000-8000              | **16**<br/>_12 から増加_ |                                96 GB |                               750 GB |   200 GB |
-| 8000-10000+            | **20**<br/>_16 から増加_ | **160 GB**<br/>_128 GB から増加_ |                              1000 GB |   200 GB |
-
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-
-For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
-
-{% endif %}
-
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
-{% endif %}
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ### スナップショットの取得
 
@@ -81,7 +59,7 @@ For more information about hardware requirements for {% data variables.product.p
 | Hyper-V               | VM            | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | ディスク          | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM            | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM            | <https://support.citrix.com/article/CTX122978>                                                                                                                                                         |
+| XenServer             | VM            | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
 ### ホットパッチでのアップグレード
 
@@ -89,7 +67,12 @@ For more information about hardware requirements for {% data variables.product.p
 
 {% note %}
 
-**注釈**: クラスタ環境では、{% data variables.enterprise.management_console %} を使ったホットパッチのインストールはできません。 クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
+**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notes{% else %}Note{% endif %}**:
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+
+- {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
 
 {% endnote %}
 

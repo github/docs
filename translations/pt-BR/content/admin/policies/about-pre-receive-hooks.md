@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+type: overview
 topics:
   - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 Quando ocorre um push, cada script é executado em um ambiente isolado e pode executar verificações no conteúdo do push. Os scripts farão o push ser aceito se o status de saída for 0, ou farão o push ser rejeitado se o status de saída for diferente de zero.

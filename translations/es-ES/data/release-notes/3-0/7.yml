@@ -1,0 +1,22 @@
+date: '2021-05-13'
+sections:
+  security_fixes:
+    - '**HIGH:** A UI misrepresentation vulnerability was identified in GitHub Enterprise Server that allowed more permissions to be granted during a GitHub App''s user-authorization web flow than was displayed to the user during approval. To exploit this vulnerability, an attacker would need to create a GitHub App on the instance and have a user authorize the application through the web authentication flow. All permissions being granted would properly be shown during the first authorization, but in certain circumstances, if the user revisits the authorization flow after the GitHub App has configured additional user-level permissions, those additional permissions may not be shown, leading to more permissions being granted than the user potentially intended. This vulnerability affected GitHub Enterprise Server 3.0.x prior to 3.0.7 and 2.22.x prior to 2.22.13. It was fixed in versions 3.0.7 and 2.22.13. This vulnerability has been assigned CVE-2021-22866 and was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/).'
+    - Los paquetes se actualizaron a las últimas versiones de seguridad.
+  bugs:
+    - Quotes included in Actions or Packages storage configuration could cause errors.
+    - Custom pre-receive hooks could fail due to too restrictive file size or number of open file limits.
+    - Orchestrator auto failover could be enabled during the phase of config apply.
+    - Users with maintainer permissions to a repository were shown an e-mail verification warning instead of a successful page build on the repository Pages settings page.
+    - The code owner of a wildcard rule would be incorrectly added to the list of owners for the code owners badge even if a later rule took precedence for that path.
+    - OpenAPI documentation referred to an invalid header.
+    - 'When creating or editing a pre-receive hook, a race condition in the user interface meant that after selecting a repository, files within the repository were sometimes not populated in files dropdown.'
+  changes:
+    - Added logging for config change on HAProxy reload.
+    - Added logging for repository creation.
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin usuarios, un atacante pudo crear el primer usuario administrador.'
+    - Las reglas personalizadas del cortafuegos no se mantienen durante una mejora.
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'

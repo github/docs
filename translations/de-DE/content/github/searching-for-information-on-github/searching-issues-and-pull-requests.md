@@ -230,7 +230,7 @@ Mit dem Kennzeichner `reactions` können Sie Issues und Pull Requests nach der A
 ### Suche nach Pull-Request-Entwürfen
 Sie können nach Pull-Request-Entwürfen suchen. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
 
-| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
+| Qualifizierer    | Beispiel | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) findet Pull-Request-Entwürfe. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
 
 ### Suche nach Review-Status und Reviewer eines Pull-Requests
 

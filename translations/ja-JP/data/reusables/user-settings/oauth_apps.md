@@ -1,1 +1,1 @@
-1. In the left sidebar, click **OAuth Apps**. ![OAuth Apps section](/assets/images/help/settings/developer-settings-oauth-apps.png)
+1. ひだりのサイドバーで**OAuth Apps**をクリックしてください。 ![OAuth Appsセクション](/assets/images/help/settings/developer-settings-oauth-apps.png)

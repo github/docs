@@ -16,7 +16,7 @@ topics:
 
 您可以通过多种方式访问 {% data variables.product.product_name %} 中的资源：浏览器中、通过 {% data variables.product.prodname_desktop %} 或其他桌面应用程序、使用 API 或通过命令行。 每种访问 {% data variables.product.product_name %} 的方式都支持不同的身份验证模式。
 
-- {% if currentversion == "github-ae@latest" %}您的身份提供程序 (IdP){% else %}使用双重身份验证的用户名和密码{% endif %}
+- {% if currentVersion == "github-ae@latest" %}您的身份提供程序 (IdP){% else %}使用双重身份验证的用户名和密码{% endif %}
 - 个人访问令牌
 - SSH 密钥
 

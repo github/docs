@@ -12,12 +12,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre as ações de configuração incluídas e o cache da ferramenta do executor
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-As maioria das oficiais de autoria de {% data variables.product.prodname_dotcom %}mais são automaticamente agrupadas com {% data variables.product.prodname_ghe_server %}. No entanto, os executores auto-hospedados sem acesso à internet precisarão de alguma configuração antes de poderem usar as ações `actions/setup-LANGUAGE` inclusas como, por exemplo, `setup-node`.
+As maioria das oficiais de autoria de {% data variables.product.prodname_dotcom %}mais são automaticamente agrupadas com {% data variables.product.product_name %}. No entanto, os executores auto-hospedados sem acesso à internet precisarão de alguma configuração antes de poder usar as ações `actions/setup-LANGUAGE` inclusas como, por exemplo, `setup-node`.
 
 As ações `actions/setup-LANGUAGE` normalmente precisam de acesso à internet para fazer o download os binários do ambiente necessário para o cache de ferramentas do executor. Os executores auto-hospedados sem acesso à internet não podem fazer o download dos binários. Portanto, você deve preencher manualmente o cache de ferramentas no executor.
 

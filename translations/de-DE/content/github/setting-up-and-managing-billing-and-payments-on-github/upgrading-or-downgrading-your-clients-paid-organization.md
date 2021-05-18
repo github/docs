@@ -22,23 +22,19 @@ topics:
 
 ### Anzahl der bezahlten Benutzer einer Organisation heraufstufen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
 
-Nachdem Du Benutzer hinzugefügt hast, wird der für die Organisation hinterlegten Zahlungsmethode ein anteiliger Betrag in Rechnung gestellt, der auf der Anzahl der hinzugefügten Benutzer und der verbleibenden Zeit in Deinem Abrechnungszeitraum basiert.
+Nachdem Sie Benutzer hinzugefügt haben, wird der für die Organisation hinterlegten Zahlungsmethode ein anteiliger Betrag in Rechnung gestellt, der auf der Anzahl der Benutzer, die Sie hinzufügen, und der verbleibenden Zeit in Ihrem Abrechnungszeitraum basiert.
 
 ### Anzahl der bezahlten Benutzer einer Organisation auf kostenlos herabstufen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

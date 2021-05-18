@@ -27,9 +27,8 @@ topics:
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. 在 **Billing email（帐单邮箱）**下，输入有效的电子邮件地址。 该邮箱不需要是组织帐户唯一的邮箱。 ![帐单邮箱文本框](/assets/images/help/settings/org-billing-email.png)
 5. 要确认您的更改，请单击 **Update profile（更新个人资料）**。 ![更新个人资料按钮](/assets/images/help/settings/update-profile-button.png)
 
@@ -40,8 +39,8 @@ topics:
 #### 添加帐单通知的收件人
 
 {% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 1. 在“Billing management（帐单管理）”下，在“Email recipients（电子邮件收件人）”的右侧，单击 **Add（添加）**。 ![添加收件人](/assets/images/help/billing/billing-add-email-recipient.png)
 1. 输入收件人的电子邮件地址，然后单击 **Add（添加）**。 ![添加收件人模式](/assets/images/help/billing/billing-add-email-recipient-modal.png)
 
@@ -50,17 +49,17 @@ topics:
 必须始终将一个地址指定为主要收件人。 在选择新的主要收件人之前，无法删除带有此指定地址。
 
 {% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 1. 在“Billing management（帐单管理）”下，找到要设置为主要收件人的电子邮件地址。
 1. 在电子邮件地址的右侧，使用“Edit（编辑）”下拉菜单，然后单击 **Mark as primary（标记为主要收件人）**。 ![标记主要收件人](/assets/images/help/billing/billing-change-primary-email-recipient.png)
 
 #### 从帐单通知中删除收件人
 
 {% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 1. 在“Email recipients（电子邮件收件人）”下，找到要删除的电子邮件地址。
 1. 针对列表中的用户条目，单击 **Edit（编辑）**。 ![编辑收件人](/assets/images/help/billing/billing-edit-email-recipient.png)
-1. 在电子邮件地址的右侧，使用“Edit（编辑）”下拉菜单，然后单击 *Remove（删除）**。 ![删除收件人](/assets/images/help/billing/billing-remove-email-recipient.png)
+1. To the right of the email address, use the "Edit" drop-down menu, and click **Remove**. ![删除收件人](/assets/images/help/billing/billing-remove-email-recipient.png)
 1. 查看确认提示，然后单击 **Remove（删除）**。

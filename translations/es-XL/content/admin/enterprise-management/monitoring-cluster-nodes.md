@@ -7,7 +7,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Clustering
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 ### Manually checking cluster status
 

@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+### Options for getting changes
+
 Esses comandos são muito úteis ao interagir com [um repositório remote](/github/getting-started-with-github/about-remote-repositories). `clone` e `fetch` baixam códigos remote de uma URL remota do repositório para seu computador, `merge` é usado para mesclar o trabalho de diferentes pessoas com o seu e `pull` é uma combinação de `fetch` e `merge`.
 
 ### Clonar um repositório
@@ -39,14 +41,14 @@ Para cada branch `foo` no repositório remote, um branch de acompanhamento remot
 
 Use `git fetch` para recuperar trabalhos novos feitos por outra pessoas. Fazer fetch de um repositório captura todos os branches de acompanhamento remoto e tags novos *sem* fazer merge dessas alterações em seus próprios branches.
 
-If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
+Se você já tem um repositório local com uma URL remota configurada para o projeto desejado, você pode pegar todas as novas informações usando `git buscar *remotename*` no terminal:
 
 ```shell
 $ git fetch <em>remotename</em>
 # Faz fetch de atualizações feitas em um repositório remote
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Caso contrário, você sempre pode adicionar um novo remoto e, em seguida, procurar. Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Fazer merge de alterações em seu branch local
 

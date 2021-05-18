@@ -1,26 +1,31 @@
 ---
 title: Habilitar o acesso automático às ações do GitHub.com usando o GitHub Connect
-intro: 'Para permitir que o {% data variables.product.prodname_actions %} na instância corporativa use ações do {% data variables.product.prodname_dotcom_the_website %}, você pode conectar o {% data variables.product.product_location_enterprise %} ao {% data variables.product.prodname_ghe_cloud %}.'
+intro: 'Para permitir que {% data variables.product.prodname_actions %} na sua empresa use ações a partir de {% data variables.product.prodname_dotcom_the_website %}, você pode conectar a sua instância corporativa a {% data variables.product.prodname_ghe_cloud %}.'
 permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   enterprise-server: '>=2.22'
   github-ae: next
+type: how_to
 topics:
+  - Actions
   - Enterprise
+  - GitHub Connect
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.enterprise-github-connect-warning %}
+{% data reusables.actions.ae-beta %}
 
-Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} não podem usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
+Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %} em {% data variables.product.product_name %} não podem usar ações diretamente de {% data variables.product.prodname_dotcom_the_website %} ou [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_website %} disponíveis na sua instância corporativa, você pode usar {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.prodname_ghe_server %} a {% data variables.product.prodname_ghe_cloud %}. Para conhecer outras formas de acessar ações a partir de {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre ações em {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server).
+Para tornar todas as ações de {% data variables.product.prodname_dotcom_the_website %} disponíveis na sua instância corporativa, você pode usar {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} a {% data variables.product.prodname_ghe_cloud %}. Para saber outras formas de acessar ações a partir da {% data variables.product.prodname_dotcom_the_website %}, consulte "[Sobre o uso de ações na sua empresa](/admin/github-actions/about-using-actions-in-your-enterprise)".
 
 ### Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
-Antes de permitir o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} em {% data variables.product.product_location_enterprise %}, você deve conectar {% data variables.product.product_location_enterprise %} a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)".
+Antes de habilitar o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} na sua instância corporativa, você deve conectar sua empresa a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_ghe_cloud %}](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

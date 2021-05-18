@@ -54,7 +54,7 @@ Você pode efetuar a autenticação com a API de diferentes formas.
 
 ### Efetuando a autenticação com a linha de comando
 
-Você pode acessar repositórios no {% data variables.product.product_name %} pela linha de comando de duas maneiras, HTTPS e SSH. Ambos têm uma maneira diferente de efetuar a autenticação. O método de autenticação é determinado com base na escolha de uma URL remota de HTTPS ou SSH quando você clonar o repositório. For more information about which way to access, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Você pode acessar repositórios no {% data variables.product.product_name %} pela linha de comando de duas maneiras, HTTPS e SSH. Ambos têm uma maneira diferente de efetuar a autenticação. O método de autenticação é determinado com base na escolha de uma URL remota de HTTPS ou SSH quando você clonar o repositório. Para obter mais informações sobre qual maneira acessar, consulte "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
 * Você pode trabalhar com todos os repositórios no {% data variables.product.product_name %} por meio de HTTPS, mesmo que você esteja atrás de um firewall ou proxy. Sempre que você usar o Git para efetuar a autenticação com {% data variables.product.product_name %}, será solicitado que você insira suas credenciais para efetuar a autenticação com {% data variables.product.product_name %}, a não ser que você os armazene com um [auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git). {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -66,17 +66,17 @@ Você pode acessar repositórios no {% data variables.product.product_name %} pe
 
 
 
-### {% data variables.product.company_short %}'s token formats
+### Formatos de token de {% data variables.product.company_short %}
 
-{% data variables.product.company_short %} issues tokens that begin with a prefix to indicate the token's type.
+{% data variables.product.company_short %} emite tokens que começam com um prefixo para indicar o tipo do token.
 
-| Token type                                                                      | Prefix | Mais informações                                                                                                                                                  |
-|:------------------------------------------------------------------------------- |:------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Token de acesso de pessoal                                                      | `ghp_` | "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)"                                                         |
-| OAuth access token                                                              | `gho_` | "[Authorizing {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)"                                                       |
-| User-to-server token for a {% data variables.product.prodname_github_app %}   | `ghu_` | "[Identifying and authorizing users for {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
-| Server-to-server token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"   |
-| Refresh token for a {% data variables.product.prodname_github_app %}          | `ghr_` | "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)"                                                             |
+| Tipo de token                                                                             | Prefixo | Mais informações                                                                                                                                                |
+|:----------------------------------------------------------------------------------------- |:------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Token de acesso de pessoal                                                                | `ghp_`  | "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)"                                                       |
+| Token de acesso do OAuth                                                                  | `gho_`  | "[Autorizar {% data variables.product.prodname_oauth_apps %}](/developers/apps/authorizing-oauth-apps)"                                                       |
+| Token de usuário para servidor para um {% data variables.product.prodname_github_app %} | `ghu_`  | "[Identificar e autorizar usuários em {% data variables.product.prodname_github_apps %}](/developers/apps/identifying-and-authorizing-users-for-github-apps)" |
+| Token de servidor para usuário para {% data variables.product.prodname_github_app %}    | `ghs_`  | "[Autenticar com {% data variables.product.prodname_github_apps %}](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation)"      |
+| Atualizar token para um {% data variables.product.prodname_github_app %}                | `ghr_`  | "[Atualizar tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)"                                               |
 
 
 {% endif %}

@@ -15,7 +15,7 @@ topics:
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:
 
 * Para evitar contenção de recursos no dispositivo, recomendamos que o MinIO seja hospedado separadamente de {% data variables.product.product_location %}.
-* Crie seu bucket para armazenar artefatos de fluxo de trabalho. Para configurar seu bucket e chave de acesso, consulte a [Documentação do MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* Crie seu bucket para armazenar artefatos de fluxo de trabalho. Para configurar seu bucket e chave de acesso, consulte a [Documentação do MinIO](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

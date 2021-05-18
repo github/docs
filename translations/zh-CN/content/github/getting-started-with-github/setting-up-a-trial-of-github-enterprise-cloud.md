@@ -50,10 +50,10 @@ topics:
 
 对于组织来说，降级到 {% data variables.product.prodname_free_team %} 还会禁用试用期间配置的任何 SAML 设置。 购买 {% data variables.product.prodname_enterprise %} 或 {% data variables.product.prodname_team %} 后，您的 SAML 设置将再次启用，以便您组织中的用户进行身份验证。
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. 在“{% data variables.product.prodname_ghe_cloud %} Free Trial（GitHub Enterprise Cloud 免费试用）”下，单击 **Buy Enterprise（购买 Enterprise 版）**或 **Downgrade to Team（降级到 Team 版）**。 ![购买 Enterprise 版和降级到 Team 版按钮](/assets/images/help/organizations/finish-trial-buttons.png)
 6. 按照提示输入付款方式，然后单击 **Submit（提交）**。
 

@@ -5,8 +5,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-automated-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
 ---
 
 {% data reusables.code-scanning.beta %}

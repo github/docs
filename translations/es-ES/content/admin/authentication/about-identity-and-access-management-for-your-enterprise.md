@@ -5,6 +5,13 @@ intro: 'Puedes utilizar la autenticación incluida en {% if enterpriseServerVers
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Accounts
+  - Access management
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 ### Acerca de la administración de identidades y de accesos para tu empresa

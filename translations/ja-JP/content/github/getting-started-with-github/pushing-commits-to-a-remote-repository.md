@@ -99,4 +99,4 @@ git fetch upstream
 - [`git remote` の man ページ](https://git-scm.com/docs/git-remote.html)
 - [Git チートシート](/articles/git-cheatsheet)
 - [Git のワークフロー](/github/getting-started-with-github/git-workflows)
-- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"
+- 「[Git ハンドブック](https://guides.github.com/introduction/git-handbook/)」

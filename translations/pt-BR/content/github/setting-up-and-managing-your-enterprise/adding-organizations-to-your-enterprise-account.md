@@ -13,7 +13,7 @@ topics:
 
 Proprietários corporativos podem criar novas organizações nas configurações da conta corporativa.
 
-Para adicionar uma organização à sua conta corporativa, você deve criar a organização dentro das configurações de conta corporativa. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.
+Para adicionar uma organização à sua conta corporativa, você deve criar a organização dentro das configurações de conta corporativa. Se você deseja transferir uma organização existente para a conta corporativa, entre em contato com a representante de vendas da sua conta de {% data variables.product.prodname_dotcom %}.
 
 ### Criar uma organização em sua conta corporativa
 

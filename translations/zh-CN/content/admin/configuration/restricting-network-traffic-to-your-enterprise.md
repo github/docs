@@ -4,6 +4,13 @@ shortTitle: 限制网络流量
 intro: 您可以使用 IP 允许列表将企业访问权限限制为来自指定 IP 地址的连接。
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Access management
+  - Enterprise
+  - Fundamentals
+  - Networking
+  - Security
 ---
 
 ### 关于 IP 允许列表

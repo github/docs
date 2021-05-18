@@ -21,7 +21,7 @@ Weitere Informationen zum Erstellen von Links findest Du unter „[Grundlegende 
 
 ### Issues und Pull Requests
 
-In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise auf Issues und Pull Requests automatisch in verkürzte Links umgewandelt. Weitere Informationen findest Du unter „[Informationen zu Unterhaltungen auf {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github).“
+In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise auf Issues und Pull Requests automatisch in verkürzte Links umgewandelt.
 
 {% note %}
 

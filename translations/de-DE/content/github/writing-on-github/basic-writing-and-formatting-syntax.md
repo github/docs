@@ -23,7 +23,7 @@ Um eine Überschrift zu erstellen, füge bis zu sechs Rautenzeichen (`#`) vor de
 
 ### Textstil
 
-Um Text hervorzuheben, kannst Du die Fett- und/oder Kursivschrift verwenden oder den Text durchstreichen.
+You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.
 
 | Stil                          | Syntax               | Tastenkürzel          | Beispiel                                 | Ausgabe                                |
 | ----------------------------- | -------------------- | --------------------- | ---------------------------------------- | -------------------------------------- |
@@ -205,6 +205,10 @@ Für URLs, die Teil eines Markdown-Links sind, werden keine Inhaltsanhänge ange
 
 For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
 
+### Uploading assets
+
+You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
+
 ### Emojis verwenden
 
 Du kannst Emojis einfügen, indem Du `:EMOJICODE:` eingeben.
@@ -223,7 +227,7 @@ Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen lee
 
 ### Markdown-Formatierung ignorieren
 
-Sie können {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren, indem Sie das Markdown-Zeichen mit `\` maskieren.
+Du kannst {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren (oder zu verlassen), indem Du das Markdown-Zeichen mit `\` maskierst.
 
 `Wir benennen \*unser-neues-Projekt\* in \*unser-altes-Projekt\* um.`
 

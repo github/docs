@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -31,7 +35,10 @@ topics:
 1. Redimensione o disco de volume de usuário existente usando as ferramentas da plataforma de virtualização.
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Deixe o appliance em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
-4. Reinicie o appliance para detectar a alocação do novo armazenamento.
+4. Reinicie o appliance para detectar a alocação do novo armazenamento:
+  ```shell
+  $ sudo reboot
+  ```
 5. Execute o comando `ghe-storage-extend` para expandir o sistema de arquivos `/data/user`:
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ topics:
 ### Aumentar o tamanho da partição de dados raiz usando um novo appliance
 
 1. Configure uma nova instância do {% data variables.product.prodname_ghe_server %} com um disco raiz maior usando a mesma versão do appliance atual. Para obter mais informações, consulte "[Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)".
-2. Desligue o appliance atual.
+2. Desligue o appliance atual:
+  ```shell
+  $ sudo poweroff
+  ```
 3. Desvincule o disco de dados do appliance atual usando as ferramentas da plataforma de virtualização.
 4. Vincule o disco de dados ao novo appliance com o disco raiz maior.
 
@@ -57,6 +67,9 @@ topics:
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Desligue o appliance.
+4. Desligue o appliance:
+  ```shell
+  $ sudo poweroff
+  ```
 5. No hipervisor, remova o disco raiz antigo e vincule o novo disco raiz no mesmo local do antigo.
 6. Inicie o appliance.

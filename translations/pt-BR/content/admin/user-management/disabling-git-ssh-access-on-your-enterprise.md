@@ -17,8 +17,12 @@ intro: Você pode impedir que as pessoas usem o Git através do SSH para certos 
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Policies
+  - Security
+  - SSH
 ---
 
 ### Desabilitar o acesso por SSH do Git a repositórios específicos

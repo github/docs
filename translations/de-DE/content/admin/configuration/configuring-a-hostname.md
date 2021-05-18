@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 Wenn Sie einen Hostnamen konfigurieren, anstatt eine hartcodierte IP-Adresse zu verwenden, können Sie die physische Hardware ändern, auf der {% data variables.product.product_location %} ausgeführt wird, ohne dass sich dies auf die Benutzer oder auf die Clientsoftware auswirkt.

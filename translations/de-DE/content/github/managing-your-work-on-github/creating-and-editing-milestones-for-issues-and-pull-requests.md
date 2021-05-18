@@ -18,7 +18,7 @@ topics:
 4. Wähle eine der folgenden Optionen aus:
     - Um einen neuen Meilenstein zu erstellen, klicke auf **New Milestone** (Neuer Meilenstein). ![Schaltfläche „New milestone“ (Neuer Meilenstein)](/assets/images/help/repository/new-milestone.png)
     - Um einen Meilenstein zu bearbeiten, klicke neben dem Meilenstein, den Du bearbeiten möchtest, auf **Edit** (Bearbeiten). ![Option „Edit“ (Bearbeiten) zum Bearbeiten des Meilensteins](/assets/images/help/repository/edit-milestone.png)
-5. Gib einen Titel und eine Beschreibung für den Meilenstein oder sonstige Änderungen ein, und klicke dann auf **Create milestone** (Meilenstein erstellen) oder **Save changes** (Änderungen speichern).
+5. Gib einen Titel und eine Beschreibung für den Meilenstein oder sonstige Änderungen ein, und klicke dann auf **Create milestone** (Meilenstein erstellen) oder **Save changes** (Änderungen speichern). Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 
 ### Meilensteine löschen
 

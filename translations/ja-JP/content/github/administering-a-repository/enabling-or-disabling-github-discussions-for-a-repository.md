@@ -1,6 +1,6 @@
 ---
-title: Enabling or disabling GitHub Discussions for a repository
-intro: 'You can use discussions in a repository as a place for your community to have conversations, ask questions, and post answers without scoping work in an issue.'
+title: リポジトリの GitHub Discussions を有効化または無効化する
+intro: Issue 内の作業範囲を指定することなく、コミュニティで会話したり、質問したり、回答を投稿したりするための場として、リポジトリで Discussions を使用できます。
 product: '{% data reusables.gated-features.discussions %}'
 permissions: People with admin permissions to a repository can enable discussions for the repository.
 versions:
@@ -11,12 +11,12 @@ topics:
 
 {% data reusables.discussions.beta %}
 
-### Enabling or disabling discussions for your repository
+### リポジトリで Discussions を有効化または無効化する
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
-1. To disable discussions, under "Features", unselect **Discussions**.
+1. Discussions を無効化するには、[Features] で [**Discussions**] の選択を解除します。
 
 ### 参考リンク
 
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
+- 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」

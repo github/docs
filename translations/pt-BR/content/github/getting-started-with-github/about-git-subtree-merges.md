@@ -12,6 +12,8 @@ versions:
   github-ae: '*'
 ---
 
+### About subtree merges
+
 Normalmente, um merge de subárvore é usado para conter um repositório dentro de outro repositório. O "sub-repositório" é armazenado em uma pasta do repositório principal.
 
 A melhor maneira de explicar merges de subárvore é mostrar com exemplo. O que faremos:

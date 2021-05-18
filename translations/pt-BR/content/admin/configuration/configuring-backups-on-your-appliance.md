@@ -1,5 +1,6 @@
 ---
 title: Configurar backups no appliance
+shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -15,8 +16,12 @@ redirect_from:
 intro: 'Como parte de um plano de recuperação de desastre, é possível proteger os dados de produção na {% data variables.product.product_location %} configurando backups automatizados.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Backups
   - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 ### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}

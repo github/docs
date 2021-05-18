@@ -24,7 +24,7 @@ Aqui estão as diretrizes sobre os campos que você precisará preencher na seç
 
 #### Nome da listagem
 
-O nome de seu aplicativo aparecerá [na página inicial do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome tem o limite de 255 caracteres.
+O nome do seu anúncio irá aparecer na [página inicial de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome é limitado a 255 caracteres e pode ser diferente do nome do seu aplicativo. O seu anúncio não pode ter o mesmo nome de um usuário existente de {% data variables.product.product_name %}, a menos que o nome seja seu próprio nome de usuário ou organização.
 
 #### Descrição muito curta
 

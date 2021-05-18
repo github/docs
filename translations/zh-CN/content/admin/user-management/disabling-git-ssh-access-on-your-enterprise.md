@@ -17,8 +17,12 @@ intro: 您可以阻止用户为企业上的某些仓库或所有仓库使用 Git
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Policies
+  - Security
+  - SSH
 ---
 
 ### 禁止对特定仓库进行 Git SSH 访问

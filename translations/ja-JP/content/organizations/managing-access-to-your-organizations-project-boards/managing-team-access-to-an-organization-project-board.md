@@ -49,4 +49,4 @@ topics:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
 4. チームの会話の上にある {% octicon "project" aria-label="The Projects icon" %}[**Projects**] をクリックします。 ![チームの [Repositories] タブ](/assets/images/help/organizations/team-project-board-button.png)
-5. 権限レベルを変更するには、更新するプロジェクトボードの右にあるドロップダウンを使用します。 プロジェクトボードを削除するには、[**{% octicon "trashcan" aria-label="The trashcan icon" %}**] をクリックします。 ![チームからプロジェクトボードを削除する [Trash] ボタン](/assets/images/help/organizations/trash-button.png)
+5. 権限レベルを変更するには、更新するプロジェクトボードの右にあるドロップダウンを使用します。 プロジェクトボードを削除するには、[**{% octicon "trash" aria-label="The trash icon" %}**] をクリックします。 ![チームからプロジェクトボードを削除する [Trash] ボタン](/assets/images/help/organizations/trash-button.png)

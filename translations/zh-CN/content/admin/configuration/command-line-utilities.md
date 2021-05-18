@@ -9,8 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - SSH
 ---
 
 以 SSH 管理员用户身份登录后，您可以在虚拟机上的任何位置执行这些命令。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
@@ -483,15 +485,21 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 要显示交付的完整挂钩有效负载、结果以及任何异常：
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### 集群
 
 #### ghe-cluster-status
 
-此实用程序可用于管理分配的 {% data variables.product.prodname_pages %} 服务器。
+Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
 
 ```shell
 $ ghe-cluster-status
@@ -644,14 +652,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-此实用程序可从 Team Foundation Version Control 导入。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+This utility imports from Team Foundation Version Control (TFVC). 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-此实用程序可重写导入的仓库。 这样，您将有机会重命名作者，对于 Subversion 和 TFS，可基于文件夹生成 Git 分支。 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
+此实用程序可重写导入的仓库。 This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. 更多信息请参阅“[从第三方版本控制系统导入数据](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)。”
 ```shell
 git-import-rewrite
 ```
@@ -756,7 +764,7 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 
 包含下载状态的文件位于 */var/lib/ghe-updates/ghe-update-check.status*。
 
-要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 交换字符。
+要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 开关。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'

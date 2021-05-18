@@ -92,6 +92,6 @@ Agora que você criou e publicou seu repositório, você está pronto para fazer
 Agora você criou um repositório, publicou o repositório no {% data variables.product.product_name %}, fez um commit e fez push das suas alterações no {% data variables.product.product_name %}. Você pode seguir esse mesmo fluxo de trabalho ao contribuir para outros projetos os quais você cria ou nos quais você colabora.
 
 ### Leia mais
-- "[Getting started with Git](/github/getting-started-with-github/getting-started-with-git)"
+- "[Primeiros passos com o Git](/github/getting-started-with-github/getting-started-with-git)"
 - "[Aprender sobre {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[Começar com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"

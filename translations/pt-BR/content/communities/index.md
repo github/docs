@@ -1,5 +1,5 @@
 ---
-title: Building communities
+title: Criar comunidades
 intro: 'Quer seu projeto seja de código aberto ou privado, você pode criar um ambiente saudável e eficaz para a colaboração.'
 redirect_from:
   - /categories/building-a-strong-community

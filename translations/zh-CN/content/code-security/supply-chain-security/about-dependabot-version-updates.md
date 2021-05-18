@@ -35,6 +35,7 @@ topics:
 如果您启用了安全更新，有时会看到额外的安全更新拉取请求。 这些由默认分支上依赖项的 {% data variables.product.prodname_dependabot %} 警报所触发。 {% data variables.product.prodname_dependabot %} 自动提出拉取请求以更新有漏洞的依赖项。
 
 ### 支持的仓库和生态系统
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
 
 您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
 

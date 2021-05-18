@@ -8,8 +8,12 @@ redirect_from:
 intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location %} 添加到团队并决定他们可以访问哪些仓库。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 每个团队都有自己单独定义的[组织所拥有仓库的访问权限](/articles/permission-levels-for-an-organization)。

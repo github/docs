@@ -51,6 +51,6 @@ Para poder sincronizar a bifurcação com o repositório upstream, você deve [c
 
 {% tip %}
 
-**Dica**: a sincronização da bifurcação só atualiza a cópia local do repositório. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**Dica**: a sincronização da bifurcação só atualiza a cópia local do repositório. Para atualizar a bifurcação no {% data variables.product.product_location %}, você precisa [fazer push das alterações](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

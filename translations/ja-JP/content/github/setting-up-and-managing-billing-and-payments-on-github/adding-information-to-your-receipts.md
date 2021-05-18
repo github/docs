@@ -28,8 +28,8 @@ topics:
 ### 個人アカウントの領収書への情報の追加
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ### Organization の領収書への情報の追加
@@ -40,9 +40,9 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
