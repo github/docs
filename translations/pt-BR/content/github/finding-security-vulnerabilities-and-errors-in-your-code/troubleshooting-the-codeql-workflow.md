@@ -9,6 +9,8 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
@@ -28,7 +30,10 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
   ```yaml
   jobs:
-    analyze:
+    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions:
+        security-events: write
+        actions: read{% endif %}
       ...
       strategy:
         fail-fast: false
@@ -111,25 +116,13 @@ Se você dividir sua análise em vários fluxos de trabalho, conforme descrito a
 
 <p spaces-before="0">Se sua análise ainda é muito lenta para ser executada durante eventos <code>push` ou `pull_request`, você poderá acionar apenas a análise no evento `agendamento`. Para obter mais informações, consulte "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".</p>
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Os resultados diferem entre as plataformas de análise
-
-Se você estiver analisando o código escrito no Python, você poderá ver resultados diferentes dependendo se você executa o {% data variables.product.prodname_codeql_workflow %} no Linux, macOS ou Windows.
-
-Nos executores hospedados no GitHub que usam o Linux, o {% data variables.product.prodname_codeql_workflow %} tenta instalar e analisar as dependências do Python, o que pode gerar mais resultados. Para desabilitar a instalação automática, adicione `setup-python-dependencies: false` à etapa "Inicializar CodeQL" do fluxo de trabalho. Para obter mais informações sobre a configuração da análise de dependências do Python, consulte "[Analisar as dependências do Python](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)".
-
-{% endif %}
-
 ### Error: "Erro do servidor"
 
 Se a execução de um fluxo de trabalho para {% data variables.product.prodname_code_scanning %} falhar devido a um erro no servidor, tente executar o fluxo de trabalho novamente. Se o problema persistir, entre em contato com {% data variables.contact.contact_support %}.
 
 ### Erro: "Fora do disco" ou "Sem memória"
-Em projetos muito grandes,
 
-{% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
-{% if currentVersion == "free-pro-team@latest" %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
-{% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor do {% data variables.product.prodname_actions %} hospedado. Se você encontrar esse problema, tente aumentar a memória no executor.
 
 ### Aviso: "git checkout HEAD^2 is no longer necessary"
 
@@ -144,29 +137,29 @@ commit for best results.
 Corrija isto removendo as seguintes linhas do fluxo de trabalho {% data variables.product.prodname_codeql %}. Essas linhas foram incluídas na seção `etapas` do trabalho `Analyze` nas versões iniciais do fluxo de trabalho de {% data variables.product.prodname_codeql %}.
 
 ```yaml
-      with:
-        # We must fetch at least the immediate parents so that if this is
-        # a pull request then we can checkout the head.
-        fetch-depth: 2
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 2
 
-    # If this run was triggered by a pull request event, then checkout
-    # the head of the pull request instead of the merge commit.
-    - run: git checkout HEAD^2
-      if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
+      - run: git checkout HEAD^2
+        if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
 A seção revisada de `etapas` do fluxo de trabalho será parecida com esta:
 
 ```yaml
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
-    - name: Initialize {% data variables.product.prodname_codeql %}
-      uses: github/codeql-action/init@v1
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
 
-    ...
+      ...
 ```
 
 Para obter mais informações sobre a edição do arquivo de fluxo de trabalho {% data variables.product.prodname_codeql %}, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".

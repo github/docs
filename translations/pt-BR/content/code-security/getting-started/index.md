@@ -13,3 +13,4 @@ topics:
 ### Índice
 
 {% link_in_list /about-securing-your-repository %}
+{% link_in_list /adding-a-security-policy-to-your-repository %}

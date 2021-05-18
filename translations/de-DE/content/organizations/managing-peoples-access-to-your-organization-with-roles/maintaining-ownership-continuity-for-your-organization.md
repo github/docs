@@ -23,6 +23,12 @@ topics:
 
 Organisationsinhaber haben vollen administrativen Zugriff auf die Organisation. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+
+{% endnote %}
+
 ### Einen Organisationsinhaber ernennen
 
 {% data reusables.profile.access_profile %}

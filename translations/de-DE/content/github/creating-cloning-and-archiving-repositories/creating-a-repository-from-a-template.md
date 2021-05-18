@@ -24,7 +24,7 @@ Jeder, der über Leseberechtigung auf eine Repository-Vorlage verfügt, kann ein
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-Du kannst die Verzeichnisstruktur und die Dateien nur aus dem Standard-Branch des Vorlagen-Repositorys einbinden oder alle Branches einbinden.
+Du kannst die Verzeichnisstruktur und die Dateien nur aus dem Standard-Branch des Vorlagen-Repositorys einbinden oder alle Branches einbinden. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 {% endif %}
 
 Das Erstellen eines Repositorys anhand einer Vorlage ähnelt dem Vorgang zum Forken eines Repositorys, aber es gibt entscheidende Unterschiede:

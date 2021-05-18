@@ -8,6 +8,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
 ---
 
 ### Habilitar límites de tasa para {% data variables.product.prodname_enterprise_api %}

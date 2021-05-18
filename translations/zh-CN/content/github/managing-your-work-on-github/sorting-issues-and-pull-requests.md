@@ -19,11 +19,11 @@ topics:
 * 评论最少的议题或拉取请求
 * 最新更新的议题或拉取请求
 * 最早更新的议题或拉取请求
-* 添加[反应](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)最多的议题或拉取请求
+* The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. 在右上角，选择 Sort（排序）下拉菜单。 ![使用排序下拉菜单选项卡](/assets/images/help/issues/issues_sort_dropdown.png)
+1. 在右上角，选择 Sort（排序）下拉菜单。 ![使用排序下拉菜单选项卡](/assets/images/help/issues/issues_sort_dropdown.png)
 
 要清除您的排序选择，请单击 **Sort（排序）<**>**Newest（最新）**。
 

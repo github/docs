@@ -1,1 +1,1 @@
-You can sponsor anyone with a sponsored developer profile or sponsored organization profile on behalf of your user account or an organization. You can choose from multiple sponsorship tiers, with one-time or monthly payment amounts and benefits that are set by the sponsored account. スポンサーシップは、既存の支払日、支払い方法、領収書を共有します。
+スポンサード開発者プロフィールもしくはスポンサードOrganizationプロフィールがある対象者は、自分のユーザアカウントもしくはOrganizationに代わってスポンサーできます。 スポンサードアカウントが設定した1回あるいは月次の支払い額やメリットを持つ複数のスポンサーシップ層から選択することができます。 スポンサーシップは、既存の支払日、支払い方法、領収書を共有します。

@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsのシステム概要
 intro: '{% data variables.product.prodname_insights %}は、{% data variables.product.prodname_enterprise %}とインターフェースするスタンドアローンアプリケーションです。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:

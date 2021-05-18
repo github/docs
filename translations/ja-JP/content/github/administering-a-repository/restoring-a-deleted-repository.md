@@ -19,7 +19,7 @@ topics:
 
 削除したリポジトリが復元できるようになるまでには、最大で1時間かかる場合があります。
 
-リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 Issues that are restored will not be labeled.
+リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 復元された Issue はラベル付けされません。
 
 ### ユーザアカウントが所有していて削除したリポジトリを復元する
 
@@ -31,9 +31,9 @@ topics:
 
 ### Organizationが所有していて削除したリポジトリを復元する
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

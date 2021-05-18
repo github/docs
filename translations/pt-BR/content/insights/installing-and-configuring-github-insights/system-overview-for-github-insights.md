@@ -1,7 +1,6 @@
 ---
 title: Visão geral do sistema para o GitHub Insights
 intro: '{% data variables.product.prodname_insights %} é um aplicativo autônomo que faz interface com o {% data variables.product.prodname_enterprise %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:

@@ -17,6 +17,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Upgrades
 ---
 
 ### Preparar para una actualización

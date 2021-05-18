@@ -10,6 +10,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Support
 ---
 
 ### Crear y compartir archivos de diagnóstico

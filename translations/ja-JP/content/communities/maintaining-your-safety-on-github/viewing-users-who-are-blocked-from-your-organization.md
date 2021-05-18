@@ -10,9 +10,9 @@ topics:
   - Community
 ---
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. [Blocked users] の下で、Organization からブロックしたユーザの一覧を確認します。 ![ブロックされたユーザの一覧](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 

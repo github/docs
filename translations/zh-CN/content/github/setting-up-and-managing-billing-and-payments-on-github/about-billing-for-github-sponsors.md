@@ -17,5 +17,5 @@ topics:
 
 ### 延伸阅读
 
-- "[关于 {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
-- "[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"
+- "[关于 {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors)"

@@ -10,8 +10,12 @@ redirect_from:
 intro: 'Öffnen Sie Netzwerkports anhand dessen, welche Netzwerkdienste Sie für Administratoren, Endbenutzer und für die E-Mail-Unterstützung bereitstellen müssen.'
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Verwaltungsports

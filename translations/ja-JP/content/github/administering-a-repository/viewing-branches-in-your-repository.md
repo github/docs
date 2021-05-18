@@ -19,7 +19,7 @@ topics:
     - **Stale branches**: [**Stale**] ビューには、過去 3 か月間に誰もコミットしていないブランチが、最も古いコミットがあるブランチから順にすべて表示されます。 このリストを使用して、[どのブランチを削除するか](/articles/creating-and-deleting-branches-within-your-repository)を決定します。
     - **All branches**: [**All**] ビューには、デフォルトブランチが表示され、続いて最新のコミットがあるブランチから順に他のすべてのブランチが表示されます。
 
-4. Optionally, use the search field on the top right. It provides a simple, case-insensitive, sub-string search on the branch name. It does not support any additional query syntax.
+4. 必要に応じて、右上の検索フィールドを使用します。 このフィールドでは単純に、大文字と小文字を区別しない、ブランチ名の部分一致検索を行うことができます。 その他のクエリ構文はサポートしていません。
 
 ![Atom リポジトリのブランチページ](/assets/images/help/branches/branches-overview-atom.png)
 

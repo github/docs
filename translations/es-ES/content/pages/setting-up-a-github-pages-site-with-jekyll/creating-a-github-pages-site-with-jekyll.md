@@ -87,7 +87,12 @@ Antes de que puedas usar Jekyll para crear un sitio de {% data variables.product
 10. Guarda y cierra el Gemfile.
 11. Desde la línea de comandos, ejecuta `bundle update`.
 11. De forma opcional, prueba tu sitio localmente. Para obtener más información, consulta "[Verificar tu sitio de {% data variables.product.prodname_pages %} localmente con Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
-12. Agrega tu repositorio de {% data variables.product.product_name %} como remoto, reemplazando {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ con el nombre de host de tu aplicativo,{% endif %} _USER_ con la cuenta a la que pertenece el repositorio{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} y _REPOSITORY_ con el nombre del repositorio.
+12. Add and commit your work.
+```shell
+git add .
+git commit -m 'Initial GitHub pages site with Jekyll'
+```
+14. Agrega tu repositorio de {% data variables.product.product_name %} como remoto, reemplazando {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ con el nombre de host de tu aplicativo,{% endif %} _USER_ con la cuenta a la que pertenece el repositorio{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} y _REPOSITORY_ con el nombre del repositorio.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

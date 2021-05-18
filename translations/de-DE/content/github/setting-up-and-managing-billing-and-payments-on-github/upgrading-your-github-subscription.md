@@ -28,11 +28,9 @@ topics:
 Du kannst Dein persönliches Konto von {% data variables.product.prodname_free_user %} auf {% data variables.product.prodname_pro %} heraufstufen, um erweiterte Code-Review-Werkzeuge für private Repositorys zu erhalten. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-4. Next to "
-{% data variables.product.prodname_free_user %}", click **Upgrade**.
-  ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
+{% data reusables.user_settings.billing_plans %}
+1. Next to "Current plan", click **Upgrade**. ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}
@@ -44,11 +42,9 @@ Du kannst Deine Organisation von {% data variables.product.prodname_free_team %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %}
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
@@ -67,11 +63,9 @@ Wenn Du ein Enterprise-Konto mit {% data variables.product.prodname_ghe_cloud %}
 
 Wenn Du zusätzlichen Benutzern den Zugriff auf die privaten Repositorys Deiner {% data variables.product.prodname_team %}-Organisation geben möchtest, kannst Du jederzeit zusätzliche Benutzer erwerben.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -80,10 +74,9 @@ Wenn Du zusätzlichen Benutzern den Zugriff auf die privaten Repositorys Deiner 
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} Weitere Informationen findest Du unter „[Über benutzerabhängige Preise](/articles/about-per-user-pricing)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. Benutze rechts neben dem Plannamen das Dropdowmenü **Edit** (Bearbeiten) und wähle **Edit plan** (Plan bearbeiten). ![Dropdownmenü „Edit" (Bearbeiten)](/assets/images/help/billing/per-user-upgrade-button.png)
 6. Klicke rechts von „Advanced tools for teams" (Erweiterte Werkzeuge für Teams) auf **Upgrade now** (jetzt heraufstufen). ![Schaltfläche „Upgrade now" (jetzt heraufstufen)](/assets/images/help/billing/per-user-upgrade-now-button.png)
 {% data reusables.dotcom_billing.choose_org_plan %}

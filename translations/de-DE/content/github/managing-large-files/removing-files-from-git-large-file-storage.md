@@ -36,9 +36,9 @@ versions:
 
 ### {% data variables.large_files.product_name_short %}-Objekte in Ihrem Repository
 
-After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
+Die {% data variables.large_files.product_name_short %}-Objekte von Dateien, die Du aus {% data variables.large_files.product_name_short %} entfernt hast, sind nach wie vor im Remote-Speicher vorhanden{% if currentVersion == "free-pro-team@latest" %} und werden Deinem {% data variables.large_files.product_name_short %}-Speicher-Kontingent weiterhin angerechnet{% endif %}.
 
-To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. Weitere Informationen findest Du unter "[Löschen eines Repositories](/github/administering-a-repository/deleting-a-repository)."{% else %}kontaktiere Deinen {% data variables.product.prodname_enterprise %}-Administrator, um die Objekte zu archivieren. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
+Um {% data variables.large_files.product_name_short %}-Objekte aus einem Repository zu entfernen, {% if currentVersion == "free-pro-team@latest" %}lösche und erstelle das Repository erneut. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
 
 {% note %}
 

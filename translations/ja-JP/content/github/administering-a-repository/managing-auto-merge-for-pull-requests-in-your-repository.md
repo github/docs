@@ -1,6 +1,6 @@
 ---
-title: Managing auto-merge for pull requests in your repository
-intro: You can allow or disallow auto-merge for pull requests in your repository.
+title: リポジトリ内のプルリクエストの自動マージを管理する
+intro: リポジトリ内のプルリクエストの自動マージを許可または禁止できます。
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
@@ -13,10 +13,10 @@ topics:
 
 ### 自動マージについて
 
-If you allow auto-merge for pull requests in your repository, people with write permissions can configure individual pull requests in the repository to merge automatically when all merge requirements are met. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}If someone who does not have write permissions pushes changes to a pull request that has auto-merge enabled, auto-merge will be disabled for that pull request. {% endif %}For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+リポジトリ内でプルリクエストの自動マージを許可すると、書き込み権限を持つユーザは、マージの要件がすべて満たされた際に、リポジトリ内の個々のプルリクエストを、自動的にマージするよう設定できます。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}書き込み権限を持たないユーザが、自動マージが有効なプルリクエストに変更をプッシュすると、そのプルリクエストに対する自動マージが無効となります。 {% endif %}詳しい情報については、「[プルリクエストを自動的にマージする](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)」を参照してください。
 
-### Managing auto-merge
+### 自動マージを管理する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Merge button", select or deselect **Allow auto-merge**. ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)
+1. [Merge button] の下にある [**Allow auto-merge**] を選択または選択解除します。 ![自動マージを許可または禁止するチェックボックス](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

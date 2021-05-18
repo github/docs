@@ -15,15 +15,15 @@ topics:
 
 ### 请求发布者验证
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. 在左侧边栏中，单击 **Developer settings**。 ![组织设置侧边栏中的开发者设置选项](/assets/images/marketplace/developer-settings-in-org-settings.png)
 1. 在“Developer settings（开发者设置）”下，单击 **Publisher Verification（发布者验证）**。 ![组织设置侧边栏中的发布者验证选项](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. 在“Publisher Verification（发布者验证）”下，填写检查列表中的信息：
    - 确保您的基本个人资料信息正确无误。 另外，确保您添加了接收 {% data variables.product.company_short %} 的更新和支持信息的最合适电子邮件地址。
    - 确保为您的组织启用双重身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”。
-   - 提交已验证的域名并确保您组织的个人资料页面上显示“已验证”徽章。 相关信息请参阅“[验证组织的域](/organizations/managing-organization-settings/verifying-your-organizations-domain)”。
+   - 提交已验证的域名并确保您组织的个人资料页面上显示“已验证”徽章。 For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
   ![发布者验证检查列表](/assets/images/marketplace/publisher-verification-checklist.png)
 

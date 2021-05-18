@@ -62,7 +62,7 @@ Weitere Informationen zur Automatisierung von Projektboards findest Du unter „
 ### Weiterführende Informationen
 
 - „[Ein Projektboard erstellen](/articles/creating-a-project-board)“
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% if currentVersion == "free-pro-team@latest" %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“

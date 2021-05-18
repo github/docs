@@ -8,8 +8,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: reference
 topics:
+  - Auditing
   - Enterprise
+  - Logging
+  - Security
 ---
 
 完全なリストについては、「[監査済みのアクション](/admin/user-management/audited-actions)」を参照してください。 特定のアクションを見つける方法について詳しくは、「[Audit log を検索する](/admin/user-management/searching-the-audit-log)」を参照してください。

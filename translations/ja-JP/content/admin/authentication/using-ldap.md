@@ -11,8 +11,12 @@ redirect_from:
 intro: 'LDAP を使えば、既存のアカウントに対して {% data variables.product.prodname_ghe_server %} を認証させることができ、リポジトリへのアクセスを集中管理できます。 LDAPはディレクトリ情報サービスへのアクセスと管理のための広く使われているアプリケーションプロトコルで、大企業のユーザディレクトリとサードパーティのソフトウェアを統合するために使われている最も一般的なプロトコルの1つです。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

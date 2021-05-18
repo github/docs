@@ -10,8 +10,12 @@ redirect_from:
 intro: 'Abra as portas de rede seletivamente com base nos serviços que você precisa expor para administradores, usuários finais e suporte por e-mail.'
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Portas administrativas

@@ -1,7 +1,6 @@
 ---
 title: 关于 GitHub Insights
 intro: '{% data variables.product.prodname_insights %} 提供指标和分析报告，帮助工程团队了解和改进其软件交付流程。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/about-github-insights
 versions:

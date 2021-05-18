@@ -10,6 +10,8 @@ versions:
   github-ae: '*'
 topics:
   - Enterprise
+  - Organizations
+  - Policies
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

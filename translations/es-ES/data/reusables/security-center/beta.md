@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The security overview is currently in beta and subject to change.
+**Nota:** El resumen de seguridad se encuentra actualmente en beta y está sujeto a cambios.
 
 {% endnote %}

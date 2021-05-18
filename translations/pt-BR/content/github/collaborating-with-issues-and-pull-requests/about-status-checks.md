@@ -53,18 +53,18 @@ Quando um repositório é definido para solicitar verificações por pushes auto
 
 Para ignorar ou solicitar verificações para seu commit, adicione uma das seguintes linhas de trailer ao fim da mensagem do commit:
 
-- Para _ignorar verificações_ para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, em vez de aspas de fechamento, adicione duas linhas vazias seguidas por `skip-checks: true`:
+- Para _ignorar verificações_ para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
-  $ git commit -m "Update README.
+  $ git commit -m "Update README
   >
   >
-  skip-checks: true
+  skip-checks: true"
   ```
-  - Para _solicitar_ verificações para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. Após a descrição do commit, em vez de aspas de fechamento, adicione duas linhas vazias seguidas por `request-checks: true`:
+- Para _solicitar_ verificações para um commit, digite a mensagem do commit e uma descrição breve e significativa das alterações. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
-  $ git commit -m "Refactor usability tests.
+  $ git commit -m "Refactor usability tests
   >
   >
-  request-checks: true
+  request-checks: true"
   ```
   

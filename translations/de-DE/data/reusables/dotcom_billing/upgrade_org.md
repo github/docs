@@ -1,1 +1,1 @@
-1. Wenn Du ein Upgrade von {% data variables.product.prodname_free_team %} machst, klicke **Upgrade options** (Upgrade Optionen). Wenn Du ein Upgrade von {% data variables.product.prodname_team %} machst, verwende die **Edit** (Bearbeiten) Dropdownmenü und klicke auf **Upgrade** (Aktualisieren). ![Schaltfläche „Upgrade options" (Upgrade-Optionen)](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)
+1. Click **Upgrade** next to "Current plan".

@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+### Using Git rebase
+
 在本例中，我们将涵盖所有可用的 `git rebase` 命令，`exec` 除外。
 
 我们将通过在终端上输入 `git rebase --interactive HEAD~7` 开始变基。 首选的文本编辑器将显示以下行：

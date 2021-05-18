@@ -79,5 +79,5 @@ Enterprise のポリシーでフォークが許可されている場合、内部
 - 「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」
 - [フォークについて](/articles/about-forks)
 - 「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- 「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」
 - 「{% if currentVersion == "free-pro-team@latest" %}[Enterprise アカウントでリポジトリ管理ポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories)」{% else %}「[Enterprise でリポジトリ管理ポリシーを施行する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}」

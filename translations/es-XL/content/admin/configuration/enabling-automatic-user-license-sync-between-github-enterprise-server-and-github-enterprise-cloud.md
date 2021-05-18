@@ -9,6 +9,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
+  - Licensing
 ---
 
 ### Acerca de la sincronización de licencias

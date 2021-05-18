@@ -53,18 +53,18 @@ _检查_与_状态_的不同之处在于它们提供行注解、更详细的信�
 
 要跳过或申请检查提交，请在提交消息末添加以下尾行之一：
 
-- 要_跳过检查_提交，请输入提交消息以及简短、有意义的更改描述。 在提交说明后，不要加上右引号，而是添加两个空行，后接 `skip-checks: true`：
+- 要_跳过检查_提交，请输入提交消息以及简短、有意义的更改描述。 After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
-  $ git commit -m "Update README.
+  $ git commit -m "Update README
   >
   >
-  skip-checks: true
+  skip-checks: true"
   ```
-  - 要_申请检查_提交，请输入提交消息以及简短、有意义的更改描述。 在提交说明后，不要加上右引号，而是添加两个空行，后接 `request-checks: true`：
+- 要_申请检查_提交，请输入提交消息以及简短、有意义的更改描述。 After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
-  $ git commit -m "Refactor usability tests.
+  $ git commit -m "Refactor usability tests
   >
   >
-  request-checks: true
+  request-checks: true"
   ```
   

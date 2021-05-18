@@ -29,7 +29,7 @@ Apesar de as bifurcações de repositórios privados serem excluídas quando um 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. À direita do colaborador que deseja remover, clique em
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
   ![Botão para remover o colaborador](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. Na barra lateral esquerda, clique em **Collaborators & teams** (Colaboradores e equipes). ![Guia Collaborators (Colaboradores)](/assets/images/help/repository/repo-settings-collaborators.png)

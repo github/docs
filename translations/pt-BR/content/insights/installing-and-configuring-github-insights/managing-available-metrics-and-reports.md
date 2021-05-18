@@ -1,7 +1,6 @@
 ---
 title: Gerenciar métricas e relatórios disponíveis
 intro: 'Você pode habilitar e desabilitar as métricas específicas em {% data variables.product.prodname_insights %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-settings-in-github-insights
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'

@@ -34,7 +34,7 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. 滚动到要删除的分支，然后单击 {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}。 ![删除分支](/assets/images/help/branches/branches-delete.png)
+1. 滚动到要删除的分支，然后单击 {% octicon "trash" aria-label="The trash icon to delete the branch" %}。 ![删除分支](/assets/images/help/branches/branches-delete.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}

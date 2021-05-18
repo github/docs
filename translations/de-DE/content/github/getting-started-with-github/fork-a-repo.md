@@ -16,6 +16,8 @@ topics:
   - Accounts
 ---
 
+### Informationen zu Forks
+
 Üblicherweise werden Forks genutzt, um Änderungen für ein Projekt eines anderes Benutzers vorzuschlagen oder ein Projekt eines anderen Benutzers als Ausgangspunkt für eigene Ideen zu verwenden.
 
 #### Änderungen für ein Projekt eines anderen Benutzers vorschlagen
@@ -34,7 +36,7 @@ For more information about applying open source principles to your organization'
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. For more information, see "[Choose an open source license](http://choosealicense.com/)" at choosealicense.com.
+Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
@@ -144,7 +146,7 @@ Du kannst nun jede Änderung am Fork vornehmen, einschließlich:
 
 Forken Sie ein Repository, um an einem Projekt mitzuarbeiten. {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% if currentVersion == "free-pro-team@latest" %}Sie können [Explore](https://github.com/explore) durchsuchen, um Projekte zu finden und an Open-Source-Repositorys mitzuarbeiten. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
@@ -154,5 +156,6 @@ Sie haben jetzt ein Repository geforkt, das Klonen Ihres Forks geübt und ein vo
 
 - „[Git einrichten](/articles/set-up-git)“
 - „[Repository erstellen](/articles/create-a-repo)“
+- **Ein Repository forken**
 - „[Soziale Interaktion](/articles/be-social)“
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

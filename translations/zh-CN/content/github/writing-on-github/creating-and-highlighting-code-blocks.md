@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### 语法突显
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 您可以添加可选的语言标识符，以在围栏代码块中启用语法突显。
 
