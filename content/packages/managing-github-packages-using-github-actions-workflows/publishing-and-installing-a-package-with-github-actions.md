@@ -132,11 +132,11 @@ The following example demonstrates how you can use {% data variables.product.pro
             CI: true
 
     build-and-push-image:
-      runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      runs-on: ubuntu-latest
+      needs: run-npm-test {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
       permissions: 
         contents: read
         packages: write {% endif %}
-      needs: run-npm-test
       steps:
         - name: Checkout
           uses: actions/checkout@v2
@@ -231,7 +231,25 @@ on:
   <td>
     This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
   </td>
-  </tr> {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+  </tr>
+  
+  <tr>
+  <td>
+
+{% raw %}
+```yaml
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: run-npm-test
+```
+{% endraw %}
+  </td>
+  <td>
+    This job publishes the package. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+  </td>
+  </tr>
+
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
   <tr>
   <td>
 
@@ -275,7 +293,7 @@ on:
 {% endraw %}
   </td>
   <td>
-    Creates a new step called <code>Build container image</code>. This step runs as part of the <code>build-and-push-image</code> job. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
+    Creates a new step called <code>Build container image</code>. This step runs as part of the <code>build-and-push-image</code> job.
   </td>
   </tr>
   <tr>
