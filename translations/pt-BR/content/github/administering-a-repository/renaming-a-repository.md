@@ -18,7 +18,7 @@ Quando você renomear um repositório, todas as informações existentes, com ex
 * Estrelas
 * Seguidores
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Para obter mais informações sobre sites de projeto, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)".
 
 Além do redirecionamento do tráfego da web, todas as operações `git clone`, `git fetch` ou `git push` direcionadas ao local antigo continuarão a funcionar como se tivessem sido criadas no novo local. No entanto, para reduzir a confusão, recomendamos que a atualização de quaisquer clones locais existentes apontem para a nova URL do repositório. Você pode fazer isso usando o `git remote` na linha de comando:
 
@@ -26,7 +26,7 @@ Além do redirecionamento do tráfego da web, todas as operações `git clone`, 
 $ git remote set-url origin <em>new_url</em>
 ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 

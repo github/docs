@@ -23,7 +23,7 @@ Public installation flows have a landing page to enable other people besides the
 
 ### プライベートのインストールフロー
 
-プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 そのGitHub Appに関する限定的な情報はパブリックなページに存在しますが、**インストール**ボタンはOrganizationの管理者もしくはGitHub Appが個人のアカウントによって所有されている場合はそのユーザアカウントからのみ利用できます。 プライベート、もしくはインターナルのGitHub Appは、オーナーのユーザ、もしくはオーナーのOrganizationアカウントにのみインストールできます。
+プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 そのGitHub Appに関する限定的な情報はパブリックなページに存在しますが、**インストール**ボタンはOrganizationの管理者もしくはGitHub Appが個人のアカウントによって所有されている場合はそのユーザアカウントからのみ利用できます。 Private{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}, or internal,{% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
 
 ### GitHub Appをインストールできるユーザの変更
 
@@ -34,5 +34,5 @@ GitHub Appをインストールできるユーザを変更するには以下の�
 {% data reusables.user-settings.github_apps %}
 3. インストールオプションを変更したいGitHub Appを選択してください。 ![アプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. GitHub Appのインストールオプションに応じて、**Make public（パブリックにする）**もしくは**Make internal（インターナルにする）**をクリックしてください。 ![GitHub Appのインストールオプションを変更するボタン](/assets/images/github-apps/github_apps_make_public.png)
-6. GitHub Appのインストールオプションに応じて、**Yes, make this GitHub App public（はい、このGitHub Appをパブリックにしてください）**もしくは**Yes, make this GitHub App internal（はい、このGitHub Appをインターナルにしてください）**をクリックしてください。 ![インストールオプションの変更の確認ボタン](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**. ![GitHub Appのインストールオプションを変更するボタン](/assets/images/github-apps/github_apps_make_public.png)
+6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**. ![インストールオプションの変更の確認ボタン](/assets/images/github-apps/github_apps_confirm_installation_option.png)

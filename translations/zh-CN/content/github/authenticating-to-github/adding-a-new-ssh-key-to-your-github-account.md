@@ -19,6 +19,14 @@ topics:
 
 {% data reusables.ssh.dsa-support %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 添加 SSH 密钥。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)”。
+
+{% endtip %}
+{% endif %}
+
 {% mac %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -80,6 +88,7 @@ topics:
   如果您的 SSH 公钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 

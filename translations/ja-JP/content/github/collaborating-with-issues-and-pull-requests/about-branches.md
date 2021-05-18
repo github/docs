@@ -23,7 +23,7 @@ topics:
 
 ブランチの作成、プルリクエストのオープン、プルリクエスト中でのブランチの削除とリストアを行うためには、リポジトリへの書き込みアクセスを持っていなければなりません。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
 
-### About the default branch
+### デフォルトブランチについて
 
 {% data reusables.branches.new-repo-default-branch %} デフォルトブランチは、誰かがあなたのリポジトリにアクセスしたときに {% data variables.product.prodname_dotcom %} が表示されるブランチです。 また、デフォルトブランチは、誰かがリポジトリのクローンを作成したときに Git がローカルでチェックアウトする最初のブランチでもあります。 {% data reusables.branches.default-branch-automatically-base-branch %}
 

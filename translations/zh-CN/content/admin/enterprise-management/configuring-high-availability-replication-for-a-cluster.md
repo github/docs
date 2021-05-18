@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
 topics:
+  - Clustering
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### 关于集群的高可用性复制
@@ -22,7 +26,7 @@ topics:
 
 #### 硬件和软件
 
-对于活动群集中的每个现有节点，都需要预配第二个具有相同硬件资源的虚拟机。 例如，如果您的群集有 11 个节点，并且每个节点有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储，则必须预配 11 个新虚拟机，每个虚拟机具有 12 个 vCP、64 GB 的 RAM 和 750 GB 的附加存储。
+对于活动群集中的每个现有节点，都需要预配第二个具有相同硬件资源的虚拟机。 例如，如果您的群集有 11 个节点，并且每个节点有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储，则必须预配 11 个新虚拟机，每个虚拟机具有 12 个 vCP、96 GB 的 RAM 和 750 GB 的附加存储。
 
 在每个新虚拟机上，安装活动群集的节点上运行的相同版本 {% data variables.product.prodname_ghe_server %}。 您不需要上传许可证或执行任何其他配置。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。
 

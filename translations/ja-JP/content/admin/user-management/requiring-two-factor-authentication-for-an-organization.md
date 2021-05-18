@@ -5,8 +5,13 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - 2fa
   - Enterprise
+  - Organizations
+  - Policies
+  - Security
 ---
 
 LDAP またはビルトイン認証を使用している場合、{% data variables.product.product_location %} で 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。

@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Clustering
+  - High availability
   - Enterprise
+  - Infrastructure
 ---
 
 ### 一時的なレプリケーションの停止

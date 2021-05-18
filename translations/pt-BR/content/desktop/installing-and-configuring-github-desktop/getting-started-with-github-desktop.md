@@ -13,7 +13,7 @@ Este guia ajudará você a dar os primeiros passos com {% data variables.product
 
 Você pode achar útil ter um entendimento básico do Git e do {% data variables.product.prodname_dotcom %} antes de começar a usar o {% data variables.product.prodname_desktop %}. Para obter mais informações, consulte os seguintes artigos.
 
-- "[Using Git](/github/getting-started-with-github/using-git)"
+- "[Usar o Git](/github/getting-started-with-github/using-git)"
 - "[Aprender sobre {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
 - "[Começar com {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github)"
 

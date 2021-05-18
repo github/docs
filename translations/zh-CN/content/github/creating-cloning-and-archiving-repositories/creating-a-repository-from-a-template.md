@@ -24,7 +24,7 @@ topics:
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。
+您可以选择仅包括模板仓库的默认分支中的目录结构和文件，或者包括所有分支。 Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 {% endif %}
 
 从模板创建仓库类似于创建仓库的复刻，但存在一些重要差异：

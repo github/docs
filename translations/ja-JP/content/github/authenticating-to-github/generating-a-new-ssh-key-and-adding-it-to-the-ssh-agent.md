@@ -13,9 +13,16 @@ topics:
   - SSH
 ---
 
-SSH キーをまだお持ちでない場合は、[新しい SSH キーを生成](#generating-a-new-ssh-key)する必要があります。 SSH キーを持っているかどうかわからない場合は、[既存のキー](/articles/checking-for-existing-ssh-keys)をチェックします。
+### About SSH key generation
 
-SSH キーを使用するたびにパスフレーズを再入力したくない場合は、[キーを SSH エージェントに追加](#adding-your-ssh-key-to-the-ssh-agent)できます。これにより、SSH キーが管理されパスフレーズが記憶されます。
+If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+If you want to use a hardware security key to authenticate to {% data variables.product.product_name %}, you must generate a new SSH key for your hardware security key. You must connect your hardware security key to your computer when you authenticate with the key pair. For more information, see the [OpenSSH 8.2 release notes](https://www.openssh.com/txt/release-8.2).
+
+{% endif %}
+If you don't want to reenter your passphrase every time you use your SSH key, you can add your key to the SSH agent, which manages your SSH keys and remembers your passphrase.
 
 ### 新しい SSH キーを生成する
 
@@ -62,7 +69,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
   {% endlinux %}
 
-4. プロンプトで、安全なパスフレーズを入力します。 詳細は「[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)」を参照してください。
+4. プロンプトで、安全なパスフレーズを入力します。 For more information, see ["Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)."
   ```shell
   > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
   > Enter same passphrase again: <em>[Type passphrase again]</em>
@@ -70,7 +77,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 ### SSH キーを ssh-agent に追加する
 
-キーを管理するために新しい SSH キーを ssh-agent に追加する前に、[既存の SSH キーの確認](/articles/checking-for-existing-ssh-keys)と[新しい SSH キーの生成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)を済ませておく必要があります。 <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports] macports (https://www.macports.org/)、[homebrew] (http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. <span class="platform-mac">エージェントに SSH キーを追加する際、デフォルトの macOS の `ssh-add` コマンドを使用してください。[macports] macports (https://www.macports.org/)、[homebrew] (http://brew.sh/)、またはその他の外部ソースによってインストールされたアプリケーションは使用しないでください。</span>
 
 {% mac %}
 
@@ -91,7 +98,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
       $ touch ~/.ssh/config
       ```
 
-    * `~/.ssh/config` ファイルを開いて修正し、`id_ed25519` キーのデフォルトの場所と名前を使用していない場合は`~/.ssh/id_ed25519` を置き換えます。
+    * `~/.ssh/config` ファイルを開き、以下の行が含まれるようにファイルを変更します。 SSH キーファイルの名前またはパスがサンプルコードと異なる場合は、現在の設定に一致するようにファイル名またはパスを変更してください。
 
       ```
       Host *
@@ -106,6 +113,25 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
      {% endnote %}
 
+      {% mac %}
+      {% note %}
+
+      **Note:** If you see an error like this
+
+      ```
+      /Users/USER/.ssh/config: line 16: Bad configuration option: usekeychain
+      ```
+
+      add an additional config line to your `Host *` section:
+
+      ```
+      Host *
+        IgnoreUnknown UseKeychain
+      ```
+
+      {% endnote %}
+      {% endmac %}
+
 3. SSH 秘密鍵を ssh-agent に追加して、パスフレーズをキーチェーンに保存します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_ed25519
@@ -118,7 +144,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
   {% endnote %}
 
-4. [SSH キーを GitHub アカウントに追加します](/articles/adding-a-new-ssh-key-to-your-github-account)。
+4. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endmac %}
 
@@ -136,7 +162,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 2. SSH プライベートキーを ssh-agent に追加します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. [SSH キーを GitHub アカウントに追加します](/articles/adding-a-new-ssh-key-to-your-github-account)。
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endwindows %}
 
@@ -144,12 +170,75 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 1. {% data reusables.command_line.start_ssh_agent %}
 
+  In some Linux environments, you need root access to run the command:
+
+  ```
+  $ sudo -s -H
+  $ eval "$(ssh-agent -s)"
+  > Agent pid 59566
+  ```
+
 2. SSH プライベートキーを ssh-agent に追加します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. [SSH キーを GitHub アカウントに追加します](/articles/adding-a-new-ssh-key-to-your-github-account)。
+3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endlinux %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1"  %}
+### Generating a new SSH key for a hardware security key
+
+If you are using macOS or Linux, you may need to update your SSH client or install a new SSH client prior to generating a new SSH key. For more information, see "[Error: Unknown key type](/github/authenticating-to-github/error-unknown-key-type)."
+
+1. Insert your hardware security key into your computer.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+3. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
+  ```shell
+  $ ssh-keygen -t ed25519-sk -C "<em>your_email@example.com</em>"
+  ```
+  {% note %}
+
+  **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+  ```shell
+   $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
+  ```
+
+  {% endnote %}
+4. When you are prompted, touch the button on your hardware security key.
+5. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
+
+  {% mac %}
+
+  ```shell
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519_sk): <em>[Press enter]</em>
+  ```
+
+  {% endmac %}
+
+  {% windows %}
+
+  ```shell
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519_sk):<em>[Press enter]</em>
+  ```
+
+  {% endwindows %}
+
+  {% linux %}
+
+  ```shell
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519_sk): <em>[Press enter]</em>
+  ```
+
+  {% endlinux %}
+
+6. When you are prompted to type a passphrase, press **Enter**.
+  ```shell
+  > Enter passphrase (empty for no passphrase): <em>[Type a passphrase]</em>
+  > Enter same passphrase again: <em>[Type passphrase again]</em>
+  ```
+7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
+
+{% endif %}
 
 ### 参考リンク
 

@@ -7,8 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Webhooks
 ---
 
 ### Sobre webhooks globais

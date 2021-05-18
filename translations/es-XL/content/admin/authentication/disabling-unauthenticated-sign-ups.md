@@ -8,6 +8,8 @@ intro: 'Si usas la autenticación integrada, puedes impedir que las personas no 
 versions:
   enterprise-server: '*'
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
 ---
 

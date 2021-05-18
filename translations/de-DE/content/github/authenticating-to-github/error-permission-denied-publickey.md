@@ -30,7 +30,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+Die Verbindung sollte über Port 22 hergestellt werden{% if currentVersion == "free-pro-team@latest" %}, es sei denn, Du überschreibst die Einstellungen, um [SSH über HTTPS](/articles/using-ssh-over-the-https-port) zu verwenden{% endif %}.
 
 ### Immer den „git“-Benutzer verwenden
 

@@ -130,10 +130,9 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
 2. Abra o projeto que você criou e personalize as configurações no arquivo `app.yml`. Assine o evento `content_reference` e habilite as permissões de gravação `content_reference`:
 
    ``` yml
-
     default_events:
-    - content_reference
-    # O conjunto de permissões necessárias para o aplicativo GitHub. O formato do objeto usa
+      - content_reference
+    # The set of permissions needed by the GitHub App. O formato do objeto usa
     # o nome da permissão para a chave (por exemplo, problemas) e o tipo de acesso para
     # o valor (por exemplo, gravação)
     # Valid values are `read`, `write`, and `none`
@@ -141,10 +140,10 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. Adicione este código ao arquivo `index.js` para lidar com eventos `content_reference` e chamar a API REST:

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Upgrades
 ---
 
 {% note %}

@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -31,7 +35,10 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 1. Passen Sie die Größe der vorhandenen Benutzer-Volume-Disk mithilfe der Tools Ihrer Virtualisierungsplattform an.
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Versetzen Sie die Appliance in den Wartungsmodus. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
-4. Starten Sie die Appliance neu, um die neue Storage-Zuordnung zu ermitteln.
+4. Starten Sie die Appliance neu, um die neue Storage-Zuordnung zu ermitteln:
+  ```shell
+  $ sudo reboot
+  ```
 5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 ### Größe der Root-Partition mit einer neuen Appliance erhöhen
 
 1. Richten Sie eine neue {% data variables.product.prodname_ghe_server %}-Instanz mit einer größeren Root-Disk ein. Verwenden Sie dazu dieselbe Version wie Ihre aktuelle Appliance. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
-2. Fahren Sie die aktuelle Appliance herunter.
+2. Fahren Sie die aktuelle Appliance herunter:
+  ```shell
+  $ sudo poweroff
+  ```
 3. Trennen Sie mithilfe der Tools Ihrer Virtualisierungsplattform die Daten-Disk von der aktuellen Appliance.
 4. Fügen Sie die Daten-Disk an die neue Appliance mit der größeren Root-Disk an.
 
@@ -57,6 +67,9 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Fahren Sie die Appliance herunter.
+4. Fahren Sie die Appliance herunter:
+  ```shell
+  $ sudo poweroff
+  ```
 5. Entfernen Sie auf dem Hypervisor die alte Root-Disk, und fügen Sie die neue Root-Disk am selben Ort als die alte Root-Disk an.
 6. Starten Sie die Appliance.

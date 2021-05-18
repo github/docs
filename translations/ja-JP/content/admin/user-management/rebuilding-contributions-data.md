@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/user-management/rebuilding-contributions-data
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Repositories
+  - User account
 ---
 
 コミットは、{% data variables.product.prodname_enterprise %}にプッシュされるたびに、プッシュのメールアドレスとユーザのメールアドレスが同じ場合は、ユーザアカウントに関連付けられます。 しかし、ユーザが新規メールアドレスの登録や新規アカウントの作成をした場合、既存のコミットは、遡及的には関連付けられ*ません*。

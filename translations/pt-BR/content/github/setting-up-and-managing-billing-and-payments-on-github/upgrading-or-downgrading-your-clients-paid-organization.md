@@ -22,11 +22,9 @@ topics:
 
 ### Atualizar o número de estações pagas de uma organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -35,10 +33,8 @@ Depois que você adicionar as estações, será cobrado na forma de pagamento re
 
 ### Fazer downdgrade do número de estações pagas de uma organização para gratuitas
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

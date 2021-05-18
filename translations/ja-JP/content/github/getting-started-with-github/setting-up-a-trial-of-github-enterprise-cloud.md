@@ -50,10 +50,10 @@ topics:
 
 Organization の {% data variables.product.prodname_free_team %} にダウングレードすると、トライアル期間中に設定した SAML 設定も無効になります。 {% data variables.product.prodname_enterprise %} または {% data variables.product.prodname_team %} を購入すると、Organization 内のユーザーが認証できるように SAML 設定が再度有効になります。
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. [{% data variables.product.prodname_ghe_cloud %} Free Trial] の下で、[**Buy Enterprise**] または [**Downgrade to Team**] をクリックします。 ![[Buy Enterprise and Downgrade to Team] ボタン](/assets/images/help/organizations/finish-trial-buttons.png)
 6. プロンプトに従ってお支払い方法を入力し、[**Submit**] をクリックします。
 

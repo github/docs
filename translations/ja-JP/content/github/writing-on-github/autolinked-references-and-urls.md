@@ -21,7 +21,7 @@ versions:
 
 ### Issue およびプルリクエスト
 
-{% data variables.product.product_name %} 上の会話の中では、Issue やプルリクエストへの参照は自動的に短縮リンクに変換されます。 詳細は「[{% data variables.product.prodname_dotcom %} 上の会話について](/articles/about-conversations-on-github)」を参照してください。
+{% data variables.product.product_name %} 上の会話の中では、Issue やプルリクエストへの参照は自動的に短縮リンクに変換されます。
 
 {% note %}
 

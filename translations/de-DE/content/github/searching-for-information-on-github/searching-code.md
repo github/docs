@@ -66,8 +66,9 @@ Mit dem Kennzeichner `path` können Sie nach Quellcode unter einem bestimmten Pf
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) sucht JavaScript-Dateien mit dem Wort „console“ im Verzeichnis <em>app/public</em> oder in dessen Unterverzeichnissen (auch im Verzeichnis <em>app/public/js/form-validators</em>). |
 
 ### Suche nach Sprache
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-Sie können Code auch in Abhängigkeit der Programmiersprache suchen.
+Du kannst Code auch in Abhängigkeit der Programmiersprache suchen. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                        |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -105,5 +106,5 @@ Der Kennzeichner `extension` sucht Codedateien mit einer bestimmten Dateierweite
 ### Weiterführende Informationen
 
 - „[Suchergebnisse sortieren](/articles/sorting-search-results/)“
-- "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- „[Durchsuchen von Forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Navigieren von Code auf {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

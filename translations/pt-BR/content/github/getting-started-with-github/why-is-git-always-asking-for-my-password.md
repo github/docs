@@ -18,6 +18,6 @@ Você pode evitar que seja solicitada a sua senha ao configurar o Git para [arma
 
 ### Leia mais
 
-- "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+- "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)."
 - "[Sobre a autenticação em {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
 - "[Adicionar a sua chave SSH ao ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"

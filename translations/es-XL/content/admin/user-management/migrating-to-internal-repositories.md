@@ -9,6 +9,9 @@ versions:
   enterprise-server: '>=2.20'
 topics:
   - Enterprise
+  - Privacy
+  - Repositories
+  - Security
 ---
 
 ### Acerca de los repositorios internos

@@ -1,6 +1,6 @@
 ---
 title: Acerca de Importador GitHub
-intro: 'Si tienes un código fuente en Subversion, Mercurial, Team Foundation Server u otro repositorio de Git, puedes moverlo a GitHub usando el Importador GitHub.'
+intro: 'If you have source code in Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository, you can move it to GitHub using GitHub Importer.'
 redirect_from:
   - /articles/about-github-importer
 versions:
@@ -13,12 +13,12 @@ Importador GitHub es una herramienta que importa de forma rápida repositorios d
 
 Durante una importación, dependiendo del sistema de control de la versión del que estás importando, puedes autenticar con tu repositorio remoto, actualizar la atribución del autor de la confirmación e importar repositorios con archivos grandes (o eliminar archivos grandes si no quieres usar Large File Storage de Git).
 
-| Acción de importación                                                                                                      | Subversion | Mercurial | Team Foundation Server |  Git  |
-|:-------------------------------------------------------------------------------------------------------------------------- |:----------:|:---------:|:----------------------:|:-----:|
-| Autenticar con repositorio remoto                                                                                          |   **X**    |   **X**   |         **X**          | **X** |
-| [Actualizar la atribución del autor de la confirmación](/articles/updating-commit-author-attribution-with-github-importer) |   **X**    |   **X**   |         **X**          |       |
-| Mover archivos grandes a [Large File Storage de Git](/articles/about-git-large-file-storage)                               |   **X**    |   **X**   |         **X**          |       |
-| Eliminar archivos grandes de tu repositorio                                                                                |   **X**    |   **X**   |         **X**          |       |
+| Acción de importación                                                                                                      | Subversion | Mercurial | TFVC  |  Git  |
+|:-------------------------------------------------------------------------------------------------------------------------- |:----------:|:---------:|:-----:|:-----:|
+| Autenticar con repositorio remoto                                                                                          |   **X**    |   **X**   | **X** | **X** |
+| [Actualizar la atribución del autor de la confirmación](/articles/updating-commit-author-attribution-with-github-importer) |   **X**    |   **X**   | **X** |       |
+| Mover archivos grandes a [Large File Storage de Git](/articles/about-git-large-file-storage)                               |   **X**    |   **X**   | **X** |       |
+| Eliminar archivos grandes de tu repositorio                                                                                |   **X**    |   **X**   | **X** |       |
 
 ### Leer más
 

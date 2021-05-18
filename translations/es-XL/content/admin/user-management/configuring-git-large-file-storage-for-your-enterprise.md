@@ -16,7 +16,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
+  - Git
   - Enterprise
+  - LFS
+  - Storage
 ---
 
 ### Acerca de {% data variables.large_files.product_name_long %}

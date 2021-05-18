@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, das Replikat manuell hochzustufen und den Traffic weiterzuleiten. Die Durchschnittszeit beträgt zwischen 2 und 10 Minuten.

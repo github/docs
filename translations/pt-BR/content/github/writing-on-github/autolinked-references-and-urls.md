@@ -21,7 +21,7 @@ Para obter mais informações sobre como criar links, consulte "[Sintaxe básica
 
 ### Problemas e pull requests
 
-Nas conversas do {% data variables.product.product_name %}, as referências a problemas e pull request são convertidas automaticamente em links curtos. Para obter mais informações, consulte "[Sobre conversas no {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)".
+Nas conversas do {% data variables.product.product_name %}, as referências a problemas e pull request são convertidas automaticamente em links curtos.
 
 {% note %}
 

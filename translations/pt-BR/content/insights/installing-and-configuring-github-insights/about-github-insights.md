@@ -1,7 +1,6 @@
 ---
 title: Sobre o GitHub Insights
 intro: 'O {% data variables.product.prodname_insights %} fornece métricas e relatórios analíticos para ajudar as equipes de engenharia a entender e melhorar seu processo de entrega de software.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/about-github-insights
 versions:

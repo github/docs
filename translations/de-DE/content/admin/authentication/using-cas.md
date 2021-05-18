@@ -5,11 +5,16 @@ redirect_from:
   - /enterprise/admin/articles/about-cas-authentication/
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
-intro: 'CAS ist ein Single Sign-On-Protokoll (SSO) für mehrere Webanwendungen. A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
+intro: 'CAS ist ein Single Sign-On-Protokoll (SSO) für mehrere Webanwendungen. Ein CAS-Benutzerkonto übernimmt eine(n) {% if currentVersion ver_gt "enterprise-server@2.16" %}Benutzerlizenz{% else %}Benutzer{% endif %} erst nach Anmeldung des Benutzers.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

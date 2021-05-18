@@ -91,7 +91,7 @@ O processo do `ssh-agent` continuará sendo executado até você fazer logoff, d
 
 ### Salvar a frase secreta na keychain
 
-No OS X Leopard até o OS X El Capitan, estes arquivos padrão de chave privada são processados de forma automática:
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

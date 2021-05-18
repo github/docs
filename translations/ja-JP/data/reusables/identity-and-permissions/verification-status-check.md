@@ -1,0 +1,1 @@
+{% data variables.product.product_name %}上の署名されたコミットあるいはタグの検証ステータスをチェックして、コミットの署名が検証されない理由を見ることができます。 詳細は「[コミットおよびタグの署名の検証のステータスをチェックする](/articles/checking-your-commit-and-tag-signature-verification-status)」を参照してください。

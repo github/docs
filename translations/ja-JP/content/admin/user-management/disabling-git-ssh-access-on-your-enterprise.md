@@ -17,8 +17,12 @@ intro: Enterprise 内の特定のリポジトリまたはすべてのリポジ�
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Policies
+  - Security
+  - SSH
 ---
 
 ### 特定のリポジトリへのGit SSHアクセスの無効化

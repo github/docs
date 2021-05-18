@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsのインストール
 intro: '{% data variables.product.prodname_insights %}をインストールし、そのスタンドアローンアプリケーションを{% data variables.product.prodname_ghe_server %}に接続できます。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
 permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'
@@ -16,7 +15,7 @@ versions:
 - アプリケーションサーバーに依存関係をインストールしなければなりません。
   - [Docker](https://docs.docker.com/install/) 1.13.0+
   - [Docker Compose](https://docs.docker.com/compose/install/) v1.17.0+
-  - [netcat](http://netcat.sourceforge.net/), available via apt for [Debian](https://packages.debian.org/search?keywords=netcat) and [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names)
+  - [netcat](http://netcat.sourceforge.net/)、[Debian](https://packages.debian.org/search?keywords=netcat) および [Ubuntu](https://packages.ubuntu.com/search?keywords=netcat&searchon=names) 用の apt 経由で入手可能
 
   {% note %}
 

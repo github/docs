@@ -16,6 +16,8 @@ topics:
   - Accounts
 ---
 
+### フォークについて
+
 一般的にフォークは、他のユーザのプロジェクトへの変更を提案するため、あるいは他のユーザのプロジェクトを自分のアイディアの出発点として活用するために使用します。
 
 #### 他のユーザのプロジェクトへの変更を提案する
@@ -34,7 +36,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense.com の「[オープンソースのライセンスを選択する](http://choosealicense.com/)」を参照してください。
+他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense.com の「[オープンソースのライセンスを選択する](https://choosealicense.com/)」を参照してください。
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
@@ -154,5 +156,6 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 
 - [Git をセットアップする](/articles/set-up-git)
 - 「[リポジトリを作成する](/articles/create-a-repo)」
+- **リポジトリのフォーク**
 - [交流する](/articles/be-social)
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

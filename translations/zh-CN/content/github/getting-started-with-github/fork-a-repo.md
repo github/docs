@@ -16,6 +16,8 @@ topics:
   - Accounts
 ---
 
+### 关于复刻
+
 复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。
 
 #### 对其他人的项目提出更改
@@ -34,7 +36,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](http://choosealicense.com/)”。
+从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense.com 上的“[选择开源许可](https://choosealicense.com/)”。
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
@@ -154,5 +156,6 @@ topics:
 
 - “[设置 Git](/articles/set-up-git)”
 - “[创建仓库](/articles/create-a-repo)”
+- **复刻仓库**
 - “[社交化](/articles/be-social)”
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

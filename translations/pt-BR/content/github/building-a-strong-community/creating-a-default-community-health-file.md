@@ -20,7 +20,7 @@ Você pode adicionar arquivos padrão de saúde da comunidade à raiz de um repo
 - a pasta `.github`
 - a pasta `docs`
 
-Por exemplo, qualquer pessoa que cria um problema ou uma pull request em um repositório público que não tem o próprio arquivo CONTRIBUTING verá um link para o arquivo CONTRIBUTING padrão. Se um repositório tiver arquivos na usa própria pasta `.github/ISSUE_TEMPLATE`{% if currentVersion == "free-pro-team@latest" or currentversion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}, incluindo modelos de problema ou um arquivo *config.yml*,{% endif %} nenhum conteúdo da pasta padrão `.github/ISSUE_TEMPLATE` será usado.
+Por exemplo, qualquer pessoa que cria um problema ou uma pull request em um repositório público que não tem o próprio arquivo CONTRIBUTING verá um link para o arquivo CONTRIBUTING padrão. Se um repositório tiver arquivos na usa própria pasta `.github/ISSUE_TEMPLATE`{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}, incluindo modelos de problema ou um arquivo *config.yml*,{% endif %} nenhum conteúdo da pasta padrão `.github/ISSUE_TEMPLATE` será usado.
 
 Os arquivos padrão não são incluídos em clones, pacotes ou downloads de repositórios individuais, pois eles são armazenados somente no repositório `.github`.
 

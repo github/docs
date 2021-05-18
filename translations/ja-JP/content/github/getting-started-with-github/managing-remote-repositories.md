@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
 
 You can [use a credential helper](/github/getting-started-with-github/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
-#### Switching remote URLs from HTTPS to SSH
+#### リモート URL の HTTPS から SSH への切り替え
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。

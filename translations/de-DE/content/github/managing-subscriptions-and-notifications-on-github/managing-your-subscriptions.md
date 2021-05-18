@@ -57,13 +57,13 @@ Wenn Du ein Repository nicht mehr beobachtest, meldest Du Dich von zukünftigen 
 {% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Nimm auf der Seite der beobachteten Repositorys eine Bewertung dieser Repositorys vor und wähle dann aus:
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-    - ein Repository nicht mehr beobachten
-    - nur Releases für ein Repository beobachten
-    - ignoriere alle Benachrichtigungen für ein Repository
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
-    - ein Repository nicht mehr beobachten
-    - ignoriere alle Benachrichtigungen für ein Repository
-    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
-{% endif %}
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
+    - Ein Repository nicht mehr beobachten
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+    - Ein Repository nicht mehr beobachten
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

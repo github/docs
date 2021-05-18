@@ -28,11 +28,9 @@ topics:
 您可以将个人帐户从 {% data variables.product.prodname_free_user %} 升级到 {% data variables.product.prodname_pro %}，以获得私有仓库中的高级代码审查工具。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-4. 在“
-{% data variables.product.prodname_free_user %}”旁边，单击 **Upgrade（升级）**。
-  ![升级按钮](/assets/images/help/billing/settings_billing_user_upgrade.png)
+{% data reusables.user_settings.billing_plans %}
+1. Next to "Current plan", click **Upgrade**. ![升级按钮](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}
@@ -44,11 +42,9 @@ topics:
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %}
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
@@ -67,11 +63,9 @@ topics:
 
 如果希望其他用户能够访问您 {% data variables.product.prodname_team %} 组织的私有仓库，您可以随时购买更多席位。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -80,10 +74,9 @@ topics:
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. 在计划名称的右侧，使用 **Edit（编辑）**下拉菜单，然后选择 **Edit plan（编辑计划）**。 ![编辑下拉菜单](/assets/images/help/billing/per-user-upgrade-button.png)
 6. 在“Advanced tools for teams（团队的高级工具）”右侧，单击 **Upgrade now（立即升级）**。 ![立即升级按钮](/assets/images/help/billing/per-user-upgrade-now-button.png)
 {% data reusables.dotcom_billing.choose_org_plan %}

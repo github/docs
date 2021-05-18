@@ -7,7 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Clustering
+  - High availability
   - Enterprise
+  - Infrastructure
 ---
 
 ### Detener una replicación de forma temporal

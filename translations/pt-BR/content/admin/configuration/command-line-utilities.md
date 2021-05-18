@@ -9,8 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - SSH
 ---
 
 Depois de entrar como usuário administrador com SSH, você pode executar esses comandos de qualquer lugar na VM. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
@@ -483,15 +485,21 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 Para exibir a carga útil total do hook, o resultado e quaisquer exceções para a entrega:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### Clustering
 
 #### ghe-cluster-status
 
-Este utilitário permite que você gerencie o servidor distribuído {% data variables.product.prodname_pages %}.
+Verifique a saúde dos seus nós e serviços em uma implantação de clustering de {% data variables.product.prodname_ghe_server %}.
 
 ```shell
 $ ghe-cluster-status
@@ -644,14 +652,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-Este utilitário importa de Controle de versões do Team Foundation. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-Este utilitário reescreve o repositório importado. Isso lhe dá a chance de renomear os autores e, para Subversion e TFS, produz branches Git baseados em pastas. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-rewrite
 ```

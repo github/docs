@@ -11,8 +11,11 @@ redirect_from:
   - /enterprise/admin/installation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Set up
 ---
 
 詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。

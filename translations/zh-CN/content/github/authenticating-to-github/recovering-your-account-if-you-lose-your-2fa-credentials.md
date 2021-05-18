@@ -60,7 +60,7 @@ topics:
 5. 在“One-time password（一次性密码）”下，键入恢复电子邮件 {% data variables.product.prodname_dotcom %} 发送的临时密码。 ![一次性密码字段](/assets/images/help/2fa/one-time-password-field.png)
 6. 单击 **Verify email address（验证电子邮件地址）**。
 7. 选择替代验证因素。
-    - 如果您之前已经使用当前设备登录此帐户，并且想使用该设备进行验证，请单击 **Verify this device（验证此设备）**。
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - 如果您之前已在此帐户上设置 SSH 密钥，并且想使用此 SSH 密钥进行验证，请单击 **SSH key（SSH 密钥）**。
     - 如果您之前已经设置个人访问令牌，并且想使用个人访问令牌进行验证，请单击 **Personal access token（个人访问令牌）**。 ![替代验证按钮](/assets/images/help/2fa/alt-verifications.png)
 8. {% data variables.contact.github_support %} 的成员将在 3-5 个工作日内审查您的请求并给您发送电子邮件。 如果您的请求获得批准，您将收到一个完成帐户恢复过程的链接。 如果您的请求被拒绝，电子邮件将说明就任何其他问题联系支持的方式。

@@ -12,6 +12,8 @@ versions:
   github-ae: '*'
 ---
 
+### About subtree merges
+
 Typischerweise wird eine Unterstruktur zusammengeführt, um ein Repository innerhalb eines anderen Repositorys einzubinden. Das „Unterrepository“ wird in einem Ordner des Haupt-Repositorys gespeichert.
 
 Das Zusammenführen von Unterstrukturen lässt sich am besten anhand eines Beispiels erläutern. Dabei sind folgende Schritte notwendig:

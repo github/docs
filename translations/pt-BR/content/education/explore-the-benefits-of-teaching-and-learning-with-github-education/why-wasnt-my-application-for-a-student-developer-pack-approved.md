@@ -59,11 +59,11 @@ Para obter mais informações, consulte:
 ### Status de aluno não qualificado
 
 Você não estará qualificado para um {% data variables.product.prodname_student_pack %} se:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
-- You're pursuing a degree which will be terminated in the current academic session.
+- Você está inscrito em um programa de aprendizagem informal que não faz parte de [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) e não está inscrito em curso que irá conceder uma título ou diploma.
+- Você irá obter um título que não estará mais disponível na sessão acadêmica atual.
 - Tiver menos de 13 anos.
 
-Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
+Seu instrutor ainda poderá se candidatar a um desconto {% data variables.product.prodname_education %} para uso em sala de aula. Se você é um estudante em uma escola de programação ou bootcamp, você irá tornar-se elegível a {% data variables.product.prodname_student_pack %}, caso sua escola ingresse em [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Leia mais
 

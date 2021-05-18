@@ -19,6 +19,14 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% data reusables.ssh.dsa-support %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 {% mac %}
 
 1. Copie a chave pública SSH para a sua área de transferência.
@@ -80,8 +88,9 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
   Se o seu arquivo de chave pública SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
-  # Baixa e instala xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
+  # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
   $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
   # Copies the contents of the id_ed25519.pub file to your clipboard

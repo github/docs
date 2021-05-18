@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 Teams sind zentral für viele gemeinschaftliche Features von {% data variables.product.prodname_dotcom %}, beispielsweise Team-@Erwähnungen, um die entsprechenden Teilnehmer dahingehend zu informieren, dass Sie deren Beiträge oder Aufmerksamkeit anfordern möchten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für die Repositorys einer Organisation](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)“.
