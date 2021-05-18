@@ -3,8 +3,13 @@ title: Alta disponibilidade para o GitHub Actions
 intro: 'Há algumas considerações especiais para administrar {% data variables.product.prodname_actions %} em uma configuração de alta disponibilidade.'
 versions:
   enterprise-server: '>=3.0'
+type: reference
 topics:
+  - Actions
   - Enterprise
+  - High availability
+  - Infrastructure
+  - Storage
 ---
 
 ### Replicação ou redundância dos seus dados de {% data variables.product.prodname_actions %}

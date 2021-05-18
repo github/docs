@@ -1,5 +1,5 @@
 ---
-title: Inviting people to manage your enterprise
+title: Enterprise を管理するようユーザを招待する
 intro: Enterprise アカウントで Enterprise オーナーまたは支払いマネージャーになるように人を招待することができます。 Enterprise アカウントにアクセスする必要がなくなった Enterprise オーナーまたは支払いマネージャーを削除することもできます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -15,7 +15,7 @@ topics:
 
 ### Enterprise アカウントを管理するようユーザを招待することについて
 
-{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).
+{% data reusables.enterprise-accounts.enterprise-administrators %}詳しい情報については、「[Enterprise のロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
 {% tip %}
 

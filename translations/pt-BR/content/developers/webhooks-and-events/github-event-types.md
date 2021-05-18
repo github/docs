@@ -45,7 +45,7 @@ Os objetos de evento retornados dos pontos de extremidade da API de eventos têm
 Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/rest/reference/activity#events).
 
 ```
-HTTP/1.1 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -194,7 +194,7 @@ Este evento retorna um objeto de `carga` vazio.
 | Tecla          | Tipo     | Descrição                                    |
 | -------------- | -------- | -------------------------------------------- |
 | `Ação`         | `string` | A ação que foi executada. Pode ser `criado`. |
-| `pull_request` | `objeto` | The pull request the review pertains to.     |
+| `pull_request` | `objeto` | O pull request ao qual a revisão pertence.   |
 | `revisar`      | `objeto` | A revisão que foi afetada.                   |
 
 ### PullRequestReviewCommentEvent

@@ -42,9 +42,21 @@ topics:
 
 {% endif %}
 
+### 为 README 文件自动生成的目录
+
+对于仓库中任何 Markdown 文件（包括 README 文件）的视图，{% data variables.product.product_name %} 将自动生成基于章节标题的目录。 您可以通过单击渲染页面左上侧的 {% octicon "list-unordered" aria-label="The unordered list icon" %}  菜单图标来查看 README 文件的目录。
+
+![自动生成目录的自述文件](/assets/images/help/repository/readme-automatic-toc.png)
+
+自动生成的目录默认对仓库中所有 Markdown 文件启用，但您可以对您的仓库禁用此功能。
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. 在“Features（功能）”下，取消选择 **Table of contents（目录）**。 ![仓库的自动目录设置](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
 ### 自述文件和 blob 页面中的章节链接
 
-许多项目使用目录和自述文件的开头将用户导向文件的不同章节。 {% data reusables.repositories.section-links %}
+{% data reusables.repositories.section-links %}
 
 ### 自述文件中的相对链接和图像路径
 

@@ -8,8 +8,10 @@ redirect_from:
   - /enterprise/admin/enterprise-support/providing-data-to-github-support
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Support
 ---
 
 ### Diagnosedateien erstellen und freigeben

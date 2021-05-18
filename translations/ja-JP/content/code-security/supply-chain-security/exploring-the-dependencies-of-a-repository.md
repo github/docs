@@ -1,5 +1,5 @@
 ---
-title: Exploring the dependencies of a repository
+title: リポジトリの依存関係を調べる
 intro: 'You can use the dependency graph to see the packages your project depends on{% if currentVersion == "free-pro-team@latest" %} and the repositories that depend on it{% endif %}. また、その依存関係で脆弱性が検出されると、それも表示されます。'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
@@ -15,11 +15,13 @@ topics:
   - Repositories
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
+
 ### 依存関係グラフの表示
 
 {% data reusables.repositories.enable-security-alerts %}
 
-The dependency graph shows the dependencies{% if currentVersion == "free-pro-team@latest" %} and dependents{% endif %} of your repository. For information about the detection of dependencies and which ecosystems are supported, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+The dependency graph shows the dependencies{% if currentVersion == "free-pro-team@latest" %} and dependents{% endif %} of your repository. 依存関係の検出とサポートされているエコシステムについては、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
@@ -50,19 +52,6 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-![依存関係グラフ](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
-
-{% endif %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 #### 依存ビュー
 
@@ -74,7 +63,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 リポジトリ管理者は、プライベートリポジトリに対して依存関係グラフを有効または無効にすることができます。
 
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+You can also enable or disable the dependency graph for all repositories owned by your user account or organization. 詳しい情報については、「[ユーザーアカウントのセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」または「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -113,8 +102,8 @@ The "Used by" section represents a single package from the repository. If you ha
 
 ### 参考リンク
 
-- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
+- [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository){% if currentVersion == "free-pro-team@latest" %}
 - [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)
-- [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)
 - [{% data variables.product.product_name %} によるデータの利用方法と保護方法を理解する](/github/understanding-how-github-uses-and-protects-your-data)
 {% endif %}

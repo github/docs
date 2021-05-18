@@ -8,6 +8,8 @@ versions:
   github-ae: '*'
 topics:
   - Enterprise
+  - Security
+  - User account
 ---
 
 ### Activar autenticación de dos factores

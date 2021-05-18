@@ -15,15 +15,15 @@ Para oferecer planos pagos para o seu aplicativo, este deverá pertencer a uma o
 
 ### Solicitar verificação de publicador
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. Na barra lateral esquerda, clique em **Developer settings** (Configurações do desenvolvedor). ![Opção de configurações do desenvolvedor na barra lateral de configurações da organização](/assets/images/marketplace/developer-settings-in-org-settings.png)
 1. Em "Configurações de desenvolvedor", clique em **Verificação do publicador**. ![Opção de verificação do editor na barra lateral de configurações da organização](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Em "Verificação do Publicador, preencha as informações na lista de verificação:
    - Certifique-se de que as suas informações básicas do perfil estejam presentes e precisas. Além disso, certifique-se de incluir o melhor endereço de e-mail para suporte e atualizações de {% data variables.product.company_short %}.
    - Certifique-se de que a autenticação de dois fatores esteja habilitada para a sua organização. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. Para obter informações relacionadas, consulte "[Verificar o domínio da sua organização](/organizations/managing-organization-settings/verifying-your-organizations-domain)".
+   - Envie um domínio verificado e certifique-se de que um selo "Verificado" seja exibido na página de perfil da sua organização. For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
   ![Lista de verificação do publicador](/assets/images/marketplace/publisher-verification-checklist.png)
 

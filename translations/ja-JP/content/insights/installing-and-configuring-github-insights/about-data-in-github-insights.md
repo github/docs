@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsのデータについて
 intro: '{% data variables.product.prodname_insights %}のメトリクスに含まれるデータは、高度にカスタマイズできます。'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: ''
 versions:
   enterprise-server: '*'

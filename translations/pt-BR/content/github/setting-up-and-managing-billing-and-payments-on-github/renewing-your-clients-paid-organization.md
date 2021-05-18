@@ -20,10 +20,9 @@ topics:
 
 ### Atualizar as informações de cartão de crédito da organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Insira as informações do novo cartão de crédito no formulário seguro. ![Formulário de informações do cartão de crédito](/assets/images/help/settings/creditcard-billing-form.png)
-1. Clique em **Update credit card** (Atualizar cartão de crédito) ou em **Save credit card** (Salvar cartão de crédito).
+1. Under "Payment method", click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+{% data reusables.dotcom_billing.enter-payment-info %}

@@ -19,6 +19,14 @@ Qualquer pessoa com permissões de leitura em um repositório pode criar um pull
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### Alterar o intervalo de branches e o repositório de destino
 
 Por padrão, as pull requests são baseadas no [branch padrão](/articles/setting-the-default-branch) do repositório principal. Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".

@@ -29,7 +29,7 @@ Se seu aplicativo já foi publicado com um plano pago e você é um editor verif
 
 ![Botão Publicar este plano](/assets/images/marketplace/publish-this-plan-button.png)
 
-If your app is already published with a paid plan and but you are not a verified publisher, then you can cannot publish a new paid plan until you are a verified publisher. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+Se seu aplicativo já foi publicado com um plano pago, mas você não é um editor verificado, você não poderá publicar um novo plano pago até que um editor seja verificado. Para obter mais informações sobre como se tornar um editor verificado, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
 ### Sobre como salvar planos de preços
 
@@ -82,4 +82,4 @@ Você pode desativar os testes grátis do GitHub Marketplace sem remover o plano
 
 Depois de remover um plano de preços, você poderá criar um novo plano com o mesmo nome do plano de preços removido. Por exemplo, se você tem um plano de preços "Pro", mas precisa alterar o preço fixo, você poderá remover o plano de preços "Pro" e criar um novo plano de preços "Pro" com um preço atualizado. Os usuários poderão comprar o novo plano de preços imediatamente.
 
-If you are not a verified publisher, then you cannot change a pricing plan for your app. For more information about becoming a verified publisher, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+Se você não for um editor verificado, você não poderá alterar um plano de preços para o seu aplicativo. Para obter mais informações sobre como se tornar um editor verificado, consulte "[Candidatar-se à verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".

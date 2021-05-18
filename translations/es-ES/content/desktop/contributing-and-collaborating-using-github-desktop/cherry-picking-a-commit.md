@@ -1,22 +1,22 @@
 ---
-title: Cherry-picking a commit
-intro: You can pick a specific commit on one branch and copy the commit to another branch.
+title: Escoger una confirmación minuciosamente
+intro: Puedes escoger una confirmación específica en una rama y copiarla a otra rama.
 versions:
   free-pro-team: '*'
 ---
 
-### About Git cherry-pick
+### Acerca de la selección minuciosa de Git
 
-You can cherry-pick a commit on one branch to create a copy of the commit with the same changes on another branch. If you commit changes to the wrong branch or want to make the same changes to another branch, you can cherry-pick the commit to apply the changes to another branch. You can also use cherry-picking to apply specific changes before you are ready to create or merge a pull request. For example, if you commit a bug fix to a feature branch, you can cherry-pick the commit with the bug fix to other branches of your project.
+Puedes elegir minuciosamente una confirmación en una rama para crear una copia de la confirmación con los mismos cambios en otra rama. Si tu confirmación cambia a la rama incorrecta o quiere hacer los mismos cambios en otra rama, puedes elegir minuciosamente la confirmación para aplicar los cambios en otra rama. También puedes utilizar la selección minuciosa para aplicar cambios específicos antes de que estés listo para crear o fusionar la solicitud de cambios,. Por ejemplo, si confirmas una corrección de error en una rama de característica, puedes seleccionar minuciosamente la confirmación con el arreglo del error en otras ramas de tu proyecto.
 
-You can also use cherry-picking when collaborating with a team. Some projects incorporate contributions by cherry-picking commits. For more information, see [Distributed Git - Maintaining a Project](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project#_rebase_cherry_pick) in the Git documentation.
+También puedes usar la selección minuciosa para colaborar con un equipo. Algunos proyectos incorporan colaboraciones por confirmaciones de selección minuciosa. Para obtener más información, consulta la sección [Git Distribuido - Mantener un Proyecto](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project#_rebase_cherry_pick) en la documentación de Git.
 
-### Cherry-picking a commit
+### Escoger una confirmación minuciosamente
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, click the branch that has the commit that you want to cherry-pick.
+2. En la lista de ramas, haz clic en aquella que tiene la confirmación que quieres seleccionar minuciosamente.
 {% data reusables.desktop.history-tab %}
-4. Drag the commit that you want to cherry-pick to the {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** menu and drop the commit on the branch that you want to copy the commit to. ![Dragging a commit to another branch in the Current Branch menu](/assets/images/help/desktop/cherry-picking.png)
+4. Arrastra la confirmación que quieres seleccionar minuciosamente al {% octicon "git-branch" aria-label="The branch icon" %} menú de **Rama Actual** y suelta la confirmación en la rama en la que quieres copiar la confirmación. ![Arrastrar una confirmación a otra rama en el menú de la rama actual](/assets/images/help/desktop/cherry-picking.png)
 
 ### Leer más
-- [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
+- [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) en la documentación de Git

@@ -48,7 +48,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. 在“Manage access（管理访问权限）”下，找到要删除其访问权限的团队或人员，然后单击 {% octicon "trashcan" aria-label="The trashcan icon" %}。 ![用于删除访问权限的回收站图标](/assets/images/help/repository/manage-access-remove.png)
+4. 在“Manage access（管理访问权限）”下，找到要删除其访问权限的团队或人员，然后单击 {% octicon "trash" aria-label="The trash icon" %}。 ![用于删除访问权限的回收站图标](/assets/images/help/repository/manage-access-remove.png)
 
 ### 延伸阅读
 

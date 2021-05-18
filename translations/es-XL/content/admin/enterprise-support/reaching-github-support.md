@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Support
 ---
 
 ### Usar sistemas de tickets automatizado

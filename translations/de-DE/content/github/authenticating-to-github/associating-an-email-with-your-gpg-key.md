@@ -29,7 +29,7 @@ Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität un
   ```shell
   $ gpg> adduid
   ```
-6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

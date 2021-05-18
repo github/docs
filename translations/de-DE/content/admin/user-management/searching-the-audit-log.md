@@ -8,8 +8,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Auditing
   - Enterprise
+  - Logging
 ---
 
 ### Suchabfragesyntax
@@ -37,7 +40,7 @@ So können Sie beispielsweise alle Aktionen anzeigen, die sich seit Anfang 2017 
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
+Eine vollständige Liste der Aktionen finden Sie unter „[Überwachte Aktionen](/admin/user-management/audited-actions)“.
 
 ### Auditprotokoll durchsuchen
 

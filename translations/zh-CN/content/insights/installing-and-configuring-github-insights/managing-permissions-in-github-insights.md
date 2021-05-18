@@ -1,7 +1,6 @@
 ---
 title: 管理 GitHub Insights 中的权限
 intro: '您可以在 {% data variables.product.prodname_insights %} 中更新用户的权限。'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage permissions.'
 versions:
   enterprise-server: '*'

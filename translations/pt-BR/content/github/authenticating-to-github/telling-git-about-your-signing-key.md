@@ -31,12 +31,12 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
+1. Se você não estiver usando o pacote GPG, execute o comando a seguir no shell do `zsh` para adicionar a chave GPG ao seu arquivo `.zshrc`, se ele existir, ou seu arquivo `.zprofile`:
   ```shell
   $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
   ```
-  Alternatively, if you use the `bash` shell, run this command:
+  Como alternativa, se você usar o shall de `bash`, execute este comando:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
@@ -93,7 +93,7 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. To add your GPG key to your bash profile, run the following command:
+1. Para adicionar a sua chave GPG ao seu perfil bash, execute o seguinte comando:
   ```shell
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi

@@ -17,13 +17,13 @@ Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um 
 
 {% note %}
 
-**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
+**Observação:** Você pode fazer o download do código-fonte completo para este projeto [no repositório de amostras de plataforma][platform samples].
 
 {% endnote %}
 
 ### Escrevendo o servidor
 
-Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+Queremos que nosso servidor escute as solicitações de `POST`, em `/payload`, porque foi onde informamos ao GitHub que era a nossa URL. Uma vez que estamos usando ngrok para expor o nosso ambiente local, não precisamos configurar um servidor real on-line, e é possível testar tranquilamente o nosso código localmente.
 
 Vamos configurar um pouco o aplicativo Sinatra para fazer algo com as informações. Nossa configuração inicial do a configuração pode parecer como isso:
 
@@ -41,7 +41,7 @@ end
 
 Inicie este servidor.
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. Depois de criar, volte para o terminal. Você deve ver algo assim em sua saída:
+Desde que configuramos nosso webhook para ouvir eventos que gerenciam `Problemas`, siga em frente e crie uma novo problema no repositório que você está testando. Depois de criar, volte para o terminal. Você deve ver algo assim em sua saída:
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb

@@ -10,7 +10,7 @@ topics:
   - Notifications
 ---
 
-When you push commits from the command line, the email address that you've [set in Git](/articles/setting-your-commit-email-address) is associated with your commits. This setting blocks you from pushing commits on the command line that use your personal email address.
+When you push commits from the command line, the email address that you've [set in Git](/articles/setting-your-commit-email-address) is associated with your commits. If you enable this setting, each time you push to GitHub, we’ll check the most recent commit. If the author email on that commit is a private email on your GitHub account, we will block the push and warn you about exposing your private email.
 
 {% data reusables.user_settings.about-commit-email-addresses %}
 

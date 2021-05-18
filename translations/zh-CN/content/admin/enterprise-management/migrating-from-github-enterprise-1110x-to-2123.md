@@ -12,8 +12,11 @@ redirect_from:
 intro: '要从 {% data variables.product.prodname_enterprise %} 11.10.x 迁移到 2.1.23，您需要设置新的设备实例并迁移之前实例中的数据。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。

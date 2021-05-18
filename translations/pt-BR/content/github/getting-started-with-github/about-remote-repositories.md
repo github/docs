@@ -8,7 +8,7 @@ redirect_from:
   - /articles/which-remote-url-should-i-use
   - /github/using-git/which-remote-url-should-i-use
   - /github/using-git/about-remote-repositories
-intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update.'
+intro: 'A abordagem colaborativa do GitHub para o desenvolvimento depende da publicação de commits do seu repositório local para {% data variables.product.product_name %} para que outras pessoas visualizem, façam buscas e atualizações.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,7 +17,7 @@ versions:
 
 ### Sobre repositórios remotos
 
-Uma URL remota é outra forma de o Git dizer "o lugar onde seu código é armazenado". That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.
+Uma URL remota é outra forma de o Git dizer "o lugar onde seu código é armazenado". A URL poderia ser seu repositório no GitHub, ou a bifurcação de outro usuário, ou até mesmo em um servidor totalmente diferente.
 
 Você pode fazer push apenas de dois tipos de endereço URL:
 
@@ -26,7 +26,7 @@ Você pode fazer push apenas de dois tipos de endereço URL:
 
 O Git associa uma URL remota a um nome, e seu remote padrão geralmente é chamado de `origin`.
 
-### Creating remote repositories
+### Criar repositórios remotos
 
 Você pode usar o comando `git remote add` para corresponder uma URL remota a um nome. Por exemplo, você digitaria o seguinte na linha de comando:
 
@@ -38,13 +38,13 @@ Isso associa o nome `origin` ao `URL_REMOTO`.
 
 É possível usar o comando `git remote set-url` para [alterar uma URL de remote](/github/getting-started-with-github/managing-remote-repositories).
 
-### Choosing a URL for your remote repository
+### Escolher uma URL para o seu repositório remoto
 
 Existem várias maneiras de clonar repositórios disponíveis no {% data variables.product.product_location %}.
 
 Quando você visualiza um repositório conectado à sua conta, as URLs que podem ser usadas para clonar o projeto no computador ficam disponíveis abaixo dos detalhes do repositório.
 
-For information on setting or changing your remote URL, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Para obter informações sobre a configuração ou alteração da URL remota, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 ### Clonando com as URLs de HTTPS
 

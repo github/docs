@@ -9,8 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - SSH
 ---
 
 SSH 管理ユーザとしてサインインした後では、VM 上のどこからでもこれらのコマンドを実行できます。 詳しくは、"[管理シェル（SSH）へのアクセス方法](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)を参照してください。"
@@ -247,7 +249,7 @@ $ ghe-reactivate-admin-login
 
 #### ghe-resque-info
 
-このユーティリティは、アクティブでありかつキュー内にある、バックグラウンドジョブに関する情報を表示します。 あらゆるページの上部には、管理統計バーと同じジョブ数が表示されます。
+このユーティリティは、アクティブなものとキュー内にあるもの両方のバックグラウンドジョブに関する情報を表示します。 これは、すべてのページの上部にある管理統計バーと同じジョブ数を表示します。
 
 このユーティリティは、Resque サーバーでバックグラウンドジョブの処理に問題があるかどうかを識別するのに役立ちます。 以下のどのシナリオも Resque の問題を示している可能性があります。
 
@@ -482,15 +484,21 @@ ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 {% endif %}
 
 フックのペイロードの全体や結果、デリバリーの例外を表示するには、以下のようにします。
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
+{% endif %}
 
 ### クラスタリング
 
 #### ghe-cluster-status
 
-このユーティリティを使えば、分散{% data variables.product.prodname_pages %}サーバーを管理できます。
+Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
 
 ```shell
 $ ghe-cluster-status
@@ -643,14 +651,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-このユーティリティは、Team Foundation Version Controlからインポートします。 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
+This utility imports from Team Foundation Version Control (TFVC). 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-このユーティリティは、インポートされたリポジトリを書き直します。 これにより、作者名を変更したり、SubversionやTFSではフォルダーを基にGitのブランチを生成したりできます。 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
+このユーティリティは、インポートされたリポジトリを書き直します。 This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. 詳しい情報については「[サードパーティのバージョン管理システムからのデータのインポート](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)」を参照してください。
 ```shell
 git-import-rewrite
 ```

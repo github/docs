@@ -8,8 +8,11 @@ intro: ユーザが Enterprise 内に Organization を作成できないよう�
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Organizations
+  - Policies
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}

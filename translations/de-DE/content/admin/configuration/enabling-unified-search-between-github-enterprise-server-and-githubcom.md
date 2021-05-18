@@ -12,6 +12,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
+  - GitHub search
 ---
 
 Wenn Sie die gemeinsame Suche aktivieren, können Benutzer Suchergebnisse von öffentlichen und privaten Inhalten auf {% data variables.product.prodname_dotcom_the_website %} anzeigen, wenn sie auf {% data variables.product.product_location_enterprise %} suchen.

@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 SNMP ist ein allgemeiner Standard zum Überwachen von Geräten über ein Netzwerk. Es wird dringend empfohlen, SNMP zu aktivieren, damit Sie den Zustand von {% data variables.product.product_location %} überwachen können und wissen, wann Sie der Host-Maschine Arbeitsspeicher, Storage oder Prozessorleistung hinzufügen müssen.

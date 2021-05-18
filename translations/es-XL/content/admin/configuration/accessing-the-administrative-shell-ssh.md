@@ -15,6 +15,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 ### Acerca del acceso al shell administrativo

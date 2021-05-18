@@ -4,8 +4,11 @@ intro: 'サイトアドミンのダッシュボード {% if enterpriseServerVers
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: overview
 topics:
   - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -18,9 +21,7 @@ topics:
 
 {% if currentVersion == "github-ae@latest" %}
 Enterprise に初めてアクセスするときは、初期設定を完了して、
-{% data variables.product.product_name %} を使用できるようにします。 初期設定では、Enterprise を IdP に接続すること、SAML SSO を使用して認証すること、および Enterprise 内のリポジトリと Organization のポリシーを設定します。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
-
-ユーザが初期設定後に {% data variables.product.product_name %} からメールを受信するには、SMTP サーバーで送信メールサポートを設定するように {% data variables.contact.github_support %} に依頼する必要があります。 詳しい情報については、「[通知のためのメールを設定する](/admin/configuration/configuring-email-for-notifications)」を参照してください。
+{% data variables.product.product_name %} を使用できるようにします。 The initial configuration includes connecting your enterprise with an identity provider (IdP), authenticating with SAML SSO, configuring policies for repositories and organizations in your enterprise, and configuring SMTP for outbound email. 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} を初期化する](/admin/configuration/initializing-github-ae)」を参照してください。
 
 後で、サイトアドミンのダッシュボードと Enterprise 設定を使用して、さらに Enterprise の設定を行い、ユーザ、Organization、およびリポジトリを管理し、リスクを軽減して品質を向上させるポリシーを設定できます。
 

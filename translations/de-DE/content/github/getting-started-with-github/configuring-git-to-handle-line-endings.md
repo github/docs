@@ -15,7 +15,7 @@ versions:
 
 Jedes Mal, wenn Du auf der Tastatur die <kbd>Eingabetaste</kbd> drückst, fügst Du ein unsichtbares Zeichen ein, nämlich einen Zeilenabschluss. Verschiedene Betriebssysteme handhaben Zeilenenden unterschiedlich.
 
-Wenn Du mit Git und {% data variables.product.product_name %} an Projekten zusammenarbeitest, könnte Git unerwartete Ergebnisse produzieren, wenn Du beispielsweise an einem Windows-PC arbeitest und Dein Mitarbeiter eine Änderungen unter OS X vorgenommen hat.
+When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 Du kannst Git so konfigurieren, dass es Zeilenenden automatisch setzt, so dass Du effektiv mit Leuten zusammenarbeiten kannst, die verschiedene Betriebssysteme verwenden.
 
@@ -25,11 +25,11 @@ Mit dem Befehl `git config core.autocrlf` kannst Du anpassen, wie Git Zeilenabsc
 
 {% mac %}
 
-Unter OS X übergib einfach `input` an die Konfiguration. Ein Beispiel:
+On macOS, you simply pass `input` to the configuration. Ein Beispiel:
 
 ```shell
 $ git config --global core.autocrlf input
-# Konfiguriere Git, damit Zeilenenden in Dateien, die Du auscheckst, für OS X korrekt sind
+# Configure Git to ensure line endings in files you checkout are correct for macOS
 ```
 
 {% endmac %}

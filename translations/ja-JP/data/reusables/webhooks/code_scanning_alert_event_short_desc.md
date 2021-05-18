@@ -1,1 +1,1 @@
-Activity related to code scanning alerts in a repository. The type of activity is specified in the action property of the payload object. For more information, see “[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).”
+リポジトリのCode Scanningアラートに関連するアクティビティ。 アクティビティのタイプは、ペイロードオブジェクトのactionプロパティで指定されます。 詳しい情報については「[Code Scanningについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。

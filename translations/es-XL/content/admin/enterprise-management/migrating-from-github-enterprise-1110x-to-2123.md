@@ -14,6 +14,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 Se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 y superior. No se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 o inferior. Primero debes actualizar a 11.10.348 en varias actualizaciones. Para obtener más información, consulta el procedimiento de actualización 11.10.348, "[Actualizar al lanzamiento más reciente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."

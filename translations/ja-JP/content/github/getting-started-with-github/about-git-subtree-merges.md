@@ -12,6 +12,8 @@ versions:
   github-ae: '*'
 ---
 
+### About subtree merges
+
 通常、サブツリーのマージはリポジトリ内にリポジトリを格納するために使われます。 「サブリポジトリ」はメインのリポジトリのフォルダー内に格納されます。
 
 サブツリーマージは、例で説明するのが最も分かりやすいでしょう。 以下のように進めます:
@@ -106,5 +108,5 @@ $ git pull -s subtree spoon-knife main
 
 ### 参考リンク
 
-- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+- [_Pro Git_ ブックの「高度なマージ」の章](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - [サブツリーマージの戦略の使い方](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)

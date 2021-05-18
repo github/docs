@@ -73,7 +73,7 @@ topics:
 #### 配置通知
 {% endif %}
 您可以在仓库页面上或关注页面上为仓库配置通知。
-{% if currentversion == "github-ae@latest" or currentversion ver_gt "enterprise-server@2. 0" %} 您可以选择仅接收仓库中发布的通知，或忽略仓库的所有通知。{% endif %}{% if currentversion == "free proteam@latest" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} 您可以选择仅接收仓库中发布的通知，或忽略仓库的所有通知。{% endif %}{% if currentVersion == "free proteam@latest" %}
 
 #### 关于自定义通知
 {% data reusables.notifications-v2.custom-notifications-beta %}

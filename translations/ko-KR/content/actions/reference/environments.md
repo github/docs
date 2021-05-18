@@ -48,6 +48,12 @@ Use deployment branches to restrict which branches can deploy to the environment
 
 Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
+{% note %}
+
+**Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level as security as repository and organization secrets. For more information, see "[Security hardening for GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% endnote %}
+
 ### Creating an environment
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -71,6 +77,9 @@ For more information on syntax to reference environments in workflows, see "[Wor
 
 When a workflow references an environment, the environment will appear in the repository's deployments. For more information about viewing current and previous deployments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
 
+### Using concurrency to serialize deployments in an environment
+You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#concurrency)."
+
 ### Deleting an environment
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -80,7 +89,7 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Next the the environment that you want to delete, click {% octicon "trashcan" aria-label="The trashcan icon" %}.
+1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. Click **I understand, delete this environment**.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}

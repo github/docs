@@ -48,3 +48,19 @@ topics:
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+
+### 为您的企业设置 `GITHUB_TOKENN` 的权限
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+您可以在企业、组织或仓库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果您在企业设置中选择受限制的选项为默认值，这将防止在组织或仓库设置中选择更多的允许设置。
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### 配置默认 `GITHUB_TOKENN` 权限
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此企业设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. 单击 **Save（保存）**以应用设置。

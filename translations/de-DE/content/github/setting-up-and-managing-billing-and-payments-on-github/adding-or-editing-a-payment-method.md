@@ -28,8 +28,9 @@ Wir bieten keine Abrechnung und unterstützen keine Bestellungen für persönlic
 ### Die Zahlungsmethode für Dein persönliches Konto aktualisieren
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ### Die Zahlungsmethode für Deine Organisation aktualisieren
@@ -38,9 +39,10 @@ Wir bieten keine Abrechnung und unterstützen keine Bestellungen für persönlic
 
 Wenn sich Deine Organisation außerhalb der USA befindet oder Du zum Bezahlen von {% data variables.product.product_name %} ein Firmenkonto verwendest, bietet sich PayPal als Zahlungsmethode an.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

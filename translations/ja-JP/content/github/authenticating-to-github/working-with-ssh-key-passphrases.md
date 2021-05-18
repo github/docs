@@ -88,7 +88,7 @@ fi
 
 ### パスフレーズをキーチェーンに保存する
 
-OS X El Capitan を介する OS X Leopard では、これらのデフォルトの秘密鍵ファイルは自動的に処理されます:
+OS X El Capitan を介する Mac OS X Leopard では、これらのデフォルトの秘密鍵ファイルは自動的に処理されます。
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

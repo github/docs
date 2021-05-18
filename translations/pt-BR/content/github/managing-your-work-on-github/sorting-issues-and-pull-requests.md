@@ -19,11 +19,11 @@ Você pode ordenar qualquer exibição filtrada por:
 * Problemas ou pull requests com menos comentários
 * Prolemas ou pull requests com data de atualização mais recente
 * Prolemas ou pull requests com data de atualização mais antiga
-* Problemas ou pull requests com mais [reações](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)
+* The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. No canto superior direito, selecione o menu suspenso Sort (Ordenar). ![Usar a aba suspensa Sort (Ordenar)](/assets/images/help/issues/issues_sort_dropdown.png)
+1. No canto superior direito, selecione o menu suspenso Sort (Ordenar). ![Usar a aba suspensa Sort (Ordenar)](/assets/images/help/issues/issues_sort_dropdown.png)
 
 Para limpar a seleção da ordenação, clique em **Sort** (Ordenar) > **Newest** (Mais recente).
 

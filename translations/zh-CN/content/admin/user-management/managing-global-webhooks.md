@@ -7,8 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Webhooks
 ---
 
 ### 关于全局 web 挂钩

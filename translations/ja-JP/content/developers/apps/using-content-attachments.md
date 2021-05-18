@@ -130,21 +130,20 @@ Probotアプリケーションを作成するには、以下のステップに�
 2. 作成したプロジェクトを開き、 `app.yml` ファイルの設定をカスタマイズします。 `content_reference`イベントをサブスクライブし、`content_references`の書き込み権限を有効化してください。
 
    ``` yml
-
     default_events:
-    - content_reference
-    # GitHub Appが必要とする権限セット。 このオブジェクトのフォーマットは、
+      - content_reference
+    # The set of permissions needed by the GitHub App. このオブジェクトのフォーマットは、
     # キーの権限名（たとえばissues）と値のためのアクセスの
     # 種類（たとえばwrite）を使います。
-    # 取り得る値は `read`、`write`、`none`
+    # Valid values are `read`, `write`, and `none`
     default_permissions:
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. このコードを`index.js` ファイルに追加して、`content_reference`を処理してREST APIを呼ぶようにします。

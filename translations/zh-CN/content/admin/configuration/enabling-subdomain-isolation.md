@@ -7,8 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### 关于子域隔离
@@ -19,7 +24,7 @@ topics:
 
 {% if currentVersion == "enterprise-server@2.22" %}
 要将 Docker 与
-{% data variables.product.prodname_registry %} 一起使用，您还必须启用子域隔离。 更多信息请参阅“[配置 Docker 与 {% data variables.product.prodname_registry %} 一起使用](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)”。
+{% data variables.product.prodname_registry %} 一起使用，您还必须启用子域隔离。 For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |

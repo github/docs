@@ -1,6 +1,6 @@
 ---
 title: コミット署名の検証について
-intro: 'GPG または S/MIME を使用して、タグに署名し、ローカルでコミットできます。 それらのタグやコミットは検証済みとして {% data variables.product.product_name %}上でマークされ、他の人々がその変更が信頼できるソースから来たものと信頼できるようになります。'
+intro: 'GPG または S/MIME を使用して、タグに署名し、ローカルでコミットできます。 これらのタグやコミットは {% data variables.product.product_name %} で検証済みとしてマークされているため、他のユーザはその変更が信頼できるソースからのものであると確信できます。'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -16,15 +16,35 @@ topics:
 
 ### コミット署名の検証について
 
-コミットやタグをローカルで署名して、他の人々がその作業が信頼されるソースから来たことを検証できるようにすることができます。 コミットまたはタグが暗号的に検証可能な GPG または S/MIME 署名を持っている場合、{% data variables.product.product_name %} はそのコミットまたはタグを検証済みとしてマークします。
+コミットとタグにローカルで署名して、行った変更の根拠を他のユーザに信頼してもらうことができます。 コミットまたはタグに暗号で検証可能な GPG または S/MIME 署名がある場合、GitHub はコミットまたはタグに{% if currentVersion == "free-pro-team@latest" %}「Verified」または「Partially verified」{% else %}「Verified」のマークを付けます。{% endif %}
 
 ![検証されたコミット](/assets/images/help/commits/verified-commit.png)
 
-コミットあるいはタグが検証できない署名を持っている場合、{% data variables.product.product_name %} はそのコミットあるいはタグを未検証としてマークします。
+{% if currentVersion == "free-pro-team@latest" %}
+コミットとタグには、警戒モードを有効にしているかどうかによって、次の検証ステータスが含まれます。 デフォルト設定では、警戒モードは有効になっていません。 警戒モードを有効にする方法については、「[すべてのコミットの検証ステータスを表示する](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)」を参照してください。
 
-リポジトリ管理者は、ブランチでコミット署名を必須として、署名および検証されていないすべてのコミットをブロックできます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-signed-commits)を参照してください。
+{% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-{% data variables.product.product_name %}上の署名されたコミットあるいはタグの検証ステータスをチェックして、コミットの署名が検証されない理由を見ることができます。 詳細は「[コミットおよびタグの署名の検証のステータスをチェックする](/articles/checking-your-commit-and-tag-signature-verification-status)」を参照してください。
+#### デフォルトのステータス
+
+| 状況                     | 説明                            |
+| ---------------------- | ----------------------------- |
+| **検証済み**               | コミットが署名され、署名が正常に検証されました。      |
+| **Unverified**         | コミットは署名されていますが、署名を検証できませんでした。 |
+| No verification status | コミットが署名されていません。               |
+
+#### 警戒モードが有効になっているステータス
+
+{% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
+
+{% else %}
+コミットまたはタグに検証できない署名がある場合、
+{% data variables.product.product_name %} はコミットまたはタグに「Unverified」のマークを付けます。
+{% endif %}
+
+リポジトリ管理者は、ブランチでコミット署名を必須として、署名および検証されていないすべてのコミットをブロックできます。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-signed-commits)」を参照してください。
+
+{% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.product_name %} は GPG を自動的に使用して、{% data variables.product.product_name %} Web インターフェースを使用して行ったコミットに署名します。ただし、作者ではないプルリクエストを squash してマージする場合は除きます。 オプションとして、{% data variables.product.prodname_codespaces %} で行ったコミットを {% data variables.product.product_name %} で署名させることもできます。 {% data variables.product.product_name %}によって署名されたコミットは、{% data variables.product.product_name %}で認証済みのステータスになります。 署名は、https://github.com/web-flow.gpgから利用できる公開鍵を使ってローカルに検証できます。 Codespaces の GPG 検証を有効にする方法については、「[{% data variables.product.prodname_codespaces %} の GPG 検証の管理](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)」を参照してください。

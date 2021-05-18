@@ -15,7 +15,7 @@ versions:
 
 キーボードで <kbd>return</kbd> を押すたびに、行終端と呼ばれる目に見えない文字が挿入されています。 行終端の処理は、オペレーティングシステムによって異なります。
 
-Git と {% data variables.product.product_name %}でコラボレートしているとき、自分が Windows マシンを使用し、コラボレーターが OS X で変更した場合、Git により予想外の結果が生じる可能性があります。
+When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 異なるオペレーティングシステムを使用しているユーザとも効果的にコラボレーションができるように、自動的に行終端を処理するよう Git を設定することができます。
 
@@ -25,11 +25,11 @@ Git による行終端の扱い方を変更するには `git config core.autocrl
 
 {% mac %}
 
-OS X では、設定に `input` を渡すだけです。 例:
+On macOS, you simply pass `input` to the configuration. 例:
 
 ```shell
 $ git config --global core.autocrlf input
-# Configure Git to ensure line endings in files you checkout are correct for OS X
+# Configure Git to ensure line endings in files you checkout are correct for macOS
 ```
 
 {% endmac %}

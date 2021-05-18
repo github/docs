@@ -1,0 +1,1 @@
+{% data variables.product.prodname_cli %}は、{% data variables.product.prodname_dotcom %}アカウントを使って認証できます。 {% data variables.product.prodname_cli %}コマンドを実行する前に、`gh auth login`を実行して認証を受けなければなりません。 コマンドライン認証に関する詳しい情報については「[`gh auth login`](https://cli.github.com/manual/gh_auth_login)」を参照してください。

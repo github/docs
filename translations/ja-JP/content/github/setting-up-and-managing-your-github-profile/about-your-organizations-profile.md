@@ -14,7 +14,7 @@ topics:
 
 Organization の説明、場所、Web サイト、メールアドレスをオプションで追加することや、重要なリポジトリをページの上部にピン止めすることもできます。
 
-{% if currentVersion == "free-pro-team@latest" %}Organization の ID を確認し、Organization のプロファイルページに「Verified」のバッジを表示するには、{% data variables.product.product_name %} を使用して Organization のドメインを検証する必要があります。 詳しい情報については [Organization のドメインの検証](/organizations/managing-organization-settings/verifying-your-organizations-domain)を参照してください。
+{% if currentVersion == "free-pro-team@latest" %}Organization の ID を確認し、Organization のプロファイルページに「Verified」のバッジを表示するには、{% data variables.product.product_name %} を使用して Organization のドメインを検証する必要があります。 For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
 ![検証済み Organization プロフィールページのサンプル](/assets/images/help/profile/org_profile_verified.png)
 {% else %}

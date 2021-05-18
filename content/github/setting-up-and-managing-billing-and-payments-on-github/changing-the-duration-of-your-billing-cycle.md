@@ -27,16 +27,16 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 #### Changing the duration of a per-user subscription
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
 #### Changing the duration of a legacy per-repository plan
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}
 4. Under "Billing overview", click **Change plan**.
   ![Billing overview change plan button](/assets/images/help/billing/billing_overview_change_plan.png)

@@ -26,13 +26,9 @@ topics:
 サブスクライブできる通知は次のとおりです。
 - 特定の Issue、プルリクエスト、または Gist の会話。
 - リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
-- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。
-{% if currentVersion == "free-pro-team@latest" %}
-- リポジトリ内の Issue、プルリクエスト、リリース、ディスカッション (有効な場合)。
-{% endif %}
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-- リポジトリ内のリリース。
-{% endif %}
+- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 {% if currentVersion == "free-pro-team@latest" or  currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled). {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Releases in a repository.{% endif %}
 
 フォークを除き、あなたがプッシュアクセスを持つすべてのリポジトリを自動的にWatchすることもできます。 [**Watch**] をクリックすると、手動でアクセスできる他のリポジトリを Watch できます。
 

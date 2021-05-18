@@ -14,6 +14,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Maintenance
+  - Upgrades
 ---
 
 ### Acerca del modo de mantenimiento

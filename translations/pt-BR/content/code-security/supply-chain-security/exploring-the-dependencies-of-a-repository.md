@@ -15,6 +15,8 @@ topics:
   - Repositories
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
+
 ### Viewing the dependency graph
 
 {% data reusables.repositories.enable-security-alerts %}
@@ -50,19 +52,6 @@ Todas as dependências diretas e indiretas especificadas no manifesto do reposit
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso a alertas de segurança.
-
-![Gráfico de dependências](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**Observação:** {% data variables.product.prodname_ghe_server %} não preenche a vista de **Dependentes**.
-
-{% endnote %}
-
-{% endif %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 #### Vista de dependentes
 
@@ -74,7 +63,7 @@ Para repositórios públicos, a vista de dependentes mostra como o repositório 
 
 Os administradores de repositórios podem habilitar ou desabilitar o gráfico de dependências em repositórios privados.
 
-Você também pode habilitar ou desabilitar o gráfico de dependências para todos os repositórios pertencentes à sua conta de usuário ou organização. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Você também pode habilitar ou desabilitar o gráfico de dependências para todos os repositórios pertencentes à sua conta de usuário ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -113,8 +102,8 @@ Se um arquivo de manifesto ou de bloqueio não for processado, suas dependência
 
 ### Leia mais
 
-- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+- "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Visualizar informações da organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Entender como o {% data variables.product.product_name %} usa e protege seus dados](/github/understanding-how-github-uses-and-protects-your-data)"
 {% endif %}

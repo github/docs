@@ -6,7 +6,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - 2fa
   - Enterprise
+  - Organizations
+  - Policies
+  - Security
 ---
 
 Al usar la autenticación integrada o LDAP, el aparato {% data variables.product.prodname_ghe_server %} admite la autenticación de dos factores. Los administradores de la organización le pueden solicitar a los miembros que tengan la autenticación de dos factores activada.

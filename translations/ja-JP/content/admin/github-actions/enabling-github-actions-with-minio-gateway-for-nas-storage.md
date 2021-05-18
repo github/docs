@@ -15,7 +15,7 @@ topics:
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。
 
 * アプライアンスでのリソースの競合を回避するために、MinIO を {% data variables.product.product_location %} とは別にホストすることをお勧めします。
-* ワークフローアーティファクトを保存するためのバケットを作成します。 バケットとアクセスキーを設定するには、[MinIO のドキュメント](https://docs.min.io/docs/minio-gateway-for-nas.html)を参照してください。 {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* ワークフローアーティファクトを保存するためのバケットを作成します。 バケットとアクセスキーを設定するには、[MinIO のドキュメント](https://docs.min.io/docs/minio-gateway-for-nas.html)を参照してください。 {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

@@ -45,7 +45,7 @@ topics:
 此示例显示了使用[事件 API](/rest/reference/activity#events) 时 [WatchEvent](#watchevent) 响应的格式。
 
 ```
-HTTP/1.1 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```

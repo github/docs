@@ -20,9 +20,8 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 
 Organization で SAML SSO を強制する前に、アイデンティティプロバイダ (IdP) を設定しておいてください。 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択します。 ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/saml/saml_enable.png)
 
