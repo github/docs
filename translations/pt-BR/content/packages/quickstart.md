@@ -71,7 +71,10 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          packages: write
+          contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v1
@@ -95,7 +98,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 
 ### Visualizar o seu pacote publicado
 
-Os pacotes são publicados no nível de repositório. Você pode visualizar todos os pacotes em um repositório e procurar um pacote específico.
+You can view all of the packages you have published.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -104,14 +107,14 @@ Os pacotes são publicados no nível de repositório. Você pode visualizar todo
 
 ### Instalar um pacote publicado
 
-Agora que você publicou o pacote, você vai querer usá-lo como uma dependência nos seus projetos. Para obter mais informações, consulte "[Configurar npm para uso com o {% data variables.product.prodname_registry %}](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)".
+Agora que você publicou o pacote, você vai querer usá-lo como uma dependência nos seus projetos. For more information, see "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
 
 ### Próximas etapas
 
-O fluxo de trabalho básico que você acabou de adicionar é executado sempre que uma nova versão for criada no seu repositório. Mas este é apenas o início do que você pode fazer com {% data variables.product.prodname_registry %}. Pode publicar o seu pacote em vários registros com um único fluxo de trabalho, acionar o fluxo de trabalho para ser executado em eventos diferentes, como um pull request mesclado, gerenciar contêineres, entre outros.
+O fluxo de trabalho básico que você acabou de adicionar é executado sempre que uma nova versão for criada no seu repositório. But this is only the beginning of what you can do with {% data variables.product.prodname_registry %}. Pode publicar o seu pacote em vários registros com um único fluxo de trabalho, acionar o fluxo de trabalho para ser executado em eventos diferentes, como um pull request mesclado, gerenciar contêineres, entre outros.
 
 Combinar {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %} pode ajudá-lo a automatizar quase todos os aspectos dos processos de desenvolvimento do seu aplicativo. Pronto para começar? Aqui estão alguns recursos úteis para dar seguir as próximas etapas com {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}:
 
 - "[Aprenda sobre {% data variables.product.prodname_registry %}](/packages/learn-github-packages)" para obter um tutorial aprofundado no GitHub Packages
 - "[Aprenda sobre {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" para obter um tutorial aprofundado no GitHub Actions
-- "[Guias](/packages/guides)" para casos e exemplos específicos de uso
+- "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples

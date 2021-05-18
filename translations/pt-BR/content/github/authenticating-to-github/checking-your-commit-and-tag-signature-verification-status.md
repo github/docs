@@ -19,18 +19,16 @@ topics:
 
 {% data variables.product.product_name %}, navegue até o seu pull request.
 {% data reusables.repositories.review-pr-commits %}
-3. Ao lado do hash de commit abreviado do seu commit, há uma caixa que mostra se a assinatura do commit foi verificada ou não. ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. Para exibir informações mais detalhadas sobre a assinatura do commit, clique em **Verified** (Verificada) ou **Unverified** (Não verificada). ![Commit assinado verificado](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
-
-Se a assinatura do commit não estiver verificada, você poderá saber mais sobre o por quê clicando na caixa **Unverified** (Não verificada). ![Commit assinado não verificado](/assets/images/help/commits/gpg-signed-commit-unverified-details.png)
+3. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified{% if currentVersion == "free-pro-team@latest" %}, partially verified,{% endif %} or unverified. ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+4. To view more detailed information about the commit signature, click **Verified**{% if currentVersion == "free-pro-team@latest" %}, **Partially verified**,{% endif %} or **Unverified**. ![Commit assinado verificado](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
 
 ### Confirmar o status de verificação da assinatura da tag
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 2. Na parte superior da página Versões, clique em **Tags**. ![Página de tags](/assets/images/help/releases/tags-list.png)
-3. Ao lado da descrição da tag, há uma caixa que mostra se a assinatura da tag está verificada ou não verificada. ![assinatura de tag verificada](/assets/images/help/commits/gpg-signed-tag-verified.png)
-4. Para exibir informações mais detalhadas sobre a assinatura da tag, clique em **Verified** (Verificada) ou **Unverified** (Não verificada). Se a assinatura da tag não estiver verificada, você poderá saber mais sobre o por quê clicando na caixa **Unverified** (Não verificada). ![Tag assinada verificada](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
+3. Next to your tag description, there is a box that shows whether your tag signature is verified{% if currentVersion == "free-pro-team@latest" %}, partially verified,{% endif %} or unverified. ![assinatura de tag verificada](/assets/images/help/commits/gpg-signed-tag-verified.png)
+4. To view more detailed information about the tag signature, click **Verified**{% if currentVersion == "free-pro-team@latest" %}, **Partially verified**,{% endif %} or **Unverified**. ![Tag assinada verificada](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
 ### Leia mais
 

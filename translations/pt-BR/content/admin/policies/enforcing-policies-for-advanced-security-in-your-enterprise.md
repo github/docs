@@ -5,13 +5,20 @@ product: '{% data reusables.gated-features.ghas %}'
 versions:
   enterprise-server: '>=3.1'
   github-ae: next
+type: how_to
+topics:
+  - Advanced Security
+  - Code scanning
+  - Policies
+  - Secret scanning
+  - Security
 ---
 
 ### Sobre o {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Enforcing a policy for {% data variables.product.prodname_advanced_security %} features
+### Aplicar uma política para funcionalidades de {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

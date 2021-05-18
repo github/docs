@@ -6,6 +6,13 @@ permissions: 'Enterprise owners can configure user provisioning for an enterpris
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### Sobre provisionamento de usuários para sua empresa

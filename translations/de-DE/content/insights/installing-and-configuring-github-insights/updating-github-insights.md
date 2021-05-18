@@ -1,7 +1,6 @@
 ---
 title: Updating GitHub Insights
 intro: 'You can update to the latest version of {% data variables.product.prodname_insights %} to benefit from improvements and bug fixes.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'

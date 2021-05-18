@@ -16,17 +16,16 @@ topics:
 ### 查找个人帐户的下一个结算日期
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ### 查找组织的下一个结算日期
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ### 延伸阅读

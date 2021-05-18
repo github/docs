@@ -16,7 +16,7 @@ topics:
 
 {% note %}
 
-**Hinweis:** GPG ist bei OS X und Windows nicht standardmäßig installiert. Informationen zum Installieren der GPG-Befehlszeilentools findest Du auf der [Download-Seite von GnuPG](https://www.gnupg.org/download/).
+**Note:** GPG does not come installed by default on macOS or Windows. Informationen zum Installieren der GPG-Befehlszeilentools findest Du auf der [Download-Seite von GnuPG](https://www.gnupg.org/download/).
 
 {% endnote %}
 

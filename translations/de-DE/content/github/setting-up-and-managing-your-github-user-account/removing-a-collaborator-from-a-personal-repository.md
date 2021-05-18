@@ -29,7 +29,7 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. To the right of the collaborator you want to remove, click
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
   ![Schaltfläche „Remove collaborator" (Entfernen des Mitarbeiters)](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. Klicke auf der linken Seitenleiste auf **Collaborators & teams** (Mitarbeiter und Teams). ![Registerkarte „Collaborators" (Mitarbeiter)](/assets/images/help/repository/repo-settings-collaborators.png)

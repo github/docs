@@ -16,7 +16,7 @@ topics:
 
 {% note %}
 
-**Observação:** a GPG não vem instalada por padrão no OS X nem no Windows. Para instalar ferramentas de linha de comando GPG, consulte a [página de download da GnuPG](https://www.gnupg.org/download/).
+**Note:** GPG does not come installed by default on macOS or Windows. Para instalar ferramentas de linha de comando GPG, consulte a [página de download da GnuPG](https://www.gnupg.org/download/).
 
 {% endnote %}
 

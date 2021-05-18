@@ -16,8 +16,7 @@ Quando você atualiza um app, é cobrado na forma de pagamento um valor proporci
 ### Atualizar um app da sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.upgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
@@ -27,11 +26,9 @@ Quando você atualiza um app, é cobrado na forma de pagamento um valor proporci
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.upgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

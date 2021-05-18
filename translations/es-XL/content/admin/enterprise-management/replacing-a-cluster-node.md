@@ -7,7 +7,9 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Clustering
   - Enterprise
+  - Infrastructure
 ---
 
 {% warning %}

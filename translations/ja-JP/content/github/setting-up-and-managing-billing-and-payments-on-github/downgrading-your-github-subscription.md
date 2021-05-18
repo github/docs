@@ -30,9 +30,8 @@ topics:
 ユーザアカウントを{% data variables.product.prodname_pro %}から{% data variables.product.prodname_free_user %}にダウングレードした場合、プライベートリポジトリでの高度なコードレビューツールにはアクセスできなくなります。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-4. ** Edit（編集）**ドロップダウンを使い、**Downgrade to Free{Freeへのダウングレード）**をクリックしてください。 ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
+{% data reusables.user_settings.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**. ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
 5. 次回の請求日にユーザアカウントがアクセスできなくなる機能に関する情報を読み、[**I understand. Continue with downgrade**] をクリックします。 ![[Continue with downgrade] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
 
 プライベートリポジトリに {% data variables.product.prodname_pages %} サイトを公開し、カスタムドメインを追加した場合、ドメイン乗っ取りのリスクを回避するため、{% data variables.product.prodname_pro %} から {% data variables.product.prodname_free_user %} にダウングレードする前に DNS レコードを削除または更新します。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
@@ -45,12 +44,10 @@ Organizationを{% data variables.product.prodname_team %}から{% data variables
 
 Organizationを{% data variables.product.prodname_ghe_cloud %}から{% data variables.product.prodname_team %}または{% data variables.product.prodname_free_team %}にダウングレードした場合、そのアカウントは高度なセキュリティ、コンプライアンス、およびデプロイメントコントロールにアクセスできなくなります。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-6. [**Edit**] ドロップダウンで、必要なダウングレード オプションをクリックします。 ![[Downgrade] ボタン](/assets/images/help/billing/downgrade-option-button.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want. ![[Downgrade] ボタン](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
 ### 従来のリポジトリ単位の支払いを使用しているOrganizationのプランをダウングレードする
@@ -59,10 +56,9 @@ Organizationを{% data variables.product.prodname_ghe_cloud %}から{% data vari
 
 {% data reusables.dotcom_billing.switch-legacy-billing %}詳しい情報については、「[Organization をリポジトリごとからユーザごとに切り替える](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)」を参照してください。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. [Subscriptions] の下にある [Edit] ドロップダウンメニューから [**Edit plan**] をクリックします。 ![[Edit Plan] ドロップダウン](/assets/images/help/billing/edit-plan-dropdown.png)
 1. [Billing/Plans] で、変更する必要があるプランの横にある [**Downgrade**] をクリックします。 ![[Downgrade] ボタン](/assets/images/help/billing/downgrade-plan-option-button.png)
 1. アカウントをダウングレードする理由を入力し、[**Downgrade plan**] をクリックします。 ![ダウングレードの理由を入力するテキストボックスと [Downgrade] ボタン](/assets/images/help/billing/downgrade-plan-button.png)
@@ -74,12 +70,10 @@ Organization が使用する有料シート数を減らすには、Organization 
 - [Organizatin のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)
 - [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-6. ** Edit（編集）**ドロップダウンを使い、**Remove seats（シートの削除）**をクリックしてください。 ![[Remove Seats] ドロップダウン](/assets/images/help/billing/remove-seats-dropdown.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click **Remove seats**. ![[Remove Seats] ドロップダウン](/assets/images/help/billing/remove-seats-dropdown.png)
 1. [Remove seats] の下でダウングレードするシート数を選択します。 ![[Remove Seats] オプション](/assets/images/help/billing/remove-seats-amount.png)
 1. 次回請求日の新しい支払いに関する情報を確認し、[**Remove seats**] をクリックします。 ![[Remove Seats] ボタン](/assets/images/help/billing/remove-seats-button.png)
 

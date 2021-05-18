@@ -42,25 +42,21 @@ topics:
 
 ### ステップ 3: Organization を年次支払いプランへ アップグレードする
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (次のステップで、Organizationにシートを追加できます。)
 6. Organization の支払いを年次で行うには、[Upgrade summary] の下で [**Pay yearly**] を選択します。 ![年次の支払いのラジオボタン](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.add-payment-method %}
-1. [Pay with] の下に、クレジットカード情報を入力します。 ![クレジットカード情報入力用フォーム](/assets/images/help/billing/settings_billing_upgrade_with_credit_card.png)
-1. [**Update credit card**] をクリックします。
+{% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### ステップ 4: Organization の有料シート数をアップグレードする
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}

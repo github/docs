@@ -66,8 +66,9 @@ topics:
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) 匹配 <em>app/public</em> 目录或其任何子目录（即使其位于 <em>app/public/js/form-validators</em> 中）中且含有 "console" 字样的 JavaScript 文件。 |
 
 ### 按语言搜索
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-您可以基于所编写的语言搜索代码。
+您可以基于所编写的语言搜索代码。 The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | 限定符                        | 示例                                                                                                                                                               |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |

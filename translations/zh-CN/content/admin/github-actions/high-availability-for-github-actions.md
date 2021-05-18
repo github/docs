@@ -3,8 +3,13 @@ title: GitHub Actions 的高可用性
 intro: '在高可用性配置中管理 {% data variables.product.prodname_actions %} 有一些特殊注意事项。'
 versions:
   enterprise-server: '>=3.0'
+type: reference
 topics:
+  - Actions
   - Enterprise
+  - High availability
+  - Infrastructure
+  - Storage
 ---
 
 ### {% data variables.product.prodname_actions %} 数据的复制或冗余

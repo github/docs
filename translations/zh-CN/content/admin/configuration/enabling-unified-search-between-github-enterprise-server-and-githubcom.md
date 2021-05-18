@@ -12,6 +12,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
+  - GitHub search
 ---
 
 启用统一搜索后，用户可在从 {% data variables.product.product_location_enterprise %} 进行搜索时查看 {% data variables.product.prodname_dotcom_the_website %} 上公共和私有内容的搜索结果。

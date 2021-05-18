@@ -14,7 +14,7 @@ topics:
 
 Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se de que você realizou os seguintes passos:
 
-* Crie seu bucket do Amazon S3 para armazenar artefatos gerados pelas execuções do fluxo de trabalho. {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* Crie seu bucket do Amazon S3 para armazenar artefatos gerados pelas execuções do fluxo de trabalho. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

@@ -14,7 +14,7 @@ topics:
 
 在启用 {% data variables.product.prodname_actions %} 之前，请确保您已完成以下步骤：
 
-* 创建 Amazon S3 存储桶，用于存储工作流程运行生成的构件。 {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* 创建 Amazon S3 存储桶，用于存储工作流程运行生成的构件。 {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

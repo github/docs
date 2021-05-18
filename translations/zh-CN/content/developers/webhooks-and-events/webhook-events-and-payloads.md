@@ -61,7 +61,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 #### 递送示例
 
 ```shell
-> POST /payload HTTP/1.1
+> POST /payload HTTP/2
 
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
@@ -200,7 +200,9 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 
 Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如果您注册了一个子域 (`https://subdomain.example.com`)，则只有该子域的 URL 才会触发此事件。 如果您注册了一个域 (`https://example.com`)，则该域及所有子域的 URL 都会触发此事件。 请参阅“[创建内容附件](/rest/reference/apps#create-a-content-attachment)”以创建新的内容附件。
 
-只有 {% data variables.product.prodname_github_app %} 才能接收此事件。 {% data variables.product.prodname_github_app %} 必须具有 `content_references` `write` 权限才能订阅此事件。
+#### 可用性
+
+- 具有 `content_references:write` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载示例
 
@@ -1010,12 +1012,6 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% endnote %}
 
-{% tip %}
-
-**注**：表格后面的 web 挂钩有效负载示例与表中所述的 Events API 有效负载有显著差异。 其中一项差异是，web 挂钩有效负载包括 `sender` 和 `pusher` 对象。 发送者和推送者是发起 `push` 事件的同一用户，但 `sender` 对象包含更多详细信息。
-
-{% endtip %}
-
 #### 可用性
 
 - 仓库 web 挂钩
@@ -1206,7 +1202,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-您只能在 {% data variables.product.prodname_dotcom %} 上创建赞助 web 挂钩。 更多信息请参阅“[为赞助帐户中的事件配置 web 挂钩](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)”。
+您只能在 {% data variables.product.prodname_dotcom %} 上创建赞助 web 挂钩。 更多信息请参阅“[为赞助帐户中的事件配置 web 挂钩](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)”。
 
 #### 可用性
 

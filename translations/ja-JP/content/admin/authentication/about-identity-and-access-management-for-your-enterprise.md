@@ -5,6 +5,13 @@ intro: '{% if enterpriseServerVersions contains currentVersion %}{% data variabl
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Accounts
+  - Access management
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 ### Enterprise のアイデンティティおよびアクセス管理について

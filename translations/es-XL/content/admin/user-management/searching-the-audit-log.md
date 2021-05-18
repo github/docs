@@ -9,7 +9,9 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
+  - Auditing
   - Enterprise
+  - Logging
 ---
 
 ### Buscar sintaxis de consultas

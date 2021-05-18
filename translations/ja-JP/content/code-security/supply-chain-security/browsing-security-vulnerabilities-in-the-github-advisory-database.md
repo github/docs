@@ -77,7 +77,7 @@ topics:
 
 1. Https://github.com/advisories にアクセスします。
 2. アドバイザリをクリックします。
-3. アドバイザリページの上部にある [**Dependabot alerts**] をクリックします。 ![Dependabot alerts](/assets/images/help/security/advisory-database-dependabot-alerts.png)
+3. アドバイザリページの上部にある [**Dependabot alerts**] をクリックします。 ![Dependabotアラート](/assets/images/help/security/advisory-database-dependabot-alerts.png)
 4. 必要に応じて、リストをフィルタするには、検索バーまたはドロップダウンメニューを使用します。 [Organization] ドロップダウンメニューを使用すると、オーナー（Organization またはユーザ）ごとに {% data variables.product.prodname_dependabot_alerts %} をフィルタできます。 ![アラートをフィルタするための検索バーとドロップダウンメニュー](/assets/images/help/security/advisory-database-dependabot-alerts-filters.png)
 5. 脆弱性の詳細、および脆弱性のあるリポジトリを修正する方法に関するアドバイスについては、リポジトリ名をクリックしてください。
 

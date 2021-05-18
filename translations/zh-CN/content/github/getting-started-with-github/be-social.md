@@ -38,6 +38,10 @@ topics:
 
 {% data reusables.support.ask-and-answer-forum %}
 
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+
 ### 更多功能
 
 #### 创建拉取请求
@@ -68,8 +72,8 @@ topics:
 
 ![用星号标记项目](/assets/images/help/stars/star-a-project.png)
 
-- [设置 Git](/articles/set-up-git)
-- [创建仓库](/articles/create-a-repo)
-- [复刻仓库](/articles/fork-a-repo)
+- “[设置 Git](/articles/set-up-git)”
+- “[创建仓库](/articles/create-a-repo)”
+- “[复刻仓库](/articles/fork-a-repo)”
 - **社交化**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

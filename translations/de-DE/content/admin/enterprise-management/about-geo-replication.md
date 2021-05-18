@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
 versions:
   enterprise-server: '*'
+type: overview
 topics:
   - Enterprise
+  - High availability
 ---
 
 Mehrere aktive Replikate können eine kürzere Entfernung zum nächstgelegenen Replikat ermöglichen. Beispielsweise kann eine Organisation mit Niederlassungen in San Francisco, New York und London die primäre Appliance in einem Rechenzentrum in der Nähe von New York und zwei Replikate in Rechenzentren nahe San Francisco und London betreiben. Mittels Geolocation-fähigem DNS können Benutzer an den nächstgelegenen verfügbaren Server weitergeleitet werden und schneller auf Repository-Daten zugreifen. Wenn die Appliance nahe New York als die primäre Instanz festgelegt wird, ist die Latenz zwischen den Hosts niedriger, als dies der Fall wäre, wenn die Appliance nahe San Francisco als die primäre Instanz festgelegt werden würde, deren Verbindung nach London wiederum eine höhere Latenz aufweist.

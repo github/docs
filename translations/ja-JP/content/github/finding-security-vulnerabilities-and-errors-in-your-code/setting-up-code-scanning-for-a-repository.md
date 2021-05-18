@@ -1,7 +1,7 @@
 ---
-title: Setting up code scanning for a repository
-shortTitle: Setting up code scanning
-intro: 'You can set up {% data variables.product.prodname_code_scanning %} by adding a workflow to your repository.'
+title: リポジトリに対するコードスキャンをセットアップする
+shortTitle: コードスキャンを設定する
+intro: 'リポジトリにワークフローを追加することにより、{% data variables.product.prodname_code_scanning %} をセットアップできます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can set up or configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
@@ -10,105 +10,106 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### Options for setting up {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %} のセットアップ用オプション
 
-You decide how to generate {% data variables.product.prodname_code_scanning %} alerts, and which tools to use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. 詳しい情報については、「[{% data variables.product.prodname_codeql %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)」を参照してください。
+{% data variables.product.prodname_code_scanning %} アラートの生成方法、および使用するツールを、リポジトリレベルで決定できます。 {% data variables.product.product_name %} は、{% data variables.product.prodname_codeql %} 解析のために完全に統合されたサポートを提供すると共に、サードパーティーのツールを使用した解析もサポートします。 詳しい情報については、「[{% data variables.product.prodname_codeql %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)」を参照してください。
 
 {% data reusables.code-scanning.enabling-options %}
 
-### Setting up {% data variables.product.prodname_code_scanning %} using actions
-
-{% if currentVersion == "free-pro-team@latest" %}Using actions to run {% data variables.product.prodname_code_scanning %} will use minutes. 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)」を参照してください。{% endif %}
+### アクションを使用して {% data variables.product.prodname_code_scanning %} をセットアップする
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. To the right of "{% data variables.product.prodname_code_scanning_capc %} alerts", click **Set up {% data variables.product.prodname_code_scanning %}**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}If {% data variables.product.prodname_code_scanning %} is missing, you need to ask an organization owner or repository administrator to enable {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/collaborating-with-groups-in-organizations/managing-security-and-analysis-settings-for-your-organization)」または「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %} !["Set up {% data variables.product.prodname_code_scanning %}" button to the right of "{% data variables.product.prodname_code_scanning_capc %}" in the Security Overview](/assets/images/help/security/overview-set-up-code-scanning.png)
-4. Under "Get started with {% data variables.product.prodname_code_scanning %}", click **Set up this workflow** on the {% data variables.product.prodname_codeql_workflow %} or on a third-party workflow. !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Workflows are only displayed if they are relevant for the programming languages detected in the repository. The {% data variables.product.prodname_codeql_workflow %} is always displayed, but the "Set up this workflow" button is only enabled if {% data variables.product.prodname_codeql %} analysis supports the languages present in the repository.{% endif %}
-5. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
+3. To the right of "{% data variables.product.prodname_code_scanning_capc %} alerts", click **Set up {% data variables.product.prodname_code_scanning %}**. ![セキュリティの概要にある、[{% data variables.product.prodname_code_scanning_capc %}] の右側の [{% data variables.product.prodname_code_scanning %}] ボタン](/assets/images/help/security/overview-set-up-code-scanning.png)
+4. [Get started with {% data variables.product.prodname_code_scanning %}] で、{% data variables.product.prodname_codeql_workflow %} またはサードパーティーのワークフローの [**Set up this workflow**] をクリックします。 ![[Get started with {% data variables.product.prodname_code_scanning %}] のヘッディングの下にある [Set up this workflow] ボタン](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)
+5. {% data variables.product.prodname_code_scanning %} がコードをスキャンする方法をカスタマイズするため、ワークフローを編集します。
 
-   Generally you can commit the {% data variables.product.prodname_codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
+   通常は、何も変更せずに {% data variables.product.prodname_codeql_workflow %} をコミットできます。 ただし、サードパーティのワークフローは、その多くで追加設定が必要なため、コミットする前にワークフローのコメントをお読みください。
 
    詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)」を参照してください。
 6. [**Start commit**] ドロップダウンを使用して、コミットメッセージを入力します。 ![コミットを開始する](/assets/images/help/repository/start-commit-commit-new-file.png)
 7. デフォルトブランチに直接コミットするか、新しいブランチを作成してプルリクエストを開始するかを選択します。 ![コミット先を選択する](/assets/images/help/repository/start-commit-choose-where-to-commit.png)
 8. [**Commit new file**] または [**Propose new file**] をクリックします。
 
-In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
+デフォルトの {% data variables.product.prodname_codeql_workflow %} では、{% data variables.product.prodname_code_scanning %} は、デフォルトブランチまたは保護されたブランチに変更をプッシュするたび、あるいはデフォルトブランチにプルリクエストを生成するたびに、コードを解析するよう設定されています。 その結果として、{% data variables.product.prodname_code_scanning %} が開始されます。
 
-### Bulk set up of {% data variables.product.prodname_code_scanning %}
-You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
+### {% data variables.product.prodname_code_scanning %} の一括セットアップ
+You can set up {% data variables.product.prodname_code_scanning %} in many repositories at once using a script. 複数のリポジトリに {% data variables.product.prodname_actions %} ワークフローを追加するためのプルリクエストを発行するスクリプトの例が、[`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) リポジトリにあります。
 
-### Viewing the logging output from {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %} からログ出力を表示する
 
 After setting up {% data variables.product.prodname_code_scanning %} for your repository, you can watch the output of the actions as they run.
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
+  {% data variables.product.prodname_code_scanning %} ワークフローを実行するためのエントリを含むリストが表示されます。 エントリのテキストは、コミットメッセージに付けるタイトルです。
 
-  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
+  ![{% data variables.product.prodname_code_scanning %} ワークフローを表示しているアクションのリスト](/assets/images/help/repository/code-scanning-actions-list.png)
 
-1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
+1. {% data variables.product.prodname_code_scanning %} ワークフローのエントリをクリックします。
 
-1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
+1. 左側のジョブ名をクリックします。 ここでは例として、[**Analyze (言語)**] をクリックします。
 
-  ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+  ![{% data variables.product.prodname_code_scanning %} ワークフローからのログ出力](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
-1. Review the logging output from the actions in this workflow as they run.
+1. このワークフローの実行時にアクションから出力されるログを確認します。
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+1. すべてのジョブが完了すると、確認されたすべての {% data variables.product.prodname_code_scanning %} アラートの詳細を表示できます。 詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)」を参照してください。
 
 {% note %}
 
-**Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_capc %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **_n_ alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_capc %} page.
+**注釈:** {% data variables.product.prodname_code_scanning %} ワークフローを追加するためのプルリクエストをリポジトリに発行すると、そのプルリクエストからのアラートは、そのプルリクエストがマージされるまで {% data variables.product.prodname_code_scanning_capc %} ページに直接表示されません。 アラートが見つかった場合は、プルリクエストがマージされる前に、{% data variables.product.prodname_code_scanning_capc %} ページのバナーにある [**_(数字)_ alerts found**] をクリックしてそのアラートを表示できます。
 
-  ![Click the "n alerts found" link](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
+  ![[n alerts found] のリンクをクリック](/assets/images/enterprise/3.1/help/repository/code-scanning-alerts-found-link.png)
 
 {% endnote %}
 
-### Understanding the pull request checks
+### プルリクエストのチェックを理解する
 
-Each {% data variables.product.prodname_code_scanning %} workflow you set to run on pull requests always has at least two entries listed in the checks section of a pull request. There is one entry for each of the analysis jobs in the workflow, and a final one for the results of the analysis.
+Each {% data variables.product.prodname_code_scanning %} workflow you set to run on pull requests always has at least two entries listed in the checks section of a pull request. ワークフローの解析ジョブごとに 1 つのエントリがあり、最後のエントリは解析結果です。
 
-The names of the {% data variables.product.prodname_code_scanning %} analysis checks take the form: "TOOL NAME / JOB NAME (TRIGGER)." For example, for {% data variables.product.prodname_codeql %}, analysis of C++ code has the entry "{% data variables.product.prodname_codeql %} / Analyze (cpp) (pull_request)." You can click **Details** on a {% data variables.product.prodname_code_scanning %} analysis entry to see logging data. This allows you to debug a problem if the analysis job failed. For example, for {% data variables.product.prodname_code_scanning %} analysis of compiled languages, this can happen if the action can't build the code.
+{% data variables.product.prodname_code_scanning %} 解析チェックの名前は、「ツール名 / ジョブ名 (トリガー)」という形式になります。 たとえば、C++ のコードの {% data variables.product.prodname_codeql %} 解析には、「{% data variables.product.prodname_codeql %} / Analyze (cpp) (pull_request)」のエントリがあります。 {% data variables.product.prodname_code_scanning %} 解析エントリで [**Details**] をクリックして、ログのデータを表示できます。 これにより、解析ジョブが失敗した場合に問題をデバッグできます。 たとえば、コンパイル型言語の {% data variables.product.prodname_code_scanning %} 解析では、アクションがコードをビルドできなかった場合に解析ジョブが失敗します。
 
-  ![{% data variables.product.prodname_code_scanning %} pull request checks](/assets/images/help/repository/code-scanning-pr-checks.png)
+  ![{% data variables.product.prodname_code_scanning %} プルリクエストのチェック](/assets/images/help/repository/code-scanning-pr-checks.png)
 
-When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis. If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see a "Missing analysis" message when you click **Details** on the "{% data variables.product.prodname_code_scanning_capc %} results / TOOL NAME" check.
+{% data variables.product.prodname_code_scanning %} ジョブが完了すると、
+{% data variables.product.prodname_dotcom %} はプルリクエストにより追加されたアラートがないか確認し、チェックのリストに「{% data variables.product.prodname_code_scanning_capc %} の結果 / ツール名」のエントリを追加します。 {% data variables.product.prodname_code_scanning %} が 1 回でも実行された後は、[**Details**] をクリックして解析結果を表示できます。 プルリクエストを使用してリポジトリに {% data variables.product.prodname_code_scanning %} を追加した場合、「{% data variables.product.prodname_code_scanning_capc %} 結果 / ツール名」チェックの [**Details**] をクリックすると最初は「Missing analysis」のメッセージが表示されます。
 
-  ![Missing analysis for commit message](/assets/images/help/repository/code-scanning-missing-analysis.png)
+  ![コミットメッセージの解析がありません](/assets/images/help/repository/code-scanning-missing-analysis.png)
 
-#### Reasons for the "missing analysis" message
+#### 「missing analysis」のメッセージが出る理由
 
-After {% data variables.product.prodname_code_scanning %} has analyzed the code in a pull request, it needs to compare the analysis of the topic branch (the branch you used to create the pull request) with the analysis of the base branch (the branch into which you want to merge the pull request). This allows {% data variables.product.prodname_code_scanning %} to compute which alerts are newly introduced by the pull request, which alerts were already present in the base branch, and whether any existing alerts are fixed by the changes in the pull request. Initially, if you use a pull request to add {% data variables.product.prodname_code_scanning %} to a repository, the base branch has not yet been analyzed, so it's not possible to compute these details. In this case, when you click through from the results check on the pull request you will see the "Missing analysis for base commit SHA-HASH" message.
+プルリクエストのコードを解析した後、{% data variables.product.prodname_code_scanning %} はトピックブランチ (プルリクエストを作成するために使用したブランチ) の解析と、ベースブランチ (プルリクエストをマージするブランチ) の解析を比較する必要があります。 これにより、{% data variables.product.prodname_code_scanning %} はプルリクエストにより新しく発生したアラートはどれか、ベースブランチに既に存在していたアラートはどれか、また既存のアラートがプルリクエストの変更により修正されたかを測定できます。 始めにプルリクエストを使用してリポジトリに {% data variables.product.prodname_code_scanning %} を追加した段階では、ベースブランチはまだ解析されていないので、こうした情報を測定できません。 この場合、プルリクエストの結果チェックをくりっくすると、「Missing analysis for base commit SHA-HASH (ベースコミット SHA-HASH の解析がありません)」というメッセージが表示されます。
 
-There are other situations where there may be no analysis for the latest commit to the base branch for a pull request. These include:
+この他にも、プルリクエストのベースブランチに対する直近のコミットで解析結果がないことがあります。 たとえば、次のような場合です。
 
-* The pull request has been raised against a branch other than the default branch, and this branch hasn't been analyzed.
+* プルリクエストがデフォルトブランチ以外のブランチに発行され、このブランチが解析されていない。
 
-  To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_capc %} page, click the **Branch** drop-down and select the relevant branch.
+  ブランチがスキャン済みかを確認するには、{% data variables.product.prodname_code_scanning_capc %} ページに移動し、[**Branch**] ドロップダウンをクリックして該当するブランチを選択します。
 
-  ![Choose a branch from the Branch drop-down menu](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
+  ![[Branch] ドロップダウンメニューからブランチを選択](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-dropdown.png)
 
-  The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
+  この状況における解決策は、そのブランチの {% data variables.product.prodname_code_scanning %} ワークフローにある `on:push` と `on:pull_request` にベースブランチの名前を追加してから、スキャンするオープンなプルリクエストを更新するよう変更することです。
 
-* The latest commit on the base branch for the pull request is currently being analyzed and analysis is not yet available.
+* プルリクエストのベースブランチへの直近のコミットが現在解析中で、解析がまだ利用できない。
 
-  Wait a few minutes and then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
+  数分待ってからプルリクエストに変更をプッシュして、{% data variables.product.prodname_code_scanning %} を再トリガーします。
 
-* An error occurred while analyzing the latest commit on the base branch and analysis for that commit isn't available.
+* ベースブランチの直近のコミットを解析中にエラーが発生し、そのコミットの解析ができない。
 
-  Merge a trivial change into the base branch to trigger {% data variables.product.prodname_code_scanning %} on this latest commit, then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
+  ちょっとした変更をベースブランチにマージして、この最新のコミットで {% data variables.product.prodname_code_scanning %} をトリガーしてから、プルリクエストに変更をプッシュして {% data variables.product.prodname_code_scanning %} を再トリガーします。
 
 ### 次のステップ
 
 After setting up {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
 
-- View all of the {% data variables.product.prodname_code_scanning %} alerts generated for this repository. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
-- View any alerts generated for a pull request submitted after you set up {% data variables.product.prodname_code_scanning %}. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
-- Set up notifications for completed runs. 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)」を参照してください。
-- Investigate any problems that occur with the initial setup of {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information, see "[Troubleshooting the {% data variables.product.prodname_codeql %} workflow](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)."
-- Customize how {% data variables.product.prodname_code_scanning %} scans the code in your repository. 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)」を参照してください。
+- リポジトリに対して生成された {% data variables.product.prodname_code_scanning %} アラートをすべて表示する。 詳しい情報については、「[リポジトリの {% data variables.product.prodname_code_scanning %} アラートを管理する](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)」を参照してください。
+- {% data variables.product.prodname_code_scanning %} をセットアップ後にサブミットしたプルリクエストに対して生成されたアラートを表示する。 詳しい情報については、「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
+- 実行完了の通知を設定する。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)」を参照してください。
+- {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} の初期セットアップで発生した問題を調査する。 詳しい情報については、「[{% data variables.product.prodname_codeql %} ワークフローのトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-the-codeql-workflow)」を参照してください。
+- {% data variables.product.prodname_code_scanning %} がリポジトリ内のコードをスキャンする方法をカスタマイズする。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)」を参照してください。

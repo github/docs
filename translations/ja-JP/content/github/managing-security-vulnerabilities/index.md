@@ -6,6 +6,7 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/supply-chain-security for the current version of this article -->
 
 ### 目次
 {% topic_link_in_list /managing-vulnerabilities-in-your-projects-dependencies %}

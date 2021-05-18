@@ -14,17 +14,17 @@ topics:
 
 ### Topics について
 
-Topics を利用すれば、特定の領域に関するリポジトリを調べたり、コントリビュートするプロジェクトを見つけたり、特定の問題に対する新たなソリューションを見つけ出すことができます。 Topics は、リポジトリのメインページに表示されます。 You can click a topic name to {% if currentVersion == "free-pro-team@latest" %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
+Topics を利用すれば、特定の領域に関するリポジトリを調べたり、コントリビュートするプロジェクトを見つけたり、特定の問題に対する新たなソリューションを見つけ出すことができます。 Topics は、リポジトリのメインページに表示されます。 Topics 名をクリックして、{% if currentVersion == "free-pro-team@latest" %}関連する Topics や、その Topics に分類される他のリポジトリのリストを見たりすることができます。{% else %}そのトピックの他のリポジトリを検索することができます。{% endif %}
 
 ![Topics を表示しているテストリポジトリのメインページ](/assets/images/help/repository/os-repo-with-topics.png)
 
 最も利用されているトピックをブラウズするには https://github.com/topics/ にアクセスしてください。
 
-{% if currentVersion == "free-pro-team@latest" %}You can contribute to {% data variables.product.product_name %}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
+{% if currentVersion == "free-pro-team@latest" %}[github/explore](https://github.com/github/explore) リポジトリにある {% data variables.product.product_name %}の注目の Topics 集にコントリビュートできます。 {% endif %}
 
-リポジトリの管理者は、リポジトリに好きなトピックを追加できます。 Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% if currentVersion == "free-pro-team@latest" %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. プライベートリポジトリの内容は分析されず、Topics が推奨されることはありません。{% endif %}
+リポジトリの管理者は、リポジトリに好きなトピックを追加できます。 リポジトリを分類するのに役立つトピックには、そのリポジトリの意図する目的、主題の領域、コミュニティ、言語などがあります。{% if currentVersion == "free-pro-team@latest" %}加えて、{% data variables.product.product_name %}はパブリックなリポジトリの内容を分析し、推奨されるトピックを生成します。リポジトリの管理者は、これを受諾することも拒否することもできます。 プライベートリポジトリの内容は分析されず、Topics が推奨されることはありません。{% endif %}
 
-{% if currentVersion == "github-ae@latest" %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
+{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック、内部、{% endif %}およびプライベートリポジトリも Topics を持つことができますが、Topics の検索結果で見えるプライベートリポジトリはアクセス権を持っているものだけです。
 
 特定のトピックに関連付けられているリポジトリを検索できます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories#search-by-topic)を参照してください。 また、{% data variables.product.product_name %} 上でトピックのリストを検索することもできます。 詳細は「[トピックを検索する](/articles/searching-topics)」を参照してください。
 

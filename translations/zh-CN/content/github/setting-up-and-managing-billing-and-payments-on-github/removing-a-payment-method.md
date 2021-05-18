@@ -26,8 +26,8 @@ topics:
 ### 删除个人帐户的付款方式
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
@@ -35,10 +35,9 @@ topics:
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}

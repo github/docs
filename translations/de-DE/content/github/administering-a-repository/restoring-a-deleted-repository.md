@@ -31,9 +31,9 @@ Beim Wiederherstellen eines Repositorys werden etwaige Releaseanhänge oder Team
 
 ### Gelöschtes Repository einer Organisation wiederherstellen
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

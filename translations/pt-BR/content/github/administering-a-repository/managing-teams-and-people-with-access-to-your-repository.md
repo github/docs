@@ -48,7 +48,7 @@ Para obter mais informações, consulte "[Níveis de permissão para um reposit�
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Em "Gerenciar acesso", localize a equipe ou pessoa cujo acesso você deseja remover e clique em {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Ícone da lixeira para remover acesso](/assets/images/help/repository/manage-access-remove.png)
+4. Em "Gerenciar acesso", localize a equipe ou pessoa cujo acesso você deseja remover e clique em {% octicon "trash" aria-label="The trash icon" %}. ![ícone da lixeira para remover acesso](/assets/images/help/repository/manage-access-remove.png)
 
 ### Leia mais
 

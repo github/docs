@@ -11,8 +11,12 @@ redirect_from:
 intro: 'Mithilfe von LDAP können Sie {% data variables.product.prodname_ghe_server %} bei Ihren vorhandenen Konten authentifizieren und den Zugriff auf Repositorys zentral verwalten. LDAP ist ein beliebtes Anwendungsprotokoll für den Zugriff auf und die Verwaltung von Verzeichnisinformationsdiensten. Zudem ist es eines der gängigsten Protokolle zur Integration von Drittanbietersoftware in große Benutzerverzeichnisse von Unternehmen.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

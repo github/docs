@@ -26,7 +26,7 @@ topics:
 
 {% note %}
 
-**注釈:** Organization に優先ポリシーがあるか、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21"%}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**注釈:** Organization に優先ポリシーがあるか、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 詳しい情報については、「[Organization での {% data variables.product.prodname_actions %} を無効化または制限する](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)」または{% if currentVersion == "free-pro-team@latest" %}「[Enterprise アカウントで {% data variables.product.prodname_actions %} ポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% elsif currentVersion ver_gt "enterprise-server@2.21"%}「[Enterprise で {% data variables.product.prodname_actions %} ポリシーを施行する](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -41,13 +41,13 @@ topics:
 
 ### リポジトリの {% data variables.product.prodname_actions %} 権限を管理する
 
-You can disable all workflows for a repository or set a policy that configures which actions can be used in a repository.
+リポジトリに対するワークフローをすべて無効にすることも、リポジトリでどのアクションを使用できるかを設定するポリシーを設定することもできます。
 
 {% data reusables.actions.actions-use-policy-settings %}
 
 {% note %}
 
-**注釈:** Organization に優先ポリシーがあるか、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21" %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+**注釈:** Organization に優先ポリシーがあるか、優先ポリシーのある Enterprise アカウントによって管理されている場合、これらの設定を管理できない場合があります。 詳しい情報については、「[Organization での {% data variables.product.prodname_actions %} を無効化または制限する](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)」または{% if currentVersion == "free-pro-team@latest" %}「[Enterprise アカウントで {% data variables.product.prodname_actions %} ポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% elsif currentVersion ver_gt "enterprise-server@2.21" %}「[Enterprise で {% data variables.product.prodname_actions %} ポリシーを施行する](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
@@ -56,17 +56,17 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select an option. ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
+1. [**Actions permissions**] で、オプションを選択します。 ![この Organization に対するアクションポリシーを設定する](/assets/images/help/repository/actions-policy.png)
 1. [**Save**] をクリックします。
 
-### Allowing specific actions to run
+### 特定のアクションの実行を許可する
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+1. [**Actions permissions**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![許可リストにアクションを追加する](/assets/images/help/repository/actions-policy-allow-list.png)
 2. [**Save**] をクリックします。
 {% endif %}
 
@@ -81,4 +81,22 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Setting the permissions of the `GITHUB_TOKEN` for your repository
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+The default permissions can also be configured in the organization settings. If the more restricted default has been selected in the organization settings, the same option is auto-selected in your repository settings and the permissive option is disabled.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions %}
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}

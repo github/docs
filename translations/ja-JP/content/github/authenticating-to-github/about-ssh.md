@@ -11,11 +11,13 @@ topics:
   - SSH
 ---
 
-SSH をセットアップする際には、[SSH キーを生成し、ssh-agent に追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)し、それから [ キーを自分の {% data variables.product.product_name %}アカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。 SSH キーを ssh-agent に追加することで、パスフレーズの利用を通じて SSH キーに追加のセキュリティのレイヤーを持たせることができます。 詳しい情報については[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)を参照してください。
+When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" and "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-{% if currentVersion == "free-pro-team@latest" %} SAML シングルサインオンを利用している Organization が所有するリポジトリで SSH キーを使用するには、まずはそのキーを認証する必要があります。 詳しい情報については、「[SAML シングルサインオンで使うために SSH キーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. 詳しい情報については[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)を参照してください。
 
-定期的に [SSH キーのリストをレビュー](/articles/reviewing-your-ssh-keys)し、不正になったものや悪用されたものを取り除くことをおすすめします。
+{% if currentVersion == "free-pro-team@latest" %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. 詳しい情報については、「[SAML シングルサインオンで使うために SSH キーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+
+To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. 詳細は「[SSH キーをレビューする](/github/authenticating-to-github/reviewing-your-ssh-keys)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 SSH キーを 1 年間使用していない場合、
@@ -28,8 +30,4 @@ SSH 証明書を提供する Organization のメンバーである場合、{% da
 
 - [既存の SSH キーのチェック](/articles/checking-for-existing-ssh-keys)
 - [SSH コネクションのテスト](/articles/testing-your-ssh-connection)
-- [SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)
 - [SSH のトラブルシューティング](/articles/troubleshooting-ssh)
-{%- if currentVersion == "free-pro-team@latest" %}
-- [SAML シングルサインオンで使うためにSSHキーを認可する](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)
-{%- endif %}

@@ -48,7 +48,7 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. [Manage access] でアクセスを削除する Team またはユーザーを探し、{% octicon "trashcan" aria-label="The trashcan icon" %} をクリックします。 ![アクセス削除用のゴミ箱アイコン](/assets/images/help/repository/manage-access-remove.png)
+4. [Manage access] でアクセスを削除する Team またはユーザーを探し、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![アクセス削除用のゴミ箱アイコン](/assets/images/help/repository/manage-access-remove.png)
 
 ### 参考リンク
 

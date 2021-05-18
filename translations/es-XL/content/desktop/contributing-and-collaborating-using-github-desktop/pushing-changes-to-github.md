@@ -2,7 +2,7 @@
 title: Cargar cambios en GitHub
 shortTitle: Cargar cambios
 intro: 'De manera que confirmes cambios localmente en tu proyecto, puedes cargarlos a {% data variables.product.prodname_dotcom %} para que otros puedan acceder a ellos desde el repositorio remoto.'
-permissions: Las personas con permisos de escritura pueden cargar cambios a un repositorio.
+permissions: People with write permissions can push changes to a repository.
 redirect_from:
   - /desktop/contributing-to-projects/pushing-changes-to-github
 versions:

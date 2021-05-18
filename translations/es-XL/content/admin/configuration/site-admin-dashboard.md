@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
 ---
 
 Para acceder al tablero, en la esquina superior derecha de cualquier página, haz clic en {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

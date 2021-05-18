@@ -1,7 +1,6 @@
 ---
 title: Gerenciar repositórios
 intro: 'É possível gerenciar os repositórios conectados ao {% data variables.product.prodname_insights %} e os dados incluídos nas métricas de cada repositório.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '

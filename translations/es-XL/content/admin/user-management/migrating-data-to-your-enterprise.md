@@ -15,6 +15,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Migration
 ---
 
 ### Aplicar los datos importados en {% data variables.product.prodname_ghe_server %}

@@ -1,6 +1,6 @@
 ---
 title: Mitarbeiter zu einem persönlichen Repository einladen
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
+intro: 'Du kannst {% if currentVersion == "free-pro-team@latest" %}Benutzer als Mitarbeiter zu Deinem persönlichen Repository einladen{% else %}Benutzer als Mitarbeiter zu Deinem persönlichen Repository hinzufügen{% endif %}.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -33,7 +33,7 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 
 1. Frage nach dem Benutzernamen der Person, die Du als Mitarbeiter einlädst.
 
-{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} Wenn die Person noch keinen Benutzernamen besitzt, kann sie sich für {% data variables.product.prodname_dotcom %} anmelden. Weitere Informationen findest Du unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“.{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

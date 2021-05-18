@@ -6,13 +6,17 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
 versions:
   enterprise-server: '*'
+type: overview
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {% data variables.product.product_location %} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
 
-Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
+Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. Als Administrator können Sie Benutzer über die Einstellungen des Websiteadministrators oder mithilfe der [API für die Benutzerverwaltung](/rest/reference/enterprise-admin#update-the-username-for-a-user) umbenennen.
 
 Zudem sollten Sie die folgenden Issues in Betracht ziehen:
 

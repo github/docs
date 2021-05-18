@@ -13,7 +13,7 @@ topics:
 
 ### Escolher a licença ideal
 
-Nós criamos o [choosealicense.com](http://choosealicense.com), para ajudá-lo a compreender como licenciar seu código. Uma licença de software descreve o que pode e não pode ser feito com seu código-fonte, assim é importante tomar uma decisão fundamentada.
+Nós criamos o [choosealicense.com](https://choosealicense.com), para ajudá-lo a compreender como licenciar seu código. Uma licença de software descreve o que pode e não pode ser feito com seu código-fonte, assim é importante tomar uma decisão fundamentada.
 
 Você não tem qualquer obrigação de escolher uma licença. Entretanto, sem uma licença, são aplicadas as leis padrão de copyright, o que significa que você detém todos os direitos de seu código-fonte e ninguém poderá reproduzir, distribuir ou criar derivativos de seu trabalho. Se você está criando um projeto de código aberto, incentivamos fortemente que você contemple uma licença de código aberto. O [Open Source Guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) (Guia de código aberto) apresenta orientações adicionais para a escolha da licença correta para seu projeto.
 
@@ -76,7 +76,7 @@ Quando você pesquisar uma família de licenças, os resultados incluirão todas
 
 ### Identificar uma licença
 
-[A licenciada de código aberto Ruby gem ](https://github.com/licensee/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/rest/reference/licenses) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](http://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[A licenciada de código aberto Ruby gem ](https://github.com/licensee/licensee) compara o arquivo *LICENSE* do repositório com uma lista curta de licenças conhecidas. A licenciada também fornece as [APIs de licenças](/rest/reference/licenses) e [dá informações sobre como os repositórios no {% data variables.product.product_name %} são licenciados](https://github.com/blog/1964-open-source-license-usage-on-github-com). Se o seu repositório usa uma licença que não está listada no [site Choose a License](https://choosealicense.com/appendix/), você pode [solicitar a inclusão da licença](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Caso o seu repositório use uma licença listada no site Choose a License que não aparece na parte superior da página do repositório, ele pode conter licenças múltiplas ou outras complexidades. Para que sua licença seja detectada, simplifique o arquivo *LICENSE* e anote a complexidade em algum outro local, como no arquivo *README* do repositório.
 

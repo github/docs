@@ -9,6 +9,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 ### Crear ganchos de pre-recepción

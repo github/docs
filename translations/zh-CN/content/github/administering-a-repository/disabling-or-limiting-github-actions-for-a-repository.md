@@ -26,7 +26,7 @@ topics:
 
 {% note %}
 
-**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21"%}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 更多信息请参阅“[禁用或限制组织的 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”或{% if currentVersion == "free-pro-team@latest" %}“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)”。{% elsif currentVersion ver_gt "enterprise-server@2.21"%}"[实施企业的 {% data variables.product.prodname_actions %} 策略](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)“。{% endif %}
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ topics:
 
 {% note %}
 
-**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21" %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 更多信息请参阅“[禁用或限制组织的 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”或{% if currentVersion == "free-pro-team@latest" %}“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)”。{% elsif currentVersion ver_gt "enterprise-server@2.21" %}"[实施企业的 {% data variables.product.prodname_actions %} 策略](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)“。
 
 {% endif %}
 
@@ -81,4 +81,22 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### 为您的仓库设置 `GITHUB_TOKENN` 的权限
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+默认权限也可以在组织设置中配置。 如果在组织设置中选择了更受限制的默认值，则在仓库设置中自动选择相同的选项，并禁用许可的选项。
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### 配置默认 `GITHUB_TOKENN` 权限
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions %}
+1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. 单击 **Save（保存）**以应用设置。
 {% endif %}

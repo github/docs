@@ -1,6 +1,6 @@
 ---
 title: 必須ステータスチェックのトラブルシューティング
-intro: You can check for common errors and resolve issues with required status checks.
+intro: ステータスチェック必須を使用して、一般的なエラーを調べ、問題を解決できます。
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
@@ -10,9 +10,9 @@ topics:
   - Repositories
 ---
 
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. 詳しい情報については、「[チェック](/rest/reference/checks)」を参照してください。
+同じ名前のチェックとステータスがあり、その名前をステータスチェック必須とするようにした場合、チェックとステータスはどちらも必須になります。 詳しい情報については、「[チェック](/rest/reference/checks)」を参照してください。
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. これによって、ブランチがベースブランチからの最新のコードでテストされたことが保証されます。 ブランチが古い場合、ベースブランチをブランチにマージする必要があります。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)を参照してください。
+ステータスチェック必須を有効にした後、マージする前にブランチをベースブランチに対して最新にする必要がある場合があります。 これによって、ブランチがベースブランチからの最新のコードでテストされたことが保証されます。 ブランチが古い場合、ベースブランチをブランチにマージする必要があります。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)を参照してください。
 
 {% note %}
 
@@ -28,13 +28,13 @@ remote: error: Required status check "ci-build" is failing
 ```
 {% note %}
 
-**Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. これはマージコミット自体でステータスチェックを実行せずに行えます。
+**注釈:** 最新で必須のステータスチェックをパスしたプルリクエストは、ローカルでマージしてから保護されたブランチにプッシュできます。 これはマージコミット自体でステータスチェックを実行せずに行えます。
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 If the test merge commit has a status, the test merge commit must pass. それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 For more information about test merge commits, see "[Pulls](/rest/reference/pulls#get-a-pull-request)."
+テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、そのテストマージコミットは必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プル](/rest/reference/pulls#get-a-pull-request)」を参照してください。
 
 ![マージコミットが競合しているブランチ](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: JIRA を使用してプロジェクトを管理する
-intro: 'プロジェクト管理用に {% data variables.product.prodname_enterprise %}に JIRA を統合することができます。'
+title: Managing projects using Jira
+intro: 'You can integrate Jira with {% data variables.product.prodname_enterprise %} for project management.'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira/
   - /enterprise/admin/articles/project-management-using-jira/
@@ -9,38 +9,60 @@ redirect_from:
   - /enterprise/admin/user-management/managing-projects-using-jira
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Project management
 ---
 
-### {% data variables.product.prodname_enterprise %}のOrganizationへの JIRA の繋ぎ方
+### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
-1. http[s]://[hostname]/login で {% data variables.product.prodname_enterprise %}のアカウントにサインインする。
-1. ページ右上にあるアカウント設定のアイコン（歯車）をクリックする。
-1. 左のサイドバーで、あなたのOrganizationの名前をクリックする。
-1. 左のサイドバーで、**Applications（アプリケーション）** をクリックしてください。
-1. **Organization applications** のボックスの右上隅にある、**Register new application** をクリックする。
-1. アプリケーションの設定を次のように記入する。
-    - **Application name** の欄に "JIRA" と入力する。
-    - **Homepage URL** の欄には、JIRA インスタンスの全 URL を入力する。
-    - **Authorization callback URL** の欄には、JIRAインスタンスの全URLを入力する。
-1. **Register application** をクリックする。
-1. ページの上部の [**Client ID**] と [**Client Secret**] をメモしてください。 これらは JIRA のインスタンスの設定に必要です。
+1. http[s]://[hostname]/login で {% data variables.product.prodname_enterprise %}のアカウントにサインインする。 If already signed in, click on the {% data variables.product.prodname_dotcom %} logo in the top left corner.
+2. Click on your profile icon under the {% data variables.product.prodname_dotcom %} logo and select the organization you would like to connect with Jira.
 
-### JIRA インスタンス を設定
+  ![Select an organization](/assets/images/enterprise/orgs-and-teams/profile-select-organization.png)
 
-1. JIRA インスタンス で、管理人権限でアカウントにログインする。
-1. ページ上部の、設定アイコン（歯車）をクリックする。
-1. 設定のドロップダウンで、**Add-ons** を選択する。
-1. 左のサイドバーにある**Source control** で、**DVCS accounts** をクリックする。
-1. **Link Bitbucket or GitHub account** をクリックする。
-1. [**Add New Account**] (新規アカウントを追加) モーダルで、{% data variables.product.prodname_enterprise %} の設定を記入してください。
-    - **Host** のドロップダウンメニューで、**GitHub Enterprise** を選択する。
+3. Click on the **Edit _organization name_ settings** link.
+
+  ![Edit organization settings](/assets/images/enterprise/orgs-and-teams/edit-organization-settings.png)
+
+4. In the left sidebar, under **Developer settings**, click **OAuth Apps**.
+
+  ![Select OAuth Apps](/assets/images/enterprise/orgs-and-teams/organization-dev-settings-oauth-apps.png)
+
+5. Click on the **Register new application** button.
+
+  ![Register new application button](/assets/images/enterprise/orgs-and-teams/register-oauth-application-button.png)
+
+6. アプリケーションの設定を次のように記入する。
+    - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
+    - In the **Homepage URL** field, type the full URL of your Jira instance.
+    - In the **Authorization callback URL** field, type the full URL of your Jira instance.
+7. **Register application** をクリックする。
+8. ページの上部の [**Client ID**] と [**Client Secret**] をメモしてください。 You will need these for configuring your Jira instance.
+
+### Jira instance configuration
+
+1. On your Jira instance, log into an account with administrative access.
+2. At the top of the page, click the settings (gear) icon and choose **Applications**.
+
+  ![Select Applications on Jira settings](/assets/images/enterprise/orgs-and-teams/jira/jira-applications.png)
+
+3. In the left sidebar, under **Integrations**, click **DVCS accounts**.
+
+  ![Jira Integrations menu - DVCS accounts](/assets/images/enterprise/orgs-and-teams/jira/jira-integrations-dvcs.png)
+
+4. Click **Link Bitbucket Cloud or {% data variables.product.prodname_dotcom %} account**.
+
+  ![Link GitHub account to Jira](/assets/images/enterprise/orgs-and-teams/jira/jira-link-github-account.png)
+
+5. [**Add New Account**] (新規アカウントを追加) モーダルで、{% data variables.product.prodname_enterprise %} の設定を記入してください。
+    - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
     - **Team or User Account** の欄には、{% data variables.product.prodname_enterprise %}のOrganization、または個人アカウントの名前を入力する。
     - **OAuth Key** の欄には、{% data variables.product.prodname_enterprise %}のディベロッパーアプリケーションのClient ID を入力する。
     - **OAuth Secret** の欄には、{% data variables.product.prodname_enterprise %}のデベロッパーアプリケーションの Client Secret を入力する。
-    - {% data variables.product.prodname_enterprise %}の Organization、または個人アカウントが所有している新規リポジトリをリンクしたくない場合は、**Auto Link New Repositories** の選択を解除する。
-    - スマートコミットを有効にしたくない場合は、**Enable Smart Commits** の選択を解除する。
+    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or personal account, deselect **Auto Link New Repositories**.
+    - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
     - [**Add**] をクリックします。
-1. {% data variables.product.prodname_enterprise %}に対して与えるアクセス権を確認して、**Authorize application** をクリックする。
-1. 必要であれば、パスワードを入力する。
+6. {% data variables.product.prodname_enterprise %}に対して与えるアクセス権を確認して、**Authorize application** をクリックする。
+7. 必要であれば、パスワードを入力する。

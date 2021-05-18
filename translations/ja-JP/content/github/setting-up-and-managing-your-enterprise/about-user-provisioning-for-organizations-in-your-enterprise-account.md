@@ -1,6 +1,6 @@
 ---
-title: About user provisioning for organizations in your enterprise account
-intro: You can manage organization membership in an enterprise account directly from an identity provider (IdP).
+title: Enterprise アカウント内の Organization のユーザプロビジョニングについて
+intro: Enterprise アカウントの Organization のメンバーシップを直接アイデンティティプロバイダ (IdP) から管理できます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -14,7 +14,7 @@ topics:
 
 {% data reusables.scim.enterprise-account-scim %} オプションで、SAML プロビジョニングを有効にして、別々にデプロビジョニングすることもできます。
 
-If you configure SCIM for the {% data variables.product.product_name %} application in your IdP, each time you make changes to group membership in your IdP, your IdP will make a SCIM call to {% data variables.product.prodname_dotcom %} to update the corresponding organization's membership. SAML プロビジョニングを有効にすると、Enterprise アカウントの SAML 設定で保護されているリソースに Enterprise のメンバーがアクセスするたびに、その SAML アサーションによってプロビジョニングがトリガーされすま。
+IdP で {% data variables.product.product_name %} アプリケーションの SCIM を設定すると、IdP でグループのメンバーシップに変更を加えるたびに IdP が {% data variables.product.prodname_dotcom %} に SCIM 呼び出しを行い、対応する Organization のメンバーシップを更新します。 SAML プロビジョニングを有効にすると、Enterprise アカウントの SAML 設定で保護されているリソースに Enterprise のメンバーがアクセスするたびに、その SAML アサーションによってプロビジョニングがトリガーされすま。
 
 SCIM 呼び出しまたは SAML アサーションのたびに、{% data variables.product.product_name %} はユーザが所属する IdP グループをチェックし、以下の操作を実行します。
 

@@ -27,8 +27,8 @@ $0 以外の利用上限を設定すると、直ちに現在の支払い期間�
 自身のユーザアカウントに対する {% data variables.product.prodname_actions %} の利用上限は、誰でも管理できます。
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -36,11 +36,10 @@ $0 以外の利用上限を設定すると、直ちに現在の支払い期間�
 
 Organization の {% data variables.product.prodname_actions %} については、Organizationのオーナーと支払いマネージャーが利用上限を管理できます。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -51,8 +50,8 @@ Enterprise アカウントの {% data variables.product.prodname_actions %} の�
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. [
-[{% data variables.product.prodname_actions %} and Packages monthly usage] で、[**Cost management**] をクリックします。
-  ![コスト管理タブ](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Above "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**.
+  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

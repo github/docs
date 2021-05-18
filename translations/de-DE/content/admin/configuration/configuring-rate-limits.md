@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
 ---
 
 ### Begrenzungen für {% data variables.product.prodname_enterprise_api %} aktivieren

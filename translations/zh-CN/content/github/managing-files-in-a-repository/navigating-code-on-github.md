@@ -9,6 +9,8 @@ topics:
   - Repositories
 ---
 
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+
 ### 关于在 {% data variables.product.prodname_dotcom %} 上导航代码
 
 代码导航使用开源库 [`tree-sitter`](https://github.com/tree-sitter/tree-sitter)。 支持以下语言：

@@ -30,7 +30,7 @@ CLIツールなどであり、ブラウザにアクセスできないなら、�
 
 ```shell
 $ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
-HTTP/1.1 200 OK
+HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```

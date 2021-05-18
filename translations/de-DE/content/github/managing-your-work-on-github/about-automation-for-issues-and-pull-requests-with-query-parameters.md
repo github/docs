@@ -21,7 +21,7 @@ Abfrageparameter sind optionale Bestandteile einer URL, die Sie anpassen können
 
 Du musst die erforderlichen Berechtigungen für jede Aktion haben, um den entsprechenden Abfrageparameter zu verwenden. Beispielsweise benötigst Du die Berechtigung, einem Issue eine Kennzeichnung hinzuzufügen, um den Abfrageparameter `labels` (Kennzeichnung) zu verwenden.
 
-Wenn Du eine ungültige URL mithilfe von Suchparametern erstellst oder wenn Du nicht über die erforderlichen Berechtigungen verfügst, gibt die URL eine 404-Fehlerseite zurück.
+If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
 ### Unterstützte Abfrageparameter
 

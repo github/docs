@@ -28,8 +28,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Policies
+  - Security
 ---
 
 ### 配置企业中新仓库的默认可见性

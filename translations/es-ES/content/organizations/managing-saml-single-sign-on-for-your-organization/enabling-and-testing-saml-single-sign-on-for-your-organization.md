@@ -20,9 +20,8 @@ Si habilitas pero no exiges SAML SSO, los miembros de la organización que elija
 
 Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado tu proveedor de identidad (IP). Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. En "inicio de sesión único SAML", selecciona **Habilitar autenticación SAML**. ![Casilla de verificación para habilitar SAML SSO](/assets/images/help/saml/saml_enable.png)
 

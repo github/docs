@@ -1,7 +1,6 @@
 ---
 title: 管理贡献者和团队
 intro: 您可以管理指标和报告中包含的人员和团队。
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
@@ -98,7 +97,7 @@ versions:
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. 在要删除的贡献者的右侧，单击 {% octicon "trashcan" aria-label="The trashcan icon" %}。 ![回收站按钮](/assets/images/help/insights/contributor-trashcan.png)
+3. 在要删除的贡献者的右侧，单击 {% octicon "trash" aria-label="The trash icon" %}。 ![回收站按钮](/assets/images/help/insights/contributor-trashcan.png)
 
 #### 重命名自定义团队
 
