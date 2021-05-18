@@ -338,13 +338,11 @@ push: true
   <tr>
   <td>
 
-{% raw %}
   ```yaml
 tags: |
-  docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
-  docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.ref }}
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+  {% if currentVersion == "github-ae@latest" %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.ref }}{% endraw %}
   ```
-{% endraw %}
   </td>
   <td>
     Tags the published package with the git ref (for example, the name of the branch used to create the package) as well as the commit SHA.
