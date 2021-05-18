@@ -9,6 +9,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
+  - Networking
 ---
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}

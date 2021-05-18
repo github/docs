@@ -10,6 +10,10 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
+  - Storage
 ---
 
 ### Controlar el almacenamiento

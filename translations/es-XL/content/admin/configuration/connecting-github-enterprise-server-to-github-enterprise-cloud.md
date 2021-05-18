@@ -12,6 +12,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
+  - Infrastructure
+  - Networking
 ---
 
 ### Acerca de {% data variables.product.prodname_github_connect %}

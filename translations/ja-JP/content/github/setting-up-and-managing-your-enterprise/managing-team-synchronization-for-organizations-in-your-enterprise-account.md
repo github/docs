@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントで Organization の Team 同期を管理する
-intro: 'You can enable team synchronization between an identity provider (IdP) and {% data variables.product.product_name %} to allow organizations owned by your enterprise account to manage team membership through IdP groups.'
+intro: 'アイデンティティプロバイダ (IdP) と {% data variables.product.product_name %} の間のチーム同期を有効にして、Enterprise アカウントが所有する Organization が IdP グループを介してチームメンバーシップを管理できるようにすることができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
@@ -9,9 +9,9 @@ topics:
   - Enterprise
 ---
 
-### About team synchronization for enterprise accounts
+### Enterprise アカウントのチーム同期について
 
-If you use Azure AD as your IdP, you can enable team synchronization for your enterprise account to allow organization owners and team maintainers to synchronize teams in the organizations owned by your enterprise accounts with IdP groups.
+Azure AD を IdP として使用する場合は、Enterprise アカウントのチーム同期を有効にして、Organization のオーナーとチームメンテナが、Enterprise アカウントが所有する Organization のチームを IdP グループと同期できるようにすることができます。
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
@@ -39,5 +39,5 @@ SAML SSO とサポートされる IdP を使用して Enterprise アカウント
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**. ![特定の IdP テナントに対して、Team の同期を有効化するペンディングリクエストと、リクエストを承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
+7. Enterprise アカウントに接続する IdP のテナント詳細を確認してから、[**Approve**] をクリックします。 ![特定の IdP テナントに対して、Team の同期を有効化するペンディングリクエストと、リクエストを承認またはキャンセルするオプション](/assets/images/help/teams/approve-team-synchronization.png)
 8. Team 同期を無効にするには、 [**Disable team synchronization**] をクリックします。 ![Team の同期を無効化する](/assets/images/help/teams/disable-team-synchronization.png)

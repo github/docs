@@ -79,14 +79,14 @@ For information about permission requirements for actions related to {% data var
 您可以在{% if currentVersion == "free-pro-team@latest" %} 仓库的 Security（安全）选项卡或{% endif %} 仓库的依赖关系图{% if currentVersion == "free-pro-team@latest" %} 中查看影响特定项目的所有警报。更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-默认情况下，我们会向对受影响仓库具有管理员权限的人员通知新 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} {% if currentversion == "free proteam@latest" %}{% data variables.product.product_name %} 永远不公开披露任何仓库中已经发现的漏洞。 您也可以将 {% data variables.product.prodname_dependabot_alerts %} 设为对操作您拥有或具有管理员权限的仓库的其他人或团队可见。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
+默认情况下，我们会向对受影响仓库具有管理员权限的人员通知新 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} {% if currentVersion == "free proteam@latest" %}{% data variables.product.product_name %} 永远不公开披露任何仓库中已经发现的漏洞。 您也可以将 {% data variables.product.prodname_dependabot_alerts %} 设为对操作您拥有或具有管理员权限的仓库的其他人或团队可见。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 默认情况下，我们会向具有受影响仓库管理员权限的人员发送安全警报。 {% data variables.product.product_name %} 从不公开披露在任何仓库中发现的漏洞。
 {% endif %}
 
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServersions contains currentversion and currentver_lt "enterprise-server@2 1" %} 更多信息请参阅“[选择通知的递送方式](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。{% endif %}{% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@2. 0" %} 解更多信息请参阅“[配置漏洞依赖项的通知](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)”。{% endif %}
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServersions contains currentVersion and currentver_lt "enterprise-server@2 1" %} 更多信息请参阅“[选择通知的递送方式](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。{% endif %}{% if currentVersion == "free-proteam@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} 解更多信息请参阅“[配置漏洞依赖项的通知](/code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 您还可以查看与 {% data variables.product.prodname_advisory_database %} 中的特定漏洞对应的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[浏览 {% data variables.product.prodname_advisory_database %} 中的安全漏洞](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#viewing-your-vulnerable-repositories)”。

@@ -16,6 +16,8 @@ topics:
   - Accounts
 ---
 
+### Sobre bifurcações
+
 O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia.
 
 #### Proponha mudanças no projeto de outra pessoa
@@ -34,7 +36,7 @@ Para obter mais informações sobre a aplicação dos princípios de código abe
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](http://choosealicense.com/)" em choosealicense.com.
+Ao criar um repositório público a partir de uma bifurcação do projeto de outra pessoa, confirme que incluiu um arquivo de licença que estabelece como você quer que seu projeto seja compartilhado com outros. Para obter mais informações, consulte [Escolha uma licença de código aberto](https://choosealicense.com/)" em choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
@@ -154,5 +156,6 @@ Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou
 
 - "[Configurar o Git](/articles/set-up-git)"
 - "[Criar um repositório](/articles/creating-a-new-repository)"
+- **Bifurcar um repositório**
 - "[Socializar](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

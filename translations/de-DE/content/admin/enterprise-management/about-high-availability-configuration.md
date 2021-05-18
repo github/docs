@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
 versions:
   enterprise-server: '*'
+type: overview
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 Beim Konfigurieren der Hochverfügbarkeit gibt es eine automatisierte Einrichtung einer unidirektionalen asynchronen Replikation sämtlicher Datenspeicher (Git-Repositorys, MySQL, Redis und ElasticSearch) von der primären zur Replikat-Appliance.

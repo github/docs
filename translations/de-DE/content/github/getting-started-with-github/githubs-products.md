@@ -16,6 +16,8 @@ topics:
   - Security
 ---
 
+### About {% data variables.product.prodname_dotcom %}'s products
+
 {% data variables.product.prodname_dotcom %} bietet kostenlose und kostenpflichtige Produkte an. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data reusables.products.product-roadmap %}
 
 ### {% data variables.product.prodname_free_user %} für Benutzerkonten
@@ -99,14 +101,3 @@ Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren F
 Du kannst eine Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} zu testen. Weitere Informationen findest Du unter „<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Eine Testversion von {% data variables.product.prodname_ghe_cloud %} einrichten</a>.“
 
 Um weitere Informationen über das Hosten Deiner eigenen [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)-Instanz zu erhalten, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
-
-### {% data variables.product.prodname_ghe_one %}
-
-{% data variables.product.prodname_ghe_one %} enthält [{% data variables.product.prodname_enterprise %}](#github-enterprise) sowie:
-
-- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
-- {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."{% endif %}
-- [{% data variables.product.prodname_learning %} für Organisationen](https://lab.github.com/organizations)
-
-For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.

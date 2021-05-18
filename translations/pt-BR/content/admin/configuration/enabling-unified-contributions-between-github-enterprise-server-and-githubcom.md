@@ -10,8 +10,10 @@ redirect_from:
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - GitHub Connect
 ---
 
 Como administrador do site, você pode permitir que os usuários finais enviem as contagens de contribuição anônimas do trabalho deles no {% data variables.product.prodname_ghe_server %} pelos respectivos gráficos de contribuição no {% data variables.product.prodname_dotcom_the_website %}.

@@ -1,6 +1,6 @@
 ---
-title: Configuring identity and access management for your enterprise account
-intro: 'You can manage SAML single sign-on, user provisioning, and team synchronization for your enterprise.'
+title: Enterprise アカウントのアイデンティおよびアクセス管理を設定する
+intro: Enterprise の SAML シングルサインオン、ユーザプロビジョニング、Team 同期を管理できます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 mapTopic: true
 versions:

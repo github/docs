@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Sponsoring on behalf of an organization is currently in beta and subject to change.
+**ノート:** Organizationに代わってのスポンサーは現在ベータで、変更されることがあります。
 
 {% endnote %}

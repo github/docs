@@ -6,8 +6,13 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Accounts
+  - Auditing
   - Enterprise
+  - Organizations
+  - User account
 ---
 
 通常情况下，如果有人删除仓库，它将在磁盘上保留 90 天并且可以通过站点管理员仪表板进行恢复。 90 天后，仓库将被永久删除。 如果您合法保留用户或组织，可以随时恢复他们拥有的仓库。

@@ -5,8 +5,13 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - 2fa
   - Enterprise
+  - Organizations
+  - Policies
+  - Security
 ---
 
 Ao usar o LDAP ou autenticação integrada, a autenticação de dois fatores será compatível em {% data variables.product.product_location %}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.

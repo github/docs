@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
 ---
 
 ### {% data variables.product.prodname_enterprise_api %}のレート制限の有効化

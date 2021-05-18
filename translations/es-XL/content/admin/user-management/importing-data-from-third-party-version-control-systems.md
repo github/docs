@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Migration
 ---
 
 ### Importar proyectos de Mercurial

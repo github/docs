@@ -24,7 +24,7 @@ topics:
 
 #### リスト名
 
-アプリケーションの名前は、[{% data variables.product.prodname_marketplace %} ホームページ](https://github.com/marketplace)に表示されます。 名前の上限は 255 文字です。
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} user, unless the name is your own user or organization name.
 
 #### ごく簡単な説明
 

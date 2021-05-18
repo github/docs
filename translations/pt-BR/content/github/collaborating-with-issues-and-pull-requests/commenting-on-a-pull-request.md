@@ -36,7 +36,7 @@ Para responder a um comentário em linha existente, é preciso navegar até o co
 
 **Dicas:**
 - Os comentários da pull request aceitam a mesma [formatação](/categories/writing-on-github) como comentários regulares no {% data variables.product.product_name %}, como @menções, emoji e referências.
-- Você pode [adicionar reações](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) a comentários em pull requests na guia **Files changed** (Arquivos alterados).
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 

@@ -8,8 +8,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Auditing
   - Enterprise
+  - Git
+  - Logging
 ---
 
 プッシュログの項目には次の情報が含まれています。

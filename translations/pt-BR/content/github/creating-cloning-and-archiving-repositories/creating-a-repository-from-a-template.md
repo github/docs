@@ -24,7 +24,7 @@ Qualquer pessoa com permissões de leitura em um repositório de modelos pode cr
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-Você pode optar por incluir a estrutura do diretório e os arquivos apenas a partir do branch-padrão do repositório de modelos ou incluir todos os branches.
+Você pode optar por incluir a estrutura do diretório e os arquivos apenas a partir do branch-padrão do repositório de modelos ou incluir todos os branches. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 {% endif %}
 
 Criar um repositório a partir de um modelo é semelhante a bifurcar um repositório, mas há diferenças importantes:

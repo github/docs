@@ -38,6 +38,10 @@ topics:
 
 {% data reusables.support.ask-and-answer-forum %}
 
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+
 ### さらなる活動
 
 #### プルリクエストを作成する
@@ -68,8 +72,8 @@ Organizationは、企業やオープンソースプロジェクトが多くの�
 
 ![プロジェクトに Star を付ける](/assets/images/help/stars/star-a-project.png)
 
-- [Git のセットアップ](/articles/set-up-git)
-- [リポジトリの作成](/articles/create-a-repo)
-- [リポジトリのフォーク](/articles/fork-a-repo)
+- [Git をセットアップする](/articles/set-up-git)
+- 「[リポジトリを作成する](/articles/create-a-repo)」
+- [リポジトリをフォークする](/articles/fork-a-repo)
 - **ソーシャル機能**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

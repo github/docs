@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### Syntaxmarkierung
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 Du kannst einen optionalen Sprachkennzeichner hinzufügen, um die Syntaxmarkierung im Fenced-Code-Block zu aktivieren.
 

@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### 構文の強調表示
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 言語識別子を追加して、コードブロックの構文を強調表示することができます。
 

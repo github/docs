@@ -21,7 +21,7 @@ Ein Repository, das einem Benutzerkonto gehört, hat zwei Berechtigungsebenen: d
 
 ### Organisations-Konten
 
-Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. Die Standardrolle für alle übrigen Personen lautet „Mitglied“. Du kannst die Zugriffsberechtigungen für mehrere Mitglieder gleichzeitig in Teams verwalten. Weitere Informationen findest Du unter:
+Organisationsmitglieder können folgende Rollen haben: *Inhaber*{% if currentVersion == "free-pro-team@latest" %}, *Abrechnungsmanager*,{% endif %} oder *Mitglied*. Inhaber haben vollständigen administrativen Zugriff auf Deine Organisation{% if currentVersion == "free-pro-team@latest" %}, wohingegen Abrechnungsmanager die Abrechnungseinstellungen verwalten können{% endif %}. Die Standardrolle für alle übrigen Personen lautet „Mitglied“. Du kannst die Zugriffsberechtigungen für mehrere Mitglieder gleichzeitig in Teams verwalten. Weitere Informationen findest Du unter:
 - „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)"
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“
 - „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“

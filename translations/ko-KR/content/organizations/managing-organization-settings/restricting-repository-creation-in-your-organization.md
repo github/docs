@@ -27,9 +27,8 @@ Organization owners can always create any type of repository.
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Repository creation", select one or more options. ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Click **Save**.

@@ -11,8 +11,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Pages
 ---
 
 ### 为 {% data variables.product.prodname_pages %} 启用公共站点

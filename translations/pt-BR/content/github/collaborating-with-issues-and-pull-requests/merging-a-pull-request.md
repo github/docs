@@ -25,6 +25,14 @@ Você não pode realizar o merge de um rascunho de um pull request. Para obter m
 
 Se decidir que não quer que as alterações em um branch de tópico sofram merge no branch upstream, é possível [fechar a pull request](/articles/closing-a-pull-request) sem fazer merge.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### Fazer merge de uma pull request no {% data variables.product.prodname_dotcom %}
 
 {% data reusables.repositories.sidebar-pr %}
@@ -65,12 +73,9 @@ O repositório pode ser configurado para que o branch principal de um pull reque
    {% endnote %}
    {% endif %}
 
-As pull requests sofrem merge com [a opção`--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), exceto pelas
-pull requests com commits com combinação por squash ou com rebase/<2>, que passam por merge com a opção fast-forward.</p> 
+Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/articles/about-pull-request-merges), which are merged using the fast-forward option.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
-
-
 
 ### Leia mais
 

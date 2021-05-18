@@ -24,7 +24,8 @@ topics:
 ### 查看部署仪表板
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在文件列表上方，单击 **Environments（环境）**。 ![仓库页面顶部的环境](/assets/images/help/repository/environments.png)
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+
 
 ### 延伸阅读
  - "[关于拉取请求](/articles/about-pull-requests)"

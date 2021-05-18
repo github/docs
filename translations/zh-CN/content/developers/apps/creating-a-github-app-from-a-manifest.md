@@ -179,7 +179,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-    POST /app-manifests/:code/conversions
+    POST /app-manifests/{code}/conversions
 
 有关端点响应的更多信息，请参阅[从清单创建 GitHub 应用程序](/rest/reference/apps#create-a-github-app-from-a-manifest)。
 

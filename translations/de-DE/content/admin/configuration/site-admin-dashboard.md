@@ -7,8 +7,10 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - Fundamentals
 ---
 
 Klicken Sie in der oberen rechten Ecke einer beliebigen Seite auf {% octicon "rocket" aria-label="The rocket ship" %}, um auf das Dashboard zuzugreifen.![Rocket ship icon for accessing site admin settings](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

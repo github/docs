@@ -8,8 +8,13 @@ redirect_from:
 intro: 'CAS 是一种适用于多种网络应用程序的单点登录 (SSO) 协议。 在登录之前，CAS 用户帐户不会占用{% if currentVersion ver_gt "enterprise-server@2.16" %}用户许可{% else %}席位{% endif %}。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

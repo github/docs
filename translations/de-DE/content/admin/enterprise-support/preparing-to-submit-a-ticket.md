@@ -6,8 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Support
 ---
 
 Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:

@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
 topics:
+  - Clustering
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### クラスタの High Availability レプリケーションについて
@@ -22,7 +26,7 @@ High Availability モードでは、各アクティブノードは対応する�
 
 #### ハードウェアとソフトウェア
 
-アクティブなクラスタ内の既存のノードごとに、同一のハードウェアリソースを使用して2番目の仮想マシンをプロビジョニングする必要があります。 たとえば、クラスタに 11 個のノードがあり、各ノードに 12 個の vCPU、96GB の RAM、および 750GB の接続ストレージがある場合、それぞれが 12 個の vCPU、64GB の RAM、および 750GB の接続ストレージを備えた 11 個の新しい仮想マシンをプロビジョニングする必要があります。
+アクティブなクラスタ内の既存のノードごとに、同一のハードウェアリソースを使用して2番目の仮想マシンをプロビジョニングする必要があります。 たとえば、クラスタに 11 個のノードがあり、各ノードに 12 個の vCPU、96GB の RAM、および 750GB の接続ストレージがある場合、それぞれが 12 個の vCPU、96GB の RAM、および 750GB の接続ストレージを備えた 11 個の新しい仮想マシンをプロビジョニングする必要があります。
 
 新しい仮想マシンごとに、アクティブクラスタ内のノードで実行されているものと同じバージョンの {% data variables.product.prodname_ghe_server %} をインストールします。 ライセンスをアップロードしたり、追加の設定を実行したりする必要はありません。 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 

@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
 topics:
+  - Clustering
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Sobre a alta disponibilidade de replicação de clusters
@@ -22,7 +26,7 @@ Recomendamos configurar uma alta disponibilidade como parte de um plano de recup
 
 #### Hardware e software
 
-Para cada nó existente no seu cluster ativo, você precisará fornecer uma segunda máquina virtual com recursos de hardware idênticos. Por exemplo, se seu cluster tiver 11 nós e cada nó tem 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado, você deverá fornecer 11 novas máquinas virtuais, tendo cada uma 12 vCPUs, 64 GB de RAM e 750 GB de armazenamento anexado.
+Para cada nó existente no seu cluster ativo, você precisará fornecer uma segunda máquina virtual com recursos de hardware idênticos. Por exemplo, se seu cluster tiver 11 nós e cada nó tem 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado, você deverá fornecer 11 novas máquinas virtuais, tendo cada uma 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado.
 
 Em cada nova máquina virtual, instale a mesma versão do {% data variables.product.prodname_ghe_server %} que é executada nos nós do seu cluster ativo. Você não precisa fazer o upload de uma licença ou executar qualquer configuração adicional. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)".
 

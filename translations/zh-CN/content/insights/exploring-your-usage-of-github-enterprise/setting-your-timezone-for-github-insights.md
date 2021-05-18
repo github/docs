@@ -1,7 +1,6 @@
 ---
 title: 设置 GitHub Insights 的时区
 intro: '您可以设置您在 {% data variables.product.prodname_insights %} 中查看的指标的时区。'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'

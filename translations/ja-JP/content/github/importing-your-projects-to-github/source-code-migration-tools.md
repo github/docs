@@ -12,7 +12,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Subversion、Mercurial、Team Foundation Server や他の Git リポジトリからプロジェクトをインポートするために、[GitHub Importer](/articles/about-github-importer) を使うことをおすすめします。 これらの外部ツールを使って、プロジェクトを Git に変換することもできます。
+We recommend using [GitHub Importer](/articles/about-github-importer) to import projects from Subversion, Mercurial, Team Foundation Version Control (TFVC), or another Git repository. これらの外部ツールを使って、プロジェクトを Git に変換することもできます。
 
 {% endif %}
 
@@ -32,12 +32,9 @@ Subversion リポジトリを Git にコンバートするには、これらの�
 
 Mercurial リポジトリを Git にコンバートするには、 [hg-fast-export](https://github.com/frej/fast-export) をおすすめします。
 
-### Team Foundation Server からインポートする
+### Importing from TFVC
 
-Team Foundation Server と Git の間で変更を反映するには、これらのツールをおすすめします。
-
-- [git-tfs](https://github.com/git-tfs/git-tfs)
-- [Git-TF](https://gittf.codeplex.com/)
+We recommend [git-tfs](https://github.com/git-tfs/git-tfs) for moving changes between TFVC and Git.
 
 {% tip %}
 

@@ -12,12 +12,13 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于包含的设置操作和运行器工具缓存
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-大多数官方 {% data variables.product.prodname_dotcom %} 编写的操作都会自动与 {% data variables.product.prodname_ghe_server %} 捆绑在一起。 但是，没有接入互联网的自托管运行器需要进行一些配置，然后才能使用包含的 `actions/setup-LANGUAGE` 操作，例如 `setup-node`。
+大多数官方 {% data variables.product.prodname_dotcom %} 编写的操作都会自动与 {% data variables.product.product_name %} 捆绑在一起。 但是，没有接入互联网的自托管运行器需要进行一些配置，然后才能使用包含的 `actions/setup-LANGUAGE` 操作，例如 `setup-node`。
 
 `actions/setup-LANGUAGE` 操作通常需要接入互联网才能将所需的环境二进制文件下载到运行器的工具缓存。 没有互联网连接的自托管运行器无法下载二进制文件，所以您必须手动填充运行器上的工具缓存。
 

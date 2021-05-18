@@ -14,7 +14,7 @@ topics:
 
 如果启用拉取请求自动合并，则拉取请求在满足所有必需审查并且状态检查通过时将自动合并。 自动合并使您无需等待满足要求，可以继续执行其他任务。
 
-在使用拉取请求自动合并之前，必需对仓库启用自动合并。 更多信息请参阅“[管理仓库中拉取请求的自动合并](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)”。{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@next " or currentversion ver_gt "enterprise-server@3.1" %}
+在使用拉取请求自动合并之前，必需对仓库启用自动合并。 更多信息请参阅“[管理仓库中拉取请求的自动合并](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)”。{% if currentVersion == "free-proteam@latest" or currentVersion == "github-ae@next " or currentVersion ver_gt "enterprise-server@3.1" %}
 
 对拉取请求启用自动合并后，如果没有仓库写入权限的人员将新更改推送到头部分支或切换拉取请求的基础分支，则自动合并将被禁用。 例如，如果维护者允许从复刻自动合并拉取请求，则在贡献者推送对拉取请求的新更改后，自动合并将被禁用。{% endif %}
 

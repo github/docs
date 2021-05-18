@@ -1,6 +1,6 @@
 ---
 title: Gist の作成
-intro: 'You can create two kinds of gists: {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and secret. Create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist if you''re ready to share your ideas with {% if currentVersion == "github-ae@latest" %}enterprise members{% else %}the world{% endif %} or a secret gist if you''re not.'
+intro: '{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}とシークレットの 2 種類の Gist を作成できます。 アイデアを {% if currentVersion == "github-ae@latest" %}Enterprise のメンバー{% else %}世界{% endif %}と共有する準備ができている場合は、{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}の Gist を作成します。そうでない場合は、シークレットの Gist を作成します。'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -14,11 +14,11 @@ versions:
 
 ### Gistについて
 
-すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 {% if currentVersion != "github-ae@latest" %}If you are signed in to {% data variables.product.product_name %} when{% else %}When{% endif %} you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
+すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 {% if currentVersion != "github-ae@latest" %} Gist を作成する際 {% else %}{% endif %}{% data variables.product.product_name %} にサインインしている場合、その Gist は自分のアカウントに関連付けられ、{% data variables.gists.gist_homepage %} に移動すると自分の Gist リストに表示されます。
 
-Gists can be {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret. {% if currentVersion == "github-ae@latest" %}Internal{% else %}Public{% endif %} gists show up in {% data variables.gists.discover_url %}, where {% if currentVersion == "github-ae@latest" %}enterprise members{% else %}people{% endif %} can browse new gists as they're created. それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。
+Gist は、{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %}またはシークレットにすることができます。 {% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %} の Gist が {% data variables.gists.discover_url %} に表示され、{% if currentVersion == "github-ae@latest" %}Enterprise メンバー{% else %}ユーザ{% endif %} は作成された新しい Gist を参照できます。 それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. Secret gists aren't private. If you send the URL of a secret gist to {% if currentVersion == "github-ae@latest" %}another enterprise member{% else %}a friend {% endif %}, they'll be able to see it. However, if {% if currentVersion == "github-ae@latest" %}any other enterpise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
+シークレット Gist は {% data variables.gists.discover_url %} に表示されず、検索できません。 シークレット Gist はプライベートではありません。 シークレット Gist の URL を{% if currentVersion == "github-ae@latest" %}別の Enterprise メンバー{% else %}友人{% endif %}に送信すると、メンバーはそれを確認することができます。 ただし、{% if currentVersion == "github-ae@latest" %}他の Enterprise メンバー{% else %}知らない人{% endif %}が URL を発見した場合、そのメンバーもあなたの Gist を確認できます。 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
 
 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
@@ -33,15 +33,15 @@ Secret gists don't show up in {% data variables.gists.discover_url %} and are no
 通知は以下の場合に送られます:
 - あなたが Gist の作者である場合。
 - 誰かがあなたを Gist 中でメンションした場合。
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+- いずれかの Gist の上部で [** Subscribe**] をクリックして、Gist をサブスクライブした場合。
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can pin gists to your profile so other people can see them easily. 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
+Gist をプロフィールにピン止めして、他のユーザが簡単に見ることができるようにすることができます。 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
 
 {% endif %}
 
-You can discover {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
+{% data variables.gists.gist_homepage %} に移動し、[**All Gists**] をクリックすると、他の人が作成した{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %} Gist を見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
 
 Gist は Git リポジトリであるため、完全なコミット履歴を diff とともに表示させることができます。 Gist はフォークしたりクローンしたりすることもできます。 詳細は「[Gist のフォークおよびクローン](/articles/forking-and-cloning-gists)」を参照してください。
 
@@ -55,14 +55,14 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 
 ### Gist の作成
 
-Follow the steps below to create a gist.
+以下のステップに従って、Gist を作成します。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
-You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+{% data variables.product.prodname_cli %} を使用して Gist を作成することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh gist create`](https://cli.github.com/manual/gh_gist_create)」を参照してください。
 
-Alternatively, you can drag and drop a text file from your desktop directly into the editor.
+または、デスクトップからエディタにテキストファイルを直接ドラッグアンドドロップすることもできます。
 
 {% endnote %}
 {% endif %}
@@ -71,8 +71,8 @@ Alternatively, you can drag and drop a text file from your desktop directly into
 2. {% data variables.gists.gist_homepage %}に移動します。
 3. Gist の名前と説明 (任意) を入力します。 ![Gist の名前と説明](/assets/images/help/gist/gist_name_description.png)
 
-4. Type the text of your gist into the gist text box. ![Gist テキストボックス](/assets/images/help/gist/gist_text_box.png)
+4. Gist のテキストを Gist テキストボックスに入力します。 ![Gist テキストボックス](/assets/images/help/gist/gist_text_box.png)
 
-5. Optionally, to create {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. ![Drop-down menu to select gist visibility]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
+5. 必要に応じて、{% if currentVersion == "github-ae@latest" %}内部{% else %}パブリック{% endif %} Gist を作成するには、{% octicon "triangle-down" aria-label="The downwards triangle icon" %} をクリックしてから、[**Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**] をクリックします。 ![Drop-down menu to select gist visibility]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 
-6. Click **Create secret Gist** or **Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**. ![Button to create gist](/assets/images/help/gist/create-secret-gist-button.png)
+6. [**Create secret Gist**] または [**Create {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} gist**] をクリックします。 ![新しい Gist を作成するボタン](/assets/images/help/gist/create-secret-gist-button.png)

@@ -14,7 +14,11 @@ topics:
 
 {% data reusables.package_registry.packages-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
 
-{% data reusables.package_registry.container-registry-beta-billing-note %}
+{% note %}
+
+**Billing update for container image storage:** During the beta phase of the {% data variables.product.prodname_container_registry %}, Docker image storage and bandwidth are free for both the previous `docker.pkg.github.com` and current `ghcr.io` hosting services. 詳しい情報については、「[{% data variables.product.prodname_registry %} の紹介](/packages/learn-github-packages/introduction-to-github-packages)」を参照してください。
+
+{% endnote %}
 
 Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_registry %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 

@@ -17,7 +17,7 @@ topics:
 ### 更改个人帐户结算周期的时长
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -29,7 +29,7 @@ topics:
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -37,6 +37,6 @@ topics:
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 4. 在“Billing overview（帐单概览）”下，单击 **Change plan（更改计划）**。 ![帐单概览更改计划按钮](/assets/images/help/billing/billing_overview_change_plan.png)
 5. 在右上角，单击 **Switch to monthly billing（切换为月度结算）** or **Switch to yearly billing（切换为年度结算）**。 ![帐单信息部分](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

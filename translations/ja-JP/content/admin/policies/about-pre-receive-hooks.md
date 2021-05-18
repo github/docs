@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+type: overview
 topics:
   - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 プッシュが行われると、各スクリプトは分離された環境で実行され、プッシュの内容についてのチェックを実行できます。 このスクリプトの終了ステータスが0ならプッシュは受け付けられ、0以外なら拒否されることになります。

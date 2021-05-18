@@ -8,8 +8,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Auditing
   - Enterprise
+  - Logging
 ---
 
 ### 検索クエリの構文

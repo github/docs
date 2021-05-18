@@ -11,8 +11,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Pages
 ---
 
 ### Enabling public sites for {% data variables.product.prodname_pages %}
@@ -43,7 +45,7 @@ topics:
 
 {% if enterpriseServerVersions contains currentVersion %}
 If subdomain isolation is disabled for your enterprise, you should also disable
-{% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+{% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. Weitere Informationen finden Sie unter „[Subdomain-Isolation aktivieren](/admin/configuration/enabling-subdomain-isolation)“.
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}

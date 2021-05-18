@@ -1,7 +1,7 @@
 ---
-title: Managing code scanning alerts for your repository
+title: リポジトリのコードスキャンアラートを管理する
 shortTitle: アラートを管理する
-intro: 'From the security view, you can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
+intro: 'From the security view, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -16,67 +16,61 @@ topics:
   - Security
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 {% data reusables.code-scanning.beta %}
 
 ### {% data variables.product.prodname_code_scanning %} からのアラートについて
 
-You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
+デフォルトの {% data variables.product.prodname_codeql %} 解析、サードパーティーの解析、または複数のタイプの解析を使用して、リポジトリのコードをチェックするため、{% data variables.product.prodname_code_scanning %} をセットアップできます。 解析が完了すると、解析によるアラートがリポジトリのセキュリティビューに隣り合わせで表示されます。 サードパーティツールまたはカスタムクエリの結果には、{% data variables.product.company_short %} のデフォルト {% data variables.product.prodname_codeql %} 解析により検出されたアラートで表示されるプロパティの一部が含まれていない場合があります。 詳しい情報については、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」を参照してください。
 
-By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+デフォルトでは、{% data variables.product.prodname_code_scanning %} はプルリクエスト中にデフォルトブランチのコードを定期的に解析します。 プルリクエストでアラートを管理する方法については、「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-### About alerts details
+### アラートの詳細について
 
-Each alert highlights a problem with the code and the name of the tool that identified it. アラートをトリガーしたコード行と、アラートのプロパティ（問題の重要度や性質など）を確認できます。 アラートは、問題が最初に発生したときにも通知します。 For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
+各アラートはコードの問題と、それを特定したツールの名前を表示します。 アラートをトリガーしたコード行と、アラートのプロパティ（問題の重要度や性質など）を確認できます。 アラートは、問題が最初に発生したときにも通知します。 {% data variables.product.prodname_codeql %} 解析で特定されたアラートについては、問題を解説する方法についての情報も表示されます。
 
 ![{% data variables.product.prodname_code_scanning %} からのアラートの例](/assets/images/help/repository/code-scanning-alert.png)
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, this can also detect data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
+{% data variables.product.prodname_codeql %} を使用して {% data variables.product.prodname_code_scanning %} をセットアップした場合、コード内のデータフロー問題も検出できます。 データフロー解析は、データを安全でない方法で利用する、関数に危険な引数を渡す、機密情報を漏洩するなど、コードにおける潜在的なセキュリティ問題を検出します。
 
-{% data variables.product.prodname_code_scanning %} がデータフローアラートを報告すると、{% data variables.product.prodname_dotcom %} はデータがコードを通してどのように移動するかを示します。 {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
+{% data variables.product.prodname_code_scanning %} がデータフローアラートを報告すると、{% data variables.product.prodname_dotcom %} はデータがコードを通してどのように移動するかを示します。 {% data variables.product.prodname_code_scanning_capc %} を使用すると、機密情報を漏洩し、悪意のあるユーザによる攻撃の入り口になる可能性があるコードの領域を特定できます。
 
-### Viewing the alerts for a repository
+### リポジトリのアラートを表示する
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+リポジトリへの書き込み権限があるユーザなら誰でも、プルリクエストの {% data variables.product.prodname_code_scanning %} アノテーションを表示できます。 詳しい情報については、「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 
-You need write permission to view a summary of all the alerts for a repository on the **Security** tab. By default, alerts are shown for the default branch.
+[**Security**] タブでリポジトリのすべてのアラートの概要を表示するには、書き込み権限が必要です。 デフォルトでは、アラートはデフォルトブランチに対して表示されます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
 1. Optionally, use the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts. ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png){% endif %}
-1. Under "{% data variables.product.prodname_code_scanning_capc %}," click the alert you'd like to explore.
+1. [{% data variables.product.prodname_code_scanning_capc %}] で、調査するアラートをクリックします。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-  ![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
+  ![アラートの概要](/assets/images/help/repository/code-scanning-click-alert.png)
 {% else %}
   ![{% data variables.product.prodname_code_scanning %}からのアラートのリスト](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used. ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code. ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
+1. アラートでデータフローの問題が強調表示された場合は、必要に応じて [**Show paths**] をクリックし、データソースから、それが使用されているシンクまでのパスを表示します。 ![アラートの [Show paths] リンク](/assets/images/help/repository/code-scanning-show-paths.png)
+1. {% data variables.product.prodname_codeql %} 解析によるアラートには、問題の説明も含まれています。 コードを修正する方法についてのガイダンスを表示するには、[**Show more**] をクリックします。 ![アラートの詳細情報](/assets/images/help/repository/code-scanning-alert-details.png)
 
-### Fixing an alert
+### アラートを解決する
 
-Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
+リポジトリへの書き込み権限があるユーザなら誰でも、コードに修正をコミットしてアラートを解決できます。 リポジトリでプルリクエストに対して {% data variables.product.prodname_code_scanning %} が実行されるよう予定されている場合は、修正してプルリクエストを発行するようお勧めします。 これにより、変更の {% data variables.product.prodname_code_scanning %} 解析がトリガーされ、修正で新しい問題が入り込まないようテストされます。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning) を設定する」および「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」を参照してください。
 
-If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have {% if currentVersion == "enterprise-server@2.22" %}closed{% else %}dismissed{% endif %}.
+リポジトリへの書き込み権限がある場合は、アラートの概要を表示して、[**Closed**] をクリックすることで、解決したアラートを表示できます。 詳しい情報については、「[リポジトリのアラートを表示する](#viewing-the-alerts-for-a-repository)」を参照してください。 The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+あるブランチでは解決されたアラートが、別のブランチでは解決されていないことがあります。 アラートの概要で [Branch] ドロップダウンメニューを使用し、特定のブランチでアラートが解決されたかどうか確認できます。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1"%}
-![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
+![ブランチによるアラートのフィルタリング](/assets/images/help/repository/code-scanning-branch-filter.png)
 {% else %}
-![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
+![ブランチによるアラートのフィルタリング](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-### アラートを閉じる
-
-Closing an alert is a way to resolve an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %}
-
-{% else %}
 
 ### Dismissing or deleting alerts
 
@@ -101,20 +95,9 @@ When you delete an alert:
 
 To dismiss or delete alerts:
 
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
-{% data reusables.code-scanning.click-alert-in-list %}
-1. Select the **Close** drop-down menu and click a reason for closing the alert.    
-   ![Choosing reason for closing the alert via the Close drop-down](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
 1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
@@ -145,10 +128,8 @@ To dismiss or delete alerts:
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
-{% endif %}
-
 ### 参考リンク
 
-- "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)"
-- "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"
-- "[About integration with {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/about-integration-with-code-scanning)"
+- 「[プルリクエストで {% data variables.product.prodname_code_scanning %} アラートをトリガーする](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)」
+- 「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)」
+- 「[{% data variables.product.prodname_code_scanning %} からのアラートを管理する](/code-security/secure-coding/about-integration-with-code-scanning)」

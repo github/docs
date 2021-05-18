@@ -1,5 +1,5 @@
 ---
-title: GitHub Pages Documentation
+title: Documentação do GitHub Pages
 shortTitle: GitHub Pages
 intro: 'Você pode criar um site diretamente de um repositório do {% data variables.product.product_name %}.'
 redirect_from:
