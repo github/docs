@@ -1,4 +1,23 @@
 ---
+#'#'" 'const'" '{h.ref1'#'" 'const { get } = require'"
+Skip to content
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+Iixixi /
+ZachryTylerWood
+Template
+forked from github/docs
+
+    Code
+    Issues
+    Pull requests
+    Discussions
+    Actions
+    Projects 5
+    Wiki
+    Security
+    Insights
+    Settings
 title: Configuring automation for project boards
 intro: You can set up automatic workflows to move issues and pull requests to a project board column when a specified event occurs.
 redirect_from:
