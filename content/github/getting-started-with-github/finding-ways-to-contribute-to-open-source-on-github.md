@@ -28,25 +28,23 @@ Keep up with recent activity from repositories you watch and people you follow i
 
 If you already know what project you want to work on, you can find beginner-friendly issues in that repository by visiting `github.com/<owner>/<repository>/contribute`. For an example, you can find ways to make your first contribution to `electron/electron` at https://github.com/electron/electron/contribute.
 
-### Open source projects with mirrors on {% data variables.product.prodname_dotcom %}
+### Opening an issue
 
-Some open-source projects provide mirrors on {% data variables.product.prodname_dotcom_the_website %} in addition to their official repositories, which are hosted elsewhere.
+If you encounter a bug in an open source project, check if the bug has already been reported. If the bug has not been reported, you can open an issue to report the bug according to the project's contribution guidelines.
 
-Here are a few prominent repositories that are mirrored on {% data variables.product.prodname_dotcom_the_website %}:
+### Validating an issue or pull request
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
-- [The Apache Software Foundation](https://github.com/apache)
-- [The Chromium Project](https://github.com/chromium)
-- [Eclipse Foundation](https://github.com/eclipse)
-- [The FreeBSD Project](https://github.com/freebsd)
-- [Glasgow Haskell Compiler](https://github.com/ghc)
-- [GNOME](https://github.com/GNOME)
-- [Linux kernel source tree](https://github.com/torvalds/linux)
-- [Qt](https://github.com/qt)
+There are a variety of ways that you can contribute to open source projects.
 
-To set up your own mirror, you can configure [a post-receive hook](https://git-scm.com/book/en/Customizing-Git-Git-Hooks) on your official project repository to automatically push commits to a mirror repository on {% data variables.product.product_name %}.
+#### Reproducing a reported bug
+You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
 
-You can search repositories based on whether they're a mirror. To learn more, see "[Searching for repositories](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-a-mirror)."
+#### Testing a pull request
+You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
+
+#### Updating issues
+You can contribute to an open source project by adding additional information to existing issues.
+
 
 ### Further reading
 

@@ -13,7 +13,7 @@ topics:
 ---
 
 You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
-- Eight characters long, if it includes a number and a lowercase letter, or
+- {% if enterpriseServerVersions contains currentVersion %}Seven{% else %}Eight{% endif %} characters long, if it includes a number and a lowercase letter, or
 - 15 characters long with any combination of characters
 
 To keep your account secure, we recommend you follow these best practices:
