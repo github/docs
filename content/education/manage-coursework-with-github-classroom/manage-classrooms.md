@@ -58,7 +58,7 @@ If your course already has a roster, you can update the students on the roster o
 {% data reusables.classroom.click-students %}
 1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, click {% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system** and follow the instructions. For more information, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
     !["Import from a learning management system" button](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. Create your class roster.
+1. Provide the student identifiers for your roster.
     - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
     - To create a roster manually, type your student identifiers.
       ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
