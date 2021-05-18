@@ -1,6 +1,6 @@
 ---
 title: GitHub CLI
-intro: '{% data variables.product.prodname_cli %} is a command-line tool that brings pull requests, issues, workflows, and other {% data variables.product.product_name %} features to the terminal, without requiring you to switch contexts out of your work'
+intro: '{% data variables.product.prodname_cli %} is a command-line tool that brings pull requests, issues, workflows, and other {% data variables.product.product_name %} features to your terminal, so you can do all your work in one place.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
@@ -18,10 +18,9 @@ The {% data variables.product.prodname_cli %} includes {% data variables.product
 - View, create, clone, and fork repositories
 - Create, close, and list issues and pull requests
 - Review, diff, and merge pull requests
-- Create, edit, list, view, and delete gists
+- Run, view, and list workflows
 - Create, list, view, and delete releases
-- Run, list, view, and list workflows
-- List, view, watch, and rerun workflow runs
+- Create, edit, list, view, and delete gists
 
 For more information about what you can do with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
 
