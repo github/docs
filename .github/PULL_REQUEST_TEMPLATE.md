@@ -31,6 +31,6 @@ Closes [issue link]
 
 - [ ] This pull request impacts the contribution experience
   - [ ] I have added the 'writer impact' label
-  - [ ] I have added a description and/or a video demo of the changes below (eg. a "before and after video")
+  - [ ] I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
 
 <!-- Description of the writer impact here -->
