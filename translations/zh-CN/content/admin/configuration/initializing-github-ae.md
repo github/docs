@@ -3,6 +3,9 @@ title: 初始化 GitHub AE
 intro: '要让您的企业准备好使用，您可以完成 {% data variables.product.product_name %} 的初始配置。'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### 关于初始化
@@ -79,11 +82,11 @@ versions:
 1. 在“Configure email settings（配置电子邮件设置）”右侧，单击 **Configure（配置）**。 ![用于电子邮件设置配置的"Configure（配置）"按钮](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. 选择 **Enable email**。 这将启用出站和入站电子邮件，但是，为使入站电子邮件运行，您还需要配置 DNS 设置。 更多信息请参阅“[配置 DNS 和防火墙设置以允许传入的电子邮件](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”。 ![用于电子邮件设置配置的"Enable（启用）"复选框](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. 完成电子邮件服务器设置：
-  - 在 **Server address** 字段中，输入您的 SMTP 服务器的地址。
-  - 在 **Port** 字段中，输入 SMTP 服务器用于发送电子邮件的端口。
-  - 在 **Domain** 字段中，输入您的 SMTP 服务器将随 HELO 响应（如有）发送的域名。
-  - 在 **Authentication** 下拉菜单中，选择您的 SMTP 服务器使用的加密类型。
-  - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
+    - 在 **Server address** 字段中，输入您的 SMTP 服务器的地址。
+    - 在 **Port** 字段中，输入 SMTP 服务器用于发送电子邮件的端口。
+    - 在 **Domain** 字段中，输入您的 SMTP 服务器将随 HELO 响应（如有）发送的域名。
+    - 在 **Authentication** 下拉菜单中，选择您的 SMTP 服务器使用的加密类型。
+    - 在 **No-reply email address** 字段中，输入要在所有通知电子邮件的 From 和 To 字段中使用的电子邮件地址。
 
 4. 如果您想丢弃发送到无回复电子邮件地址的所有传入电子邮件，请选中 **Discard email addressed to the no-reply email address**。 ![用于电子邮件设置配置的"Discard（放弃）"复选框](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. 单击 **Test email settings（测试电子邮件设置）**。 ![用于电子邮件设置配置的"Test email settings（测试电子邮件设置）"按钮](/assets/images/enterprise/configuration/ae-test-email.png)

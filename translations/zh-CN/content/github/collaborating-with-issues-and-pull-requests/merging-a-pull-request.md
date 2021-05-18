@@ -25,6 +25,14 @@ topics:
 
 如果决定不想让主题分支中的更改合并到上游分支，您可以[关闭拉取请求](/articles/closing-a-pull-request)而不合并。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### 在 {% data variables.product.prodname_dotcom %} 上合并拉取请求
 
 {% data reusables.repositories.sidebar-pr %}

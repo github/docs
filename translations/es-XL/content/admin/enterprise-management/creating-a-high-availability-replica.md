@@ -8,6 +8,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Crear una réplica de alta disponibilidad

@@ -50,10 +50,10 @@ Wenn Du {% data variables.product.prodname_enterprise %} oder {% data variables.
 
 Das Herunterstufen auf {% data variables.product.prodname_free_team %} für Organisationen deaktiviert auch alle SAML-Einstellungen, die während der Testperiode konfiguriert wurden. Sobald Sie {% data variables.product.prodname_enterprise %} oder {% data variables.product.prodname_team %} erwerben, werden Ihre SAML-Einstellungen wieder für die Benutzer in Ihrer Organisation zur Authentifizierung aktiviert.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. Klicke unter „{% data variables.product.prodname_ghe_cloud %} Free Trial“ (Kostenlose Testversion) auf **Buy Enterprise** (Enterprise kaufen) oder **Downgrade to Team** (Herunterstufen auf Team). ![Schaltfläche „Buy Enterprise“ (Enterprise kaufen) oder „Downgrade to Team“ (Herunterstufen auf Team)](/assets/images/help/organizations/finish-trial-buttons.png)
 6. Befolge die Anweisungen zur Eingabe Deiner Zahlungsmethode, und klicke dann auf **Submit** (Absenden).
 

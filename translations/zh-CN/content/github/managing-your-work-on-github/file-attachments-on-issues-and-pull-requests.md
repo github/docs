@@ -1,6 +1,6 @@
 ---
 title: 议题和拉取请求中的文件附件
-intro: 在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -14,7 +14,7 @@ topics:
 
 {% warning %}
 
-**警告：**如果您在拉取请求或议题评论中添加了图像，则任何人都可以查看匿名图像 URL，无需身份验证，即使该拉取请求位于私有仓库中{% if enterpriseServerVersions contains currentVersion %}或者启用了私有模式{% endif %}。 要对敏感图像保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}有关匿名 URL 的更多信息，请参阅“[关于匿名图像 URL](/articles/about-anonymized-image-urls)”。{% endif %}
+**Warning:** If you add an image {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} or video {% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -28,17 +28,11 @@ topics:
 
 {% endtip %}
 
-文件大小不得超过 25MB，图像大小不得超过 10MB。
-{% if currentVersion == "free-pro-team@latest" %}
-如果仓库由付费 GitHub 计划的用户或组织拥有，则视频大小可达 100 MB。
-
-{% note %}
-
-**注意：**视频附件支持目前处于测试阶段，可能会更改。
-
-{% endnote %}
-
-{% endif %}
+The maximum file size is:
+- 10MB for images and gifs{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% endif %}
+- 25MB for all other files
 
 我们支持这些文件：
 
@@ -49,7 +43,7 @@ topics:
 * Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
 * 文本文件 (*.txt*)
 * PDF (*.pdf*)
-* ZIP（*.zip*、*.gz*）{% if currentVersion == "free-pro-team@latest" %}
+* ZIP（*.zip*、*.gz*）{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 * 视频（*.mp4*、*.mov*）{% endif %}
 
 ![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)

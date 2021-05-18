@@ -10,13 +10,15 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 
 ### 关于拉取请求上的 {% data variables.product.prodname_code_scanning %} 结果
 
 在仓库中，如果 {% data variables.product.prodname_code_scanning %} 被配置为拉取请求检查，则 {% data variables.product.prodname_code_scanning %} 将检查拉取请求中的代码。 默认情况下，这仅限于针对默认分支的拉取请求，但是您可以在 {% data variables.product.prodname_actions %} 或第三方 CI/CD 系统中更改此配置。 如果合并分支给目标分支带来新的 {% data variables.product.prodname_code_scanning %} 警报，这些警报将在拉取请求中被报告为检查结果。 警报还将在拉取请求的 **Files changed（文件已更改）**选项卡中显示为注释。 如果您拥有仓库的写入权限，您可以在 **Security（安全）**选项卡中查看任何现有的 {% data variables.product.prodname_code_scanning %} 警报。 有关仓库警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
-如果 {% data variables.product.prodname_code_scanning %} 有任何严重性为 `error` 的结果，则检查失败，错误将报告在检查结果中。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。 如果拉取请求针对使用 {% data variables.product.prodname_code_scanning %} 的受保护分支，并且仓库所有者配置了必需状态检查，则您必须修复或{% if currentVersion == "enterprise-server@2.22" %}关闭{% else %}忽略{% endif %}所有错误警报，然后才能合并拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
+如果 {% data variables.product.prodname_code_scanning %} 有任何严重性为 `error` 的结果，则检查失败，错误将报告在检查结果中。 如果 {% data variables.product.prodname_code_scanning %} 发现的所有结果的严重性都较低，则警报将被视为警告或通知，检查成功。 如果拉取请求针对使用 {% data variables.product.prodname_code_scanning %} 的受保护分支，并且仓库所有者配置了必需状态检查，则您必须修复或关闭所有错误警报，然后才能合并拉取请求。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)”。
 
 ![拉取请求上失败的 {% data variables.product.prodname_code_scanning %} 检查](/assets/images/help/repository/code-scanning-check-failure.png)
 
@@ -40,28 +42,10 @@ topics:
 
 ![显示更多信息的警报说明和链接](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### {% if currentVersion == "enterprise-server@2.22" %}解决{% else %}修复{% endif %}拉取请求上的警报
+### 解决关于拉取请求的警报
 
 任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。
-
-{% if currentVersion == "enterprise-server@2.22" %}
 
 如果您认为警报不需要修复，则具有写入权限的用户可以手动关闭警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Close（关闭）**按钮在注释和警报视图中可用。
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
-### 忽略拉取请求上的警报
-
-关闭警报的另一种办法是忽略它。 您可以忽略您认为不需要修复的警报。 {% data reusables.code-scanning.close-alert-examples %} 如果您对仓库有写入权限，则 **Dismiss（忽略）**按钮在代码注释和警报摘要中可用。 单击 **Dismiss（忽略）**时，您将被提示选择关闭警报的原因。
-
-![选择忽略警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-有关忽略警报的更多信息，请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)”。
-
-{% endif %}

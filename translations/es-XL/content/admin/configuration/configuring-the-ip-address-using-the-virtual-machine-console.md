@@ -8,6 +8,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 {% data reusables.enterprise_installation.open-vm-console-start %}

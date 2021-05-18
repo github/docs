@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 团队是 {% data variables.product.prodname_dotcom %} 许多协作功能的中心，例如团队 @提及，此功能可以通知相关方您想要请求他们的输入或注意。 更多信息请参阅“[组织仓库的权限级别](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)”。

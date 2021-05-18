@@ -8,8 +8,13 @@ redirect_from:
 intro: 'SAML 是一种基于 XML 的身份验证和授权标准。 {% data variables.product.prodname_ghe_server %} 可以作为您的内部 SAML 身份提供程序 (IdP) 的服务提供程序 (SP)。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

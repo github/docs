@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+### Using Git rebase
+
 この例では、`exec` を除く、利用可能なすべての ` git rebase ` コマンドについて説明します。
 
 端末で `git rebase --interactive HEAD~7` と入力して、リベースを開始します。 お気に入りのテキストエディタに以下の行が表示されます:
@@ -125,10 +127,10 @@ i cant' typ goods
 Git の履歴を変更したので、通常の `git push origin` **は動作しません**。 最新の変更を「強制プッシュ」して、コマンドを変更する必要があります:
 
 ```shell
-# Don't override changes
+# 変更をオーバーライドしない
 $ git push origin main --force-with-lease
 
-# Override changes
+# 変更をオーバーライドする
 $ git push origin main --force
 ```
 

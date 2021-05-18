@@ -17,9 +17,8 @@ topics:
 
 默认情况下，如果仓库管理员或组织所有者为组织拥有的仓库启用了讨论，则具有读取权限的组织成员可以创建讨论。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. 在“Repository discussions（仓库讨论）”下，选择或取消选择 **Allow users with read access to create discussions（允许有读权限的用户创建讨论）**。 ![允许有读取权限的人创建讨论的复选框](/assets/images/help/discussions/toggle-allow-users-with-read-access-checkbox.png)
 6. 单击 **Save（保存）**。 ![讨论设置的"保存"按钮](/assets/images/help/discussions/click-save.png)

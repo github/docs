@@ -11,4 +11,4 @@ versions:
   github-ae: '*'
 ---
 
-{% data variables.product.prodname_dotcom %} フローの手法を使うと、Team の機能と {% data variables.product.prodname_dotcom %} でのコラボレーションを標準化することができます。 詳細は、{% data variables.product.prodname_dotcom %} ガイドで「[GitHub フロー](/github/collaborating-with-issues-and-pull-requests/github-flow)」と「[GitHub のフローを理解する](http://guides.github.com/overviews/flow/)」を参照してください。
+{% data variables.product.prodname_dotcom %} フローの手法を使うと、Team の機能と {% data variables.product.prodname_dotcom %} でのコラボレーションを標準化することができます。 For more information, see "[{% data variables.product.prodname_dotcom %} flow](/github/getting-started-with-github/github-flow)."

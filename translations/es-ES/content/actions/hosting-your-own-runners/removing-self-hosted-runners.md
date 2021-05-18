@@ -66,7 +66,7 @@ Para eliminar el ejecutor auto-hospedado de una organización, debes ser el prop
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para eliminar a un ejecutor auot-hospedado de una cuenta empresarial, debes ser un propietario de la empresa. Recomendamos que también tengas acceso a la máquina del ejecutor auto-hospedado.
-{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"% or currentVersion == "github-ae@latest" }
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 Para eliminar un ejecutor auto-hospedado a nivel empresarial de
 {% data variables.product.product_location %}, debes ser un administrador de sitio. Recomendamos que también tengas acceso a la máquina del ejecutor auto-hospedado.
 {% endif %}

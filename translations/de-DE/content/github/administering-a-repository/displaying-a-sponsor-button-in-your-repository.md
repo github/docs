@@ -12,7 +12,7 @@ topics:
 
 ### Informationen zu FUNDING-Dateien
 
-Du kannst Deine Sponsorenschaltfläche konfigurieren, indem Du die Datei _FUNDING.yml_ im `.github`-Ordner auf dem Standardbranch Deines Repositorys bearbeitest. Die Schaltfläche kann so konfiguriert werden, dass sie unterstützte Entwickler in {% data variables.product.prodname_sponsors %}, externen Finanzierungsplattformen oder einer benutzerdefinierten Sponsoring-URL enthält. Weitere Informationen zu {% data variables.product.prodname_sponsors %} findest Du unter „[Informationen zu GitHub-Sponsoren](/articles/about-github-sponsors).“
+Du kannst Deine Sponsorenschaltfläche konfigurieren, indem Du die Datei _FUNDING.yml_ im `.github`-Ordner auf dem Standardbranch Deines Repositorys bearbeitest. Die Schaltfläche kann so konfiguriert werden, dass sie unterstützte Entwickler in {% data variables.product.prodname_sponsors %}, externen Finanzierungsplattformen oder einer benutzerdefinierten Sponsoring-URL enthält. Weitere Informationen zu {% data variables.product.prodname_sponsors %} findest Du unter „[Informationen zu GitHub-Sponsoren](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).“
 
 Du kannst einen Benutzernamen, Paketnamen oder Projektnamen pro externer Finanzierungsplattform und bis zu vier benutzerdefinierte URLs hinzufügen. Du kannst bis zu vier unterstützten Entwickler oder Organisationen in {% data variables.product.prodname_sponsors %} hinzufügen. Füge jede Plattform auf einer neuen Zeile hinzu, und verwende dabei die folgende Syntax:
 
@@ -76,5 +76,5 @@ Jeder, der über Administratorberechtigungen verfügt, kann eine Sponsorenschalt
 {% data reusables.files.propose_new_file %}
 
 ### Weiterführende Informationen
-- „[Über {% data variables.product.prodname_sponsors %} für Open-Source-Mitarbeiter](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
+- „[Über {% data variables.product.prodname_sponsors %} für Open-Source-Mitarbeiter](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - „[Häufig gestellte Fragen mit dem {% data variables.product.prodname_sponsors %}-Team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)“ auf {% data variables.product.prodname_blog %}

@@ -21,7 +21,7 @@ Os parâmetros de consulta são partes opcionais de uma URL que podem ser person
 
 Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para adicionar uma etiqueta a um problema para usar o parâmetro de consulta `label`.
 
-Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver as permissões adequadas, o URL retornará uma página de erro 404.
+If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
 ### Parâmetros de consulta compatíveis
 

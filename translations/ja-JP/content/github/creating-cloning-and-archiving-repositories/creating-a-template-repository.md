@@ -20,7 +20,7 @@ topics:
 
 テンプレートリポジトリを作成するには、リポジトリを作成して、そのリポジトリをテンプレート化する必要があります。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
-リポジトリをテンプレートにすると、リポジトリにアクセスできるユーザは誰でも、デフォルトブランチと同じディレクトリ構造とファイルで新しいリポジトリを生成できます。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} また、リポジトリに他のすべてのブランチを含めることもできます。{% endif %} 詳しい情報については、「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
+After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

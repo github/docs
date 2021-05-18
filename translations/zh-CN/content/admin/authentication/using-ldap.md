@@ -11,8 +11,12 @@ redirect_from:
 intro: '使用 LDAP，您可以向 {% data variables.product.prodname_ghe_server %} 验证现有帐户的身份和集中管理仓库权限。 LDAP 是一种用于访问和维护目录信息服务的流行应用程序协议，是将第三方软件与大型公司用户目录相集成时使用的最常见协议之一。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

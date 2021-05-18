@@ -16,6 +16,8 @@ topics:
   - Security
 ---
 
+### About {% data variables.product.prodname_dotcom %}'s products
+
 O {% data variables.product.prodname_dotcom %} oferece produtos grátis e pagos. Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
 ### {% data variables.product.prodname_free_user %} para contas de usuário
@@ -99,14 +101,3 @@ O {% data variables.product.prodname_ghe_cloud %} também inclui:
 Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}</a>".
 
 Para obter mais informações sobre hospedar sua própria instância do [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), entre em contato com {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
-
-### {% data variables.product.prodname_ghe_one %}
-
-O {% data variables.product.prodname_ghe_one %} inclui [{% data variables.product.prodname_enterprise %}](#github-enterprise), mais:
-
-- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
-- {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning){% endif %}
-- [{% data variables.product.prodname_learning %} para organizações](https://lab.github.com/organizations)
-
-Para obter mais informações sobre a inscrição para {% data variables.product.prodname_ghe_one %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}.

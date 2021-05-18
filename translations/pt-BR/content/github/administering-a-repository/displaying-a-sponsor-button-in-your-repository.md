@@ -12,7 +12,7 @@ topics:
 
 ### Sobre arquivos FUNDING
 
-Para configurar o botão de patrocinador, edite um arquivo _FUNDING.yml_ na pasta `.github` do repositório, no branch padrão. É possível configurar o botão para incluir desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}, em plataformas de financiamento externas ou em uma URL de financiamento personalizado. Para obter mais informações a respeito do {% data variables.product.prodname_sponsors %}, consulte "[Sobre o GitHub Sponsors](/articles/about-github-sponsors)".
+Para configurar o botão de patrocinador, edite um arquivo _FUNDING.yml_ na pasta `.github` do repositório, no branch padrão. É possível configurar o botão para incluir desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}, em plataformas de financiamento externas ou em uma URL de financiamento personalizado. Para obter mais informações a respeito do {% data variables.product.prodname_sponsors %}, consulte "[Sobre o GitHub Sponsors](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)".
 
 Você pode adicionar um nome de usuário, de pacote ou de projeto por plataforma de financiamento externa e até quatro URLs personalizadas. Você pode adicionar até quatro organizações ou desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}. Adicione cada plataforma em uma nova linha, usando a seguinte sintaxe:
 
@@ -76,5 +76,5 @@ Qualquer pessoa com permissões de administrador pode habilitar um botão de pat
 {% data reusables.files.propose_new_file %}
 
 ### Leia mais
-- "[Sobre {% data variables.product.prodname_sponsors %} para colaboradores de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
+- "[Sobre {% data variables.product.prodname_sponsors %} para colaboradores de código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[Perguntas frequentes com a equipe do {% data variables.product.prodname_sponsors %}](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" no {% data variables.product.prodname_blog %}

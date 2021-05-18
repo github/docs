@@ -3,6 +3,10 @@ title: GitHub AE について
 intro: '{% data variables.product.prodname_ghe_managed %} は、クラウドで {% data variables.product.prodname_dotcom %} を使用するためにセキュリティが強化された準拠した方法です。'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### {% data variables.product.prodname_ghe_managed %} について
@@ -21,7 +25,7 @@ versions:
 
 ### 指定の条件下での暗号化
 
-すべての顧客データは保存時に暗号化され、暗号化ポリシーに基づいてデータを暗号化するための独自の暗号化キーを提供できます。 キーとすべてのデータへのアクセスを制御できます。 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
+All customer data is encrypted at rest. 詳しい情報については、「[Enterprise 向けのデータ暗号化を設定する](/admin/configuration/configuring-data-encryption-for-your-enterprise)」を参照してください。
 
 ### 分離されたアカウント
 

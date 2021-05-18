@@ -36,7 +36,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
  {% tip %}
 
- **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. Du musst den Mergekonflikt mit einem alternativen Git-Client auflösen, oder durch Verwendung von Git auf der Befehlszeile. Weitere Informationen findest Du unter „[Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line).“
+ **Tipp:** Wenn die Schaltfläche **Resolve conflicts** (Konflikte beheben) deaktiviert ist, ist der Mergekonflikt Deines Pull Requests für eine Behebung auf {% data variables.product.product_name %} zu komplex{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} oder der Konflikteditor wurde vom Websiteadministrator für Pull Requests zwischen Repositorys deaktiviert{% endif %}. Du musst den Mergekonflikt mit einem alternativen Git-Client auflösen, oder durch Verwendung von Git auf der Befehlszeile. Weitere Informationen findest Du unter „[Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line).“
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

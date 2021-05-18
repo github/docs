@@ -15,7 +15,7 @@ topics:
 
 Você pode clonar um repositório do {% data variables.product.product_location %} para o seu computador local para facilitar a correção de conflitos de merge, adicionar ou remover arquivos e fazer push de commits maiores. Ao clonar um repositório, você copia o repositório do {% data variables.product.product_location %} para a sua máquina local.
 
-Clonar um repositório extrai uma cópia completa de todos os dados do repositório que o {% data variables.product.product_location %} tem nesse momento, incluindo todas as versões de cada arquivo e pasta do projeto. Você pode fazer push das alterações no repositório remoto no {% data variables.product.product_location %} ou extrair as alterações de outras pessoas no {% data variables.product.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
+Clonar um repositório extrai uma cópia completa de todos os dados do repositório que o {% data variables.product.product_location %} tem nesse momento, incluindo todas as versões de cada arquivo e pasta do projeto. Você pode fazer push das alterações no repositório remoto no {% data variables.product.product_location %} ou extrair as alterações de outras pessoas no {% data variables.product.product_location %}. Para obter mais informações, consulte "[Usar o Git](/github/getting-started-with-github/using-git).
 
 É possível clonar o repositório existente ou clonar o repositório existente de outra pessoa para contribuir para um projeto.
 

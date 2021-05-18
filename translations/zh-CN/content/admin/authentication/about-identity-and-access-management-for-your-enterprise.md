@@ -5,6 +5,13 @@ intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Accounts
+  - Access management
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 ### 关于企业的身份和访问管理

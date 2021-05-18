@@ -1,6 +1,6 @@
 ---
 title: 错误：未找到仓库
-intro: '{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@latest" %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。'
+intro: '{% if currentVersion == "free-proteam@latest" or currentVersion == "github-ae@latest" %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
@@ -41,7 +41,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-如果仓库属于组织，并且您使用的是 OAuth App 生成的 SSH 密钥，则 OAuth App 访问权限可能已被组织所有者限制。 For more information, see "<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">About OAuth App access restrictions</a>."
+如果仓库属于组织，并且您使用的是 OAuth App 生成的 SSH 密钥，则 OAuth App 访问权限可能已被组织所有者限制。 更多信息请参阅“<a href="/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions" class="dotcom-only">关于 OAuth App 访问限制</a>”。
 
 更多信息请参阅[添加 SSH 密钥到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 

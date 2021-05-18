@@ -1,5 +1,6 @@
 ---
 title: アプライアンスでのバックアップの設定
+shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -15,8 +16,12 @@ redirect_from:
 intro: 'システム災害復旧計画の一部として、自動化バックアップを設定して{% data variables.product.product_location %}のプロダクションデータを保護できます。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Backups
   - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 ### {% data variables.product.prodname_enterprise_backup_utilities %}について

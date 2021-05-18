@@ -50,9 +50,9 @@ In your organization's repositories, blocked users also cannot:
 ### Blocking a user in the organization settings
 
 1. To block an organization member, first [remove the user](/articles/removing-a-member-from-your-organization) from the organization.
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 6. Under "Block a user", type the username of the user you'd like to block. ![Username field](/assets/images/help/organizations/org-block-username-field.png)
 7. If you'd like to set a time limit for the block, use the Block options drop-down menu, and select the amount of time you'd like to block the user. ![Block options drop-down menu](/assets/images/help/organizations/org-block-options-menu.png)

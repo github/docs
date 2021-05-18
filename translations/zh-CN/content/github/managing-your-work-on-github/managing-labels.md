@@ -49,6 +49,8 @@ topics:
 
 创建仓库时，每个新仓库中均包含默认标签，但您稍后可以编辑或删除标签。
 
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 组织所有者可以自定义其组织中仓库的默认标签。 更多信息请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”。
 {% endif %}

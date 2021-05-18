@@ -16,7 +16,7 @@ topics:
 
 {% note %}
 
-**メモ:** OS X や Windows では、GPG はデフォルトではインストールされていません。 GPG コマンドラインツールをインストールするには、[GnuPG のダウンロードページ](https://www.gnupg.org/download/)を参照してください。
+**注釈:** デフォルト設定では、macOS や Windows に GPG はインストールされていません。 GPG コマンドラインツールをインストールするには、[GnuPG のダウンロードページ](https://www.gnupg.org/download/)を参照してください。
 
 {% endnote %}
 

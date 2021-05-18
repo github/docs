@@ -31,9 +31,9 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 
 ### Restaurar um repositório excluído que pertencia a uma organização
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

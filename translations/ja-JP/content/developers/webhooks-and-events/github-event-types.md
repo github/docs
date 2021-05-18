@@ -45,7 +45,7 @@ Events APIエンドポイントから返されるイベントオブジェクト�
 この例は、[Events API](/rest/reference/activity#events)を使用する際の[WatchEvent](#watchevent)のレスポンスの形式を示しています。
 
 ```
-HTTP/1.1 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -195,7 +195,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 | -------------- | -------- | ---------------------------------------- |
 | `action`       | `string` | 実行されたアクション. `created `になりうる。             |
 | `pull_request` | `オブジェクト` | The pull request the review pertains to. |
-| `レビュー`         | `オブジェクト` | The review that was affected.            |
+| `レビュー`         | `オブジェクト` | 影響されるレビュー。                               |
 
 ### PullRequestReviewCommentEvent
 

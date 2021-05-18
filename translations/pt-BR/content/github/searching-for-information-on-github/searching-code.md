@@ -66,8 +66,9 @@ Você pode usar o qualificador `path` para pesquisar o código-fonte que aparece
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) identifica os arquivos JavaScript com a palavra "console" em um diretório <em>app/public</em> ou em seus subdiretórios (mesmo que eles residam em <em>app/public/js/form-validators</em>). |
 
 ### Pesquisar por linguagem
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-Você pode pesquisar código com base na linguagem na qual ele foi escrito.
+Você pode pesquisar código com base na linguagem na qual ele foi escrito. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                     |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

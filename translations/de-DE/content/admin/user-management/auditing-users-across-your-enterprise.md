@@ -8,8 +8,13 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Auditing
   - Enterprise
+  - Organizations
+  - Security
+  - User account
 ---
 
 ### Zugriff auf das Auditprotokoll
@@ -74,7 +79,7 @@ Der Kennzeichner `org` begrenzt Aktionen auf eine bestimmte Organisation. Ein Be
 
 #### Suche nach der Art der durchgeführten Aktion
 
-Der Kennzeichner `action` sucht nach bestimmten Ereignissen, gruppiert in Kategorien. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+Der Kennzeichner `action` sucht nach bestimmten Ereignissen, gruppiert in Kategorien. Weitere Informationen zu diesen Kategorien zugeordneten Ereignissen finden Sie unter „[Überwachte Aktionen](/admin/user-management/audited-actions)“.
 
 | Kategoriename | Beschreibung                                                                              |
 | ------------- | ----------------------------------------------------------------------------------------- |

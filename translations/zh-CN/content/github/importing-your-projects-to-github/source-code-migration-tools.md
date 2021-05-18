@@ -12,7 +12,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-我们建议使用 [GitHub 导入工具](/articles/about-github-importer)从 Subversion、Mercurial、Team Foundation Server 或其他 Git 仓库导入项目。 您还可以使用这些外部工具将项目转换为 Git。
+我们建议使用 [GitHub 导入工具](/articles/about-github-importer)从 Subversion、Mercurial、Team Foundation Version Control (TFVC) 或其他 Git 仓库导入项目。 您还可以使用这些外部工具将项目转换为 Git。
 
 {% endif %}
 
@@ -32,12 +32,9 @@ versions:
 
 我们建议使用 [hg-fast-export](https://github.com/frej/fast-export) 将 Mercurial 仓库转换为 Git。
 
-### 从 Team Foundation Server 导入
+### 从 TFVC 导入
 
-我们建议使用以下工具在 Team Foundation Server 与 Git 之间移动更改：
-
-- [git-tfs](https://github.com/git-tfs/git-tfs)
-- [Git-TF](https://gittf.codeplex.com/)
+我们建议 [git-tfs](https://github.com/git-tfs/git-tfs) 用于在TFVC 和 Git 之间移动更改。
 
 {% tip %}
 

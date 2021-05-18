@@ -8,6 +8,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Acerca de SNMP

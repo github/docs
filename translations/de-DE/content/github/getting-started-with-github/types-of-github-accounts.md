@@ -1,6 +1,6 @@
 ---
 title: Arten von GitHub-Konten
-intro: 'Ihr Benutzerkonto ist Ihre Identität auf {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
+intro: 'Ihr Benutzerkonto ist Ihre Identität auf {% data variables.product.product_location %}. Dein Benutzerkonto kann Mitglied einer beliebigen Anzahl von Organisationen sein.{% if currentVersion == "free-pro-team@latest" %} Organisationen können zu Enterprise-Konten gehören.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -79,6 +79,6 @@ Mit Enterprise-Konten können Sie die Richtlinien und Abrechnungen mehrerer {% d
 
 ### Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+{% if currentVersion == "free-pro-team@latest" %}- „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“
 - „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - „[Neues Organisationskonto erstellen](/articles/creating-a-new-organization-account)“

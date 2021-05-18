@@ -11,7 +11,7 @@ topics:
 
 {% tip %}
 
-**GitHub Enterprise 用户**：目前不支持通过 HTTPS 端口上的 SSH 访问 GitHub Enterprise。
+**{% data variables.product.prodname_ghe_server %} 用户**：目前不支持经 SSH 通过 HTTPS 端口访问 {% data variables.product.prodname_ghe_server %}。
 
 {% endtip %}
 

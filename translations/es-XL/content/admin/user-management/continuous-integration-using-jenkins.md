@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - CI
   - Enterprise
 ---
 

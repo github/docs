@@ -1,7 +1,6 @@
 ---
 title: 管理事件
 intro: '{% data reusables.github-insights.events %}'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-events
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
@@ -29,5 +28,5 @@ versions:
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.events-tab %}
-3. 在要删除的事件的右侧，单击 **{% octicon "trashcan" aria-label="The trashcan icon" %}**。 ![回收站按钮](/assets/images/help/insights/trashcan-button.png)
+3. 在要删除的事件的右侧，单击 **{% octicon "trash" aria-label="The trash icon" %}**。 ![回收站按钮](/assets/images/help/insights/trashcan-button.png)
 4. 单击 **Confirm（确认）**。

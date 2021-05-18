@@ -23,6 +23,12 @@ topics:
 
 组织所有者对组织具有完全管理权限。 {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**注意**：作为组织所有者，您可以更改其他组织成员和所有者的角色。 您不能改变自己的角色。
+
+{% endnote %}
+
 ### 任命组织所有者
 
 {% data reusables.profile.access_profile %}

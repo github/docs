@@ -14,13 +14,15 @@ topics:
   - Security
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 {% data reusables.code-scanning.beta %}
 
 ### Sobre os resultados de {% data variables.product.prodname_code_scanning %} em pull requests
 
 Em repositórios onde {% data variables.product.prodname_code_scanning %} está configurado como uma verificação de pull request, {% data variables.product.prodname_code_scanning %} verifica o código no pull request. Por padrão, isso é limitado a pull requests que visam o branch-padrão ou branches protegidos, mas você pode alterar esta configuração em {% data variables.product.prodname_actions %} ou em um sistema de CI/CD de terceiros. Se o merge das alterações introduziria novos alertas de {% data variables.product.prodname_code_scanning %} no branch de destino, estes serão relatados como resultados de verificação no pull request. Os alertas também são exibidos como anotações na aba **Arquivos alterados** do pull request. Se você tiver permissão de gravação no repositório, você poderá ver qualquer alerta de {% data variables.product.prodname_code_scanning %} existente na aba **Segurança**. Para obter informações sobre os alertas do repositório, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
-Se {% data variables.product.prodname_code_scanning %} tiver algum resultado com uma gravidade de `erro`, ocorre uma falha na verificação e o erro é relatado nos resultados de verificação. Se todos os resultados encontrados por {% data variables.product.prodname_code_scanning %} tiverem gravidades menores, os alertas são tratados como avisos ou notas e a verificação é considerada bem-sucedida. Se seu pull request tem como alvo um branch protegido usar {% data variables.product.prodname_code_scanning %}, e o proprietário do repositório configurou as verificações de status obrigatórias, você deverá corrigir ou {% if currentVersion == "enterprise-server@2.22" %}fechar{% else %}ignorar{% endif %} todos os erros alertas antes que o pull request possa ser mesclado. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
+Se {% data variables.product.prodname_code_scanning %} tiver algum resultado com uma gravidade de `erro`, ocorre uma falha na verificação e o erro é relatado nos resultados de verificação. Se todos os resultados encontrados por {% data variables.product.prodname_code_scanning %} tiverem gravidades menores, os alertas são tratados como avisos ou notas e a verificação é considerada bem-sucedida. Se seu pull request for direcionado a um branch protegido que usa {% data variables.product.prodname_code_scanning %}, e o proprietário do repositório tiver configurado as verificações de status obrigatórias, você deverá corrigir ou ignorar todos os alertas de erro antes que o pull request poder fazer o merge do pull request. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 ![Ocorreu uma falha na verificação de {% data variables.product.prodname_code_scanning %} em um pull request](/assets/images/help/repository/code-scanning-check-failure.png)
 
@@ -44,17 +46,9 @@ Na visualização detalhada de um alerta, algumas ferramentas de {% data variabl
 
 ![Descrição do alerta e link para mostrar mais informações](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### {% if currentVersion == "enterprise-server@2.22" %}Resolvendo{% else %}Corrigindo{% endif %} um alerta no seu pull request
+### Corrigir de um alerta no seu pull request
 
 Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% data variables.product.prodname_code_scanning %} que seja identificado nesse pull request. Se você fizer commit de alterações na solicitação do pull request, isto acionará uma nova execução das verificações do pull request. Se suas alterações corrigirem o problema, o alerta será fechado e a anotação removida.
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-Se você não considera que um alerta deve ser corrigido, os usuários com permissão de gravação podem fechar o alerta manualmente. {% data reusables.code-scanning.close-alert-examples %} O botão **Fechar** está disponível nas anotações e no modo de exibição de alertas se você tiver permissão de gravação no repositório.
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
 
 ### Ignorar um alerta no seu pull request
 
@@ -67,5 +61,3 @@ Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
 Para obter mais informações sobre alertas ignorados, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)".
-
-{% endif %}

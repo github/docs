@@ -15,6 +15,8 @@ topics:
   - Accounts
 ---
 
+### リポジトリの作成
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 オープンソースプロジェクトを含む、さまざまなプロジェクトを {% data variables.product.product_name %} リポジトリに保存できます。 [オープンソースプロジェクト](http://opensource.org/about)では、より優れた信頼性のあるソフトウェアを作成するためにコードを共有できます。
@@ -29,7 +31,7 @@ topics:
 
 {% note %}
 
-**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](http://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**メモ:** オープンソースプロジェクトのパブリックリポジトリを作成できます。 パブリックリポジトリを作成する際は、他のユーザにどのようにプロジェクトを共有してほしいのかを定義する[ライセンスファイル](https://choosealicense.com/)を含めるようにしてください。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
 

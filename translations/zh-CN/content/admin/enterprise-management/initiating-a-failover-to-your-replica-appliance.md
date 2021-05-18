@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。

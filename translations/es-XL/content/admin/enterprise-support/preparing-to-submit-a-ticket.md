@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - Enterprise
+  - Support
 ---
 
 Antes de enviar un ticket, deberías:

@@ -25,6 +25,14 @@ Pull-Request-Entwürfe kannst du nicht zusammenführen. Weitere Informationen zu
 
 Wenn Sie die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch mergen möchten, können Sie [den Pull Request schließen](/articles/closing-a-pull-request), ohne ihn zu mergen.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### Einen Pull Request auf {% data variables.product.prodname_dotcom %} zusammenführen
 
 {% data reusables.repositories.sidebar-pr %}

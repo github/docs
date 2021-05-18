@@ -9,6 +9,8 @@ topics:
   - Repositories
 ---
 
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+
 ### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 
 La navegación de código utiliza la biblioteca de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes idiomas son compatibles:

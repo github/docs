@@ -17,7 +17,7 @@ topics:
 ### 個人アカウントの支払いサイクル期間の変更
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -29,7 +29,7 @@ topics:
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -37,6 +37,6 @@ topics:
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 4. [Billing overview] で、[**Change plan**] をクリックします。 ![[Billing overview] の [Change plan] ボタン](/assets/images/help/billing/billing_overview_change_plan.png)
 5. ページの右上で [**Switch to monthly billing**] または [**Switch to yearly billing**] をクリックします。 ![支払い情報セクション](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

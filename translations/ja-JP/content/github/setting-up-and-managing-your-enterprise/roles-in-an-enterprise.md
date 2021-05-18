@@ -1,6 +1,6 @@
 ---
-title: Roles in an enterprise
-intro: 'Everyone in an enterprise is a member of the enterprise. To control access to your enterprise''s settings and data, you can assign different roles to members of your enterprise.'
+title: Enterprise におけるロール
+intro: Enterprise 内の全員が Enterprise のメンバーです。 Enterprise の設定とデータへのアクセスを制御するために、Enterprise のメンバーにさまざまなロールを割り当てることができます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
@@ -14,47 +14,47 @@ topics:
   - Enterprise
 ---
 
-### About roles in an enterprise
+### Enterprise のロールについて
 
-Everyone in an enterprise is a member of the enterprise. You can also assign administrative roles to members of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise.
+Enterprise 内の全員が Enterprise のメンバーです。 Enterprise のメンバーに管理者のロールを割り当てることもできます。 各管理者ロールはビジネス機能にマップされ、Enterprise 内の特定のタスクを行う権限を与えます。
 
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
-For more information about adding people to your enterprise, see "{% if currentVersion == "free-pro-team@latest" %}[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[Authentication](/admin/authentication){% endif %}".
+Enterprise にユーザを追加する方法について詳しくは、「{% if currentVersion == "free-pro-team@latest" %}[Enterprise を管理するために人を招待する](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise){% else %}[認証](/admin/authentication){% endif %}」を参照してください。
 
 ### Enterprise オーナー
 
-Enterprise owners have complete control over the enterprise and can take every action, including:
+Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以下を含むすべての操作を行うことができます。
 - 管理者を管理する
-- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" %} in{% endif %} the enterprise
+- {% if currentVersion == "free-pro-team@latest" %}追加と削除 {% elsif currentVersion == "github-ae@latest" %} Enterprise {% endif %}{% if currentVersion == "free-pro-team@latest" %}内および {% elsif currentVersion == "github-ae@latest" %}Enterprise{% endif %} 内から Organization を管理する
 - Enterprise 設定を管理する
 - Organization にポリシーを強制する
-{% if currentVersion == "free-pro-team@latest" %}- Managing billing settings{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- 支払い設定を管理する{% endif %}
 
-Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 同様に、Enterprise の Organization のオーナーは、Enterprise のオーナーにならない限り、Enterprise にはアクセスできません。
 
-An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% if currentVersion == "free-pro-team@latest" %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+Enterprise のオーナーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 {% if currentVersion == "free-pro-team@latest" %}Enterprise のオーナーは {% data variables.product.prodname_dotcom %} に個人アカウントを持っている必要があります。{% endif %} ベストプラクティスとして、ビジネスへのリスクを軽減するために、Enterprise のオーナーを数人にすることをお勧めします。
 
 ### Enterprise メンバー
 
-Members of organizations owned by your enterprise are also automatically members of the enterprise. Members can collaborate in organizations and may be organization owners, but members cannot access or configure enterprise settings{% if currentVersion == "free-pro-team@latest" %}, including billing settings{% endif %}.
+Enterprise が所有する Organization のメンバーも、自動的に Enterprise のメンバーになります。 メンバーは Organization 内でコラボレートできます。Organization のオーナーになることも可能です。メンバーは支払い設定を含む Enterprise 設定{% if currentVersion == "free-pro-team@latest" %}にアクセスまたは設定することはできません。{% endif %}
 
-People in your enterprise may have different levels of access to the various organizations owned by your enterprise and to repositories within those organizations. 各個人がアクセスできるリソースを確認することができます。 For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise)."
+Enterprise 内のユーザは、Enterprise が所有するさまざまな Organization およびそれらの Organization 内のリポジトリへのあらゆるレベルのアクセス権を持つことができます。 各個人がアクセスできるリソースを確認することができます。 詳しい情報については、「[Enterprise の人を表示する](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise)」を参照してください。
 
 Organization レベルの権限に関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
 
-People with outside collaborator access to repositories owned by your organization are also listed in your enterprise's People tab, but are not enterprise members and do not have any access to the enterprise. 外部コラボレーターに関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
+Organization が所有するリポジトリへの外部のコラボレータアクセス権を持つユーザも、Enterprise の [People] タブに一覧表示されますが、Enterprise メンバーではなく、Enterprise へのアクセス権はありません。 外部コラボレーターに関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization#outside-collaborators)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 支払いマネージャー
 
-Billing managers only have access to your enterprise's billing settings. Billing managers for your enterprise can:
+支払いマネージャーは、Enterprise の支払い設定にのみアクセスできます。 Enterprise の支払いマネージャーは次の操作ができます。
 - ユーザライセンス、{% data variables.large_files.product_name_short %} パック、およびその他の支払い設定の閲覧および管理
 - 支払いマネージャーのリストを閲覧
 - 他の支払いマネージャーの追加または削除
 
-Billing managers will only consume a license if they are an owner or member of at least one organization within the enterprise. Billing managers do not have access to organizations or repositories in your enterprise, and cannot add or remove enterprise owners. 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
+支払いマネージャーは、Enterprise 内の少なくとも 1 つの Organization のオーナーまたはメンバーである場合にのみ、ライセンスを消費できます。 支払いマネージャーは、Enterprise の Organization またはリポジトリにアクセスすることはできません。また、Enterprise のオーナーを追加または削除することもできません。 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
 
 ### 参考リンク
 

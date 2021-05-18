@@ -22,9 +22,9 @@ topics:
 
 ### Über verknüpfte Issues und Pull Requests
 
-You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description.
+Du kannst einen Issue mit einem Pull-Request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manuell oder {% endif %}mit einem unterstützten Schlüsselwort in der Pull-Request Beschreibung verknüpfen.
 
-Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {% data variables.product.product_name %} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}
+Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet. {% if currentVersion ver_lt "enterprise-server@2.21" %}Wenn der Pull Request und der Issue in unterschiedlichen Repositorys sind, wird {% data variables.product.product_name %} nach dem Zusammenführen des Pull Request den Link anzeigen, wenn die Person, die den Pull Request zusammenführt, auch die Berechtigung zum Schließen des Issue hat.{% endif %}
 
 Wenn Du einen verknüpften Pull Request in den Standard-Branch eines Repository zusammenführst, werden seine verknüpften Issues automatisch geschlossen. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 

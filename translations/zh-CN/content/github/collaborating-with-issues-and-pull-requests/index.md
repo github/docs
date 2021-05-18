@@ -1,6 +1,6 @@
 ---
 title: 使用议题和拉取请求进行协作
-intro: '使用 {% data variables.product.prodname_dotcom %} 流跟踪和讨论议题中的更改，然后提出和审查拉取请求中的更改。'
+intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -18,10 +18,9 @@ topics:
 
 ### 目录
 
-{% topic_link_in_list /overview %}
-    {% link_in_list /github-flow %}
+{% topic_link_in_list /getting-started %}
+    {% link_in_list /quickstart-for-communicating-on-github %}
     {% link_in_list /about-collaborative-development-models %}
-    {% link_in_list /about-conversations-on-github %}
 {% topic_link_in_list /working-with-forks %}
     {% link_in_list /about-forks %}
     {% link_in_list /configuring-a-remote-for-a-fork %}

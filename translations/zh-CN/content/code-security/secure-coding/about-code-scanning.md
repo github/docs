@@ -13,6 +13,8 @@ topics:
   - Security
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
@@ -36,7 +38,7 @@ topics:
 
 有关 {% data variables.product.prodname_code_scanning %} 的 API 端点的更多信息，请参阅“[{% data variables.product.prodname_code_scanning_capc %}](http://developer.github.com/v3/code-scanning)”。
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 您可以在 [`github/codeql`](https://github.com/github/codeql) 仓库中查看并参与 {% data variables.product.prodname_code_scanning %} 的查询。 更多信息请参阅 {% data variables.product.prodname_codeql %} 文档中的 [{% data variables.product.prodname_codeql %} 查询](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/)。
 
@@ -48,17 +50,14 @@ topics:
 
 {% endif %}
 
-### 关于第三方代码扫描工具
-
-{% data reusables.code-scanning.you-can-upload-third-party-analysis %}
+### About third-party {% data variables.product.prodname_code_scanning %} tools
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
-{% data reusables.code-scanning.get-started-uploading-third-party-data %}
+You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
+- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS Committee 网站上的 [OASIS 静态分析结果交换格式 (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

@@ -47,6 +47,8 @@ topics:
 - [允许强制推送](#allow-force-pushes)
 - [允许删除](#allow-deletions)
 
+有关如何设置分支保护的更多信息，请参阅“[管理分支保护规则](/github/administering-a-repository/managing-a-branch-protection-rule)”。
+
 #### 合并前必需拉取请求审查
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
@@ -100,7 +102,15 @@ remote: error: Changes have been requested.
 
 {% note %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+**注意：**
+
+* 如果您已经启用了警戒模式，这表明您的提交总是会签名，允许在需要签名提交的分支上提交 {% data variables.product.prodname_dotcom %} 识别为“部分验证”的任何提交。 有关警戒模式的更多信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
+* 如果协作者将未签名的提交推送到要求提交签名的分支，则协作者需要变基提交以包含验证的签名，然后将重写的提交强制推送到分支。
+
+{% else %}
 **注：**如果协作者将未签名的提交推送到要求提交签名的分支，则协作者需要变基提交以包含验证的签名，然后将重写的提交强制推送到分支。
+{% endif %}
 
 {% endnote %}
 

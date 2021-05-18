@@ -9,8 +9,11 @@ intro: 'ユーザアカウントが少なくとも 1 か月間アクティブに
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Accounts
   - Enterprise
+  - Licensing
 ---
 
 「活動」には以下のことが含まれますが、以下に限定はされません:

@@ -36,5 +36,5 @@ Após desconectar a sua assinatura Azure da conta corporativa, seu uso não pode
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. Em "Assinatura do Azure", à direita do ID de assinatura que você deseja desconectar, clique em **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
+1. Em "Assinatura do Azure", à direita do ID de assinatura que você deseja desconectar, clique em **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Revise a instrução e clique em **Remover**.

@@ -9,8 +9,16 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-private-mode
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
+  - Authentication
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Privacy
+  - Security
 ---
 
 Sie müssen den privaten Modus aktivieren, wenn {% data variables.product.product_location %} über das Internet öffentlich zugänglich ist. Im privaten Modus ist es Benutzern nicht möglich, Repositorys anonym über `git://` zu klonen. Wenn die integrierte Authentifizierung aktiviert ist, muss ein Administrator neue Benutzer einladen, um ein Konto auf der Instanz zu erstellen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)“.
