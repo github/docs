@@ -73,7 +73,7 @@ When creating a group, you must choose a policy that defines which organizations
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Click the {% if currentVersion == "free-pro-team@latest" %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 1. Click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
