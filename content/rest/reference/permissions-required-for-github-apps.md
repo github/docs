@@ -84,6 +84,7 @@ _Events_
 - [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 - [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
 - [`GET /repos/:owner/:repo/events`](/rest/reference/activity#list-repository-events)
+- [`GET /repos/:owner/:repo/events/issues`](/rest/reference/issues#list-issue-events-for-a-repository)
 - [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
 - [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
