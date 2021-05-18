@@ -112,7 +112,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    # Overwrite any ignores created using `@dependabot ignore` commands
     ignore:
       # Ignore updates to packages that start with 'aws'
       # Wildcards match zero or more arbitrary characters
@@ -121,8 +120,9 @@ updates:
       - dependency-name: "express"
         # Ignore only new versions for 4.x and 5.x
         versions: ["4.x", "5.x"]
+      # For all packages, ignore all patch updates
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
 ```
-
-{% data reusables.dependabot.warning-ignore-option %}
 
 For more information about checking for existing ignore preferences, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
