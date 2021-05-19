@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ topics:
 2. {% data reusables.actions.make-workflow-file %}
 3. 将以下 YAML 内容复制到工作流程文件中。
 
-    {% raw %}
     ```yaml{:copy}
     name: Label issues
     on:
@@ -39,14 +38,17 @@ topics:
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Label issues
             uses: andymckay/labeler@1.0.2
             with:
               add-labels: "triage"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. 自定义工工作流程文件中的参数：
    - 将 `add-labels` 的值更改为您想要添加到此议题的标签列表。 使用逗号分隔多个标签。 例如 `"help wanted, good first issue"`。 有关标签的更多信息，请参阅“[管理标签](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)”。
 5. {% data reusables.actions.commit-workflow %}

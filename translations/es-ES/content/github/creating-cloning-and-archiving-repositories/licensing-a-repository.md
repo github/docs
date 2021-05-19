@@ -8,12 +8,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Elegir la licencia correcta
 
-Creamos [choosealicense.com](http://choosealicense.com), para ayudarte a entender cómo generar una licencia para tu código. Una licencia de software les informa a las demás personas lo que pueden y no pueden hacer con tu código fuente; por lo tanto, es importante tomar una decisión informada.
+Creamos [choosealicense.com](https://choosealicense.com), para ayudarte a entender cómo generar una licencia para tu código. Una licencia de software les informa a las demás personas lo que pueden y no pueden hacer con tu código fuente; por lo tanto, es importante tomar una decisión informada.
 
 No tienes la obligación de elegir una licencia. Sin embargo, sin una licencia, se aplican las leyes de derecho de autor predeterminadas, lo que implica que conservas todos los derechos de tu código fuente, y nadie puede reproducir, distribuir o crear trabajos a partir de tu trabajo. Si estás creando un proyecto de código abierto, te alentamos fuertemente a que incluyas una licencia de código abierto. La [Guía de código abierto](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) brinda más orientación para elegir la licencia correcta para tu proyecto.
 
@@ -76,7 +76,7 @@ Cuando busques por una licencia de familia, los resultados incluirán todas las 
 
 ### Detectar una licencia
 
-[El titular de licencia de la gema de código abierto Ruby](https://github.com/licensee/licensee) compara el archivo *LICENSE* (LICENCIA) del repositorio con una lista corta de licencias conocidas. El titular de licencia también proporciona las [API de licencias](/rest/reference/licenses) y [nos da información sobre las licencias que tienen los repositorios de {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Si tu repositorio utiliza una licencia que no está detallada en el [Sitio web Choose a License](http://choosealicense.com/appendix/), puedes[solicitar incluir la licencia](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[El titular de licencia de la gema de código abierto Ruby](https://github.com/licensee/licensee) compara el archivo *LICENSE* (LICENCIA) del repositorio con una lista corta de licencias conocidas. El titular de licencia también proporciona las [API de licencias](/rest/reference/licenses) y [nos da información sobre las licencias que tienen los repositorios de {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Si tu repositorio utiliza una licencia que no está detallada en el [Sitio web Choose a License](https://choosealicense.com/appendix/), puedes[solicitar incluir la licencia](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Si tu repositorio utiliza una licencia que está detallada en el sitio web Choose a License y no se muestra claramente en la parte superior de la página del repositorio, puede que contenga múltiples licencias u otra complejidad. Para que se detecten tus licencias, simplifica tu archivo *LICENSE* y anota la complejidad en algún otro lado, como en el archivo *README* de tu repositorio.
 

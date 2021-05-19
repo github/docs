@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de las licencias {% data variables.product.prodname_enterprise %}
@@ -56,7 +56,7 @@ instancia de {% data variables.product.prodname_ghe_server %} como administrador
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Pestaña de "Licencias empresariales" en la barra lateral de configuración para la cuenta empresarial](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Revisa tu licencia actual de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario utilizadas y disponibles.
+4. Revisa tus licencias actuales de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario disponibles y consumidas. {% if currentVersion ver_gt "enterprise-server@3.0" %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 ### Sincronizar de forma automática el uso de la licencia de usuario con {% data variables.product.prodname_ghe_cloud %}
 

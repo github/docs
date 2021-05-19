@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% danger %}
@@ -18,9 +18,8 @@ topics:
 
 {% enddanger %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Haz clic en **Eliminar restricciones**. ![Botón Eliminar restricciones](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
 6. Revisa la información acerca de la inhabilitación de las restricciones de las aplicaciones de terceros y luego haz clic en **Sí, eliminar las restricciones de las aplicaciones**. ![Botón de eliminar confirmación](/assets/images/help/settings/settings-third-party-confirm-disable.png)

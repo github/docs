@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 You can sort any filtered view by:
@@ -19,11 +19,11 @@ You can sort any filtered view by:
 * The least commented issues or pull requests
 * The newest updated issues or pull requests
 * The oldest updated issues or pull requests
-* The most added [reaction](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) on issues or pull requests
+* The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. In the upper-right corner, select the Sort drop-down menu. ![Using the Sort drop-down tab](/assets/images/help/issues/issues_sort_dropdown.png)
+1. In the upper-right corner, select the Sort drop-down menu. ![Using the Sort drop-down tab](/assets/images/help/issues/issues_sort_dropdown.png)
 
 To clear your sort selection, click **Sort** > **Newest**.
 

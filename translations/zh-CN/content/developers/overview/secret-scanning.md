@@ -8,16 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% data variables.product.prodname_dotcom %} 扫描仓库查找已知的密码格式，以防止欺诈性使用意外提交的凭据。 {% data variables.product.prodname_secret_scanning_caps %} 默认情况下发生在公共仓库上，但仓库管理员或组织所有者可以在私有仓库上启用它。 作为服务提供者，您可以与 {% data variables.product.prodname_dotcom %} 合作，让您的密码格式包含在我们的 {% data variables.product.prodname_secret_scanning %} 中。
 
 在公共仓库中找到密码格式的匹配项时，将发送有效负载到您选择的 HTTP 端点。
 
-在配置为 {% data variables.product.prodname_secret_scanning %} 的私有仓库中找到密码格式的匹配项时，仓库管理员将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
+在为 {% data variables.product.prodname_secret_scanning %} 配置的私有仓库中找到密码格式的匹配项时，仓库管理员和提交者将收到警报，并且可以查看和管理 {% data variables.product.prodname_dotcom %} 上的 {% data variables.product.prodname_secret_scanning %} 结果。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
 
-本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 计划。
+本文介绍作为服务提供者如何与 {% data variables.product.prodname_dotcom %} 合作并加入 {% data variables.product.prodname_secret_scanning %} 合作伙伴计划。
 
 ### {% data variables.product.prodname_secret_scanning %} 流程
 
@@ -59,21 +59,15 @@ topics:
 ##### 发送到端点的 POST 示例
 
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 Content-Type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICop4nvIgmcY4+mBG6Ek=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[
-  {
-    "token": "X-Header-Bearer: as09dalkjasdlfkjasdf09a",
-    "type": "ACompany_API_token",
-    "url": "https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"
-  }
-]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
 ```
 
 消息正文是一个 JSON 数组，其中包含一个或多个具有以下内容的对象。 找到多个匹配项时，{% data variables.product.prodname_dotcom %} 可能发送一条包含多个密码匹配项的消息。 您的端点应该能够在不超时的情况下处理包含大量匹配项的请求。
@@ -88,19 +82,31 @@ Content-Length: 0123
 
 您可以从 https://api.github.com/meta/public_keys/secret_scanning 检索 {% data variables.product.prodname_dotcom %} 密码扫描公钥，并使用 `ECDSA-NIST-P256V1-SHA256` 算法验证消息。
 
-假设您收到以下消息，下面的代码段演示如何执行签名验证。 该代码还假设您已经使用生成的 PAT 设置了一个名为 `GITHUB_PRODUCTION_TOKEN` 的环境变量 (https://github.com/settings/tokens)。 该令牌不需要设置任何权限。
+{% note %}
+
+**注意**： 当您向上面的公钥端点发送请求时，可能会达到速率限制。 为了避免达到速率限制，您可以使用下面示例建议的个人访问令牌（无需范围），或使用条件请求。 更多信息请参阅“[开始使用 REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)”。
+
+{% endnote %}
+
+假设您收到以下消息，下面的代码段演示如何执行签名验证。 该代码假设您已经使用生成的 PAT 设置了一个名为 `GITHUB_PRODUCTION_TOKEN` 的环境变量 (https://github.com/settings/tokens)，以避免达到速率限制。 PAT 不需要任何范围/权限。
+
+{% note %}
+
+**注意**：签名是使用原始消息正文生成的。 因此，您也必须使用原始消息正文进行签名验证，而不是解析和串联 JSON，以避免重新排列消息或更改间距，这一点很重要。
+
+{% endnote %}
 
 **发送到验证端点的消息示例**
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 content-type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
 Content-Length: 0000
 
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 ```
 
 **Go 中的验证示例**
@@ -123,14 +129,14 @@ import (
 )
 
 func main() {
-  payload := `[{"token": "some_token", "type": "some_type", "url": "some_url"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
 
   kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-  kSig := "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
   // Fetch the list of GitHub Public Keys
-  req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/token_scanning", nil)
+  req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
   if err != nil {
     fmt.Printf("Error preparing request: %s\n", err)
     os.Exit(1)
@@ -231,47 +237,6 @@ type asn1Signature struct {
   R *big.Int
   S *big.Int
 }
-    os.Exit(7)
-  }
-
-  // Parse the Webhook Signature
-  parsedSig := asn1Signature{}
-  asnSig, err := base64.StdEncoding.DecodeString(kSig)
-  if err != nil {
-    fmt.Printf("unable to base64 decode signature: %s\n", err)
-    os.Exit(8)
-  }
-  rest, err := asn1.Unmarshal(asnSig, &parsedSig)
-  if err != nil || len(rest) != 0 {
-    fmt.Printf("Error unmarshalling asn.1 signature: %s\n", err)
-    os.Exit(9)
-  }
-
-  // Verify the SHA256 encoded payload against the signature with GitHub's Key
-  digest := sha256.Sum256([]byte(payload))
-  keyOk := ecdsa.Verify(ecdsaKey, digest[:], parsedSig.R, parsedSig.S)
-
-  if keyOk {
-    fmt.Println("THE PAYLOAD IS GOOD!!")
-  } else {
-    fmt.Println("the payload is invalid :(")
-    os.Exit(10)
-  }
-}
-
-type GitHubSigningKeys struct {
-  PublicKeys []struct {
-    KeyIdentifier string `json:"key_identifier"`
-    Key           string `json:"key"`
-    IsCurrent     bool   `json:"is_current"`
-  } `json:"public_keys"`
-}
-
-// asn1Signature is a struct for ASN.1 serializing/parsing signatures.
-type asn1Signature struct {
-  R *big.Int
-  S *big.Int
-}
 ```
 
 **Ruby 中的验证示例**
@@ -283,16 +248,16 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 EOL
 
 payload = payload
 
-signature = "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
 key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-url = URI.parse('https://api.github.com/meta/public_keys/token_scanning')
+url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
 raise "Need to define GITHUB_PRODUCTION_TOKEN environment variable" unless ENV['GITHUB_PRODUCTION_TOKEN']
 request = Net::HTTP::Get.new(url.path)
@@ -398,4 +363,3 @@ const verify_signature = async (payload, signature, keyID) => {
 **注：**对于提供误报数据的合作伙伴，我们的请求超时设置为更高（即 30 秒）。 如果您需要超过 30 秒的超时设置，请发送电子邮件至 <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>。
 
 {% endnote %}
-

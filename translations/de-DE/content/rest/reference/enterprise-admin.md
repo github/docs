@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -151,19 +151,6 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 {% endfor %}
 
 {% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## Encryption at rest
-
-You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Admin stats
 

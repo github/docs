@@ -7,11 +7,13 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-contributions-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-contributions-between-github-enterprise-server-and-githubcom
-permissions: 'Los administradores de sitio para {% data variables.product.prodname_ghe_server %} que también sean dueños de la cuenta organizacional o empresarial conectada de {% data variables.product.prodname_ghe_cloud %} pueden habilitar las contribuciones unificadas entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - GitHub Connect
 ---
 
 Como un administrador del sitio, puedes habilitar a los usuarios finales para que envíen sus recuentos de contribuciones de manera anónima por sus trabajos desde {% data variables.product.prodname_ghe_server %} a sus gráficos de contribuciones {% data variables.product.prodname_dotcom_the_website %}.

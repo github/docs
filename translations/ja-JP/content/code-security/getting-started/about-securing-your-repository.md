@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### リポジトリの保護設定をする
@@ -20,38 +20,40 @@ topics:
 {% data variables.product.prodname_dotcom %} には、コードを安全に保つために役立つセキュリティ機能が追加されています。 これらは、リポジトリの [**セキュリティ**] タブにあります。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### Available for all repositories
+#### すべてのリポジトリで使用可能
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
 - **セキュリティポリシー**
 
-  リポジトリで見つけたセキュリティの脆弱性を内密に報告しやすくします。 詳しい情報については「[リポジトリにセキュリティポリシーを追加する](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)」を参照してください。
+  Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. 詳しい情報については「[リポジトリにセキュリティポリシーを追加する](/code-security/getting-started/adding-a-security-policy-to-your-repository)」を参照してください。
+{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 - **セキュリティアドバイザリ**
 
   リポジトリのコードのセキュリティの脆弱性について、非公開で議論して修正します。 その後、セキュリティアドバイザリを公開して、コミュニティに脆弱性を警告し、アップグレードするように促すことができます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
-- **{% data variables.product.prodname_dependabot_alerts %} and security updates**
+- **{% data variables.product.prodname_dependabot_alerts %} およびセキュリティアップデート**
 
-  セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、プルリクエストを自動的に生成してこれらの依存関係を更新するかどうかを選択します。 For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+  セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、プルリクエストを自動的に生成してこれらの依存関係を更新するかどうかを選択します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
  {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 - **{% data variables.product.prodname_dependabot_alerts %}**
 
-  View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+  セキュリティの脆弱性を含むことを把握している依存関係に関するアラートを表示し、それらのアラートを管理します。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
   {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-- **{% data variables.product.prodname_dependabot %} version updates**
+- **{% data variables.product.prodname_dependabot %} バージョンアップデート**
 
-  Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。
+  Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. これは、依存関係の古いバージョンの公開を減らすために役立ちます。 新しいバージョンを使用すると、セキュリティの脆弱性が発見された場合にパッチの適用が容易になり、さらに脆弱性のある依存関係を更新するため {% data variables.product.prodname_dependabot_security_updates %} がプルリクエストを発行することも容易になります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot-version-updates)」を参照してください。
   {% endif %}
   {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
-#### Available {% if currentVersion == "free-pro-team@latest" %}for public repositories and for repositories {% endif %}with {% data variables.product.prodname_advanced_security %}
+#### {% if currentVersion == "free-pro-team@latest" %}パブリックリポジトリおよび{% endif %}{% data variables.product.prodname_advanced_security %} が有効になっているリポジトリで使用可能
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 These features are available {% if currentVersion == "free-pro-team@latest" %}for all public repositories, and for private repositories owned by organizations with {% else %}if you have {% endif %}an {% data variables.product.prodname_advanced_security %} license. {% data reusables.advanced-security.more-info-ghas %}
@@ -63,7 +65,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 
 - **{% data variables.product.prodname_secret_scanning_caps %} アラート**
 
-  {% if currentVersion == "free-pro-team@latest" %}For private repositories, view {% else %}View {% endif %}any secrets that {% data variables.product.prodname_dotcom %} has found in your code. リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
+  {% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリで、{% else %}{% endif %}any secrets that {% data variables.product.prodname_dotcom %} がコードで見つけたシークレットを表示します。 リポジトリにチェックインされたトークンまたは資格情報は、侵害されたものとして扱う必要があります。 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。
 
 {% endif %}
 
@@ -78,7 +80,7 @@ These features are available {% if currentVersion == "free-pro-team@latest" %}fo
 * リポジトリが依存しているエコシステムとパッケージ
 * リポジトリに依存しているリポジトリとパッケージ
 
-You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_alerts %} for dependencies with security vulnerabilities. {% if currentVersion == "free-pro-team@latest" %}Enabling the dependency graph also enables {% data variables.product.prodname_dotcom %} to run dependency reviews of pull requests.{% endif %}
+{% data variables.product.prodname_dotcom %} がセキュリティの脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot_alerts %} を生成する前に、依存関係グラフを有効にする必要があります。 {% if currentVersion == "free-pro-team@latest" %} 依存関係グラフを有効にすると、{% data variables.product.prodname_dotcom %} はプルリクエストの依存関係レビューも実行します。{% endif %}
 
 依存関係グラフは、リポジトリの [**Insights**] タブにあります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}

@@ -8,12 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
+children:
+  - /about-oauth-app-access-restrictions
+  - /enabling-oauth-app-access-restrictions-for-your-organization
+  - /disabling-oauth-app-access-restrictions-for-your-organization
+  - /approving-oauth-apps-for-your-organization
+  - /denying-access-to-a-previously-approved-oauth-app-for-your-organization
 ---
 
-{% link_in_list /about-oauth-app-access-restrictions %}
-{% link_in_list /enabling-oauth-app-access-restrictions-for-your-organization %}
-{% link_in_list /disabling-oauth-app-access-restrictions-for-your-organization %}
-{% link_in_list /approving-oauth-apps-for-your-organization %}
-{% link_in_list /denying-access-to-a-previously-approved-oauth-app-for-your-organization %}

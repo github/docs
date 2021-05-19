@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Las personas con permisos de escritura pueden borrar los archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} o directorios{% endif %} de un repositorio.'
+permissions: 'People with write permissions can delete files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} or directories{% endif %} in a repository.'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca del borrado de archivos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} y directorios{% endif %}
@@ -26,7 +26,7 @@ Si el archivo{% if currentVersion == "free-pro-team@latest" or currentVersion ve
 
 1. Dirígete al archivo que deseas eliminar de tu repositorio.
 2. En la parte superior del archivo, da clic en
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

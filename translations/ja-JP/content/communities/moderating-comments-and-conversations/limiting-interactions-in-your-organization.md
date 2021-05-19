@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: Organization のオーナーは、Organization 内のインタラクションを制限できます。
+permissions: Organization owners can limit interactions in an organization.
 topics:
-  - コミュニティ
+  - Community
 ---
 
 ### 一時的なインタラクションの制限について
@@ -28,9 +28,9 @@ Organization のオーナーは、特定の期間だけユーザをブロック�
 
 ### Organization での操作を制限する
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. [organization settings] サイトバーで、[**Moderation settings**] をクリックします。 ![[organization settings] サイトバーの [Moderation settings]](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. [Moderation settings] で、[**Interaction limits**] をクリックします。 ![[organization settings] サイトバーの [Interaction limits] タブ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}

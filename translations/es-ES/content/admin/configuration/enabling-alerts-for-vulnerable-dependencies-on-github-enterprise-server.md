@@ -5,11 +5,13 @@ redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: 'Los administradores de sitio para {% data variables.product.prodname_ghe_server %} que también sean propietarios de la cuenta empresarial u organizacional de {% data variables.product.prodname_ghe_cloud %} conectada podrán habilitar las {% if currentVersion ver_gt "enterprise-server@2.21" %} alertas de seguridad del {% data variables.product.prodname_dependabot %}{% else %}{% endif %} para las dependencias vulnerables de {% data variables.product.prodname_ghe_server %}.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Security
 ---
 
 ### Acerca de las alertas para las dependencias vulnerables en {% data variables.product.prodname_ghe_server %}

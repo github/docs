@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Errores _CNAME_
@@ -24,8 +24,8 @@ Luego, asegúrate de que el archivo _CNAME_ tenga el formato correcto.
 
 - El nombre de archivo _CNAME_ debe estar todo en mayúsculas.
 - El archivo _CNAME_ puede contener solo un dominio. Para apuntar múltiples dominios a tu sitio, debes configurar un redireccionamiento a través de tu proveedor DNS.
-- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
-- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Por ejemplo, si el archivo _CNAME_ de otro repositorio contiene `example.com`, no puedes usar `example.com` en el archivo _CNAME_ para tu repositorio.
+- El archivo _CNAME_ debe contener únicamente el nombre del dominio. Por ejemplo, `www.example.com`, `blog.example.com`, o `example.com`.
+- El nombre de dominio debe ser único a lo largo de todos los sitios de {% data variables.product.prodname_pages %}. Por ejemplo, si el archivo _CNAME_ de otro repositorio contiene `example.com`, no puedes usar `example.com` en el archivo _CNAME_ para tu repositorio.
 
 ### Error de configuración DNS
 
@@ -42,7 +42,7 @@ Asegúrate de que en tu sitio no ocurra lo siguiente:
 - Uso de más de un subdominio `www`. Por ejemplo, `www.example.com` y `www.anotherexample.com`.
 - Uso de un dominio apex y de un subdominio personalizado. Por ejemplo, `example.com` y `docs.example.com`.
 
-  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
+  La única exepción es el subdominio `www`. Si se configura correctamente, el subdominio `www` se redirigirá automáticamente al dominio apex. Para obtener más información, consulta "[Administrar un dominio personalizado para tu sitio de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
 
 {% data reusables.pages.wildcard-dns-warning %}
 

@@ -14,7 +14,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotcom %} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).
@@ -28,8 +28,8 @@ Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotco
 ### Agregar información a tus recibos de cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ### Agregar información a los recibos de tu organización
@@ -40,9 +40,9 @@ Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotco
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

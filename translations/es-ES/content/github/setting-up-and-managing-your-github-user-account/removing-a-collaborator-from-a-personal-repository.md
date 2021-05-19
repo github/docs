@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Eliminar bifurcaciones de repositorios privados
@@ -29,7 +29,7 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. A la derecha del colaborador que quieres eliminar, da clic en
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
   ![Botón para eliminar un colaborador](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. En la barra lateral izquierda, haz clic en **Collaborators & teams** (Colaboradores y equipos). ![Pestaña Collaborators (Colaboradores)](/assets/images/help/repository/repo-settings-collaborators.png)

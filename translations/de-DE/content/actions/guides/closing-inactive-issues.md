@@ -1,15 +1,15 @@
 ---
 title: Closing inactive issues
-intro: You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.
+intro: 'You can use {% data variables.product.prodname_actions %} to comment on or close issues that have been inactive for a certain period of time.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Workflows'
-  - 'Project management'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
     name: Close inactive issues
     on:
@@ -38,7 +37,10 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - uses: actions/stale@v3
             with:
@@ -49,9 +51,9 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
               close-issue-message: "This issue was closed because it has been inactive for 14 days since being marked as stale."
               days-before-pr-stale: -1
               days-before-pr-close: -1
-              repo-token: ${{ secrets.GITHUB_TOKEN }}
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Customize the parameters in your workflow file:
    - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every day at 1:30 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
    - Change the value for `days-before-issue-stale` to the number of days without activity before the `actions/stale` action labels an issue. If you never want this action to label issues, set this value to `-1`.

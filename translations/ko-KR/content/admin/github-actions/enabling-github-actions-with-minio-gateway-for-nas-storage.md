@@ -5,7 +5,7 @@ permissions: 'Site administrators can enable {% data variables.product.prodname_
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### 빌드전 요구 사양
@@ -15,7 +15,7 @@ topics:
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
 * To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.product.product_location %}.
-* Create your bucket for storing workflow artifacts. To set up your bucket and access key, see the [MinIO documentation](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* Create your bucket for storing workflow artifacts. To set up your bucket and access key, see the [MinIO documentation](https://docs.min.io/docs/minio-gateway-for-nas.html). {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

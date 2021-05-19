@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 ### Erros _CNAME_
@@ -24,8 +24,8 @@ Em seguida, verifique se o arquivo _CNAME_ está formatado corretamente.
 
 - O nome de arquivo _CNAME_ deve estar todo em letras maiúsculas.
 - O arquivo _CNAME_ só pode conter um domínio. Para apontar vários domínios para o site, é preciso configurar um redirecionamento por meio do provedor DNS.
-- The _CNAME_ file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
-- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. Por exemplo, se o arquivo _CNAME_ de outro repositório contiver `example.com`, você não poderá usar `example.com` no arquivo _CNAME_ para o repositório.
+- O arquivo _CNAME_ deve conter apenas o nome do domínio. Por exemplo, `www.example.com`, `blog.example.com` ou `example.com`.
+- O nome de domínio precisa ser único em todos os sites de {% data variables.product.prodname_pages %}. Por exemplo, se o arquivo _CNAME_ de outro repositório contiver `example.com`, você não poderá usar `example.com` no arquivo _CNAME_ para o repositório.
 
 ### Configuração incorreta do DNS
 
@@ -42,7 +42,7 @@ Verifique se o seu site não:
 - Usa mais de um subdomínio `www`. Por exemplo, `www.example.com` e `www.anotherexample.com`.
 - Usa um domínio apex e um subdomínio personalizado. Por exemplo, `example.com` e `docs.example.com`.
 
-  The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
+  A única exceção é o subdomínio `www`. Se configurado corretamente, o subdomínio `www` é automaticamente redirecionado para o domínio apex. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)".
 
 {% data reusables.pages.wildcard-dns-warning %}
 

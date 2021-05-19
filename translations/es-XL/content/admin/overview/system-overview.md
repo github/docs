@@ -6,6 +6,12 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### Arquitectura de almancenamiento

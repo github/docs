@@ -13,13 +13,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
+children:
+  - /about-wikis
+  - /adding-or-editing-wiki-pages
+  - /creating-a-footer-or-sidebar-for-your-wiki
+  - /editing-wiki-content
+  - /viewing-a-wikis-history-of-changes
+  - /changing-access-permissions-for-wikis
+  - /disabling-wikis
 ---
 
-{% link_in_list /about-wikis %}
-{% link_in_list /adding-or-editing-wiki-pages %}
-{% link_in_list /creating-a-footer-or-sidebar-for-your-wiki %}
-{% link_in_list /editing-wiki-content %}
-{% link_in_list /viewing-a-wikis-history-of-changes %}
-{% link_in_list /changing-access-permissions-for-wikis %}
-{% link_in_list /disabling-wikis %}

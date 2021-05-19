@@ -1,5 +1,6 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Server
+shortTitle: Getting started with GitHub Actions
 intro: 'Learn about enabling and configuring {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %} for the first time.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
@@ -7,8 +8,10 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Actions
+  - Enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -116,7 +119,7 @@ To run {% data variables.product.prodname_actions %} workflows, you need to add 
 
 You can control which actions your users are allowed to use in your enterprise. This includes setting up {% data variables.product.prodname_github_connect %} for automatic access to actions from {% data variables.product.prodname_dotcom_the_website %}, or manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}.
 
-For more information, see "[About using actions on {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server)."
+For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
 
 ### General security hardening for {% data variables.product.prodname_actions %}
 

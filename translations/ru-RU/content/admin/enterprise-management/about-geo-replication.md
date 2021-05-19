@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-geo-replication
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - корпоративный
+  - Enterprise
+  - High availability
 ---
 
 Multiple active replicas can provide a shorter distance to the nearest replica. For example, an organization with offices in San Francisco, New York, and London could run the primary appliance in a datacenter near New York and two replicas in datacenters near San Francisco and London. Using geolocation-aware DNS, users can be directed to the closest server available and access repository data faster. Designating the appliance near New York as the primary helps reduce the latency between the hosts, compared to the appliance near San Francisco being the primary which has a higher latency to London.

@@ -8,15 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Einschränkungen für den {% data variables.product.prodname_oauth_app %}-Zugriff aktiviert sind, müssen Organisationsmitglieder [die Genehmigung von einem Organisationsinhaber anfordern](/articles/requesting-organization-approval-for-oauth-apps), bevor sie eine {% data variables.product.prodname_oauth_app %} autorisieren können, die Zugriff auf die Ressourcen der Organisation hat.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Klicke neben der Anwendung, die Du genehmigen möchtest, auf **Review** (Review). ![Link zum Anfordern eines Reviews](/assets/images/help/settings/settings-third-party-approve-review.png)
 6. Wenn Du die Informationen zur angeforderten Anwendung überprüft hast, klicke auf **Grant access** (Zugriff gewähren). ![Schaltfläche „Grant access“ (Zugriff gewähren)](/assets/images/help/settings/settings-third-party-approve-grant.png)

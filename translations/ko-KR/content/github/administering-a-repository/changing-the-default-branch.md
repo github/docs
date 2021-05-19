@@ -10,7 +10,7 @@ redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About changing the default branch
@@ -25,7 +25,7 @@ You can choose the default branch for a repository. The default branch is the ba
 {% endnote %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
 
 You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
 

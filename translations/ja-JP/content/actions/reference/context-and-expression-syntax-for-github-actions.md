@@ -5,7 +5,7 @@ intro: ワークフローおよびアクションにおいて、コンテキス�
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
-  - /articles/contexts-and-expression-syntax-for-github-actions
+  - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
 versions:
@@ -60,7 +60,7 @@ env:
 | コンテキスト名    | 種類       | 説明                                                                                                                                                                     |
 | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `github`   | `オブジェクト` | ワークフロー実行に関する情報。 詳しい情報については、「[`github` コンテキスト](#github-context)」を参照してください。                                                                                              |
-| `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 詳しい情報については[`env`コンテキスト](#env-context)を参照してください。                                                                                       |
+| `env`      | `オブジェクト` | ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 For more information, see [`env` context](#env-context).                                                                              |
 | `job`      | `オブジェクト` | 現在実行中のジョブに関する情報。 詳しい情報については、「[`job` コンテキスト](#job-context)」を参照してください。                                                                                                   |
 | `steps`    | `オブジェクト` | このジョブで実行されているステップに関する情報。 詳しい情報については、「[`steps` コンテキスト](#steps-context)」を参照してください。                                                                                       |
 | `runner`   | `オブジェクト` | 現在のジョブを実行しているランナーに関する情報。 詳しい情報については[`runner`コンテキスト](#runner-context)を参照してください。                                                                                         |
@@ -93,11 +93,11 @@ env:
 | `github.action`           | `string` | 現在実行中のアクションの名前。 {% data variables.product.prodname_dotcom %}は、現在のステップがスクリプトを実行する際に、特殊なキャラクターを削除するか、`run`という名前を使います。  同じジョブの中で同じアクションを複数回使う場合、名前には順番に番号が加えられます。  たとえば、実行する最初のスクリプトの名前は`run1`で、2番目のスクリプトの名前は`run2`というようになります。 同様に、`actions/checkout`の2回目の呼び出しは`actionscheckout2`となります。 |
 | `github.action_path`      | `string` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルに簡単にアクセスできます。 この属性は、複合実行ステップアクションでのみサポートされています。                                                                                                                                                                                        |
 | `github.actor`            | `string` | ワークフローの実行を開始したユーザのログイン。                                                                                                                                                                                                                                                              |
-| `github.base_ref`         | `string` | ワークフローの実行における `base_ref` またはPull Requestのターゲットブランチ。 このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                       |
+| `github.base_ref`         | `string` | ワークフローの実行における `base_ref` またはPull Requestのターゲットブランチ。 This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                   |
 | `github.event`            | `オブジェクト` | webhook ペイロードの完全なイベント。 詳しい情報については、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows/)」を参照してください。 このコンテキストを使用して、イベントの個々のプロパティにアクセスできます。                                                                                                                                    |
 | `github.event_name`       | `string` | ワークフローの実行をトリガーしたイベントの名前。                                                                                                                                                                                                                                                             |
 | `github.event_path`       | `string` | ランナー上の完全なイベントwebhookペイロードへのパス。                                                                                                                                                                                                                                                       |
-| `github.head_ref`         | `string` | ワークフローの実行における `head_ref` またはPull Requestのソースブランチ。 このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                         |
+| `github.head_ref`         | `string` | ワークフローの実行における `head_ref` またはPull Requestのソースブランチ。 This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`.                                                                                                     |
 | `github.job`              | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                 |
 | `github.ref`              | `string` | ワークフローの実行をトリガーしたブランチまたはタグ ref。 ブランチの場合は `refs/heads/<branch_name>` の形式で、タグの場合は `refs/tags/<tag_name>` です。                                                                                                                                                                |
 | `github.repository`       | `string` | 所有者およびリポジトリの名前。 `Codertocat/Hello-World`などです。                                                                                                                                                                                                                                        |
@@ -323,7 +323,7 @@ env:
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-`string` の値を、変数 `replaceValueN` で置換します。 `string` の変数は、`{N}` という構文で指定します。ここで `N` は整数です。 少なくとも、`replaceValue` と `string` を 1 つ指定する必要があります。 使用できる変数 (`replaceValueN`) の数に制限はありません。 中括弧はダブルスペースでエスケープします。
+`string` の値を、変数 `replaceValueN` で置換します。 `string` の変数は、`{N}` という構文で指定します。ここで `N` は整数です。 少なくとも、`replaceValue` と `string` を 1 つ指定する必要があります。 使用できる変数 (`replaceValueN`) の数に制限はありません。 Escape curly braces using double braces.
 
 ##### サンプル
 
@@ -381,15 +381,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
 ```
 {% endraw %}
 
@@ -408,9 +408,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - continue-on-error: ${{ fromJSON(env.continue) }}
-      timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 

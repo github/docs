@@ -6,8 +6,13 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - Unternehmen
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### Speicherarchitektur
@@ -110,7 +115,7 @@ Weitere Informationen zu den Benutzerberechtigungen in {% data variables.product
 
 #### Audit- und Zugriffsprotokollierung
 
-{% data variables.product.prodname_ghe_server %} speichert sowohl herkömmliche Betriebssystem- als auch Anwendungsprotokolle. Die Anwendung führt außerdem detaillierte Audit- und Sicherheitsprotokolle, die {% data variables.product.prodname_ghe_server %} dauerhaft speichert. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} speichert sowohl herkömmliche Betriebssystem- als auch Anwendungsprotokolle. Die Anwendung führt außerdem detaillierte Audit- und Sicherheitsprotokolle, die {% data variables.product.prodname_ghe_server %} dauerhaft speichert. You can forward both types of logs in real time to multiple destinations via the `syslog-ng` protocol. Weitere Informationen finden Sie unter „[Protokollweiterleitung](/admin/user-management/log-forwarding)“.
 
 Zugriffs- und Auditprotokolle enthalten beispielsweise die folgenden Informationen.
 

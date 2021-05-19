@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -124,41 +124,41 @@ $ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% el
 
 
 
-### Server-to-server tokens
+### Tokens do servidor para servidor
 
-If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents. 
+Se seu servidor precisar acessar repositórios em uma ou mais organizações, você poderá usar um aplicativo GitHub para definir o acesso que você precisa e, em seguida, gerar tokens de _escopo limitado_, _servidor para servidor_ a partir daquele aplicativo GitHub. Os tokens do servidor para servidor podem ter escopo de repositório único ou múltiplo e podem ter permissões refinadas. Por exemplo, você pode gerar um token com acesso somente leitura para o conteúdo de um repositório. 
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
+Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data variables.product.product_name %}, os tokens do servidor para servidor são dissociados de qualquer usuário do GitHub, o que os torna comparáveis aos "tokens de serviço". Além disso, tokens de servidor para servidor têm limites de taxa dedicados que escalam com o tamanho das organizações sobre as quais eles atuam. Para obter mais informações, consulte [Limites de taxa para os aplicativos Github](/developers/apps/rate-limits-for-github-apps).
 
 
 
 ##### Prós
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from GitHub user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+- Tokens com escopo limitado com conjuntos de permissões bem definidos e tempos de expiração (1 hora, ou menos se for revogado manualmente usando a API).
+- Limites de taxa dedicados que crescem com a sua organização.
+- Separados das identidades de usuários do GitHub para que não consumam nenhuma estação licenciada.
+- Nunca concedeu uma senha. Portanto, não pode efetuar o login diretamente.
 
 
 
 ##### Contras
 
-- Additional setup is needed to create the GitHub App.
-- Server-to-server tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+- É necessária uma configuração adicional para criar o aplicativo GitHub.
+- Os tokens de servidor para servidor expiram após 1 hora. Portanto, precisam ser gerados novamente, geralmente sob demanda e usando código.
 
 
 
 ##### Configuração
 
-1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
-1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/developers/apps/creating-a-github-app).
-1. Note your GitHub App `id`.
-1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
-1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your GitHub App and the organization repositories it can access.  Each GitHub App and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
-1. Generate a server-to-server token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a GitHub App using a JWT, for more information see [Authenticating as a GitHub App](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app), and [Authenticating as an installation](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
-1. Use this server-to-server token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
+1. Determine se seu aplicativo GitHub deve ser público ou privado. Se o seu aplicativo GitHub agir apenas nos repositórios da organização, é provável que você queira que ele seja privado.
+1. Determine as permissões que o aplicativo GitHub exige, como acesso somente leitura ao conteúdo do repositório.
+1. Crie seu aplicativo GitHub por meio da página de configurações da sua organização. Para obter mais informações, consulte [Criar um aplicativo GitHub](/developers/apps/creating-a-github-app).
+1. Observe seu id `id` do aplicativo GitHub.
+1. Gere e faça o download da chave privada do seu aplicativo GitHub e armazene-a com segurança. Para obter mais informações, consulte [Gerar uma chave privada](/developers/apps/authenticating-with-github-apps#generating-a-private-key).
+1. Instale o aplicativo GitHub nos repositórios nos quais ele precisa agir. Opcionalmente você poderá instalar o aplicativo GitHub em todos os repositórios da sua organização.
+1. Identifique o `installation_id` que representa a conexão entre o aplicativo GitHub e os repositórios da organização à qual ele pode acessar.  Cada aplicativo GitHub e par de organização tem, no máximo, um `installation_id` único. Você pode identificar este `installation_id` por meio de [Obter uma instalação da organização para o aplicativo autenticado](/rest/reference/apps#get-an-organization-installation-for-the-authenticated-app). Isto exige autenticação como um aplicativo GitHub usando um JWT. Para obter mais informações, consulte [Efetuar a autenticação como um aplicativo GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app).
+1. Gere um token de servidor para servidor usando o ponto de extremidade correspondente da API REST, [Crie um token de acesso de instalação para um aplicativo](/rest/reference/apps#create-an-installation-access-token-for-an-app). Isto exige autenticação como um aplicativo GitHub usando um JWT. Para obter mais informações, consulte [Efetuar a autenticação como um aplicativo GitHub](/developers/apps/authenticating-with-github-apps#authenticating-as-a-github-app) e [Efetuar a autenticação como uma instalação](/developers/apps/authenticating-with-github-apps#authenticating-as-an-installation).
+1. Use este token de servidor para servidor para interagir com seus repositórios, seja por meio das APIs REST ou GraphQL, ou por meio de um cliente Git.
 
 
 

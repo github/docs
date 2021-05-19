@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -151,19 +151,6 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 {% endfor %}
 
 {% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
-
-## 休息时加密
-
-您可以使用休息时加密 API 来管理用于对 {% data variables.product.product_name %} 上的数据进行加密的密钥。 更多信息请参阅“[为企业配置数据加密](/admin/configuration/configuring-data-encryption-for-your-enterprise)”。
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 管理统计
 
@@ -388,7 +375,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 用户
 
-用户管理 API 允许您暂停{% if enterpriseServerVersions contains currentVersion %}、取消暂停、升级和降级{% endif %}{% if currentversion == "github-ae@latest" %} 以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

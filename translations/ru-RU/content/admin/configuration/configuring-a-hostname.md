@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 If you configure a hostname instead of a hard-coded IP address, you will be able to change the physical hardware that {% data variables.product.product_location %} runs on without affecting users or client software.

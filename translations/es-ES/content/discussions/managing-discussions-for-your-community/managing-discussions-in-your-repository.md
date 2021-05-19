@@ -1,7 +1,7 @@
 ---
 title: Adminsitrar los debates en tu repositorio
-intro: Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.
-permissions: Los administradores de repositorio y las personas con acceso de escritura o superior en un repositorio pueden administrar los debates del mismo.
+intro: 'Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.'
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

@@ -1,15 +1,15 @@
 ---
 title: Adicionando etiquetas a problemas
-intro: Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para etiquetar problemas automaticamente.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
 2. {% data reusables.actions.make-workflow-file %}
 3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
 
-    {% raw %}
     ```yaml{:copy}
     name: Label issues
     on:
@@ -39,14 +38,17 @@ No tutorial, primeiro você criará um arquivo de fluxo de trabalho que usa a a�
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Label issues
             uses: andymckay/labeler@1.0.2
             with:
               add-labels: "triage"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
    - Altere o valor de `add-labels` para a lista de etiquetas que você deseja adicionar ao problema. Separe etiquetas múltiplas com vírgulas. Por exemplo, `"help wanted, good first issue"`. Para obter mais informações sobre etiquetas, consulte "[Gerenciar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
 5. {% data reusables.actions.commit-workflow %}

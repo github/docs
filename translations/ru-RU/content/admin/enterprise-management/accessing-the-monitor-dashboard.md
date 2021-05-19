@@ -6,8 +6,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Accessing the monitor dashboard

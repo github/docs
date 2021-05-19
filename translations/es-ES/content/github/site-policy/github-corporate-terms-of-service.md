@@ -5,9 +5,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
+
+_Estos términos aplican a los clientes de 1)GitHub.com (no-empresariales) que hayan aceptado las Condiciones Corporativas de Servicio y 2) los clientes empresariales que licenciaron el servicio antes del 4 de enero de 2021. Los clientes empresariales que compraron productos o servicios posterior a esta fecha se dirigirán a https://github.com/enterprise-legal para encontrar las condiciones actuales._
 
 GRACIAS POR ELEGIR GITHUB PARA CUBRIR LAS NECESIDADES COMERCIALES DE SU EMPRESA. LEE ESTE ACUERDO CUIDADOSAMENTE YA QUE RIGE EL USO DE LOS PRODUCTOS (COMO SE DEFINEN A CONTINUACIÓN), A MENOS QUE GITHUB HAYA CELEBRADO UN ACUERDO POR ESCRITO POR SEPARADO CON EL CLIENTE PARA DICHO PROPÓSITO. AL HACER CLIC EN EL BOTÓN "ACEPTO" O EN UN BOTÓN SIMILAR O AL UTILIZAR CUALQUIERA DE LOS PRODUCTOS, EL CLIENTE ACEPTA TODOS LOS TÉRMINOS Y CONDICIONES DEL PRESENTE ACUERDO. SI EL CLIENTE ESTÁ CELEBRANDO ESTE ACUERDO EN NOMBRE DE UNA EMPRESA U OTRA PERSONA MORAL, EL CLIENTE REPRESENTA QUE TIENE LA AUTORIDAD LÉGAL DE VINCULAR A LA EMPRESA U OTRAS PERSONAS MORALES AL PRESENTE ACUERDO.
 
@@ -111,7 +113,7 @@ El Cliente es responsable de: (i) todo el Contenido publicado y la actividad que
 En algunas situaciones, pueden aplicarse términos de terceros al uso del Cliente de GitHub. Por ejemplo, el Cliente puede ser miembro de una Organización con sus propios términos o acuerdos de licencia; el Cliente puede descargar una aplicación que se integre con el Servicio; o el Cliente puede usar el Servicio para autenticarse a otro servicio. Aunque este Acuerdo es el acuerdo completo de GitHub con el Cliente, los términos de otras partes rigen sus relaciones con el Cliente.
 
 #### 5. Feriado en Términos del Gobierno federal de los EE.⁰UU
-Si el cliente es una entidad gubernamental de los EE.UU. o accede o utiliza de otra manera el servicio en calidad de gobierno, aplicará la [Enmienda del Gobierno Federal de los EE.UU.](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users), y el cliente acordará con estas disposiciones.
+Si el cliente es una entidad gubernamental de los EE.UU. o accede o utiliza de otra manera el servicio en calidad de gobierno, aplicará la [Enmienda del Gobierno Federal de los EE.UU., ](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)y el cliente acordará con estas disposiciones.
 
 #### 6. Acuerdo sobre los Niveles de Servicio de Enterprise Cloud
 El compromiso de tiempo activo trimestral de Github para Github Enterprise Cloud se proporciona en el [Acuerdo de Nivel de Servicio Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Si el cliente se registra para GitHub Enterprise Cloud, entonces éste será acreedor a un crédito de servicio en caso de que GitHub no cumpla con sus niveles de servicio.
@@ -125,7 +127,7 @@ El uso del cliente de los Productos no debe violar ninguna ley aplicable, incluy
 El uso que el Cliente dé al servicio deberá cumplir con las [Políticas de Uso Aceptado de GitHub](/articles/github-acceptable-use-policies) y los [Lineamientos de la Comunidad de GitHub](/articles/github-community-guidelines). El Cliente no debe usar el Servicio en ninguna jurisdicción si contiene Contenidos o actividades ilegales, obscenos, ofensivos o fraudulentos, tales como promover o causar daño, vulnerar la integridad o la seguridad de una red o sistema o interferir en ellos, evadir filtros, enviar mensajes no solicitados, abusivos o engañosos, virus o códigos perjudiciales, o socavar los derechos de terceros.
 
 #### 3. Privacidad
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Cualquier persona, entidad o servicio que recolecte datos del Servicio debe cumplir con la Declaración de Privacidad de GitHub, en particular en lo que se refiere a la recopilación de datos personales de los usuarios (como se define en la Declaración de Privacidad de GitHub). Si el Cliente recopila cualquier Información personal del usuario proveniente de GitHub, el Cliente solamente la usará para el propósito por el cual el Usuario externo lo autorizó. El Cliente asegurará razonablemente dicha Información personal y el Cliente responderá de inmediato a las quejas, las solicitudes de eliminación y las solicitudes de "no contactar" de GitHub o de Usuarios externos.
+La [Declaración de Privacidad de GitHub](/articles/github-privacy-statement) y el [Acuerdo de Protección de Datos de GitHub](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) proporcinan una notificación detallada de las prácticas de datos y privacidad de GitHub, así como de sus obligaciones de seguridad y procesamiento con respecto a los Datos personales de los Clientes. Cualquier persona, entidad o servicio que recolecte datos del Servicio debe cumplir con la Declaración de Privacidad de GitHub, en particular en lo que se refiere a la recopilación de datos personales de los usuarios (como se define en la Declaración de Privacidad de GitHub). Si el Cliente recopila cualquier Información personal del usuario proveniente de GitHub, el Cliente solamente la usará para el propósito por el cual el Usuario externo lo autorizó. El Cliente asegurará razonablemente dicha Información personal y el Cliente responderá de inmediato a las quejas, las solicitudes de eliminación y las solicitudes de "no contactar" de GitHub o de Usuarios externos.
 
 ### D. Responsabilidad del Contenido; Propiedad; Derechos de la licencia
 

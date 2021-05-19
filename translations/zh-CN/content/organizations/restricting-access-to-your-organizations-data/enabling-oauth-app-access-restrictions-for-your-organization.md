@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
@@ -23,9 +23,8 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. 在“Third-party application access policy”（第三方应用程序访问策略）下，单击 **Setup application access restrictions（设置应用程序访问限制）**。 ![设置限制按钮](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
 6. 审查有关第三方访问限制的信息后，单击 **Restrict third-party application access（限制第三方应用程序访问）**。 ![限制确认按钮](/assets/images/help/settings/settings-third-party-restrict-confirm.png)

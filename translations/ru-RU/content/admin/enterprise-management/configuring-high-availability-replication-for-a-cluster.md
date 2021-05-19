@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
 topics:
-  - корпоративный
+  - Clustering
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### About high availability replication for clusters
@@ -22,7 +26,7 @@ We recommend configuring high availability as a part of a comprehensive disaster
 
 #### Hardware and software
 
-For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 64 GB of RAM, and 750 GB of attached storage.
+For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage.
 
 On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 

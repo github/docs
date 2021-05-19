@@ -1,16 +1,16 @@
 ---
 title: Organization のリポジトリのデフォルブランチ名を管理する
-intro: 'Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。'
+intro: Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
-permissions: リポジトリのデフォルトブランチ名を管理する
+permissions: Organization owners can manage the default branch name for new repositories in the organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### デフォルトブランチ名について
@@ -23,9 +23,8 @@ Enterprise のオーナーが Enterprise のデフォルトブランチ名にポ
 
 ### デフォルトブランチ 名を設定する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 3. [Repository default branch] で、[**Change default branch name now**] をクリックします。 ![[Override] ボタン](/assets/images/help/organizations/repo-default-name-button.png)
 4. 新しいブランチに使用したいデフォルト名を入力します。 ![デフォルト名を入力するテキストフィールド](/assets/images/help/organizations/repo-default-name-text.png)

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Puedes elegir si los miembros pueden crear repositorios en tu organización o no. Si permites que los miembros creen repositorios, puedes elegir qué tipos de repositorios pueden crear. {% if currentVersion == "free-pro-team@latest" %} Para permitir que los miembros creen únicamente repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.{% endif %} Para obtener más información, consulta la sección "[Acerca de la visibilidad de los repositorios](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
@@ -27,9 +27,8 @@ Los propietarios de la organización siempre pueden crear cualquier tipo de repo
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Debajo de "Creación de repositorios", selecciona una o más opciones. ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Haz clic en **Save ** (guardar).

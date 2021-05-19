@@ -9,9 +9,9 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
+  - Workflows
 ---
 
 {% data reusables.actions.ae-beta %}
@@ -59,7 +59,16 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
 
 - `key`: **Obrigatório** A chave criada ao salvar uma cache e a chave usada para pesquisar uma cache. Pode ser qualquer combinação de variáveis, valores de contexto, strings estáticas e funções. As chaves têm um tamanho máximo de 512 caracteres e as chaves maiores que o tamanho máximo gerarão uma falha na ação.
 - ``de caminho : **Required** O caminho do arquivo no corredor para cache ou restauração. O caminho pode ser absoluto ou relativo com relação ao diretório de trabalho.
-  - Com `v2` da ação da `cache`, você pode especificar um caminho único ou caminhos múltiplos como uma lista. Os caminhos podem ser diretórios ou arquivos únicos. Os padrões de glob são compatíveis.
+  - Os caminhos podem ser diretórios ou arquivos únicos. Os padrões de glob são compatíveis.
+  - Com o `v2` da ação `cache`, é possível especificar um único caminho ou é possível adicionar vários caminhos em linhas separadas. Por exemplo:
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. Você não pode armazenar um único arquivo.
 - `chaves de restauração`: **Opcional** Uma lista ordenada de chaves alternativas a serem usadas para encontrar a cache se não ocorrer correspondência para a `chave`.
 
@@ -73,39 +82,38 @@ Este exemplo cria uma nova cache quando são alterados os pacotes no arquivo `pa
 
 {% raw %}
 ```yaml{:copy}
-nome : Memorização com npm
+name: Caching with npm
 
-em: push
+on: push
 
-trabalho:
-  criar:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
-    etapas:
-    - usa: ações/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-    - nome: Módulos do nó da cache
-      usa: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # arquivos de cache npm são armazenados em `~/.npm` on Linux/macOS
-        caminho: ~/.npm
-        chave: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - nome: Instalar dependências
-      executar: instalação de npm
+      - name: Install Dependencies
+        run: npm install
 
-    - nome: Build
-      executar: npm build
+      - name: Build
+        run: npm build
 
-    - nome: Teste
-      executar: teste de npm
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 

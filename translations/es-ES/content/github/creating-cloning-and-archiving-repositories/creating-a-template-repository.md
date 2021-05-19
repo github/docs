@@ -1,7 +1,7 @@
 ---
 title: Crear un repositorio desde una plantilla
 intro: 'Puedes hacer una plantilla a partir de un repositorio existente para que tú y otras personas puedan generar repositorios nuevos con la misma estructura de directorios{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, ramas,{% endif %} y archivos.'
-permissions: Cualquier usuario con permisos de administrador para un repositorio puede convertir el repositorio en una plantilla.
+permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% note %}
@@ -20,7 +20,7 @@ topics:
 
 Para crear un repositorio de plantilla, debes crear un repositorio y luego convertirlo en una plantilla. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."
 
-Después de que conviertas tu repositorio en una plantilla, cualquiera con acceso a éste podrá generar un repositorio nuevo con la misma estructura de directorios y archivos que tu rama predeterminada.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} También podrán elegir incluir el resto de las ramas en tu repositorio.{% endif %} Para obtener más información, consulta la sección "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)".
+After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository. Branches created from a template have unrelated histories, so you cannot create pull requests or merge between the branches.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -5,6 +5,11 @@ redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+  github-ae: '*'
+topics:
+  - Actions
+  - Enterprise
+  - Policies
 ---
 
 {% data reusables.actions.enterprise-beta %}

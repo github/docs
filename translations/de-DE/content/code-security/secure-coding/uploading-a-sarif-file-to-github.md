@@ -2,7 +2,7 @@
 title: Uploading a SARIF file to GitHub
 shortTitle: Uploading a SARIF file
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data from a third-party tool.'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/uploading-a-code-scanning-analysis-to-github
@@ -12,8 +12,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - sicherheit
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -24,18 +26,19 @@ If your SARIF file doesn't include `partialFingerprints`, the `upload-sarif` act
 
 You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. To upload results from third-party tools, you must use the Static Analysis Results Interchange Format (SARIF) 2.1.0 format. For more information, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning)."
 
-You can upload the results using {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %} (available if your organization is taking part in the beta program){% endif %}, the {% data variables.product.prodname_code_scanning %} API, or the {% data variables.product.prodname_codeql_runner %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
+You can upload the results using {% data variables.product.prodname_actions %}, the {% data variables.product.prodname_code_scanning %} API, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}the {% data variables.product.prodname_codeql_cli %}, {% endif %}or the {% data variables.product.prodname_codeql_runner %}. The best upload method will depend on how you generate the SARIF file, for example, if you use:
 
 - {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
-- „[Einen Workflow-Lauf verwalten](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)“
-- {% data variables.product.prodname_dotcom %} will display {% data variables.product.prodname_code_scanning %} alerts from the uploaded SARIF file in your repository. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)").
+- „[Einen Workflow-Lauf verwalten](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)“ {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+ - The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[Running {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/running-codeql-cli-in-your-ci-system)").{% endif %}
+- {% data variables.product.prodname_dotcom %} will display {% data variables.product.prodname_code_scanning %} alerts from the uploaded SARIF file in your repository. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)").
 - A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}
 
 ### Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 
-To upload a third-party SARIF file to {% data variables.product.prodname_dotcom %}, you'll need a {% data variables.product.prodname_actions %} workflow. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" and "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+To upload a third-party SARIF file to {% data variables.product.prodname_dotcom %}, you'll need a {% data variables.product.prodname_actions %} workflow. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
 Your workflow will need to use the `upload-sarif` action, which has input parameters that you can use to configure the upload. It has input parameters that you can use to configure the upload. The main input parameter you'll use is `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository. For more information see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/HEAD/upload-sarif).
 
@@ -63,20 +66,22 @@ name: "Upload SARIF"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 4'
+    - cron: '45 15 * * 4'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    # This step checks out a copy of your repository.
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      # This step checks out a copy of your repository.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 #### Example workflow that runs the ESLint analysis tool
@@ -87,7 +92,7 @@ This example workflow runs anytime commits are pushed to the repository. The act
 
 The workflow shows an example of running the ESLint static analysis tool as a step in a workflow. The `Run ESLint` step runs the ESLint tool and outputs the `results.sarif` file. The workflow then uploads the `results.sarif` file to {% data variables.product.prodname_dotcom %} using the `upload-sarif` action. For more information about creating a workflow file, see "[Introduction to GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)."
 
-```yml
+```yaml
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
@@ -95,28 +100,32 @@ name: "ESLint analysis"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 3'
+    - cron: '45 15 * * 3'
 
 jobs:
   build:
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    - uses: actions/checkout@v2
-    - name: Run npm install
-      run: npm install
-    # Runs the ESlint code analysis
-    - name: Run ESLint
-      # eslint exits 1 if it finds anything to report
-      run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
-    # Uploads results.sarif to GitHub repository using the upload-sarif action
-    - uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      - uses: actions/checkout@v2
+      - name: Run npm install
+        run: npm install
+      # Runs the ESlint code analysis
+      - name: Run ESLint
+        # eslint exits 1 if it finds anything to report
+        run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
+      # Uploads results.sarif to GitHub repository using the upload-sarif action
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 ### Weiterführende Informationen
 
 - „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)“
-- "[Viewing your workflow history](/actions/managing-workflow-runs/viewing-workflow-run-history)"
-- "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)"
+- "[Viewing your workflow history](/actions/managing-workflow-runs/viewing-workflow-run-history)"{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+- "[About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)"{% else %}
+- "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)"{% endif %}
 - "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"

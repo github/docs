@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -155,7 +155,8 @@ Puedes comunicar que un ambiente transitorio ya no existe si configuras el `stat
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 ## Ambientes
 
-La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener información sobre los ambientes, consulta la sección "[Ambientes](/actions/reference/environments)".
+La API de Ambientes te permite crear, configurar y borrar ambientes. Para obtener información sobre los ambientes, consulta la sección "[Ambientes](/actions/reference/environments)". To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}

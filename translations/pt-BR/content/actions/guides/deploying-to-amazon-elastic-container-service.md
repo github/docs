@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CD'
-  - 'Contêineres'
-  - 'Amazon ECS'
+  - CD
+  - Containers
+  - Amazon ECS
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -71,7 +71,6 @@ O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e
 
 Certifique-se de fornecer seus próprios valores para todas as variáveis na chave `env` do fluxo de trabalho.
 
-{% raw %}
 ```yaml{:copy}
 name: Deploy to Amazon ECS
 
@@ -96,9 +95,12 @@ defaults:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
+    {% raw %}steps:
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -140,9 +142,9 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ env.ECS_SERVICE }}
           cluster: ${{ env.ECS_CLUSTER }}
-          wait-for-service-stability: true
+          wait-for-service-stability: true{% endraw %}
 ```
-{% endraw %}
+
 
 ### Recursos adicionais
 

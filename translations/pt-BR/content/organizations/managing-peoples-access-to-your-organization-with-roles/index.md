@@ -10,12 +10,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /permission-levels-for-an-organization
+  - /maintaining-ownership-continuity-for-your-organization
+  - /giving-team-maintainer-permissions-to-an-organization-member
+  - /adding-a-billing-manager-to-your-organization
+  - /removing-a-billing-manager-from-your-organization
 ---
 
-{% link_in_list /permission-levels-for-an-organization %}
-{% link_in_list /maintaining-ownership-continuity-for-your-organization %}
-{% link_in_list /giving-team-maintainer-permissions-to-an-organization-member %}
-{% link_in_list /adding-a-billing-manager-to-your-organization %}
-{% link_in_list /removing-a-billing-manager-from-your-organization %}

@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,7 +30,6 @@ topics:
 3. {% data reusables.actions.make-workflow-file %}
 4. 将以下 YAML 内容复制到工作流程文件中。
 
-    {% raw %}
     ```yaml{:copy}
     name: Remove labels
     on:
@@ -40,14 +39,18 @@ topics:
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - name: remove labels
             uses: andymckay/labeler@master
             with:
               remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 5. 自定义工工作流程文件中的参数：
    - 在 `github.event.project_card.column_id = "12345678"`中，将 `12345678` 替换为要取消标记移至其中的议题和拉取请求的列 ID。
 

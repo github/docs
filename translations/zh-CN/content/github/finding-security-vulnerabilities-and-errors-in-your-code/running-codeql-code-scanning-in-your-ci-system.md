@@ -6,9 +6,10 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - 安全
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -30,17 +31,13 @@ topics:
 {% note %}
 
 **注意：**
-{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_codeql_runner %} 使用 {% data variables.product.prodname_codeql %} CLI 来分析代码，因此具有相同的许可条件。 它可自由用于 {% data variables.product.prodname_dotcom_the_website %} 上维护的公共仓库，并且可用于具有 {% data variables.product.prodname_advanced_security %} 许可证的客户所拥有的私有仓库。 有关信息请参阅“[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %} 条款和条件](https://securitylab.github.com/tools/codeql/license)”和“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
-{% else %}
 * {% data variables.product.prodname_codeql_runner %} 可用于拥有 {% data variables.product.prodname_advanced_security %} 许可证的客户。
-{% endif %}
 * 请勿将 {% data variables.product.prodname_codeql_runner %} 与 {% data variables.product.prodname_codeql %} CLI 混淆。 {% data variables.product.prodname_codeql %} CLI 是一个交互式命令行接口，允许您创建用于安全研究的 {% data variables.product.prodname_codeql %} 数据库并运行 {% data variables.product.prodname_codeql %} 查询。 更多信息请参阅“[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)”。
 {% endnote %}
 
 ### 下载 {% data variables.product.prodname_codeql_runner %}
 
-您可以从 https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql_runner %} 。 在某些操作系统上，您可能需要更改下载文件的权限才能运行它。
+您可以从 https://github.com/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql_runner %}。 在某些操作系统上，您可能需要更改下载文件的权限才能运行它。
 
 在 Linux 上：
 
@@ -62,7 +59,7 @@ You should call the {% data variables.product.prodname_codeql_runner %} from the
 下载 {% data variables.product.prodname_codeql_runner %} 并确认它可执行后，应将运行器提供给您打算用于 {% data variables.product.prodname_code_scanning %} 的每个 CI 服务器。 例如，您可以配置每台服务器从中央内部位置复制运行器。 或者，您也可以使用 REST API 直接从 {% data variables.product.prodname_dotcom %} 获取运行器，例如：
 
 ```shell
-wget https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -73,9 +70,8 @@ chmod +x codeql-runner-linux
 
 提供 {% data variables.product.prodname_codeql %} 包访问权限的选项：
 
-1. 允许 CI 服务器访问 https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action so that the {% data variables.product.prodname_codeql_runner %} 可以自动下载捆绑包。
-{% if currentVersion == "enterprise-server@2.22" %}
-1. 在 {% data variables.product.product_name %} 上镜像 `github/codeql-action` 仓库。 除非您指定 <nobr>`--codeql-path`</nobr> 标志，否则运行器将在此位置和 {% data variables.product.prodname_dotcom_the_website %}上自动检查包。{% endif %}
+1. 允许 CI 服务器访问 https://github.com/github/codeql-action，以便 {% data variables.product.prodname_codeql_runner %} 可以自动下载包。
+1. 在 {% data variables.product.product_name %} 上镜像 `github/codeql-action` 仓库。 除非您指定 <nobr>`--codeql-path`</nobr> 标志，否则运行器将在此位置和 {% data variables.product.prodname_dotcom_the_website %}上自动检查包。
 1. 手动下载/提取捆绑包，将其与其他中央资源一起存储，并使用 <nobr>`--codeql-path`</nobr> 标记指定捆绑包在调用中的位置，以初始化 {% data variables.product.prodname_codeql_runner %}。
 
 ### 调用 {% data variables.product.prodname_codeql_runner %}

@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de los permisos de las {% data variables.product.prodname_actions %} para tu cuenta empresarial
@@ -48,3 +48,19 @@ Puedes inhabilitar todos los flujos de trabajo de una empresa o configurar una p
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+
+### Cnfigurar los permisos para el `GITHUB_TOKEN` para tu empresa
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configurar los permisos predeterminados del `GITHUB_TOKEN`
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para esta empresa](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. Da clic en **Guardar** para aplicar la configuración.

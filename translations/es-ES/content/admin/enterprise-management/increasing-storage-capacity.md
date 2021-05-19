@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -31,7 +35,10 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 1. Ajusta el disco de volumen existente del usuario utilizando las herramientas de tu plataforma de virtualización.
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Pon el aparato en modo mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reinicia el aparato para detectar la nueva asignación de almacenamiento.
+4. Reinicia el aparato para detectar la nueva asignación de almacenamiento:
+  ```shell
+  $ sudo reboot
+  ```
 5. Ejecuta el comando `ghe-storage-extend` para expandir el sistema de archivos `/data/user`:
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
 ### Aumentar el tamaño de partición raíz utilizando un nuevo aparato
 
 1. Configura una nueva instancia {% data variables.product.prodname_ghe_server %} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Cierra el aparato actual.
+2. Cierra el aparato actual:
+  ```shell
+  $ sudo poweroff
+  ```
 3. Desconecta el disco de datos de tu aparato actual utilizando las herramientas de tu plataforma de virtualización.
 4. Conecta el disco de datos al nuevo aparato con un disco raíz más grande.
 
@@ -57,6 +67,9 @@ A medida que se suman usuarios {% data variables.product.product_location %}, es
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Cierra el aparato.
+4. Cierra el aparato:
+  ```shell
+  $ sudo poweroff
+  ```
 5. En el hipervisor, quita el disco raíz anterior y agrega el nuevo disco raíz en la misma ubicación del disco raíz anterior.
 6. Inicia el aparato.

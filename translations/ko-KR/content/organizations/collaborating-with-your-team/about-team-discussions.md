@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 커뮤니티
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -43,7 +43,7 @@ For more information, see {% if currentVersion == "free-pro-team@latest" or curr
 
 ### 더 읽을거리
 
-- "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
+- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - "[About teams](/articles/about-teams)"
 - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

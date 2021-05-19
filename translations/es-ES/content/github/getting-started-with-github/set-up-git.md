@@ -16,11 +16,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Utilizar GitHub
 
 Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} También puedes instalar {% data variables.product.prodname_cli %} para utilizar {% data variables.product.product_name %} desde la línea de comandos. Para obtener más información sobre {% data variables.product.prodname_cli %}, consulta la [documentación de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/).{% endif %}
 

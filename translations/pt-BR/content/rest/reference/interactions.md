@@ -5,7 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 Os usuários interagem com repositórios comentando, abrindo problemas e criando pull requests. As APIs de interações permitem que as pessoas com acesso de proprietário ou administrador restrinjam temporariamente a interação com repositórios públicos para um determinado tipo de usuário.

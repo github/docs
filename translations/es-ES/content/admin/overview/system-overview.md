@@ -6,8 +6,13 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - empresa
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### Arquitectura de almacenamiento

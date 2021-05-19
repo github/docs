@@ -6,8 +6,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Clustering
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Manually checking cluster status

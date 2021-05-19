@@ -10,8 +10,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -19,7 +21,11 @@ topics:
 
 Si estás configurando el {% data variables.product.prodname_code_scanning %} para un lenguaje compilado, y estás compilando el código en un ambiente contenido, el análisis podría fallar con el mensaje de error "No source code was seen during the build". Esto indica que {% data variables.product.prodname_codeql %} no fue capaz de monitorear tu código mientras se compilaba.
 
-Debes ejecutar {% data variables.product.prodname_codeql %} en el mismo contenedor en donde compilaste tu código. Esto aplica ya sea que estés utilizando el {% data variables.product.prodname_codeql_runner %} o {% data variables.product.prodname_actions %}. Si estás utilizando el {% data variables.product.prodname_codeql_runner %}, ejecútalo en el contenedor en donde se compila tu código. Para obtener más información acerca del {% data variables.product.prodname_codeql_runner %}, consulta la sección "[Ejecutar el {% data variables.product.prodname_code_scanning %} de {% data variables.product.prodname_codeql %} en tu sistema de IC](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)". Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_cli %}, the {% data variables.product.prodname_codeql_runner %}, or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %} or the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/running-codeql-cli-in-your-ci-system)" or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)" for more information. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
+{% else %}
+You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_runner %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)" for more information. Si estás utilizando {% data variables.product.prodname_actions %}, configura tu flujo de trabajo para ejecutar todas las acciones en el mismo contenedor. Para obtener más información, consulta la sección "[Ejemplo de flujo de trabajo](#example-workflow)".
+{% endif %}
 
 ### Dependencias
 
@@ -47,7 +53,10 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write
+      actions: read{% endif %}
 
     strategy:
       fail-fast: false
@@ -59,16 +68,16 @@ jobs:
       image: codeql-container:f0f91db
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Initialize {% data variables.product.prodname_codeql %}
-      uses: github/codeql-action/init@v1
-      with:
-        languages: {% raw %}${{ matrix.language }}{% endraw %}
-    - name: Build
-      run: |
-        ./configure
-        make
-    - name: Perform {% data variables.product.prodname_codeql %} Analysis
-      uses: github/codeql-action/analyze@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
+        with:
+          languages: {% raw %}${{ matrix.language }}{% endraw %}
+      - name: Build
+        run: |
+          ./configure
+          make
+      - name: Perform {% data variables.product.prodname_codeql %} Analysis
+        uses: github/codeql-action/analyze@v1
 ```

@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - oauth apps
+  - OAuth Apps
 ---
 
 Cuando estás configurando una App de OAuth en GitHub, los alcances solicitados se muestran al usuario en el formato de autorización.
@@ -30,7 +30,7 @@ Verifica los encabezados para ver qué alcances de OAuth tienes, y cuáles acept
 
 ```shell
 $ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
-HTTP/1.1 200 OK
+HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```

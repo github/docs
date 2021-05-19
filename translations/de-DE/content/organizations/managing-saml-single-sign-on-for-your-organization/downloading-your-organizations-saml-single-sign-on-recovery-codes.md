@@ -9,15 +9,14 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wiederherstellungscode sollten nicht öffentlich gemacht und nicht weitergegeben werden. Wir empfehlen, sie mit einem Passwort-Manager wie [LastPass](https://lastpass.com/), [1Password](https://1password.com/) oder [Keeper](https://keepersecurity.com/) zu speichern.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Klicke im Hinweis zu Wiederherstellungscodes unter „SAML single sign-on“ (SAML Single Sign-On) auf **Save your recovery codes** (Deine Wiederherstellungscodes speichern). ![Link zum Anzeigen und Speichern Deiner Wiederherstellungscodes](/assets/images/help/saml/saml_recovery_codes.png)
 6. Speichere Deine Wiederherstellungscodes, indem Du auf **Download** (Herunterladen), **Print** (Drucken) oder **Copy** (Kopieren) klickst. ![Schaltflächen zum Herunterladen, Drucken oder Kopieren Deiner Wiederherstellungscodes](/assets/images/help/saml/saml_recovery_code_options.png)

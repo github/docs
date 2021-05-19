@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 Você pode bloquear um usuário nas configurações da organização ou em um comentário específico feito pelo usuário. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.
@@ -50,9 +50,9 @@ Nos repositórios da sua organização, os usuários bloqueados também não pod
 ### Bloquear um usuário nas configurações da organização
 
 1. Para bloquear um integrante da organização, primeiramente, [ remova o usuário](/articles/removing-a-member-from-your-organization) da organização.
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 6. Em "Block a user" (Bloquear um usuário), digite o nome de usuário que deseja bloquear. ![Campo Username (Nome de usuário)](/assets/images/help/organizations/org-block-username-field.png)
 7. Se quiser configurar um limite de tempo para o bloqueio, use o menu suspenso Block options (Opções de bloqueio) e selecione o período pelo qual deseja bloquear o usuário. ![Menu suspenso Block options (Opções de bloqueio)](/assets/images/help/organizations/org-block-options-menu.png)

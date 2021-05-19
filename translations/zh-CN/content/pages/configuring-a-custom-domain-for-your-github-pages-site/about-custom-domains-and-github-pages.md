@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 页面
+  - Pages
 ---
 
 ### 支持的自定义域
@@ -24,9 +24,9 @@ topics:
 | 自定义子域     | `blog.example.com` |
 | Apex 域    | `example.com`      |
 
-You can set up either or both of apex and `www` subdomain configurations for your site. For more information on apex domains, see "[Using an apex domain for your {% data variables.product.prodname_pages %} site](#using-an-apex-domain-for-your-github-pages-site)."
+您可以为您的网站设置 apex 和 `www` 子域配置。 有关 apex 域的更多信息，请参阅“[对您的 {% data variables.product.prodname_pages %} 网站使用 apex 域](#using-an-apex-domain-for-your-github-pages-site)”。
 
-建议始终使用 `www` 子域名，即使您也同时使用 apex 域。 When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content. If you configure a `www` subdomain, we automatically attempt to secure the associated apex domain. 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
+建议始终使用 `www` 子域名，即使您也同时使用 apex 域。 当您创建具有 apex 域的新站点时，我们会自动尝试保护 `www` 子域以供在提供网站内容时使用。 如果您配置 `www` 子域，我们会自动尝试保护相关的 apex 域。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
 
 在配置用户或组织网站的自定义域后，自定义域名将替换未配置自定义域的帐户所拥有的任何项目网站 URL 的 `<user>.github.io` 或 `<organization>.github.io` 部分。 例如，如果您的用户网站的自定义域名为 `www.octocat.com`，并且您拥有一个未自定义域名的项目网站，该网站从名为 `octo-project` 的仓库发布，则该仓库的 {% data variables.product.prodname_pages %} 网站将在 `www.octocat.com/octo-project` 上提供。
 
@@ -44,7 +44,7 @@ You can set up either or both of apex and `www` subdomain configurations for you
 
 #### 自定义子域
 
-A custom subdomain is a type of subdomain that doesn't use the standard `www` variant. 自定义子域主要在您需要将网站分为两个不同的部分时使用。 例如，您可以创建一个名为 `blog.example.com` 并自定义该部分与 `www.example.com` 分开。
+自定义子域是一种不使用标准 `www` 变体的子域。 自定义子域主要在您需要将网站分为两个不同的部分时使用。 例如，您可以创建一个名为 `blog.example.com` 并自定义该部分与 `www.example.com` 分开。
 
 ### 对您的 {% data variables.product.prodname_pages %} 网站使用 apex 域
 

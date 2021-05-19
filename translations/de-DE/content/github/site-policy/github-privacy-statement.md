@@ -1,7 +1,7 @@
 ---
 title: GitHub-Datenschutzerklärung
 redirect_from:
-  - /datenschutz/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Effective date: December 19, 2020
@@ -64,7 +64,7 @@ Wir benötigen zum Zeitpunkt der Kontoerstellung bestimmte allgemeine Informatio
 ##### Payment information
 Wenn Sie sich bei uns bei einem kostenpflichtigen Konto anmelden, Geld über das GitHub-Sponsorenprogramm senden oder eine Anwendung im GitHub Marketplace kaufen, erfassen wir Ihren vollständigen Namen, Ihre Adresse und Kreditkarteninformationen oder PayPal-Informationen. Bitte beachten Sie, dass GitHub Ihre Kreditkarteninformationen oder PayPal-Informationen nicht verarbeitet oder speichert, aber unser Zahlungsabwickler von Drittanbietern dies tut.
 
-Wenn Sie eine Anwendung auf [GitHub Marketplace](https://github.com/marketplace) auflisten und verkaufen, benötigen wir Ihre Bankinformationen. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
+Wenn Sie eine Anwendung auf [GitHub Marketplace](https://github.com/marketplace) auflisten und verkaufen, benötigen wir Ihre Bankinformationen. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
 
 ##### Profile information
 Sie können uns weitere Informationen zu Ihrem Kontoprofil übermitteln, z. B. Ihren vollständigen Namen, einen Avatar mit einem Foto, Ihre Biographie, Ihren Standort, Ihr Unternehmen und eine URL zu einer Drittanbieter-Website. Diese Informationen können personenbezogene Benutzerdaten enthalten. Bitte beachten Sie, dass Ihre Profilinformationen für andere Benutzer unseres Dienstes sichtbar sein können.

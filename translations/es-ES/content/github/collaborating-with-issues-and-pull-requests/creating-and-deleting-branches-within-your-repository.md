@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 ### Cómo crear una rama
@@ -34,7 +34,7 @@ Si la rama que quieres borrar está asociada con una solicitud de cambios abiert
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Desplázate hasta la rama que deseas eliminar y luego haz clic en {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}. ![eliminar la rama](/assets/images/help/branches/branches-delete.png)
+1. Desplázate hasta la rama que deseas eliminar y luego haz clic en {% octicon "trash" aria-label="The trash icon to delete the branch" %}. ![eliminar la rama](/assets/images/help/branches/branches-delete.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}

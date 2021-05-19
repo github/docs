@@ -7,8 +7,10 @@ permissions: 'If you have read permission for a repository, you can see annotati
 versions:
   enterprise-server: '2.22'
 topics:
-  - безопасность
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -16,7 +18,7 @@ topics:
 
 In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, these are reported as check results in the pull request. The alerts are also shown as annotations in the **Files changed** tab of the pull request. If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-If {% data variables.product.prodname_code_scanning %} has any results with a severity of `error`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notices and the check succeeds. If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then you must either fix or {% if currentVersion == "enterprise-server@2.22" %}close{% else %}dismiss{% endif %} all error alerts before the pull request can be merged. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
+If {% data variables.product.prodname_code_scanning %} has any results with a severity of `error`, the check fails and the error is reported in the check results. If all the results found by {% data variables.product.prodname_code_scanning %} have lower severities, the alerts are treated as warnings or notices and the check succeeds. If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then you must either fix or close all error alerts before the pull request can be merged. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)."
 
 ![Failed {% data variables.product.prodname_code_scanning %} check on a pull request](/assets/images/help/repository/code-scanning-check-failure.png)
 
@@ -40,28 +42,10 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 ![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### {% if currentVersion == "enterprise-server@2.22" %}Resolving{% else %}Fixing{% endif %} an alert on your pull request
+### Resolving an alert on your pull request
 
 Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
-
-{% if currentVersion == "enterprise-server@2.22" %}
 
 If you don't think that an alert needs to be fixed, users with write permission can close the alert manually. {% data reusables.code-scanning.close-alert-examples %} The **Close** button is available in annotations and in the alerts view if you have write permission for the repository.
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
-### Dismissing an alert on your pull request
-
-An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, the **Dismiss** button is available in code annotations and in the alerts summary. When you click **Dismiss** you will be prompted to choose a reason for closing the alert.
-
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.choose-alert-dismissal-reason %}
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-For more information about dismissing alerts, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)."
-
-{% endif %}

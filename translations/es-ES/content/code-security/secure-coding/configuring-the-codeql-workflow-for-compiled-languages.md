@@ -3,7 +3,7 @@ title: Configurar el flujo de trabajo de CodeQL para los lenguajes compilados
 shortTitle: Configurar para los lenguajes compilados
 intro: 'Puedes configurar cómo {% data variables.product.prodname_dotcom %} utiliza el {% data variables.product.prodname_codeql_workflow %} para escanear el código escrito en los lenguajes compilados para las vulnerabilidades y errores.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permisos de escritura en un repositorio, puedes configurar el {% data variables.product.prodname_code_scanning %} para éste.'
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -13,8 +13,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}

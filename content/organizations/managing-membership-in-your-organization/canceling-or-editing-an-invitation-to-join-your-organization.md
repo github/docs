@@ -11,8 +11,8 @@ topics:
   - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. On the People tab, click **Pending invitation**.
  ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)

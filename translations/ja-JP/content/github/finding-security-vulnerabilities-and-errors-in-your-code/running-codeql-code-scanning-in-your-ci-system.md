@@ -1,46 +1,43 @@
 ---
-title: Running CodeQL code scanning in your CI system
-shortTitle: Running in your CI
-intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
+title: CI システムで CodeQL コードスキャンを実行する
+shortTitle: CI での実行
+intro: '{% data variables.product.prodname_codeql_runner %} を使用して、、サードパーティの継続的インテグレーションシステムで {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を実行できます。'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - セキュリティ
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system
+### 既存の CI システムで {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を使用する
 
-If you use a continuous integration or continuous delivery/deployment (CI/CD) system other than {% data variables.product.prodname_actions %}, you can use your existing system to run {% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_codeql %} analysis and upload the results to {% data variables.product.prodname_dotcom %}. To do this, use the {% data variables.product.prodname_codeql_runner %}.
+{% data variables.product.prodname_actions %} 以外の継続的インテグレーションまたは継続的デリバリ/デプロイメント (CI/CD) システムを使用している場合、{% data variables.product.prodname_dotcom %} の {% data variables.product.prodname_codeql %} 解析を実行して、その結果を {% data variables.product.prodname_dotcom %} にアップロードできます。 これを実行するには、{% data variables.product.prodname_codeql_runner %} を使用します。
 
 ### {% data variables.product.prodname_codeql_runner %} について
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %}詳細については、「[{% data variables.product.prodname_code_scanning %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。
 
-You can use the {% data variables.product.prodname_codeql_runner %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}. For information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
+{% data variables.product.prodname_codeql_runner %} を使用して、サードパーティ継続的インテグレーション (CI) システムで処理しているコード上で {% data variables.product.prodname_code_scanning %} を実行できます。 また、{% data variables.product.prodname_actions %} を使用して、{% data variables.product.product_name %} 上で {% data variables.product.prodname_code_scanning %} を実行することもできます。 詳細については、「[リポジトリに対する {% data variables.product.prodname_code_scanning %} をセットアップする](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)」を参照してください。
 
-The {% data variables.product.prodname_codeql_runner %} is a command-line tool that runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. You add the runner to your third-party system, then call the runner to analyze code and upload the results to {% data variables.product.product_name %}. These results are displayed as {% data variables.product.prodname_code_scanning %} alerts in the repository.
+{% data variables.product.prodname_codeql_runner %} は、{% data variables.product.prodname_dotcom %} リポジトリのチェックアウト中に {% data variables.product.prodname_codeql %} 解析を実行するコマンドラインツールです。 サードパーティーのシステムにランナーを追加し、ランナーを呼び出してコードを解析し、その結果を {% data variables.product.product_name %} にアップロードします。 この結果は、リポジトリの {% data variables.product.prodname_code_scanning %} アラートとして表示されます。
 
 {% note %}
 
 **ノート:**
-{% if currentVersion == "free-pro-team@latest" %}
-* The {% data variables.product.prodname_codeql_runner %} uses the {% data variables.product.prodname_codeql %} CLI to analyze code and therefore has the same license conditions. {% data variables.product.prodname_dotcom_the_website %}上で管理されるパブリックリポジトリでの使用は無料であり、{% data variables.product.prodname_advanced_security %}ライセンスを持つお客様が所有するプライベートリポジトリ上で使用できます。 詳細については「[{% data variables.product.product_name %} {% data variables.product.prodname_codeql %}の利用規約](https://securitylab.github.com/tools/codeql/license)」及び「[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)」を参照してください。
-{% else %}
 * The {% data variables.product.prodname_codeql_runner %} is available to customers with an {% data variables.product.prodname_advanced_security %} license.
-{% endif %}
 * The {% data variables.product.prodname_codeql_runner %} shouldn't be confused with the {% data variables.product.prodname_codeql %} CLI. The {% data variables.product.prodname_codeql %} CLI is an interactive command-line interface that lets you create {% data variables.product.prodname_codeql %} databases for security research and run {% data variables.product.prodname_codeql %} queries. For more information, see "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
 {% endnote %}
 
-### Downloading the {% data variables.product.prodname_codeql_runner %}
+### {% data variables.product.prodname_codeql_runner %} をダウンロードする
 
-You can download the {% data variables.product.prodname_codeql_runner %} from https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
+{% data variables.product.prodname_codeql_runner %} は、https://github.com/github/codeql-action/releases からダウンロードできます。 一部のオペレーティングシステムでは、ダウンロードしたファイルの実行前に、その権限を変更する必要があります。
 
 Linuxの場合:
 
@@ -57,51 +54,50 @@ sudo xattr -d com.apple.quarantine codeql-runner-macos
 
 On Windows, the `codeql-runner-win.exe` file usually requires no change to permissions.
 
-### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
+### {% data variables.product.prodname_codeql_runner %} を CI システムに追加する
 
 Once you download the {% data variables.product.prodname_codeql_runner %} and verify that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. For example, you might configure each server to copy the runner from a central, internal location. Alternatively, you could use the REST API to get the runner directly from {% data variables.product.prodname_dotcom %}, for example:
 
 ```shell
-wget https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
-In addition to this, each CI server also needs:
+これに加えて、各 CI サーバーは以下の条件も満たす必要があります。
 
-- A {% data variables.product.prodname_github_app %} or personal access token for the {% data variables.product.prodname_codeql_runner %} to use. You must use an access token with the `repo` scope, or a {% data variables.product.prodname_github_app %} with the `security_events` write permission, and `metadata` and `contents` read permissions. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
-- Access to the {% data variables.product.prodname_codeql %} bundle associated with this release of the {% data variables.product.prodname_codeql_runner %}. This package contains queries and libraries needed for {% data variables.product.prodname_codeql %} analysis, plus the {% data variables.product.prodname_codeql %} CLI, which is used internally by the runner. For information, see "[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)."
+- {% data variables.product.prodname_codeql_runner %} が使用するための {% data variables.product.prodname_github_app %} または個人アクセストークン。 `repo` スコープのあるアクセストークン、または `security_events` の書き込み権限、ならびに `metadata` および `contents` の読み取り権限を持つ {% data variables.product.prodname_github_app %} を使用する必要があります。 詳細は「[{% data variables.product.prodname_github_apps %} をビルドする](/developers/apps/building-github-apps)」および「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+- {% data variables.product.prodname_codeql_runner %} のリリースに伴う {% data variables.product.prodname_codeql %} バンドルへのアクセス。 このパッケージには、{% data variables.product.prodname_codeql %} 解析に必要なクエリとライブラリ、さらにランナーによって内部的に使用される {% data variables.product.prodname_codeql %} CLI が含まれています。 詳細は「[{% data variables.product.prodname_codeql %} CLI](https://codeql.github.com/docs/codeql-cli/)」を参照してください。
 
-The options for providing access to the {% data variables.product.prodname_codeql %} bundle are:
+{% data variables.product.prodname_codeql %} バンドルにアクセスを与えるオプションは次の通りです。
 
-1. Allow the CI servers access to https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
-{% if currentVersion == "enterprise-server@2.22" %}
-1. Mirror the `github/codeql-action` repository on {% data variables.product.product_name %}. Unless you specify the <nobr>`--codeql-path`</nobr> flag, the runner automatically checks for the bundle in this location and on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
-1. Manually download/extract the bundle, store it with other central resources, and use the <nobr>`--codeql-path`</nobr> flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
+1. CI サーバーに https://github.com/github/codeql-action へのアクセスを許可し、{% data variables.product.prodname_codeql_runner %} がバンドルを自動的にダウンロードできるようにする。
+1. {% data variables.product.product_name %} に `github/codeql-action` リポジトリをミラーする。   <nobr>`--codeql-path`</nobr> フラグを指定してない限り、ランナーは {% data variables.product.prodname_dotcom_the_website %} のこの場所にバンドルがあるかどうか自動的に確認します。
+1. バンドルを手動でダウンロード/展開し、他の中央リソースに保存して、 <nobr>`--codeql-path`</nobr> フラグで、呼び出しにおいて {% data variables.product.prodname_codeql_runner %} を初期化するバンドルの場所を指定します。
 
-### Calling the {% data variables.product.prodname_codeql_runner %}
+### {% data variables.product.prodname_codeql_runner %} を呼び出す
 
-You should call the {% data variables.product.prodname_codeql_runner %} from the checkout location of the repository you want to analyze. The two main commands are:
+解析するリポジトリのチェックアウトの場所から、{% data variables.product.prodname_codeql_runner %} を呼び出す必要があります。 主なコマンドは次の 2 つです。
 
-1. `init` required to initialize the runner and create a {% data variables.product.prodname_codeql %} database for each language to be analyzed. These databases are populated and analyzed by subsequent commands.
-1. `analyze` required to populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload results to {% data variables.product.product_name %}.
+1. `init` は、ランナーを初期化し、解析する各言語に {% data variables.product.prodname_codeql %} データベースを作成するために必要です。 このデータベースは、続くコマンドにより展開、解析されます。
+1. `analyze` は、{% data variables.product.prodname_codeql %} データベースを展開、解析し、結果を {% data variables.product.product_name %} にアップロードするために必要です。
 
 For both commands, you must specify the URL of {% data variables.product.product_name %}, the repository *OWNER/NAME*, and the {% data variables.product.prodname_github_apps %} or personal access token to use for authentication. You also need to specify the location of the CodeQL bundle, unless the CI server has access to download it directly from the `github/codeql-action` repository.
 
-You can configure where the {% data variables.product.prodname_codeql_runner %} stores the CodeQL bundle for future analysis on a server using the <nobr>`--tools-dir`</nobr> flag and where it stores temporary files during analysis using <nobr>`--temp-dir`</nobr>.
+将来の解析のため {% data variables.product.prodname_codeql_runner %} が CodeQL バンドルを保存する場所を  <nobr>`--tools-dir`</nobr>  フラグで設定できます。また、解析中に一時ファイルを保存する場所を、`--temp-dir` で設定できます。 <nobr>`--temp-dir`</nobr>.
 
-To view the command-line reference for the runner, use the `-h` flag. For example, to list all commands run: `codeql-runner-OS -h`, or to list all the flags available for the `init` command run: `codeql-runner-OS init -h` (where `OS` varies according to the executable that you are using). For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)."
+ランナーのコマンドラインリファレンスを表示するには、`-h` フラグを使用します。 たとえば、動作するすべてのコマンドを一覧表示するには `codeql-runner-OS -h` と入力し、`init` コマンド実行時に使用できるすべてのコマンドを一覧表示するには `codeql-runner-OS init -h` と入力します (`OS` 変数は使用している実行ファイルによります)。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を CI システムで設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)」を参照してください。
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-#### Basic example
+#### 基本的な例
 
-This example runs {% data variables.product.prodname_codeql %} analysis on a Linux CI server for the `octo-org/example-repo` repository hosted on `{% data variables.command_line.git_url_example %}`. The process is very simple because the repository contains only languages that can be analyzed by {% data variables.product.prodname_codeql %} directly, without being built (that is, Go, JavaScript, Python, and TypeScript).
+この例では、`{% data variables.command_line.git_url_example %}` にホストされている `octo-org/example-repo` リポジトリに対し、Linux CI サーバーで {% data variables.product.prodname_codeql %} 解析を実行します。 このリポジトリには、{% data variables.product.prodname_codeql %} により直接解析でき、ビルドされていない言語 (Go、JavaScript、Python、TypeScript) のみが含まれているため、プロセスは非常に単純です。
 
 In this example, the server has access to download the {% data variables.product.prodname_codeql %} bundle directly from the `github/codeql-action` repository, so there is no need to use the `--codeql-path` flag.
 
-1. Check out the repository to analyze.
-1. Move into the directory where the repository is checked out.
-1. Initialize the {% data variables.product.prodname_codeql_runner %} and create {% data variables.product.prodname_codeql %} databases for the languages detected.
+1. 解析するリポジトリをチェックアウトします。
+1. リポジトリがチェックアウトされるディレクトリに移動します。
+1. {% data variables.product.prodname_codeql_runner %} を初期化し、検出された言語用の {% data variables.product.prodname_codeql %} データベースを作成します。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
@@ -113,13 +109,13 @@ In this example, the server has access to download the {% data variables.product
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
-#### Compiled language example
+#### コンパイル型言語の例
 
-This example is similar to the previous example, however this time the repository has code in C/C++, C#, or Java. To create a {% data variables.product.prodname_codeql %} database for these languages, the CLI needs to monitor the build. At the end of the initialization process, the runner reports the command you need to set up the environment before building the code. You need to run this command, before calling the normal CI build process, and then running the `analyze` command.
+この例は前の例と似ていますが、今回のリポジトリには C/C++、C#、または Java のコードがあります。 これらの言語用に {% data variables.product.prodname_codeql %} データベースを作成するには、CLI でビルドをモニターする必要があります。 初期化プロセスの最後に、ランナーはコードをビルドする前に環境をセットアップするために必要なコマンドを報告します。 通常の CI ビルドプロセスを呼び出す前にこのコマンドを実行してから、`analyze` コマンドを実行する必要があります。
 
-1. Check out the repository to analyze.
-1. Move into the directory where the repository is checked out.
-1. Initialize the {% data variables.product.prodname_codeql_runner %} and create {% data variables.product.prodname_codeql %} databases for the languages detected.
+1. 解析するリポジトリをチェックアウトします。
+1. リポジトリがチェックアウトされるディレクトリに移動します。
+1. {% data variables.product.prodname_codeql_runner %} を初期化し、検出された言語用の {% data variables.product.prodname_codeql %} データベースを作成します。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
@@ -132,23 +128,23 @@ This example is similar to the previous example, however this time the repositor
       ". /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
       ```
 
-1. Source the script generated by the `init` action to set up the environment to monitor the build. Note the leading dot and space in the following code snippet.
+1. `init` アクションによって生成されたスクリプトを入手し、ビルドを監視する環境をセットアップします。 次のコードには、先頭にドットとスペースがあることに注意してください。
 
     ```shell
     $ . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh
     ```
 
-1. Build the code. On macOS, you need to prefix the build command with the environment variable `$CODEQL_RUNNER`. For more information, see "[Troubleshooting CodeQL code scanning in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system#no-code-found-during-the-build)."
+1. コードをビルドします。 macOS では、build コマンドのプレフィックスに環境変数 `$CODEQL_RUNNER` を付ける必要があります。 詳しい情報については、「[CI システムにおせるコードスキャンのトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system#no-code-found-during-the-build)」を参照してください。
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
 {% note %}
 
-**Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_runner %} in the container where your build task takes place.
+**注釈:** コンテナ化されたビルドを使用している場合、ビルドタスクを行うコンテナで {% data variables.product.prodname_codeql_runner %} を実行する必要があります。
 
 {% endnote %}
 
 ### 参考リンク
 
-- "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
-- "[Troubleshooting {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"
+- 「[CI システムで {% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)」
+- 「[CI システムにおける {% data variables.product.prodname_code_scanning %} のトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)」

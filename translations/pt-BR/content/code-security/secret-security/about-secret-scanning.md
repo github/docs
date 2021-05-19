@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -45,7 +45,7 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 {% data variables.product.prodname_secret_scanning_caps %} está disponível em todos os repositórios de propriedade da organização como parte de {% data variables.product.prodname_GH_advanced_security %}. Não está disponível em repositórios pertencentes a usuários.
 {% endif %}
 
-Se você é um administrador de repositório ou um proprietário de uma organização, você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% if currentVersion == "free-pro-team@latest" %} repositórios privados{% endif %} pertencentes a organizações. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Se você é um administrador de repositório ou um proprietário de uma organização, você pode habilitar {% data variables.product.prodname_secret_scanning %} para {% if currentVersion == "free-pro-team@latest" %} repositórios privados{% endif %} pertencentes a organizações. Você pode habilitar  {% data variables.product.prodname_secret_scanning %} para todos os seus repositórios ou para todos os novos repositórios da organização.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_secret_scanning_caps %} não está disponível para repositórios privados pertencentes a usuários.{% endif %} Para mais informações, consulte "[Gerenciar configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" e "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 Quando você faz push dos commits para um repositório{% if currentVersion == "free-pro-team@latest" %} privado{% endif %} com {% data variables.product.prodname_secret_scanning %} habilitado, {% data variables.product.prodname_dotcom %} verifica o conteúdo dos segredos dos commits.
 

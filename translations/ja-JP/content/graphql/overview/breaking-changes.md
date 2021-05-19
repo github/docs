@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### 破壊的変更について
@@ -27,7 +27,7 @@ topics:
 
 {% for change in date[1] %}
 <ul>
-<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}border-red bg-red-light{% else %}border-purple bg-purple-light{% endif %}">{% if change.criticality == 'breaking' %}破壊的{% else %}危険{% endif %}</span>変更が<code>{{ change.location }}</code>に対して行われます。
+<li><span class="border rounded-1 m-1 p-1 {% if change.criticality == 'breaking' %}color-border-danger color-bg-danger{% else %}color-border-info color-bg-info{% endif %}">{% if change.criticality == 'breaking' %}破壊的{% else %}危険{% endif %}</span>変更が<code>{{ change.location }}</code>に対して行われます。
 
 <p><b>説明：</b>{{ change.description }}</p>
 

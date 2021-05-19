@@ -1,15 +1,15 @@
 ---
 title: Agregar etiquetas a las propuestas
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para etiquetar las propuestas automáticamente.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para etiquetar las propuestas automáticamente.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
 2. {% data reusables.actions.make-workflow-file %}
 3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
 
-    {% raw %}
     ```yaml{:copy}
     name: Label issues
     on:
@@ -39,15 +38,18 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
           - opened
     jobs:
       label_issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Label issues
             uses: andymckay/labeler@1.0.2
             with:
               add-labels: "triage"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
-4. Personaliza los parámetros en tu flujo de trabajo:
+
+4. Personaliza los parámetros en tu archivo de flujo de trabajo:
    - Cambia el valor de `add-labels` a la lista de etiquetas que quieras agregar a la propuesta. Separa las etiquetas con comas. Por ejemplo, `"help wanted, good first issue"`. Para obtener más información sobre las etiquetas, consulta la sección "[Administrar etiquetas](/github/managing-your-work-on-github/managing-labels#applying-labels-to-issues-and-pull-requests)".
 5. {% data reusables.actions.commit-workflow %}
 

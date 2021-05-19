@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -26,13 +26,13 @@ Por exemplo, aqui estão os custos para os usuários com licenças em datas dife
 | Usuário   | Datas de licença                                                   | Dias contados | Custo   |
 | --------- | ------------------------------------------------------------------ | ------------- | ------- |
 | @octocat  | 1 de Janeiro - 31 de Janeiro                                       | 31            | $ 39    |
-| @robocat  | 1 de fevereiro - 28 de fevereiro                                   | 29            | $ 35,23 |
+| @robocat  | 1 de fevereiro - 28 de fevereiro                                   | 28            | $ 35,23 |
 | @devtocat | 15 de Janeiro - 31 de Janeiro                                      | 17            | $ 21,39 |
 | @doctocat | 1 de Janeiro - 15 de Janeiro                                       | 31            | $ 39    |
 | @prodocat | 7 de Janeiro - 15 de Janeiro                                       | 25            | $ 31,45 |
 | @monalisa | 1 de janeiro - 7 de janeiro<br>15 de janeiro - 31 de janeiro | 31            | $ 39    |
 
-A sua empresa pode incluir uma ou mais instâncias. {% data variables.product.prodname_ghe_managed %} tem uma instância mínima de 500 usuários. {% data variables.product.company_short %} cobra de você um mínimo de 500 usuários por instância, mesmo que haja menos de 500 usuários com uma licença nesse dia.
+{% data variables.product.prodname_ghe_managed %} tem uma instância mínima de 500 usuários. {% data variables.product.company_short %} cobra de você um mínimo de 500 usuários por instância, mesmo que haja menos de 500 usuários com uma licença nesse dia.
 
 Você pode ver seu uso atual no seu [Portal da conta do Azure](https://portal.azure.com).
 

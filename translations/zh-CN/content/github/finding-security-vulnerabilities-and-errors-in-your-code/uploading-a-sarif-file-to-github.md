@@ -2,13 +2,15 @@
 title: 将 SARIF 文件上传到 GitHub
 shortTitle: 上传 SARIF 文件
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: '拥有仓库写入权限的人可从第三方工具上传 {% data variables.product.prodname_code_scanning %} 数据。'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - 安全
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -19,7 +21,7 @@ topics:
 
 您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 更多信息请参阅“[{% data variables.product.prodname_code_scanning %} 的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)”。
 
-您可以使用 {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2.22" %} （如果您的组织正在参与测试计划，则可以使用）{% endif %}、{% data variables.product.prodname_code_scanning %} API 或 {% data variables.product.prodname_codeql_runner %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
+您可以使用 {% data variables.product.prodname_actions %}（如果您的组织正在参与测试计划，则可以使用）、{% data variables.product.prodname_code_scanning %} API 或 {% data variables.product.prodname_codeql_runner %} 上传结果。 最佳上传方法将取决于您如何生成 SARIF 文件，例如，如果您使用：
 
 - {% data variables.product.prodname_actions %} 来运行 {% data variables.product.prodname_codeql %} 操作，则无需进一步操作。 {% data variables.product.prodname_codeql %} 操作在完成分析后自动上传 SARIF 文件。
 - "[管理工作流程运行](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)"
@@ -58,20 +60,22 @@ name: "Upload SARIF"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 5'
+    - cron: '45 15 * * 5'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    # This step checks out a copy of your repository.
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      # This step checks out a copy of your repository.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 #### 运行 ESLint 分析工具的示例工作流程
@@ -82,7 +86,7 @@ jobs:
 
 工作流程显示了将 ESLint 静态分析工具作为工作流程中一个步骤运行的示例。 `Run ESLint` 步骤运行 ESLint 工具，输出 `results.sarif` 文件。 然后，工作流程使用 `upload-sarif` 操作将 `results.sarif` 文件上传到 {% data variables.product.prodname_dotcom %}。 有关创建工作流程文件的更多信息，请参阅“[GitHub Actions 简介](/actions/learn-github-actions/introduction-to-github-actions)”。
 
-```yml
+```yaml
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
@@ -90,23 +94,26 @@ name: "ESLint analysis"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 1'
+    - cron: '45 15 * * 1'
 
 jobs:
   build:
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    - uses: actions/checkout@v2
-    - name: Run npm install
-      run: npm install
-    # Runs the ESlint code analysis
-    - name: Run ESLint
-      # eslint exits 1 if it finds anything to report
-      run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
-    # Uploads results.sarif to GitHub repository using the upload-sarif action
-    - uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      - uses: actions/checkout@v2
+      - name: Run npm install
+        run: npm install
+      # Runs the ESlint code analysis
+      - name: Run ESLint
+        # eslint exits 1 if it finds anything to report
+        run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
+      # Uploads results.sarif to GitHub repository using the upload-sarif action
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 ### 延伸阅读

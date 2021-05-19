@@ -7,8 +7,11 @@ redirect_from:
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable automatic user license synchronization.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - GitHub Connect
+  - Licensing
 ---
 
 ### About license synchronization

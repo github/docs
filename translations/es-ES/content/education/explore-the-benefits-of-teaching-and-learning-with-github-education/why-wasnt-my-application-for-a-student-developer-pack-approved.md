@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?'
+title: ¿Por qué no se aprobó mi solicitud para un paquete de desarrollo para estudiantes?
 intro: 'Revisa las razones comunes por las que las solicitudes para el {% data variables.product.prodname_student_pack %} no se aprueban y lee las sugerencias para volver a solicitarlo con éxito.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
@@ -59,11 +59,11 @@ Para obtener más información, consulta:
 ### Situación de estudiante inadmisible
 
 No eres apto para un {% data variables.product.prodname_student_pack %} si:
-- You're enrolled in an informal learning program that is not part of the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) and not enrolled in a degree or diploma granting course of study.
+- Estás inscrito en un programa de aprendizaje informal que no es parte del [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) y no así en un curso de estudio que te otorgue una certificación o diploma.
 - Estás buscando obtener un título que se terminará en la sesión académica actual.
 - Tienes menos de 13 años.
 
-Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. If you're a student at a coding school or bootcamp, you will become eligible for a {% data variables.product.prodname_student_pack %} if your school joins the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
+Tu instructor todavía puede solicitar un descuento para uso escolar {% data variables.product.prodname_education %}. Si eres alumno en una escuela o curso intensivo de programación, serás elegible para un {% data variables.product.prodname_student_pack %} si tu escuela se une al [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 
 ### Leer más
 

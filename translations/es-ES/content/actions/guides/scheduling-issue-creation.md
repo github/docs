@@ -1,15 +1,15 @@
 ---
 title: Programar la creación de propuestas
-intro: Puedes utilizar {% data variables.product.prodname_actions %} para crear una propuesta frecuentemente para asuntos como juntas diarias o revisiones trimestrales.
+intro: 'Puedes utilizar {% data variables.product.prodname_actions %} para crear una propuesta frecuentemente para asuntos como juntas diarias o revisiones trimestrales.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
 2. {% data reusables.actions.make-workflow-file %}
 3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
 
-    {% raw %}
     ```yaml{:copy}
     name: Weekly Team Sync
     on:
@@ -39,7 +38,9 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@v3.0
@@ -62,9 +63,9 @@ En el tutorial, primero crearás un archivo de flujo de trabajo que utilice la [
               pinned: false
               close-previous: false
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Personaliza los parámetros en tu archivo de flujo de trabajo:
    - Cambia el valor de `on.schedule` para que dicte cuándo quieres que se ejecute este flujo de trabajo. En el ejemplo anterior, el flujo de trabajo se ejecutará cada lunes a las 7:20 UTC. Para obtener más información sobre los flujos de trabajo que has programado, consulta la sección "[Ejemplos programados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
    - Cambia el valor de `assignees` a la lista de nombres de usuarios de {% data variables.product.prodname_dotcom %} que quieras asignar a la propuesta.

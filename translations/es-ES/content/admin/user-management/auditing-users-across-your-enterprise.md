@@ -8,8 +8,13 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Auditing
+  - Enterprise
+  - Organizations
+  - Security
+  - User account
 ---
 
 ### Acceder al registro de auditoría

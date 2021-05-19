@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 この API は、Team の [Organization](/rest/reference/orgs) の、認証済みメンバーのみが利用できます。 OAuth のアクセストークンは、 `read:org` [スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)を必要とします。 {% data variables.product.prodname_dotcom %} は、Team の `name` からTeam の `slug` を生成します。
@@ -18,7 +18,7 @@ topics:
 
 ## ディスカッション
 
-Team ディスカッション API を使用すると、Team のページに投稿されたディスカッションを取得、作成、編集、削除できます。 Team のディスカッションは、リポジトリやプロジェクトに原生されない会話をするために利用できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッション投稿を作成や表示できます。 For more details, see "[About team discussions](//organizations/collaborating-with-your-team/about-team-discussions/)." ディスカッションの投稿に対するコメントの詳細については、「[Team ディスカッションのコメント API](/rest/reference/teams#discussion-comments)」を参照してください。 この API は、Team の Organization の、認証済みメンバーのみが利用できます。
+Team ディスカッション API を使用すると、Team のページに投稿されたディスカッションを取得、作成、編集、削除できます。 Team のディスカッションは、リポジトリやプロジェクトに原生されない会話をするために利用できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッション投稿を作成や表示できます。 詳細については「[Teamディスカッションについて](//organizations/collaborating-with-your-team/about-team-discussions/)」を参照してください。 ディスカッションの投稿に対するコメントの詳細については、「[Team ディスカッションのコメント API](/rest/reference/teams#discussion-comments)」を参照してください。 この API は、Team の Organization の、認証済みメンバーのみが利用できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
@@ -26,7 +26,7 @@ Team ディスカッション API を使用すると、Team のページに投�
 
 ## ディスカッションコメント
 
-Team ディスカッションコメント API を使用すると、[Team ディスカッション](/rest/reference/teams#discussions)投稿のコメントを取得、作成、編集、削除できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッションについたコメントを作成や表示できます。 For more details, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)." この API は、Team の Organization の、認証済みメンバーのみが利用できます。
+Team ディスカッションコメント API を使用すると、[Team ディスカッション](/rest/reference/teams#discussions)投稿のコメントを取得、作成、編集、削除できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッションについたコメントを作成や表示できます。 詳細については「[Teamディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions/)」を参照してください。 この API は、Team の Organization の、認証済みメンバーのみが利用できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}

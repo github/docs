@@ -10,10 +10,11 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
+children:
+  - /about-team-discussions
+  - /creating-a-team-discussion
+  - /editing-or-deleting-a-team-discussion
+  - /pinning-a-team-discussion
 ---
 
-{% link_in_list /about-team-discussions %}
-{% link_in_list /creating-a-team-discussion %}
-{% link_in_list /editing-or-deleting-a-team-discussion %}
-{% link_in_list /pinning-a-team-discussion %}

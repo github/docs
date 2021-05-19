@@ -1,11 +1,12 @@
 ---
 title: Administrar vulnerabilidades de seguridad
 versions:
-  enterprise-server: '<=2.22'
+  enterprise-server: <=2.22
 topics:
-  - seguridad
+  - Security
 ---
 
+<!--See /content/code-security/supply-chain-security for the current version of this article -->
 
 ### Índice
 {% topic_link_in_list /managing-vulnerabilities-in-your-projects-dependencies %}

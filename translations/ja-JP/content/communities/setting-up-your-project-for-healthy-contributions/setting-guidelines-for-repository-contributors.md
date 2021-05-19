@@ -10,10 +10,11 @@ redirect_from:
   - /articles/setting-guidelines-for-repository-contributors
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
-  - コミュニティ
+  - Community
 ---
 
-プロジェクトコントリビューターにうまく作業してもらうために、プロジェクトリポジトリのルート、`docs` または `.github` フォルダに、コントリビューションガイドラインについてのファイルを追加できます。 プルリクエストをオープンした場合や Issue を作成した場合、そのファイルへのリンクが表示されます。
+### About contributing guidelines
+プロジェクトコントリビューターにうまく作業してもらうために、プロジェクトリポジトリのルート、`docs` または `.github` フォルダに、コントリビューションガイドラインについてのファイルを追加できます。 プルリクエストをオープンした場合や Issue を作成した場合、そのファイルへのリンクが表示されます。 The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
 ![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
 
@@ -39,9 +40,10 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. コントリビューションガイドラインを、リポジトリの root、`docs`、または `.github` ディレクトリに保管するかどうかを決めます。 そして、ファイル名のフィールドに、ファイルの名前および拡張子を入力します。 コントリビューションガイドラインのファイル名は大文字と小文字が区別されません。拡張子は *.md* や *.txt* などです。 ![新しいファイルの名前](/assets/images/help/repository/new-file-name.png)
+3. コントリビューションガイドラインを、リポジトリの root、`docs`、または `.github` ディレクトリに保管するかどうかを決めます。 そして、ファイル名のフィールドに、ファイルの名前および拡張子を入力します。 Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[Rendering differences in prose documents](/github/managing-files-in-a-repository/rendering-differences-in-prose-documents)." ![新しいファイルの名前](/assets/images/help/repository/new-file-name.png)
     - リポジトリのルートディレクトリでコントリビューションガイドラインを表示するには、*CONTRIBUTING* と入力します。
     - リポジトリの `docs` ディレクトリにコントリビューションガイドラインを表示するには、*docs/* と入力して新しいディレクトリを作成し、次に *CONTRIBUTING* と入力します。
+    - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 4. 新しいファイルに、コントリビューションガイドラインを追加します。 このガイドラインには、次のことを含めましょう:
     - 有意義な Issue やプルリクエストの作成手順
     - - 外部ドキュメント、メーリングリストや行動規範へのリンク

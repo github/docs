@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Las verificaciones de estado se basan en procesos externos, como compilaciones de integración continua, que se ejecutan para cada subida que haces a un repositorio. Puedes ver el estado *pendiente*, *aprobado* o *error* de las verificaciones de estado junto a las confirmaciones individuales en tu solicitud de extracción.
@@ -53,18 +53,18 @@ Cuando un repositorio se configura para que solicite automáticamente las verifi
 
 Para omitir o solicitar verificaciones para tu confirmación, agrega una de las siguientes lineas de introducción al final de tu mensaje de confirmación:
 
-- Para _omitir verificaciones_ para una confirmación, escribe tu mensaje de confirmación y una descripción corta y significativa de tus cambios. Después de la descripción de tu confirmación, en lugar de una comilla de cierre, agrega dos líneas vacías seguidas de `skip-checks: true`:
+- Para _omitir verificaciones_ para una confirmación, escribe tu mensaje de confirmación y una descripción corta y significativa de tus cambios. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
-  $ git commit -m "Update README.
+  $ git commit -m "Update README
   >
   >
-  skip-checks: true
+  skip-checks: true"
   ```
-  - Para _solicitar_ verificaciones para una confirmación, escribe tu mensaje de confirmación y una descripción corta y significativa de tus cambios. Después de la descripción de tu confirmación, en lugar de una comilla de cierre, agrega dos líneas vacías seguidas de `request-checks: true`:
+- Para _solicitar_ verificaciones para una confirmación, escribe tu mensaje de confirmación y una descripción corta y significativa de tus cambios. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
-  $ git commit -m "Refactor usability tests.
+  $ git commit -m "Refactor usability tests
   >
   >
-  request-checks: true
+  request-checks: true"
   ```
   

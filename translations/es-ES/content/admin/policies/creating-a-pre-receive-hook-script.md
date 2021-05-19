@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 Puedes ver los ejemplos de los ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %} en el repositorio [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).

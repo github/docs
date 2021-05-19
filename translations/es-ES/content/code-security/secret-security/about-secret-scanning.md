@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -45,7 +45,7 @@ Actualmente, {% data variables.product.product_name %} escanea los repositorios 
 El {% data variables.product.prodname_secret_scanning_caps %} se encuentra disponible en todos los repositorios que pertenezcan a la organización como parte de la {% data variables.product.prodname_GH_advanced_security %}. No se encuentra disponible en repositorios que pertenezcan a usuarios individuales.
 {% endif %}
 
-Si eres un administrador de repositorio o un propietario de organización, puedes habilitar el {% data variables.product.prodname_secret_scanning %} para los repositorios {% if currentVersion == "free-pro-team@latest" %} privados{% endif %} que pertenezcan a las organizaciones. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Si eres un administrador de repositorio o un propietario de organización, puedes habilitar el {% data variables.product.prodname_secret_scanning %} para los repositorios {% if currentVersion == "free-pro-team@latest" %} privados{% endif %} que pertenezcan a las organizaciones. Puedes habilitar el {% data variables.product.prodname_secret_scanning %} para todos tus repositorios, o para todos los repositorios nuevos dentro de tu organización.{% if currentVersion == "free-pro-team@latest" %} El {% data variables.product.prodname_secret_scanning_caps %} no se encuentra disponible para los repositorios privados que pertenezcan a los usuarios individuales.{% endif %} para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" y "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 Cuando subes tus confirmaciones a un repositorio{% if currentVersion == "free-pro-team@latest" %} privado{% endif %} que tenga habilitado el {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} escanea el contenido de las confirmaciones para encontrar secretos.
 

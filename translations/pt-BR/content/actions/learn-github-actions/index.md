@@ -12,11 +12,11 @@ redirect_from:
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
-  - /artigos/criando-um-fluxo de trabalho-com-github-actions/
-  - /artigos/configuração-a-fluxo de trabalho
+  - /articles/creating-a-workflow-with-github-actions/
+  - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
-  - /ações/automatizando-seu-fluxo de trabalho-com-github-actions/configurando-um-fluxo de trabalho
-  - /ações/criação de fluxos de trabalho/opções de configuração de fluxo de trabalho
+  - /actions/automating-your-workflow-with-github-actions/configuring-a-workflow
+  - /actions/creating-workflows/workflow-configuration-options
   - /articles/configuring-workflows
   - /github/automating-your-workflow-with-github-actions/configuring-workflows
   - /actions/automating-your-workflow-with-github-actions/configuring-workflows
@@ -29,16 +29,17 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /introduction-to-github-actions
+  - /finding-and-customizing-actions
+  - /essential-features-of-github-actions
+  - /managing-complex-workflows
+  - /sharing-workflows-with-your-organization
+  - /security-hardening-for-github-actions
+  - /migrating-from-azure-pipelines-to-github-actions
+  - /migrating-from-circleci-to-github-actions
+  - /migrating-from-gitlab-cicd-to-github-actions
+  - /migrating-from-jenkins-to-github-actions
+  - /migrating-from-travis-ci-to-github-actions
 ---
 
-{% link_with_intro /introduction-to-github-actions %}
-{% link_with_intro /finding-and-customizing-actions %}
-{% link_with_intro /essential-features-of-github-actions %}
-{% link_with_intro /managing-complex-workflows %}
-{% link_with_intro /sharing-workflows-with-your-organization %}
-{% link_with_intro /security-hardening-for-github-actions %}
-{% link_with_intro /migrating-from-azure-pipelines-to-github-actions %}
-{% link_with_intro /migrating-from-circleci-to-github-actions %}
-{% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
-{% link_with_intro /migrating-from-jenkins-to-github-actions %}
-{% link_with_intro /migrating-from-travis-ci-to-github-actions %}

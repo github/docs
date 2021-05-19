@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cualquier usuario puede restaurar repositorios eliminados que le pertenecieron a su propia cuenta de usuario. Los propietarios de la organización pueden restaurar repositorios eliminados que le pertenecieron a la organización.
@@ -31,9 +31,9 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 
 ### Restaurar un repositorio eliminado que le pertenecía a una organización
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

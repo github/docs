@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 You can use the former primary appliance as the new replica appliance if the failover was planned or was not related to the health of the appliance. If the failover was related to an issue with the primary appliance, you may prefer to create a new replica appliance. For more information, see "[Creating a high availability replica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/)."

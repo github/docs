@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### {% data variables.product.prodname_enterprise %}ライセンスについて
@@ -56,7 +56,7 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. 現在の {% data variables.product.prodname_enterprise %} ライセンスと、使用済みで利用可能なユーザライセンスを確認します。
+4. 現在の {% data variables.product.prodname_enterprise %} ライセンスと、使用済みで利用可能なユーザライセンスを確認します。 {% if currentVersion ver_gt "enterprise-server@3.0" %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 ### ユーザライセンスの使用状況を自動で{% data variables.product.prodname_ghe_cloud %}と同期する
 

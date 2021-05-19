@@ -5,8 +5,11 @@ redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Infrastructure
+  - Upgrades
 ---
 
 {% tip %}

@@ -10,8 +10,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - безопасность
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -36,7 +38,7 @@ You can use {% data variables.product.prodname_code_scanning %} with {% data var
 
 {% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 
@@ -48,17 +50,14 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% endif %}
 
-### About third-party code scanning tools
-
-{% data reusables.code-scanning.you-can-upload-third-party-analysis %}
+### About third-party {% data variables.product.prodname_code_scanning %} tools
 
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
-{% data reusables.code-scanning.get-started-uploading-third-party-data %}
+You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
 
 ### Дополнительная литература
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
+- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

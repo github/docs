@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About scheduled reminders for pull requests
@@ -19,9 +19,8 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Creating a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.create-reminder %}
 
 ### Managing a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Organization owners can schedule a reminder for one or more teams in their organ
 {% data reusables.reminders.update-buttons %}
 
 ### Deleting a scheduled reminder for an organization
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

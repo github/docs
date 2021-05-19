@@ -6,8 +6,10 @@ redirect_from:
   - /admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
-  - Unternehmen
+  - Enterprise
+  - Packages
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

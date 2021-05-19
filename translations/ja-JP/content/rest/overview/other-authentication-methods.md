@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -45,7 +45,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 {% note %}
 
-**注釈:** {% data variables.product.prodname_dotcom %} は、すべての {% data variables.product.prodname_dotcom_the_website %} アカウントについて、API に対するパスポート認証を 2020 年 11 月 13 日で終了しました。{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランのアカウントもこれに該当します。 今後、{% data variables.product.prodname_dotcom %} API への認証には API トークンを使用してください。アクセストークンの扱い方に応じて、OAuth アクセストークン、 GitHub App インストールアクセストークン、個人アクセストークンなどを使用できます。 詳しい情報については、「[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)」を参照してください。
+**注釈:** {% data variables.product.prodname_dotcom %} は、すべての {% data variables.product.prodname_dotcom_the_website %} アカウントについて、API に対するパスワード認証を 2020 年 11 月 13 日で終了しました。{% data variables.product.prodname_free_user %}、{% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} プランのアカウントもこれに該当します。 今後、{% data variables.product.prodname_dotcom %} API への認証には API トークンを使用してください。アクセストークンの扱い方に応じて、OAuth アクセストークン、 GitHub App インストールアクセストークン、個人アクセストークンなどを使用できます。 詳しい情報については、「[トラブルシューティング](/rest/overview/troubleshooting#basic-authentication-errors)」を参照してください。
 
 {% endnote %}
 

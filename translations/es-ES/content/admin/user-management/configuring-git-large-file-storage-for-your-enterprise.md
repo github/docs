@@ -15,8 +15,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Git
+  - Enterprise
+  - LFS
+  - Storage
 ---
 
 ### Acerca de {% data variables.large_files.product_name_long %}

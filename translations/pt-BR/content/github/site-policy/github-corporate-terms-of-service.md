@@ -5,9 +5,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 OBRIGADO POR ESCOLHER O GITHUB PARA AS NECESSIDADES COMERCIAIS DE SUA EMPRESA. LEIA ESTES TERMOS ATENTAMENTE, POIS ELES REGEM O USO DOS PRODUTOS (CONFORME DEFINIDO ABAIXO), A MENOS QUE O GITHUB TENHA FIRMADO COM VOCÊ UM CONTRATO A PARTE, POR ESCRITO, COM ESSE OBJETIVO. AO CLICAR NO BOTÃO "CONCORDO" OU SEMELHANTE OU ACESSAR OS PRODUTOS, O CLIENTE ACEITA TODOS OS TERMOS E CONDIÇÕES DESTE CONTRATO. SE VOCÊ ESTIVER CELEBRANDO ESTE CONTRATO EM NOME DE UMA EMPRESA OU OUTRA ENTIDADE JURÍDICA, O CLIENTE DECLARA QUE TEM OS PODERES LEGAIS DE VINCULAR A EMPRESA OU OUTRA ENTIDADE JURÍDICA A ESTE CONTRATO.
 
@@ -24,7 +26,7 @@ Este Contrato aplica-se às seguintes ofertas do GitHub, conforme definido a seg
 
 **"Afiliada"** significa qualquer entidade que controle direta ou indiretamente, ou que seja controlada por ou que esteja sob controle comum de uma parte, no qual "controle" signifique possuir mais de cinquenta por cento (50%) da propriedade ou o direito de conduzir a administração da entidade.
 
-**"Contrato"** significa, coletivamente, todos os termos, condições, avisos contidos ou referenciados neste documento e todas as outras regras de funcionamento, políticas e procedimentos que o GitHub possa publicar em algum momento no Serviço. As políticas de site do GitHub estão disponíveis em [https://docs.github.com/categories/site-policy](/categories/site-policy).
+**"Contrato"** significa, coletivamente, todos os termos, condições, avisos contidos ou referenciados neste documento e todas as outras regras de funcionamento, políticas e procedimentos que o GitHub possa publicar em algum momento no Serviço. GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 **"Todos os usuários"** significa, coletivamente, Usuários e Usuários externos do Cliente que utilizam o Serviço.
 
@@ -111,7 +113,7 @@ O Cliente é responsável por: (i) todo o Conteúdo publicado e a atividade que 
 Em algumas situações, os termos de terceiros podem ser aplicados ao uso do GitHub pelo Cliente.  Por exemplo, o Cliente pode ser integrante de uma Organização com seus próprios termos ou contratos de licença. O cliente poderá baixar um aplicativo que se integra ao Serviço ou utilizar o Serviço para autenticar em outro serviço. Embora este Contrato seja o acordo completo do GitHub com o Cliente, os termos de outras partes regem as relações delas com o Cliente.
 
 #### 5. EUA Termos do Governo Federal
-Se o cliente é dos EUA. Se o Cliente for uma entidade do governo dos EUA ou que acessa ou usa o Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://help.github.com/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o Cliente concorda com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
+Se o cliente é dos EUA. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Aplica-se a alteração do Governo Federal](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) e o Cliente concorda com suas disposições.
 
 #### 6. Acordo de Nível de Serviço de Nuvem Empresarial
 O compromisso trimestral de tempo de atividade do GitHub para o GitHub Enterprise Cloud é fornecido no [Contrato de Nível de Serviço Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Se o cliente inscreveu-se no GitHub Enterprise Cloud, ele terá direito a um crédito de serviço se o GitHub não atender ao seu nível de serviço.

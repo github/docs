@@ -8,8 +8,13 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Auditing
+  - Enterprise
+  - Organizations
+  - Security
+  - User account
 ---
 
 ### Accessing the audit log

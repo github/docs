@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -16,7 +16,7 @@ topics:
 
 ## Organization
 
-移行 API を使用できるのは、認証済みの Organization オーナーのみです。 For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
+移行 API を使用できるのは、認証済みの Organization オーナーのみです。 詳細については、「[Organization の権限レベル](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#permission-levels-for-an-organization)」と「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
 
 {% data variables.migrations.organization_migrations_intro %}
 

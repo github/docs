@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Python'
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -45,38 +45,38 @@ Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do
 
 {% raw %}
 ```yaml{:copy}
-nome: Pacote do Python
+name: Python package
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
-    estratégia:
-      matriz:
+    strategy:
+      matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configura o Python ${{ matrix.python-version }}
-      usa: actions/setup-python@v2
-      com:
-        python-version: ${{ matrix.python-version }}
-    - nome: Instalar dependências
-      executar: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - nome : Lint with flake8
-      executar: |
-        # interrompe a criação em caso de erros de sintaxe do Python ou de nomes indefinidos
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero trata todos os errors como avisos. O editor do GitHub tem 127 caracteres
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - nome: Testar com pytest
-      executar: |
-        pytest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
 ```
 {% endraw %}
 
@@ -112,19 +112,19 @@ trabalhos:
     runs-on: ubuntu-latest
     estratégia:
       # Você pode usar as versões do PyPy em python-version.
-      # Por exemplo, pypy2 and pypy3
-      matriz:
+      # For example, pypy2 and pypy3
+      matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configura o Python ${{ matrix.python-version }}
-      usa: actions/setup-python@v2
-      com:
-        python-version: ${{ matrix.python-version }}
-    # Você pode testar a sua matriz imprimindo a versão atual do Python
-    - nome: Exibe a versão do Python
-      executar: python -c "import sys; print(sys.version)"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
@@ -144,17 +144,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v2
-      with:
-        # Semantic version range syntax or exact version of a Python version
-        python-version: '3.x'
-        # Optional - x64 or x86 architecture, defaults to x64
-        architecture: 'x64'
-    # You can test your matrix by printing the current Python version
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
@@ -373,25 +373,25 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Python # Set Python version
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    # Install pip and pytest
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest
-    - name: Test with pytest
-      run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-    - name: Upload pytest test results
-      uses: actions/upload-artifact@v2
-      with:
-        name: pytest-results-${{ matrix.python-version }}
-        path: junit/test-results-${{ matrix.python-version }}.xml
-      # Use always() to always run this step to publish test results when there are test failures
-      if: ${{ always() }}
+      - uses: actions/checkout@v2
+      - name: Setup Python # Set Python version
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # Install pip and pytest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: Test with pytest
+        run: pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: junit/test-results-${{ matrix.python-version }}.xml
+        # Use always() to always run this step to publish test results when there are test failures
+        if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -403,32 +403,32 @@ Você pode armazenar qualquer token de acesso ou credenciais necessárias para p
 
 {% raw %}
 ```yaml{:copy}
-Nome: Fazer o upload no pacote Python
+name: Upload Python Package
 
-em:
-  versão:
-    tipos: [created]
+on:
+  release:
+    types: [created]
 
-trabalhos:
-  implementar:
+jobs:
+  deploy:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configurar Python
-      usa: actions/setup-python@v2
-      com:
-        python-version: '3.x'
-    - nome: Instalar dependências
-      executar: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - nome: Criar e publicar
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      executar: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
 ```
 {% endraw %}
 

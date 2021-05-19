@@ -1,13 +1,13 @@
 ---
 title: Informationen zu GitHub Premium-Support für GitHub Enterprise Cloud
-intro: '{% data variables.contact.premium_support %} ist ein kostenpflichtiges, zusätzliches Supportangebot für {% data variables.product.prodname_ghe_cloud %}- und {% data variables.product.prodname_ghe_one %}-Kunden.'
+intro: '{% data variables.contact.premium_support %} ist ein kostenpflichtiges, ergänzendes Supportangebot für {% data variables.product.prodname_ghe_cloud %}-Kunden.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}

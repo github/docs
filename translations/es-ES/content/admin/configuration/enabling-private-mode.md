@@ -9,8 +9,16 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-private-mode
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Access management
+  - Authentication
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Privacy
+  - Security
 ---
 
 Debes habilitar el modo privado si {% data variables.product.product_location %} es de acceso público por internet. En el modo privado, los usuarios no pueden clonar repositorios en forma anónima por `git://`. Si también está habilitada la autenticación incorporada, un administrador debe invitar a los nuevos usuarios para que creen una cuenta en la instancia. Para obtener más información, consulta "[Usar la autenticación incorporada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-built-in-authentication)."

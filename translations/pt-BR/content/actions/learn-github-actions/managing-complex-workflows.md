@@ -1,27 +1,29 @@
 ---
-title: Managing complex workflows
-shortTitle: Managing complex workflows
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} environments,{% endif %} and labels.'
+title: Gerenciar fluxos de trabalhos complexos
+shortTitle: Gerenciar fluxos de trabalhos complexos
+intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} ambientes,{% endif %} e etiquetas.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 topics:
-  - 'Workflows'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
-### Overview
+### Visão Geral
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows.
+Este artigo descreve alguns dos recursos avançados de {% data variables.product.prodname_actions %} que ajudam você a trabalhar criar fluxos de trabalho mais complexos.
 
-### Storing secrets
+### Armazenar segredos
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow.
+Se os seus fluxos de trabalho usarem dados confidenciais, como senhas ou certificados, você pode salvá-los em {% data variables.product.prodname_dotcom %} como _segredos_ e usá-los nos seus fluxos de trabalho como variáveis de ambiente. Isto significa que você poderá criar e compartilhar fluxos de trabalho sem ter de incorporar valores sensíveis diretamente no fluxo de trabalho de YAML.
 
-This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+Esta ação de exemplo demonstra como fazer referência a um segredo existente como uma variável de ambiente e enviá-lo como um parâmetro para um comando de exemplo.
 
 {% raw %}
 ```yaml
@@ -37,13 +39,13 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
-### Creating dependent jobs
+### Criar trabalhos dependentes
 
-By default, the jobs in your workflow all run in parallel at the same time. So if you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the [`if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) conditional statement.
+Por padrão, os trabalhos do seu fluxo de trabalho são executadas em paralelo e ao mesmo tempo. Portanto, se você tem um trabalho que só deve ser executado após a conclusão de outro trabalho, você pode usar a palavra-chave `needs` para criar esta dependência. Se um dos trabalhos falhar, todos os trabalhos dependentes serão suprimidos. No entanto, se você precisa que os trabalhos continuem, você pode definir isso usando a declaração condicional [`se`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif).
 
-In this example, the `setup`, `build`, and `test` jobs run in series, with `build` and `test` being dependent on the successful completion of the job that precedes them:
+Neste exemplo, os trabalhos de `configuração`, `criação` e `teste` executados em série, com `criação` e `teste` sendo dependentes da conclusão bem-sucedida do trabalho que os precede:
 
 ```yaml
 jobs:
@@ -63,11 +65,11 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
+Para obter mais informações, consulte [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
-### Using a build matrix
+### Usar uma matriz de criação
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
+Você pode usar uma matriz de criação se quiser que seu fluxo de trabalho execute testes em várias combinações de sistemas operacionais, plataformas e linguagens. A matriz de criação é criada usando a palavra-chave `estratégia`, que recebe as opções de compilação como um array. Por exemplo, essa matriz de criação irá executar o trabalho várias vezes, usando diferentes versões do Node.js:
 
 {% raw %}
 ```yaml
@@ -84,13 +86,14 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+Para obter mais informações, consulte [`>jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
-### Caching dependencies
+{% if currentVersion == "free-pro-team@latest" %}
+### Memorizar dependências
 
-{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
+Executores hospedados em {% data variables.product.prodname_dotcom %} são iniciados como ambientes novos para cada trabalho. Portanto, se os seus trabalhos reutilizam dependências regularmente, você pode considerar fazer armazenamento em cache desses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+Este exemplo demonstra como armazenar em cache o diretório `~/.npm`:
 
 {% raw %}
 ```yaml
@@ -109,11 +112,12 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% endif %}
 
-### Using databases and service containers
+### Usar bancos de dados e contêineres de serviço
 
-If your job requires a database or cache service, you can use the [`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) keyword to create an ephemeral container to host the service; the resulting container is then available to all steps in that job and is removed when the job has completed. This example demonstrates how a job can use `services` to create a `postgres` container, and then use `node` to connect to the service.
+Se sua tarefa exigir um banco de dados ou serviço de cache, você poderá usar a palavra-chave [`serviços`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) para criar um contêiner efêmero para hospedar o serviço; o contêiner resultante ficará disponível em todas as etapas do trabalho e será removido quando o trabalho for concluído. Este exemplo demonstra como um trabalho pode usar `serviços` para criar um contêiner `postgres` e, em seguida, usar o `nó` para conectar-se ao serviço.
 
 ```yaml
 jobs:
@@ -135,39 +139,47 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using databases and service containers](/actions/configuring-and-managing-workflows/using-databases-and-service-containers)."
+Para obter mais informações, consulte "[Usar bancos de dados e contêineres de serviço](/actions/configuring-and-managing-workflows/using-databases-and-service-containers)".
 
-### Using labels to route workflows
+### Usar etiquetas para encaminhar fluxos de trabalho
 
-This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.
+Esse recurso ajuda você a atribuir tarefas a um executor hospedado específico. Se você quiser ter certeza de que um determinado tipo de executor irá processar seu trabalho, você pode usar etiquetas para controlar os locais onde os trabalhos são executados. Você pode atribuir etiquetas a um corredor hospedado e, em seguida, consultá-las no fluxo de trabalho de YAML, garantindo que o trabalho seja encaminhado de uma forma previsível.
 
-This example shows how a workflow can use labels to specify the required runner:
+{% if currentVersion == "github-ae@latest" %}
+Este exemplo mostra como um fluxo de trabalho pode usar etiquetas para especificar o executor obrigatório:
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+Para obter mais informações, consulte ["Usar etiquetas com {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)".
+{% else %}
 ```yaml
 jobs:
   example-job:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-For more information, see  ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Using environments
-
-You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+Para obter mais informações, consulte ["Usar etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 {% endif %}
 
-### Using a workflow template
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Usar ambientes
+
+Você pode configurar ambientes com regras de proteção e segredos. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)".
+{% endif %}
+
+### Usar um modelo do fluxo de trabalho
 
 {% data reusables.actions.workflow-template-overview %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
-  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
-1. Under the name of the template you'd like to use, click **Set up this workflow**.
-  ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
+1. Caso o seu repositório tenha fluxos de trabalho existentes: No canto superior esquerdo, clique em **Novo fluxo de trabalho**. ![Criar um novo fluxo de trabalho](/assets/images/help/repository/actions-new-workflow.png)
+1. Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Configurar este fluxo de trabalho](/assets/images/help/settings/actions-create-starter-workflow.png)
 
-### Next steps
+### Próximas etapas
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
+Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Compartilhar fluxos de trabalho com a sua organização](/actions/learn-github-actions/sharing-workflows-with-your-organization)".

@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトをローカルでテストできます。
@@ -31,7 +31,7 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.pages.navigate-publishing-source %}
-3. Run `bundle install`.
+3. `bundle install` を実行します。
 3. ローカルで Jekyll サイトを実行します.
   ```shell
   $ bundle exec jekyll serve

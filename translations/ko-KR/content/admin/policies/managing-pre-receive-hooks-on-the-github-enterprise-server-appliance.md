@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/policies/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 ### Creating pre-receive hooks

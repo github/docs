@@ -1,7 +1,7 @@
 ---
 title: GitHub 隐私声明
 redirect_from:
-  - /隐私/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 生效日期：2020 年 12 月 19 日
@@ -64,7 +64,7 @@ topics:
 ##### 支付信息
 如果您注册我们的付费帐户、通过 GitHub 赞助计划汇款或在 GitHub Marketplace 上购买应用程序，我们将收集您的全名、地址和信用卡信息或 PayPal 信息。 请注意，GitHub 不会处理或存储您的信用卡信息或 PayPal 信息，但我们的第三方付款处理商会这样做。
 
-如果您在 [GitHub Marketplace](https://github.com/marketplace) 上列出并销售应用程序，我们需要您的银行信息。 如果您通过 [GitHub 赞助计划](https://github.com/sponsors)筹集资金，我们需要您在注册过程中提供一些[其他信息](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information)，以便您参与这些服务并通过这些服务获取资金以及满足合规要求。
+如果您在 [GitHub Marketplace](https://github.com/marketplace) 上列出并销售应用程序，我们需要您的银行信息。 如果您通过 [GitHub 赞助计划](https://github.com/sponsors)筹集资金，我们需要您在注册过程中提供一些[其他信息](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information)，以便您参与这些服务并通过这些服务获取资金以及满足合规要求。
 
 ##### 个人资料信息
 您可以选择在帐户个人资料中向我们提供更多信息，例如您的全名、头像等，可包括照片、简历、地理位置、公司和第三方网站的 URL。 此类信息可能包括用户个人信息。 请注意，您的个人资料信息可能对我们服务的其他用户显示。

@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 公開元に関する詳しい情報については、「[{% data variables.product.prodname_pages %} について](/articles/about-github-pages#publishing-sources-for-github-pages-sites)」を参照してください。
@@ -25,8 +25,8 @@ Before you configure a publishing source, make sure the branch{% if currentVersi
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source. ![Drop-down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-4. Optionally, use the drop-down menu to select a folder for your publishing source. ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+3. [{% data variables.product.prodname_pages %}] で、[**None**] または [**Branch**] ドロップダウンメニューから公開元を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
+4. 必要に応じて、ドロップダウンメニューで発行元のフォルダを選択します。 ![公開元のフォルダを選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 5. [**Save**] をクリックします。 ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png){% else %}
 3. [{% data variables.product.prodname_pages %}] で、[**Source**] ドロップダウンメニューから公開元を選択します。 ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
@@ -35,4 +35,4 @@ Before you configure a publishing source, make sure the branch{% if currentVersi
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}any{% else %}the `master`{% endif %} branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)」を参照してください。
+公開元として{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}いずれかの{% else %}`master`{% endif %} ブランチの `docs` フォルダを選択した場合、その後リポジトリ内のそのブランチから `/docs` フォルダを削除すると、サイトがビルドされず、`/docs` フォルダが見つからない場合にページのビルドエラーメッセージが表示されます。 詳細については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーに関するトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)」を参照してください。

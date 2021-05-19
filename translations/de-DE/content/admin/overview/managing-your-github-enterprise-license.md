@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - Unternehmen
+  - Enterprise
 ---
 
 ### Informationen zu {% data variables.product.prodname_enterprise %}-Lizenzen
@@ -56,7 +56,7 @@ Wenn Du Benutzerlizenzen erneuern oder zu {% data variables.product.prodname_ent
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Überprüfe Deine aktuelle {% data variables.product.prodname_enterprise %}-Lizenz sowie verbrauchte und verfügbare Benutzerlizenzen.
+4. Überprüfe Deine aktuelle {% data variables.product.prodname_enterprise %}-Lizenz sowie verbrauchte und verfügbare Benutzerlizenzen. {% if currentVersion ver_gt "enterprise-server@3.0" %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 ### Nutzung der Benutzerlizenzen mit {% data variables.product.prodname_ghe_cloud %} automatisch synchronisieren
 

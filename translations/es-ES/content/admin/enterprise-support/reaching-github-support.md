@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/enterprise-support/reaching-github-support
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Support
 ---
 
 ### Usar sistemas de tickets automatizado

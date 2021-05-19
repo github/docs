@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los administradores de la organización pueden usar [uno de los códigos de reuperación descargados o guardados](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)para saltear un inicio de sesión único. Es posible que los hayas guardado en un administrador de contraseñas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/), o [Keeper](https://keepersecurity.com/).

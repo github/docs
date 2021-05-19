@@ -8,8 +8,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - 工作流程
-  - 项目管理
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ topics:
 2. {% data reusables.actions.make-workflow-file %}
 3. 将以下 YAML 内容复制到工作流程文件中。
 
-    {% raw %}
     ```yaml{:copy}
     name: Weekly Team Sync
     on:
@@ -39,7 +38,9 @@ topics:
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@v3.0
@@ -62,9 +63,9 @@ topics:
               pinned: false
               close-previous: false
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. 自定义工工作流程文件中的参数：
    - 更改 `on.schedule` 的值以指示您希望此工作流程何时运行。 在上面的示例中，工作流将于每周一 7:20 UTC 运行。 有关计划工作流程的更多信息，请参阅“[计划的活动](/actions/reference/events-that-trigger-workflows#scheduled-events)”。
    - 将 `assignees` 的值更改为您想要分配给此议题的 {% data variables.product.prodname_dotcom %} 用户名。

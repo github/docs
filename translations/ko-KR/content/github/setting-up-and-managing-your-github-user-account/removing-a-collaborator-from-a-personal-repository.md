@@ -14,8 +14,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - accounts
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Deleting forks of private repositories
@@ -29,7 +29,7 @@ While forks of private repositories are deleted when a collaborator is removed, 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. To the right of the collaborator you want to remove, click
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
   ![Button to remove collaborator](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. In the left sidebar, click **Collaborators & teams**. ![Collaborators tab](/assets/images/help/repository/repo-settings-collaborators.png)

@@ -1,6 +1,6 @@
 ---
 title: 使用 SSH 代理转发
-intro: '为简化向服务器的部署，您可以设置 SSH 代理转发以安全地使用本地 SSH 密钥。'
+intro: 为简化向服务器的部署，您可以设置 SSH 代理转发以安全地使用本地 SSH 密钥。
 redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -149,7 +149,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-在 Mac OS X 上，一旦在重新引导过程中重新启动 `ssh-agent`，它将“忘记”该密钥。 但是，您可以使用此命令将 SSH 密钥导入密钥链：
+在 MacOS 上，一旦在重新引导过程中重新启动 `ssh-agent`，它将“忘记”该密钥。 但是，您可以使用此命令将 SSH 密钥导入密钥链：
 
 ```shell
 $ ssh-add -K <em>yourkey</em>

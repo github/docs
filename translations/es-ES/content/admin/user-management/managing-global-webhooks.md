@@ -7,8 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Webhooks
 ---
 
 ### Acerca de los webhooks locales

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### Sobre objetos de entrada
@@ -19,6 +19,5 @@ Por exemplo, [`CommitAuthor`](/graphql/reference/input-objects#commitauthor) tom
 
 Para obter mais informações, consulte "[Sobre mutações](/graphql/guides/forming-calls-with-graphql#about-mutations)".
 
-{% for item in graphql.schemaForCurrentVersion.inputObjects %}
-  {% include graphql-input-object %}
-{% endfor %}
+<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
+<!-- see lib/graphql/static/prerendered-input-objects.json -->

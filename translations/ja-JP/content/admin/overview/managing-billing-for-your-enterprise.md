@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -26,13 +26,13 @@ topics:
 | ユーザ       | ライセンスされた日                       | カウント日数 | 料金     |
 | --------- | ------------------------------- | ------ | ------ |
 | @octocat  | 1月1日～1月31日                      | 31     | $39    |
-| @robocat  | 2月1日～2月28日                      | 29     | $35.23 |
+| @robocat  | 2月1日～2月28日                      | 28     | $35.23 |
 | @devtocat | 1月15日～1月31日                     | 17     | $21.39 |
 | @doctocat | 1月1日～1月15日                      | 31     | $39    |
 | @prodocat | 1月7日～1月15日                      | 25     | $31.45 |
 | @monalisa | 1月1日～1月7日、<br>1月15日～1月31日 | 31     | $39    |
 
-Enterprise には、1つ以上のインスタンスを含めることができます。 {% data variables.product.prodname_ghe_managed %} のインスタンスごとの最小ユーザ数は 500 です。 {% data variables.product.company_short %} は、同日にライセンスを付与されたユーザが 500 未満の場合でも、インスタンスごとに最低 500 ユーザ分の料金を請求します。
+{% data variables.product.prodname_ghe_managed %} のインスタンスごとの最小ユーザ数は 500 です。 {% data variables.product.company_short %} は、同日にライセンスを付与されたユーザが 500 未満の場合でも、インスタンスごとに最低 500 ユーザ分の料金を請求します。
 
 [Azure アカウントポータル](https://portal.azure.com)で現在の使用状況を確認できます。
 

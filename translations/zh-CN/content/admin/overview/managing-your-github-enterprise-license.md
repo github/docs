@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于 {% data variables.product.prodname_enterprise %} 许可
@@ -56,7 +56,7 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 3. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![企业帐户设置侧边栏中的"Enterprise licensing（企业许可）"选项卡](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. 检查您当前的 {% data variables.product.prodname_enterprise %} 许可，以及已使用和可用的用户许可。
+4. 检查您当前的 {% data variables.product.prodname_enterprise %} 许可，以及已使用和可用的用户许可。 {% if currentVersion ver_gt "enterprise-server@3.0" %}If your license includes {% data variables.product.prodname_GH_advanced_security %}, you can review your total seat use as well as a per-organization breakdown of committers. For more information, see "[Managing {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/advanced-security)."{% endif %}
 
 ### 自动将用户许可使用情况同步到 {% data variables.product.prodname_ghe_cloud %}
 

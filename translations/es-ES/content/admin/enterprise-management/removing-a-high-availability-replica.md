@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Clustering
+  - High availability
+  - Enterprise
+  - Infrastructure
 ---
 
 ### Detener una replicación de forma temporal

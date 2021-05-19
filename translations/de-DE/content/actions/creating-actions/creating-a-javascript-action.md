@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Action development'
-  - 'JavaScript'
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -215,21 +215,21 @@ Der folgende Workflow-Code verwendet die vervollständigte Aktion „hello world
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-zu: [push]
+on: [push]
 
-Jobs:
+jobs:
   hello_world_job:
-    läuft auf: ubuntu-latest
-    Name: Ein Job, um Hallo zu sagen
-    Schritte:
-    - Name: Hallo Welt Aktion Schritt
-      ID: hallo
-      verwendet: aktionen/hello-world-javascript-action@v1.1
-      mit:
-        who-to-greet: 'Mona the Octocat'
-    ' Use the output from the 'hello' step
-    - name: Get the output time{{ steps.hello.outputs.time }}
-
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

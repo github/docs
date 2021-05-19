@@ -5,8 +5,10 @@ intro: '{% if currentVersion == "github-ae@latest" %}Tu empresa de {% data varia
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - empresa
+  - Enterprise
+  - Upgrades
 ---
 
 {% data variables.product.product_name %} está en mejora contínua, con una funcionalidad nueva y correcciones de errores que se presentan mediante lanzamientos mayores y menores. {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} es un servicio completamente administrado, así que {% data variables.product.company_short %} completa el proceso de mejora para tu empresa.{% endif %}

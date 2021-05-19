@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub Pre-release Program への参加にご登録いただきありがとうございます。  コミュニティの信頼できるメンバーであるお客様の、新機能や実験的な機能に対するフィードバックは当社にとって重要です。  このプログラムで提供する新製品やサービスは、その多くがまだ機密扱いで、開発中であるため、お客様には特別な規約に合意していただく必要があります。 Pre-release Program契約（「契約」）へようこそ。
@@ -51,7 +51,7 @@ GitHub Pre-release Program への参加にご登録いただきありがとう�
 
 ### 7. 輸出規制
 
-  米国の法律または「機密情報」を取得した地域に適用される法律によって認められる場合を除き、お客様は当社のいかなる「機密情報」も輸出および再輸出することはできません。 In particular, you aren’t allowed to export or re-export our Confidential Information into any U.S. embargoed countries, to anyone on the U.S. Treasury Department's list of Specially Designated Nationals, or to anyone on the U.S. Department of Commerce Denied Person's List or Entity List. 「Pre-release Program」に参加するか、当社の「機密情報」を受け取るかのいずれかにより、お客様はかかる国に在住しておらず、またかかるリストに掲載されていることを表明し、保証するものとします。
+  米国の法律または「機密情報」を取得した地域に適用される法律によって認められる場合を除き、お客様は当社のいかなる「機密情報」も輸出および再輸出することはできません。 特に、 米国の禁輸対象国、米国 商務省の否認命令リストに掲載されている者、または米国 財務省の特定国籍業者リストに掲載されている者に対して、当社の「機密情報」を輸出および再輸出することは認められません。 「Pre-release Program」に参加するか、当社の「機密情報」を受け取るかのいずれかにより、お客様はかかる国に在住しておらず、またかかるリストに掲載されていることを表明し、保証するものとします。
 
 ### 8. 所有権
 
@@ -59,7 +59,7 @@ GitHub Pre-release Program への参加にご登録いただきありがとう�
 
 ### 9. ユーザとしての政府機関
 
-  お客様が政府機関である場合、本セクションが適用されます。  Certain of our Confidential Information may be considered “Commercial Items”, as that term is defined at 48 C.F.R. §227.7202における用語による、「商用コンピュータソフトウェア」および「商用コンピュータソフトウェアドキュメンテーション」から構成される、48 C.F.R. §12.212または 48 C.F.R. §227.7202, as applicable. 48 C.F.R. §12.212または 48 C.F.R. §227.7202-1 through 227.7202-4, as applicable, the Commercial Computer Software and Commercial Computer Software Documentation are being licensed to U.S. Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein.  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107。
+  お客様が政府機関である場合、本セクションが適用されます。  当社の「機密情報」の中には、48 C.F.R.  §227.7202における用語による、「商用コンピュータソフトウェア」および「商用コンピュータソフトウェアドキュメンテーション」から構成される、48 C.F.R. §12.212または 48 C.F.R. §2.101において定義される「商用品目」と見なされるものがある可能性があります。 48 C.F.R. §12.212または 48 C.F.R. §227.7202-1から227.7202-4のうち該当する法律に従い、「商用コンピュータソフトウェア」および「商用コンピュータソフトウェアドキュメンテーション」は、 （a）「商用品目」としてのみ、（b）本「契約」の規約および条件に従って、その他全てのエンドユーザに付与される権利のみ米国政府のエンドユーザにライセンス付与されるものとします。  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107。
 
 ### 10. 独自の開発
 

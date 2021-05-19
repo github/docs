@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Упаковка
+  - Packaging
   - Publishing
   - Node
   - JavaScript
@@ -33,7 +33,7 @@ For more information about creating a CI workflow for your Node.js project, see 
 
 You may also find it helpful to have a basic understanding of the following:
 
-- "[Configuring npm for use with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- "[Working with the npm registry](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[Environment variables](/actions/reference/environment-variables)"
 - "[Encrypted secrets](/actions/reference/encrypted-secrets)"
 - "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)"
@@ -70,16 +70,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '12.x'
-        registry-url: 'https://registry.npmjs.org'
-    - run: npm install
-    - run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
 
@@ -112,7 +112,7 @@ However, if you do provide the `repository` key, then the repository in that key
 
 #### Authenticating to the destination repository
 
-To authenticate to the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN` from your repository. It is created automatically and has _read_ and _write_ permissions for packages in the repository where the workflow runs. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)."
+To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. {% data reusables.github-actions.github-token-permissions %}
 
 If you want to publish your package to a different repository, you must use a personal access token (PAT) that has permission to write to packages in the destination repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
@@ -120,7 +120,6 @@ If you want to publish your package to a different repository, you must use a pe
 
 This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
-{% raw %}
 ```yaml{:copy}
 name: Node.js Package
 on:
@@ -128,22 +127,24 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to GitHub Packages
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '12.x'
-        registry-url: 'https://npm.pkg.github.com'
-        # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat'
-    - run: npm install
-    - run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@octocat'
+      - run: npm install
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 The `setup-node` action creates an *.npmrc* file on the runner. When you use the `scope` input to the `setup-node` action, the *.npmrc* file includes the scope prefix. By default, the `setup-node` action sets the scope in the *.npmrc* file to the account that contains that workflow file.
 
@@ -167,18 +168,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '12.x'
-        registry-url: 'https://registry.npmjs.org'
-        # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat'
-    - run: yarn
-    - run: yarn publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@octocat'
+      - run: yarn
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 {% endraw %}
 
@@ -196,13 +197,13 @@ If you publish a package to both registries, you'll need to ensure that your sco
 
 Ensure your *package.json* file includes the scope of your {% data variables.product.prodname_dotcom %} repository and npm registry. For example, if you plan to publish a package in the `octocat/npm-hello-world-test` repository to {% data variables.product.prodname_dotcom %} and https://www.npmjs.com/package/@octocat/npm-hello-world-test, the name in your *package.json* file would be `"name": "@octocat/npm-hello-world-test"`.
 
-To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. The `GITHUB_TOKEN` exists in your repository by default and has read and write permissions for packages in the repository where the workflow runs. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. {% data reusables.github-actions.github-token-permissions %}
 
 When you use the `scope` input to the `setup-node` action, the action creates an *.npmrc* file that includes the scope prefix. By default, the `setup-node` action sets the scope in the *.npmrc* file to the user or organization that owns the workflow file.
 
 This workflow calls the `setup-node` action two times. Each time the `setup-node` action runs, it overwrites the *.npmrc* file. The *.npmrc* file references the token that allows you to perform authenticated operations against the package registry from the `NODE_AUTH_TOKEN` environment variable. The workflow sets the `NODE_AUTH_TOKEN` environment variable each time the `npm publish` command is run, first with a token to publish to npm (`NPM_TOKEN`) and then with a token to publish to {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`).
 
-{% raw %}
+
 ```yaml{:copy}
 name: Node.js Package
 on:
@@ -210,28 +211,30 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions: 
+      contents: read
+      packages: write {% endif %}
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-        registry-url: 'https://registry.npmjs.org'
-    - run: npm install
-    # Publish to npm
-    - run: npm publish --access public
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    # Setup .npmrc file to publish to GitHub Packages
-    - uses: actions/setup-node@v1
-      with:
-        registry-url: 'https://npm.pkg.github.com'
-        # Defaults to the user or organization that owns the workflow file
-        scope: '@octocat'
-    # Publish to GitHub Packages
-    - run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      # Publish to npm
+      - run: npm publish --access public
+        env:{% raw %}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@octocat'
+      # Publish to GitHub Packages
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-{% endraw %}

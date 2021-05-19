@@ -5,8 +5,10 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - безопасность
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -31,17 +33,9 @@ You can use {% data variables.product.prodname_code_scanning %} with {% data var
 
 {% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### About billing for {% data variables.product.prodname_code_scanning %}
-
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
-
-{% endif %}
 
 ### About third-party code scanning tools
 
@@ -53,7 +47,5 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 ### Дополнительная литература
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

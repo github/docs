@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los propietarios de la organización pueden administrar las etiquetas predeterminadas para los repositorios de la organización.
@@ -19,9 +19,8 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 
 ### Crear una etiqueta predeterminada
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -35,9 +34,8 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 
 ### Editar una etiqueta predeterminada
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -51,9 +49,8 @@ Las etiquetas predeterminadas se incluirán en todos los repositorios nuevos de 
 
 ### Eliminar una etiqueta predeterminada
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -19,7 +19,7 @@ topics:
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
 
@@ -59,7 +59,7 @@ topics:
 
 ### Julia
 
-Library name | Repository | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
+ライブラリ名 | リポジトリ | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
@@ -67,7 +67,7 @@ Library name | Repository | |---|---| **GitHub.jl**|[JuliaWeb/GitHub.jl](https:/
 
 ### Perl
 
-Library name | Repository | metacpan Website for the Library |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
+ライブラリ名 | リポジトリ | ライブラリのmetacpan Webサイト |---|---|---| **Pithub**|[plu/Pithub](https://github.com/plu/Pithub)|[Pithub CPAN](http://metacpan.org/module/Pithub) **Net::GitHub**|[fayland/perl-net-github](https://github.com/fayland/perl-net-github)|[Net:GitHub CPAN](https://metacpan.org/pod/Net::GitHub)
 
 ### PHP
 
@@ -75,11 +75,11 @@ Library name | Repository | metacpan Website for the Library |---|---|---| **Pit
 
 ### PowerShell
 
-Library name | Repository |---|---| **PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
+ライブラリ名 | リポジトリ |---|---| **PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 
-Library name | Repository |---|---| **gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub) **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
+ライブラリ名 | リポジトリ |---|---| **gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub) **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (公式Webサイト)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
 
@@ -87,7 +87,7 @@ Library name | Repository |---|---| **gidgethub**|[brettcannon/gidgethub](https:
 
 ### Rust
 
-Library name | Repository |---|---| **Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
+ライブラリ名 | リポジトリ |---|---| **Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
 
 ### Scala
 

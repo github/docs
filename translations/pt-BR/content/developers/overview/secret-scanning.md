@@ -8,16 +8,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. {% data variables.product.prodname_secret_scanning_caps %} acontece por padrão em repositórios públicos e pode ser habilitado em repositórios privados por administradores de repositório ou proprietários da organização. Como provedor de serviço, você pode fazer parcerias com {% data variables.product.prodname_dotcom %} para que seus formatos de segredo estejam incluídos em nosso {% data variables.product.prodname_secret_scanning %}.
 
 Quando uma correspondência do seu formato secreto é encontrada em um repositório público, uma carga é enviada para um ponto de extremidade HTTP de sua escolha.
 
-Quando uma correspondência do formato do segredo é encontrada em um repositório privado configurado para {% data variables.product.prodname_secret_scanning %}, os administradores do repositório são alertados e podem visualizar e gerenciar os resultados {% data variables.product.prodname_secret_scanning %} em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
-Este artigo descreve como fazer parceria com {% data variables.product.prodname_dotcom %} como um provedor de serviço e participa do programa de {% data variables.product.prodname_secret_scanning %}.
+This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
 ### O processo de {% data variables.product.prodname_secret_scanning %}
 
@@ -54,26 +54,20 @@ Envie esta informação para <a href="mailto:secret-scanning@github.com">secret-
 
 #### Crie um serviço de alerta secreto
 
-Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência de sua expressão regular é encontrada em um repositório público, o {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP de `POST` para o seu ponto de extremidade.
+Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
 ##### Exemplo de POST enviado para seu ponto de extremidade
 
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 Content-Type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICop4nvIgmcY4+mBG6Ek=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEQCIA6C6L8ZYvZnqgV0zwrrmRab10QmIFV396gsba/WYm9oAiAI6Q+/jNaWqkgG5YhaWshTXbRwIgqIK6Ru7LxVYDbV5Q==
 Content-Length: 0123
 
-[
-  {
-    "token": "X-Header-Bearer: as09dalkjasdlfkjasdf09a",
-    "type": "ACompany_API_token",
-    "url": "https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"
-  }
-]
+[{"token":"NMIfyYncKcRALEXAMPLE","type":"mycompany_api_token","url":"https://github.com/octocat/Hello-World/commit/123456718ee16e59dabbacb1b4049abc11abc123"}]
 ```
 
 O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta. Seu ponto de extremidade deve ser capaz de lidar com solicitações com um grande número de correspondências sem exceder o tempo.
@@ -88,19 +82,31 @@ O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seg
 
 Você pode recuperar a chave pública de da varredura secreta do segredo do {% data variables.product.prodname_dotcom %} em https://api.github.com/meta/public_keys/secret_scanning e validar a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
 
-Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura. O código também assume que você definiu uma variável de ambiente denominada `GITHUB_PRODUCTION_TOKEN` com um PAT gerado (https://github.com/settings/tokens). O token não precisa de nenhuma permissão definida.
+{% note %}
+
+**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a personal access token (no scopes required) as suggested in the samples below, or use a conditional request. For more information, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+
+{% endnote %}
+
+Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura. The code snippets assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens) to avoid hitting rate limits. The PAT does not need any scopes/permissions.
+
+{% note %}
+
+**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
+
+{% endnote %}
 
 **Mensagem de exemplo enviada para verificar o ponto de extremidade**
 ```http
-POST / HTTP/1.1
+POST / HTTP/2
 Host: HOST
 Accept: */*
 content-type: application/json
 GITHUB-PUBLIC-KEY-IDENTIFIER: 90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc=
+GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc=
 Content-Length: 0000
 
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 ```
 
 **Exemplo de validação em Go**
@@ -123,73 +129,73 @@ import (
 )
 
 func main() {
-  payload := `[{"token": "some_token", "type": "some_type", "url": "some_url"}]`
+  payload := `[{"token":"some_token","type":"some_type","url":"some_url"}]`
 
   kID := "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-  kSig := "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+  kSig := "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
   // Fetch the list of GitHub Public Keys
-  req, err := http. NewRequest("GET", "https://api.github.com/meta/public_keys/token_scanning", nil)
+  req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
   if err != nil {
-    fmt. Printf("Error preparing request: %s\n", err)
-    os. Exit(1)
+    fmt.Printf("Error preparing request: %s\n", err)
+    os.Exit(1)
   }
 
-  if len(os. Getenv("GITHUB_PRODUCTION_TOKEN")) == 0 {
-    fmt. Println("Need to define environment variable GITHUB_PRODUCTION_TOKEN")
-    os. Exit(1)
+  if len(os.Getenv("GITHUB_PRODUCTION_TOKEN")) == 0 {
+    fmt.Println("Need to define environment variable GITHUB_PRODUCTION_TOKEN")
+    os.Exit(1)
   }
 
-  req. Header. Add("Authorization", "Bearer "+os. Getenv("GITHUB_PRODUCTION_TOKEN"))
+  req.Header.Add("Authorization", "Bearer "+os.Getenv("GITHUB_PRODUCTION_TOKEN"))
 
-  resp, err := http. DefaultClient. Do(req)
+  resp, err := http.DefaultClient.Do(req)
   if err != nil {
-    fmt. Printf("Error requesting GitHub signing keys: %s\n", err)
-    os. Exit(2)
+    fmt.Printf("Error requesting GitHub signing keys: %s\n", err)
+    os.Exit(2)
   }
 
-  decoder := json. NewDecoder(resp. Body)
+  decoder := json.NewDecoder(resp.Body)
   var keys GitHubSigningKeys
-  if err := decoder. Decode(&keys); err != nil {
-    fmt. Printf("Error decoding GitHub signing key request: %s\n", err)
-    os. Exit(3)
+  if err := decoder.Decode(&keys); err != nil {
+    fmt.Printf("Error decoding GitHub signing key request: %s\n", err)
+    os.Exit(3)
   }
 
   // Find the Key used to sign our webhook
   pubKey, err := func() (string, error) {
-    for _, v := range keys. PublicKeys {
+    for _, v := range keys.PublicKeys {
       if v.KeyIdentifier == kID {
         return v.Key, nil
 
       }
     }
-    return "", errors. New("specified key was not found in GitHub key list")
+    return "", errors.New("specified key was not found in GitHub key list")
   }()
 
   if err != nil {
-    fmt. Printf("Error finding GitHub signing key: %s\n", err)
-    os. Exit(4)
+    fmt.Printf("Error finding GitHub signing key: %s\n", err)
+    os.Exit(4)
   }
 
   // Decode the Public Key
   block, _ := pem.Decode([]byte(pubKey))
   if block == nil {
-    fmt. Println("Error parsing PEM block with GitHub public key")
-    os. Exit(5)
+    fmt.Println("Error parsing PEM block with GitHub public key")
+    os.Exit(5)
   }
 
   // Create our ECDSA Public Key
-  key, err := x509. ParsePKIXPublicKey(block. Bytes)
+  key, err := x509.ParsePKIXPublicKey(block.Bytes)
   if err != nil {
-    fmt. Printf("Error parsing DER encoded public key: %s\n", err)
-    os. Exit(6)
+    fmt.Printf("Error parsing DER encoded public key: %s\n", err)
+    os.Exit(6)
   }
 
-  // Because of documentation, we know it's a *ecdsa. PublicKey
-  ecdsaKey, ok := key.(*ecdsa. PublicKey)
+  // Because of documentation, we know it's a *ecdsa.PublicKey
+  ecdsaKey, ok := key.(*ecdsa.PublicKey)
   if !ok {
-    fmt.
+    fmt.Println("GitHub key was not ECDSA, what are they doing?!")
     Exit(7)
   }
 
@@ -241,16 +247,16 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token": "some_token", "type": "some_type", "url": "some_url"}]
+[{"token":"some_token","type":"some_type","url":"some_url"}]
 EOL
 
 payload = payload
 
-signature = "MEUCICxTWEpKo7BorLKutFZDS6ie+YFg6ecU7kEA6rUUSJqsAiEA9bK0Iy6vk2QpZOOg2IpBhZ3JRVdwXx1zmgmNAR7Izpc="
+signature = "MEUCIQDKZokqnCjrRtw0tni+2Ltvl/uiMJ1EGumEsp1BsNr32AIgQY1YXD2nlj+XNfGK4rBfkMJ1JDOQcYXxa2sY8FNkrKc="
 
 key_id = "90a421169f0a406205f1563a953312f0be898d3c7b6c06b681aa86a874555f4a"
 
-url = URI.parse('https://api.github.com/meta/public_keys/token_scanning')
+url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
 raise "Need to define GITHUB_PRODUCTION_TOKEN environment variable" unless ENV['GITHUB_PRODUCTION_TOKEN']
 request = Net::HTTP::Get.new(url.path)
@@ -356,4 +362,3 @@ Alguns pontos importantes:
 **Nota:** Nosso tempo limite de solicitação está definido para ser maior (isto é, 30 segundos) para parceiros que fornecem dados sobre falsos positivos. Se você precisar de um tempo limite superior a 30 segundos, envie um e-mail para <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}
-

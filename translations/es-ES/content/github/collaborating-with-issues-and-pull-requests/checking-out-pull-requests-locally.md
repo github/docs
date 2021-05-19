@@ -3,13 +3,13 @@ title: Revisar solicitudes de extracción localmente
 intro: 'Cuando alguien te manda una solicitud de extracción desde una bifurcación o rama de tu repositorio, puedes fusionarla localmente para resolver un conflicto de fusión o para probar y verificar los cambios antes de fusionarlos en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
-permissions: Cualquiera con acceso de escritura a un repositorio puede extraer una solicitud de extracción remota localmente.
+permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
   {% note %}
@@ -17,6 +17,14 @@ topics:
   **Nota:** Los autores de solicitudes de extracción pueden otorgar permisos a los mantenedores del repositorio ascendente, o a aquellos con acceso de escritura en dicho repositorio, para realizar confirmaciones de cambios en sus solicitudes de extracción para comparar ramas en una bifurcación propiedad de un usuario. Para más información, consulta "[Permitir cambios en una rama de solicitud de extracción creada desde una bifurcación](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
 
   {% endnote %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also check out a pull request locally using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr checkout`](https://cli.github.com/manual/gh_pr_checkout)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 ### Modificar una solicitud de extracción activa localmente
 

@@ -1,13 +1,13 @@
 ---
 title: Bloquear a un usuario de tu cuenta personal
-intro: 'Puedes bloquear a un usuario para impedirle el acceso a tu actividad y repositorios y para evitar que te envíe notificaciones.'
+intro: Puedes bloquear a un usuario para impedirle el acceso a tu actividad y repositorios y para evitar que te envíe notificaciones.
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Acerca de bloquear usuarios
@@ -74,7 +74,7 @@ Utiliza {% data variables.contact.report_abuse %} para contactarnos si te están
 
 - "[Ver usuarios que has bloqueado de tu cuenta personal](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
 - "[Desbloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[Bloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
 - "[Desbloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Limitar interacciones en tu repositorio](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

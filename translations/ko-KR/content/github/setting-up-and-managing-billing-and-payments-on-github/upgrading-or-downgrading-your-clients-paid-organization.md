@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -22,11 +22,9 @@ topics:
 
 ### Upgrading an organization's number of paid seats
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -35,10 +33,8 @@ After you add seats, the payment method on file for the organization will be cha
 
 ### Downgrading an organization's number of paid seats to free
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -21,13 +21,13 @@ Si necesitas compartir flujos de trabajo y otras características de {% data var
 
 ### Crear una plantilla de flujo de trabajo
 
-Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas. Las plantillas de flujo de trabajo pueden utilizarse para crear flujos de trabajo nuevos en los repositorios públicos de una organización; para utilizar estas plantillas para crear flujos de trabajo en repositorios privados, la organización deberá pertenecer a un plan empresarial o a un plan de GitHub One.
+Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas. Las plantillas de flujo de trabajo pueden utilizarse para crear flujos de trabajo nuevos en los repositorios públicos de una organización; para utilizar estas plantillas para crear flujos de trabajo en repositorios privados, la organización deberá pertenecer a un plan empresarial.
 
 Este procedimiento muestra cómo crear una plantilla de flujo de trabajo y un archivo de metadatos. El archivo de metadatos describe cómo se presenta la plantilla a los usuarios cuando están creando un flujo de trabajo nuevo.
 
 1. En caso de que no exista previamente, crea en tu organización un repositorio público nuevo que se llame `.github`.
-1. Crea un directorio que se llame `workflow-templates`.
-1. Crea tu nuevo archivo de flujo de trabajo dentro del directorio `workflow-templates`.
+2. Crea un directorio que se llame `workflow-templates`.
+3. Crea tu nuevo archivo de flujo de trabajo dentro del directorio `workflow-templates`.
 
    Si necesitas referirte a la rama predeterminada de un repositorio, puedes utilizar el marcador de posición `$default-branch`. Cuando se crea un flujo de trabajo utilizando tu plantilla, el marcador de posición se reemplazará automáticamente con el nombre de la rama predeterminada del repositorio.
 
@@ -52,7 +52,7 @@ Este procedimiento muestra cómo crear una plantilla de flujo de trabajo y un ar
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-1. Crea un archivo de metadatos dentro del directorio `workflow-templates`. El archivo de metadatos debe tener el mismo nombre que el archivo de flujo de trabajo, pero en vez de tener la extensión `.yml`, este deberá encontrarse adjunto en `.properties.json`. Por ejemplo, este archivo que se llama `octo-organization-ci.properties.json` contiene los metadatos para un archivo de flujo de trabajo de nombre `octo-organization-ci.yml`:
+4. Crea un archivo de metadatos dentro del directorio `workflow-templates`. El archivo de metadatos debe tener el mismo nombre que el archivo de flujo de trabajo, pero en vez de tener la extensión `.yml`, este deberá encontrarse adjunto en `.properties.json`. Por ejemplo, este archivo que se llama `octo-organization-ci.properties.json` contiene los metadatos para un archivo de flujo de trabajo de nombre `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",

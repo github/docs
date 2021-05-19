@@ -3,6 +3,7 @@ title: 对代码扫描的 SARIF 支持
 shortTitle: SARIF 支持
 intro: '要在 {% data variables.product.prodname_dotcom %} 上的仓库中显示第三方静态分析工具的结果，您需要将结果存储在 SARIF 文件中，以支持用于 {% data variables.product.prodname_code_scanning %} 的 SARIF 2.1.0 JSON 架构的特定子集。 如果使用默认 {% data variables.product.prodname_codeql %} 静态分析引擎，结果将自动显示于您在 {% data variables.product.prodname_dotcom %} 上的仓库中。'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
@@ -11,8 +12,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 安全
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -22,7 +25,15 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 要从第三方静态代码分析引擎上传 SARIF 文件，需确保上传的文件使用 SARIF 2.1.0 版本。 {% data variables.product.prodname_dotcom %} 将剖析 SARIF 文件，并在 {% data variables.product.prodname_code_scanning %} 过程中使用仓库中的结果显示警报。 更多信息请参阅“[将 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)”。 有关 SARIF 2.1.0 JSON 架构的更多信息，请参阅 [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json)。
 
-如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”或“[在 CI 系统中运行 {% data variables.product.prodname_codeql %}{% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)”。
+如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Running {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github)."{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+You can upload multiple SARIF files for the same tool and commit, and analyze each file using {% data variables.product.prodname_code_scanning %}. You can indicate a "category" for each analysis by specifying a `runAutomationDetails.id` in each file. Only SARIF files with the same category will overwrite each other. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
+
+{% endif %}
 
 {% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)”。
 
@@ -122,6 +133,45 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 | `region.endLine`       | **必选。**区域中最后一个字符的行号。                                                                                                                                                                                                                                                                                                  |
 | `region.endColumn`     | **必选。**区域结束后字符的列编号。                                                                                                                                                                                                                                                                                                   |
 
+{% if currentVersion == "free-pro-team@latest" %}
+#### `runAutomationDetails` object
+
+The `runAutomationDetails` object contains information that specifies the identity of a run.
+
+{% note %}
+
+**Note:** `runAutomationDetails` is a SARIF v2.1.0 object. If you're using the {% data variables.product.prodname_codeql_cli %}, you can specify the version of SARIF to use. The equivalent object to `runAutomationDetails` is `<run>.automationId` for SARIF v1 and `<run>.automationLogicalId` for SARIF v2.
+
+{% endnote %}
+
+| 名称   | 描述                                                                                                                                                                                                                                    |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id` | **Optional.** A string that identifies the category of the analysis and the run ID. Use if you want to upload multiple SARIF files for the same tool and commit, but performed on different languages or different parts of the code. |
+
+The use of the `runAutomationDetails` object is optional.
+
+The `id` field can include an analysis category and a run ID. We don't use the run ID part of the `id` field, but we store it.
+
+Use the category to distinguish between multiple analyses for the same tool or commit, but performed on different languages or different parts of the code. Use the run ID to identify the specific run of the analysis, such as the date the analysis was run.
+
+`id` is interpreted as `category/run-id`. If the `id` contains no forward slash (`/`), then the entire string is the `run_id` and the `category` is empty. Otherwise, `category` is everything in the string until the last forward slash, and `run_id` is everything after.
+
+| `id`                         | 分类                | `run_id`              |
+| ---------------------------- | ----------------- | --------------------- |
+| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01            |
+| my-analysis/tool1/           | my-analysis/tool1 | _no `run-id`_         |
+| my-analysis for tool1        | _no category_     | my-analysis for tool1 |
+
+- The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
+- The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
+- The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
+
+For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation.
+
+Note that the rest of the supported fields are ignored.
+
+{% endif %}
+
 ### SARIF 输出文件示例
 
 这些示例 SARIF 输出文件显示支持的属性和示例值。
@@ -129,7 +179,6 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 #### 具有最少必需属性的示例
 
 此 SARIF 输出文件的示例值显示了 {% data variables.product.prodname_code_scanning %} 结果正常运行所需的最少属性。 如果您删除任何属性或不包含值，此数据将无法正确显示或在 {% data variables.product.prodname_dotcom %} 上同步。
-
 
 ```json
 {
@@ -181,6 +230,260 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 此 SARIF 输出文件的示例值显示了 {% data variables.product.prodname_code_scanning %} 的所有受支持 SARIF 属性。
 
+{% if currentVersion == "free-pro-team@latest" %}
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Tool Name",
+          "semanticVersion": "2.0.0",
+          "rules": [
+            {
+              "id": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
+              "name": "js/unused-local-variable",
+              "shortDescription": {
+                "text": "Unused variable, import, function or class"
+              },
+              "fullDescription": {
+                "text": "Unused variables, imports, functions or classes may be a symptom of a bug and should be examined carefully."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "maintainability"
+                ],
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
+              "name": "js/inconsistent-use-of-new",
+              "shortDescription": {
+                "text": "Inconsistent use of 'new'"
+              },
+              "fullDescription": {
+                "text": "If a function is intended to be a constructor, it should always be invoked with 'new'. Otherwise, it should always be invoked as a normal function, that is, without 'new'."
+              },
+              "properties": {
+                "tags": [
+                  "reliability",
+                  "correctness",
+                  "language-features"
+                ],
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "R01"
+            }
+          ]
+        }
+      },
+      "automationDetails": { 
+        "id": "my-category/"
+      },
+      "results": [
+        {
+          "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused variable foo."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "main.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 7,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "39fa2ee980eb94b0:1",
+            "primaryLocationStartColumnFingerprint": "4"
+          }
+        },
+        {
+          "ruleId": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Function resolvingPromise is sometimes invoked as a constructor (for example [here](1)), and sometimes as a normal function (for example [here](2))."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/promises.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "5061c3315a741b7d:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ParseObject.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2281,
+                  "startColumn": 33,
+                  "endColumn": 55
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LiveQueryClient.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 166
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "R01",
+          "message": {
+            "text": "Specifying both [ruleIndex](1) and [ruleID](2) might lead to inconsistencies."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 10,
+                  "endLine": 55,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 10,
+                  "endColumn": 18
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 10,
+                  "endColumn": 21
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 11,
+                            "endLine": 29,
+                            "startColumn": 10,
+                            "endColumn": 18
+                          },
+                          "artifactLocation": {
+                            "uriBaseId": "%SRCROOT%",
+                            "uri": "full.sarif"
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 0"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "endColumn": 47,
+                            "startColumn": 12,
+                            "startLine": 12
+                          },
+                          "artifactLocation": {
+                            "uriBaseId": "%SRCROOT%",
+                            "uri": "full.sarif"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "ABC:2"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
+```
+{% else %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
@@ -430,3 +733,4 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
   ]
 }
 ```
+{% endif %}
