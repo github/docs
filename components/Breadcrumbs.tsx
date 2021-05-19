@@ -18,6 +18,10 @@ export const Breadcrumbs = (props: Props) => {
   return (
     <nav className="breadcrumbs f5" aria-label="Breadcrumb">
       {Object.values(breadcrumbs).map((breadcrumb) => {
+        if (!breadcrumb) {
+          return null
+        }
+
         const title = `${breadcrumb.documentType}: ${breadcrumb.title}`
         return !breadcrumb.href ? (
           <span key={title} title={title}>

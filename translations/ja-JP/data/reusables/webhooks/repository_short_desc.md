@@ -1,1 +1,1 @@
-Activity related to a repository. {% data reusables.webhooks.action_type_desc %} For more information, see the "[repositories](/rest/reference/repos)" REST API.
+リポジトリに関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については「[リポジトリ](/rest/reference/repos)」 REST APIを参照してください。

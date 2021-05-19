@@ -1,6 +1,6 @@
-| キー                     | 種類       | 説明                                                                                    |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------- |
-| `action`               | `string` | 実行されたアクション. Can be either `added` or `removed`.                                       |
-| `repository_selection` | `string` | The choice of repositories the installation is on. Can be either `selected` or `all`. |
-| `repositories_added`   | `array`  | An array of repository objects, which were added to the installation.                 |
-| `repositories_removed` | `array`  | An array of repository objects, which were removed from the installation.             |
+| キー                     | 種類       | 説明                                           |
+| ---------------------- | -------- | -------------------------------------------- |
+| `action`               | `string` | 実行されたアクション. `added`あるいは`removed`のいずれか。       |
+| `repository_selection` | `string` | インストールがあるリポジトリの選択。 `selected`あるいは`all`のいずれか。 |
+| `repositories_added`   | `array`  | インストールに追加されたリポジトリオブジェクトの配列。                  |
+| `repositories_removed` | `array`  | インストールから削除されたリポジトリオブジェクトの配列。                 |

@@ -7,12 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+children:
+  - /about-github-packages
+  - /publishing-a-package
+  - /viewing-packages
+  - /installing-a-package
+  - /deleting-a-package
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_in_list /about-github-packages %}
-{% link_in_list /publishing-a-package %}
-{% link_in_list /viewing-packages %}
-{% link_in_list /installing-a-package %}
-{% link_in_list /deleting-a-package %}  

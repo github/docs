@@ -121,6 +121,7 @@ sections:
     - A race condition can cause dependency graph database migrations to appear to fail.
     - Instances with a custom timezone that were upgraded from an earlier release of GitHub Enterprise Server may have incorrect timestamps in the web UI.
     - 'Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).'
+    - 'When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.'
   deprecations:
     - heading: Depreciação do GitHub Enterprise Server 2.19
       notes:
