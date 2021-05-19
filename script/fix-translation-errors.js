@@ -40,7 +40,7 @@ async function main () {
     if (path.endsWith('yml')) {
       let data; let errors = []
       try {
-        data = yaml.safeLoad(fileContents)
+        data = yaml.load(fileContents)
       } catch {}
       if (data && schema) {
         ({ errors } = revalidator.validate(data, schema))
