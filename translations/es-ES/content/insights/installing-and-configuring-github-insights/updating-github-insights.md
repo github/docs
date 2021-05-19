@@ -1,7 +1,6 @@
 ---
 title: Actualizar la información de GitHub
 intro: 'Puedes actualizar a la última versión de {% data variables.product.prodname_insights %} para beneficiarte de las mejoras y correcciones de errores.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'

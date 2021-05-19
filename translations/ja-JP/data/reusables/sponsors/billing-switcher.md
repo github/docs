@@ -1,1 +1,1 @@
-1. Optionally, to manage your sponsorship on behalf of an organization, in the upper-left corner, use the **Personal settings** drop-down menu, and click the organization. ![Drop-down menu to switch accounts for settings](/assets/images/help/sponsors/billing-account-switcher.png)
+1. あるいは、Organizationの代わりにスポンサーシップを管理するために、左上の**Personal settings（個人設定）**ドロップダウンメニューを使い、Organizationをクリックしてください。 ![設定のアカウントを切り替えるためのドロップダウンメニュー](/assets/images/help/sponsors/billing-account-switcher.png)

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}" data-color-mode="auto" data-dark-theme="dark_dimmed">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -126,8 +126,12 @@
         {{ renderedPage }}
       </div>
 
+      {% if currentVersion contains 'enterprise-server' and currentProduct == 'admin' %}
+      {% include product-releases %}
+      {% endif %}
+
       {% if featuredLinks.guideCards %}
-        <div class="bg-guides-gradient py-6">
+        <div class="color-bg-tertiary py-6">
           <div class="container-xl px-3 px-md-6 my-6">
             <h2 class="font-mktg h1 mb-2" id="guides-2"><a href="#guides-2">Guides</a></h2>
 

@@ -22,7 +22,7 @@ jobs:
       # Jump through some hoops to work with a multi-line file
       - name: Store review template in variable
         run: |
-          TEMPLATE=$(cat .github/workflows/review-template.md)
+          TEMPLATE=$(cat .github/review-template.md)
           echo "TEMPLATE<<EOF" >> $GITHUB_ENV
           echo "$TEMPLATE" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV

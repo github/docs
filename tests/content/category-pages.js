@@ -1,3 +1,4 @@
+require('../../lib/feature-flags')
 const path = require('path')
 const fs = require('fs')
 const walk = require('walk-sync')
@@ -15,6 +16,8 @@ const entities = new XmlEntities()
 
 const contentDir = path.join(__dirname, '../../content')
 const linkRegex = /{% (?:(?:topic_)?link_in_list|link_with_intro) ?\/(.*?) ?%}/g
+
+const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('category pages', () => {
   let siteData
@@ -45,14 +48,16 @@ describe('category pages', () => {
       // Each link corresponds to a product subdirectory (category).
       // Example: "getting-started-with-github"
       const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
-      const { content } = matter(contents)
+      const { content, data } = matter(contents)
 
       const productDir = path.dirname(productIndex)
 
-      const categoryLinks = getLinks(content)
+      const categoryLinks = process.env.FEATURE_NEW_SITETREE
+        ? data.children
+        : getLinks(content)
         // Only include category directories, not standalone category files like content/actions/quickstart.md
-        .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
-        // TODO this should move to async, but you can't asynchronously define tests with Jest...
+          .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
+      // TODO this should move to async, but you can't asynchronously define tests with Jest...
 
       // Map those to the Markdown file paths that represent that category page index
       const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))
@@ -65,6 +70,7 @@ describe('category pages', () => {
 
       if (!categoryTuples.length) return
 
+      // TODO rework this for the new site tree structure
       describe.each(categoryTuples)(
         'category index "%s"',
         (indexRelPath, indexAbsPath, indexLink) => {
@@ -78,7 +84,9 @@ describe('category pages', () => {
             const indexContents = await readFileAsync(indexAbsPath, 'utf8')
             const { data, content } = matter(indexContents)
             categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-            const articleLinks = getLinks(content)
+            const articleLinks = process.env.FEATURE_NEW_SITETREE
+              ? data.children
+              : getLinks(content)
 
             // Save the index title for later testing
             indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
@@ -125,19 +133,19 @@ describe('category pages', () => {
             )
           })
 
-          test('contains all expected articles', () => {
+          testOldSiteTree('contains all expected articles', () => {
             const missingArticlePaths = difference(availableArticlePaths, publishedArticlePaths)
             const errorMessage = formatArticleError('Missing article links:', missingArticlePaths)
             expect(missingArticlePaths.length, errorMessage).toBe(0)
           })
 
-          test('does not any unexpected articles', () => {
+          testOldSiteTree('does not any unexpected articles', () => {
             const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
             const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
             expect(unexpectedArticles.length, errorMessage).toBe(0)
           })
 
-          test('contains only articles and map topics with versions that are also available in the parent category', () => {
+          testOldSiteTree('contains only articles and map topics with versions that are also available in the parent category', () => {
             Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
               const unexpectedVersions = difference(articleVersions, categoryVersions)
               const errorMessage = `${articleName} has versions that are not available in parent category`

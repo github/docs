@@ -50,6 +50,7 @@ describe('check for repository references', () => {
       '.git',
       '.github/actions-scripts/enterprise-server-issue-templates/*.md',
       '.github/review-template.md',
+      '.next',
       'dist',
       'node_modules',
       'translations',

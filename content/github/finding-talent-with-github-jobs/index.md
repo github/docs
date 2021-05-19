@@ -8,9 +8,7 @@ versions:
   free-pro-team: '*'
 topics:
   - Jobs
+children:
+  - /about-github-jobs
 ---
 
-
-### Table of Contents
-
-{% link_in_list /about-github-jobs %}

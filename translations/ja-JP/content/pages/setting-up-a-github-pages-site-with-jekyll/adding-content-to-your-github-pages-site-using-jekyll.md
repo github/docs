@@ -65,7 +65,7 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+あなたの投稿がサイトにアップされているはずです。 サイトのベース URL が `https://octocat.github.io` の場合、新しい投稿は `https://octocat.github.io/YYYY/MM/DD/TITLE.html` にあります。
 
 ### 次のステップ
 
