@@ -32,6 +32,7 @@ children:
   - /sponsoring-open-source-contributors
   - /receiving-sponsorships-through-github-sponsors
   - /integrating-with-github-sponsors
+  - /guides
 ---
 <!---->
 <!---->
