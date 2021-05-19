@@ -5,6 +5,8 @@
 
 # Engineering
 *.js @github/docs-engineering
+*.ts @github/docs-engineering
+*.tsx @github/docs-engineering
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
 /includes/ @github/docs-engineering
