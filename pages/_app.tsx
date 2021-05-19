@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useTheme, ThemeProvider } from '@primer/components'
 
 import '@primer/css/index.scss'
+
+import { defaultThemeProps } from 'components/lib/getThemeProps'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -26,9 +29,23 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
         <meta name="csrf-token" content="$CSRFTOKEN$" />
       </Head>
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <SetTheme themeProps={pageProps.themeProps} />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
+}
+
+const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {
+  // Cause primer/components to re-evaluate the 'auto' color mode on client side render
+  const { setColorMode } = useTheme()
+  useEffect(() => {
+    setTimeout(() => {
+      setColorMode(themeProps.colorMode as any)
+    })
+  }, [])
+  return null
 }
 
 export default App

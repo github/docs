@@ -6,6 +6,6 @@ This example triggers the workflow every day at 5:30 and 17:30 UTC:
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/30 5,17 * * *'
+    - cron:  '30 5,17 * * *'
 
 ```

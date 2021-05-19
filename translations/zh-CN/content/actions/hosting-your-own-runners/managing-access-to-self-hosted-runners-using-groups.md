@@ -53,7 +53,7 @@ type: tutorial
 
    **警告**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
@@ -85,7 +85,7 @@ type: tutorial
 
    **警告**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 

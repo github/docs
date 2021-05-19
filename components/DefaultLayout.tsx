@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-// import { Sidebar } from 'components/Sidebar'
-// import { Header } from 'components/Header'
+import { SidebarNav } from 'components/SidebarNav'
+import { Header } from 'components/Header'
 import { SmallFooter } from 'components/SmallFooter'
 import { ScrollButton } from 'components/ScrollButton'
 import { SupportSection } from 'components/SupportSection'
@@ -18,10 +18,10 @@ export const DefaultLayout = (props: Props) => {
         <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
         <script src={builtAssets.main.js} />
       </Head>
-      {/* <Sidebar /> */}
+      <SidebarNav />
 
       <main className="width-full">
-        {/* <Header /> */}
+        <Header />
         <DeprecationBanner />
 
         {props.children}

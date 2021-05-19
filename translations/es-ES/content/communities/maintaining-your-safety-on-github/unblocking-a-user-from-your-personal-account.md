@@ -37,6 +37,6 @@ Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página
 ### Leer más
 
 - "[Bloquear a un usuario desde tu cuenta personal](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[Bloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
 - "[Desbloquear a un usuario de tu organización](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
 - "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

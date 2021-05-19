@@ -10,9 +10,9 @@ topics:
   - Community
 ---
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. 在“Blocked users（被阻止的用户）”下，查看被阻止访问组织的用户的列表。 ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 

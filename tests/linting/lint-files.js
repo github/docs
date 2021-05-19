@@ -209,7 +209,7 @@ if (!process.env.TEST_TRANSLATION) {
   learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 } else {
   // get all translated markdown or yaml files by comparing files changed to main branch
-  const changedFilesRelPaths = execSync('git diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
+  const changedFilesRelPaths = execSync('git -c diff.renameLimit=10000 diff --name-only origin/main | egrep "^translations/.*/.+.(yml|md)$"', { maxBuffer: 1024 * 1024 * 100 }).toString().split('\n')
   if (changedFilesRelPaths === '') process.exit(0)
 
   console.log('testing translations.')
@@ -412,8 +412,8 @@ describe('lint markdown content', () => {
           // Filter out some very specific false positive matches
           const matches = initialMatches.filter(match => {
             if (
-              markdownRelPath === 'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md' ||
-              markdownRelPath === 'content/admin/all-releases.md'
+              markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
+              markdownRelPath.endsWith('all-releases.md')
             ) {
               return false
             }
