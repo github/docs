@@ -412,8 +412,8 @@ describe('lint markdown content', () => {
           // Filter out some very specific false positive matches
           const matches = initialMatches.filter(match => {
             if (
-              markdownRelPath === 'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md' ||
-              markdownRelPath === 'content/admin/all-releases.md'
+              markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
+              markdownRelPath.endsWith('all-releases.md')
             ) {
               return false
             }
