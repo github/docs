@@ -141,8 +141,8 @@ describe('breadcrumbs', () => {
 
       expect($breadcrumbSpans).toHaveLength(2)
       expect($breadcrumbLinks).toHaveLength(2)
-      expect($breadcrumbSpans[0].text()).toBe('Early Access documentation')
-      expect($breadcrumbSpans[1].text()).toBe('GitHub.com')
+      expect($breadcrumbSpans[0].children[0].data).toBe('Early Access documentation')
+      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub.com')
       expect($breadcrumbLinks[0].attribs.title).toBe('category: Enforcing best practices with GitHub Policies')
       expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
       expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
