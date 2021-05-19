@@ -12,6 +12,12 @@ versions:
 
 You can install {% data variables.product.prodname_desktop %} on supported operating systems. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
 
+{% note %}
+
+**Note:** GitHub Desktop is not currently available for Linux. You can subscribe to [this issue](https://github.com/desktop/desktop/issues/1525) to know when support is added.
+
+{% endnote %}
+
 {% windows %}
 
 If you are a network administrator, you can deploy {% data variables.product.prodname_desktop %} to computers running Windows on an Active Directory-managed network by using the Windows Installer package file (`.msi`) with Group Policy or another remote installation system.
