@@ -8,6 +8,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 Puedes configurar webhooks para recibir eventos de organizaciones que son propiedad de tu cuenta de empresa. Para obtener más información acerca de los webhooks, consulta la sección "[Webhooks](/webhooks/)".

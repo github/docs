@@ -7,6 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.product.product_location %} and know when to add more memory, storage, or processor power to the host machine.
@@ -59,7 +65,7 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 
 ##### Querying SNMP data
 
-Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.1.3.6.1.2.1.25.41) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level.
+Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](http://oidref.com/1.3.6.1.2.1.25.4)."
 
 With SNMP v2c, only hardware-level information about your appliance is available. The applications and services within {% data variables.product.prodname_enterprise %} do not have OIDs configured to report metrics. Several MIBs are available, which you can see by running `snmpwalk` on a separate workstation with SNMP support in your network:
 
@@ -69,16 +75,16 @@ With SNMP v2c, only hardware-level information about your appliance is available
 $ snmpwalk -v 2c -c <em>community-string</em> -O e <em>hostname</em>
 ```
 
-Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (.1.3.6.1.2.1.25). See the table below for some important objects in this MIB:
+Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (1.3.6.1.2.1.25). See the table below for some important objects in this MIB:
 
-| 이름                         | OID                       | 설명                                                                             |
-| -------------------------- | ------------------------- | ------------------------------------------------------------------------------ |
-| hrSystemDate.2             | .1.3.6.1.2.1.25.1.2       | The hosts notion of the local date and time of day.                            |
-| hrSystemUptime.0           | .1.3.6.1.2.1.25.1.1.0     | How long it's been since the host was last initialized.                        |
-| hrMemorySize.0             | .1.3.6.1.2.1.25.2.2.0     | The amount of RAM on the host.                                                 |
-| hrSystemProcesses.0        | .1.3.6.1.2.1.25.1.6.0     | The number of process contexts currently loaded or running on the host.        |
-| hrStorageUsed.1            | .1.3.6.1.2.1.25.2.3.1.6.1 | The amount of storage space consumed on the host, in hrStorageAllocationUnits. |
-| hrStorageAllocationUnits.1 | .1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit                              |
+| 이름                         | OID                      | 설명                                                                             |
+| -------------------------- | ------------------------ | ------------------------------------------------------------------------------ |
+| hrSystemDate.2             | 1.3.6.1.2.1.25.1.2       | The hosts notion of the local date and time of day.                            |
+| hrSystemUptime.0           | 1.3.6.1.2.1.25.1.1.0     | How long it's been since the host was last initialized.                        |
+| hrMemorySize.0             | 1.3.6.1.2.1.25.2.2.0     | The amount of RAM on the host.                                                 |
+| hrSystemProcesses.0        | 1.3.6.1.2.1.25.1.6.0     | The number of process contexts currently loaded or running on the host.        |
+| hrStorageUsed.1            | 1.3.6.1.2.1.25.2.3.1.6.1 | The amount of storage space consumed on the host, in hrStorageAllocationUnits. |
+| hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit                              |
 
 For example, to query for `hrMemorySize` with SNMP v3, run the following command on a separate workstation with SNMP support in your network:
 ```shell
@@ -101,7 +107,7 @@ snmpget -v 2c -c <em>community-string</em> <em>hostname</em> HOST-RESOURCES-MIB:
 
 {% tip %}
 
-**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.1.3.6.1.2.1.25.41) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
+**Note:** To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
 
 {% endtip %}
 

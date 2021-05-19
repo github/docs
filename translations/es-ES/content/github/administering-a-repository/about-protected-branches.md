@@ -19,6 +19,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### Acerca de las reglas de protección de rama
@@ -44,6 +46,8 @@ Para cada regla de protección de rama, puedes elegir habilitar o inhabilitar la
 - [Restringir quiénes pueden subir a las ramas coincidentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir las subidas forzadas](#allow-force-pushes)
 - [Permitir el borrado](#allow-deletions)
+
+Para obtener más información sobre cómo configurar la protección de ramas, consulta la sección "[Administrar la regla de protección de ramas](/github/administering-a-repository/managing-a-branch-protection-rule)".
 
 #### Requerir revisiones de solicitudes de cambio antes de fusionarlas
 
@@ -86,8 +90,8 @@ Puedes configurar las verificaciones de estado requeridas para que sean "laxas" 
 
 | Tipo de verificación de estado requerida | Parámetro                                                                                                                                           | Requisitos de fusión                                                          | Consideraciones                                                                                                                                                                                                                                                                                         |
 | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Estricta**                             | La casilla **Require branches to be up-to-date before merging** (Las ramas deben estar actualizadas antes de la fusión) está marcada.               | La rama **debe** estar actualizada con la rama de base antes de la fusión.    | Este es el comportamiento predeterminado para las verificaciones de estado requeridas. Se pueden requerir más construcciones, ya que deberás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción con la rama de base protegida.                  |
-| **Flexible**                             | La casilla **Require branches to be up-to-date before merging** (Las ramas deben estar actualizadas antes de la fusión) **no** está marcada.        | La rama **no debe** estar actualizada con la rama de base antes de la fusión. | Tendrás menos construcciones requeridas, ya que no necesitarás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción. Las verificaciones de estado pueden fallar después de que fusiones tu rama si hay cambios incompatibles con la rama de base. |
+| **Estricta**                             | La casilla de verificación **Requerir que las ramas estén actualizadas antes de fusionar** está seleccionada.                                       | La rama **debe** estar actualizada con la rama de base antes de la fusión.    | Este es el comportamiento predeterminado para las verificaciones de estado requeridas. Se pueden requerir más construcciones, ya que deberás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción con la rama de base protegida.                  |
+| **Flexible**                             | La casilla de verificación **Requerir que las ramas estén actualizadas antes de fusionar** **no** está seleccionada.                                | La rama **no debe** estar actualizada con la rama de base antes de la fusión. | Tendrás menos construcciones requeridas, ya que no necesitarás actualizar la rama de encabezado después de que otros colaboradores fusionen las solicitudes de extracción. Las verificaciones de estado pueden fallar después de que fusiones tu rama si hay cambios incompatibles con la rama de base. |
 | **Inhabilitada**                         | La casilla **Require status checks to pass before merging** (Se deben superar las verificaciones de estado antes de la fusión) **no** está marcada. | La rama no tiene restricciones de fusión.                                     | Si las verificaciones de estado requeridas no están habilitadas, los colaboradores pueden fusionar la rama en cualquier momento, independientemente de si está actualizada con la rama de base. Esto aumenta la posibilidad de cambios incompatibles.                                                   |
 
 Para obtener información sobre la solución de problemas, consulta la sección "[Solucionar probelmas para las verificaciones de estado requeridas](/github/administering-a-repository/troubleshooting-required-status-checks)".
@@ -98,7 +102,15 @@ Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colab
 
 {% note %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+**Notas:**
+
+* Si habilitaste el modo vigilante, el cual indica que tus confirmaciones siempre se firmarán, cualquier confirmación que {% data variables.product.prodname_dotcom %} identifique como "Verificada parcialmente" se permitirá en aquellas ramas que requieran confirmaciones firmadas. Para obtener más información sobre el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
+* Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, este necesitará rebasar dicha confirmación para incluir una firma verificada y luego subir forzadamente la confirmación reescrita a esta.
+
+{% else %}
 **Nota:** Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, éste necesitará rebasar la confirmación para incluir una firma verificada y luego subir forzadamente la confirmación re-escrita a la rama.
+{% endif %}
 
 {% endnote %}
 

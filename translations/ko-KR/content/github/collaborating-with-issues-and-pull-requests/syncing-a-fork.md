@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/articles/configuring-a-remote-for-a-fork) in Git.
@@ -49,6 +51,6 @@ Before you can sync your fork with an upstream repository, you must [configure a
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/articles/pushing-commits-to-a-remote-repository/).
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

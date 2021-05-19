@@ -14,6 +14,6 @@
 - **日付** （日付は、遅延が生じた{% data variables.product.company_short %}の会計年度の四半期から30日以内でなければなりません[1月31日、4月30日、7月31日、10月31日]）
 - **顧客の連絡先** （名前とメールアドレスをどちらも指定しなければなりません）
 - **顧客の住所**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% if currentVersion == "free-pro-team@latest" %}
+- **有効なクレジット** （それぞれの有効なクレジットの日付と関連するチケット番号が必要です）{% if currentVersion == "free-pro-team@latest" %}
 - **{% data variables.product.prodname_ghe_cloud %}のOrganization名**{% endif %}
 - **チケット番号**

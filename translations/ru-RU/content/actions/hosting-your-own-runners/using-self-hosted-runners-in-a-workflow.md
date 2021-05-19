@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
@@ -29,7 +32,7 @@ A self-hosted runner automatically receives certain labels when it is added to {
 
 * `self-hosted`: Default label applied to all self-hosted runners.
 * `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x86`, `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
 
@@ -66,7 +69,7 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}, then at the enterprise level{% endif %}.
 2. The job is then sent to the first matching runner that is online and idle.
    - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
    - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.

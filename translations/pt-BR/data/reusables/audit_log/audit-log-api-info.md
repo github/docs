@@ -1,5 +1,5 @@
-* Access to your organization or repository settings
-* Changes in permissions
-* Added or removed users in an organization, repository, or team
-* Users being promoted to admin
-* Changes to permissions of a {% data variables.product.prodname_github_app %}
+* O acesso às configurações da sua organização ou repositório
+* As alterações nas permissões
+* Os usuários adicionados ou removidos em uma organização, repositório ou equipe
+* Os usuários promovidos a administradores
+* Alterações nas permissões de um {% data variables.product.prodname_github_app %}

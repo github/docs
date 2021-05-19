@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - CI
@@ -17,6 +18,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -35,7 +37,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} 提供 Node.js 适用于大多数 Node.js 项目的工作流程模板。 本指南包含可用于自定义模板的 npm 和 Yarn 示例。 更多信息请参阅 [Node.js 工作流程模板](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml)。
 
-要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
+要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
 
 {% raw %}
 ```yaml{:copy}
@@ -43,9 +45,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -57,14 +59,14 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 
@@ -76,7 +78,7 @@ jobs:
 
 `setup-node` 操作采用 Node.js 版本作为输入，并在运行器上配置该版本。 `setup-node` 操作从每个运行器上的工具缓存中查找特定版本的 Node.js，并将必要的二进制文件添加到 `PATH`，这可继续用于作业的其余部分。 使用 `setup-node` 操作是 Node.js 与 {% data variables.product.prodname_actions %} 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Node.js 行为一致。 如果使用自托管运行器，则必须安装 Node.js 并将其添加到 `PATH`。
 
-The template includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
+模板包含一个矩阵策略：用四个 Node.js 版本 10.x、12.x、14.x 和 15.x 构建和测试代码， "x" 是一个通配符，与版本的最新次要版本和修补程序版本匹配。 `node-version` 阵列中指定的每个 Node.js 版本都会创建一个运行相同步骤的作业。
 
 每个作业都可以使用 `matrix` 上下文访问矩阵 `node-version` 阵列中定义的值。 `setup-node` 操作使用上下文作为 `node-version` 输入。 `setup-node` 操作在构建和测试代码之前使用不同的 Node.js 版本配置每个作业。 有关矩阵策略和上下文的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)”和“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
@@ -117,18 +119,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
+如果您没有指定 Node.js 版本，
 
-如果不指定 Node.js 版本，{% data variables.product.prodname_dotcom %} 将使用环境的默认 Node.js 版本。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% data variables.product.prodname_dotcom %} 使用环境的默认 Node.js 版本。
+{% if currentVersion == "github-ae@latest" %} 有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% endif %}
 
 ### 安装依赖项
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/github-marketplace-support
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 

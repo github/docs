@@ -1,11 +1,15 @@
+require('../../lib/feature-flags')
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers/supertest')
+const { get, getDOM, head, post } = require('../helpers/supertest')
 const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
+
+const testNewSiteTree = process.env.FEATURE_NEW_SITETREE ? test : test.skip
+const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -45,7 +49,6 @@ describe('server', () => {
     expect(csp.get('default-src')).toBe("'none'")
 
     expect(csp.get('font-src').includes("'self'")).toBe(true)
-    expect(csp.get('font-src').includes('github-images.s3.amazonaws.com')).toBe(true)
     expect(csp.get('font-src').includes(AZURE_STORAGE_URL)).toBe(true)
 
     expect(csp.get('connect-src').includes("'self'")).toBe(true)
@@ -54,7 +57,6 @@ describe('server', () => {
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes(AZURE_STORAGE_URL)).toBe(true)
-    expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
@@ -112,6 +114,13 @@ describe('server', () => {
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
+  })
+
+  test('returns a 400 when POST-ed invalid JSON', async () => {
+    const res = await post('/')
+      .send('not real JSON')
+      .set('Content-Type', 'application/json')
+    expect(res.statusCode).toBe(400)
   })
 
   test('converts Markdown in intros', async () => {
@@ -186,8 +195,8 @@ describe('server', () => {
   test('renders product frontmatter callouts', async () => {
     const $ = await getDOM('/en/articles/about-branch-restrictions')
     const note = $('.product-callout').eq(0)
-    expect(note.hasClass('border-purple')).toBe(true)
-    expect(note.hasClass('bg-purple-light')).toBe(true)
+    expect(note.hasClass('color-border-success')).toBe(true)
+    expect(note.hasClass('color-bg-success')).toBe(true)
   })
 
   test('renders liquid within liquid within product frontmatter callouts', async () => {
@@ -210,7 +219,7 @@ describe('server', () => {
   })
 
   test('preserves liquid statements with liquid raw tags in page output', async () => {
-    const $ = await getDOM('/en/github/working-with-github-pages/troubleshooting-jekyll-build-errors-for-github-pages-sites')
+    const $ = await getDOM('/en/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites')
     expect($.text().includes('{{ page.title }}')).toBe(true)
   })
 
@@ -252,8 +261,7 @@ describe('server', () => {
 
   describe('image asset paths', () => {
     const localImageBasePath = '/assets/images'
-    const s3BasePath = 'https://github-images.s3.amazonaws.com'
-    const enterpriseImageBasePath = `${s3BasePath}/enterprise`
+    const legacyImageBasePath = '/assets/enterprise'
     const latestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.latest}`
     const oldestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
 
@@ -262,19 +270,22 @@ describe('server', () => {
       expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
     })
 
-    test('github articles on GHE have images that point to S3', async () => {
+    test('github articles on GHE have images that point to local assets dir', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/user/github/authenticating-to-github/configuring-two-factor-authentication`)
-      expect($('img').first().attr('src').startsWith(enterpriseImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
     test('admin articles on latest version of GHE have images that point to local assets dir', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/using-built-in-authentication`)
-      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
-    test('admin articles on older GHE versions have images that point to S3', async () => {
+    test('admin articles on older GHE versions have images that point to local assets dir', async () => {
       const $ = await getDOM(`${oldestEnterprisePath}/admin/user-management/using-built-in-authentication`)
-      expect($('img').first().attr('src').startsWith(enterpriseImageBasePath)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
     test('links that point to /assets are not rewritten with a language code', async () => {
@@ -282,14 +293,15 @@ describe('server', () => {
       expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(true)
     })
 
-    test('github articles on GHAE have images that point to S3', async () => {
+    test('github articles on GHAE have images that point to local assets dir', async () => {
       const $ = await getDOM('/en/github-ae@latest/github/administering-a-repository/changing-the-default-branch')
-      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
+      const imageSrc = $('img').first().attr('src')
+      expect(imageSrc.startsWith(localImageBasePath) || imageSrc.startsWith(legacyImageBasePath)).toBe(true)
     })
 
-    test('admin articles on GHAE have images that point to S3', async () => {
+    test('admin articles on GHAE have images that point to local assets dir', async () => {
       const $ = await getDOM('/en/github-ae@latest/admin/user-management/managing-dormant-users')
-      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
+      expect($('img').first().attr('src').startsWith(localImageBasePath)).toBe(true)
     })
   })
 
@@ -311,9 +323,14 @@ describe('server', () => {
       expect($(`a[href="${latestEnterprisePath}/articles/managing-files-on-github"]`).length).toBe(1)
     })
 
-    test('dotcom categories on GHE have Enterprise user links', async () => {
+    testOldSiteTree('dotcom categories on GHE have Enterprise user links', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
       expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/conditions-for-large-files"]`).length).toBe(1)
+    })
+
+    testNewSiteTree('dotcom categories on GHE have Enterprise user links', async () => {
+      const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
+      expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/working-with-large-files/conditions-for-large-files"]`).length).toBe(1)
     })
 
     test('dotcom-only links on GHE are dotcom-only', async () => {
@@ -343,8 +360,18 @@ describe('server', () => {
   })
 
   describe('article versions', () => {
-    test('includes links to all versions of each article', async () => {
+    testOldSiteTree('includes links to all versions of each article', async () => {
       const articlePath = 'github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard'
+      const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`)
+      expect($(`.article-versions a.active[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`).length).toBe(2)
+      expect($(`.article-versions a.active[href="/en/${articlePath}"]`).length).toBe(0)
+
+      // 2.13 predates this feature, so it should be excluded:
+      expect($(`.article-versions a[href="/en/enterprise/2.13/user/${articlePath}"]`).length).toBe(0)
+    })
+
+    testNewSiteTree('includes links to all versions of each article', async () => {
+      const articlePath = 'github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard'
       const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`)
       expect($(`.article-versions a.active[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`).length).toBe(2)
       expect($(`.article-versions a.active[href="/en/${articlePath}"]`).length).toBe(0)
@@ -405,9 +432,14 @@ describe('server', () => {
       expect(res.statusCode).toBe(301)
     })
 
-    test('redirects old articles to their slugified URL', async () => {
+    testOldSiteTree('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
       expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/about-githubs-ip-addresses')
+    })
+
+    testNewSiteTree('redirects old articles to their slugified URL', async () => {
+      const res = await get('/articles/about-github-s-ip-addresses')
+      expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses')
     })
 
     test('redirects / to /en', async () => {
@@ -428,10 +460,16 @@ describe('server', () => {
       expect(res.headers.location).toBe('https://desktop.github.com')
     })
 
-    test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
+    testOldSiteTree('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
       const res = await get('/en/insights/installing-and-configuring-github-insights/about-github-insights')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
+    })
+
+    testNewSiteTree('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
+      const res = await get('/en/insights/installing-and-configuring-github-insights/about-github-insights')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`)
     })
 
     // this oneoff redirect is temporarily disabled because it introduces too much complexity
@@ -461,9 +499,14 @@ describe('server', () => {
       expect($('.markdown-body ul li a').length).toBeGreaterThan(5)
     })
 
-    test('map topic renders with h2 links to articles', async () => {
+    testOldSiteTree('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
       expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h2').length).toBe(1)
+    })
+
+    testNewSiteTree('map topic renders with h2 links to articles', async () => {
+      const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
+      expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username"] h2').length).toBe(1)
     })
 
     test('map topic renders with one intro for every h2', async () => {
@@ -510,8 +553,8 @@ describe('GitHub Enterprise URLs', () => {
   test('renders the Enterprise Admin category homepage', async () => {
     const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const $ = await getDOM(adminPath)
-    expect($(`article a[href="${adminPath}/installation"]`).length).toBe(1)
-    expect($.text()).toContain('This guide describes')
+    expect($(`h3 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
+    expect($('h2 a[href="#all-docs"]').length).toBe(1)
   })
 
   test('renders an Enterprise Admin category with correct links', async () => {
@@ -588,8 +631,13 @@ describe('GitHub Desktop URLs', () => {
     expect($('article a[href^="/en/desktop/installing-and-configuring-github-desktop/"]').length).toBeGreaterThan(1)
   })
 
-  test('renders a Desktop article within a map topic', async () => {
+  testOldSiteTree('renders a Desktop article within a map topic', async () => {
     const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-github-desktop')
+    expect(res.statusCode).toBe(200)
+  })
+
+  testNewSiteTree('renders a Desktop article within a map topic', async () => {
+    const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop')
     expect(res.statusCode).toBe(200)
   })
 
@@ -624,8 +672,8 @@ describe('extended Markdown', () => {
   test('renders styled notes within liquid', async () => {
     const $ = await getDOM('/en/articles/removing-a-member-from-your-organization')
     const note = $('.extended-markdown.note').eq(0)
-    expect(note.hasClass('border-blue')).toBe(true)
-    expect(note.hasClass('bg-blue-light')).toBe(true)
+    expect(note.hasClass('color-border-info')).toBe(true)
+    expect(note.hasClass('color-bg-info')).toBe(true)
   })
 
   test('renders platform-specific content', async () => {
@@ -748,15 +796,15 @@ describe('static routes', () => {
 })
 
 describe('index pages', () => {
-  const nonEnterpriseOnlyPath = '/en/github/getting-started-with-github/verifying-your-email-address'
+  const nonEnterpriseOnlyPath = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
 
   test('includes dotcom-only links in dotcom TOC', async () => {
-    const $ = await getDOM('/en/github/getting-started-with-github')
+    const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account')
     expect($(`article a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(1)
   })
 
   test('excludes dotcom-only from GHE TOC', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github`)
+    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/github/setting-up-and-managing-your-github-user-account`)
     expect($(`a[href="${nonEnterpriseOnlyPath}"]`).length).toBe(0)
   })
 

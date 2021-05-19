@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -146,7 +148,7 @@ Permite a una GitHub App ejecutar verificaciones externas en el código de un re
 **Tipo de medios personalizados:** `antiope-preview` **Anunciado en:**[2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == enterpriseServerVersions contains currentVersion %}
 
 ### Acceso anónimo de Git a los repositorios
 

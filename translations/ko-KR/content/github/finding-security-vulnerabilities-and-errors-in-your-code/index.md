@@ -2,19 +2,20 @@
 title: Finding security vulnerabilities and errors in your code
 shortTitle: Finding vulnerabilities and coding errors
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 ### Table of Contents
 
 {% topic_link_in_list /automatically-scanning-your-code-for-vulnerabilities-and-errors %}
     {% link_in_list /about-code-scanning %}
     {% link_in_list /triaging-code-scanning-alerts-in-pull-requests %}
-    {% link_in_list /enabling-code-scanning-for-a-repository %}
+    {% link_in_list /setting-up-code-scanning-for-a-repository %}
     {% link_in_list /managing-code-scanning-alerts-for-your-repository %}
     {% link_in_list /configuring-code-scanning %}
     {% link_in_list /configuring-the-codeql-workflow-for-compiled-languages %}

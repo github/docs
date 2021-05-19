@@ -6,6 +6,8 @@ redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - SSO
 ---
 
 Puedes autorizar un token de acceso personal existente, o [crear un nuevo token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token) y luego autorizarlo.

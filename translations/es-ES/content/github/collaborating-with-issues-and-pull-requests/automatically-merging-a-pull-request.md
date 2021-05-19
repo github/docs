@@ -1,18 +1,22 @@
 ---
 title: Fusionar una solicitud de cambios automáticamente
-intro: 'Puedes incrementar la velocidad de desarrollo si habilitas la fusión automática para una solicitud de cambios para que ésta se fusione automáticamente cuando todos los requisitos de fusión se cumplan.'
+intro: Puedes incrementar la velocidad de desarrollo si habilitas la fusión automática para una solicitud de cambios para que ésta se fusione automáticamente cuando todos los requisitos de fusión se cumplan.
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
+  github-ae: '*'
+topics:
+  - Pull requests
 ---
-
-{% data reusables.pull_requests.auto-merge-release-phase %}
 
 ### Acerca de la fusión automática
 
 Si habilitas la fusión automática para una solicitud de cambios, ésta se fusionará automáticamente cuando se cumplan todas las revisiones requeridas y cuando todas las verificaciones de estado hayan pasado. La fusión automática te evita el esperar a que los requisitos se cumplan para que puedas continuar con otras tareas.
 
-Antes de que utilices la fusión automática con una solicitud de cambios, esta característica se debe habilitar en el repositorio. Para obtener más información, consulta la sección "[Administrar la fusión automática para las solicitudes de cambios en tu repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)".
+Antes de que utilices la fusión automática con una solicitud de cambios, esta característica se debe habilitar en el repositorio. Para obtener más información, consulta la sección "[Administrar la fusión automática para las solicitudes de cambios en tu repositorio](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)".{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}
+
+Después de que habilitas la fusión automática para una solicitud de cambios, si alguien que no tiene permisos de escritura en el repositorio sube cambios nuevos a la rama principal o cambia la rama base de la solicitud de cambios, esta se inhabilitará. Por ejemplo, si un mantenedor habilita la fusión automática para una solicitud de cambios desde una bifurcación, esta se inhabilitará después de que el contribuyente suba cambios nuevos a la solicitud de cambios.{% endif %}
 
 Puedes proporcionar retroalimentación sobre la fusión automática si [nos contactas](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback).
 

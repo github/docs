@@ -4,6 +4,8 @@ intro: 'If you want to use {% data variables.product.prodname_registry %} beyond
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### About billing for {% data variables.product.prodname_registry %}
@@ -12,7 +14,13 @@ versions:
 
 {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
-{% data reusables.package_registry.container-registry-beta-billing-note %}
+{% note %}
+
+**Billing update for container image storage:** During the beta phase of the {% data variables.product.prodname_container_registry %}, Docker image storage and bandwidth are free for both the previous `docker.pkg.github.com` and current `ghcr.io` hosting services. For more information, see "[Introduction to {% data variables.product.prodname_registry %}](/packages/learn-github-packages/introduction-to-github-packages)."
+
+{% endnote %}
+
+If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[Connecting an Azure subscription to your enterprise](/github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise)."
 
 Data transfer resets every month, while storage usage does not.
 

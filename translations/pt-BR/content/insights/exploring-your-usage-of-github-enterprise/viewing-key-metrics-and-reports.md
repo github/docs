@@ -1,10 +1,9 @@
 ---
 title: Visualizar métricas e relatórios principais
 intro: Você pode visualizar e filtrar métricas e relatórios principais para ajudá-lo a entender e melhorar o processo de entrega de software através dos dados.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
-permissions: 'Qualquer pessoa com acesso ao {% data variables.product.prodname_insights %} pode visualizar as métricas e relatórios principais.'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
   enterprise-server: '*'
 ---

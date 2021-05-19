@@ -7,18 +7,32 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
 
-Ahora que entendemos [lo básico de los webhooks][webhooks-overview], vamos a revisar el proceso de creación de nuestra propia integración impulsada por webhooks. En este tutorial, crearemos un webhook de repositorio que será responsable de listar qué tan popular es nuestro repositorio con base en la cantidad de informes de problemas que recibe diariamente.
+Ahora que entendemos [lo básico de los webhooks][webhooks-overview], vamos a revisar el proceso de creación de nuestra propia integración impulsada por webhooks. En este tutorial, crearemos un webhook de repositorio que será responsable de listar qué tan popular es nuestro repositorio con base en la cantidad de propuestas que recibe diariamente.
 
 Crear un webhook es un proceso de dos pasos. Primero necesitas configurar la forma en la que quieres que se comporte tu webhook a través de {% data variables.product.product_name %}, es decir: a qué eventos quieres que escuche. Después, configurarás tu servidor para recibir y administrar la carga útil.
 
 
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-### Configurar un Webhook
+### Exponer un host local al internet
+
+Para los propósitos de este tutorial, utilizaremos un servidor local para recibir imágenes de {% data variables.product.prodname_dotcom %}. Así que, primero que nada, necesitamos exponer nuestro ambiente de desarrollo local al internet. Utilizaremos ngrok para hacerlo. ngrok está disponible, gratuitamente, para los sistemas operativos principales. Para obtener más información, consulta [la página de descarga de ngrok](https://ngrok.com/download).
+
+Después de instalar ngrok, puedes exponer a tu host local si ejecutas `./ngrok http 4567` en la línea de comandos. el número de puerto en el que nuestro servidor escuchará mensajes es el 4567. Deberías ver una línea que se ve más o menos así:
+
+```shell
+$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+```
+
+Anota la URL de `*.ngrok.io`. La utilizaremos para configurar nuestro webhook.
+
+### Configurar un webhook
 
 Puedes instalar webhooks en una organización o en un repositorio específico.
 
@@ -32,9 +46,9 @@ Los Webhooks necesitan configurar algunas de sus opciones antes de que los pueda
 
 {% data reusables.webhooks.payload_url %}
 
-Ya que estamos desarrollando todo localmente para nuestro tutorial, configurémosla como `http://localhost:4567/payload`. Te explicaremos por qué en los documentos de [Configurar tu Servidor](/webhooks/configuring/).
+Ya que estamos desarrollando todo localmente para nuestro tutorial, lo configuraremos en la URL `*.ngrok.io`, seguido de `/payload`. Por ejemplo, `http://7e9ea9dc.ngrok.io/payload`.
 
-### Tipo de Contenido
+### Tipo de contenido
 
 {% data reusables.webhooks.content_type %} Para efecto de este tutorial, está bien si usas el tipo de contenido predeterminado de `application/json`.
 
@@ -42,7 +56,7 @@ Ya que estamos desarrollando todo localmente para nuestro tutorial, configurémo
 
 {% data reusables.webhooks.secret %}
 
-### Verificación de SSL
+### Verificación SSL
 
 {% data reusables.webhooks.webhooks_ssl %}
 
@@ -58,9 +72,11 @@ Puedes encontrar un listado completo de eventos de webhook y del cuándo se ejec
 
 Ya que nuestro webhook trata con informes de problemas en un repositorio, vamos a dar clic en **Permíteme seleccionar eventos individuales** y, posteriormente, en **Informes de problemas**. Asegúrate de seleccionar **Activo** para recibir eventos de los informes de problemas para los webhooks que se activen. También puedes seleccionar todos los eventos utilizando la opción predeterminada.
 
-Cuando hayas terminado, da clic en **Agregar webhook**. ¡Uf! Ahora que creaste el webhook, es momento de configurar nuestro servidor local para probarlo. Dirígete a [Configurar tu Servidor](/webhooks/configuring/) para aprender cómo hacerlo.
+Cuando hayas terminado, da clic en **Agregar webhook**.
 
-#### Evento de Comodín
+Ahora que creaste el webhook, es momento de configurar nuestro servidor local para probarlo. Dirígete a [Configurar tu Servidor](/webhooks/configuring/) para aprender cómo hacerlo.
+
+#### Evento de comodín
 
 Para configurar un webhook para todos los eventos, utiliza el caracter de comodín (`*`) para especificar dichos eventos. Cuando agregas el evento de comodín, reemplazaremos cualquier evento existente que hayas configurado con el evento de comodín se te enviarán las cargas útiles para todos los eventos compatibles. También obtendrás automáticamente cualquier evento nuevo que pudiéramos agregar posteriormente.
 

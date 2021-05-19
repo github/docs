@@ -1,7 +1,7 @@
 1. Crie um novo token de acesso pessoal (PAT) com os escopos apropriados para as tarefas que você deseja realizar. Se sua organização exigir SSO, você deverá habilitar o SSO para seu novo token.
   {% warning %}
 
-  **Observação:** Se você selecionar o escopo `write:packages`, desmarque o escopo `repositório` ao criar o PAT. Adicionar um PAT com o escopo de `repositório` como um segredo no repositório permite que a credencial seja acessível a todos os colaboradores do repositório. Isso fornece um acesso adicional desnecessário quando um PAT com o escopo do `repositório` é usado em uma ação. Para obter mais informações sobre as práticas de segurança recomendadas para ações, consulte "[Fortalecimento de segurança para o GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)".
+  **Note:** By default, when you select the `write:packages` scope for your personal access token (PAT) in the user interface, the `repo` scope will also be selected. The `repo` scope offers unnecessary and broad access, which we recommend you avoid using for GitHub Actions workflows in particular. For more information, see "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)." As a workaround, you can select just the `write:packages` scope for your PAT in the user interface with this url: `https://github.com/settings/tokens/new?scopes=write:packages`.
 
   {% endwarning %}
 
@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. Ao usar a CLI para seu tipo de container, faça login em
-serviço de {% data variables.product.prodname_github_container_registry %} em `ghcr.io`.
+serviço de {% data variables.product.prodname_container_registry %} em `ghcr.io`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

@@ -1,1 +1,1 @@
-1. Revisa tu nivel y da clic en **Publicar nivel**. ![Botón de publicar nivel](/assets/images/help/sponsors/publish-tier-button.png)
+1. Revisa tu nivel y luego haz clic en **Publicar _TIPO_ de nivel**. ![Botón de publicar nivel mensual](/assets/images/help/sponsors/publish-tier-button.png)

@@ -1,37 +1,39 @@
 ---
-title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your {% data variables.product.product_name %} account, you can test your connection.'
+title: Probar tu conexión SSH
+intro: 'Después de haber configurado tu clave SSH y haberla agregado a tu {% data variables.product.product_name %} cuenta, puedes probar tu conexión.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - SSH
 ---
 
-Before testing your SSH connection, you should have:
-- [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
-- [Generated a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Added a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
+Antes de probar tu conexión SSH, debes haber hecho lo siguiente:
+- [Comprobado tus claves SSH existentes](/articles/checking-for-existing-ssh-keys)
+- [Generado una clave SSH nueva](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [Agregado una clave SSH nueva a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
 
-When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/articles/working-with-ssh-key-passphrases).
+Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu contraseña, que es la contraseña de clave SSH que ya creaste. Para obtener más información acerca de trabajar con contraseñas de clave SSH, consulta ["Trabajar con contraseñas de clave SSH"](/articles/working-with-ssh-key-passphrases).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter the following:
+2. Ingresa lo siguiente:
   ```shell
   $ ssh -T git@{% data variables.command_line.codeblock %}
   # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
-  You may see a warning like this:
+  Puedes ver una advertencia como la siguiente:
 
   ```shell
-  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-  > Are you sure you want to continue connecting (yes/no)?
+  > La autenticidad del host '{% data variables.command_line.codeblock %} (DIRECCIÓN IP)' no se puede establecer.
+  > La clave de huella digital RSA es SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+  > ¿Estás seguro de que quieres continuar conectado (sí/no)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.prodname_dotcom %}'s RSA public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+3. Verifica que la huella dactilar en el mensaje que ves empate con % if currentVersion == "free-pro-team@latest" %} [aquella de la llave pública de RSA de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} aquella de la llave pública de tu empresa{% endif %}. Si lo hace, entonces teclea `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
@@ -39,16 +41,16 @@ When you test your connection, you'll need to authenticate this action using you
 
   {% linux %}
 
-  You may see this error message:
+  Puede que veas el siguiente mensaje de error:
   ```shell
   ...
-  Agent admitted failure to sign using the key.
-  debug1: No more authentication methods to try.
-  Permission denied (publickey).
+  El agente admitió una falla para registrarse utilizando la clave.
+  debug1: No hay más métodos de autenticación para probar.
+  Permiso denegado (publickey).
   ```
 
-  This is a known problem with certain Linux distributions. For more information, see ["Error: Agent admitted failure to sign"](/articles/error-agent-admitted-failure-to-sign).
+  Se trata de un problema conocido con determinadas distribuciones de Linux. Para obtener más información, consulta ["Error: El agente admitió una falla para registrarse"](/articles/error-agent-admitted-failure-to-sign).
 
   {% endlinux %}
 
-4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see ["Error: Permission denied (publickey)"](/articles/error-permission-denied-publickey).
+4. Comprueba que el mensaje resultante contenga tu nombre de usuario. Si recibes un mensaje de "permiso denegado", consulta ["Error: Permiso denegado (publickey)"](/articles/error-permission-denied-publickey).

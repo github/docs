@@ -1,1 +1,1 @@
-[github.com/codespaces](https://github.com/codespaces)で、自分のユーザアカウントが所有しているすべてのcodespaceを見ることができます。
+作成した利用可能なすべてのcodespaceは[github.com/codespaces](https://github.com/codespaces)で見ることができます。

@@ -10,14 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### ワークフローイベントを設定する
 
-`on` ワークフロー構文を使用して、1 つ以上のイベントに対して実行するようにワークフローを設定できます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
+`on` ワークフロー構文を使用して、1 つ以上のイベントに対して実行するようにワークフローを設定できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -40,6 +42,8 @@ versions:
 ### スケジュールしたイベント
 
 `schedule` イベントを使用すると、スケジュールされた時間にワークフローをトリガーできます。
+
+{% data reusables.actions.schedule-delay %}
 
 #### `schedule`
 
@@ -94,7 +98,7 @@ versions:
 
 カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-{% data variables.product.product_name %} APIを使って、あるいは{% data variables.product.product_name %}から、手動でワークフローの実行をトリガーすることができます。 詳しい情報については、「[ワークフローを手動で実行する](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
+You can manually trigger a workflow run using the {% data variables.product.prodname_dotcom %} API and from {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[ワークフローを手動で実行する](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
 
  {% data variables.product.prodname_dotcom %} でイベントをトリガーすると、{% data variables.product.prodname_dotcom %} で `ref` と `inputs` を直接入力できます。 詳しい情報については、「[アクションで入力と出力を使用する](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)」を参照してください。
 
@@ -131,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        echo "- in ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -161,7 +165,9 @@ on:
 
 ### webhook イベント
 
-GitHub で webhook イベントが作成された際にワークフローを実行するよう設定できます。 イベントによっては、そのイベントをトリガーするアクティビティタイプが 複数あります。 イベントをトリガーするアクティビティタイプが複数ある場合は、ワークフローの実行をトリガーするアクティビティタイプを指定できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。
+You can configure your workflow to run when webhook events are generated on {% data variables.product.product_name %}. イベントによっては、そのイベントをトリガーするアクティビティタイプが 複数あります。 イベントをトリガーするアクティビティタイプが複数ある場合は、ワークフローの実行をトリガーするアクティビティタイプを指定できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。
+
+Not all webhook events trigger workflows. For the complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
 #### `check_run`
 
@@ -169,18 +175,18 @@ GitHub で webhook イベントが作成された際にワークフローを実�
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                                 | アクティビティタイプ                                                                                   | `GITHUB_SHA`      | `GITHUB_REF` |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------- | ------------ |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                                 | アクティビティタイプ                                                    | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------- | ------------------------------------------------------------- | ----------------- | ------------ |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-たとえば、チェック実行が `rerequested` または `requested_action` だったときにワークフローを実行する例は、次のとおりです。
+For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -226,7 +232,7 @@ on:
 
 #### `delete`
 
-誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
+誰かがブランチまたはタグを作成し、それによって `delete` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -243,7 +249,7 @@ on:
 
 #### `deployment`
 
-誰かがデプロイメントを作成し、それによって `deploymen` イベントがトリガーされるときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイメントには Git ref がない場合があります。 REST API の詳細については、「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
+誰かがデプロイメントを作成し、それによって `deployment` イベントがトリガーされるときにワークフローを実行します。 コミット SHA 付きで作成されたデプロイメントには Git ref がない場合があります。 REST API の詳細については、「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
 
 | webhook イベントのペイロード                                   | アクティビティタイプ | `GITHUB_SHA` | `GITHUB_REF`                 |
 | ---------------------------------------------------- | ---------- | ------------ | ---------------------------- |
@@ -270,6 +276,12 @@ on:
 on:
   deployment_status
 ```
+
+{% note %}
+
+**注釈:** デプロイメントステータスの状態が `inactive` に設定されている場合、webhook イベントは作成されません。
+
+{% endnote %}
 
 #### `fork`
 
@@ -335,7 +347,7 @@ on: issue_comment
 
 jobs:
   pr_commented:
-    # This job only runs for pull request comments
+    # このジョブはプルリクエストコメントに対してのみ実行されます
     name: PR comment
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
@@ -343,8 +355,8 @@ jobs:
       - run: |
           echo "Comment on PR #${{ github.event.issue.number }}"
 
-  issue-commented:
-    # This job only runs for issue comments
+  issue_commented:
+    # このジョブは Issue comment に対してのみ実行されます
     name: Issue comment
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
@@ -468,7 +480,7 @@ on:
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -574,7 +586,7 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `pull_request_target`
 
@@ -582,13 +594,13 @@ on:
 
 {% warning %}
 
-**警告:** `pull_request_target`イベントは、フォークからトリガーされた場合であっても、リポジトリトークンの読み書きが許可されており、シークレットにアクセスできます。 ワークフローはPull Requestのベースのコンテキストで実行されますが、このイベントでPull Requestから信頼できないコードをチェックアウトしたり、ビルドしたり、実行したりしないようにしなければなりません。 加えて、ベースブランチと同じスコープを共有するキャッシュがあり、キャッシュが汚染されることを避けるために、キャッシュの内容が変更されている可能性があるなら、キャッシュを保存するべきではありません。
+**警告:** `pull_request_target`イベントは、フォークからトリガーされた場合であっても、リポジトリトークンの読み書きが許可されており、シークレットにアクセスできます。 ワークフローはPull Requestのベースのコンテキストで実行されますが、このイベントでPull Requestから信頼できないコードをチェックアウトしたり、ビルドしたり、実行したりしないようにしなければなりません。 加えて、ベースブランチと同じスコープを共有するキャッシュがあり、キャッシュが汚染されることを避けるために、キャッシュの内容が変更されている可能性があるなら、キャッシュを保存するべきではありません。 詳細については、GitHub Security Lab Web サイトの「[GitHub Actions とワークフローを安全に保つ: pwn リクエストの防止](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)」を参照してください。
 
 {% endwarning %}
 
-| webhook イベントのペイロード                                       | アクティビティタイプ                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`       | `GITHUB_REF` |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
-| [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | PR ベースブランチの直近のコミット | PR ベースブランチ   |
+| webhook イベントのペイロード                                              | アクティビティタイプ                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`       | `GITHUB_REF` |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
+| [`pull_request_target`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | PR ベースブランチの直近のコミット | PR ベースブランチ   |
 
 デフォルトでは、ワークフローは、`pull_request_target` のアクティビティタイプが `opened`、`synchronize`、または `reopened` のときにのみ実行されます。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
 
@@ -606,7 +618,7 @@ on:
 
 {% note %}
 
-**ノート：** GitHub Actionsが利用できるwebhookのペイロードには、`commit`オブジェクト中の`added`、`removed`、`modified`属性は含まれません。 完全なcommitオブジェクトは、REST APIを使って取得できます。 詳しい情報については、「[1つのコミットの取得](/rest/reference/repos#get-a-single-commit)」を参照してください。
+**ノート：** GitHub Actionsが利用できるwebhookのペイロードには、`commit`オブジェクト中の`added`、`removed`、`modified`属性は含まれません。 完全なcommitオブジェクトは、REST APIを使って取得できます。 詳しい情報については、「[1つのコミットの取得](/rest/reference/repos#get-a-commit)」を参照してください。
 
 {% endnote %}
 
@@ -665,6 +677,12 @@ on:
     types: [published]
 ```
 
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
+
 #### `status`
 
 Git コミットのステータスが変更された、それによって `status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ステータス](/rest/reference/repos#statuses)」を参照してください。
@@ -702,7 +720,7 @@ on:
     types: [started]
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 #### `workflow_run`
 
@@ -710,13 +728,15 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
-| -------------------------------------------------------- | ---------- | ----------------- | ------------ |
-| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a      | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                                       | アクティビティタイプ                            | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------------- | ------------------------------------- | ----------------- | ------------ |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - `completed`<br/>- `requested` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 このイベントからブランチをフィルタする必要がある場合は、`branches` または `branches-ignore` を使用できます。
 
-この例では、ワークフローは別の「Run Tests」ワークフローの完了後に実行されるように設定されています。
+In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
 on:
@@ -730,8 +750,29 @@ on:
 
 {% endif %}
 
+To run a workflow job conditionally based on the result of the previous workflow run, you can use the [`jobs.<job_id>.if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idif) or [`jobs.<job_id>.steps[*].if`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsif) conditional combined with the `conclusion` of the previous run. 例:
+
+```yaml
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'success' }}{% endraw %}
+    steps:
+      ...
+  on-failure:
+    runs-on: ubuntu-latest
+    if: {% raw %}${{ github.event.workflow_run.conclusion == 'failure' }}{% endraw %}
+    steps:
+      ...
+```
+
 ### 個人アクセストークンを使った新しいワークフローのトリガー
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-ワークフローの実行からワークフローをトリガーしたい場合には、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 個人アクセストークンのシークレットとしての保存に関する詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 個人アクセストークンのシークレットとしての保存に関する詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
