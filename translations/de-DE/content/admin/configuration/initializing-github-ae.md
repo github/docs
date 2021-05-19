@@ -3,6 +3,9 @@ title: Initializing GitHub AE
 intro: 'To get your enterprise ready to use, you can complete the initial configuration of {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### About initialization
@@ -79,11 +82,11 @@ Once this is initialized, you can reconfigure any settings after the initializat
 1. To the right of "Configure email settings", click **Configure**. !["Configure" button for email settings configuration](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. Wählen Sie **Enable email** (E-Mail aktivieren) aus. This will enable both outbound and inbound email, however, for inbound email to work you will also need to configure your DNS settings. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)." !["Enable" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Complete your email server settings:
-  - Geben Sie im Feld **Server address** (Serveradresse) die Adresse Ihres SMTP-Servers ein.
-  - Geben Sie im Feld **Port** den Port ein, der von Ihrem SMTP-Server zum Senden von E-Mails verwendet wird.
-  - Geben Sie im Feld **Domain** den Domain-Namen ein, der ggf. von Ihrem SMTP-Server mit einer HELO-Antwort gesendet wird.
-  - Wählen Sie im Dropdownmenü **Authentication** (Authentifizierung) den von Ihrem SMTP-Server verwendeten Verschlüsselungstyp aus.
-  - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
+    - Geben Sie im Feld **Server address** (Serveradresse) die Adresse Ihres SMTP-Servers ein.
+    - Geben Sie im Feld **Port** den Port ein, der von Ihrem SMTP-Server zum Senden von E-Mails verwendet wird.
+    - Geben Sie im Feld **Domain** den Domain-Namen ein, der ggf. von Ihrem SMTP-Server mit einer HELO-Antwort gesendet wird.
+    - Wählen Sie im Dropdownmenü **Authentication** (Authentifizierung) den von Ihrem SMTP-Server verwendeten Verschlüsselungstyp aus.
+    - Geben Sie im Feld **No-reply email address** („no-reply“-E-Mail-Adresse) die E-Mail-Adresse ein, die für alle Benachrichtigungs-E-Mails in den Feldern „From“ (Von) und „To“ (An) verwendet werden soll.
 
 4. Wenn Sie alle eingehenden E-Mails verwerfen möchten, die an die „no-reply“-E-Mail-Adresse adressiert sind, sollten Sie **Discard email addressed to the no-reply email address** (An die „no-reply“-E-Mail-Adresse adressierte E-Mails verwerfen) aktivieren. !["Discard" checkbox for email settings configuration](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. Click **Test email settings**. !["Test email settings" button for email settings configuration](/assets/images/enterprise/configuration/ae-test-email.png)

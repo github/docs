@@ -8,6 +8,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}

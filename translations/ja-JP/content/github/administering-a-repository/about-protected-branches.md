@@ -47,6 +47,8 @@ topics:
 - [フォースプッシュを許可](#allow-force-pushes)
 - [削除を許可](#allow-deletions)
 
+For more information on how to set up branch protection, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+
 #### マージ前に Pull Request レビュー必須
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
@@ -100,7 +102,15 @@ remote: error: Changes have been requested.
 
 {% note %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+**ノート:**
+
+* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
+* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+
+{% else %}
 **注釈:** コラボレータが未署名のコミットをコミット署名必須のブランチにプッシュすると、コラボレータは検証済み署名を含めるためにコミットをリベースしてから、書き直したコミットをブランチにフォースプッシュする必要があります。
+{% endif %}
 
 {% endnote %}
 
@@ -135,7 +145,7 @@ remote: error: Changes have been requested.
 
 フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. 詳しい情報については、「[ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 詳しい情報については、「[ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
 
 サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 

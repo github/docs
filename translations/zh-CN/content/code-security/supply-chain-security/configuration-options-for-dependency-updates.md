@@ -164,7 +164,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-使用 `allow` 选项自定义更新哪些依赖项。 这对有漏洞的依赖项的安全更新没有影响。 您可以使用以下选项：
+使用 `allow` 选项自定义更新哪些依赖项。 This applies to both version and security updates. 您可以使用以下选项：
 
 - `dependency-name`—用于更新名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`，例如：`org.kohsuke:github-api`。
 - `dependency-type`—用于更新特定类型的依赖项。
@@ -445,12 +445,12 @@ updates:
 
 #### `rebase-strategy`
 
-默认情况下，{% data variables.product.prodname_dependabot %} 会在检测到冲突时自动变基打开的拉取请求。 使用 `rebase-strategy` 可禁用此行为。
+默认情况下，{% data variables.product.prodname_dependabot %} 会在检测到拉取请求有任何更改时自动变基打开的拉取请求。 使用 `rebase-strategy` 可禁用此行为。
 
 可用的变基策略
 
 - `disabled` 禁用自动变基。
-- `auto` 在检测到冲突时使用默认行为并且变基打开的拉取请求。
+- `auto` 在检测到更改时使用默认行为并且变基打开的拉取请求。
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -473,11 +473,11 @@ updates:
 
 要允许 {% data variables.product.prodname_dependabot %} 使用 `bundler`、`mix` 和 `pip` 包管理器来更新私人注册表中的依赖项，您可以选择允许外部代码执行。 更多信息请参阅 [`insecure-external-code-execution`](#insecure-external-code-execution)。
 
-{% raw %}
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
 # when updating dependency versions for this ecosystem
 
+{% raw %}
 version: 2
 registries:
   maven-github:
@@ -493,11 +493,11 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     registries:
-    - maven-github
+      - maven-github
     schedule:
       interval: "monthly"
-```
 {% endraw %}
+```
 
 #### `reviewers`
 
@@ -716,7 +716,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker-registry/dockerhub"
     registries:
-    - dockerhub # Allow version updates for dependencies in this registry
+      - dockerhub # Allow version updates for dependencies in this registry
     schedule:
       interval: "monthly"
 ```
@@ -730,6 +730,7 @@ updates:
 | `url`                                                                                              | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定是 `https:///`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。                                                              |
 | `用户名`                                                                                              | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。                                                                                                                    |
 | `密码`                                                                                               | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。   |
+| `键`                                                                                                | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。 |
 | `令牌`                                                                                               | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)”。 |
 | `replaces-base`                                                                                    | 对于具有 `type: python-index` 的注册表，如果布尔值是 `true`，pip 将使用指定的 URL 而不是 Python Package Index 的基础 URL（默认 `https://pypi.org/simple`）来解析依赖项。                                                |
 
@@ -766,6 +767,19 @@ registries:
 ```
 {% endraw %}
 
+`docker-registration` 类型也可以用来使用静态 AWS 凭据从 Amazon ECR 拉取。
+
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+```
+{% endraw %}
+
 #### `git`
 
 `git` 类型支持用户名和密码。
@@ -778,6 +792,20 @@ registries:
     url: https://github.com
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `hex-organization`
+
+`hex-organization` 类型支持组织和密钥。
+
+{% raw %}
+```yaml
+registries:
+  github-hex-org:
+    type: hex-organization
+    organization: github
+    key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
 {% endraw %}
 

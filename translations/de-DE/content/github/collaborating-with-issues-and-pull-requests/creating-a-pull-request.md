@@ -20,6 +20,20 @@ Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möc
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+
+
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+
+
+
+{% endif %}
+
 
 
 ### Branch-Bereich und Ziel-Repository ändern
@@ -71,7 +85,7 @@ Wenn Du Informationen im Branch-Bereich änderst, werden die Vorschauen für „
 
 {% data reusables.repositories.asking-for-review %}
 
-Nachdem Dein Pull Request geprüft wurde, kann er [in das Repository zusammengeführt werden](/articles/merging-a-pull-request).
+Nachdem Ihr Pull Request geprüft wurde, können Sie ihn [in das Repository mergen](/articles/merging-a-pull-request).
 
 
 

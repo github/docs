@@ -16,6 +16,8 @@ topics:
   - Security
 ---
 
+### About {% data variables.product.prodname_dotcom %}'s products
+
 {% data variables.product.prodname_dotcom %} 提供免费和付费产品。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
 
 ### 用户帐户的 {% data variables.product.prodname_free_user %}
@@ -99,14 +101,3 @@ topics:
 您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">设置 {% data variables.product.prodname_ghe_cloud %} 的试用</a>”。
 
 有关托管理您自己的 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com) 实例的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。 {% data reusables.enterprise_installation.request-a-trial %}
-
-### {% data variables.product.prodname_ghe_one %}
-
-{% data variables.product.prodname_ghe_one %} 包括 [{% data variables.product.prodname_enterprise %}](#github-enterprise)，加上：
-
-- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
-- {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}。 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)“。{% endif %}
-- [组织的 {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
-
-有关注册 {% data variables.product.prodname_ghe_one %} 的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。

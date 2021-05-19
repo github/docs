@@ -61,7 +61,7 @@ webhook によって設定されている URL エンドポイントに配信さ�
 #### デリバリの例
 
 ```shell
-> POST /payload HTTP/1.1
+> POST /payload HTTP/2
 
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
@@ -200,7 +200,9 @@ webhook によって設定されている URL エンドポイントに配信さ�
 
 webhook イベントは、登録したドメインの特異性に基づいてトリガーされます。 たとえば、サブドメイン (`https://subdomain.example.com`) を登録すると、サブドメインの URL のみがこのイベントをトリガーします。 ドメイン (`https://example.com`) を登録すると、ドメインとすべてのサブドメインの URL がこのイベントをトリガーします。 新しいコンテンツ添付ファイルを作成するには、「[コンテンツ添付ファイルの作成](/rest/reference/apps#create-a-content-attachment)」を参照してください。
 
-このイベントを受信できるのは {% data variables.product.prodname_github_app %} のみです。 {% data variables.product.prodname_github_app %} には、このイベントをサブスクライブするための `content_references` `write` 権限が必要です。
+#### 利用の可否
+
+- {% data variables.product.prodname_github_app %}s with the `content_references:write` permission
 
 #### webhook ペイロードの例
 
@@ -509,7 +511,7 @@ Activity related to a comment in a discussion. For more information, see "[Using
 
 {% note %}
 
-`repository` property when the event occurs from activity in a repository.
+**Note:** This event replaces the deprecated `integration_installation_repositories` event.
 
 {% endnote %}
 
@@ -585,13 +587,13 @@ Activity related to a comment in a discussion. For more information, see "[Using
 
 #### webhook ペイロードオブジェクト
 
-| キー                     | 種類       | 説明                                                           |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `action`               | `string` | 実行されたアクション. `created`、`edited`、`deleted` のいずれかを指定可。          |
-| `ラベル`                  | `オブジェクト` | ラベルが追加された。                                                   |
-| `変更`                   | `オブジェクト` | アクションが `edited` の場合のラベルへの変更。                                 |
-| `changes[name][from]`  | `string` | The previous version of the name if the action was `edited`. |
-| `changes[color][from]` | `string` | アクションが `edited` の場合の以前のバージョンの色。                              |
+| キー                     | 種類       | 説明                                                  |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `action`               | `string` | 実行されたアクション. `created`、`edited`、`deleted` のいずれかを指定可。 |
+| `ラベル`                  | `オブジェクト` | ラベルが追加された。                                          |
+| `changes`              | `オブジェクト` | アクションが `edited` の場合のラベルへの変更。                        |
+| `changes[name][from]`  | `string` | アクションが`edited`だった場合、以前のバージョンの名前。                    |
+| `changes[color][from]` | `string` | アクションが `edited` の場合の以前のバージョンの色。                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1010,12 +1012,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endnote %}
 
-{% tip %}
-
-**注釈**: 表に続く webhook ペイロードの例は、表に記載されているイベント API ペイロードとは大幅に異なります。 違いの中でも、webhook ペイロードには `sender` オブジェクトと `pusher` オブジェクトの両方が含まれています。 送信者とプッシャーは `push` イベントを開始した同じユーザですが、`sender` オブジェクトには詳細が含まれています。
-
-{% endtip %}
-
 #### 利用の可否
 
 - リポジトリ webhook
@@ -1206,7 +1202,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-スポンサーシップ webhook は、{% data variables.product.prodname_dotcom %} でのみ作成できます。 詳しい情報については、「[スポンサー付きアカウントのイベントの webhook を設定する](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)」を参照してください。
+スポンサーシップ webhook は、{% data variables.product.prodname_dotcom %} でのみ作成できます。 詳しい情報については、「[スポンサー付きアカウントのイベントの webhook を設定する](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)」を参照してください。
 
 #### 利用の可否
 
@@ -1292,9 +1288,9 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | ----------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `action`                                        | `string`  | 実行されたアクション. `created`、 `deleted`、`edited`、`added_to_repository`、`removed_from_repository` のいずれかを指定可。                                                              |
 | `Team`                                          | `オブジェクト`  | Team 自体。                                                                                                                                                          |
-| `変更`                                            | `オブジェクト`  | アクションが `edited` の場合の Team への変更。                                                                                                                                   |
-| `changes[description][from]`                    | `string`  | The previous version of the description if the action was `edited`.                                                                                               |
-| `changes[name][from]`                           | `string`  | The previous version of the name if the action was `edited`.                                                                                                      |
+| `changes`                                       | `オブジェクト`  | アクションが `edited` の場合の Team への変更。                                                                                                                                   |
+| `changes[description][from]`                    | `string`  | アクションが `edited` の場合、以前のバージョンの説明。                                                                                                                                  |
+| `changes[name][from]`                           | `string`  | アクションが`edited`だった場合、以前のバージョンの名前。                                                                                                                                  |
 | `changes[privacy][from]`                        | `string`  | アクションが `edited` の場合の以前のバージョンのTeam プライバシー。                                                                                                                         |
 | `changes[repository][permissions][from][admin]` | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `admin` 権限。                                                                                                    |
 | `changes[repository][permissions][from][pull]`  | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `pull` 権限。                                                                                                     |

@@ -8,8 +8,13 @@ redirect_from:
 intro: 'SAML ist ein XML-basierter Standard für die Authentifizierung und Autorisierung. {% data variables.product.prodname_ghe_server %} kann als ein Service Provider (SP) mit Ihrem internen SAML Identity Provider (IdP) funktionieren.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

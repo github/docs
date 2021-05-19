@@ -7,8 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Sobre isolamento de subdomínio
@@ -19,7 +24,7 @@ Quando o isolamento do subdomínio está ativado, o {% data variables.product.pr
 
 {% if currentVersion == "enterprise-server@2.22" %}
 Para usar o Docker com
-{% data variables.product.prodname_registry %}, você também deve habilitar o isolamento de subdomínio. Para obter mais informações, consulte "[Configurar Docker para uso com o {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)".
+{% data variables.product.prodname_registry %}, você também deve habilitar o isolamento de subdomínio. Para obter mais informações, consulte "[Trabalhando com o registro Docker](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)".
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |

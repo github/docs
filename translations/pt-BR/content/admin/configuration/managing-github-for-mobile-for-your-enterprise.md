@@ -4,8 +4,10 @@ intro: 'Você pode decidir se usuários autenticados podem se conectar-se a {% d
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: '>=3.0'
+type: how_to
 topics:
   - Enterprise
+  - Mobile
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}

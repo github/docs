@@ -13,7 +13,7 @@ topics:
 
 ### 选择合适的许可
 
-我们创建了 [choosealicense.com](http://choosealicense.com)，以帮助您了解如何许可您的代码。 软件许可是告诉其他人，他们能够对您的代码做什么，不能做什么，因此做明智的决定很重要。
+我们创建了 [choosealicense.com](https://choosealicense.com)，以帮助您了解如何许可您的代码。 软件许可是告诉其他人，他们能够对您的代码做什么，不能做什么，因此做明智的决定很重要。
 
 您没有选择许可的义务， 但如果没有许可，就会默认实施版权法，因此您会保留对您的源代码的所有权利，任何人都不能复制、分发您的工作或创建其派生作品。 如果您创建开源项目，强烈建议您包含开源许可。 [开源指南](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project)提供为项目选择正确许可的附加指导。
 
@@ -76,7 +76,7 @@ topics:
 
 ### 检测许可
 
-[开源 Ruby gem 被许可人](https://github.com/licensee/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/rest/reference/licenses) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](http://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
+[开源 Ruby gem 被许可人](https://github.com/licensee/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/rest/reference/licenses) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](https://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
 
 如果您的仓库使用的许可列在“选择许可”网站中，但未明确显示在仓库页面顶部，其中可能包含多个许可或存在其他复杂性。 为使您的许可被检测到，请简化*许可*文件，并在其他位置注明复杂性，例如在仓库的*自述文件*中。
 

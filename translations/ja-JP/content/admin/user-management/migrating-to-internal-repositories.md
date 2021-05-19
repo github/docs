@@ -7,8 +7,12 @@ redirect_from:
 permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+type: how_to
 topics:
   - Enterprise
+  - Privacy
+  - Repositories
+  - Security
 ---
 
 ### インターナルリポジトリについて
@@ -34,6 +38,12 @@ topics:
 ### 移行の実施
 
 1. 管理シェルに接続します。 詳しい情報については「[管理シェル（SSH）にアクセスする](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)」を参照してください。
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+2. 移行コマンドを実行してください。
+   ```shell
+   github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
+   ```
+{% else %}
 2. `/data/github/current`ディレクトリにアクセスしてください。
    ```shell
    cd /data/github/current
@@ -42,6 +52,7 @@ topics:
    ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+{% endif %}
 
 ログの出力は、ターミナルと`/tmp/convert_public_ghes_repos_to_internal.log`に対して行われます。
 

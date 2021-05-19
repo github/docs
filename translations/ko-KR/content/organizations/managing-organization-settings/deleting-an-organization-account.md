@@ -28,7 +28,6 @@ Once you delete an organization, GitHub **cannot restore your content**. Therefo
 
 ### 2. Delete the organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Near the bottom of the organization's settings page, click **Delete this Organization**. ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)

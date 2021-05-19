@@ -42,25 +42,21 @@ Se você já tem uma conta de usuário pessoal no {% data variables.product.prod
 
 ### Etapa 3: Atualizar a organização para uma assinatura paga anual
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (Você pode adicionar mais estações na organização na próxima etapa.)
 6. Em "Upgrade summary" (Atualizar resumo), selecione **Pay yearly** (Pagar anualmente) para pagar pela organização anualmente. ![Botão de rádio para cobrança anual](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.add-payment-method %}
-1. Em "Pay with" (Pagar com), digite as informações do seu cartão de crédito. ![Formulário para inserir informações do cartã de crédito](/assets/images/help/billing/settings_billing_upgrade_with_credit_card.png)
-1. Clique em **Update credit card** (Atualizar cartão de crédito).
+{% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### Etapa 4: Atualizar o número de estações pagas na organização
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}

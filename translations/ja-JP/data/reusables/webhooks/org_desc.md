@@ -1,1 +1,1 @@
-`organization` | `object` | Webhook payloads contain the [`organization`](/rest/reference/orgs#get-an-organization) object when the webhook is configured for an organization or the event occurs from activity in a repository owned by an organization.
+`organization` | `object` | webhookがOrganizationに対して設定されている場合、あるいはOrganizationが所有するリポジトリ内のアクティビティからイベントが発生した場合の、[`organization`](/rest/reference/orgs#get-an-organization)オブジェクトを含むwebhookペイロード。

@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsのアップデート
 intro: '{% data variables.product.prodname_insights %}を最新バージョンにアップデートし、改善やバグフィックスの恩恵を受けることができます。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'

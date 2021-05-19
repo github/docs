@@ -140,18 +140,16 @@ GitHub が送信する全てのイベントには、`HTTP_X_GITHUB_EVENT` とい
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
-  # # At the time of writing, Octokit does not support the Checks API yet, but
-  # it does provide generic HTTP methods you can use:
-  # /rest/reference/checks#create-a-check-run
-  check_run = @installation_client.post(
-    "repos/#{@payload['repository']['full_name']}/check-runs",
-    {
-      accept: 'application/vnd.github.v3+json',
-      # The name of your check run.
-      name: 'Octo RuboCop',
-      # The payload structure differs depending on whether a check run or a check suite event occurred.
-      head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
-    }
+  @installation_client.create_check_run(
+    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
+    @payload['repository']['full_name'],
+    # [String] The name of your check run.
+    'Octo RuboCop',
+    # [String] The SHA of the commit to check 
+    # The payload structure differs depending on whether a check run or a check suite event occurred.
+    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
+    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
+    accept: 'application/vnd.github.v3+json'
   )
 end
 ```
@@ -159,25 +157,22 @@ end
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
-  # # At the time of writing, Octokit does not support the Checks API yet, but
-  # it does provide generic HTTP methods you can use:
-  # /rest/reference/checks#create-a-check-run
-  check_run = @installation_client.post(
-    "repos/#{@payload['repository']['full_name']}/check-runs",
-    {
-      # This header allows for beta access to Checks API
-      accept: 'application/vnd.github.antiope-preview+json',
-      # The name of your check run.
-      name: 'Octo RuboCop',
-      # The payload structure differs depending on whether a check run or a check suite event occurred.
-      head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
-    }
+  @installation_client.create_check_run(
+    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
+    @payload['repository']['full_name'],
+    # [String] The name of your check run.
+    'Octo RuboCop',
+    # [String] The SHA of the commit to check 
+    # The payload structure differs depending on whether a check run or a check suite event occurred.
+    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
+    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
+    accept: 'application/vnd.github.antiope-preview+json'
   )
 end
 ```
 {% endif %}
 
-このコードは [HTTP `POST` メソッド](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method)を使用して、「[チェック実行の作成](/rest/reference/checks#create-a-check-run)」エンドポイントを呼び出します。 このメソッドは、エンドポイントの URL とメソッドの入力パラメータという 2 つのパラメータを取ります。
+This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the [create_check_run method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
 チェック実行を作成するために必要なのは、`name` と `head_sha` の 2 つの入力パラメータのみです。 このクイックスタートでは、後で [Rubocop](https://rubocop.readthedocs.io/en/latest/) を使用して CI テストを実装します。そのため、ここでは「Octo Rubocop」という名前を使っていますが、チェック実行には任意の名前を選ぶことができます。
 
@@ -240,31 +235,22 @@ def initiate_check_run
   # to 'in_progress' and run the CI process. When the CI finishes, you'll
   # update the check run status to 'completed' and add the CI results.
 
-  # Octokit doesn't yet support the Checks API, but it does provide generic
-  # HTTP methods you can use:
-  # /rest/reference/checks#update-a-check-run
-  updated_check_run = @installation_client.patch(
-    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-    {
-      accept: 'application/vnd.github.v3+json',
-      name: 'Octo RuboCop',
-      status: 'in_progress',
-      started_at: Time.now.utc.iso8601
-    }
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'in_progress',
+    accept: 'application/vnd.github.v3+json'
   )
 
   # ***** RUN A CI TEST *****
 
   # Mark the check run as complete!
-  updated_check_run = @installation_client.patch(
-    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-    {
-      accept: 'application/vnd.github.v3+json',
-      name: 'Octo RuboCop',
-      status: 'completed',
-      conclusion: 'success',
-      completed_at: Time.now.utc.iso8601
-    }
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'completed',
+    conclusion: 'success',
+    accept: 'application/vnd.github.v3+json'
   )
 end
 ```
@@ -276,40 +262,30 @@ def initiate_check_run
   # to 'in_progress' and run the CI process. When the CI finishes, you'll
   # update the check run status to 'completed' and add the CI results.
 
-  # Octokit doesn't yet support the Checks API, but it does provide generic
-  # HTTP methods you can use:
-  # /rest/reference/checks#update-a-check-run
-  updated_check_run = @installation_client.patch(
-    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-    {
-      accept: 'application/vnd.github.antiope-preview+json', # This header is necessary for beta access to Checks API
-      name: 'Octo RuboCop',
-      status: 'in_progress',
-      started_at: Time.now.utc.iso8601
-    }
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'in_progress',
+    accept: 'application/vnd.github.antiope-preview+json'
   )
 
   # ***** RUN A CI TEST *****
 
   # Mark the check run as complete!
-  updated_check_run = @installation_client.patch(
-    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-    {
-      # This header is necessary for beta access to Checks API
-      accept: 'application/vnd.github.antiope-preview+json',
-      name: 'Octo RuboCop',
-      status: 'completed',
-      conclusion: 'success',
-      completed_at: Time.now.utc.iso8601
-    }
+  @installation_client.update_check_run(
+    @payload['repository']['full_name'],
+    @payload['check_run']['id'],
+    status: 'completed',
+    conclusion: 'success',
+    accept: 'application/vnd.github.antiope-preview+json'
   )
 end
 ```
 {% endif %}
 
-上記のコードは、ジェネリックな [`patch` HTTP method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method)メソッドを使用して「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」API エンドポイントを呼び出し、既に作成したチェック実行を更新します。
+The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) to update the check run that you already created.
 
-このコードがしていることを説明しましょう。 まず、チェック実行のステータスを `in_progress` に更新し、`started_at` の時刻を現在の時刻に設定します。 このクイックスタートの[パート 2](#part-2-creating-the-octo-rubocop-ci-test)では、実際の CI テストを開始するコードを `***** RUN A CI TEST *****` の下に追加します。 今はこのセクションをプレースホルダーとして残しておきましょう。そうすると、続くコードが CI のプロセスを成功させ、すべてのテストに合格したことをシミュレートすることになります。 最後に、コードはチェック実行のステータスを再び `completed` に更新します。
+このコードがしていることを説明しましょう。 First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. このクイックスタートの[パート 2](#part-2-creating-the-octo-rubocop-ci-test)では、実際の CI テストを開始するコードを `***** RUN A CI TEST *****` の下に追加します。 今はこのセクションをプレースホルダーとして残しておきましょう。そうすると、続くコードが CI のプロセスを成功させ、すべてのテストに合格したことをシミュレートすることになります。 最後に、コードはチェック実行のステータスを再び `completed` に更新します。
 
 「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」 ドキュメントに、`completed` のステータスを指定すると、`conclusion` と `completed_at` のパラメータが必須となることが書かれています。 `conclusion` はチェック実行の結果を要約するもので、`success`、`failure`、`neutral`、`cancelled`、`timed_out`、`action_required` のいずれかになります。 この結果 (conclusion) は `success` に、`completed_at` の時刻は現在の時刻に、ステータスは `completed` に設定します。
 
@@ -613,29 +589,23 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
-updated_check_run = @installation_client.patch(
-  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-  {
-    accept: 'application/vnd.github.v3+json',
-    name: 'Octo RuboCop',
-    status: 'completed',
-    conclusion: 'success',
-    completed_at: Time.now.utc.iso8601
-  }
+@installation_client.update_check_run(
+  @payload['repository']['full_name'],
+  @payload['check_run']['id'],
+  status: 'completed',
+  conclusion: 'success',
+  accept: 'application/vnd.github.v3+json'
 )
 ```
 {% else %}
 ``` ruby
 # Mark the check run as complete!
-updated_check_run = @installation_client.patch(
-  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-  {
-    accept: 'application/vnd.github.antiope-preview+json', # This header is necessary for beta access to Checks API
-    name: 'Octo RuboCop',
-    status: 'completed',
-    conclusion: 'success',
-    completed_at: Time.now.utc.iso8601
-  }
+@installation_client.update_check_run(
+  @payload['repository']['full_name'],
+  @payload['check_run']['id'],
+  status: 'completed',
+  conclusion: 'success',
+  accept: 'application/vnd.github.antiope-preview+json' # This header is necessary for beta access to Checks API
 )
 ```
 {% endif %}
@@ -645,51 +615,45 @@ RuboCop の結果に基づいて (`success` または `neutral` に) 設定し�
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
-updated_check_run = @installation_client.patch(
-  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-  {
-    accept: 'application/vnd.github.v3+json',
-    name: 'Octo RuboCop',
-    status: 'completed',
-    conclusion: conclusion,
-    completed_at: Time.now.utc.iso8601,
-    output: {
-      title: 'Octo RuboCop',
-      summary: summary,
-      text: text,
-      annotations: annotations
-    },
-    actions: [{
-      label: 'Fix this',
-      description: 'Automatically fix all linter notices.',
-      identifier: 'fix_rubocop_notices'
-    }]
-  }
+@installation_client.update_check_run(
+  @payload['repository']['full_name'],
+  @payload['check_run']['id'],
+  status: 'completed',
+  conclusion: conclusion,
+  output: {
+    title: 'Octo RuboCop',
+    summary: summary,
+    text: text,
+    annotations: annotations
+  },
+  actions: [{
+    label: 'Fix this',
+    description: 'Automatically fix all linter notices.',
+    identifier: 'fix_rubocop_notices'
+  }],
+  accept: 'application/vnd.github.v3+json'
 )
 ```
 {% else %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
-updated_check_run = @installation_client.patch(
-  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-  {
-    accept: 'application/vnd.github.antiope-preview+json',
-    name: 'Octo RuboCop',
-    status: 'completed',
-    conclusion: conclusion,
-    completed_at: Time.now.utc.iso8601,
-    output: {
-      title: 'Octo RuboCop',
-      summary: summary,
-      text: text,
-      annotations: annotations
-    },
-    actions: [{
-      label: 'Fix this',
-      description: 'Automatically fix all linter notices.',
-      identifier: 'fix_rubocop_notices'
-    }]
-  }
+@installation_client.update_check_run(
+  @payload['repository']['full_name'],
+  @payload['check_run']['id'],
+  status: 'completed',
+  conclusion: conclusion,
+  output: {
+    title: 'Octo RuboCop',
+    summary: summary,
+    text: text,
+    annotations: annotations
+  },
+  actions: [{
+    label: 'Fix this',
+    description: 'Automatically fix all linter notices.',
+    identifier: 'fix_rubocop_notices'
+  }],
+  accept: 'application/vnd.github.antiope-preview+json'
 )
 ```
 {% endif %}

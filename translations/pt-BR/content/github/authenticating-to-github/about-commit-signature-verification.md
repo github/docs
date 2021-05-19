@@ -1,6 +1,6 @@
 ---
 title: Sobre a verificação de assinatura de commit
-intro: 'Ao usar GPG ou S/MIME, você pode assinar tags e commits localmente. Esses commits ou tags são marcados como verificados no {% data variables.product.product_name %} para que outras pessoas tenham a segurança de que as alterações vêm de uma fonte confiável.'
+intro: 'Ao usar GPG ou S/MIME, você pode assinar tags e commits localmente. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -16,15 +16,35 @@ topics:
 
 ### Sobre a verificação de assinatura de commit
 
-Você pode assinar commits e tags localmente para que outras pessoas possam verificar se seu trabalho tem origem em uma fonte confiável. Se um commit ou uma tag tiver uma assinatura GPG ou S/MIME que possa ser verificada de maneira criptográfica, o {% data variables.product.product_name %} marcará o commit ou tag como verificado.
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG or S/MIME signature that is cryptographically verifiable, GitHub marks the commit or tag {% if currentVersion == "free-pro-team@latest" %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
 ![Commit verificado](/assets/images/help/commits/verified-commit.png)
 
-Se um commit ou uma tag tiver uma assinatura que não possa ser verificada, o {% data variables.product.product_name %} marcará o commit ou a tag como não verificado(a).
+{% if currentVersion == "free-pro-team@latest" %}
+Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[Displaying verification statuses for all of your commits](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)."
 
-Os administradores do repositório podem impor a assinatura de commit obrigatória em um branch para bloquear todos os commits que não estejam assinados e verificados. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
+{% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-Você pode conferir o status de verificação de seus commits ou tags assinados no {% data variables.product.product_name %} e ver por que as assinaturas de commit podem não ter sido verificadas. Para obter mais informações, consulte "[Conferir o status de verificação da assinatura de commit ou tag](/articles/checking-your-commit-and-tag-signature-verification-status)".
+#### Default statuses
+
+| Status                 | Descrição                                                         |
+| ---------------------- | ----------------------------------------------------------------- |
+| **Verificado**         | The commit is signed and the signature was successfully verified. |
+| **Unverified**         | The commit is signed but the signature could not be verified.     |
+| No verification status | The commit is not signed.                                         |
+
+#### Statuses with vigilant mode enabled
+
+{% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
+
+{% else %}
+If a commit or tag has a signature that can't be verified,
+{% data variables.product.product_name %} marks the commit or tag "Unverified."
+{% endif %}
+
+Os administradores do repositório podem impor a assinatura de commit obrigatória em um branch para bloquear todos os commits que não estejam assinados e verificados. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
+
+{% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.product_name %} usará automaticamente o GPG para assinar os commits que você fizer usando a interface web do {% data variables.product.product_name %} exceto quando você faz combinação por squash e mescla um pull request do qual você não é o autor. Opcionalmente, você pode escolher que {% data variables.product.product_name %} assine os commits que você fizer em {% data variables.product.prodname_codespaces %}. Commits assinados por {% data variables.product.product_name %} terão um status de verificado em {% data variables.product.product_name %}. É possível verificar a assinatura localmente usando a chave pública disponível em https://github.com/web-flow.gpg. Para obter mais informações sobre como habilitar a verificação de GPG para os seus códigos, consulte "[Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".

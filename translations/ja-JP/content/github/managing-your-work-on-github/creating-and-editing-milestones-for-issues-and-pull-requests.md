@@ -18,7 +18,7 @@ topics:
 4. 以下のオプションから 1 つ選択します:
     - 新しいマイルストーンを作成するには、[**New Milestone**] をクリックします。 ![[New milestone] ボタン](/assets/images/help/repository/new-milestone.png)
     - マイルストーンを編集するには、編集対象のマイルストーンの隣にある [**Edit**] をクリックします。 ![マイルストーンの編集](/assets/images/help/repository/edit-milestone.png)
-5. マイルストーンのタイトル、説明、その他の変更を入力し、[**Create milestone**] または [**Save changes**] をクリックします。
+5. マイルストーンのタイトル、説明、その他の変更を入力し、[**Create milestone**] または [**Save changes**] をクリックします。 Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 
 ### マイルストーンの削除
 

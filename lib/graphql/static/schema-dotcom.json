@@ -15291,6 +15291,16 @@
               }
             },
             {
+              "name": "isApproved",
+              "description": "<p>Filter whether or not the domain is approved.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isVerified",
               "description": "<p>Filter whether or not the domain is verified.</p>",
               "type": {
@@ -29711,6 +29721,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isApproved",
+              "description": "<p>Filter by if the domain is approved.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -53616,6 +53636,26 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "canReceiveOrganizationEmailsWhenNotificationsRestricted",
+          "description": "<p>Could this user receive email notifications, if the organization had notification restrictions enabled?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "login",
+              "description": "<p>The login of the organization to check.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "commitComments",
           "description": "<p>A list of commit comments made by this user.</p>",
           "type": "CommitCommentConnection!",
@@ -56148,6 +56188,14 @@
         {
           "name": "hasFoundVerificationToken",
           "description": "<p>Whether a TXT record for verification with the expected verification token was found.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isApproved",
+          "description": "<p>Whether or not the domain is approved.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

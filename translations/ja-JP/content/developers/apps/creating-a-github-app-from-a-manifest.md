@@ -179,7 +179,7 @@ GitHub App Manifest フローのこのステップを、1 時間以内に完了�
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-    POST /app-manifests/:code/conversions
+    POST /app-manifests/{code}/conversions
 
 エンドポイントのレスポンスに関する詳しい情報については、[マニフェストから GitHub App を作成する](/rest/reference/apps#create-a-github-app-from-a-manifest)を参照してください。
 

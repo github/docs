@@ -42,25 +42,21 @@ topics:
 
 ### 第 3 步：将组织升级到年度付费订阅
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} （在下一步可向组织添加更多席位。）
 6. 在“Upgrade summary（升级摘要）”下，选择 **Pay yearly（年度付款）**以每年为组织支付一次。 ![用于年度计费的单选按钮](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.add-payment-method %}
-1. 在“Pay with（付款方式）”下，键入您的信用卡信息。 ![用于输入信用卡信息的表单](/assets/images/help/billing/settings_billing_upgrade_with_credit_card.png)
-1. 单击 **Update credit card（更新信用卡）**。
+{% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### 第 4 步：升级组织中的付费席位数
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}

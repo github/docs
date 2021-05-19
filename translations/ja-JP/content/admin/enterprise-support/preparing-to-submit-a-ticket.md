@@ -6,8 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Support
 ---
 
 チケットをサブミットする前に以下の作業を済ませておいてください。

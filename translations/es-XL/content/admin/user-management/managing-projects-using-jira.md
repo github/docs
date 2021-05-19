@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Project management
 ---
 
 ### Conectar JIRA a una organización {% data variables.product.prodname_enterprise %}

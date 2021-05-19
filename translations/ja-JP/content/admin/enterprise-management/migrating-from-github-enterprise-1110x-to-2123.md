@@ -12,8 +12,11 @@ redirect_from:
 intro: '{% data variables.product.prodname_enterprise %}11.10.xから2.1.23へ移行するには、新しいアプライアンスのインスタンスをセットアップし、以前のインスタンスからデータを移行しなければなりません。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 {% data variables.product.prodname_enterprise %}11.10.348以降からの移行がサポートされています。 {% data variables.product.prodname_enterprise %}11.10.348以前からの移行はサポートされていません。 いくつかのアップグレードを経て、まず11.10.348にアップグレードしなければなりません。 詳しい情報については11.10.348のアップグレード手順"[最新リリースへのアップグレード](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)"を参照してください。

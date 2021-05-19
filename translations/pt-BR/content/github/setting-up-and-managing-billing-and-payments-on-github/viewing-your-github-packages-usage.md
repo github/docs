@@ -13,7 +13,7 @@ topics:
 Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_registry %} para sua própria conta de usuário.
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -22,10 +22,9 @@ Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_regi
 
 Os proprietários da organização e gerentes de cobrança podem ver o uso do {% data variables.product.prodname_registry %} para uma organização. Para organizações gerenciadas por uma conta corporativa, somente os proprietários da organização podem visualizar o uso do {% data variables.product.prodname_registry %} na página de cobrança da organização.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

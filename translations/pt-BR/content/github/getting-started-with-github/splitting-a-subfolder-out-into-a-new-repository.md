@@ -49,7 +49,7 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
 
   {% tip %}
 
-  **Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+  **Dica:** Para obter informações sobre a diferença entre as URLs de HTTPS e SSH, consulte "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
   {% endtip %}
 

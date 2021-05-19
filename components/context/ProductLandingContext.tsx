@@ -16,6 +16,19 @@ export type CodeExample = {
   href: string
   tags: Array<string>
 }
+export type Product = {
+  title: string
+  href: string
+  categories: Record<
+    string,
+    {
+      href: string
+      title: string
+      standalone?: boolean
+      articles?: Record<string, { href: string; title: string; shortTitle?: string }>
+    }
+  >
+}
 
 export type ProductLandingContextT = {
   title: string
@@ -23,6 +36,7 @@ export type ProductLandingContextT = {
   shortTitle: string
   intro: string
   beta_product: boolean
+  product: Product
   // primaryAction: LinkButtonT
   // secondaryAction?: LinkButtonT
   introLinks: {
@@ -65,7 +79,14 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 }
 
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
-  const { currentCategory, currentPath, data } = req.context
+  const {
+    currentCategory,
+    currentPath,
+    siteTree,
+    currentLanguage,
+    currentVersion,
+    currentProduct,
+  } = req.context
   return {
     ...pick(req.context.page, [
       'title',
@@ -76,6 +97,9 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'product_video',
       'changelog',
     ]),
+    product: JSON.parse(
+      JSON.stringify(siteTree[currentLanguage][currentVersion].products[currentProduct])
+    ),
     whatsNewChangelog: req.context.whatsNewChangelog,
     changelogUrl: req.context.changelogUrl,
 

@@ -17,5 +17,5 @@ topics:
 
 ### Weiterführende Informationen
 
-- „[Informationen zu {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)“
-- „[Unterstützung von Open-Source-Mitarbeitern](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"
+- „[Informationen zu {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)“
+- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"

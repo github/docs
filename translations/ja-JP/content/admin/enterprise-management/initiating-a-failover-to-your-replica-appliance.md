@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。

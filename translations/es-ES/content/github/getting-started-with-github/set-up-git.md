@@ -22,6 +22,8 @@ topics:
   - Accounts
 ---
 
+### Utilizar GitHub
+
 Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} También puedes instalar {% data variables.product.prodname_cli %} para utilizar {% data variables.product.product_name %} desde la línea de comandos. Para obtener más información sobre {% data variables.product.prodname_cli %}, consulta la [documentación de {% data variables.product.prodname_cli %}](https://cli.github.com/manual/).{% endif %}
 
 Si deseas trabajar con Git de forma local, pero no deseas utilizar la línea de comando, puedes descargar e instalar en su lugar el cliente [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".

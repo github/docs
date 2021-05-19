@@ -1,7 +1,6 @@
 ---
 title: 目標の管理
 intro: 目標を使って、主要なメトリクスについてターゲットを設定し、それらのターゲットに到達する成功を計測できます。
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'

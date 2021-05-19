@@ -29,7 +29,7 @@ topics:
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. 在要删除的协作者右边，单击
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
   ![用于删除协作者的按钮](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. 在左侧边栏中，单击 **Collaborators & teams（协作者和团队）**。 ![协作者选项卡](/assets/images/help/repository/repo-settings-collaborators.png)

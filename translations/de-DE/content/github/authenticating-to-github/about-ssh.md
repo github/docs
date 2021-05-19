@@ -11,11 +11,13 @@ topics:
   - SSH
 ---
 
-Wenn Sie die SSH einrichten, [generieren Sie einen SSH-Schlüssel und fügen ihn zu ssh-agent hinzu](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Dann [fügen Sie den Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account). Durch das Hinzufügen des SSH-Schlüssels zum SSH-Agenten wird sichergestellt, dass Dein SSH-Schlüssel durch die Verwendung einer Passphrase eine zusätzliche Sicherheitsebene hat. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/articles/working-with-ssh-key-passphrases).“
+When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" and "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-{% if currentVersion == "free-pro-team@latest" %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you'll need to authorize it first. Weitere Informationen findest Du unter „[Einen SSH-Schlüssel für die Verwendung in einer Organisation mit SAML Single Sign-On autorisieren](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)“.{% endif %}
+You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/github/authenticating-to-github/working-with-ssh-key-passphrases).“
 
-Du solltest regelmäßig [Deine Liste mit SSH-Schlüsseln überprüfen](/articles/reviewing-your-ssh-keys) und ungültige oder kompromittierte Schlüssel widerrufen.
+{% if currentVersion == "free-pro-team@latest" %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. Weitere Informationen findest Du unter „[Einen SSH-Schlüssel für die Verwendung in einer Organisation mit SAML Single Sign-On autorisieren](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)“.{% endif %}
+
+To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. Weitere Informationen findest Du unter „[SSH-Schlüssel überprüfen](/github/authenticating-to-github/reviewing-your-ssh-keys).“
 
 {% if currentVersion == "free-pro-team@latest" %}
 If you haven't used your SSH key for a year, then
@@ -28,8 +30,4 @@ Wenn Sie Mitglied einer Organisation sind, die SSH-Zertifikate bereitstellt, kö
 
 - „[Nach vorhandenen SSH-Schlüsseln suchen](/articles/checking-for-existing-ssh-keys)“
 - „[SSH-Verbindung testen](/articles/testing-your-ssh-connection)“
-- „[Mit SSH-Schlüssel-Passphrasen arbeiten](/articles/working-with-ssh-key-passphrases)“
 - „[Fehlerbehebung bei SSH](/articles/troubleshooting-ssh)“
-{%- if currentVersion == "free-pro-team@latest" %}
-- „[Einen SSH-Schlüssel für die Verwendung in einer Organisation mit SAML Single-Sign-On autorisieren](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)“
-{%- endif %}

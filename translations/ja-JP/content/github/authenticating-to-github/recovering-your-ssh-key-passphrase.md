@@ -15,7 +15,7 @@ topics:
 
 {% mac %}
 
-[SSH パスフレーズを OS X Keychain によって設定した](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)場合、リカバリできる可能性があります。
+[macOS キーチェーンを使用して SSH パスフレーズを設定](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)した場合、リカバリできる可能性があります。
 
 1. [Finder] で、**Keychain Access** アプリケーションを検索します。 ![スポットライト検索バー](/assets/images/help/setup/keychain-access.png)
 2. [Keychain Access] で、**SSH** を検索します。

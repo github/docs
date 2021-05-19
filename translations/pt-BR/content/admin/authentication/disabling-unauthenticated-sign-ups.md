@@ -7,7 +7,10 @@ redirect_from:
 intro: 'Se você estiver usando a autenticação integrada, será possível impedir que pessoas não autenticadas criem uma conta.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
 ---
 

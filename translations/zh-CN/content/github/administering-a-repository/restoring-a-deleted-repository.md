@@ -31,9 +31,9 @@ topics:
 
 ### 恢复组织所拥有的已删除仓库
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

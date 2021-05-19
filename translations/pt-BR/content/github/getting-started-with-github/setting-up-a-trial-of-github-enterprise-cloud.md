@@ -50,10 +50,10 @@ Se você não comprar o {% data variables.product.prodname_enterprise %} ou o {%
 
 Fazer downgrade para o {% data variables.product.prodname_free_team %} para organizações também desabilita quaisquer configurações SAML feitas durante o período de avaliação. Ao adquirir o {% data variables.product.prodname_enterprise %} ou o {% data variables.product.prodname_team %}, suas configurações SAML serão habilitadas novamente para os usuários da organização se autenticarem.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. Em "{% data variables.product.prodname_ghe_cloud %} Free Trial" (Versão de avaliação grátis do {% data variables.product.prodname_ghe_cloud %}) clique em **Buy Enterprise** (Comprar versão Enterprise) ou **Downgrade to Team** (Fazer downgrade para versão Team). ![Botões comprar versão Enterprise e fazer downgrade para versão Team](/assets/images/help/organizations/finish-trial-buttons.png)
 6. Siga as instruções para inserir seu método de pagamento e clique em **Submit** (Enviar).
 

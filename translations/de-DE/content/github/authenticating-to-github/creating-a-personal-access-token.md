@@ -17,13 +17,13 @@ topics:
 
 Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
 
-{% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/articles/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Ein Token erstellen
 
-{% if currentVersion == "free-pro-team@latest" %}1. [Überprüfe Deine E-Mail-Adresse](/articles/verifying-your-email-address), falls Du dies noch nicht getan hast.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}1. [Überprüfe Deine E-Mail-Adresse](/github/getting-started-with-github/verifying-your-email-address), falls Du dies noch nicht getan hast.{% endif %}
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
 {% data reusables.user_settings.personal_access_tokens %}
@@ -45,13 +45,13 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
    {% else %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png)
    {% endif %}
-
    {% warning %}
 
    **Warnung:** Behandeln Deine Tokens wie Passwörter und halte sie geheim. Wenn Du mit der API arbeitest, verwende Tokens als Umgebungsvariablen, anstatt sie in Deinen Programmen fix zu kodieren.
 
    {% endwarning %}
-{% if currentVersion == "free-pro-team@latest" %}9. Um Dein Token für die Authentifizierung bei einer Organisation zu verwenden, die SAML SSO nutzt, [autorisiere das Token für die Nutzung in einer SAML-SSO-Organisation](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}9. Um Ihren Token für die Authentifizierung bei einer Organisation zu verwenden, die SAML SSO nutzt, [autorisieren Sie den Token für die Nutzung einer SAML-SSO-Organisation](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
 
 ### Ein Token in der Befehlszeile verwenden
 
@@ -59,7 +59,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 Persönliche Zugriffstoken können nur für HTTPS-Git-Vorgänge verwendet werden. Wenn Ihr Repository eine SSH-Remote-URL verwendet, müssen Sie [das Remote-Repository von SSH auf HTTPS umstellen](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
-Wenn Sie nicht nach einem Benutzernamen und einem Passwort gefragt werden, wurden Ihre Anmeldeinformationen möglicherweise auf Ihrem Computer zwischengespeichert. Sie können [Ihre Anmeldeinformationen in der Keychain aktualisieren](/articles/updating-credentials-from-the-osx-keychain), um das alte Passwort durch den Token zu ersetzen.
+Wenn Sie nicht nach einem Benutzernamen und einem Passwort gefragt werden, wurden Ihre Anmeldeinformationen möglicherweise auf Ihrem Computer zwischengespeichert. Sie können [Ihre Anmeldeinformationen in der Keychain aktualisieren](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain), um das alte Passwort durch den Token zu ersetzen.
 
 ### Weiterführende Informationen
 

@@ -1,7 +1,6 @@
 ---
 title: 管理仓库
 intro: '您可以管理连接到 {% data variables.product.prodname_insights %} 的仓库以及每个仓库的指标中包含的数据。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-repositories
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage repositories. '

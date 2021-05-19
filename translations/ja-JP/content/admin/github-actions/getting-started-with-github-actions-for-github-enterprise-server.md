@@ -1,5 +1,6 @@
 ---
 title: GitHub Enterprise Server の GitHub Actions を使い始める
+shortTitle: GitHub Actionsを使ってみる
 intro: '{% data variables.product.prodname_ghe_server %} での {% data variables.product.prodname_actions %} の有効化と設定について初めて学びます。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 redirect_from:
@@ -7,7 +8,9 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-and-configuring-storage
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
+  - Actions
   - Enterprise
 ---
 
@@ -116,7 +119,7 @@ For more information about minimum hardware requirements for {% data variables.p
 
 ユーザーが Enterprise で使用できるアクションを制御できます。 これには、{% data variables.product.prodname_dotcom_the_website %} からのアクションへの自動アクセス用の {% data variables.product.prodname_github_connect %} の設定、または {% data variables.product.prodname_dotcom_the_website %} からのアクションの手動同期が含まれます。
 
-詳しい情報については、「[{% data variables.product.prodname_ghe_server %} でのアクションの使用について](/admin/github-actions/about-using-actions-on-github-enterprise-server)」を参照してください。
+For more information, see "[About using actions in your enterprise](/admin/github-actions/about-using-actions-in-your-enterprise)."
 
 ### {% data variables.product.prodname_actions %} の一般的なセキュリティ強化
 

@@ -7,7 +7,10 @@ redirect_from:
 intro: 如果您使用的是内置身份验证，可以阻止未经身份验证的人创建帐户。
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
 ---
 

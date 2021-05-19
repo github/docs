@@ -36,12 +36,16 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 更多信息请参阅“[关于 Actions](/actions/getting-started-with-github-actions/about-github-actions)”。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                           |
-| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wikis](/communities/documenting-your-project-with-wikis/about-wikis)”。                                                                                 |
+| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ### 源代码编辑
 
 | 键盘快捷键                                                          | 描述                                                       |
 | -------------------------------------------------------------- | -------------------------------------------------------- |
+| <kbd>control b</kbd> 或 <kbd>command b</kbd>                    | 插入 Markdown 格式用于粗体文本                                     |
+| <kbd>control i</kbd> 或 <kbd>command i</kbd>                    | 插入 Markdown 格式用于斜体文本                                     |
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>                    | 插入 Markdown 格式用于创建链接                                     |
 | <kbd>e</kbd>                                                   | 在 **Edit file（编辑文件）**选项卡中打开源代码文件                         |
 | <kbd>control f</kbd> 或 <kbd>command f</kbd>                    | 开始在文件编辑器中搜索                                              |
 | <kbd>control g</kbd> 或 <kbd>command g</kbd>                    | 查找下一个                                                    |

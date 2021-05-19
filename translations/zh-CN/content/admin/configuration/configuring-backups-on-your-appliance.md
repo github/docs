@@ -1,5 +1,6 @@
 ---
 title: 在设备上配置备份
+shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -15,8 +16,12 @@ redirect_from:
 intro: '作为灾难恢复计划的一部分，您可以通过配置自动备份的方式保护 {% data variables.product.product_location %} 中的生产数据。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Backups
   - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 ### 关于 {% data variables.product.prodname_enterprise_backup_utilities %}

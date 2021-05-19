@@ -9,8 +9,11 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: reference
 topics:
+  - Auditing
   - Enterprise
+  - Security
 ---
 
 #### Authentifizierung
@@ -72,12 +75,12 @@ topics:
 
 #### Issues und Pull Requests
 
-| Aktion                               | Beschreibung                                                                                                                                          |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `issue.update`                       | Der Text eines Issues (erster Kommentar) wurde geändert.                                                                                              |
-| `issue_comment.update`               | Ein Kommentar zu einem Issue (nicht der ursprüngliche) wurde geändert.                                                                                |
-| `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                                                                              |
-| `issue.destroy`                      | Ein Issue wurde aus dem Repository gelöscht. For more information, see "[Deleting an issue](/github/managing-your-work-on-github/deleting-an-issue)." |
+| Aktion                               | Beschreibung                                                                                                                                                   |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `issue.update`                       | Der Text eines Issues (erster Kommentar) wurde geändert.                                                                                                       |
+| `issue_comment.update`               | Ein Kommentar zu einem Issue (nicht der ursprüngliche) wurde geändert.                                                                                         |
+| `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                                                                                       |
+| `issue.destroy`                      | Ein Issue wurde aus dem Repository gelöscht. Weitere Informationen finden Sie unter „[Issue löschen](/github/managing-your-work-on-github/deleting-an-issue)“. |
 
 #### Organisationen
 

@@ -48,7 +48,7 @@ Quando você transfere um repositório, também são transferidos problemas, pul
   $ git remote set-url origin <em>new_url</em>
   ```
 
-For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
+Para obter mais informações, consulte "[Gerenciar repositórios remotos](/github/getting-started-with-github/managing-remote-repositories)".
 
 #### Transferências de repositório e organizações
 

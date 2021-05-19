@@ -7,7 +7,11 @@ redirect_from:
 intro: サイト管理者は、任意の通常ユーザアカウントをサイト管理者に昇格させることや、他のサイト管理者を通常のユーザに降格させることができます。
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
+  - Accounts
+  - User account
   - Enterprise
 ---
 

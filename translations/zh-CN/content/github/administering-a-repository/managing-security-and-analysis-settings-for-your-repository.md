@@ -35,10 +35,11 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。
-{% endif %} {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}如果在您的 {% data variables.product.prodname_GH_advanced_security %} 许可中没有可用的席位，则对“{% data variables.product.prodname_GH_advanced_security %}”的控制会禁用。
-  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 “
+{% data variables.product.prodname_GH_advanced_security %}”的控制被禁用（如果您的企业没有可用的 {% data variables.product.prodname_advanced_security %} 许可）。{% if currentVersion == "free-pro-team@latest" %}
+  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
 **注意：**如果禁用
 
@@ -46,11 +47,11 @@ topics:
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
-  !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 !["Configure security and analysis（配置安全性和分析）"功能的"Enable（启用）"或"Disable（禁用）"按钮](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
 4. 在“Configure security and analysis features（配置安全性和分析功能）”下，单击功能右侧的 **Disable（禁用）**或 **Enable（启用）**。 在可以为您的仓库启用
-“{% data variables.product.prodname_secret_scanning %}”之前，您必须先启用 {% data variables.product.prodname_GH_advanced_security %}。
+“{% data variables.product.prodname_secret_scanning %}”之前，您可能需要先启用 {% data variables.product.prodname_GH_advanced_security %}。
    ![为您的仓库启用或禁用 {% data variables.product.prodname_GH_advanced_security %} 或 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 

@@ -48,6 +48,12 @@ Use os branches de implantação para restringir quais branches podem ser implem
 
 Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de fluxo de trabalho que fazem referência ao ambiente. Se o ambiente exigir aprovação, um trabalho não poderá acessar segredos de ambiente até que um dos revisores necessários o aprove. Para obter mais informações sobre segredos, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
+{% note %}
+
+**Observação:** Os fluxos de trabalho executados em executores auto-hospedados não são executados em um contêiner isolado, mesmo que usem ambientes. Os segredos de ambiente devem ser tratados com o mesmo nível de segurança que os segredos do repositório e da organização. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)".
+
+{% endnote %}
+
 ### Criar um ambiente
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -71,6 +77,9 @@ Para obter mais informações sobre sintaxe para ambientes de referência em flu
 
 Quando um fluxo de trabalho faz referência a um ambiente, o ambiente aparecerá nas implantações do repositório. Para obter mais informações sobre a visualização de implementações atuais e anteriores, consulte "[Visualizar histórico de implantação](/developers/overview/viewing-deployment-history)".
 
+### Usar a concorrência para serializar implantações em um ambiente
+Você pode usar a concorrência para que um ambiente tenha, no máximo, uma implantação em andamento e uma implantação pendente por vez. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#concurrency)".
+
 ### Excluir um ambiente
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -80,7 +89,7 @@ A exclusão de um ambiente apagará todos os segredos e regras de proteção ass
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. Próximo o ambiente que você deseja excluir, clique em {% octicon "trashcan" aria-label="The trashcan icon" %}.
+1. Ao lado do ambiente que você deseja excluir, clique em {% octicon "trash" aria-label="The trash icon" %}.
 2. Clique em **Eu entendi, exclua este ambiente**.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}Você também pode excluir ambientes por meio da API REST. Para obter mais informações, consulte "[Ambientes](/rest/reference/repos#environments)."{% endif %}

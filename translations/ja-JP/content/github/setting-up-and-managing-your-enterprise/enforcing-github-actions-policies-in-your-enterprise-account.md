@@ -29,14 +29,14 @@ Enterprise のワークフローをすべて無効にすることも、Organizat
 {% data reusables.actions.enterprise-actions-permissions %}
 1. [**Save**] をクリックします。
 
-### Allowing specific actions to run
+### 特定のアクションの実行を許可する
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。 ![許可リストにアクションを追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### プライベートリポジトリのフォークのワークフローを有効にする
 
@@ -48,3 +48,19 @@ Enterprise のワークフローをすべて無効にすることも、Organizat
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+
+### Setting the permissions of the `GITHUB_TOKEN` for your enterprise
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose the restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope. ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
+1. **Save（保存）**をクリックして、設定を適用してください。

@@ -12,7 +12,9 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - API
   - Enterprise
+  - Migration
 ---
 
 ### Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}

@@ -11,8 +11,11 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - API
   - Enterprise
+  - Migration
 ---
 
 ### {% data variables.product.prodname_dotcom %} でソース Organization を準備する

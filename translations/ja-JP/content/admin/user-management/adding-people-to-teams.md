@@ -8,8 +8,12 @@ redirect_from:
 intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 各Teamには、それぞれに定義された[Organizatinが所有するリポジトリへのアクセス権限](/articles/permission-levels-for-an-organization)があります。

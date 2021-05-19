@@ -45,6 +45,7 @@ sections:
     - '依赖关系图无法解析 `yarn.lock` Javascript 清单文件，导致日志中的 HTTP 500 错误。'
     - '自定义时区从较早发布的 GitHub Enterprise Server 升级的实例可能在 web UI 中有不正确的时间戳。'
     - 'Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。'
+    - '在合并拉取请求后删除分支时，即使分支删除成功也会出现错误消息。'
     - |
       用户可能会遇到一些资产（如头像）不加载，或者无法推送/拉取代码。这可能是由于 `haproxy-cluster-proxy` 服务中的 PID 不匹配造成的。要确定您是否有受影响的实例：
 

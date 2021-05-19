@@ -16,6 +16,8 @@ topics:
   - Security
 ---
 
+### About {% data variables.product.prodname_dotcom %}'s products
+
 {% data variables.product.prodname_dotcom %}では無償版と有償版の製品をご用意しています。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
 
 ### ユーザアカウント用の{% data variables.product.prodname_free_user %}
@@ -99,14 +101,3 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 {% data variables.product.prodname_ghe_cloud %} を評価するためのトライアルを設定できます。 詳しい情報については、「<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する</a>」を参照してください。
 
 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)の独自インスタンスのホストに関する詳しい情報については、{% data variables.contact.contact_enterprise_sales %}に連絡してください。 {% data reusables.enterprise_installation.request-a-trial %}
-
-### {% data variables.product.prodname_ghe_one %}
-
-{% data variables.product.prodname_ghe_one %} には [{% data variables.product.prodname_enterprise %}](#github-enterprise) と、以下が含まれます。
-
-- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
-- {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. 詳しい情報については、「[{% data variables.product.prodname_GH_advanced_security %} について](/github/getting-started-with-github/about-github-advanced-security)」を参照してください{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} について](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。{% endif %}
-- [Organization の {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
-
-{% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

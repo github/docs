@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for Advanced Security in your enterprise account
-intro: 'Enterprise owners can enforce policies to manage {% data variables.product.prodname_GH_advanced_security %} features for organizations owned by an enterprise account.'
+title: Aplicar políticas de Segurança Avançada na sua conta corporativa
+intro: 'Os proprietários da empresa podem impor políticas para gerenciar funcionalidades de {% data variables.product.prodname_GH_advanced_security %} para organizações que pertencem a uma conta corporativa.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   free-pro-team: '*'
@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-### Enforcing a policy for {% data variables.product.prodname_advanced_security %} features
+### Aplicar uma política para funcionalidades de {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.about-ghas-organization-policy %}
 

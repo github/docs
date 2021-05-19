@@ -1,7 +1,6 @@
 ---
 title: 更新 GitHub Insights
 intro: '您可以更新到 {% data variables.product.prodname_insights %} 的最新版本，体验功能改进和漏洞修复的好处。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'

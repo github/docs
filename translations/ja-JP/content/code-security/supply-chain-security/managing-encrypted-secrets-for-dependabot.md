@@ -1,18 +1,18 @@
 ---
-title: Managing encrypted secrets for Dependabot
-intro: 'You can store sensitive information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.'
+title: Dependabot に対する暗号化されたシークレットを管理する
+intro: 'パスワードアクセストークンなどの機密情報を、暗号化されたシークレットとして保存し、{% data variables.product.prodname_dependabot %} 設定ファイルで参照することができます。'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
 versions:
   free-pro-team: '*'
 ---
 
-### About encrypted secrets for {% data variables.product.prodname_dependabot %}
+### {% data variables.product.prodname_dependabot %} に対する暗号化されたシークレットについて
 
-{% data variables.product.prodname_dependabot %} secrets are encrypted credentials that you create at either the organization level or the repository level.
-When you add a secret at the organization level, you can specify which repositories can access the secret. You can use secrets to allow {% data variables.product.prodname_dependabot %} to update dependencies located in private package registries. When you add a secret it's encrypted before it reaches {% data variables.product.prodname_dotcom %} and it remains encrypted until it's used by {% data variables.product.prodname_dependabot %} to access a private package registry.
+{% data variables.product.prodname_dependabot %} シークレットとは、Organization レベルまたはリポジトリレベルで作成する、暗号化された資格情報のことです。
+シークレットを Organization レベルで追加した場合、そのシークレットにどのリポジトリがアクセスできるかを指定できます。 シークレットを使用して、プライベートパッケージレジストリにある依存関係を {% data variables.product.prodname_dependabot %} が更新できるようにすることができます。 シークレットを追加すると、それが {% data variables.product.prodname_dotcom %} に届く前に暗号化され、それを {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスするために使用するまで暗号化されたままとなります。
 
-After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. 例:
+{% data variables.product.prodname_dependabot %} シークレットを追加後は、_dependabot.yml_ 設定ファイルで {% raw %}`${{secrets.NAME}}`{% endraw %} のように参照できます。「NAME」は、シークレットに付けた名前としてください。 例:
 
 {% raw %}
 ```yaml
@@ -24,12 +24,12 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 #### シークレットに名前を付ける
 
-The name of a {% data variables.product.prodname_dependabot %} secret:
-* Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). スペースは使用できません。 If you enter lowercase letters these are changed to uppercase.
-* Must not start with the `GITHUB_` prefix.
-* Must not start with a number.
+{% data variables.product.prodname_dependabot %} シークレットの名前には、以下の制限があります。
+* 英数字 (`[A-Z]`, `[0-9]`)、(`_`) のみ含めることができます。 スペースは使用できません。 小文字を入力すると、大文字に変換されます。
+* 名前の最初を `GITHUB_` プレフィックスにすることはできません。
+* 最初を数字にすることはできません。
 
-### Adding a repository secret for {% data variables.product.prodname_dependabot %}
+### {% data variables.product.prodname_dependabot %} にリポジトリシークレットを追加する
 
 {% data reusables.github-actions.permissions-statement-secrets-repository %}
 
@@ -42,11 +42,11 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 1. シークレットの値を入力します。
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value. You can click **Remove** to delete the secret.
+   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値を変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
 
-   ![Update or remove a repository secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![リポジトリシークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)
 
-### Adding an organization secret for {% data variables.product.prodname_dependabot %}
+### {% data variables.product.prodname_dependabot %} に Organization シークレットを追加する
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
@@ -60,14 +60,14 @@ Organizationでシークレットを作成する場合、ポリシーを使用�
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの **Value（値）** を入力します。
 1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。
-1. If you chose **Selected repositories**:
+1. [**Selected repositories**] を選択した場合、以下の手順に従います。
 
    * {% octicon "gear" aria-label="The Gear icon" %} をクリックします。
-   * Choose the repositories that can access this secret. ![Select repositories for this secret](/assets/images/help/dependabot/secret-repository-access.png)
-   * Click **Update selection**.
+   * このシークレットにアクセスできるリポジトリを選択します。 ![シークレットに対するリポジトリの選択](/assets/images/help/dependabot/secret-repository-access.png)
+   * [**Update selection**] をクリックします。
 
 1. [**Add secret（シークレットの追加）**] をクリックします。
 
-   The name of the secret is listed on the Dependabot secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
+   シークレットの名前が、Dependabot シークレットのページに一覧表示されます。 [**Update**] をクリックすると、シークレットの値やアクセスポリシーを変更できます。 [**Remove**] をクリックすると、シークレットを削除できます。
 
-   ![Update or remove an organization secret](/assets/images/help/dependabot/update-remove-repo-secret.png)
+   ![Organization シークレットの更新または削除](/assets/images/help/dependabot/update-remove-repo-secret.png)

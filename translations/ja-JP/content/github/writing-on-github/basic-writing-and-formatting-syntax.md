@@ -23,7 +23,7 @@ versions:
 
 ### スタイル付きテキスト
 
-太字、斜体、取り消し線で強調を示すことができます。
+コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
 
 | スタイル          | 構文                 | キーボードショートカット        | サンプル                      | 出力                      |
 | ------------- | ------------------ | ------------------- | ------------------------- | ----------------------- |
@@ -171,7 +171,7 @@ git commit
 
 ### 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 これにより通知がトリガーされ、会話に注意が向けられます。 コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -199,11 +199,15 @@ git commit
 
 ![コンテンツの添付](/assets/images/github-apps/content_reference_attachment.png)
 
-To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% if currentVersion == "free-pro-team@latest" %} 詳しい情報については、「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
 コンテンツの添付を利用する {% data variables.product.prodname_github_app %} の構築に関する詳しい情報については、「[コンテンツの添付を使用する](/apps/using-content-attachments)」を参照してください。
+
+### アセットをアップロードする
+
+ドラッグアンドドロップ、ファイルブラウザから選択、または貼り付けることにより、画像などのアセットをアップロードできます。 アセットをリポジトリ内の Issue、プルリクエスト、コメント、および `.md` ファイルにアップロードできます。
 
 ### 絵文字の利用
 
@@ -215,7 +219,7 @@ To see content attachments, you must have a {% data variables.product.prodname_g
 
 `:` を入力すると、絵文字のサジェストリストが表示されます。 このリストは、入力を進めるにつれて絞り込まれていくので、探している絵文字が見つかったら、**Tab** または **Enter** を押すと、ハイライトされているものが入力されます。
 
-For a full list of available emoji and codes, check out [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+利用可能な絵文字とコードの完全なリストについては、[絵文字チートシート](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)を参照してください。
 
 ### パラグラフ
 

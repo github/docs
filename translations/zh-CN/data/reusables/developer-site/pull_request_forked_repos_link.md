@@ -10,6 +10,10 @@
 
 默认情况下，工作流程不在复刻仓库上运行。 您必须在复刻仓库的 **Actions（操作）**选项卡中启用 GitHub Actions。
 
+{% if currentVersion == "free-pro-team@latest"%}
+当贡献者第一次向公共仓库提交拉取请求时，拥有写入权限的维护者必须批准拉取请求上运行的工作流程。 更多信息请参阅“[批准公共复刻中的工作流程运行](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)”。
+{% endif %}
+
 {% data reusables.actions.forked-secrets %} 对复刻仓库中 `GITHUB_TOKEN` 的权限是只读的。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
 {% note %}

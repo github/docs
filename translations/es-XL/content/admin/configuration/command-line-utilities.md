@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - SSH
 ---
 
 Puedes ejecutar estos comandos desde cualquier lugar en la VM después de iniciar sesión como usuario administrador de SSH. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."

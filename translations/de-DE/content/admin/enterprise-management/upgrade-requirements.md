@@ -7,8 +7,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrade-requirements
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - Upgrades
 ---
 
 {% note %}
@@ -40,5 +42,9 @@ topics:
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```
 Anhand der Zahl können Sie schätzen, wie viel Speicherplatz die MySQL-Auditprotokolle benötigen werden. Darüber hinaus überwacht das Skript den freien Speicherplatz, während der Import ausgeführt wird. Die Überwachung dieser Zahl ist besonders nützlich, wenn der freie Speicherplatz dem für die Migration erforderlichen Speicherplatz nahekommt.
+
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
+
+### Nächste Schritte:
 
 Nachdem Sie diese Empfehlungen und Anforderungen gelesen haben, können Sie {% data variables.product.prodname_ghe_server %} upgraden. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)“.

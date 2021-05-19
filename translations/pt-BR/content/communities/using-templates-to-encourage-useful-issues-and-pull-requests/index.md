@@ -1,6 +1,6 @@
 ---
 title: Usando modelos para incentivar problemas úteis e receber pull request
-shortTitle: Issue & PR templates
+shortTitle: Problema & Modelos PR
 intro: Os mantenedores de repositório podem adicionar modelos a um repositório para ajudar os contribuidores a criar problemas e pull requests de alta qualidade.
 redirect_from:
   - /github/building-a-strong-community/using-issue-and-pull-request-templates

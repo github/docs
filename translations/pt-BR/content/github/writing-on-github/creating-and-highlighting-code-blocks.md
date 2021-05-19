@@ -30,6 +30,7 @@ function test() {
 {% endtip %}
 
 ### Realce de sintaxe
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 Você pode adicionar um identificador de linguagem opcional para habilitar o realce de sintaxe no bloco de código isolado.
 

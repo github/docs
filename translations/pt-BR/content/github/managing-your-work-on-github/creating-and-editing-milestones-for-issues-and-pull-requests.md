@@ -18,7 +18,7 @@ topics:
 4. Escolha uma destas opções:
     - Para criar um marco, clique em **New Milestone** (Novo marco). ![Botão New milestone (Novo marco)](/assets/images/help/repository/new-milestone.png)
     - Para editar um marco, ao lado do marco que deseja editar, clique em **Edit** (Editar). ![Opção para editar marco](/assets/images/help/repository/edit-milestone.png)
-5. Digite o título, a descrição ou outras alterações do marco e clique em **Create milestone** (Criar marco) ou **Save changes** (Salvar alterações).
+5. Digite o título, a descrição ou outras alterações do marco e clique em **Create milestone** (Criar marco) ou **Save changes** (Salvar alterações). Os marcos irão renderizar a sintaxe do Markdown. Para obter mais informações sobre como criar links, consulte "[Sintaxe básica de gravação e formatação](/github/writing-on-github/basic-writing-and-formatting-syntax)".
 
 ### Excluir marcos
 
