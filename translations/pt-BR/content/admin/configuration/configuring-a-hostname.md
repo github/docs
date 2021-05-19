@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-a-hostname
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.

@@ -1,0 +1,1 @@
+リポジトリに対して書き込みアクセス権を持つ人は、ワークフローファイル中の`permissions`キーを編集することによって、`GITHUB_TOKEN`に付与される権限を変更したり、必要に応じてアクセス権を追加したり削除したりできます。 詳しい情報については[`権限`](/actions/reference/workflow-syntax-for-github-actions#permissions)を参照してください。 

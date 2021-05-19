@@ -3,6 +3,9 @@ title: GitHub AE を初期化する
 intro: '{% data variables.product.product_name %} の初期設定を完了して Enterprise で使用できるようにします。'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### 初期化について
@@ -79,11 +82,11 @@ Enterprise を初期化する前に、{% data variables.product.product_name %} 
 1. [Configure email settings] の右側にある [**Configure**] をクリックします。 ![メール設定の [Configure] ボタン](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. **Enable email（メールの有効化）**を選択してください。 これにより、アウトバウンドメールとインバウンドメールの両方が有効になりますが、インバウンドメールが動作するようにするには、DNS 設定を行う必要があります。 詳しい情報については、「[着信メールを許可するよう DNS およびファイアウォールを設定する](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)」を参照してください。 ![メール設定の [Enable] チェックボックス](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. メールサーバーの設定を完了します。
-  - [**Server address**] フィールドに SMTP サーバのアドレスを入力します。
-  - [**Port**] フィールドには、SMTP サーバがメールを送信するのに使用するポートを入力します。
-  - [**Domain**] フィールドには、SMTP サーバが HELO レスポンスを送信するドメイン名があれば入力してください。
-  - [** Authentication（認証）**] ドロップダウンでは、SMTP サーバが利用する暗号化の種類を選択してください。
-  - [**No-reply email address（No-replyメールアドレス）**] フィールドには、すべての通知メールの From および To フィールドに使うメールアドレスを入力してください。
+    - [**Server address**] フィールドに SMTP サーバのアドレスを入力します。
+    - [**Port**] フィールドには、SMTP サーバがメールを送信するのに使用するポートを入力します。
+    - [**Domain**] フィールドには、SMTP サーバが HELO レスポンスを送信するドメイン名があれば入力してください。
+    - [** Authentication（認証）**] ドロップダウンでは、SMTP サーバが利用する暗号化の種類を選択してください。
+    - [**No-reply email address（No-replyメールアドレス）**] フィールドには、すべての通知メールの From および To フィールドに使うメールアドレスを入力してください。
 
 4. no-replyメールアドレスへの着信メールをすべて破棄したい場合には、**Discard email addressed to the no-reply email address（no-replyメールアドレスへのメールの破棄）**を選択してください。 ![メール設定の [Discard] チェックボックス](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. [**Test email settings**] をクリックします。 ![メール設定の [Test email settings] ボタン](/assets/images/enterprise/configuration/ae-test-email.png)

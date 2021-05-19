@@ -36,7 +36,7 @@ Um auf einen vorhandenen Zeilenkommentar zu antworten, navigiere auf der Registe
 
 **Tipps:**
 - Pull-Request-Kommentare unterstützen dieselbe [Formatierung](/categories/writing-on-github) wie reguläre Kommentare auf {% data variables.product.product_name %}, z. B. @Erwähnungen, Emojis und Verweise.
-- Du kannst auf der Registerkarte **Files changed** (Dateien geändert) [Reaktionen](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) zu Kommentaren in Pull Requests hinzufügen.
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 
@@ -57,5 +57,5 @@ Alle, die den Pull Request oder das Repository beobachten, erhalten eine Benachr
 ### Weiterführende Informationen
 
 - „[Einen Permalink zu einem Code-Ausschnitt erstellen](/articles/creating-a-permanent-link-to-a-code-snippet/)“
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
 {% endif %}

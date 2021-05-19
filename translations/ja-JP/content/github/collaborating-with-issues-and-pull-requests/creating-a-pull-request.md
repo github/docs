@@ -19,6 +19,14 @@ topics:
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can create a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr create`](https://cli.github.com/manual/gh_pr_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### ブランチの範囲と宛先リポジトリの変更
 
 デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。

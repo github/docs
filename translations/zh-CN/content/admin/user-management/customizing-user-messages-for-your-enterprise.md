@@ -1,5 +1,6 @@
 ---
 title: 自定义企业的用户消息
+shortTitle: Customizing user messages
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
@@ -8,8 +9,10 @@ intro: '您可以创建用户将在 {% data variables.product.product_location %
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Maintenance
 ---
 
 ### 关于用户消息

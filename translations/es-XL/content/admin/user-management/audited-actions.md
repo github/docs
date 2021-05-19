@@ -10,7 +10,9 @@ versions:
   github-ae: '*'
 miniTocMaxHeadingLevel: 4
 topics:
+  - Auditing
   - Enterprise
+  - Security
 ---
 
 #### Autenticación

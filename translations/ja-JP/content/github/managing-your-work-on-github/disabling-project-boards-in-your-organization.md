@@ -17,9 +17,9 @@ Organization 内にあるリポジトリのプロジェクトボードを無効�
 
 プロジェクトボードを無効化すると、タイムラインや[監査ログ](/articles/reviewing-the-audit-log-for-your-organization/)でプロジェクトボード情報を見ることができなくなります。
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Organization 全体のプロジェクトボードを無効化するのか、Organization 内にあるリポジトリのプロジェクトボードを無効化するのか、その両方なのかを判断します。 次に [Projects] の下で:
     - Organization 全体のプロジェクトボードを無効化するには、[**Enable projects for the organization**] の選択を解除します。
     - Organization 内にあるリポジトリのプロジェクトボードを無効化するには、[**Enable projects for all repositories**] の選択を解除します。 ![Organization や Organization の全リポジトリのプロジェクトを無効にするチェックボックス](/assets/images/help/projects/disable-org-projects-checkbox.png)

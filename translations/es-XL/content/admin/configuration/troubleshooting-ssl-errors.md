@@ -10,6 +10,11 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Errors
+  - Infrastructure
+  - Networking
+  - Security
+  - Troubleshooting
 ---
 
 ### Eliminar la contraseña de un archivo clave

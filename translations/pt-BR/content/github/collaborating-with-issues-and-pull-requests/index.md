@@ -1,6 +1,6 @@
 ---
 title: Colaborar com problemas e pull requests
-intro: 'Use o fluxo do {% data variables.product.prodname_dotcom %} para rastrear e discutir alterações em problemas e também para propor e revisar alterações em pull requests.'
+intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -18,10 +18,9 @@ topics:
 
 ### Índice
 
-{% topic_link_in_list /overview %}
-    {% link_in_list /github-flow %}
+{% topic_link_in_list /getting-started %}
+    {% link_in_list /quickstart-for-communicating-on-github %}
     {% link_in_list /about-collaborative-development-models %}
-    {% link_in_list /about-conversations-on-github %}
 {% topic_link_in_list /working-with-forks %}
     {% link_in_list /about-forks %}
     {% link_in_list /configuring-a-remote-for-a-fork %}

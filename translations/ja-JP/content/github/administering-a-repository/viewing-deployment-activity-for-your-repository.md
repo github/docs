@@ -24,7 +24,8 @@ topics:
 ### デプロイメントダッシュボードを表示する
 
 {% data reusables.repositories.navigate-to-repo %}
-2. ファイルの一覧の上にある [**Environments**] をクリックします。 ![リポジトリページ上部の [Environments]](/assets/images/help/repository/environments.png)
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+
 
 ### 参考リンク
  - [プルリクエストについて](/articles/about-pull-requests)

@@ -57,13 +57,13 @@ topics:
 {% data reusables.notifications.access_notifications %}
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
     - 取消关注仓库
-    - 只关注某仓库的发行版
-    - 忽略某仓库的所有通知
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
     - 取消关注仓库
-    - 忽略某仓库的所有通知
-    - 自定义接收通知的事件类型（议题、拉取请求、发布或讨论，如有启用）
-{% endif %}
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

@@ -53,18 +53,18 @@ Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pus
 
 Um Prüfungen für Deinen Commit zu überspringen oder anzufordern, füge eine der folgenden Trailerzeilen an das Ende Deiner Commit-Mitteilung an:
 
-- Um Prüfungen für einen Commit zu _überspringen_, gib Deine Commit-Mitteilung und eine kurze, aussagekräftige Beschreibung Deiner Änderungen ein. Füge nach Deiner Commit-Beschreibung anstelle eines abschließenden Anführungszeichens zwei leere Zeilen hinzu, gefolgt von `skip-checks: true`:
+- Um Prüfungen für einen Commit zu _überspringen_, gib Deine Commit-Mitteilung und eine kurze, aussagekräftige Beschreibung Deiner Änderungen ein. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
   ```shell
-  $ git commit -m "Update README.
+  $ git commit -m "Update README
   >
   >
-  skip-checks: true
+  skip-checks: true"
   ```
-  - Um Prüfungen für einen Commit _anzufordern_, gib Deine Commit-Mitteilung und eine kurze, aussagekräftige Beschreibung Deiner Änderungen ein. Füge nach Deiner Commit-Beschreibung anstelle eines abschließenden Anführungszeichens zwei leere Zeilen hinzu, gefolgt von `request-checks: true`:
+- Um Prüfungen für einen Commit _anzufordern_, gib Deine Commit-Mitteilung und eine kurze, aussagekräftige Beschreibung Deiner Änderungen ein. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
   ```shell
-  $ git commit -m "Refactor usability tests.
+  $ git commit -m "Refactor usability tests
   >
   >
-  request-checks: true
+  request-checks: true"
   ```
   

@@ -15,7 +15,7 @@ versions:
 
 Toda vez que você pressionar <kbd>retornar</kbd> no seu teclado, você insere um caractere invisível denominado delimitador. Os diferentes sistemas operacionais gerenciam os delimitadores de formas diferentes.
 
-Ao colaborar em projetos com Git e {% data variables.product.product_name %}, o Git pode produzir resultados inesperados se, por exemplo, você estiver trabalhando em uma máquina que use o Windows e o seu colaborador dizer uma mudança no OS X.
+When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 Você pode configurar o Git para gerenciar os delimitadores automaticamente para que você possa colaborar efetivamente com pessoas que usam diferentes sistemas operacionais.
 
@@ -25,11 +25,11 @@ O comando `git config core.autocrlf` é utilizado para alterar a forma como o Gi
 
 {% mac %}
 
-No OS X, você simplesmente introduz `input` (entrada) na configuração. Por exemplo:
+On macOS, you simply pass `input` to the configuration. Por exemplo:
 
 ```shell
 $ git config --global core.autocrlf input
-# Configure Git to ensure line endings in files you checkout are correct for OS X
+# Configure Git to ensure line endings in files you checkout are correct for macOS
 ```
 
 {% endmac %}

@@ -1,7 +1,6 @@
 ---
 title: Gerenciar eventos
 intro: '{% data reusables.github-insights.events %}'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-events
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage events.'
@@ -29,5 +28,5 @@ Após criar um evento em {% data variables.product.prodname_insights %}, qualque
 
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.events-tab %}
-3. À direita do evento que você deseja excluir, clique em **{% octicon "trashcan" aria-label="The trashcan icon" %}**. ![Botão de Lixeira](/assets/images/help/insights/trashcan-button.png)
+3. À direita do evento que você deseja excluir, clique em **{% octicon "trash" aria-label="The trash icon" %}**. ![Botão de Lixeira](/assets/images/help/insights/trashcan-button.png)
 4. Clique em **Confirmar**.

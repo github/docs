@@ -9,6 +9,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 ### Acerca del firewell de {% data variables.product.product_location_enterprise %}

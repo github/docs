@@ -1,6 +1,6 @@
 ---
 title: Cherry-picking a commit
-intro: You can pick a specific commit on one branch and copy the commit to another branch.
+intro: Você pode escolher um commit específico em um branch e copiar o commit para outro branch.
 versions:
   free-pro-team: '*'
 ---

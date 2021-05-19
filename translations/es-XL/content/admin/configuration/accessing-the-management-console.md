@@ -14,6 +14,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
 ---
 
 ### Acerca de {% data variables.enterprise.management_console %}

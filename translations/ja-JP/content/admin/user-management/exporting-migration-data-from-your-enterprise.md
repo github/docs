@@ -11,8 +11,11 @@ redirect_from:
   - /enterprise/admin/user-management/exporting-migration-data-from-your-enterprise
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - API
   - Enterprise
+  - Migration
 ---
 
 ### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する

@@ -48,7 +48,7 @@ Weitere Informationen zu Repository-Berechtigungsstufen findest Du unter „[Ber
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Finde unter „Manage access" (Zugriffe verwalten) das Team oder die Person, deren Zugriff Du entfernen willst, dann klicke auf {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Trashcan-Symbol zum Entfernen des Zugriffs](/assets/images/help/repository/manage-access-remove.png)
+4. Finde unter „Manage access" (Zugriffe verwalten) das Team oder die Person, deren Zugriff Du entfernen willst, dann klicke auf {% octicon "trash" aria-label="The trash icon" %}. ![trash icon for removing access](/assets/images/help/repository/manage-access-remove.png)
 
 ### Weiterführende Informationen
 

@@ -104,7 +104,7 @@ unset env
 
 ### 在密钥链中保存密码
 
-在 OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

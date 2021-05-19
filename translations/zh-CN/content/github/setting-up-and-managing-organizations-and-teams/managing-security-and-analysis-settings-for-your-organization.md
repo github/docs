@@ -33,7 +33,7 @@ topics:
 
 {% if currentVersion ver_gt "enterprise-server@3.0" %}如果您具有 {% data variables.product.prodname_GH_advanced_security %} 许可，则该页面还包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。 使用 {% data variables.product.prodname_GH_advanced_security %} 的任何仓库都列在页面底部。{% endif %}
 
-{% if currentversion == "github-ae@latest" %}该页面还将包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。{% endif %}
+{% if currentVersion == "github-ae@latest" %}该页面还将包含启用和禁用 {% data variables.product.prodname_advanced_security %} 功能的选项。{% endif %}
 
 ### 为所有现有仓库启用或禁用功能
 

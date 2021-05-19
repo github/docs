@@ -29,7 +29,7 @@ topics:
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
 4. 削除するコラボレータの右側にある次をクリックします。
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}をクリックしてください。
   ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![[Collaborators] タブ](/assets/images/help/repository/repo-settings-collaborators.png)

@@ -14,7 +14,7 @@ topics:
 
 Du kannst optional eine Beschreibung, einen Standort, eine Website und eine E-Mail-Adresse für Deine Organisation hinzufügen und wichtige Repositorys am Anfang der Seite anheften.
 
-{% if currentVersion == "free-pro-team@latest" %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[Domänen Deiner Organisation überprüfen](/organizations/managing-organization-settings/verifying-your-organizations-domain).“
+{% if currentVersion == "free-pro-team@latest" %}Um die Identität Ihrer Organisation zu bestätigen und einen „Verifiziert“-Badge auf der Profilseite Ihrer Organisation anzuzeigen, müssen Sie die Domains Ihrer Organisation mit {% data variables.product.product_name %} verifizieren. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
 ![Beispiel einer verifizierten Profilseite einer Organisation](/assets/images/help/profile/org_profile_verified.png)
 {% else %}

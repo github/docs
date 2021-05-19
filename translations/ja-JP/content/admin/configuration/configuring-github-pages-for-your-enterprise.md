@@ -11,8 +11,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Pages
 ---
 
 ### {% data variables.product.prodname_pages %} の公開サイトを有効にする

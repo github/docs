@@ -1,6 +1,6 @@
 ---
 title: リポジトリ設定を管理する
-intro: 'Repository administrators and organization owners can change settings for a repository, like the name, ownership, and visibility, or delete the repository.'
+intro: リポジトリの管理者と Organization のオーナーは、名前、所有権、可視性などのリポジトリの設定を変更したり、リポジトリを削除したりすることができます。
 mapTopic: true
 redirect_from:
   - /articles/managing-repository-settings

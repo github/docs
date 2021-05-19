@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 As equipes são essenciais para vários recursos de colaboração do {% data variables.product.prodname_dotcom %}, como as @menções, que chamam a atenção dos integrantes envolvidos em alguma questão específica. Para obter mais informações sobre como configurar equipes e permissões de equipe, consulte "[Níveis de permissão nos repositórios da organização](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".

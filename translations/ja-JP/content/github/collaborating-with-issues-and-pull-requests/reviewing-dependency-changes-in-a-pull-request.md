@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.dependency-review.feature-overview %}
 
-Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+依存関係のレビューでは、「左にシフト」することができます。 提供された予測情報を使用して、本番環境に至る前に脆弱性のある依存関係をキャッチできます。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 
 ### プルリクエスト内の依存関係を確認する
 

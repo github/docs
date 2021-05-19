@@ -1,6 +1,6 @@
 ---
 title: Configurar projeto para contribuições úteis
-shortTitle: Healthy contributions
+shortTitle: Contribuições saudáveis
 intro: Os mantenedores de repositório podem definir diretrizes de contribuição para ajudar os colaboradores a fazer contribuições relevantes e úteis a um projeto.
 redirect_from:
   - /articles/helping-people-contribute-to-your-project/

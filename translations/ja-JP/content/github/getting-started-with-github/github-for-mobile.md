@@ -40,7 +40,7 @@ VPN で Enterprise にアクセスする必要がある場合、{% data variable
 
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、デバイスに {% data variables.product.prodname_mobile %} 1.4 以降をインストールする必要があります。
 
-{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 詳しい情報については、「[リリースノート](/enterprise-server/admin/release-notes)」と「[Enterprise 向けに {% data variables.product.prodname_mobile %} を管理する](/admin/configuration/managing-github-for-mobile-for-your-enterprise)」を参照してください。
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_mobile %} を使用するには、{% data variables.product.product_location %} がバージョン 3.0 以降であり、Enterprise オーナーが Enterprise に対してモバイルサポートを有効にしている必要があります。 For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
 
 {% data variables.product.prodname_ghe_server %} を使用した {% data variables.product.prodname_mobile %} のベータでは、{% data variables.product.prodname_dotcom_the_website %} のユーザアカウントでサインインする必要があります。
 

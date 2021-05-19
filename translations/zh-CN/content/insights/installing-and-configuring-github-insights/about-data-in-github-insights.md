@@ -1,7 +1,6 @@
 ---
 title: 关于 GitHub Insights
 intro: '{% data variables.product.prodname_insights %} 指标中包含的数据可高度自定义。'
-product: '{% data reusables.gated-features.github-insights %}'
 permissions: ''
 versions:
   enterprise-server: '*'

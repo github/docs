@@ -17,6 +17,8 @@ topics:
 
 虽然文件 URL 会自动重定向，但原始文件 URL 未被重定向。 此外，如果用户对前一个分支名称执行 `git pull`，则 {% data variables.product.prodname_dotcom %} 不会执行任何重定向。
 
+{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
+
 ### 重命名分支
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -35,4 +37,10 @@ topics:
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
 $ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git remote set-head origin -a
+```
+
+（可选）运行下面的命令来删除对旧分支名称的跟踪引用。
+```
+$ git remote prune origin
 ```

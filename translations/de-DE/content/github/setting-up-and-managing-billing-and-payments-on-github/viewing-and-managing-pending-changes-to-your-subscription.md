@@ -19,19 +19,16 @@ Wenn Du eine ausstehende Änderung stornierst, wird Dein Abonnement bei Deinem n
 ### Ausstehende Änderungen am Abonnement Deines persönlichen Kontos anzeigen und verwalten
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Ausstehende Änderungen am Abonnement Deiner Organisation anzeigen und verwalten
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}

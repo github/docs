@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_actions %} を有効化する前に、次のステップを完了していることを確認してください。
 
-* ワークフローの実行によって生成されたアーティファクトを保存するための Amazon S3 バケットを作成します。 {% indented_data_reference site.data.reusables.actions.enterprise-s3-permission spaces=2 %}
+* ワークフローの実行によって生成されたアーティファクトを保存するための Amazon S3 バケットを作成します。 {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
 
 {% data reusables.actions.enterprise-common-prereqs %}
 

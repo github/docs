@@ -22,7 +22,7 @@ topics:
 ### リリース管理について
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. 詳しい情報については、「<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">アクションを {% data variables.product.prodname_marketplace %} で公開する</a>」を参照してください。
+{% data variables.product.prodname_marketplace %} の特定のリリースからのアクションを公開することもできます。 詳しい情報については、「<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">アクションを {% data variables.product.prodname_marketplace %} で公開する</a>」を参照してください。
 {% endif %}
 リポジトリに対して
 
@@ -32,7 +32,7 @@ You can also publish an action from a specific release in {% data variables.prod
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用してリリースを管理することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh release`](https://cli.github.com/manual/gh_release)」を参照してください。
 
 {% endtip %}
 {% endif %}
@@ -48,7 +48,7 @@ You can also publish an action from a specific release in {% data variables.prod
 7. オプションで、コンパイルされたプログラムなどのバイナリファイルをリリースに含めるには、ドラッグアンドドロップするかバイナリボックスで手動で選択します。 ![リリースに DMG ファイルを含める](/assets/images/help/releases/releases_adding_binary.gif)
 8. リリースが不安定であり、運用準備ができていないことをユーザに通知するには、[**This is a pre-release**] を選択します。 ![リリースをプレリリースとしてマークするチェックボックス](/assets/images/help/releases/prerelease_checkbox.png)
 {%- if currentVersion == "free-pro-team@latest" %}
-1. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion. ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
+1. 必要に応じて、[**Create a discussion for this release**] を選択し、[**Category**] ドロップダウンメニューを選択してリリースディスカッションのカテゴリをクリックします。 ![リリースディスカッションを作成するためのチェックボックスと、カテゴリを選択するドロップダウンメニュー](/assets/images/help/releases/create-release-discussion.png)
 {%- endif %}
 9. リリースを公開する準備ができている場合は、[**Publish release**] をクリックします。 リリースの作業を後でする場合は、[**Save draft**] をクリックします。 ![[Publish release] と [Save draft] ボタン](/assets/images/help/releases/release_buttons.png)
 

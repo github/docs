@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。

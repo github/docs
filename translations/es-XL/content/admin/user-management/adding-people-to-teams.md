@@ -9,7 +9,10 @@ intro: 'Una vez que se ha creado un equipo, los administradores de la organizaci
 versions:
   enterprise-server: '*'
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 Cada equipo tiene sus propios premisos de acceso definidos de manera individual [ para repositorios que le pertenecen a tu organización](/articles/permission-levels-for-an-organization).

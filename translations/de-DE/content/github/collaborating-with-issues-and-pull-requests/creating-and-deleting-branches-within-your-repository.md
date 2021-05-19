@@ -34,7 +34,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Scrolle zum Branch, den Du löschen möchtest, und klicke auf {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}. ![Branch löschen](/assets/images/help/branches/branches-delete.png)
+1. Scrolle zum Branch, den Du löschen möchtest, und klicke auf {% octicon "trash" aria-label="The trash icon to delete the branch" %}. ![Branch löschen](/assets/images/help/branches/branches-delete.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}

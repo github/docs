@@ -21,9 +21,8 @@ Se você permite a bifurcação do repositório privado{% if currentVersion == "
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Em "Bifurcação do repositório", selecione **Permitir bifurcação de repositórios privados** ou **Permitir bifurcação de repositórios internos e privados**. ![Caixa de seleção para permitir ou proibir a bifurcação na organização](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Clique em **Salvar**.

@@ -30,6 +30,8 @@ versions:
   github-ae: '*'
 topics:
   - Enterprise
+  - Policies
+  - Security
 ---
 
 ### Configuring the default visibility of new repositories on your appliance

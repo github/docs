@@ -57,13 +57,13 @@ topics:
 {% data reusables.notifications.access_notifications %}
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
     - リポジトリの Watch 解除
-    - リポジトリのリリースのみを Watch
-    - リポジトリのすべての通知を無視
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
     - リポジトリの Watch 解除
-    - リポジトリのすべての通知を無視
-    - 通知を受け取るイベントの種類をカスタマイズ (Issue、プルリクエスト、リリース、ディスカッションが有効の場合)
-{% endif %}
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

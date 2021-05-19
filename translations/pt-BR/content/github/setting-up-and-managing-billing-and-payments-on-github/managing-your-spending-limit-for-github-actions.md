@@ -27,8 +27,8 @@ Como você não habilitou os excedentes, a sua próxima tentativa de criar um ar
 Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -36,11 +36,10 @@ Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.p
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_actions %} para uma organização.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -51,8 +50,8 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Em "
-{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Gestão de custo**.
-  ![Aba de gestão de custos](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Above "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**.
+  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

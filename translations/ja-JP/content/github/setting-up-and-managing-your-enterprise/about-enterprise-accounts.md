@@ -18,15 +18,15 @@ topics:
 Enterprise アカウントでは、複数の {% data variables.product.prodname_dotcom %} Organization と {% data variables.product.prodname_ghe_server %} インスタンスを管理できます。 Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:
 
 - メンバーのアクセスと管理 (Organization のメンバー、外部コラボレーター)
-- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}, {% data variables.product.prodname_GH_advanced_security %} usage{% endif %})
+- 支払いと使用状況（{% data variables.product.prodname_ghe_server %} インスタンス、ユーザライセンス、{% data variables.large_files.product_name_short %} パック{% if currentVersion == "free-pro-team@latest" or ver_gt "enterprise-server@3.0" %}、{% data variables.product.prodname_GH_advanced_security %} の使用状況{% endif %}）
 - セキュリティ (シングルサインオン、2 要素認証)
 - {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}{% data variables.product.prodname_ghe_cloud %} サブスクリプションの管理に関する詳しい情報については、「[Enterprise アカウントのサブスクリプションと利用状況の表示](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)」を参照してください。 {% data variables.product.prodname_ghe_server %} の支払い設定の管理に関する詳しい情報については、「[Enterprise の支払いの管理](/admin/overview/managing-billing-for-your-enterprise)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについては、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。 {% data variables.product.prodname_enterprise %} にアップグレードする、または Enterprise アカウントを使い始める場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
-For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
+メンバーのアクセスと管理の詳細については、「{% if currentVersion == "free-pro-team@latest" %}[Enterprise 内のユーザを管理する](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[ユーザ、Organization、リポジトリを管理する](/admin/user-management)」を参照してください{% endif %}。
 
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」を参照してください。
 

@@ -1,7 +1,6 @@
 ---
 title: GitHub Insights 系统概述
 intro: '{% data variables.product.prodname_insights %} 是一款与 {% data variables.product.prodname_enterprise %} 交互的独立应用程序。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/system-overview-for-github-insights
 versions:

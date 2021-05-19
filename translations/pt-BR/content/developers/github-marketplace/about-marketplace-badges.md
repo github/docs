@@ -9,21 +9,21 @@ versions:
 
 ### Para aplicativos GitHub
 
-Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
+Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o selo {% octicon "verified" aria-label="The verified badge" %} e uma dica que diz "domínio de editor e e-mail verificados". Isso significa que o aplicativo é propriedade de uma organização que tem:
 
-- Verified ownership of their domain and has a verified badge on their profile
+- Propriedade verificada do seu domínio e tem um selo verificado no seu perfil
 - Confirmou o endereço de e-mail da empresa, para que o suporte de {% data variables.product.prodname_dotcom %} possa entrar em contato com a empresa
 - Exigiu a autenticação de dois fatores para sua organização. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
 
 ![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 
 {% note %}
-{% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
+{% data variables.product.prodname_dotcom %} não analisa o aplicativo. O selo do marketplace {% octicon "verified" aria-label="The verified badge" %} somente confirma que o editor atende aos requisitos listados acima.
 {% endnote %}
 
 Para saber como adicionar esse selo ao seu aplicativo, consulte "[Candidatar-se para a verificação de publicador para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
 
-Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+Alguns aplicativos em {% data variables.product.prodname_marketplace %} têm o selo {% octicon "verified" aria-label="The verified badge" %} e uma dica que diz "O aplicativo atende aos requisitos para o anúncio" em vez de "Domínio e e-mail de editor verificados". Isso significa que o aplicativo atende aos requisitos de anúncio descritos em "[Requisitos para anunciar um aplicativo](/developers/github-marketplace/requirements-for-listing-an-app), mas o editor não foi verificado, conforme descrito em "[Aplicar a verificação de editor para a sua organização](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)". Os aplicativos com este selo não podem alterar seu plano de preços até que o editor solicite a verificação de forma bem-sucedida.
 
 ![Selo do Marketplace para Aplicativos GitHub](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 

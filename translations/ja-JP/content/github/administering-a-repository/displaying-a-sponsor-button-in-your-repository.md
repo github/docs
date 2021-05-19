@@ -12,7 +12,7 @@ topics:
 
 ### FUNDING ファイルについて
 
-デフォルトブランチの、リポジトリ内の `.github` フォルダにある _FUNDING.yml_ ファイルを編集することで、スポンサーボタンを設定できます。 ボタンには、{% data variables.product.prodname_sponsors %} のスポンサード開発者、外部の資金獲得プラットフォーム、またはカスタムの資金獲得 URL を含めることができます。 {% data variables.product.prodname_sponsors %} の詳細は、「[GitHub Sponsors について](/articles/about-github-sponsors)」を参照してください。
+デフォルトブランチの、リポジトリ内の `.github` フォルダにある _FUNDING.yml_ ファイルを編集することで、スポンサーボタンを設定できます。 ボタンには、{% data variables.product.prodname_sponsors %} のスポンサード開発者、外部の資金獲得プラットフォーム、またはカスタムの資金獲得 URL を含めることができます。 {% data variables.product.prodname_sponsors %} の詳細は、「[GitHub Sponsors について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)」を参照してください。
 
 外部の資金獲得プラットフォームごとに 1 つのユーザ名、パッケージ名、またはプロジェクト名と、最大 4 つのカスタム URL を追加できます。 {% data variables.product.prodname_sponsors %} には、スポンサード開発者または Organization を最大 4 人追加できます。 追加する場合は、プラットフォームごとに改行し、以下の構文に従ってください:
 
@@ -76,5 +76,5 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 {% data reusables.files.propose_new_file %}
 
 ### 参考リンク
-- 「[オープンソースコントリビューターに対する {% data variables.product.prodname_sponsors %} について](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)」
+- 「[オープンソースコントリビューターに対する {% data variables.product.prodname_sponsors %} について](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)」
 - {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」

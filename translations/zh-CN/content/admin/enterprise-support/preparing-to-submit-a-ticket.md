@@ -6,8 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
   - Enterprise
+  - Support
 ---
 
 在提交事件单之前，您应当：

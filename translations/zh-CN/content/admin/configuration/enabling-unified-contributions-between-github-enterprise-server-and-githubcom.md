@@ -10,8 +10,10 @@ redirect_from:
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified contributions between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - GitHub Connect
 ---
 
 作为站点管理员，您可以允许最终用户将进行过匿名处理的工作贡献计数从 {% data variables.product.prodname_ghe_server %} 发送到其 {% data variables.product.prodname_dotcom_the_website %} 贡献图。

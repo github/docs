@@ -3,6 +3,9 @@ title: Inicializar o GitHub AE
 intro: 'Para deixar a sua empresa pronta para uso, você pode definir a configuração inicial de {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### Sobre a inicialização
@@ -79,11 +82,11 @@ Uma vez inicializado, você poderá reconfigurar qualquer configuração após o
 1. À direita de "Definir as configurações de e-mail", clique em **Configurar**. ![Botão "Configurar" para configurações de e-mail](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. Selecione **Enable email** (Habilitar e-mail). Isto habilitará e-mails de saída e de entrada. No entanto, para que o e-mail de entrada funcione, você também deverá definir as suas configurações de DNS. Para obter mais informações, consulte "[Definir configurações de DNS e firewall para permitir e-mails recebidos](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Caixa de seleção "Habilitar" para configurações de e-mail](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Defina as suas configurações de servidor de e-mail:
-  - No campo **Server address** (Endereço do servidor), digite o endereço do seu servidor SMTP.
-  - No campo **Port** (Porta), digite a porta que o servidor SMTP usa para enviar e-mails.
-  - No campo **Domain** (Domínio), digite o nome do domínio que o servidor SMTP enviará com resposta HELO, se houver.
-  - No menu suspenso **Authentication** (Autenticação), escolha o tipo de criptografia usado pelo servidor SMTP.
-  - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
+    - No campo **Server address** (Endereço do servidor), digite o endereço do seu servidor SMTP.
+    - No campo **Port** (Porta), digite a porta que o servidor SMTP usa para enviar e-mails.
+    - No campo **Domain** (Domínio), digite o nome do domínio que o servidor SMTP enviará com resposta HELO, se houver.
+    - No menu suspenso **Authentication** (Autenticação), escolha o tipo de criptografia usado pelo servidor SMTP.
+    - No campo **No-reply email address** (Endereço de e-mail no-reply), digite o endereço de e-mail para usar nos campos De e Para em todos os e-mails de notificação.
 
 4. Se você quiser descartar todos os e-mails recebidos destinados ao endereço no-reply, selecione **Discard email addressed to the no-reply email address** (Descartar e-mails recebidos no endereço no-reply). ![Caixa de seleção "Descartar" para configurações de e-mail](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. Clique em **Configurações de e-mail de teste**. ![Botão "Configurações de e-mail de teste" para configurações de e-mail](/assets/images/enterprise/configuration/ae-test-email.png)
