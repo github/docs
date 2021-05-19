@@ -1,9 +1,11 @@
 ---
 title: Mejores prácticas para la experiencia de los clientes con las apps
-intro: 'Lineamientos para crear una app que sea fácil de utilizar y entender.'
+intro: Lineamientos para crear una app que sea fácil de utilizar y entender.
 shortTitle: Mejores prácticas para la experiencia de los clientes
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 El seguir estas mejores prácticas te ayudará a proporcionar una buena experiencia del cliente.

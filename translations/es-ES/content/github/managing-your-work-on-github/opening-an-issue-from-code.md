@@ -1,13 +1,15 @@
 ---
 title: Abrir una propuesta desde el código
 intro: Puedes abrir una nueva propuesta desde una línea específica o líneas de código en un archivo o solicitud de extracción.
-permissions: 'Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.'
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Cuando abres una propuesta desde el código, la propuesta contiene un fragmento de código que muestra la línea o rango de código que elegiste. Solo puedes abrir una propuesta en el mismo repositorio donde se almacena el código.
@@ -28,7 +30,7 @@ Cuando abres una propuesta desde el código, la propuesta contiene un fragmento 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-### Further reading
+### Leer más
 
 - [Crear una propuesta](/github/managing-your-work-on-github/creating-an-issue)"
 - "[Obtener enlaces permanentes a los archivos](/github/managing-files-in-a-repository/getting-permanent-links-to-files)"

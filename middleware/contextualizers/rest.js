@@ -2,7 +2,7 @@ const path = require('path')
 const rest = require('../../lib/rest')
 const removeFPTFromPath = require('../../lib/remove-fpt-from-path')
 
-module.exports = async function (req, res, next) {
+module.exports = function restContext (req, res, next) {
   req.context.rest = rest
 
   // link to include in `Works with GitHub Apps` notes

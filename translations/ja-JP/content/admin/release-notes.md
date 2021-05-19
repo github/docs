@@ -1,8 +1,11 @@
 ---
 title: リリースノート
-intro: The release notes for {{ allVersions[currentVersion].versionTitle }}.
+intro: '{{ allVersions[currentVersion].versionTitle }} のリリースノートです。'
 layout: release-notes
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
+  - Upgrades
 ---
 

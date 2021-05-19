@@ -10,6 +10,8 @@ redirect_from:
   - /marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
@@ -48,18 +50,21 @@ Para proteger a tus clientes, te recomendamos que también sigas las mejores pr�
 
 ### Requisitos para las apps de pago
 
-Adicionalmente a los requisitos para todas las apps que se mencionaron anteriormente, cada app que ofrezcas en {% data variables.product.prodname_marketplace %} como un servicio pagado deberá cumplir con los siguientes requisitos:
+Para publicar un plan de pago para tu app en {% data variables.product.prodname_marketplace %}, esta debe pertenecer a una organización que sea un publicador verificado. Para obtener más información sobre el proceso de verificación o de cómo transferir la propiedad de tu app, consulta la sección "[Solicitar una verificación de publicador para tu organización](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)".
+
+Si tu app ya se publicó y eres un publicador verificado, entonces puedes publicar un plan de pago nuevo desde el editor de plan de precios. Para obtener más información, consulta la sección "[Configurar planes de precios para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
+
+Para publicar una app de pago (o una app que te ofrece un plan de pago), también debes cumplir con los siguientes requisitos:
 
 - Las {% data variables.product.prodname_github_app %} deben contar con un mínimo de 100 instalaciones.
 - Las {% data variables.product.prodname_oauth_app %} deben tener un mínimo de 200 usuarios.
 - Todas las apps de pago deben gestinar los eventos de compra de {% data variables.product.prodname_marketplace %} para las compras nuevas, mejoras, retrocesos, cancelaciones y pruebas gratuitas. Para obtener más información, consulta la sección "[Requisitos de facturación para las apps de pago](#billing-requirements-for-paid-apps)" que se encuentra más adelante.
-- Las organizaciones publicadoras deben tener un dominio verificado y deben habilitar la autenticación bifactorial. Para obtener más información, consulta la sección "[Requerir la autenticación bifactorial en tu organización](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
 
-Cuando estés listo para publicar la app en {% data variables.product.prodname_marketplace %}, deberás solicitar la verificación de la lista.
+Cuando estés listo para publicar la app en {% data variables.product.prodname_marketplace %}, deberás solicitar la verificación de su listado.
 
 {% note %}
 
-El proceso de verificación está disponible para las organizaciones. {% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obtener más información sobre cómo hacer esto, consulta la sección: "[Emitir tu lista para su publicación](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
+**Nota:** {% data reusables.marketplace.app-transfer-to-org-for-verification %} Para obtener más información sobre cómo transferir una app a una organización, consulta la sección: "[Enviar tu listado para que se publique](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)".
 
 {% endnote %}
 

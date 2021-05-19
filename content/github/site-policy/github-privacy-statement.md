@@ -9,6 +9,9 @@ redirect_from:
   - /articles/github-privacy-statement/
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Effective date: December 19, 2020
@@ -61,7 +64,7 @@ We require some basic information at the time of account creation. When you crea
 ##### Payment information
 If you sign on to a paid Account with us, send funds through the GitHub Sponsors Program, or buy an application on GitHub Marketplace, we collect your full name, address, and credit card information or PayPal information. Please note, GitHub does not process or store your credit card information or PayPal information, but our third-party payment processor does.
 
-If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
+If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
 
 ##### Profile information
 You may choose to give us more information for your Account profile, such as your full name, an avatar which may include a photograph, your biography, your location, your company, and a URL to a third-party website. This information may include User Personal Information. Please note that your profile information may be visible to other Users of our Service.
@@ -74,7 +77,7 @@ If you have a paid Account with us, sell an application listed on [GitHub Market
 ##### Usage information
 If you're accessing our Service or Website, we automatically collect the same basic information that most services collect, subject, where necessary, to your consent. This includes information about how you use the Service, such as the pages you view, the referring site, your IP address and session information, and the date and time of each request. This is information we collect from every visitor to the Website, whether they have an Account or not. This information may include User Personal information.
 
-##### Cookies 
+##### Cookies
 As further described below, we automatically collect information from cookies (such as cookie ID and settings) to keep you logged in, to remember your preferences, to identify you and your device and to analyze your use of our service.
 
 ##### Device information
@@ -94,7 +97,7 @@ We do not intentionally collect User Personal Information that is **stored in yo
 
 ### How GitHub uses your information
 
-- We may use your information for the following purposes:
+We may use your information for the following purposes:
 - We use your [Registration Information](#registration-information) to create your account, and to provide you the Service.
 - We use your [Payment Information](#payment-information) to provide you with the Paid Account service, the Marketplace service, the Sponsors Program, or any other GitHub paid service you request.
 - We use your User Personal Information, specifically your username, to identify you on GitHub.
@@ -144,7 +147,7 @@ For more information about our disclosure in response to legal requests, see our
 We may share User Personal Information if we are involved in a merger, sale, or acquisition of corporate entities or business units. If any such change of ownership happens, we will ensure that it is under terms that preserve the confidentiality of User Personal Information, and we will notify you on our Website or by email before any transfer of your User Personal Information. The organization receiving any User Personal Information will have to honor any promises we made in our Privacy Statement or Terms of Service.
 
 #### Aggregate, non-personally identifying information
-We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events. 
+We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events.
 
 We **do not** sell your User Personal Information for monetary or other consideration.
 
@@ -154,13 +157,13 @@ Please note: The California Consumer Privacy Act of 2018 (“CCPA”) requires b
 
 #### Access to private repositories
 
-If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for 
+If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
 - security purposes
 - to assist the repository owner with a support matter
 - to maintain the integrity of the Service
 - to comply with our legal obligations
-- if we have reason to believe the contents are in violation of the law, or 
-- with your consent. 
+- if we have reason to believe the contents are in violation of the law, or
+- with your consent.
 
 However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, known vulnerabilities in dependencies, or other content known to violate our Terms of Service, such as violent extremist or terrorist content or child exploitation imagery, based on algorithmic fingerprinting techniques (collectively, "automated scanning"). Our Terms of Service provides more details on [private repositories](/github/site-policy/github-terms-of-service#e-private-repositories).
 
@@ -189,7 +192,7 @@ Similarly, projects on GitHub may include publicly available User Personal Infor
 
 #### Organizations
 
-You may indicate, through your actions on GitHub, that you are willing to share your User Personal Information. If you collaborate on or become a member of an Organization, then its Account owners may receive your User Personal Information. When you accept an invitation to an Organization, you will be notified of the types of information owners may be able to see (for more information, see [About Organization Membership](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). If you accept an invitation to an Organization with a [verified domain](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain), then the owners of that Organization will be able to see your full email address(es) within that Organization's verified domain(s).
+You may indicate, through your actions on GitHub, that you are willing to share your User Personal Information. If you collaborate on or become a member of an Organization, then its Account owners may receive your User Personal Information. When you accept an invitation to an Organization, you will be notified of the types of information owners may be able to see (for more information, see [About Organization Membership](/github/setting-up-and-managing-your-github-user-account/about-organization-membership)). If you accept an invitation to an Organization with a [verified domain](/organizations/managing-organization-settings/verifying-your-organizations-domain), then the owners of that Organization will be able to see your full email address(es) within that Organization's verified domain(s).
 
 Please note, GitHub may share your username, [Usage Information](#usage-information), and [Device Information](#device-information) with the owner(s) of the Organization you are a member of, to the extent that your User Personal Information is provided only to investigate or respond to a security incident that affects or compromises the security of that particular Organization.
 
@@ -235,13 +238,13 @@ That said, the email address you have supplied [via your Git commit settings](/g
 
 #### Cookies
 
-GitHub only uses strictly necessary cookies. Cookies are small text files that websites often store on computer hard drives or mobile devices of visitors. 
+GitHub only uses strictly necessary cookies. Cookies are small text files that websites often store on computer hard drives or mobile devices of visitors.
 
-We use cookies solely to provide, secure, and improve our service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, analyze your use of our service, compile statistical reports, and provide information for future development of GitHub. We use our own cookies for analytics purposes, but do not use any third-party analytics service providers. 
+We use cookies solely to provide, secure, and improve our service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, analyze your use of our service, compile statistical reports, and provide information for future development of GitHub. We use our own cookies for analytics purposes, but do not use any third-party analytics service providers.
 
 By using our service, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our service.
 
-We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies. 
+We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies.
 
 #### DNT
 
@@ -318,7 +321,7 @@ In the unlikely event that a dispute arises between you and GitHub regarding our
 
 ### Changes to our Privacy Statement
 
-Although most changes are likely to be minor, GitHub may change our Privacy Statement from time to time. We will provide notification to Users of material changes to this Privacy Statement through our Website at least 30 days prior to the change taking effect by posting a notice on our home page or sending email to the primary email address specified in your GitHub account. We will also update our [Site Policy repository](https://github.com/github/site-policy/), which tracks all changes to this policy. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently. 
+Although most changes are likely to be minor, GitHub may change our Privacy Statement from time to time. We will provide notification to Users of material changes to this Privacy Statement through our Website at least 30 days prior to the change taking effect by posting a notice on our home page or sending email to the primary email address specified in your GitHub account. We will also update our [Site Policy repository](https://github.com/github/site-policy/), which tracks all changes to this policy. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### License
 

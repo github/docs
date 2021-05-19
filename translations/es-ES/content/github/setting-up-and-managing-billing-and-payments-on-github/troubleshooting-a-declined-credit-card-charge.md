@@ -6,6 +6,8 @@ redirect_from:
   - /articles/troubleshooting-a-declined-credit-card-charge
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Si se rechaza tu tarjeta, te enviaremos un correo electrónico acerca del motivo por el que se rechazó el pago. Tendrás algunos días para resolver el problema antes de que tratemos de volver a cobrarte.

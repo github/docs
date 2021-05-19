@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% note %}
@@ -55,6 +58,6 @@ Cuando eliminas a un colaborador de un tablero de proyecto, es posible que conse
 {% data reusables.project-management.collaborator-option %}
 {% data reusables.project-management.remove-collaborator %}
 
-### Further reading
+### Leer más
 
 - [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"

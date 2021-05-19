@@ -5,6 +5,8 @@ redirect_from:
   - /articles/referencing-and-citing-content
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### Emitir un identificador persistente para tu repositorio con Zenodo

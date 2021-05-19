@@ -1,6 +1,6 @@
 ---
 title: GraphQLでの呼び出しの作成
-intro: 'GraphQL APIの認証方法を学び、クエリとミューテーションの作成と実行方法を学んでください。'
+intro: GraphQL APIの認証方法を学び、クエリとミューテーションの作成と実行方法を学んでください。
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### GraphQLでの認証
@@ -26,9 +28,10 @@ GraphQLサーバーと通信するには、適切なスコープを持つOAuth�
 
 {% endif %}
 
+
 ```
-user
-public_repo
+user{% if currentVersion != "github-ae@latest" %}
+public_repo{% endif %}
 repo
 repo_deployment
 repo:status
@@ -246,7 +249,7 @@ query {
 
   `labels`フィールドは[`LabelConnection`](/graphql/reference/objects#labelconnection)という型を持っています。 `issues`オブジェクトと同じように、`labels`はコネクションなので、そのエッジを経て接続されたノードである`label`オブジェクトに到達しなければなりません。 このノードでは、返してほしい`label`オブジェクトフィールドを指定できます。ここでは`name`です。
 
-Octocatのパブリックな`Hello-World`リポジトリに対してこのクエリを実行しても、多くのラベルは返されないことに気づくかもしれません。 ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
+You may notice that running this query on the Octocat's {% if currentVersion != "github-ae@latest" %}public{% endif %} `Hello-World` repository won't return many labels. ラベルを使っている自分自身のリポジトリに対してこれを実行してみれば、違いがわかるでしょう。
 
 ### ミューテーションの例
 

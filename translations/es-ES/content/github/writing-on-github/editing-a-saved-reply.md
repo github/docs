@@ -17,7 +17,7 @@ versions:
 4. En "Editar una respuesta guardada", puedes editar el título y el contenido de la respuesta guardada. ![Editar título y contenido](/assets/images/help/settings/saved-replies-edit-existing-content.png)
 5. Haz clic en **Actualizar una respuesta guardada**. ![Actualizar una respuesta guardada](/assets/images/help/settings/saved-replies-save-edit.png)
 
-### Further reading
+### Leer más
 
 - "[Crear una respuesta guardada](/articles/creating-a-saved-reply)"
 - "[Eliminar una respuesta guardada](/articles/deleting-a-saved-reply)"

@@ -46,17 +46,6 @@ This script copies any English files that are missing from the translations dire
 ---
 
 
-### [`check-deps.js`](check-deps.js)
-
-This script checks which modules you have used in your code and then makes sure they are listed as dependencies in your package.json, or vice-versa
-
-https://github.com/dependency-check-team/dependency-check
-
-The `ignore` array is for client-side or build-time stuff that doesn't get `require()d` in the normal way.
-
----
-
-
 ### [`check-english-links.js`](check-english-links.js)
 
 This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
@@ -74,13 +63,6 @@ This script is run automatically when you run the server locally. It checks whet
 ### [`check-internal-links.js`](check-internal-links.js)
 
 This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
-
----
-
-
-### [`check-s3-images.js`](check-s3-images.js)
-
-Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
 
 ---
 
@@ -123,13 +105,6 @@ Run this script in your branch to check whether any images referenced in content
 ### [`create-glossary-from-spreadsheet.js`](create-glossary-from-spreadsheet.js)
 
 This script turns a Google Sheets CSV spreadsheet into a YAML file.
-
----
-
-
-### [`delete-unused-staging-apps.js`](delete-unused-staging-apps.js)
-
-This script finds and lists all the Heroku staging apps and deletes any leftover apps that have closed PRs
 
 ---
 
@@ -405,6 +380,13 @@ An [automated test](/tests/extraneous-translation-files.js) checks for files in 
 ---
 
 
+### [`remove-stale-staging-apps.js`](remove-stale-staging-apps.js)
+
+This script removes all stale Heroku staging apps that outlasted the closure of their corresponding pull requests, or correspond to spammy pull requests.
+
+---
+
+
 ### [`remove-unused-assets.js`](remove-unused-assets.js)
 
 Run this script to remove reusables and image files that exist in the repo but are not used in content files. It also displays a list of unused variables. Set the `--dry-run` to flag to print results without deleting any files. For images you don't want to delete, add them to `ignoreList` in `lib/find-unused-assets.js`
@@ -517,24 +499,8 @@ This script crawls the script directory, hooks on special comment markers in eac
 ---
 
 
-### [`update-s3cmd-config.js`](update-s3cmd-config.js)
-
-This script is used by other scripts to update temporary AWS credentials and authenticate to S3.
-
----
-
-
 ### [`update-versioning-in-files.js`](update-versioning-in-files.js)
 
 
 
 ---
-
-
-### [`upload-images-to-s3.js`](upload-images-to-s3.js)
-
-Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
-
----
-
-

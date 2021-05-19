@@ -8,9 +8,12 @@ redirect_from:
   - /articles/github-subprocessors-and-cookies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Effective date: **January 6, 2021**
+Effective date: **April 2, 2021**
 
 GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -18,40 +21,38 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 
 当社がお客様の情報を、ベンダーやサービスプロバイダなどのサードパーティーのサブプロセッサと共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、全てのベンダーに対して、 ユーザの個人情報 ([プライバシーについての声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するよう要求しています。
 
-| サブプロセッサ名           | 処理の内容                           | 処理の場所 | Corporate Location |
-|:------------------ |:------------------------------- |:----- |:------------------ |
-| Automattic         | ブログサービス                         | 米国    | 米国                 |
-| AWS Amazon         | データのホスティング                      | 米国    | 米国                 |
-| Braintree (PayPal) | プランのクレジットカード決済処理業者              | 米国    | 米国                 |
-| Clearbit           | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
-| Discourse          | コミュニティフォーラムのソフトウェアプロバイダ         | 米国    | 米国                 |
-| Eloqua             | マーケティングキャンペーンの自動化               | 米国    | 米国                 |
-| Google Apps        | 社内インフラストラクチャ                    | 米国    | 米国                 |
-| Google Analytics   | Analytics and performance       | 米国    | 米国                 |
-| MailChimp          | 顧客チケットメールサービスプロバイダ              | 米国    | 米国                 |
-| Mailgun            | トランザクションメールサービスプロバイダ            | 米国    | 米国                 |
-| Microsoft          | Microsoft Services              | 米国    | 米国                 |
-| Monday.com         | チームコラボレーションおよびプロジェクト管理プラットフォーム  | 米国    | イスラエル              |
-| Nexmo              | SMS通知プロバイダ                      | 米国    | 米国                 |
-| Salesforce.com     | 顧客関係管理                          | 米国    | 米国                 |
-| Sendgrid           | トランザクションメールサービスプロバイダ            | 米国    | 米国                 |
-| Sentry.io          | Application monitoring provider | 米国    | 米国                 |
-| Stripe             | 決済プロバイダ                         | 米国    | 米国                 |
-| Twilio             | SMS通知プロバイダ                      | 米国    | 米国                 |
-| Zendesk            | カスタマーサポートのチケットシステム              | 米国    | 米国                 |
-| Zuora              | 企業課金システム                        | 米国    | 米国                 |
+| サブプロセッサ名                 | 処理の内容                                                           | 処理の場所 | Corporate Location |
+|:------------------------ |:--------------------------------------------------------------- |:----- |:------------------ |
+| Automattic               | ブログサービス                                                         | 米国    | 米国                 |
+| AWS Amazon               | データのホスティング                                                      | 米国    | 米国                 |
+| Braintree (PayPal)       | プランのクレジットカード決済処理業者                                              | 米国    | 米国                 |
+| Clearbit                 | マーケティングデータのエンリッチメントサービス                                         | 米国    | 米国                 |
+| Discourse                | コミュニティフォーラムのソフトウェアプロバイダ                                         | 米国    | 米国                 |
+| Eloqua                   | マーケティングキャンペーンの自動化                                               | 米国    | 米国                 |
+| Google Apps              | 社内インフラストラクチャ                                                    | 米国    | 米国                 |
+| MailChimp                | 顧客チケットメールサービスプロバイダ                                              | 米国    | 米国                 |
+| Mailgun                  | トランザクションメールサービスプロバイダ                                            | 米国    | 米国                 |
+| Microsoft                | Microsoft Services                                              | 米国    | 米国                 |
+| Nexmo                    | SMS通知プロバイダ                                                      | 米国    | 米国                 |
+| Salesforce.com           | 顧客関係管理                                                          | 米国    | 米国                 |
+| Sentry.io                | Application monitoring provider                                 | 米国    | 米国                 |
+| Stripe                   | 決済プロバイダ                                                         | 米国    | 米国                 |
+| Twilio & Twilio Sendgrid | SMS notification provider & transactional mail service provider | 米国    | 米国                 |
+| Zendesk                  | カスタマーサポートのチケットシステム                                              | 米国    | 米国                 |
+| Zuora                    | 企業課金システム                                                        | 米国    | 米国                 |
 
 当社ユーザの個人情報を取り扱う新たなサブプロセッサとやり取りを始める際、サブプロセッサと解約する際、およびサブプロセッサの利用方法を変更する際は、このページを更新します。 新たなサブプロセッサについての質問や懸念がある場合は、 {% data variables.contact.contact_privacy %}からお気軽にお問い合わせください。
 
-### GitHub上のクッキー
+### GitHubのCookie
 
 GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
 
-Since the number and names of cookies may change,the table below may be updated from time to time.
+Since the number and names of cookies may change, the table below may be updated from time to time.
 
 | Service Provider | Cookie Name                          | 説明                                                                                                                                                                | Expiration*                                                   |
 |:---------------- |:------------------------------------ |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |:------------------------------------------------------------- |
 | GitHub           | `app_manifest_token`                 | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session.                                   | five minutes                                                  |
+| GitHub           | `color_mode`                         | This cookie is used to indicate the user selected theme preference.                                                                                               | セッション                                                         |
 | GitHub           | `_device_id`                         | This cookie is used to track recognized devices for security purposes.                                                                                            | one year                                                      |
 | GitHub           | `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                                                                                                       | one year                                                      |
 | GitHub           | `_gh_ent`                            | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form.                        | two weeks                                                     |

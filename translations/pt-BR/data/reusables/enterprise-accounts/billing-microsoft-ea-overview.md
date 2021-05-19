@@ -1,0 +1,1 @@
+Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar seu ID de assinatura Azure à sua conta corporativa para habilitar e pagar pelo uso de {% data variables.product.prodname_actions %} e de {% data variables.product.prodname_registry %}, além dos valores incluindo na sua conta.

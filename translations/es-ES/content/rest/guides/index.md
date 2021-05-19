@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 La intención de esta sección de documentos es que comiences a operar tan pronto como sea posible con aplicaciones de la API de {% data variables.product.product_name %} reales. Abordaremos todo lo que necesitas saber, desde la autenticación, hasta manipular los resultados, e incluso hasta combiar los resultados con otras apps.

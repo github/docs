@@ -47,6 +47,6 @@ Para arreglar esto, puedes
 * [Renombrar el remoto existente](/articles/renaming-a-remote)
 * [Eliminar el remoto existente](/articles/removing-a-remote)
 
-### Further reading
+### Leer más
 
 - "[Trabajar con remotos" desde el libro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

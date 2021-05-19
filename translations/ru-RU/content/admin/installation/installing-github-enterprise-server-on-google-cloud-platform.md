@@ -6,6 +6,8 @@ redirect_from:
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
 ---
 
 ### Требования
@@ -20,34 +22,11 @@ versions:
 
 ### Determining the machine type
 
-Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
-
-#### Supported machine types
-
-{% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types).
-
-| High-memory   |
-| ------------- |
-| n1-highmem-4  |
-| n1-highmem-8  |
-| n1-highmem-16 |
-| n1-highmem-32 |
-| n1-highmem-64 |
-| n1-highmem-96 |
-
-#### Recommended machine types
-
-Based on your user license count, we recommend these machine types.
-
-|             Seats              | Recommended type |
-|:------------------------------:|:----------------:|
-| Trial, demo, or 10 light users |  n1-standard-4   |
-|           10 - 3000            |  n1-standard-8   |
-|          3000 - 5000           |   n1-highmem-8   |
-|          5000 - 8000           |  n1-highmem-16   |
-|         8000 - 10000+          |  n1-highmem-32   |
+Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
+
+{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
 
 ### Selecting the {% data variables.product.prodname_ghe_server %} image
 

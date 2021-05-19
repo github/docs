@@ -4,6 +4,9 @@ redirect_from:
   - /articles/submitting-content-removal-requests
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Entendemos que los derechos de autor, marca registrada, o contenido sensible puede publicarse en GitHub –ya sea accidentalmente o con fin– a veces en repositorios que no posees. Debido a que la naturaleza de este contenido varía y debido a las diferentes leyes aplicables, cada categoría tiene sus propios requisitos de presentación de informes definidos en nuestras políticas.

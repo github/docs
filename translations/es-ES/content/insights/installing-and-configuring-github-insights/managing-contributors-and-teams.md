@@ -1,10 +1,9 @@
 ---
 title: Administrar colaboradores y equipos
 intro: Puedes administrar las personas y los equipos incluidos en las métricas y los informes.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
-permissions: 'Las personas con permisos de administrador en {% data variables.product.prodname_insights %} pueden administrar colaboradores y equipos.'
+permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
@@ -98,7 +97,7 @@ Puedes crear y administrar equipos personalizados en {% data variables.product.p
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. A la derecha del colaborador que deseas eliminar, haz clic en {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Botón papelera](/assets/images/help/insights/contributor-trashcan.png)
+3. A la derecha del colaborador que deseas eliminar, haz clic en {% octicon "trash" aria-label="The trash icon" %}. ![botón de cesto de basura](/assets/images/help/insights/contributor-trashcan.png)
 
 #### Renombrar un equipo personalizado
 

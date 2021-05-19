@@ -1,11 +1,13 @@
 ---
 title: Acerca del Soporte prémium de GitHub para GitHub Enterprise Cloud
-intro: '{% data variables.contact.premium_support %} es una oferta de soporte suplementaria y pagada para los clientes de {% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_one %}.'
+intro: '{% data variables.contact.premium_support %} es una oferta de soporte remunerado, adicional para clientes de {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 {% note %}
@@ -64,6 +66,6 @@ Si usas un complemento personalizado o no compatible, módulo o código personal
 
 {% data reusables.support.accessing-premium-content %}
 
-### Further reading
+### Leer más
 
 - "[Enviar un ticket](/articles/submitting-a-ticket)"

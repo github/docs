@@ -12,6 +12,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - OAuth Apps
 ---
 
 La implementación de OAuth de {% data variables.product.product_name %} es compatible con el [tipo de otorgamiento de código de autorización](https://tools.ietf.org/html/rfc6749#section-4.1) estándar{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} y con el [Otorgamiento de autorización de dispositivos](https://tools.ietf.org/html/rfc8628) de OAuth 2.0 para las aplicaciones que no tienen acceso a un buscador web{% endif %}.
@@ -53,7 +55,7 @@ Cuando tu GitHub App especifica un parámetro de `login`, solicita a los usuario
 
 ##### Parámetros
 
-| Nombre         | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Nombre         | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`    | `secuencia` | **Requerido**. La ID de ciente que recibiste de GitHub cuando te {% if currentVersion == "free-pro-team@latest" %}[registraste](https://github.com/settings/applications/new){% else %}registraste{% endif %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `redirect_uri` | `secuencia` | La URL en tu aplicación a donde se enviará a los usuarios después de la autorización. Consulta los siguientes detalles sobre [urls de redireccionamiento](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -72,7 +74,7 @@ Intercambia este `code` por un token de acceso:
 
 ##### Parámetros
 
-| Nombre          | Type        | Descripción                                                                                                                                                 |
+| Nombre          | Tipo        | Descripción                                                                                                                                                 |
 | --------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}.       |
 | `client_secret` | `secuencia` | **Requerido.** El secreto del cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}. |
@@ -84,18 +86,18 @@ Intercambia este `code` por un token de acceso:
 
 Predeterminadamente, la respuesta toma la siguiente forma:
 
-    access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
+    access_token={% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}&token_type=bearer
 
 También puedes recibir el contenido en diferentes formatos, dependiendo del encabezado de aceptación:
 
     Accept: application/json
-    {"access_token":"e72e16c7e42f292c6912e7710c838347ae178b4a", "scope":"repo,gist", "token_type":"bearer"}
+    {"access_token":"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}", "scope":"repo,gist", "token_type":"bearer"}
     
     Accept: application/xml
     <OAuth>
       <token_type>bearer</token_type>
       <scope>repo,gist</scope>
-      <access_token>e72e16c7e42f292c6912e7710c838347ae178b4a</access_token>
+      <access_token>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}</access_token>
     </OAuth>
 
 #### 3. Utiliza el token de acceso para acceder a la API
@@ -138,7 +140,7 @@ Tu app debe solicitar un código de verificación de usuario y una URL de verifi
 
 ##### Parámetros de entrada
 
-| Nombre      | Type        | Descripción                                                                                             |
+| Nombre      | Tipo        | Descripción                                                                                             |
 | ----------- | ----------- | ------------------------------------------------------------------------------------------------------- |
 | `client_id` | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu app. |
 | `scope`     | `secuencia` | El alcance al cual está solicitando acceso tu app.                                                      |
@@ -169,7 +171,7 @@ Tu app debe solicitar un código de verificación de usuario y una URL de verifi
 
 ##### Parámetros de respuesta
 
-| Nombre             | Type        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Nombre             | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `device_code`      | `secuencia` | El código de verificación de dispositivo es de 40 caracteres y se utiliza para verificar dicho dispositivo.                                                                                                                                                                                                                                                                                                                                                                                             |
 | `user_code`        | `secuencia` | El código de verificación de usuario se muestra en el dispositivo para que el usuario pueda ingresar dicho código en un buscador. El código es de 8 caracteres con un guión medio a la mitad.                                                                                                                                                                                                                                                                                                           |
@@ -195,7 +197,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 
 ##### Parámetros de entrada
 
-| Nombre        | Type        | Descripción                                                                                                                                                      |
+| Nombre        | Tipo        | Descripción                                                                                                                                                      |
 | ------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `client_id`   | `secuencia` | **Requerido.** La ID de cliente que recibiste de {% data variables.product.product_name %} para tu {% data variables.product.prodname_oauth_app %}.            |
 | `device_code` | `secuencia` | **Requerido.** El código de verificación del dispositivo que recibiste de la solicitud de `POST {% data variables.product.oauth_host_code %}/login/device/code`. |
@@ -205,7 +207,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 
 ```json
 {
- "access_token": "e72e16c7e42f292c6912e7710c838347ae178b4a",
+ "access_token": "{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}gho_16C7e42F292c6912E7710c838347Ae178B4a{% else %}e72e16c7e42f292c6912e7710c838347ae178b4a{% endif %}",
   "token_type": "bearer",
   "scope": "user"
 }
@@ -213,7 +215,7 @@ Ya que el usuario lo haya autorizado, la app recibirá un token de acceso que se
 
 #### Límites de tasa para el flujo del dispositivo
 
-When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
+Cuando un usuario emite el código de verificación en el buscador, hay un límite de tasa de 50 emisiones en una hora por aplicación.
 
 Si realizas más de una solicitud de acceso con token (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) dentro del marco de tiempo mínimo requerido entre solicitudes (o `interval`), alcanzarás el límite de tasa y recibirás una respuesta de error de `slow_down`. La respuesta de error `slow_down` agrega 5 segundos al último `interval`. Para obtener más información, consulta los [Errores para el flujo del dispositivo](#errors-for-the-device-flow).
 
@@ -302,3 +304,7 @@ Para crear este vínculo, necesitarás el `client_id` de tus Apps de Oauth, el c
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Errores de flujo de dispositivo](#errors-for-the-device-flow)"
 {% endif %}
+
+### Leer más
+
+- "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"

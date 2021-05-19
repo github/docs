@@ -1,1 +1,1 @@
-Write access to the repository is required to perform these steps.
+これらのステップを実行するには、リポジトリへの書き込みアクセスが必要です。

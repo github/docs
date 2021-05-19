@@ -11,11 +11,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'reference'
+  github-ae: '*'
+type: reference
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
@@ -56,7 +58,7 @@ inputs:
 
 Quando você especifica uma entrada para uma ação em um arquivo de fluxo de trabalho ou usa um valor de entrada padrão, o {% data variables.product.prodname_dotcom %} cria uma variável de ambiente para a entrada com o nome `INPUT_<VARIABLE_NAME>`. A variável de ambiente criada altera os nomes de entrada para letras maiúsculas e substitui espaços por caracteres `_`.
 
-Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEyeColor, o código da ação lê os valores das entradas usando as variáveis de ambiente `INPUT_NUMOCTOCATS` e `INPUT_OCTOCATEYECOLOR`.
+Por exemplo, se um fluxo de trabalho definiu as entradas `numOctocats` e `octocatEyeColor`, o código de ação poderia ler os valores das entradas usando as variáveis de ambiente do `INPUT_NUMTOCATS` e `INPUT_OCTOCATEYECOLOR`.
 
 #### `inputs.<input_id>`
 
@@ -73,6 +75,10 @@ Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEy
 #### `inputs.<input_id>.default`
 
 **Opcional**: uma `string` que representa o valor padrão. O valor padrão é usado quando um parâmetro de entrada não é especificado em um arquivo de fluxo de trabalho.
+
+#### `inputs.<input_id>.deprecationMessage`
+
+**Opcional** Se o parâmetro de entrada for usado, esta `string` será registrada como uma mensagem de aviso. Você pode usar este aviso para notificar os usuários de que o valor de entrada está obsoleto e mencionar outras alternativas.
 
 ### `outputs (saídas)`
 
@@ -165,7 +171,7 @@ Neste exemplo, o `cleanup.js` é executado apenas nos executores baseados no Lin
 
 ```yaml
   pre: 'cleanup.js'
-  pre-if: 'runner.os == linux'
+  pre-if: runner.os == 'linux'
 ```
 
 #### `post`
@@ -191,7 +197,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 
 ```yaml
   post: 'cleanup.js'
-  post-if: 'runner.os == linux'
+  post-if: runner.os == 'linux'
 ```
 
 ### `runs` para ações em etapas de execução compostas
@@ -246,7 +252,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 ##### `runs.steps[*].env`
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você quiser modificar a variável de ambiente armazenada no fluxo de trabalho, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa de execução composta.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você desejar modificar a variável de ambiente armazenada no fluxo de trabalho, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa de execução composta.
 
 ##### `runs.steps[*].working-directory`
 
@@ -278,25 +284,25 @@ runs:
 
 #### `pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do</code>entrypoint</code> e quaisquer status que você precisar devem ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
 
 O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo.
 
 Neste exemplo, a ação `pre-entrypoint:` executa um script denominado `setup.sh`:
 
 ```yaml
-executa:
+runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   pre-entrypoint: 'setup.sh'
   entrypoint: 'main.sh'
 ```
 
 #### `runs.image`
 
-**Obrigatório ** A imagem do Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem de base do Docker, um `arquivo Docker` local no seu repositório u uma imagem pública no Docker Hub ou outro registro. Para fazer referência a um `arquivo Docker` no seu repositório, use um caminho relativo ao seu arquivo de metadados da ação. O aplicativo do `docker` executará este arquivo.
+**Obrigatório ** A imagem do Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem de base do Docker, um `arquivo Docker` local no seu repositório u uma imagem pública no Docker Hub ou outro registro. Para fazer referência a um `arquivo Docker` local no seu repositório, o arquivo precisa ser denominado `arquivo Docker` e você precisa usar um caminho relativo ao seu arquivo de metadados de ação. O aplicativo do `docker` executará este arquivo.
 
 #### `runs.env`
 
@@ -313,11 +319,11 @@ Para obter mais informações sobre como o `entrypoint` é executado, consulte "
 **Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`post-if`](#post-if).
 
 ```yaml
-executa:
+runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-  - 'bzz'
+    - 'bzz'
   entrypoint: 'main.sh'
   post-entrypoint: 'cleanup.sh'
 ```

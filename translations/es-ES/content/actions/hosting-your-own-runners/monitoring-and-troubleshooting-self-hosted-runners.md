@@ -4,16 +4,19 @@ intro: Puedes monitorear tus ejecutores auto-hospedados para ver su actividad y 
 redirect_from:
   - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
   - /github/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
-  - /Actions/Automating-Your-Workflow-with-GitHub-Actions/Checking-The-status-of-Self-Hosted-Runners
+  - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 defaultPlatform: linux
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Comprobar el estado de un ejecutor autoalojado utilizando {{ site.data.variables.product.prodname_dotcom }}
 

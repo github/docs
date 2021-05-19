@@ -4,7 +4,12 @@ redirect_from:
   - /articles/github-corporate-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
+
+_These terms apply to 1) GitHub.com (non-Enterprise) customers who have accepted the Corporate Terms of Service, and 2) Enterprise customers who licensed the Service prior to January 4, 2021. Enterprise customers who purchase Products or Services after that date are directed to https://github.com/enterprise-legal for current terms._
 
 VIELEN DANK, DASS SIE SICH FÜR GITHUB ENTSCHIEDEN HABEN, UM DIE ANFORDERUNGEN IHRES UNTERNEHMENS ZU ERFÜLLEN. BITTE LESEN SIE DIESE VEREINBARUNG SORGFÄLTIG DURCH; SIE REGELT DIE VERWENDUNG DER PRODUKTE (WIE UNTEN DEFINIERT), ES SEI DENN, GITHUB HAT ZU DIESEM ZWECK EINE SEPARATE SCHRIFTLICHE VEREINBARUNG MIT DEM KUNDEN ABGESCHLOSSEN. WENN DER KUNDE AUF „I AGREE“ („ICH STIMME ZU“) ODER EINE ÄHNLICHE SCHALTFLÄCHE KLICKT ODER EINES DER PRODUKTE VERWENDET, AKZEPTIERT ER ALLE GESCHÄFTSBEDINGUNGEN DIESER VEREINBARUNG. WENN DER KUNDE DIESE VEREINBARUNG IM NAMEN EINES UNTERNEHMENS ODER EINER ANDEREN JURISTISCHEN PERSON ABSCHLIESST, SICHERT ER ZU, DASS ER RECHTLICH DAZU BEFUGT IST, DIESE VEREINBARUNG FÜR DAS UNTERNEHMEN ODER DIE JURISTISCHE PERSON ZU SCHLIESSEN.
 
@@ -21,7 +26,7 @@ Diese Vereinbarung gilt für die folgenden Angebote von GitHub, die nachfolgend 
 
 Ein **„verbundenes Unternehmen“** ist ein Unternehmen, das direkt oder indirekt eine Partei kontrolliert, von einer Partei kontrolliert wird oder unter gemeinsamer Kontrolle mit einer Partei steht, wobei „Kontrolle“ über fünfzig Prozent (50 %) der Anteile oder Rechte zur Steuerung der Unternehmensführung bedeutet.
 
-**„Vereinbarung"** bedeutet zusammenfassend alle Bestimmungen, Bedingungen, Hinweise, die in diesem Dokument enthalten sind oder auf die darin verwiesen wird, sowie alle anderen Betriebsregeln, Richtlinien und Verfahren, die GitHub von Zeit zu Zeit auf dem Dienst veröffentlichen kann. Die Website-Richtlinien von GitHub sind unter [https://docs.github.com/categories/site-policy](/categories/site-policy) verfügbar.
+**„Vereinbarung"** bedeutet zusammenfassend alle Bestimmungen, Bedingungen, Hinweise, die in diesem Dokument enthalten sind oder auf die darin verwiesen wird, sowie alle anderen Betriebsregeln, Richtlinien und Verfahren, die GitHub von Zeit zu Zeit auf dem Dienst veröffentlichen kann. GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
 
 **„Alle Benutzer“** sind zusammenfassend die Benutzer des Kunden und externen Benutzer, die den Dienst nutzen.
 
@@ -122,7 +127,7 @@ Die Nutzung des Produkts durch den Kunden darf keine anwendbaren Gesetze verletz
 Die Nutzung des Dienstes durch den Kunden muss die [GitHub-Richtlinie für angemessene Nutzung](/articles/github-acceptable-use-policies) und die [GitHub-Community-Richtlinien](/articles/github-community-guidelines) erfüllen. Der Kunde darf den Dienst in keiner Rechtsordnung für rechtwidrige, obszöne, beleidigende oder betrügerische Inhalte oder Aktivitäten nutzen. Dazu zählen unter anderem die Befürwortung oder Verursachung von Schäden, die Störung oder Verletzung der Integrität oder Sicherheit von Netzwerken oder Systemen, die Umgehung von Filtern, das Senden nicht angeforderter, beleidigender oder betrügerischer Nachrichten oder von Viren oder Schadcode und die Verletzung von Rechten Dritter.
 
 #### 3. Datenschutz
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Natürliche oder juristische Personen oder Dienste, die von dem Dienst Daten erfassen, müssen die GitHub-Datenschutzerklärung einhalten, insbesondere im Zusammenhang mit der Erfassung personenbezogener Daten von Benutzern (gemäß Definition in der GitHub-Datenschutzerklärung). Erfasst der Kunde personenbezogene Daten von Benutzern von GitHub, verwendet er diese ausschließlich für den Zweck, für den der externe Benutzer dies erlaubt hat. Der Kunde sorgt für den angemessenen Schutz entsprechender personenbezogener Daten und beantwortet Beschwerden, Aufforderungen zur Löschung und Kontaktverbote von GitHub oder externen Benutzern umgehend.
+The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Natürliche oder juristische Personen oder Dienste, die von dem Dienst Daten erfassen, müssen die GitHub-Datenschutzerklärung einhalten, insbesondere im Zusammenhang mit der Erfassung personenbezogener Daten von Benutzern (gemäß Definition in der GitHub-Datenschutzerklärung). Erfasst der Kunde personenbezogene Daten von Benutzern von GitHub, verwendet er diese ausschließlich für den Zweck, für den der externe Benutzer dies erlaubt hat. Der Kunde sorgt für den angemessenen Schutz entsprechender personenbezogener Daten und beantwortet Beschwerden, Aufforderungen zur Löschung und Kontaktverbote von GitHub oder externen Benutzern umgehend.
 
 ### D. Haftung für Inhalte, Eigentumsrechte, Lizenzrechte
 

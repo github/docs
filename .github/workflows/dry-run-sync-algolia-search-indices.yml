@@ -1,5 +1,9 @@
 name: (Dry run) Algolia
 
+# **What it does**: On request, dry run Algolia to check for issues with search indexing.
+# **Why we have it**: It helps us debug issues with search indexing.
+# **Who does it impact**: Docs engineering.
+
 on:
   workflow_dispatch:
 

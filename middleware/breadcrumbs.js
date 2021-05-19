@@ -3,7 +3,7 @@ const { getPathWithoutLanguage } = require('../lib/path-utils')
 const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
-module.exports = async (req, res, next) => {
+module.exports = async function breadcrumbs (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
 
@@ -19,6 +19,11 @@ module.exports = async (req, res, next) => {
   pathParts.shift()
 
   const productPath = path.posix.join('/', req.context.currentProduct)
+
+  if (!req.context.siteTree[req.language][req.context.currentVersion].products) {
+    return next()
+  }
+
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
   if (!product) {

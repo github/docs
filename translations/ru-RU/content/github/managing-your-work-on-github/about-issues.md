@@ -3,11 +3,13 @@ title: About issues
 intro: 'Use issues to track ideas, enhancements, tasks, or bugs for work on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-issues/
-  - /articles/about-issues
+  - /articles/about-issues/
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### About issues
@@ -35,6 +37,6 @@ With issues, you can:
 - Transfer open issues to other repositories. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."
 - Pin important issues to make them easier to find, preventing duplicate issues and reducing noise. For more information, see "[Pinning an issue to your repository](/articles/pinning-an-issue-to-your-repository)."
 - Track duplicate issues using saved replies. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
-- Report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}
+- Report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."{% endif %}
 
 Issues can also be [assigned to other users](/articles/assigning-issues-and-pull-requests-to-other-github-users), [tagged with labels](/articles/applying-labels-to-issues-and-pull-requests) for quicker searching, and [grouped together with milestones](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).

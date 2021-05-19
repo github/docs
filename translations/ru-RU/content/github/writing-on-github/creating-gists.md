@@ -33,7 +33,7 @@ If your site administrator has disabled private mode, you can also use anonymous
 You'll receive a notification when:
 - You are the author of a gist.
 - Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top any gist.
+- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
@@ -55,12 +55,14 @@ Gist supports mapping GeoJSON files. These maps are displayed in embedded gists,
 
 ### Creating a gist
 
-You can also drag and drop a text file from your desktop directly into the gist editor.
+Follow the steps below to create a gist.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
+
+Alternatively, you can drag and drop a text file from your desktop directly into the editor.
 
 {% endnote %}
 {% endif %}

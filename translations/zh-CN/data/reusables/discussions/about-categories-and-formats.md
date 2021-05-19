@@ -1,1 +1,1 @@
-All discussions must be created in a category, and repository administrators and maintainers define the categories for a repository. Categories can contain open-ended conversations, or conversations with a question/answer format.
+所有讨论必须在一个类别中创建，仓库管理员和维护员定义仓库的类别。 类别可以包含开放式对话，也可以包含问题/回答格式的对话。

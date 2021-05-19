@@ -1,7 +1,7 @@
 ---
 title: リポジトリ内のディスカッションのカテゴリを管理する
 intro: リポジトリ内のディスカッションを分類して、コミュニティメンバーの会話を整理したり、カテゴリごとに形式を選択したりすることができます。
-permissions: リポジトリ管理者およびリポジトリへの書き込み以上のアクセス権を持つユーザは、リポジトリ内でのディスカッションを有効にすることができます。
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,9 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
-各カテゴリには一意の名前と絵文字の組み合わせが必要で、その目的を示す詳しい説明を付けることができます。 カテゴリは、メンテナが会話の保管方法を整理するときに役立ちます。また、Q&A より自由度の高い形式の会話のカテゴリを区別しやすいようにカスタマイズできます。{% data reusables.discussions.repository-category-limit %}
-
-詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
+各カテゴリには一意の名前と絵文字の組み合わせが必要で、その目的を示す詳しい説明を付けることができます。 Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %}詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
 
 ### デフォルトのカテゴリ
 

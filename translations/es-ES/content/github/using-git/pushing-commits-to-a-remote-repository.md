@@ -92,7 +92,7 @@ Cuando hayas finalizado tus cambios locales, puedes subir tu rama local a GitHub
 
 Para obtener más información sobre cómo trabajar con bifurcaciones, consulta "[Sincronizar una bifurcación](/articles/syncing-a-fork)".
 
-### Further reading
+### Leer más
 
 - [El capítulo "Remotos" del libro "Pro Git"](https://git-scm.com/book/ch5-2.html)
 - [Documentación en línea sobre `git remote`](https://git-scm.com/docs/git-remote.html)

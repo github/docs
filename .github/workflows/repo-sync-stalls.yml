@@ -1,18 +1,15 @@
 name: Repo Sync Stalls
+
+# **What it does**: This lets us know in Slack if repo-sync doesn't happen in a timely manner.
+# **Why we have it**: We want repo-sync to keep the two repositories in sync with each other.
+# **Who does it impact**: Open-source contributors, docs engineering.
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
+
 jobs:
-  check-freezer:
-    name: Check for deployment freezes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Exit if repo is frozen
-        if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
   repo-sync-stalls:
     runs-on: ubuntu-latest
     steps:
@@ -37,7 +34,7 @@ jobs:
               return
             }
 
-            // Remove all pull requests that don't have the 
+            // Remove all pull requests that don't have the
             // 'automated-reposync-pr' label
             pulls.data = pulls.data.filter(pr =>
               pr.labels.some(label => label.name === 'automated-reposync-pr')
@@ -49,12 +46,12 @@ jobs:
               const minutesOpen = timeDelta / 1000 / 60;
 
               if (minutesOpen > 180) {
-                core.setFailed('Repo sync appears to be stalled') 
+                core.setFailed('Repo sync appears to be stalled')
               }
             })
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
-        if: failure()
+        if: ${{ failure() }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
