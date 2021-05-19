@@ -28,9 +28,10 @@ product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
   free-pro-team: '*'
+children:
+  - /quickstart
+  - /guides
+  - /collaborating-with-your-community-using-discussions
+  - /managing-discussions-for-your-community
 ---
 
-<!-- {% link_with_intro /quickstart %} -->
-<!-- {% link_with_intro /discussions-guides %} -->
-<!-- {% link_with_intro /collaborating-with-your-community-using-discussions %} -->
-<!-- {% link_with_intro /managing-discussions-for-your-community %} -->
