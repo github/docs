@@ -130,9 +130,8 @@ curl -X "POST" "https://api.github.com/graphql" \
 2. 打开您创建的项目，自定义 `app.yml` 文件中的设置。 订阅 `content_reference` 事件并启用 `content_references` 写入权限：
 
    ``` yml
-
     default_events:
-    - content_reference
+      - content_reference
     # The set of permissions needed by the GitHub App. The format of the object uses
     # the permission name for the key (for example, issues) and the access type for
     # the value (for example, write).
@@ -141,10 +140,10 @@ curl -X "POST" "https://api.github.com/graphql" \
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. 将此代码添加到 `index.js` 文件以处理 `content_reference` 事件并调用 REST API：

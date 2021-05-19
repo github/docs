@@ -79,5 +79,5 @@ Si cambias la visibilidad de un repositorio interno y luego lo borras, las bifur
 - "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)"
 - "[Acerca de las bifurcaciones](/articles/about-forks)"
 - "[Administrar la política de bifurcación para tu repositorio](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "[Administrar la política de bifurcación para tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
 - "{% if currentVersion == "free-pro-team@latest" %}[Requerir políticas de administración de repositorios en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Requerir políticas de administración de repositorios en tu empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

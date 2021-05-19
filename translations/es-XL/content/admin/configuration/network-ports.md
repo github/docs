@@ -12,6 +12,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Puertos administrativos

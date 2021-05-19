@@ -7,8 +7,12 @@ redirect_from:
 permissions: Site administrators can migrate to internal repositories.
 versions:
   enterprise-server: '>=2.20'
+type: how_to
 topics:
   - Enterprise
+  - Privacy
+  - Repositories
+  - Security
 ---
 
 ### 关于内部仓库
@@ -34,6 +38,12 @@ topics:
 ### 运行迁移
 
 1. 连接到管理 shell。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/admin/installation/accessing-the-administrative-shell-ssh)。”
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+2. 运行迁移命令。
+   ```shell
+   github-env bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w |  tee -a /tmp/convert_public_ghes_repos_to_internal.log
+   ```
+{% else %}
 2. 导航至 `/data/github/current` 目录。
    ```shell
    cd /data/github/current
@@ -42,6 +52,7 @@ topics:
    ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+{% endif %}
 
 日志输出将显示在终端和 `/tmp/convert_public_ghes_repos_to_internal.log` 中。
 

@@ -14,14 +14,21 @@ topics:
   - Security
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ### Sobre a configuração do {% data variables.product.prodname_code_scanning %}
 
-Você pode executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %}, usando {% data variables.product.prodname_actions %}, ou a partir do seu sistema de integração contínua (CI), ao usar {% data variables.product.prodname_codeql_runner %}. Para obter mais informações sobre {% data variables.product.prodname_actions %}, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)." Para obter mais informações sobre o {% data variables.product.prodname_codeql_runner %}, consulte "[Executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)".
+Você pode executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %}, usando {% data variables.product.prodname_actions %} ou a partir do seu sistema de integração contínua (CI). Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" ou
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+"[Sobre {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)".
+{%- else %}
+"[Executar {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
+{% endif %}
 
-Este artigo é sobre a execução de {% data variables.product.prodname_code_scanning %} no {% data variables.product.product_name %}.
+Este artigo é sobre a execução de {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %} usando ações.
 
 Antes de poder configurar o {% data variables.product.prodname_code_scanning %} para um repositório, você deve configurar {% data variables.product.prodname_code_scanning %} adicionando um fluxo de trabalho do {% data variables.product.prodname_actions %} ao repositório. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
@@ -59,7 +66,7 @@ Se você fizer uma varredura no push, os resultados aparecerão na aba **Seguran
 
 #### Fazer a varredura de pull requests
 
-O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pull_request` para acionar uma verificação de código em pull requests direcionadas ao branch padrão. {% if currentVersion ver_gt "enterprise-server@2.21" %}O evento `pull_request` não será acionado se o pull request foi aberto através de uma bifurcação privada.{% else %}Se um pull request for de um fork privado, o evento `pull_request` só será acionado se você tiver selecionado a opção "Executar fluxos de trabalho a partir de pull requests" nas configurações do repositório. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)."{% endif %}
+O padrão {% data variables.product.prodname_codeql_workflow %} usa o evento `pull_request` para acionar uma verificação de código em pull requests direcionadas ao branch padrão. {% if currentVersion ver_gt "enterprise-server@2.21" %}O evento `pull_request` não será acionado se o pull request foi aberto através de uma bifurcação privada.{% else %}Se um pull request for de um fork privado, o evento `pull_request` só será acionado se você tiver selecionado a opção "Executar fluxos de trabalho a partir de pull requests" nas configurações do repositório. Para obter mais informações, consulte "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para um repositório](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository#enabling-workflows-for-private-repository-forks)".{% endif %}
 
 Para obter mais informações sobre o evento `pull_request` , consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
 
@@ -122,7 +129,7 @@ Este fluxo de trabalho faz a varredura:
 
 ### Especificar um sistema operacional
 
-Se seu código exigir um sistema operacional específico para compilar, você poderá configurar o sistema operacional em seu {% data variables.product.prodname_codeql_workflow %}. Edite o valor de `jobs.analyze.runs-on` para especificar o sistema operacional para a máquina que executa suas ações de {% data variables.product.prodname_code_scanning %}. {% if currentVersion ver_gt "enterprise-server@2. 1" %}Você especifica o sistema operacional usando uma etiqueta apropriada como segundo elemento em um array de dois elementos após `auto-hospedado`.{% else %}
+Se seu código exigir um sistema operacional específico para compilar, você poderá configurar o sistema operacional em seu {% data variables.product.prodname_codeql_workflow %}. Edite o valor de `jobs.analyze.runs-on` para especificar o sistema operacional para a máquina que executa suas ações de {% data variables.product.prodname_code_scanning %}. {% if currentVersion ver_gt "enterprise-server@2.21" %}Você especifica o sistema operacional usando uma etiqueta apropriada como segundo elemento em um array de dois elementos, após `auto-hospedado`.{% else %}
 
 Se você optar por usar um executor auto-hospedado para varredura de código, você pode especificar um sistema operacional usando uma etiqueta apropriada como segundo elemento em um array de dois elementos, após `auto-hospedado`.{% endif %}
 
@@ -135,7 +142,7 @@ jobs:
 
 {% if currentVersion == "free-pro-team@latest" %}Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."{% endif %}
 
-O {% data variables.product.prodname_code_scanning_capc %} é compatível com as versões mais recentes do macOS, Ubuntu, e Windows. Portanto, os valores típicos para essa configuração são `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2. 1" %}"[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" e "[Usar etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
+O {% data variables.product.prodname_code_scanning_capc %} é compatível com as versões mais recentes do macOS, Ubuntu, e Windows. Portanto, os valores típicos para essa configuração são `ubuntu-latest`, `windows-latest` e `macos-latest`. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2.21" %}" %}"[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#self-hosted-runners)" e "[Usando rótulos com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners){% else %}"[Sintaxe de fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on){% endif %}."
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}Você deve garantir que o Git esteja na variável do PATH em seus executores auto-hospedados.{% else %}Se você usa um executor auto-hospedado, você deve garantir que o Git esteja na variável de PATH.{% endif %}
 
@@ -143,7 +150,7 @@ O {% data variables.product.prodname_code_scanning_capc %} é compatível com as
 
 O {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} detecta automaticamente código escrito nas linguagens compatíveis.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 O arquivo padrão do {% data variables.product.prodname_codeql_workflow %} contém uma matriz de criação denominada `linguagem` que lista as linguagens no seu repositório que são analisadas. O {% data variables.product.prodname_codeql %} preenche automaticamente esta matriz quando você adiciona o {% data variables.product.prodname_code_scanning %} a um repositório. Usar a matriz de `linguagem` otimiza {% data variables.product.prodname_codeql %} para executar cada análise em paralelo. Recomendamos que todos os fluxos de trabalho adotem esta configuração devido aos benefícios de desempenho de criações paralelas. Para obter mais informações sobre matrizes de criação, consulte "[Gerenciar fluxos de trabalho complexos](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)".
 
@@ -184,32 +191,64 @@ Alternativamente, você pode instalar as dependências do Python manualmente em 
 jobs:
   CodeQL-Build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write
+      actions: read{% endif %}
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ];
-        then pip install -r requirements.txt;
-        fi
-        # Set the `CODEQL-PYTHON` environment variable to the Python executable
-        # that includes the dependencies
-        echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: python
-        # Override the default behavior so that the action doesn't attempt
-        # to auto-install Python dependencies
-        setup-python-dependencies: false
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ];
+          then pip install -r requirements.txt;
+          fi
+          # Set the `CODEQL-PYTHON` environment variable to the Python executable
+          # that includes the dependencies
+          echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: python
+          # Override the default behavior so that the action doesn't attempt
+          # to auto-install Python dependencies
+          setup-python-dependencies: false
 ```
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Configuring a category for the analysis
+
+Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
+
+This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
+
+{% raw %}
+``` yaml
+   - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze
+      with:
+      # Optional. Specify a category to distinguish between multiple analyses
+      # for the same tool and ref. If you don't use `category` in your workflow, 
+      # GitHub will generate a default category name for you
+       category: "my_category"
+```
+{% endraw %}
+
+If you don't specify a `category` parameter in your workflow, {% data variables.product.prodname_dotcom %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. Por exemplo:
+- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
+- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript/os:linux`.
+
+The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. Para obter mais informações, consulte "[Suporte SARIF para {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/sarif-support-for-code-scanning#runautomationdetails-object)".
+
+Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
+
 {% endif %}
 
 ### Executar consultas adicionais
@@ -308,6 +347,7 @@ paths-ignore:
 **Observação**:
 
 * As palavras-chave `caminhos` e `paths-ignore`, usados no contexto do arquivo de configuração do {% data variables.product.prodname_code_scanning %}, não deve ser confundido com as mesmas palavras-chave usadas para `on.<push|pull_request>.paths` em um fluxo de trabalho. Quando estão acostumados a modificar `on.<push|pull_request>` em um fluxo de trabalho, eles determinam se as ações serão executadas quando alguém modifica o código nos diretórios especificados. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)".
+* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
 * `**` **Note**: `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. Por exemplo, `foo/**`, `**/foo` e `foo/**/bar` são todos de sintaxe permitida, mas `**foo` não é. No entanto, você pode usar estrelas únicas junto com outros caracteres, conforme mostrado no exemplo. Você precisará colocar entre aspas qualquer coisa que contenha um caractere `*`.
 
 {% endnote %}

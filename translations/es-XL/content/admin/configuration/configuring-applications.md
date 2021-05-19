@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
 ---
 
 ### Ajustar el almacenamiento en caché de las imágenes

@@ -19,6 +19,14 @@ topics:
 
 {% data reusables.ssh.dsa-support %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**ヒント**: {% data variables.product.prodname_cli %} を使用して SSH キーを追加することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)」を参照してください。
+
+{% endtip %}
+{% endif %}
+
 {% mac %}
 
 1. SSH 公開鍵をクリップボードにコピーします。
@@ -80,8 +88,9 @@ topics:
   SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
-  # xclip をダウンロードしてインストールします。 If you don't have `apt-get`, you might need to use another installer (like `yum`)
+  # xclip をダウンロードしてインストールする。 「apt-get」がない場合は、別のインストーラー (「 yum」など) を使用する必要がある
 
   $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
   # id_ed25519.pub ファイルの内容をクリップボードにコピーする

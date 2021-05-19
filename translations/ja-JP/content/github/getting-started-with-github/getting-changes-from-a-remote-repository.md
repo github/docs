@@ -11,6 +11,8 @@ versions:
   github-ae: '*'
 ---
 
+### Options for getting changes
+
 これらのコマンドは[リモートリポジトリ](/github/getting-started-with-github/about-remote-repositories)の操作時に非常に便利です。 `clone` および `fetch` は、リポジトリのリモート URL からお使いのローカルのコンピュータにリモートコードをダウンロードします。`merge` は、他のユーザの作業を自分のものとマージするために使用します。`pull` は、`fetch` と `merge` の組み合わせです。
 
 ### リポジトリをクローンする
@@ -72,5 +74,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ### 参考リンク
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
+- [_Pro Git_ ブックの「リモートでの作業」](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% if currentVersion == "free-pro-team@latest" %}
 - 「[接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)」{% endif %}

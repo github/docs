@@ -7,8 +7,13 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-subdomain-isolation
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Subdomain Isolationについて
@@ -19,7 +24,7 @@ Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_
 
 {% if currentVersion == "enterprise-server@2.22" %}
 Docker を
-{% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効にする必要があります。 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
+{% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効にする必要があります。 For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |

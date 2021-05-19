@@ -13,8 +13,10 @@ redirect_from:
   - /enterprise/admin/user-management/migrating-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Migration
 ---
 
 ### Applying the imported data on {% data variables.product.prodname_ghe_server %}
@@ -135,7 +137,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
+Nachdem Sie die Repositorys der {% data variables.product.prodname_dotcom_the_website %}-Organisation entsperrt haben, sollten Sie mithilfe des [Endpunkts zum Löschen des Repositorys](/rest/reference/repos/#delete-a-repository) jedes Repository löschen, das Sie zuvor migriert haben. Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

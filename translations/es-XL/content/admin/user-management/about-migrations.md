@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Migration
 ---
 
 ### Tipos de migraciones

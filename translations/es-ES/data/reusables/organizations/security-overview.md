@@ -1,1 +1,1 @@
-1. Under your organization name, click {% octicon "shield" aria-label="The Security shield" %} **Security**. ![Organization security button](/assets/images/help/organizations/organization-security-tab.png)
+1. Debajo del nombre de tu organización, haz clic en {% octicon "shield" aria-label="The Security shield" %} **Seguridad**. ![Botón de seguridad de la organización](/assets/images/help/organizations/organization-security-tab.png)

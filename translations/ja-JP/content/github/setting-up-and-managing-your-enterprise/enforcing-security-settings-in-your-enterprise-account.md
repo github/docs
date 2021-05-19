@@ -117,4 +117,4 @@ CAを削除すると、元に戻すことはできません。 同じCAを使用
 
 ### 参考リンク
 
-- "[Configuring identity and access management for your enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)"
+- 「[Enterprise アカウントのアイデンティおよびアクセス管理を設定する](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account)」

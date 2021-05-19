@@ -60,7 +60,7 @@ topics:
 5. [One-time password] の下で、送信されたリカバリメール{% data variables.product.prodname_dotcom %}の一時パスワードを入力します。 ![ワンタイムパスワードフィールド](/assets/images/help/2fa/one-time-password-field.png)
 6. [**Verify email address**] をクリックします。
 7. 別の検証要素を選択します。
-    - 以前に現在のデバイスを使用してこのアカウントにログインしたことがあり、検証にそのデバイスを使用する場合は、[**Verify this device**] をクリックします。
+    - 以前に現在のデバイスを使用してこのアカウントにログインしたことがあり、検証にそのデバイスを使用する場合は、[**Verify with this device**] をクリックします。
     - 以前にこのアカウントで SSH キーを設定しており、検証にその SSH キーを使用する場合は、[** SSH key**] をクリックします。
     - 以前に個人アクセストークンを設定しており、検証にその個人アクセストークンを使用する場合は、[**Personal access token**] をクリックします。 ![代替検証ボタン](/assets/images/help/2fa/alt-verifications.png)
 8. {% data variables.contact.github_support %}のメンバーがリクエストをレビューし、3〜5 営業日以内にメールでお知らせします。 リクエストが承認されると、アカウントリカバリプロセスを完了するためのリンクが送信されます。 リクエストが拒否された場合、追加の質問がある場合のサポートへの問い合わせ方法がメールに記載されます。

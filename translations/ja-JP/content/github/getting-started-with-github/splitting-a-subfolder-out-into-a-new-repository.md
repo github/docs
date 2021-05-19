@@ -38,7 +38,7 @@ versions:
     - `BRANCH-NAME`: `master` や `gh-pages` などの、現在のプロジェクトのデフォルトブランチです。
     ```shell
     $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME BRANCH-NAME</em>
-    # Filter the specified branch in your directory and remove empty commits
+    # ディレクトリ内の指定されたブランチをフィルタし、空のコミットを削除する
     > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
     > Ref 'refs/heads/<em>BRANCH-NAME</em>' was rewritten
     ```

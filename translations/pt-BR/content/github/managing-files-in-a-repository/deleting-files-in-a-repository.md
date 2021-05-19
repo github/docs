@@ -26,7 +26,7 @@ Se o arquivo{% if currentVersion == "free-pro-team@latest" or currentVersion ver
 
 1. Navegue até o arquivo no repositório que deseja excluir.
 2. Na parte superior do arquivo, clique
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

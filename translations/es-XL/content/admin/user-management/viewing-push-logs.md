@@ -9,7 +9,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
+  - Auditing
   - Enterprise
+  - Git
+  - Logging
 ---
 
 Las entradas de registro de subida muestran:

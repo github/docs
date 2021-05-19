@@ -16,7 +16,7 @@ topics:
 
 ### Informationen zu Änderungen des Benutzernamens
 
-You can change your username to another username that is not currently in use.{% if currentVersion == "free-pro-team@latest" %} If the username you want is not available, you'll see information about whether you can request the username to be released when you type in the desired username.
+Du kannst Deinen Benutzernamen in einen aktuell nicht verwendeten Benutzernamen ändern.{% if currentVersion == "free-pro-team@latest" %} Falls der gewünschte Benutzername nicht verfügbar ist, wird angezeigt, ob Du verlangen kannst, dass der Benutzername freigegeben wird, wenn Du den gewünschten Benutzernamen eingibst.
 
 Falls der Benutzername nicht freigegeben werden kann und Du für den Benutzernamen keine Handelsmarke führst, kannst Du einen anderen Benutzernamen auswählen oder Deinen aktuellen Benutzernamen beibehalten. {% data variables.contact.github_support %} kann den für Sie nicht verfügbaren Benutzernamen nicht freigeben. Weitere Informationen findest Du unter „[Benutzernamen ändern](#changing-your-username)“.{% endif %}
 
@@ -36,7 +36,7 @@ Wenn der neue Inhaber Deines alten Benutzernamens ein Repository mit demselben N
 
 ### Links zu früheren Profilseiten
 
-Nach dem Ändern Deines Benutzernamens lösen Links zu Deinen früheren Profilseiten, z. B. `https://{% data variables.command_line.backticks %}/previoususername`, eine 404-Fehlermeldung aus. We recommend updating any links to your {% data variables.product.product_name %} account from elsewhere{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profile{% endif %}.
+Nach dem Ändern Deines Benutzernamens lösen Links zu Deinen früheren Profilseiten, z. B. `https://{% data variables.command_line.backticks %}/previoususername`, eine 404-Fehlermeldung aus. Wir empfehlen Dir, alle Links zu Deinem {% data variables.product.product_name %}-Konto an anderen Stellen zu aktualisieren{% if currentVersion == "free-pro-team@latest" %}, z. B. in Deinem LinkedIn- oder Twitter-Profil{% endif %}.
 
 ### Deine Git-Commits
 

@@ -4,8 +4,12 @@ shortTitle: 备份和恢复
 intro: '外部存储提供程序上的 {% data variables.product.prodname_actions %} 数据不会包含在常规 {% data variables.product.prodname_ghe_server %} 备份中，必须单独备份。'
 versions:
   enterprise-server: '>=3.0'
+type: how_to
 topics:
+  - Actions
+  - Backups
   - Enterprise
+  - Infrastructure
 ---
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

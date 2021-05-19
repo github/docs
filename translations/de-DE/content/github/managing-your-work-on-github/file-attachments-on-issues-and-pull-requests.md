@@ -1,6 +1,6 @@
 ---
 title: Dateianhänge für Issues und Pull Requests
-intro: 'Wenn Du einen Issue öffnest oder einen Pull Request aktualisierst, kannst Du mithilfe von Issue-Anhängen Bilder von vorgeschlagenen Funktionen oder Screenshots von Fehlern hochladen.'
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -14,7 +14,7 @@ topics:
 
 {% warning %}
 
-**Warnung:** Wenn Du ein Bild zu einem Pull-Request- oder Issue-Kommentar hinzufügst, kann jeder die anonymisierte Bild-URL ohne Authentifizierung anzeigen, selbst wenn sich der Pull Request in einem privaten Repository befindet{% if enterpriseServerVersions contains currentVersion %} oder der private Modus aktiviert ist{% endif %}. Um vertraulicher Bilder zu schützen, stelle sie über ein privates Netzwerk oder einen Server bereit, der eine Authentifizierung vorschreibt. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
+**Warning:** If you add an image {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} or video {% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -28,17 +28,11 @@ Um eine Datei an eine Issue- oder eine Pull-Request-Unterhaltung anzuhängen, zi
 
 {% endtip %}
 
-Die Größe der Anhänge ist bei Dateien auf 25 MB und bei Bildern auf 10 MB beschränkt.
-{% if currentVersion == "free-pro-team@latest" %}
-Videos can be up to 100 MB in size if the repository is owned by a user or organization on a paid GitHub plan.
-
-{% note %}
-
-**Note:** Support for video attachments is currently in beta and subject to change.
-
-{% endnote %}
-
-{% endif %}
+The maximum file size is:
+- 10MB for images and gifs{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% endif %}
+- 25MB for all other files
 
 Wir unterstützen die folgenden Dateiformate:
 
@@ -49,7 +43,7 @@ Wir unterstützen die folgenden Dateiformate:
 * Microsoft Word-Dokumente (*.docx*), Powerpoint-Dokumente (*.pptx*) und Excel-Dokumente (*.xlsx*)
 * Textdateien (*.txt*)
 * PDF-Dateien (*.pdf*)
-* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 * Video (*.mp4*, *.mov*){% endif %}
 
 ![Animiertes GIF zu Anhängen](/assets/images/help/pull_requests/dragging_images.gif)

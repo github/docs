@@ -16,7 +16,7 @@ topics:
 
 {% note %}
 
-**注：**GPG 并未默认安装在 OS X 或 Windows 上。 要安装 GPG 命令行工具，请参阅 [GnuPG 的下载页面](https://www.gnupg.org/download/)。
+**注：**GPG 并未默认安装在 macOS 或 Windows 上。 要安装 GPG 命令行工具，请参阅 [GnuPG 的下载页面](https://www.gnupg.org/download/)。
 
 {% endnote %}
 

@@ -14,7 +14,7 @@ topics:
 {% data variables.product.prodname_dotcom %} は、脆弱性のある依存関係を削除および回避するための次のツールを提供しています。
 
 #### 依存関係グラフ
-The dependency graph is a summary of the manifest and lock files stored in a repository. コードベースが依存するエコシステムとパッケージ（依存関係）、およびプロジェクトに依存するリポジトリとパッケージ（依存関係）が表示されます。 依存関係グラフの情報は、依存関係のレビューと {% data variables.product.prodname_dependabot %} によって使用されます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
+依存関係グラフは、リポジトリに保存されているマニフェストファイルおよびロックファイルのサマリーです。 コードベースが依存するエコシステムとパッケージ（依存関係）、およびプロジェクトに依存するリポジトリとパッケージ（依存関係）が表示されます。 依存関係グラフの情報は、依存関係のレビューと {% data variables.product.prodname_dependabot %} によって使用されます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 
 #### 依存関係のレビュー
 プルリクエストの依存関係のレビューを確認することで、依存関係からコードベースに脆弱性が発生するのを防ぐことができます。 プルリクエストが脆弱性のある依存関係を追加したり、依存関係を脆弱性のあるバージョンに変更した場合、これは依存関係のレビューで強調表示されます。 プルリクエストをマージする前に、依存関係をパッチを適用したバージョンに変更できます。 For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."

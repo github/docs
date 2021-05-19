@@ -20,10 +20,9 @@ topics:
 
 ### Organization のクレジットカードを更新する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. セキュアなフォームで新しいクレジットカード情報を入力します。 ![クレジットカード情報フォーム](/assets/images/help/settings/creditcard-billing-form.png)
-1. [**Update credit card**] または [**Save credit card**] をクリックします。
+1. Under "Payment method", click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+{% data reusables.dotcom_billing.enter-payment-info %}

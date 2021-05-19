@@ -104,7 +104,7 @@ Die Ausführung des `ssh-agent`-Prozesses wird fortgesetzt, bis Du Dich abmeldes
 
 ### Deine Passphrase in Keychain speichern
 
-In OS X Leopard bis OS X El Capitan werden folgende standardmäßigen Privatschlüssel-Dateien automatisch verarbeitet:
+On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

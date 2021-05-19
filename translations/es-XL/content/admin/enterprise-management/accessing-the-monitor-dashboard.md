@@ -8,6 +8,10 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Acceder al tablero del monitor

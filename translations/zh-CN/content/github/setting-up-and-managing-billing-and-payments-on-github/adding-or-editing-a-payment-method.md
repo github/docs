@@ -28,8 +28,9 @@ topics:
 ### 更新个人帐户的付款方式
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![计费新卡按钮](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ### 更新组织的付款方式
@@ -38,9 +39,10 @@ topics:
 
 如果组织在美国之外，或者您使用公司支票帐户支付 {% data variables.product.product_name %}，PayPal 可能是一种有用的付款方式。
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![计费新卡按钮](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

@@ -11,11 +11,13 @@ topics:
   - SSH
 ---
 
-在设置 SSH 时，将会[生成 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)，然后[将该密钥添加到您的 {% data variables.product.product_name %} 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。 将 SSH 密钥添加到 ssh-agent，通过使用密码确保 SSH 密钥增加一层保护。 更多信息请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
+When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" and "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-{% if currentVersion == "free-pro-team@latest" %}要对使用 SAML 单点登录的组织所拥有的仓库使用 SSH 密钥，您需要先授权。 更多信息请参阅“[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
+You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. 更多信息请参阅“[使用 SSH 密钥密码](/github/authenticating-to-github/working-with-ssh-key-passphrases)”。
 
-建议定期[查阅 SSH 密钥列表](/articles/reviewing-your-ssh-keys)，撤销任何无效或安全受到威胁的密钥。
+{% if currentVersion == "free-pro-team@latest" %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. 更多信息请参阅“[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
+
+To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. 更多信息请参阅“[审查 SSH 密钥](/github/authenticating-to-github/reviewing-your-ssh-keys)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 如果 SSH 密钥一年未使用，则作为安全预防措施，
@@ -28,8 +30,4 @@ topics:
 
 - "[检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)"
 - "[测试 SSH 连接](/articles/testing-your-ssh-connection)"
-- "[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)"
 - "[SSH 故障排除](/articles/troubleshooting-ssh)"
-{%- if currentVersion == "free-pro-team@latest" %}
-- "[授权 SSH 密钥用于 SAML 单点登录](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
-{%- endif %}

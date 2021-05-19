@@ -7,8 +7,11 @@ redirect_from:
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 Veja exemplos de hooks pre-receive para o {% data variables.product.prodname_ghe_server %} no repositório  [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
@@ -91,32 +94,32 @@ A variável `$GITHUB_VIA` está disponível no ambiente de pre-receive quando a 
 | <pre>pull request branch undo button</pre> | Restauração de um branch de tópico de um pull request na interface web                                                                                                    | "[Excluindo e restaurando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)"                |
 | <pre>pull request merge api</pre> | Merge de um pull request através da API                                                                                                                                   | "[Pulls](/rest/reference/pulls#merge-a-pull-request)" na documentação da API REST                                                                                                        |
 | <pre>pull request merge button</pre> | Merge de um pull request na interface web                                                                                                                                 | "[Fazer merge de uma pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request#merging-a-pull-request-on-github)"                                         |
-| <pre>pull request revert button</pre> | Revert of a pull request                                                                                                                                                  | "[Reverter uma pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"                                                                              |
-| <pre>releases delete button</pre> | Deletion of a release                                                                                                                                                     | "[Gerenciar versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)"                                                         |
-| <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard                                                                                                                     | "[Site admin dashboard](/admin/configuration/site-admin-dashboard#repositories)"                                                                                                         |
-| <pre>tag create api</pre> | Creation of a tag via the API                                                                                                                                             | "[Git database](/rest/reference/git#create-a-tag-object)" in the REST API documentation                                                                                                  |
-| <pre>slumlord (#<em>SHA</em>)</pre> | Commit via Subversion                                                                                                                                                     | "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)"                                                |
-| <pre>web branch create</pre> | Creation of a branch via the web interface                                                                                                                                | "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)"      |
+| <pre>pull request revert button</pre> | Reverter um pull request                                                                                                                                                  | "[Reverter uma pull request](/github/collaborating-with-issues-and-pull-requests/reverting-a-pull-request)"                                                                              |
+| <pre>releases delete button</pre> | Exclusão de uma versão                                                                                                                                                    | "[Gerenciar versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository#deleting-a-release)"                                                         |
+| <pre>stafftools branch restore</pre> | Restauração de um branch do painel de administração do site                                                                                                               | "[Painel de administração do site](/admin/configuration/site-admin-dashboard#repositories)"                                                                                              |
+| <pre>tag create api</pre> | Criação de uma tag através da API                                                                                                                                         | "[Banco de dados Git](/rest/reference/git#create-a-tag-object)" na documentação da API REST                                                                                              |
+| <pre>slumlord (#<em>SHA</em>)</pre> | Commit por meio do Subversion                                                                                                                                             | "[Compatibilidade para clientes de Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients#making-commits-to-subversion)"                                   |
+| <pre>web branch create</pre> | Criação de um branch através da interface web                                                                                                                             | "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)"      |
 
 ##### Disponível para merge de pull request
 
-The following variables are available in the pre-receive hook environment when the push that triggers the hook is a push due to the merge of a pull request.
+As variáveis a seguir estão disponíveis no ambiente de hook pre-receive quando o push que aciona o hook é um push devido ao merge de um pull request.
 
-| Variável                   | Descrição                                                                    | Valor de exemplo             |
-|:-------------------------- |:---------------------------------------------------------------------------- |:---------------------------- |
-| <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request                           | octocat                      |
-| <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
-| <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH`  | octocat:main                 |
+| Variável                   | Descrição                                                                | Valor de exemplo             |
+|:-------------------------- |:------------------------------------------------------------------------ |:---------------------------- |
+| <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Nome de usuário da conta que criou o pull request                        | octocat                      |
+| <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | O nome do branch de tópico do pull request, no formato `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+| <pre>$GITHUB_PULL_REQUEST_BASE</pre> | O nome do branch de base do pull request no formato `USERNAME:BRANCH`    | octocat:main                 |
 
 ##### Disponível para pushes que usam autenticação SSH
 
-| Variável                   | Descrição                                                      | Valor de exemplo                                |
-|:-------------------------- |:-------------------------------------------------------------- |:----------------------------------------------- |
-| <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | The public key fingerprint for the user who pushed the changes | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
+| Variável                   | Descrição                                                                       | Valor de exemplo                                |
+|:-------------------------- |:------------------------------------------------------------------------------- |:----------------------------------------------- |
+| <pre>$GITHUB_PUBLIC_KEY_FINGERPRINT</pre> | A impressão digital da chave pública para o usuário que fez push das alterações | a1:b2:c3:d4:e5:f6:g7:h8:i9:j0:k1:l2:m3:n4:o5:p6 |
 
 ### Configurar permissões e fazer push de um hook pre-receive para o {% data variables.product.prodname_ghe_server %}
 
-A pre-receive hook script is contained in a repository on {% data variables.product.product_location %}. O administrador do site deve considerar as permissões do repositório e garantir que somente os usuários adequados tenham acesso.
+Um script de hook pre-receive está contido em um repositório em {% data variables.product.product_location %}. O administrador do site deve considerar as permissões do repositório e garantir que somente os usuários adequados tenham acesso.
 
 Recomendamos consolidar os hooks em um único repositório. Se o repositório consolidado do hook for público, será possível usar `README.md` para explicar a execução das políticas. Além disso, é possível aceitar contribuições via pull request. No entanto, os hooks pre-receive só podem ser adicionados pelo branch padrão. Em fluxos de trabalho de teste, devem ser usados forks do repositório com a devida configuração.
 
@@ -131,7 +134,7 @@ Recomendamos consolidar os hooks em um único repositório. Se o repositório co
    git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.product.product_location %}.
+2. Faça o commit e push para o repositório designado para os hooks pre-receive em {% data variables.product.product_location %}.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
@@ -141,7 +144,7 @@ Recomendamos consolidar os hooks em um único repositório. Se o repositório co
 3. [Crie o hook pre-receive](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) na instância do {% data variables.product.prodname_ghe_server %}.
 
 ### Testar scripts pre-receive no local
-You can test a pre-receive hook script locally before you create or update it on {% data variables.product.product_location %}. Uma forma de fazer isso é criar um ambiente Docker local para funcionar como repositório remoto que pode executar o hook pre-receive.
+Você pode testar um script do hook pre-receive localmente antes de criá-lo ou atualizá-lo em {% data variables.product.product_location %}. Uma forma de fazer isso é criar um ambiente Docker local para funcionar como repositório remoto que pode executar o hook pre-receive.
 
 {% data reusables.linux.ensure-docker %}
 

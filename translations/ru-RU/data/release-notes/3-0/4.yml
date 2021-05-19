@@ -23,3 +23,4 @@ sections:
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
+    - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.

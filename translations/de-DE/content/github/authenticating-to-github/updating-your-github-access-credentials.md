@@ -17,7 +17,7 @@ topics:
 {% if currentVersion != "github-ae@latest" %}
 ### Neues Passwort anfordern
 
-1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+1. Rufen Sie zur Anforderung eines neuen Passworts {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} auf.
 2. Gib die Deinem persönlichen {% data variables.product.product_name %}-Konto zugeordnete E-Mail-Adresse ein, und klicke auf **Send password reset email** (E-Mail für Passwortzurücksetzung anfordern). Die E-Mail wird an die Backup-E-Mail-Adresse gesendet, sofern Du diese konfiguriert hast. ![Dialogfeld zum Anfordern einer E-Mail für die Passwortzurücksetzung](/assets/images/help/settings/password-recovery-email-request.png)
 3. Die E-Mail enthält einen Link, über den Du Dein Passwort zurücksetzen kannst. Auf diesen Link musst Du innerhalb von drei Stunden nach Erhalt der E-Mail klicken. Falls Du keine E-Mail von uns erhalten hast, siehe in Deinem Spam-Ordner nach.
 4. Nach dem Klicken auf den Link in Deiner E-Mail wirst Du zur Eingabe eines neuen Passworts aufgefordert. ![Feld für Passwortwiederherstellung](/assets/images/help/settings/password_recovery_page.png)

@@ -1,7 +1,6 @@
 ---
 title: Gerenciar metas
 intro: Você pode usar objetivos para definir metas para métricas principais e medir o sucesso ao alcançar essas metas.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'

@@ -139,7 +139,7 @@ Após criar seu aplicativo, você será levado de volta para a [página de confi
 
 ### Etapa 4. Prepare o ambiente do tempo de execução
 
-Para manter suas informações seguras, recomendamos colocar todos os segredos referentes ao aplicativo na memória do computador onde seu aplicativo poderá encontrá-los, em vez de colocá-los diretamente no seu código. Uma ferramenta útil de desenvolvimento denominada [dotenv](https://github.com/bkeepers/dotenv) carrega variáveis de ambiente específicas do projeto a partir de um arquivo `.env` para `ENV`. Nunca verifique o seu arquivo `.env` no GitHub. Este é um arquivo local que armazena informações confidenciais que você não deseja que estejam na internet pública. The `.env` file is already included in the repository's [`.gitignore`](/github/getting-started-with-github/ignoring-files/) file to prevent that.
+Para manter suas informações seguras, recomendamos colocar todos os segredos referentes ao aplicativo na memória do computador onde seu aplicativo poderá encontrá-los, em vez de colocá-los diretamente no seu código. Uma ferramenta útil de desenvolvimento denominada [dotenv](https://github.com/bkeepers/dotenv) carrega variáveis de ambiente específicas do projeto a partir de um arquivo `.env` para `ENV`. Nunca verifique o seu arquivo `.env` no GitHub. Este é um arquivo local que armazena informações confidenciais que você não deseja que estejam na internet pública. O arquivo `.env` já está incluído no arquivo do repositório [`.gitignore`](/github/getting-started-with-github/ignoring-files/) para evitar isso.
 
 O código do modelo que você baixou na seção [Pré-requisitos](#prerequisites) já tem um exemplo de arquivo denominado `.env-example`. Renomeie o arquivo de exemplo de `.env-example` para `.env` ou crie uma cópia do arquivo `.env-example` denominada `.env`. Você ainda não instalou a dotenv, mas você irá instalá-la mais adiante neste início rápido ao executar o `pacote de instalação`. **Observação:** Os inícios rápidos que fazem referência às etapas neste guia pode incluir variáveis de ambiente adicionais no arquivo `.env-example`. Faça referência ao guia de início rápido para o projeto que você clonou no GitHub para orientação que define essas variáveis de ambiente adicionais.
 
@@ -370,10 +370,10 @@ Após clicar em **Instalar**, veja a saída no seu Terminal. Você deverá ver a
 ```shell
 > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
 > D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
-> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/1.1" 200 2 0.0067
+> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
 > D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
 > D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
-> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/1.1" 200 2 0.0019
+> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
 ```
 
 Isto é bom! Isso significa que seu aplicativo recebeu uma notificação de que foi instalado na sua conta do GitHub. Se você vir algo assim, seu aplicativo estará em execução no servidor, conforme esperado. 🙌

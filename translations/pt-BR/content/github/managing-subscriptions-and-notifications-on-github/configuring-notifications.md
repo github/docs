@@ -58,7 +58,7 @@ Além disso, você pode receber e acessar as notificações no seu dispositivo m
 
 #### Benefícios da utilização de um cliente de e-mail para notificações
 
-Um benefício de usar um cliente de e-mail é que todas as suas notificações podem ser mantidas indefinidamente, dependendo da capacidade de armazenamento do seu cliente de e-mail. Suas notificações na caixa de entrada só serão mantidas por 5 meses, a menos que você as tenha marcado como **Salvas**. As notificações **Saved** (Salvas) são mantidas indefinidamente. Para obter mais informações sobre a política de retenção da sua caixa de entrada, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
+Um benefício de usar um cliente de e-mail é que todas as suas notificações podem ser mantidas indefinidamente, dependendo da capacidade de armazenamento do seu cliente de e-mail. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. As notificações **Saved** (Salvas) são mantidas indefinidamente. Para obter mais informações sobre a política de retenção da sua caixa de entrada, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
 
 O envio de notificações para o cliente de e-mail também permite que você personalize sua caixa de entrada de acordo com as configurações do cliente de e-mail que pode incluir etiquetas personalizadas ou codificadas por cores.
 
@@ -69,16 +69,17 @@ As notificações de e-mail também permitem flexibilidade com os tipos de notif
 Quando você inspeciona um repositório, você assina atualizações de atividade nesse repositório. Da mesma forma, quando você inspeciona as discussões de uma equipe específica, você está inscrito em todas as atualizações de conversa na página daquela equipe. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver repositórios que você está inspecionando, acesse a sua [página de inspeção](https://github.com/watching). Para obter mais informações, consulte "[Gerenciando assinaturas e notificações do GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
 #### Configurar notificações
 {% endif %}
 Você pode configurar as notificações para um repositório na página do repositório ou na página de visitas.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} Você pode optar por receber apenas notificações de versões em um repositório ou ignorar todas as notificações de um repositório.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 #### Sobre as notificações personalizadas
-{% data reusables.notifications-v2.custom-notifications-beta %}
-É possível personalizar notificações para um repositório. Você pode optar, por exemplo, por receber notificações somente quando atualizações para um ou mais tipos de eventos (problemas, pull request, versões, discussões) ocorrerem dentro de um repositório ou ignorar todas as notificações de um repositório.
-{% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (
+{% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
+{% endif %} Para obter mais informações, consulte "[Definir as suas configurações de inspeção para um repositório individual](#configuring-your-watch-settings-for-an-individual-repository)" abaixo.
 
 #### Participar de conversas
 A qualquer momento que você comentar em uma conversa ou quando alguém @mencionar seu nome de usuário, você estará _participando_ de uma conversa. Por padrão, você é inscrito automaticamente em uma conversa ao participar dela. Você pode cancelar manualmente a inscrição de uma conversa que você participou, clicando em **Cancelar inscrição** no problema ou na pull request ou através da opção **Cancelar inscrição** na caixa de entrada de notificações.
@@ -133,7 +134,7 @@ As notificações de e-mail do {% data variables.product.product_name %} contêm
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Endereço do `remetente`   | Este endereço será sempre {% if currentVersion == "free-pro-team@latest" %}'`notifications@github. om`'{% else %}'endereço de e-mail de não responda configurado pelo administrador do site'{% endif %}.                                                                                                                                                       |
 | Campo `To`                | Este campo conecta-se diretamente à corrente.{% if currentVersion != "github-ae@latest" %} Se você responder ao e-mail, você adicionará um novo comentário na conversa.{% endif %}
-| Endereço de `Cc`          | O {% data variables.product.product_name %} colocará você em cópia (`Cc`) se você estiver inscrito para uma conversa. O segundo endereço de e-mail de `Cc` corresponde ao motivo da notificação. O sufixo para esses motivos de notificação é {% data variables.notifications.cc_address %}. Os possíveis motivos de notificação são: <ul><li>'assign': você foi atribuído a um problema ou uma pull request.</li><li>'author': você criou um problema ou uma pull request.</li>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}<li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li>{% endif %}<li>'comment': você comentou um problema ou uma pull request.</li><li>'manual': houve uma atualização em um problema ou uma pull request para o(a) qual você assinou manualmente.</li><li>'mention': você foi mencionado em um problema ou uma pull request.</li><li>'push': alguém fez commit em uma pull request que você assinou.</li><li>'review_requested': você ou uma equipe da qual faz você faz parte foi solicitado para revisar uma pull request.</li>{% if currentVersion != "github-ae@latest" %}<li>'security_alert': o {% data variables.product.prodname_dotcom %} detectou uma vulnerabilidade em um repositório para o qual você recebe alertas de segurança.</li>{% endif %}<li>'state_change': um problema ou uma pull request que você assinou foi fechado(a) ou aberto(a).</li><li>'subscribed': houve uma atualização em um repositório que você está inspecionando.</li><li>'team_mention': uma equipe a qual você pertence foi mencionada em um problema ou uma pull request.</li><li>'your_activity': você abriu, comentou ou fechou um problema ou uma pull request.</li></ul> |
+| Endereço de `Cc`          | O {% data variables.product.product_name %} colocará você em cópia (`Cc`) se você estiver inscrito para uma conversa. O segundo endereço de e-mail de `Cc` corresponde ao motivo da notificação. O sufixo para esses motivos de notificação é {% data variables.notifications.cc_address %}. Os possíveis motivos de notificação são: <ul><li>'assign': você foi atribuído a um problema ou uma pull request.</li><li>'author': você criou um problema ou uma pull request.</li>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}<li>`ci_activity`: Uma execução de fluxo de trabalho de {% data variables.product.prodname_actions %} que você acionou foi concluída.</li>{% endif %}<li>'comment': você comentou um problema ou uma pull request.</li><li>'manual': houve uma atualização em um problema ou uma pull request para o(a) qual você assinou manualmente.</li><li>'mention': você foi mencionado em um problema ou uma pull request.</li><li>'push': alguém fez commit em uma pull request que você assinou.</li><li>'review_requested': você ou uma equipe da qual faz você faz parte foi solicitado para revisar uma pull request.</li>{% if currentVersion != "github-ae@latest" %}<li>'security_alert': o {% data variables.product.prodname_dotcom %} detectou uma vulnerabilidade em um repositório para o qual você recebe alertas de segurança.</li>{% endif %}<li>'state_change': um problema ou uma pull request que você assinou foi fechado(a) ou aberto(a).</li><li>'subscribed': houve uma atualização em um repositório que você está inspecionando.</li><li>'team_mention': uma equipe a qual você pertence foi mencionada em um problema ou uma pull request.</li><li>'your_activity': você abriu, comentou ou fechou um problema ou uma pull request.</li></ul> |
 | campo `mailing list`      | Esse campo identifica o nome do repositório e seu proprietário. O formato desse endereço é sempre `<nome do repositório>.<proprietário do repositório>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | campo `X-GitHub-Severity` | {% data reusables.repositories.security-alerts-x-github-severity %} Os níveis possíveis de gravidade são:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" 
 {% endif %}
@@ -159,19 +160,22 @@ Se "Inspecionar repositórios automaticamente" estiver desativado, então você 
 
 ### Configurando as configurações de inspeção para um repositório individual
 
-É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por receber notificações apenas sobre {% if currentVersion == "free-pro-team@latest" %}certos tipos de eventos como problemas, pull requests, discussões (se habilitado para o repositório) e {% endif %}novas versões, ou ignorar completamente um repositório individual.
+É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
   ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
    ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
+
 A opção **Personalizar** permite que você personalize ainda mais as notificações para que você seja notificado apenas quando eventos específicos ocorrerem no repositório, além de participar e @mentions.
 
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+{% else %}
    ![Opções de inspeção personalizadas em um menu suspenso para um repositório](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+{% endif %}
 
 Se você selecionar "Problemas", você será notificado e irá inscrever-se para receber atualizações sobre cada problema (incluindo aqueles que existiam antes de você selecionar esta opção) no repositório. Se você for @mentioned em um pull request neste repositório, você receberá notificações sobre isso também e será inscrito em atualizações desse pull request específico, além de ser notificado sobre problemas.
 
@@ -220,7 +224,7 @@ Para obter mais informações sobre os métodos de entrega de notificações dis
 
 Escolha como você deseja receber atualizações de execução de fluxo de trabalho para repositórios que você está inspecionando que estão configurados com o {% data variables.product.prodname_actions %}. Você também pode optar por receber apenas notificações de execução de fluxo de trabalho falha.
 
-  ![Opções de alertas {% data variables.product.prodname_dependabot_short %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
+  ![Notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
 
 {% endif %}
 
@@ -248,7 +252,7 @@ Você também pode agendar quando {% data variables.product.prodname_mobile %} e
 
 1. No menu inferior, toque em **Perfil**.
 2. Para ver suas configurações, clique em {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+3. Para atualizar suas configurações de notificação, toque em **Configurar notificações** e, em seguida, use os atalhos para habilitar ou desabilitar seus tipos preferidos de notificações push.
 4. Opcionalmente, para agendar quando {% data variables.product.prodname_mobile %} enviará notificações de push para seu dispositivo móvel, toque em **Horas de Trabalho**, use o **horário de trabalho personalizado** e, em seguida, escolha quando você gostaria de receber notificações de push.
 
 ### Configurar as configurações de inspeção para um repositório individual com {% data variables.product.prodname_mobile %}

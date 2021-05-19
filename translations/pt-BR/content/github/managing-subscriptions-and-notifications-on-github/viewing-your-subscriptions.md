@@ -35,10 +35,10 @@ Quando sua caixa de entrada tiver muitas notificações para gerenciar, consider
 Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)".
 
 Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisando repositórios que você está inspecionando](#reviewing-repositories-that-youre-watching).
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or  currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 {% tip %}
 
-**Dica:** Você pode selecionar os tipos de evento a serem notificados utilizando a opção **Personalizar** na lista suspensa **Inspecionar/Cancelar inspeção** na sua [página](https://github.com/watching) ou em qualquer página de repositório em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
+**Dica:** Você pode selecionar os tipos de evento a serem notificados utilizando a opção **Personalizar** na lista suspensa **Inspecionar/Cancelar inspeção** na sua [página](https://github.com/watching) ou em qualquer página de repositório em {% data variables.product.product_name %}. Para obter mais informações, consulte “[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 
 {% endtip %}
 {% endif %}
@@ -67,16 +67,15 @@ Muitas pessoas esquecem os repositórios que eles escolheram inspecionar no pass
 
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" e clique em **Repositórios inspecionados**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Avalie os repositórios que você está inspecionando e decida se suas atualizações ainda são relevantes e úteis. Quando você inspeciona um repositório, você será notificado de todas as conversas desse repositório.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
   ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
   ![Página de notificações inspecionadas](/assets/images/help/notifications-v2/watched-notifications-custom.png)
 {% endif %}
 
   {% tip %}
 
-  **Dica:** Em vez de inspecionar um repositório, considere receber apenas notificações {% if currentVersion == "free-pro-team@latest" %}quando houver atualizações sobre problemas, pull requests, versões ou discussões (se habilitado para o repositório), ou qualquer combinação destas opções,{% else %}para versões em um repositório,{% endif %} ou para cancelar a inspeção por completo de um repositório.
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
 
   Quando você deixa de inspecionar um repositório, você ainda pode ser notificado quando for @mencionado ou estiver participando de um thread. Ao definir a configuração para receber notificações de certos tipos de evento, você só será notificado quando houver atualizações desses tipos de eventos no repositório, quando você estiver participando de um tópico ou quando você ou a sua equipe for @mentioned.
 

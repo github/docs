@@ -4,8 +4,11 @@ intro: 'Você pode usar o painel de administração do site{% if enterpriseServe
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: overview
 topics:
   - Enterprise
+  - Fundamentals
+  - SSH
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -18,9 +21,7 @@ topics:
 
 {% if currentVersion == "github-ae@latest" %}
 A primeira vez que você acessar sua empresa, você irá definir uma configuração inicial para fazer com que
-{% data variables.product.product_name %} esteja pronto para usar. A configuração inicial inclui conectar a sua empresa a um idP, efetuar a autenticação com o SSO SAML e configurar políticas para repositórios e organizações da sua empresa. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
-
-Para os usuários receberem qualquer e-mail de {% data variables.product.product_name %} após a configuração inicial, você precisa pedir que {% data variables.contact.github_support %} configure o suporte a email de saída com o seu servidor SMTP. Para obter mais informações, consulte "[Configurar e-mail para notificações](/admin/configuration/configuring-email-for-notifications).
+{% data variables.product.product_name %} esteja pronto para usar. A configuração inicial inclui conectar a sua empresa a um provedor de identidade (IdP), efetuando a autenticação com SAML SSO, configurando políticas para repositórios e organizações na sua empresa e configurando SMTP para e-mails de saída. Para obter mais informações, consulte "[Inicializar {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)".
 
 Posteriormente, você poderá usar o painel de administração do site e as configurações corporativas para configurar ainda mais sua empresa, gerenciar usuários, organizações e repositórios e definir políticas que reduzem o risco e aumentam a qualidade.
 

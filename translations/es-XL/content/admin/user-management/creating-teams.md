@@ -6,7 +6,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 Los equipos son centrales para muchas de las características colaborativas de {% data variables.product.prodname_dotcom %}, como las @menciones del equipo para notificar a las partes correspondientes que les quieres solicitar su colaboración o atención. Para obtener más información, consulta "[Niveles de permisos para el repositorio de una organizazión](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".

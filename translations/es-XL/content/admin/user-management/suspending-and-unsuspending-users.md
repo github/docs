@@ -11,7 +11,10 @@ intro: 'Si un usuario se va o se traslada a un lugar diferente de la empresa, de
 versions:
   enterprise-server: '*'
 topics:
+  - Access management
   - Enterprise
+  - Security
+  - User account
 ---
 
 Puedes suspender las cuentas de usuario de {% data variables.product.prodname_ghe_server %} de aquellos que abandonen la compañía para abrir licencias de usuario en tu licencia de {% data variables.product.prodname_enterprise %} preservando las propuestas, comentarios, repositorios, gists y otros datos que hayan creado. Los usuarios suspendidos no pueden iniciar sesión en tu instancia, y no pueden subir ni extraer un código.

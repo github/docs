@@ -51,6 +51,6 @@ topics:
 
 {% tip %}
 
-**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 To update your fork on {% data variables.product.product_location %}, you must [push your changes](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/).
+**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
 
 {% endtip %}

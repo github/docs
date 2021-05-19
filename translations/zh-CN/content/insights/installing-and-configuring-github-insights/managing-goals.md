@@ -1,7 +1,6 @@
 ---
 title: 管理目标
 intro: 您可以使用“目标”为关键指标设定目标并衡量实现这些目标的成功率。
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'

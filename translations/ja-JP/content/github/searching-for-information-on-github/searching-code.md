@@ -66,8 +66,9 @@ topics:
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) は、<em>app/public</em> ディレクトリやそのサブディレクトリ (たとえば<em>app/public/js/form-validators</em> に属すものも) にあって「console」という単語がある JavaScript のファイルにマッチします。 |
 
 ### 言語で検索
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-コードが書かれた言語で検索することができます。
+コードが書かれた言語で検索することができます。 The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | 修飾子                        | サンプル                                                                                                                                                                         |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

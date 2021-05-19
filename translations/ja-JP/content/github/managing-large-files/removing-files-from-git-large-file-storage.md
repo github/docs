@@ -38,7 +38,7 @@ versions:
 
 {% data variables.large_files.product_name_short %} からファイルを削除した後でも、{% data variables.large_files.product_name_short %} オブジェクトはそのままリモートストレージに存在し{% if currentVersion == "free-pro-team@latest" %}、{% data variables.large_files.product_name_short %} のストレージ容量に対するカウントも継続します{% endif %}。
 
-リポジトリから {% data variables.large_files.product_name_short %} オブジェクトを削除するには、{% if currentVersion == "free-pro-team@latest" %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 詳しい情報については、「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」を参照するか、{% else %}{% data variables.product.prodname_enterprise %} 管理者に連絡してオブジェクトをアーカイブします。 アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
+リポジトリから {% data variables.large_files.product_name_short %} オブジェクトを削除するには、{% if currentVersion == "free-pro-team@latest" %}リポジトリを削除して再作成します。 リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
 
 {% note %}
 

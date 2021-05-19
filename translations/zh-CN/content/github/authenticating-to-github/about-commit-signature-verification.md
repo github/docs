@@ -16,15 +16,35 @@ topics:
 
 ### 关于提交签名验证
 
-您可以本地签名提交和标记，以便其他人确认您的工作来自可信的来源。 如果提交或标记具有密码可验证的 GPG 或 S/MIME 签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
+您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。 如果提交或标签具有可加密验证的 GPG 或 S/MIME 签名，GitHub 会对提交或标签标记 {% if currentVersion == "free-pro-team@latest" %}“已验证”或“部分验证”{% else %}“已验证”{% endif %}
 
 ![验证的提交](/assets/images/help/commits/verified-commit.png)
 
-如果提交或标记具有无法验证的签名，则 {% data variables.product.product_name %} 会将提交或标记标示为未验证。
+{% if currentVersion == "free-pro-team@latest" %}
+提交和标签具有以下验证状态，具体取决于您是否启用了警戒模式。 默认情况下未启用警戒模式。 有关如何启用警戒模式的更多信息，请参阅“[显示所有提交的验证状态](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)”。
+
+{% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
+
+#### 默认状态
+
+| 状态      | 描述             |
+| ------- | -------------- |
+| **已验证** | 提交已签名且签名已成功验证。 |
+| **未验证** | 提交已签名，但签名无法验证。 |
+| 无验证状态   | 提交未签名。         |
+
+#### 启用了警戒模式的状态
+
+{% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
+
+{% else %}
+如果提交或标签有无法验证的签名，
+{% data variables.product.product_name %} 将对提交或标签标记“未验证”。
+{% endif %}
 
 仓库管理员可对分析实施必要的提交签名，以阻止未签名和验证的所有提交。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。
 
-您可以在 {% data variables.product.product_name %} 上检查已签名提交或标记的验证状态，并查看提交签名未验证的原因。 更多信息请参阅“[检查提交和标记签名验证状态](/articles/checking-your-commit-and-tag-signature-verification-status)”。
+{% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.product_name %} 将自动使用 GPG 通过 {% data variables.product.product_name %} web 界面对您创建的提交进行签名，当您压缩且合并您不是其作者的拉取请求时除外。 您可以选择在 {% data variables.product.prodname_codespaces %} 中使用 {% data variables.product.product_name %} 对您的提交进行签名。 由 {% data variables.product.product_name %} 签名的提交在 {% data variables.product.product_name %} 上将具有已验证的状态。 您可以使用 https://github.com/web-flow.gpg 上的公钥本地验证签名。 有关对您的代码空间启用 GPG 验证的更多信息，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”。

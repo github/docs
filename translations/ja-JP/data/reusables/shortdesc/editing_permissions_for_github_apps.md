@@ -1,1 +1,1 @@
-After registering a GitHub App, you can modify your app's permissions.
+GitHub Appを登録した後に、アプリケーションの権限を変更できます。

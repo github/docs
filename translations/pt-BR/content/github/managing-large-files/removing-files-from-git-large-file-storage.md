@@ -38,7 +38,7 @@ versions:
 
 Depois de remover arquivos de {% data variables.large_files.product_name_short %}, os objetos de {% data variables.large_files.product_name_short %} ainda existem no armazenamento remoto {% if currentVersion == "free-pro-team@latest" %} e continuarão a contar para a sua cota de armazenamento de {% data variables.large_files.product_name_short %}{% endif %}.
 
-Para remover objetos de {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}, apague e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. Para obter mais informações, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository)".{% else %}entre em contato com o administrador do {% data variables.product.prodname_enterprise %} para arquivar os objetos. Os objetos arquivados são excluídos após três meses.{% endif %}
+Para remover objetos de {% data variables.large_files.product_name_short %} de um repositório, {% if currentVersion == "free-pro-team@latest" %}, apague e recrie o repositório. Ao excluir um repositório, todos os problemas associados, estrelas e bifurcações também serão excluídos. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)." If you need to purge a removed object and you are unable to delete the repository, please [contact support](/github/working-with-github-support) for help.{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Os objetos arquivados são excluídos após três meses.{% endif %}
 
 {% note %}
 

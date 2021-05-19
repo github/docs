@@ -8,8 +8,12 @@ redirect_from:
 intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {% data variables.product.product_location %} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
   - Enterprise
+  - Teams
+  - User account
 ---
 
 Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigungen für Repositorys, die Ihrer Organisation gehören](/articles/permission-levels-for-an-organization).

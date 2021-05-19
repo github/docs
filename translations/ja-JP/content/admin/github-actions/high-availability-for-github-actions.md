@@ -3,8 +3,13 @@ title: GitHub Actions の High Availability
 intro: 'High Availability 設定で {% data variables.product.prodname_actions %} を管理するための特別な留意点がいくつかあります。'
 versions:
   enterprise-server: '>=3.0'
+type: reference
 topics:
+  - Actions
   - Enterprise
+  - High availability
+  - Infrastructure
+  - Storage
 ---
 
 ### {% data variables.product.prodname_actions %} データのレプリケーションまたは冗長性

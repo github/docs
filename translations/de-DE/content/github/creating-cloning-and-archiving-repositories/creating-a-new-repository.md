@@ -39,7 +39,7 @@ topics:
 {% data reusables.repositories.choose-repo-visibility %}
 6. If you're not using a template, there are a number of optional items you can pre-populate your repository with. Wenn Du ein vorhandenes Repository in {% data variables.product.product_name %} importierst, wähle keine dieser Optionen aus, da dies zu Mergekonflikten führen könnte. Sie können neue Dateien über die Benutzeroberfläche hinzufügen oder erstellen oder neue Dateien später über die Befehlszeile hinzufügen. Weitere Informationen findest Du unter „[Ein Git-Repository über die Befehlszeile importieren](/articles/importing-a-git-repository-using-the-command-line/)“, „[Eine Datei über die Befehlszeile zu einem Repository hinzufügen](/articles/adding-a-file-to-a-repository-using-the-command-line)“ und „[Mergekonflikte beheben](/articles/addressing-merge-conflicts/).“
     - Sie kannst eine README-Datei erstellen, die eine Beschreibung Deines Projekts enthält. Weitere Informationen findest Du unter „[Informationen zu README-Dateien](/articles/about-readmes/).“
-    - Du kannst eine *.gitignore*-Datei erstellen, die einen Satz an Regeln für das Ignorieren enthält. For more information, see "[Ignoring files](/github/getting-started-with-github/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
+    - Du kannst eine *.gitignore*-Datei erstellen, die einen Satz an Regeln für das Ignorieren enthält. Weitere Informationen finden Sie unter „[Dateien ignorieren](/github/getting-started-with-github/ignoring-files)“.{% if currentVersion == "free-pro-team@latest" %}
     - Du kannst bei Bedarf eine Softwarelizenz zu Deinem Projekt hinzufügen. Weitere Informationen findest Du unter „[Ein Repository lizenzieren](/articles/licensing-a-repository)“.{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
@@ -50,5 +50,5 @@ topics:
 ### Weiterführende Informationen
 
 - „[Zugriff auf die Repositorys Deiner Organisation verwalten](/articles/managing-access-to-your-organization-s-repositories)“
-- [Open Source Guides](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
+- [Open-Source-Leitfäden](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

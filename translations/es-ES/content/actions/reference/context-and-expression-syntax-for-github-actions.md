@@ -60,7 +60,7 @@ Los contextos son una manera de acceder a información acerca de las ejecuciones
 | Nombre del contexto | Tipo     | Descripción                                                                                                                                                                                                                                                        |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `github`            | `objeto` | Información sobre la ejecución del flujo de trabajo. Para obtener más información, consulta [github</code> context](#github-context).                                                                                                                              |
-| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta contexto de [`env`](#env-context).                                                                                                       |
+| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta el [contexto `env`](#env-context).                                                                                                       |
 | `job`               | `objeto` | Información sobre el trabajo actualmente en ejecución. Para obtener más información, consulta contexto de [`job`](#job-context).                                                                                                                                   |
 | `pasos`             | `objeto` | Información sobre los pasos que se han ejecutado en este trabajo. Para obtener más información, consulta contexto de [`steps`](#steps-context).                                                                                                                    |
 | `runner`            | `objeto` | Incluye información sobre el ejecutor que está realizando el trabajo actual. Para más información, consulta [Contexto del `ejecutador (runner)`](#runner-context).                                                                                                 |
@@ -93,11 +93,11 @@ El contexto de `github` contiene información sobre la ejecución del flujo de t
 | `github.action`           | `secuencia` | El nombre de la acción que se está ejecutando actualmente. {% data variables.product.prodname_dotcom %} elimina caracteres especiales o usa el nombre `run` cuando el paso actual ejecuta un script.  Si usas la misma acción más de una vez en el mismo trabajo, el nombre incluirá un sufijo con el número de secuencia.  Por ejemplo, el primer script que ejecutes tendrá el nombre `run1`, y el segundo script será nombrado `run2`. Del mismo modo, la segunda invocación de `actions/checkout` será `actionscheckout2`. |
 | `github.action_path`      | `secuencia` | La ruta en donde se ubica tu acción. Puedes utilizar esta ruta para acceder fácilmente a los archivos ubicados en el mismo repositorio que tu acción. Este atributo solo es compatible con las acciones de los pasos de ejecución compuestos.                                                                                                                                                                                                                                                                                  |
 | `github.actor`            | `secuencia` | El inicio de sesión del usuario que inició la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.event`            | `objeto`    | La carga de webhook del evento completo. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/articles/events-that-trigger-workflows/)". "Puedes acceder a propiedades individuales del evento que utiliza este contexto.                                                                                                                                                                                                                                                                      |
 | `github.event_name`       | `secuencia` | El nombre del evento que activó la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `github.event_path`       | `secuencia` | La ruta a la carga del webhook del evento completo en el ejecutor.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.job`              | `secuencia` | El [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) del job actual.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `github.ref`              | `secuencia` | La rama o ref de etiqueta que activó la ejecución del flujo de trabajo. Para las ramas, está en el formato `refs/heads/<branch_name>`, y para las etiquetas está en `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                        |
 | `github.repository`       | `secuencia` | El nombre del repositorio y del propietario. Por ejemplo, `Codertocat/Hello-World`.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -323,7 +323,7 @@ Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no 
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar llaves usando llaves dobles.
+Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
 
 ##### Ejemplo
 
@@ -381,15 +381,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
 ```
 {% endraw %}
 
@@ -408,9 +408,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - continue-on-error: ${{ fromJSON(env.continue) }}
-      timeout-minutes: ${{ fromJSON(env.time) }}
-      run: echo ...
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 
@@ -445,7 +445,7 @@ Arroja `true` cuando no falló ni se canceló ninguno de los pasos anteriores.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has succeeded
     if: {% raw %}${{ success() }}{% endraw %}
@@ -478,7 +478,7 @@ Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}

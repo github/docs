@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -32,6 +36,9 @@ topics:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. 将设备置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 4. 重启设备，以检测新存储分配。
+  ```shell
+  $ sudo reboot
+  ```
 5. 运行 `ghe-storage-extend` 命令以展开 `/data/user` 文件系统：
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ topics:
 ### 使用新设备增加根分区大小
 
 1. 使用版本与当前设备相同的较大根磁盘来设置新的 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
-2. 关闭当前设备。
+2. 关闭当前设备：
+  ```shell
+  $ sudo poweroff
+  ```
 3. 使用虚拟平台工具将数据磁盘从当前设备中拆下。
 4. 将数据磁盘安装到根磁盘较大的新设备上。
 
@@ -57,6 +67,9 @@ topics:
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. 关闭设备。
+4. 关闭设备：
+  ```shell
+  $ sudo poweroff
+  ```
 5. 在虚拟机监控程序中，移除旧的根磁盘，并将新的根磁盘连接到旧的根磁盘的位置。
 6. 启动设备。

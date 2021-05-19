@@ -1,0 +1,18 @@
+---
+date: '2021-04-14'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - '警告消息 `jq: error (at <stdin>:0): Cannot index number with string "settings"` 可能在副本升级期间出现。'
+    - 访问 `/settings/email` 页面会存储状态，在登出并重新登录时可能导致错误的重定向。
+    - 对于其通告在 `vulnerable_version_ranges` 中具有大写包名称的组件，未显示依赖项图警报。
+    - 用户在使用 LDAP 身份验证配置的实例上执行 git 操作时看到 500 错误。
+    - 当 ghe-migrator 遇到导入错误时，它有时会中止整个过程，但日志中没有包含足够的上下文。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级期间不会保持。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。
+    - 推送到命令行上的仓库时不报告安全警报。
