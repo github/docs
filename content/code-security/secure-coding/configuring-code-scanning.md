@@ -147,6 +147,22 @@ jobs:
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}You must ensure that Git is in the PATH variable on your self-hosted runners.{% else %}If you use a self-hosted runner, you must ensure that Git is in the PATH variable.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Specifying the location for CodeQL databases
+
+In general, you do not need to worry about where the CodeQL Action places CodeQL databases since later steps will automatically find databases created by the previous ones. However, if you are writing a custom workflow step that requires the CodeQL database to be in a specific disk location then this can be specified using the `db-location` parameter under the `init` action.
+
+{% raw %}
+``` yaml
+- uses: github/codeql-action/init@v1
+  with:
+    db-location: '${{ github.workspace }}/codeql_dbs'
+```
+{% endraw %}
+
+The CodeQL Action will expect the path provided in `db-location` to be writeable and either not exist or be an empty directory. If the location configured is not a temporary directory that is automatically cleared between runs, it is the responsibility of the user to ensure that CodeQL databases created there are removed once they are no longer needed. If this parameter is not used, the CodeQL Action will create databases in a temporary location of its own choice.
+{% endif %}
+
 ### Changing the languages that are analyzed
 
 {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
