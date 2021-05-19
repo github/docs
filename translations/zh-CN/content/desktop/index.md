@@ -4,8 +4,8 @@ shortTitle: GitHub Desktop
 intro: 设置和使用 GitHub Desktop 管理项目工作的分步指南
 versions:
   free-pro-team: '*'
+children:
+  - /installing-and-configuring-github-desktop
+  - /contributing-and-collaborating-using-github-desktop
 ---
 
-{% link_with_intro /installing-and-configuring-github-desktop %}
-
-{% link_with_intro /contributing-and-collaborating-using-github-desktop %}

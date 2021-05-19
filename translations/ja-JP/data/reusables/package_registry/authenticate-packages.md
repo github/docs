@@ -1,14 +1,7 @@
-{{ site.data.variables.product.prodname_registry }}でパッケージを公開、インストール、削除するにはアクセストークンが必要です。 {% data variables.product.prodname_registry %}に直接、あるいは{% data variables.product.prodname_dotcom %} APIでユーザ名で認証を受けるのに、個人のアクセストークンが利用できます。 個人トークンを作成する際には、必要に応じて様々なスコープをトークンに割り当てできます。
+{% data variables.product.prodname_registry %}でパッケージを公開、インストール、削除するにはアクセストークンが必要です。
 
-{% if currentVersion == "free-pro-team@latest" %}
-認証を
-{% data variables.product.prodname_actions %}のワークフローで行うには:
-- パッケージレジストリの場合(`PACKAGE-REGISTRY.pkg.github.com`)は、`GITHUB_TOKEN`を利用できます。
-- コンテナレジストリ（`ghcr.io/OWNER/IMAGE-NAME`）の場合は、`GITHUB_TOKEN`もしくは個人アクセストークンを利用できます。 `GITHUB_TOKEN`を利用し、リポジトリに不要なアクセスをしないようにすることを強くおすすめします。
+{% data variables.product.prodname_registry %}、あるいは{% data variables.product.prodname_dotcom %} APIで認証を受けるのに、個人のアクセストークン（PAT）が利用できます。 個人トークンを作成する際には、必要に応じて様々なスコープをトークンに割り当てできます。 PATに関するパッケージ関連のスコープについての詳しい情報は、「[GitHub Packagesの権限について](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)」を参照してください。
 
-{% data variables.product.prodname_actions %}ワークフローで使われる`GITHUB_TOKEN`に関する情報については、「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」及び「[ワークフロー内での認証](/actions/reference/authentication-in-a-workflow#using-the-github_token-in-a-workflow)」を参照してください。
-
-{% else %}
-認証を
-{% data variables.product.prodname_actions %}ワークフローを使って{% data variables.product.prodname_registry %}に対して行うには、`GITHUB_TOKEN`を使わなければなりません。
-{% endif %}
+{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_registry %}レジストリに認証を受けるには、以下の方法が使えます。
+- `GITHUB_TOKEN`を使って、ワークフローリポジトリに関連づけられたパッケージを公開。
+- PATで他のプライベートリポジトリ（これには`GITHUB_TOKEN`がアクセスできない）に関連づけられたパッケージをインストール。

@@ -1,0 +1,1 @@
+After you enable email restrictions, members can receive email notifications at verified email addresses within domains that you've verified or approved. 詳細は「[メールアドレスを検証する](/github/getting-started-with-github/verifying-your-email-address)」を参照してください。

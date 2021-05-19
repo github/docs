@@ -7,17 +7,15 @@ redirect_from:
   - /github/developing-online-with-github-codespaces
 versions:
   free-pro-team: '*'
+children:
+  - /about-codespaces
+  - /configuring-codespaces-for-your-project
+  - /creating-a-codespace
+  - /developing-in-a-codespace
+  - /personalizing-codespaces-for-your-account
+  - /deleting-a-codespace
+  - /troubleshooting-your-codespace
+  - /connecting-to-your-codespace-from-visual-studio-code
 ---
-
 {% data reusables.codespaces.release-stage %}
-
 ### Índice
-
-{% link_in_list /about-codespaces %}
-{% link_in_list /configuring-codespaces-for-your-project %}
-{% link_in_list /creating-a-codespace %}
-{% link_in_list /developing-in-a-codespace %}
-{% link_in_list /personalizing-codespaces-for-your-account %}
-{% link_in_list /deleting-a-codespace %}
-{% link_in_list /troubleshooting-your-codespace %}
-{% link_in_list /connecting-to-your-codespace-from-visual-studio-code %}

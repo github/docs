@@ -2,7 +2,6 @@ const { sortBy } = require('lodash')
 
 module.exports = async function genericToc (req, res, next) {
   if (!req.context.page) return next()
-  if (req.context.page.hidden) return next()
   if (req.context.currentLayoutName !== 'default') return next()
   if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article') return next()
 
@@ -23,7 +22,11 @@ module.exports = async function genericToc (req, res, next) {
 // Recursively loop through the siteTree until we reach the point where the
 // current siteTree page is the same as the requested page. Then stop.
 function findPageInSiteTree (pageArray, currentPath) {
-  const childPage = pageArray.find(page => currentPath.startsWith(page.href))
+  const childPage = pageArray.find(page => {
+    // Find a page that matches at least an initial part of the current path
+    const regex = new RegExp(`^${page.href}($|/)`, 'm')
+    return regex.test(currentPath)
+  })
 
   if (childPage.href === currentPath) {
     return childPage
