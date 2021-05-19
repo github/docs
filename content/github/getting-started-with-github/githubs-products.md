@@ -1,3 +1,6 @@
+<h3 style="text-align:center;">Github`s Products</h3>
+
+
 ---
 title: GitHub's products
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
