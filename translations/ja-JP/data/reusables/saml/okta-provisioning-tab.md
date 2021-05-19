@@ -1,1 +1,1 @@
-1. Under the name of the application, click **Provisioning**. ![Okta アプリケーションの [Provisioning] タブ](/assets/images/help/saml/okta-provisioning-tab.png)
+1. アプリケーション名の下で、**Provisioning（プロビジョニング）**をクリックしてください。 ![Okta アプリケーションの [Provisioning] タブ](/assets/images/help/saml/okta-provisioning-tab.png)

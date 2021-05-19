@@ -110,8 +110,8 @@ on:
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -128,7 +128,7 @@ When all the path names match patterns in `paths-ignore`, the workflow will not 
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### パスを含む例
@@ -139,7 +139,7 @@ on:
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### パスの除外
@@ -160,8 +160,8 @@ on:
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git diffの比較
@@ -186,6 +186,32 @@ on:
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 cron構文に関する詳しい情報については、「[ワークフローをトリガーするイベント](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)」を参照してください。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `権限`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+
+You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### サンプル
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -221,6 +247,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the `github` context. 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+
+You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
 1つのワークフロー実行は、1つ以上のジョブからなります。 デフォルトでは、ジョブは並行して実行されます。 ジョブを逐次的に実行するには、`jobs.<job_id>.needs`キーワードを使用して他のジョブに対する依存関係を定義します。
@@ -339,6 +377,34 @@ runs-on: [self-hosted, linux]
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. 詳しい情報については、「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
+
+By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### サンプル
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
@@ -347,10 +413,11 @@ runs-on: [self-hosted, linux]
 環境は、環境の`name`だけで、あるいは`name` and `url`を持つenvironmentオブジェクトとして渡すことができます。 デプロイメントAPIでは、このURLは`environment_url`にマップされます。 デプロイメントAPIに関する詳しい情報については「[デプロイメント](/rest/reference/repos#deployments)」を参照してください。
 
 ##### 1つの環境名を使う例
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### 環境名とURLを使う例
 
@@ -372,6 +439,25 @@ environment:
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+
+{% endnote %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. 式に関する詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+
+You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 ジョブからの出力の`map`です。 ジョブの出力は、そのジョブに依存しているすべての下流のジョブから利用できます。 ジョブの依存関係の定義に関する詳しい情報については[`jobs.<job_id>.needs`](#jobsjob_idneeds)を参照してください。
@@ -387,20 +473,20 @@ environment:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # ステップの出力をジョブの出力にマップ
+    # Map a step output to a job output
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -470,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -609,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### {% data variables.product.prodname_github_container_registry %} の使用例
+##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-{% data variables.product.prodname_github_container_registry %} の Docker イメージ。
+A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -639,7 +725,9 @@ jobs:
 
 #### ワークフローとは異なるプライベートリポジトリ内でのアクションの使用例
 
-ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。
+ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 Generate a personal access token and add the token as an encrypted secret. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 {% raw %}
 ```yaml
@@ -651,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
@@ -899,7 +987,7 @@ strategy (戦略) によって、ジョブのビルドマトリクスが作成�
 
 #### 複数のバージョンの Node.js を使用して実行する例
 
-設定オプションに配列を指定すると、マトリクスを指定できます。 たとえばランナーがNode.jsのバージョン6、8、10,をサポートしている場合、これらのバージョンの配列を`matrix`で指定できます。
+設定オプションに配列を指定すると、マトリクスを指定できます。 たとえばランナーがNode.jsのバージョン10、12、14,をサポートしている場合、これらのバージョンの配列を`matrix`で指定できます。
 
 この例では、`node`キーにNode.jsの3つのバージョンの配列を設定することによって、3つのジョブのマトリクスを作成します。 このマトリックスを使用するために、この例では`matrix.node`コンテキストプロパティを`setup-node`アクションの入力パラメータである`node-version`に設定しています。 その結果、3 つのジョブが実行され、それぞれが異なるバージョンのNode.js を使用します。
 
@@ -907,12 +995,12 @@ strategy (戦略) によって、ジョブのビルドマトリクスが作成�
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
-  # GitHubホストランナーで使われるnodeのバージョンの設定
-  - uses: actions/setup-node@v1
+  # Configures the node version used on GitHub-hosted runners
+  - uses: actions/setup-node@v2
     with:
-      # 設定するNode.jsのバージョン
+      # The Node.js version to configure
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
@@ -933,10 +1021,10 @@ steps:
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    os: [ubuntu-18.04, ubuntu-20.04]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
@@ -948,7 +1036,7 @@ steps:
 
 #### 組み合わせに追加の値が含まれる例
 
-既存のビルドマトリクスジョブに、設定オプションを追加できます。 たとえば、`windows-latest` を使うジョブで`node` のバージョン 4 を実行しているときに、`npm` の特定のバージョンを使いたい場合は、`include` を使って追加のオプションを指定できます。
+既存のビルドマトリクスジョブに、設定オプションを追加できます。 たとえば、`windows-latest` を使うジョブで`node` のバージョン 8 を実行しているときに、`npm` の特定のバージョンを使いたい場合は、`include` を使って追加のオプションを指定できます。
 
 {% raw %}
 ```yaml
@@ -956,29 +1044,29 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
 #### 新しい組み合わせを含む例
 
-`include`を使って新しいジョブを追加し、マトリックスを構築できます。 マッチしなかったincludeの設定があれば、マトリックスに追加されます。 たとえば、`node`のバージョン12を使って複数のオペレーティングシステム上でビルドを行い、追加で実験的なジョブをUbuntu上でnodeバージョン13で行いたいなら、`include`を使ってこの追加のジョブを指定できます。
+`include`を使って新しいジョブを追加し、マトリックスを構築できます。 マッチしなかったincludeの設定があれば、マトリックスに追加されます。 たとえば、`node`のバージョン14を使って複数のオペレーティングシステム上でビルドを行い、追加で実験的なジョブをUbuntu上でnodeバージョン15で行いたいなら、`include`を使ってこの追加のジョブを指定できます。
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -994,11 +1082,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excludes node 4 on macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -1033,7 +1121,7 @@ strategy:
 
 #### 失敗した特定のマトリックスジョブがワークフローの実行を失敗させないようにする例
 
-ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node`が`13`に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
+ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 たとえば、`node`が`15`に設定された実験的なジョブが失敗しても、ワークフローの実行を失敗させないようにしたいとしましょう。
 
 {% raw %}
 ```yaml
@@ -1042,11 +1130,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1064,7 +1152,7 @@ strategy:
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1079,7 +1167,7 @@ jobs:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
@@ -1181,7 +1269,7 @@ services:
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}

@@ -1,0 +1,1 @@
+Para obtener más información sobre cómo configurar {% data variables.product.prodname_cli %}, consulta la sección "[Administrar GitHub Actions con GitHub CLI](/actions/guides/managing-github-actions-with-github-cli#setting-up-github-cli)".
