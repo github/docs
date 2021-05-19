@@ -24,7 +24,7 @@ module.exports = async function genericToc (req, res, next) {
 function findPageInSiteTree (pageArray, currentPath) {
   const childPage = pageArray.find(page => {
     // Find a page that matches at least an initial part of the current path
-    const regex = new RegExp(`^${page.href}($|\/)`, 'm')
+    const regex = new RegExp(`^${page.href}($|/)`, 'm')
     return regex.test(currentPath)
   })
 
