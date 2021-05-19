@@ -3,6 +3,7 @@ title: What does the 'Available for hire' checkbox do?
 intro: Use the **Available for hire** checkbox to view GitHub Jobs posts within GitHub.
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
+  - /github/setting-up-and-managing-your-github-user-account/what-does-the-available-for-hire-checkbox-do
 versions:
   free-pro-team: '*'
 topics:
