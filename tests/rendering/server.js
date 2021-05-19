@@ -42,8 +42,6 @@ describe('server', () => {
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
-    expect('x-content-security-policy' in res.headers).toBe(true)
-    expect('x-webkit-csp' in res.headers).toBe(true)
 
     const csp = new (require('csp-parse'))(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")

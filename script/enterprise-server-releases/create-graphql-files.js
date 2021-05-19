@@ -20,8 +20,8 @@ program
   .option('-o, --oldVersion <version>', 'The version to copy the files from. Must be in <plan@release> format.')
   .parse(process.argv)
 
-const newVersion = program.newVersion
-const oldVersion = program.oldVersion
+const newVersion = program.opts().newVersion
+const oldVersion = program.opts().oldVersion
 
 if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
