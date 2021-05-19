@@ -18,6 +18,7 @@
 <li>
 <ul class="sidebar-categories list-style-none">
   {% for childPage in currentProductTree.childPages %}
+  {% unless childPage.page.hidden %}
   {% if childPage.page.documentType == "article" %}{% assign standaloneCategory = true %}{% else %}{% assign standaloneCategory = false %}{% endif %}
   <li class="sidebar-category py-1 {% if currentPath contains childPage.href %}active {% if currentPath == childPage.href %}is-current-page {% endif %}{% endif %}{% if standaloneCategory %}standalone-category{% endif %}">
     {% if childPage.renderedShortTitle %}{% assign childTitle = childPage.renderedShortTitle %}{% else %}{% assign childTitle = childPage.renderedFullTitle %}{% endif %}
@@ -67,6 +68,7 @@
       {% endif %}
     </details>
   </li>
+  {% endunless %}
   {% endfor %}
 </ul>
 </li>

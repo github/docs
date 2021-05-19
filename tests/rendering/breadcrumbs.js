@@ -120,7 +120,7 @@ describe('breadcrumbs', () => {
       expect($('.breadcrumbs')).toHaveLength(1)
     })
 
-    test('early access article pages have breadcrumbs with product, category, and article', async () => {
+    testOldSiteTree('early access article pages have breadcrumbs with product, category, and article', async () => {
       const $ = await getDOM('/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies')
       const $breadcrumbSpans = $('.breadcrumbs span')
       const $breadcrumbLinks = $('.breadcrumbs a')
@@ -132,6 +132,20 @@ describe('breadcrumbs', () => {
       expect($breadcrumbLinks.eq(0).attr('title')).toBe('category: Enforcing best practices with GitHub Policies')
       expect($breadcrumbLinks.eq(1).attr('title')).toBe('article: About GitHub Policies')
       expect($breadcrumbLinks.eq(1).hasClass('color-text-tertiary')).toBe(true)
+    })
+
+    testNewSiteTree('early access article pages have breadcrumbs with product, category, and article', async () => {
+      const $ = await getDOM('/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies')
+      const $breadcrumbSpans = $('.breadcrumbs span')
+      const $breadcrumbLinks = $('.breadcrumbs a')
+
+      expect($breadcrumbSpans).toHaveLength(2)
+      expect($breadcrumbLinks).toHaveLength(2)
+      expect($breadcrumbSpans[0].children[0].data).toBe('Early Access documentation')
+      expect($breadcrumbSpans[1].children[0].data).toBe('GitHub.com')
+      expect($breadcrumbLinks[0].attribs.title).toBe('category: Enforcing best practices with GitHub Policies')
+      expect($breadcrumbLinks[1].attribs.title).toBe('article: About GitHub Policies')
+      expect($breadcrumbLinks[1].attribs.class.includes('color-text-tertiary')).toBe(true)
     })
   })
 
