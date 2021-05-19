@@ -12,9 +12,9 @@ topics:
   - Accounts
   - Notifications
 children:
-  - /adding-an-email-address-to-your-github-account
+  - /adding-an-email-address-to-your- Clgithub-account
   - /changing-your-primary-email-address
-  - /setting-a-backup-email-address
+  - /setting-a-backup-email-address.
   - /setting-your-commit-email-address
   - /blocking-command-line-pushes-that-expose-your-personal-email-address
   - /remembering-your-github-username-or-email
