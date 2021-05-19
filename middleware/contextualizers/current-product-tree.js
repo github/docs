@@ -4,7 +4,11 @@ module.exports = function currentProductTree (req, res, next) {
 
   const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
 
-  req.context.currentProductTree = currentSiteTree.childPages.find(page => req.context.currentPath.startsWith(page.href))
+  req.context.currentProductTree = currentSiteTree.childPages.find(page => {
+    // Find a product path that matches at least an initial part of the current path
+    const regex = new RegExp(`^${page.href}($|\/)`, 'm')
+    return regex.test(req.context.currentPath)
+  })
 
   return next()
 }

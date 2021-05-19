@@ -22,7 +22,11 @@ module.exports = async function genericToc (req, res, next) {
 // Recursively loop through the siteTree until we reach the point where the
 // current siteTree page is the same as the requested page. Then stop.
 function findPageInSiteTree (pageArray, currentPath) {
-  const childPage = pageArray.find(page => currentPath.startsWith(page.href))
+  const childPage = pageArray.find(page => {
+    // Find a page that matches at least an initial part of the current path
+    const regex = new RegExp(`^${page.href}($|\/)`, 'm')
+    return regex.test(currentPath)
+  })
 
   if (childPage.href === currentPath) {
     return childPage
