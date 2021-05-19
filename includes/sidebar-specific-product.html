@@ -62,13 +62,13 @@
       </ul>
       <!-- some categories have no maptopics, only articles -->
       {% else %}
-      <ul class="sidebar-articles list-style-none">
+      <ul class="sidebar-articles my-2">
         {% for article in category[1].articles %}
         {% unless article[1].hidden %}
         {% capture fullPathToArticle %}{{article[1].href}}{% endcapture %}
         {% if article[1].shortTitle %}{% assign articleTitle = article[1].shortTitle %}{% else %}{% assign articleTitle = article[1].title %}{% endif %}
         <li class="sidebar-article {% if breadcrumbs.article.href == article[1].href %}active {% if currentPath == fullPathToArticle %}is-current-page{% endif %}{% endif %}">
-          <a href="{{fullPathToArticle}}" class="pl-4 pr-5 py-1{% if forloop.last %} pb-2{% endif %} color-text-primary">{{ articleTitle }}</a>
+          <a href="{{fullPathToArticle}}" class="pl-6 pl-4 pr-5 py-1{% if forloop.last %} pb-2{% endif %} color-text-primary">{{ articleTitle }}</a>
         </li>
         {% endunless %}
         {% endfor %}

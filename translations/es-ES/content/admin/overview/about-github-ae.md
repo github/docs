@@ -3,6 +3,10 @@ title: Acerca de GitHub AE
 intro: '{% data variables.product.prodname_ghe_managed %} es una forma de tener cumplimiento y seguridad ampliada para utilizar {% data variables.product.prodname_dotcom %} en la nube.'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Acerca de {% data variables.product.prodname_ghe_managed %}
@@ -21,7 +25,7 @@ Todos tus datos se almacenan dentro de la región geográfica de tu elección. P
 
 ### Cifrado bajo tus condiciones
 
-Todos los datos del cliente se cifran estáticos y puedes proporcionar tus propias llaves de cifrado para cifrar tus datos bajo tus propias políticas. Tú controlas tu llave y el acceso a todos tus datos. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
+All customer data is encrypted at rest. Para obtener más información, consulta la sección "[Configurar el cifrado de datos para tu empresa](/admin/configuration/configuring-data-encryption-for-your-enterprise)".
 
 ### Cuentas aisladas
 

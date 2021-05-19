@@ -10,5 +10,6 @@ export default function airgapLinks () {
   externaLinks.forEach(link => {
     link.classList.add('tooltipped')
     link.setAttribute('aria-label', 'This link may not work in this environment.')
+    link.setAttribute('rel', 'noopener')
   })
 }

@@ -11,7 +11,7 @@
 | Composer       | `composer`       | v1, v2                     |    **✓**    |    **✓**    |       |
 | Docker         | `docker`         | v1                         |    **✓**    |    **✓**    |       |
 | Hex            | `mix`            | v1                         |             |    **✓**    |       |
-| elm-package    | `elm`            | v0.18, v0.19               |    **✓**    |    **✓**    |       |
+| elm-package    | `elm`            | v0.19                      |    **✓**    |    **✓**    |       |
 | Gitサブモジュール     | `gitsubmodule`   | N/A (バージョンなし)              |    **✓**    |    **✓**    |       |
 | GitHub Actions | `github-actions` | N/A (バージョンなし)              |    **✓**    |    **✓**    |       |
 | Goモジュール        | `gomod`          | v1                         |    **✓**    |    **✓**    | **✓** |

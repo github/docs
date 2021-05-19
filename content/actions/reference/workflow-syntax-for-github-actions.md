@@ -401,7 +401,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/stale@v3
+      - uses: actions/stale@v3
 ```
 {% endif %}
 

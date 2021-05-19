@@ -1,3 +1,4 @@
+require('../../lib/feature-flags')
 const { getDOM } = require('../helpers/supertest')
 
 describe('sidebar', () => {
