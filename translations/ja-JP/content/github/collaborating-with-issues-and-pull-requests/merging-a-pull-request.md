@@ -25,6 +25,14 @@ topics:
 
 トピックブランチでの変更を上流ブランチにマージしたくなければ、マージせずに[プルリクエストをクローズする](/articles/closing-a-pull-request)ことができます。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
+
 ### {% data variables.product.prodname_dotcom %} でプルリクエストをマージする
 
 {% data reusables.repositories.sidebar-pr %}

@@ -18,7 +18,7 @@ topics:
 
 {% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 更多信息请参阅“[关于 Dependabot 版本更新](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)”。
+{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)" and "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)."
 
 ### 启用 {% data variables.product.prodname_dependabot_version_updates %}
 

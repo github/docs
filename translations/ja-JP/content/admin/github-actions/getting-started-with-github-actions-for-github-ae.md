@@ -1,9 +1,14 @@
 ---
 title: GitHub AE の GitHub Actions を使い始める
+shortTitle: GitHub Actionsを使ってみる
 intro: '{% data variables.product.prodname_ghe_managed %} で {% data variables.product.prodname_actions %} を設定する方法を学びます。'
 permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Actions
+  - Enterprise
 ---
 
 {% data reusables.actions.ae-beta %}

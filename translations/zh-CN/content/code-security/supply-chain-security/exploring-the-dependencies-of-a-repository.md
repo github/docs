@@ -15,6 +15,8 @@ topics:
   - Repositories
 ---
 
+<!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
+
 ### 查看依赖关系图
 
 {% data reusables.repositories.enable-security-alerts %}
@@ -50,19 +52,6 @@ topics:
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
-在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问安全警报的用户查看。
-
-![依赖关系图](/assets/images/help/graphs/dependencies_graph_server.png)
-
-{% note %}
-
-**注：**{% data variables.product.prodname_ghe_server %} 不会填充 **Dependents（依赖项）**视图。
-
-{% endnote %}
-
-{% endif %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 #### 依赖项视图
 
@@ -74,7 +63,7 @@ topics:
 
 仓库管理员可以启用或禁用私有仓库的依赖关系图。
 
-您也可以为用户帐户或组织拥有的所有仓库启用或禁用依赖项图。 For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+您也可以为用户帐户或组织拥有的所有仓库启用或禁用依赖项图。 更多信息请参阅“[管理用户帐户的安全和分析设置](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)”或“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -113,8 +102,8 @@ topics:
 
 ### 延伸阅读
 
-- "[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
+- “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
+- "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% if currentVersion == "free-pro-team@latest" %}
 - "[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
-- "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[了解 {% data variables.product.product_name %} 如何使用和保护数据](/github/understanding-how-github-uses-and-protects-your-data)"
 {% endif %}

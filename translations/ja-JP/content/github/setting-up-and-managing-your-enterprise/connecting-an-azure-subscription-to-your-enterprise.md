@@ -1,6 +1,6 @@
 ---
-title: Connecting an Azure subscription to your enterprise
-intro: 'You can use your Microsoft Enterprise Agreement to enable and pay for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} usage beyond the included amounts for your enterprise.'
+title: Azure サブスクリプションを Enterprise に接続する
+intro: 'Microsoft Enterprise Agreement を使用して、Enterprise に含まれている金額を超える {% data variables.product.prodname_actions %} および {% data variables.product.prodname_registry %} の使用を有効化して支払うことができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -8,33 +8,33 @@ versions:
   free-pro-team: '*'
 ---
 
-### About Azure subscriptions and {% data variables.product.product_name %}
+### Azure サブスクリプションと {% data variables.product.product_name %}
 
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) and "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} 詳しい情報については、「[{% data variables.product.prodname_actions %} の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)」および「[{% data variables.product.prodname_registry %} の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)」を参照してください。
 
-After you connect an Azure subscription, you can also manage your spending limit. For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)" and "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+Azure サブスクリプションに接続した後、利用上限を管理することもできます。 アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_registry %} の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)」および「[{% data variables.product.prodname_actions %} の利用上限の管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)」を参照してください。
 
-### Connecting your Azure subscription to your enterprise account
+### Azure サブスクリプションを Enterprise アカウントに接続する
 
-To connect your Azure subscription, you must have owner permissions to the subscription.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Payment Information", click **Add Azure Subscription**.
-1. To sign in to your Microsoft account, follow the prompts.
-1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
-1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
-1. Click **Connect**.
-
-### Disconnecting your Azure subscription from your enterprise account
-
-After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
+Azure サブスクリプションに接続するには、サブスクリプションに対するオーナーのアクセス許可が必要です。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trashcan" aria-label="The trashcan icon" %}**.
-1. Review the prompt, then click **Remove**.
+1. [Payment Information] で、[**Add Azure Subscription**] をクリックします。
+1. 画面の指示に従って Microsoft アカウントにサインインします。
+1. [Permissions requested] という画面表示を確認します。 規約に同意する場合は、[**Accept**] をクリックします。
+1. [Select a subscription] で、Enterprise に接続する Azure サブスクリプション ID を選択します。
+1. [**Connect**] をクリックします。
+
+### Enterprise アカウントから Azure サブスクリプションを切断する
+
+Azure サブスクリプションを Enterprise アカウントから切断すると、プランに含まれている金額以上の使用量を利用できなくなります。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.billing-tab %}
+{% data reusables.enterprise-accounts.payment-information-tab %}
+1. [Azure subscription] の下で、切断するサブスクリプション ID の右側にある [**{% octicon "trash" aria-label="The trash icon" %}**] をクリックします。
+1. 画面表示を確かめてから、[**Remove**] をクリックします。

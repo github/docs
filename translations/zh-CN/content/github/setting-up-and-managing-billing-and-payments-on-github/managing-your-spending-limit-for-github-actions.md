@@ -27,8 +27,8 @@ topics:
 任何人都可管理其用户帐户的 {% data variables.product.prodname_actions %} 支出限额。
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -36,11 +36,10 @@ topics:
 
 组织所有者和帐单管理员可管理组织的 {% data variables.product.prodname_actions %} 支出限额。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.cost-management-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
@@ -51,8 +50,8 @@ topics:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. 在“
-{% data variables.product.prodname_actions %} and Packages monthly usage（GitHub Actions 和包每月使用）”下，单击 **Cost management（成本管理）**。
-  ![成本管理选项卡](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Above "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Spending Limit**.
+  ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you are a security researcher, you should directly contact maintainers to ask them to create security advisories or issue CVEs on your behalf in repositories that you don't administer.
+**ノート:** セキュリティの研究者は、管理していないリポジトリでは自分の代わりにセキュリティアドバイザリあるいはIssueを作成してもらうよう、メンテナに直接連絡すべきです。
 
 {% endnote %}

@@ -1,7 +1,6 @@
 ---
 title: Gerenciar contribuidores e equipes
 intro: É possível gerenciar as pessoas e equipes incluídas em métricas e relatórios.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-contributors-and-teams
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage contributors and teams.'
@@ -98,7 +97,7 @@ Você pode criar e gerenciar equipes personalizadas no {% data variables.product
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. À direita do contribuidor que você deseja remover, clique em {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Botão de Lixeira](/assets/images/help/insights/contributor-trashcan.png)
+3. À direita do contribuidor que você deseja remover, clique em {% octicon "trash" aria-label="The trash icon" %}. ![botão da lixeira](/assets/images/help/insights/contributor-trashcan.png)
 
 #### Renomear uma equipe personalizada
 

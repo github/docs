@@ -1,7 +1,6 @@
 ---
 title: 管理组织
 intro: '您可以管理指标中包含的 {% data variables.product.prodname_enterprise %} 组织。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-organizations
 permissions: 'People with admin permissions in {% data variables.product.prodname_insights %} can manage organizations.'

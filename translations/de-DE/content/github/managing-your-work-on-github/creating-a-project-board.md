@@ -87,7 +87,7 @@ Du kannst auch Workflows automatisieren, um Dein Projektboard mit dem Status der
 ### Weiterführende Informationen
 
 - „[Informationen zu Projektboards](/articles/about-project-boards)“
-- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% if currentVersion == "free-pro-team@latest" %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Ein Projektboard schließen](/articles/closing-a-project-board)“
 - „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards)“

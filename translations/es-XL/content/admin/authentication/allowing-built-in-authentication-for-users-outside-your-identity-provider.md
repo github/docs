@@ -7,7 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 ### Acerca de la autenticación integrada para usuarios fuera de tu proveedor de identidad

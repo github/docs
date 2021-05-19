@@ -9,6 +9,9 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 Los servidores de nombres que especifiques deben resolver el nombre del host de {% data variables.product.product_location_enterprise %}.

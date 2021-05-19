@@ -10,6 +10,8 @@ topics:
   - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
@@ -31,11 +33,7 @@ topics:
 
 {% note %}
 
-{% if currentversion == "github-ae@latest" %} **注意**：有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
-{% else %}
-**注意**：如果您将自托管运行器用于
-{% data variables.product.prodname_actions %}，您可能需要安装其他软件才能使用`自动构建`流程。 此外，如果您的仓库需要特定版本的构建工具，您可能需要手动安装它。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
-{% endif %}
+**注**：如果使用 {% data variables.product.prodname_actions %} 的自托管运行器，您可能需要安装其他软件才能使用 `autobuild` 进程。 此外，如果您的仓库需要特定版本的构建工具，您可能需要手动安装它。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 
 {% endnote %}
 

@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {% data variables.product.product_location %}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。

@@ -24,7 +24,7 @@ Du kannst Tickets auch über die Suchleiste „Filter cards“ (Tickets filtern)
 - Tickets nach Prüfstatus filtern – mit `status:pending`, `status:success` oder `status:failure`
 - Tickets nach Typ filtern – mit `type:issue`, `type:pr` oder `type:note`
 - Tickets nach Status und Typ filtern – mit `is:open`, `is:closed` oder `is:merged` und `is:issue`, `is:pr` oder `is:note`
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Tickets nach Issues filtern, die mit einer abschließenden Referenz zu einem Pull Request verbunden sind – mit `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - Tickets nach Repository in einem organisationsweiten Projektboard filtern – mit `repo:ORGANIZATION/REPOSITORY`{% endif %}
 
 1. Navigiere zu dem Projektboard, das die Tickets enthält, nach denen Du filtern möchtest.

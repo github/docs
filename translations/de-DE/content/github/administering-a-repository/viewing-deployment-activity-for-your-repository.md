@@ -24,7 +24,8 @@ Darüber hinaus können Bereitstellungsinformationen auf der Registerkarte „Co
 ### Dashboard für Bereitstellungen anzeigen
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Klicke oberhalb der Liste der Dateien auf **Environments** (Umgebungen). ![Umgebungen auf der Repository-Seite](/assets/images/help/repository/environments.png)
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}To the right of the list of files, click **Environments**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Above the list of files, click **Environments**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+
 
 ### Weiterführende Informationen
  - „[Informationen zu Pull Requests](/articles/about-pull-requests)“

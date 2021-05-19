@@ -1,7 +1,6 @@
 ---
 title: 管理可用指标和报告
 intro: '您可以在整个 {% data variables.product.prodname_insights %} 中启用和禁用特定指标。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/managing-settings-in-github-insights
 permissions: 'People with admin permissions to {% data variables.product.prodname_insights %} can manage available metrics and reports.'

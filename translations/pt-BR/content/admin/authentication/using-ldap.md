@@ -11,8 +11,12 @@ redirect_from:
 intro: 'O LDAP permite autenticar o {% data variables.product.prodname_ghe_server %} em suas contas existentes e gerenciar centralmente o acesso ao repositório. O LDAP é um protocolo de aplicativo popular de acesso e manutenção dos serviços de informações de diretório, além de ser um dos protocolos mais comuns para integrar software de terceiros a diretórios de usuários em grandes empresas.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

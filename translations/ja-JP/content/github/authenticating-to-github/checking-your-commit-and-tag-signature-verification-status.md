@@ -19,18 +19,16 @@ topics:
 
 {% data variables.product.product_name %} 上で、プルリクエストに移動します。
 {% data reusables.repositories.review-pr-commits %}
-3. コミットの短縮版コミットハッシュの隣に、コミットの署名が検証されているかどうかを示すボックスがあります。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
-4. コミットの署名について詳しい情報を表示するには、[**Verified**] または [**Unverified**] をクリックします。 ![検証された署名済みコミット](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
-
-コミットの署名が検証されていない場合、[**Unverified**] のボックスをクリックするとその理由について詳しく知ることができます。 ![検証されていない署名済みコミット](/assets/images/help/commits/gpg-signed-commit-unverified-details.png)
+3. コミットの省略されたコミットハッシュの横に、コミット署名が検証済みか{% if currentVersion == "free-pro-team@latest" %}、部分的に検証済みか、{% endif %}未検証かを示すボックスがあります。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+4. コミットシグニチャの詳細情報を表示するには、[**検証済み**]{% if currentVersion == "free-pro-team@latest" %}、[**部分的に検証済み**]、{% endif %}または [**未検証**] をクリックします。 ![検証された署名済みコミット](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
 
 ### タグの署名検証のステータスの確認
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 2. [Releases] ページの上部にある [**Tags**] をクリックします。 ![[Tags] ページ](/assets/images/help/releases/tags-list.png)
-3. タグの説明の隣に、タグの署名が検証されているかどうかを示すボックスがあります。 ![検証されたタグ署名](/assets/images/help/commits/gpg-signed-tag-verified.png)
-4. タグの署名について詳しい情報を表示するには、[**Verified**] または [**Unverified**] をクリックします。 タグの署名が検証されていない場合、[**Unverified**] のボックスをクリックするとその理由について詳しく知ることができます。 ![検証された署名済みタグ](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
+3. タグの説明の横に、タグの署名が検証済みか{% if currentVersion == "free-pro-team@latest" %}、部分的に検証済みか{% endif %}、未検証かを示すボックスがあります。 ![検証されたタグ署名](/assets/images/help/commits/gpg-signed-tag-verified.png)
+4. タグシグニチャの詳細情報を表示するには、[**検証済み**]{% if currentVersion == "free-pro-team@latest" %}、[**部分的に検証済み**]、{% endif %}または [**未検証**] をクリックします。 ![検証された署名済みタグ](/assets/images/help/commits/gpg-signed-tag-verified-details.png)
 
 ### 参考リンク
 

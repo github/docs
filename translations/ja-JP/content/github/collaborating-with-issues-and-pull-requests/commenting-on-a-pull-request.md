@@ -36,7 +36,7 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 
 **参考:**
 - プルリクエストのコメントては、@メンション、絵文字、参照など、{% data variables.product.product_name %}の通常のコメントにおいてサポートされている[フォーマット](/categories/writing-on-github)がサポートされています。
-- [**Files changed**] のプルリクエストには、コメントへの[リアクション](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)を追加できます。
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 

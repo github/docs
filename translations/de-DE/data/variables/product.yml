@@ -56,6 +56,7 @@ prodname_pages: 'GitHub Pages'
 #CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
@@ -77,8 +78,7 @@ prodname_debug: 'GitHub Debug'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_github_container_registry: 'GitHub Container Registry'
-prodname_container_registry: 'container registry'
+prodname_container_registry: 'Container registry'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -91,7 +91,6 @@ prodname_advanced_security: 'Advanced Security'
 prodname_security_center: 'Security Center'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Visual Studio Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
@@ -139,9 +138,9 @@ product_url: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Anmelden („https://[hostname]/login“){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Abmelden („https://[hostname]/logout“){% endif %}
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 #GitHub Enterprise Server past versions

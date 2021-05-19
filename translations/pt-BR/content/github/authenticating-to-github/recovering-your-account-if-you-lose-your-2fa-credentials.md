@@ -60,7 +60,7 @@ Você pode usar as suas credenciais de autenticação de dois fatores ou os cód
 5. Em "Única senha", digite a senha temporária do endereço e-mail de recuperação {% data variables.product.prodname_dotcom %} enviada. ![Campo para a senha de uso único](/assets/images/help/2fa/one-time-password-field.png)
 6. Clique **Verificar endereço de e-mail**.
 7. Escolha um fator de verificação alternativo.
-    - Se você usou seu dispositivo atual para acessar essa conta anteriormente e gostaria de usar o dispositivo para verificação, clique em **Verificar este dispositivo**.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - Se você já configurou uma chave SSH nesta conta e gostaria de usar a chave SSH para verificação, clique na **chave SSH**.
     - Se você já configurou um token de acesso pessoal anteriormente e gostaria de usar o token de acesso pessoal para verificação, clique em **Token de acesso pessoal**. ![Botões de verificação alternativa](/assets/images/help/2fa/alt-verifications.png)
 8. Um integrante do {% data variables.contact.github_support %} irá rever a sua solicitação e o seu endereço de e-mail de 3 a 5 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.

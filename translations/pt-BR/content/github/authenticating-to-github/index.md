@@ -1,7 +1,7 @@
 ---
-title: Authenticating to GitHub
-shortTitle: Authentication
-intro: 'Keep your account and data secure with features like {% if currentVersion != "github-ae@latest" %}two-factor authentication, {% endif %}SSH{% if currentVersion != "github-ae@latest" %},{% endif %} and commit signature verification.'
+title: Autenticar com o GitHub
+shortTitle: Autenticação
+intro: 'Mantenha sua conta e dados protegidos com recursos como {% if currentVersion != "github-ae@latest" %}autenticação de dois fatores, {% endif %}SSH{% if currentVersion ! "github-ae@latest" %},{% endif %} e verificação de assinatura do commit.'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/
@@ -26,7 +26,7 @@ topics:
 ---
 
 
-### Table of Contents
+### Índice
 
 {% topic_link_in_list /keeping-your-account-and-data-secure %}
     {% link_in_list /about-authentication-to-github %}
@@ -41,7 +41,7 @@ topics:
     {% link_in_list /reviewing-your-authorized-applications-oauth %}
     {% link_in_list /reviewing-your-security-log %}
     {% link_in_list /removing-sensitive-data-from-a-repository %}
-    {% link_in_list /about-anonymized-image-urls %}
+    {% link_in_list /about-anonymized-urls %}
     {% link_in_list /about-githubs-ip-addresses %}
     {% link_in_list /githubs-ssh-key-fingerprints %}
     {% link_in_list /sudo-mode %}
@@ -79,9 +79,11 @@ topics:
     {% link_in_list /error-agent-admitted-failure-to-sign %}
     {% link_in_list /error-ssh-add-illegal-option----k %}
     {% link_in_list /error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok %}
+    {% link_in_list /error-unknown-key-type %}
     {% link_in_list /error-were-doing-an-ssh-key-audit %}
 {% topic_link_in_list /managing-commit-signature-verification %}
     {% link_in_list /about-commit-signature-verification %}
+    {% link_in_list /displaying-verification-statuses-for-all-of-your-commits %}
     {% link_in_list /checking-for-existing-gpg-keys %}
     {% link_in_list /generating-a-new-gpg-key %}
     {% link_in_list /adding-a-new-gpg-key-to-your-github-account %}

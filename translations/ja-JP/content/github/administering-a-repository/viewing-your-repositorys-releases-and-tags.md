@@ -16,7 +16,7 @@ topics:
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用してリリースを表示することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh release view`](https://cli.github.com/manual/gh_release_view)」を参照してください。
 
 {% endtip %}
 {% endif %}

@@ -42,25 +42,21 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 
 ### Schritt 3: Die Organisation auf ein jährlich bezahltes Abonnement hochstufen
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (Im nächsten Schritt kannst Du weitere Benutzer in die Organisation aufnehmen.)
 6. Wähle unter „Upgrade summary“ (Übersicht der Aktualisierung) **Pay yearly** (Jährlich bezahlen) aus, um jährlich für die Organisation zu zahlen. ![Optionsfeld für jährliche Abrechnung](/assets/images/help/billing/choose-annual-billing-org-resellers.png)
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.add-payment-method %}
-1. Gib unter „Pay with“ (Zahlung mit) Deine Kreditkartendaten ein. ![Formular zum Eingeben der Kreditkartendaten](/assets/images/help/billing/settings_billing_upgrade_with_credit_card.png)
-1. Klicke auf **Update credit card** (Kreditkarte aktualisieren).
+{% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 ### Schritt 4: Die Anzahl an bezahlten Benutzern in der Organisation hochstufen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}

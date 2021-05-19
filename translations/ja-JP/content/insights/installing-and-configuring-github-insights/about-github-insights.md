@@ -1,7 +1,6 @@
 ---
 title: GitHub Insightsについて
 intro: '{% data variables.product.prodname_insights %}は、エンジニアリングチームがソフトウェアデリバリのプロセスを理解し、改善することを支援するメトリクスと分析レポートを提供します。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/about-github-insights
 versions:

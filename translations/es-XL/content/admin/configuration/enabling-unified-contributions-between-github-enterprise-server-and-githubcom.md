@@ -12,6 +12,7 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
 ---
 
 Como un administrador del sitio, puedes habilitar a los usuarios finales para que envíen sus recuentos de contribuciones de manera anónima por sus trabajos desde {% data variables.product.prodname_ghe_server %} a sus gráficos de contribuciones {% data variables.product.prodname_dotcom_the_website %}.

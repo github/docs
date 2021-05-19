@@ -22,9 +22,9 @@ versions:
   github-ae: '*'
 ---
 
-### Adding a remote repository
+### Adicionar um repositório remoto
 
-To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
+Para adicionar um novo remoto, use o comando `adicionar remoto do git` no terminal do diretório no qual seu repositório está armazenado.
 
 O comando `git remote add` usa dois argumentos:
 * Um nome de remote, por exemplo, `origin`
@@ -42,9 +42,9 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
 
-For more information on which URL to use, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+Para obter mais informações sobre qual URL usar, consulte "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
-#### Troubleshooting: Remote origin already exists
+#### Solução de problemas: A origem remota já existe
 
 Esse erro significa que você tentou adicionar um remote com um nome que já existe no repositório local.
 
@@ -55,16 +55,16 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 
 Para corrigir isso, é possível:
 * Usar um nome diferente para o novo remote
-* Rename the existing remote repository
-* Delete the existing remote repository
+* Renomeie o repositório remoto existente
+* Exclua o repositório remoto existente
 
-### Changing a remote repository's URL
+### Alterar a URL de um repositório remoto
 
-The `git remote set-url` command changes an existing remote repository URL.
+O comando `git remote set-url` altera a URL de um repositório remoto existente.
 
 {% tip %}
 
-**Tip:** For information on the difference between HTTPS and SSH URLs, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."
+**Dica:** Para obter informações sobre a diferença entre as URLs de HTTPS e SSH, consulte "[Sobre repositórios remotos](/github/getting-started-with-github/about-remote-repositories)".
 
 {% endtip %}
 
@@ -129,7 +129,7 @@ Você pode [usar um auxiliar de credenciais](/github/getting-started-with-github
   > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-#### Troubleshooting: No such remote '[name]'
+#### Solução de problemas: Não há tal '[name]' remoto '
 
 Este erro informa que o remote que você tentou alterar não existe:
 
@@ -140,9 +140,9 @@ $ git remote set-url sofake https://{% data variables.command_line.codeblock %}/
 
 Verifique se você inseriu corretamente o nome do remote.
 
-### Renaming a remote repository
+### Renomear um repositório remoto
 
-Use the `git remote rename` command to rename an existing remote.
+Use o comando `renomear o remoto do git` para renomear um remoto existente.
 
 O comando `git remote rename` tem dois argumentos:
 * O nome de um remote existente, como `origin`
@@ -167,7 +167,7 @@ $ git remote -v
 > destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Could not rename config section 'remote.[old name]' to 'remote.[new name]'
+#### Solução de problemas: Não foi possível renomear a seção de configuração 'remote.[old name]' para 'remote.[new name]'
 
 Esse erro informa que o nome do remote antigo que você inseriu não existe.
 
@@ -180,13 +180,13 @@ $ git remote -v
 > origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
-#### Troubleshooting: Remote [new name] already exists
+#### Solução de problemas: Já existe um [new name] remoto
 
-Esse erro informa que o nome de remote que você deseja usar já existe. To solve this, either use a different remote name, or rename the original remote.
+Esse erro informa que o nome de remote que você deseja usar já existe. Para resolver isso, use um nome remoto diferente ou renomeie o remoto original.
 
-### Removing a remote repository
+### Remover um repositório remoto
 
-Use the `git remote rm` command to remove a remote URL from your repository.
+Use o comando `git remote rm` para remover uma URL remota do seu repositório.
 
 O comando `git remote rm` tem um argumento:
 * O nome de um remote, como `destination`
@@ -217,7 +217,7 @@ $ git remote -v
 
 {% endwarning %}
 
-#### Troubleshooting: Could not remove config section 'remote.[name]'
+#### Solução de problemas: Não foi possível remover a seção 'remote.[name]'
 
 Esse erro informa que o remote que você tentou excluir não existe:
 

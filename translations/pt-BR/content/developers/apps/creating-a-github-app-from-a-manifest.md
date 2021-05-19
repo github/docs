@@ -54,18 +54,18 @@ A pessoa que está criando o aplicativo será redirecionada para uma página do 
 
 ##### Parâmetros do manifesto do aplicativo GitHub
 
- | Nome                  | Tipo               | Descrição                                                                                                                                                                                                                                                     |
- | --------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `string`           | O nome do aplicativo GitHub.                                                                                                                                                                                                                                  |
- | `url`                 | `string`           | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                   |
- | `hook_attributes`     | `objeto`           | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                               |
- | `redirect_url`        | `string`           | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
- | `callback_urls`       | `array de strigns` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.{% else %}
- | `callback_url`        | `string`           | A full URL to redirect to after someone authorizes an installation.{% endif %}
- | `descrição`           | `string`           | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                           |
- | `público`             | `boolean`          | Defina como `verdadeiro` quando o seu aplicativo GitHub estiver disponível para o público ou `falso` quando for acessível somente pelo proprietário do aplicativo.                                                                                            |
- | `default_events`      | `array`            | Lista de [eventos](/webhooks/event-payloads) assinada pelo aplicativo GitHub.                                                                                                                                                                                 |
- | `default_permissions` | `objeto`           | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) exigido pelo aplicativo GitHub. O formato do objeto usa o nome de permissão para a chave (por exemplo, `problemas`) e o tipo de acesso para o valor (por exemplo, `gravar`). |
+ | Nome                  | Tipo               | Descrição                                                                                                                                                                                                                                                           |
+ | --------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | `name`                | `string`           | O nome do aplicativo GitHub.                                                                                                                                                                                                                                        |
+ | `url`                 | `string`           | **Obrigatório.** A página inicial do seu aplicativo GitHub.                                                                                                                                                                                                         |
+ | `hook_attributes`     | `objeto`           | A configuração do webhook do aplicativo GitHub.                                                                                                                                                                                                                     |
+ | `redirect_url`        | `string`           | A URL completa para a qual redirecionar após um usuário iniciar a criação de um aplicativo GitHub a partir de um manifesto.{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.0" %}
+ | `callback_urls`       | `array de strigns` | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação. Você pode fornecer até 10 URLs de chamada de retorno.{% else %}
+ | `callback_url`        | `string`           | Uma URL completa para a qual redirecionar após alguém autorizar uma instalação.{% endif %}
+ | `descrição`           | `string`           | Uma descrição do aplicativo GitHub.                                                                                                                                                                                                                                 |
+ | `público`             | `boolean`          | Defina como `verdadeiro` quando o seu aplicativo GitHub estiver disponível para o público ou `falso` quando for acessível somente pelo proprietário do aplicativo.                                                                                                  |
+ | `default_events`      | `array`            | Lista de [eventos](/webhooks/event-payloads) assinada pelo aplicativo GitHub.                                                                                                                                                                                       |
+ | `default_permissions` | `objeto`           | O conjunto de [permissões](/rest/reference/permissions-required-for-github-apps) exigido pelo aplicativo GitHub. O formato do objeto usa o nome de permissão para a chave (por exemplo, `problemas`) e o tipo de acesso para o valor (por exemplo, `gravar`).       |
 
 O objeto `hook_attributes` tem a chave a seguir:
 
@@ -179,7 +179,7 @@ Você deve concluir esta etapa do fluxo do manifesto do aplicativo GitHub em uma
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-    POST /app-manifests/:code/conversions
+    POST /app-manifests/{code}/conversions
 
 Para obter mais informações sobre a resposta do ponto de extremidade, consulte [Criar um aplicativo GitHub a partir de um manifesto](/rest/reference/apps#create-a-github-app-from-a-manifest).
 

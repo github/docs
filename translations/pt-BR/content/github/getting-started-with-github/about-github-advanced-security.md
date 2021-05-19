@@ -38,7 +38,7 @@ O administrador do site deve habilitar
 {% data variables.product.prodname_advanced_security %} para {% data variables.product.product_location %} antes de poder utilizar estas funcionalidades. Para obter mais informações, consulte "[Configurar funcionalidades avançadas de segurança](/admin/configuration/configuring-advanced-security-features)".
 {% endif %}
 
-Após configurar o sistema, você poderá habilitar e desabilitar esses recursos no nível da organização ou repositório. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+Após configurar o sistema, você poderá habilitar e desabilitar esses recursos no nível da organização ou repositório. Para mais informações, consulte "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" e "[Gerenciar as configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
 
 {% endif %}
 
@@ -47,7 +47,7 @@ Após configurar o sistema, você poderá habilitar e desabilitar esses recursos
 
 Para repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}, Essas funcionalidades estão permanentemente habilitadas e só podem ser desabilitadas se você alterar a visibilidade do projeto para que o código não seja mais público.
 
-Para outros repositórios, uma vez que você tenha uma licença da conta corporativa, é possível habilitar e desabilitar essas funcionalidades no nível da organização ou repositório. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" and "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."{% endif %}
+Para outros repositórios, uma vez que você tenha uma licença da conta corporativa, é possível habilitar e desabilitar essas funcionalidades no nível da organização ou repositório. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Para obter mais informações, consulte "[Gerenciar as configurações de segurança e análise de sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" e "[Gerenciar as configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
 
 {% endif %}
 
@@ -60,12 +60,12 @@ Se você tem uma conta corporativa, a utilização da licença para toda a empre
 
 ### Leia mais
 
-- "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)"
+- "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)"
 
 {% elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 
 ### Leia mais
 
-- "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
+- "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 
 {% endif %}

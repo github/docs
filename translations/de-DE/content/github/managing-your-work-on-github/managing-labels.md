@@ -35,19 +35,21 @@ Alle Benutzer mit Lesezugriff auf ein Repository können die Kennzeichnungen des
 
 {% data variables.product.product_name %} bietet in jedem neuen Repository Standardkennzeichnungen. Mithilfe dieser Standardkennzeichnungen kannst Du einen Standardworkflow in einem Repository erstellen.
 
-| Kennzeichnung      | Beschreibung                                                                                                                                              |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Indicates an unexpected problem or unintended behavior{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+| Kennzeichnung      | Beschreibung                                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `bug`              | Kennzeichnet ein unerwartetes Problem oder unbeabsichtigtes Verhalten{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 | `documentation`    | Kennzeichnet die Notwendigkeit für Verbesserungen oder Ergänzungen der Dokumentation{% endif %}
-| `duplicate`        | Kennzeichnet ähnliche Issues oder Pull Requests                                                                                                           |
-| `enhancement`      | Kennzeichnet neue Funktionsanfragen                                                                                                                       |
-| `good first issue` | Kennzeichnet einen geeigneten Issue für erstmalig Mitwirkende                                                                                             |
-| `help wanted`      | Kennzeichnet, dass ein Betreuer Hilfe bei einem Issue oder Pull Request benötigt                                                                          |
-| `invalid`          | Kennzeichnet, dass ein Issue oder Pull Request nicht mehr relevant ist                                                                                    |
-| `question`         | Kennzeichnet, dass ein Issue oder Pull Request weitere Informationen benötigt                                                                             |
-| `wontfix`          | Kennzeichnet, dass die Arbeit an einem Issue oder Pull Request nicht fortgesetzt wird                                                                     |
+| `duplicate`        | Kennzeichnet ähnliche Issues oder Pull Requests                                                                                                                          |
+| `enhancement`      | Kennzeichnet neue Funktionsanfragen                                                                                                                                      |
+| `good first issue` | Kennzeichnet einen geeigneten Issue für erstmalig Mitwirkende                                                                                                            |
+| `help wanted`      | Kennzeichnet, dass ein Betreuer Hilfe bei einem Issue oder Pull Request benötigt                                                                                         |
+| `invalid`          | Kennzeichnet, dass ein Issue oder Pull Request nicht mehr relevant ist                                                                                                   |
+| `question`         | Kennzeichnet, dass ein Issue oder Pull Request weitere Informationen benötigt                                                                                            |
+| `wontfix`          | Kennzeichnet, dass die Arbeit an einem Issue oder Pull Request nicht fortgesetzt wird                                                                                    |
 
 Standardkennzeichnungen sind in jedem neuen Repository beinhaltet, wenn das Repository erstellt wird, aber Du kannst die Kennzeichnungen später bearbeiten oder löschen.
+
+Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Organisationsinhaber können die Standardkennzeichnungen für Repositories in ihrer Organisation anpassen. Weitere Informationen findest Du unter „[Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten](/articles/managing-default-labels-for-repositories-in-your-organization)."
@@ -93,6 +95,6 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ### Weiterführende Informationen
-- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- „[Issues und Pull Requests nach Kennzeichnungen filtern](/articles/filtering-issues-and-pull-requests-by-labels)“{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

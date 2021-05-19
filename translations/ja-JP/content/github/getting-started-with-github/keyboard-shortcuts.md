@@ -36,12 +36,16 @@ versions:
 | <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については、「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | <kbd>g</kbd> <kbd>a</kbd> | [**Actions**] タブに移動します。 詳しい情報については、「[アクションについて](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。{% endif %}
 | <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                               |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/communities/documenting-your-project-with-wikis/about-wikis)」を参照してください。                                                                                           |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
+| <kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
 ### ソースコード編集
 
 | キーボードショートカット                                                     | 説明                                                  |
 | ---------------------------------------------------------------- | --------------------------------------------------- |
+| <kbd>control b</kbd> または <kbd>command b</kbd>                    | 太字テキストの Markdown 書式を挿入します                           |
+| <kbd>control i</kbd> または <kbd>command i</kbd>                    | イタリック体のテキストの Markdown 書式を挿入します                      |
+| <kbd>control k</kbd> または <kbd>command k</kbd>                    | リンクを作成するための Markdown 書式を挿入します                       |
 | <kbd>e</kbd>                                                     | [**Edit file**] タブでソースコードファイルを開きます                  |
 | <kbd>control f</kbd> または <kbd>command f</kbd>                    | ファイルエディタで検索を開始します                                   |
 | <kbd>control g</kbd> または <kbd>command g</kbd>                    | 次を検索します                                             |

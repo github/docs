@@ -12,7 +12,9 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - API
   - Enterprise
+  - Migration
 ---
 
 ### Preparar la orgnanización origen en {% data variables.product.prodname_dotcom %}

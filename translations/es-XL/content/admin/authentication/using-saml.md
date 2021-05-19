@@ -9,7 +9,11 @@ intro: 'SAML es un estándar basado en XML para autenticación y autorización. 
 versions:
   enterprise-server: '*'
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}

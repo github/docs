@@ -7,8 +7,10 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
 versions:
   enterprise-server: '*'
+type: reference
 topics:
   - Enterprise
+  - Fundamentals
 ---
 
 Para acessar o painel, clique em {% octicon "rocket" aria-label="The rocket ship" %} no canto superior direito de qualquer página. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

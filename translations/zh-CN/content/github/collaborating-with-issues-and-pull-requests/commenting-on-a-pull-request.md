@@ -36,7 +36,7 @@ topics:
 
 **提示：**
 - 拉取请求评论支持与 {% data variables.product.product_name %} 上的一般评论相同的[格式](/categories/writing-on-github)，例如 @提及、表情符号和引用。
-- 您可以在 **Files changed（已更改文件）**选项卡中向拉取请求的评论[添加反应](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)。
+- You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 

@@ -17,5 +17,5 @@ topics:
 
 ### 参考リンク
 
-- [{% data variables.product.prodname_sponsors %} について](/articles/about-github-sponsors)
-- [オープンソースコントリビューターをスポンサーする](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)
+- [{% data variables.product.prodname_sponsors %} について](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
+- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"

@@ -10,7 +10,9 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
+  - Accounts
   - Enterprise
+  - Licensing
 ---
 
 "Activity" includes, but is not limited to:

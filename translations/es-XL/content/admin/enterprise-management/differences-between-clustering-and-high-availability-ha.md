@@ -7,7 +7,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
+  - Clustering
   - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Escenarios de fallas

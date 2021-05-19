@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/authentication/using-built-in-authentication
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Accounts
+  - Authentication
   - Enterprise
+  - Identity
 ---
 
 您可以创建用户将在登录和注销页面上看到的自定义消息。 更多信息请参阅“[自定义您的实例上的用户消息](/enterprise/admin/user-management/customizing-user-messages-on-your-instance)”。

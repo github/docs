@@ -11,7 +11,7 @@ versions:
 
 ### Gist をフォークする
 
-Each gist indicates which forks have activity, making it easy to find interesting changes from others.
+各 Gist はどのフォークにアクティビティがあるのかを示すため、他のユーザによる興味深い変更を簡単に確認できます。
 
 ![Gist フォーク](/assets/images/help/gist/gist_forks.png)
 

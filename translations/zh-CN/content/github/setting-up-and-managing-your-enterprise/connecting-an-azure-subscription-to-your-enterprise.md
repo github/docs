@@ -36,5 +36,5 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 {% data reusables.enterprise-accounts.payment-information-tab %}
-1. 在“Azure subscription（Azure 订阅）”下您要断开连接的订阅 ID 右侧，单击 **{% octicon "trashcan" aria-label="The trashcan icon" %}**。
+1. 在“Azure subscription（Azure 订阅）”下您要断开连接的订阅 ID 右侧，单击 **{% octicon "trash" aria-label="The trash icon" %}**。
 1. 查看提示，然后单击 **Remove（删除）**。

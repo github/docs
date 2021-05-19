@@ -25,7 +25,7 @@ topics:
 
 Für webbasierte Git-Operationen legst Du die E-Mail-Adresse für Commits auf {% data variables.product.product_name %} fest. Für Commits, die Du per Push über die Befehlszeile überträgst, legst Du die E-Mail-Adresse für Commits in Git fest.
 
-{% if currentVersion == "free-pro-team@latest" %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Alle Commits, die Du vor der Änderung Deiner Commit-E-Mail-Adresse durchgeführt hast, bleiben mit Deiner früheren E-Mail-Adresse verbunden.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Alle Commits, die Sie vor der Änderung Ihrer E-Mail-Adresse für Commits durchgeführt haben, bleiben mit Ihrer früheren E-Mail-Adresse verbunden.{% else %}Nach der Änderung Ihrer E-Mail-Adresse für Commits auf {% data variables.product.product_name %} wird die neue E-Mail-Adresse standardmäßig allen zukünftigen webbasierten Git-Operationen zugeordnet. Alle Commits, die Du vor der Änderung Deiner Commit-E-Mail-Adresse durchgeführt hast, bleiben mit Deiner früheren E-Mail-Adresse verbunden.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -37,7 +37,7 @@ Für webbasierte Git-Operationen legst Du die E-Mail-Adresse für Commits auf {%
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}If you'd like to keep your personal email address private, you can use a {% data variables.product.product_name %}-provided `no-reply` email address as your commit email address. Wenn Du eine `no-reply`-E-Mail-Adresse für Commits verwenden möchtest, die Du über die Befehlszeile überträgst, gib diese E-Mail-Adresse bei der Festlegung Deiner Commit-E-Mail-Adresse in Git an. Wenn Du eine `no-reply`-E-Mail-Adresse für webbasierte Git-Operationen verwenden möchtest, lege Deine Commit-E-Mail-Adresse auf GitHub fest, und wähle dabei **Keep my email address private** (E-Mail-Adresse privat halten) aus.
+{% if currentVersion == "free-pro-team@latest" %}Wenn Sie Ihre persönliche E-Mail-Adresse privat halten möchten, können Sie als Ihre E-Mail-Adresse für Commits eine von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse verwenden. Wenn Du eine `no-reply`-E-Mail-Adresse für Commits verwenden möchtest, die Du über die Befehlszeile überträgst, gib diese E-Mail-Adresse bei der Festlegung Deiner Commit-E-Mail-Adresse in Git an. Wenn Du eine `no-reply`-E-Mail-Adresse für webbasierte Git-Operationen verwenden möchtest, lege Deine Commit-E-Mail-Adresse auf GitHub fest, und wähle dabei **Keep my email address private** (E-Mail-Adresse privat halten) aus.
 
 Du kannst auch festlegen, dass Commits, die Du über die Befehlszeile überträgst, blockiert werden, wenn diese Deine persönliche E-Mail-Adresse offenlegen. Weitere Informationen findest Du unter „[Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)“.{% endif %}
 

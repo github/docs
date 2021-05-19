@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
   - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -31,7 +35,10 @@ topics:
 1. 仮想化プラットフォームのツールを使用して、既存のユーザーボリュームのディスクのサイズを変更します。
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. アプライアンスをメンテナンスモードにしてください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
-4. アプライアンスを再起動して、新しいストレージの割り当てを検出させてください。
+4. Reboot the appliance to detect the new storage allocation:
+  ```shell
+  $ sudo reboot
+  ```
 5. `ghe-storage-extend` コマンドを実行して、`/data/user` のファイルシステムを拡張します。
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ topics:
 ### 新しいアプライアンスを使用したルートパーティションサイズの増加
 
 1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {% data variables.product.prodname_ghe_server %} をセットアップします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
-2. 現在のアプライアンスをシャットダウンします。
+2. Shut down the current appliance:
+  ```shell
+  $ sudo poweroff
+  ```
 3. 使用している仮想化プラットフォームのツールを使い、現在のアプライアンスからデータディスクをデタッチします。
 4. 大きなルートディスクを持つ新しいアプライアンスにデータディスクをアタッチします。
 
@@ -57,6 +67,9 @@ topics:
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. アプライアンスをシャットダウンします。
+4. Shut down the appliance:
+  ```shell
+  $ sudo poweroff
+  ```
 5. ハイパーバイザーで、古いルートディスクを取り外し、古いルートディスクと同じ場所に新しいルートディスクを取り付けます。
 6. アプライアンスを起動します。

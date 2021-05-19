@@ -19,9 +19,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Eine geplante Erinnerung für eine Organisation erstellen
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.create-reminder %}
 
 ### Geplante Erinnerungen für eine Organisation verwalten
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.update-buttons %}
 
 ### Geplante Erinnerungen für eine Organisation löschen
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

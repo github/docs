@@ -10,6 +10,10 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Acerca de la Seguridad de la capa de transporte

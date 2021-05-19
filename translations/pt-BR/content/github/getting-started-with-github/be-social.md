@@ -38,6 +38,10 @@ Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo
 
 {% data reusables.support.ask-and-answer-forum %}
 
+### Communicating on {% data variables.product.product_name %}
+
+{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+
 ### Mais ação
 
 #### Criar pull requests
@@ -68,8 +72,8 @@ Agora você está conectado à comunidade do {% data variables.product.product_n
 
 ![Marcar um projeto com estrela](/assets/images/help/stars/star-a-project.png)
 
-- [Configurar o Git](/articles/set-up-git)
-- [Criar um repositório](/articles/create-a-repo)
-- [Bifurcar um repositório](/articles/fork-a-repo)
+- "[Configurar o Git](/articles/set-up-git)"
+- "[Criar um repositório](/articles/creating-a-new-repository)"
+- "[Bifurcar um repositório](/articles/fork-a-repo)"
 - **Interações sociais**
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

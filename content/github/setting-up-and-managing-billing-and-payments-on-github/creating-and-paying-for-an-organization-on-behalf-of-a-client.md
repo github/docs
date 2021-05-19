@@ -66,8 +66,8 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 
 ### Step 5: Invite your client to join the organization
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. Type your client's {% data variables.product.prodname_dotcom %} username and press **Enter**.
@@ -78,8 +78,8 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 
 ### Step 6: Transfer organization ownership to your client
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Confirm that your client is listed among the members of the organization and is assigned the *owner* role.
 5. To the right of your username, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**.

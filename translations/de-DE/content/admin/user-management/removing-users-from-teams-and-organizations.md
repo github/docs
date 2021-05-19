@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Access management
+  - Accounts
   - Enterprise
+  - Teams
 ---
 
 Nur Inhaber oder Teamadministratoren können Organisationsmitglieder entfernen. Wenn ein Benutzer aus einem Team oder aus einer Organisation entfernt wird, bleiben seine Issues, Pull Requests und Kommentare in den Repositorys der Organisation erhalten und sind ihm weiterhin zugeordnet.

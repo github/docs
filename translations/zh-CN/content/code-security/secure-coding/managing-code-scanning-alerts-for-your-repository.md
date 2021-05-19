@@ -1,7 +1,7 @@
 ---
 title: 管理仓库的代码扫描警报
 shortTitle: 管理警报
-intro: '从安全视图中，您可以查看、修复、{% if currentVersion == "enterprise-server@2.22" %}或关闭{% else %}忽略或删除{% endif %}项目代码中潜在漏洞或错误的警报。'
+intro: 从安全的角度，您可以查看、修复、忽略或删除项目代码中潜在漏洞或错误的警报。
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -15,6 +15,8 @@ redirect_from:
 topics:
   - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -60,7 +62,7 @@ topics:
 
 任何对仓库具有写入权限的人都可以通过提交对代码的更正来修复警报。 如果仓库已安排对拉取请求运行 {% data variables.product.prodname_code_scanning %}，则最好通过拉取请求提交您的更正。 这将触发对更改的 {% data variables.product.prodname_code_scanning %} 分析，并测试您的修复是否会带来任何新的问题。 更多信息请参阅“[配置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)”和“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
 
-如果您有仓库的写入权限，您可以通过查看警报摘要并单击 **Closed（已关闭）**来查看已修复的警报。 更多信息请参阅“[查看仓库的警报](#viewing-the-alerts-for-a-repository)”。 “Closed（已关闭）”列表显示已修复的警报和用户{% if currentVersion == "enterprise-server@2.22" %}已关闭{% else %}已忽略{% endif %}的警报。
+如果您有仓库的写入权限，您可以通过查看警报摘要并单击 **Closed（已关闭）**来查看已修复的警报。 更多信息请参阅“[查看仓库的警报](#viewing-the-alerts-for-a-repository)”。 “Closed（已关闭）”列表显示已修复的警报和用户已忽略的警报。
 
 警报只能在一个分支中修复。 您可以在警报摘要上使用“Branch（分支）”下拉菜单检查警报是否是在特定分支中修复的。
 
@@ -69,14 +71,6 @@ topics:
 {% else %}
 ![按分支过滤警报](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-### 关闭警报
-
-关闭警报是解决您认为不需要修复的警报的一种方式。 {% data reusables.code-scanning.close-alert-examples %}
-
-{% else %}
 
 ### 忽略或删除警报
 
@@ -101,20 +95,9 @@ topics:
 
 要忽略或删除警报：
 
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
-{% data reusables.code-scanning.click-alert-in-list %}
-1. 选择 **Close（关闭）**下拉菜单，然后单击关闭警报的原因。    
-   ![通过 Close（关闭）下拉菜单选择关闭警报的原因](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
 1. 如果您拥有仓库管理员权限，想要删除此 {% data variables.product.prodname_code_scanning %} 工具的警报，请选中部分或全部复选框，然后单击 **Delete（删除）**。
 
    ![删除警报](/assets/images/help/repository/code-scanning-delete-alerts.png)
@@ -144,8 +127,6 @@ topics:
 #### 一次忽略多个警报
 
 如果项目有多个由于相同原因要忽略的警报，您可以从警报摘要中批量忽略它们。 通常，您需要过滤列表，然后忽略所有匹配的警报。 例如，您可能想要忽略项目中所有已标记为特定通用缺陷枚举 (CWE) 漏洞的当前警报。
-
-{% endif %}
 
 ### 延伸阅读
 

@@ -1,6 +1,6 @@
 ---
-title: About GitHub Campus Program
-intro: '{% data variables.product.prodname_campus_program %} offers {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} free-of-charge for schools that want to make the most of {% data variables.product.prodname_dotcom %} for their community.'
+title: Sobre o Programa do GitHub Campus
+intro: '{% data variables.product.prodname_campus_program %} oferece {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %} gratuitamente para as escolas que querem tirar o máximo proveito de {% data variables.product.prodname_dotcom %} para a sua comunidade.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/about-github-education
   - /github/teaching-and-learning-with-github-education/about-github-education
@@ -10,14 +10,14 @@ versions:
   free-pro-team: '*'
 ---
 
-{% data variables.product.prodname_campus_program %} is a package of premium {% data variables.product.prodname_dotcom %} access for teaching-focused institutions that grant degrees, diplomas, or certificates. {% data variables.product.prodname_campus_program %} includes:
+{% data variables.product.prodname_campus_program %} é um pacote de acesso premium de {% data variables.product.prodname_dotcom %} para instituições orientadas para o ensino que concedem graus, diplomas ou certificados. {% data variables.product.prodname_campus_program %} inclui:
 
-- No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
+- Acesso sem custo a {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %} para todos os seus departamentos técnicos e acadêmicos
 - Treinamento do professor para domínio do Git e do {% data variables.product.prodname_dotcom %} com nosso programa de consultores de campus
-- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
+- Acesso exclusivo a novas funcionalidades, swage específico do GitHub Education e ferramentas grátis de desenvolvedor dos parceiros de {% data variables.product.prodname_dotcom %}
 - Acesso automatizado a recursos premium do {% data variables.product.prodname_education %}, como o {% data variables.product.prodname_student_pack %}
 
-Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
+Qualquer escola que concorde com os [termos do programa](https://education.github.com/schools/terms) é bem-vinda.
 
 Para obter mais informações, consulte a página [oficial do {% data variables.product.prodname_campus_program %}](https://education.github.com/schools).
 

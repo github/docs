@@ -9,8 +9,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
+  - Auditing
   - Enterprise
+  - Logging
+  - Security
 ---
 
 支持使用任何支持 syslog-style 日志流的日志收集系统（例如 [Logstash](http://logstash.net/) 和 [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)）。

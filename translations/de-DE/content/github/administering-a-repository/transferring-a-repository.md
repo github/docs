@@ -31,7 +31,7 @@ Prerequisites for repository transfers: {% if currentVersion == "free-pro-team@l
 - Der ursprüngliche Inhaber des Repositorys wird dem übertragenen Repository als Mitarbeiter hinzugefügt. Andere Mitarbeiter des übertragenen Repositorys bleiben unverändert.
 - Private Forks können nicht übertragen werden.
 
-{% if currentVersion == "free-pro-team@latest" %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Wenn Du ein privates Repository auf ein {% data variables.product.prodname_free_user %}-Benutzer- oder -Organisationskonto überträgst, verliert das Repository den Zugriff auf Funktionen wie beispielsweise geschützte Branches und {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
 #### Was wird mit einem Repository übertragen?
 
