@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-community-guidelines
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub では、何百万人もの開発者が何百万ものプロジェクト（オープンソースとクローズドソースの両方）をホストしています。私たちは、コミュニティの日々のコラボレーションに貢献できることを光栄に思います。 私たちには、誇りに思うことができるコミュニティを実現するための素晴らしいチャンスがあると同時に、責任も背負っています。
@@ -49,13 +52,13 @@ Of course, you can always contact us to {% data variables.contact.report_abuse %
 
 - #### Threats of violence You may not threaten violence towards others or use the site to organize, promote, or incite acts of real-world violence or terrorism. 言葉を発する場合や画像を投稿する場合はもちろん、ソフトウェアを作成する場合でさえも、それが他人からどのように解釈される可能性があるかを慎重に考えてください。 あなたが冗談のつもりでも、そのように受け取られないかもしれません。 自分が投稿したコンテンツが脅しである、または暴力やテロを助長していると他の誰かが解釈する*かもしれない*と思われる場合は、 それをGitHubに投稿するのを止めましょう。 場合によっては、当社が身体的危害のリスクや公共の安全に対する脅威だと判断し、暴力の脅威として法執行機関に報告する場合があります。
 
-- #### Hate speech and discrimination While it is not forbidden to broach topics such as age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation, we do not tolerate speech that attacks a person or group of people on the basis of who they are. 攻撃的または侮辱的なアプローチでこうしたデリケートなトピックを扱った場合、他の人を不快に感じさせたり、場合によっては危険にさえ感じさせたりすることがあることを認識してください。 誤解が生まれる可能性を完全に排除することはできませんが、デリケートなトピックを議論するときは、常に敬意を払い、礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
+- #### 差別的発言と差別 年齢、体の大きさ、障害、民族性、性自認、性表現、経験の度合い、国籍、容姿、人種、宗教、性同一性、性的指向などのトピックを持ち出すこと自体は禁止されていませんが、相手が何者かであるかを根拠にして個人またはグループを攻撃する発言を当社は許容しません。 攻撃的または侮辱的なアプローチでこうしたデリケートなトピックを扱った場合、他の人を不快に感じさせたり、場合によっては危険にさえ感じさせたりすることがあることを認識してください。 誤解が生まれる可能性を完全に排除することはできませんが、デリケートなトピックを議論するときは、常に敬意を払い、礼儀正しく振る舞うことがコミュニティメンバーに期待されます。
 
-- #### Bullying and harassment We do not tolerate bullying or harassment. これは、特定の個人またはグループを標的とする常習的な煽りや脅迫のことです。 一般的に、迷惑な行動を続けた場合、いじめや嫌がらせになる恐れが高くなります。
+- #### いじめと嫌がらせ 私たちは、いじめや嫌がらせを容認しません。 これは、特定の個人またはグループを標的とする常習的な煽りや脅迫のことです。 一般的に、迷惑な行動を続けた場合、いじめや嫌がらせになる恐れが高くなります。
 
 - #### Disrupting the experience of other users Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. Behaviors such as repeatedly posting off-topic comments, opening empty or meaningless issues or pull requests, or using any other platform feature in a way that continually disrupts the experience of other users are not allowed. While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 
-- #### Impersonation You may not seek to mislead others as to your identity by copying another person's avatar, posting content under their email address, using a similar username or otherwise posing as someone else. なりすましは嫌がらせの一つです。
+- #### なりすまし 他人のアバターをコピーしたり、他人のメールアドレスを使ってコンテンツを投稿したり、類似するユーザ名を使用したりするなど、他人になりすまして自分の身元を誤解させようとしてはいけません。 なりすましは嫌がらせの一つです。
 
 - #### Doxxing and invasion of privacy Don't post other people's personal information, such as personal, private email addresses, phone numbers, physical addresses, credit card numbers, Social Security/National Identity numbers, or passwords. 脅迫や嫌がらせに該当するなど状況次第では、当社は対象の同意なしに撮影または配信された写真やビデオなどの他の情報をプライバシーの侵害とみなす場合があります。その情報が対象の安全リスクになる場合は特にです。
 

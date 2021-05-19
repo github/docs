@@ -1,7 +1,7 @@
 ---
 title: Gerenciar discussões no seu repositório
-intro: Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.
-permissions: Os administradores do repositório e as pessoas com acesso superior ou de gravação a um repositório podem gerenciar discussões no repositório.
+intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.'
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,11 +12,11 @@ versions:
 
 {% data reusables.discussions.about-discussions %} Para obter mais informações sobre discussões, consulte[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão para repositórios pertencentes à organização. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)".
+Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão para repositórios pertencentes à organização. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)".
+Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
-Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/github/building-a-strong-community/moderating-comments-and-conversations)".
+Para obter mais informações sobre como facilitar uma discussão saudável, consulte "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)".
 
 ### Pré-requisitos
 
@@ -24,7 +24,7 @@ Para gerenciar as discussões em um repositório, as discussões devem ser habil
 
 ### Alterar a categoria para uma discussão
 
-Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, consulte "[Gerenciar categorias de discussões no artigo do seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository).
+Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, consulte "[Gerenciar categorias para discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 Você também pode mover a discussão para uma categoria diferente.
 

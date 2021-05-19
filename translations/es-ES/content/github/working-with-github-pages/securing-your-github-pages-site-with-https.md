@@ -6,6 +6,8 @@ redirect_from:
   - /articles/securing-your-github-pages-site-with-https
 versions:
   free-pro-team: '*'
+topics:
+  - páginas
 ---
 
 Las personas con permisos de administración para un repositorio pueden aplicar HTTPS para un sitio de {% data variables.product.prodname_pages %}.

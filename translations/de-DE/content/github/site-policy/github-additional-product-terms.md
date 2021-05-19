@@ -2,9 +2,12 @@
 title: Zusätzliche Produktbedingungen für GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Version Effective Date: December 14, 2020
+Version Effective Date: February 22, 2021
 
 Wenn Sie ein Konto erstellen, erhalten Sie Zugriff auf viele verschiedene Features und Produkte, die alle Teil des Dienstes sind. Da viele dieser Features und Produkte unterschiedliche Funktionen bieten, erfordern sie möglicherweise zusätzliche Geschäftsbedingungen, die für dieses Feature oder dieses Produkt spezifisch sind. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -39,9 +42,24 @@ Wenn Sie Git Large File Storage ("Git LFS") auf Ihrem Account aktivieren, könne
 
 ### 4. Pages
 
-Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). Dieser Hosting-Dienst dient zum Hosten statischer Webseiten für alle Benutzer, in erster Linie aber als Schaufenster für persönliche und organisatorische Projekte. Auf Pages sind bestimmte Monetarisierungsaktivitäten wie Spendenschaltflächen oder Crowdfunding-Links zulässig.
+Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). Dieser Hosting-Dienst dient zum Hosten statischer Webseiten für alle Benutzer, in erster Linie aber als Schaufenster für persönliche und organisatorische Projekte.
 
-GitHub Pages unterliegen Bandbreiten- und Nutzungsbeschränkungen und sind für bestimmte Zwecke mit hoher Bandbreite oder sonstige verbotene Zwecke nicht geeignet. Die [GitHub Pages-Richtlinien](/github/working-with-github-pages/about-github-pages) enthalten weitere Informationen zu diesem Thema. GitHub behält sich das Recht vor, jederzeit ohne Haftung beliebige GitHub-Subdomains zurückzufordern.
+GitHub Pages is not intended for or allowed to be used as a free web hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). Auf Pages sind bestimmte Monetarisierungsaktivitäten wie Spendenschaltflächen oder Crowdfunding-Links zulässig.
+
+#### a. Bandwidth and Usage Limits
+GitHub Pages are subject to some specific bandwidth and usage limits, and may not be appropriate for some high-bandwidth uses. Die [GitHub Pages-Richtlinien](/github/working-with-github-pages/about-github-pages) enthalten weitere Informationen zu diesem Thema.
+
+#### b. Prohibited Uses
+Prohibited uses of GitHub Pages include
+- Content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service), [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) or [Community Guidelines](/github/site-policy/github-community-guidelines)
+- Gewalttätige oder bedrohende Inhalte oder Aktivitäten
+- Übermäßig automatisierte Massenaktivitäten (beispielsweise Spam)
+- GitHub-Benutzer oder GitHub-Dienste kompromittierende Aktivitäten
+- Schnell-reich-werden-Schemas
+- Sexuell anstößige Inhalte
+- Deine Identität oder den Zweck Deiner Website falsch darstellende Inhalte
+
+If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com/). GitHub behält sich das Recht vor, jederzeit ohne Haftung beliebige GitHub-Subdomains zurückzufordern.
 
 ### 5. Actions und Pakete
 

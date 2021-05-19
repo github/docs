@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -24,13 +26,9 @@ Puedes elegir recibir actualizaciones continuas sobre actividades específicas e
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}.
-{% if currentVersion == "free-pro-team@latest" %}
-- Propuestas, solicitudes de cambios, lanzamientos y debates (si están habilitados) de un repositorio.
-{% endif %}
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-- Lanzamientos en un repositorio.
-{% endif %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% if currentVersion == "free-pro-team@latest" or  currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled). {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Releases in a repository.{% endif %}
 
 También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 
@@ -63,8 +61,8 @@ Para poder seguir administrando tus suscripciones, revisa los repositorios que s
 Para personalizar la manera en la que deseas recibir actualizaciones para solicitudes de extracción o informes de problemas específicos, puedes configurar tus preferencias dentro de las mismas. Para obtener más información, consulta la sección "[Categorizar una notificación](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22"%}
-Puedes habilitar las notificaciones de subida en la
-app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)".
+Puedes personalizar y programar las notificaciones de subida en la
+app de {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Configurar las notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#managing-your-notification-settings-with-github-for-mobile)".
 {% endif %}
 
 ### Razones para que recibas notificaciones

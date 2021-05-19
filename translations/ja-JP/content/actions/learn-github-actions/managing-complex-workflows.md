@@ -1,17 +1,19 @@
 ---
 title: 複雑なワークフローを管理する
 shortTitle: 複雑なワークフローを管理する
-intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} の高度な機能を使用する方法を説明します。'
+intro: 'このガイドでは、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}環境、{% endif %}ラベルなど、{% data variables.product.prodname_actions %} のより高度な機能を使用する方法を説明します。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 topics:
-  - 'ワークフロー'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概要
 
@@ -86,6 +88,7 @@ jobs:
 
 詳しい情報については、[`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) を参照してください。
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### 依存関係のキャッシング
 
 {% data variables.product.prodname_dotcom %} ホストランナーは各ジョブの新しい環境として開始されるため、ジョブが依存関係を定期的に再利用する場合は、これらのファイルをキャッシュしてパフォーマンスを向上させることを検討できます。 キャッシュが作成されると、同じリポジトリ内のすべてのワークフローで使用できるようになります。
@@ -110,10 +113,11 @@ jobs:
 {% endraw %}
 
 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% endif %}
 
 ### データベースとサービスコンテナの利用
 
-ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。そして、作成されたコンテナはそのジョブ内のすべてのステップで利用でき、ジョブが完了すると削除されます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
+ジョブにデータベースまたはキャッシュサービスが必要な場合は、[`services`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices) キーワードを使用して、サービスをホストするための一時コンテナを作成できます。 この例は、ジョブが `services` を使用して `postgres` コンテナを作成し、`node` を使用してサービスに接続する方法を示しています。
 
 ```yaml
 jobs:
@@ -139,10 +143,19 @@ jobs:
 
 ### ラベルを使用してワークフローを転送する
 
-この機能は、特定のセルフホストランナーにジョブを割り当てるのに役立ちます。 特定のタイプのランナーがジョブを処理するようにしたい場合は、ラベルを使用してジョブの実行場所を制御できます。 セルフホストランナーにラベルを割り当ててから、YAML ワークフローでこれらのラベルを参照して、ジョブが予測可能な方法で転送されるようにすることができます。
+この機能では、特定のホストランナーにジョブを割り当てることができます。 特定のタイプのランナーがジョブを処理することを確認したい場合は、ラベルを使用してジョブの実行場所を制御できます。 ホストランナーにラベルを割り当ててから、YAML ワークフローでこれらのラベルを参照して、ジョブが予測可能な方法で転送されるようにすることができます。
 
+{% if currentVersion == "github-ae@latest" %}
 この例は、ワークフローがラベルを使用して必要なランナーを指定する方法を示しています。
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+詳しい情報については、「[{% data variables.actions.hosted_runner %} でのラベルの利用](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)」を参照してください。
+{% else %}
 ```yaml
 jobs:
   example-job:
@@ -150,11 +163,12 @@ jobs:
 ```
 
 詳しい情報については、「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 ### 環境の使用
 
-保護のルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
+保護ルールとシークレットを持つ環境を設定できます。 ワークフロー内の各ジョブは、1つの環境を参照できます。 この環境を参照するとジョブがランナーに送信される前に、環境に設定された保護ルールをパスしなければなりません。 詳しい情報については「[環境](/actions/reference/environments)」を参照してください。
 {% endif %}
 
 ### ワークフロー テンプレートの使用

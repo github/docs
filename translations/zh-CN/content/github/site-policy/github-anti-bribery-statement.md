@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-anti-bribery-statement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub 恪守道德经营的承诺，包括禁止贿赂和腐败。 正如[透明国际](https://www.transparency.org/what-is-corruption#costs-of-corruption)所述，腐败的危害极大：

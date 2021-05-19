@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -182,7 +184,7 @@ Permite que um aplicativo GitHub execute verificações externas no código de u
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == enterpriseServerVersions contains currentVersion %}
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Workflow-Syntax für GitHub Actions
 shortTitle: Syntax für Workflows
-intro: Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.
+intro: 'Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
@@ -10,20 +10,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zur YAML-Syntax für Workflows
 
-Workflow-Dateien verwenden die YAML-Syntax und müssen die Dateierweiterung `.yml` oder `.yaml` aufweisen. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
+Workflow-Dateien verwenden die YAML-Syntax und müssen die Dateierweiterung `.yml` oder `.yaml` aufweisen. {% data reusables.actions.learn-more-about-yaml %}
 
 Workflow-Dateien müssen im Verzeichnis `.github/workflows` im Repository gespeichert werden.
 
 ### `name`
 
-Name des Workflows. {% data variables.product.prodname_dotcom %} zeigt die Namen der Workflows auf der Repository-Seite der Aktionen an. Wenn Du `name`weglässt, setzt {% data variables.product.prodname_dotcom %} den Pfad der Workflow-Datei relativ zum Stammverzeichnis des Repositorys.
+Name des Workflows. {% data variables.product.prodname_dotcom %} zeigt die Namen Deiner Workflows auf der Aktionen-Seite Deines Repositorys an. Wenn Du `name`weglässt, setzt {% data variables.product.prodname_dotcom %} den Pfad der Workflow-Datei relativ zum Stammverzeichnis des Repositorys.
 
 ### `on`
 
@@ -108,8 +110,8 @@ Der folgende Workflow wird bei Push-Vorgängen an `releases/10` oder `releases/b
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -120,13 +122,13 @@ Unter den Schlüsselwörtern `paths-ignore` und `paths` kannst Du Glob-Muster nu
 
 #### Beispiel zum Ignorieren von Pfaden
 
-Immer wenn ein Pfadname zu einem Muster in `paths-ignore` passt, wird der Workflow nicht ausgeführt. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
+When all the path names match patterns in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} wertet die in `paths-ignore` definierten Muster anhand des Pfadnamens aus. Ein Workflow mit dem nachfolgenden Pfadfilter wird nur bei `push`-Ereignissen ausgeführt, bei denen sich mindestens eine Datei außerhalb des Verzeichnisses `docs` im Root des Repositorys befindet.
 
 ```yaml
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### Beispiel mit eingeschlossenen Pfaden
@@ -137,7 +139,7 @@ Wenn mindestens ein Pfad zu einem Muster im Filter `paths` passt, wird der Workf
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### Pfade ausschließen
@@ -158,8 +160,8 @@ Dieses Beispiel wird stets ausgeführt, wenn das `push`-Ereignis eine Datei im V
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git-Diff-Vergleiche
@@ -184,6 +186,32 @@ Weitere Informationen findest Du unter „[Informationen zum Vergleich von Branc
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 Weitere Informationen zur Cron-Syntax findest Du unter „[Ereignisse, die Workflows auslösen](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)“.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+You can use `permissions` either as a top-level key, to apply to all jobs in the workflow, or within specific jobs. When you add the `permissions` key within a specific job, all actions and run commands within that job that use the `GITHUB_TOKEN` gain the access rights you specify.  For more information, see [`jobs.<job_id>.permissions`](#jobsjob_idpermissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Beispiel
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will apply to all jobs in the workflow. All permissions are granted read access.
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -219,9 +247,21 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can only use the `github` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the job level. For more information, see [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
-Ein Workflow-Lauf besteht aus mindestens einem Auftrag. Die Aufträge werden standardmäßig parallel ausgeführt. Sollen Aufträge sequenziell ausgeführt werden, können Sie mit dem Stichwort `jobs.<job_id>.needs` eine Abhängigkeit von anderen Aufträgen definieren.
+Ein Workflow-Lauf besteht aus mindestens einem Job. Die Aufträge werden standardmäßig parallel ausgeführt. Sollen Jobs sequenziell ausgeführt werden, kannst Du mit dem Schlüsselwort `jobs.<job_id>.needs` eine Abhängigkeit von anderen Jobs definieren.
 
 Each job runs in a runner environment specified by `runs-on`.
 
@@ -288,6 +328,20 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 **Required**. The type of machine to run the job on. Die Maschine kann entweder ein {% data variables.product.prodname_dotcom %}-gehosteter oder ein selbst-gehosteter Runner sein.
 
+{% if currentVersion == "github-ae@latest" %}
+#### {% data variables.actions.hosted_runner %}s
+
+If you use an {% data variables.actions.hosted_runner %}, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+
+##### Beispiel
+
+```yaml
+runs-on: [AE-runner-for-CI]
+```
+
+For more information, see "[About {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)."
+
+{% else %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### {% data variables.product.prodname_dotcom %}-gehostete Runner
@@ -298,7 +352,6 @@ Verfügbare Arten von {% data variables.product.prodname_dotcom %}-gehostete Run
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
 
 ##### Beispiel
@@ -308,8 +361,11 @@ Runs-on: ubuntu-latest
 ```
 
 Weitere Informationen findest Du unter "[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}-gehostete Runner](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+{% endif %}
 
 #### Selbst-gehostete Runner
+
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
@@ -321,7 +377,35 @@ runs-on: [self-hosted, linux]
 
 Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)“ und „[Selbst-gehostete Runner in einem Workflow verwenden](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)“.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+You can modify the default permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, so that you only allow the minimum required access. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)."
+
+By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](#permissions).
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### Beispiel
+
+This example shows permissions being set for the `GITHUB_TOKEN` that will only apply to the job named `stale`. Write access is granted for the `issues` and `pull-requests` scopes. All other scopes will have no access.
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
 The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
@@ -329,10 +413,11 @@ The environment that the job references. All environment protection rules must p
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
 
 ##### Example using a single environment name
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### Example using environment name and URL
 
@@ -354,6 +439,25 @@ environment:
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**Note:** When concurrency is specified at the job level, order is not guaranteed for jobs or runs that queue within 5 minutes of each other.
+
+{% endnote %}
+
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. A concurrency group can be any string or expression. The expression can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+You can also specify `concurrency` at the workflow level. For more information, see [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency).
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 Eine `map` der Ausgaben eines Jobs. Ausgaben eines Jobs stehen allen nachgelagerten Jobs zur Verfügung, die von diesem Job abhängen. Weitere Informationen zur Definition von Abhängigkeiten zwischen Jobs findest Du unter [`Jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -369,20 +473,20 @@ Um Jobausgaben in einem abhängigen Job zu verwenden, kannst Du den Kontext `nee
 jobs:
   job1:
     runs-on: ubuntu-latest
-    # Die Ausgabe eines Schrittes der Ausgabe eines Jobs zuordnen
+    # Map a step output to a job output
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -452,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -590,11 +694,26 @@ jobs:
         verwendet: docker://alpine:3.8
 ```
 
-#### Beispiel mit einer Aktion in einer öffentlichen Docker Registry
+{% if currentVersion == "free-pro-team@latest" %}
+##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-Ein Docker-Image in einer öffentlichen Registry.
+A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### Beispiel mit einer Aktion in einer öffentlichen Docker Registry
+
+`docker://{host}/{image}:{tag}`
+
+Ein Docker-Image in einer öffentlichen Registry. This example uses the Google Container Registry at `gcr.io`.
 
 ```yaml
 jobs:
@@ -603,6 +722,29 @@ jobs:
       - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
+
+#### Example using action inside a different private repository than the workflow
+
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -638,7 +780,7 @@ Mit dem Schlüsselwort`working-directory` gibst Du das Arbeitsverzeichnis an, in
 
 #### Bestimmte Shell verwenden
 
-Du kannst die Einstellungen zur Standard-Shell im Betriebssystem des Läufers mit dem Schlüsselwort `shell` überschreiben. Sie können die integrierten `shell`-Stichwörter verwenden oder eine benutzerdefinierte Reihe von Shell-Optionen definieren.
+Du kannst die Einstellungen zur Standard-Shell im Betriebssystem des Läufers mit dem Schlüsselwort `shell` überschreiben. Du kannst die integrierten `shell`-Schlüsselwörter verwenden oder eine benutzerdefinierte Menge von Shell-Optionen festlegen.
 
 | Unterstützte Plattform | Parameter `shell` | Beschreibung                                                                                                                                                                                                                                                                                               | Intern ausgeführter Befehl                      |
 | ---------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -699,7 +841,7 @@ steps:
 
 #### Benutzerdefinierte Shell
 
-Mit `command […options] {0} [..more_options]` können Sie einen Vorlagen-String für den `shell`-Wert festlegen. {% data variables.product.prodname_dotcom %} interpretiert das erste Wort im String, nach dem ein „Whitespace“ (Zwischenraum-Zeichen) steht, als Befehl, und der Dateiname für das temporäre Skript wird in `{0}` eingefügt.
+Mit `command […options] {0} [..more_options]` kannst Du einen Vorlagen-String für den Wert `shell` festlegen. {% data variables.product.prodname_dotcom %} interpretiert das erste Wort im String, nach dem ein Leerzeichen steht, als Befehl, und der Dateiname für das temporäre Skript wird in `{0}` eingefügt.
 
 Ein Beispiel:
 
@@ -711,11 +853,17 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+The command used, `perl` in this example, must be installed on the runner.
+
+
+{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
+For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+{% endif %}
 
 #### Exit-Codes und Voreinstellung für Fehleraktionen
 
-Für integrierte Shell-Schlüsselwörter gelten die folgenden Standards, die durch auf {% data variables.product.prodname_dotcom %} gehostete Runner ausgeführt werden. Beachte diese Richtlinien beim Ausführen von Shell-Skripts.
+Für integrierte Shell-Stichwörter gelten die folgenden Standards, die durch auf {% data variables.product.prodname_dotcom %} gehostete Runner ausgeführt werden. Beachte diese Richtlinien beim Ausführen von Shell-Skripts.
 
 - `bash`/`sh`:
   - Fail-fast behavior using `set -eo pipefail`: Default for `bash` and built-in `shell`. Dies ist außerdem der Standard, wenn Du eine Option für eine Plattform außer Windows angibst.
@@ -792,7 +940,7 @@ The `entrypoint` keyword is meant to be used with Docker container actions, but 
 
 ### `jobs.<job_id>.steps[*].env`
 
-Legt Umgebungsvariablen für Schritte fest, die in der Runner-Umgebung verwendet werden sollen. Darüber hinaus können Sie Umgebungsvariablen für den gesamten Workflow oder für einen Auftrag festlegen. Weitere Informationen finden Sie unter [`env`](#env) und [`jobs.<job_id>.env`](#jobsjob_idenv).
+Legt Umgebungsvariablen für Schritte fest, die in der Runner-Umgebung verwendet werden sollen. Darüber hinaus kannst Du Umgebungsvariablen für den gesamten Workflow oder für einen Auftrag festlegen. Weitere Informationen findest Du unter [`env`](#env) und [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -839,7 +987,7 @@ Die Reihenfolge, in der Du eine `Matrix` definierst, ist wichtig. Die erste Opti
 
 #### Beispiel für die Ausführung mit mehreren Versionen von Node.js
 
-Zum Erstellen einer Matrix geben Sie ein Array für die Konfigurationsoptionen an. Wenn der Runner beispielsweise die Node.js-Versionen 6, 8 und 10 unterstützt, kannst Du ein Array dieser Versionen in der `matrix` festlegen.
+Zum Erstellen einer Matrix geben Sie ein Array für die Konfigurationsoptionen an. Wenn der Runner beispielsweise die Node.js-Versionen 10, 12 und 14 unterstützt, kannst Du ein Array dieser Versionen in der `matrix` festlegen.
 
 Dieses Beispiel erzeugt eine Matrix von drei Jobs, indem der Schlüssel `node` auf ein Array von drei Node.js-Versionen gesetzt wird. Um die Matrix zu verwenden, setzt das Beispiel die Kontexteigenschaft `matrix.node` als Wert des Eingabeparameters `node-version` der Aktion `setup-node`. Daher werden drei Jobs ausgeführt, die jeweils eine andere Version von Node.js verwenden.
 
@@ -847,12 +995,12 @@ Dieses Beispiel erzeugt eine Matrix von drei Jobs, indem der Schlüssel `node` a
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
-  # Konfiguriert die auf GitHub-gehosteten Runnern genutzte Node-Version
-  - uses: actions/setup-node@v1
+  # Configures the node version used on GitHub-hosted runners
+  - uses: actions/setup-node@v2
     with:
-      # Die zu konfigurierenden Version von Node.js
+      # The Node.js version to configure
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
@@ -873,20 +1021,22 @@ Du kannst eine Matrix erstellen, um Workflows auf mehreren Runner-Betriebssystem
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    os: [ubuntu-18.04, ubuntu-20.04]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
 
-Unterstützte Konfigurationsoptionen für {% data variables.product.prodname_dotcom %}-gehostete Runner findest Du unter „[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}-gehostete Runner](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)“.
+{% if currentVersion == "github-ae@latest" %}To find supported configuration options for {% data variables.actions.hosted_runner %}s, see "[Software specifications](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)."
+{% else %}To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+{% endif %}
 
 #### Beispiel mit kombinierten zusätzlichen Werten
 
-Sie können zusätzliche Konfigurationsoptionen hinzufügen, um einen bereits vorhandenen Matrixauftrag zu erstellen. Wenn Du beispielsweise eine bestimmte Version von `npm` verwenden willst, wenn der Auftrag mit `windows-latest` und Version 4 von `node` ausgeführt wird, kannst Du `include` verwenden, um diese zusätzliche Option anzugeben.
+Zu einem bereits vorhandenen Job mit Buildmatrix kannst Du weitere Konfigurationsoptionen hinzufügen. Wenn Du beispielsweise eine bestimmte Version von `npm` verwenden willst, wenn der Auftrag mit `windows-latest` und Version 8 von `node` ausgeführt wird, kannst Du `include` verwenden, um diese zusätzliche Option anzugeben.
 
 {% raw %}
 ```yaml
@@ -894,29 +1044,29 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # bezieht eine neue Variable npm mit dem Wert 2 ein
-      # und zwar fuer das zum Betriebssystem und zur Version passende Matrix-Bein
+      # includes a new variable of npm with a value of 6
+      # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
 #### Beispiel zum Einbeziehen neuer Kombinationen
 
-Du kannst `include` verwenden, um neue Jobs zu einer Build-Matrix hinzuzufügen. Alle Include-Konfigurationen, die nicht passen, werden zur Matrix hinzugefügt. Wenn Du beispielsweise `node` Version 12 verwenden willst, um auf mehreren Betriebssystemen zu bauen, aber Du willst einen zusätzlichen experimentellen Job mit Node Version 13 auf Ubuntu, kannst Du `include` verwenden, um diesen zusätzlichen Job anzugeben.
+Du kannst `include` verwenden, um neue Jobs zu einer Build-Matrix hinzuzufügen. Alle Include-Konfigurationen, die nicht passen, werden zur Matrix hinzugefügt. Wenn Du beispielsweise `node` Version 14 verwenden willst, um auf mehreren Betriebssystemen zu bauen, aber Du willst einen zusätzlichen experimentellen Job mit Node Version 15 auf Ubuntu, kannst Du `include` verwenden, um diesen zusätzlichen Job anzugeben.
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -924,7 +1074,7 @@ strategy:
 
 #### Beispiel zum Ausschließen von Konfigurationen aus einer Matrix
 
-Mit der Option `exclude` können Sie bestimmte in der Build-Matrix definierte Konfigurationen entfernen. Durch die Verwendung von `exclude` wird ein durch die Build-Matrix definierter Auftrag entfernt. Die Anzahl der Aufträge ist das Kreuzprodukt der Anzahl der Betriebssysteme (`os`), die in den von Ihnen bereitgestellten Arrays enthalten sind, abzüglich etwaiger Subtraktionen (`exclude`).
+Mit der Option `exclude` kannst Du bestimmte in der Build-Matrix definierte Konfigurationen entfernen. Durch die Verwendung von `exclude` wird ein durch die Build-Matrix definierter Job entfernt. Die Anzahl der Jobs ist das Kreuzprodukt der Anzahl der Betriebssysteme (`os`), die in den von Dir bereitgestellten Arrays enthalten sind, abzüglich etwaiger Subtraktionen (`exclude`).
 
 {% raw %}
 ```yaml
@@ -932,11 +1082,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # Schliesst Node 4 auf macOS aus
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -954,7 +1104,7 @@ You can add custom environment variables for each test combination by using the 
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
-Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Jobs ab, sobald ein Job der `matrix` fehlschlägt. Standard: `true`
+Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Aufträge ab, sobald ein `matrix`-Auftrag fehlschlägt. Standard: `true`
 
 ### `jobs.<job_id>.strategy.max-parallel`
 
@@ -971,7 +1121,7 @@ Verhindert, dass ein Workflow scheitert, wenn ein Job scheitert. Setze es auf `t
 
 #### Beispiel zum Verhindern, dass ein bestimmter scheiternder Job in der Matrix einen Workflow-Lauf scheitern lässt
 
-Du kannst zulassen, dass bestimmte Jobs in einer Jobmatrix scheitert, ohne dass der Workflow-Lauf scheitert. Das gilt beispielsweise, wenn Du nur einem experimentellen Job, bei dem `node` auf `13` gesetzt wurde, das Scheitern erlauben willst, ohne dass dadurch der Workflow-Lauf scheitert.
+Du kannst zulassen, dass bestimmte Jobs in einer Jobmatrix scheitert, ohne dass der Workflow-Lauf scheitert. Das gilt beispielsweise, wenn Du nur einem experimentellen Job, bei dem `node` auf `15` gesetzt wurde, das Scheitern erlauben willst, ohne dass dadurch der Workflow-Lauf scheitert.
 
 {% raw %}
 ```yaml
@@ -980,11 +1130,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -994,7 +1144,7 @@ strategy:
 
 Container, in dem alle Schritte eines Auftrags ausgeführt werden, für die kein Container explizit angegeben ist. Wenn ein Schritt sowohl Skript- als auch Container-Aktionen umfasst, werden die Container-Aktionen als nebengeordnete Container in demselben Netzwerk mit denselben Volume-Mounts ausgeführt.
 
-Wenn Sie keinen `container` festlegen, werden alle Schritte direkt auf dem Host ausgeführt, der mit `runs-on` angegeben wird, außer wenn ein Schritt auf eine Aktion verweist, die für die Ausführung in einem Container konfiguriert ist.
+Wenn Du keinen `container` festlegst, werden alle Schritte direkt auf dem Host ausgeführt, der mit `runs-on` angegeben ist, außer wenn ein Schritt auf eine Aktion verweist, die für die Ausführung in einem Container konfiguriert ist.
 
 #### Beispiel
 
@@ -1002,7 +1152,7 @@ Wenn Sie keinen `container` festlegen, werden alle Schritte direkt auf dem Host 
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1017,14 +1167,14 @@ Wenn Sie nur ein Container-Image angeben, können Sie das Stichwort `image` wegl
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
 
 Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.container.credentials`
 
@@ -1108,7 +1258,7 @@ services:
 
 Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1119,7 +1269,7 @@ Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wi
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
@@ -1166,7 +1316,7 @@ Zusätzliche Optionen für die Docker-Containerressource. Eine Liste der Optione
 
 ### Merkzettel zu Filtermustern
 
-Die Pfad-, Branch- und Tag-Filter können bestimmte Sonderzeichen umfassen.
+In Pfad-, Branch- und Tag-Filtern kannst Du Sonderzeichen benutzen.
 
 - `*`Steht für kein Zeichen oder mehrere Zeichen, nicht jedoch für den Schrägstrich (`/`). Zum Beispiel passt `Okto*` auf `Oktocat`.
 - `**`: Steht für kein Zeichen oder mehrere beliebige Zeichen.
@@ -1175,7 +1325,7 @@ Die Pfad-, Branch- und Tag-Filter können bestimmte Sonderzeichen umfassen.
 - `[]` Steht für irgend ein Zeichen, das in den Klammern aufgelistet ist oder das in einen in den Klammern enthalten Bereich fällt. Mögliche Bereiche sind ausschließlich `a-z`, `A-Z` und `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. Zum Beispiel passt `[CB]at` sowohl zu `Cat` als auch zu `Bat` und `[1-2]00` passt sowohl zu `100` als auch zu `200`.
 - `!`: Am Anfang eines Musters stehend negiert es das Muster in sein Gegenteil. Es hat keine besondere Bedeutung, wenn es nicht das erste Zeichen ist.
 
-Die Zeichen `*`, `[` und `!` sind Sonderzeichen in YAML. Wenn ein Muster mit `*`, `[` oder `!` beginnen soll, schließen Sie das Muster in Anführungszeichen ein.
+Die Zeichen `*`, `[` und `!` sind Sonderzeichen in YAML. Wenn ein Muster mit `*`, `[` oder `!` beginnen soll, schließe das Muster in Anführungszeichen ein.
 
 ```yaml
 # Gueltig
@@ -1186,7 +1336,7 @@ Die Zeichen `*`, `[` und `!` sind Sonderzeichen in YAML. Wenn ein Muster mit `*`
 - **/README.md
 ```
 
-Weitere Informationen zur Syntax für Branch-, Tag- und Pfadfilter finden Sie unter „[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)“ und „[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)“.
+Weitere Informationen zur Syntax für Branch-, Tag- und Pfadfilter findest Du unter „[`on.<push|pull_request>.<branches|tags>`](#onpushpull_requestbranchestags)“ und „[`on.<push|pull_request>.paths`](#onpushpull_requestpaths)“.
 
 #### Muster für den Abgleich von Branches und Tags
 

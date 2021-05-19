@@ -1,6 +1,6 @@
 ---
 title: Viewing push logs
-intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
+intro: Site administrators can view a list of Git push operations for any repository on the enterprise.
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -8,6 +8,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
+topics:
+  - Auditing
+  - Enterprise
+  - Git
+  - Logging
 ---
 
 Push log entries show:

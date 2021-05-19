@@ -1,6 +1,6 @@
 ---
 title: Vincular una solicitud de cambios a una propuesta
-intro: 'Puedes vincular una solicitud de cambios a una propuesta para mostrar que una solución está en progreso y para cerrar automáticamente la propuesta cuando se fusione la solicitud de cambios.'
+intro: Puedes vincular una solicitud de cambios a una propuesta para mostrar que una solución está en progreso y para cerrar automáticamente la propuesta cuando se fusione la solicitud de cambios.
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -10,6 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% note %}

@@ -6,11 +6,17 @@ redirect_from:
   - /enterprise/admin/enterprise-management/cluster-network-configuration
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Clustering
+  - Enterprise
+  - Infrastructure
+  - Networking
 ---
 
 ### Network considerations
 
-The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnets, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
+The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
 
@@ -42,34 +48,34 @@ Administrative ports are not required for basic application use by end users.
 
 If a network level firewall is in place between nodes, these ports will need to be accessible. The communication between nodes is not encrypted. These ports should not be accessible externally.
 
-| Port      | Description              |
-|:--------- |:------------------------ |
-| 1336/TCP  | Internal API             |
-| 3033/TCP  | Internal SVN access      |
-| 3037/TCP  | Internal SVN access      |
-| 3306/TCP  | MySQL                    |
-| 4486/TCP  | Governor access          |
-| 5115/TCP  | Storage backend          |
-| 5208/TCP  | Internal SVN access      |
-| 6379/TCP  | Redis                    |
-| 8001/TCP  | Grafana                  |
-| 8090/TCP  | Internal GPG access      |
-| 8149/TCP  | GitRPC fileserver access |
-| 8300/TCP  | Consul                   |
-| 8301/TCP  | Consul                   |
-| 8302/TCP  | Consul                   |
-| 9000/TCP  | Git Daemon               |
-| 9102/TCP  | Pages fileserver         |
-| 9105/TCP  | LFS server               |
-| 9200/TCP  | Elasticsearch            |
-| 9203/TCP  | Semantic code service    |
-| 9300/TCP  | Elasticsearch            |
-| 11211/TCP | Memcache                 |
-| 161/UDP   | SNMP                     |
-| 8125/UDP  | Statsd                   |
-| 8301/UDP  | Consul                   |
-| 8302/UDP  | Consul                   |
-| 25827/UDP | Collectd                 |
+| Port      | Description               |
+|:--------- |:------------------------- |
+| 1336/TCP  | Internal API              |
+| 3033/TCP  | Internal SVN access       |
+| 3037/TCP  | Internal SVN access       |
+| 3306/TCP  | MySQL                     |
+| 4486/TCP  | Governor access           |
+| 5115/TCP  | Storage backend           |
+| 5208/TCP  | Internal SVN access       |
+| 6379/TCP  | Redis                     |
+| 8001/TCP  | Grafana                   |
+| 8090/TCP  | Internal GPG access       |
+| 8149/TCP  | GitRPC file server access |
+| 8300/TCP  | Consul                    |
+| 8301/TCP  | Consul                    |
+| 8302/TCP  | Consul                    |
+| 9000/TCP  | Git Daemon                |
+| 9102/TCP  | Pages file server         |
+| 9105/TCP  | LFS server                |
+| 9200/TCP  | Elasticsearch             |
+| 9203/TCP  | Semantic code service     |
+| 9300/TCP  | Elasticsearch             |
+| 11211/TCP | Memcache                  |
+| 161/UDP   | SNMP                      |
+| 8125/UDP  | Statsd                    |
+| 8301/UDP  | Consul                    |
+| 8302/UDP  | Consul                    |
+| 25827/UDP | Collectd                  |
 
 ### Configuring a load balancer
 

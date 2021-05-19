@@ -9,6 +9,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Las personas con permisos de administrador pueden administrar el acceso de los miembros de la organización y de los colaboradores externos a un repositorio de la organización.

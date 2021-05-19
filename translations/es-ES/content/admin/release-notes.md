@@ -4,5 +4,8 @@ intro: 'Las notas de lanzamiento para {{ allVersions[currentVersion].versionTitl
 layout: release-notes
 versions:
   enterprise-server: '*'
+topics:
+  - Enterprise
+  - Upgrades
 ---
 

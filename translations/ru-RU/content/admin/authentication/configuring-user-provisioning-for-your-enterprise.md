@@ -1,11 +1,18 @@
 ---
 title: Configuring user provisioning for your enterprise
 shortTitle: Configuring user provisioning
-intro: You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).
-permissions: Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.
+intro: 'You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).'
+permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### About user provisioning for your enterprise
@@ -27,6 +34,8 @@ The provisioning application on your IdP communicates with {% data variables.pro
 ### Supported identity providers
 
 {% data reusables.scim.supported-idps %}
+
+When you set up user provisioning with a supported IdP, you can also assign or unassign the application for {% data variables.product.product_name %} to groups of users. These groups are then available to organization owners and team maintainers in {% data variables.product.product_location %} to map to {% data variables.product.product_name %} teams. For more information, see "[Synchronizing a team with an identity provider group](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
 ### Требования
 
@@ -74,7 +83,7 @@ You must have administrative access on your IdP to configure the application for
 
   | Value         | Other names                         | Description                                                                                                 | Пример                                      |
   |:------------- |:----------------------------------- |:----------------------------------------------------------------------------------------------------------- |:------------------------------------------- |
-  | URL           | Tenant URL                          | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code>                   |
+  | URL           | Tenant URL                          | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <pre>https&colon;//api.<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</pre>                   |
   | Shared secret | Personal access token, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner            | Personal access token you created in step 1 |
 
 {% endif %}

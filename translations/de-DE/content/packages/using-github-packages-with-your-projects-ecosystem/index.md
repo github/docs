@@ -7,14 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+children:
+  - /using-github-packages-with-github-actions
+  - /configuring-docker-for-use-with-github-packages
+  - /configuring-apache-maven-for-use-with-github-packages
+  - /configuring-gradle-for-use-with-github-packages
+  - /configuring-npm-for-use-with-github-packages
+  - /configuring-dotnet-cli-for-use-with-github-packages
+  - /configuring-rubygems-for-use-with-github-packages
 ---
-
 {% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_in_list /using-github-packages-with-github-actions %}
-{% link_in_list /configuring-docker-for-use-with-github-packages %}
-{% link_in_list /configuring-apache-maven-for-use-with-github-packages %}
-{% link_in_list /configuring-gradle-for-use-with-github-packages %}
-{% link_in_list /configuring-npm-for-use-with-github-packages %}
-{% link_in_list /configuring-dotnet-cli-for-use-with-github-packages %}
-{% link_in_list /configuring-rubygems-for-use-with-github-packages %}

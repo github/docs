@@ -1,5 +1,5 @@
 ---
-title: GitHub 操作的工作流程语法
+title: GitHub Actions 的工作流程语法
 shortTitle: 工作流程语法
 intro: 工作流程是可配置的自动化过程，由一个或多个作业组成。 您必须创建 YAML 文件来定义工作流程配置。
 product: '{% data reusables.gated-features.actions %}'
@@ -10,14 +10,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于工作流程的 YAML 语法
 
-工作流程文件使用 YAML 语法，必须有 `.yml` 或 `.yaml` 文件扩展名。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
+工作流程文件使用 YAML 语法，必须有 `.yml` 或 `.yaml` 文件扩展名。 {% data reusables.actions.learn-more-about-yaml %}
 
 必须将工作流程文件存储在仓库的 `.github/workflows` 目录中。
 
@@ -108,8 +110,8 @@ on:
 on:
   push:
     branches:    
-    - 'releases/**'
-    - '!releases/**-alpha'
+      - 'releases/**'
+      - '!releases/**-alpha'
 ```
 
 ### `on.<push|pull_request>.paths`
@@ -120,13 +122,13 @@ on:
 
 #### 忽略路径的示例
 
-任何时候路径名称匹配 `paths-ignore` 中的模式，则工作流程不会运行。 {% data variables.product.prodname_dotcom %} 根据路径名称评估 `paths-ignore` 中定义的模式。 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
+当所有路径名称匹配 `paths-ignore` 中的模式时，工作流程不会运行。 {% data variables.product.prodname_dotcom %} 根据路径名称评估 `paths-ignore` 中定义的模式。 具有以下路径过滤器的工作流程仅在 `push` 事件上运行，这些事件包括至少一个位于仓库根目录的 `docs` 目录外的文件。
 
 ```yaml
 on:
   push:
     paths-ignore:
-    - 'docs/**'
+      - 'docs/**'
 ```
 
 #### 包括路径的示例
@@ -137,7 +139,7 @@ on:
 on:
   push:
     paths:
-    - '**.js'
+      - '**.js'
 ```
 
 #### 排除路径
@@ -158,8 +160,8 @@ on:
 on:
   push:
     paths:
-    - 'sub-project/**'
-    - '!sub-project/docs/**'
+      - 'sub-project/**'
+      - '!sub-project/docs/**'
 ```
 
 #### Git 差异比较
@@ -184,6 +186,32 @@ on:
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 有关计划任务语法的更多信息请参阅“[触发工作流程的事件](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `权限`
+
+您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
+
+您可以使用 `permissions` 作为顶级密钥，以应用于工作流程中的所有作业，或特定的作业。 当您在特定作业中添加 `permissions` 键时，该作业中的所有操作和运行命令使用 `GITHUB_TOKEN` 获取您指定的访问权限。  更多信息请参阅 [`jobs.<job_id>.permissions`](#jobsjob_idpermissions)。
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### 示例
+
+此示例显示为将要应用到工作流程中所有作业的 `GITHUB_TOKEN` 设置的权限。 所有权限都被授予读取权限。
+
+```yaml
+name: "My workflow"
+
+on: [ push ]
+
+permissions: read-all
+
+jobs:
+  ...
+```
+{% endif %}
 
 ### `env`
 
@@ -219,6 +247,18 @@ defaults:
     working-directory: scripts
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 表达式只能使用 `github` 上下文。 有关表达式的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+
+您也可以在作业级别指定 `concurrency`。 更多信息请参阅 [`jobs.<job_id>.concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency)。
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs`
 
 工作流程运行包括一项或多项作业。 作业默认是并行运行。 要按顺序运行作业，您可以使用 `<job_id>needs` 关键词在其他作业上定义依赖项。
@@ -288,6 +328,20 @@ jobs:
 
 **必填**。 要运行作业的机器类型。 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
 
+{% if currentVersion == "github-ae@latest" %}
+#### {% data variables.actions.hosted_runner %}
+
+如果使用 {% data variables.actions.hosted_runner %}，每个作业将在 `runs-on` 指定的虚拟环境的新实例中运行。
+
+##### 示例
+
+```yaml
+runs-on: [AE-runner-for-CI]
+```
+
+更多信息请参阅“[关于 {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/about-ae-hosted-runners)”。
+
+{% else %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 #### {% data variables.product.prodname_dotcom %} 托管的运行器
@@ -298,7 +352,6 @@ jobs:
 
 {% data reusables.github-actions.supported-github-runners %}
 
-{% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
 
 ##### 示例
@@ -308,8 +361,11 @@ runs-on: ubuntu-latest
 ```
 
 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
+{% endif %}
 
 #### 自托管运行器
+
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
@@ -321,7 +377,35 @@ runs-on: [self-hosted, linux]
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.permissions`
+
+您可以修改授予 `GITHUB_TOKEN` 的默认权限，根据需要添加或删除访问权限，以便只授予所需的最低访问权限。 更多信息请参阅“[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)。
+
+通过在工作定义中指定权限，您可以根据需要为每个作业的 `GITHUB_TOKEN` 配置一组不同的权限。 或者，您也可以为工作流程中的所有作业指定权限。 有关在工作流程级别定义权限的信息，请参阅 [`permissions`](#permissions)。
+
+{% data reusables.github-actions.github-token-available-permissions %}
+{% data reusables.github-actions.forked-write-permission %}
+
+#### 示例
+
+此示例显示为将要应用到作业 `stale` 的 `GITHUB_TOKEN` 设置的权限。 对于 `issues` 和 `pull-requests` 拉取请求，授予写入访问权限。 所有其他范围将没有访问权限。
+
+```yaml
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/stale@v3
+```
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ### `jobs.<job_id>.environment`
 
 作业引用的环境。 在将引用环境的作业发送到运行器之前，必须通过所有环境保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
@@ -329,10 +413,11 @@ runs-on: [self-hosted, linux]
 您可以将环境仅作为环境 `name`，或作为具有 `name` 和 `url` 的环境变量。 URL 映射到部署 API 中的 `environment_url`。 有关部署 API 的更多信息，请参阅“[部署](/rest/reference/repos#deployments)”。
 
 ##### 使用单一环境名称的示例
-
+{% raw %}
 ```yaml
 environment: staging_environment
 ```
+{% endraw %}
 
 ##### 使用环境名称和 URL 的示例
 
@@ -354,6 +439,25 @@ environment:
 {% endraw %}
 {% endif %}
 
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+### `jobs.<job_id>.concurrency`
+
+{% data reusables.actions.concurrency-beta %}
+
+{% note %}
+
+**注意：** 在作业级别指定并发时，无法保证在 5 分钟内排队的作业或运行的互相顺序。
+
+{% endnote %}
+
+Concurrency 确保只有使用相同并发组的单一作业或工作流程才会同时运行。 并发组可以是任何字符串或表达式。 表达式可以使用除 `secrets` 上下文以外的任何上下文。 有关表达式的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+
+您也可以在工作流程级别指定 `concurrency`。 更多信息请参阅 [`concurrency`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#concurrency)。
+
+{% data reusables.actions.actions-group-concurrency %}
+
+{% endif %}
 ### `jobs.<job_id>.outputs`
 
 作业的输出 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](#jobsjob_idneeds)。
@@ -374,15 +478,15 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
-    - id: step1
-      run: echo "::set-output name=test::hello"
-    - id: step2
-      run: echo "::set-output name=test::world"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-    - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
+      - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
 
@@ -452,14 +556,14 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
-    - name: Print a greeting
-      env:
-        MY_VAR: Hi there! My name is
-        FIRST_NAME: Mona
-        MIDDLE_NAME: The
-        LAST_NAME: Octocat
-      run: |
-        echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
 {% endraw %}
 
@@ -590,11 +694,26 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-#### 使用 Docker 公共注册表操作的示例
+{% if currentVersion == "free-pro-team@latest" %}
+##### 使用 {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} 的示例
 
 `docker://{host}/{image}:{tag}`
 
-公共注册表中的 Docker 映像。
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} 中的 Docker 映像。
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+```
+{% endif %}
+##### 使用 Docker 公共注册表操作的示例
+
+`docker://{host}/{image}:{tag}`
+
+公共注册表中的 Docker 映像。 此示例在 `gcr.io` 使用 Google Container Registry。
 
 ```yaml
 jobs:
@@ -603,6 +722,29 @@ jobs:
       - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
+
+#### 在不同于工作流程的私有仓库中使用操作的示例
+
+您的工作流程必须检出私有仓库，并在本地引用操作。 Generate a personal access token and add the token as an encrypted secret. 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+
+{% raw %}
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+```
+{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -711,7 +853,13 @@ steps:
     shell: perl {0}
 ```
 
-此示例中使用的命令 `perl` 必须安装在运行器上。 有关 GitHub 托管运行器中所包含软件的信息，请参阅“[GitHub 托管运行器的规格](/actions/reference/specifications-for-github-hosted-runners#supported-software)”。
+此示例中使用的命令 `perl` 必须安装在运行器上。
+
+
+{% if currentVersion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}
+有关 GitHub 托管运行器中所包含软件的信息，请参阅“[GitHub 托管运行器的规格](/actions/reference/specifications-for-github-hosted-runners#supported-software)”。
+{% endif %}
 
 #### 退出代码和错误操作首选项
 
@@ -839,7 +987,7 @@ steps:
 
 #### 使用 Node.js 多个版本运行的示例
 
-您可以提供配置选项阵列来指定矩阵。 例如，如果运行器支持 Node.js 版本 6、8 和 10，则您可以在 `matrix` 中指定这些版本的阵列。
+您可以提供配置选项阵列来指定矩阵。 例如，如果运行器支持 Node.js 版本 10、12 和 14，则您可以在 `matrix` 中指定这些版本的阵列。
 
 此示例通过设置三个 Node.js 版本阵列的 `node` 键创建三个作业的矩阵。 为使用矩阵，示例将 `matrix.node` 上下文属性设置为 `setup-node` 操作的输入参数 `node-version`。 因此，将有三个作业运行，每个使用不同的 Node.js 版本。
 
@@ -847,10 +995,10 @@ steps:
 ```yaml
 strategy:
   matrix:
-    node: [6, 8, 10]
+    node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       # The Node.js version to configure
       node-version: ${{ matrix.node }}
@@ -873,20 +1021,22 @@ steps:
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
-    node: [6, 8, 10]
+    os: [ubuntu-18.04, ubuntu-20.04]
+    node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v2
     with:
       node-version: ${{ matrix.node }}
 ```
 {% endraw %}
 
-要查找 {% data variables.product.prodname_dotcom %} 托管的运行器支持的配置选项，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
+{% if currentVersion == "github-ae@latest" %}要查找 {% data variables.actions.hosted_runner %} 支持的配置选项，请参阅“[软件规格](/actions/using-github-hosted-runners/about-ae-hosted-runners#software-specifications)”。
+{% else %}要查找 {% data variables.product.prodname_dotcom %} 托管的运行器支持的配置选项，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
+{% endif %}
 
 #### 在组合中包含附加值的示例
 
-您可以将额外的配置选项添加到已经存在的构建矩阵作业中。 例如，如果要在作业使用 `windows-latest` 和 `node` 的版本 4 运行时使用 `npm` 的特定版本，您可以使用 `include` 指定该附加选项。
+您可以将额外的配置选项添加到已经存在的构建矩阵作业中。 例如，如果要在作业使用 `windows-latest` 和 `node` 的版本 8 运行时使用 `npm` 的特定版本，您可以使用 `include` 指定该附加选项。
 
 {% raw %}
 ```yaml
@@ -894,29 +1044,29 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     include:
-      # includes a new variable of npm with a value of 2
+      # includes a new variable of npm with a value of 6
       # for the matrix leg matching the os and version
       - os: windows-latest
-        node: 4
-        npm: 2
+        node: 8
+        npm: 6
 ```
 {% endraw %}
 
 #### 包括新组合的示例
 
-您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 12 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 13 的额外实验性作业，则可使用 `include` 指定该额外作业。
+您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 14 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 15 的额外实验性作业，则可使用 `include` 指定该额外作业。
 
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    node: [12]
+    node: [14]
     os: [macos-latest, windows-latest, ubuntu-18.04]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -932,11 +1082,11 @@ runs-on: ${{ matrix.os }}
 strategy:
   matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    node: [4, 6, 8, 10]
+    node: [8, 10, 12, 14]
     exclude:
-      # excludes node 4 on macOS
+      # excludes node 8 on macOS
       - os: macos-latest
-        node: 4
+        node: 8
 ```
 {% endraw %}
 
@@ -971,7 +1121,7 @@ strategy:
 
 #### 防止特定失败的矩阵作业导致工作流程运行失败的示例
 
-您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `13` 的实验性作业失败，而不允许工作流程运行失败。
+您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `15` 的实验性作业失败，而不允许工作流程运行失败。
 
 {% raw %}
 ```yaml
@@ -980,11 +1130,11 @@ continue-on-error: ${{ matrix.experimental }}
 strategy:
   fail-fast: false
   matrix:
-    node: [11, 12]
+    node: [13, 14]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
     include:
-      - node: 13
+      - node: 15
         os: ubuntu-18.04
         experimental: true
 ```
@@ -1002,7 +1152,7 @@ strategy:
 jobs:
   my_job:
     container:
-      image: node:10.16-jessie
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -1017,14 +1167,14 @@ jobs:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:14.16
 ```
 
 ### `jobs.<job_id>.container.image`
 
 要用作运行操作的容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.container.credentials`
 
@@ -1108,7 +1258,7 @@ services:
 
 要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -1119,7 +1269,7 @@ services:
 {% raw %}
 ```yaml
 services:
-  myservice1: 
+  myservice1:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
@@ -1192,12 +1342,12 @@ volumes:
 
 | 模式                                                     | 描述                                                                   | 示例匹配                                                                                                                  |
 | ------------------------------------------------------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `功能/*`                                                 | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
-| `功能/**`                                                | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `feature/*`                                            | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `feature/**`                                           | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
 | `main`<br/><br/>`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
 | `'*'`                                                  | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `main`<br/><br/>`releases`                                                                                |
 | `'**'`                                                 | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | `all/the/branches`<br/><br/>`every/tag`                                                                   |
-| `'*功能'`                                                | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `'*feature'`                                           | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                  | 匹配以 `v2` 开头的分支和标记名称。                                                 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
 | `v[12].[0-9]+.[0-9]+`                                  | 将所有语义版本控制分支和标记与主要版本 1 或 2 匹配                                         | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
@@ -1212,10 +1362,10 @@ volumes:
 | `'**'`                                                                  | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | `all/the/files.md`                                                                                                       |
 | `'*.js'`                                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | `app.js`<br/><br/>`index.js`                                                                                 |
 | `'**.js'`                                                               | 匹配仓库中的所有 `.js` 文件。                                                     | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
-| `文档/*`                                                                  | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
-| `文档/**`                                                                 | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/*`                                                                | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `docs/**`                                                               | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
 | `docs/**/*.md`                                                          | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
-| `'**/文档/**'`                                                            | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/docs/**'`                                                          | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
 | `'**/README.md'`                                                        | 仓库中任意位置的 README.md 文件。                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
 | `'**/*src/**'`                                                          | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
 | `'**/*-post.md'`                                                        | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |

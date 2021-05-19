@@ -3,6 +3,8 @@ title: Habilitar GitHub packages con AWS
 intro: 'Configura el {% data variables.product.prodname_registry %} con AWS como tu almacenamiento externo.'
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% warning %}

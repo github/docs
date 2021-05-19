@@ -11,6 +11,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 API を使用すると、さまざまなタスクを自動化できます。 例えば、

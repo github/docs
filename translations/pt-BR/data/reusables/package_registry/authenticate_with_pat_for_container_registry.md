@@ -1,8 +1,12 @@
 {% if currentVersion == "free-pro-team@latest" %}
-Se você deseja efetuar a autenticação em
-{% data variables.product.prodname_github_container_registry %} em um fluxo de trabalho de {% data variables.product.prodname_actions %}, em seguida, você deverá usar um token de acesso pessoal (PAT). Atualmente, o `GITHUB_TOKEN` não tem as permissões necessárias. No beta de {% data variables.product.prodname_github_container_registry %}, a única forma compatível de de autenticação é o PAT.
 
-Os PATs podem conceder amplo acesso à sua conta. Recomendamos selecionar apenas o acesso de leitura ou gravação ou excluir o `pacote` ao criar um PAT para efetuar a autenticação no {% data variables.product.prodname_container_registry %}. Evite incluir o escopo do `repositório` em um PAT usado por um fluxo de trabalho do GitHub Actions pois ele concede acesso adicional desnecessário.
+Os PATs podem conceder amplo acesso à sua conta. You should select only the necessary `read:packages`, `write:packages`, or `delete:packages` scope when creating a PAT to authenticate to the {% data variables.product.prodname_container_registry %}.
+
+To authenticate to the {% data variables.product.prodname_container_registry %} within a {% data variables.product.prodname_actions %} workflow, use the `GITHUB_TOKEN` for the best security and experience.
+
+For guidance on updating your workflows that authenticate to `ghcr.io` with a personal access token, see "[Upgrading a workflow that accesses `ghcr.io`](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-ghcrio)."
+
+{% data reusables.package_registry.github-token-security-over-pat %}
 
 Se você desejar usar o {% data variables.product.prodname_container_registry %} em ações durante a versão beta, siga nossas práticas de segurança recomendadas para o uso do PAT em[Fortalecimento da segurança para o GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)".
 

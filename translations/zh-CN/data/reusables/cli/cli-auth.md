@@ -1,0 +1,1 @@
+{% data variables.product.prodname_cli %} 可以使用您的 {% data variables.product.prodname_dotcom %} 帐户进行身份验证。 在运行 {% data variables.product.prodname_cli %} 命令之前，您需要通过运行 `gh auth login` 进行身份验证。 有关命令行身份验证的更多信息，请参阅 "[`gh auth login`](https://cli.github.com/manual/gh_auth_login)"。

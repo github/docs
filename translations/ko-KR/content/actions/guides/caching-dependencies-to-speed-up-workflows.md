@@ -14,13 +14,15 @@ topics:
   - Workflows
 ---
 
+{% data reusables.actions.ae-beta %}
+
 ### About caching workflow dependencies
 
 Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
 Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
-To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
+To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache). If you are caching Ruby gems, instead consider using the Ruby maintained action, which can cache bundle installs on initiation. For more information, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically).
 
 {% warning %}
 
@@ -57,7 +59,16 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
 
 - `key`: **Required** The key created when saving a cache and the key used to search for a cache. Can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
 - `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the working directory.
-  - With `v2` of the `cache` action, you can specify a single path, or multiple paths as a list. Paths can be either directories or single files, and glob patterns are supported.
+  - Paths can be either directories or single files, and glob patterns are supported.
+  - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. 예시:
+    ```
+    - name: Cache Gradle packages
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+    ```
   - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
 - `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
 
@@ -80,30 +91,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v2
-      env:
-        cache-name: cache-node-modules
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm build
+      - name: Build
+        run: npm build
 
-    - name: Test
-      run: npm test
-
+      - name: Test
+        run: npm test
 ```
 {% endraw %}
 

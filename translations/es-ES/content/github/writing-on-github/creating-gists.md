@@ -55,12 +55,14 @@ Git admite la asignación de archivos GeoJSON. Estas asignaciones se muestran co
 
 ### Crear un gist
 
-También puedes arrastrar y soltar un archivo de texto desde tu escritorio directamente en el editor de gist.
+Sigue estos pasos para crear un gist.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 También puedes crear un gist si utilizas el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" en el {% data variables.product.prodname_cli %}.
+
+Como alternativa, puedes arrastrar y soltar un archivo de texto desde tu escritorio directamente en el editor.
 
 {% endnote %}
 {% endif %}
@@ -69,7 +71,7 @@ También puedes crear un gist si utilizas el {% data variables.product.prodname_
 2. Dirígete a tu {% data variables.gists.gist_homepage %}.
 3. Escribe una descripción opcional y un nombre para tu gist. ![Descripción del nombre del gist](/assets/images/help/gist/gist_name_description.png)
 
-4. Escribe el texto de tu gist en el cuadro de texto para el gist. ![Cuadro de texto para el gist](/assets/images/help/gist/gist_text_box.png)
+4. Teclea el texto de tu gist en la caja de texto de este. ![Cuadro de texto para el gist](/assets/images/help/gist/gist_text_box.png)
 
 5. Opcionalmente, para crear un gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %}, da clic en {% octicon "triangle-down" aria-label="The downwards triangle icon" %} y luego en **Crear gist {% if currentVersion == "github-ae@latest" %}interno{% else %}público{% endif %}**. ![Menú desplegable para seleccionar la visibilidad de un gist]{% if currentVersion == "github-ae@latest" %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
 

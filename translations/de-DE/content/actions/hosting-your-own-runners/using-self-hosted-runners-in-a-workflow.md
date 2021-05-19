@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Informationen zum Erstellen benutzerdefinierter und Standard-Labels findest Du unter „[Labels mit selbst-gehosteten Runnern verwenden](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)“.
 
@@ -66,7 +69,7 @@ Diese Labels funktionieren kumulativ, so dass die Labels eines selbst-gehosteten
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels:
 
-1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" %}, then at the enterprise level{% endif %}.
+1. {% data variables.product.prodname_dotcom %} first searches for a runner at the repository level, then at the organization level{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}, then at the enterprise level{% endif %}.
 2. The job is then sent to the first matching runner that is online and idle.
    - If all matching online runners are busy, the job will queue at the level with the highest number of matching online runners.
    - If all matching runners are offline, the job will queue at the level with the highest number of matching offline runners.

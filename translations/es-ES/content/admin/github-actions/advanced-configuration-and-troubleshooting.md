@@ -4,5 +4,7 @@ intro: 'Configura la disponibilidad alta para {% data variables.product.prodname
 mapTopic: true
 versions:
   enterprise-server: '>=3.0'
+topics:
+  - Enterprise
 ---
 

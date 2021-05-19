@@ -15,6 +15,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Upgrades
 ---
 
 ### Preparar para una actualización
@@ -29,25 +33,7 @@ versions:
 
   {% endnote %}
 
-{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
-
-### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
-
-Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
-
-Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
-
-| Licencias de usuario                     |                            vCPU |                                 Memoria |                Almacenamiento conectado | Almacenamiento raíz |
-|:---------------------------------------- | -------------------------------:| ---------------------------------------:| ---------------------------------------:| -------------------:|
-| Prueba, Demo o 10 usuarios no frecuentes |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ |              200 GB |
-| 10-3000                                  |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ |              200 GB |
-| 3000-5000                                |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB |              200 GB |
-| 5000-8000                                | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB |              200 GB |
-| 8000-10000+                              | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB |              200 GB |
-
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
-{% endif %}
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ### Tomar una instantánea
 
@@ -73,7 +59,7 @@ Hay dos tipos de instantáneas:
 | Hyper-V               | VM                    | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disco                 | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM                    | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM                    | <https://support.citrix.com/article/CTX122978>                                                                                                                                                         |
+| XenServer             | VM                    | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
 ### Actualizar con un hotpatch
 
@@ -81,7 +67,12 @@ Hay dos tipos de instantáneas:
 
 {% note %}
 
-**Note**: instalar un hotpatch utilizando la {% data variables.enterprise.management_console %} no está disponible en los entornos de agrupación. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notas{% else %}Nota{% endif %}**:
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no puedes actualizarla con un hotpatch.
+
+- {% endif %}No hay disponibilidad para instalar un parche utilizando la {% data variables.enterprise.management_console %} en los ambientes de clúster. Para instalar un parche en un entorno de agrupación, consulta "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 

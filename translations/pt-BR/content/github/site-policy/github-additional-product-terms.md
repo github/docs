@@ -2,9 +2,12 @@
 title: Termos Adicionais do Produto GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Data da entrada em vigor da versão: 14 de dezembro de 2020
+Entrada em vigor desta versão: 22 de fevereiro de 2021
 
 Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Abaixo, listamos esses recursos e produtos, juntamente com os termos adicionais correspondentes que se aplicam ao uso deles.
 
@@ -39,9 +42,24 @@ Se você ativar o Git Large File Storage ("Git LFS") em sua Conta, poderá busca
 
 ### 4. Pages
 
-Cada Conta vem com acesso a [serviços de hospedagem estática do GitHub Pages](/github/working-with-github-pages/about-github-pages). Este serviço de hospedagem destina-se a hospedar páginas da web estáticas para todos os Usuários, mas principalmente, como uma vitrine para projetos pessoais e organizacionais. Alguns esforços de monetização são permitidos no Pages, como botões de doação e links para crowdfunding.
+Cada Conta vem com acesso a [serviços de hospedagem estática do GitHub Pages](/github/working-with-github-pages/about-github-pages). Este serviço de hospedagem destina-se a hospedar páginas da web estáticas para todos os Usuários, mas principalmente, como uma vitrine para projetos pessoais e organizacionais.
 
-O GitHub Pages está sujeito a limites específicos de uso e largura de banda e pode não ser apropriado para alguns usos elevados de largura de banda ou outros usos proibidos. Consulte nossas [diretrizes do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações. O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
+O GitHub Pages não foi projetado e nem tem permissão para ser usado como um serviço de hospedagem gratuita na web, capaz de administrar sua empresa online, seu site de comércio eletrônico ou qualquer outro site desenvolvido principalmente para facilitar transações comerciais ou fornecer software comercial como um serviço (SaaS). Alguns esforços de monetização são permitidos no Pages, como botões de doação e links para crowdfunding.
+
+#### a. Banda larga e limites de uso
+O GitHub Pages está sujeito a limites específicos de uso e largura de banda e pode não ser apropriado para alguns usos elevados de banda larga. Consulte nossas [diretrizes do GitHub Pages](/github/working-with-github-pages/about-github-pages) para obter mais informações.
+
+#### b. Uso proibido
+O uso proibido do GitHub Pages inclui
+- Conteúdo ou atividade ilegal ou proibido pelos nossos [Termos de Serviço](/github/site-policy/github-terms-of-service), [Políticas de uso aceitáveis](/github/site-policy/github-acceptable-use-policies) ou [Diretrizes da comunidade](/github/site-policy/github-community-guidelines)
+- Atividade ou conteúdo violento ou ameaçador
+- Excesso de atividade automatizada em massa (spam, por exemplo)
+- Atividade que comprometa serviços ou usuários do GitHub
+- Esquemas para enriquecer rapidamente
+- Conteúdo sexual obsceno
+- Conteúdo que deturpe sua identidade ou a finalidade do site
+
+Em caso de dúvidas sobre se o seu uso ou a intenção se enquadra nestas categorias, entre em contato com o [Suporte do GitHub](https://support.github.com/contact) ou com o [Suporte Premium do GitHub](https://premium.githubsupport.com/). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
 
 ### 5. Ações e Pacotes
 
