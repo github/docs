@@ -17,8 +17,11 @@
                   {% assign numArticles = category[1].maptopics | obj_size %}
                   <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}">
                     <a href="{{ maptopic[1].href }}">
-                      {{ maptopic[1].title }}
-                    </a>
+                      {{ maptopic[1].title }}<!--
+                    --></a>
+                    <small class="color-text-secondary d-inline-block">
+                      &bull; {{ maptopic[1].articles | obj_size }} articles
+                    </small>
                   </li>
                   {% if numArticles > maxArticles %}
                     <button class="js-all-articles-show-more btn-link Link--secondary">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>

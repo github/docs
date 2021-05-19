@@ -23,9 +23,8 @@ topics:
 
 ### 设置默认分支名称
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 3. 在“Repository default branch（仓库默认分支）”下，单击 **Change default branch name now（立即更改默认分支名称）**。 ![覆盖按钮](/assets/images/help/organizations/repo-default-name-button.png)
 4. 键入要用于新分支的默认名称。 ![输入默认名称的文本框](/assets/images/help/organizations/repo-default-name-text.png)

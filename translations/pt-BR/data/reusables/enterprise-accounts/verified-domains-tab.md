@@ -1,1 +1,1 @@
-1. Em "Configurações", clique em **Domínios verificados**. ![Aba "Domínios verificados"](/assets/images/help/enterprises/verified-domains-tab.png)
+1. Under "Settings", click **Verified & approved domains**. !["Verified & approved domains" tab](/assets/images/help/enterprises/verified-domains-tab.png)

@@ -16,8 +16,13 @@
               {% assign article = xarticle[1] %}
               <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}">
                 <a href="{{ article.href }}">
-                  {{ article.title }}
-                </a>
+                  {{ article.title }}<!--
+                --></a>
+                {% comment %}
+                  <small class="color-text-secondary d-inline-block">
+                    &bull; {{ article.childArticles | obj_size }} articles
+                  </small>
+                {% endcomment %}
               </li>
             {% endfor %}
             {% assign numArticles = maptopic.childArticles | obj_size %}

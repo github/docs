@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### About reverting a pull request

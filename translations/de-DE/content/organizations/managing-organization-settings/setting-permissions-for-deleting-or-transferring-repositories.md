@@ -16,9 +16,8 @@ topics:
 
 Inhaber können die Berechtigungen zum Löschen oder Übertragen von Repositorys innerhalb einer Organisation festlegen.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Aktiviere oder deaktiviere unter „Repository deletion and transfer“ (Löschen und Übertragen von Repositorys) das Kontrollkästchen **Allow members to delete or transfer repositories for this organization** (Mitgliedern das Löschen oder Übertragen von Repositorys für diese Organisation erlauben). ![Kontrollkästchen zur Erlaubnis des Löschens von Repositorys durch Mitglieder](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
 6. Klicke auf **Save** (Speichern).

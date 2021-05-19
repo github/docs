@@ -4,7 +4,7 @@
     {%- if breadcrumb.href == '' -%}
      <span title="{{ breadcrumb.documentType }}: {{ breadcrumb.title }}">{{ breadcrumb.title }}</span>
     {%- else -%}
-      <a title="{{ breadcrumb.documentType }}: {{ breadcrumb.title }}" href="{{ breadcrumb.href }}" class="d-inline-block {% if breadcrumb.href == currentPath %}text-gray-light{% endif %}">{{ breadcrumb.title }}</a>
+      <a title="{{ breadcrumb.documentType }}: {{ breadcrumb.title }}" href="{{ breadcrumb.href }}" class="d-inline-block {% if breadcrumb.href == currentPath %}color-text-tertiary{% endif %}">{{ breadcrumb.title }}</a>
     {%- endif -%}
   {%- endfor -%}
 </nav>

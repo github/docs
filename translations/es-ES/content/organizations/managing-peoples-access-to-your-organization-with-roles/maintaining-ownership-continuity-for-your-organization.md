@@ -23,6 +23,12 @@ topics:
 
 Los propietarios de una organización tienen acceso administrativo completo a la misma. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Nota**: Como propietario de la organización, puedes cambiar el rol de otros miembros de la organización para que sean propietarios. No puedes cambiar tu propio rol.
+
+{% endnote %}
+
 ### Designar un propietario de organización
 
 {% data reusables.profile.access_profile %}

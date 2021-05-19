@@ -49,4 +49,4 @@ topics:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
 4. 在团队的对话上方，单击 {% octicon "project" aria-label="The Projects icon" %} **Projects（项目）**。 ![团队仓库选项卡](/assets/images/help/organizations/team-project-board-button.png)
-5. 要更改权限级别，在要更新的项目板右侧使用下拉列表。 要删除项目板，请单击 **{% octicon "trashcan" aria-label="The trashcan icon" %}**。 ![从团队删除项目板的垃圾桶按钮](/assets/images/help/organizations/trash-button.png)
+5. 要更改权限级别，在要更新的项目板右侧使用下拉列表。 要删除项目板，请单击 **{% octicon "trash" aria-label="The trash icon" %}**。 ![从团队删除项目板的垃圾桶按钮](/assets/images/help/organizations/trash-button.png)

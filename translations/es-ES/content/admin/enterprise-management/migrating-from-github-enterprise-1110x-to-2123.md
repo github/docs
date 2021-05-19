@@ -14,6 +14,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - Migration
+  - Upgrades
 ---
 
 Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."

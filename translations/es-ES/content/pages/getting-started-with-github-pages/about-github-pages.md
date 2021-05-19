@@ -68,14 +68,6 @@ La URL donde tu sitio está disponible depende de si el aislamiento del subdomin
 Para obtener más información, consulta la sección "[Habilitar el aislamiento del subdominio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" o contacta a tu administrador de sitio.
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
-{% note %}
-
-**Nota:** Los repositorios que usan el esquema de nombres `<username>.github.com` tradicional seguirán publicándose, pero los visitantes serán redirigidos desde `http(s)://<username>.github.com` a `http(s)://<username>.github.io`. Si existen tanto un repositorio de `<username>.github.com` como de `<username>.github.io`, solo se publicará el repositorio de `<username>.github.io`.
-
-{% endnote %}
-{% endif %}
-
 ### Publicar fuentes para sitios {% data variables.product.prodname_pages %}
 
 La fuente de publicación para tu sitio de {% data variables.product.prodname_pages %} es la rama y carpeta en donde se almacenan los archivos fuente de tu sitio.
@@ -137,7 +129,7 @@ Si tu sitio excede estas cuotas de uso, es posible que no podamos prestar servic
 
 {% data variables.product.prodname_pages %} no pretende ser un servicio de alojamiento web gratuito ni permite que se use de ese modo para realizar tus negocios en línea, un sitio de comercio electrónico, o cualquier otro sitio web que esté principalmente dirigido a facilitar las operaciones comerciales o brindar software comercial como un servicio (SaaS).
 
-In addition, {% data variables.product.prodname_dotcom %} does not allow {% data variables.product.prodname_pages %} to be used for certain purposes or activities. Para encontrar una lista de usos prohibidos, consulta la sección "[Condiciones adicionales de producto de {% data variables.product.prodname_dotcom %} para las {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
+Adicionalmente, {% data variables.product.prodname_dotcom %} no permite que se utilicen las {% data variables.product.prodname_pages %} para algunos propósitos o actividades específicos. Para encontrar una lista de usos prohibidos, consulta la sección "[Condiciones adicionales de producto de {% data variables.product.prodname_dotcom %} para las {% data variables.product.prodname_pages %}](/github/site-policy/github-additional-product-terms#4-pages)".
 {% endif %}
 
 ### Tipos MIME en {% data variables.product.prodname_pages %}

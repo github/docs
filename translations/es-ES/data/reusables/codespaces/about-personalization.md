@@ -1,1 +1,1 @@
-También puedes personalizar los aspectos del ambiente de un codespace para cada codespace que tu cuenta cree. La personalización puede incluir preferencias de shell y herramientas adicionales.
+You can also use a [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to personalize aspects of the codespace environment for any codespace that you create. La personalización puede incluir preferencias de shell y herramientas adicionales.
