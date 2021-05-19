@@ -292,7 +292,7 @@ describe('lint markdown content', () => {
         yamlScheduledWorkflows = (await Promise.all(yamlScheduledWorkflows.map(async (snippet) => {
           // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
           const rendered = await renderContent.liquid.parseAndRender(snippet)
-          const parsed = yaml.safeLoad(rendered)
+          const parsed = yaml.load(rendered)
           return parsed.on.schedule
         })))
           .flat()
@@ -479,7 +479,7 @@ describe('lint yaml content', () => {
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
       })
@@ -670,7 +670,7 @@ describe('lint release notes', () => {
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       })
 
       it('matches the schema', () => {
@@ -716,7 +716,7 @@ describe('lint learning tracks', () => {
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       })
 
       it('matches the schema', () => {

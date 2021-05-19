@@ -45,7 +45,7 @@ describe('creating a changelog from old schema and new schema', () => {
     }
     `
 
-    const previews = yaml.safeLoad(`
+    const previews = yaml.load(`
 - title: Test preview
   description: This preview is just for test
   toggled_by: ':test_preview'
@@ -58,14 +58,14 @@ describe('creating a changelog from old schema and new schema', () => {
     - '@github/engineering'
 `)
 
-    const oldUpcomingChanges = yaml.safeLoad(`
+    const oldUpcomingChanges = yaml.load(`
 upcoming_changes:
   - location: EnterprisePendingCollaboratorEdge.isUnlicensed
     description: '\`isUnlicensed\` will be removed.'
     date: '2021-01-01T00:00:00+00:00'
 `).upcoming_changes
 
-    const newUpcomingChanges = yaml.safeLoad(`
+    const newUpcomingChanges = yaml.load(`
 upcoming_changes:
   - location: Query.stableField
     description: '\`stableField\` will be removed.'
