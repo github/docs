@@ -42,17 +42,17 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 {% endif %}
 
-### Auto-generated table of contents for README files
+### Índice gerado automaticamente para arquivos README
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+Para a visualização renderizada de qualquer arquivo de marcação (Markdown) em um repositório, incluindo arquivos README, {% data variables.product.product_name %} irá gerar automaticamente um índice baseado nos títulos das seções. Você pode ver o índice de um arquivo README clicando no {% octicon "list-unordered" aria-label="The unordered list icon" %}  ícone do menu no canto superior esquerdo da página renderizada.
 
 ![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
 
-The auto-generated table of contents is enabled by default for all Markdown files in a repository, but you can disable this feature for your repository.
+O índice gerado automaticamente é habilitado por padrão para todos os arquivos de marcação (Markdown) em um repositório, mas você pode desabilitar este recurso para o seu repositório.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Features", deselect **Table of contents**. ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+1. Em "Features", desmarque **Table of contents**. ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
 
 ### Links de seção nos arquivos README e páginas blob
 
