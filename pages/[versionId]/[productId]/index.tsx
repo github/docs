@@ -12,6 +12,7 @@ import {
   ProductLandingContext,
   useProductLandingContext,
 } from 'components/context/ProductLandingContext'
+import { getThemeProps } from 'components/lib/getThemeProps'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
@@ -21,6 +22,9 @@ import { CommunityExamples } from 'components/landing/CommunityExamples'
 import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { useFeatureFlags } from 'components/hooks/useFeatureFlags'
+import { AllArticlesProduct } from 'components/landing/AllArticlesProduct'
+import { ProductArticlesList } from 'components/landing/ProductArticlesList'
 
 type Props = {
   mainContext: MainContextT
@@ -37,8 +41,15 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
 }
 
 const ProductPageInner = () => {
-  const { guideCards, productUserExamples, productCommunityExamples, productCodeExamples } = useProductLandingContext()
+  const {
+    title,
+    guideCards,
+    productUserExamples,
+    productCommunityExamples,
+    productCodeExamples,
+  } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
+  const { FEATURE_NEW_SITETREE } = useFeatureFlags()
 
   return (
     <DefaultLayout>
@@ -69,16 +80,16 @@ const ProductPageInner = () => {
       )}
 
       {guideCards.length > 0 && (
-        <div className="bg-guides-gradient py-6">
+        <div className="color-bg-tertiary py-6 my-8">
           <LandingSection title={t('guides')} className="my-6">
             <GuideCards />
           </LandingSection>
         </div>
       )}
 
-      {/* <PageSection title="All GitHub Sponsors Docs">
-        <SiteTreeGrid />
-      </PageSection>  */}
+      <LandingSection sectionLink="all-docs" title={`All ${title} Docs`}>
+        {FEATURE_NEW_SITETREE ? <ProductArticlesList /> : <AllArticlesProduct />}
+      </LandingSection>
     </DefaultLayout>
   )
 }
@@ -90,6 +101,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
+      themeProps: getThemeProps(req),
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
     },
