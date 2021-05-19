@@ -76,7 +76,7 @@ describe('Liquid references', () => {
       'in "%s"',
       async (yamlRelPath, yamlAbsPath) => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        const dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        const dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         const matches = []
 
