@@ -1,3 +1,4 @@
+require('../../lib/feature-flags')
 const { getDOM, getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const japaneseCharacters = require('japanese-characters')

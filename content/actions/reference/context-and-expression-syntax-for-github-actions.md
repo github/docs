@@ -45,7 +45,7 @@ steps:
 {% raw %}
 ```yaml
 env:
-  my_env_var: ${{ <expression> }}
+  MY_ENV_VAR: ${{ <expression> }}
 ```
 {% endraw %}
 

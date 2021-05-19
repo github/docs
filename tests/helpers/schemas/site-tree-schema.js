@@ -63,4 +63,34 @@ const article = {
   }
 }
 
-module.exports = { product, category, maptopic, article }
+const childPage = {
+  type: 'object',
+  properties: {
+    href: {
+      type: 'string',
+      required: true
+    },
+    page: {
+      type: 'object',
+      required: true,
+      properties: {
+        title: {
+          type: 'string',
+          required: true
+        },
+        relativePath: {
+          type: 'string',
+          required: true
+        },
+        permalinks: {
+          type: 'array',
+          required: true,
+          minItems: 1
+        }
+      }
+    }
+  }
+}
+
+// TODO after enabling FEATURE_NEW_SITETREE, we can delete everything except childPage
+module.exports = { product, category, maptopic, article, childPage }
