@@ -289,7 +289,7 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 
 ##### Creating `ignore` conditions from `@dependabot ignore`
 
-Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration. You won't be able to use the `@dependabot ignore` command to add any further dependencies, instead you will need add them to the `dependabot.yml` file.
+Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
 You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
 
