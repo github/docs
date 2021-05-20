@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Install
         uses: rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e
