@@ -49,6 +49,10 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
               <Link href={grandchildPage.href}>
                 <a>{grandchildPage.page.title}</a>
               </Link>
+              {grandchildPage.page.documentType === 'mapTopic' ? (
+              <small className="color-text-secondary d-inline-block">
+                &nbsp;&bull; {page.childPages.length} articles
+              </small>) : null}
             </li>
           )
         })}
