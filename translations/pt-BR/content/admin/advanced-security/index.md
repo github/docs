@@ -10,12 +10,11 @@ versions:
   enterprise-server: '>=2.22'
 topics:
   - Enterprise
+children:
+  - /about-licensing-for-github-advanced-security
+  - /enabling-github-advanced-security-for-your-enterprise
+  - /configuring-code-scanning-for-your-appliance
+  - /configuring-secret-scanning-for-your-appliance
+  - /viewing-your-github-advanced-security-usage
 ---
-
 ### Índice
-
-{% link_in_list /about-licensing-for-github-advanced-security %}
-{% link_in_list /enabling-github-advanced-security-for-your-enterprise %}
-{% link_in_list /configuring-code-scanning-for-your-appliance %}
-{% link_in_list /configuring-secret-scanning-for-your-appliance %}
-{% link_in_list /viewing-your-github-advanced-security-usage %}
