@@ -13,7 +13,7 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 //  -->
 export const ProductSiteTreeNew = () => {
   const router = useRouter()
-  const { productSiteTreeNew: currentProductTree } = useMainContext()
+  const { currentProductTree: currentProductTree } = useMainContext()
 
   if (!currentProductTree) {
     return null
