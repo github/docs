@@ -36,8 +36,8 @@ module.exports = function (app) {
 
   // *** Security ***
   app.use(require('./cors'))
-  app.use(require('./csp')) // Must come before helmet
   app.use(require('helmet')())
+  app.use(require('./csp')) // Must come after helmet
   app.use(require('./cookie-parser')) // Must come before csrf
   app.use(express.json()) // Must come before csrf
   app.use(require('./csrf'))

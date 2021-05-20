@@ -25,17 +25,19 @@ program
   .option('-r, --remove', 'Remove "early-access" from data and image paths.')
   .parse(process.argv)
 
-if (!(program.add || program.remove)) {
+const { add, remove, pathToEarlyAccessContentFile } = program.opts()
+
+if (!(add || remove)) {
   console.error('Error! Must specify either `--add` or `--remove`.')
   process.exit(1)
 }
 
 let earlyAccessContentAndDataFiles
-if (program.pathToEarlyAccessContentFile) {
-  earlyAccessContentAndDataFiles = path.posix.join(process.cwd(), program.pathToEarlyAccessContentFile)
+if (pathToEarlyAccessContentFile) {
+  earlyAccessContentAndDataFiles = path.posix.join(process.cwd(), pathToEarlyAccessContentFile)
 
   if (!fs.existsSync(earlyAccessContentAndDataFiles)) {
-    console.error(`Error! ${program.pathToEarlyAccessContentFile} can't be found. Make sure the path starts with 'content/early-access'.`)
+    console.error(`Error! ${pathToEarlyAccessContentFile} can't be found. Make sure the path starts with 'content/early-access'.`)
     process.exit(1)
   }
   earlyAccessContentAndDataFiles = [earlyAccessContentAndDataFiles]
@@ -60,7 +62,7 @@ earlyAccessContentAndDataFiles
 
     const replacements = {}
 
-    if (program.add) {
+    if (add) {
       dataRefs
         // Since we're adding early-access to the path, filter for those that do not already include it
         .filter(dataRef => !dataRef.includes('data early-access.'))
@@ -78,7 +80,7 @@ earlyAccessContentAndDataFiles
         })
     }
 
-    if (program.remove) {
+    if (remove) {
       dataRefs
         // Since we're removing early-access from the path, filter for those that include it
         .filter(dataRef => dataRef.includes('{% data early-access.'))
@@ -131,7 +133,7 @@ function checkVariable (dataRef) {
   if (!fs.existsSync(variablePath)) return false
 
   // If the variable file exists but doesn't have the referenced key, exclude it
-  const variableFileContent = yaml.safeLoad(fs.readFileSync(variablePath, 'utf8'))
+  const variableFileContent = yaml.load(fs.readFileSync(variablePath, 'utf8'))
   return variableFileContent[variableKey]
 }
 
