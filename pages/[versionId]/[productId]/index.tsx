@@ -12,7 +12,6 @@ import {
   ProductLandingContext,
   useProductLandingContext,
 } from 'components/context/ProductLandingContext'
-import { getThemeProps } from 'components/lib/getThemeProps'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
@@ -41,13 +40,8 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
 }
 
 const ProductPageInner = () => {
-  const {
-    title,
-    guideCards,
-    productUserExamples,
-    productCommunityExamples,
-    productCodeExamples,
-  } = useProductLandingContext()
+  const { title, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
+    useProductLandingContext()
   const { t } = useTranslation('product_landing')
   const { FEATURE_NEW_SITETREE } = useFeatureFlags()
 
@@ -101,7 +95,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      themeProps: getThemeProps(req),
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
     },

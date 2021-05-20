@@ -13,7 +13,7 @@ also gets an `is-current-page` class.
 */
 export const ProductSiteTree = () => {
   const router = useRouter()
-  const { productSiteTree: product, pageHidden, breadcrumbs } = useMainContext()
+  const { productSiteTree: product, page, breadcrumbs } = useMainContext()
   if (!product) {
     return null
   }
@@ -23,7 +23,7 @@ export const ProductSiteTree = () => {
       <AllProductsLink />
 
       <li title={product.title} className="sidebar-product mb-2">
-        {!pageHidden && (
+        {!page.hidden && (
           <Link href={product.href}>
             <a className="pl-4 pr-5 pb-1 f4 color-text-primary">{product.title}</a>
           </Link>

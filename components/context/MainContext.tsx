@@ -103,15 +103,22 @@ export type MainContextT = {
   productSiteTree?: ProductSiteTree
   productSiteTreeNew?: SiteTreePage
   featureFlags: FeatureFlags
-  pageHidden: boolean
-  pagePermalinks?: Array<{
-    languageCode: string
-    relativePath: string
-    title: string
-    pageVersionTitle: string
-    pageVersion: string
-    href: string
-  }>
+  page: {
+    languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
+    topics: Array<string>
+    fullTitle?: string
+    introPlainText?: string
+    hidden: boolean
+    permalinks?: Array<{
+      languageCode: string
+      relativePath: string
+      title: string
+      pageVersionTitle: string
+      pageVersion: string
+      href: string
+    }>
+  }
+
   enterpriseServerVersions: Array<string>
 }
 
@@ -137,17 +144,23 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
     relativePath: req.context.page?.relativePath,
-    pagePermalinks: req.context.page?.permalinks.map((obj: any) =>
-      pick(obj, [
-        'title',
-        'pageVersionTitle',
-        'pageVersion',
-        'href',
-        'relativePath',
-        'languageCode',
-      ])
-    ),
-    pageHidden: req.context.page.hidden || false,
+    page: {
+      languageVariants: req.context.page.languageVariants,
+      fullTitle: req.context.page.fullTitle,
+      topics: req.context.page.topics || [],
+      introPlainText: req.context.page?.introPlainText,
+      permalinks: req.context.page?.permalinks.map((obj: any) =>
+        pick(obj, [
+          'title',
+          'pageVersionTitle',
+          'pageVersion',
+          'href',
+          'relativePath',
+          'languageCode',
+        ])
+      ),
+      hidden: req.context.page.hidden || false,
+    },
     enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
