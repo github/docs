@@ -13,14 +13,30 @@ versions:
 
 {% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
 
-### 1. Choosing a branch and making changes
+### Choosing a branch and making changes
 
 1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
   ![Drop down menu to switch your current branch](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 2. Selecting changes to include in a commit
+### Choosing how to display diffs
+
+You can change the way diffs are displayed in {% data variables.product.prodname_desktop %} to suit your reviewing needs.
+
+To change how you view diffs, in the top-right corner of the diff view, click {% octicon "gear" aria-label="The Gear icon" %}.
+- To change how the entire diff is displayed, under "Diff display", select  **Unified** or **Split**. The Unified view shows changes linearly, while the Split view shows old content on the left side and new content on the right side.
+- To hide whitespace changes so you can focus on more substantive changes, select **Hide Whitespace Changes**.
+
+![Diff option menu](/assets/images/help/desktop/diff-selection.png)
+
+If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff. 
+- To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers. 
+- To see the entire file, right-click in the diff view and click **Expand Whole File**.
+
+![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
+
+### Selecting changes to include in a commit
 
 As you make changes to files in your text editor and save them locally, you will also see the changes in {% data variables.product.prodname_desktop %}.
 
@@ -41,20 +57,11 @@ As you make changes to files in your text editor and save them locally, you will
 
 If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
-{% note %}
-
-**Note:** Split diff displays are currently in beta and subject to change.
-
-{% endnote %}
-
-1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**.
-
-  ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
+To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
 
   ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
-### 3. Discarding changes
+### Discarding changes
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
 Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
@@ -87,7 +94,7 @@ To discard a group of changed lines, right click the vertical bar to the right o
   ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. Write a commit message and push your changes
+### Write a commit message and push your changes
 
 Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 
