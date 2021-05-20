@@ -40,13 +40,8 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
 }
 
 const ProductPageInner = () => {
-  const {
-    title,
-    guideCards,
-    productUserExamples,
-    productCommunityExamples,
-    productCodeExamples,
-  } = useProductLandingContext()
+  const { title, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
+    useProductLandingContext()
   const { t } = useTranslation('product_landing')
   const { FEATURE_NEW_SITETREE } = useFeatureFlags()
 
