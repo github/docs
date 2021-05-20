@@ -1,5 +1,6 @@
 ---
 title: Importing your projects to GitHub
+intro: You can import your source code to GitHub using a variety of different tools.
 shortTitle: Importing your projects
 redirect_from:
   - /categories/67/articles/
