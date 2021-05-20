@@ -1,8 +1,6 @@
 import { useMainContext } from 'components/context/MainContext'
 
-export type FeatureFlags = {
-  FEATURE_NEW_SITETREE: boolean
-}
+export type FeatureFlags = {}
 
 export const useFeatureFlags = (): FeatureFlags => {
   const { featureFlags } = useMainContext()
