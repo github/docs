@@ -1,6 +1,6 @@
 ---
 title: Importing your projects to GitHub
-intro: You can import your source code to GitHub and work with supported Subversion features.
+intro: You can import your source code to GitHub using a variety of different methods.
 shortTitle: Importing your projects
 redirect_from:
   - /categories/67/articles/
