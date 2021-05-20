@@ -10,6 +10,12 @@ topics:
   - Jobs
 ---
 
+{% warning %}
+
+Deprecation note: GitHub Jobs is now deprecated. The last date to post a job was May 19, 2021. The GitHub Jobs site will shut down entirely on August 19, 2021. For more information, see the [GitHub blog post](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/).
+
+{% endwarning %}
+
 Before you can post a job, you must create a {% data variables.product.prodname_dotcom %} account and verify your email address. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)" and "[Verifying your email address](/articles/verifying-your-email-address)."
 
 ### Best practices for writing a job post
