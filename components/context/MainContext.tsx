@@ -25,36 +25,17 @@ type VersionItem = {
   versionTitle: string
 }
 
-type Article = {
-  href: string
-  title: string
-  shortTitle?: string
-  hidden?: boolean
-}
-type ProductSiteTree = {
-  title: string
-  href: string
-  external?: boolean
-  categories?: Record<
-    string,
-    Article & {
-      standalone?: boolean
-      articles?: Record<string, Article>
-      maptopics?: Record<string, Article & { articles?: Record<string, Article> }>
-    }
-  >
-}
-
-export type SiteTreePage = {
+export type CurrentProductTree = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
     title: string
+    shortTitle: string
   }
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<SiteTreePage>
+  childPages: Array<CurrentProductTree>
 }
 
 type DataT = {
@@ -100,18 +81,24 @@ export type MainContextT = {
   currentLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  productSiteTree?: ProductSiteTree
-  productSiteTreeNew?: SiteTreePage
+  currentProductTree?: CurrentProductTree
   featureFlags: FeatureFlags
-  pageHidden: boolean
-  pagePermalinks?: Array<{
-    languageCode: string
-    relativePath: string
-    title: string
-    pageVersionTitle: string
-    pageVersion: string
-    href: string
-  }>
+  page: {
+    languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
+    topics: Array<string>
+    fullTitle?: string
+    introPlainText?: string
+    hidden: boolean
+    permalinks?: Array<{
+      languageCode: string
+      relativePath: string
+      title: string
+      pageVersionTitle: string
+      pageVersion: string
+      href: string
+    }>
+  }
+
   enterpriseServerVersions: Array<string>
 }
 
@@ -137,17 +124,23 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
     relativePath: req.context.page?.relativePath,
-    pagePermalinks: req.context.page?.permalinks.map((obj: any) =>
-      pick(obj, [
-        'title',
-        'pageVersionTitle',
-        'pageVersion',
-        'href',
-        'relativePath',
-        'languageCode',
-      ])
-    ),
-    pageHidden: req.context.page.hidden || false,
+    page: {
+      languageVariants: req.context.page.languageVariants,
+      fullTitle: req.context.page.fullTitle,
+      topics: req.context.page.topics || [],
+      introPlainText: req.context.page?.introPlainText,
+      permalinks: req.context.page?.permalinks.map((obj: any) =>
+        pick(obj, [
+          'title',
+          'pageVersionTitle',
+          'pageVersion',
+          'href',
+          'relativePath',
+          'languageCode',
+        ])
+      ),
+      hidden: req.context.page.hidden || false,
+    },
     enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
@@ -166,19 +159,8 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     ),
     allVersions: req.context.allVersions,
     // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
-    productSiteTree: !req.context.FEATURE_NEW_SITETREE
-      ? JSON.parse(
-          JSON.stringify(
-            req.context.siteTree[req.context.currentLanguage][req.context.currentVersion].products[
-              req.context.currentProduct
-            ]
-          )
-        )
-      : null,
-    productSiteTreeNew: req.context.FEATURE_NEW_SITETREE ? req.context.siteTree : null,
-    featureFlags: {
-      FEATURE_NEW_SITETREE: req.context.FEATURE_NEW_SITETREE || false,
-    },
+    currentProductTree: JSON.parse(JSON.stringify(req.context.currentProductTree)),
+    featureFlags: {},
   }
 }
 

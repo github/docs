@@ -1,9 +1,5 @@
-require('../../lib/feature-flags')
 const { getDOM } = require('../helpers/supertest')
 const { oldestSupported, latest } = require('../../lib/enterprise-server-releases')
-
-const testNewSiteTree = process.env.FEATURE_NEW_SITETREE ? test : test.skip
-const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -23,12 +19,7 @@ describe('header', () => {
   })
 
   describe('language links', () => {
-    testOldSiteTree('lead to the same page in a different language', async () => {
-      const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
-      expect($('#languages-selector a[href="/ja/github/administering-a-repository/managing-a-branch-protection-rule"]').length).toBe(1)
-    })
-
-    testNewSiteTree('lead to the same page in a different language', async () => {
+    test('lead to the same page in a different language', async () => {
       const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
       expect($('#languages-selector a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]').length).toBe(1)
     })

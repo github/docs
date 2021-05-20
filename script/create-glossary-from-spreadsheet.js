@@ -11,7 +11,7 @@ const path = require('path')
 const yaml = require('js-yaml')
 const inputFile = path.join(__dirname, '../data/glossary.yml')
 
-const glossary = yaml.safeLoad(fs.readFileSync(inputFile, 'utf8'))
+const glossary = yaml.load(fs.readFileSync(inputFile, 'utf8'))
 
 console.log(glossary)
 const external = []
