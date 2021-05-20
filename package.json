@@ -209,11 +209,5 @@
   "engines": {
     "node": ">= 16.0.0"
   },
-  "repository": "https://github.com/github/docs",
-  "husky": {
-    "hooks": {
-      "pre-commit": "node script/prevent-translation-commits.js",
-      "pre-push": "npm run prevent-pushes-to-main"
-    }
-  }
+  "repository": "https://github.com/github/docs"
 }
