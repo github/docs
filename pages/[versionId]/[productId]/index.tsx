@@ -21,8 +21,6 @@ import { CommunityExamples } from 'components/landing/CommunityExamples'
 import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useFeatureFlags } from 'components/hooks/useFeatureFlags'
-import { AllArticlesProduct } from 'components/landing/AllArticlesProduct'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
 
 type Props = {
@@ -43,7 +41,6 @@ const ProductPageInner = () => {
   const { title, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
     useProductLandingContext()
   const { t } = useTranslation('product_landing')
-  const { FEATURE_NEW_SITETREE } = useFeatureFlags()
 
   return (
     <DefaultLayout>
@@ -82,7 +79,7 @@ const ProductPageInner = () => {
       )}
 
       <LandingSection sectionLink="all-docs" title={`All ${title} Docs`}>
-        {FEATURE_NEW_SITETREE ? <ProductArticlesList /> : <AllArticlesProduct />}
+        <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>
   )
