@@ -1,4 +1,3 @@
-{%- if FEATURE_NEW_SITETREE -%}
 <nav class="breadcrumbs f5" aria-label="Breadcrumb">
   {%- for breadcrumb in breadcrumbs -%}
     {%- if breadcrumb.href == '' -%}
@@ -8,14 +7,3 @@
     {%- endif -%}
   {%- endfor -%}
 </nav>
-{%- else -%}
-<nav class="breadcrumbs f5" aria-label="Breadcrumb">
-  {%- for breadcrumb in breadcrumbs -%}
-    {%- if breadcrumb[1].href == '' -%}
-      <span>{{ breadcrumb[1].title }}</span>
-    {%- else -%}
-      <a title="{{ breadcrumb[0] }}: {{ breadcrumb[1].title }}" href="{{ breadcrumb[1].href }}" class="d-inline-block {% if breadcrumb[1].href == currentPath %}color-text-tertiary{% endif %}">{{ breadcrumb[1].title }}</a>
-    {%- endif -%}
-  {%- endfor -%}
-</nav>
-{%- endif -%}
