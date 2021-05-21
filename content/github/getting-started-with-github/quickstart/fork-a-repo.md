@@ -18,7 +18,7 @@ topics:
 ---
 ### About forks
 
-Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
 #### Propose changes to someone else's project
 
@@ -94,7 +94,6 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
   > remove: Total 10 (delta 1), reused 10 (delta 1)
   > Unpacking objects: 100% (10/10), done.
   ```
-
 Now, you have a local copy of your fork of the Spoon-Knife repository.
 
 #### Step 3: Configure Git to sync your fork with the original Spoon-Knife repository
@@ -140,7 +139,6 @@ You can make any changes to a fork, including:
 - **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/articles/about-pull-requests).
 
 ### Find another repository to fork
-
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
