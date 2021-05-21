@@ -1,6 +1,6 @@
 ---
 title: GitHub glossary
-intro: 'Below are a list of some Git and {% data variables.product.prodname_dotcom %} specific terms we use across our sites and documentation.'
+intro:  'When working with Git and GitHub, you may find Technical Terms that powers the {% data variables.product.prodname_dotcom %} sites and its documentation. We can find the definition or meaning of these words directly from the Glossary.'
 redirect_from:
   - /articles/github-glossary
   - /github/getting-started-with-github/github-glossary
