@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
 topics:
   - Policy
-  - Legal
+  - Legal 
 ---
 
 We understand that copyrighted, trademarked, or private content may get published on GitHub – either accidentally or on purpose – sometimes in repositories that you do not own. Because the nature of this content varies, and because of different applicable laws, each category has its own, distinct reporting requirements outlined in our policies.
@@ -23,3 +23,4 @@ The GitHub Trademark Policy can be used to report content that appears to use yo
 
 ### [GitHub Private Information Removal Policy](/github/site-policy/github-private-information-removal-policy)
 The GitHub Private Information Removal Policy can be used to report data that is private (confidential and poses a security risk), but that is not necessarily protected by copyright or trademark.
+
