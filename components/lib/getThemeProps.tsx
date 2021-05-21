@@ -23,7 +23,7 @@ export const getThemeProps = (req: any, mode?: 'css') => {
   } = {}
   const defaultProps = mode === 'css' ? defaultCSSThemeProps : defaultThemeProps
 
-  if (req.cookies.color_mode) {
+  if (req.cookies?.color_mode) {
     try {
       cookieValue = JSON.parse(decodeURIComponent(req.cookies.color_mode))
     } catch {

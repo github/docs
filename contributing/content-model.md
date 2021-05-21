@@ -324,7 +324,7 @@ Language and framework guides:
 
 ### Guides 
 
-We collectively refer to procedures, tutorials, and quickstarts as "guides" across the site.
+We collectively refer to tutorials and quickstarts as "guides" across the site. On `/guides` landing pages, we include tutorials, quickstarts, and certain procedural articles in the list of guides for a doc set.
 
 ## Contents of a GitHub Docs article
 
