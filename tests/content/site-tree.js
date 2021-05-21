@@ -22,8 +22,6 @@ describe('siteTree', () => {
   })
 
   test('object order and structure', () => {
-    expect(Object.keys(siteTree)[0]).toBe('en')
-    expect(Object.keys(siteTree.en)[0]).toBe(nonEnterpriseDefaultVersion)
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].href).toBe('/en/github')
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[0].childPages[0].href).toBe('/en/github/getting-started-with-github')
   })
