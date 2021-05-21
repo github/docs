@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% tip %}
@@ -27,7 +29,7 @@ versions:
 3. En el campo de búsqueda, escribe el nombre del archivo que deseas buscar. ![Campo de búsqueda Buscar archivo](/assets/images/help/search/find-file-search-field.png)
 4. En la lista de resultados, haz clic en el archivo que deseas buscar.
 
-### Further reading
+### Leer más
 
 - "[Acerca de buscar en GitHub](/articles/about-searching-on-github)"
 

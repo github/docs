@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 A API de Licenças retorna metadados sobre as licenças de código aberto populares e informações sobre o arquivo de licença de um determinado projeto.

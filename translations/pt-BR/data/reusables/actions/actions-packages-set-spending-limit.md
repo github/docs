@@ -1,1 +1,1 @@
-You can set a specific spending limit or, for some accounts, allow unlimited spending. O limite de gastos aplica-se aos seus excessos conjuntos para {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}.
+Você pode definir um limite de gastos específico ou, em algumas contas, permitir gastos ilimitados. O limite de gastos aplica-se aos seus excessos conjuntos para {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}.

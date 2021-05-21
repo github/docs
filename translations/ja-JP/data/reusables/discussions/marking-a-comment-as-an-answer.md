@@ -1,14 +1,14 @@
-You can mark a comment in the discussion as an answer to the discussion if a discussion is within a category that accepts answers. 詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
+ディスカッションが回答を受け付けるカテゴリ内にある場合、ディスカッション内のコメントを回答としてマークできます。 詳しい情報については、「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)」を参照してください。
 
-When you mark a question as an answer, {% data variables.product.product_name %} will highlight the comment and replies to the comment to help visitors quickly find the answer.
+質問を回答としてマークすると、{% data variables.product.product_name %}はそのコメントとコメントに対する返信をハイライトし、アクセスしてきたユーザが回答を素早く見つけやすくします。
 
-![Comment marked as answer to a discussion](/assets/images/help/discussions/comment-marked-as-answer.png)
+![ディスカッションへの回答としてマークされたコメント](/assets/images/help/discussions/comment-marked-as-answer.png)
 
-You can't mark a threaded comment in response to a comment as the answer to a discussion. You also can't mark a minimized comment as the answer to a discussion.
+コメントに対するレスポンスのスレッド化されたコメントを、ディスカッションに対する回答としてマークすることはできません。 また、最小化されたコメントをディスカッションへの回答としてマークすることもできません。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
-1. In the list of discussions, click the unanswered discussion you want to mark as answered. ![Unanswered discussion](/assets/images/help/discussions/unanswered-discussion.png)
-1. In the discussion, find the comment you want to mark as the answer.
-1. In the upper-right corner of the comment, click {% octicon "check-circle" aria-label="The circular check icon" %}. !["Mark as answer" circular check icon for marking comment as answer in a discussion](/assets/images/help/discussions/comment-mark-as-answer-button.png)
-1. Optionally, to unmark a comment as the answer, click {% octicon "check-circle-fill" aria-label="The filled circular check icon" %}.
+1. ディスカッションのリスト中で、回答済みとしてマークしたい未回答のディスカッションをクリックしてください。 ![未回答のディスカッション](/assets/images/help/discussions/unanswered-discussion.png)
+1. ディスカッション中で、回答としてマークしたいコメントを見つけてください。
+1. コメントの右上で、{% octicon "check-circle" aria-label="The circular check icon" %}をクリックしてください。 !["回答としてマーク" コメントをディスカッションへの回答としてマークするための循環チェックアイコン](/assets/images/help/discussions/comment-mark-as-answer-button.png)
+1. あるいは、コメントの回答としてのマークを解除するには{% octicon "check-circle-fill" aria-label="The filled circular check icon" %}をクリックしてください。

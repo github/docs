@@ -1,8 +1,8 @@
 ---
 title: ディスカッションを使用してメンテナとコラボレーションする
 shortTitle: メンテナとコラボレーションする
-intro: ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。
-permissions: リポジトリへの読み取り権限を持つユーザは、リポジトリでのディスカッションを開始して参加できます。
+intro: 'ディスカッションでプロジェクトのメンテナと連絡を取り合うことにより、{% data variables.product.product_name %} でプロジェクトの目標、計画、健全性、およびコミュニティに貢献できます。'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -45,4 +45,4 @@ versions:
 ### 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} での書き方と書式設定について](/github/writing-on-github/about-writing-and-formatting-on-github)」
-- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/communities/maintaining-your-safety-on-github)」

@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 La API de Solicitudes de Extracción te permite listar, ver, editar, crear e incluso fusionar solicitudes de extracción. Los comentarios en las solicitudes de extracción se pueden administrar a través de la [API de Comentarios de los Informes de Problemas](/rest/reference/issues#comments).
@@ -37,7 +39,7 @@ Las solicitudes de extracción tienen estas posibles relaciones de enlaces:
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `self`            | La ubicación de la API para esta Solicitud de Extracción.                                                                                                                                         |
 | `html`            | La ubicación de HTML para esta Solicitud de Extracción.                                                                                                                                           |
-| `issue`           | La ubicación de la API para el [informe de problemas](/rest/reference/issues) de esta Solicitud de Extracción.                                                                                    |
+| `propuesta`       | La ubicación de la API para el [informe de problemas](/rest/reference/issues) de esta Solicitud de Extracción.                                                                                    |
 | `comments`        | La ubicación de la API para los [Comentarios del informe de problemas](/rest/reference/issues#comments) de esta Solicitud de Extracción.                                                          |
 | `review_comments` | La ubicación de la API para los [Comentarios de revisión](/rest/reference/pulls#comments) de esta Solicitud de Extracción.                                                                        |
 | `review_comment`  | La [plantilla de URL](/rest#hypermedia) para construir la ubicación de la API para un [Comentario de revisión](/rest/reference/pulls#comments) en el repositorio de esta Solicitud de Extracción. |

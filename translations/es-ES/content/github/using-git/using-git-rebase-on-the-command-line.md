@@ -137,6 +137,6 @@ El cargar forzadamente tiene implicaciones serias ya que cambia la secuencia del
 
 {% endwarning %}
 
-### Further reading
+### Leer más
 
 * "[Resolver conflictos de fusión después de una rebase de Git](/articles/resolving-merge-conflicts-after-a-git-rebase)"

@@ -4,9 +4,11 @@ intro: 'Puedes contactar a {% data variables.contact.enterprise_support %} para 
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
-mapTopic: verdadero
+mapTopic: true
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 

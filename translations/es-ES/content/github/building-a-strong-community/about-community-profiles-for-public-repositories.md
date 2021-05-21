@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-community-profiles-for-public-repositories
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 La lista de verificación del perfil de comunidad se comprueba para ver si un proyecto incluye un archivo de salud de comunidad recomendado, como README, CODE_OF_CONDUCT, LICENSE o CONTRIBUTING, en una ubicación admitida. Para obtener más información, consulta "[ una ubicación admitida](/articles/accessing-a-project-s-community-profile)".
@@ -30,7 +32,7 @@ Si un proyecto no tiene un archivo recomendado, puedes hacer clic en **Proponer*
 
 ![Lista de verificación del perfil de comunidad con estándares de comunidad recomendados para colaboradores](/assets/images/help/repository/propose-button-community-profile.png)
 
-### Further reading
+### Leer más
 
 - "[Agregar un código de conducta a tu proyecto](/articles/adding-a-code-of-conduct-to-your-project)"
 - "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)"

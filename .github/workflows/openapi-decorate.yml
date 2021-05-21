@@ -1,9 +1,12 @@
 name: OpenAPI generate decorated schema files
 
+# **What it does**:
+# **Why we have it**:
+# **Who does it impact**:
+
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened]
 
 jobs:
   generate-decorated-files:
@@ -25,13 +28,10 @@ jobs:
         run: script/rest/update-files.js --decorate-only
 
       - name: Check in the decorated files
-        uses: EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575
+        uses: EndBug/add-and-commit@b3c7c1e078a023d75fb0bd326e02962575ce0519
         with:
           # The arguments for the `git add` command
           add: 'lib/rest/static/decorated'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged

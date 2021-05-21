@@ -1,5 +1,5 @@
 const languages = require('../lib/languages')
-const products = require('../lib/all-products')
+const { productMap } = require('../lib/all-products')
 const { deprecated } = require('../lib/enterprise-server-releases.js')
 
 const pathRegExps = [
@@ -9,7 +9,7 @@ const pathRegExps = [
     .map(language => new RegExp(`^/${language.code}(/.*)?$`, 'i')),
 
   // Disallow indexing of WIP products
-  ...Object.values(products)
+  ...Object.values(productMap)
     .filter(product => product.wip || product.hidden)
     .map(product => [
       new RegExp(`^/.*?${product.href}`, 'i'),
@@ -30,7 +30,7 @@ function blockIndex (path) {
   return pathRegExps.some(pathRe => pathRe.test(path))
 }
 
-const middleware = (req, res, next) => {
+const middleware = function blockRobots (req, res, next) {
   if (blockIndex(req.path)) res.set('x-robots-tag', 'noindex')
   return next()
 }

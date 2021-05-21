@@ -11,9 +11,11 @@ permissions: 任何对仓库有读取权限的人都可以查看该仓库的包�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### 查看仓库的包
 

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/restoring-a-deleted-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
@@ -29,9 +31,9 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ### Restoring a deleted repository that was owned by an organization
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
 {% data reusables.user_settings.restore-repo %}
 {% data reusables.user_settings.restore-confirmation %}

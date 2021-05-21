@@ -8,6 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% tip %}
@@ -23,7 +26,7 @@ After changing your organization's name, your old organization name becomes avai
 #### Changes that occur automatically
 
 - {% data variables.product.prodname_dotcom %} automatically redirects references to your repositories.  Web links to your organization's existing **repositories** will continue to work. This can take a few minutes to complete after you initiate the change.
-- You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)."
+- You can continue pushing your local repositories to the old remote tracking URL without updating it. However, we recommend you update all existing remote repository URLs after changing your organization name. Because your old organization name is available for use by anyone else after you change it, the new organization owner can create repositories that override the redirect entries to your repository. For more information, see "[Managing remote repositories](/github/getting-started-with-github/managing-remote-repositories)."
 - Previous Git commits will also be correctly attributed to users within your organization.
 
 #### Changes that aren't automatic
@@ -42,5 +45,4 @@ After changing your organization's name:
 
 ### Дополнительная литература
 
-* "[Changing a remote's URL](/articles/changing-a-remote-s-url)"
 * "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"

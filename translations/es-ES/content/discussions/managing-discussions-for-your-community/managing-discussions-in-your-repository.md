@@ -1,7 +1,7 @@
 ---
 title: Adminsitrar los debates en tu repositorio
-intro: Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.
-permissions: Los administradores de repositorio y las personas con acceso de escritura o superior en un repositorio pueden administrar los debates del mismo.
+intro: 'Puedes categorizar, resaltar, transferir o borrar los debates en un repositorio.'
+permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,11 +12,11 @@ versions:
 
 {% data reusables.discussions.about-discussions %} Para obtener más información sobre los debates, consulta la sección "[Acerca de los debates](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-Los propietarios de la organización pueden elegir los permisos que se requieren para crear un debate en los repositorios que pertenezcan a la organización. Para obtener más información, consulta la sección "[Administrar la creación de debates para los repositorios de tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-discussion-creation-for-repositories-in-your-organization)".
+Los propietarios de la organización pueden elegir los permisos que se requieren para crear un debate en los repositorios que pertenezcan a la organización. Para obtener más información, consulta la sección "[Administrar la creación de debates para los repositorios de tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
-Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. El crear un código de conducta o lineamientos de contribución para que los colaboradores los sigan te ayudará a proporcionar un foro colaborativo y productivo. Para obtener más información sobre cómo crear recursos comunitarios, consulta las secciones "[Agregar un código de conducta a tu proyecto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" y "[Configurar los lineamientos para los contribuyentes de un repositorio](/github/building-a-strong-community/setting-guidelines-for-repository-contributors)".
+Como mantenedor de debates, puedes crear recursos comunitarios para impulsar los debates que se alinien con la meta general del proyecto y mantener así un foro abierto y amistoso para los colaboradores. El crear un código de conducta o lineamientos de contribución para que los colaboradores los sigan te ayudará a proporcionar un foro colaborativo y productivo. Para obtener más información sobre cómo crear recursos comunitarios, consulta las secciones "[Agregar un código de conducta a tu proyecto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" y "[Configurar los lineamientos para los contribuyentes de un repositorio](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
-Para obtener más información sobre cómo proporcionar un debate sano, consulta la sección "[Moderar los comentarios y conversaciones](/github/building-a-strong-community/moderating-comments-and-conversations)".
+Para obtener más información sobre cómo proporcionar un debate sano, consulta la sección "[Moderar los comentarios y conversaciones](/communities/moderating-comments-and-conversations)".
 
 ### Prerrequisitos
 
@@ -24,7 +24,7 @@ Para administrar los debates de un repositorio, éste deberá habilitar dicha fu
 
 ### Cambiar la categoría de un debate
 
-Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. Para obtener más información, consulta el artículo "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
+Puedes categorizar los debates para ayudar a que los miembros de la comunidad encuentren aquellos que tengan alguna relación. Para obtener más información, consulta la sección "[Administrar las categorías para los debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)".
 
 También puedes migrar un debate a una categoría diferente.
 

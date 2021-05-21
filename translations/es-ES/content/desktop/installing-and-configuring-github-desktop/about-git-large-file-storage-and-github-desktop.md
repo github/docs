@@ -14,6 +14,6 @@ Para utilizar {% data variables.large_files.product_name_short %} con {% data va
 
 Después de que configuras a {% data variables.large_files.product_name_short %} para rastrear los archivos en un repositorio, puedes acceder sin problema y administrar archivos grandes con {% data variables.product.prodname_desktop %} como lo harías con cualquier otro archivo en el repositorio.
 
-### Further reading
+### Leer más
 - "[Trabajar con archivos grandes](/github/managing-large-files/working-with-large-files)"
 - "[Control de versiones de archivos grandes](/github/managing-large-files/versioning-large-files)"

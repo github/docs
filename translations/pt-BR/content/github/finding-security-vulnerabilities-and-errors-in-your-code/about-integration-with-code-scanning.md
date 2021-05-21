@@ -4,9 +4,12 @@ shortTitle: Sobre a integração
 intro: 'Você pode executar {% data variables.product.prodname_code_scanning %} externamente e depois exibir os resultados em {% data variables.product.prodname_dotcom %} ou configurar webhooks que escutem a atividade de {% data variables.product.prodname_code_scanning %} no seu repositório.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -17,7 +20,7 @@ Se você usar uma ferramenta de análise estática de terceiros que pode produzi
 
 ### Integrações com webhooks
 
-Você pode usar {% data variables.product.prodname_code_scanning %} webhooks para criar ou configurar integrações, tais como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que assinam os eventos {% data variables.product.prodname_code_scanning %} no seu repositório. Por exemplo, você poderia criar uma integração que criasse um problema no {% data variables.product.product_location %} ou que envia uma notificação do Slack quando um novo alerta de {% data variables.product.prodname_code_scanning %} for adicionado ao seu repositório. Para obter mais informações, consulte "[Criar webhooks](/developers/webhooks-and-events/creating-webhooks)" e "[Eventos de Webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
+Você pode usar {% data variables.product.prodname_code_scanning %} webhooks para criar ou configurar integrações, tais como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que assinam os eventos {% data variables.product.prodname_code_scanning %} no seu repositório. Por exemplo, você poderia criar uma integração que criasse um problema no {% data variables.product.product_name %} ou que envia uma notificação do Slack quando um novo alerta de {% data variables.product.prodname_code_scanning %} for adicionado ao seu repositório. Para obter mais informações, consulte "[Criar webhooks](/developers/webhooks-and-events/creating-webhooks)" e "[Eventos de Webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".
 
 ### Leia mais
 

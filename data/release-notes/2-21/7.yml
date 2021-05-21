@@ -3,6 +3,7 @@ sections:
   bugs:
     - 'A service health check caused session growth resulting in filesystem inode exhaustion. {% comment %} https://github.com/github/enterprise2/pull/22481, https://github.com/github/enterprise2/pull/22475 {% endcomment %}'
     - "Upgrading using a hotpatch could fail with an error: `'libdbi1' was not found` {% comment %} https://github.com/github/enterprise2/pull/22556, https://github.com/github/enterprise2/pull/22552 {% endcomment %}"
+    - "Configuring a repository's permission to `Triage` or `Maintain` no longer fails."
   known_issues:
     - 'On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
     - 'Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'

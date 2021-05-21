@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 Puedes buscar wikis globalmente a través de todos los {% data variables.product.product_name %}, o buscar wikis dentro de un repositorio u organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
@@ -42,6 +44,6 @@ El calificador `updated` (actualizada) empareja páginas wiki que fueron actuali
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <code>updated:<em>YYYY-MM-DD</em></code> | [**usage updated:>2016-01-01**](https://github.com/search?q=usage+updated%3A>2016-01-01&type=Wikis) coincidirá con las páginas de wiki con la palabra "uso" que se actualizaron por última vez después del 2016-01-01. |
 
-### Further reading
+### Leer más
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"

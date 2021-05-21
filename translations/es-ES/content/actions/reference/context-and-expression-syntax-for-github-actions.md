@@ -11,18 +11,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Acerca de los contextos y las expresiones
 
-Puedes usar expresiones para establecer variables programáticamente en archivos de flujo de trabajo y contextos de acceso. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto, o funciones. Puedes combinar literales, referencias de contexto y funciones usando operadores.
+Puedes usar expresiones para establecer variables programáticamente en archivos de flujo de trabajo y contextos de acceso. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores.
 
 Las expresiones se utilizan comúnmente con la palabra clave condicional `if` en un archivo de flujo de trabajo para determinar si un paso debe ejecutar. Cuando un condicional `if` es `true`, se ejecutará el paso.
 
-Debes usar una sintaxis específica para decirle a {% data variables.product.prodname_dotcom %} que evalúe una expresión en vez de tratarla como cadena.
+Debes usar una sintaxis específica para decirle a {% data variables.product.prodname_dotcom %} que evalúe una expresión en lugar de tratarla como una cadena.
 
 {% raw %}
 `${{ <expression> }}`
@@ -58,7 +60,7 @@ Los contextos son una manera de acceder a información acerca de las ejecuciones
 | Nombre del contexto | Tipo     | Descripción                                                                                                                                                                                                                                                        |
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `github`            | `objeto` | Información sobre la ejecución del flujo de trabajo. Para obtener más información, consulta [github</code> context](#github-context).                                                                                                                              |
-| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta contexto de [`env`](#env-context).                                                                                                       |
+| `env`               | `objeto` | Contiene variables de entorno establecidas en un flujo de trabajo, trabajo o paso. Para obtener más información, consulta el [contexto `env`](#env-context).                                                                                                       |
 | `job`               | `objeto` | Información sobre el trabajo actualmente en ejecución. Para obtener más información, consulta contexto de [`job`](#job-context).                                                                                                                                   |
 | `pasos`             | `objeto` | Información sobre los pasos que se han ejecutado en este trabajo. Para obtener más información, consulta contexto de [`steps`](#steps-context).                                                                                                                    |
 | `runner`            | `objeto` | Incluye información sobre el ejecutor que está realizando el trabajo actual. Para más información, consulta [Contexto del `ejecutador (runner)`](#runner-context).                                                                                                 |
@@ -67,11 +69,11 @@ Los contextos son una manera de acceder a información acerca de las ejecuciones
 | `matrix`            | `objeto` | Brinda acceso a los parámetros de la matriz que configuraste para el puesto actual. Por ejemplo, si configuraste una matriz de construcción con las versiones `os` y `node`, el objeto de contexto `matrix` incluye las versiones `os` y `node` del puesto actual. |
 | `needs`             | `objeto` | Habilita el acceso de las salidas de todos los jobs que se definen como una dependencia para el job actual. Para obtener más información, consulta [`needs` context](#needs-context).                                                                              |
 
-Como parte de una expresión, puedes acceder a la información del contexto usando una de dos sintaxis.
+Como parte de una expresión, puedes acceder a la información del contexto usando una de las siguientes dos sintaxis.
 - Sintaxis de índice: `github['sha']`
 - Sintaxis de desreferencia de propiedad: `github.sha`
 
-Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir con lo siguiente:
+Para usar la sintaxis de desreferencia de propiedad, el nombre de la propiedad debe cumplir los siguientes requisitos:
 - comenzar con `a-Z` o `_`.
 - estar seguida por `a-Z` `0-9` `-` o `_`.
 
@@ -91,11 +93,11 @@ El contexto de `github` contiene información sobre la ejecución del flujo de t
 | `github.action`           | `secuencia` | El nombre de la acción que se está ejecutando actualmente. {% data variables.product.prodname_dotcom %} elimina caracteres especiales o usa el nombre `run` cuando el paso actual ejecuta un script.  Si usas la misma acción más de una vez en el mismo trabajo, el nombre incluirá un sufijo con el número de secuencia.  Por ejemplo, el primer script que ejecutes tendrá el nombre `run1`, y el segundo script será nombrado `run2`. Del mismo modo, la segunda invocación de `actions/checkout` será `actionscheckout2`. |
 | `github.action_path`      | `secuencia` | La ruta en donde se ubica tu acción. Puedes utilizar esta ruta para acceder fácilmente a los archivos ubicados en el mismo repositorio que tu acción. Este atributo solo es compatible con las acciones de los pasos de ejecución compuestos.                                                                                                                                                                                                                                                                                  |
 | `github.actor`            | `secuencia` | El inicio de sesión del usuario que inició la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.base_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.event`            | `objeto`    | La carga de webhook del evento completo. Para obtener más información, consulta "[Eventos que activan los flujos de trabajo](/articles/events-that-trigger-workflows/)". "Puedes acceder a propiedades individuales del evento que utiliza este contexto.                                                                                                                                                                                                                                                                      |
 | `github.event_name`       | `secuencia` | El nombre del evento que activó la ejecución del flujo de trabajo.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `github.event_path`       | `secuencia` | La ruta a la carga del webhook del evento completo en el ejecutor.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es una `pull_request`.                                                                                                                                                                                                                                                                                                       |
+| `github.head_ref`         | `secuencia` | La rama `head_ref` o fuente de la solicitud de extracción en una ejecución de flujo de trabajo. Esta propiedad solo está disponible cuando el evento que activa una ejecución de flujo de trabajo es ya sea `pull_request` o `pull_request_target`.                                                                                                                                                                                                                                                                            |
 | `github.job`              | `secuencia` | El [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) del job actual.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `github.ref`              | `secuencia` | La rama o ref de etiqueta que activó la ejecución del flujo de trabajo. Para las ramas, está en el formato `refs/heads/<branch_name>`, y para las etiquetas está en `refs/tags/<tag_name>`.                                                                                                                                                                                                                                                                                                                        |
 | `github.repository`       | `secuencia` | El nombre del repositorio y del propietario. Por ejemplo, `Codertocat/Hello-World`.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -122,7 +124,7 @@ Si quieres usar el valor de una variable de entorno dentro de un ejecutor, usa e
 
 #### contexto de `job`
 
-El contexto de `job` contiene información sobre el trabajo de ejecución actual.
+El contexto `trabajo` contiene información sobre el trabajo de ejecución actual.
 
 | Nombre de la propiedad                    | Tipo        | Descripción                                                                                                                                                                                                                                                                            |
 | ----------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -138,7 +140,7 @@ El contexto de `job` contiene información sobre el trabajo de ejecución actual
 
 #### contexto de `steps`
 
-El contexto de `steps` contiene información sobre los pasos del trabajo actual que ya se han ejecutado.
+El contexto `steps` contiene información sobre los pasos en el trabajo actual que ya se ha ejecutado.
 
 | Nombre de la propiedad                              | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,13 +152,14 @@ El contexto de `steps` contiene información sobre los pasos del trabajo actual 
 
 #### Contexto de `runner`
 
-El contexto `runner` contiene información sobre el ejecutador (runner) que está ejecutando el trabajo actual.
+El contexto de `runner` contiene información sobre el ejecutor que está ejecutando el trabajo actual.
 
-| Nombre de la propiedad | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `runner.os`            | `secuencia` | El sistema operativo del ejecutor que ejecuta el trabajo. Los valores posibles son `Linux`, `Windows` o `macOS`.                                                                                                                                                                                                                                                                                    |
-| `runner.temp`          | `secuencia` | La ruta del directorio temporal para el ejecutor. Se garantiza que este directorio estará vacío al inicio de cada trabajo, incluso en los ejecutores autoalojados.                                                                                                                                                                                                                                  |
-| `runner.tool_cache`    | `secuencia` | La ruta del directorio que contiene algunas de las herramientas preinstaladas para los ejecutores alojados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
+| Nombre de la propiedad | Type        | Descripción                                                                                                                                                                                                                                                                                                |
+| ---------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `runner.os`            | `secuencia` | El sistema operativo del ejecutor que ejecuta el trabajo. Los valores posibles son `Linux`, `Windows` o `macOS`.                                                                                                                                                                                           |
+| `runner.temp`          | `secuencia` | La ruta del directorio temporal para el ejecutor. Se garantiza que este directorio estará vacío al inicio de cada trabajo, incluso en los ejecutores autoalojados.                                                                                                                                         |
+| `runner.tool_cache`    | `secuencia` | {% if currentVersion == "github-ae@latest" %}Para obtener instrucciones de cómo asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario, consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)". |
+{% else %}La ruta del directorio que contiene algunas de las herramientas preinstaladas para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". {% endif %}
 
 #### Contexto `needs`
 
@@ -186,38 +189,38 @@ jobs:
     steps:
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
-          JOB_CONTEXT: ${{ toJson(job) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
         run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
         run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
         run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          STRATEGY_CONTEXT: ${{ toJSON(strategy) }}
         run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 ```
 {% endraw %}
 
 ### Literales
 
-Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`. Los literales booleanos no distinguen minúsculas de mayúsculas, por lo que puedes usar `true` o `True`.
+Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`. Los literales booleanos no reconocen minúsculas de mayúsculas, por lo que puedes usar `verdadero` o `Verdadero`.
 
 | Tipo de datos | Valor literal                                                                           |
 | ------------- | --------------------------------------------------------------------------------------- |
-| `boolean`     | `verdadero` o `falso`                                                                   |
+| `boolean`     | `true` o `false`                                                                        |
 | `null`        | `null`                                                                                  |
 | `number`      | Cualquier formato de número compatible con JSON.                                        |
 | `secuencia`   | Debes usar comillas simples. Escapar comillas simples literales con una comilla simple. |
@@ -246,7 +249,7 @@ env:
 | `[ ]`                     | Índice                     |
 | `.`                       | Desreferencia de propiedad |
 | `!`                       | No                         |
-| `<`                    | Menos que                  |
+| `<`                    | Menor que                  |
 | `<`                    | Menor o igual              |
 | `>`                    | Mayor que                  |
 | `>=`                   | Mayor o igual              |
@@ -259,26 +262,26 @@ env:
 
 * Si los tipos no coinciden, {% data variables.product.prodname_dotcom %} fuerza el tipo a un número. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con un número usando estas conversiones:
 
-  | Tipo      | Resultado                                                                                                                       |
-  | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
-  | Nulo      | `0`                                                                                                                             |
-  | Booleano  | `verdadero` devuelve `1` <br /> `falso` devuelve `0`                                                                      |
-  | Secuencia | Analizado desde cualquier formato de número JSON legal, de lo contrario `NaN`. <br /> Nota: la cadena vacía devuelve `0`. |
-  | Arreglo   | `NaN`                                                                                                                           |
-  | Objeto    | `NaN`                                                                                                                           |
+  | Type      | Resultado                                                                                                                      |
+  | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+  | Nulo      | `0`                                                                                                                            |
+  | Booleano  | `true` arroja `1` <br /> `false` arroja `0`                                                                              |
+  | Secuencia | Analizado desde cualquier formato de número JSON legal, de lo contrario, `NaN`. <br /> Nota: La cadena vacía arroja `0`. |
+  | Arreglo   | `NaN`                                                                                                                          |
+  | Objeto    | `NaN`                                                                                                                          |
 * Una comparación de un `NaN` con otro `NaN` no genera `true`. Para obtener más información, consulta "[Documentos de Mozilla NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)".
 * {% data variables.product.prodname_dotcom %} ignora las mayúsculas y minúsculas al comparar cadenas.
 * Los objetos y matrices solo se consideran iguales cuando son la misma instancia.
 
 ### Funciones
 
-{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona los tipos de datos con una cadena usando estas conversiones:
+{% data variables.product.prodname_dotcom %} ofrece un conjunto de funciones integradas que puedes usar en expresiones. Algunas funciones fusionan valores en una cadena para realizar las comparaciones. {% data variables.product.prodname_dotcom %} fusiona tipos de datos con una cadena usando las siguientes conversiones:
 
 | Tipo     | Resultado                                         |
 | -------- | ------------------------------------------------- |
 | Nulo     | `''`                                              |
-| Booleano | `'verdadero'` o `'falso'`                         |
-| Number   | Formato decimal, exponencial para grandes números |
+| Booleano | `'true'` o `'false'`                              |
+| Number   | Formato decimal, exponencial para números grandes |
 | Arreglo  | Las matrices no se convierten en cadenas          |
 | Objeto   | Los objetos no se convierten en cadenas           |
 
@@ -320,7 +323,7 @@ Devuelve `verdadero` si `searchString` contiene `searchValue`. Esta función no 
 
 `format( string, replaceValue0, replaceValue1, ..., replaceValueN)`
 
-Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar llaves usando llaves dobles.
+Reemplaza valores en la `cadena`, con la variable `replaceValueN`. Las variables en la `cadena` se especifican con la sintaxis `{N}`, donde `N` es un entero. Debes especificar al menos un `replaceValue` y una `cadena`. No existe un máximo para el número de variables (`replaceValueN`) que puedes usar. Escapar las llaves utilizando llaves dobles.
 
 ##### Ejemplo
 
@@ -348,7 +351,7 @@ El valor para `array` puede ser una matriz o una cadena. Todos los valores en `a
 
 `join(github.event.issue.labels.*.name, ', ')` puede devolver 'bug, help wanted'
 
-#### toJson
+#### toJSON
 
 `toJSON(value)`
 
@@ -358,13 +361,13 @@ Devuelve una representación JSON con formato mejorado de `valor`. Puedes usar e
 
 `toJSON(job)` puede devolver `{ "status": "Success" }`
 
-#### fromJson
+#### fromJSON
 
 `fromJSON(value)`
 
-Devuelve un objeto de JSON para `value`. Puedes utilizar esta función para proporcionar un objeto de JSON como una expresión evaluada.
+Devuelve un objeto de JSON o un tipo de datos de JSON para `value`. Puedes utilizar esta función para proporcionar un objeto JSON como una expresión evaluada o para convertir variables de ambiente desde una secuencia.
 
-##### Ejemplo
+##### Ejemplo de devolver un objeto JSON
 
 Este flujo de trabajo configura una matriz de JSON en un job, y lo pasa al siguiente job utilizando un resultado y `fromJSON`.
 
@@ -378,15 +381,36 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - id: set-matrix
+        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJson(needs.job1.outputs.matrix)}}
+      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
     steps:
-    - run: build
+      - run: build
+```
+{% endraw %}
+
+##### Ejemplo de devolver un tipo de datos JSON
+
+Este flujo de trabajo utiliza `fromJSON` para convertir las variables de ambiente de una secuencia a un número entero o Booleano.
+
+{% raw %}
+```yaml
+name: print
+on: push
+env: 
+  continue: true
+  time: 3
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - continue-on-error: ${{ fromJSON(env.continue) }}
+        timeout-minutes: ${{ fromJSON(env.time) }}
+        run: echo ...
 ```
 {% endraw %}
 
@@ -421,7 +445,7 @@ Arroja `true` cuando no falló ni se canceló ninguno de los pasos anteriores.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has succeeded
     if: {% raw %}${{ success() }}{% endraw %}
@@ -454,7 +478,7 @@ Arroja `true` cuando falla cualquiera de los pasos anteriores de un trabajo.
 ##### Ejemplo
 
 ```yaml
-Pasos:
+steps:
   ...
   - name: The job has failed
     if: {% raw %}${{ failure() }}{% endraw %}

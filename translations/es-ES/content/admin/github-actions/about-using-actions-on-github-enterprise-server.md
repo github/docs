@@ -6,6 +6,8 @@ redirect_from:
   - /admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - empresa
 ---
 
 {% data reusables.actions.enterprise-beta %}

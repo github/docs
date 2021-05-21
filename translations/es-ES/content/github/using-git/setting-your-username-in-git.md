@@ -45,7 +45,7 @@ Cambiar el nombre asociado con tus confirmaciones de Git utilizando `git config`
    > Mona Lisa
    ```
 
-### Further reading
+### Leer más
 
 - "[Establecer tu dirección de correo electrónico de confirmaciones](/articles/setting-your-commit-email-address)"
 - ["Configuración de Git" del libro _Pro Git_](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)

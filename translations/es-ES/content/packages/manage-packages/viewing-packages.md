@@ -11,9 +11,11 @@ permissions: Cualquiera con permisos de lectura en un repositorio puede ver los 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
+{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ### Ver paquetes de un repositorio
 
@@ -33,7 +35,7 @@ Puedes ver todos los paquetes instalados en una organización y buscar un paquet
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-3. Under your organization name, click
+3. Debajo del nombre de tu organización, da clic en
 {% octicon "package" aria-label="The package icon" %} **Paquetes**.
 {% data reusables.package_registry.navigate-to-packages %}
 
@@ -45,6 +47,6 @@ Puedes ver todos los paquetes que has instalado y buscar uno específico en toda
 2. En la zona de navegación principal, sobre la página de perfil, da clic en **Paquetes**. ![Pestaña Project (Proyecto)](/assets/images/help/package-registry/user-packages-tab.png)
 {% data reusables.package_registry.navigate-to-packages %}
 
-### Further reading
+### Leer más
 
 - "[Buscar paquetes](/github/searching-for-information-on-github/searching-for-packages)"

@@ -1,5 +1,5 @@
 
-1. 使用 `gpg --list-secret-key--keyid-form LONG` 命令列出您拥有其公钥和私钥的 GPG 密钥。 签名提交或标记需要私钥。
+1. 使用 `gpg --list-secret-keys --keyid-format LONG` 命令列出您拥有其公钥和私钥的 GPG 密钥。 签名提交或标记需要私钥。
   ```shell
   $ gpg --list-secret-keys --keyid-format LONG
 ```

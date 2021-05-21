@@ -1,8 +1,8 @@
 ---
 title: Colaboração com mantenedores usando as discussões
 shortTitle: Colaborando com mantenedores
-intro: Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.
-permissions: Pessoas com permissões de leitura em um repositório podem iniciar e participar de discussões no repositório.
+intro: 'Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -45,4 +45,4 @@ Para colaborar com mantenedores usando discussões, um administrador ou mantened
 ### Leia mais
 
 - "[Sobre escrita e formatação em {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

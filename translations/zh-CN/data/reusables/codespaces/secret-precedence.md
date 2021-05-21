@@ -1,0 +1,1 @@
+如果具有相同名称的机密存在于多个级别，则较低级别的机密优先。 For example, if an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.

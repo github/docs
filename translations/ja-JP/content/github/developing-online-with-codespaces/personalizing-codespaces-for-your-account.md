@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -31,8 +33,6 @@ versions:
 これらのファイルがいずれも見つからない場合、`.` で始まる `dotfiles` 内のファイルまたはフォルダは、codespace の `~` または `$HOME` ディレクトリにシンボリックリンクされます。
 
 `dotfiles` リポジトリへの変更は、新しい codespace ごとにのみ適用され、既存の codespace には影響しません。
-
-詳しい情報については、{% data variables.product.prodname_vscode %} ドキュメントの「[パーソナライズする](https://docs.microsoft.com/visualstudio/online/reference/personalizing)」を参照してください。
 
 {% note %}
 

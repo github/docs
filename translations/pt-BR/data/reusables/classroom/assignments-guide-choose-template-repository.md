@@ -1,5 +1,5 @@
-Under "Add a template repository to give students starter code", select the **Select a repository** drop-down, then type a search query. In the list of results, click the template repository you'd like to use for starter code.
+Em "Adicionar um repositório de modelo para dar o código inicial dos alunos", selecione o menu suspenso **Selecionar um repositório** e, em seguida, digite uma consulta de pesquisa. Na lista de resultados, clique no repositório modelo que você gostaria de usar para o código inicial.
 
 <div class="procedural-image-wrapper">
-  <img alt="Using the 'Select a repository' drop-down menu to find a template repository to use as starter code for an assignment" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-template-repository-in-list.png">
+  <img alt="Usar o menu suspenso &quot;Selecionar um repositório&quot; para localizar um repositório modelo e usar como código inicial para uma atividade" class="procedural-image-wrapper" src="/assets/images/help/classroom/assignments-click-template-repository-in-list.png">
 </div>

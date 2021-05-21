@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Los coautores de confirmación están incluidos en el resumen de actividad de confirmación si sus confirmaciones fueron fusionadas dentro de la rama por defecto del repositorio y están en los 15 usuarios principales que contribuyeron en la mayoría de las confirmaciones.

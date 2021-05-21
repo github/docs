@@ -11,6 +11,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
+  - Pages
 ---
 
 ### Habilitar los sitios públicos para {% data variables.product.prodname_pages %}
@@ -59,7 +63,7 @@ Si se inhabilita el aislamiento de subdominios para tu empresa, también deberá
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
-### Further reading
+### Leer más
 
 - "[Habilitar el modo privado](/admin/configuration/enabling-private-mode)"
 {% endif %}

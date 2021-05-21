@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 Las listas de tareas están representadas con casillas de verificación interactivas en los comentarios. Puedes seleccionar o quitar la marca de selección de las casillas de verificación para marcarlas como completas o incompletas.
@@ -27,6 +29,6 @@ Puedes volver a ordenar las listas de tareas dentro de un comentario único haci
 
 ![Volver a ordenar lista de tareas](/assets/images/help/writing/task-list-reordered.gif)
 
-### Further reading
+### Leer más
 
 * [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

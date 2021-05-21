@@ -6,6 +6,9 @@ redirect_from:
   - /articles/viewing-insights-for-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Todos los miembros de una organización pueden ver información de la organización. Para obtener más información, consulta "[Niveles de permisos para una organización](/articles/permission-levels-for-an-organization)".
@@ -40,7 +43,7 @@ Con la información sobre las dependencias puedes ver vulnerabilidades, licencia
 7. Puedes hacer clic en {% octicon "package" aria-label="The package icon" %} **dependents (dependientes)** al lado de cada vulnerabilidad para ver qué dependiente en tu organización está usando cada biblioteca. ![Dependientes vulnerables de mis organizaciones](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
 
-  ### Further reading
+  ### Leer más
 
    - "[Acerca de las organizaciones](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Explorar las dependencias de un repositorio](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"

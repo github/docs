@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-billing-on-github
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 ### Paid features and products

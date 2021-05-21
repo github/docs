@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Usa un archivo *.gitattributes* para marcar los archivos que coincidan con un "patrón" determinado con los atributos específicos. Un archivo *.gitattributes* usa las mismas reglas para coincidir como archivo _.gitignore_. Para obtener más información, consulta [FORMATO DE PATRONES](https://www.git-scm.com/docs/gitignore#_pattern_format) en la documentación de Git.
@@ -20,6 +22,6 @@ Usa un archivo *.gitattributes* para marcar los archivos que coincidan con un "p
 search/index.json linguist-generated=true
   ```
 
-### Further reading
+### Leer más
 - "[Código generado](https://github.com/github/linguist/#generated-code)" en la documentación del lingüista
 - "[Crear archivos nuevos](/articles/creating-new-files/)"

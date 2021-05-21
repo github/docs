@@ -1,1 +1,1 @@
-You can require that members use SSH certificates to access organization resources, unless SSH is disabled in your repository.
+SSHがリポジトリで無効になっていなければ、Organizationのリソースにメンバーがアクセスする際に、SSH証明書を使わなければならないようにすることができます。

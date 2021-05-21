@@ -6,26 +6,28 @@ redirect_from:
   - /articles/displaying-a-sponsor-button-in-your-repository
 versions:
   free-pro-team: '*'
+topics:
+  - Repositories
 ---
 
 ### About FUNDING files
 
-You can configure your sponsor button by editing a _FUNDING.yml_ file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[About GitHub Sponsors](/articles/about-github-sponsors)."
+You can configure your sponsor button by editing a _FUNDING.yml_ file in your repository's `.github` folder, on the default branch. You can configure the button to include sponsored developers in {% data variables.product.prodname_sponsors %}, external funding platforms, or a custom funding URL. For more information about {% data variables.product.prodname_sponsors %}, see "[About GitHub Sponsors](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
 
 You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add up to four sponsored developers or organizations in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax:
 
-| 플랫폼                                                                           | Syntax                                                                   |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                         |
-| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                    |
-| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                        |
-| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                    |
-| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                              |
-| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                      |
-| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                      |
-| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
-| Custom URL                                                                    | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`                |
+| 플랫폼                                                                                           | Syntax                                                                   |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [LFX Mentorship (formerly CommunityBridge)](https://lfx.linuxfoundation.org/tools/mentorship) | `community_bridge: PROJECT-NAME`                                         |
+| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)                 | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
+| [IssueHunt](https://issuehunt.io/)                                                            | `issuehunt: USERNAME`                                                    |
+| [Ko-fi](https://ko-fi.com/)                                                                   | `ko_fi: USERNAME`                                                        |
+| [Liberapay](https://en.liberapay.com/)                                                        | `liberapay: USERNAME`                                                    |
+| [Open Collective](https://opencollective.com/)                                                | `open_collective: USERNAME`                                              |
+| [Otechie](https://otechie.com/)                                                               | `otechie: USERNAME`                                                      |
+| [Patreon](https://www.patreon.com/)                                                           | `patreon: USERNAME`                                                      |
+| [Tidelift](https://tidelift.com/)                                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
+| Custom URL                                                                                    | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`                |
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names:
 
@@ -52,7 +54,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% endnote %}
 
-You can create a default sponsor button for your organization or user account. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create a default sponsor button for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% note %}
 
@@ -74,5 +76,5 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 {% data reusables.files.propose_new_file %}
 
 ### 더 읽을거리
-- "[About {% data variables.product.prodname_sponsors %} for open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
+- "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

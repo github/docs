@@ -1,7 +1,7 @@
 ---
 title: Acerca de utilizar MakeCode Arcade con GitHub Classroom
 shortTitle: Acerca de utilizar MakeCode Arcade
-intro: Puedes configurar a MakeCode Arcade como el IDE en línea para las tareas en {% data variables.product.prodname_classroom %}.
+intro: 'Puedes configurar a MakeCode Arcade como el IDE en línea para las tareas en {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -26,6 +26,6 @@ Predeterminadamente, MakeCode Arcade se encuentra configurado para subir las tar
 
 ![Funcionalidad de control de versiones de MakeCode Arcade](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
-### Further reading
+### Leer más
 
 - "[Acerca de los archivos README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

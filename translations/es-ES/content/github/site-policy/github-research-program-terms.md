@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-research-program-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¡Bienvenido al programa de investigación de GitHub (el "Programa")! Para participar, necesitaremos que accedas a un conjunto especial de términos, el acuerdo del programa de investigación de GitHub ("Acuerdo").
@@ -28,7 +31,7 @@ Las obligaciones de la presente sección 2 no se aplicarán a la información qu
 
 Toda la información confidencial sigue siendo propiedad exclusiva y propiedad de GitHub.  Ninguna de las partes adquiere ningún derecho de propiedad intelectual conforme a lo dispuesto en el presente acuerdo, salvo que se especifique expresamente aquí.
 
-### D. Privacy
+### D. Privacidad
 
 Al participar en este programa, aceptas el uso de tu información personal con fines de investigación y para ningún otro propósito. Como parte del programa, es posible que uses tu información personal para contactarte o conservar tu información, para contactarte en una fecha posterior. La información personal no incluye información agregada, que no identifiques personalmente. Es posible que uses la información de identificación personal o agregada que se recopila a través del programa para operar, analizar y mejorar nuestros productos y servicios.
 

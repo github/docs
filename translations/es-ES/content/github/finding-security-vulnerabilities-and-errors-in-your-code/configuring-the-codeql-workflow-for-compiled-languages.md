@@ -3,21 +3,21 @@ title: Configurar el flujo de trabajo de CodeQL para los lenguajes compilados
 shortTitle: Configurar para los lenguajes compilados
 intro: 'Puedes configurar cómo {% data variables.product.prodname_dotcom %} utiliza el {% data variables.product.prodname_codeql_workflow %} para escanear el código escrito en los lenguajes compilados para las vulnerabilidades y errores.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permisos de escritura en un repositorio, puedes configurar el {% data variables.product.prodname_code_scanning %} para éste.'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ### Acerca de {% data variables.product.prodname_codeql_workflow %} y los lenguajes compilados
 
-Habilitas {% data variables.product.prodname_dotcom %} para que ejecute el {% data variables.product.prodname_code_scanning %} para tu repositorio si agregas un flujo de trabajo de {% data variables.product.prodname_actions %} a éste. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. El flujo de trabajo predeterminado de {% data variables.product.prodname_code_scanning %} utiliza el evento `on.push` para activar el escaneo de código cada vez que alguien carga información a cualquier rama que contenga el archivo de flujo de trabajo.
+Puedes configurar a {% data variables.product.prodname_dotcom %} para que ejecute el {% data variables.product.prodname_code_scanning %} en tu repositorio si agregas un flujo de trabajo de {% data variables.product.prodname_actions %} a este. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} en un repositorio](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)".
 
 {% data reusables.code-scanning.edit-workflow %}
 Para obtener información general acerca de cómo configurar

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %}サービスが一時的に利用できなくなっている場合、ワークフローの実行はトリガーされてから30分以内にキューイングされていなければ、破棄されます。 たとえば、ワークフローがトリガーされ、そして{% data variables.product.prodname_actions %}サービスが31分以上利用できなければ、そのワークフローの実行は処理されません。

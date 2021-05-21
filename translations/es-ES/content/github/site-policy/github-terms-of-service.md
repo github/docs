@@ -8,6 +8,9 @@ redirect_from:
   - /articles/github-terms-of-service
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¡Gracias por usar GitHub! Estamos felices de que estés aquí. Por favor, lee cuidadosamente estos Términos de Servicio antes de ingresar o usar GitHub. Ya que se trata de un contrato tan importante entre nosotros y nuestros usuarios, intentamos ser muy claros. Para tu comodidad, presentamos estos términos en un breve resumen no vinculante seguido de los términos legales completos.
@@ -69,7 +72,7 @@ Tenemos unas cuantas reglas simples para cuentas de usuario en el servicio de Gi
 - Una persona o entidad legal no puede mantener más de una cuenta gratuita (si también decide controlar una cuenta de máquina, está bien, pero sólo se puede utilizar para ejecutar una máquina).
 - Debes ser mayor de 13 años. Si bien estamos encantados de ver a los geniales programadores jóvenes entusiasmados aprendiendo a programar, debemos cumplir con la ley de los Estados Unidos. GitHub no dirige nuestro Servicio a niños menores de 13 años y no permitimos ningún Usuario menor de 13 años en nuestro Servicio. Si tenemos conocimiento de algún usuario menor de 13 años, [daremos por terminada inmediatamente la cuenta del usuario](#l-cancellation-and-termination). Si estás ubicado en un país fuera de los Estados Unidos, la edad mínima de ese país puede ser mayor; en ese caso, el Cliente es responsable de cumplir con las leyes de ese país.
 - Su inicio de sesión sólo puede usarse por una persona — es decir, un único inicio de sesión no puede ser compartido por varias personas. Una Organización de pago sólo puede proporcionar acceso a tantas cuentas de usuario como su suscripción lo permita.
-- No puedes usar GitHub en violación de las leyes de control de exportación o sanciones de los Estados Unidos o de cualquier otra jurisdicción aplicable. No puedes usar GitHub si estás trabajando o en nombre de un [Nacional Especialmente Diseñado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) o una persona sujeta a prohibiciones similares de bloqueo o denegadas por una agencia gubernamental de EE. UU. government agency.  GitHub puede permitir que personas en ciertos países o territorios sancionados accedan a ciertos servicios de GitHub de conformidad con las autorizaciones del gobierno de los Estados Unidos. government authorizations.  For more information, please see our [Export Controls policy](/articles/github-and-export-controls).
+- No puedes usar GitHub en violación de las leyes de control de exportación o sanciones de los Estados Unidos o de cualquier otra jurisdicción aplicable. No puedes utilizar GitHub si eres o estás trabajando en nombre de un [Nacional Especialmente Diseñado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) o de una persona sujeta a prohibiciones de bloqueo de partes o denegadas similares que administre una agencia gubernamental de los EE.UU.  GitHub puede permitir que las  personas en ciertos países o territorios sancionados accedan a ciertos servicios de GitHub de conformidad con las autorizaciones del gobierno de los EE.UU.  Para obtener más información, consulta nuestra[Política de Controles de Exportación](/articles/github-and-export-controls).
 
 #### 4. Seguridad de la cuenta de usuario
 Eres responsable de mantener tu Cuenta segura mientras utilizas nuestro Servicio. Ofrecemos herramientas como autenticación de dos factores para ayudarte a mantener la seguridad de tu cuenta pero el contenido de tu Cuenta y su seguridad depende de ti.
@@ -180,7 +183,7 @@ GitHub puede ofrecer acceso basado en suscripción a nuestra API para aquellos u
 Algunas características del servicio pueden estar sujetas a términos adicionales específicos de esa característica o producto según lo establecido en los términos adicionales del producto de GitHub. Al ingresar o utilizar los Servicios, también aceptas los [Términos de adicionales del producto de GitHub](/github/site-policy/github-additional-product-terms).
 
 ### J. Vista previa Beta
-**Versión resumida:** *Las vistas previas Beta no pueden ser soportadas o pueden cambiar en cualquier momento, puedes recibir información confidencial a través de aquellos programas que deben permanecer confidenciales mientras el programa es privado y nos encantaría tener tu opinión para mejorar nuestras Vistas Previas Beta.*
+**Versión corta:** *Las vistas previas beta podrían no ser compatibles o cambiar en cualquier momento. Podrías recibir información confidencial a través de estos programas, la cual debe mantenerse confidencial mientras el programa sea privado. Nos encantaría recibir tus comentarios para mejorar nuestras vistas previas beta.*
 
 #### 1. Sujeto a cambio
 

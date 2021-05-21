@@ -2,15 +2,15 @@
 
 {% if currentVersion == "free-pro-team@latest" %}
   ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.pkg.github.com
   ```
 {% else %}
   Si se habilita el aislamiento de subdominios:
   ```shell
-  registry=https://npm.<em>HOSTNAME</em>/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://npm.<em>HOSTNAME</em>
   ```
   Si se inhabilita el aislamiento de subdominios:
   ```shell
-  https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
+  @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm
   ```
 {% endif %}

@@ -11,7 +11,7 @@ export function bucket (test) {
   return hash % 2 ? TREATMENT : CONTROL
 }
 
-export async function sendSuccess (test) {
+export function sendSuccess (test) {
   return sendEvent({
     type: 'experiment',
     experiment_name: test,
@@ -21,8 +21,10 @@ export async function sendSuccess (test) {
 }
 
 export default function () {
+  // *** Example test code ***
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
-  // if (xbucket === TREATMENT) { ... }
+  // const x = document.querySelector(...)
   // x.addEventListener('click', () => { sendSuccess(testName) })
+  // if (xbucket === TREATMENT) applyTreatment(x)
 }

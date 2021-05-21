@@ -1,1 +1,1 @@
-1. Informationen zum Importieren der archivierten Migrationsdaten auf eine {% data variables.product.prodname_ghe_server %}-Instanz findest Du unter „[Migrationsdaten in {% data variables.product.prodname_ghe_server %} importieren](/enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/)“.
+1. To prepare the archived migration data for import into a {% data variables.product.prodname_ghe_server %} instance, see "[Preparing to migrate data to your enterprise](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".

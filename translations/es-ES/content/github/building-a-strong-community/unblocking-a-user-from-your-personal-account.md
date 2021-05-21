@@ -5,6 +5,8 @@ redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 Cuando desbloqueas un usuario, podrá invitarte a ser colaborador de sus repositorios. Si te [@mention menciona](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) en cualquier parte de GitHub, recibirás notificaciones.
@@ -31,7 +33,7 @@ Puedes desbloquear un usuario en los parámetros de tu cuenta o desde la página
 
 {% endtip %}
 
-### Further reading
+### Leer más
 
 - "[Bloquear a un usuario desde tu cuenta personal](/articles/blocking-a-user-from-your-personal-account)"
 - "[Bloquear a un usuario de tu organización](/articles/unblocking-a-user-from-your-organization)"

@@ -9,7 +9,7 @@ const developerRedirectFixtures = require('../fixtures/developer-redirects')
 const MAX_CONCURRENT_REQUESTS = 50
 
 describe('developer redirects', () => {
-  jest.setTimeout(60 * 1000)
+  jest.setTimeout(2 * 60 * 1000)
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -120,7 +120,7 @@ describe('developer redirects', () => {
           newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location).toBe(newPath)
+          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
         }
       )
     })
@@ -136,7 +136,7 @@ describe('developer redirects', () => {
           newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-          expect(res.headers.location).toBe(newPath)
+          expect(res.headers.location, `${oldPath} did not redirect to ${newPath}`).toBe(newPath)
         }
       )
     })

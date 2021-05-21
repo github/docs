@@ -11,6 +11,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
 versions:
   free-pro-team: '*'
+topics:
+  - Billing
 ---
 
 Puedes desbloquear y acceder a tu cuenta si actualizas el método de pago de tu organización y el estado final del pago. No te pediremos que pagues el tiempo transcurrido en modo bloqueado.
