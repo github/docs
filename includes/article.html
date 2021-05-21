@@ -69,11 +69,11 @@
       {% endif %}
       {{ renderedPage }}
 
-      {% if flatTocItems %}
+      {% if genericTocFlat %}
       {% include generic-toc-flat %}
       {% endif %}
 
-      {% if nestedTocItems %}
+      {% if genericTocNested %}
       {% include generic-toc-nested %}
       {% endif %}
     </div>
