@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head, post } = require('../helpers/supertest')
@@ -7,9 +6,6 @@ const path = require('path')
 const { loadPages } = require('../../lib/pages')
 const builtAssets = require('../../lib/built-asset-urls')
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
-
-const testNewSiteTree = process.env.FEATURE_NEW_SITETREE ? test : test.skip
-const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -42,8 +38,6 @@ describe('server', () => {
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect('content-security-policy' in res.headers).toBe(true)
-    expect('x-content-security-policy' in res.headers).toBe(true)
-    expect('x-webkit-csp' in res.headers).toBe(true)
 
     const csp = new (require('csp-parse'))(res.headers['content-security-policy'])
     expect(csp.get('default-src')).toBe("'none'")
@@ -323,12 +317,7 @@ describe('server', () => {
       expect($(`a[href="${latestEnterprisePath}/articles/managing-files-on-github"]`).length).toBe(1)
     })
 
-    testOldSiteTree('dotcom categories on GHE have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
-      expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/conditions-for-large-files"]`).length).toBe(1)
-    })
-
-    testNewSiteTree('dotcom categories on GHE have Enterprise user links', async () => {
+    test('dotcom categories on GHE have Enterprise user links', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/github/managing-large-files`)
       expect($(`article a[href="${latestEnterprisePath}/github/managing-large-files/working-with-large-files/conditions-for-large-files"]`).length).toBe(1)
     })
@@ -360,17 +349,7 @@ describe('server', () => {
   })
 
   describe('article versions', () => {
-    testOldSiteTree('includes links to all versions of each article', async () => {
-      const articlePath = 'github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard'
-      const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`)
-      expect($(`.article-versions a.active[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`).length).toBe(2)
-      expect($(`.article-versions a.active[href="/en/${articlePath}"]`).length).toBe(0)
-
-      // 2.13 predates this feature, so it should be excluded:
-      expect($(`.article-versions a[href="/en/enterprise/2.13/user/${articlePath}"]`).length).toBe(0)
-    })
-
-    testNewSiteTree('includes links to all versions of each article', async () => {
+    test('includes links to all versions of each article', async () => {
       const articlePath = 'github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard'
       const $ = await getDOM(`/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}`)
       expect($(`.article-versions a.active[href="/en/enterprise-server@${enterpriseServerReleases.latest}/${articlePath}"]`).length).toBe(2)
@@ -432,12 +411,7 @@ describe('server', () => {
       expect(res.statusCode).toBe(301)
     })
 
-    testOldSiteTree('redirects old articles to their slugified URL', async () => {
-      const res = await get('/articles/about-github-s-ip-addresses')
-      expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/about-githubs-ip-addresses')
-    })
-
-    testNewSiteTree('redirects old articles to their slugified URL', async () => {
+    test('redirects old articles to their slugified URL', async () => {
       const res = await get('/articles/about-github-s-ip-addresses')
       expect(res.text).toBe('Moved Permanently. Redirecting to /en/github/authenticating-to-github/keeping-your-account-and-data-secure/about-githubs-ip-addresses')
     })
@@ -460,13 +434,7 @@ describe('server', () => {
       expect(res.headers.location).toBe('https://desktop.github.com')
     })
 
-    testOldSiteTree('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
-      const res = await get('/en/insights/installing-and-configuring-github-insights/about-github-insights')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
-    })
-
-    testNewSiteTree('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
+    test('redirects /insights/foo paths to /enterprise/user/insights/foo', async () => {
       const res = await get('/en/insights/installing-and-configuring-github-insights/about-github-insights')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`)
@@ -499,12 +467,7 @@ describe('server', () => {
       expect($('.markdown-body ul li a').length).toBeGreaterThan(5)
     })
 
-    testOldSiteTree('map topic renders with h2 links to articles', async () => {
-      const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h2').length).toBe(1)
-    })
-
-    testNewSiteTree('map topic renders with h2 links to articles', async () => {
+    test('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
       expect($('a[href="/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username"] h2').length).toBe(1)
     })
@@ -631,12 +594,7 @@ describe('GitHub Desktop URLs', () => {
     expect($('article a[href^="/en/desktop/installing-and-configuring-github-desktop/"]').length).toBeGreaterThan(1)
   })
 
-  testOldSiteTree('renders a Desktop article within a map topic', async () => {
-    const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-github-desktop')
-    expect(res.statusCode).toBe(200)
-  })
-
-  testNewSiteTree('renders a Desktop article within a map topic', async () => {
+  test('renders a Desktop article within a map topic', async () => {
     const res = await get('/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop')
     expect(res.statusCode).toBe(200)
   })

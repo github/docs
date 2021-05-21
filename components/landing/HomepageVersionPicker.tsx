@@ -9,10 +9,10 @@ import { useTranslation } from 'components/hooks/useTranslation'
 export const HomepageVersionPicker = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { allVersions, pagePermalinks, enterpriseServerVersions } = useMainContext()
+  const { allVersions, page, enterpriseServerVersions } = useMainContext()
   const { t } = useTranslation('homepage')
 
-  if (!pagePermalinks || pagePermalinks.length <= 1) {
+  if (page.permalinks && page.permalinks.length <= 1) {
     return null
   }
 
@@ -34,7 +34,7 @@ export const HomepageVersionPicker = () => {
             <Dropdown.Caret />
           </summary>
           <Dropdown.Menu direction="sw">
-            {pagePermalinks.map((permalink) => {
+            {(page.permalinks || []).map((permalink) => {
               if (permalink.pageVersion === 'homepage') {
                 return null
               }
