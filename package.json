@@ -25,7 +25,8 @@
     "@primer/css": "^16.2.0",
     "@primer/octicons": "^14.1.0",
     "@primer/octicons-react": "^14.1.0",
-    "ajv": "^6.11.0",
+    "ajv": "^8.4.0",
+    "ajv-formats": "^2.1.0",
     "algoliasearch": "^4.9.1",
     "assert": "^2.0.0",
     "babel-loader": "^8.2.2",
@@ -122,7 +123,6 @@
     "@types/react-dom": "^17.0.5",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",
-    "aws-sdk": "^2.909.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "chalk": "^4.1.1",
@@ -207,13 +207,7 @@
     "heroku-postbuild": "node script/early-access/clone-for-build.js && npm run build"
   },
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 16.0.0"
   },
-  "repository": "https://github.com/github/docs",
-  "husky": {
-    "hooks": {
-      "pre-commit": "node script/prevent-translation-commits.js",
-      "pre-push": "npm run prevent-pushes-to-main"
-    }
-  }
+  "repository": "https://github.com/github/docs"
 }
