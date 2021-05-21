@@ -19,7 +19,6 @@ export default class MyDocument extends Document {
       return {
         ...initialProps,
         cssThemeProps: getThemeProps(ctx.req, 'css'),
-        themeProps: getThemeProps(ctx.req),
         styles: (
           <>
             {initialProps.styles}
