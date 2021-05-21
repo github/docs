@@ -18,7 +18,7 @@ topics:
 ---
 ### About forks
 
-Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+Most commonly, forks are used to either propose changes to someone else's project or repository or to use someone else's repository as a starting point for your own idea. Forking allows you to create a copy of the repository and enables you to create changes. Once the changes has been made you can even submit the changes to the original repository by creating a pull request.
 
 #### Propose changes to someone else's project
 
@@ -140,12 +140,15 @@ You can make any changes to a fork, including:
 - **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/articles/about-pull-requests).
 
 ### Find another repository to fork
-
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
+
+### [Working with forks](/articles/working-with-forks)
+
+The forking is useful in Open Source Development. Forking a repository allows you to make contribution on that particular repository. While collaborating to Projects or Open Source Development, you can perform certain other operation with forks.
 
 ### Celebrate
 
