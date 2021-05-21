@@ -27,29 +27,34 @@ module.exports = async function genericToc (req, res, next) {
 
   // Conditionally run getTocItems() recursively.
   let isRecursive
+  // Conditionally render intros.
+  let renderIntros
 
   // Get an array of child links with intros and add it to the context object.
   if (currentTocType === 'flat' && !isOneOffProductToc) {
     isRecursive = false
-    req.context.flatTocItems = await getTocItems(treePage.childPages, isRecursive)
+    renderIntros = true
+    req.context.genericTocFlat = await getTocItems(treePage.childPages, req.context, isRecursive, renderIntros)
   }
 
   // Get an array of child map topics and their child articles and add it to the context object.
   if (currentTocType === 'nested' || isOneOffProductToc) {
     isRecursive = !isOneOffProductToc
-    req.context.nestedTocItems = await getTocItems(treePage.childPages, isRecursive)
+    renderIntros = false
+    req.context.genericTocNested = await getTocItems(treePage.childPages, req.context, isRecursive, renderIntros)
   }
 
   return next()
 }
 
-async function getTocItems (pagesArray, isRecursive) {
+async function getTocItems (pagesArray, context, isRecursive, renderIntros) {
   return await Promise.all(pagesArray.map(async (child) => {
     return {
       title: child.renderedFullTitle,
       fullPath: child.href,
-      intro: child.renderedIntro,
-      childTocItems: isRecursive && child.childPages ? getTocItems(child.childPages, isRecursive) : null
+      // renderProp is the most expensive part of this function.
+      intro: renderIntros ? await child.page.renderProp('intro', context, { unwrap: true }) : null,
+      childTocItems: isRecursive && child.childPages ? getTocItems(child.childPages, context, isRecursive, renderIntros) : null
     }
   }))
 }
