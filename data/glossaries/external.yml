@@ -185,7 +185,7 @@
   description: >-
     A repository graph that shows the packages, projects, and repositories that depend on a
     public repository.
-- term: dependencies graph
+- term: dependency graph
   description: >-
     A repository graph that shows the packages and projects that the repository depends on.
 - term: deploy key
