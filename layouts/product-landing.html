@@ -148,22 +148,12 @@
       {% endif %}
 
       <div class="container-xl px-3 px-md-6 mt-6">
-        {% if FEATURE_NEW_SITETREE %}
         {% if page.documentType == "category" %}
           {% include category-articles-list %}
         {% endif %}
         {% if page.documentType == "product" %}
           {% include product-articles-list %}
         {% endif %}
-        {% endif %}
-
-        {% unless FEATURE_NEW_SITETREE %}
-        {% if currentCategory %}
-          {% include all-articles-category %}
-        {% else %}
-          {% include all-articles-product %}
-        {% endif %}
-        {% endunless %}
       </div>
 
       {% include support-section %}
