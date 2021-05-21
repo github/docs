@@ -781,7 +781,6 @@
     events on GitHub.com. Webhooks provide a way for notifications to be
     delivered to an external web server whenever certain actions occur on a
     repository or organization. Also called a service hook.
- 
 - term: write access
   description: >-
     A permission level on a repository that allows the user to push, or write,
