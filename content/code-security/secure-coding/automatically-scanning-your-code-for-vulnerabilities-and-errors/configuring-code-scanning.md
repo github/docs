@@ -74,6 +74,16 @@ For more information about the `pull_request` event, see "[Workflow syntax for {
 
 If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
+#### Defining which alert severities cause pull request check failure
+
+By default, only alerts with the severity level of `error` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities that will cause a pull request check failure in your repository settings. You can choose from only errors, warnings and errors, or any alerts. 
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. Under "Code scanning", to the right of "Check failure", use the dropdown menu to select the severities you would like to cause a pull request check failure. 
+![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+
 #### Avoiding unnecessary scans of pull requests
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
