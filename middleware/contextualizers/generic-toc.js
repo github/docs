@@ -1,72 +1,55 @@
-const { sortBy } = require('lodash')
+const findPageInSiteTree = require('../../lib/find-page-in-site-tree')
 
+// This module adds either flatTocItems or nestedTocItems to the context object for
+// product, categorie, and map topic TOCs that don't have other layouts specified.
+// They are rendered by includes/generic-toc-flat.html or inclueds/generic-toc-nested.html.
 module.exports = async function genericToc (req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'default') return next()
+  // This middleware can only run on product, category, and map topics.
   if (req.context.page.documentType === 'homepage' || req.context.page.documentType === 'article') return next()
 
-  const currentSiteTree = req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
+  // This one product TOC is weird.
+  const isOneOffProductToc = req.context.page.relativePath === 'github/index.md'
 
-  // Find the array of child pages that start with the requested path.
-  const currentPageInSiteTree = findPageInSiteTree(currentSiteTree.childPages, req.context.currentPath, req.context.currentLanguage)
-  if (!currentPageInSiteTree) return next()
+  // There are different types of TOC depending on the document type.
+  const tocTypes = {
+    product: 'flat',
+    category: 'nested',
+    mapTopic: 'flat'
+  }
 
-  req.context.tocItems = sortBy(
-    await getUnsortedTocItems(currentPageInSiteTree.childPages, req.context),
-    // Sort by the ordered array of `children` in the frontmatter.
-    currentPageInSiteTree.page.children
-  )
+  // Find the current TOC type based on the current document type.
+  const currentTocType = tocTypes[req.context.page.documentType]
+
+  // Find the part of the site tree that corresponds to the current path.
+  const treePage = findPageInSiteTree(req.context.currentProductTree, req.path)
+
+  // Conditionally run getTocItems() recursively.
+  let isRecursive
+
+  // Get an array of child links with intros and add it to the context object.
+  if (currentTocType === 'flat' && !isOneOffProductToc) {
+    isRecursive = false
+    req.context.flatTocItems = await getTocItems(treePage.childPages, isRecursive)
+  }
+
+  // Get an array of child map topics and their child articles and add it to the context object.
+  if (currentTocType === 'nested' || isOneOffProductToc) {
+    isRecursive = !isOneOffProductToc
+    req.context.nestedTocItems = await getTocItems(treePage.childPages, isRecursive)
+  }
 
   return next()
 }
 
-// Recursively loop through the siteTree until we reach the point where the
-// current siteTree page is the same as the requested page. Then stop.
-function findPageInSiteTree (pageArray, currentPath, currentLanguage) {
-  const childPage = pageArray.find(page => {
-    // Find a page that matches at least an initial part of the current path
-    const regex = new RegExp(`^${page.href}($|/)`, 'm')
-    return regex.test(currentPath)
-  })
-
-  // Fallback for outdated translations
-  if (!childPage && currentLanguage !== 'en') {
-    return findPageInSiteTree(pageArray, currentPath.replace(`/${currentLanguage}`, '/en'), 'en')
-  }
-
-  if (!childPage && currentLanguage === 'en') {
-    return
-  }
-
-  if (childPage.href === currentPath) {
-    return childPage
-  }
-
-  return findPageInSiteTree(childPage.childPages, currentPath)
-}
-
-async function getUnsortedTocItems (pageArray, context) {
-  return Promise.all(pageArray.map(async (childPage) => {
-    // return an empty string if it's a hidden link on a non-hidden page (hidden links on hidden pages are OK)
-    if (childPage.page.hidden && !context.page.hidden) {
-      return ''
+async function getTocItems (pagesArray, isRecursive) {
+  return await Promise.all(pagesArray.map(async (child) => {
+    return {
+      title: child.renderedFullTitle,
+      fullPath: child.href,
+      intro: child.renderedIntro,
+      childTocItems: isRecursive && child.childPages ? getTocItems(child.childPages, isRecursive) : null
     }
-
-    const fullPath = childPage.href
-    // Titles are already rendered by middleware/contextualizers/render-tree-titles.js.
-    const title = childPage.renderedFullTitle
-    const intro = await childPage.page.renderProp('intro', context, { unwrap: true })
-
-    if (!childPage.childPages) {
-      return { fullPath, title, intro }
-    }
-
-    const childTocItems = sortBy(
-      await getUnsortedTocItems(childPage.childPages, context),
-      // Sort by the ordered array of `children` in the frontmatter.
-      childPage.page.children
-    )
-
-    return { fullPath, title, intro, childTocItems }
   }))
 }
