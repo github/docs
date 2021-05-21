@@ -147,7 +147,6 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 {% endif %}
 
 ### [Working with forks](/articles/working-with-forks)
-
 The forking is useful in Open Source Development. Forking a repository allows you to make contribution on that particular repository. While collaborating to Projects or Open Source Development, you can perform certain other operation with forks.
 
 ### Celebrate
