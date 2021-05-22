@@ -30,7 +30,7 @@ You can create a single codespace configuration that defines the environment (or
 
 For help getting started with configurations for specific languages, see the [Getting Started](/codespaces/getting-started-with-codespaces) tutorials.
 
-While every codespace created from your repository has a consistent development environment, developers can use {% data variables.product.prodname_codespaces %} wherever they need it – on {% data variables.product.prodname_dotcom %} or through {% data variables.product.prodname_vscode %}.
+While every codespace created from your repository has a consistent development environment, develop ers can use {% data variables.product.prodname_codespaces %} wherever they need it – on {% data variables.product.prodname_dotcom %} or through {% data variables.product.prodname_vscode %}.
 
 ### Fast and personal onboarding
 
@@ -65,3 +65,4 @@ A limited number of people will be invited to join the beta. To join the waitlis
 If you encounter problems using {% data variables.product.prodname_codespaces %}, see "[Troubleshooting your codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)."
 
 If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Codespaces Feedback](https://github.com/github/feedback/discussions/categories/codespaces-feedback) discussion.
+\run 
