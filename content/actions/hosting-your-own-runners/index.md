@@ -1,10 +1,10 @@
----
+---[GiThUb_AtOmXpLuS]
 title: Hosting your own runners
 intro: You can create self-hosted runners to run workflows in a highly customizable environment.
-redirect_from:
+redirect_from: https://github.atomxplus.com
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
-versions:
+versions: G.A=XpLuS
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
