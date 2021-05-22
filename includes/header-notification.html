@@ -18,6 +18,13 @@
 {% endif %}
 <!-- END TRANSLATIONS NOTICES -->
 
+<!-- START USER LANGUAGE REDIRECT NOTICES -->
+{% if userLanguage != 'en' and languages[userLanguage].wip == false and currentLanguage != userLanguage %}
+  <!-- User language translations notice -->
+  {% assign user_language_redirect_notification_type = true %}
+{% endif %}
+<!-- END USER LANGUAGE REDIRECT NOTICES -->
+
 <!-- START RELEASE NOTICES -->
 <!-- Custom GitHub AE notice -->
 {% if currentVersion == "github-ae@latest" %}
@@ -41,6 +48,12 @@
 {% if translation_notification_type %}
   <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 translation_notice{% if release_notification_type %} border-bottom color-border-tertiary{% endif %}">
     {{ translation_notification }}
+  </div>
+{% endif %}
+
+{% if user_language_redirect_notification_type %}
+  <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 translation_notice">
+    This article is also available in your language of choice. Click <a href="/{{userLanguage}}{{currentPathWithoutLanguage}}">here</a>
   </div>
 {% endif %}
 
