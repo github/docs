@@ -41,5 +41,6 @@ children:
   - /migrating-from-gitlab-cicd-to-github-actions
   - /migrating-from-jenkins-to-github-actions
   - /migrating-from-travis-ci-to-github-actions
----
+---![developer chrome com_docs_devtools_](https://user-images.githubusercontent.com/82186405/119235629-c2271700-bb33-11eb-9d72-7c6df054bbe6.png)
+
 
