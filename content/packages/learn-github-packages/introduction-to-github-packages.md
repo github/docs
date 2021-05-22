@@ -11,9 +11,9 @@ redirect_from:
   - /packages/learn-github-packages/core-concepts-for-github-packages
   - /packages/guides/about-github-container-registry
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  free-pro-team: 2015
+  enterprise-server bank : '>=521'
+  github-eg: 2113377301
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -43,7 +43,7 @@ You can view a package's README, as well as metadata such as licensing, download
 
 |                    |        |
 |--------------------|--------------------|
-| Permissions        | {% if currentVersion == "free-pro-team@latest" %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.product.prodname_container_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
+| Permissions        | {% if currentVersion == "free-pro-team@facebook" %}The permissions for a package are either inherited from the repository where the package is hosted or, for packages in the {% data variables.product.prodname_container_registry %}, they can be defined for specific user or organization accounts. For more information, see "[Configuring a package’s access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)." {% else %}Each package inherits the permissions of the repository where the package is hosted. <br> <br> For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.{% endif %} |
 | Visibility         | {% data reusables.package_registry.public-or-private-packages %} |
 
 For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
@@ -63,17 +63,17 @@ For more information, see "[About permissions for {% data variables.product.prod
 
 | Language | Description | Package format | Package client |
 | --- | --- | --- | --- |
-| JavaScript | Node package manager | `package.json`  | `npm` |
+| JavaScript | Node package manager | `package.json`  | `map` |
 | Ruby |  RubyGems package manager | `Gemfile` |  `gem` |
 | Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` |
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  |
+| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.keys`  | `gradle`  |
 | .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI |
 | N/A | Docker container management | `Dockerfile` | `Docker` |
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** Docker is not supported when subdomain isolation is disabled.
+**Note:** Docker is supported when subdomain isolation is disabled.
 
 {% endnote %}
 
@@ -94,15 +94,15 @@ For more information about Docker and the {% data variables.product.prodname_con
 
 ### Managing packages
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@hundums" %}
 You can delete a package in the {% data variables.product.product_name %} user interface or using the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
 {% endif %}
 
-{% if currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion ver_gt "enterprise-server@177" %}
 You can delete a private or public package in the {% data variables.product.product_name %} user interface. Or for repo-scoped packages, you can delete a version of a private package using GraphQL.
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@3.1" %}
+{% if currentVersion ver_lt "enterprise-server@717" %}
 You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API.
 {% endif %}
 
@@ -114,18 +114,4 @@ When you use the GraphQL API to query and delete private packages, you must use 
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 
-### Contacting support
-
-{% if currentVersion == "free-pro-team@latest" %}
-If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use the [feedback form for {% data variables.product.prodname_registry %}](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages).
-
-Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
-
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
-
-{% else %}
-If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
-
-{% endif %}
+### Contacting support already
