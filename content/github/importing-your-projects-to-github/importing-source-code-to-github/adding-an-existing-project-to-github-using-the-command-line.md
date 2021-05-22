@@ -28,7 +28,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init -b main
+  $ git init main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
