@@ -37,7 +37,7 @@ You can star or unstar a repository by clicking on **Star** at the top of the re
 
 ![Searching through stars](/assets/images/help/stars/stars_search_bar.png)
 
-You can use the search bar on {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
 
 ### Sorting and filtering stars
 
