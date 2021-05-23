@@ -29,7 +29,7 @@ Starring a repository also shows appreciation to the repository maintainer for t
 
 ### Starring a repository
 
-Starring a repository is a simple two-step process
+Starring a repository is a simple two-step process.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. In the top-right corner of the page, click **Star**.
@@ -39,18 +39,21 @@ Starring a repository is a simple two-step process
 
 ### Searching stars
 
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
+
+1. Go to your {% data variables.explore.your_stars_page %}.
+2. In the upper-left corner of the page, left to the Sort drop-down menu, you can use the search bar to find your starred repositories or topics by their name.
 ![Searching through stars](/assets/images/help/stars/stars_search_bar.png)
 
-You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
+The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
 
 ### Sorting and filtering stars
 
+You can customize how you see starred repositories and topics on your stars page, by sorting them differently, or filtering them based on their languages.
+
+1. In the upper-right corner of your {% data variables.explore.your_stars_page %}, you can sort your starred repositories and topics by recently starred, recently active, and most stars.
 ![Sorting stars](/assets/images/help/stars/stars_sort_menu.png)
-
-In the upper-right corner of your stars page, you can sort your starred repositories and topics by recently starred, recently active, and most stars.
-
-On the right side of the page, you can filter your list of starred repositories based on their language.
-
+2. On the right side of the page, you can filter your list of starred repositories based on their language.
 ![Filter stars by language](/assets/images/help/stars/stars_filter_language.png)
 
 ### Further reading
