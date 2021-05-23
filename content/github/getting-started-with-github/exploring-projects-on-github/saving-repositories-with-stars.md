@@ -15,7 +15,7 @@ versions:
 topics:
   - Repositories
 ---
-You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.'
+You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 
 ### About stars
 
@@ -27,11 +27,17 @@ You can star repositories and topics to discover similar projects on {% data var
 
 Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
+### Starring a repository
+
+![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
+
+You can star or unstar a repository by clicking on **Star** at the top of the repository page.
+
 ### Searching stars
 
 ![Searching through stars](/assets/images/help/stars/stars_search_bar.png)
 
-You can use the search bar to quickly find repositories and topics you've starred. The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
+You can use the search bar on {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
 
 ### Sorting and filtering stars
 
@@ -46,8 +52,6 @@ On the right side of the page, you can filter your list of starred repositories 
 ### Browsing your friends' stars
 
  In the lower-right corner of the page, you can also browse your friends' stars. You can use this to find new repositories and topics to star.
-
-![Viewing your friends' stars](/assets/images/help/stars/stars_jump_to_a_friend.png)
 
 ### Further reading
 
