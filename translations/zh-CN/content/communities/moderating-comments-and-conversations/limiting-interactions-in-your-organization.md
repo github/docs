@@ -28,9 +28,9 @@ topics:
 
 ### 限制组织中的交互
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. 在组织设置侧边栏中，单击 **Moderation settings（仲裁设置）**。 ![组织设置侧边栏中的"Moderation settings（仲裁设置）"](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. 在“Moderation settings（仲裁设置）”下，单击 **Interaction limits（交互限制）**。 ![组织设置侧边栏中的"Interaction limits（交互限制）"](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}

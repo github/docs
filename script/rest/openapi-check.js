@@ -15,7 +15,7 @@ program
   .requiredOption('-f, --files [files...]', 'A list of OpenAPI description files to check. Can parse literal glob patterns.')
   .parse(process.argv)
 
-const filenames = program.files
+const filenames = program.opts().files
 
 const filesToCheck = filenames.flatMap(filename => glob.sync(filename))
 

@@ -8748,6 +8748,11 @@ type EnterpriseOwnerInfo {
     first: Int
 
     """
+    Filter whether or not the domain is approved.
+    """
+    isApproved: Boolean = null
+
+    """
     Filter whether or not the domain is verified.
     """
     isVerified: Boolean = null
@@ -13801,6 +13806,11 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
     """
     size: Int
   ): URI!
+
+  """
+  The user that has claimed the data attributed to this mannequin.
+  """
+  claimant: User
 
   """
   Identifies the date and time when the object was created.
@@ -20152,6 +20162,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    Filter by if the domain is approved.
+    """
+    isApproved: Boolean = null
 
     """
     Filter by if the domain is verified.
@@ -39903,6 +39918,16 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   bioHTML: HTML!
 
   """
+  Could this user receive email notifications, if the organization had notification restrictions enabled?
+  """
+  canReceiveOrganizationEmailsWhenNotificationsRestricted(
+    """
+    The login of the organization to check.
+    """
+    login: String!
+  ): Boolean!
+
+  """
   A list of commit comments made by this user.
   """
   commitComments(
@@ -41318,6 +41343,11 @@ type VerifiableDomain implements Node {
   """
   hasFoundVerificationToken: Boolean!
   id: ID!
+
+  """
+  Whether or not the domain is approved.
+  """
+  isApproved: Boolean!
 
   """
   Whether this domain is required to exist for an organization or enterprise policy to be enforced.

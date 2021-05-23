@@ -12,6 +12,8 @@ versions:
   enterprise-server: '*'
 topics:
   - Enterprise
+  - GitHub Connect
+  - GitHub search
 ---
 
 Cuando habilitas la búsqueda unificada, los usuarios pueden ver los resultados de la búsqueda desde contenido público y privado en {% data variables.product.prodname_dotcom_the_website %} cuando buscan desde {% data variables.product.product_location_enterprise %}.

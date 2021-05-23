@@ -47,6 +47,8 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Team | 60 | 5 |
   | Enterprise | 180 | 50 |
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.github-actions.usage-workflow-queue-limits %}
+
 {% else %}
 Usage limits apply to self-hosted runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
 {% endif %}

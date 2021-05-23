@@ -43,7 +43,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Access the organization audit log | **X** |  |  |
 | Edit the organization's profile page (see "[About your organization's profile](/articles/about-your-organization-s-profile)" for details) | **X** |  |  |
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)" for details) | **X** |  |  |
-| Restrict email notifications to verified domains (see "[Restricting email notifications to an approved domain](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain)" for details) | **X** |  |  |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)" for details) | **X** |  |  |
 | Delete **all teams** | **X** |  |  |
 | Delete the organization account, including all repositories | **X** |  |  |
 | Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)" for details) | **X** | **X** |  |

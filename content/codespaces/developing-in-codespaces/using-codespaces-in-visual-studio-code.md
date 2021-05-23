@@ -1,15 +1,17 @@
 ---
 title: Using Codespaces in Visual Studio Code
 intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your account on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio-code
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Codespaces
+  - Visual Studio Code
+  - Developer
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -18,7 +20,21 @@ topics:
 
 To develop in a codespace directly in {% data variables.product.prodname_vscode %}, you must sign into the {% data variables.product.prodname_github_codespaces %} extension. The {% data variables.product.prodname_github_codespaces %} extension requires {% data variables.product.prodname_vscode %} October 2020 Release 1.51 or later.
 
-1. Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode %} documentation.
+Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% data variables.product.prodname_github_codespaces %}](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension. For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) in the {% data variables.product.prodname_vscode %} documentation.
+
+
+{% mac %}
+
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
+2. Click **Sign in to view {% data variables.product.prodname_dotcom %}...**.
+   ![Signing in to view {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode-mac.png)
+3. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
+4. Sign in to {% data variables.product.product_name %} to approve the extension.
+
+{% endmac %}
+
+{% windows %}
+
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Use the "REMOTE EXPLORER" drop-down, then click **{% data variables.product.prodname_github_codespaces %}**.
    ![The {% data variables.product.prodname_codespaces %} header](/assets/images/help/codespaces/codespaces-header-vscode.png)
@@ -26,6 +42,8 @@ To develop in a codespace directly in {% data variables.product.prodname_vscode 
    ![Signing in to view {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/sign-in-to-view-codespaces-vscode.png)
 4. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
 5. Sign in to {% data variables.product.product_name %} to approve the extension.
+
+{% endwindows %}
 
 ### Creating a codespace in {% data variables.product.prodname_vscode %}
 

@@ -15,7 +15,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`permissions`](#permissions)
   - [`product`](#product)
   - [`layout`](#layout)
-  - [`mapTopic`](#maptopic)
+  - [`children`](#children)
   - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
@@ -35,6 +35,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
 - [Whitespace control](#whitespace-control)
 - [Links and image paths](#links-and-image-paths)
   - [Preventing transformations](#preventing-transformations)
+- [Index pages](#index-pages)
 - [Creating new sublanding pages](#creating-new-sublanding-pages)
 
 ## Frontmatter
@@ -57,7 +58,7 @@ See [Versioning](#versioning) for more info.
 
 Example that applies to GitHub.com and recent versions of GitHub Enterprise Server:
 
-```yml
+```yaml
 title: About your personal dashboard
 versions:
   free-pro-team: '*'
@@ -67,7 +68,7 @@ versions:
 Example that applies to all supported versions of GitHub Enterprise Server:
 (but not GitHub.com):
 
-```yml
+```yaml
 title: Downloading your license
 versions:
   enterprise-server: '*'
@@ -75,7 +76,7 @@ versions:
 
 You can also version a page for a range of releases. This would version the page for GitHub Enterprise Server 2.22 and 3.0 only:
 
-```yml
+```yaml
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22 <3.1'
@@ -89,7 +90,7 @@ versions:
 
 Example:
 
-```yml
+```yaml
 title: Getting started with GitHub Desktop
 redirect_from:
   - /articles/first-launch/
@@ -113,7 +114,7 @@ See [`contributing/redirects`](contributing/redirects.md) for more info.
 
 Example:
 
-```yml
+```yaml
 title: Contributing to projects with GitHub Desktop
 shortTitle: Contributing to projects
 ```
@@ -143,11 +144,11 @@ shortTitle: Contributing to projects
 For a layout named `layouts/article.html`, the value would be `article`.
 - Optional. If omitted, `layouts/default.html` is used.
 
-### `mapTopic`
+### `children`
 
-- Purpose: Indicates whether a page is a map topic. See [Map Topic Pages](#map-topic-pages) for more info.
-- Type: `Boolean`. Default is `false`.
-- Optional.
+- Purpose: Lists the relative links that belong to the product/category/map topic. See [Index pages](#index-pages) for more info.
+- Type: `Array`. Default is `false`.
+- Required on `index.md` pages.
 
 ### `featuredLinks`
 
@@ -233,7 +234,7 @@ defaultTool: cli
 
 Example:
 
-```yml
+```yaml
 includeGuides:
   - /actions/guides/about-continuous-integration
   - /actions/guides/setting-up-continuous-integration-using-workflow-templates
@@ -258,7 +259,7 @@ includeGuides:
 
 Example:
 
-```yml
+```yaml
 contributor:
   name: ACME, inc.
   URL: https://acme.example.com/
@@ -312,8 +313,6 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 {%- if currentVersion == 'free-pro-team@latest' %}
 ```
 
-These characters are especially important in [index pages](#index-pages) comprised of list items.
-
 ## Links and image paths
 
 Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
@@ -344,6 +343,11 @@ Sometimes you want to link to a Dotcom-only article in Enterprise content and yo
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
 
+### Index pages
+
+Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
+
+**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
 
 ### Creating new sublanding pages
 

@@ -20646,6 +20646,14 @@
           ]
         },
         {
+          "name": "claimant",
+          "description": "<p>The user that has claimed the data attributed to this mannequin.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -49579,6 +49587,26 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "canReceiveOrganizationEmailsWhenNotificationsRestricted",
+          "description": "<p>Could this user receive email notifications, if the organization had notification restrictions enabled?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "login",
+              "description": "<p>The login of the organization to check.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "commitComments",

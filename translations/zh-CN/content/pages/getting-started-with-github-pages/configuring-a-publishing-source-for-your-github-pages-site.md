@@ -19,7 +19,7 @@ topics:
 
 ### 选择发布源
 
-Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@3.0" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@3.0" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %}
+在配置发布源之前，请确保要用作发布源的分支{% if currentVersion ver_lt "enterprise-server@3.0" %} 或文件夹{% endif %} 已存在于您的仓库中。{% if currentVersion ver_lt "enterprise-server@3.0" %} 例如，从仓库的 `master` 分支上的 `/docs` 文件夹中发布项目站点之前，您或协作者必须在仓库的默认 `master` 分支上创建 `/docs` 文件夹。{% endif %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}

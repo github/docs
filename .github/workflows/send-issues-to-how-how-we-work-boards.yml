@@ -51,7 +51,7 @@ jobs:
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
-            var column_id = 13445932;
+            var column_id = 12860544;
             try {
               github.projects.createCard({
                 column_id: column_id,

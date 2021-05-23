@@ -18,11 +18,6 @@ sections:
 
           Administrators using {% data variables.product.prodname_GH_advanced_security %} can [enable and configure](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} secret scanning. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_GH_advanced_security %} secret scanning.
 
-    - heading: GitHub Advanced Security Code Scanning
-      notes:
-        - |
-          [{% data variables.product.prodname_GH_advanced_security %} code scanning](https://github.com/features/security) is now generally available on {% data variables.product.prodname_ghe_server %} 3.1+. Organizations who have purchased {% data variables.product.prodname_GH_advanced_security %} can use this capability to do static analysis security testing against their code, and prevent vulnerabilities from making it to their production code using CodeQL, our semantic analysis engine. For more information, see "[Configuring code scanning on your appliance](/en/enterprise-server@3.1/admin/configuration/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)."
-
     - heading: GitHub Advanced Security billing improvements
       notes:
         - |
@@ -73,7 +68,7 @@ sections:
     - heading: Administration Changes
       notes:
         - By precomputing checksums, the amount of time a repository is under the lock has reduced dramatically, allowing more write operations to succeed immediately and improving monorepo performance.
-        - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than GitHub Actions. Previously, such users had to use the separate [CodeQL Runner](/enterprise-server@3.1/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system#about-the-codeql-runner), which will continue to be available.(https://github.com/github/blog/pull/2346/files)
+        - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than GitHub Actions. Previously, such users had to use the separate CodeQL runner, which will continue to be available. For more information, see "[About CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
         - GitHub Actions now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.
         - Check annotations older than four months will be archived.
 

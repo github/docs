@@ -26,14 +26,32 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
-const renderWithNext = FEATURE_NEXTJS
-  ? [
-      '/en/rest'
-    ]
-  : []
+function modifyOutput (req, text) {
+  return addColorMode(req, addCsrf(req, text))
+}
 
 function addCsrf (req, text) {
   return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
+
+function addColorMode (req, text) {
+  let colorMode = 'auto'
+  let darkTheme = 'dark'
+  let lightTheme = 'light'
+
+  try {
+    const cookieValue = JSON.parse(decodeURIComponent(req.cookies.color_mode))
+    colorMode = encodeURIComponent(cookieValue.color_mode) || colorMode
+    darkTheme = encodeURIComponent(cookieValue.dark_theme.name) || darkTheme
+    lightTheme = encodeURIComponent(cookieValue.light_theme.name) || lightTheme
+  } catch (e) {
+    // do nothing
+  }
+
+  return text
+    .replace('$COLORMODE$', colorMode)
+    .replace('$DARKTHEME$', darkTheme)
+    .replace('$LIGHTTHEME$', lightTheme)
 }
 
 module.exports = async function renderPage (req, res, next) {
@@ -45,7 +63,7 @@ module.exports = async function renderPage (req, res, next) {
       console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
     }
     return res.status(404).send(
-      addCsrf(
+      modifyOutput(
         req,
         await liquid.parseAndRender(layouts['error-404'], req.context)
       )
@@ -73,9 +91,9 @@ module.exports = async function renderPage (req, res, next) {
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
   // Should the current path be rendered by NextJS?
-  const isNextJsRequest = renderWithNext.includes(req.path)
+  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
 
-  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
+  if (isCacheable && !isRequestingJsonForDebugging && !renderWithNextjs) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -86,7 +104,7 @@ module.exports = async function renderPage (req, res, next) {
 
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(addCsrf(req, cachedHtml))
+      return res.send(modifyOutput(req, cachedHtml))
     }
   }
 
@@ -146,7 +164,7 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  if (FEATURE_NEXTJS && isNextJsRequest) {
+  if (renderWithNextjs) {
     nextHandleRequest(req, res)
   } else {
     // currentLayout is added to the context object in middleware/contextualizers/layouts
@@ -154,7 +172,7 @@ module.exports = async function renderPage (req, res, next) {
 
     // First, send the response so the user isn't waiting
     // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-    res.send(addCsrf(req, output))
+    res.send(modifyOutput(req, output))
 
     // Finally, save output to cache for the next time around
     if (isCacheable) {

@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** Antes de que puedas utilizar el {% data variables.product.prodname_github_container_registry %}, debes habilitar la característica para tu cuenta. Para obtener más información, consulta la sección "[Habilitar el soporte mejorado para los contenedores](/packages/guides/enabling-improved-container-support)".
+**Note:** Before you can use the {% data variables.product.prodname_container_registry %}, you must enable the feature for your account. For more information, see "[Enabling improved container support with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry)."
 
 {% endnote %}

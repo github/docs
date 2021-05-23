@@ -23,6 +23,12 @@ topics:
 
 Os proprietários da organização têm pleno acesso administrativo à organização. {% data reusables.organizations.new-org-permissions-more-info %}
 
+{% note %}
+
+**Observação**: Como proprietário de uma organização, você pode alterar a função dos outros integrantes e proprietários da organização. Você não pode mudar a sua própria função.
+
+{% endnote %}
+
 ### Designar um proprietário da organização
 
 {% data reusables.profile.access_profile %}
