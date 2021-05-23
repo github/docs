@@ -2,12 +2,13 @@
 title: About code scanning
 intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/managing-security-vulnerabilities/about-automated-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -20,9 +21,9 @@ You can use {% data variables.product.prodname_code_scanning %} to find, triage,
 
 If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use the {% data variables.product.prodname_code_scanning %} API. For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/v3/code-scanning)."
+To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
-To get started with {% data variables.product.prodname_code_scanning %}, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+To get started with {% data variables.product.prodname_code_scanning %}, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 ### About {% data variables.product.prodname_codeql %}
 
@@ -32,17 +33,9 @@ You can use {% data variables.product.prodname_code_scanning %} with {% data var
 
 {% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
-You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html) in the {% data variables.product.prodname_codeql %} documentation.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### About billing for {% data variables.product.prodname_code_scanning %}
-
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
-
-{% endif %}
+You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 
 ### About third-party code scanning tools
 
@@ -54,7 +47,5 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 ### 더 읽을거리
 
-{% if currentVersion == "free-pro-team@latest" %}
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

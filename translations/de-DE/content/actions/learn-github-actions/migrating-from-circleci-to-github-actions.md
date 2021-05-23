@@ -6,10 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -27,7 +35,9 @@ Weitere Informationen findest Du unter „[Kernkonzepte für {% data variables.p
 Betrachte bei der Migration von CircleCI folgende Unterschiede:
 
 - Die automatische Testparallelität des CircleCI gruppiert die Tests automatisch nach benutzerdefinierten Regeln oder historischen Zeitinformationen. Diese Funktionalität ist in {% data variables.product.prodname_actions %} nicht eingebaut.
-- Aktionen, die in Docker-Containern ausgeführt werden, sind sensibel für Berechtigungsprobleme, da Container eine andere Zuordnung von Benutzern haben. Du kannst viele dieser Probleme vermeiden, indem Du die Anweisung `USER` in Deinem *Dockerfile* nicht verwendest. Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+- Aktionen, die in Docker-Containern ausgeführt werden, sind sensibel für Berechtigungsprobleme, da Container eine andere Zuordnung von Benutzern haben. Du kannst viele dieser Probleme vermeiden, indem Du die Anweisung `USER` in Deinem *Dockerfile* nicht verwendest. {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images).".
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+{% endif %}
 
 ### Workflows und Jobs migrieren
 
@@ -50,9 +60,17 @@ CircleCI stellt eine Reihe von vordefinierten Images mit üblichen Abhängigkeit
 
 Wir empfehlen Dir, von vordefinierten CircleCI-Images zu wegzugehen, wenn Du zu {% data variables.product.prodname_actions %} migrierst. In vielen Fällen kannst Du die zusätzlich benötigten Abhängigkeiten mithilfe von Aktionen installieren.
 
-Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+{% if currentVersion == "github-ae@latest" %}
+For more information about the Docker filesystem, see "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+For instructions on how to make sure your
 
-For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
+Weitere Informationen über das Docker-Dateisystem findest Du unter „[Virtuelle Umgebungen für {% data variables.product.product_name %}-gehostete Runner](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)“.
+For more information about the tools and packages available on
+
+{% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Variablen und Geheimnisse verwenden
 
@@ -101,7 +119,7 @@ GitHub Actions
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)“.
+{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 {% data variables.product.prodname_actions %} hat kein Äquivalent zum „Docker Layer Caching“ („DLC“, im Cache auf Docker-Ebene zwischenspeichern).
 
@@ -257,24 +275,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
-        # einen Gesundheitscheck zufuegen
+          - 5432:5432
+        # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # Diese Docker-Datei Setzt USER auf circleci statt dem Standardbenutzer, daher muessen wir die Datei-Berechtigungen fuer dieses Image aktualisieren, um auf GH-Aktionen arbeiten zu koennen.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -411,35 +429,37 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

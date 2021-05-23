@@ -6,10 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -27,7 +35,9 @@ For more information, see "[Core concepts for {% data variables.product.prodname
 When migrating from CircleCI, consider the following differences:
 
 - CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. {% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images).".
+{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+{% endif %}
 
 ### Migrating workflows and jobs
 
@@ -50,9 +60,17 @@ CircleCI provides a set of pre-built images with common dependencies. These imag
 
 We recommend that you move away from CircleCI's pre-built images when you migrate to {% data variables.product.prodname_actions %}. In many cases, you can use actions to install the additional dependencies you need.
 
-For more information about the Docker filesystem, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+{% if currentVersion == "github-ae@latest" %}
+For more information about the Docker filesystem, see "[Docker container filesystem](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)."
+For instructions on how to make sure your
 
-For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
+For more information about the Docker filesystem, see "[Virtual environments for {% data variables.product.product_name %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+For more information about the tools and packages available on
+
+{% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Using variables and secrets
 
@@ -101,7 +119,7 @@ GitHub Actions
 </tr>
 </table>
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
+{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% data variables.product.prodname_actions %} does not have an equivalent of CircleCI’s Docker Layer Caching (or DLC).
 
@@ -257,24 +275,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -411,35 +429,37 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

@@ -48,12 +48,15 @@ $ npm login --registry=https://npm.pkg.github.com
 
 npmにログインすることで認証を受けるには、`npm login`コマンドを使ってください。*USERNAME*は{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*は個人アクセストークンで、*PUBLIC-EMAIL-ADDRESS*はメールアドレスで置き換えてください。
 
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
 {% if enterpriseServerVersions contains currentVersion %}
 パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
 {% endif %}
 
 ```shell
-$ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
@@ -63,9 +66,10 @@ $ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}
 たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
 
 ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
 

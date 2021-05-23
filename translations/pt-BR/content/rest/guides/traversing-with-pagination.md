@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -20,9 +22,9 @@ Neste guia, vamos fazer algumas chamadas para a API de pesquisa do {% data varia
 
 Para começar, é importante conhecer alguns fatos sobre o recebimento de itens paginados:
 
-1. Diferentes chamadas de API respondem com diferentes padrões. Por exemplo, uma chamada para [Listar repositórios públicos](/v3/repos/#list-public-repositories) fornece itens paginados em conjuntos de 30, enquanto uma chamada para a API de Pesquisa do GitHub fornece itens em conjuntos de 100
+1. Diferentes chamadas de API respondem com diferentes padrões. Por exemplo, uma chamada para [Listar repositórios públicos](/rest/reference/repos#list-public-repositories) fornece itens paginados em conjuntos de 30, enquanto uma chamada para a API de Pesquisa do GitHub fornece itens em conjuntos de 100
 2. Você pode especificar quantos itens receber (até um máximo de 100); mas
-3. Por razões técnicas, nem todos os pontos de referência comportam-se da mesma forma. Por exemplo, os [eventos](/v3/activity/events/) não permitirão que você defina um máximo de itens a receber. Leia a documentação sobre como lidar com resultados paginados para pontos de extremidade específicos.
+3. Por razões técnicas, nem todos os pontos de referência comportam-se da mesma forma. Por exemplo, os [eventos](/rest/reference/activity#events) não permitirão que você defina um máximo de itens a receber. Leia a documentação sobre como lidar com resultados paginados para pontos de extremidade específicos.
 
 As informações sobre paginação são fornecidas no [cabeçalho do link](http://tools.ietf.org/html/rfc5988) de uma chamada de API. Por exemplo, vamos fazer uma solicitação de curl para a API de pesquisa, para descobrir quantas vezes os projetos da Mozilla usam a frase `addClass`:
 
@@ -201,7 +203,7 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

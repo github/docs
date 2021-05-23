@@ -8,15 +8,34 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Create a repository
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software.
 
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+
 {% note %}
 
-**Note:** You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](http://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+**Note:** You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.repositories.create_new %}
 2. Type a short, memorable name for your repository. For example, "hello-world". ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
@@ -45,7 +64,7 @@ When you created your new repository, you initialized it with a *README* file. *
 
 Let's commit a change to the *README* file.
 
-1. In your repository's list of files, click ***README.md***. ![Readme file in file list](/assets/images/help/repository/create-commit-open-readme.png)
+1. In your repository's list of files, click ***README.md***. ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
 2. Above the file's content, click {% octicon "pencil" aria-label="The edit icon" %}.
 3. On the **Edit file** tab, type some information about yourself. ![New content in file](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}

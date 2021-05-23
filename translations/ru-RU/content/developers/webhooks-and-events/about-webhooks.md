@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
@@ -22,7 +24,7 @@ You can create up to {% if enterpriseServerVersions contains currentVersion or c
 
 Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the `issues` event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
 
-See "[Webhook event payloads](/webhooks/event-payloads)" for the list of available webhook events and their payloads.
+For a complete list of available webhook events and their payloads, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
 
 ### Ping event
 
@@ -31,4 +33,4 @@ See "[Webhook event payloads](/webhooks/event-payloads)" for the list of availab
 For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /v3/repos/hooks/
+[repo-hooks]: /rest/reference/repos#hooks

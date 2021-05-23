@@ -4,10 +4,18 @@ intro: '{% data variables.product.prodname_actions %} と GitLab CI/CDはいく�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - GitLab
+  - Migration
+  - CI
+  - CD
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -20,7 +28,7 @@ GitLab CI/CD と {% data variables.product.prodname_actions %} は、どちら�
 
 いくつかの違いがありますので、このガイドでは、ワークフローを {% data variables.product.prodname_actions %} に移行できるようにする際の重要な違いを説明します。
 
-### Jobs
+### ジョブ
 
 GitLab CI/CD のジョブは、{% data variables.product.prodname_actions %} のジョブと非常によく似ています。 どちらのシステムでも、ジョブは以下の特徴を持ちます。
 
@@ -59,8 +67,8 @@ job1:
 jobs:
   job1:
     steps:
-    - uses: actions/checkout@v2
-    - run: echo "Run your script here"
+      - uses: actions/checkout@v2
+      - run: echo "Run your script here"
 ```
 {% endraw %}
 </td>
@@ -256,24 +264,24 @@ jobs:
   build_a:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
 
   build_b:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first, in parallel with build_a"
-  
+      - run: echo "This job will be run first, in parallel with build_a"
+
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
     steps:
-    - run: echo "This job will run after build_a and build_b have finished"
+      - run: echo "This job will run after build_a and build_b have finished"
 
   deploy_ab:
     runs-on: ubuntu-latest
     needs: [test_ab]
     steps:
-    - run: echo "This job will run after test_ab is complete"
+      - run: echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
 </td>
@@ -334,23 +342,23 @@ test_async:
 ```yaml
 jobs:
   test_async:
-  - name: Cache node modules
-    uses: actions/cache@v2
-    with:
-      path: ~/.npm
-      key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
-      restore-keys: v1-npm-deps-
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: v1-npm-deps-
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/guides/caching-dependencies-to-speed-up-workflows)」を参照してください。
+{% data variables.product.prodname_actions %} キャッシングは、{% data variables.product.prodname_dotcom %} ホストランナーにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### 成果物
 
-GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、ジョブによって作成されたファイルとディレクトリをアーティファクトとしてアップロードできます。 {% data variables.product.prodname_actions %} では、アーティファクトを使用して、複数のジョブ間でデータを永続化できます。
+GitLab CI/CD と {% data variables.product.prodname_actions %} はどちらも、ジョブによって作成されたファイルとディレクトリを成果物としてアップロードできます。 {% data variables.product.prodname_actions %} では、成果物を使用して、複数のジョブ間でデータを永続化できます。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -367,10 +375,10 @@ GitLab CI/CD
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-script: 
+script:
 artifacts:
   paths:
-  - math-homework.txt
+    - math-homework.txt
 ```
 {% endraw %}
 </td>
@@ -388,7 +396,7 @@ artifacts:
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローデータをアーティファクトとして保存する](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
+詳しい情報については、「[ワークフローデータを成果物として保存する](/actions/guides/storing-workflow-data-as-artifacts)」を参照してください。
 
 ### データベースとサービスコンテナ
 
@@ -414,21 +422,21 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # PostgreSQL サービスコンテナとの通信に 
-    # 使用されるホスト名
+    # PostgreSQLサービスコンテナと通信するために
+    # 使われるホスト名
     POSTGRES_HOST: postgres
-    # デフォルトの PostgreSQL ポート
+    # PostgreSQLのデフォルトのポート
     POSTGRES_PORT: 5432
   image: node:10.18-jessie
   services:
     - postgres
   script:
-  # 「package.json」ファイル内のすべての依存関係の 
-  # クリーンインストールを実行する
-   - npm ci
-   # PostgreSQL クライアントを作成してクライアントにデータを入力し 
-   # データを取得するスクリプトを実行する
-   - node client.js
+    # `package.json`ファイル中のすべての依存関係を
+    # クリーンインストールする
+    - npm ci
+    # PostgreSQLクライアントを作成し、クライアントにデータを
+    # 展開し、データを取り出すスクリプトを実行する
+    - node client.js
   tags:
     - docker
 ```
@@ -462,7 +470,7 @@ jobs:
         # データを取得するスクリプトを実行する
         run: node client.js
         env:
-          # PostgreSQL サービスコンテナとの通信に  
+          # PostgreSQL サービスコンテナとの通信に
           # 使用されるホスト名
           POSTGRES_HOST: postgres
           # デフォルトの PostgreSQL ポート

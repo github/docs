@@ -1,6 +1,6 @@
 ---
 title: デプロイメントを配信する
-intro: 'Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。'
+intro: Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -9,11 +9,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
   
 
-[Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
+[Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 [Status API][status API]と組み合わせれば、コードがデフォルトブランチに到着してからすぐにデプロイメントを調整できるようになります。
 
 このAPIでは、ステータスAPIを使って、利用できる設定を示します。 このシナリオでは、以下を行います。
 
@@ -145,7 +147,7 @@ GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]�
 
 これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

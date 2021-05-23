@@ -4,6 +4,9 @@ intro: 'La API de la Base de datos de Git te da acceso de escritura y lectora pa
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### Resumen

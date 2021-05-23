@@ -35,10 +35,6 @@ At this time, {% data variables.product.prodname_registry %} on {% data variable
 
 {% endif %}
 
-### 予約されているパッケージのバージョンと名前
-
-{% data reusables.package_registry.package-immutability %}
-
 ### {% data variables.product.product_name %}上でのプライベートパッケージのバージョンの削除
 
 プライベートパッケージのバージョンを削除するには、そのリポジトリの管理権限が必要です。

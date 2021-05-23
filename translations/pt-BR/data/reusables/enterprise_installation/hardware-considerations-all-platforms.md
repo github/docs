@@ -1,4 +1,5 @@
-- [Requisitos mínimos](#minimum-requirements)
+- [Requisitos mínimos](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [Funcionalidades de beta em {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222){% endif %}
 - [Armazenamento](#storage)
 - [CPU e memória](#cpu-and-memory)
 
@@ -6,25 +7,7 @@
 
 Recomendamos diferentes configurações de hardware, dependendo do número de licenças de usuário para {% data variables.product.product_location %}. Se você fornecer mais recursos do que os requisitos mínimos, sua instância terá um desempenho e uma escala melhores.
 
-{% data reusables.enterprise_installation.hardware-rec-table %} Para obter mais informações sobre o ajuste de recursos para uma instância existente, consulte "[aumentar a capacidade de armazenamento](/enterprise/admin/installation/increasing-storage-capacity)" e "[aumentar recursos de CPU ou memória](/enterprise/admin/installation/increasing-cpu-or-memory-resources)".
-
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-
-Se você habilitar o beta para {% data variables.product.prodname_actions %} na sua instância, recomendamos que você planeje uma capacidade adicional.
-
-- Você deve configurar pelo menos um executor para fluxos de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
-- Você deve configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_actions %} e configurar o armazenamento](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)".
-
-Os recursos adicionais de CPU e memória que você precisa fornecer para a sua instância dependem do número de fluxos de trabalho que os seus usuários executam simultaneamente e dos níveis gerais de atividade para usuários, automações, e integrações.
-
-| Máximo de trabalhos por minuto | vCPUs | Memória |
-|:------------------------------ | -----:| -------:|
-| Testes rápidos                 |     4 | 30.5 GB |
-| 25                             |     8 |   61 GB |
-| 35                             |    16 |  122 GB |
-| 100                            |    32 |  244 GB |
-
-{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 #### Armazenamento
 
@@ -32,9 +15,9 @@ Recomendamos um SSD de alto desempenho com operações de alta entrada/saída po
 
 A sua instância exige um disco de dados persistente separado do disco raiz. Para obter mais informações, consulte "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-Se você habilitar o beta de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22, você precisará configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_actions %} e configurar o armazenamento](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)".
+Para configurar{% if currentVersion == "enterprise-server@2.22" %} beta de{% endif %} {% data variables.product.prodname_actions %}, você deve fornecer armazenamento externo de blob. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)".
 
 {% endif %}
 
@@ -42,7 +25,13 @@ Você pode redimensionar o disco raiz da sua instância criando uma nova instân
 
 #### CPU e memória
 
-O {% data variables.product.prodname_ghe_server %} exige mais recursos de CPU e memória, dependendo dos níveis de atividade para usuários, automações e integrações.
+Os recursos de CPU e memória que {% data variables.product.prodname_ghe_server %} exige dependem dos níveis de atividade para usuários, automações e integrações.
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+If you {% if currentVersion == "enterprise-server@2.22" %}enabled the beta of{% else %}plan to enable{% endif %} {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)".
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
@@ -52,4 +41,6 @@ O {% data variables.product.prodname_ghe_server %} exige mais recursos de CPU e 
 
 {% endwarning %}
 
-Você pode aumentar os recursos de memória ou da CPU na sua instância. Para obter mais informações, consulte "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources).
+Para obter mais informações sobre o monitoramento da capacidade e desempenho de {% data variables.product.prodname_ghe_server %}, consulte "[Monitoramento do seu aplicativo](/admin/enterprise-management/monitoring-your-appliance)".
+
+Você pode aumentar os recursos de memória ou da CPU na sua instância. Para obter mais informações, consulte "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."

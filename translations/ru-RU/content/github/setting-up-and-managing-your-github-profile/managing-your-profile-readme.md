@@ -4,7 +4,8 @@ intro: 'You can add a README to your {% data variables.product.prodname_dotcom %
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-  github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### About your profile README
@@ -49,6 +50,8 @@ GitHub will display your profile README on your profile page if all of the follo
 7. Above the right sidebar, click **Edit README**. ![Button to edit README file](/assets/images/help/repository/personal-repository-edit-readme.png)
 
   The generated README file is pre-populated with a template to give you some inspiration for your profile README. ![README file with pre-populated template](/assets/images/help/repository/personal-repository-readme-template.png)
+
+For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](http://www.emoji-cheat-sheet.com/)."
 
 ### Removing a profile README
 

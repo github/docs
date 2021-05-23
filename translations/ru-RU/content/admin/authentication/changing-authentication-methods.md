@@ -6,11 +6,17 @@ redirect_from:
   - /enterprise/admin/authentication/changing-authentication-methods
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
 ---
 
 User accounts on {% data variables.product.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
+If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
 Other issues you should take into consideration include:
 

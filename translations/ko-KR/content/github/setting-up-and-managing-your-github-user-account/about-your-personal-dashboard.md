@@ -9,13 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### Accessing your personal dashboard
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_url %}.
+To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
 
 ### Finding your recent activity
 
@@ -39,11 +41,11 @@ In the "All activity" section of your news feed, you can view updates from repos
 
 You'll see updates in your news feed when a user you follow:
 - Stars a repository.
-- Follows another user.
-- Creates a public repository.
+- Follows another user.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Creates a public repository.{% endif %}
 - Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
-- Pushes commits to a repository you watch.
-- Forks a public repository.
+- Pushes commits to a repository you watch.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Forks a public repository.{% endif %}
 
 For more information about starring repositories and following people, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)" and "[Following people](/articles/following-people)."
 

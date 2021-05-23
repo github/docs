@@ -11,10 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 对仓库具有写入权限的任何人都可以使用 {% data variables.product.prodname_actions %} 设置持续集成 (CI)。
 

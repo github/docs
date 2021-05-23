@@ -1,6 +1,6 @@
 ---
 title: 启用分支限制
-intro: 'You can enforce branch restrictions so that only certain users, teams, or apps can push to a protected branch in repositories owned by your organization.'
+intro: '您可以强制实施分支限制，以便只有某些用户、团队或应用程序可以推送到组织拥有的仓库中的受保护分支。'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions

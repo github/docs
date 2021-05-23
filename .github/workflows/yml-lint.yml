@@ -1,40 +1,33 @@
 name: Lint Yaml
 
+# **What it does**: This lints our yaml files in the docs repository.
+# **Why we have it**: We want some level of consistent formatting for YAML files.
+# **Who does it impact**: Docs engineering, docs content.
+
 on:
   workflow_dispatch:
   push:
     branches:
       - main
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
   pull_request:
-    branches-ignore:
-      - translations
+    paths:
+      - '**/*.yml'
+      - '**/*.yaml'
 
 jobs:
-  see_if_should_skip:
-    runs-on: ubuntu-latest
-
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
-        with:
-          cancel_others: 'false'
-          github_token: ${{ github.token }}
-          paths: '["**/*.yml", "**/*.yaml", "package*.json", ".github/workflows/yml-lint.yml"]'
-
   lint:
     runs-on: ubuntu-latest
-    needs: see_if_should_skip
-    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
     steps:
       - name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Get npm cache directory
         id: npm-cache

@@ -1,1 +1,1 @@
-Quando as restrições são ativadas, apenas o grupo especificado de {% data variables.product.product_name %} os usuários serão capazes de participar de interações. As restrições expiram 24 horas a partir do momento que são estabelecidas.
+Quando as restrições são habilitadas, apenas o tipo especificado de usuário de {% data variables.product.product_name %} poderá participar das interações. As restrições expiram automaticamente após uma duração definida.

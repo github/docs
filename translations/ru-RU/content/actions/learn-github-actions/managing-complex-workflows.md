@@ -1,14 +1,19 @@
 ---
 title: Managing complex workflows
 shortTitle: Managing complex workflows
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, and labels.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} environments,{% endif %} and labels.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Обзор
 
@@ -57,7 +62,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -83,6 +88,7 @@ jobs:
 
 For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### Caching dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
@@ -106,7 +112,8 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% endif %}
 
 ### Using databases and service containers
 
@@ -136,17 +143,42 @@ For more information, see "[Using databases and service containers](/actions/con
 
 ### Using labels to route workflows
 
-This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.
+This feature helps you assign jobs to a specific hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.
 
+{% if currentVersion == "github-ae@latest" %}
 This example shows how a workflow can use labels to specify the required runner:
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+For more information, see ["Using labels with {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)."
+{% else %}
 ```yaml
 jobs:
   example-job:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-For more information, see  ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+For more information, see ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Using environments
+
+You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+{% endif %}
+
+### Using a workflow template
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**. ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
+1. Under the name of the template you'd like to use, click **Set up this workflow**. ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### Дальнейшие шаги
 

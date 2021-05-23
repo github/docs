@@ -2,10 +2,13 @@
 title: スカラ
 redirect_from:
   - /v4/scalar
+  - /v4/reference/scalar
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### スカラについて
@@ -14,7 +17,7 @@ versions:
 
 GraphQL APIを呼ぶ際には、スカラだけが返されるようになるまでネストしたサブフィールドを指定していかなければなりません。
 
-詳しい情報については「[GraphQLの紹介](/v4/guides/intro-to-graphql#field)」を参照してください。
+詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql#field)」を参照してください。
 
 {% for item in graphql.schemaForCurrentVersion.scalars %}
   {% include graphql-scalar %}

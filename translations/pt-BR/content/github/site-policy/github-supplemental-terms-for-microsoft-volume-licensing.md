@@ -109,7 +109,7 @@ Em algumas situações, os termos de terceiros podem ser aplicados ao uso do ser
 
 #### 2.1.5 Termos do Governo Federal do EUA. Termos do Governo Federal.
 
-Se o cliente é dos EUA. Se o Cliente for uma agência do Governo Federal dos EUA ou que acessa ou usa qualquer parte do Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o cliente concordará com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
+Se o cliente é dos EUA. Se o Cliente for uma agência do Governo Federal dos EUA ou que acessa ou usa qualquer parte do Serviço em instalações governamentais, a [Emenda do Governo Federal dos EUA](https://docs.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) se aplicará e o cliente concordará com as disposições dela. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
 
 ### 2.2 Cumprimento das leis; Uso aceitável; Privacidade.
 
@@ -175,7 +175,7 @@ A aparência do Serviço é Copyright © GitHub, Inc. Todos os direitos reservad
 
 #### 2.5.2 Violação de direitos autorais e política DMCA.
 
-If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
+Se o Cliente for proprietário de direitos autorais e acreditar que o Conteúdo no Serviço viola seus direitos autorais, ele poderá notificar o GitHub de acordo com a [Lei dos Direitos Autorais do Milênio Digital](https://github.com/contact/dmca) (DMCA – Digital Millennium Copyright Act Policy) usando o [Formulário DMCA](https://github.com/contact/dmca-notice) ou pelo e-mail copyright@github.com.
 
 #### 2.5.3 Logotipos e marcas registradas do GitHub.
 

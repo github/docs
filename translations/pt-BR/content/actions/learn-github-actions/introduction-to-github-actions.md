@@ -9,10 +9,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: overview
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Visão Geral
 
@@ -34,7 +39,7 @@ O fluxo de trabalho é um procedimento automatizado que você adiciona ao seu re
 
 #### Eventos
 
-Um evento é uma atividade específica que aciona um fluxo de trabalho. Por exemplo, uma atividade pode originar de {% data variables.product.prodname_dotcom %} quando alguém faz o push de um commit em um repositório ou quando são criados um problema ou um pull request. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. Para obter uma lista completa de eventos que podem ser usados para acionar fluxos de trabalho, consulte [Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows).
+Um evento é uma atividade específica que aciona um fluxo de trabalho. Por exemplo, uma atividade pode originar de {% data variables.product.prodname_dotcom %} quando alguém faz o push de um commit em um repositório ou quando são criados um problema ou um pull request. Também é possível usar o [webhook de envio de repositórios](/rest/reference/repos#create-a-repository-dispatch-event) para acionar um fluxo de trabalho quando ocorre um evento externo. Para obter uma lista completa de eventos que podem ser usados para acionar fluxos de trabalho, consulte [Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows).
 
 #### Trabalhos
 
@@ -42,7 +47,7 @@ Um trabalho é um conjunto de etapas executadas no mesmo executor. Por padrão, 
 
 #### Etapas
 
-Uma etapa é uma tarefa individual que pode executar comandos (conhecidos como _ações_). Cada etapa de um trabalho é executada no mesmo executor, permitindo que as ações naquele trabalho compartilhem dados entre si.
+Uma etapa é uma tarefa individual que pode executar comandos em um trabalho. Uma etapa pode ser uma _ação_ ou um comando de shell. Cada etapa de um trabalho é executada no mesmo executor, permitindo que as ações naquele trabalho compartilhem dados entre si.
 
 #### Ações
 
@@ -50,9 +55,11 @@ _Ações_ são comandos autônomos combinados em _etapas_ para criar um _trabalh
 
 #### Executores
 
-Um executor é um servidor com a aplicação de executor de {% data variables.product.prodname_actions %} instalada. Você pode usar um executor hospedado em {% data variables.product.prodname_dotcom %} ou você pode hospedar seu próprio. Um executor escuta trabalhos disponíveis, executa um trabalho de cada vez e relata o progresso, os registros e os resultados de volta para {% data variables.product.prodname_dotcom %}. Para executores hospedados em {% data variables.product.prodname_dotcom %}, cada trabalho em um fluxo de trabalho é executado em um novo ambiente virtual.
-
-Os executores hospedados em {% data variables.product.prodname_dotcom %}runners são baseados no Ubuntu Linux, Microsoft Windows e macOS. Para informações sobre executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}-](/actions/reference/virtual-environments-for-github-hosted-runners)". Se você precisar de um sistema operacional diferente ou precisar de uma configuração de hardware específica, você poderá hospedar seus próprios executores. Para obter informações sobre executores auto-hospedados, consulte "[Hospedar seus próprios executores](/actions/hosting-your-own-runners)".
+{% if currentVersion == "github-ae@latest" %}Um executor é um servidor que tem [um aplicativo do executor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner) instalado. Para {% data variables.product.prodname_ghe_managed %}, você pode usar a segurança enrijecida de {% data variables.actions.hosted_runner %}, que são agrupados com sua instância na nuvem. Um executor escuta trabalhos disponíveis, executa um trabalho de cada vez e relata o progresso, os registros e os resultados de volta para {% data variables.product.prodname_dotcom %}. {% data variables.actions.hosted_runner %}s executam cada fluxo de trabalho em um novo ambiente virtual. Para obter mais informações, consulte "[Sobre {% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/about-ae-hosted-runners)".
+{% else %}
+Um executor é um servidor que tem o[aplicativo do executor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner) instalado. Você pode usar um executor hospedado por
+{% data variables.product.prodname_dotcom %}, ou você pode hospedar o seu próprio. Um executor escuta trabalhos disponíveis, executa um trabalho de cada vez e relata o progresso, os registros e os resultados de volta para {% data variables.product.prodname_dotcom %}. Executores hospedados em {% data variables.product.prodname_dotcom %} são baseados no Ubuntu Linux, Microsoft Windows e macOS, e cada trabalho em um fluxo de trabalho é executado em um novo ambiente virtual.  Para obter informações sobre executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)." Se você precisar de um sistema operacional diferente ou precisar de uma configuração de hardware específica, você poderá hospedar seus próprios executores. Para obter informações sobre executores auto-hospedados, consulte "[Hospedar seus próprios executores](/actions/hosting-your-own-runners)".
+{% endif %}
 
 ### Criar um exemplo de fluxo de trabalho
 
@@ -146,7 +153,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada linha aninhada nesta seção é uma ação separada.
+  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada item aninhado nesta seção é uma ação separada ou comando de shell.
 </td>
 </tr>
 <tr>
@@ -179,7 +186,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>. 
+  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>.
 </td>
 </tr>
 <tr>
@@ -197,20 +204,25 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
 
 #### Visualizar o arquivo de fluxo de trabalho
 
-Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação. As etapas 1 e 2 usam ações de comunidade pré-criadas. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
+Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação ou comando de shell. As etapas 1 e 2 usam ações de comunidade pré-criadas. As etapas 3 e 4 executam comandos de shell diretamente no executor. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-event.png)
 
 
 ### Visualizar a atividade do trabalho
 
-Assim que seu trabalho começar a funcionar, você pode ver as atividades de cada etapa em {% data variables.product.prodname_dotcom %}.
+Assim que o seu trabalho começar a funcionar, você poderá {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}ver um gráfico de visualização do progresso da execução e {% endif %}visualizar a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. No nome do seu repositório, clique em **Ações**. ![Acesse o repositório](/assets/images/help/images/learn-github-actions-repository.png)
 1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver. ![Captura de tela dos resultados do fluxo de trabalho](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Em "Execuções do fluxo de trabalho", clique no nome da execução que você deseja ver. ![Captura de tela das execuções do fluxo de trabalho](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver. ![Selecionar trabalho](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+1. Visualizar os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result.png)

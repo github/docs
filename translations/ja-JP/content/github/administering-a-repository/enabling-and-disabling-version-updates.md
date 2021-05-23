@@ -14,13 +14,9 @@ versions:
 
 {% data reusables.dependabot.initial-updates %} 詳しい情報については、「[依存関係の更新をカスタマイズする](/github/administering-a-repository/customizing-dependency-updates)」をご覧ください。
 
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
 ### Enabling {% data variables.product.prodname_dependabot_version_updates %}
-
-{% note %}
-
-{% data reusables.dependabot.private-dependencies %}
-
-{% endnote %}
 
 {% data reusables.dependabot.create-dependabot-yml %}
 1. `package-ecosystem` を使用して、監視するパッケージマネージャーを指定します。

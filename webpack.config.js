@@ -1,20 +1,34 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { EnvironmentPlugin } = require('webpack')
+const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
+const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
+  mode: 'development',
+  devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map', // no 'eval' outside of development
   entry: './javascripts/index.js',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist'
   },
+  stats: 'errors-only',
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: [
+          path.resolve(__dirname, 'react')
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: reactBabelOptions
+        }
+      },
+      {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components|react)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -27,6 +41,10 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.s[ac]ss$/i,
@@ -69,6 +87,12 @@ module.exports = {
         { from: 'node_modules/@primer/css/fonts', to: 'fonts' }
       ]
     }),
-    new EnvironmentPlugin(['NODE_ENV'])
+    new EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false
+    }),
+    new ProvidePlugin({
+      process: 'process/browser'
+    })
   ]
 }

@@ -4,7 +4,7 @@
 ------------------------------------------------------------------------------*/
 
 .header-notifications a {
-  color: $blue-600;
+  color: var(--color-auto-blue-6);
   text-decoration: underline;
 }
 
@@ -22,7 +22,7 @@ header summary,
 }
 
 .nav-mobile-dropdown {
-  @media (max-width: $width-md) {
+  @media (max-width: $width-md - 1) {
     display: none;
     visibility: hidden;
   }
@@ -38,22 +38,22 @@ header summary,
     right: 0;
     left: 0;
     z-index: 2;
-    background-color: $gray-000;
+    background-color: var(--color-auto-gray-0);
     padding: $spacer-3;
     padding-top: $spacer-8;
-    box-shadow: 0 1px 15px $black-fade-15;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
   }
 }
 
 .nav-mobile-burgerIcon {
-  background: url('/assets/images/octicons/hamburger.svg') no-repeat right;
+  background: url("/assets/images/octicons/hamburger.svg") no-repeat right;
   width: 18px;
   height: 23px;
   position: relative;
   z-index: 3;
 
   &.js-open {
-    background: url('/assets/images/octicons/x.svg') no-repeat right;
+    background: url("/assets/images/octicons/x.svg") no-repeat right;
     width: 16px;
     height: 21px;
   }
@@ -63,9 +63,9 @@ header summary,
 .nav-desktop-langDropdown {
   @include breakpoint(md) {
     min-width: 200px;
-    background: $white;
+    background: var(--color-bg-primary);
     border-radius: 3px;
-    box-shadow: 0 1px 15px $black-fade-15;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -88,5 +88,11 @@ header summary,
     cursor: default;
     content: " ";
     background: transparent;
+  }
+}
+
+.nav-dropdown {
+  @media (min-width: 1012px) and (max-width: 1279px) {
+    right: 0;
   }
 }

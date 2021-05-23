@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 ### Contributions that are counted
 
-#### Issues and pull requests
+#### Issues, pull requests and discussions
 
-Issues and pull requests will appear on your contribution graph if they were opened in a standalone repository, not a fork.
+Issues, pull requests and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 #### Commits
 Commits will appear on your contributions graph if they meet **all** of the following conditions:
@@ -23,7 +25,7 @@ Commits will appear on your contributions graph if they meet **all** of the foll
   - In the repository's default branch
   - In the `gh-pages` branch (for repositories with project sites)
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 In addition, **at least one** of the following must be true:
 - You are a collaborator on the repository or are a member of the organization that owns the repository.
@@ -64,7 +66,7 @@ Generic email addresses--such as `jane@computer.local`--cannot be added to {% da
 
 #### Commit was not made in the default or `gh-pages` branch
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
 - [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.

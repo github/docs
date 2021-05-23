@@ -7,16 +7,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Java
+  - Maven
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
+{% if currentVersion == "github-ae@latest" %}For instructions on how to make sure your {% data variables.actions.hosted_runner %} has the required software installed, see "[Creating custom images](/actions/using-github-hosted-runners/creating-custom-images)."
+{% else %}
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### 빌드전 요구 사양
 
@@ -37,7 +47,7 @@ To get started quickly, you can choose the preconfigured Maven template when you
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Java CI
 
 on: [push]
@@ -48,19 +58,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          java-version: 1.8
+          java-version: '11'
+          distribution: 'adopt'
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Java 1.8 JDK.
+2. The `setup-java` step configures the Java 11 JDK by Adoptium.
 3. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
 
 The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
@@ -78,29 +89,31 @@ The starter workflow will run the `package` target by default. In the default Ma
 If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a _pom-ci.xml_ file.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 ### Caching dependencies
 
-You can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)" and the [`cache` action](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored on GitHub Actions infrastructure. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
     with:
-      java-version: 1.8
+      java-version: '11'
+      distribution: 'adopt'
   - name: Cache Maven packages
     uses: actions/cache@v2
     with:
@@ -108,7 +121,7 @@ steps:
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
   - name: Build with Maven
-    run: mvn -B package --file pom.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -121,11 +134,14 @@ After your build has succeeded and your tests have passed, you may want to uploa
 Maven will usually create output files like JARs, EARs, or WARs in the `target` directory. To upload those as artifacts, you can copy them into a new directory that contains artifacts to upload. For example, you can create a directory called `staging`. Then you can upload the contents of that directory using the `upload-artifact` action.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:

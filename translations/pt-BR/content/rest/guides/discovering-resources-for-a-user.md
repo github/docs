@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -22,7 +24,7 @@ Se você ainda não o fez, você deverá ler o guia ["Princípios básicos da au
 
 ### Descubra os repositórios que o seu aplicativo pode acessar para um usuário
 
-Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Coletivamente, estes são os repositórios em que o usuário tem acesso privilegiado: ou é um repositório privado em que o usuário tem acesso de leitura ou gravação ou é um repositório público em o usuário tem acesso de gravação.
+Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Coletivamente, estes são os repositórios em que o usuário tem acesso privilegiado: é um repositório privado em que o usuário tem acesso de leitura ou gravação ou é um repositório {% if currentVersion ! "github-ae@latest" %}público{% else %}interno{% endif %} em que o usuário tem acesso de gravação.
 
 [Os escopos do OAuth][scopes] e as [políticas dos aplicativos da organização][oap] determinam quais desses repositórios o seu aplicativo pode acessar para um usuário. Use o fluxo de trabalho abaixo para descobrir esses repositórios.
 
@@ -87,26 +89,26 @@ client.organizations.each do |organization|
 end
 ```
 
-#### Não confie em organizações públicas
+#### Retorna todas as associações da organização do usuário
 
 Se você leu a documentação do princípio ao fim, é possível que você tenha notado um [método da API para listar as associações de organizações públicas de um usuário][list-public-orgs]. A maioria dos aplicativos deve evitar este método de API. Este método retorna apenas as associações de organizações públicas do usuário, não suas associações de organizações privadas.
 
-Como um aplicativo, de modo geral, você quer todas as organizações de usuários (públicas e privadas) que seu aplicativo está autorizado a acessar. O fluxo de trabalho acima fornecerá exatamente isso.
+Como um aplicativo, normalmente você quer todas as organizações do usuário que o seu aplicativo está autorizado a acessar. O fluxo de trabalho acima fornecerá exatamente isso.
 
-[basics-of-authentication]: /v3/guides/basics-of-authentication/
-[list-public-orgs]: /v3/orgs/#list-organizations-for-a-user
-[list-repositories-for-current-user]: /v3/repos/#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /v3/orgs/#list-organizations-for-the-authenticated-user
-[list-teams]: /v3/teams/#list-teams
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
+[basics-of-authentication]: /rest/guides/basics-of-authentication
+[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/reference/teams#list-teams
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /v3/guides/basics-of-authentication/#registering-your-app
+[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

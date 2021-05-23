@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
   
@@ -184,7 +186,7 @@ server we've built above. At GitHub, we:
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

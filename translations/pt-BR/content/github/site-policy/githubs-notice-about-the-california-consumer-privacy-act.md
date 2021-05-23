@@ -2,6 +2,9 @@
 title: Aviso do GitHub sobre a Lei de Privacidade do Consumidor da Califórnia
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 1 de janeiro de 2020
@@ -28,7 +31,7 @@ Com relação às suas informações pessoais, os residentes da Califórnia pode
 
 Os residentes da Califórnia têm o direito de solicitar uma divulgação comercial das categorias e partes específicas das suas informações pessoais recolhidas nos 12 meses anteriores, as categorias de fontes a partir das quais tais informações pessoais são coletadas, a empresa ou o fim comercial para os quais foram realizadas a coleta ou a venda dessas informações pessoais, e as categorias de terceiros com quem a empresa compartilha informações pessoais.
 
-Se você solicitar que uma empresa divulgue categorias e partes específicas de informações pessoais coletadas sobre você, você tem o direito de receber essas informações, gratuitamente, duas vezes por ano. As informações podem ser entregues por correio ou eletronicamente e, se fornecidas eletronicamente, devem estar em um formato portátil e, na medida do possível tecnicamente, facilmente utilizável de forma a permitir ao residente da Califórnia transmitir de forma relativamente fácil essas informações para outra entidade. Você pode usar a [API de Migração do Usuário](/v3/migrations/users/) GitHub para acessar e baixar seus dados. Saiba Mais [aqui](https://github.blog/2018-12-19-download-your-data/).
+Se você solicitar que uma empresa divulgue categorias e partes específicas de informações pessoais coletadas sobre você, você tem o direito de receber essas informações, gratuitamente, duas vezes por ano. As informações podem ser entregues por correio ou eletronicamente e, se fornecidas eletronicamente, devem estar em um formato portátil e, na medida do possível tecnicamente, facilmente utilizável de forma a permitir ao residente da Califórnia transmitir de forma relativamente fácil essas informações para outra entidade. Você pode usar o [API de Migração de Usuário](/rest/reference/migrations#users) do GitHub para acessar e baixar seus dados. Saiba Mais [aqui](https://github.blog/2018-12-19-download-your-data/).
 
 ### 2. Direito de saber se suas informações pessoais são vendidas ou divulgadas para fins comerciais e para quem
 

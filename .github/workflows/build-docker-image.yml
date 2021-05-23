@@ -1,0 +1,26 @@
+name: Build Docker image
+
+# **What it does**: This builds our Docker container.
+# **Why we have it**: We don't use the Docker container internally, but other teams depend on our Docker container.
+# **Who does it impact**: Enterprise customers.
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  CI: true
+
+jobs:
+  build:
+    # Do not run this job for translations PRs
+    if: ${{ github.head_ref != 'translations' && github.ref != 'refs/heads/translations' }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Build the container
+        run: docker build .

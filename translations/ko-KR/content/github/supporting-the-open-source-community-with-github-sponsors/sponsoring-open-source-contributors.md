@@ -7,5 +7,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-developers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 

@@ -6,7 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Travis CI
+  - Migration
+  - CI
+  - CD
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -69,8 +80,8 @@ Travis CI
 ```yaml
 matrix:
   include:
-  - rvm: 2.5
-  - rvm: 2.6.3
+    - rvm: 2.5
+    - rvm: 2.6.3
 ```
 {% endraw %}
 </td>
@@ -109,8 +120,8 @@ Travis CI
 ```yaml
 branches:
   only:
-  - main
-  - 'mona/octocat'
+    - main
+    - 'mona/octocat'
 ```
 {% endraw %}
 </td>
@@ -119,7 +130,7 @@ branches:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
 ```
@@ -155,14 +166,20 @@ git:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-    - uses: actions/checkout@v2
-      with:
-        submodules: false
+- uses: actions/checkout@v2
+  with:
+    submodules: false
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
+
+#### Using environment variables in a matrix
+
+Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
 
 ### Key features in {% data variables.product.prodname_actions %}
 
@@ -170,7 +187,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 #### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} also includes policies that allow you to limit access to secrets at the repository and organization level. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 #### Sharing files between jobs and workflows
 
@@ -178,7 +195,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 #### Hosting your own runners
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)." 
+If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
 
 #### Concurrent jobs and execution time
 
@@ -201,13 +218,13 @@ When working with different languages in {% data variables.product.prodname_acti
 For example:
 
 ```yaml
-      steps:
-        - name: Run build script
-          run: ./.github/scripts/build.sh
-          shell: bash
+steps:
+  - name: Run build script
+    run: ./.github/scripts/build.sh
+    shell: bash
 ```
 
-### Error handling in {% data variables.product.prodname_actions %} 
+### Error handling in {% data variables.product.prodname_actions %}
 
 When migrating to {% data variables.product.prodname_actions %}, there are different approaches to error handling that you might need to be aware of.
 
@@ -269,11 +286,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -282,7 +299,7 @@ jobs:
 
 ### Caching dependencies
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system. 
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
 
 <table>
 <tr>
@@ -317,7 +334,7 @@ cache: npm
 </tr>
 </table>
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Examples of common tasks
 
@@ -339,20 +356,20 @@ Travis CI
 <tr>
 <td>
 
-  ```yaml
+```yaml
 env:
   - MAVEN_PATH="/usr/local/maven"
-  ```
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
-      env:
-        MAVEN_PATH: '/usr/local/maven'
-  ```
+```yaml
+jobs:
+  maven-build:
+    env:
+      MAVEN_PATH: '/usr/local/maven'
+```
 
 </td>
 </tr>
@@ -372,24 +389,24 @@ Travis CI
 <tr>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 install:
-    - npm install
+  - npm install
 script:
-    - npm run build
-    - npm test
-  ```
+  - npm run build
+  - npm test
+```
 {% endraw %}
 </td>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 name: Node.js CI
 on: [push]
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -398,12 +415,11 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-  ```
+```
 {% endraw %}
 </td>
 </tr>
 </table>
-
 
 ### Next steps
 

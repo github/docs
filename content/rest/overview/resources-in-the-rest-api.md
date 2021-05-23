@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -14,14 +16,14 @@ This describes the resources that make up the official {% data variables.product
 
 ### Current version
 
-By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/v3/versions) of the REST API.
-We encourage you to [explicitly request this version via the `Accept` header](/v3/media/#request-specific-version).
+By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API.
+We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-For information about GitHub's GraphQL API, see the [v4 documentation](/v4). For information about migrating to GraphQL, see "[Migrating from REST](/v4/guides/migrating-from-rest/)."
+For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
@@ -31,19 +33,19 @@ For information about GitHub's GraphQL API, see the [v4 documentation](/v4). For
 sent and received as JSON.
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
+$ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -136,12 +138,12 @@ Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-
 Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
-> HTTP/1.1 401 Unauthorized
+$ curl -I {% data variables.product.api_url_pre %} -u foo:bar
+> HTTP/2 401
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -152,10 +154,10 @@ the API will temporarily reject all authentication attempts for that user
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}"
 > }
 ```
 
@@ -177,7 +179,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Root endpoint
@@ -191,7 +193,7 @@ $ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "gith
 
 ### GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs](/v4/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ### Client errors
 
@@ -200,7 +202,7 @@ receive request bodies:
 
 1. Sending invalid JSON will result in a `400 Bad Request` response.
 
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 35
 
         {"message":"Problems parsing JSON"}
@@ -208,7 +210,7 @@ receive request bodies:
 2. Sending the wrong type of JSON values will result in a `400 Bad
    Request` response.
 
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 40
 
         {"message":"Body should be a JSON object"}
@@ -216,7 +218,7 @@ receive request bodies:
 3. Sending invalid fields will result in a `422 Unprocessable Entity`
    response.
 
-        HTTP/1.1 422 Unprocessable Entity
+        HTTP/2 422
         Content-Length: 149
 
         {
@@ -239,7 +241,7 @@ Error code name | Description
 -----------|-----------|
 `missing` | A resource does not exist.
 `missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for the for more specific information.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
 `already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
 `unprocessable` | The inputs provided were invalid.
 
@@ -270,7 +272,7 @@ Verb | Description
 `HEAD` | Can be issued against any resource to get just the HTTP header info.
 `GET` | Used for retrieving resources.
 `POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data.  For instance, an Issue resource has `title` and `body` attributes.  A PATCH request may accept one or more of the attributes to update the resource.  PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept `POST` requests.
+`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
 `PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
 `DELETE` |Used for deleting resources.
 
@@ -301,17 +303,21 @@ gem:
 ### Pagination
 
 Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `?page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `?per_page` parameter.
-Note that for technical reasons not all endpoints respect the `?per_page` parameter,
-see [events](/v3/activity/events/) for example.
+default.  You can specify further pages with the `page` parameter. For some
+resources, you can also set a custom page size up to 100 with the `per_page` parameter.
+Note that for technical reasons not all endpoints respect the `per_page` parameter,
+see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-Note that page numbering is 1-based and that omitting the `?page`
+Note that page numbering is 1-based and that omitting the `page`
 parameter will return the first page.
+
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
+With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
+Instead, you can traverse the results by using the `before` or `after` parameters.
 
 For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
 
@@ -323,14 +329,18 @@ For more information on pagination, check out our guide on [Traversing with Pagi
 
 {% endnote %}
 
-The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information:
+The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. For example:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _The example includes a line break for readability._
 
-This `Link` response header contains one or more [Hypermedia](/v3/#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
+Or, if the endpoint uses cursor-based pagination:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
 
 The possible `rel` values are:
 
@@ -351,19 +361,20 @@ For users that belong to a {% data variables.product.prodname_ghe_cloud %} accou
 
 {% endif %}
 
+When using the built-in `GITHUB_TOKEN` in GitHub Actions, the rate limit is 1,000 requests per hour per repository. For organizations that belong to a GitHub Enterprise Cloud account, this limit is 15,000 requests per hour per repository.
+
 For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
 
 {% data reusables.enterprise.rate_limit %}
 
-Note that [the Search API has custom rate limit rules](/v3/search/#rate-limit).
+Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
 
 The returned HTTP headers of any API request show your current rate limit status:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/1.1 200 OK
+$ curl -I {% data variables.product.api_url_pre %}/users/octocat
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -385,20 +396,19 @@ new Date(1372700873 * 1000)
 If you exceed the rate limit, an error response returns:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
 
-You can [check your rate limit status](/v3/rate_limit) without incurring an API hit.
+You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
 #### Increasing the unauthenticated rate limit for OAuth applications
 
@@ -406,9 +416,8 @@ If your OAuth application needs to make unauthenticated calls with a higher rate
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -433,13 +442,13 @@ Abuse rate limits are not intended to interfere with legitimate use of the API. 
 If your application triggers this rate limit, you'll receive an informative response:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Content-Type: application/json; charset=utf-8
 > Connection: close
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#abuse-rate-limits"
 > }
 ```
 
@@ -460,7 +469,7 @@ User-Agent: Awesome-Octocat-App
 cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
-$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
+$ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -492,33 +501,30 @@ whenever possible.
 {% endif %}
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/user
-> HTTP/1.1 200 OK
+$ curl -I {% data variables.product.api_url_pre %}/user
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/1.1 304 Not Modified
+$ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/1.1 304 Not Modified
+$ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -537,8 +543,8 @@ Here's a sample request sent from a browser hitting
 `http://example.com`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
-HTTP/1.1 302 Found
+$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
+HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
@@ -546,8 +552,8 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 This is what the CORS preflight request looks like:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
-HTTP/1.1 204 No Content
+$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
+HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
@@ -647,9 +653,9 @@ Some requests that create new data, such as creating a new commit, allow you to 
 
 #### Explicitly providing an ISO 8601 timestamp with timezone information
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/v3/git/commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/v3/git/commits/#example-input) for how these timestamps can be specified.
+These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
 #### Using the `Time-Zone` header
 
@@ -659,7 +665,7 @@ It is possible to supply a `Time-Zone` header which defines a timezone according
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/v3/repos/contents/) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
 #### Using the last known timezone for the user
 

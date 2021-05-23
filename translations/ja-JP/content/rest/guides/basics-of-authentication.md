@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -22,7 +24,7 @@ versions:
 
 ### アプリケーションの登録
 
-First, you'll need to [register your application][new oauth app]. 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
+まず、[アプリケーションの登録][new oauth app]が必要です。 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
 
 どのような情報を入力しても構いませんが、**認証コールバック URL** は例外です。 これが、アプリケーションの設定にあたってもっとも重要な情報と言えるでしょう。 認証の成功後に {% data variables.product.product_name %} がユーザに返すのは、コールバックURLなのです。
 
@@ -47,10 +49,10 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration page][app settings].
-{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
-[environment variables][about env vars]--which is exactly what we've done here.
+クライアント ID とクライアントシークレットは、[アプリケーションの設定ページ][app settings]から取得されます。
+{% if currentVersion == "free-pro-team@latest" %}これらの値は**いかなる場合も_決して_**
+{% data variables.product.product_name %} や、それに限らず公開の場に保存しないでください。{% endif %}これらは
+[環境変数][about env vars]として保存することをお勧めします。この例でも、そのようにしています。
 
 次に、_views/index.erb_に以下の内容を貼り付けてください。
 
@@ -108,7 +110,7 @@ end
 
 #### 付与されたスコープの確認
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+URL を直接変更すれば、ユーザはリクエストしたスコープを編集できます。 こうすると、アプリケーションに対して元々リクエストしたよりも少ないアクセスだけを許可できます。 トークンでリクエストを行う前に、ユーザからトークンに付与されたスコープを確認してください。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)」を参照してください。
 
 付与されたスコープは、トークンの交換によるレスポンスの一部として返されます。
 
@@ -130,7 +132,7 @@ end
 
 リクエストを行う前にのみスコープを確認するだけでは不十分です。確認時と実際のリクエスト時の間に、ユーザがスコープを変更する可能性があります。 このような場合には、成功すると思っていたAPIの呼び出しが`404`または`401`ステータスになって失敗したり、情報の別のサブセットを返したりします。
 
-この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
+この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 それに加えて、OAuthアプリケーションAPIは、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}[トークンの有効性のチェック](/rest/reference/apps#check-a-token){% else %}[トークンの有効性のチェック](/rest/reference/apps#check-an-authorization){% endif %}のためのエンドポイントを提供します。 この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
 
 #### 認証リクエストの実施
 
@@ -174,9 +176,9 @@ erb :basic, :locals => auth_result
 
 ウェブページにアクセスするたびに、ユーザにアプリケーションへのログインを求めるというのは非常に悪いモデルです。 たとえば、`http://localhost:4567/basic`に直接移動してみてください。 エラーになるでしょう。
 
-What if we could circumvent the entire "click here" process, and just _remember_ that, as long as the user's logged into
-{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
-because _that's exactly what we're going to do_.
+「ここをクリック」というプロセスをすべてなくし、ユーザが__
+{% data variables.product.product_name %} にログインしている限りそれを記憶して、このアプリケーションにアクセスできるとしたらどうでしょうか。 実のところ、
+_これからやろうとしていること_はまさにそういうことなのです。
 
 上記に上げたサーバはかなり単純なものです。 インテリジェントな認証を入れるために、トークンを保存するためセッションを使用するよう切り替えます。 これにより、認証はユーザーに意識されないものになります。
 

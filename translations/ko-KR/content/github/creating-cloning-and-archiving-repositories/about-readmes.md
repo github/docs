@@ -9,9 +9,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
-A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
+### About READMEs
+
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+
+For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 - What the project does
@@ -26,15 +32,31 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
+
 {% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
 {% endif %}
 
+### Auto-generated table of contents for README files
+
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+
+![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+
+The auto-generated table of contents is enabled by default for all Markdown files in a repository, but you can disable this feature for your repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. Under "Features", deselect **Table of contents**. ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
 ### Section links in README files and blob pages
 
-Many projects use a table of contents at the start of a README to direct users to different sections of the file. {% data reusables.repositories.section-links %}
+{% data reusables.repositories.section-links %}
 
 ### Relative links and image paths in README files
 

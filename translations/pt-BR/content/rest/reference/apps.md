@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 A API dos aplicativos GitHub permite que você obtenha informações de alto nível sobre um aplicativo GitHub, bem como informações específicas sobre as instalações do aplicativo. Para saber mais sobre aplicativos GitHub, consulte "[Efetuar a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
@@ -18,7 +20,7 @@ Quando autenticado como um aplicativo GitHub, a API dos aplicativos GitHub permi
 
 Você pode acessar os pontos de extremidade da API v3 de REST enquanto autenticado como um aplicativo GitHub. Estes pontos de extremidade têm uma seção de "Observação" que contém um ponto que diz "Funciona com aplicativos GitHub". Você também pode acessar esses pontos de extremidade enquanto estiver autenticado como usuário.
 
-Um subconjunto de pontos de extremidade da API v2 de REST exige autenticação como uma instalação do aplicativo GitHub. Consulte [Instalações](/v3/apps/installations/) para obter uma lista desses pontos de extremidade.
+Um subconjunto de pontos de extremidade da API v2 de REST exige autenticação como uma instalação do aplicativo GitHub. Consulte [Instalações](/rest/reference/apps#installations) para obter uma lista desses pontos de extremidade.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -36,7 +38,7 @@ Você pode usar essa API para gerenciar os tokens do OAuth que um aplicativo OAu
 
 A API de instalações permite que você obtenha informações sobre as instalações do seu aplicativo GitHub e execute ações nessas instalações. Uma _instalação_ refere-se a qualquer usuário ou conta de organização que instalou o aplicativo. Para obter informações sobre como efetuar a autenticação como uma instalação e limitar o acesso a repositórios específicos, consulte "[Efetuar a autenticação como uma instalação](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
-Para listar todas as instalações do aplicativo GitHub para uma organização, consulte "[Listar instalações de aplicativos para uma organização](/v3/orgs/#list-app-installations-for-an-organization)".
+Para listar todas as instalações do aplicativo GitHub para uma organização, consulte "[Listar instalações de aplicativos para uma organização](/rest/reference/orgs#list-app-installations-for-an-organization)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}

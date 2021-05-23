@@ -18,8 +18,6 @@ versions:
 
 {% data reusables.package_registry.public-or-private-packages %} リポジトリには複数のパッケージを含めることができます。 混乱を避けるため、READMEと説明で各パッケージに関する情報を明確に提供してください。
 
-{% data reusables.package_registry.package-immutability %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 新しいバージョンのパッケージでセキュリティの脆弱性が解決される場合は、リポジトリでセキュリティアドバイザリを公開する必要があります。
 {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。

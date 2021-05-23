@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -16,13 +18,19 @@ versions:
 
 When you delete a private repository, all of its private forks are also deleted.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 #### Deleting a public repository
 
 When you delete a public repository, one of the existing public forks is chosen to be the new parent repository. All other repositories are forked off of this new parent and subsequent pull requests go to this new parent.
 
+{% endif %}
+
 #### Private forks and permissions
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 #### Changing a public repository to a private repository
 
@@ -46,9 +54,30 @@ If a private repository is made public, each of its private forks is turned into
 
 If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+#### Changing the visibility of an internal repository
+
+{% note %}
+
+**Note:** {% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+
+##### Deleting the internal repository
+
+If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+
+{% endif %}
+
 ### 더 읽을거리
 
 - "[Setting repository visibility](/articles/setting-repository-visibility)"
 - "[About forks](/articles/about-forks)"
 - "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
+- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

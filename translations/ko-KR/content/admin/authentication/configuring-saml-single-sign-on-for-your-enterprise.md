@@ -1,11 +1,18 @@
 ---
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configuring SAML SSO
-intro: You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).
+intro: 'You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).'
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.
+permissions: 'Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 ### About SAML SSO
@@ -37,6 +44,12 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 {% if currentVersion == "github-ae@latest" %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
+
+The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
+
+ | IdP      | More information                                                                                                                                                                                                                   |
+ |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | Azure AD | [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs |
 
 During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML Service Provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP.
 

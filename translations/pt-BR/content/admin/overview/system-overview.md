@@ -6,6 +6,13 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### Arquitetura de armazenamento
@@ -77,7 +84,7 @@ A equipe de segurança de aplicativos do {% data variables.product.prodname_dotc
 
 #### Serviços externos e acesso ao suporte
 
-O {% data variables.product.prodname_ghe_server %} pode operar sem acessos de saída da sua rede para serviços externos. Alternativamente, você pode habilitar a integração com serviços externos de correio eletrônico, monitoramento externo e encaminhamento de logs. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/admin/user-management/log-forwarding)."
+O {% data variables.product.prodname_ghe_server %} pode operar sem acessos de saída da sua rede para serviços externos. Alternativamente, você pode habilitar a integração com serviços externos de correio eletrônico, monitoramento externo e encaminhamento de logs. Para obter mais informações, consulte "[Configurar e-mail para notificações](/admin/configuration/configuring-email-for-notifications), "[Configurar o monitoramento externo](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)" e "[Encaminhamento de registro](/admin/user-management/log-forwarding)".
 
 Você pode levantar e enviar dados de soluções de problemas para o {% data variables.contact.github_support %}. Para obter mais informações, consulte "[Enviar dados para o {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)".
 
@@ -108,7 +115,7 @@ O {% data variables.product.prodname_ghe_server %} oferece quatro métodos de au
 
 #### Log de auditoria e acesso
 
-O {% data variables.product.prodname_ghe_server %} armazena logs do sistema operacional tradicional e de aplicativos. O aplicativo também grava logs de auditoria e segurança detalhados, que são armazenados permanentemente pelo {% data variables.product.prodname_ghe_server %}. Os dois tipos de logs podem ser encaminhados em tempo real para destinos múltiplos via protocolo `syslog-ng`. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
+O {% data variables.product.prodname_ghe_server %} armazena logs do sistema operacional tradicional e de aplicativos. O aplicativo também grava logs de auditoria e segurança detalhados, que são armazenados permanentemente pelo {% data variables.product.prodname_ghe_server %}. Os dois tipos de logs podem ser encaminhados em tempo real para destinos múltiplos via protocolo `syslog-ng`. Para obter mais informações, consulte "[Encaminhamento de registro](/admin/user-management/log-forwarding)".
 
 Logs de acesso e auditoria contêm informações como as seguintes.
 

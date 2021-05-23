@@ -1,6 +1,6 @@
 ---
-title: Managing billing for your enterprise
-intro: 'You can view billing information for your enterprise.'
+title: Gerenciar a cobrança para a sua empresa
+intro: Você pode visualizar as informações de cobrança para a sua empresa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -9,30 +9,32 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
 
-{% data reusables.github-ae.about-billing %} Once per day, {% data variables.product.prodname_dotcom %} will count the number of users with a license for your enterprise. {% data variables.product.company_short %} bills you for each licensed user regardless of whether the user logged into {% data variables.product.prodname_ghe_managed %} that day.
+{% data reusables.github-ae.about-billing %} Uma vez por dia, {% data variables.product.prodname_dotcom %} contará o número de usuários com uma licença para sua empresa. {% data variables.product.company_short %} efetua a cobrança para cada usuário licenciado independentemente de o usuário estar conectado a {% data variables.product.prodname_ghe_managed %} nesse dia.
 
-For commercial regions, the price per user per day is $1.2580645161. For 31-day months, the monthly cost for each user is $39. For months with fewer days, the monthly cost is lower. Each billing month begins at a fixed time on the first day of the calendar month.
+Para regiões comerciais, o preço por usuário por dia é de $ 1,2580645161. Por meses de 31 dias, o custo mensal para cada usuário é de $ 39. Nos meses com menos dias, o custo mensal é menor. Cada mês de cobrança começa em um horário fixo no primeiro dia do mês do calendário.
 
-If you add a licensed user mid-month, that user will only be included in the count for the days they have a license. When you remove a licensed user, that user will remain in the count until the end of that month. Therefore, if you add a user mid-month and later remove the user in the same month, the user will be included in the count from the day the user was added through the end of the month. There is no additional cost if you re-add a user during the same month the user was removed.
+Se você adicionar um usuário licenciado no meio do mês, esse usuário será incluído apenas na contagem dos dias em que tem uma licença. Ao remover um usuário licenciado, esse usuário permanecerá na contagem até o final desse mês. Portanto, se você adicionar um usuário durante o mês ou depois remover o usuário no mesmo mês, o usuário será incluído na contagem a partir do dia em que o usuário foi adicionado até o final do mês. Não há custos adicionais se você adicionar novamente um usuário no mesmo mês em que o usuário foi removido.
 
-For example, here are the costs for users with licenses on different dates.
+Por exemplo, aqui estão os custos para os usuários com licenças em datas diferentes.
 
-| Usuário   | License dates                                           | Counted days | Cost   |
-| --------- | ------------------------------------------------------- | ------------ | ------ |
-| @octocat  | January 1 - January 31                                  | 31           | $39    |
-| @robocat  | February 1 - February 28                                | 29           | $35.23 |
-| @devtocat | January 15 - January 31                                 | 17           | $21.39 |
-| @doctocat | January 1 - January 15                                  | 31           | $39    |
-| @prodocat | January 7 - January 15                                  | 25           | $31.45 |
-| @monalisa | January 1 - January 7,<br>January 15 - January 31 | 31           | $39    |
+| Usuário   | Datas de licença                                                   | Dias contados | Custo   |
+| --------- | ------------------------------------------------------------------ | ------------- | ------- |
+| @octocat  | 1 de Janeiro - 31 de Janeiro                                       | 31            | $ 39    |
+| @robocat  | 1 de fevereiro - 28 de fevereiro                                   | 28            | $ 35,23 |
+| @devtocat | 15 de Janeiro - 31 de Janeiro                                      | 17            | $ 21,39 |
+| @doctocat | 1 de Janeiro - 15 de Janeiro                                       | 31            | $ 39    |
+| @prodocat | 7 de Janeiro - 15 de Janeiro                                       | 25            | $ 31,45 |
+| @monalisa | 1 de janeiro - 7 de janeiro<br>15 de janeiro - 31 de janeiro | 31            | $ 39    |
 
-Your enterprise can include one or more instances. {% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} tem uma instância mínima de 500 usuários. {% data variables.product.company_short %} cobra de você um mínimo de 500 usuários por instância, mesmo que haja menos de 500 usuários com uma licença nesse dia.
 
-You can see your current usage in your [Azure account portal](https://portal.azure.com).
+Você pode ver seu uso atual no seu [Portal da conta do Azure](https://portal.azure.com).
 
 {% else %}
 
@@ -40,7 +42,7 @@ You can see your current usage in your [Azure account portal](https://portal.azu
 
 As contas corporativas atualmente estão disponíveis para clientes do {% data variables.product.prodname_enterprise %} que pagam com fatura. A cobrança de todas as organizações e instâncias {% data variables.product.prodname_ghe_server %} conectadas à sua conta corporativa é agregada em uma única fatura para todos os seus serviços pagos do {% data variables.product.prodname_dotcom_the_website %} (incluindo licenças pagas nas organizações, pacotes de dados do {% data variables.large_files.product_name_long %} e assinaturas de apps do {% data variables.product.prodname_marketplace %}).
 
-Proprietários corporativos e gerentes de cobrança podem acessar e gerenciar todas as configurações de cobrança relativas a contas corporativas. For more information about enterprise accounts, {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."For more information about managing billing managers, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
+Proprietários corporativos e gerentes de cobrança podem acessar e gerenciar todas as configurações de cobrança relativas a contas corporativas. Para mais informações sobre contas corporativas, {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}"[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" e {% endif %}"[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization). "Para obter mais informações sobre como gerenciar gerentes de cobrança, consulte "[Convidar pessoas para gerenciar a sua empresa](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)".
 
 ### Visualizando sua fatura atual
 

@@ -1,7 +1,7 @@
-const fs = require('fs')
+const fs = require('fs').promises
 const path = require('path')
 const { difference, isPlainObject } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
@@ -17,7 +17,7 @@ describe('REST references docs', () => {
   test('markdown file exists for every operationId prefix in the api.github.com schema', async () => {
     const { categories } = require('../../lib/rest')
     const referenceDir = path.join(__dirname, '../../content/rest/reference')
-    const filenames = fs.readdirSync(referenceDir)
+    const filenames = (await fs.readdir(referenceDir))
       .filter(filename => !excludeFromResourceNameCheck.find(excludedFile => filename.endsWith(excludedFile)))
       .map(filename => filename.replace('.md', ''))
 

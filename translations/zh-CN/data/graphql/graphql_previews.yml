@@ -102,22 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
-- 
-  title: 固定议题预览
-  description: 此预览增加了对固定议题的支持。
-  toggled_by: ':elektra-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Repository.pinnedIssues
-    - PinnedIssue
-    - PinnedIssueEdge
-    - PinnedIssueConnection
-    - Mutation.pinIssue
-    - Mutation.unpinIssue
-  owning_teams:
-    - '@github/pe-pull-requests'
+    - '@github/feature-lifecycle'
 - 
   title: 标签预览
   description: >-

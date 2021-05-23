@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
   
@@ -145,7 +147,7 @@ At GitHub, we've used a version of [Heaven][heaven] to manage our deployments fo
 
 Das war alles. You don't need to build your own deployment setup to use this example. You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

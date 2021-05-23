@@ -10,6 +10,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Accounts
+  - Repositories
 ---
 
 Repositories owned by an organization can grant more granular access. For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."
@@ -50,7 +53,7 @@ Repositories owned by an organization can grant more granular access. For more i
 
 ### 더 읽을거리
 
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)"
+- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
-- "[Organizing members into teams](/articles/organizing-members-into-teams)"
+- "[Organizing members into teams](/organizations/organizing-members-into-teams)"

@@ -8,7 +8,7 @@ if ARGV.empty?
   exit 1
 end
 
-# borrowed from https://github.com/github/graphql-docs/blob/master/lib/graphql_docs/update_internal_developer/idl.rb
+# borrowed from graphql-docs/lib/graphql_docs/update_internal_developer/idl.rb
 class Printer < GraphQL::Language::DocumentFromSchemaDefinition
   def build_object_type_node(object_type)
     apply_directives_to_node(object_type, super)

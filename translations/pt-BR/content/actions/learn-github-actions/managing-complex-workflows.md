@@ -1,14 +1,19 @@
 ---
 title: Gerenciar fluxos de trabalhos complexos
 shortTitle: Gerenciar fluxos de trabalhos complexos
-intro: 'Este aba mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, armazenamento em cache, criação de matrizes e etiquetas.'
+intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} ambientes,{% endif %} e etiquetas.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Visão Geral
 
@@ -57,7 +62,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 Para obter mais informações, consulte [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -83,6 +88,7 @@ jobs:
 
 Para obter mais informações, consulte [`>jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### Memorizar dependências
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} são iniciados como ambientes novos para cada trabalho. Portanto, se os seus trabalhos reutilizam dependências regularmente, você pode considerar fazer armazenamento em cache desses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
@@ -106,7 +112,8 @@ jobs:
 ```
 {% endraw %}
 
-Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)".
+Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% endif %}
 
 ### Usar bancos de dados e contêineres de serviço
 
@@ -136,17 +143,42 @@ Para obter mais informações, consulte "[Usar bancos de dados e contêineres de
 
 ### Usar etiquetas para encaminhar fluxos de trabalho
 
-Esse recurso ajuda você a atribuir tarefas a um executor auto-hospedado específico. Se você quiser ter certeza de que um determinado tipo de executor irá processar seu trabalho, você pode usar etiquetas para controlar os locais onde os trabalhos são executados. Você pode atribuir etiquetas a um corredor auto-hospedado e, em seguida, consultá-las no fluxo de trabalho de YAML, garantindo que o trabalho seja encaminhado de uma forma previsível.
+Esse recurso ajuda você a atribuir tarefas a um executor hospedado específico. Se você quiser ter certeza de que um determinado tipo de executor irá processar seu trabalho, você pode usar etiquetas para controlar os locais onde os trabalhos são executados. Você pode atribuir etiquetas a um corredor hospedado e, em seguida, consultá-las no fluxo de trabalho de YAML, garantindo que o trabalho seja encaminhado de uma forma previsível.
 
+{% if currentVersion == "github-ae@latest" %}
 Este exemplo mostra como um fluxo de trabalho pode usar etiquetas para especificar o executor obrigatório:
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+Para obter mais informações, consulte ["Usar etiquetas com {% data variables.actions.hosted_runner %}](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)".
+{% else %}
 ```yaml
 jobs:
   example-job:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-Para obter mais informações, consulte  ["Usar etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
+Para obter mais informações, consulte ["Usar etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Usar ambientes
+
+Você pode configurar ambientes com regras de proteção e segredos. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)".
+{% endif %}
+
+### Usar um modelo do fluxo de trabalho
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. Caso o seu repositório tenha fluxos de trabalho existentes: No canto superior esquerdo, clique em **Novo fluxo de trabalho**. ![Criar um novo fluxo de trabalho](/assets/images/help/repository/actions-new-workflow.png)
+1. Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Configurar este fluxo de trabalho](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### Próximas etapas
 

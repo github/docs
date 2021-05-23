@@ -2,10 +2,13 @@
 title: Scalars
 redirect_from:
   - /v4/scalar
+  - /v4/reference/scalar
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### About scalars
@@ -14,7 +17,7 @@ versions:
 
 When calling the GraphQL API, you must specify nested subfields until you return only scalars.
 
-For more information, see  "[Introduction to GraphQL](/v4/guides/intro-to-graphql#field)."
+For more information, see  "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#field)."
 
 {% for item in graphql.schemaForCurrentVersion.scalars %}
   {% include graphql-scalar %}

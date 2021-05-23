@@ -10,6 +10,12 @@ redirect_from:
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of a {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% data variables.product.prodname_github_connect %}.'
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Enterprise
+  - GitHub Connect
+  - Infrastructure
+  - Networking
 ---
 
 ### About {% data variables.product.prodname_github_connect %}
@@ -37,7 +43,7 @@ Enabling {% data variables.product.prodname_github_connect %} also creates a {% 
 
 Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.prodname_ghe_server %}.
 
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 ### Enabling {% data variables.product.prodname_github_connect %}
 
 1. Sign in to

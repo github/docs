@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次信息以及有关应用程序安装设施的特定信息。 要了解有关 GitHub 应用程序的更多信息，请参阅“[验证为 GitHub 应用程序](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)”。
@@ -18,7 +20,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 验证为 GitHub 应用程序后，您可以访问 REST API v3 端点。 这些端点带有“备注”部分，即“与 GitHub 应用程序结合使用”。 验证为用户后也可以访问这些端点。
 
-某些 REST API v3 端点需要验证为 GitHub 应用程序安装设施。 有关这些端点的列表，请参阅[安装设施](/v3/apps/installations/)。
+某些 REST API v3 端点需要验证为 GitHub 应用程序安装设施。 有关这些端点的列表，请参阅[安装设施](/rest/reference/apps#installations)。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -36,7 +38,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 安装设施 API 使您能够获取有关 GitHub 应用程序安装设施的信息并在这些安装设施中执行操作。 _安装设施_是指已安装该应用程序的任何用户或组织帐户。 有关如何验证为安装设施和限制访问特定仓库的信息，请参阅“[验证为安装设施](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
-要列出组织的所有 GitHub 应用程序安装设施，请参阅“[列出组织的应用程序安装设施](/v3/orgs/#list-app-installations-for-an-organization)”。
+要列出组织的所有 GitHub 应用程序安装设施，请参阅“[列出组织的应用程序安装设施](/rest/reference/orgs#list-app-installations-for-an-organization)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}

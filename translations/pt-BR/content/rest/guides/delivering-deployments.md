@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
   
@@ -145,7 +147,7 @@ No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implanta
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

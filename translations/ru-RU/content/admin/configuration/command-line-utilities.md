@@ -9,6 +9,10 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
+type: reference
+topics:
+  - Enterprise
+  - SSH
 ---
 
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
@@ -74,17 +78,17 @@ $ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
 $ ghe-config -l
 # Lists all the configuration values
 ```
-Allows you to find the uuid of your node in `cluster.conf`.
+Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -159,7 +163,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -211,7 +215,7 @@ You can use these options with the utility:
 
 This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
 
-Give organization owner privileges in a specific organization to a single user
+Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
 ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
@@ -468,19 +472,28 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -g <em>delivery-guid</em>
+```
+{% else %}
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
 ```
-
-To show global webhook deliveries:
-```shell
-ghe-webhook-logs --global
-```
+{% endif %}
 
 ### Clustering
 
@@ -542,8 +555,8 @@ ghe-dpages status
 ```
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -568,16 +581,16 @@ ghe-spokes route
 
 To evacuate storage services on a cluster node:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git
@@ -639,14 +652,14 @@ git-import-svn-raw
 
 #### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-tfs-raw
 ```
 
 #### git-import-rewrite
 
-This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFS, produces Git branches based on folders. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
 ```shell
 git-import-rewrite
 ```

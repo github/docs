@@ -10,10 +10,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Visão Geral
 
@@ -23,13 +28,13 @@ As ações que você usa no seu fluxo de trabalho podem ser definidas em:
 - O mesmo repositório onde o arquivo do fluxo de trabalho faz referência à ação
 - Uma imagem publicada do contêiner Docker no Docker Hub
 
-{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade {% data variables.product.prodname_dotcom %}. [A páginade {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/) permite filtrar para ações por categoria.
+{% data variables.product.prodname_marketplace %} é um local central para você encontrar ações criadas pela comunidade de {% data variables.product.prodname_dotcom %}. [A páginade {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/) permite filtrar para ações por categoria.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
 ### Navegação nas ações do Marketplace no editor de fluxo de trabalho
 
-Você pode pesquisar ações diretamente no seu editor do seu fluxo de trabalho do repositório. Na barra lateral, você pode pesquisar uma ação específica, visualizar ações em destaque e pesquisar categorias em destaque. Você também pode visualizar o número de estrelas que uma ação recebeu da comunidade {% data variables.product.prodname_dotcom %}.
+Você pode pesquisar ações diretamente no seu editor do seu fluxo de trabalho do repositório. Na barra lateral, você pode pesquisar uma ação específica, visualizar ações em destaque e pesquisar categorias em destaque. Você também pode visualizar o número de estrelas que uma ação recebeu da comunidade de {% data variables.product.prodname_dotcom %}.
 
 1. No seu repositório, pesquise o arquivo do fluxo de trabalho que você deseja editar.
 1. No canto superior direito da vista do arquivo, clique em {% octicon "pencil" aria-label="The edit icon" %} para abrir o editor do fluxo de trabalho. ![Edite o botão do arquivo do fluxo de trabalho](/assets/images/help/repository/actions-edit-workflow-file.png)
@@ -67,7 +72,7 @@ etapas:
 
 #### Usar SHAs
 
-Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. Este exemplo tem como alvo a ação do SHA:
+Se você precisar de uma versão mais confiável, você deverá usar o valor de SHA associado à versão da ação. Os SHAs são imutáveis e, portanto, mais confiáveis que tags ou branches. No entanto, esta abordagem significa que você não receberá automaticamente atualizações de uma ação, incluindo correções de erros importantes e atualizações de segurança. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado. {% endif %}Este exemplo aponta para o SHA de uma ação:
 
 ```yaml
 etapas:
@@ -76,7 +81,7 @@ etapas:
 
 #### Usar branches
 
-Fazer referência a um branch específico significa que a ação sempre incluirá as atualizações mais recentes no branch de destino, mas pode criar problemas se essas atualizações incluírem alterações significativas. Este exemplo é direcionado a um branch denominado `@main`:
+Especificar um branch de destino para a ação significa que ele sempre irá executar a versão atualmente nesse branch. Essa abordagem pode criar problemas se uma atualização do branch incluir mudanças significativas. Este exemplo é direcionado a um branch denominado `@main`:
 
 ```yaml
 steps:
@@ -87,7 +92,7 @@ Para obter mais informações, consulte "[Usar o gerenciamento de versões para 
 
 ### Usar entradas e saídas com uma ação
 
-Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. Por exemplo, uma ação pode exigir que você especifique um caminho para um arquivo, o nome de uma etiqueta ou outros dados que usará como parte do processamento da ação.
 
 Para ver as entradas e saídas de uma ação, verifique a `action.yml` ou `action.yaml` no diretório-raiz do repositório.
 
@@ -105,6 +110,13 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
+
+{% if currentVersion == "github-ae@latest" %}
+### Usar as ações incluídas com {% data variables.product.prodname_ghe_managed %}
+Por padrão, você pode usar a maior parte das
+
+ações criadas por {% data variables.product.prodname_dotcom %} em {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Usar as ações em {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)".
+{% endif %}
 
 ### Referenciando uma ação no mesmo repositório onde um arquivo de fluxo de trabalho usa a ação
 

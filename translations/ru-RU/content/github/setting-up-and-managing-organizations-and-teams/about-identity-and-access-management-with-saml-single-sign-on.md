@@ -6,6 +6,9 @@ redirect_from:
   - /articles/about-identity-and-access-management-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About SAML SSO
@@ -14,7 +17,7 @@ versions:
 
 After you configure SAML SSO, members of your {% data variables.product.prodname_dotcom %} organization will continue to log into their user accounts on {% data variables.product.prodname_dotcom %}. When a member accesses resources within your organization that uses SAML SSO, {% data variables.product.prodname_dotcom %} redirects the member to your IdP to authenticate. After successful authentication, your IdP redirects the member back to {% data variables.product.prodname_dotcom %}, where the member can access your organization's resources.
 
-Enterprise owners can also enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
+Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Enabling SAML single sign-on for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)."
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -32,6 +35,8 @@ If members are signed in with a SAML SSO session when they create a new reposito
 
 Organization members must also have an active SAML session to authorize an {% data variables.product.prodname_oauth_app %}. You can opt out of this requirement by contacting {% data variables.contact.contact_support %}. {% data variables.product.product_name %} does not recommend opting out of this requirement, which will expose your organization to a higher risk of account takeovers and potential data loss.
 
+{% data reusables.saml.saml-single-logout-not-supported %}
+
 ### Supported SAML services
 
 {% data reusables.saml.saml-supported-idps %}
@@ -40,13 +45,13 @@ Some IdPs support provisioning access to a  {% data variables.product.prodname_d
 
 ### Adding members to an organization using SAML SSO
 
-After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/v3/orgs/members/#add-or-update-organization-membership)."
-
-{% data reusables.organizations.team-synchronization %}
+After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/rest/reference/orgs#add-or-update-organization-membership)."
 
 To provision new users without an invitation from an organization owner, you can use the URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, replacing _ORGANIZATION_ with the name of your organization. For example, you can configure your IdP so that anyone with access to the IdP can click a link on the IdP's dashboard to join your {% data variables.product.prodname_dotcom %} organization.
 
 If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can automatically invite members to join your organization when you grant access on your IdP. If you remove a member's access to your {% data variables.product.prodname_dotcom %} organization on your SAML IdP, the member will be automatically removed from the {% data variables.product.prodname_dotcom %} organization. For more information, see "[About SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+
+{% data reusables.organizations.team-synchronization %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

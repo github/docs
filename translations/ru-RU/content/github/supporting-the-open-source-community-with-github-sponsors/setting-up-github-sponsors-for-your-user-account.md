@@ -6,6 +6,8 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}
@@ -26,7 +28,7 @@ If you have a bank account in a supported region, {% data variables.product.prod
 
 After {% data variables.product.prodname_dotcom %} reviews your application, you can set up your sponsored developer profile so that people can start sponsoring you.
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,12 +42,13 @@ After {% data variables.product.prodname_dotcom %} reviews your application, you
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
+{% data reusables.sponsors.enable-custom-amounts %}
 {% data reusables.sponsors.add-more-tiers %}
 
 ### Submitting your bank information
@@ -54,16 +57,14 @@ If you live in a supported region, you can follow these instructions to submit y
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-If you live in an unsupported region and are accepted to the beta of {% data variables.product.prodname_sponsors %}, you will receive an email with instructions to provide your bank information so that you can receive payments via ACH transfer or wire transfer.
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +76,7 @@ Before you can become a sponsored developer, you must enable 2FA on your {% data
 
 ### Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Click **Request approval**. ![Request approval button](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

@@ -31,6 +31,8 @@ versions:
 
 ### コンテナレジストリで認証する
 
+{% data reusables.package_registry.feature-preview-for-container-registry %}
+
 {% data variables.product.prodname_container_registry %} は、 ベース URL `ghcr.io` で認証する必要があります。 {% data variables.product.prodname_container_registry %} を使用するために、新しいアクセストークンの作成をお勧めします。
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -71,6 +73,8 @@ versions:
   ```
 
 ### {% data variables.product.prodname_actions %} ワークフローを更新する
+
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
 {% data variables.product.prodname_registry %} Docker レジストリから Docker イメージを使用する {% data variables.product.prodname_actions %} ワークフローがある場合、ワークフローを {% data variables.product.prodname_container_registry %} に更新するといいでしょう。そうすればパブリックコンテナのイメージへの匿名アクセスが可能になり、きめ細かいアクセス権限を設定でき、コンテナに対するストレージと帯域幅が向上します。
 

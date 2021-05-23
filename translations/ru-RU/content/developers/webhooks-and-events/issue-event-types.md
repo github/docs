@@ -7,10 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
-Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/v3/issues/events) and the [Timeline Events API](/v3/issues/timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
+Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/reference/issues#events) and the [Timeline Events API](/rest/reference/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
 
 GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
@@ -91,7 +93,7 @@ The base reference branch of the pull request changed.
 |:------------------------- |:----------------:|:-------------------:|
 | <ul><li>Pull requests</li></ul> |      **X**       |                     |
 
- ### Event object properties
+#### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
@@ -129,7 +131,7 @@ A comment was added to the issue or pull request.
 | `html_url`           | `строка`  | The HTML URL of the issue comment.                                                                                                              |
 | `issue_url`          | `строка`  | The HTML URL of the issue.                                                                                                                      |
 | `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `строка`  | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `node_id`            | `строка`  | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
 | `пользователь`       | `объект`  | The person who commented on the issue.                                                                                                          |
 | `created_at`         | `строка`  | The timestamp indicating when the comment was added.                                                                                            |
 | `updated_at`         | `строка`  | The timestamp indicating when the comment was updated or created, if the comment is never updated.                                              |
@@ -152,19 +154,19 @@ A commit was added to the pull request's `HEAD` branch.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| Name          | Тип                | Description                                                                                                                                                  |
-| ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `sha`         | `строка`           | The SHA of the commit in the pull request.                                                                                                                   |
-| `node_id`     | `строка`           | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                                         |
-| `url`         | `строка`           | The REST API URL to retrieve the commit.                                                                                                                     |
-| `html_url`    | `строка`           | The HTML URL of the commit.                                                                                                                                  |
-| `автор`       | `объект`           | The person who authored the commit.                                                                                                                          |
-| `участник`    | `объект`           | The person who committed the commit on behalf of the author.                                                                                                 |
-| `дерево`      | `объект`           | The Git tree of the commit.                                                                                                                                  |
-| `message`     | `строка`           | The commit message.                                                                                                                                          |
-| `parents`     | `array of objects` | A list of parent commits.                                                                                                                                    |
-| `verfication` | `объект`           | The result of verifying the commit's signature. For more information, see "[Signature verification object](/v3/git/commits/#signature-verification-object)." |
-| `событие`     | `строка`           | The event value is `"committed"`.                                                                                                                            |
+| Name          | Тип                | Description                                                                                                                                    |
+| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`         | `строка`           | The SHA of the commit in the pull request.                                                                                                     |
+| `node_id`     | `строка`           | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                      |
+| `url`         | `строка`           | The REST API URL to retrieve the commit.                                                                                                       |
+| `html_url`    | `строка`           | The HTML URL of the commit.                                                                                                                    |
+| `автор`       | `объект`           | The person who authored the commit.                                                                                                            |
+| `участник`    | `объект`           | The person who committed the commit on behalf of the author.                                                                                   |
+| `дерево`      | `объект`           | The Git tree of the commit.                                                                                                                    |
+| `message`     | `строка`           | The commit message.                                                                                                                            |
+| `parents`     | `array of objects` | A list of parent commits.                                                                                                                      |
+| `верификация` | `объект`           | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)." |
+| `событие`     | `строка`           | The event value is `"committed"`.                                                                                                              |
 
 ### connected
 
@@ -583,7 +585,7 @@ The pull request was reviewed.
 | Name                 | Тип       | Description                                                                                                                                     |
 | -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `строка`  | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `node_id`            | `строка`  | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
 | `пользователь`       | `объект`  | The person who commented on the issue.                                                                                                          |
 | `тело`               | `строка`  | The review summary text.                                                                                                                        |
 | `commit_id`          | `строка`  | The SHA of the latest commit in the pull request at the time of the review.                                                                     |
@@ -718,7 +720,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
 #### Availability
 

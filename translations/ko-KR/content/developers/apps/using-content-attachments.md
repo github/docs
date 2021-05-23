@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -55,7 +57,7 @@ The content attachment flow shows you the relationship between the URL in the is
 }
 ```
 
-**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/v3/apps/installations/#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -77,7 +79,7 @@ For more information about creating an installation token, see "[Authenticating 
 
 **Step 5.** You'll see the new content attachment appear under the link in a pull request or issue comment:
 
-![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)
 
 ### Using content attachments in GraphQL
 We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
@@ -116,7 +118,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs](/v4/guides/using-global-node-ids/)."
+For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
 ### Example using Probot and GitHub App Manifests
 
@@ -128,9 +130,8 @@ To create a Probot App, follow these steps:
 2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
-
     default_events:
-    - content_reference
+      - content_reference
     # The set of permissions needed by the GitHub App. The format of the object uses
     # the permission name for the key (for example, issues) and the access type for
     # the value (for example, write).
@@ -139,10 +140,10 @@ To create a Probot App, follow these steps:
       content_references: write
 
     content_references:
-    - type: domain
-      value: errors.ai
-    - type: domain
-      value: example.org
+      - type: domain
+        value: errors.ai
+      - type: domain
+        value: example.org
    ```
 
 3. Add this code to the `index.js` file to handle `content_reference` events and call the REST API:
@@ -166,7 +167,7 @@ To create a Probot App, follow these steps:
     }
     ```
 
-4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to [localhost:3000](http://localhost:3000), and click the **Register GitHub App** button:
+4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to `http://localhost:3000`, and click the **Register GitHub App** button:
 
    ![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
 
@@ -175,4 +176,4 @@ To create a Probot App, follow these steps:
 7. Add a comment to the issue you opened that includes the URL you configured in the `app.yml` file.
 8. Take a look at the issue comment and you'll see an update that looks like this:
 
-   ![Content attached to a reference in an issue](/assets/images/github-apps/github_apps_content_reference_attachment.png)
+   ![Content attached to a reference in an issue](/assets/images/github-apps/content_reference_attachment.png)

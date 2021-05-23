@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 删除构件
 
@@ -26,9 +28,15 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. 在 **Artifacts（构件）**下，单击您要删除的构件旁边的 {% octicon "trashcan" aria-label="The trashcan icon" %}。 ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact.png)
+1. 在 **Artifacts（构件）**下，单击
+您要删除的构件旁边的 {% octicon "trash" aria-label="The trash icon" %}。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
+    ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 设置构件的保留期
 
 可在仓库、组织和企业级配置构件和日志的保留期。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)”。

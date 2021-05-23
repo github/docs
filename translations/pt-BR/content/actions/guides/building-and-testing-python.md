@@ -7,16 +7,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Python
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
 Este guia mostra como criar, testar e publicar um pacote no Python.
 
-Os executores hospedados em {% data variables.product.prodname_dotcom %} possuem uma cache de ferramentas com um software pré-instalado, que inclui o Python e o PyPy. Você não precisa instalar nada! Para obter uma lista completa do software atualizado e das versões pré-instaladas do Python e PyPy, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% if currentVersion == "github-ae@latest" %} Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} possui o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+Os executores hospedados em {% else %} {% data variables.product.prodname_dotcom %} têm um cache de ferramentas com software pré-instalado, que inclui Python e PyPy. Você não precisa instalar nada! Para obter uma lista completa do software atualizado e das versões pré-instaladas do Python e PyPy, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Pré-requisitos
 
@@ -36,39 +44,39 @@ O {% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de tra
 Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
 
 {% raw %}
-```yaml
-nome: Pacote do Python
+```yaml{:copy}
+name: Python package
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
-    estratégia:
-      matriz:
+    strategy:
+      matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configura o Python ${{ matrix.python-version }}
-      usa: actions/setup-python@v2
-      com:
-        python-version: ${{ matrix.python-version }}
-    - nome: Instalar dependências
-      executar: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - nome : Lint with flake8
-      executar: |
-        # interrompe a criação em caso de erros de sintaxe do Python ou de nomes indefinidos
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero trata todos os errors como avisos. O editor do GitHub tem 127 caracteres
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - nome: Testar com pytest
-      executar: |
-        pytest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
 ```
 {% endraw %}
 
@@ -86,14 +94,14 @@ A tabela abaixo descreve os locais para o armazenamento de ferramentas em cada e
 | **Cache da ferramenta do Python**    | `/opt/hostedtoolcache/Python/*` | `/Users/runner/hostedtoolcache/Python/*` | `C:\hostedtoolcache\windows\Python\*` |
 | **Cache da ferramenta do PyPy**      | `/opt/hostedtoolcache/PyPy/*`   | `/Users/runner/hostedtoolcache/PyPy/*`   | `C:\hostedtoolcache\windows\PyPy\*`   |
 
-Se você estiver usando um executor auto-hospedado, você poderá configurá-lo para usar a ação `setup-python` para gerenciar suas dependências. Para obter mais informações, consulte [usando o setup-python com um executor auto-hospedado](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) na LEIAME do `setup-python`.
+Se você estiver usando um executor auto-hospedado, você poderá configurá-lo para usar a ação `setup-python` para gerenciar suas dependências. Para obter mais informações, consulte [usando o setup-python com um executor auto-hospedado](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) na README do `setup-python`.
 
 O {% data variables.product.prodname_dotcom %} é compatível com a sintaxe semântica de versionamento. Para obter mais informações, consulte "[Usar o versionamento semântico](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" e "[Especificação do versionamento semântico](https://semver.org/)".
 
 #### Usar várias versões do Python
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Pacote Python
 
 em: [push]
@@ -104,19 +112,19 @@ trabalhos:
     runs-on: ubuntu-latest
     estratégia:
       # Você pode usar as versões do PyPy em python-version.
-      # Por exemplo, pypy2 and pypy3
-      matriz:
+      # For example, pypy2 and pypy3
+      matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configura o Python ${{ matrix.python-version }}
-      usa: actions/setup-python@v2
-      com:
-        python-version: ${{ matrix.python-version }}
-    # Você pode testar a sua matriz imprimindo a versão atual do Python
-    - nome: Exibe a versão do Python
-      executar: python -c "import sys; print(sys.version)"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
@@ -125,28 +133,28 @@ trabalhos:
 Você pode configurar uma versão específica do python. Por exemplo, 3,8. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a última versão secundária do Python 3.
 
 {% raw %}
-```yaml
-nome: Pacote Python
+```yaml{:copy}
+name: Python package
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configura Python 3.x
-      usa: actions/setup-python@v2
-      com:
-        # Sintaxe do intervalo da versão semântica ou versão exata de uma versão do Python
-        python-version: '3.x' 
-        # Opcional - x64 or x86 architecture, defaults to x64
-        arquitetura: 'x64' 
-    # Você pode testar a sua matriz imprimindo a versão atual do Python
-    - nome: Exibir uma versão do Python
-      executar: python -c "import sys; print(sys.version)"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
@@ -157,7 +165,7 @@ Se especificar uma versão do Python que estiver indisponível, `setup-python` o
 Também é possível usar a palavra-chave `excluir` no seu fluxo de trabalho se houver uma configuração do Python que você não deseja executar. Para obter mais informações, consulte a sintaxe "[ para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -192,10 +200,10 @@ Recomendamos usar `setup-python` para configurar a versão do Python usada nos s
 
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm instalado o gerenciador do pacote pip. Você pode usar o pip para instalar dependências do registro de pacotes do PyPI antes de criar e testar o seu código. Por exemplo, o YAML abaixo instala ou atualiza o instalador de pacotes `pip` e as os pacotes `setuptools` e `wheel`.
 
-Você também pode memorizar as dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Memorizando dependências para acelerar seu fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)".
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você também poderá armazenar em cache dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 {% raw %}
-```yaml
+```yaml{:copy}
 etapas:
 - usa: actions/checkout@v2
 - nome: Configurar Python
@@ -212,7 +220,7 @@ etapas:
 Depois de atualizar o `pip`, um o próximo passo típico é instalar as dependências de *requirements.txt*.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 etapas:
 - usa: actions/checkout@v2
 - nome: Configurar Python
@@ -228,12 +236,12 @@ etapas:
 
 #### Memorizar dependências
 
-Você pode armazenar dependências do pip usando uma chave única e restaurar as dependências quando você executar fluxos de trabalho futuros usando a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)".
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache dependências usando uma chave única e restaurar as dependências quando você executar fluxos de trabalho futuros usando a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 O Pip armazena dependências em diferentes locais, dependendo do sistema operacional do executor. O caminho que você precisa efetuar o armazenamento em cache pode ser diferente do exemplo do Ubuntu abaixo, dependendo do sistema operacional que você usa. Para obter mais informações, consulte [Exemplos de armazenamento em cache do Python](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 etapas:
 - usa: actions/checkout@v2
 - nome: Setup Python
@@ -270,7 +278,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 Este exemplo instala ou atualiza `pytest` e `pytest-cov`. Em seguida, os testes são executados e retornados no formato JUnit enquanto os resultados da cobertura do código são emitidos em Cobertura. Para obter mais informações, consulte [JUnit](https://junit.org/junit5/) e [Cobertura](https://cobertura.github.io/cobertura/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 etapas:
 - usa: actions/checkout@v2
 - nome: Set up Python
@@ -294,7 +302,7 @@ etapas:
 O exemplo a seguir instala ou atualiza o `flake8` e o usa para limpar todos os arquivos. Para obter mais informações, consulte [Flake8](http://flake8.pycqa.org/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 etapas:
 - usa: actions/checkout@v2
 - nome: Configurar Python
@@ -317,7 +325,7 @@ etapas:
 Com {% data variables.product.prodname_actions %}, você pode executar testes com tox e distribuir o trabalho para vários trabalhos. Você precisará invocar tox usando a opção `-e py` para escolher a versão do Python no seu `PATH`, em vez de especificar uma versão específica. Para obter mais informações, consulte [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 nome: Pacote Python
 
 em: [push]
@@ -351,7 +359,7 @@ Você pode fazer o upload de artefatos para visualização após a conclusão de
 O exemplo a seguir demonstra como você pode usar a ação `upload-artefact` para arquivar os resultados de teste da execução do `pytest`. Para obter mais informações, consulte a ação <[`upload-artifact`](https://github.com/actions/upload-artifact).
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -364,7 +372,7 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
+    steps:
       - uses: actions/checkout@v2
       - name: Setup Python # Set Python version
         uses: actions/setup-python@v2
@@ -391,37 +399,37 @@ jobs:
 
 Você pode configurar o seu fluxo de trabalho para publicar seu pacote de Python em qualquer registro de pacote que você desejar quando forem aprovados os seus testes de CI.
 
-Você pode armazenar qualquer token de acesso ou credenciais necessárias para publicar seu pacote usando segredos do repositório. O exemplo a seguir cria e publica um pacote no PyPI usando `twine` e `dist`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Você pode armazenar qualquer token de acesso ou credenciais necessárias para publicar seu pacote usando segredos. O exemplo a seguir cria e publica um pacote no PyPI usando `twine` e `dist`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 {% raw %}
-```yaml
-Nome: Fazer o upload no pacote Python
+```yaml{:copy}
+name: Upload Python Package
 
-em:
-  versão:
-    tipos: [created]
+on:
+  release:
+    types: [created]
 
-trabalhos:
-  implementar:
+jobs:
+  deploy:
     runs-on: ubuntu-latest
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configurar Python
-      usa: actions/setup-python@v2
-      com:
-        python-version: '3.x'
-    - nome: Instalar dependências
-      executar: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - nome: Criar e publicar
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      executar: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
 ```
 {% endraw %}
 
-Para obter mais informações sobre o fluxo de trabalho de template, consulte [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+Para obter mais informações sobre o fluxo de trabalho do modelo, consulte [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

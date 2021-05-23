@@ -18,11 +18,9 @@ Você pode ajudar as pessoas a entender e usar seu pacote fornecendo uma descri�
 
 {% data reusables.package_registry.public-or-private-packages %} Um repositório pode conter mais de um pacote. Para evitar confusão, certifique-se de que o LEIAME e a descrição fornecem informações claras sobre cada pacote.
 
-{% data reusables.package_registry.package-immutability %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 Se uma nova versão de um pacote corrigir uma vulnerabilidade de segurança, você deverá publicar uma consultoria de segurança no seu repositório.
-{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% data variables.product.prodname_dotcom %} revisa a cada consultoria de segurança publicado e pode usá-lo para enviar {% data variables.product.prodname_dependabot_alerts %} para repositórios afetados. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 {% endif %}
 
 ### Publicar um pacote

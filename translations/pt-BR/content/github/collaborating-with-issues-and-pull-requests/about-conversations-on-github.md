@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### Discussões no {% data variables.product.product_name %}
@@ -16,11 +18,11 @@ versions:
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)" e "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)".
 
-{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 ### Reagir às ideias nos comentários
 
-Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
+Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. Para obter mais informações sobre assinaturas, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Assinar e cancelar a assinatura das notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}".
 
 ![Exemplo de um problema com reações](/assets/images/help/repository/issue-reactions.png)
 
@@ -41,7 +43,7 @@ Semelhante às diretrizes de contribuição, o mantenedor de repositório pode t
 
 ### Leia mais
 
-- "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderar comentários e conversas](/articles/moderating-comments-and-conversations)"
+- "[Configurar seu projeto para contribuições úteis](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Usando modelos para encorajar problemas úteis e pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderar comentários e conversas](/communities/moderating-comments-and-conversations)"
 - "[Gravar no {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

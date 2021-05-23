@@ -8,7 +8,7 @@ GitHub.
 Test are written using [jest](https://ghub.io/jest), a framework maintained
 by Facebook and used by many teams at GitHub. Jest is convenient in that it
 provides everything: a test runner, an assertion library, code coverage analysis,
-custom reporters for diferent types of test output, etc.
+custom reporters for different types of test output, etc.
 
 ### Running all the tests
 
@@ -76,5 +76,3 @@ It reports five types of problems:
     * Example: an unversioned link to a Dotcom-only article in a page that has Enterprise versions.
 5. **Broken anchors on links**
     * Example: `/some/valid/link#bar` where the linked page can be found but it does not have a heading `Bar`.
-
-If you need to check S3 image references, you can run `script/check-s3-images.js`. See [`script/README`](../script/README.md) for details.

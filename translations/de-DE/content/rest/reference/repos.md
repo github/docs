@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -29,7 +31,7 @@ versions:
 
 ### Custom media types for commit comments
 
-These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/v3/media/).
+These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -65,7 +67,7 @@ These API endpoints let you create, modify, and delete Base64 encoded content in
 
 ### Custom media types for repository contents
 
-[READMEs](/v3/repos/contents/#get-a-repository-readme), [files](/v3/repos/contents/#get-repository-content), and [symlinks](/v3/repos/contents/#get-repository-content) support the following custom media types:
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -74,13 +76,13 @@ Use the `.raw` media type to retrieve the contents of the file.
 
 For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[All objects](/v3/repos/contents/#get-repository-content) support the following custom media type:
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
 Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-You can read more about the use of media types in the API [here](/v3/media/).
+You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -137,17 +139,28 @@ Below is a simple sequence diagram for how these interactions would work.
 
 Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the `public_repo` and `repo` scopes grant permission to code as well.
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% if currentVersion != "github-ae@latest" %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+
 
 ### Inactive deployments
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository to the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+## Environments
+
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Forks
 
@@ -181,7 +194,7 @@ The authenticated user will be the author of any merges done through this endpoi
 
 ## Pages
 
-The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners, even though the websites are public. For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)."
 
 In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
 * `null`: The site has yet to be built.
@@ -193,7 +206,7 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
+   - `branch`: The repository branch used to publish your [site's source files](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}

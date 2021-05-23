@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} uses SAML SSO for user authentication. You can centrally manage access to {% data variables.product.prodname_ghe_managed %} from an IdP that supports the SAML 2.0 standard.
+{% data variables.product.product_name %} usa o SAML SSO para autenticação de usuário. Você pode gerenciar centralmente o acesso ao {% data variables.product.prodname_ghe_managed %} em um IdP que seja compatível com o padrão SAML 2.0.

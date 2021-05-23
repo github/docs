@@ -1,0 +1,1 @@
+Si configuras el permiso para metadatos como `No access` y seleccionas un permiso que requiere acceso al repositorio, GitHub anulará tu selección y configurará el permiso de metadatos como `Read-only` nuevamente. Para configurar el permiso de metadatos como `No access`, primero debes configurar todos los permisos que requieren acceso al repositorio como `No access`.

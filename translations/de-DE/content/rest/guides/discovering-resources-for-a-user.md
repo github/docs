@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -22,7 +24,7 @@ If you haven't already, you should read the ["Basics of Authentication"][basics-
 
 ### Discover the repositories that your app can access for a user
 
-In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a public repository where the user has write access.
+In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's a {% if currentVersion != "github-ae@latest" %}public{% else %}internal{% endif %} repository where the user has write access.
 
 [OAuth scopes][scopes] and [organization application policies][oap] determine which of those repositories your app can access for a user. Use the workflow below to discover those repositories.
 
@@ -87,25 +89,25 @@ client.organizations.each do |organization|
 end
 ```
 
-#### Don’t rely on public organizations
+#### Return all of the user's organization memberships
 
 If you've read the docs from cover to cover, you may have noticed an [API method for listing a user's public organization memberships][list-public-orgs]. Most applications should avoid this API method. This method only returns the user's public organization memberships, not their private organization memberships.
 
-As an application, you typically want all of the user's organizations (public and private) that your app is authorized to access. The workflow above will give you exactly that.
+As an application, you typically want all of the user's organizations that your app is authorized to access. The workflow above will give you exactly that.
 
-[basics-of-authentication]: /v3/guides/basics-of-authentication/
-[list-public-orgs]: /v3/orgs/#list-organizations-for-a-user
-[list-repositories-for-current-user]: /v3/repos/#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /v3/orgs/#list-organizations-for-the-authenticated-user
-[list-teams]: /v3/teams/#list-teams
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
+[basics-of-authentication]: /rest/guides/basics-of-authentication
+[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/reference/teams#list-teams
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /v3/guides/basics-of-authentication/#registering-your-app
+[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

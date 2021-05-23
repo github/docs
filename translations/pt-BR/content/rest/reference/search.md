@@ -6,11 +6,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 A API de pesquisa ajuda a pesquisar o item específico que você deseja encontrar. Por exemplo, você pode encontrar um usuário ou um arquivo específico em um repositório. Pense nisso da mesma forma que você pensa em realizar uma pesquisa no Google. Ele é projetado para ajudá-lo a encontrar o resultado que você está procurando (ou talvez os poucos resultados que você está procurando). Assim como pesquisar no Google, às vezes, você quer ver algumas páginas com resultados de pesquisa para que você possa encontrar o item que melhor atenda às suas necessidades. Para atender a essa necessidade, a API de pesquisa do {% data variables.product.product_name %} fornece **até 1.000 resultados para cada pesquisa**.
 
-Você pode restringir sua pesquisa usando as consultas. Para saber mais sobre a sintaxe de consultas de pesquisa, consulte "[Criar uma consulta de pesquisa](/v3/search/#constructing-a-search-query)".
+Você pode restringir sua pesquisa usando as consultas. Para saber mais sobre a sintaxe de consultas de pesquisa, consulte "[Criar uma consulta de pesquisa](/rest/reference/search#constructing-a-search-query)".
 
 ### Resultados da pesquisa de classificação
 
@@ -18,7 +20,7 @@ A menos que outra opção de ordenamento seja fornecida como um parâmetro de co
 
 ### Limite de taxa
 
-A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/v3/#authentication)[OAuth ](/v3/#authentication) ou [ID e segredo do cliente e](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
+A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/rest#authentication)[OAuth ](/rest#authentication) ou [ID e segredo do cliente e](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -28,16 +30,22 @@ Veja a [documentação do limite de taxa](/rest/reference/rate-limit) para obter
 
 Cada ponto de extremidade na API de Pesquisa usa [parâmetros de consulta](https://en.wikipedia.org/wiki/Query_string) para realizar pesquisas no {% data variables.product.product_name %}. Veja o ponto de extremidade individual na API de pesquisa para obter um exemplo que inclui o ponto de extremidade de parâmetros de consulta.
 
-A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. O formato da consulta de pesquisa é:
+Uma consulta pode conter qualquer combinação de qualificadores de pesquisa compatíveis em {% data variables.product.product_name %}. O formato da consulta de pesquisa é:
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
-Por exemplo, se você quisesse pesquisar todos os _repositórios_ de propriedade de `defunkt` que continham a palavra `GitHub` e `Octocat` no arquivo LEIAME, você usaria a consulta seguinte com o ponto de extremidade _pesquisar repositórios_:
+Por exemplo, se você quisesse pesquisar todos os _repositórios_ de propriedade de `defunkt` que continham a palavra `GitHub` e `Octocat` no arquivo README, você usaria a consulta seguinte com o ponto de extremidade _pesquisar repositórios_:
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Observação:** Certifique-se de usar o codificador HTML preferido do seu idioma para construir suas strings de consulta. Por exemplo:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 Veja "[Pesquisar no GitHub](/articles/searching-on-github/)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax/)".

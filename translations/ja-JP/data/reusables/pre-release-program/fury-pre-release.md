@@ -1,7 +1,7 @@
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_app %} Manifests are currently available for developers to preview. To access this API during the preview period, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**ノート:** {% data variables.product.prodname_github_app %}マニフェストは現在プレビューとして開発者が利用できます。 プレビュー期間中にこのAPIにアクセスするには、カスタムの[メディアタイプ](/rest/overview/media-types)を`Accept`ヘッダで渡さなければなりません。
 
 ```
 application/vnd.github.fury-preview+json

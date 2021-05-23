@@ -33,7 +33,7 @@ Crie um token de acesso pessoal na página de configurações do seu aplicativo.
 
 {% data reusables.command_line.providing-token-as-password %}
 
-Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter informações, consulte "[Armazenar suas credenciais no GitHub no Git](/github/using-git/caching-your-github-credentials-in-git)".
+Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter informações, consulte "[Armazenar suas credenciais no GitHub no Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
 {% warning %}
 
@@ -43,4 +43,4 @@ Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter 
 
 ### Leia mais
 
-- "[Autorizando aplicativos OAuth](/v3/oauth/)"
+- "[Autorizando aplicativos OAuth](/developers/apps/authorizing-oauth-apps)"

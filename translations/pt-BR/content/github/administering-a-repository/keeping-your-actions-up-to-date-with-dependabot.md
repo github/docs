@@ -1,5 +1,5 @@
 ---
-title: Keeping your actions up to date with Dependabot
+title: Manter as suas ações atualizadas com o Dependabot
 intro: 'Você pode usar o {% data variables.product.prodname_dependabot %} para manter as ações que você utiliza atualizadas para as versões mais recentes.'
 redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot

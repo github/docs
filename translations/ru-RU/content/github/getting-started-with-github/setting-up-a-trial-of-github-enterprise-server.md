@@ -7,6 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Accounts
 ---
 
 ### About trials of {% data variables.product.prodname_ghe_server %}
@@ -36,7 +38,7 @@ To get the most out of your trial, follow these steps:
    - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) webcast
    - [Understanding the {% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow/) in {% data variables.product.prodname_dotcom %} Guides
    - [Hello World](https://guides.github.com/activities/hello-world/) in {% data variables.product.prodname_dotcom %} Guides
-3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/enterprise/admin/configuration/configuring-your-enterprise)."
 4. To integrate {% data variables.product.prodname_ghe_server %} with your identity provider, see "[Using SAML](/enterprise/admin/user-management/using-saml)" and "[Using LDAP](/enterprise/admin/authentication/using-ldap)."
 5. Invite an unlimited number of people to join your trial.
    - Add users to your {% data variables.product.prodname_ghe_server %} instance using built-in authentication or your configured identity provider. For more information, see "[Using built in authentication](/enterprise/admin/user-management/using-built-in-authentication)."

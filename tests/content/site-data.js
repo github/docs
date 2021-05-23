@@ -45,11 +45,11 @@ describe('siteData module (English)', () => {
   // TODO: re-enable once Janky flakyness is resolved
   test.skip('backfills missing translated site data with English values', async () => {
     const newFile = path.join(__dirname, '../../data/newfile.yml')
-    fs.writeFileSync(newFile, 'newvalue: bar')
+    await fs.writeFile(newFile, 'newvalue: bar')
     const data = await loadSiteData()
     expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
     expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
-    fs.unlinkSync(newFile)
+    await fs.unlink(newFile)
   })
 
   test('all Liquid templating is valid', async () => {
@@ -75,7 +75,7 @@ describe('siteData module (English)', () => {
     expect(reusable.includes('1. ')).toBe(true)
   })
 
-  test.skip('encodes bracketed parentheticals to prevent them from becoming links', async () => {
+  test.skip('encodes bracketed parentheses to prevent them from becoming links', async () => {
     const reusable = get(data, 'ja.site.data.reusables.organizations.team_name')
     const expectation = `reusable should contain a bracket followed by a space. Actual value: ${reusable}`
     expect(reusable.includes(']&nbsp;('), expectation).toBe(true)
@@ -84,9 +84,9 @@ describe('siteData module (English)', () => {
   test('warn if any YAML reusables are found', async () => {
     const reusables = require('walk-sync')(path.join(__dirname, '../../data/reusables'))
     expect(reusables.length).toBeGreaterThan(100)
-    const yamlResuables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
-    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlResuables.join('\n')}`
-    expect(yamlResuables.length, message).toBe(0)
+    const yamlReusables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
+    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlReusables.join('\n')}`
+    expect(yamlReusables.length, message).toBe(0)
   })
 
   test('all non-English data has matching English data', async () => {

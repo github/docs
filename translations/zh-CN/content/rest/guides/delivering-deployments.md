@@ -1,6 +1,6 @@
 ---
 title: 交付部署
-intro: '使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。'
+intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
   
@@ -145,7 +147,7 @@ end
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

@@ -6,10 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
@@ -27,7 +35,9 @@ Para obter mais informações, consulte "[Conceitos básicos para {% data variab
 Ao fazer a migração do CircleCI, considere as seguintes diferenças:
 
 - O paralelismo do teste automático do CircleCI agrupa automaticamente os testes de acordo com regras especificadas pelo usuário ou com informações históricas de temporização. Esta funcionalidade não foi criada em {% data variables.product.prodname_actions %}.
-- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. {% if currentVersion == "github-ae@latest" %}Para obter instruções sobre como ter certeza de que o {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images).".
+{% else %}Para obter mais informações sobre o sistema de arquivos Docker em executores hospedados em {% data variables.product.product_name %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)."
+{% endif %}
 
 ### Migrar fluxos de trabalhos e trabalhos
 
@@ -50,9 +60,17 @@ O CircleCI fornece um conjunto de imagens pré-construídas com dependências co
 
 Recomendamos que você se afaste das imagens pré-criadas do CircleCI, ao migrar para {% data variables.product.prodname_actions %}. Em muitos casos, você pode usar ações para instalar as dependências adicionais de que você precisa.
 
-Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+{% if currentVersion == "github-ae@latest" %}
+Para obter mais informações sobre o sistema de arquivos Docker, consulte "[sistema de arquivos do Docker](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)".
+Para obter instruções sobre como garantir o seu
 
-Para obter mais informações sobre as ferramentas e pacotes disponíveis em ambientes virtuais hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}
+Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+Para obter mais informações sobre as ferramentas e pacotes disponíveis em
+
+ambientes virtuais hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Usar variáveis e segredos
 
@@ -101,7 +119,7 @@ GitHub Actions
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)".
+O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 {% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 
@@ -234,47 +252,47 @@ fluxos de trabalho:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-nome: Contêineres
+name: Containers
 
-em: [push]
+on: [push]
 
-trabalhos:
-  construir:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
-    contêiner: circleci/ruby:2.6.3-node-browsers-legacy
+    container: circleci/ruby:2.6.3-node-browsers-legacy
 
     env:
       PGHOST: postgres
       PGUSER: administrate
       RAILS_ENV: test
 
-    serviços:
+    services:
       postgres:
-        imagem: postgres:10.1-alpine
+        image: postgres:10.1-alpine
         env:
           POSTGRES_USER: administrate
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
-        portas:
-        - 5432:5432
-        # Adicionar uma verificação geral
-        opções: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
+        # Add a health check
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    etapas:
-    # Este arquivo Docker altera as configurações de USUÁRIO para circleci em vez de usar o usuário-padrão. Portanto, precisamos atualizar as permissões do arquivo para esta imagem funcionar no Actions.
-    # Veja https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Configurar permissões do sistema de arquivos
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Instalar dependências
-      run: bundle install --path vendor/bundle
-    - name: Configuração do ambiente de instalação
-      run: cp .sample.env .env
-    - name: Configurar banco de dados
-      run: bundle exec rake db:setup
-    - name: Executar testes
-      run: bundle exec rake
+    steps:
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -385,15 +403,15 @@ fluxos de trabalho:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-nome: Contêineres
+name: Containers
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
-    estratégia:
-      matriz:
+    strategy:
+      matrix:
         ruby: [2.5, 2.6.3]
 
     runs-on: ubuntu-latest
@@ -403,43 +421,45 @@ trabalhos:
       PGUSER: administrate
       RAILS_ENV: test
 
-    serviços:
+    services:
       postgres:
-        imagem: postgres:10.1-alpine
+        image: postgres:10.1-alpine
         env:
           POSTGRES_USER: administrate
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
-        portas:
-        - 5432:5432
-        # Adicionar verificação geral
+        ports:
+          - 5432:5432
+        # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Configurar Ruby
-      usa: eregon/use-ruby-action@master
-      com:
-        ruby-version: ${{ matrix.ruby }}
-    - nome: Memorizar dependências
-      usa: actions/cache@v2
-      com:
-        caminho: vendor/bundle
-        chave: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - nome: Instalar títulos do postgres
-      executar : sudo apt-get install libpq-dev
-    - nome: Install dependencies
-      executar : bundle install --path vendor/bundle
-    - Nome: Definir configuração do ambiente
-      executar: cp .sample.env .env
-    - nome: Configurar banco de dados
-      executar: bundle exec rake db:setup
-    - nome: Executar testes
-      executar: bundle exec rake
-    - nome: Install appraisal
-      executar: bundle exec appraisal install
-    - Nome: Run appraisal
-      executar: bundle exec appraisal rake
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>

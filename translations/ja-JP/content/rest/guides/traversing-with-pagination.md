@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -20,9 +22,9 @@ versions:
 
 はじめに、ページネーションされたアイテムの受け取りについて、いくつかの事実を知っておくことが重要です。
 
-1. 呼び出す API によって、応答するデフォルト値が異なります。 [パブリックリポジトリのリスト化](/v3/repos/#list-public-repositories)を呼び出すと、ページネーションされて提供されるのは 1 セットで 30 アイテムですが、GitHub Search APIを呼び出すと 1 セットで 100 アイテムとなります。
+1. 呼び出す API によって、応答するデフォルト値が異なります。 [パブリックリポジトリのリスト化](/rest/reference/repos#list-public-repositories)を呼び出すと、ページネーションされて提供されるのは 1 セットで 30 アイテムですが、GitHub Search APIを呼び出すと 1 セットで 100 アイテムとなります。
 2. 受け取るアイテムの数は指定できます (最大 100 まで)。
-3. ただし、技術的な理由により、すべてのエンドポイントが同じ動作をするわけではありません。 たとえば、[イベント](/v3/activity/events/)では受け取るアイテム数の最大値を設定できません。 特定のエンドポイントにおけるページネーションされた結果の処理方法については、必ずドキュメントをお読みください。
+3. ただし、技術的な理由により、すべてのエンドポイントが同じ動作をするわけではありません。 たとえば、[イベント](/rest/reference/activity#events)では受け取るアイテム数の最大値を設定できません。 特定のエンドポイントにおけるページネーションされた結果の処理方法については、必ずドキュメントをお読みください。
 
 ページネーションに関する情報は、API呼び出しの[リンクヘッダ](http://tools.ietf.org/html/rfc5988)に記載されています。 たとえば、検索APIにcurlでリクエストを行って、Mozilla プロジェクトで `addClass`というフレーズを何回使っているか調べましょう。
 
@@ -201,7 +203,7 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

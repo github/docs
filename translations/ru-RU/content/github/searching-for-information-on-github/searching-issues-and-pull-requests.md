@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
@@ -64,14 +66,11 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."                                          |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."                                         |
 
-### Search by public or private repository
+### Filter by repository visibility
 
-If you're [searching across all of {% data variables.product.product_name %}](https://github.com/search), it can be helpful to filter your results based on whether the repository is public or private. You can do this with `is:public` and `is:private`.
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
-| Qualifier    | Пример                                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in all public repositories.                                                           |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you have access to. |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ### Search by author
 
@@ -134,7 +133,8 @@ You can narrow your results to only include issues that are linked to a pull req
 | `linked:pr`     | [**repo:desktop/desktop is:open linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+linked%3Apr) matches open issues in the `desktop/desktop` repository that are linked to a pull request by a closing reference.                                    |
 | `linked:issue`  | [**repo:desktop/desktop is:closed linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aclosed+linked%3Aissue) matches closed pull requests in the `desktop/desktop` repository that were linked to an issue that the pull request may have closed.       |
 | `-linked:pr`    | [**repo:desktop/desktop is:open -linked:pr**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Apr) matches open issues in the `desktop/desktop` repository that are not linked to a pull request by a closing reference.                              |
-| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) matches open pull requests in the `desktop/desktop` repository that are not linked to an issue that the pull request may close. |{% endif %}
+| `-linked:issue` | [**repo:desktop/desktop is:open -linked:issue**](https://github.com/search?q=repo%3Adesktop%2Fdesktop+is%3Aopen+-linked%3Aissue) matches open pull requests in the `desktop/desktop` repository that are not linked to an issue that the pull request may close. 
+{% endif %}
 
 ### Search by label
 
@@ -166,7 +166,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ### Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/v3/repos/statuses/) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
 
 | Qualifier        | Пример                                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -206,7 +206,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 
 | Qualifier                  | Пример                                                                                                                                                                 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) matches closed issues with more than 100 comments. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.                         |
 
 ### Search by number of interactions
@@ -305,7 +305,7 @@ The `archived` qualifier filters your results based on whether an issue or pull 
 
 ### Search based on whether a conversation is locked
 
-You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[Locking conversations](/articles/locking-conversations)."
+You can search for an issue or pull request that has a locked conversation using the `is` qualifier. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 
 | Qualifier     | Пример                                                                                                                                                                                                                                                                              |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

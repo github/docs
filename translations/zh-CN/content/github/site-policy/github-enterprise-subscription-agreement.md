@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-版本生效日期：2020 年 7 月 20 日
+Version Effective Date: November 16, 2020
 
 只要单击“我同意”或类似按钮或者使用任何产品（定义如下），即表示客户接受本协议的条款和条件。 如果客户代表法人实体签订本协议，则客户表示其拥有确保该法人实体受本协议约束的法律权限。
 
@@ -197,7 +197,7 @@ GitHub 如果因其合理控制力之外的特殊原因（包括天灾、自然�
 
 #### 1.13.11 修正；偏好顺序。
 
-GitHub 有权利独自裁量随时修订本协议，并在发生任何此类修正时更新本协议。 本协议如有重大更改，如价格变动，GitHub 将至少在更改生效前 30 天在服务上发布通知，向客户通知本协议的重大变更。 对于非重大修改，客户继续使用服务即表示同意我们对本协议的修订。 客户在我们的[站点政策](https://github.com/github/site-policy)仓库中可查看本协议的所有更改。 如果本协议条款与任何订单或 SOW 有任何冲突，则订单或 SOW 的条款只管制该订单或 SOW。
+GitHub 有权利独自裁量随时修订本协议，并在发生任何此类修正时更新本协议。 GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. 客户在我们的[站点政策](https://github.com/github/site-policy)仓库中可查看本协议的所有更改。 如果本协议条款与任何订单或 SOW 有任何冲突，则订单或 SOW 的条款只管制该订单或 SOW。
 
 #### 1.13.12 可分割性。
 
@@ -296,7 +296,7 @@ GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的�
 **(ii)** 客户免费授予第 3.3.3 至 3.3.6 条所述的权利，用于这两条所述的目的，直到客户从 GitHub 服务器中删除客户内容，但公开发布以及外部用户已经复刻的内容除外，这些内容的有效期直到所有客户内容复刻从 GitHub 服务器中删除。 如果客户上传的客户内容具有已经向 GitHub 授予运行服务所需的许可，则无需其他许可。
 
 #### 3.3.3 向 GitHub 授予的许可。
-客户向 GitHub 授予存储、剖析和显示客户内容的权利，并仅在提供服务需要时才创建偶尔的副本。 这些权利包括将客户内容复制到 GitHub 数据库和制作备份；向客户以及客户选择要向其显示内容的人员显示客户内容；将客户内容剖析为搜索索引或在 GitHub 的服务器上分析；与客户选择要共享的外部用户共享客户内容；以及执行客户内容，有点像音乐或视频一样。 这些权利适用于公共和私有仓库。 此许可并未向 GitHub 授予销售客户内容或者在服务外部分发或使用内容的权利。 客户向 GitHub 授予以无归属方式使用客户内容所需的权利，以及根据提供服务的需要对客户内容进行合理改编的权利。
+Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service. 这些权利包括将客户内容复制到 GitHub 数据库和制作备份；向客户以及客户选择要向其显示内容的人员显示客户内容；将客户内容剖析为搜索索引或在 GitHub 的服务器上分析；与客户选择要共享的外部用户共享客户内容；以及执行客户内容，有点像音乐或视频一样。 这些权利适用于公共和私有仓库。 此许可并未向 GitHub 授予销售客户内容或者在服务外部分发或使用内容的权利。 客户向 GitHub 授予以无归属方式使用客户内容所需的权利，以及根据提供服务的需要对客户内容进行合理改编的权利。
 
 #### 3.3.4 向外部用户授予的许可。
 **(i)** 客户快速发布的任何内容，包括议题、评论以及对外部用户仓库的贡献，都可供其他人查看。 只要将其仓库设置为公开显示，即表示客户同意允许外部用户查看客户的仓库以及对其复刻。
@@ -318,10 +318,13 @@ GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的�
 GitHub 将客户私有仓库中的客户内容视为客户的机密信息。 GitHub 将根据本第 1.4 条对私有仓库的客户内容实施保护和严格保密。
 
 #### 3.4.3 访问。
-GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意并确认，出于支持原因，或者 (ii) 出于安全原因而需要访问时。  客户可选择对其私有仓库启用其他访问权限。 例如，客户可向不同的 GitHub 服务或功能授予对私有仓库中客户内容的额外访问权限。 这些权利可能根据服务或功能而不同，但 GitHub 仍会将客户私有仓库中的客户内容视为客户的机密信息。 如果这些服务或功能除了提供服务所需的权限之前，还需要其他权限，GitHub 将会说明这些权限。
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 3.4.4 除外条款。
-如果 GitHub 有理由相信私有仓库的内容违反法律或本协议，则 GitHub 有权利访问、检查和删除该内容。 此外，法律可能要求 GitHub 披露客户私有仓库中的内容。 除非法律要求另有约束或者是回应安全威胁或其他安全风险，否则 GitHub 对此类操作需发出通知。
+客户可选择对其私有仓库启用其他访问权限。 例如，客户可向不同的 GitHub 服务或功能授予对私有仓库中客户内容的额外访问权限。 这些权利可能根据服务或功能而不同，但 GitHub 仍会将客户私有仓库中的客户内容视为客户的机密信息。 如果这些服务或功能除了提供服务所需的权限之前，还需要其他权限，GitHub 将会说明这些权限。
+
+此外，我们可能[按法律要求](/github/site-policy/github-privacy-statement#for-legal-disclosure)披露您的私有仓库的内容。
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### 3.5. 知识产权通告。
 

@@ -1,0 +1,28 @@
+---
+date: '2020-08-11'
+sections:
+  security_fixes:
+    - '**重大:** 攻撃者がGitHub Pagesのサイトの構築の一部としてコマンドを実行できる、リモートコード実行の脆弱性がGitHub Pagesで特定されました。この問題は、Pagesのビルドプロセスで使われている古くて脆弱性のある依存関係によるものです。この脆弱性を突くには、攻撃者はGitHub Enterprise Serverインスタンス上でGitHub Pagesのサイトを作成して構築する権限を持っていなければなりません。この脆弱性は、GitHub Enterprise Serverのすべてのバージョンに影響します。この脆弱性を緩和するために、CVE-2020-14001への対応でkramdownがアップデートされました。 {% comment %} https://github.com/github/pages/pull/2835, https://github.com/github/pages/pull/2827 {% endcomment %}'
+    - '**高:** GitHub Enterprise Server上で実行されるGitのサブコマンドに、攻撃者が悪意ある引数をインジェクトすることができました。これによって、攻撃者は部分的にユーザが制御する内容で任意のファイルを上書きでき、GitHub Enterprise Serverインスタンス上で任意のコマンドを実行できる可能性がありました。この脆弱性を突くためには、攻撃者はGHESインスタンス内のリポジトリへのアクセス権限を持っていなければなりません。しかし、他の保護があるので、この脆弱性を積極的に突く方法は特定できませんでした。この脆弱性はGitHub Security Bug Bountyプログラムを通じて報告されました。{% comment %} https://github.com/github/github/pull/150936, https://github.com/github/github/pull/150634 {% endcomment %}'
+    - 'パッケージが最新のセキュリティバージョンに更新されました。{% comment %} https://github.com/github/enterprise2/pull/21679, https://github.com/github/enterprise2/pull/21542, https://github.com/github/enterprise2/pull/21812, https://github.com/github/enterprise2/pull/21700 {% endcomment %}'
+  bugs:
+    - 'Consulの設定エラーによって、スタンドアローンインスタンス上で処理されないバックグランドジョブがありました。{% comment %} https://github.com/github/enterprise2/pull/21463 {% endcomment %}'
+    - 'サービスのメモリ割り当ての計算が、サービスに不正確もしくは無制限の割り当てを行い、システムのパフォーマンスを低下させることがありました。{% comment %} https://github.com/github/enterprise2/pull/21689 {% endcomment %}'
+    - 'oVirt KVMシステムの可視化プラットフォームが適切に検出されず、アップグレードの際に問題を生じさせていました。{% comment %} https://github.com/github/enterprise2/pull/21731, https://github.com/github/enterprise2/pull/21669 {% endcomment %}'
+    - "Gitコマンドラインからのパスワードでの不正な認証のエラーメッセージが、適切なトークンもしくはSSHキーを追加するためのURLリンクを展開しませんでした。 {% comment %} https://github.com/github/github/pull/149607, https://github.com/github/github/pull/149351 {% endcomment %}"
+    - 'Issueテンプレート機能を使ってユーザリポジトリ上にIssueを作成すると、Internal Server Errorで失敗することがありました。 {% comment %} https://github.com/github/github/pull/150173, https://github.com/github/github/pull/149445 {% endcomment %}'
+    - '*Explore*セクションへのアクセスが500 Internal Server errorで失敗しました。{% comment %} https://github.com/github/github/pull/150512, https://github.com/github/github/pull/150504 {% endcomment %}'
+    - '新しいインスタンスに移行したリポジトリ上で*最近の更新*でIssueをソートできませんでした。{% comment %} https://github.com/github/github/pull/150688, https://github.com/github/github/pull/149330 {% endcomment %}'
+    - 'GitHub Connectが、非推奨のGitHub.com APIエンドポイントを使用していました。{% comment %} https://github.com/github/github/pull/150827, https://github.com/github/github/pull/150545 {% endcomment %}'
+    - 'バックグラウンドジョブのための内部メトリクスの収集によって、不必要なCPUとメモリの使用に影響しました。{% comment %} https://github.com/github/github/pull/151182, https://github.com/github/github/pull/147695 {% endcomment %}'
+    - '404ページのフッタに、GitHub.comの連絡先とステータスリンクが含まれていました。{% comment %} https://github.com/github/github/pull/151315 {% endcomment %}'
+    - '未リリースの機能のためのバックグラウンドジョブがキューに積まれ、処理されないままになりました。{% comment %} https://github.com/github/github/pull/151395, https://github.com/github/github/pull/146248 {% endcomment %}'
+  known_issues:
+    - '新たにセットアップされたユーザを持たないGitHub Enterprise Serverで、攻撃者が最初の管理者ユーザを作成できました。{% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'カスタムのファイアウォールルールがアップデートの際に維持されません。 {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Git LFSが追跡するファイル[Webインターフェースからアップロードされたもの](https://github.com/blog/2105-upload-files-to-your-repositories)が、不正にリポジトリに直接追加されてしまいます。{% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'ファイルパスが255文字以上の場合、同じリポジトリ内のblobへのパーマリンクが含まれていると、Issueをクローズできません。 {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'GitHub Connectで"Users can search GitHub.com"が有効化されていると、プライベート及びインターナルリポジトリのIssueがGitHub.comの検索結果に含まれません。{% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'コマンドラインでリポジトリにプッシュした際に、セキュリティアラートが報告されません。{% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - '監査ログは実際のソースIPアドレスの代わりに127.0.0.1に起因する可能性があります。(updated 2020-11-02) {% comment %} https://github.com/github/enterprise2/issues/21514 {% endcomment %}'
+    - "リポジトリの権限を`Triage`もしくは`Maintain`に設定しようとすると、失敗してエラーメッセージが表示されます。"

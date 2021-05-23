@@ -33,7 +33,7 @@ Create a personal access token on your application settings page. For more infor
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
+To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 {% warning %}
 
@@ -43,4 +43,4 @@ To avoid these prompts, you can use Git password caching. For information, see "
 
 ### Дополнительная литература
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

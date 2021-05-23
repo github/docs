@@ -1,6 +1,6 @@
 ---
 title: 加密机密
-intro: 加密密码允许您在仓库或组织中存储敏感信息。
+intro: '加密密码可让您将敏感信息存储在您的组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -9,25 +9,29 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.environments-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于加密密码
 
-密码是在仓库或组织中创建的加密环境变量。 您创建的密码可用于 {% data variables.product.prodname_actions %} 工作流程。 在密码到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对密码加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+机密是您在组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+对于存储在环境级别的机密，您可以启用所需的审查者来控制对机密的访问。 在必要的审查者授予批准之前，工作流程作业无法访问环境机密。
+{% endif %}
+
 #### 命名您的密码
 
-以下规则适用于密码名称：
+{% data reusables.codespaces.secrets-naming %}. 例如，{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}在环境级别创建的机密必须在环境中具有唯一的名称，{% endif %}在仓库级别创建的机密必须在该仓库中具有唯一的名称，而在组织级别创建的机密必须在该级别具有独特的名称。
 
-* 密码名称只能包含字母数字字符（`[a-z]`、`[A-Z]`、`[0-9]`）或下划线 (`_`)。 不允许空格。
-* 密码名称不能以 `GITHUB_` 前缀开头。
-* 密码名称不能以数字开头。
-* 密码名称在所创建的级别上必须是唯一的。 例如，在组织级别创建的密码必须在该级别具有唯一名称，而在仓库级别创建的密码必须在该仓库具有唯一名称。 如果组织级别密码的名称与仓库级别的密码相同，则仓库级别的密码优先。
+  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
 为帮助确保 {% data variables.product.prodname_dotcom %} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
 
@@ -43,11 +47,15 @@ versions:
 
 {% endwarning %}
 
-您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/v3/actions/secrets/)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。
+{% endif %}
+
+您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/rest/reference/actions#secrets)”。
 
 #### 限制凭据权限
 
-生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/v3/guides/managing-deploy-keys/#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
+生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
 
 ### 为仓库创建加密密码
 
@@ -56,12 +64,34 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. 单击 **Add a new secret（添加新机密）**。
+1. 单击 **New repository secret（新仓库机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的值。
 1. 单击 **Add secret（添加密码）**。
 
-如果您的仓库可以从父级组织访问密码，则此页上也会列出这些密码。
+如果您的仓库 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}拥有环境机密或 {% endif %}可以访问父组织中的机密，则这些机密也会列入本页。
+
+{% note %}
+
+**注意：**具有协作员权限的用户可以使用 REST API 来管理仓库的机密。 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/rest/reference/actions#secrets)”。
+
+{% endnote %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+
+### 为环境创建加密密码
+
+{% data reusables.github-actions.permissions-statement-secrets-environment %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-environment %}
+1. 单击要向其添加机密的环境。
+1. 在 **Environment secrets（环境机密）**下，单击 **Add secret（添加机密）**。
+1. 在 **Name（名称）**输入框中键入密码的名称。
+1. 输入密码的值。
+1. 单击 **Add secret（添加密码）**。
+{% endif %}
 
 ### 为组织创建加密密码
 
@@ -72,7 +102,7 @@ versions:
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. 单击 **New secret（新建密码）**。
+1. 单击 **New organization secret（新组织机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的 **Value（值）**。
 1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
@@ -90,7 +120,11 @@ versions:
 
 ### 在工作流程中使用加密密码
 
-除了 `GITHUB_TOKEN` 以外，从复刻的仓库触发工作流程时密码不会传递给运行程序。
+{% note %}
+
+**注：**{% data reusables.actions.forked-secrets %}
+
+{% endnote %}
 
 要提供以密码作为输入或环境变量的操作，可以使用 `secrets` 上下文访问您在仓库中创建的密码。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”和“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
@@ -150,7 +184,7 @@ steps:
 
 ### 密码的限制
 
-您的工作流程最多可以有 100 个密码。 密码环境变量的名称在仓库中必须是唯一的。
+最多可以每个组织存储 1,000 条机密{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}，每个仓库存储 100 条机密，每个环境存储 100 条机密{% else %}，每个仓库存储 100 条机密{% endif %}。 一个工作流程最多可以使用 100 条组织机密和 100 条仓库机密。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} 此外，引用环境的作业最多可以使用 100 条环境机密。{% endif %}
 
 密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 
@@ -177,10 +211,10 @@ steps:
   ``` shell
   #!/bin/sh
 
-  # 解密文件
+  # Decrypt the file
   mkdir $HOME/secrets
-  # --批处理以防止交互式命令
-  # --是以假定问题的回答是“是”
+  # --batch to prevent interactive command
+  # --yes to assume "yes" for questions
   gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
   --output $HOME/secrets/my_secret.json my_secret.json.gpg
   ```

@@ -1,1 +1,1 @@
-You can use the site admin dashboard to manage users, organizations, and repositories in your enterprise directly in {% data variables.product.product_name %}.
+サイト管理ダッシュボードを使って、{% data variables.product.product_name %}内で直接Enterpriseのユーザ、Organization、リポジトリを管理できます。

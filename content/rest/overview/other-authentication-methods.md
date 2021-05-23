@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -69,7 +71,7 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 ```shell
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
-If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/v3/auth/#working-with-two-factor-authentication).
+If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
 {% endif %}
 
@@ -134,9 +136,9 @@ $ curl --request POST \
 {% endif %}
 
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /v3/#authentication
+[oauth-auth]: /rest#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [saml-sso-tokens]: https://github.com/settings/tokens
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-[user-issues]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
+[user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user

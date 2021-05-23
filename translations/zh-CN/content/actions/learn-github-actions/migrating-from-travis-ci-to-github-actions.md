@@ -6,7 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Travis CI
+  - Migration
+  - CI
+  - CD
 ---
+
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -68,8 +79,8 @@ Travis CI
 ```yaml
 matrix:
   include:
-  - rvm: 2.5
-  - rvm: 2.6.3
+    - rvm: 2.5
+    - rvm: 2.6.3
 ```
 {% endraw %}
 </td>
@@ -89,7 +100,7 @@ jobs:
 
 #### 定向特定分支
 
-Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub 操作的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
+Travis CI 和 {% data variables.product.prodname_actions %} 允许您将 CI 定向到特定分支。 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)”。
 
 下面是每个系统的语法示例：
 
@@ -108,8 +119,8 @@ Travis CI
 ```yaml
 branches:
   only:
-  - main
-  - 'mona/octocat'
+    - main
+    - 'mona/octocat'
 ```
 {% endraw %}
 </td>
@@ -118,7 +129,7 @@ branches:
 ```yaml
 on:
   push:
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
 ```
@@ -154,14 +165,20 @@ git:
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-    - uses: actions/checkout@v2
-      with:
-        submodules: false
+- uses: actions/checkout@v2
+  with:
+    submodules: false
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
+
+#### 在矩阵中使用环境变量
+
+Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义环境变量添加到测试矩阵，这可让您在后面的步骤中引用该变量。
+
+在 {% data variables.product.prodname_actions %}中，您可以使用 `include` 键将自定义环境变量添加到矩阵中。 {% data reusables.github-actions.matrix-variable-example %}
 
 ### {% data variables.product.prodname_actions %} 中的关键功能
 
@@ -169,7 +186,7 @@ git:
 
 #### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 还包括允许您在仓库和组织级别限制对密码的访问的策略。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}环境保护规则可要求工作流程获得手动批准才能访问环境机密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 #### 在作业和工作流程之间共享文件
 
@@ -200,10 +217,10 @@ git:
 例如：
 
 ```yaml
-      steps:
-        - name: Run build script
-          run: ./.github/scripts/build.sh
-          shell: bash
+steps:
+  - name: Run build script
+    run: ./.github/scripts/build.sh
+    shell: bash
 ```
 
 ### {% data variables.product.prodname_actions %} 中的错误处理
@@ -268,11 +285,11 @@ jobs:
   run_python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.7'
-        architecture: 'x64'
-    - run: python script.py
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - run: python script.py
 ```
 {% endraw %}
 </td>
@@ -281,7 +298,7 @@ jobs:
 
 ### 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。 
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -316,7 +333,7 @@ cache: npm
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ### 常见任务示例
 
@@ -338,20 +355,20 @@ Travis CI
 <tr>
 <td>
 
-  ```yaml
+```yaml
 env:
   - MAVEN_PATH="/usr/local/maven"
-  ```
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
-      env:
-        MAVEN_PATH: '/usr/local/maven'
-  ```
+```yaml
+jobs:
+  maven-build:
+    env:
+      MAVEN_PATH: '/usr/local/maven'
+```
 
 </td>
 </tr>
@@ -371,24 +388,24 @@ Travis CI
 <tr>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 install:
-    - npm install
+  - npm install
 script:
-    - npm run build
-    - npm test
-  ```
+  - npm run build
+  - npm test
+```
 {% endraw %}
 </td>
 <td>
 {% raw %}
-  ```yaml
+```yaml
 name: Node.js CI
 on: [push]
 jobs:
-    build:
-      runs-on: ubuntu-latest
-      steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -397,7 +414,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm test
-  ```
+```
 {% endraw %}
 </td>
 </tr>

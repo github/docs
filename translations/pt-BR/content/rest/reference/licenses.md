@@ -6,6 +6,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 A API de Licenças retorna metadados sobre as licenças de código aberto populares e informações sobre o arquivo de licença de um determinado projeto.
@@ -16,12 +18,12 @@ Se uma licença for correspondida, a chave da licença e o nome retornados serã
 
 **Observação:** Estes pontos de extremidade também retornarão informações de licença de um repositório:
 
-- [Obter um repositório](/v3/repos/#get-a-repository)
-- [Listar repositórios para um usuário](/v3/repos/#list-repositories-for-a-user)
-- [Listar repositórios da organização](/v3/repos/#list-organization-repositories)
+- [Obter um repositório](/rest/reference/repos#get-a-repository)
+- [Listar repositórios para um usuário](/rest/reference/repos#list-repositories-for-a-user)
+- [Listar repositórios da organização](/rest/reference/repos#list-organization-repositories)
 - [Listar bifurcações](/rest/reference/repos#list-forks)
 - [Listar repositórios inspecionados por um usuário](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [Listar repositórios da equipe](/v3/teams/#list-team-repositories)
+- [Listar repositórios da equipe](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

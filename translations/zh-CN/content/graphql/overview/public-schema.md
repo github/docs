@@ -7,9 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
-您可以直接对 GraphQL API [执行内省](/v4/guides/intro-to-graphql/#discovering-the-graphql-api)。
+您可以直接对 GraphQL API [执行内省](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)。
 
 或者，您也可以在此处下载公共架构的最新版本：
 

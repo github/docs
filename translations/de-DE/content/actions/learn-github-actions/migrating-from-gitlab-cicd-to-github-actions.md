@@ -4,10 +4,18 @@ intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share sev
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - GitLab
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Einführung
 
@@ -59,8 +67,8 @@ job1:
 jobs:
   job1:
     steps:
-    - uses: actions/checkout@v2
-    - run: echo "Run your script here"
+      - uses: actions/checkout@v2
+      - run: echo "Run your script here"
 ```
 {% endraw %}
 </td>
@@ -118,7 +126,7 @@ linux_job:
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Workflow Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
 ### Docker-Images
 
@@ -256,24 +264,24 @@ jobs:
   build_a:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first."
+      - run: echo "This job will be run first."
 
   build_b:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "This job will be run first, in parallel with build_a"
-  
+      - run: echo "This job will be run first, in parallel with build_a"
+
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
     steps:
-    - run: echo "This job will run after build_a and build_b have finished"
+      - run: echo "This job will run after build_a and build_b have finished"
 
   deploy_ab:
     runs-on: ubuntu-latest
     needs: [test_ab]
     steps:
-    - run: echo "This job will run after test_ab is complete"
+      - run: echo "This job will run after test_ab is complete"
 ```
 {% endraw %}
 </td>
@@ -286,7 +294,7 @@ Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variable
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-Weitere Informationen findest Du unter "[Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
 ### Variables and secrets
 
@@ -334,19 +342,19 @@ test_async:
 ```yaml
 jobs:
   test_async:
-  - name: Cache node modules
-    uses: actions/cache@v2
-    with:
-      path: ~/.npm
-      key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
-      restore-keys: v1-npm-deps-
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: v1-npm-deps-
 ```
 {% endraw %}
 </td>
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/guides/caching-dependencies-to-speed-up-workflows)“.
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 ### Artifacts
 
@@ -367,10 +375,10 @@ GitLab CI/CD
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-script: 
+script:
 artifacts:
   paths:
-  - math-homework.txt
+    - math-homework.txt
 ```
 {% endraw %}
 </td>
@@ -414,7 +422,7 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # The hostname used to communicate with the 
+    # The hostname used to communicate with the
     # PostgreSQL service container
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
@@ -423,12 +431,12 @@ container-job:
   services:
     - postgres
   script:
-  # Performs a clean installation of all dependencies 
-  # in the `package.json` file
-   - npm ci
-   # Runs a script that creates a PostgreSQL client, 
-   # populates the client with data, and retrieves data
-   - node client.js
+    # Performs a clean installation of all dependencies
+    # in the `package.json` file
+    - npm ci
+    # Runs a script that creates a PostgreSQL client,
+    # populates the client with data, and retrieves data
+    - node client.js
   tags:
     - docker
 ```
@@ -452,7 +460,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Performs a clean installation of all dependencies 
+      # Performs a clean installation of all dependencies
       # in the `package.json` file
       - name: Install dependencies
         run: npm ci
@@ -462,7 +470,7 @@ jobs:
         # populates the client with data, and retrieves data
         run: node client.js
         env:
-          # The hostname used to communicate with the 
+          # The hostname used to communicate with the
           # PostgreSQL service container
           POSTGRES_HOST: postgres
           # The default PostgreSQL port

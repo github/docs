@@ -3,21 +3,24 @@ title: Consultas
 miniTocMaxHeadingLevel: 2
 redirect_from:
   - /v4/query
+  - /v4/reference/query
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Sobre as consultas
 
 Cada esquema de GraphQL tem um tipo de raiz para consultas e mutações. O [tipo de consulta](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) define operações do GraphQL que recuperam dados do servidor.
 
-Para obter mais informações, consulte "[Sobre consultas](/v4/guides/forming-calls#about-queries)".
+Para obter mais informações, consulte "[Sobre consultas](/graphql/guides/forming-calls-with-graphql#about-queries)".
 
 {% note %}
 
-**Note:** For [user-to-server](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) {% data variables.product.prodname_github_app %} requests, you should use separate queries for issues and pull requests. For example, use the `is:issue` or `is:pull-request` filters and their equivalents. Using the `search` connection to return a combination of issues and pull requests in a single query will result in an empty set of nodes.
+**Observação:** Para solicitações de {% data variables.product.prodname_github_app %} do tipo [usuário para servidor](/developers/apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) você deve usar consultas separadas para problemas e pull requests. Por exemplo, use os filtros `is:issue` ou `is:pull-request` e seus equivalentes. Usar a conexão de `pesquisa` para retornar uma combinação de problemas e pull requests em uma única consulta resultará em um conjunto de nós vazio.
 
 {% endnote %}
 

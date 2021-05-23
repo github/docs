@@ -1,6 +1,6 @@
 ---
 title: Sobre restrições de branch
-intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
+intro: 'Os branches em repositórios que pertencem a organizações podem ser configurados de modo que apenas alguns usuários, equipes ou aplicativos possam fazer push para o branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions

@@ -33,7 +33,7 @@ versions:
 
 {% data reusables.command_line.providing-token-as-password %}
 
-为了避免这些提示，您可以使用 Git 密码缓存。 有关信息请参阅“[在 Git 中缓存 GitHub 凭据](/github/using-git/caching-your-github-credentials-in-git)”。
+为了避免这些提示，您可以使用 Git 密码缓存。 有关信息请参阅“[在 Git 中缓存 GitHub 凭据](/github/getting-started-with-github/caching-your-github-credentials-in-git)”。
 
 {% warning %}
 
@@ -43,4 +43,4 @@ versions:
 
 ### 延伸阅读
 
-- "[授权 OAuth 应用程序](/v3/oauth/)"
+- "[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps)"

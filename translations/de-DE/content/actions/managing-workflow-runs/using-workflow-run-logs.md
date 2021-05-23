@@ -5,16 +5,18 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Auf der Workflow-Lauf-Seite können sie sehen, ob ein Workflow-Lauf ausgeführt wird oder abgeschlossen ist. Sie müssen mit einem {% data variables.product.prodname_dotcom %}-Konto angemeldet sein, um Workflow-Informationen anzuzeigen, auch für öffentliche Repositories. Weitere Informationen finden Sie unter „[Zugriffsberechtigungen auf GitHub](/articles/access-permissions-on-github)“.
 
 Wenn der Lauf abgeschlossen ist, können Sie sehen, ob das Ergebnis erfolgreich, fehlerhaft, abgebrochen oder neutral war. Wenn der Lauf fehlgeschlagen ist, können Sie die Build-Protokolle anzeigen und durchsuchen, um den Fehler zu diagnostizieren und den Workflow erneut auszuführen. Sie können auch fakturierbare Auftragsausführungsminuten anzeigen oder Protokolle herunterladen und Artefakte erstellen.
 
-{% data variables.product.prodname_actions %} verwenden die Checks API, um Status, Ergebnisse und Protokolle für einen Workflow auszugeben. {% data variables.product.prodname_dotcom %} erstellt eine neue Prüfsuite für jeden Workflow-Lauf. Die Prüfsuite enthält einen Prüflauf für jeden Auftrag im Workflow, und jeder Auftrag enthält Schritte. {% data variables.product.prodname_actions %} werden als Schritt in einem Workflow ausgeführt. Weitere Informationen zur Prüf-API finden Sie unter "[](/v3/checks/)".
+{% data variables.product.prodname_actions %} verwenden die Checks API, um Status, Ergebnisse und Protokolle für einen Workflow auszugeben. {% data variables.product.prodname_dotcom %} erstellt eine neue Prüfsuite für jeden Workflow-Lauf. Die Prüfsuite enthält einen Prüflauf für jeden Auftrag im Workflow, und jeder Auftrag enthält Schritte. {% data variables.product.prodname_actions %} werden als Schritt in einem Workflow ausgeführt. For more information about the Checks API, see "[Checks](/rest/reference/checks)."
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
@@ -43,8 +45,13 @@ Sie können die Build-Protokolle für einen bestimmten Schritt durchsuchen. Beim
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. Gib in der oberen rechten Ecke der Protokollausgabe im Suchfeld **Search logs** (Protokolle durchsuchen) eine Suchanfrage ein. ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box-updated.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+1. Gib in der oberen rechten Ecke der Protokollausgabe im Suchfeld **Search logs** (Protokolle durchsuchen) eine Suchanfrage ein.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+  ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box-updated-2.png)
+{% else %}
+  ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box-updated.png)
+{% endif %}
 {% else %}
 1. Um jeden Schritt, den Sie in Ihre Suche einbeziehen möchten, einzublenden, klicken Sie auf den Schritt. ![Name des Schrittes](/assets/images/help/repository/failed-check-step.png)
 1. Gib in der oberen rechten Ecke der Protokollausgabe im Suchfeld **Search logs** (Protokolle durchsuchen) eine Suchanfrage ein. ![Suchfeld zum Durchsuchen von Protokollen](/assets/images/help/repository/search-log-box.png)
@@ -59,10 +66,14 @@ Sie können die Protokolldateien von Ihrem Workflowlauf herunterladen. Sie könn
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+  ![Dropdownmenü zum Herunterladen von Protokollen](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  {% else %}
   ![Dropdownmenü zum Herunterladen von Protokollen](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  {% endif %}
 {% else %}
 1. In the upper right corner, click
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
@@ -77,10 +88,50 @@ Du kannst die Logdateien aus Deiner Workflow-Ausführung löschen. {% data reusa
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-2. Um die Logdateien zu löschen, klicke auf **Delete all logs** (Alle Logs löschen) und überprüfe die Bestätigungsanfrage. ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png) Nach die Protokolle gelöscht sind, verschwindet die Schaltfläche  **Delete all logs**, um anzuzeigen, dass keine Protokolldateien mehr im Workflowlauf verbleiben.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+1. In the upper right corner, click
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    {% else %}
+    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    {% endif %}
+2. Um die Logdateien zu löschen, klicke auf **Delete all logs** (Alle Logs löschen) und überprüfe die Bestätigungsanfrage.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  {% else %}
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
+  {% endif %}
+After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 {% else %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. Um die Logdateien zu löschen, klicke auf **Delete all logs** (Alle Logs löschen) und überprüfe die Bestätigungsanfrage. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
 {% endif %}
+
+### Viewing logs with {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+You can use `grep` to search the log. For example, this command will return all log entries that contain the word `error`.
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

@@ -1,5 +1,5 @@
 ---
-title: Criar e estar o Java com o Gradle
+title: Criar e testar o Java com o Gradle
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Gradle.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -7,16 +7,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Java
+  - Gradle
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introdução
 
 Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para memorizar arquivos e fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
+{% if currentVersion == "github-ae@latest" %}Para instruções instruções sobre como ter certeza de que o seu {% data variables.actions.hosted_runner %} tem o software necessário instalado, consulte "[Criar imagens personalizadas](/actions/using-github-hosted-runners/creating-custom-images)".
+{% else %}
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm uma cache de ferramentas com com software pré-instalado, que inclui kits de desenvolvimento Java (JDKs) e Gradle. Para obter uma lista de software e as versões pré-instaladas para JDK e Gradle, consulte "[Especificações para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Pré-requisitos
 
@@ -37,30 +47,31 @@ Para começar rapidamente, você pode escolher o modelo do Gradle pré-configura
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
 {% raw %}
-```yaml
-nome: Java CI
+```yaml{:copy}
+name: Java CI
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Set up JDK 1.8
-        usa: actions/setup-java@v1
-        com:
-          java-version: 1.8
-      - nome: Criar com Gradle
-        executar: ./gradlew build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Gradle
+        run: ./gradlew build
 ```
 {% endraw %}
 
 Este fluxo de trabalho executa os seguintes passos:
 
 1. O `checkout` faz o download de uma cópia do seu repositório no executor.
-2. A etapa `setup-java` configura o Java 1.8 JDK.
+2. A etapa `setup-java` configura o Java 11 JDK pelo Adoptium.
 3. A etapa "Criar com Gradle" executa o script wrapper `gradlew` para garantir que o seu código seja criado, o seu teste seja aprovado e que seja possível criar um pacote.
 
 Os modelos-padrão do fluxo de trabalho são excelentes pontos de partida ao criar seu fluxo de trabalho de compilação e teste, e você pode personalizar o modelo para atender às necessidades do seu projeto.
@@ -78,41 +89,52 @@ O fluxo de tarbalho inicial executará a tarefa `criar` por padrão. Na configur
 Se você usa comandos diferentes para criar seu projeto ou se você desejar usar uma atividade diferente, você poderá especificá-los. Por exemplo, é possível que você deseje executar a tarefa `pacote` configurada no seu arquivo _ci.gradle_.
 
 {% raw %}
-```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - ususaes: actions/setup-java@v1
-    com:
-      java-version: 1.8
-  - Nome: Executa a tarefa do pacote do Gradle
-    executar: ./gradlew -b ci.gradle package
+```yaml{:copy}
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+  - name: Run the Gradle package task
+    run: ./gradlew -b ci.gradle package
 ```
 {% endraw %}
 
 ### Memorizar dependências
 
-Você pode armazenar as suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, a sua cache do pacote do Gradle local será armazenada na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios de pacotes remotos. Para obter mais informações, consulte "[Memorizando dependências para acelerar os fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)" e a ação [`cache`](https://github.com/marketplace/actions/cache).
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, a sua cache do pacote do Gradle local será armazenada na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios de pacotes remotos. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
-```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - nome: Set up JDK 1.8
-    usa: actions/setup-java@v1
-    com:
-      java-version: 1.8
-  - nome: Cache Gradle packages
-    usa: actions/cache@v2
-    com:
-      caminho: ~/.gradle/caches
-      Chave: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
-  - Nome: Criar com Gradle
-    executar: ./gradlew build
+```yaml{:copy}
+steps:
+  - uses: actions/checkout@v2
+  - name: Set up JDK 11
+    uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+  - name: Cache Gradle packages
+    uses: actions/cache@v2
+    with:
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
+  - name: Build with Gradle
+    run: ./gradlew build
+  - name: Cleanup Gradle Cache
+    # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+    # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+    run: |
+      rm -f ~/.gradle/caches/modules-2/modules-2.lock
+      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 
-Este fluxo de trabalho salvará o conteúdo da sua cache local do pacote Gradle, localizado no diretório `.gradle/caches` do diretório principal do executor. A chave da cache será o conteúdo em hash dos arquivos de criação do Gradle. Portanto, suas alterações irão invalidar a cache.
+Este fluxo de trabalho salvará o conteúdo de seu cache local do pacote Gradle, localizado nos diretórios `.gradle/caches` e `.gradle/wrapper` do diretório inicial do executor. A chave de cache será o conteúdo da compilação com hash (incluindo o arquivo de propriedades do wrapper do Gradle). Portanto, qualquer alteração neles irá invalidar o cache.
 
 ### Empacotar dados do fluxo de trabalho como artefatos
 
@@ -121,10 +143,14 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 De modo geral, o Gradle cria arquivos de saída como JARs, EARs ou WARs no diretório `build/libs`. Você pode fazer upload do conteúdo desse diretório usando a ação `upload-artefact`.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
   - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '11'
+      distribution: 'adopt'
+
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:

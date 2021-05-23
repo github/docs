@@ -1,0 +1,4 @@
+Puedes utilizar las API de REST del webhook de una app, organización o repositorio para crear, actualizar, borrar y hacer ping a los webhooks. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}También puedes utilizar la API de REST para cambiar la configuración del webhook. Por ejemplo, puedes modificar la URL de la carga útil, el tipo de contenido, la verificación de SSL, y el secreto. {% endif %}Para obtener más información, consulta:
+- [API de REST para los webhooks de los repositorios](/rest/reference/repos#webhooks)
+- [API de REST para Webhooks de Organización](/rest/reference/orgs#webhooks){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- [API de REST para los Webhooks de las GitHub Apps](/rest/reference/apps#webhooks){% endif %}

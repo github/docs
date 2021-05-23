@@ -1,7 +1,6 @@
 ---
 title: Enabling a link between GitHub Insights and GitHub Enterprise
-intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {{  site.data.variables.product.prodname_insights }}.'
-product: '{% data reusables.gated-features.github-insights %}'
+intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}.'
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} can enable a link between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_insights %}.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
@@ -14,7 +13,7 @@ After you enable the link, each user can navigate directly from {% data variable
 
 1. Connect to the administrative shell for {% data variables.product.prodname_ghe_server %}. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
 2. Run the following command.
-  ```
+  ```shell
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
 3. Return to

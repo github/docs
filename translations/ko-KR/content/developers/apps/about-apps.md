@@ -10,11 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[Getting started with GitHub Marketplace](/marketplace/getting-started/)."{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[About apps](/apps/about-apps/)" and "[Differences between apps](/apps/differences-between-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[Differences between GitHub Apps and OAuth Apps](/developers/apps/differences-between-github-apps-and-oauth-apps)."
 
 {% data reusables.apps.general-apps-restrictions %}
 
@@ -67,13 +69,13 @@ Keep these ideas in mind when creating {% data variables.product.prodname_oauth_
 * Don't build an {% data variables.product.prodname_oauth_app %} to act as an application for your team or company. {% data variables.product.prodname_oauth_app %}s authenticate as a single user, so if one person creates an {% data variables.product.prodname_oauth_app %} for a company to use, and then they leave the company, no one else will have access to it.{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-For more on {% data variables.product.prodname_oauth_app %}s, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/v3/guides/basics-of-authentication/#registering-your-app)."
+For more on {% data variables.product.prodname_oauth_app %}s, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
 
 ### Personal access tokens
 
 A [personal access token](/articles/creating-a-personal-access-token-for-the-command-line/) is a string of characters that functions similarly to an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/) in that you can specify its permissions via [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A personal access token is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
 
-As an example, you can enable a personal access token to write to your repositories. If then you run a cURL command or write a script that [creates an issue](/v3/issues/#create-an-issue) in your repository, you would pass the personal access token to authenticate. You can store the personal access token as an environment variable to avoid typing it every time you use it.
+As an example, you can enable a personal access token to write to your repositories. If then you run a cURL command or write a script that [creates an issue](/rest/reference/issues#create-an-issue) in your repository, you would pass the personal access token to authenticate. You can store the personal access token as an environment variable to avoid typing it every time you use it.
 
 Keep these ideas in mind when using personal access tokens:
 

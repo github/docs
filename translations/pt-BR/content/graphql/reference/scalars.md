@@ -2,10 +2,13 @@
 title: Escalares
 redirect_from:
   - /v4/scalar
+  - /v4/reference/scalar
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Sobre escalares
@@ -14,7 +17,7 @@ versions:
 
 Ao chamar a API do GraphQL, você deve especificar subcampos aninhados até retornar apenas escalares.
 
-Para obter mais informações, consulte "[Introdução ao GraphQL](/v4/guides/intro-to-graphql#field)".
+Para obter mais informações, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql#field)".
 
 {% for item in graphql.schemaForCurrentVersion.scalars %}
   {% include graphql-scalar %}

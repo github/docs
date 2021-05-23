@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -22,7 +24,7 @@ versions:
 
 ### 发现您的应用程序能够为用户访问的仓库
 
-用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的公共仓库。
+用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% if currentVersion != "github-ae@latest" %}公共{% else %}内部{% endif %}仓库。
 
 [OAuth 作用域][scopes]和[组织应用程序策略][oap]决定了您的应用程序可以为用户访问其中哪些仓库。 使用下面的工作流程来发现这些仓库。
 
@@ -87,25 +89,25 @@ client.organizations.each do |organization|
 end
 ```
 
-#### 不要依赖公共组织
+#### 返回用户的所有组织成员资格
 
 如果您从头到尾阅读了文档，您可能会注意到一种[允许列出用户的公共组织成员身份的 API 方法][list-public-orgs]。 大多数应用程序应避免使用这种 API 方法。 此方法仅返回用户的公共组织成员身份，而不会返回其私有组织成员身份。
 
-作为应用程序开发者，您通常希望您的应用程序被授权访问用户的所有组织（公共和私有）。 上述工作流程恰好能满足您的要求。
+作为应用程序开发者，您通常希望您的应用程序被授权访问用户的所有组织。 上述工作流程恰好能满足您的要求。
 
-[basics-of-authentication]: /v3/guides/basics-of-authentication/
-[list-public-orgs]: /v3/orgs/#list-organizations-for-a-user
-[list-repositories-for-current-user]: /v3/repos/#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /v3/orgs/#list-organizations-for-the-authenticated-user
-[list-teams]: /v3/teams/#list-teams
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
+[basics-of-authentication]: /rest/guides/basics-of-authentication
+[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/reference/teams#list-teams
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /v3/guides/basics-of-authentication/#registering-your-app
+[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

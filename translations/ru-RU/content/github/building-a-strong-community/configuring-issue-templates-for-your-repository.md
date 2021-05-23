@@ -8,12 +8,20 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - сообщество
 ---
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 {% data reusables.repositories.default-issue-templates %}
 
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
 ### Creating issue templates
+
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

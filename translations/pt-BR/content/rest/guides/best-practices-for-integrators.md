@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -20,7 +22,7 @@ Interessado em integrar-se à plataforma do GitHub? [Você está em boas mãos](
 Há várias etapas que você pode dar para garantir o recebimento de cargas entregues pelo GitHub:
 
 1. Certifique-se de que seu servidor de recebimento tenha uma conexão HTTPS. Por padrão, o GitHub verificará os certificados SSL ao entregar cargas.{% if currentVersion == "free-pro-team@latest" %}
-1. Você pode adicionar [o endereço IP que usamos ao entregar hooks](/github/authenticating-to-github/about-githubs-ip-addresses) à lista de permissões do seu servidor. Para garantir que você esteja sempre verificando o endereço IP correto, você pode [usar o ponto de extremidade `/meta`](/v3/meta/#meta) para encontrar o endereço que utilizamos.{% endif %}
+1. Você pode adicionar [o endereço IP que usamos ao entregar hooks](/github/authenticating-to-github/about-githubs-ip-addresses) à lista de permissões do seu servidor. Para garantir que você esteja sempre verificando o endereço IP correto, você pode [usar o ponto de extremidade `/meta`](/rest/reference/meta#meta) para encontrar o endereço que utilizamos.{% endif %}
 1. Forneça [um token secreto](/webhooks/securing/) para garantir que as cargas estão definitivamente vindo do GitHub. Ao impor um token secreto, você garantirá que todos os dados recebidos pelo seu servidor estejam absolutamente vindo do GitHub. Idealmente, você deve fornecer um token secreto diferente *por usuário* do seu serviço. Dessa forma, se um token for comprometido, nenhum outro usuário será afetado.
 
 ### Favoreça o trabalho assíncrono em detrimento do trabalho síncrono
@@ -49,7 +51,7 @@ Os usuários podem entrar nas respostas do servidor que você enviar de volta ao
 
 O GitHub é explícito ao informar quando um recurso foi movido, fornecendo um código de estado de redirecionamento. Você deveria seguir estes redirecionamentos. Cada resposta de redirecionamento define o cabeçalho da `Localização` com a nova URI a ser acessada. Se você receber um redirecionamento, é melhor atualizar seu código para seguir a nova URI, caso você esteja solicitando um caminho obsoleto que possamos remover.
 
-Nós fornecemos [uma lista de códigos de status de HTTP](/v3/#http-redirects) que você pode consultar ao projetar o seu aplicativo para seguir redirecionamentos.
+Nós fornecemos [uma lista de códigos de status de HTTP](/rest#http-redirects) que você pode consultar ao projetar o seu aplicativo para seguir redirecionamentos.
 
 ### Não analise as URLs manualmente
 

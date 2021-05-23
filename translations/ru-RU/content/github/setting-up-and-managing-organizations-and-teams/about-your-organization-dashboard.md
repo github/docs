@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### Accessing your organization dashboard
@@ -37,8 +40,8 @@ For instance, the organization news feed shows updates when someone in the organ
  - Submits a pull request review comment.
  - Forks a repository.
  - Creates a wiki page.
- - Pushes commits.
- - Creates a public repository.
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### Further information
 

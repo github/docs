@@ -1,14 +1,19 @@
 ---
 title: 管理复杂的工作流程
 shortTitle: 管理复杂的工作流程
-intro: '本指南演示如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、从属作业、缓存、构建矩阵和标签。'
+intro: '本指南说明如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、相关作业、缓存、生成矩阵、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}环境{% endif %}和标签。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
+topics:
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概览
 
@@ -57,7 +62,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 更多信息请参阅 [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)。
@@ -83,6 +88,7 @@ jobs:
 
 更多信息请参阅 [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)。
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### 缓存依赖项
 
 {% data variables.product.prodname_dotcom %} 托管的运行器启动为每个作业的新环境，如果您的作业定期重复使用依赖项，您可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。
@@ -106,7 +112,8 @@ jobs:
 ```
 {% endraw %}
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% endif %}
 
 ### 使用数据库和服务容器
 
@@ -136,10 +143,19 @@ jobs:
 
 ### 使用标签路由工作流程
 
-此功能可帮助您将作业分配到特定的自托管运行器。 如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 您可以将标签分配给自托管的运行器，然后在您的 YAML 工作流程中提及这些标签， 确保以可预测的方式路由作业。
+此功能可帮助您将作业分配到特定的托管运行器。 如果要确保特定类型的运行器处理作业，可以使用标签来控制作业的执行位置。 您可以将标签分配给托管的运行器，然后在您的 YAML 工作流程中提及这些标签， 确保以可预测的方式路由作业。
 
+{% if currentVersion == "github-ae@latest" %}
 此示例显示工作流程如何使用标签来指定所需的运行器：
 
+```yaml
+jobs:
+  example-job:
+    runs-on: [AE-runner-for-CI]
+```
+
+更多信息请参阅“[将标签与 {% data variables.actions.hosted_runner %} 一起使用](/actions/using-github-hosted-runners/using-labels-with-ae-hosted-runners)”。
+{% else %}
 ```yaml
 jobs:
   example-job:
@@ -147,6 +163,22 @@ jobs:
 ```
 
 更多信息请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### 使用环境
+
+您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+{% endif %}
+
+### 使用工作流程模板
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. 如果您的仓库已经有工作流程：在左上角单击 **New workflow（新工作流程）**。 ![创建新工作流程](/assets/images/help/repository/actions-new-workflow.png)
+1. 在您想要使用的模板名称下，单击 **Set up this workflow（设置此工作流程）**。 ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### 后续步骤
 

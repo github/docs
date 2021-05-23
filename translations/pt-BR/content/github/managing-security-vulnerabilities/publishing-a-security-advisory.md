@@ -24,6 +24,18 @@ Ao publicar uma consultoria de segurança, você notifica a sua comunidade sobre
 
 Antes de publicar uma consultoria de segurança, você pode colaborar de forma privada para consertar a vulnerabilidade em uma bifurcação privada temporária. Para obter mais informações, consulte "[Colaborar em uma bifurcação privada temporária para resolver uma vulnerabilidade de segurança](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)".
 
+{% warning %}
+
+**Aviso**: Sempre que possível, você deve adicionar uma versão de correção a uma consultoria de segurança antes de publicá-la. Se você não fizer isso, a sua consultoria será publicado sem uma versão de correção e {% data variables.product.prodname_dependabot %} alertará os seus usuários sobre o problema, sem oferecer qualquer versão segura para a qual atualizar.
+
+Recomendamos que você tome as seguintes medidas nestas situações diferentes:
+
+- Se uma versão de correção estiver disponível imediatamente, e você puder, espere para divulgar o problema quando a correção estiver pronta.
+- Se uma versão de correção estiver em desenvolvimento mas ainda não disponível, mencione isso no consultor e edite a consultoria mais tarde, após a publicação.
+- Se você não está planejando corrigir o problema, tenha isso claro na consultoria para que os usuários não entrem em contato com você para perguntar quando será feita uma correção. Neste caso, é útil incluir as etapas que os usuários podem seguir para mitigar o problema.
+
+{% endwarning %}
+
 Ao publicar um rascunho de consultoria a partir de um repositório público, todos poderão ver:
 
 - A versão atual dos dados da consultoria.
@@ -62,7 +74,7 @@ A publicação de uma consultor de segurança elimina a bifurcação privada tem
 4. Na lista "consultoria de segurança", clique na consultoria de segurança que deseja publicar. ![Consultoria de segurança na lista](/assets/images/help/security/security-advisory-in-list.png)
 5. Na parte inferior da página, clique em **Publicar consultoria**. ![Botão Publish advisory (Publicar consultoria)](/assets/images/help/security/publish-advisory-button.png)
 
-### {% data variables.product.prodname_dependabot_alerts %} para consultoria de segurança publicada
+### {% data variables.product.prodname_dependabot_alerts %} para o aviso de segurança publicado
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 

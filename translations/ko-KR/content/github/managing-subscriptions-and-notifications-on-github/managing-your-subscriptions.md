@@ -5,13 +5,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
   github-ae: '*'
+topics:
+  - Notifications
 ---
 
 To help you understand your subscriptions and decide whether to unsubscribe, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 {% note %}
 
-**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you're experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -39,7 +41,7 @@ When you unsubscribe from notifications in your inbox, they will automatically d
 
 {% data reusables.notifications.access_notifications %}
 1. From the notifications inbox, select the notifications you want to unsubscribe to.
-2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.** ![Unsubcribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.** ![Unsubscribe option from main inbox](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Unsubscribing from notifications on the subscriptions page
 
@@ -55,6 +57,13 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 {% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click **Watched repositories**. ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
-    - unwatch a repository
-    - only watch releases for a repository
-    - ignore all notifications for a repository
+  {% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
+    - Unwatch a repository
+    - Only watch releases for a repository
+    - Ignore all notifications for a repository
+  {% endif %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+    - Unwatch a repository
+    - Ignore all notifications for a repository
+    - Customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %}, if enabled)
+  {% endif %}

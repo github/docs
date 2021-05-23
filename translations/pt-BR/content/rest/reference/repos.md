@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -29,7 +31,7 @@ versions:
 
 ### Tipos de mídia personalizados para comentários de commit
 
-Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/v3/media/).
+Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -65,7 +67,7 @@ Estes pontos de extremidade da API permitem criar, modificar e excluir conteúdo
 
 ### Tipos de mídia personalizados para conteúdo do repositório
 
-Os [LEIAMEs](/v3/repos/contents/#get-a-repository-readme), [arquivos](/v3/repos/contents/#get-repository-content) e [links simbólicos](/v3/repos/contents/#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
+Os [READMEs](/rest/reference/repos#get-a-repository-readme), [arquivos](/rest/reference/repos#get-repository-content) e [links simbólicos](/rest/reference/repos#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -74,13 +76,13 @@ Use o tipo de mídia `.raw` para recuperar o conteúdo do arquivo.
 
 Para arquivos de markup, como Markdown ou AsciiDoc, você pode recuperar o HTML interpretado usando o tipo de mídia `.html`. As linguagens de markup são processadas em HTML usando nossa [biblioteca de markup](https://github.com/github/markup) de código aberto.
 
-[Todos os objetos](/v3/repos/contents/#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
+[Todos os objetos](/rest/reference/repos#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
 
     application/vnd.github.VERSION.object
 
 Use o parâmetro do tipo de mídia do `objeto` para recuperar o conteúdo em um formato de objeto consistente independentemente do tipo de conteúdo. Por exemplo, em vez de um array de objetos para um diretório, a resposta será um objeto com um atributo de `entrada` contendo o array de objetos.
 
-You can read more about the use of media types in the API [here](/v3/media/).
+Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -137,17 +139,28 @@ Abaixo está um diagrama de sequência sobre para como essas interações funcio
 
 Tenha em mente que o GitHub nunca terá acesso aos seus servidores. Cabe à sua integração de terceiros interagir com os eventos de implantação. Vários sistemas podem ouvir eventos de implantação, e cabe a cada um desses sistemas decidir se serão responsáveis por retirar o código dos seus servidores, criar código nativo, etc.
 
-Observe que o `escopo do OAuth` [repo_deployment](/developers/apps/scopes-for-oauth-apps) concede acesso direcionado a implantações e status de implantações **sem** conceder acesso ao código do repositório, enquanto os escopos `public_repo` e `repo` também concedem permissão para o código.
+Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% if currentVersion != "github-ae@latest" %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+
 
 ### Implantações inativas
 
-Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórias no mesmo repositório irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
+Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórios anteriores no mesmo nome do ambiente irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
 
 Você pode informar que um ambiente transitório não existe mais definindo seu `estado` como `inativo`.  Definir o `estado` como `inativo` mostra a implantação como `destruída` em {% data variables.product.prodname_dotcom %} e remove o acesso a ela.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+## Ambientes
+
+The Environments API allows you to create, configure, and delete environments. For more information about environments, see "[Environments](/actions/reference/environments)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'environments' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
 
 ## Bifurcações
 
@@ -181,7 +194,7 @@ O usuário autenticado será o autor de qualquer merge feito por meio deste pont
 
 ## Pages
 
-A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. As informações sobre o site e as criações só podem ser acessadas por proprietários autenticados, mesmo que os sites sejam públicos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)".
+A API de {% data variables.product.prodname_pages %} recupera informações sobre a sua configuração do {% data variables.product.prodname_pages %} e os status das suas criações. Information about the site and the builds can only be accessed by authenticated owners{% if currentVersion != "github-ae@latest" %}, even if the websites are public{% endif %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages)".
 
 Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} com uma chave de `status` na sua resposta, o valor pode ser:
 * `null`: O site ainda não foi criado.
@@ -193,7 +206,7 @@ Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} 
 Nos pontos de extremidade da API de {% data variables.product.prodname_pages %} que devolvem as informações do site do GitHub Pages, as respostas do JSON incluem esses campos:
 * `html_url`: A URL absoluta (incluindo o esquema) do site de páginas interpretadas. Por exemplo, `https://username.github.io`.
 * `source`: Um objeto que contém o branch de origem e o diretório do site de páginas interpretadas. Isto inclui:
-   - `branch`: O branch do repositório utilizado para publicar os [arquivos de origem do site](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por exemplo, _principal_ ou _gh-pages_.
+   - `branch`: O branch do repositório utilizado para publicar os [arquivos de origem do site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por exemplo, _principal_ ou _gh-pages_.
    - `path`: O diretório do repositório a partir do qual o site é publicado. Será `/` ou `/docs`.
 
 {% for operation in currentRestOperations %}
@@ -298,7 +311,7 @@ O formato padrão é o que [os hooks post-receive existentes devem esperar](/pos
 #### URLs de chamada de retorno
 As URLs de chamada de retorno podem usar o protocolo `http://`.
 
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+{% if enterpriseServerVersions contém currentVersion e currentVersion ver_lt "enterprise-server@2.20" %}Você também pode fazer chamada de retorno `github://` para especificar um serviço do GitHub.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 

@@ -1,0 +1,76 @@
+name: Confirm internal staff meant to post in public
+
+# **What it does**: If a GitHub staff makes an issue/pull request in the open-source repo, creates an issue in the internal one to verify intent.
+# **Why we have it**: We don't want GitHub staff accidentally making issues/pull requests in the wrong repository.
+# **Who does it impact**: GitHub staff.
+
+on:
+  issues:
+    types:
+      - opened
+      - transferred
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  check-team-membership:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    if: github.repository == 'github/docs' && github.actor != 'docs-bot'
+    steps:
+      - id: membership_check
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          script: |
+            // Only perform this action with GitHub employees
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'employees',
+                username: context.payload.sender.login,
+              });
+            } catch(err) {
+              // An error will be thrown if the user is not a GitHub employee
+              // If a user is not a GitHub employee, we should stop here and
+              // Not send a notification
+              return
+            }
+
+            // Don't perform this action with Docs team members
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'docs',
+                username: context.payload.sender.login,
+              });
+              // If the user is a Docs team member, we should stop here and not send
+              // a notification
+              return
+            } catch(err) {
+              // An error will be thrown if the user is not a Docs team member
+              // If a user is not a Docs team member we should continue and send
+              // the notification
+            }
+
+            const issueNo = context.number || context.issue.number
+
+            // Create an issue in our private repo
+            await github.issues.create({
+              owner: 'github',
+              repo: 'docs-internal',
+              title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
+              body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/docs-internal repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks! \n\n/cc @github/docs @github/docs-engineering`,
+              labels: ['OS confirmation'],
+            });
+
+            core.setOutput('did_warn', 'true')
+
+      - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
+        if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        with:
+          channel: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          text: <@${{github.actor}}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of the private github/docs-internal repo. They have been notified via a new issue in the github/docs-internal repo to confirm this was intentional.

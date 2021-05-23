@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -16,7 +18,7 @@ versions:
 
 ### {% data variables.product.prodname_codespaces %} について
 
-{% data variables.product.prodname_codespaces %} is a cloud development environment available in your browser. codespace には、構文の強調表示とオートコンプリートを備えたテキストエディタ、ターミナル、デバッグツール、Git コマンドなど、特定のリポジトリ向けに開発する必要があるすべてのものが {% data variables.product.prodname_dotcom %} 内に含まれています。 codespace に {% data variables.product.prodname_vscode %} 拡張機能をインストールして、機能を追加することもできます。
+{% data variables.product.prodname_codespaces %} は、ブラウザで利用できるクラウド開発環境です。 codespace には、構文の強調表示とオートコンプリートを備えたテキストエディタ、ターミナル、デバッグツール、Git コマンドなど、特定のリポジトリ向けに開発する必要があるすべてのものが {% data variables.product.prodname_dotcom %} 内に含まれています。 codespace に {% data variables.product.prodname_vscode %} 拡張機能をインストールして、機能を追加することもできます。
 
 {% data variables.product.prodname_codespaces %} を使用すると、開発者は簡単に新しい会社へ参加したり、オープンソースプロジェクトへ貢献したりすることができます。 プロジェクトメンテナはリポジトリを設定できるため、リポジトリの codespace を作成すると、プロジェクトの依存関係が自動的に含まれます。 環境設定に費やす時間を削減することで、コーディングをより素早く開始できます。
 
@@ -38,6 +40,8 @@ versions:
 
 {% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)」を参照してください。
 
+You can configure settings to add encrypted secrets, enable GPG verification, and allow codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}
@@ -54,4 +58,4 @@ versions:
 
 {% data variables.product.prodname_codespaces %} の使用時に問題が発生した場合は、「[codespace のトラブルシューティング](/github/developing-online-with-codespaces/troubleshooting-your-codespace)」を参照してください。
 
-さらにサポートをご希望の場合、または {% data variables.product.prodname_codespaces %} に関するフィードバックがある場合は、[コミュニティフォーラム](https://github.community/c/codespaces-beta/45)をご使用ください。
+If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Codespaces Feedback](https://github.com/github/feedback/discussions/categories/codespaces-feedback) discussion.

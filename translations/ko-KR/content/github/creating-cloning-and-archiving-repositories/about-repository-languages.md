@@ -12,12 +12,14 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 {% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to
 determine file languages for syntax highlighting and repository statistics. Language statistics will update after you push changes to your default branch.
 
-Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github/linguist#troubleshooting) for help.
+Some files are hard to identify, and sometimes projects contain more library and vendor files than their primary code. If you're receiving incorrect results, please consult the Linguist [troubleshooting guide](https://github.com/github/linguist/blob/master/docs/troubleshooting.md) for help.
 
 ### Markup languages
 

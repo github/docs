@@ -1,6 +1,6 @@
 ---
 title: REST APIを使ってみる
-intro: '認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。'
+intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -17,7 +19,7 @@ versions:
 
 ほとんどのアプリケーションは、任意の言語において既存の[ラッパーライブラリ][wrappers]を使用しています。ただ、まずは基底となっているAPI HTTPメソッドについて知ることが大切です。
 
-There's no easier way to kick the tires than through [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} If you are using an alternative client, note that you are required to send a valid [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
+ちょっと試しにやってみるだけなら、[cURL][curl]を使うのが一番簡単です。{% if currentVersion == "free-pro-team@latest" %} 別のクライアントを使用している場合、リクエストで有効な [ユーザエージェントのヘッダ](/rest/overview/resources-in-the-rest-api#user-agent-required)を送信する必要があることに注意してください。{% endif %}
 
 #### Hello World
 
@@ -51,11 +53,10 @@ $ curl https://api.github.com/users/defunkt
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57
@@ -138,7 +139,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.produc
 > }
 ```
 
-先に[@defunkt][defunkt github]について取得したパブリックな情報に加えて、今回はユーザプロフィールのパブリックでない情報も表示されているはずです。 たとえば、レスポンスには`plan`オブジェクトが表示されますが、これはアカウントの{% data variables.product.product_name %}プランについての詳細です。
+今回は、以前に[@defunkt][defunkt github]について取得した公開情報の同じセットに加えて、あなたのユーザプロフィールのパブリックではない情報もあるはずです。 たとえば、アカウントの{% data variables.product.product_name %}プランに関する詳細を持つ`plan`オブジェクトがレスポンス中にあります。
 
 #### OAuthトークンのアプリケーションへの使用
 
@@ -168,7 +169,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 同様に、[認証済みのユーザにリポジトリを表示][user repos api]できます。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -186,8 +187,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 これらの呼び出しから返される情報は、認証時にトークンが持っているスコープにより異なります。
 
-* `public_repo` [スコープ][scopes]を持つトークンは、github.comで表示するためのアクセス権を持つすべてのパブリックリポジトリを含むレスポンスを返します。
-* `repo` [スコープ][scopes]を持つトークンは、github.comで表示するためのアクセス権を持つすべてのパブリックリポジトリおよびプライベートリポジトリを含むレスポンスを返します。
+{% if currentVersion != "github-ae@latest" %}
+* `public_repo` [スコープ][scopes]を持つトークンは、GitHub.com上で見るためのアクセス権を私たちが持つすべてのパブリックリポジトリを含むレスポンスを返します。{% endif %}
+* `repo` [スコープ][scopes]を持つトークンは、{% data variables.product.product_location %}上で私たちが見るためのアクセスを持つすねての{% if currentVersion != "github-ae@latest" %}パブリック{% else %}インターナル{% endif %}及びプライベートリポジトリを含むレスポンスを返します。
 
 [Docs][repos-api]に記載されている通り、これらのメソッドは`type`パラメータを取り、これによって、ユーザがリポジトリに対して持つアクセス権に基づき、返されるリポジトリをフィルタリングできます。 こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
 
@@ -199,12 +201,12 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 
 #### リポジトリの作成
 
-Fetching information for existing repositories is a common use case, but the
-{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo],
-we need to `POST` some JSON containing the details and configuration options.
+既存のリポジトリ情報をフェッチすることは一般的なユースケースですが、
+{% data variables.product.product_name %}APIは新規リポジトリの作成もサポートしています。 [リポジトリを作成する][create repo]には、
+詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -214,7 +216,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-この最小限の例では、ブログ用の新しいリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 ブログはパブリックになりますが、リポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore template][gitignore templates]によるリポジトリの初期化も行います。
+この最小限の例では、ブログ用の新しいプライベートリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 このブログは{% if currentVersion != "github-ae@latest" %}パブリックになり{% else %}すべてのEnterpriseメンバーからアクセスできるようになり{% endif %}ますが、このリポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore テンプレート][gitignore templates]によるリポジトリの初期化も行います。
 
 生成されたリポジトリは、`https://github.com/<your_username>/blog`にあります。 オーナーであるOrganization以下にリポジトリを作成するには、APIメソッドを `/user/repos`から`/orgs/<org_name>/repos`に変更するだけです。
 
@@ -223,7 +225,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
-> HTTP/1.1 404 Not Found
+> HTTP/2 404
 
 > {
 >    "message": "Not Found"
@@ -239,7 +241,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 GitHub.comと同じように、Issues APIは認証されたユーザがIssueを表示するためのメソッドをいくつか提供します。 [すべてのIssueを表示][get issues api]するには、`GET /issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -247,7 +249,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 /orgs/<org>/issues`を呼び出します。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -264,7 +266,7 @@ Railsのような規模のプロジェクトになれば、万単位のIssueが�
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 
 > ...
 > Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
@@ -280,7 +282,7 @@ Issueのリストでページネーションを行う方法を確認したので
 Issueを作成するには認証される必要があるので、ヘッダにOAuthトークンを渡します。 また、タイトル、本文、およびJSONの本文にあるラベルを、Issueを作成したい、リポジトリ以下の`/issues`パスに渡します。
 
 ```shell
-$ curl -i -H 'Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4' \
+$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -288,7 +290,7 @@ $         "labels": ["design"] \
 $       }' \
 $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
-> HTTP/1.1 201 Created
+> HTTP/2 201
 > Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
@@ -338,7 +340,7 @@ $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 ```
 
@@ -348,7 +350,7 @@ JSONの本文に加え、HTTPステータスコード `200`と`ETag`ヘッダに
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 ```
 
 `304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 特典として、`304`レスポンスは[レート制限][rate-limiting]にカウントされません。
@@ -367,33 +369,33 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
-[link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
+[issues-api]: /rest/reference/issues
+[link-header]: https://www.w3.org/wiki/LinkHeader
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag

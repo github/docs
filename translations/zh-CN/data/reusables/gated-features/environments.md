@@ -1,0 +1,1 @@
+{% data reusables.gated-features.actions-shared %} 环境、环境保护规则和环境机密可在所有产品的公共仓库以及 {% data variables.product.prodname_enterprise %} 的私有仓库中使用。 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

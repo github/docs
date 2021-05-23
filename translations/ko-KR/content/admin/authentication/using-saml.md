@@ -8,6 +8,13 @@ redirect_from:
 intro: 'SAML is an XML-based standard for authentication and authorization. {% data variables.product.prodname_ghe_server %} can act as a service provider (SP) with your internal SAML identity provider (IdP).'
 versions:
   enterprise-server: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+  - SSO
 ---
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
@@ -46,7 +53,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 ### SAML metadata
 
-Your {% data variables.product.prodname_ghe_server %} instances's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 To configure your identity provider manually, the Assertion Consumer Service (ACS) URL is `http(s)://[hostname]/saml/consume`. It uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
 
@@ -79,7 +86,7 @@ These attributes are available. You can change the attribute names in the [manag
 
   {% endtip %}
 
-5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}. ![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}. ![SAML disable admin configuration](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
 6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}. ![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
 8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML method](/assets/images/enterprise/management-console/saml-method.png)

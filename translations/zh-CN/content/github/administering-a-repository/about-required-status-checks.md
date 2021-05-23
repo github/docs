@@ -36,7 +36,7 @@ versions:
 
 ### 必需状态检查故障排除
 
-如果您有名称相同的检查和状态，并且选择该名称作为必需状态检查，则检查和状态都是必需的。 更多信息请参阅“[检查](/v3/checks/)”。
+如果您有名称相同的检查和状态，并且选择该名称作为必需状态检查，则检查和状态都是必需的。 更多信息请参阅“[检查](/rest/reference/checks)”。
 
 在设置必需状态检查后，您的分支在合并之前必须使用基本分支更新。 这可确保您的分支已经使用基本分支的最新代码做过测试。 如果您的分支过期，则需要将基本分支合并到您的分支。
 
@@ -62,7 +62,7 @@ remote: error: Required status check "ci-build" is failing
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则必须传递该状态。 否则，必须传递头部提交的状态后才可合并该分支。 有关合并提交的更多信息，请参阅“[拉取请求](/v3/pulls/#response-1)”。
+有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则必须传递该状态。 否则，必须传递头部提交的状态后才可合并该分支。 有关合并提交的更多信息，请参阅“[拉取请求](/rest/reference/pulls#response-1)”。
 
 ![具有冲突的合并提交的分支](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}
