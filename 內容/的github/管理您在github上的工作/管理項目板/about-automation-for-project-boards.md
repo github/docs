@@ -40,3 +40,6 @@ For more information, see "[Tracking progress on your project board](/github/man
 ### Further reading
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
+{％data reusables.project-management.use-automated-template％}
+
+{％data reusables.project-management.copy-project-boards％}
