@@ -53,4 +53,48 @@ externalProducts:
     name: 'CodeQL'
     href: 'https://codeql.github.com/docs'
     external: true
----
+---az cdn endpoint rule action add --action-name {CacheExpiration, CacheKeyQueryString, ModifyRequestHeader, ModifyResponseHeader, OriginGroupOverride, RequestHeader, ResponseHeader, UrlRedirect, UrlRewrite, UrlSigning}
+
+                                --rule-name
+
+                                [--cache-behavior {BypassCache, Override, SetIfMissing}]
+
+                                [--cache-duration]
+
+                                [--custom-fragment]
+
+                                [--custom-hostname]
+
+                                [--custom-path]
+
+                                [--custom-querystring]
+
+                                [--destination]
+
+                                [--header-action {Append, Delete, Overwrite}]
+
+                                [--header-name]
+
+                                [--header-value]
+
+                                [--ids]
+
+                                [--name]
+
+                                [--preserve-unmatched-path {false, true}]
+
+                                [--profile-name]
+
+                                [--query-parameters]
+
+                                [--query-string-behavior {Exclude, ExcludeAll, Include, IncludeAll}]
+
+                                [--redirect-protocol {Http, Https, MatchRequest}]
+
+                                [--redirect-type {Found, Moved, PermanentRedirect, TemporaryRedirect}]
+
+                                [--resource-group]
+
+                                [--source-pattern]
+
+                                [--subscription]
