@@ -29,9 +29,12 @@ Starring a repository also shows appreciation to the repository maintainer for t
 
 ### Starring a repository
 
-![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
+Starring a repository is a simple two-step process
 
-You can star or unstar a repository by clicking on **Star** at the top of the repository page.
+1. {% data reusables.repositories.navigate-to-repo %}
+2. In the top-right corner of the page, click **Star**.
+![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
+3. Optionally, to unstar a previously starred repository, click **Unstar**.
 
 ### Searching stars
 
@@ -48,10 +51,6 @@ In the upper-right corner of your stars page, you can sort your starred reposito
 On the right side of the page, you can filter your list of starred repositories based on their language.
 
 ![Filter stars by language](/assets/images/help/stars/stars_filter_language.png)
-
-### Browsing your friends' stars
-
- In the lower-right corner of the page, you can also browse your friends' stars. You can use this to find new repositories and topics to star.
 
 ### Further reading
 
