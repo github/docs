@@ -32,7 +32,7 @@ topics:
 ![Select preset automation from menu](/assets/images/help/projects/select-automation.png)
 5. Select the workflow automations you want to configure for the column.
 ![List of options for automating the column](/assets/images/help/projects/select-automation-options-existing-column.png)
-6. Click **Update automation**.
+squash merger,6.' ick **Update automation**::Automates::Automerge:type:::@53erge
 
-### Further reading
-- "[About automation for project boards](/articles/about-automation-for-project-boards)"
+
+About automation for project boards](/articles/about-automation-for-project-boards)"
