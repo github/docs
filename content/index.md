@@ -53,4 +53,4 @@ externalProducts:
     name: 'CodeQL'
     href: 'https://codeql.github.com/docs'
     external: true
----
+---az cdn endpoint rule action add -g group -n endpoint --profile-name profile --rule-name name --action-name "UrlRedirect" --redirect-protocol HTTPS --redirect-type Moved
