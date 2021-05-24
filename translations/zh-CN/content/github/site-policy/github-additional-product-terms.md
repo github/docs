@@ -2,9 +2,12 @@
 title: GitHub 附加产品条款
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-版本生效日期：2020 年 12 月 14 日
+版本生效日期：2021 年 2 月 22 日
 
 创建帐户后，您有权访问许多不同的功能和产品，它们都是服务的一部分。 由于其中许多功能和产品具有不同的功能，因此可能需要特定于该功能或产品的附加条款和条件。 下面，我们列出了这些功能和产品，以及适用于您使用它们的相应附加条款。
 
@@ -39,9 +42,24 @@ versions:
 
 ### 4. 页面
 
-每个帐户都可以访问 [GitHub Pages 静态托管服务](/github/working-with-github-pages/about-github-pages)。 这种托管服务旨在为所有用户托管静态网页，但主要用作个人和组织项目的展示。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
+每个帐户都可以访问 [GitHub Pages 静态托管服务](/github/working-with-github-pages/about-github-pages)。 这种托管服务旨在为所有用户托管静态网页，但主要用作个人和组织项目的展示。
 
-GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途或其他禁止用途。 请参阅我们的 [GitHub Pages 指南](/github/working-with-github-pages/about-github-pages)了解更多信息。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
+GitHub Pages 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
+
+#### a. 带宽和使用限制
+GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途。 请参阅我们的 [GitHub Pages 指南](/github/working-with-github-pages/about-github-pages)了解更多信息。
+
+#### b. 禁止使用
+GitHub Pages 的禁止用途包括
+- 非法或者我们的[服务条款](/github/site-policy/github-terms-of-service)、[可接受使用政策](/github/site-policy/github-acceptable-use-policies)或[社区指导方针](/github/site-policy/github-community-guidelines)禁止的内容或活动
+- 暴力或有威胁的内容或活动
+- 过多的自动批量活动（例如，垃圾邮件）
+- 危害 GitHub 用户或 GitHub 服务的活动
+- 快速致富计划
+- 性淫秽内容
+- 歪曲您的身份或站点目的的内容
+
+如果您对您的使用或预期使用是否属于这些类别有疑问，请联系 [GitHub 支持](https://support.github.com/contact)或 [GitHub 高级支持](https://premium.githubsupport.com/)。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
 
 ### 5. Actions 和 Packages
 

@@ -8,6 +8,7 @@ versions:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Los minutos de ejecución facturables para un job solo se muestran en aquellos jobs que se ejecutan en repositorios privados que utilizan ejecutores hospedados en {% data variables.product.prodname_dotcom %}. No hay minutos facturables cuando se utiliza {% data variables.product.prodname_actions %} en repositorios públicos o para trabajos que se ejecutan en ejecutores auto-hospedados.
 

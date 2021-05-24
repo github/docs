@@ -1,0 +1,18 @@
+
+/* Breadcrumbs
+------------------------------------------------------------------------------*/
+
+.breadcrumbs-wrapper {
+  @include breakpoint(xl) {
+    height: 39px;
+  }
+}
+
+.breadcrumbs a:not(:last-child)::after,
+.breadcrumbs span:not(:last-child)::after {
+  content: "/";
+  color: var(--color-auto-gray-4);
+  padding-right: $spacer-2;
+  padding-left: $spacer-2;
+  display: inline-block;
+}

@@ -1,7 +1,7 @@
 ---
 title: Collaborating with maintainers using discussions
 shortTitle: Collaborating with maintainers
-intro: You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.
+intro: 'You can contribute to the goals, plans, health, and community for a project on {% data variables.product.product_name %} by communicating with the maintainers of the project in a discussion.'
 permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
@@ -45,4 +45,4 @@ You can search for discussions and filter the list of discussions in a repositor
 ### 더 읽을거리
 
 - "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

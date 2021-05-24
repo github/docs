@@ -1,14 +1,14 @@
-1. Click **Fork behavior**, then select how you want to use the fork.
+1. Clique no **Comportamento da bifurcação** e, em seguida, selecione como você deseja usar a bifurcação.
 
   {% mac %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
+  ![A opção de contribuir para o repositório principal no menu de Comportamento da Bifurcação](/assets/images/help/desktop/mac-fork-behavior-menu-contribute.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The contribute to the parent repository option in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
+  ![A opção de contribuir para o repositório principal no menu de Comportamento da Bifurcação](/assets/images/help/desktop/windows-fork-behavior-menu-contribute.png)
 
   {% endwindows %}
 
@@ -16,13 +16,13 @@
 
   {% mac %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/mac-fork-behavior-save.png)
+  ![Botão salvar no menu de Comportamento da Bifurcação](/assets/images/help/desktop/mac-fork-behavior-save.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The save button in the Fork Behavior menu](/assets/images/help/desktop/windows-fork-behavior-save.png)
+  ![Botão salvar no menu de Comportamento da Bifurcação](/assets/images/help/desktop/windows-fork-behavior-save.png)
 
   {% endwindows %}
   

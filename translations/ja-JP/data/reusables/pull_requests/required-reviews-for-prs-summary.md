@@ -1,1 +1,1 @@
-Repository administrators can require that all pull requests receive a specific number of approving reviews before someone merges the pull request into a protected branch. You can require approving reviews from people with write permissions in the repository or from a designated code owner.
+リポジトリ管理者はすべてのPull Requestに対し、保護されたブランチにPull Requestを誰かがマージできるようになる前に受けなければならない承認レビューの数を指定できます。 リポジトリに書き込み権限を持っている人か、指定されたコードオーナーからの承認レビューを必須とすることができます。

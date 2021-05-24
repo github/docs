@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -130,7 +132,7 @@ Além disso, uma vez que existe uma relação hierárquica entre os escopos, voc
 
 Verificar escopos apenas antes de fazer solicitações não é suficiente, já que é possível que os usuários mudem os escopos entre a sua verificação e a solicitação real. Caso isso aconteça, as chamadas par a API que você espera ter sucesso podem falhar com o status `404` ou `401` ou retornar um subconjunto diferente de informações.
 
-Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[verifique se há validade de um token\]\[/rest/reference/apps#check-a-token\]{% else %}\[verifique se há validade de um token\]\[/rest/reference/apps#check-an-authorization\]{% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
+Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} [verifica se há validade do token](/rest/reference/apps#check-a-token){% else %}[verifica se há validade do token](/rest/reference/apps#check-an-authorization){% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
 
 #### Fazer solicitações autenticadas
 

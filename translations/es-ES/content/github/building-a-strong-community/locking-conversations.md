@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - comunidad
 ---
 
 Es adecuado fijar una conversación cuando toda ella carece de comentarios constructivos o cuando viola el código de conducta de tu comunidad{% if currentVersion == "free-pro-team@latest" %} o los [Lineamientos comunitarios](/articles/github-community-guidelines) de GitHub{% endif %}. Cuando bloqueas una conversación, también puedes especificar el motivo, que queda públicamente visible.

@@ -1746,6 +1746,40 @@
       ]
     },
     {
+      "name": "convertPullRequestToDraft",
+      "kind": "mutations",
+      "id": "convertpullrequesttodraft",
+      "href": "/graphql/reference/mutations#convertpullrequesttodraft",
+      "description": "<p>Converts a pull request to draft.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertPullRequestToDraftInput!",
+          "id": "convertpullrequesttodraftinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request that is now a draft.</p>"
+        }
+      ]
+    },
+    {
       "name": "createBranchProtectionRule",
       "kind": "mutations",
       "id": "createbranchprotectionrule",
@@ -4850,7 +4884,7 @@
       "kind": "mutations",
       "id": "updateenterprisedefaultrepositorypermissionsetting",
       "href": "/graphql/reference/mutations#updateenterprisedefaultrepositorypermissionsetting",
-      "description": "<p>Sets the default repository permission for organizations in an enterprise.</p>",
+      "description": "<p>Sets the base repository permission for organizations in an enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4875,7 +4909,7 @@
           "id": "enterprise",
           "kind": "objects",
           "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated default repository permission setting.</p>"
+          "description": "<p>The enterprise with the updated base repository permission setting.</p>"
         },
         {
           "name": "message",
@@ -4883,7 +4917,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the default repository permission setting.</p>"
+          "description": "<p>A message confirming the result of updating the base repository permission setting.</p>"
         }
       ]
     },
@@ -5624,7 +5658,7 @@
       "kind": "mutations",
       "id": "updatenotificationrestrictionsetting",
       "href": "/graphql/reference/mutations#updatenotificationrestrictionsetting",
-      "description": "<p>Update the setting to restrict notifications to only verified domains available to an owner.</p>",
+      "description": "<p>Update the setting to restrict notifications to only verified or approved domains available to an owner.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8236,6 +8270,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -8339,6 +8378,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -9046,7 +9115,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -15222,6 +15291,16 @@
               }
             },
             {
+              "name": "isApproved",
+              "description": "<p>Filter whether or not the domain is approved.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isVerified",
               "description": "<p>Filter whether or not the domain is verified.</p>",
               "type": {
@@ -15988,7 +16067,7 @@
         },
         {
           "name": "notificationDeliveryRestrictionEnabledSetting",
-          "description": "<p>Indicates if email notification delivery for this enterprise is restricted to verified domains.</p>",
+          "description": "<p>Indicates if email notification delivery for this enterprise is restricted to verified or approved domains.</p>",
           "type": "NotificationRestrictionSettingValue!",
           "id": "notificationrestrictionsettingvalue",
           "kind": "enums",
@@ -17054,7 +17133,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -22345,6 +22424,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "claimant",
+          "description": "<p>The user that has claimed the data attributed to this mannequin.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
         },
         {
           "name": "createdAt",
@@ -29637,6 +29724,16 @@
               }
             },
             {
+              "name": "isApproved",
+              "description": "<p>Filter by if the domain is approved.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isVerified",
               "description": "<p>Filter by if the domain is verified.</p>",
               "type": {
@@ -29790,7 +29887,7 @@
         },
         {
           "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
+          "description": "<p>Whether the organization has verified its profile email and website.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -29956,7 +30053,7 @@
         },
         {
           "name": "notificationDeliveryRestrictionEnabledSetting",
-          "description": "<p>Indicates if email notification delivery for this organization is restricted to verified domains.</p>",
+          "description": "<p>Indicates if email notification delivery for this organization is restricted to verified or approved domains.</p>",
           "type": "NotificationRestrictionSettingValue!",
           "id": "notificationrestrictionsettingvalue",
           "kind": "enums",
@@ -35490,6 +35587,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerLatestReview",
+          "description": "<p>The latest review given from the viewer.</p>",
+          "type": "PullRequestReview",
+          "id": "pullrequestreview",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreview"
+        },
+        {
+          "name": "viewerLatestReviewRequest",
+          "description": "<p>The person who has requested the viewer for review on this pull request.</p>",
+          "type": "ReviewRequest",
+          "id": "reviewrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reviewrequest"
+        },
+        {
           "name": "viewerMergeBodyText",
           "description": "<p>The merge body text for the viewer and method.</p>",
           "type": "String!",
@@ -37481,6 +37594,39 @@
       ]
     },
     {
+      "name": "PullRequestTemplate",
+      "kind": "objects",
+      "id": "pullrequesttemplate",
+      "href": "/graphql/reference/objects#pullrequesttemplate",
+      "description": "<p>A repository pull request template.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "filename",
+          "description": "<p>The filename of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository the template belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineConnection",
       "kind": "objects",
       "id": "pullrequesttimelineconnection",
@@ -38473,6 +38619,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -38483,6 +38637,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -43922,7 +44084,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -44793,6 +44955,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pullRequestTemplates",
+          "description": "<p>Returns a list of pull request templates associated to the repository.</p>",
+          "type": "[PullRequestTemplate!]",
+          "id": "pullrequesttemplate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequesttemplate"
         },
         {
           "name": "pullRequests",
@@ -48171,6 +48341,14 @@
           "href": "/graphql/reference/objects#sponsorstieradmininfo"
         },
         {
+          "name": "closestLesserValueTier",
+          "description": "<p>Get a different tier for this tier's maintainer that is at the same frequency\nas this tier but with a lesser cost. Returns the published tier with the\nmonthly price closest to this tier's without going over.</p>",
+          "type": "SponsorsTier",
+          "id": "sponsorstier",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -48193,6 +48371,22 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "isCustomAmount",
+          "description": "<p>Whether this tier was chosen at checkout time by the sponsor rather than\ndefined ahead of time by the maintainer who manages the Sponsors listing.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isOneTime",
+          "description": "<p>Whether this tier is only for use with one-time sponsorships.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "monthlyPriceInCents",
@@ -48405,6 +48599,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -48455,6 +48657,14 @@
           "id": "sponsorstier",
           "kind": "objects",
           "href": "/graphql/reference/objects#sponsorstier"
+        },
+        {
+          "name": "tierSelectedAt",
+          "description": "<p>Identifies the date and time when the current tier was chosen for this sponsorship.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -48933,6 +49143,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
         }
       ],
       "fields": [
@@ -48996,6 +49211,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "state",
@@ -53391,6 +53636,26 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "canReceiveOrganizationEmailsWhenNotificationsRestricted",
+          "description": "<p>Could this user receive email notifications, if the organization had notification restrictions enabled?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "login",
+              "description": "<p>The login of the organization to check.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "commitComments",
           "description": "<p>A list of commit comments made by this user.</p>",
           "type": "CommitCommentConnection!",
@@ -55871,7 +56136,7 @@
       "kind": "objects",
       "id": "verifiabledomain",
       "href": "/graphql/reference/objects#verifiabledomain",
-      "description": "<p>A domain that can be verified for an organization or an enterprise.</p>",
+      "description": "<p>A domain that can be verified or approved for an organization or an enterprise.</p>",
       "implements": [
         {
           "name": "Node",
@@ -55923,6 +56188,14 @@
         {
           "name": "hasFoundVerificationToken",
           "description": "<p>Whether a TXT record for verification with the expected verification token was found.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isApproved",
+          "description": "<p>Whether or not the domain is approved.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -57734,7 +58007,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58064,6 +58337,45 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "RequirableByPullRequest",
+      "kind": "interfaces",
+      "id": "requirablebypullrequest",
+      "href": "/graphql/reference/interfaces#requirablebypullrequest",
+      "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "fields": [
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         }
       ]
     },
@@ -64956,6 +65268,32 @@
       ]
     },
     {
+      "name": "ConvertPullRequestToDraftInput",
+      "kind": "inputObjects",
+      "id": "convertpullrequesttodraftinput",
+      "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput",
+      "description": "<p>Autogenerated input type of ConvertPullRequestToDraft.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to convert to draft.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "createbranchprotectionruleinput",
@@ -69888,7 +70226,7 @@
         },
         {
           "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the default repository permission setting.</p>",
+          "description": "<p>The ID of the enterprise on which to set the base repository permission setting.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -69897,7 +70235,7 @@
         },
         {
           "name": "settingValue",
-          "description": "<p>The value for the default repository permission setting on the enterprise.</p>",
+          "description": "<p>The value for the base repository permission setting on the enterprise.</p>",
           "type": "EnterpriseDefaultRepositoryPermissionSettingValue!",
           "id": "enterprisedefaultrepositorypermissionsettingvalue",
           "kind": "enums",

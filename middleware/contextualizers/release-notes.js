@@ -1,9 +1,9 @@
-const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
+const { all, supported } = require('../../lib/enterprise-server-releases')
 const { sortReleasesByDate, sortPatchKeys, renderPatchNotes, getAllReleases } = require('../../lib/release-notes-utils')
 
 module.exports = async (req, res, next) => {
   // The `/release-notes` sub-path
-  if (!req.path.endsWith('/release-notes')) return next()
+  if (!(req.path.endsWith('/release-notes') || req.path.endsWith('/admin'))) return next()
 
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   const releaseNotesPerPlan = req.context.site.data['release-notes'][requestedPlan]
@@ -27,11 +27,14 @@ module.exports = async (req, res, next) => {
 
     const patches = sortPatchKeys(currentReleaseNotes, requestedRelease, { semverSort: hasNumberedReleases })
     req.context.releaseNotes = await Promise.all(patches.map(async patch => renderPatchNotes(patch, req.context)))
-    req.context.releases = getAllReleases(enterpriseReleases, releaseNotesPerPlan, hasNumberedReleases)
+    req.context.releases = getAllReleases(supported, releaseNotesPerPlan, hasNumberedReleases)
 
-    const releaseIndex = enterpriseReleases.findIndex(release => release === requestedRelease)
-    req.context.nextRelease = enterpriseReleases[releaseIndex - 1]
-    req.context.prevRelease = enterpriseReleases[releaseIndex + 1]
+    req.context.releases.firstPreviousRelease = all[all.findIndex(v => v === version) + 1]
+    req.context.releases.secondPreviousRelease = all[all.findIndex(v => v === req.context.releases.firstPreviousRelease) + 1]
+
+    const releaseIndex = supported.findIndex(release => release === requestedRelease)
+    req.context.nextRelease = supported[releaseIndex - 1]
+    req.context.prevRelease = supported[releaseIndex + 1]
   }
 
   // GHAE gets handled here...

@@ -4,17 +4,17 @@ intro: '您可以通过使用 {% data variables.product.company_short %} 验证�
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: 企业所有者可以验证企业帐户的域。
+permissions: Enterprise owners can verify an enterprise account's domain.
 redirect_from:
   - /github/articles/verifying-your-enterprise-accounts-domain
   - /early-access/github/articles/verifying-your-enterprise-accounts-domain
+topics:
+  - Enterprise
 ---
-
-{% data reusables.enterprise-accounts.verifying-domains-release-phase %}
 
 ### 关于域验证
 
-您可以通过验证域，确认企业控制的企业帐户所拥有的任何组织资料中列出的网站和电子邮件地址。 企业帐户的已验证域适用于企业帐户拥有的每个组织，组织所有者可以验证其组织的其他域。 更多信息请参阅“[验证组织的域](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)”。
+您可以通过验证域，确认企业控制的企业帐户所拥有的任何组织资料中列出的网站和电子邮件地址。 企业帐户的已验证域适用于企业帐户拥有的每个组织，组织所有者可以验证其组织的其他域。 更多信息请参阅“[验证组织的域](/organizations/managing-organization-settings/verifying-your-organizations-domain)”。
 
 验证企业帐户域的所有权后，每个在其资料中列出域的组织资料中将显示"已验证"徽章。 {% data reusables.organizations.verified-domains-details %}
 
@@ -22,7 +22,7 @@ redirect_from:
 
 验证企业帐户的域后，您可以将企业帐户拥有的所有组织的电子邮件通知限制为已验证域。 更多信息请参阅“[将企业帐户的电子邮件通知限制为已批准的域](/github/setting-up-and-managing-your-enterprise/restricting-email-notifications-for-your-enterprise-account-to-approved-domains)”。
 
-即使您不限制企业帐户的电子邮件通知，但如果组织所有者限制了组织的电子邮件通知，则组织成员除了能够接收来自组织的任何已验证域的通知之外，还能够接收来自企业帐户的任何已验证域的通知。 有关限制组织通知的更多信息，请参阅“[将电子邮件通知限制为已批准的域](/github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain)”。
+即使您不限制企业帐户的电子邮件通知，但如果组织所有者限制了组织的电子邮件通知，则组织成员除了能够接收来自组织的任何已验证域的通知之外，还能够接收来自企业帐户的任何已验证域的通知。 有关限制组织通知的更多信息，请参阅“[将电子邮件通知限制为已批准的域](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain)”。
 
 ### 验证企业帐户的域
 

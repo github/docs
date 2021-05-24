@@ -39,19 +39,19 @@
 <!-- END ONEOFF EARLY ACCESS NOTICE -->
 
 {% if translation_notification_type %}
-  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 translation_notice{% if release_notification_type %} border-bottom border-black-fade{% endif %}">
+  <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 translation_notice{% if release_notification_type %} border-bottom color-border-tertiary{% endif %}">
     {{ translation_notification }}
   </div>
 {% endif %}
 
 {% if release_notification_type %}
-  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 release_notice{% if early_access_notification_type %} border-bottom border-black-fade{% endif %}">
+  <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 release_notice{% if early_access_notification_type %} border-bottom color-border-tertiary{% endif %}">
     {{ release_notification }}
   </div>
 {% endif %}
 
 {% if early_access_notification_type %}
-  <div class="header-notifications text-center f5 bg-red-1 text-gray-dark py-4 px-6 early_access">
+  <div class="header-notifications text-center f5 color-bg-danger color-text-primary py-4 px-6 early_access">
     {{ early_access_notification }}
   </div>
 {% endif %}

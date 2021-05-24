@@ -1,8 +1,8 @@
 ---
 title: Colaborar con los mantenedores utilizando debates
 shortTitle: Colaborar con los mantenedores
-intro: Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.
-permissions: Las personas con permisos de lectura en un repositorio pueden iniciar y participar en debates dentro del mismo.
+intro: 'Puedes contribuir a las metas, planes, salud y comunidad de un proyecto en {% data variables.product.product_name %} si te comunicas con los mantenedores del proyecto en un debate.'
+permissions: People with read permissions to a repository can start and participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -45,4 +45,4 @@ Puedes buscar debates y filtrar la lista de éstos en un repositorio. Para obten
 ### Leer más
 
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

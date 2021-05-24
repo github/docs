@@ -11,13 +11,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
-  - ワークフロー
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### ワークフローの成果物について
 
@@ -38,7 +40,7 @@ topics:
 
 {% else %}
 
-成果物は、{% data variables.product.product_location %} 上の {% data variables.product.prodname_actions %} 向けに設定された外部 blob ストレージ上のストレージスペースを消費します。
+アーティファクトは、{% data variables.product.product_location %} 上の {% data variables.product.prodname_actions %} 向けに設定された外部 blob ストレージ上のストレージスペースを消費します。
 
 {% endif %}
 
@@ -111,10 +113,10 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### カスタムの成果物の保持期間を設定する
 
-ワークフローによって作成された個々の成果物のカスタム保存期間を定義できます。 ワークフローを使用して新しい成果物を作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前の成果物に 5 日間のカスタム保存期間を設定する方法を示しています。
+ワークフローによって作成された個々のアーティファクトのカスタム保存期間を定義できます。 ワークフローを使用して新しいアーティファクトを作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前のアーティファクトに 5 日間のカスタム保存期間を設定する方法を示しています。
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
@@ -130,13 +132,13 @@ jobs:
 
 ### 成果物のダウンロードあるいは削除
 
-ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされた成果物をダウンロードできます。
+ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用して成果物をダウンロードまたは削除できます。 詳しい情報については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローの成果物を削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[Artifacts REST API](/rest/reference/actions#artifacts)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローの成果物を削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[Artifacts REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 
-[`actions/download-artifact`](https://github.com/actions/download-artifact) のダウンロードアクションを使用して、ワークフローの実行中に以前にアップロードされた成果物をダウンロードできます。
+[`actions/download-artifact`](https://github.com/actions/download-artifact) のダウンロードアクションを使用して、ワークフローの実行中に以前にアップロードされたアーティファクトをダウンロードできます。
 
 {% note %}
 
@@ -240,7 +242,7 @@ jobs:
 ```
 
 ワークフローの実行により、生成された成果物がアーカイブされます。 アーカイブされた成果物のダウンロードの詳細については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)

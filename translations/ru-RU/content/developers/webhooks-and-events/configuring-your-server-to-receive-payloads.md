@@ -7,33 +7,23 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
 ---
 
 
 
 Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server to handle incoming payloads.
 
-Recall that we specifically set our webhook URL to `http://localhost:4567/payload`. Since we're developing locally, we'll need to expose our local development environment to the Internet, so that GitHub can send out messages, and our local server can process them.
+{% note %}
 
-Note: you can download the complete source code for this project [from the platform-samples repo][platform samples].
+**Note:** You can download the complete source code for this project [from the platform-samples repo][platform samples].
 
-### Using ngrok
-
-First, we'll install a program to expose our local host to the Internet. We'll use ngrok to do this. [ngrok is a free download](https://ngrok.com/download) available for all major operating systems.
-
-When you're done with that, you can expose your localhost by running `./ngrok http 4567` on the command line. You should see a line that looks something like this:
-
-```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
-```
-
-Copy that funky `*.ngrok.io` URL! We're now going to go *back* to the Payload URL and pasting this server into that field. It should look something like `http://7e9ea9dc.ngrok.io/payload`.
-
-By doing this, we've set ourselves up to expose our localhost at path `/payload` to the Internet.
+{% endnote %}
 
 ### Writing the server
 
-Now comes the fun part! We want our server to listen to `POST` requests, at `/payload`, because that's where we told GitHub our webhook URL was. Since ngrok is exposing our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+We want our server to listen to `POST` requests, at `/payload`, because that's where we told GitHub our webhook URL was. Because we're using ngrok to expose our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
 
 Let's set up a little Sinatra app to do something with the information. Our initial setup might look something like this:
 
@@ -51,7 +41,7 @@ end
 
 Start this server up.
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new Issue on the repository you're testing with. Once you create it, switch back to your terminal. You should see something like this in your output:
+Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new issue on the repository you're testing with. Once you create it, switch back to your terminal. You should see something like this in your output:
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb

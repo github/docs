@@ -7,15 +7,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
-  - 打包
-  - 发布
+  - Packaging
+  - Publishing
   - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -35,7 +37,7 @@ topics:
 
 - [加密的密码](/actions/reference/encrypted-secrets)"
 - "[工作流程中的身份验证](/actions/reference/authentication-in-a-workflow)"
-- "[配置 Docker 用于 {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)"
+- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"
 
 ### 关于映像配置
 
@@ -91,12 +93,11 @@ jobs:
 
 {% data variables.product.prodname_registry %} 需要的 `build-push-action` 选项包括：
 
-* `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[GitHub 操作的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
+* `username`：您可以使用 {% raw %}`${{ github.actor }}`{% endraw %} 上下文自动使用触发工作流程运行的用户的用户名。 更多信息请参阅“[GitHub Actions 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 * `password`：您可以使用自动生成的 `GITHUB_TOKEN` 密码作为密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 * `registry`：必须设置为 `docker.pkg.github.com`。
 * `repository`：必须以 `OWNER/REPOSITORY/IMAGE_NAME` 格式设置。 例如，对于 `http://github.com/octo-org/octo-repo` 上名为 `octo-image` stored on {% data variables.product.prodname_dotcom %} 的映像，`repository` 选项应设置为 `octo-org/octo-repo/octo-image`。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -105,21 +106,23 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 
 ```
-{% endraw %}
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
@@ -129,7 +132,6 @@ jobs:
 
 下面的示例工作流程使用前面章节中的 `build-push-action` 步骤（“[发布映像到 Docker Hub](#publishing-images-to-docker-hub)”和“[发布映像到 {% data variables.product.prodname_registry %}](#publishing-images-to-github-packages)”）来创建同时推送到两个注册表的单一工作流程。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -138,26 +140,28 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
           repository: my-docker-hub-namespace/my-docker-hub-repository
           tag_with_ref: true
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 ```
-{% endraw %}
 
 上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，并且使用两次 `build-push-action` 操作构建并推送 Docker 映像到 Docker Hub 和 {% data variables.product.prodname_registry %}。 对于这两个步骤， 它设置 `build-pow-action` 选项 [`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref) 自动使用工作流程事件的 Git 引用标记构建的 Docker 映像。 此工作流程在发布 {% data variables.product.prodname_dotcom %} 版本时触发，因此对两个注册表的引用将是该版本的 Git 标记。

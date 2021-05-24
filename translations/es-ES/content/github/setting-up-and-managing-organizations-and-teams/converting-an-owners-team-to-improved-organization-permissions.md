@@ -8,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 Tienes algunas opciones para convertir tu equipo de Propietarios heredado:

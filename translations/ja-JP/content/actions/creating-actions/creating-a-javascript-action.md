@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 type: tutorial
 topics:
   - Action development
@@ -18,6 +19,7 @@ topics:
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
@@ -157,11 +159,11 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 挨拶した時間。
 
-##
+## 使用例
 
-使用例: アクション/ハローワールドjavascript-action@v1.1
-:
-  誰が挨拶する:'モナ・ザ・オクトキャット'
+uses: actions/hello-world-javascript-action@v1.1
+with:
+  who-to-greet: 'Mona the Octocat'
 ```
 
 ### アクションの GitHub へのコミットとタグ、プッシュ
@@ -213,21 +215,21 @@ git push --follow-tags
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-オン
-  hello_world_job: [push]
+on: [push]
 
-ジョブ:  :  :
-    実行: ubuntu-最新の
-    名: こんにちは
-    ステップを言う仕事:
-    - 名前: こんにちは世界アクションステップ
-      id: こんにちは
-      使用: アクション/hello-world-javascript-action@v1.1
-      :
-        誰が挨拶: 'モナ・ザ・オクトキャット'
-    # 'hello' ステップからの出力を使用
-    - 名前
-      : echo{{ steps.hello.outputs.time }}
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # `hello`ステップからの出力を使用する
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
@@ -260,9 +262,9 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}[**Jobs**] または視覚化グラフで、[**A job to say hello**] をクリックします。 {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
 {% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)

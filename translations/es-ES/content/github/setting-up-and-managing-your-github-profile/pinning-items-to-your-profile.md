@@ -1,12 +1,14 @@
 ---
 title: Anclar elementos a tu perfil
-intro: 'Puedes fijar gists y repositorios en tu perfil para que otras personas puedan ver tus mejores trabajos rápidamente.'
+intro: Puedes fijar gists y repositorios en tu perfil para que otras personas puedan ver tus mejores trabajos rápidamente.
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+topics:
+  - Profiles
 ---
 
 Puedes anclar un repositorio público si eres propietario del repositorio o has realizado contribuciones al repositorio. Las confirmaciones de las bifurcaciones no cuentan como contribuciones, por ello no puedes anclar una bifurcación de la que no eres propietario. Para obtener más información, consulta "[¿Por qué mis contribuciones no se muestran en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

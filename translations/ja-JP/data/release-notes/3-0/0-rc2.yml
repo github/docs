@@ -1,6 +1,7 @@
 ---
 date: '2021-01-29'
 release_candidate: true
+deprecated: true
 intro: リリース候補バージョンは、非プロダクション環境でテストすべきです。リリース候補プログラムに関する詳しい情報については、[GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) もしくは[新リリースへのアップグレードについて](/admin/overview/about-upgrades-to-new-releases)を参照してください。
 sections:
   bugs:

@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Puedes ver si una ejecución de flujo de trabajo está en curso o completa desde la página de ejecución del flujo de trabajo. Debes haber iniciado sesión en una cuenta de {% data variables.product.prodname_dotcom %} para ver la información de ejecución del flujo de trabajo, incluyendo los casos de repositorios públicos. Para obtener más información, consulta "[Permisos de acceso en GitHub](/articles/access-permissions-on-github)".
 
@@ -43,9 +45,9 @@ Puedes buscar en los registros de construcción un paso en particular. Cuando bu
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. En el cuadro de búsqueda **Buscar registros** en la esquina superior derecha de la salida del registro, escribe una consulta de búsqueda.
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
   ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated.png)
@@ -64,10 +66,10 @@ Puedes descargar los archivos de bitácora desde tu ejecución de flujo de traba
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. En la esquina superior derecha, da clic en
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} y selecciona **Desgargar archivo de bitácora**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} y selecciona **Descargar el archivo de bitácora**.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
   {% else %}
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated.png)
@@ -86,16 +88,16 @@ Puedes borrar los archivos de bitácora de tu ejecución de flujo de trabajo. {%
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 1. En la esquina superior derecha, da clic en
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
  ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
     {% else %}
     ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
     {% endif %}
 2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
   ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated-2.png)
   {% else %}
   ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated.png)
@@ -105,3 +107,31 @@ Después de borrar las bitácoras, el botón de **Borrar todas las bitácoras** 
 1. En la esquina superior derecha, da clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Después de que se hayan borrado las bitácoras, el botón de **Borrar todas las bitácoras** se elimina para indicar que no queda ningún archivo de bitácora en la ejecución del flujo de trabajo.
 {% endif %}
+
+### Visualizar las bitácoras con {% data variables.product.prodname_cli %}
+
+{% data reusables.actions.actions-cli %}
+
+Para ver la bitácora de un job específico, utiliza el subcomando `run view`. Reemplaza a `run-id` con la ID de la ejecución de la cual quieres ver las bitácoras. {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elijas un job de la ejecución. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devuelve un menú interactivo para que elijas una ejecución reciente y luego devuelve otro menú interactivo para que elijas un job de la ejecución.
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+También puedes utilizar el marcador `--job` para especificar una ID de job. Reemplaza a `job-id` con la ID del job del cual quieres ver las bitácoras.
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+Puedes utilizar `grep` para buscar la bitácora. Por ejemplo, este comando devolverá todas las entradas de la bitácora que contenga la palabra `error`.
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+Para filtrar las bitácoras para encontrar cualquier tipo de paso fallido, utiliza `--log-failed` en vez de `--log`.
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

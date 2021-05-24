@@ -1,25 +1,26 @@
 ---
 date: '2021-01-29'
 release_candidate: true
-intro: Release candidate versions should be tested on non-production environments. For more information about the Release Candidate Program, see the [GitHub Blog](https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) or "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+deprecated: true
+intro: 发布候选版本应该在非生产环境中测试。有关发布候选版计划的更多信息，请参阅[GitHub 博客](https://github)(https://github.blog/2020-12-03-improving-the-ghes-release-process-release-candidates/) 或“[关于升级到新版本](/admin/overview/about-upgrades-to-new-releases)”。
 sections:
   bugs:
     - 
-      heading: Fixes for known issues from Release Candidate 1
+      heading: 修复候选版 1 中的已知问题
       notes:
-        - If you disabled GitHub Actions following an unsuccessful attempt to set up GitHub Actions, then you will not be able to create the first user and use the appliance.
-        - The "Mandatory message viewed" audit log event was not being saved.
-        - '`ghe-config-apply` needed to run on a replica during an initial setup before `ghe-repl-setup` could run to start replication.'
-        - Removing yourself as an enterprise owner returned a 404.
+        - 如果您在尝试设置 GitHub Actions 失败后禁用 GitHub Actions，则无法创建第一个用户并使用该设备。
+        - '“必要消息已查看”审核日志事件未保存'
+        - '初次设置时必须在副本上运行 `ghe-config-apply`，然后才可运行 `ghe-repl-setup` 以开始复制。'
+        - 删除作为企业所有者有自己返回 404。
     - 
-      heading: Fixes for other issues
+      heading: 其他问题的修复
       notes:
-        - Issues with migrations and upgrades to 3.0.0 have been fixed.
-        - Backup Utilities versioning now works for release candidate versions.
-        - Generating a support bundle resulted in an error in the orchestrator logs.
-        - A large restore could result in Redis running out of memory.
-        - The checkbox to enable GitHub Actions in the Management Console is now visible with any authentication method.
-        - GitHub Actions can only be enabled if the required storage is also configured.
-        - '`ghe-repl-status` could silently fail if MSSQL replication is not configured.'
+        - 迁移和升级到 3.0.0 的问题已经修复。
+        - 备份实用程序版本现在适用于候选版本。
+        - 生成支持包导致编组日志中出现错误。
+        - 大型还原可能导致 Redis 内存耗尽。
+        - 现在，使用任何身份验证方法都可以看到管理控制台中启用 GitHub Actions 的复选框。
+        - 仅在配置了所需存储时才可启用 GitHub Actions。
+        - '如果未配置 MSSQL 复制，`ghe-repl-status` 可能会失败而不出现提示。'
   known_issues:
-    - The known issues for Release Candidate 1 still apply, excluding the bug fixes listed.
+    - 候选版 1 的已知问题仍然适用，不包括列出的错误修复。

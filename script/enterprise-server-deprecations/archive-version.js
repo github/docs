@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const server = require('../../server')
+const app = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
@@ -30,8 +30,8 @@ program
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .parse(process.argv)
 
-const pathToArchivalRepo = program.pathToArchivalRepo
-const dryRun = program.dryRun
+const pathToArchivalRepo = program.opts().pathToArchivalRepo
+const dryRun = program.opts().dryRun
 
 main()
 
@@ -155,7 +155,7 @@ async function main () {
     plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
   }
 
-  server.listen(port, async () => {
+  app.listen(port, async () => {
     console.log(`started server on ${host}`)
 
     await scrape(scraperOptions).catch(err => {

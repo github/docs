@@ -1,4 +1,9 @@
 name: Merged notification
+
+# **What it does**: When we merge an open-source pull request, we want to set expectations that deployment may take awhile.
+# **Why we have it**: We deploy to production from docs-internal, not docs.
+# **Who does it impact**: Open-source contributors.
+
 on:
   pull_request_target:
     types:

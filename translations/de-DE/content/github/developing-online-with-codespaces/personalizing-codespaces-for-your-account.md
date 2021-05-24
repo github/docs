@@ -7,6 +7,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/personalizing-github-codespaces-for-your-account
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -31,8 +33,6 @@ Wenn Du einen neuen Codespace erstellst, klont {% data variables.product.prodnam
 Wenn keine dieser Dateien gefunden wird, werden Dateien oder Ordner in `dotfiles`, die mit einem `.` beginnen, symbolisch zum `~`- or `$HOME`-Verzeichnis des Codespace verknüpft.
 
 Änderungen an Deinem `dotfiles`-Repository gelten nur für neue Codespaces und verändern bestehende Codespaces nicht.
-
-Weiter Informationen findest Du unter „[Personalisierung](https://docs.microsoft.com/visualstudio/online/reference/personalizing)" in der {% data variables.product.prodname_vscode %}-Dokumentation.
 
 {% note %}
 

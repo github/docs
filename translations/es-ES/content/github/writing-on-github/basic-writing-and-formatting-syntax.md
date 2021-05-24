@@ -23,7 +23,7 @@ Para crear un encabezado, agrega uno a seis símbolos `#` antes del encabezado d
 
 ### Estilo de texto
 
-Puedes indicar énfasis con texto en negrita, cursiva o tachado.
+Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
 
 | Estilo                       | Sintaxis          | Atajo del teclado   | Ejemplo                                         | Resultado                                     |
 | ---------------------------- | ----------------- | ------------------- | ----------------------------------------------- | --------------------------------------------- |
@@ -197,13 +197,17 @@ Para obtener más información, consulta "[Referencias y direcciones URL autovin
 
 Algunas {% data variables.product.prodname_github_app %} brindan información en {% data variables.product.product_name %} para las URL que se vinculan con sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
 
-![Adjunto de contenido](/assets/images/help/writing/content-attachment.png)
+![Adjunto de contenido](/assets/images/github-apps/content_reference_attachment.png)
 
 Para ver los adjuntos de contenido, debes tener una {% data variables.product.prodname_github_app %} que utilice la API de adjuntos de contenido instalada en el repositorio.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta las secciones "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
 Para obtener más información sobre el desarrollo de una {% data variables.product.prodname_github_app %} que utilice adjuntos de contenido, consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments)".
+
+### Cargar activos
+
+Puedes cargar activos como imágenes si las arrastras y sueltas, las seleccionas de un buscador de archivos o si las pegas. Puedes cargar activos a las propuestas, solicitudes de cambios, comentarios y archivos `.md` en tu repositorio.
 
 ### Usar emojis
 

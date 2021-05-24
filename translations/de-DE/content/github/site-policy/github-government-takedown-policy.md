@@ -2,6 +2,9 @@
 title: Richtlinie der Regierung zum Entfernen von Inhalten von GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 #### Worum handelt es sich hierbei?

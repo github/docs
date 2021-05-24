@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 
@@ -16,6 +18,7 @@ versions:
 
 {% topic_link_in_list /managing-your-enterprise-account %}
     {% link_in_list /about-enterprise-accounts %}
+    {% link_in_list /verifying-or-approving-a-domain-for-your-enterprise-account %}
     {% link_in_list /viewing-the-subscription-and-usage-for-your-enterprise-account %}
     {% link_in_list /managing-licenses-for-visual-studio-subscription-with-github-enterprise %}
     {% link_in_list /connecting-an-azure-subscription-to-your-enterprise %}
@@ -40,9 +43,8 @@ versions:
     {% link_in_list /enforcing-project-board-policies-in-your-enterprise-account %}
     {% link_in_list /enforcing-team-policies-in-your-enterprise-account %}
     {% link_in_list /enforcing-security-settings-in-your-enterprise-account %}
-    {% link_in_list /verifying-your-enterprise-accounts-domain %}
-    {% link_in_list /restricting-email-notifications-for-your-enterprise-account-to-approved-domains %}
+    {% link_in_list /restricting-email-notifications-for-your-enterprise-account %}
     {% link_in_list /enforcing-a-policy-on-dependency-insights-in-your-enterprise-account %}
     {% link_in_list /enforcing-github-actions-policies-in-your-enterprise-account %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account %}
-
+    {% link_in_list /enforcing-policies-for-advanced-security-in-your-enterprise-account %}

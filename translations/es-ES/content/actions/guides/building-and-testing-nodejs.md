@@ -8,15 +8,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Nodo'
-  - 'JavaScript'
+  - CI
+  - Node
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 
@@ -35,7 +37,7 @@ Te recomendamos que tengas una comprensión básica de Node.js, YAML, las opcion
 
 {% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Node.js que funcionará para la mayoría de los proyectos Node.js. Esta guía incluye ejemplos de npm y Yarn que puedes usar para personalizar la plantilla. Para obtener más información, consulta la [Plantilla de flujo de trabajo Node.js](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio.
+Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio. El flujo de trabajo que se muestra a continuación asume que la rama predeterminada de tu repositorio es `main`.
 
 {% raw %}
 ```yaml{:copy}
@@ -43,9 +45,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -57,14 +59,14 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
 
@@ -117,18 +119,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
 ```
 {% endraw %}
+Si no especificas una versión de Node.js,
 
-Si no especificas una versión de Node.js, {% data variables.product.prodname_dotcom %} utiliza la versión de Node.js por defecto del entorno. Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %} utilizará la versión de Node.js predeterminada del ambiente.
+{% if currentVersion == "github-ae@latest" %} Consulta la sección "[Crear imágenes personalizadas](/actions/using-github-hosted-runners/creating-custom-images)" para obtener las instrucciones para asegurarte de que tu {% data variables.actions.hosted_runner %} tiene instalado el software necesario.
+{% else %} Para obtener más información, consulta la sección "[Especificaciones para los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% endif %}
 
 ### Instalar dependencias
 

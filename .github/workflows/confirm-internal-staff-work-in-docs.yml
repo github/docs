@@ -1,5 +1,9 @@
 name: Confirm internal staff meant to post in public
 
+# **What it does**: If a GitHub staff makes an issue/pull request in the open-source repo, creates an issue in the internal one to verify intent.
+# **Why we have it**: We don't want GitHub staff accidentally making issues/pull requests in the wrong repository.
+# **Who does it impact**: GitHub staff.
+
 on:
   issues:
     types:
@@ -13,7 +17,7 @@ jobs:
   check-team-membership:
     runs-on: ubuntu-latest
     continue-on-error: true
-    if: github.repository == 'github/docs'
+    if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
@@ -57,7 +61,8 @@ jobs:
               owner: 'github',
               repo: 'docs-internal',
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
-              body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/docs-internal repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks! \n\n/cc @github/docs @github/docs-engineering`
+              body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/docs-internal repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks! \n\n/cc @github/docs @github/docs-engineering`,
+              labels: ['OS confirmation'],
             });
 
             core.setOutput('did_warn', 'true')

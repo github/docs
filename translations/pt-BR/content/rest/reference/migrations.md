@@ -6,6 +6,8 @@ redirect_from:
   - /v3/migration/migrations
 versions:
   free-pro-team: '*'
+topics:
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -14,7 +16,7 @@ versions:
 
 ## organização
 
-A API de migrações só está disponível para os proprietários de organizações autenticadas. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#permission-levels-for-an-organization)" e "[Outros métodos de autenticação](/rest/overview/other-authentication-methods)".
+A API de migrações só está disponível para os proprietários de organizações autenticadas. For more information, see "[Permission levels for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/permission-levels-for-an-organization#permission-levels-for-an-organization)" and "[Other authentication methods](/rest/overview/other-authentication-methods)."
 
 {% data variables.migrations.organization_migrations_intro %}
 

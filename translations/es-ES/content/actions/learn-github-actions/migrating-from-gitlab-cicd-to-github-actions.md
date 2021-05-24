@@ -4,16 +4,18 @@ intro: '{% data variables.product.prodname_actions %} y la IC/EC de GitLab compa
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
+  github-ae: '*'
+type: tutorial
 topics:
-  - 'GitLab'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - GitLab
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introducción
 

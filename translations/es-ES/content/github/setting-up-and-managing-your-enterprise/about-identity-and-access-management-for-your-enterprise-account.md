@@ -1,9 +1,11 @@
 ---
 title: Acerca de la administración de accesos e identidades para tu cuenta empresarial
-intro: Puedes administrar centralmente el acceso a los recursos de tu empresa, membrecía de tu organización y de tu equipo utilizando a tu proveedor de identidad (IdP).
+intro: 'Puedes administrar centralmente el acceso a los recursos de tu empresa, membrecía de tu organización y de tu equipo utilizando a tu proveedor de identidad (IdP).'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
+topics:
+  - Enterprise
 ---
 
 ### Acerca de la administración de accesos e identidades para tu cuenta empresarial

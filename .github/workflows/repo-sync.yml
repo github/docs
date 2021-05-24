@@ -1,18 +1,94 @@
 # The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
 #
-# This GitHub Actions workflow keeps the main branch of those two repos in sync.
+# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
 #
 # For more details, see https://github.com/repo-sync/repo-sync#how-it-works
 
 name: Repo Sync
 
+# **What it does**:
+#  - close-invalid-repo-sync: Close repo sync pull requests not created by Octomerger or a Hubber.
+#  - repo-sync: Syncs docs and docs-internal.
+# **Why we have it**:
+#  - close-invalid-repo-sync: Another form of spam prevention for the open-source repository.
+#  - repo-sync: To keep the open-source repository up-to-date, while still having an internal
+#    repository for sensitive work.
+# **Who does it impact**: Open-source.
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *' # every 15 minutes
+    - cron: '10,25,40,55 * * * *' # every 15 minutes
 
 jobs:
+  close-invalid-repo-sync:
+    name: Close invalid Repo Sync PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find pull request
+        if: ${{ github.repository == 'github/docs' }}
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
+        id: find-pull-request
+        with:
+          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
+          branch: repo-sync
+          base: main
+          state: open
+
+      - name: Close pull request if unwanted
+        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
+          script: |
+            const { owner, repo } = context.repo
+
+            const { data: pr } = await github.pulls.get({
+              owner,
+              repo,
+              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+            })
+
+            const prCreator = pr.user.login
+
+            // If the PR creator is the expected account, stop now
+            if (prCreator === 'Octomerger') {
+              return
+            }
+
+            try {
+              await github.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'employees',
+                username: prCreator
+              })
+
+              // If the PR creator is a GitHub employee, stop now
+              return
+            } catch (err) {
+              // An error will be thrown if the user is not a GitHub employee.
+              // That said, we still want to proceed anyway!
+            }
+
+            // Close the PR and add the invalid label
+            await github.issues.update({
+              owner,
+              repo,
+              issue_number: pr.number,
+              labels: ['invalid'],
+              state: 'closed'
+            })
+
+            // Comment on the PR
+            await github.issues.createComment({
+              owner,
+              repo,
+              issue_number: pr.number,
+              body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+            })
+
   repo-sync:
+    needs: close-invalid-repo-sync
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: Repo Sync
     runs-on: ubuntu-latest
@@ -40,17 +116,18 @@ jobs:
           destination_branch: main
           pr_title: 'repo sync'
           pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: automerge,autoupdate,automated-reposync-pr
+          pr_label: autoupdate,automated-reposync-pr
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Find pull request
-        uses: juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9
+        uses: juliangruber/find-pull-request-action@db875662766249c049b2dcd85293892d61cb0b51
         id: find-pull-request
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: repo-sync
           base: main
           author: Octomerger
+          state: open
 
       - name: Approve pull request
         if: ${{ steps.find-pull-request.outputs.number }}
@@ -64,7 +141,7 @@ jobs:
         if: ${{ steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
             const mainHeadSha = await github.git.getRef({
               ...context.repo,
@@ -86,6 +163,41 @@ jobs:
               console.log(updateBranch.data.message)
             } else {
               console.log(`Branch is already up-to-date`)
+            }
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.find-pull-request.outputs.number }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          script: |
+            const pull = await github.pulls.get({
+              ...context.repo,
+              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+            })
+
+            const pullNodeId = pull.data.node_id
+            console.log(`Pull request GraphQL Node ID: ${pullNodeId}`)
+
+            const mutation = `mutation ($id: ID!) {
+              enablePullRequestAutoMerge(input: {
+                pullRequestId: $id,
+                mergeMethod: MERGE
+              }) {
+                clientMutationId
+              }
+            }`
+            const variables = {
+              id: pullNodeId
+            }
+
+            const graph = await github.graphql(mutation, variables)
+            console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
+
+            if (graph.errors && graph.errors.length > 0) {
+              console.error('ERROR! Failed to enable auto-merge:\n - ' + graph.errors.map(error => error.message).join('\n - '))
+            } else {
+              console.log('Auto-merge enabled!')
             }
 
       - name: Send Slack notification if workflow fails

@@ -1,11 +1,13 @@
 ---
-title: Using CodeQL code scanning with your existing CI system
-shortTitle: CodeQL CI system support
-intro: 'The {% data variables.product.prodname_codeql_runner %} allows you to use your existing CI system to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}.'
+title: 既存の CI システムで CodeQL コードスキャンを使用する
+shortTitle: CodeQL CI システムのサポート
+intro: '{% data variables.product.prodname_codeql_runner %} を使うと、既存の CI システムで {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} を実行できます。'
 mapTopic: true
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->

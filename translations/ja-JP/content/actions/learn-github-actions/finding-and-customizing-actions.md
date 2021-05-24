@@ -1,7 +1,7 @@
 ---
 title: アクションの検索とカスタマイズ
 shortTitle: アクションの検索とカスタマイズ
-intro: 'アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。'
+intro: アクションは、ワークフローを動かす構成要素です。 ワークフローには、コミュニティによって作成されたアクションを含めることも、アプリケーションのリポジトリ内に直接独自のアクションを作成することもできます。 このガイドでは、アクションを発見、使用、およびカスタマイズする方法を説明します。
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -10,13 +10,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 topics:
-  - 'Fundamentals'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 概要
 
@@ -70,7 +72,7 @@ steps:
 
 #### SHA の使用
 
-より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}短縮された値ではなく、コミットの完全なSHA値を使わなければなりません。 {% endif %}この例ではアクションのSHAを対象としています。
+より信頼性の高いバージョン管理が必要な場合は、アクションのバージョンに関連付けられた SHA 値を使用する必要があります。 SHA は不変であるため、タグやブランチよりも信頼性が高くなります。 ただし、このアプローチでは、重要なバグ修正やセキュリティアップデートなど、アクションの更新を自動的に受信しません。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} 短縮された値ではなく、コミットの完全な SHA 値を使わなければなりません。 {% endif %}この例ではアクションのSHAを対象としています。
 
 ```yaml
 steps:
@@ -108,6 +110,13 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
+
+{% if currentVersion == "github-ae@latest" %}
+### Using the actions included with {% data variables.product.prodname_ghe_managed %}
+By default, you can use most of the official
+
+{% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+{% endif %}
 
 ### ワークフロー ファイルでアクションを使用するのと同じリポジトリ内のアクションの参照
 

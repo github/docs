@@ -8,9 +8,12 @@ redirect_from:
   - /articles/dmca-takedown-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-Welcome to GitHub's Guide to the Digital Millennium Copyright Act, commonly known as the "DMCA." This page is not meant as a comprehensive primer to the statute. が、あなたが GitHub に投稿したコンテンツを対象とする DMCA テイクダウン通知を受け取った場合、またはそのような通知を発行しようとしている権利所有者の場合、このページはこの法律や、それに従うための当社の方針を理解する上で役立つはずです。
+このページは、GitHub によるデジタルミレニアム著作権法（DMCA）のガイドです。 これは法律を包括的に説明する入門書ではありません が、あなたが GitHub に投稿したコンテンツを対象とする DMCA テイクダウン通知を受け取った場合、またはそのような通知を発行しようとしている権利所有者の場合、このページはこの法律や、それに従うための当社の方針を理解する上で役立つはずです。
 
 （あなたの目的が通知を送信することだけの場合は、[末尾にスキップ](#f-submitting-notices)できます。）
 
@@ -28,7 +31,7 @@ DMCA は、権利侵害が申し立てられたユーザ生成コンテンツを
 
 DMCA には、すべての GitHub ユーザが知っておく必要のある 2 つの単純でわかりやすい手続きが用意されています。それは、(i) 著作権所有者がコンテンツの削除を要求するための[テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)の手続き、および (ii) コンテンツが誤ってまたは誤認されて削除された場合に、ユーザがコンテンツを再度有効にするための[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)の手続きです。
 
-著作権所有者は DMCA [テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)を使用して、GitHub に著作権を侵害していると思われるコンテンツを削除するよう依頼することができます。 ソフトウェア設計者や開発者であれば、著作権で保護されたコンテンツを日常的に作成しているでしょう。 If someone else is using your copyrighted content in an unauthorized manner on GitHub, you can send us a DMCA takedown notice to request that the infringing content be changed or removed.
+著作権所有者は DMCA [テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)を使用して、GitHub に著作権を侵害していると思われるコンテンツを削除するよう依頼することができます。 ソフトウェア設計者や開発者であれば、著作権で保護されたコンテンツを日常的に作成しているでしょう。 他の誰かが著作権で保護されたあなたのコンテンツを GitHub で不正に使用している場合、あなたは著作権を侵害しているコンテンツを変更または削除するよう要求する DMCA テイクダウン通知を当社に送信できます。
 
 一方、[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)は間違いを修正するために使用できます。 テイクダウン通知を送信した人が著作権を保持していない場合や、あなたがライセンスを所有していることを知らなかった場合など、間違いでテイクダウン通知が行われるケースもあります。 通常、GitHub には間違いがあったかどうかを知る術がないため、このような場合は DMCA の異議申し立て通知を使用してコンテンツの復元を依頼してください。
 
@@ -45,13 +48,13 @@ DMCA のフレームワークは、「授業中のメモまわし」に少し似
 
 2. **著作権所有者が通知を送信します。**調査を行った後、著作権所有者は[テイクダウン通知](/articles/guide-to-submitting-a-dmca-takedown-notice)を準備し、GitHub に送信します。 テイクダウン通知が（[ハウツーガイド](/articles/guide-to-submitting-a-dmca-takedown-notice)で説明されている）法定要件に従って十分に詳細であることを条件に、当社は[パブリックリポジトリ](https://github.com/github/dmca)に[通知を投稿](#d-transparency)し、影響を受けるユーザにリンクを渡します。
 
-3. **GitHub Asks User to Make Changes.** If the notice alleges that the entire contents of a repository infringe, or a package infringes, we will skip to Step 6 and disable the entire repository or package expeditiously. Otherwise, because GitHub cannot disable access to specific files within a repository, we will contact the user who created the repository and give them approximately 1 business day to delete or modify the content specified in the notice. ユーザに変更を行う機会を提供した場合、当社はその旨を著作権者に通知します。 Because packages are immutable, if only part of a package is infringing, GitHub would need to disable the entire package, but we permit reinstatement once the infringing portion is removed.
+3. **GitHub がユーザに変更を要求します。**通知がリポジトリのコンテンツ全体、またはパッケージが著作権侵害に該当すると主張する内容の場合、当社はステップ 6 に移動し、リポジトリ全体またはパッケージを迅速に無効にします。 そうでない場合、GitHub はリポジトリ内の特定のファイルへのアクセスを無効にすることはできないため、リポジトリを作成したユーザに連絡し、約 1 営業日以内に通知で指定されたコンテンツを削除または変更するよう求めます。 ユーザに変更を行う機会を提供した場合、当社はその旨を著作権者に通知します。 パッケージはイミュータブルであるため、パッケージの一部が著作権を侵害している場合、GitHub はパッケージ全体を無効にする必要がありますが、侵害している部分が削除された場合は復帰を許可しています。
 
-4. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they *must* tell us so within the window of approximately 1 business day. 選択しなかった場合は、当社はリポジトリを無効にします（ステップ 6 で説明）。 ユーザが変更を行ったことを当社に通知した場合、当社は変更が行われたことを確認してから著作権所有者に通知します。
+4. **ユーザが GitHub に変更を通知します。**ユーザは、指定された変更を行うことを選択した場合、約 1 営業日以内にその旨を当社に通知する*必要があります*。 選択しなかった場合は、当社はリポジトリを無効にします（ステップ 6 で説明）。 ユーザが変更を行ったことを当社に通知した場合、当社は変更が行われたことを確認してから著作権所有者に通知します。
 
 5. **著作権所有者が通知を修正または撤回します。**ユーザが変更を行った場合、著作権所有者はそれを確認し、変更が不十分な場合はテイクダウン通知を更新または修正する必要があります。 GitHub は、元のテイクダウン通知を更新する旨または修正版を送信する旨の連絡が著作権所有者からない限り、それ以上の措置を講じません。 著作権所有者は、変更に満足した場合、正式な撤回を提出することも、何もしないこともできます。 沈黙が 2 週間以上続いた場合、GitHub はそれをテイクダウン通知の暗黙の撤回として解釈します。
 
-6. **GitHub May Disable Access to the Content.** GitHub will disable a user's content if: (i) the copyright owner has alleged copyright over the user's entire repository or package (as noted in Step 3); (ii) the user has not made any changes after being given an opportunity to do so (as noted in Step 4); or (iii) the copyright owner has renewed their takedown notice after the user had a chance to make changes. 著作権所有者が通知を*修正*することを代わりに選択した場合、当社はステップ 2 に戻り、修正された通知を新規の通知とみなしてプロセスを繰り返します。
+6. **GitHub がコンテンツへのアクセスを無効にする場合があります。**次のいずれかの場合、GitHub はユーザのコンテンツを無効にします。(i) 著作権所有者がユーザのリポジトリ全体またはパッケージに対して著作権を主張している場合（ステップ 3 に記載）、(ii) ユーザが変更の機会を与えられた後、変更を行わなかった場合（ステップ 4 に記載）、(iii) ユーザが変更を行う機会を得た後、著作権所有者がテイクダウン通知を更新した場合。 著作権所有者が通知を*修正*することを代わりに選択した場合、当社はステップ 2 に戻り、修正された通知を新規の通知とみなしてプロセスを繰り返します。
 
 7. **ユーザは異議申し立て通知を送信できます。**コンテンツを無効にしたユーザは、選択肢について弁護士に相談することをお勧めします。 間違いや誤認によりコンテンツが無効にされたと思われる場合は、ユーザは[異議申し立て通知](/articles/guide-to-submitting-a-dmca-counter-notice)を送信できます。 元の通知と同様に、当社は異議申し立て通知が十分に詳細であることを確認します（[ハウツーガイド](/articles/guide-to-submitting-a-dmca-counter-notice)で説明されています）。 問題ない場合、当社は[パブリックリポジトリ](https://github.com/github/dmca)に[投稿](#d-transparency)し、リンクを送信することで著作権所有者に通知を返します。
 
@@ -63,9 +66,11 @@ GitHub の最も優れた機能の 1 つに、ユーザが互いのリポジト�
 
 GitHub は、親リポジトリを無効にするときにフォークを自動的に無効に*しません*。 これは、フォークが異なるユーザに属し、著しく変更されている可能性があり、フェアユースの原則によって保護されている別の方法でライセンス供与または使用されている可能性があるためです。 GitHub がフォークに対して独立した調査を行うことはありません。 著作権所有者がその調査を行い、フォークも著作権を侵害していると思われる場合は、テイクダウン通知にフォークを明示的に含めることが求められます。
 
+時には、活発にフォークされているリポジトリ全体で著作権の侵害を主張することもあるでしょう。 あなたが通知を送信した時点で、そのリポジトリの既存フォーク全体を指定して著作権を侵害していると申し立てた場合、通知を処理する際に、そのネットワークにあるすべてのフォークに対して、有効な請求を適用します。 新しく作成されたフォークすべてに同じコンテンツが含まれる可能性を考慮して、これを行います。 さらに、著作権侵害の疑いがあるコンテンツを含むとして報告されたネットワークが 100 リポジトリを超え、そのすべてを確認することが困難である際、通知の中であなたが次のように記載している場合にはネットワーク全体の無効化を検討します。「サンプルとして十分な数のフォークを確認した結果、私はこのフォークのすべてまたは大部分が、親リポジトリと同程度に著作権を侵害しているものと信じています。(Based on the representative number of forks you have reviewed, I believe that all or most of the forks are infringing to the same extent as the parent repository.)」 あなたの宣誓は、この申し立てに対して適用されます。
+
 ### C. うっかりして期間内に変更できなかった場合は？
 
-We recognize that there are many valid reasons that you may not be able to make changes within the window of approximately 1 business day we provide before your repository gets disabled. 当社からのメッセージがスパムフォルダに入ってしまう場合も、休暇中だった場合も、対象のメールアカウントを定期的に確認していない場合も、単に忙しかった場合もあるでしょう。 このように If you respond to let us know that you would have liked to make the changes, but somehow missed the first opportunity, we will re-enable the repository one additional time for approximately 1 business day to allow you to make the changes. Again, you must notify us that you have made the changes in order to keep the repository enabled after that window of approximately 1 business day, as noted above in [Step A.4](#a-how-does-this-actually-work). なお、この追加の機会が提供されるのは 1 度限りですのでご注意ください。
+正当な理由で、リポジトリが無効になる前に提供されるおよそ 1 営業日の期間内に変更を行うことができないケースも多々あることでしょう。 当社からのメッセージがスパムフォルダに入ってしまう場合も、休暇中だった場合も、対象のメールアカウントを定期的に確認していない場合も、単に忙しかった場合もあるでしょう。 このように 変更を行いたかったが、何らかの理由で最初の機会を逃した場合は、その旨を当社にご連絡ください。変更を行うことができるように、リポジトリを再度約 1 営業日有効にします。 繰り返しになりますが、上記の[ステップ A.4](#a-how-does-this-actually-work) で説明したように、約 1 営業日が過ぎてもリポジトリを有効に保つためには変更を行ったことを当社に通知する必要があります。 なお、この追加の機会が提供されるのは 1 度限りですのでご注意ください。
 
 ### D. 透明性
 
@@ -96,4 +101,4 @@ GitHub は、当社のポリシーとして、状況によっては独自の裁�
 - [Opportunities for Copyright Reform](https://www.cato-unbound.org/issues/january-2013/opportunities-copyright-reform) (Cato Unbound)
 - [Fair Use Doctrine and the Digital Millennium Copyright Act: Does Fair Use Exist on the Internet Under the DMCA?](https://digitalcommons.law.scu.edu/lawreview/vol42/iss1/6/) (Santa Clara Law Review)
 
-GitHub は、必ずしもこれらの記事の視点を支持しているわけではありません。 私たちがこうしたリンクを提供するのは、あなたがより多くのことを学び、あなた自身の意見を形成し、そしてあなたが選んだ代表者（例えば、[米国議会](https://www.govtrack.us/congress/members)や[欧州議会](https://www.europarl.europa.eu/meps/en/home)）に働き掛けて、あなたが考える必要な変化を求めることができるようにするためです。 Congress</a> or [E.U. Parliament](https://www.europarl.europa.eu/meps/en/home)) to seek whatever changes you think should be made.
+GitHub は、必ずしもこれらの記事の視点を支持しているわけではありません。 私たちがこうしたリンクを提供するのは、あなたがより多くのことを学び、あなた自身の意見を形成し、そしてあなたが選んだ代表者（例えば、[米国議会](https://www.govtrack.us/congress/members)や[欧州議会](https://www.europarl.europa.eu/meps/en/home)）に働き掛けて、あなたが考える必要な変化を求めることができるようにするためです。

@@ -5,6 +5,9 @@ redirect_from:
   - /categories/site-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 
@@ -13,6 +16,7 @@ versions:
 {% link_in_list /github-terms-of-service %}
 {% link_in_list /github-corporate-terms-of-service %}
 {% link_in_list /github-privacy-statement %}
+{% link_in_list /github-data-protection-agreement-non-enterprise-customers %}
 {% link_in_list /global-privacy-practices %}
 {% link_in_list /github-insights-and-data-protection-for-your-organization %}
 {% link_in_list /github-sponsors-additional-terms %}
@@ -24,7 +28,7 @@ versions:
 {% link_in_list /guide-to-submitting-a-dmca-takedown-notice %}
 {% link_in_list /guide-to-submitting-a-dmca-counter-notice %}
 {% link_in_list /github-trademark-policy %}
-{% link_in_list /github-sensitive-data-removal-policy %}
+{% link_in_list /github-private-information-removal-policy %}
 {% link_in_list /github-subprocessors-and-cookies %}
 {% link_in_list /github-bug-bounty-program-legal-safe-harbor %}
 {% link_in_list /responsible-disclosure-of-security-vulnerabilities %}
@@ -44,6 +48,7 @@ versions:
 {% link_in_list /github-deceased-user-policy %}
 {% link_in_list /github-statement-against-modern-slavery-and-child-labor %}
 {% link_in_list /github-anti-bribery-statement %}
+{% link_in_list /github-candidate-privacy-policy %}
 {% link_in_list /github-gifts-and-entertainment-policy %}
 {% link_in_list /github-event-terms %}
 {% link_in_list /github-event-code-of-conduct %}

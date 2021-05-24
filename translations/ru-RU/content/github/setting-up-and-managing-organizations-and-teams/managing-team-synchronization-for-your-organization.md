@@ -10,6 +10,9 @@ permissions: Organization owners can manage team synchronization for an organiza
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 {% data reusables.gated-features.okta-team-sync %}

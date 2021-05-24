@@ -1,4 +1,9 @@
 name: Public Repo Stale Check
+
+# **What it does**: Provides more aggressive stale checks in the open repo.
+# **Why we have it**: In the open repo, we want more aggressive stale checking.
+# **Who does it impact**: Anyone working in the open repo.
+
 on:
   schedule:
     - cron: '45 16 * * *' # Run each day at 16:45 UTC / 8:45 PST
@@ -16,7 +21,7 @@ jobs:
           days-before-pr-stale: 7
           days-before-pr-close: 3
           stale-pr-label: 'stale'
-          exempt-pr-labels: 'waiting for review'
+          exempt-pr-labels: 'waiting for review,never-stale'
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
@@ -35,3 +40,4 @@ jobs:
           # a comment being posted every 14 days as an infinite loop, which is what
           # we want
           stale-pr-label: 'waiting for review'
+          exempt-pr-labels: 'never-stale'

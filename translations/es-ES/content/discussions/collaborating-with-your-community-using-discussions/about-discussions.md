@@ -1,6 +1,6 @@
 ---
 title: Acerca de los debates
-intro: Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.
+intro: 'Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---
@@ -19,7 +19,7 @@ Con los {% data variables.product.prodname_discussions %}, la comunidad de tu pr
 
 No necesitas cerrar un debate de la misma forma en que cierras una propuesta o una solicitud de cambios.
 
-Si un administrador de repositorio o mantenedor de proyecto habilita los debates en un repositorio, cualquiera que lo visite puede crear y participar en ellas. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta la sección "[Niveles de permiso en un repositorio para una organización](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)".
+Si un administrador de repositorio o mantenedor de proyecto habilita los debates en un repositorio, cualquiera que lo visite puede crear y participar en ellas. Los administradores del repositorio y los mantenedores del proyecto pueden administrar los debates y las categorías de los mismos en un repositorio y fijarlos para incrementar la visibilidad de éstos. Los moderadores y colaboradores pueden marcar los comentarios como respuestas, fijar debates, y convertir las propuestas en debates. Para obtener más información, consulta "[Niveles de permiso del repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)".
 
 Para obtener más información sobre la adminsitración de debates para tu repositorio, consulta la sección "[Administrar debates en tu repositorio](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)".
 
@@ -50,5 +50,5 @@ Puedes compartir tu retroalimentación sobre los {% data variables.product.prodn
 - "[Acerca de escribir y dar formato en {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
 - "[Buscar debates](/github/searching-for-information-on-github/searching-discussions)"
 - "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderar comentarios y conversaciones](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Moderar comentarios y conversaciones](/communities/moderating-comments-and-conversations)"
+- "[Mantener tu seguridad en {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"

@@ -8,20 +8,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About exit codes
 
 {% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
 
-| Exit status   | Check run status | 설명                                                                                                                                                                                                    |
-| ------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0`           | `success`        | The action completed successfully and other tasks that depends on it can begin.                                                                                                                       |
-| Nonzero value | `failure`        | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status. |
+| Exit status                       | Check run status | 설명                                                                                                                                                                                                    |
+| --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `0`                               | `success`        | The action completed successfully and other tasks that depends on it can begin.                                                                                                                       |
+| Nonzero value (any integer but 0) | `failure`        | Any other exit code indicates the action failed. When an action fails, all concurrent actions are canceled and future actions are skipped. The check run and check suite both get a `failure` status. |
 
 ### Setting a failure exit code in a JavaScript action
 
@@ -41,13 +43,11 @@ For more information, see "[Creating a JavaScript action](/articles/creating-a-j
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. 예시:
 
-{% raw %}
 ```
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
-{% endraw %}
 
 For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."

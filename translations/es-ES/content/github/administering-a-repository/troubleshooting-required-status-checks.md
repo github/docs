@@ -1,11 +1,13 @@
 ---
 title: Solución de problemas para verificaciones de estado requeridas
-intro: 'Puedes verificar si hay errores comunes y resolver problemas con las verificaciones de estado requeridas.'
+intro: Puedes verificar si hay errores comunes y resolver problemas con las verificaciones de estado requeridas.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Si tienes una verificación y un estado con el mismo nombre y seleccionas dicho nombre como una verificación de estado requerida, tanto la verificación como el estado se requerirán. Para obtener más información, consulta las "[Verificaciones](/rest/reference/checks)".
@@ -14,7 +16,7 @@ Después de que habilitas la verificación de estado requerida, tu rama podría 
 
 {% note %}
 
-**Nota:** También puedes actualizar tu rama con la rama base utilizando Git rebase. Para obtener más información, consulta [Accerca del rebase de Git](/github/using-git/about-git-rebase)."
+**Nota:** También puedes actualizar tu rama con la rama base utilizando Git rebase. Para obtener más información, consulta [Accerca del rebase de Git](/github/getting-started-with-github/about-git-rebase)."
 
 {% endnote %}
 

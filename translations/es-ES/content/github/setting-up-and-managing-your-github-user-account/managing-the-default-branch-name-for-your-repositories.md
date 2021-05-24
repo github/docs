@@ -5,6 +5,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
   github-ae: '*'
+topics:
+  - Accounts
 ---
 
 ### Acerca de la administración del nombre de la rama predeterminada
@@ -23,4 +25,4 @@ Cuando creas un repositorio nuevo en {% data variables.product.product_location 
 
 ### Leer más
 
-- "[Administrar el nombre de la rama predeterminada para los repositorios en tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"
+- "[Administrar el nombre de la rama predeterminada para los repositorios en tu organización](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

@@ -11,6 +11,8 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Enterprise
 ---
 
 Con las API, puedes automatizar muchas tareas administrativas. Algunos ejemplos incluyen los siguientes:

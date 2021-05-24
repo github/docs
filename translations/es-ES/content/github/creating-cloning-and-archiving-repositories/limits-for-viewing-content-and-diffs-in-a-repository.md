@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 La mayoría de los límites que aparecen a continuación afectan tanto {% data variables.product.product_name %} como la API.

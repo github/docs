@@ -2,4 +2,5 @@
     - Elija **Integrations (Integraciones)** para elegir un editor o shell.
     - Elige **Git** para editar tu configuración de Git.
     - Elige **Appearance (Apariencia)** para cambiar entre el tema claro u oscuro.
+    - Elige las **Indicaciones** para habilitar o inhabilitar los diálogos de confirmación antes de realizar acciones destructivas.
     - Elige **Advanced** (Avanzado) para más opciones de configuración.

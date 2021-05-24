@@ -4,6 +4,9 @@ intro: Puedes elegir los niveles de permiso que requieren los miembros para crea
 permissions: Los propietarios de las organizaciones pueden administrar la creación de debates para los repositorios que pertenecen a éstas.
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - equipos
 ---
 
 {% data reusables.discussions.beta %}

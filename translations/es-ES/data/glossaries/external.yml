@@ -1,7 +1,7 @@
 ---
 - 
   term: '@mención'
-  description: para notificar a una persona en GitHub usando "@" antes de su nombre de usuario. Los usuarios en una organización en GitHub también pueden ser parte de un equipo que puede ser mencionado.
+  description: Para notificar a una persona en GitHub usando "@" antes de su nombre de usuario. Los usuarios en una organización en GitHub también pueden ser parte de un equipo que puede ser mencionado.
 - 
   term: token de acceso
   description: >-
@@ -35,7 +35,7 @@
 - 
   term: biografía
   description: >-
-    The user-generated description found on a profile: [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
+    La descripción que genera el usuario, la cual se encuentra en un perfil: [Agregar una biografía a tu perfil](/articles/adding-a-bio-to-your-profile)
 - 
   term: ciclo de facturación
   description: El intervalo de tiempo para tu plan de facturación específico.
@@ -88,7 +88,7 @@
 - 
   term: selección minusciosa
   description: >-
-    Para elegir un subconjunto de modificaciones de una serie de modificaciones (generalmente, confirmaciones de cambios) y registrarlas como una nueva serie de modificaciones además de un código base diferente. En Git, esto lo realiza el comando "cherry-pick Git" para extraer el cambio introducido por una confirmación de cambios en otra rama y para registrarlo en función de la sugerencia de la rama actual como una confirmación de cambios nueva.
+    Para elegir un subconjunto de cambios de una serie de cambios (habitualmente, confirmaciones) y registrarlos como una serie de cambios nueva en la parte superior de una base de código diferente. En Git, esto se lleva a cabo con el comando `git cherry-pick` para extraer el cambio que introdujo una confirmación existente en otra rama y para registrarlo con base en la punta de la rama actual como una confirmación nueva. Para obtener más información, consulta la sección [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) en la documentación de Git.
 - 
   term: equipo hijo
   description: >-
@@ -156,7 +156,7 @@
 - 
   term: contribuciones
   description: >-
-    Specific activities on GitHub that will: - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    Las actividades específicas en GitHub que: - Agregarán un cuadrado a la gráfica de contribución de un usuario: "[Qué cuenta como una contribución](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)" - Agregará actividades a la línea de tiempo de un usuario en su perfil: "[Actividad de contribución](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - 
   term: contribuyente
   description: >-
@@ -181,7 +181,7 @@
 - 
   term: rama predeterminada
   description: >-
-    La rama base para las solicitudes de cambios nuevas y las confirmaciones de código en un repositorio. Cada repositorio tiene por lo menos una rama, la cual crea Git cuando lo inicializas. Habitualmente, la primera rama se llama `main`, y a menudo es la predeterminada.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: Gráfico de dependencias
   description: >-
@@ -229,7 +229,7 @@
     Una rama usada para experimentar con una nueva función o corregir una propuesta que no está en producción. También llamada rama de tema.
 - 
   term: bloque de código cercado
-  description: 'An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
+  description: 'Un bloque de código con sangría que puedes crear con el Lenguaje de Marcado Enriquecido de GitHub utilizando triple diagonal \`\`\` antes y después del bloque de código. Consulta este [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).'
 - 
   term: recuperar
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    La rama predeterminada de desarrollo. Cuando creas un repositorio de Git, se crea una rama que se llama `main` y se convierte en la rama activa. En la mayoría de los casos, esta contiene el desarrollo local, aunque esto es puramente por convención y no es forzoso.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: principal
   description: >-
-    La rama predeterminada en muchos de los repositorios de Git. Predeterminadamente, cuando creas un repositorio de Git nuevo en la línea de comandos, se crea una rama que se llama `master`. Muchas de las herramientas ahora utilizan un nombre alterno para la rama predeterminada. Por ejemplo, cuando creas un repositorio nuevo en GitHub, la rama predeterminada se llama `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: Gráfico de miembros
   description: Un gráfico del repositorio que muestra todas las bifurcaciones de un repositorio.

@@ -1,5 +1,9 @@
 name: Repo Freeze Check
 
+# **What it does**: Prevent pull requests from merging during freezes.
+# **Why we have it**: Sometimes we need to freeze deployments for various reasons.
+# **Who does it impact**: Anyone working on docs.
+
 on:
   workflow_dispatch:
   pull_request_target:

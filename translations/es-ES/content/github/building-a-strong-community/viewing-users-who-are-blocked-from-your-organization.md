@@ -5,6 +5,8 @@ redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
 versions:
   free-pro-team: '*'
+topics:
+  - comunidad
 ---
 
 {% data reusables.profile.access_profile %}

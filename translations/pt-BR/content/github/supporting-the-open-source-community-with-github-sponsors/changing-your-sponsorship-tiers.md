@@ -5,6 +5,8 @@ redirect_from:
   - /articles/changing-your-sponsorship-tiers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### Sobre as camadas de patrocínio

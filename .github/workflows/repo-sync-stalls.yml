@@ -1,9 +1,13 @@
 name: Repo Sync Stalls
 
+# **What it does**: This lets us know in Slack if repo-sync doesn't happen in a timely manner.
+# **Why we have it**: We want repo-sync to keep the two repositories in sync with each other.
+# **Who does it impact**: Open-source contributors, docs engineering.
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '32 */2 * * *' # At minute 32 past every 2nd hour.
 
 jobs:
   repo-sync-stalls:
@@ -30,7 +34,7 @@ jobs:
               return
             }
 
-            // Remove all pull requests that don't have the 
+            // Remove all pull requests that don't have the
             // 'automated-reposync-pr' label
             pulls.data = pulls.data.filter(pr =>
               pr.labels.some(label => label.name === 'automated-reposync-pr')
@@ -42,7 +46,7 @@ jobs:
               const minutesOpen = timeDelta / 1000 / 60;
 
               if (minutesOpen > 180) {
-                core.setFailed('Repo sync appears to be stalled') 
+                core.setFailed('Repo sync appears to be stalled')
               }
             })
       - name: Send Slack notification if workflow fails

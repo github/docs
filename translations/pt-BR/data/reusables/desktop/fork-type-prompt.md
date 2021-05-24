@@ -1,42 +1,42 @@
-1. If you plan to use this fork for contributing to the original upstream repository, click **To contribute to the parent project**.
+1. Se você planeja usar esta bifurcação para contribuir para o repositório original ascendente, clique em **Para contribuir para o projeto principal**.
 
   {% mac %}
 
-  ![Contribute to the parent project menu option](/assets/images/help/desktop/mac-fork-options-prompt.png)
+  ![Contribuir com a opção do menu do projeto principal](/assets/images/help/desktop/mac-fork-options-prompt.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Contribute to the parent project menu option](/assets/images/help/desktop/windows-fork-options-prompt.png)
+  ![Contribuir com a opção do menu do projeto principal](/assets/images/help/desktop/windows-fork-options-prompt.png)
 
   {% endwindows %}
 
-2. If you plan to use this fork for a project not connected to the upstream, click **For my own purposes**.
+2. Se você planeja usar esta bifurcação para um projeto que não esteja conectado ao upstream, clique em **Para meus próprios propósitos**.
 
   {% mac %}
 
-  ![Contribute to an independent project menu option](/assets/images/help/desktop/mac-fork-own-purposes.png)
+  ![Contribuir com uma opção independente de menu de projeto](/assets/images/help/desktop/mac-fork-own-purposes.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![Contribute to an independent project menu option](/assets/images/help/desktop/windows-fork-own-purposes.png)
+  ![Contribuir com uma opção independente de menu de projeto](/assets/images/help/desktop/windows-fork-own-purposes.png)
 
   {% endwindows %}
 
-3. Click **Continue**.
+3. Clique em **Continuar**.
 
   {% mac %}
 
-  ![The continue button](/assets/images/help/desktop/mac-forking-continue.png)
+  ![O botão continuar](/assets/images/help/desktop/mac-forking-continue.png)
 
   {% endmac %}
 
   {% windows %}
 
-  ![The continue button](/assets/images/help/desktop/windows-forking-continue.png)
+  ![O botão continuar](/assets/images/help/desktop/windows-forking-continue.png)
 
   {% endwindows %}
   

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/guidelines-for-legal-requests-of-user-data
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Você é um oficial da lei que está conduzindo uma investigação envolvendo o conteúdo de usuário hospedado no GitHub? Ou talvez você seja uma pessoa consciente de privacidade que gostaria de saber quais informações compartilhamos com um oficial da lei e sob quais circunstâncias. De qualquer forma, você está na página certa.

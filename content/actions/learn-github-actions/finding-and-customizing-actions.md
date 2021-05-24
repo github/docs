@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Fundamentals'
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -113,6 +113,12 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
+
+{% if currentVersion == "github-ae@latest" %}
+### Using the actions included with {% data variables.product.prodname_ghe_managed %}
+
+By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+{% endif %}
 
 ### Referencing an action in the same repository where a workflow file uses the action
 

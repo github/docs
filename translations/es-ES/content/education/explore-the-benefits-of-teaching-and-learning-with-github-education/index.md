@@ -1,7 +1,7 @@
 ---
 title: Explora los beneficios de enseñar y aprender con GitHub Education
 shortTitle: Explorar
-intro: Aprende cómo {% data variables.product.prodname_education %} puede beneificiar a tu aula, trabajo escolar o investigación y cómo postularse para obtener acceso gratuito a varias herramientas de desarrollo de los socios de {% data variables.product.company_short %}.
+intro: 'Aprende cómo {% data variables.product.prodname_education %} puede beneificiar a tu aula, trabajo escolar o investigación y cómo postularse para obtener acceso gratuito a varias herramientas de desarrollo de los socios de {% data variables.product.company_short %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education
   - /github/teaching-and-learning-with-github-education
@@ -13,7 +13,7 @@ versions:
 ### Índice
 
 {% topic_link_in_list /use-github-at-your-educational-institution %}
-    {% link_in_list /about-github-education %}
+    {% link_in_list /about-github-campus-program %}
     {% link_in_list /about-campus-experts %}
     {% link_in_list /about-campus-advisors %}
 {% topic_link_in_list /use-github-for-your-schoolwork %}

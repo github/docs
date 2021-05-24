@@ -3,6 +3,8 @@ title: Habilitar los GitHub Packages con MinIO
 intro: 'Configura el {% data variables.product.prodname_registry %} con MinIO como tu almacenamiento externo.'
 versions:
   enterprise-server: '>=2.22'
+topics:
+  - Enterprise
 ---
 
 {% warning %}

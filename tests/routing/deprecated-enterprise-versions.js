@@ -1,4 +1,4 @@
-const app = require('../../server')
+const app = require('../../lib/app')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
