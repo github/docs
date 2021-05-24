@@ -75,9 +75,9 @@ For more information about the `pull_request` event, see "[Workflow syntax for {
 If you scan pull requests, then the results appear as alerts in a pull request check. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
-#### Defining which alert severities cause pull request check failure
+#### Defining the alert severities causing pull request check failure
 
-By default, only alerts with the severity level of `error` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities that will cause a pull request check failure in your repository settings. You can choose from only errors, warnings and errors, or any alerts. 
+By default, only alerts with the severity level of `error` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities that will cause a pull request check failure in your repository settings.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
