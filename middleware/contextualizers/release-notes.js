@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
   if (hasNumberedReleases) {
     const currentReleaseNotes = releaseNotesPerPlan[`${requestedRelease.replace(/\./g, '-')}`]
 
-    if (!currentReleaseNotes) {
+    if (!currentReleaseNotes && req.path.endsWith('/release-notes')) {
       // If the GHES version doesn't have any release notes, let's be helpful and redirect to `enterprise.github.com`
       return requestedPlan === 'enterprise-server'
         ? res.redirect(`https://enterprise.github.com/releases/${requestedRelease}.0/notes`)
@@ -29,8 +29,11 @@ module.exports = async (req, res, next) => {
     req.context.releaseNotes = await Promise.all(patches.map(async patch => renderPatchNotes(patch, req.context)))
     req.context.releases = getAllReleases(supported, releaseNotesPerPlan, hasNumberedReleases)
 
-    req.context.releases.firstPreviousRelease = all[all.findIndex(v => v === version) + 1]
-    req.context.releases.secondPreviousRelease = all[all.findIndex(v => v === req.context.releases.firstPreviousRelease) + 1]
+    // Add firstPreviousRelease and secondPreviousRelease convenience props for use in includes/product-releases.html
+    req.context.releases.forEach(release => {
+      release.firstPreviousRelease = all[all.findIndex(v => v === release.version) + 1]
+      release.secondPreviousRelease = all[all.findIndex(v => v === release.firstPreviousRelease) + 1]
+    })
 
     const releaseIndex = supported.findIndex(release => release === requestedRelease)
     req.context.nextRelease = supported[releaseIndex - 1]
