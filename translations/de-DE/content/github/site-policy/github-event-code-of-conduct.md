@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub-Ereignisse sind Community-Ereignisse, die dem Networking und der Zusammenarbeit in der Tech-Community dienen.

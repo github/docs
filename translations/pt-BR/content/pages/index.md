@@ -1,5 +1,5 @@
 ---
-title: GitHub Pages Documentation
+title: Documentação do GitHub Pages
 shortTitle: GitHub Pages
 intro: 'Você pode criar um site diretamente de um repositório do {% data variables.product.product_name %}.'
 redirect_from:
@@ -17,9 +17,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
+children:
+  - /getting-started-with-github-pages
+  - /setting-up-a-github-pages-site-with-jekyll
+  - /configuring-a-custom-domain-for-your-github-pages-site
 ---
 
-{% link_with_intro /getting-started-with-github-pages %}
-{% link_with_intro /setting-up-a-github-pages-site-with-jekyll %}
-{% link_with_intro /configuring-a-custom-domain-for-your-github-pages-site %}

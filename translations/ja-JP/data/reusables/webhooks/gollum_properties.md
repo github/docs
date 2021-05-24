@@ -1,8 +1,8 @@
-| キー                   | 種類       | 説明                                                                       |
-| -------------------- | -------- | ------------------------------------------------------------------------ |
-| `pages`              | `array`  | The pages that were updated.                                             |
-| `pages[][page_name]` | `string` | The name of the page.                                                    |
-| `pages[][title]`     | `string` | The current page title.                                                  |
-| `pages[][action]`    | `string` | The action that was performed on the page. Can be `created` or `edited`. |
-| `pages[][sha]`       | `string` | The latest commit SHA of the page.                                       |
-| `pages[][html_url]`  | `string` | Points to the HTML wiki page.                                            |
+| キー                   | 種類       | 説明                                          |
+| -------------------- | -------- | ------------------------------------------- |
+| `pages`              | `array`  | 更新されたページ。                                   |
+| `pages[][page_name]` | `string` | ページの名前。                                     |
+| `pages[][title]`     | `string` | 現在のページのタイトル。                                |
+| `pages[][action]`    | `string` | ページ上で行われたアクション。 `created`もしくは`edited`のいずれか。 |
+| `pages[][sha]`       | `string` | ページの最新のコミットSHA。                             |
+| `pages[][html_url]`  | `string` | HTMLのwikiページを指す。                            |

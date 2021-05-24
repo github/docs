@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 GitHub API 有两个稳定版本：[REST API](/rest) 和 [GraphQL API](/graphql)。 使用 REST API 时，我们建议您[通过 `Accept` 标头请求 v3](/v3/media/#request-specific-version)。 有关使用 GraphQL API 的信息，请参阅 [v4 文档](/graphql)。

@@ -1,7 +1,7 @@
 ---
 title: Integrate GitHub Classroom with an online IDE
 shortTitle: Integrate with an online IDE
-intro: You can preconfigure a supported online integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.
+intro: 'You can preconfigure a supported online integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.'
 versions:
   free-pro-team: '*'
 redirect_from:

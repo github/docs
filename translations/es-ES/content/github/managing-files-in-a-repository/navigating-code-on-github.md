@@ -6,8 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
+
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 ### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 

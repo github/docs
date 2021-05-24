@@ -11,12 +11,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de los cambios a la visibilidad de un repositorio
 
-Los propietarios de las organizaciones pueden restringir la capacidad de cambiar la visibilidad de un repositorio únicamente para otros propietarios de organizaciones. For more information, see "[Restricting repository visibility changes in your organization](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)."
+Los propietarios de las organizaciones pueden restringir la capacidad de cambiar la visibilidad de un repositorio únicamente para otros propietarios de organizaciones. Para obtener más información, consulta la sección "[Restringir los cambios a la visibilidad del repositorio en tu organización](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)".
 
 Te recomendamos revisar las siguientes consideraciones antes de que cambies la visibilidad de un repositorio.
 

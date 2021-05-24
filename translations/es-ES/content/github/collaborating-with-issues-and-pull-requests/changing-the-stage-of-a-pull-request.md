@@ -1,7 +1,7 @@
 ---
 title: Cambiar la etapa de una solicitud de extracción
 intro: 'Puedes marcar una solicitud de cambios como lista para su revisión{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} o convertir una solicitud de cambios en un borrador{% endif %}.'
-permissions: Las personas con permisos de escritura en un repositorio y los autores de las solicitudes de extracción pueden cambiar la etapa de dichas solicitudes.
+permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
   - /articles/changing-the-stage-of-a-pull-request
@@ -10,12 +10,20 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 ### Marcar una solicitud como lista para revisión
 
 {% data reusables.pull_requests.mark-ready-review %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. En la lista "Pull requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas marcar como disponibles para revisión.

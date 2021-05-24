@@ -3,8 +3,11 @@ title: 为 GitHub Packages 配置 MinIO 存储桶的快速入门
 intro: '配置您的自定义 MinIO 存储桶，用于 {% data variables.product.prodname_registry %}。'
 versions:
   enterprise-server: '>=2.22'
+type: quick_start
 topics:
-  - 企业
+  - Packages
+  - Enterprise
+  - Storage
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

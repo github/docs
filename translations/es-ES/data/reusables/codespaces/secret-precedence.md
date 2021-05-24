@@ -1,0 +1,1 @@
+Si un secreto con el mismo nombre existe en varios niveles, aquél en el nivel más bajo tomará presedencia. For example, if an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.

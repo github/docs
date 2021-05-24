@@ -1,1 +1,1 @@
-1. Under the name of the application, click **Sign on**. ![Okta アプリケーションの [Sign on] タブ](/assets/images/help/saml/okta-sign-on-tab.png)
+1. アプリケーション名の下で、**Sign on（サインオン）**をクリックしてください。 ![Okta アプリケーションの [Sign on] タブ](/assets/images/help/saml/okta-sign-on-tab.png)

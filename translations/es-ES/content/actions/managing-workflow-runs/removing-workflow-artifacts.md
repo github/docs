@@ -29,7 +29,7 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Debajo de **Artefactos**, da clic en
-el {% octicon "trashcan" aria-label="The trashcan icon" %} junto al artefacto que quieras eliminar.
+el {% octicon "trash" aria-label="The trash icon" %} junto al artefacto que quieras eliminar.
     {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
  ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact-updated.png)
     {% else %}

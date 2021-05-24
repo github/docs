@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Desenvolvimento da ação'
-  - 'JavaScript'
+  - Action development
+  - JavaScript
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -215,21 +215,21 @@ O fluxo de trabalho a seguir usa a ação completa "hello world" no repositório
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-em: [push]
+on: [push]
 
-empregos:
+jobs:
   hello_world_job:
-    runs-on: ubuntu-mais recente
-    nome: Um trabalho para dizer olá
-    passos:
-    - nome: Olá passo de ação mundial
-      id: Olá
-      usa: ações/hello-world-javascript-action@v1.1
-      com:
-        quem cumprimentar: 'Mona, o Octocat'
-    # Use a saída do passo 'olá'
-    - nome: Obtenha o tempo de saída
-      executado: echo "O tempo era ${{ steps.hello.outputs.time }}"
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

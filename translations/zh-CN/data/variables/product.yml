@@ -56,6 +56,7 @@ prodname_pages: 'GitHub Pages'
 #CodeQL
 prodname_codeql: 'CodeQL'
 prodname_ql: 'QL'
+prodname_codeql_cli: 'CodeQL CLI'
 #Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub 应用程序'
@@ -77,8 +78,7 @@ prodname_debug: 'GitHub Debug'
 prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
-prodname_github_container_registry: 'GitHub Container Registry'
-prodname_container_registry: 'container registry'
+prodname_container_registry: 'Container registry'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -91,7 +91,6 @@ prodname_advanced_security: 'Advanced Security'
 prodname_security_center: '安全中心'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vs_codespaces: 'Visual Studio 代码空间'
 prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'

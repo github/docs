@@ -1,3 +1,4 @@
+require('../../lib/feature-flags')
 const { getDOM } = require('../helpers/supertest')
 
 describe('sidebar', () => {
@@ -15,7 +16,7 @@ describe('sidebar', () => {
 
   test('highlights active product on Enterprise pages', async () => {
     expect($enterprisePage('.sidebar li.sidebar-product').length).toBe(1)
-    expect($enterprisePage('.sidebar li.sidebar-product > a').text().trim()).toBe('Enterprise Administrators')
+    expect($enterprisePage('.sidebar li.sidebar-product > a').text().trim()).toBe('GitHub Enterprise')
   })
 
   test('highlights active product on GitHub pages', async () => {

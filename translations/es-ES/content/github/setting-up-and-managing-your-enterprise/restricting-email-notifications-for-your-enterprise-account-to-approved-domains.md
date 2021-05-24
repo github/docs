@@ -4,9 +4,9 @@ intro: Puedes prevenir que exista una fuga de la información de tu empresa en l
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: Los propietarios de las empresas pueden restringir las notificaciones por correo electrónico para una cuenta empresarial.
+permissions: Enterprise owners can restrict email notifications for an enterprise account.
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de las restricciones para tu cuenta empresarial

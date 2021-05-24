@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Workflows'
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 Organization の設定内、もしくはユーザが作成した特定のコメントから、ユーザをブロックできます。 コメント内でユーザをブロックした場合、そのユーザに、ブロックされたこととその理由を説明する通知を送信できます。 そうしない場合、ブロックされたことはユーザには直接通知されません。 ユーザは、ブロックされても既存のコンテンツを削除できます。
@@ -50,9 +50,9 @@ Organization の設定内、もしくはユーザが作成した特定のコメ�
 ### Organization 設定でユーザをブロックする
 
 1. Organization のメンバーをブロックするには、まず Organization から[メンバーを削除](/articles/removing-a-member-from-your-organization)します。
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 6. [Block a user] の下で、ブロックしたいユーザ名を入力します。 ![ユーザ名フィールド](/assets/images/help/organizations/org-block-username-field.png)
 7. ブロックに期限を設定したい場合には、[Block option] ドロップダウンメニューを使い、ユーザをブロックする期間を選択します。 ![ブロックオプションのドロップダウンメニュー](/assets/images/help/organizations/org-block-options-menu.png)

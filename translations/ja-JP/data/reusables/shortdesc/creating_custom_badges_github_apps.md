@@ -1,1 +1,1 @@
-You can replace the default badge on your GitHub App by uploading your own logo image and customizing the background.
+独自のロゴ画像をアップロードし、背景をカスタマイズすることによって、GitHub Appのデフォルトのバッジを置き換えられます。

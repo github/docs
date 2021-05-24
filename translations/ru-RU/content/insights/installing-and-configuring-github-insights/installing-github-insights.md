@@ -1,7 +1,6 @@
 ---
 title: Installing GitHub Insights
 intro: 'You can install {% data variables.product.prodname_insights %} and connect the standalone application to {% data variables.product.prodname_ghe_server %}.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/installing-github-insights
 permissions: 'Organization owners in {% data variables.product.prodname_enterprise %} with read permissions to the `github/insights-releases` repository and administrative access to the application server can install {% data variables.product.prodname_insights %}.'

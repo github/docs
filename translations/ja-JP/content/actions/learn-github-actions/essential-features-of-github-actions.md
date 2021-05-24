@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - 基本
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

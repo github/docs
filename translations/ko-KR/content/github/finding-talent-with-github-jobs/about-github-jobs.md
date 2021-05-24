@@ -7,7 +7,7 @@ intro: 'You can post a job on {% data variables.product.prodname_jobs %} to find
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 Before you can post a job, you must create a {% data variables.product.prodname_dotcom %} account and verify your email address. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)" and "[Verifying your email address](/articles/verifying-your-email-address)."

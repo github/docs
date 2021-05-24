@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acceder a tu tablero personal

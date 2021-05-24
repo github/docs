@@ -1,9 +1,16 @@
 ---
 title: Restricting network traffic to your enterprise
 shortTitle: Restricting network traffic
-intro: 'You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.'
+intro: You can use an IP allow list to restrict access to your enterprise to connections from specified IP addresses.
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Access management
+  - Enterprise
+  - Fundamentals
+  - Networking
+  - Security
 ---
 
 ### About IP allow lists

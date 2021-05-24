@@ -6,16 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
+children:
+  - /introduction-to-graphql
+  - /forming-calls-with-graphql
+  - /using-global-node-ids
+  - /migrating-from-rest-to-graphql
+  - /using-the-explorer
+  - /managing-enterprise-accounts
 ---
 
-{% link_in_list /introduction-to-graphql %}
-
-{% link_in_list /forming-calls-with-graphql %}
-
-{% link_in_list /using-global-node-ids %}
-
-{% link_in_list /migrating-from-rest-to-graphql %}
-
-{% link_in_list /using-the-explorer %}
-
-{% link_in_list /managing-enterprise-accounts %}

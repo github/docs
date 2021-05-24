@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 El Tablero de actividades te proporciona gráficos semanales, mensuales y anuales de la cantidad de:

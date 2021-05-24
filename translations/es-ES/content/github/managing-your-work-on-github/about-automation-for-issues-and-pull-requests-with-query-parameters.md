@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda o una plantilla de propuestas en {% data variables.product.prodname_dotcom %}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
@@ -21,7 +21,7 @@ Los parámetros de consulta son partes opcionales de una URL que puedes personal
 
 Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para agregar una etiqueta a una propuesta para usar el parámetro de consulta `labels`.
 
-Si creas una URL no válida usando los parámetros de consulta o si no tienen los permisos adecuados, la URL devolverá una página de error 404.
+Si creas una URL inválida utilizando parámetros de consulta o si no tienes los permisos adecuados, la URL devolverá una página de error `404 Not Found`. Si creas una URL que exceda el límite del servidor, esta devolverá una página de error `414 URI Too Long`.
 
 ### Parámetros de consulta admitidos
 

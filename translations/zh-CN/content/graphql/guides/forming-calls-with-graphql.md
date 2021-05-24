@@ -1,6 +1,6 @@
 ---
 title: 使用 GraphQL 建立调用
-intro: '了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。'
+intro: 了解如何向 GraphQL API 验证身份，以及如何创建并运行查询和突变。
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### 使用 GraphQL 进行身份验证

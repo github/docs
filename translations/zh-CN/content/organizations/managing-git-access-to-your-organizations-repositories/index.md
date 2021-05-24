@@ -11,9 +11,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
+children:
+  - /about-ssh-certificate-authorities
+  - /managing-your-organizations-ssh-certificate-authorities
 ---
 
-{% link_in_list /about-ssh-certificate-authorities %}
-{% link_in_list /managing-your-organizations-ssh-certificate-authorities %}

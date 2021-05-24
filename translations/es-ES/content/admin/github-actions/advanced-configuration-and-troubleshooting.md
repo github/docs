@@ -5,6 +5,6 @@ mapTopic: true
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 

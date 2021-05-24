@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 Para obtener más información sobre tipos de cuentas y productos, consulta "[Tipos de cuentas {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)" y productos de "[{% data variables.product.product_name %}](/articles/github-s-products)."

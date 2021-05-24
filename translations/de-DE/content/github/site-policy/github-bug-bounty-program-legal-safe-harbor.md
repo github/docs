@@ -1,12 +1,12 @@
 ---
-title: Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm
+title: 'Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm'
 redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 ### Zusammenfassung

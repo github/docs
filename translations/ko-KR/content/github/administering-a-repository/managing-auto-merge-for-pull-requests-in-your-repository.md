@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About auto-merge

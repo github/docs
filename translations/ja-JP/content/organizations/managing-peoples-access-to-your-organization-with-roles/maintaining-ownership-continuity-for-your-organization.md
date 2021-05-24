@@ -6,14 +6,15 @@ redirect_from:
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
-permissions: Organizationのオーナーは、Organization のメンバーを Organizationのオーナーに昇格させることができます。
+  - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
+permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization の所有権の継続性の管理について
@@ -21,6 +22,12 @@ topics:
 {% data reusables.organizations.org-ownership-recommendation %}
 
 Organizationのオーナーには、Organization に対する管理アクセス権限があります。 {% data reusables.organizations.new-org-permissions-more-info %}
+
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+
+{% endnote %}
 
 ### Organizationのオーナーの指名
 

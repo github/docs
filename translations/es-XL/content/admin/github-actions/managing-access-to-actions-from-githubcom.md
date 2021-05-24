@@ -4,8 +4,10 @@ intro: 'Controlling which actions on {% data variables.product.prodname_dotcom_t
 mapTopic: true
 redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
-  - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
   enterprise-server: '>=2.22'
+  github-ae: next
+topics:
+  - Enterprise
 ---
 

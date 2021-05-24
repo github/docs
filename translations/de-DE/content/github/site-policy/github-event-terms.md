@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Durch die Anmeldung für oder die Teilnahme an einem GitHub-Ereignis, darunter alle Ereignisse oder Aktivitäten, die von GitHub in Verbindung mit dem GitHub-Ereignis organisiert werden (zusammenfassend das "Ereignis"), erklären Sie, dass Sie die folgenden Ereignisbedingungen gelesen und verstanden haben und diesen zustimmen.

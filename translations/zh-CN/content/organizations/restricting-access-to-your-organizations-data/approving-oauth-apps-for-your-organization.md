@@ -8,15 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 当 {% data variables.product.prodname_oauth_app %} 访问限制启用后，组织成员必须向组织所有者[申请批准](/articles/requesting-organization-approval-for-oauth-apps)，然后才可授权对组织资源具有访问权限的 {% data variables.product.prodname_oauth_app %}。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. 在要批准的应用程序的旁边，单击 **Review（审查）**。 ![审查申请链接](/assets/images/help/settings/settings-third-party-approve-review.png)
 6. 在审查申请的应用程序相关信息后，单击 **Grant access（授予访问）**。 ![授予访问按钮](/assets/images/help/settings/settings-third-party-approve-grant.png)

@@ -4,7 +4,7 @@ intro: Get reminders in Slack when you or your team have pull requests waiting f
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
+  - Accounts
 ---
 
 ### About scheduled reminders for users

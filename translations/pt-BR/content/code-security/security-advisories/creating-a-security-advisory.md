@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.

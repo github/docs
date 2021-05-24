@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
@@ -23,9 +23,8 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Em "Third-party application access policy" (Política de acesso a aplicativos de terceiros), clique em **Setup application access restrictions** (Configurar restrições de acesso a aplicativos). ![Botão Set up restrictions (Configurar restrições)](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
 6. Depois de revisar as informações sobre restrições de acesso a terceiros, clique em **Restrict third-party application access** (Restringir acesso a aplicativos de terceiros). ![Botão Restriction confirmation (Confirmação de restrição)](/assets/images/help/settings/settings-third-party-restrict-confirm.png)

@@ -1,6 +1,6 @@
 ---
 title: 'Error: Número de archivo erróneo'
-intro: Este error, por lo general, significa que no has podido conectarte al servidor. A menudo es causado por los firewalls y los servidores proxy.
+intro: 'Este error, por lo general, significa que no has podido conectarte al servidor. A menudo es causado por los firewalls y los servidores proxy.'
 redirect_from:
   - /articles/error-bad-file-number
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Cuando ejecutes comandos Git remotos o SSH, tu conexión puede quedar inactiva:

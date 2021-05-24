@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 组织的权限级别
@@ -43,7 +43,7 @@ topics:
 | 访问组织审核日志                                                                                                                                                                                                                                            | **X** |       |       |
 | 编辑组织的资料页面（详细信息请参阅“[关于组织的资料](/articles/about-your-organization-s-profile)”）                                                                                                                                                                          | **X** |       |       |
 | 验证组织的域（详细信息请参阅“[验证组织的域](/articles/verifying-your-organization-s-domain)”）                                                                                                                                                                           | **X** |       |       |
-| 将电子邮件通知限制为经验证的域（更多信息请参阅“[将电子邮件通知限制为经批准的域](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain)”）                                                                                                  | **X** |       |       |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)" for details)     | **X** |       |       |
 | 删除**所有团队**                                                                                                                                                                                                                                          | **X** |       |       |
 | 删除组织帐户，包括所有仓库                                                                                                                                                                                                                                       | **X** |       |       |
 | 创建团队（详细信息请参阅“[在组织中设置团队创建权限](/articles/setting-team-creation-permissions-in-your-organization)”）                                                                                                                                                     | **X** | **X** |       |
@@ -60,9 +60,9 @@ topics:
 | 对组织禁用团队讨论（详细信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”）                                                                                                                                                         | **X** |       |       |
 | 管理组织依赖项洞见的显示（详细信息请参阅“[更改组织依赖项洞见的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”）                                                                                                                                 | **X** |       |       |
 | 设置**所有团队**的团队头像（详细信息请参阅“[设置团队的头像](/articles/setting-your-team-s-profile-picture)”）                                                                                                                                                                  | **X** |       |       |
-| 赞助帐户和管理组织的赞助（更多信息请参阅“[赞助开源贡献者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)”）                                                                                                             | **X** | **X** |       |
+| 赞助帐户和管理组织的赞助（更多信息请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors)”）                                                                                                                                                                     | **X** | **X** |       |
 | 管理赞助帐户的电子邮件更新（更多信息请参阅“[管理组织赞助帐户的更新](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)”）                                                                                                      | **X** |       |       |
-| 将您的赞助归因于另一个组织（更多信息请参阅“[将赞助归因于组织](/github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization)”）                                                                                                 | **X** |       |       |
+| 将您的赞助归因于另一个组织（更多信息请参阅“[将赞助归因于组织](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)”）                                                                                                                     | **X** |       |       |
 | 管理从组织中的仓库发布 {% data variables.product.prodname_pages %} 站点（请参阅“[管理组织的 {% data variables.product.prodname_pages %} 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”了解详细信息） | **X** |       |       |
 | 管理安全性和分析设置（详情请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”）                                                                                                   | **X** |       |       |
 | 启用并实施 [SAML 单点登录](/articles/about-identity-and-access-management-with-saml-single-sign-on)                                                                                                                                                          | **X** |       |       |
@@ -79,7 +79,7 @@ topics:
 | 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                             | **X** |       |       |
 | [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |       |       |
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** |       |       |
-| Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)")               | **X** |       |       |
+| 管理默认分支名称（请参阅“[管理组织中仓库的默认标签](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)”）                                                                                                 | **X** |       |       |
 | 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |       |
 | 启用团队同步（详情请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”）                                                                                                   | **X** |       |       |
 
@@ -123,7 +123,7 @@ topics:
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |                                           
 {% endif %}
-{% if currentversion == "github-ae@latest" %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** |{% endif %}
+{% if currentVersion == "github-ae@latest" %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** |{% endif %}
 
 {% endif %}
 

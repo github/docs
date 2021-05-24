@@ -1,14 +1,14 @@
 ---
 title: Organization で外部のコラボレーターになる招待をキャンセルする
 intro: 人に対して、Organization が所有しているリポジトリで外部のコラボレーターになる招待をすべてキャンセルすることができます。
-permissions: Organization のオーナーは、そのOrganization で外部のコラボレーターになる招待をキャンセルすることができます。
+permissions: Organization owners can cancel an invitation to become an outside collaborator in the organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization が所有しているリポジトリで外部のコラボレーターになる招待を保留にしている人すべてのリストを表示できます。

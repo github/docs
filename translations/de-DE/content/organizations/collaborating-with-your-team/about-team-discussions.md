@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -43,7 +43,7 @@ For more information, see {% if currentVersion == "free-pro-team@latest" or curr
 
 ### Weiterführende Informationen
 
-- „[Informationen zu Unterhaltungen auf {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)“
+- "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Eine Teamdiskussion erstellen](/organizations/collaborating-with-your-team/creating-a-team-discussion)“
 - „[Eine Teamdiskussion bearbeiten oder löschen](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)“

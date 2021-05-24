@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Visualizar a los propietarios{% if currentVersion == "free-pro-team@latest" %} y gerentes de facturación de la empresa{% endif %}

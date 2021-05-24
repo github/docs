@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 应邀或主动参与 GitHub 活动，包括由 GitHub 组织的与 GitHub 活动相关的任何赛事或项目（统称为“活动”），即表示您已阅读、理解并同意以下活动条款和条件。

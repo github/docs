@@ -8,7 +8,7 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 ---
 
 {% data reusables.actions.ae-beta %}

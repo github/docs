@@ -11,8 +11,10 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Pages
 ---
 
 ### Enabling public sites for {% data variables.product.prodname_pages %}

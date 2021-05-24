@@ -48,6 +48,12 @@ Environment protection rules and environment secrets are only available on publi
 
 環境に保存されたシークレットは、その環境を参照するワークフロージョブからのみ利用できます。 環境が承認を必要とするなら、ジョブは必須のレビュー担当者の一人が承認するまで環境のシークレットにアクセスできません。 シークレットに関する詳しい情報については「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
+{% note %}
+
+**Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level as security as repository and organization secrets. 詳しい情報については「[GitHub Actionsのためのセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions#hardening-for-self-hosted-runners)」を参照してください。
+
+{% endnote %}
+
 ### 環境の作成
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -71,6 +77,9 @@ Environment protection rules and environment secrets are only available on publi
 
 ワークフローが環境を参照する場合、その環境はリポジトリのデプロイメントに現れます。 現在及び以前のデプロイメントの表示に関する詳細については「[デプロイメント履歴の表示](/developers/overview/viewing-deployment-history)」を参照してください。
 
+### Using concurrency to serialize deployments in an environment
+You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#concurrency)」を参照してください。
+
 ### 環境の削除
 
 {% data reusables.github-actions.permissions-statement-environment %}
@@ -80,7 +89,7 @@ Environment protection rules and environment secrets are only available on publi
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-environment %}
-1. 削除したい環境の隣の{% octicon "trashcan" aria-label="The trashcan icon" %}をクリックしてください。
+1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. **I understand, delete this environment（分かりました、この環境を削除してください）**をクリックしてください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@next" or currentVersion ver_gt "enterprise-server@3.1" %}You can also delete environments through the REST API. For more information, see "[Environments](/rest/reference/repos#environments)."{% endif %}

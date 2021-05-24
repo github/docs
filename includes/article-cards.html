@@ -3,7 +3,7 @@
 <div class="container-xl px-3 px-md-6 pt-3 pb-2">
   <!-- When learning tracks aren't present, only guides exist and this heading duplicates the article's title -->
   {% if page.learningTracks %}
-  <h2 class="mb-3 font-mktg">{% data ui.product_sublanding.all_guides %}</h2>
+  <h2 class="mb-3 font-mktg" id="all-guides"><a href="#all-guides">{% data ui.product_sublanding.all_guides %}</a></h2>
   {% endif %}
 
   <form class="mt-2 mb-5 d-flex d-flex">

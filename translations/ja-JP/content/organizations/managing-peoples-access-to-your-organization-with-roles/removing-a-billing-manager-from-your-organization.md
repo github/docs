@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
-  - 支払い
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 {% warning %}
@@ -18,8 +18,7 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-5. [支払いマネージャー] リストで、削除する個人の名前の横にある {% octicon "x" aria-label="X symbol" %} をクリックします。 ![支払いマネージャーの削除](/assets/images/help/billing/settings_billing_managers_remove_manager.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. In the "Billing managers" list under "Billing management", next to the name of the person you want to remove, click **Remove**. ![支払いマネージャーの削除](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

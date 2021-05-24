@@ -6,6 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}

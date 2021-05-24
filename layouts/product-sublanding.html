@@ -1,7 +1,7 @@
 <!doctype html>
 {% assign guideTypes = site.data.ui.product_sublanding.guide_types %}
 
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -22,8 +22,8 @@
           </header>
 
           <!-- Featured track -->
-          {% assign featuredTrack = page.learningTracks[0] %}
-          {% if featuredTrack %}
+          {% if page.featuredTrack %}
+          {% assign featuredTrack = page.featuredTrack %}
           <div class="mb-6 position-relative overflow-hidden mr-n3 ml-n3 px-3">
             <ul class="list-style-none d-flex flex-nowrap overflow-x-scroll px-2 feature-track">
               <li class="px-2 d-flex flex-shrink-0">
@@ -58,14 +58,14 @@
           {% endif %}
 
           {% assign learningTracks = page.learningTracks %}
-          {% if learningTracks %}
+          {% if learningTracks and learningTracks.size > 0 %}
           <div class="border-top py-6">
-            <h2 class="mb-3 font-mktg">{% data ui.product_sublanding.learning_paths %}</h2>
+            <h2 class="mb-3 font-mktg" id="learning-paths"><a href="#learning-paths">{% data ui.product_sublanding.learning_paths %}</a></h2>
             <div class="lead-mktg color-text-secondary f4 description-text">{% data ui.product_sublanding.learning_paths_desc %}</div>
 
             <!-- Learning tracks -->
             <div class="d-flex flex-wrap flex-items-start my-5 gutter">
-              {% for track in page.learningTracks offset:1 %}
+              {% for track in learningTracks %}
                 <div class="my-3 px-4 col-12 col-md-6 learning-track">
                   <div class="Box js-show-more-container d-flex flex-column">
                     <div class="Box-header bg-gradient--blue-pink p-4 d-flex flex-1 flex-items-start flex-wrap">

@@ -6,6 +6,9 @@ redirect_from:
   - /partnerships/secret-scanning
 versions:
   free-pro-team: '*'
+miniTocMaxHeadingLevel: 4
+topics:
+  - API
 ---
 
 

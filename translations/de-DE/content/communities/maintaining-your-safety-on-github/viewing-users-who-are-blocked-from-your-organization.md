@@ -7,12 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. Überprüfe unter „Blocked users“ (Blockierte Benutzer) die Liste der Benutzer, die in Deiner Organisation gesperrt sind. ![Liste der gesperrten Benutzer](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 

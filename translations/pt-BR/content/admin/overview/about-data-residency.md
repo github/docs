@@ -1,8 +1,12 @@
 ---
 title: Sobre a residência de dados
-intro: Você pode escolher a localidade onde {% data variables.product.product_name %} armazena todos os dados de clientes da sua empresa.
+intro: 'Você pode escolher a localidade onde {% data variables.product.product_name %} armazena todos os dados de clientes da sua empresa.'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 {% data reusables.github-ae.github-ae-enables-you %} Você pode escolher a localidade onde você armazena todos os dados do cliente para {% data variables.product.product_location %}, e os integrantes da sua empresa poderão acessar {% data variables.product.product_name %} de qualquer lugar do mundo.

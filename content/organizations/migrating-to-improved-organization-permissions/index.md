@@ -11,10 +11,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /converting-an-owners-team-to-improved-organization-permissions
+  - /converting-an-admin-team-to-improved-organization-permissions
+  - /migrating-admin-teams-to-improved-organization-permissions
 ---
 
-{% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}
-{% link_in_list /converting-an-admin-team-to-improved-organization-permissions %}
-{% link_in_list /migrating-admin-teams-to-improved-organization-permissions %}

@@ -3,8 +3,8 @@ title: GitHub-Richtlinie für verstorbene Benutzer
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Falls ein GitHub Benutzer verstirbt, können wir mit einer autorisierten Person zusammenarbeiten, um zu bestimmen, was mit dem Inhalt des Kontos geschieht.

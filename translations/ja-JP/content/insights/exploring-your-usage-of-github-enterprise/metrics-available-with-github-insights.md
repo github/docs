@@ -1,6 +1,5 @@
 ---
 title: GitHub Insightsで利用できるメトリクス
-product: '{% data reusables.gated-features.github-insights %}'
 intro: '{% data variables.product.prodname_insights %}には、チームのソフトウェアデリバリのプロセスを可視化してくれる様々なメトリクスが含まれています。'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights

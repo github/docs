@@ -44,7 +44,6 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 
 This example workflow uses the [labeler action](https://github.com/actions/labeler), which requires the `GITHUB_TOKEN` as the value for the `repo-token` input parameter:
 
-  
 ```yaml
 name: Pull request labeler
 
@@ -59,11 +58,10 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/labeler@v2
-      with:
-        repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      - uses: actions/labeler@v2
+        with:
+          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-  
 
 #### Example 2: calling the REST API
 
@@ -78,19 +76,19 @@ jobs:
   create_commit:
     runs-on: ubuntu-latest {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
     permissions:
-      issues: write {% endif %}    
+      issues: write {% endif %}
     steps:
-    - name: Create issue using REST API
-      run: {% raw %}|
-        curl --request POST \
-        --url https://api.github.com/repos/${{ github.repository }}/issues \
-        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-        --header 'content-type: application/json' \
-        --data '{
-          "title": "Automated issue for commit: ${{ github.sha }}",
-          "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
-          }' \
-        --fail{% endraw %}
+      - name: Create issue using REST API
+        run: {% raw %}|
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail{% endraw %}
 ```
 
 ### Permissions for the `GITHUB_TOKEN`

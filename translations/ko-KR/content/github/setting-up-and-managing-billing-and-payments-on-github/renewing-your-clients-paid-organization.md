@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -20,10 +20,9 @@ topics:
 
 ### Updating your organization's credit card
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Type your new credit card information in the secure form. ![Credit card information form](/assets/images/help/settings/creditcard-billing-form.png)
-1. Click **Update credit card** or **Save credit card**.
+1. Under "Payment method", click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+{% data reusables.dotcom_billing.enter-payment-info %}

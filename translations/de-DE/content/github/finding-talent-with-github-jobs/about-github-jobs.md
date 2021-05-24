@@ -7,7 +7,7 @@ intro: 'Sie können eine Stellenausschreibung auf {% data variables.product.prod
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 Bevor Sie eine Stellenausschreibung veröffentlichen können, müssen Sie ein {% data variables.product.prodname_dotcom %}-Konto erstellen und Ihre E-Mail-Adresse verifizieren. Weitere Informationen finden Sie unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“ und „[Ihre E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.

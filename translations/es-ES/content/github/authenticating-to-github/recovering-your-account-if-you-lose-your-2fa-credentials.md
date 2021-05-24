@@ -60,7 +60,7 @@ Puedes utilizar tus credenciales de autenticación de dos factores para recobrar
 5. Teclea la contraseña recibida en el correo electrónico de recuperación debajo de "Contraseña de una sola vez"{% data variables.product.prodname_dotcom %}. ![Campo para contraseña de una sola vez](/assets/images/help/2fa/one-time-password-field.png)
 6. Da clic en **Verificar dirección de correo electrónico**.
 7. Escoge un factor de verificación alterno.
-    - Si has utilizado tu dispositivo actual para ingresar en esta cuenta antes y quieres utilizarlo para verificación, da clic en **Verificar este dispositivo**.
+    - If you've used your current device to log into this account before and would like to use the device for verification, click **Verify with this device**.
     - Si has configurado una llave SSH previamente en esta cuenta y quieres utilizarla para verificación, da clic en **Llave SSH**.
     - Si configuraste un token de acceso personal previamente y te gustaría utilizarlo para verificación, da clic en **Token de acceso personal**. ![Botones de verificación alternativa](/assets/images/help/2fa/alt-verifications.png)
 8. Un miembro de {% data variables.contact.github_support %} revisará tu solicitud y te enviará un mensaje de correo electrónico dentro de los siguientes 3 a 5 días. Si se aprueba tu solicitud, recibirás un enlace para completar el proceso de recuperación de tu cuenta. Si se te niega la solicitud, el mensaje incluirá un medio para contactar a soporte con cualquier pregunta adicional.

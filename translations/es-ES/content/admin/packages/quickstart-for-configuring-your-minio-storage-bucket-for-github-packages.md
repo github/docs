@@ -3,8 +3,11 @@ title: Guía de inicio rápido para configurar tu bucket de almacenamiento de Mi
 intro: 'Configura tu bucket de almacenamiento de MinIO personalizado para utilizarlo con {% data variables.product.prodname_registry %}.'
 versions:
   enterprise-server: '>=2.22'
+type: quick_start
 topics:
-  - empresa
+  - Packages
+  - Enterprise
+  - Storage
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

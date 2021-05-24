@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Tu participación en el Programa de Patrocinadores de GitHub (el "Programa") está sujeta a las [Condiciones de Servicio de GitHub](/github/site-policy/github-terms-of-service) (el "Acuerdo") así como a las siguientes condiciones adicionales ("Condiciones Adicionales"). Cualquier uso del Programa de Patrocinadores de GitHub que viole el Acuerdo también constituirá una violación de estos Términos Adicionales. Todos los términos en mayúscula que se utilizan, pero no se definen a continuación, tienen los significados que se les asignan en el Acuerdo. Estos Términos Adicionales para el Programa de Patrocinadores de GitHub describen la relación entre GitHub y tú, el "Programador Patrocinado", para el Programa. Los Términos adicionales entran en vigor a partir de la fecha en que los aceptas ("Fecha de entrada en vigor").

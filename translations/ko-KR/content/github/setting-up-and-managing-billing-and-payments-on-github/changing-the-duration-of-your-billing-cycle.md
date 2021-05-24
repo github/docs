@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.
@@ -17,7 +17,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 ### Changing the duration of your personal account's billing cycle
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -29,7 +29,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 
@@ -37,6 +37,6 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.billing %}
+{% data reusables.organizations.billing_plans %}
 4. Under "Billing overview", click **Change plan**. ![Billing overview change plan button](/assets/images/help/billing/billing_overview_change_plan.png)
 5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**. ![Billing information section](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

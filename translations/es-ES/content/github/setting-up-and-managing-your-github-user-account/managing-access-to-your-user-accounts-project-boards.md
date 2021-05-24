@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 Un colaborador es una persona que tiene permisos a tablero de proyecto de tu propiedad. Un colaborador tendrá como predeterminado permisos de acceso de lectura. Para obtener más información, consulta "[Niveles de permiso para tableros de proyecto propiedad del usuario](/articles/permission-levels-for-user-owned-project-boards)."

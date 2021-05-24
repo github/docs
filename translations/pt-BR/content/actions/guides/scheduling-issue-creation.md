@@ -1,15 +1,15 @@
 ---
 title: Agendar a criação de problemas
-intro: Você pode usar {% data variables.product.prodname_actions %} para criar um problema regularmente para coisas como reuniões diárias ou revisões trimestrais.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para criar um problema regularmente para coisas como reuniões diárias ou revisões trimestrais.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
 2. {% data reusables.actions.make-workflow-file %}
 3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
 
-    {% raw %}
     ```yaml{:copy}
     name: Weekly Team Sync
     on:
@@ -39,7 +38,9 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
     jobs:
       create_issue:
         name: Create team sync issue
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Create team sync issue
             uses: imjohnbo/issue-bot@v3.0
@@ -62,9 +63,9 @@ No tutorial, primeiro você vai criar um arquivo de fluxo de trabalho que usa a 
               pinned: false
               close-previous: false
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
    - Altere o valor de `on.schagen` para ditar quando você deseja que este fluxo de trabalho seja executado. No exemplo acima, o fluxo de trabalho será executado todas as segundas às 7h20 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
    - Altere o valor de `responsáveis` para a lista de nomes de usuário de {% data variables.product.prodname_dotcom %} que você deseja atribuir ao problema.

@@ -7,8 +7,8 @@ intro: '{% data variables.product.product_name %} verwendet die Daten Ihres Repo
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
  
 ### About {% data variables.product.product_name %}'s use of your data

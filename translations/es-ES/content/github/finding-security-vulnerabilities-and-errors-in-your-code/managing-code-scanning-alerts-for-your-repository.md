@@ -1,12 +1,14 @@
 ---
 title: Administrar las alertas del escaneo de código para tu repositorio
 shortTitle: Administrar alertas
-intro: 'Desde la vista de seguridad, puedes ver, arreglar, {% if currentVersion == "enterprise-server@2.22" %}o cerrar{% else %}descartar, o borrar{% endif %} las alertas para las vulnerabilidades potenciales o para los errores en el código de tus proyectos.'
+intro: 'Desde la vista de seguridad, puedes ver, corregir o cerrar las alertas de vulnerabilidades potenciales o errores en el código de tu proyecto.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permiso de escritura en un repositorio, puedes administrar las alertas del {% data variables.product.prodname_code_scanning %} para éste.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   enterprise-server: '2.22'
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -45,80 +47,24 @@ Necesitas permisos de escritura para ver un resumen de todas las alertas de un r
 
 Cualquiera con permisos de escritura en un repositorio puede arreglar una alerta si confirma una corrección en el código. Si el repositorio tiene programado un {% data variables.product.prodname_code_scanning %} para ejecutarse en las solicitudes de cambios, es mejor levantar una solicitud de cambios con tu corrección. Esto activará el análisis del {% data variables.product.prodname_code_scanning %} en los cambios y probará que tu arreglo no introduciría ningún problema nuevo. Para obtener más información, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" y "[Clasificar las alertas del {% data variables.product.prodname_code_scanning %} en las solicitudes de cambios](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
 
-Si tienes permisos de escritura para un repositorio, puedes ver las alertas arregladas si ves el resumen de las alertas y das clic en **Cerrado**. Para obtener más información, consulta la sección "[Visualizar las alertas de un repositorio](#viewing-the-alerts-for-a-repository)". La lista de "Cerrados" muestra las alertas solucionadas y aquellas que los usuarios {% if currentVersion == "enterprise-server@2.22" %}cerraron{% else %}descartaron{% endif %}.
+Si tienes permisos de escritura para un repositorio, puedes ver las alertas arregladas si ves el resumen de las alertas y das clic en **Cerrado**. Para obtener más información, consulta la sección "[Visualizar las alertas de un repositorio](#viewing-the-alerts-for-a-repository)". La lista "Cerrada" muestra las alertas fijas y las que cerraron los usuarios.
 
 Las alertas pueden arreglarse en una rama pero no en alguna otra. Puedes utilizar el menú desplegable de "Rama", en el resumen de las alertas, para verificar si una alerta se arregló en una rama en particular.
 
 ![Filtrar alertas por rama](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 
-{% if currentVersion == "enterprise-server@2.22" %}
-
 ### Cerrar una alerta
 
 Cerrar una alerta es una forma de resolverla si no crees que necesita un arreglo. {% data reusables.code-scanning.close-alert-examples %}
 
-{% else %}
-
-### Descartar o borrar las alertas
-
-Hay dos formas de cerrar una alerta. Puedes arreglar el problema en el código, o puedes descartar la alerta. Como alternativa, si tienes permisos adminsitrativos en el repositorio, puedes borrar las alertas. Borrar las alertas es útil en situaciones en donde configuraste una herramienta del {% data variables.product.prodname_code_scanning %} y luego decidiste eliminarla, o donde configuraste el análisis de {% data variables.product.prodname_codeql %} con un conjunto más grande de consultas que quieres seguir utilizando y después eliminaste algunas de ellas de la herramienta. En ambos casos, el borrar las alertas te permite limpiar tus resultados del {% data variables.product.prodname_code_scanning %}. Puedes borrar las alertas de la lista de resumen dentro de la pestaña de **Seguridad**.
-
-El descartar una alerta es una forma de cerrar aquellas que no crees que necesiten arreglo. {% data reusables.code-scanning.close-alert-examples %} Puedes eliminar alertas desde las anotaciones del {% data variables.product.prodname_code_scanning %} en el código, o desde la lista de resumen dentro de la pestaña de **Seguridad**.
-
-Cuando descartas una alerta:
-
-- Se descarta en todas las ramas.
-- La alerta se elimina de la cantidad de alertas actuales para tu proyecto.
-- La alerta se mueve a la lista de "Cerrado" en el resumen de alertas, desde donde puedes volver a abrirla en caso de que lo necesites.
-- La razón por la cual cerraste la alerta se registra.
-- La siguiente vez que se ejecute el {% data variables.product.prodname_code_scanning %}, este código no volverá a generar una alerta.
-
-Cuando borras una alerta:
-
-- Se borra en todas las ramas.
-- La alerta se elimina de la cantidad de alertas actuales para tu proyecto.
-- _No_ seagrega a la lista de "Cerrado" en el resumen de las alertas.
-- Si el código que generó la alerta se mantiene tal cual, y se ejecuta nuevamente la misma herramienta del {% data variables.product.prodname_code_scanning %} sin ningún cambio de configuración, la alerta se mostrará nuevamente en los resultados de tu análisis.
-
-Para descartar o borrar una alerta:
-
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
 {% data reusables.code-scanning.click-alert-in-list %}
 1. Selecciona el menú desplegable de **Cerrar** y da clic en una razón para cerrar la alerta.    
    ![Elegir una razón apra cerrar la alerta a través del menú desplegable de "Cerrar"](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
-1. Si tienes permisos administrativos en el repositorio y quieres borrar las alertas para esta herramienta del {% data variables.product.prodname_code_scanning %}, selecciona algunas o todas las casillas de verificación y da clic en **Borrar**.
-
-   ![Borrar alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
-
-   Opcionalmente, puedes utilizar los filtros para mostrar un subconjunto de alertas y luego borrar simultáneamente todas las que empaten. Por ejemplo, si eliminaste una consulta desde el análisis de {% data variables.product.prodname_codeql %}, puedes utilizar el filtro de "Regla" para listar solo las alertas para esa consulta y luego seleccionar y borrar todas esas alertas.
-
-  ![Filtrar alertas por regla](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
-
-1. Si quieres descartar una alerta, es importante explorarla primero para que puedas elegir la razón correcta para descartarla. Da clic en la alerta que quisieras explorar.
-
-  ![Abrir una alerta desde la lista de sumario](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
-
-1. Revisa la alerta y da clic en **Descartar** y elije una razón para cerrarla. ![Elegir una razón para descartar una alerta](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-   {% data reusables.code-scanning.choose-alert-dismissal-reason %}
-
-   {% data reusables.code-scanning.false-positive-fix-codeql %}
-
-#### Descartar varias alertas al mismo tiempo
-
-Si un proyecto tiene varias alertas que quieras descartar por la misma razón, puedes descartarlas por lote desde el resúmen de las alertas. Habitualmente quieres filtrar la lista y luego descartar todas las alertas coincidentes. Por ejemplo, puede que quieras descartar todas las alertas actuales del proyecto que se hayan etiquetado para una vulnerabilidad de Enumeración de Debilidades (CWE, por sus siglas en inglés) Común en particular.
-
-{% endif %}
 
 ### Leer más
 

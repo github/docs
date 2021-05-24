@@ -1,13 +1,13 @@
 ---
 title: Einen Benutzer für Deine Organisation blockieren
-intro: Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.
+intro: 'Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.'
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - community
+  - Community
 ---
 
 Du kannst einen Benutzer über die Einstellungen Deiner Organisation oder über einen bestimmten Kommentar dieses Benutzers blockieren. Wenn Du einen Benutzer in einem Kommentar blockierst, kannst Du auswählen, dem Benutzer eine Benachrichtigung über die Sperre und den Grund dazu zu senden. Andernfalls wird er nicht direkt über die Sperre informiert. Blocked users can still delete their existing content.
@@ -50,9 +50,9 @@ Außerdem können blockierte Benutzer in den Repositorys Deiner Organisation nic
 ### Benutzer in den Einstellungen der Organisation blockieren
 
 1. Um ein Mitglied einer Organisation zu blockieren, [entferne den Benutzer](/articles/removing-a-member-from-your-organization) zunächst aus der Organisation.
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 6. Gib unter „Block a user“ (Einen Benutzer blockieren) den Benutzernamen der Person ein, die Du blockieren möchtest. ![Feld für Benutzernamen](/assets/images/help/organizations/org-block-username-field.png)
 7. Wenn Du die Sperre zeitlich beschränken möchtest, wähle aus dem Dropdownmenü mit den Sperr-Optionen den Zeitraum aus, für den Du den Benutzer blockieren möchtest. ![Dropdownmenü „Block options“ (Optionen für das Blockieren)](/assets/images/help/organizations/org-block-options-menu.png)

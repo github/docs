@@ -3,8 +3,11 @@ title: GitHub Packages の MinIO ストレージバケットを設定するた�
 intro: '{% data variables.product.prodname_registry %} で使用するためにカスタム MinIO ストレージバケットを設定します。'
 versions:
   enterprise-server: '>=2.22'
+type: quick_start
 topics:
-  - enterprise
+  - Packages
+  - Enterprise
+  - Storage
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}

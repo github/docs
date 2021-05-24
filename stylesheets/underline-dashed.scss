@@ -1,0 +1,13 @@
+// Text styling
+.underline-dashed {
+  display: inline;
+  padding-bottom: $spacer-1;
+  background-image: linear-gradient(
+    to right,
+    var(--color-auto-gray-3) 50%,
+    transparent 0%
+  );
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 10px 1px;
+}

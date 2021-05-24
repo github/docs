@@ -14,7 +14,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - security
+  - Security
 ---
 
 {% data reusables.code-scanning.beta %}

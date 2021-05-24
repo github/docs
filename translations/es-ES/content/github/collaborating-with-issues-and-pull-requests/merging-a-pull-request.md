@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 ### Acerca de las fusiones de las solicitudes de extracción
@@ -24,6 +24,14 @@ No puedes fusionar un borrador de solicitud de cambios. Para obtener más inform
 {% data reusables.pull_requests.automatically-delete-branches %}
 
 Si decides que no deseas que los cambios en una rama de tema se fusionen con la rama ascendente, puedes [cerrar la solicitud de extracción](/articles/closing-a-pull-request) sin fusionar.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also merge a pull request using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr merge`](https://cli.github.com/manual/gh_pr_merge)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 ### Fusionar una solicitud de extracción en {% data variables.product.prodname_dotcom %}
 

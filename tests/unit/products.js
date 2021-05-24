@@ -1,6 +1,6 @@
 const revalidator = require('revalidator')
 const { productMap } = require('../../lib/all-products')
-const schema = require('../../lib/products-schema')
+const schema = require('../helpers/schemas/products-schema')
 const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
@@ -27,7 +27,7 @@ describe('mobile-only products nav', () => {
     expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')
 
     // Enterprise server
-    expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe('Enterprise Administrators')
+    expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe('GitHub Enterprise')
     expect((await getDOM('/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'))('#current-product').text().trim()).toBe('GitHub.com')
 
     expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')

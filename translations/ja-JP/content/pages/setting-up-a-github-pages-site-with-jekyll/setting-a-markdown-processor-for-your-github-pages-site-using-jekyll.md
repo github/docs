@@ -12,12 +12,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトに対して Markdown プロセッサを設定できます。
 
-{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own extended [CommonMark](https://commonmark.org/) processor, which is used to render {% data variables.product.prodname_dotcom %} Flavored Markdown throughout {% data variables.product.product_name %}. 詳しい情報については、「[{% data variables.product.prodname_dotcom %}での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)」を参照してください。
+{% data variables.product.prodname_pages %} は 2 つの Markdown プロセッサをサポートしています。[kramdown](http://kramdown.gettalong.org/) と {% data variables.product.prodname_dotcom %} 独自の拡張 [CommonMark](https://commonmark.org/) プロセッサで、後者は {% data variables.product.product_name %} を通じ {% data variables.product.prodname_dotcom %} Flavored Markdown をレンダリングする際に使用されます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %}での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)」を参照してください。
 
 {% data variables.product.prodname_dotcom %} フレーバーの Markdown はどちらのプロセッサでも使用できますが、{% data variables.product.product_name %} に表示される結果と一致するのは常に CommonMark プロセッサのみです。
 

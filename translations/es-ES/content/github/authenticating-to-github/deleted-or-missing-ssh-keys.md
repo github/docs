@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 {% data variables.product.prodname_dotcom %} elimina automáticamente las claves SSH inactivas para mantener la seguridad de las cuentas, por ejemplo, cuando alguien deja el trabajo o pierde su computadora.

@@ -1,7 +1,7 @@
 ---
 - 
   term: '@упоминание'
-  description: уведомить человека на GitHub, используя `@` перед именем пользователя. Пользователи в организации на GitHub также могут быть частью команды, которую можно упомянуть.
+  description: Уведомить человека на GitHub, используя `@` перед именем пользователя. Пользователи в организации на GitHub также могут быть частью команды, которую можно упомянуть.
 - 
   term: токен доступа
   description: >-
@@ -181,7 +181,7 @@
 - 
   term: ветвь по умолчанию
   description: >-
-    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called {% if currentVersion ver_lt "enterprise-server@3.2" %}`master`{% else %}`main`{% endif %}, and is often the default branch.
 - 
   term: Диаграмма зависимостей
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.{% else %}Name often chosen as an alternative to `master` for the default branch of a repository.{% endif %}
 - 
   term: главная (ветвь)
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line, a branch called `master` is created. Many tools now use an alternative name for the default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@latest" %} For example, when you create a new repository on GitHub, the default branch is called `main`.{% endif %}
 - 
   term: Диаграмма участников
   description: График репозитория, на котором показаны все ответвления репозитория.

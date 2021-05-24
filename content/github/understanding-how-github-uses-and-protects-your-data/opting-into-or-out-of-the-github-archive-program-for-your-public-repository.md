@@ -5,8 +5,8 @@ permissions: 'People with admin permissions to a public repository can opt into 
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 {% data reusables.repositories.about-github-archive-program %} For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."

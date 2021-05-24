@@ -135,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        echo "- in ${{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -175,18 +175,18 @@ Not all webhook events trigger workflows. For the complete list of available web
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                                 | アクティビティタイプ                                                                                   | `GITHUB_SHA`      | `GITHUB_REF` |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------- | ------------ |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                                 | アクティビティタイプ                                                    | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------- | ------------------------------------------------------------- | ----------------- | ------------ |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-たとえば、チェック実行が `rerequested` または `requested_action` だったときにワークフローを実行する例は、次のとおりです。
+For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -480,7 +480,7 @@ on:
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
 
 #### `status`
 

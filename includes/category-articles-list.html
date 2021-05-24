@@ -1,0 +1,40 @@
+{% for categoryPage in currentProductTree.childPages %}
+{% if categoryPage.href == currentPath %}{% assign currentCategory = categoryPage %}{% endif %}
+{% endfor %}
+
+{% if currentCategory.page.shortTitle and currentCategory.page.shortTitle != '' %}{% assign currentCategoryTitle = currentCategory.page.shortTitle %}{% else %}{% assign currentCategoryTitle = currentCategory.page.title %}{% endif %}
+
+{% assign maxArticles = 10 %}
+
+<div class="py-6 all-articles-list">
+  <h2 class="font-mktg mb-4" id="all-docs"><a href="#all-docs">{{ currentCategoryTitle }} docs</a></h2>
+
+  <div class="d-flex gutter flex-wrap">
+    {% for childPage in currentCategory.childPages %}
+      {% unless childPage.page.hidden %}
+        <div class="col-12 col-lg-4 mb-6 height-full">
+          <h4 class="mb-3"><a href="{{ childPage.href }}">{{ childPage.page.title }}</a></h4>
+          <ul class="list-style-none">
+            {% for grandchildPage in childPage.childPages %}
+              <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}">
+                <a href="{{ grandchildPage.href }}">
+                  {{ grandchildPage.page.title }}
+                </a>
+              </li>
+            {% endfor %}
+            {% assign numArticles = childPage.childPages | obj_size %}
+            {% if numArticles > maxArticles %}
+              <button class="js-all-articles-show-more btn-link Link--secondary">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+            {% endif %}
+          </ul>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+{% comment %}
+  <small class="color-text-secondary d-inline-block">
+    &bull; {{ article.childArticles | obj_size }} articles
+  </small>
+{% endcomment %}

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Cuando [creas un hito](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), puedes [asociarlo con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests).

@@ -9,15 +9,14 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los códigos de recuperación no se deben compartir ni distribuir. Te recomendamos guardarlos con un administrador de contraseñas, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/), o [Keeper](https://keepersecurity.com/).
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. En "Inicio de sesión único SAML", en la nota acerca de los códigos de recuperación, haz clic en **Guardar tus códigos de recuperación**. ![Enlace para ver y guardar tus códigos de recuperación](/assets/images/help/saml/saml_recovery_codes.png)
 6. Guarda tus códigos de recuperación haciendo clic en **Download** (Descargar), **Print** (Imprimir) o **Copy** (Copiar). ![Botones para descargar, imprimir o copiar tus códigos de recuperación](/assets/images/help/saml/saml_recovery_code_options.png)

@@ -1,6 +1,6 @@
 ---
 title: 会話をロックする
-intro: 'リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。'
+intro: リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。
 redirect_from:
   - /articles/locking-conversations
   - /github/building-a-strong-community/locking-conversations
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %} または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %} に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。

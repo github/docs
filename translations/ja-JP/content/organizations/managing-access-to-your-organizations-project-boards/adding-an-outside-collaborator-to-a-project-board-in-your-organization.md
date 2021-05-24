@@ -1,6 +1,6 @@
 ---
 title: Organization のプロジェクトボードに外部のコラボレータを追加する
-intro: 'Organization のオーナーあるいはプロジェクトボードの管理者は、外部のコラボレータを追加し、追加したコラボレータのプロジェクトボードへの権限をカスタマイズできます。'
+intro: Organization のオーナーあるいはプロジェクトボードの管理者は、外部のコラボレータを追加し、追加したコラボレータのプロジェクトボードへの権限をカスタマイズできます。
 redirect_from:
   - /articles/adding-an-outside-collaborator-to-a-project-board-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-an-outside-collaborator-to-a-project-board-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 外部のコラボレータは Organization の明示的なメンバーではありませんが、Organization のプロジェクトボードへの権限を持っています。

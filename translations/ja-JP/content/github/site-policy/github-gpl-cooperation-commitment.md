@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 このコミットメントは、Git、Linuxカーネル、およびその他の対象プログラムの下にあるGitHubのコントリビューションに関するものです。

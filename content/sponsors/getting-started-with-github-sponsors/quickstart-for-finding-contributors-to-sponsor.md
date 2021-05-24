@@ -1,11 +1,11 @@
 ---
 title: Quickstart for finding contributors to sponsor
-intro: 'Learn some best practices for finding open source contributors to sponsor.'
+intro: Learn some best practices for finding open source contributors to sponsor.
 versions:
   free-pro-team: '*'
-type: 'quick_start'
+type: quick_start
 topics:
-  - 'Open Source'
+  - Open Source
 ---
 
 ### Explore projects you depend on

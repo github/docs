@@ -134,6 +134,7 @@ sections:
     - 竞争条件可能导致依赖关系图数据库迁移失败。
     - 自定义时区从较早发布的 GitHub Enterprise Server 升级的实例可能在 web UI 中有不正确的时间戳。
     - Pages 的旧版本未清理，可能填充用户磁盘 (`/data/user/`)。
+    - 在合并拉取请求后删除分支时，即使分支删除成功也会出现错误消息。
   deprecations:
     - 
       heading: 弃用 GitHub Enterprise Server 2.19

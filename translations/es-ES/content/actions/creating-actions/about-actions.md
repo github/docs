@@ -13,8 +13,8 @@ versions:
   github-ae: '*'
 type: overview
 topics:
-  - Desarrollo de las acciones
-  - Fundamentos
+  - Action development
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

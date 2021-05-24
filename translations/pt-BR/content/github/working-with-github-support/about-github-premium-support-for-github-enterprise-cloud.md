@@ -1,13 +1,13 @@
 ---
 title: Sobre o suporte Premium do GitHub para o GitHub Enterprise Cloud
-intro: 'O {% data variables.contact.premium_support %} é uma oferta de suporte complementar paga para clientes do {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_one %}.'
+intro: 'O {% data variables.contact.premium_support %} é uma oferta de suporte complementar paga para clientes do {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}

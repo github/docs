@@ -63,7 +63,7 @@ Note that link tags will only render links that are available in the current pag
 | `{% homepage_link_with_intro /href %}` | The linked page's title and intro, with homepage-specific styling.
 | `{% link_in_list /href %}` | The linked page's title in a list item.
 | `{% topic_link_in_list /href %}` | The linked map topic's title in a list item (used in category TOCs).
-| `{% indented_data_reference foo.bar spaces=NUMBER %}` | A data reference with the specified number of spaces prepended to each line. Defaults to 2 spaces if no spaces included. For example: `{% indented_data_reference reusables.enterprise_management_console.enable-disable-security-features %}`
+| `{% indented_data_reference foo.bar spaces=NUMBER %}` | A data reference with the specified number of spaces prepended to each line. Defaults to 2 spaces if no spaces included. For example: `{% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}`
 
 ## Creating tags
 

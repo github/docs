@@ -21,7 +21,7 @@ For more information on creating links, see "[Basic writing and formatting synta
 
 ### Issues and pull requests
 
-Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links. For more information, see "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)."
+Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
 
 {% note %}
 

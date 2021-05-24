@@ -1,1 +1,1 @@
-1. From the list of workflow runs, click the name of the run you want to see. ![ワークフローの実行の名前](/assets/images/help/repository/superlinter-run-name.png)
+1. ワークフローの実行リストから、表示させたい実行の名前をクリックしてください。 ![ワークフローの実行の名前](/assets/images/help/repository/superlinter-run-name.png)

@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 마켓플레이스
+  - Marketplace
 ---
 
 
@@ -24,7 +24,7 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 #### Listing name
 
-Your app's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters.
+Your listing's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters and can be different from your app's name. Your listing cannot have the same name as an existing {% data variables.product.product_name %} user, unless the name is your own user or organization name.
 
 #### Very short description
 

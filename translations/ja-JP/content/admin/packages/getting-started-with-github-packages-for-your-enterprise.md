@@ -1,13 +1,16 @@
 ---
 title: Enterprise 向けの GitHub Packages を使い始める
+shortTitle: Getting started with GitHub Packages
 intro: 'この機能の有効化、サードパーティのストレージの設定、サポートするエコシステムの設定、TLS 証明書の更新を行い、{% data variables.product.product_location %} で {% data variables.product.prodname_registry %} を使用開始します。'
 redirect_from:
   - /enterprise/admin/packages/enabling-github-packages-for-your-enterprise
   - /admin/packages/enabling-github-packages-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
+type: how_to
 topics:
-  - enterprise
+  - Enterprise
+  - Packages
 ---
 
 {% if currentVersion == "enterprise-server@2.22" %}

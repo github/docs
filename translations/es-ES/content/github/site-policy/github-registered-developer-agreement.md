@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub tiene la suerte de tener muchos programadores integrándose a nuestra plataforma. Creemos que es grandioso y deseamos mejorar aún más esa experiencia.  El Programa de Programadores de GitHub (el “Programa”) nos ayuda a contactarte, compartir información contigo y apoyar tus esfuerzos creativos mejor que nunca. La relación especial entre GitHub y la comunidad de programadores que el Programa crea requiere un conjunto especial de términos. Bienvenido al Acuerdo de Programador Registrado (“Contrato”).

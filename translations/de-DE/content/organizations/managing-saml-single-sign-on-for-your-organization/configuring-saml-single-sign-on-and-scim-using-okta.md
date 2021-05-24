@@ -4,12 +4,12 @@ intro: 'Du kannst ''Security Assertion Markup Language'' (SAML) Single Sign-On (
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Organisationseigentümer können SAML SSO und SCIM mit Okta für eine Organisation konfigurieren.
+permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über SAML und SCIM mit Okta

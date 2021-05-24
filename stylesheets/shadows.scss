@@ -1,5 +1,5 @@
 .hover-shadow {
-  & {
+  /* & {
     transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
@@ -13,7 +13,7 @@
     &:hover {
       box-shadow: var(--color-shadow-medium) !important;
     }
-  }
+  } */
 
   &-large {
     transition: box-shadow 0.3s ease-in-out;
@@ -23,11 +23,11 @@
     }
   }
 
-  &-extra-large {
+  /* &-extra-large {
     transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
       box-shadow: var(--color-shadow-extra-large) !important;
     }
-  }
+  } */
 }

@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 组织管理员可以使用[下载或保存的恢复代码](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)绕过单点登录。 您可能已将这些保存到密码管理器，如 [LastPass](https://lastpass.com/)、[1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/)。

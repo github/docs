@@ -6,9 +6,10 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - seguridad
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
@@ -30,17 +31,13 @@ El {% data variables.product.prodname_codeql_runner %} es una herramienta de lí
 {% note %}
 
 **Notas:**
-{% if currentVersion == "free-pro-team@latest" %}
-* El {% data variables.product.prodname_codeql_runner %} utiliza el CLI de {% data variables.product.prodname_codeql %} para analizar el código y, por lo tanto, tiene las mismas condiciones de licencia. Se puede utilizar gratuitamente en los repositorios que mantiene {% data variables.product.prodname_dotcom_the_website %}, y está disponible para utilizarse en aquellos que pertenecen a los clientes con una licencia de {% data variables.product.prodname_advanced_security %}. Para obtener información, consulta la sección "[Términos y condiciones del {% data variables.product.prodname_codeql %} de {% data variables.product.product_name %}](https://securitylab.github.com/tools/codeql/license)" y [CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
-{% else %}
 * El {% data variables.product.prodname_codeql_runner %} se encuentra disponible para los clientes con una licencia de {% data variables.product.prodname_advanced_security %}.
-{% endif %}
 * El {% data variables.product.prodname_codeql_runner %} no debe confundirse con el CLI de {% data variables.product.prodname_codeql %}. El CLI de {% data variables.product.prodname_codeql %}es una interface de línea de comandos que te permite crear bases de datos de {% data variables.product.prodname_codeql %} para la investigación de seguridad y ejecutar consultas de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la sección "[CLI de {% data variables.product.prodname_codeql %}](https://codeql.github.com/docs/codeql-cli/)".
 {% endnote %}
 
 ### Descargar el {% data variables.product.prodname_codeql_runner %}
 
-Puedes descargar el {% data variables.product.prodname_codeql_runner %} desde https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases. En algunos sistemas operativos, puede que necesites cambiar permisos para el archivo de descarga antes de que lo puedas ejecutar.
+Puedes descargar el {% data variables.product.prodname_codeql_runner %} desde https://github.com/github/codeql-action/releases. En algunos sistemas operativos, puede que necesites cambiar permisos para el archivo de descarga antes de que lo puedas ejecutar.
 
 En Linux:
 
@@ -62,7 +59,7 @@ En Windows, el archivo `codeql-runner-win.exe` habitualmente no necesita que se 
 Una vez que descargas el {% data variables.product.prodname_codeql_runner %} y verificas que puede ejecutarse, debes poner el ejecutor disponible para cada servidor de IC que pretendas utilizar para el {% data variables.product.prodname_code_scanning %}. Por ejemplo, podrías configurar cada servidor para que copie el ejecutor desde una ubicación interna y central. Como alternativa, puedes utilizar la API de REST para obtener el ejecutor directamente de {% data variables.product.prodname_dotcom %}, por ejemplo:
 
 ```shell
-wget https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-runner-linux
+wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -73,9 +70,8 @@ Además, cada servidor de IC necesitará también:
 
 Las opciones para proporcionar acceso al paquete de {% data variables.product.prodname_codeql %} son:
 
-1. Permite que los servidores de IC accedan a https://{% if currentVersion == "enterprise-server@2.22" or currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action para que el {% data variables.product.prodname_codeql_runner %} pueda descargar el paquete automáticamente.
-{% if currentVersion == "enterprise-server@2.22" %}
-1. Replica el repositorio `github/codeql-action` en {% data variables.product.product_name %}. A menos de que especifiques el marcador de <nobr>`--codeql-path`</nobr> , el ejecutor verificará automáticamente que el paquete esté en esta ubicación y en {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
+1. Permite que los servidores de IC accedan a https://github.com/github/codeql-action para que el {% data variables.product.prodname_codeql_runner %} pueda descargar el paquete automáticamente.
+1. Replica el repositorio `github/codeql-action` en {% data variables.product.product_name %}. A menos de que especifiques el marcador de <nobr>`--codeql-path`</nobr> , el ejecutor verificará automáticamente que el paquete esté en esta ubicación y en {% data variables.product.prodname_dotcom_the_website %}.
 1. Descarga/extrae manualmente el paquete, almacénalo con otros recursos centrales y utiliza el <nobr>`--codeql-path`</nobr> para especificar la ubicación del paquete en los llamados para inicializar el {% data variables.product.prodname_codeql_runner %}.
 
 ### Llamar al {% data variables.product.prodname_codeql_runner %}

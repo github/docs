@@ -1,6 +1,6 @@
 ---
 title: Configurar enlaces automáticos para referenciar recursos externos
-intro: Puedes agregar enlaces automáticos a recursos externos, como propuestas de JIRA y tickets de Zendesk, para ayudar a optimizar tu flujo de trabajo.
+intro: 'Puedes agregar enlaces automáticos a recursos externos, como propuestas de JIRA y tickets de Zendesk, para ayudar a optimizar tu flujo de trabajo.'
 product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Cualquiera con permisos administrativos en un repositorio puede configurar las referencias autovinculadas para vincular propuestas, solicitudes de cambios,{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} mensajes de confirmación, y descripciones de lanzamientos{% else %} y mensajes de confirmación{% endif %} a los servicios externos de terceros.

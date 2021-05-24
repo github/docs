@@ -3,8 +3,8 @@ title: GitHub 附加产品条款
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 版本生效日期：2021 年 2 月 22 日

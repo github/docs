@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% note %}
@@ -24,7 +24,8 @@ También puedes ver información de implementación en la pestaña "Conversation
 ### Ver el tablero de implementaciones
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Arriba de la lista de archivos, haz clic en **Environments (Entornos)**. ![Entornos por encima de la página del repositorio](/assets/images/help/repository/environments.png)
+2. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}A la derecha de la lista de archivos, haz clic en **Ambientes**. ![Environments on the right of the repository page](/assets/images/help/repository/environments.png){% else %}Sobre la lista de archivos, haz clic en **Ambientes**. ![Environments on top of repository page](/assets/images/help/repository/environments-top.png){% endif %}
+
 
 ### Leer más
  - "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)"

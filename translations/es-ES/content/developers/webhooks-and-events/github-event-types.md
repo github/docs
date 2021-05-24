@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - events
+  - Events
 ---
 
 
@@ -45,7 +45,7 @@ Los objetos de los eventos que se devuelven de las terminales de la API de Event
 Este ejemplo te muestra el formato de la respuesta de [WatchEvent](#watchevent) cuando utilizas la [API de Eventos](/rest/reference/activity#events).
 
 ```
-Status: 200 OK
+HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
@@ -191,11 +191,11 @@ Este evento devuelve un objeto de `payload` vacío.
 
 #### Objeto de `payload` del evento
 
-| Clave                  | Type        | Descripción                                    |
-| ---------------------- | ----------- | ---------------------------------------------- |
-| `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`. |
-| `solicitud_extracción` | `objeto`    | The pull request the review pertains to.       |
-| `revisar`              | `objeto`    | La revisión que se afectó.                     |
+| Clave                  | Type        | Descripción                                              |
+| ---------------------- | ----------- | -------------------------------------------------------- |
+| `Acción`               | `secuencia` | La acción que se realizó. Puede ser `created`.           |
+| `solicitud_extracción` | `objeto`    | La solicitud de cambios a la cual pertenece la revisión. |
+| `revisar`              | `objeto`    | La revisión que se afectó.                               |
 
 ### PullRequestReviewCommentEvent
 

@@ -58,6 +58,7 @@ jobs:
 | `GITHUB_RUN_NUMBER`  | {% data reusables.github-actions.run_number_description %}
 | `GITHUB_JOB`         | 当前作业的 [job_id](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                 |
 | `GITHUB_ACTION`      | 操作唯一的标识符 (`id`)。                                                                                                                                                                                                                  |
+| `GITHUB_ACTION_PATH` | 您的操作所在的路径。 You can use this path to access files located in the same repository as your action. This variable is only supported in composite run steps actions.                                                                   |
 | `GITHUB_ACTIONS`     | 当 {% data variables.product.prodname_actions %} 运行工作流程时，始终设置为 `true`。 您可以使用此变量来区分测试是在本地运行还是通过 {% data variables.product.prodname_actions %} 运行。                                                                                   |
 | `GITHUB_ACTOR`       | 发起工作流程的个人或应用程序的名称。 例如 `octocat`。                                                                                                                                                                                                  |
 | `GITHUB_REPOSITORY`  | 所有者和仓库名称。 例如 `octocat/Hello-World`。                                                                                                                                                                                               |
@@ -68,9 +69,9 @@ jobs:
 | `GITHUB_REF`         | 触发工作流程的分支或标记参考。 例如 `refs/heads/feature-branch-1`。 如果分支或标记都不适用于事件类型，则变量不会存在。                                                                                                                                                       |
 | `GITHUB_HEAD_REF`    | 仅为拉取请求事件设置。 头部分支的名称。                                                                                                                                                                                                              |
 | `GITHUB_BASE_REF`    | 仅为拉取请求事件设置。 基础分支的名称。                                                                                                                                                                                                              |
-| `GITHUB_SERVER_URL`  | 返回 {% data variables.product.product_name %} 服务器的 URL。 当 {% data variables.product.prodname_actions %} 运行工作流程时，始终设置为 `true`。                                                                                                    |
-| `GITHUB_API_URL`     | 返回 API URL。 返回 {% data variables.product.product_name %} 服务器的 URL。 例如：`https://github.com`。                                                                                                                                       |
-| `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 例如：`https://api.github.com/graphql`。                                                                                                                                                                          |
+| `GITHUB_SERVER_URL`  | 返回 {% data variables.product.product_name %} 服务器的 URL。 For example: `https://{% data variables.product.product_url %}`.                                                                                                           |
+| `GITHUB_API_URL`     | 返回 API URL。 For example: `{% data variables.product.api_url_code %}`.                                                                                                                                                             |
+| `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 For example: `{% data variables.product.graphql_url_code %}`.                                                                                                                                                 |
 
 {% tip %}
 
@@ -84,10 +85,6 @@ jobs:
 
 ### 环境变量命名约定
 
-{% note %}
-
-**注：** {% data variables.product.prodname_dotcom %} 会保留 `GITHUB_` 环境变量前缀供 {% data variables.product.prodname_dotcom %} 内部使用。 设置有 `GITHUB_` 前缀的环境变量或密码将导致错误。
-
-{% endnote %}
+When you set a custom environment variable, you cannot use any of the default environment variable names listed above with the prefix `GITHUB_`. If you attempt to override the value of one of these default environment variables, the assignment is ignored.
 
 您设置的指向文件系统上某个位置的任何新环境变量都应该有 `_PATH` 后缀。 `HOME` 和 `GITHUB_WORKSPACE` 默认变量例外于此约定，因为 "home" 和 "workspace" 一词已经暗示位置。

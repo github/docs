@@ -9,6 +9,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 마켓플레이스
+  - Marketplace
 ---
 

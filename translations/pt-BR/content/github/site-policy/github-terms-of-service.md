@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Obrigado por usar o GitHub! Estamos felizes por você estar aqui. Por favor, leia estes Termos de Serviço com cuidado antes de acessar ou usar o GitHub. Por se tratar de um contrato tão importante entre nós e os usuários, tentamos torná-lo o mais claro possível. Para sua conveniência, apresentamos estes termos num breve resumo não vinculativo, seguido da totalidade dos termos jurídicos.

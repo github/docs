@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - segurança
+  - Security
 ---
 
 As pessoas com permissões de administrador para uma consultoria de segurança podem remover colaboradores da consultoria de segurança.

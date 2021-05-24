@@ -9,15 +9,14 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 恢复代码不应共享或分发。 我们建议使用一个密码管理器保存它们，例如 [LastPass](https://lastpass.com/)、 [1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/)。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. 在“SAML single sign-on”（SAML 单点登录）下，在有关恢复代码的注释中，单击 **Save your recovery codes（保存恢复代码）**。 ![查看和保存恢复代码的链接](/assets/images/help/saml/saml_recovery_codes.png)
 6. 通过单击 **Download（下载）**、**Print（打印）** 或 **Copy（复制）**保存恢复代码。 ![下载、打印或复制恢复代码的按钮](/assets/images/help/saml/saml_recovery_code_options.png)

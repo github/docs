@@ -3,8 +3,8 @@ title: Política GitHub de retirada governamental
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 #### O que é?

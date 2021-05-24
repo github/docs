@@ -12,14 +12,15 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 页面
+  - Pages
+children:
+  - /about-github-pages-and-jekyll
+  - /creating-a-github-pages-site-with-jekyll
+  - /testing-your-github-pages-site-locally-with-jekyll
+  - /adding-content-to-your-github-pages-site-using-jekyll
+  - /setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
+  - /adding-a-theme-to-your-github-pages-site-using-jekyll
+  - /about-jekyll-build-errors-for-github-pages-sites
+  - /troubleshooting-jekyll-build-errors-for-github-pages-sites
 ---
 
-{% link_in_list /about-github-pages-and-jekyll %}
-{% link_in_list /creating-a-github-pages-site-with-jekyll %}
-{% link_in_list /testing-your-github-pages-site-locally-with-jekyll %}
-{% link_in_list /adding-content-to-your-github-pages-site-using-jekyll %}
-{% link_in_list /setting-a-markdown-processor-for-your-github-pages-site-using-jekyll %}
-{% link_in_list /adding-a-theme-to-your-github-pages-site-using-jekyll %}
-{% link_in_list /about-jekyll-build-errors-for-github-pages-sites %}
-{% link_in_list /troubleshooting-jekyll-build-errors-for-github-pages-sites %}

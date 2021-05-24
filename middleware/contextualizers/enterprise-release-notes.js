@@ -76,7 +76,7 @@ async function renderPatchNotes (patch, ctx) {
 
 module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
   // The `/release-notes` sub-path
-  if (!req.path.endsWith('/release-notes')) return next()
+  if (!(req.path.endsWith('/release-notes') || req.path.endsWith('/admin'))) return next()
 
   // ignore paths that don't have an enterprise version number
   if (!patterns.getEnterpriseServerNumber.test(req.path)) return next()
@@ -106,7 +106,11 @@ module.exports = async function enterpriseReleaseNotesContext (req, res, next) {
     const release = req.context.site.data['release-notes'][version.replace(/\./g, '-')]
     if (!release) return ret
     const patches = sortPatchKeys(release, version)
-    return { ...ret, patches }
+
+    const firstPreviousRelease = all[all.findIndex(v => v === version) + 1]
+    const secondPreviousRelease = all[all.findIndex(v => v === firstPreviousRelease) + 1]
+
+    return { ...ret, patches, firstPreviousRelease, secondPreviousRelease }
   })
 
   const releaseIndex = supported.findIndex(release => release === requestedVersion)

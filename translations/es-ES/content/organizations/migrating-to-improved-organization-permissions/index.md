@@ -11,8 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}

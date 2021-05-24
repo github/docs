@@ -1,6 +1,6 @@
 ---
 title: Acerca de la verificación de firma de confirmación
-intro: 'Puedes firmar etiquetas y confirmaciones localmente utilizando GPG o S/MIME. Estas etiquetas o confirmaciones se marcan como verificadas en {% data variables.product.product_name %}, para que otras personas puedan confiar en que los cambios vienen de una fuente confiable.'
+intro: 'Puedes firmar etiquetas y confirmaciones localmente utilizando GPG o S/MIME. Estas etiquetas o confirmaciones se marcan como verificadas en {% data variables.product.product_name %} para que otras personas tengan la confianza de que los cambios vienen de una fuente confiable.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -10,21 +10,41 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 ### Acerca de la verificación de firma de confirmación
 
-Puedes firmar confirmaciones y etiquetas localmente, para que otras personas puedan verificar que tu trabajo viene de una fuente confiable. Si una confirmación o etiqueta tienen una firma GPG o S/MINE que es criptográficamente comprobable, {% data variables.product.product_name %} marca la confirmación o etiqueta como verificada.
+Puedes firmar confirmaciones y etiquetas localmente para darles a otras personas la confianza necesaria sobre el origen de un cambio que hayas realizado. Si una confirmación o etiqueta tiene una firma GPG o S/MIME que se pueda verificar criptográficamente, GitHub la marcará como {% if currentVersion == "free-pro-team@latest" %}"Verificada" o "Verificada parcialmente".{% else %}"Verificada".{% endif %}
 
 ![Confirmación verificada](/assets/images/help/commits/verified-commit.png)
 
-Si una confirmación o etiqueta tiene una firma que no puede ser comprobada, {% data variables.product.product_name %} marca la confirmación o la etiqueta como no verificada.
+{% if currentVersion == "free-pro-team@latest" %}
+Las confirmaciones y etiquetas tienen los siguientes estados de verificación dependiendo de si las habilitaste en modo vigilante. Predeterminadamente, el modo vigilante no está habilitado. Para obtener más información sobre cómo habilitar el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
 
-Los administradores de repositorios pueden implementar la firma de confirmación requerida en una rama para bloquear todas las confirmaciones que no estén firmadas y verificadas. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
+{% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
 
-Puedes comprobar el estado de verificación de tus confirmaciones o etiquetas firmadas en {% data variables.product.product_name %} y ver por qué las firmas de tu confirmación podrían no ser verificadas. Para obtener más información, consulta "[Comprobar la confirmación y el estado de verificación de firma de la etiqueta](/articles/checking-your-commit-and-tag-signature-verification-status)".
+#### Estados predeterminados
+
+| Estado                     | Descripción                                                 |
+| -------------------------- | ----------------------------------------------------------- |
+| **Verificado**             | La confirmación se firmó y la firma se verificó con éxito.  |
+| **Sin verificar**          | La confirmación se firmó pero la firma no pudo verificarse. |
+| Sin estado de verificación | La confirmación no se firmó.                                |
+
+#### Estados con modo vigilante habilitado
+
+{% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
+
+{% else %}
+Si una confirmación o etiqueta tiene una firma que no puede verificarse,
+{% data variables.product.product_name %} marca la confirmación o etiqueta como "Sin verificar".
+{% endif %}
+
+Los administradores de repositorios pueden implementar la firma de confirmación requerida en una rama para bloquear todas las confirmaciones que no estén firmadas y verificadas. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-signed-commits)".
+
+{% data reusables.identity-and-permissions.verification-status-check %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.product_name %} utilizará GPG automáticamente para firmar las confirmaciones que hagas utilizando la interface web de {% data variables.product.product_name %}, con excepción de cuando combinas y fusionas una solicitud de cambios de la cual no seas autor. Opcionalmente, puedes elegir que {% data variables.product.product_name %} firme las confirmaciones que hagas en {% data variables.product.prodname_codespaces %}. Las confirmaciones que firme {% data variables.product.product_name %} tendrán un estado verificado en {% data variables.product.product_name %}. Puedes verificar la firma localmente usando la clave pública disponible en https://github.com/web-flow.gpg. Para obtener más información sobre cómo habilitar la verificación de GPG para tus codespaces, consulta la sección "[Administrar la verificación de GPG para {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)".

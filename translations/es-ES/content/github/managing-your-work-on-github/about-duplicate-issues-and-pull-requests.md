@@ -1,6 +1,6 @@
 ---
 title: Acerca de duplicar propuestas y solicitudes de extracción
-intro: Marca una propuesta o solicitud de extracción como un duplicado para hacer un seguimiento de propuestas o solicitudes de extracción similares en conjunto y eliminar una responsabilidad innecesaria, tanto para los mantenedores como para los colaboradores.
+intro: 'Marca una propuesta o solicitud de extracción como un duplicado para hacer un seguimiento de propuestas o solicitudes de extracción similares en conjunto y eliminar una responsabilidad innecesaria, tanto para los mantenedores como para los colaboradores.'
 redirect_from:
   - /articles/about-duplicate-issues-and-pull-requests
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Para que aparezca un evento cronológico "marcado como duplicado", el usuario que crea el comentario de referencia duplicado debe tener acceso de escritura al repositorio donde crea el comentario.

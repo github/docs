@@ -1,6 +1,6 @@
 ---
 title: 複数のリポジトリにわたってディスカッションを検索する
-intro: '複数のリポジトリ間で作成または参加したすべてのディスカッションに簡単にアクセスできます。'
+intro: 複数のリポジトリ間で作成または参加したすべてのディスカッションに簡単にアクセスできます。
 versions:
   free-pro-team: '*'
 ---
@@ -16,5 +16,5 @@ versions:
 ### 参考リンク
 
 - 「[ディスカッションを検索する](/github/searching-for-information-on-github/searching-discussions)」
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- 「[Discussions について](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」
+- 「[コミュニティの Discussions を管理する](/discussions/managing-discussions-for-your-community)」

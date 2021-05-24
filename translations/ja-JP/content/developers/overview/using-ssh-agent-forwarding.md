@@ -1,6 +1,6 @@
 ---
 title: SSHエージェント転送の利用
-intro: 'サーバーへのデプロイを簡単にするために、SSHエージェント転送をセットアップして、安全にローカルのSSHキーを使うことができます。'
+intro: サーバーへのデプロイを簡単にするために、SSHエージェント転送をセットアップして、安全にローカルのSSHキーを使うことができます。
 redirect_from:
   - /guides/using-ssh-agent-forwarding/
   - /v3/guides/using-ssh-agent-forwarding
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -149,7 +149,7 @@ $ ssh-add <em>yourkey</em>
 
 {% tip %}
 
-Mac OS Xでは、再起動時に`ssh-agent`が起動し直されると、キーは「忘れられて」しまいます。 ただし、以下のコマンドでキーチェーンにSSHキーをインポートできます。
+On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. ただし、以下のコマンドでキーチェーンにSSHキーをインポートできます。
 
 ```shell
 $ ssh-add -K <em>yourkey</em>

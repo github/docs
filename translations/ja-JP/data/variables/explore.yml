@@ -1,7 +1,7 @@
 ---
 explore_github: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Explore GitHub](https://github.com/explore){% else %}Explore GitHub (`https://[hostname]/explore`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[GitHub 探訪](https://github.com/explore){% else %}GitHub 探訪 (`https://[hostname]/explore`){% endif %}
 your_stars_page: >-
-  {% if currentVersion == "free-pro-team@latest" %}[stars page](https://github.com/stars){% else %}stars page (`https://[hostname]/stars`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Star ページ](https://github.com/stars){% else %}Star ページ(`https://[hostname]/stars`){% endif %}
 trending_page: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Trending page](https://github.com/trending){% else %}Trending page (`https://[hostname]/trending`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[トレンドページ](https://github.com/trending){% else %}トレンドページ (`https://[hostname]/trending`){% endif %}

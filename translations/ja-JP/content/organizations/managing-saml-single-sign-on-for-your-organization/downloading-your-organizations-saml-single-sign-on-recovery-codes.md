@@ -9,15 +9,14 @@ product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 リカバリコードは共有や配布しないでください。 [LastPass](https://lastpass.com/)、[1Password](https://1password.com/)、[Keeper](https://keepersecurity.com/) などのパスワードマネージャで保存することをおすすめします。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. [SAML single sign-on] の下にあるリカバリコードに関する注意書きの [**Save your recovery codes**] をクリックします。 ![リカバリコードを表示し保存するリンク](/assets/images/help/saml/saml_recovery_codes.png)
 6. [**Download**]、[**Print**]、または [**Copy**] をクリックしてリカバリコードを保存します。 ![リカバリコードをダウンロード、印刷、コピーするボタン](/assets/images/help/saml/saml_recovery_code_options.png)

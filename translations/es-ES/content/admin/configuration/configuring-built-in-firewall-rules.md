@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 ### Acerca del firewell de {% data variables.product.product_location %}

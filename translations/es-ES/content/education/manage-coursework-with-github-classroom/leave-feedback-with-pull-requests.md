@@ -1,7 +1,7 @@
 ---
 title: Deja retroalimentación con solicitudes de cambios
 intro: Puedes dejar retroalimentación para tus alumnos en una solicitud de cambio especial dentro del repositorio de cada tarea.
-permissions: Las personas con permisos de lectura en un repositorio pueden dejar retroalimentación en una solicitud de cambios del repositorio.
+permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
 versions:
   free-pro-team: '*'
 redirect_from:

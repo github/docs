@@ -25,7 +25,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, graphql, meta, rendering, routing, unit]
+        # The same array lives in test-windows.yml, so make any updates there too.
+        test-group: [content, graphql, meta, rendering, routing, unit, linting]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
@@ -38,7 +39,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Get npm cache directory
         id: npm-cache
@@ -70,4 +71,4 @@ jobs:
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
+          NODE_OPTIONS: '--max_old_space_size=8192'

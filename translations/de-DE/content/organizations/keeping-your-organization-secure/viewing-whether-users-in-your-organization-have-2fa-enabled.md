@@ -1,5 +1,5 @@
 ---
-title: Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben
+title: 'Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben'
 intro: 'Du kannst anzeigen, welche Organisationsinhaber, Mitglieder und externen Mitarbeiter die Zwei-Faktor-Authentifizierung aktiviert haben.'
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}

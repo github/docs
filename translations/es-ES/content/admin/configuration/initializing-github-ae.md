@@ -3,6 +3,9 @@ title: Inicializar GitHub AE
 intro: 'Para poner a tu empresa lista para operar, puedes completar la configuración inicial de {% data variables.product.product_name %}.'
 versions:
   github-ae: '*'
+type: how_to
+topics:
+  - Enterprise
 ---
 
 ### Acerca de la inicialización
@@ -79,11 +82,11 @@ Una vez que se inicialice, puedes reconfigurar cualquier ajuste después del pro
 1. A la derecha de "Configurar ajustes de correo electrónico", haz clic en **Configurar**. ![Botón de "Configurar" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-email-configure.png)
 2. Selecciona **Activar correo electrónico**. Esto habilitará el correo electrónico tanto entrante como saliente, sin embargo, para que funcione el entrante, también necesitarás configurar tus ajustes de DNS. Para obtener más información, consulta la sección "[Configurar los ajustes de DNS y cortafuegos para permitir los correos electrónicos entrantes](/admin/configuration/configuring-email-for-notifications#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Casilla de "Habilitar" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-enable-email-configure.png)
 3. Completa tus ajustes de servidor de correo electrónico:
-  - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
-  - En el campo **Puerto**, escribe el puerto que usa tu servidor SMTP para enviar correo electrónico.
-  - En el campo **Dominio**, escribe el nombre de dominio que enviará tu servidor SMTP con una respuesta HELO, de ser el caso.
-  - En el desplegable **Autenticación**, elige el tipo de cifrado usado por tu servidor SMTP.
-  - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
+    - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
+    - En el campo **Puerto**, escribe el puerto que usa tu servidor SMTP para enviar correo electrónico.
+    - En el campo **Dominio**, escribe el nombre de dominio que enviará tu servidor SMTP con una respuesta HELO, de ser el caso.
+    - En el desplegable **Autenticación**, elige el tipo de cifrado usado por tu servidor SMTP.
+    - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
 
 4. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de "Descartar" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-discard-email.png)
 5. Haz clic en **Probar la configuración de correo electrónico**. ![Botón de "Probar la configuración de correo electrónico" para la configuración de ajustes de correo electrónico](/assets/images/enterprise/configuration/ae-test-email.png)

@@ -1,1 +1,1 @@
-A Git branch or tag is created. For more information, see the "[Git data](/rest/reference/git)" REST API.
+Gitブランチもしくはタグが作成されました。 詳しい情報については「[Gitデータ](/rest/reference/git)」 REST APIを参照してください。

@@ -1,7 +1,6 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{% data variables.product.prodname_secret_scanning_caps %}は{% if currentVersion == "free-pro-team@latest" %}パブリックリポジトリ及び{% data variables.product.prodname_advanced_security %}ライセンスを持つOrganizationが所有するプライベートリポジトリで{% else %}{% data variables.product.prodname_advanced_security %}ライセンスを持っていれば{% endif %}利用できます。 {% data reusables.advanced-security.more-info-ghas %}
-{% endif %}
-
-{% if currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_secret_scanning_caps %}は、すべてのパブリック及びOrganizationが所有する{% data variables.product.prodname_GH_advanced_security %}が有効化されたプライベートリポジトリで利用できます。
+{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_secret_scanning_caps %}は、Organizationが所有するリポジトリで{% data variables.product.prodname_GH_advanced_security %}が有効化されていれば利用できます。
+{%- elsif currentVersion == "github-ae@latest" %}
 {% data variables.product.prodname_secret_scanning_caps %}は、ベータリリースの間は無料である{% data variables.product.prodname_GH_advanced_security %}の一部として利用できます。
-{% endif %}
+{%- else %}
+{% data variables.product.prodname_secret_scanning_caps %}は、{% data variables.product.prodname_GH_advanced_security %}のライセンスを持っているなら利用できます。{% endif %} {% data reusables.advanced-security.more-info-ghas %}

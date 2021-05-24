@@ -6,8 +6,11 @@ redirect_from:
 versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Actions
+  - Enterprise
+  - Policies
 ---
 
 {% data reusables.actions.ae-beta %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -18,7 +18,7 @@ topics:
 4. Choose one of these options:
     - To create a new milestone, click **New Milestone**. ![New milestone button](/assets/images/help/repository/new-milestone.png)
     - To edit a milestone, next to the milestone you want to edit, click **Edit**. ![Edit milestone option](/assets/images/help/repository/edit-milestone.png)
-5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**.
+5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
 
 ### Deleting milestones
 

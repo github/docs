@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 オーナー、コラボレータ、以前のコントリビューター、および書き込みアクセスを持つユーザは、Issue やプルリクエスト、および Issue、プルリクエスト、コミットについてのコメントをレポートできます。 {% data variables.product.prodname_marketplace %} のアプリケーションについては誰でもレポートできます。

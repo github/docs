@@ -7,8 +7,11 @@ redirect_from:
 versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
+type: overview
 topics:
-  - Unternehmen
+  - Accounts
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Informationen zu Unternehmenskonten auf {% data variables.product.product_name %}

@@ -1,13 +1,13 @@
 ---
 title: 取消阻止用户对组织的访问
-intro: '组织所有者可以取消阻止以前阻止的用户，恢复其对组织仓库的访问权限。'
+intro: 组织所有者可以取消阻止以前阻止的用户，恢复其对组织仓库的访问权限。
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 取消阻止用户对组织的访问后，他们将能够为组织的仓库做出贡献。
@@ -28,9 +28,9 @@ topics:
 
 ### 在组织设置中取消阻止用户
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. 在“Blocked users（已阻止的用户）”下您想要取消阻止的用户旁边，单击 **Unblock（取消阻止）**。 ![取消阻止用户按钮](/assets/images/help/organizations/org-unblock-user-button.png)
 

@@ -2,13 +2,13 @@
 title: Administrar las organizaciones que no te pertenecen en tu cuenta empresarial
 intro: Puedes convertirte en propietario de una organización en tu cuenta empresarial si ésta no tiene propietarios actualmente.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
-permissions: Los propietarios de las empresas pueden adminsitrar organizaciones sin propietario en una cuenta empresarial.
+permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Si habilitas el desaprovisionamiento de usuarios para administrar las membrecías organizacionales en tu cuenta empresarial, podrías terminar teniendo una organización que no tiene propietarios.  Para obtener más información, consulta la sección "[Acerca del aprovisionamiento de usuarios para las organizaciones en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account)".

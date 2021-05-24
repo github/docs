@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los propietarios de la organización pueden administrar la visualización de los nombres de los miembros en una organización.
@@ -20,9 +20,8 @@ Los propietarios de la organización pueden administrar la visualización de los
 
 Cada miembro de la organización elige su propio nombre de perfil en sus configuraciones. Para obtener más información, consulta la sección "[Personalizar tu perfil](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#changing-your-profile-name)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Dentro de "Admin repository permissions" (Permisos del administrador del repositorio), selecciona o quita la marca de selección **Allow members to see comment author's profile name in private repositories (Permitir que los miembros vean el nombre de perfil del autor del comentario en los repositorios privados)**. ![Casilla de verificación para permitir que los miembros vean el nombre completo del autor del comentario en los repositorios privados](/assets/images/help/organizations/allow-members-to-view-full-names.png)
 6. Haz clic en **Save ** (guardar).

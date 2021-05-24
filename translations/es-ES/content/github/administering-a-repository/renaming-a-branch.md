@@ -1,21 +1,23 @@
 ---
 title: Renombrar una rama
 intro: Puedes cambiar el nombre de una rama en un repositorio.
-permissions: Las personas con permisos de escritura en un repositorio pueden renombrar las ramas de éste. Las personas con permisos administrartivos pueden renombrar la rama predeterminada.
+permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de renombrar las ramas
 
 Puedes renombrar una rama en un repositorio de {% data variables.product.product_location %}. Para obtener más información sobre cómo renombrar ramas, consulta la sección "[Acerca de las ramas](/github/collaborating-with-issues-and-pull-requests/about-branches)".
 
-When you rename a branch on {% data variables.product.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
+Cuando renombras una rama en {% data variables.product.product_location %}, cualquier URL que contega el nombre de la rama antigua se redireccionará automáticamente a la URL equivalente para la rama que se renombró. También se actualizan las políticas de protección de rama, así como la rama base para las solicitudes de cambios abriertas (incluyendo aquellas para las bifurcaciones) y para los borradores de lanzamientos. Después de que se completa el renombramiento, {% data variables.product.prodname_dotcom %} proporciona instrucciones en la página principal del repositorio y dirige a los colaboradores a actualizar sus ambientes locales de Git.
 
-Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
+Aunque las URL de archivo se redirigen automáticamente, las URL de archivo sin procesar no se redirigirán. Además, {% data variables.product.prodname_dotcom %} no realiza ninguna redirección si los usuarios realizan un `git pull` para el nombre de rama anterior.
+
+{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
 
 ### Renombrar una rama
 
@@ -35,4 +37,10 @@ Desde el clon local del repositorio en una computadora, ejecuta los siguientes c
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
 $ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git remote set-head origin -a
+```
+
+Opcionalmente, ejecuta el siguiente comando para eliminar las referencias de rastreo al nombre de la rama antigua.
+```
+$ git remote prune origin
 ```

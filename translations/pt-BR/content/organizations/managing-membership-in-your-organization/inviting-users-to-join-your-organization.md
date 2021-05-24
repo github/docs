@@ -1,7 +1,7 @@
 ---
 title: Convidar usuários para sua organização
 intro: 'É possível convidar qualquer pessoa para integrar sua organização usando o nome de usuário {% data variables.product.product_name %} ou endereço de e-mail dela.'
-permissions: Os proprietários da organização podem convidar usuários para participar de uma organização.
+permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization/
   - /articles/inviting-users-to-join-your-organization
@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}

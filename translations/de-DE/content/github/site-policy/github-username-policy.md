@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub-Kontonamen sind nach der Reihenfolge ihres Eingangs verfügbar und können nicht reserviert werden.

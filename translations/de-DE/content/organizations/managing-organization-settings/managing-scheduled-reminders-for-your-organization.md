@@ -1,13 +1,13 @@
 ---
 title: Geplante Erinnerungen für Deine Organisation verwalten
-intro: Du kannst in Slack Erinnerungen für alle Pull Requests erhalten, für die Teams in Deiner Organisation zum Review angefordert wurden.
+intro: 'Du kannst in Slack Erinnerungen für alle Pull Requests erhalten, für die Teams in Deiner Organisation zum Review angefordert wurden.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über geplante Erinnerungen für Pull Requests
@@ -19,9 +19,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Eine geplante Erinnerung für eine Organisation erstellen
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.create-reminder %}
 
 ### Geplante Erinnerungen für eine Organisation verwalten
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Organisationsinhaber können Erinnerungen für eines oder mehrere Teams in ihrer
 {% data reusables.reminders.update-buttons %}
 
 ### Geplante Erinnerungen für eine Organisation löschen
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

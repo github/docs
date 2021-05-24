@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
-**Note:** GPG does not come installed by default on OS X or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
+**Note:** GPG does not come installed by default on macOS or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
 
 {% endnote %}
 

@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
   enterprise-server: '>2.21'
+type: how_to
 topics:
-  - empresa
+  - Clustering
+  - Enterprise
+  - High availability
+  - Infrastructure
 ---
 
 ### Acerca de la conmutación por error a tu clúster de réplica

@@ -2,10 +2,13 @@
 title: Permisos que requieren las Github Apps
 intro: 'Puedes encontrar los permisos que requiere cada terminal compatible con {% data variables.product.prodname_github_app %}.'
 redirect_from:
-  - /v3/apps/permissions ---
+  - /v3/apps/permissions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+topics:
+  - API
 ---
 
 ### Acerca de los permisos de las {% data variables.product.prodname_github_app %}

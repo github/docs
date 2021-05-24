@@ -1,6 +1,6 @@
 <!doctype html>
 {% assign error = '404' %}
-<html lang="{{currentLanguage}}">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex error-404">
@@ -17,10 +17,6 @@
 
           <div class="lead-mktg mb-5">
             {% data ui.errors.page_doesnt_exist %}
-          </div>
-
-          <div class="col-md-8 col-lg-6 mx-auto">
-            <img src="/assets/images/site/waldocat.png" alt="waldocat">
           </div>
 
           <div class="col-lg-12 mt-6">

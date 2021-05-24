@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Solicitar aprobación de la organización para una {% data variables.product.prodname_oauth_app %} que ya has autorizado para tu cuenta personal

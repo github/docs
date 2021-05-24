@@ -7,9 +7,9 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 安全
+  - Security
+children:
+  - /about-securing-your-repository
+  - /adding-a-security-policy-to-your-repository
 ---
-
 ### 目录
-
-{% link_in_list /about-securing-your-repository %}

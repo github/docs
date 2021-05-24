@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Du [SAML Single Sign-On in Deiner Organisation erzwingst](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), werden alle Mitglieder, die sich nicht über Deinen Identitätsanbieter (IdP) authentifiziert haben, aus der Organisation entfernt und über diese Entfernung benachrichtigt.

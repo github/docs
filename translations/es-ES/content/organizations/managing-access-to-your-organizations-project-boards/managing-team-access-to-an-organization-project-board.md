@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% warning %}
@@ -49,4 +49,4 @@ Si un equipo hereda el acceso a un tablero de proyecto desde un equipo padre, de
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Encima de la conversación del equipo, haz clic en {% octicon "project" aria-label="The Projects icon" %} **Projects (Proyectos)**. ![La pestaña de repositorios del equipo](/assets/images/help/organizations/team-project-board-button.png)
-5. Para cambiar los niveles de permiso, utiliza el menú desplegable que se encuentra al costado derecho del tablero de proyecto que quieres actualizar. Para elminar un tablero de proyecto, da clic en **{% octicon "trashcan" aria-label="The trashcan icon" %}**. ![Botón para eliminar un tablero de proyecto de la papelera del equipo](/assets/images/help/organizations/trash-button.png)
+5. Para cambiar los niveles de permiso, utiliza el menú desplegable que se encuentra al costado derecho del tablero de proyecto que quieres actualizar. Para elminar un tablero de proyecto, da clic en **{% octicon "trash" aria-label="The trash icon" %}**. ![Botón para eliminar un tablero de proyecto de la papelera del equipo](/assets/images/help/organizations/trash-button.png)

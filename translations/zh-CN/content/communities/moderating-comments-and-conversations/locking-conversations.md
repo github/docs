@@ -1,6 +1,6 @@
 ---
 title: 锁定对话
-intro: '仓库所有者和协作者以及对仓库具有写入权限的人员，能够永久或临时锁定关于议题、拉取请求和提交的对话，以缓和激烈的交互。'
+intro: 仓库所有者和协作者以及对仓库具有写入权限的人员，能够永久或临时锁定关于议题、拉取请求和提交的对话，以缓和激烈的交互。
 redirect_from:
   - /articles/locking-conversations
   - /github/building-a-strong-community/locking-conversations
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 当整个对话没有建设性或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %} 时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。

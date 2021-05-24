@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.

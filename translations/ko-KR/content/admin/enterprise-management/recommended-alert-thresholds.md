@@ -8,8 +8,13 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Infrastructure
+  - Monitoring
+  - Performance
+  - Storage
 ---
 
 ### Monitoring storage

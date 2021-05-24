@@ -5,8 +5,13 @@ redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - 2fa
+  - Enterprise
+  - Organizations
+  - Policies
+  - Security
 ---
 
 When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organization administrators can require members to have two-factor authentication enabled.

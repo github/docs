@@ -21,7 +21,7 @@ Para obtener información sobre cómo crear vínculos, consulta "[Sintaxis de es
 
 ### Propuestas y solicitudes de extracción
 
-Dentro de las conversaciones en {% data variables.product.product_name %}, las referencias a las propuestas y solicitudes de extracción se convierten automáticamente en vínculos acortados. Para obtener más información, consulta "[Acerca de las conversaciones en {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)".
+Dentro de las conversaciones en {% data variables.product.product_name %}, las referencias a las propuestas y solicitudes de extracción se convierten automáticamente en vínculos acortados.
 
 {% note %}
 

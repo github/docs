@@ -7,7 +7,7 @@ module.exports = function earlyAccessContext (req, res, next) {
 
   // Get a list of all hidden pages per version
   const earlyAccessPageLinks = uniq(Object.values(req.context.pages)
-    .filter(page => page.hidden && page.relativePath.startsWith('early-access') && page.relativePath !== 'early-access/index.md')
+    .filter(page => page.hidden && page.relativePath.startsWith('early-access') && !page.relativePath.endsWith('index.md'))
     .map(page => page.permalinks)
     .flat())
     // Get links for the current version

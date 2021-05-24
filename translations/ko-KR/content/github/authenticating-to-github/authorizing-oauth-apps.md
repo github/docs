@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identity
-  - access management
+  - Identity
+  - Access management
 ---
 
 When an {% data variables.product.prodname_oauth_app %} wants to identify you by your {% data variables.product.product_name %} account, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.

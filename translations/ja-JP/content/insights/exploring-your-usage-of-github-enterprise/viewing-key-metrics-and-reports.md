@@ -1,10 +1,9 @@
 ---
 title: 主要なメトリクスとレポートの表示
 intro: データを通じてソフトウェアのデリバリのプロセスを理解し、改善できるよう、主要なメトリクスとレポートの表示とフィルタリングができます。
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
-permissions: '{% data variables.product.prodname_insights %}にアクセスできる人は、主要なメトリクスとレポートを表示できます。'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'
 versions:
   enterprise-server: '*'
 ---

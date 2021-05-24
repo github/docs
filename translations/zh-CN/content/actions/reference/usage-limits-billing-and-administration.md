@@ -1,5 +1,5 @@
 ---
-title: '使用限制、计费和管理'
+title: 使用限制、计费和管理
 intro: '{% data variables.product.prodname_actions %} 工作流程有使用限制。 使用费适用于超出仓库免费分钟数和存储空间量的仓库。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 计费，帐单
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}

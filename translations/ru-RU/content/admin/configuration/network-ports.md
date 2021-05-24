@@ -10,8 +10,12 @@ redirect_from:
 intro: 'Open network ports selectively based on the network services you need to expose for administrators, end users, and email support.'
 versions:
   enterprise-server: '*'
+type: reference
 topics:
-  - корпоративный
+  - Enterprise
+  - Infrastructure
+  - Networking
+  - Security
 ---
 
 ### Administrative ports

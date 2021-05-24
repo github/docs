@@ -1,13 +1,13 @@
 ---
 title: Eine Sicherheitsrichtlinie zum Repository hinzufügen
-intro: Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.
+intro: 'Indem Du eine Sicherheitsrichtlinie zu Deinem Repository hinzufügst, kannst Du festlegen, wie Sicherheitslücken in Deinem Projekt verantwortungsvoll gemeldet werden sollen.'
 redirect_from:
   - /articles/adding-a-security-policy-to-your-repository
   - /github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 ### Informationen zu Sicherheitsrichtlinien

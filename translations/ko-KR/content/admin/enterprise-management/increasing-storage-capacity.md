@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Infrastructure
+  - Performance
+  - Storage
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
@@ -31,7 +35,10 @@ As more users join {% data variables.product.product_location %}, you may need t
 1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
 3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation.
+4. Reboot the appliance to detect the new storage allocation:
+  ```shell
+  $ sudo reboot
+  ```
 5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
   ```shell
   $ ghe-storage-extend
@@ -40,7 +47,10 @@ As more users join {% data variables.product.product_location %}, you may need t
 ### Increasing the root partition size using a new appliance
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance.
+2. Shut down the current appliance:
+  ```shell
+  $ sudo poweroff
+  ```
 3. Detach the data disk from the current appliance using your virtualization platform's tools.
 4. Attach the data disk to the new appliance with the larger root disk.
 
@@ -57,6 +67,9 @@ As more users join {% data variables.product.product_location %}, you may need t
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Shut down the appliance.
+4. Shut down the appliance:
+  ```shell
+  $ sudo poweroff
+  ```
 5. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
 6. Start the appliance.

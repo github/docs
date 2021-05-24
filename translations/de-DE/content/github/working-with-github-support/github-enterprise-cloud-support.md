@@ -8,7 +8,7 @@ intro: '{% data variables.product.prodname_ghe_cloud %} umfasst eine angestrebte
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}

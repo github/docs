@@ -38,7 +38,7 @@ if (!(Object.keys(allVersions).includes(options.version))) {
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.safeLoad(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.load(fs.readFileSync(releaseCandidateYaml, 'utf8'))
 
 // Create or remove the variable
 if (options.action === 'create') {

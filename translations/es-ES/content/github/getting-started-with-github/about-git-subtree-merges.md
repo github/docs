@@ -12,6 +12,8 @@ versions:
   github-ae: '*'
 ---
 
+### About subtree merges
+
 Habitualmente, una fusión de subárbol se usa para contener un repositorio dentro de otro repositorio. El "subrepositorio" se almacena en una carpeta del repositorio principal.
 
 La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Haremos lo siguiente:

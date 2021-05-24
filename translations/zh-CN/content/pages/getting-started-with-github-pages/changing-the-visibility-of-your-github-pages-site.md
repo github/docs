@@ -1,10 +1,10 @@
 ---
 title: 更改 GitHub Pages 站点的可见性
-intro: '您可以通过公开或私下发布站点来管理项目站点的访问控制。'
+intro: 您可以通过公开或私下发布站点来管理项目站点的访问控制。
 product: '{% data reusables.gated-features.private-pages %}'
 versions:
   free-pro-team: '*'
-permissions: 拥有仓库管理员权限的人可以更改 {% data variables.product.prodname_pages %} 站点的可见性。
+permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 ---

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions
@@ -120,6 +120,9 @@ _Suche_
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write)
+{% endif %}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
@@ -159,6 +162,9 @@ _Suche_
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
 - [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
 {% endif %}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
@@ -677,7 +683,10 @@ _Teams_
 - [`GET /repos/:owner/:repo/pages/builds`](/v3/repos/pages/#list-github-pages-builds) (:read)
 - [`POST /repos/:owner/:repo/pages/builds`](/v3/repos/pages/#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/v3/repos/pages/#get-github-pages-build) (:read)
-- [`GET /repos/:owner/:repo/pages/builds/latest`](/v3/repos/pages/#get-latest-pages-build) (:read)
+- [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/repos#get-latest-pages-build) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
+{% endif %}
 
 ### Permission on "pull requests"
 
@@ -767,6 +776,10 @@ _Reviews_
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
 
+### Permission on "profile"
+
+- [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
+
 ### Permission on "repository hooks"
 
 - [`GET /repos/:owner/:repo/hooks`](/rest/reference/repos#list-repository-webhooks) (:read)
@@ -780,10 +793,10 @@ _Reviews_
 {% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "repository pre receive hooks"
 
-- [`GET /repos/:owner/:repo/pre-receive-hooks`](/v3/enterprise-admin/repo_pre_receive_hooks/#list-pre-receive-hooks-for-a-repository) (:read)
-- [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#get-a-pre-receive-hook-for-a-repository) (:read)
-- [`PATCH /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#update-pre-receive-hook-enforcement-for-a-repository) (:write)
-- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/v3/enterprise-admin/repo_pre_receive_hooks/#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
+- [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (:read)
+- [`GET /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#get-a-pre-receive-hook-for-a-repository) (:read)
+- [`PATCH /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#update-pre-receive-hook-enforcement-for-a-repository) (:write)
+- [`DELETE /repos/:owner/:repo/pre-receive-hooks/:pre_receive_hook_id`](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-a-repository) (:write)
 {% endif %}
 
 ### Permission on "repository projects"
@@ -883,9 +896,9 @@ _Teams_
 
 ### Permission on "starring"
 
-- [`GET /user/starred/:owner/:repo`](/v3/activity/starring/#check-if-a-repository-is-starred-by-the-authenticated-user) (:read)
-- [`PUT /user/starred/:owner/:repo`](/v3/activity/starring/#star-a-repository-for-the-authenticated-user) (:write)
-- [`DELETE /user/starred/:owner/:repo`](/v3/activity/starring/#unstar-a-repository-for-the-authenticated-user) (:write)
+- [`GET /user/starred/:owner/:repo`](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user) (:read)
+- [`PUT /user/starred/:owner/:repo`](/rest/reference/activity#star-a-repository-for-the-authenticated-user) (:write)
+- [`DELETE /user/starred/:owner/:repo`](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user) (:write)
 
 ### Permission on "statuses"
 

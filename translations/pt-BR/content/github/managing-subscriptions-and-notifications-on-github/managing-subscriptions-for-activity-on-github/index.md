@@ -1,0 +1,14 @@
+---
+title: Gerenciando assinaturas para atividade no GitHub
+intro: 'Para manter fluxos de trabalho de notificação sustentáveis, entenda e reveja regularmente suas assinaturas.'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.21'
+  github-ae: '*'
+topics:
+  - Notifications
+children:
+  - /viewing-your-subscriptions
+  - /managing-your-subscriptions
+---
+

@@ -1,14 +1,14 @@
 ---
 title: 与组织共享工作流程
 shortTitle: 与组织共享工作流程
-intro: '了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。'
+intro: 了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'how_to'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -21,13 +21,13 @@ type: 'how_to'
 
 ### 创建工作流程模板
 
-对组织的 `.github` 仓库具有写入权限的用户可以创建工作流程模板。 然后，有权限创建工作流程的组织成员便可使用这些模板。 工作流程模板可用于在组织的公共仓库中创建新的工作流程；要使用模板在私有仓库中创建工作流程，该组织必须是企业或 GitHub One 计划的一部分。
+对组织的 `.github` 仓库具有写入权限的用户可以创建工作流程模板。 然后，有权限创建工作流程的组织成员便可使用这些模板。 工作流程模板可用于在组织的公共仓库中创建新的工作流程；要使用模板在私有仓库中创建工作流程，该组织必须是企业计划的一部分。
 
 此过程展示如何创建工作流程模板和元数据文件。 元数据文件描述在用户新建工作流程时如何向其显示模板。
 
 1. 如果组织中没有名为 `.github` 的公共仓库，请新建一个。
-1. 创建一个名为 `workflow-templates` 的目录。
-1. 在 `workflow-templates` 目录中创建新的工作流程文件。
+2. 创建一个名为 `workflow-templates` 的目录。
+3. 在 `workflow-templates` 目录中创建新的工作流程文件。
 
    如果需要引用仓库的默认分支，可以使用 `$default-branch` 占位符。 使用模板创建工作流程时，占位符将自动替换为仓库默认分支的名称。
 
@@ -52,7 +52,7 @@ type: 'how_to'
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-1. 在 `workflow-templates` 目录中创建元数据文件。 元数据文件必须与工作流程文件同名，但扩展名不是 `.yml`，而必须附加 `.properties.json`。 例如，下面这个名为 `octo-organization-ci.properties.json` 的文件包含名为 `octo-organization-ci.yml` 的工作流程文件的元数据：
+4. 在 `workflow-templates` 目录中创建元数据文件。 元数据文件必须与工作流程文件同名，但扩展名不是 `.yml`，而必须附加 `.properties.json`。 例如，下面这个名为 `octo-organization-ci.properties.json` 的文件包含名为 `octo-organization-ci.yml` 的工作流程文件的元数据：
    ```yaml
    {
        "name": "Octo Organization Workflow",

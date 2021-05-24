@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Você pode adicionar as logos {% data variables.product.prodname_dotcom %} em seu website ou em aplicativos de terceiros em alguns casos. Para mais informações e diretrizes específicas sobre o uso da logomarca, visite a [{% data variables.product.prodname_dotcom %} página de Logos e Usos](https://github.com/logos).

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 ### 安全地设置仓库
@@ -22,11 +22,13 @@ topics:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### 适用于所有仓库
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == 'github-ae@next' %}
 - **安全策略**
 
-  让人们能够轻松地秘密报告他们在仓库中发现的安全漏洞。 更多信息请参阅“[添加安全政策到仓库](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)”。
+  Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. 更多信息请参阅“[添加安全政策到仓库](/code-security/getting-started/adding-a-security-policy-to-your-repository)”。
+{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 - **安全通告**
 
   私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励他们升级。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
@@ -78,7 +80,7 @@ topics:
 * 您的仓库依赖的生态系统和包
 * 依赖于您的仓库的仓库和包
 
-必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_alerts %}。 {% if currentversion == "free pro-team@latest" %}启用依赖关系图也会允许 {% data variables.product.prodname_dotcom %} 运行拉取请求的依赖关系审查。{% endif %}
+必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_alerts %}。 {% if currentVersion == "free pro-team@latest" %}启用依赖关系图也会允许 {% data variables.product.prodname_dotcom %} 运行拉取请求的依赖关系审查。{% endif %}
 
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}

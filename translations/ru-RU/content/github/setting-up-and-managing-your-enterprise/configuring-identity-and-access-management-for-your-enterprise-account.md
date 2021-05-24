@@ -6,6 +6,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 

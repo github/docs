@@ -2,13 +2,15 @@
 title: Fazer o upload de arquivo SARIF para o GitHub
 shortTitle: Fazer o upload de um arquivo SARIF
 intro: '{% data reusables.code-scanning.you-can-upload-third-party-analysis %}'
-permissions: 'As pessoas com permissões de gravação em um repositório podem fazer upload de dados {% data variables.product.prodname_code_scanning %} de uma ferramenta de terceiros.'
+permissions: 'People with write permissions to a repository can upload {% data variables.product.prodname_code_scanning %} data generated outside {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - segurança
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -19,11 +21,11 @@ O {% data variables.product.prodname_dotcom %} cria alertas de {% data variables
 
 Você pode gerar arquivos SARIF usando muitas ferramentas de teste de segurança de análise estática, incluindo {% data variables.product.prodname_codeql %}. Para fazer o upload dos resultados das ferramentas de terceiros, você deve usar o formato Intercâmbio de Resultados de Análise Estática (SARIF) 2.1.0. Para obter mais informações, consulte "[Suporte SARIF para {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)".
 
-Você pode fazer o upload dos resultados usando {% data variables.product.prodname_actions %}{% if currentVersion == "enterprise-server@2. 2" %} (disponível se sua organização participa do programa beta){% endif %}, a API de {% data variables.product.prodname_code_scanning %} ou {% data variables.product.prodname_codeql_runner %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
+Você pode fazer o upload dos resultados usando {% data variables.product.prodname_actions %} (disponível se a sua organização estiver participando do programa beta), a API de {% data variables.product.prodname_code_scanning %} ou {% data variables.product.prodname_codeql_runner %}. O melhor método de upload dependerá de como você gera o arquivo SARIF. Por exemplo, se você usar:
 
 - {% data variables.product.prodname_actions %} para executar a ação {% data variables.product.prodname_codeql %}, não haverá nenhuma ação adicional necessária. A ação {% data variables.product.prodname_codeql %} faz o upload do arquivo SARIF automaticamente quando ele conclui a análise.
 - O arquivo SARIF pode ser gerado a partir de uma ferramenta de análise compatível com o SARIF, que você executa no mesmo fluxo de trabalho de {% data variables.product.prodname_actions %} usado para fazer o upload do arquivo.
-- {% data variables.product.prodname_dotcom %} exibirá alertas de {% data variables.product.prodname_code_scanning %} do arquivo SARIF carregado em seu repositório. If you block the automatic upload, when you are ready to upload results you can use the `upload` command (for more information, see "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
+- {% data variables.product.prodname_dotcom %} exibirá alertas de {% data variables.product.prodname_code_scanning %} do arquivo SARIF carregado em seu repositório. Se você bloquear o envio automático, quando você estiver pronto para enviar resultados, você poderá usar o comando `upload` (para mais informações, consulte "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
 - Uma ferramenta que gera resultados como um artefato fora do seu repositório, você pode usar a API de {% data variables.product.prodname_code_scanning %} para fazer o upload do arquivo (para mais informações, consulte "[Enviar uma análise como dados do SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)").
 
 {% data reusables.code-scanning.not-available %}
@@ -36,7 +38,7 @@ O seu fluxo de trabalho precisará usar a ação `upload-sarif`, que tem parâme
 
 A ação `upload-sarif` pode ser configurada para ser executada quando ocorrem o evento `push` e `agendado`. Para obter mais informações sobre eventos do {% data variables.product.prodname_actions %}, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows)".
 
-Se o seu arquivo SARIF não incluir `partialFingerprints`, a ação `upload-sarif` calculará o campo `parcialFingerprints` para você e tentará evitar alertas duplicados. O {% data variables.product.prodname_dotcom %} só pode criar `partialFingerprints` quando o repositório contiver o arquivo SARIF e o código-fonte usado na análise estática. For more information about preventing duplicate alerts, see "[SARIF support for {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)."
+Se o seu arquivo SARIF não incluir `partialFingerprints`, a ação `upload-sarif` calculará o campo `parcialFingerprints` para você e tentará evitar alertas duplicados. O {% data variables.product.prodname_dotcom %} só pode criar `partialFingerprints` quando o repositório contiver o arquivo SARIF e o código-fonte usado na análise estática. Para obter mais informações sobre a prevenção de alertas duplicados, consulte "[suporte SARIF para {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning#preventing-duplicate-alerts-using-fingerprints)".
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
@@ -58,20 +60,22 @@ name: "Upload SARIF"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 5'
+    - cron: '45 15 * * 5'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    # This step checks out a copy of your repository.
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      # This step checks out a copy of your repository.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 #### Exemplo de fluxo de trabalho que executa a ferramenta de análise ESLint
@@ -82,7 +86,7 @@ Este exemplo de fluxo de trabalho é executado sempre que os commits são carreg
 
 O fluxo de trabalho mostra um exemplo de execução da ferramenta de análise estática ESLint como uma etapa de um fluxo de trabalho. A etapa `Executar ESLint` executa a ferramenta ESLint e produz o arquivo `results.sarif`. Em seguida, o fluxo de trabalho faz o upload do arquivo `results.sarif` para {% data variables.product.prodname_dotcom %} usando a ação `upload-sarif`. Para obter mais informações sobre a criação de um arquivo de fluxo de trabalho, consulte "[Introdução ao GitHub Actions](/actions/learn-github-actions/introduction-to-github-actions)".
 
-```yml
+```yaml
 name: "ESLint analysis"
 
 # Run workflow each time code is pushed to your repository and on a schedule.
@@ -90,28 +94,31 @@ name: "ESLint analysis"
 on:
   push:
   schedule:
-  - cron: '45 15 * * 1'
+    - cron: '45 15 * * 1'
 
 jobs:
   build:
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      security-events: write{% endif %}
     steps:
-    - uses: actions/checkout@v2
-    - name: Run npm install
-      run: npm install
-    # Runs the ESlint code analysis
-    - name: Run ESLint
-      # eslint exits 1 if it finds anything to report
-      run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
-    # Uploads results.sarif to GitHub repository using the upload-sarif action
-    - uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      - uses: actions/checkout@v2
+      - name: Run npm install
+        run: npm install
+      # Runs the ESlint code analysis
+      - name: Run ESLint
+        # eslint exits 1 if it finds anything to report
+        run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
+      # Uploads results.sarif to GitHub repository using the upload-sarif action
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results.sarif
 ```
 
 ### Leia mais
 
 - "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)"
 - "[Visualizar o seu histórico de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)"
-- "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
+- "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)"
 - "[Fazer o upload de uma análise como dados do SARIF](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)"

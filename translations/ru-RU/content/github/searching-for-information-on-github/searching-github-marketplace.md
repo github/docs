@@ -4,7 +4,7 @@ intro: 'You can search for apps and actions that are available on {% data variab
 versions:
   free-pro-team: '*'
 topics:
-  - github search
+  - GitHub search
 ---
 
 ### About searching {% data variables.product.prodname_marketplace %}

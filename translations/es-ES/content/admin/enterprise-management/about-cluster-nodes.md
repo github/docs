@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - empresa
+  - Clustering
+  - Enterprise
 ---
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}

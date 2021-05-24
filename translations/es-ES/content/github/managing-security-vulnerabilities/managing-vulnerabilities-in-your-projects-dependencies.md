@@ -5,6 +5,7 @@ mapTopic: true
 versions:
   enterprise-server: <=2.22
 topics:
-  - seguridad
+  - Security
 ---
 
+<!--See content/code-security/supply-chain-security for the current version of this article -->

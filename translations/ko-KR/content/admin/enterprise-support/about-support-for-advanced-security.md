@@ -5,8 +5,10 @@ redirect_from:
   - /enterprise/admin/enterprise-support/about-support-for-advanced-security
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Support
 ---
 
 {% note %}

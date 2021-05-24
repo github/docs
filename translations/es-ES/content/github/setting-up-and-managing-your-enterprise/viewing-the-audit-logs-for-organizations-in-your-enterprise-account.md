@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 Cada entrada del registro de auditoría muestra información vigente acerca de un evento, como:

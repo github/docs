@@ -3,8 +3,13 @@ title: High availability for GitHub Actions
 intro: 'There are some special considerations for administering {% data variables.product.prodname_actions %} in a high availability configuration.'
 versions:
   enterprise-server: '>=3.0'
+type: reference
 topics:
-  - корпоративный
+  - Actions
+  - Enterprise
+  - High availability
+  - Infrastructure
+  - Storage
 ---
 
 ### Replication or redundancy of your {% data variables.product.prodname_actions %} data

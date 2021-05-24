@@ -1,6 +1,6 @@
 ---
 title: 关于组织仪表板
-intro: '作为组织成员，您可以全天访问组织仪表板，以了解近期活动的最新信息，跟踪您参与的议题和拉取请求，或者关注组织。'
+intro: 作为组织成员，您可以全天访问组织仪表板，以了解近期活动的最新信息，跟踪您参与的议题和拉取请求，或者关注组织。
 redirect_from:
   - /articles/about-your-organization-dashboard
   - /github/setting-up-and-managing-organizations-and-teams/about-your-organization-dashboard
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 访问组织仪表板

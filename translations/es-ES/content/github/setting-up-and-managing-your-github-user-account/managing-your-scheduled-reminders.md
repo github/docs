@@ -4,7 +4,7 @@ intro: Obtén recordatorios en Slack cuando tú o tu equipo tenga solicitudes de
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
+  - Accounts
 ---
 
 ### Acerca de los recordatorios programados para usuarios

@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/user-management/importing-data-from-third-party-version-control-systems
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Migration
 ---
 
 ### Importar proyectos de Mercurial

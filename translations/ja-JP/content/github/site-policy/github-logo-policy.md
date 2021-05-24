@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 場合によっては、{% data variables.product.prodname_dotcom %} のロゴをあなたのウェブサイトまたはサードパーティアプリケーションに追加できます。 ロゴの使用に関する詳細と具体的なガイドラインについては、[{% data variables.product.prodname_dotcom %} のロゴと使い方のページ](https://github.com/logos)をご覧ください。

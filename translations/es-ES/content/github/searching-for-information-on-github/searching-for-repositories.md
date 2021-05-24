@@ -2,14 +2,14 @@
 title: Buscar repositorios
 intro: 'Puedes buscar repositorios en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de repositorio en cualquier combinación.'
 redirect_from:
-  - /articles/searching-for-repositories
+  - /articles/searching-repositories/
   - /articles/searching-for-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 Puedes buscar repositorios globalmente a través de todos los {% data variables.product.product_location %}, o buscar repositorios dentro de una organización particular. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".

@@ -3,7 +3,7 @@ title: Facturación
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 Puedes monitorear tus cargos y uso de {% data variables.product.prodname_actions %} y de {% data variables.product.prodname_registry %} para un usuario y organización a través de la API de Facturación.

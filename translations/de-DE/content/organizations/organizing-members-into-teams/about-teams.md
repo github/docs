@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Teams
-intro: Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.
+intro: 'Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.'
 redirect_from:
   - /articles/about-teams
   - /github/setting-up-and-managing-organizations-and-teams/about-teams
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ![Liste der Teams in einer Organisation](/assets/images/help/teams/org-list-of-teams.png)

@@ -1,6 +1,6 @@
 ---
 title: Managing discussions in your repository
-intro: You can categorize, spotlight, transfer, or delete the discussions in a repository.
+intro: 'You can categorize, spotlight, transfer, or delete the discussions in a repository.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository.
 versions:
   free-pro-team: '*'

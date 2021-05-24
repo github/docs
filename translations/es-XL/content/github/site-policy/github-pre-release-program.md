@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-pre-release-program
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 ¡Gracias por registrarte para participar en los programas de prelanzamiento de GitHub!  Como miembro de confianza de nuestra comunidad, tu opinión sobre las características nuevas y experimentales es importante para nosotros.  Con el fin de compartir con ustedes estos nuevos productos y servicios, muchos de los cuales siguen siendo secretos y en desarrollo, necesitaremos que acepten un conjunto especial de términos. Bienvenido al acuerdo del programa de prelanzamiento ("Acuerdo").

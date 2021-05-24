@@ -9,15 +9,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.team-discussions-default %} Weitere Informationen zu Teamdiskussionen findest Du unter „[Informationen zu Teamdiskussionen](/organizations/collaborating-with-your-team/about-team-discussions).“
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
 5. Hebe unter „Team discussions“ (Teamdiskussionen) die Auswahl von **Enable team discussions for this organization** (Teamdiskussionen für diese Organisation aktivieren) auf. ![Kontrollkästchen zum Aktivieren oder Deaktivieren von Teamdiskussionen für eine Organisation](/assets/images/help/settings/enable-team-discussions-for-org-checkbox.png)
 6. Klicke auf **Save** (Speichern).

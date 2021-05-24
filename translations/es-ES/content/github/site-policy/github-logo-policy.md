@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Puede añadir {% data variables.product.prodname_dotcom %} logos a tu sitio web o aplicación de terceros en algunos escenarios. Para obtener más información y directrices específicas, consulta la[{% data variables.product.prodname_dotcom %} página de Logos y Uso](https://github.com/logos).

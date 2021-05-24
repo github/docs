@@ -79,4 +79,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last update-graphql-files run for ${{github.repository}} failed. See https://github.com/github/${{github.repository}}/actions/workflows/update-graphql-files.yml
+          text: The last update-graphql-files run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/update-graphql-files.yml

@@ -3,8 +3,8 @@ title: Política de Privacidad de Candidatos de GitHub
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Fecha de entrada en vigor: 8 de marzo de 2021

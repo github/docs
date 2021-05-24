@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.product_name %}, deberías haber:
@@ -18,6 +18,14 @@ Antes de agregar una nueva llave GPG a tu cuenta de {% data variables.product.pr
 Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product.product_name %}, puedes reconfigurar los repositorios locales para usar SSH. Para obtener más información, consulta "[Alternar URL remota de HTTPS a SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
 {% data reusables.ssh.dsa-support %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: También puedes agregar una llave SSH utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" en la documentación de {% data variables.product.prodname_cli %}.
+
+{% endtip %}
+{% endif %}
 
 {% mac %}
 
@@ -80,6 +88,7 @@ Después de agregar una nueva clave SSH a tu cuenta de {% data variables.product
   Si tu archivo de llave SSH pública tiene un nombre diferente que en el código de ejemplo, modifica el nombre de archivo para que coincida con tu configuración actual. Al copiar tu clave, no agregues líneas nuevas o espacios en blanco.
 
   ```shell
+  $ sudo apt-get update
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 

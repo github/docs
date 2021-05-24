@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhooks
+  - Webhooks
 ---
 
 
@@ -91,6 +91,6 @@ Tus implementaciones de lenguaje y de servidor pueden diferir de esta muestra de
 
 * Sin importar qué implementación utilices, la firma de hash comienza con {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, utilizando la llave de tu token secreto y el cuerpo de tu carga útil.
 
-* **No se recomienda** utilizar un simple operador de `==`. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+* **No se recomienda** utilizar un simple operador de `==`. Un método como el de [`secure_compare`][secure_compare] lleva a cabo una secuencia de comparación de "tiempo constante" que ayuda a mitigar algunos ataques de temporalidad en contra de las operaciones de igualdad habituales.
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/master/Rack/Utils:secure_compare

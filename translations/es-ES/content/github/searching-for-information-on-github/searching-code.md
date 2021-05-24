@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} Para obtener más información, consulta la sección "[Acerca de buscar en GitHub](/articles/about-searching-on-github)".
@@ -66,8 +66,9 @@ Puedes utilizar el calificador `path` (ruta) para buscar el código fuente que a
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) encuentra los archivos JavaScript con la palabra "console" en un directorio <em>app/public</em> o en cualquiera de sus subdirectorios (incluso si se encuentran en <em>app/public/js/form-validators</em>). |
 
 ### Buscar por lenguaje
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-Puedes buscar el código basado en el lenguaje en que está escrito.
+Puedes buscar el código basado en el lenguaje en que está escrito. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier                  | Ejemplo                                                                                                                                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

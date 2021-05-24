@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 We understand that copyrighted, trademarked, or private content may get published on GitHub – either accidentally or on purpose – sometimes in repositories that you do not own. Diese Inhalte unterscheiden sich in ihrer Art und aufgrund unterschiedlicher anwendbarer Gesetze, so dass jede Kategorie ihre eigenen, unterschiedlichen Anforderungen an die Berichterstattung hat, die in unseren Richtlinien festgelegt sind.

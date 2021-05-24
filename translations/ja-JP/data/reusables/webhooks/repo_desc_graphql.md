@@ -1,1 +1,1 @@
-`repository` | `object` | The [`repository`](/graphql/reference/objects#repository) where the event occurred.
+`repository` | `object` | イベントが発生した[`リポジトリ`](/graphql/reference/objects#repository)。

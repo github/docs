@@ -7,8 +7,10 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '2.22'
 topics:
-  - 安全
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
@@ -49,11 +51,11 @@ $ /path/to-runner/codeql-runner-linux analyze --ref refs/pull/42/merge
 
 {% data variables.product.prodname_codeql_runner %} 自动检测并扫描用支持的语言编写的代码。
 
-{% data reusables.code-scanning.supported-languages %}
+{% data reusables.code-scanning.codeql-languages-bullets %}
 
 {% data reusables.code-scanning.specify-language-to-analyze %}
 
-要覆盖自动语言检测，请运行 `init` 命令：带 `--languages` 标志，后跟以逗号分隔的语言关键字列表。 受支持语言的关键字是 `cpp`、`csharp`、`go`、`java`、`javascript` 和 `python`。
+要覆盖自动语言检测，请运行 `init` 命令：带 `--languages` 标志，后跟以逗号分隔的语言关键字列表。 The keywords for the supported languages are {% data reusables.code-scanning.codeql-languages-keywords %}.
 
 ```shell
 $ /path/to-runner/codeql-runner-linux init --languages cpp,java

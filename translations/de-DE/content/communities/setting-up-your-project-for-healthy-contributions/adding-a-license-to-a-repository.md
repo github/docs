@@ -1,6 +1,6 @@
 ---
 title: Eine Lizenz zu einem Repository hinzufügen
-intro: Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.
+intro: 'Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.'
 redirect_from:
   - /articles/adding-a-license-to-a-repository
   - /github/building-a-strong-community/adding-a-license-to-a-repository
@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - community
+  - Community
 ---
 
 Wenn Du eine nachweisbare Lizenz in Dein Repository einfügst, wird sie den Benutzern, die Dein Repository besuchen, oben auf der Repository-Seite angezeigt. Um die gesamte Lizenzdatei zu lesen, klicke auf den Namen der Lizenz.

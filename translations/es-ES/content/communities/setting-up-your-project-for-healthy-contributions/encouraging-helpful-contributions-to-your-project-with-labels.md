@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Puedes aplicar la etiqueta `good first issue` (primera buena propuesta) a las propuestas de tu repositorio público para que las personas puedan encontrarlas cuando busquen por etiquetas. Para obtener más información acerca de buscar por etiquetas, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests/#search-by-label)".

@@ -1,7 +1,7 @@
 ---
 title: Organizaciones y equipos
 shortTitle: Organizaciones
-intro: Colaborar en muchos proyectos mientras se administra el acceso a proyectos y datos, y se personalizan las configuraciones para tu organización.
+intro: 'Colaborar en muchos proyectos mientras se administra el acceso a proyectos y datos, y se personalizan las configuraciones para tu organización.'
 redirect_from:
   - /articles/about-improved-organization-permissions/
   - /categories/setting-up-and-managing-organizations-and-teams
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% link_with_intro /collaborating-with-groups-in-organizations %}

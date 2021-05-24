@@ -1,6 +1,6 @@
 ---
 title: Zugriff einer Einzelperson auf das Projektboard einer Organisation verwalten
-intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff einzelner Mitglieder auf ein Projektboard Deiner Organisation verwalten.'
+intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff einzelner Mitglieder auf ein Projektboard Deiner Organisation verwalten.
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}

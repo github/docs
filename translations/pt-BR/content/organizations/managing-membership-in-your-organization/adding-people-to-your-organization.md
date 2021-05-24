@@ -2,12 +2,12 @@
 title: Adicionar pessoas à organização
 intro: 'Você pode tornar qualquer pessoa um integrante da sua organização usando o respectivo nome de usuário no {% data variables.product.product_name %} ou o endereço de e-mail dela.'
 redirect_from:
-  - Adding people to your organization
+  - /articles/adding-people-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization
 versions:
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Os proprietários da organização podem adicionar pessoas a uma organização.'
+permissions: Organization owners can add people to an organization.
 ---
 
 {% if currentVersion != "github-ae@latest" %}

@@ -1,6 +1,6 @@
 ---
 title: Colaborar con propuestas y solicitudes de extracción
-intro: 'Usa el flujo {% data variables.product.prodname_dotcom %} para hacer el seguimiento y debatir los cambios en las propuestas, luego propone y revisa los cambios en las solicitudes de extracción.'
+intro: 'Track and discuss changes in issues, then propose and review changes in pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -12,16 +12,15 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 
 ### Índice
 
-{% topic_link_in_list /overview %}
-    {% link_in_list /github-flow %}
+{% topic_link_in_list /getting-started %}
+    {% link_in_list /quickstart-for-communicating-on-github %}
     {% link_in_list /about-collaborative-development-models %}
-    {% link_in_list /about-conversations-on-github %}
 {% topic_link_in_list /working-with-forks %}
     {% link_in_list /about-forks %}
     {% link_in_list /configuring-a-remote-for-a-fork %}

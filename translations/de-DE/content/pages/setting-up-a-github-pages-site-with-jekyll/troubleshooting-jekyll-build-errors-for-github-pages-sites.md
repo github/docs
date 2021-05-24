@@ -31,7 +31,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 ### Fehlerbehebung bei Build-Fehlern

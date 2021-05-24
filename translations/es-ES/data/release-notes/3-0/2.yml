@@ -28,9 +28,10 @@ sections:
     - Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio era más grande a 255 caracteres.
     - Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.
     - Cuando se habilita el modo de mantenimiento, algunos servicios siguen listándose como "procesos activos". Se espera que los servicios identificados se ejecuten durante el modo de mantenimiento. Si experimentas este problema y no estás seguro de cómo proceder, contacta al [Soporte de GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/).
-    - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
+    - La interpretación de Jupyter Notebook en la IU web podría fallar si el bloc de notas incluye caracteres diferentes a los de ASCII UTF-8.
     - El reStructuredText (RST) que se representa en la IU web podría fallar y mostrar un texto de marcado RST sin procesar.
-    - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - Las compilaciones antiguas de las páginas no se limpiaron, lo cual pudo haber llenado el disco del usuario (`/data/user/`).
+    - Cuando borras una rama después de fusionar una solicitud de cambios, se mostrará un mensaje de error aunque el borrado de la rama sea exitoso.
     - |
       Los usuarios podrían experimentar que los activos tales como los avatares no carguen, o que hayan fallos en el código de subida/extracción. Esto podría darse por un desajuste de PID en el servicio `haproxy-cluster-proxy`. Para determinar si tienes una instancia afectada:
 

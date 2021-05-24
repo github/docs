@@ -4,7 +4,7 @@ intro: 'Desde el primero de abril de 2020, GitHub anunció que todas las caracte
 versions:
   free-pro-team: '*'
 topics:
-  - github
+  - GitHub
 ---
 
 ### ¿Qué cambios en precios y planes para GitHub se anunciaron en el 14 de abril?

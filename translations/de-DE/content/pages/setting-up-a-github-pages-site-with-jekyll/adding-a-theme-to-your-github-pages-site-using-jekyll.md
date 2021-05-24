@@ -1,6 +1,6 @@
 ---
 title: Ein Design zur GitHub Pages-Website mit Jekyll hinzufügen
-intro: Du kannst Deine Jekyll-Website personalisieren, indem Du ein Design hinzufügst und anpasst.
+intro: 'Du kannst Deine Jekyll-Website personalisieren, indem Du ein Design hinzufügst und anpasst.'
 redirect_from:
   - /articles/customizing-css-and-html-in-your-jekyll-theme/
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll ein Design zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.

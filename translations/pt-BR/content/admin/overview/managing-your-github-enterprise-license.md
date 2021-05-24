@@ -15,7 +15,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 ### Sobre as licenças do {% data variables.product.prodname_enterprise %}
@@ -82,7 +82,7 @@ Caso queira renovar ou adicionar licenças de usuário com o {% data variables.p
 
 3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 
-4. Revise sua licença atual de {% data variables.product.prodname_enterprise %}, bem como licenças de usuário consumidas e disponíveis.
+4. Revise sua licença atual de {% data variables.product.prodname_enterprise %}, bem como licenças de usuário consumidas e disponíveis. {% if currentVersion ver_gt "enterprise-server@3.0" %}Se sua licença inclui {% data variables.product.prodname_GH_advanced_security %}, você pode rever o uso total das suas estações e uma discriminação por organização de commiters. Para obter mais informações, consulte "[Gerenciar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security)".{% endif %}
 
 
 

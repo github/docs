@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - accounts
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 ### Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails

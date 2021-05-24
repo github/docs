@@ -3,14 +3,14 @@ title: 添加外部协作者到组织的仓库
 intro: '*外部协作者*并未明确是组织的成员，但对组织中的一个或多个仓库具有、读取、写入或管理员权限。'
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
-  - github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 可将外部协作者添加到仓库，除非组织所有者限制了邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/articles/setting-permissions-for-adding-outside-collaborators)”。.

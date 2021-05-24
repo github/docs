@@ -18,7 +18,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -58,7 +58,7 @@ Adicionalmente, puedes recibir y clasificar las notificaciones en tu dispositivo
 
 #### Beneficios de utilizar un cliente de correo electrónico para las notificaciones
 
-Un beneficio de utilizar un cliente de correo electrónico es que todas tus notificaciones se pueden mantener por tiempo indefinido dependiendo de la capacidad de almacenamiento de éste. Tus notificaciones en bandeja de entrada se mantendrán únicamente por 5 meses a menos de que las hayas marcado como **Guardadas**. Las notificaciones **Guardadas** se mantendrán por tiempo indefinido. Para obtener más información acerca de la política de retención de tu bandeja de entrada, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
+Un beneficio de utilizar un cliente de correo electrónico es que todas tus notificaciones se pueden mantener por tiempo indefinido dependiendo de la capacidad de almacenamiento de éste. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. Las notificaciones **Guardadas** se mantendrán por tiempo indefinido. Para obtener más información acerca de la política de retención de tu bandeja de entrada, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)".
 
 Enviar notificaciones a tu cliente de correo electrónico también te permite personalizar tu bandeja de entrada de acuerdo con la configuración del mismo, lo cual puede incluir etiquetas personalizadas o con códigos de color.
 
@@ -69,16 +69,17 @@ Las notificaciones por correo electrónico también permiten la flexibilidad con
 Cuando observas un repositorio, te suscribes a las actualizaciones de la actividad en el mismo. De forma similar, cuando observas las discusiones específicas de un equipo, te suscribes a todas las actualizaciones de la conversación en la página de ese equipo. Para obtener más información, consulta [Acerca de los debates del equipo](/organizations/collaborating-with-your-team/about-team-discussions)".
 
 Para ver los repositorios que estás observando, dirígete a tu [página de observados](https://github.com/watching). Para obtener más información, consulta la sección "[Administrar suscricpiones y notificaciones en GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)".
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
 #### Configurar notificaciones
 {% endif %}
 Puedes configurar las notificaciones de un repositorio en la página del mismo, o en tu página de observados.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Puedes elegir solo recibir notificaciones para los lanzamientos de un repositorio o ignorar todas las notificaciones del mismo.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} Puedes elegir solo recibir notificaciones para los lanzamientos de un repositorio o ignorar todas las notificaciones del mismo.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 #### Acerca de las notificaciones personalizadas
-{% data reusables.notifications-v2.custom-notifications-beta %}
-Puedes personalizar las notificaciones de un repositorio, por ejemplo, puedes elegir que solo se te notifique cuando sucedan actualizaciones en uno o más tipos de eventos (propuestas, solicitudes de cambios, lanzamientos, debates) dentro de un repositorio, o ignorar todas las notificaciones del mismo.
-{% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (
+{% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
+{% endif %} Para obtener más información, consulta la sección "[Configurar tus ajustes de observación para un repositorio individual](#configuring-your-watch-settings-for-an-individual-repository)" a continuación.
 
 #### Participar en conversaciones
 Siempre que comentes en una conversación, o cuando alguien @menciona tu nombre de usuario, estarás _participando_ en una conversación. Predeterminadamente, estás suscrito automáticamente a una conversación cuando participas en ella. Puedes desuscribirte manualmente de una conversación en la que hayas participado si das clic en **Desuscribir** en el informe de problemas o solicitud de extracción, o a través de la opción de **Desuscribir** en la bandeja de notificaciones.
@@ -133,7 +134,7 @@ Las notificaciones por correo electrónico de {% data variables.product.product_
 | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | dirección `De`                          | Esta dirección siempre será {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'aquella dirección de correo electrónico de "no-reply" que configuró tu administrador de sitio'{% endif %}.                                                                                                                                |
 | campo `Para`                            | Este campo se conecta directamente al hilo.{% if currentVersion != "github-ae@latest" %} Si respondes al correo electrónico, agregarás un comentario nuevo a la conversación.{% endif %}
-| dirección `Cc`                          | {% data variables.product.product_name %} te enviará `Cc` si estás suscripto a una conversación. La segunda dirección de correo electrónico `Cc` coincide con el motivo de la notificación. El sufijo para estos motivos de notificación es {% data variables.notifications.cc_address %}. Los posibles motivos de notificación son: <ul><li>`assign`: Te asignaron a una propuesta o solicitud de extracción.</li><li>`author`: Creaste una propuesta o solicitud de extracción.</li>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}<li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li>{% endif %}<li>`comment`: Comentaste una propuesta o solicitud de extracción.</li><li>`manual`: Hubo una actualización de una propuesta o solicitud de extracción a la que te suscribiste de forma manual.</li><li>`mention`: Te mencionaron en una propuesta o solicitud de extracción.</li><li>`push`: Alguien confirmó una solicitud de extracción a la que estás suscripto.</li><li>`review_requested`: Te solicitaron a tí o a un equipo del que eres miembro revisar una solicitud de extracción.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detectó una vulnerabilidad en un repositorio para el que recibes alertas de seguridad.</li>{% endif %}<li>`state_change`: Se cerró o se abrió una propuesta o solicitud de extracción a la que estás suscripto.</li><li>`subscribed`: Hubo una actualización en un repositorio que estás mirando.</li><li>`team_mention`: Un equipo al que perteneces fue mencionado en una propuesta o solicitud de extracción.</li><li>`your_activity`: Abriste, comentaste en o cerraste una propuesta o solicitud de extracción.</li></ul> |
+| dirección `Cc`                          | {% data variables.product.product_name %} te enviará `Cc` si estás suscripto a una conversación. La segunda dirección de correo electrónico `Cc` coincide con el motivo de la notificación. El sufijo para estos motivos de notificación es {% data variables.notifications.cc_address %}. Los posibles motivos de notificación son: <ul><li>`assign`: Te asignaron a una propuesta o solicitud de extracción.</li><li>`author`: Creaste una propuesta o solicitud de extracción.</li>{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}<li>`ci_activity`: Se completó uya ejecución de flujo de trabajo de {% data variables.product.prodname_actions %} que activaste.</li>{% endif %}<li>`comment`: Comentaste una propuesta o solicitud de extracción.</li><li>`manual`: Hubo una actualización de una propuesta o solicitud de extracción a la que te suscribiste de forma manual.</li><li>`mention`: Te mencionaron en una propuesta o solicitud de extracción.</li><li>`push`: Alguien confirmó una solicitud de extracción a la que estás suscripto.</li><li>`review_requested`: Te solicitaron a tí o a un equipo del que eres miembro revisar una solicitud de extracción.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} detectó una vulnerabilidad en un repositorio para el que recibes alertas de seguridad.</li>{% endif %}<li>`state_change`: Se cerró o se abrió una propuesta o solicitud de extracción a la que estás suscripto.</li><li>`subscribed`: Hubo una actualización en un repositorio que estás mirando.</li><li>`team_mention`: Un equipo al que perteneces fue mencionado en una propuesta o solicitud de extracción.</li><li>`your_activity`: Abriste, comentaste en o cerraste una propuesta o solicitud de extracción.</li></ul> |
 | Campo `mailing list` (lista de correos) | Este campo identifica el nombre del repositorio y su propietario. El formato de esta dirección siempre es `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | Campo `X-GitHub-Severity`               | {% data reusables.repositories.security-alerts-x-github-severity %} Los posibles niveles de gravedad son:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)". 
 {% endif %}
@@ -159,19 +160,22 @@ Si inhabilitas la opción de "Observar los repositorios automáticamente", no po
 
 ### Configurar los ajustes de observación para un repositorio individual
 
-Puedes elegir si quieres observar o dejar de observar un repositorio individual. También puedes elegir que solo se te notifique de {% if currentVersion == "free-pro-team@latest" %}algunos tipos de eventos, tales como propuestas, solicitudes de cambios, debates (si se habilitaron en el repositorio) y {% endif %}lanzamientos nuevos, o puedes ignorar completamente un repositorio específico.
+Puedes elegir si quieres observar o dejar de observar un repositorio individual. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. En la esquina superior derecha, da clic en el menú desplegable "Observar" para seleccionar una opción de observación.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
   ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
    ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
+
 La opción **Personalizar** te permite personalizar aún más las notificaciones para que solo se te notifique cuando suceden eventos específicos en el repositorio, adicionalmente a participar y tener @menciones.
 
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+{% else %}
    ![Opciones de observación personalizada en un menú desplegable de un repositorio](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+{% endif %}
 
 Si seleccionas "propuestas", se te notificará sobre y suscribirá a las actualizaciones de cada propuesta (incluyendo aquellas que existieron antes de que seleccionaras esta opción) del repositorio. Si se te @menciona en una solicitud de cambios de este repositorio, también recibirás notificaciones por este evento y se te suscribirá a las actualizaciones de esa solicitud de cambios específica adicionalmente a las notificaciones que tendrás sobre las propuestas.
 
@@ -220,7 +224,7 @@ Para obtener más información acerca de los métodos de entrega de notificacion
 
 Elige cómo quieres recibir las actualizaciones para las ejecuciones de flujo de trabajo en los repositorios que estás observando y que se configuraron con {% data variables.product.prodname_actions %}. También puedes elegir recibir únicamente las notificaciones para las ejecuciones de flujo de trabajo fallidas.
 
-  ![Opciones de alerta del {% data variables.product.prodname_dependabot_short %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
+  ![Notification options for {% data variables.product.prodname_actions %}](/assets/images/help/notifications-v2/github-actions-notification-options.png)
 
 {% endif %}
 
@@ -248,7 +252,7 @@ También puedes programar si {% data variables.product.prodname_mobile %} enviar
 
 1. En el menú inferior, pulsa en **Perfil**.
 2. Para ver tu configuración, toca en {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+3. Para actualizar tu configuración de notificaciones, pulsa en **Configurar Notificaciones** y luego usa los alternadores para habilitar o inhabilitar tus tipos de notificaciones de subida preferidos.
 4. Opcionalmente, para programar cuando {% data variables.product.prodname_mobile %} enviará notificaciones de subida a tu dispositivo móvil, pusla en **Horas laborales**, utiliza el botón para alternar de **Horas laborales personalizadas** y elige entonces cuándo te gustaría recibir notificaciones de subida.
 
 ### Configurar tus ajustes de observación para un repositorio individual con {% data variables.product.prodname_mobile %}

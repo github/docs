@@ -1,5 +1,6 @@
 ---
 title: Customizing user messages for your enterprise
+shortTitle: Customizing user messages
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
@@ -8,8 +9,10 @@ intro: 'You can create custom messages that users will see on {% data variables.
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Maintenance
 ---
 
 ### About user messages

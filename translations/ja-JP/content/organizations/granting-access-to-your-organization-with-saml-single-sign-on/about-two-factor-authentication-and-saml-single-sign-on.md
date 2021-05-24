@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 2 要素認証 (2FA) は、Organization のメンバーに基本的な認証を提供します。 2FA を有効化することで、Organization の管理者はメンバーの {% data variables.product.product_name %} アカウントが悪用される可能性を抑制できます。 2FA に関する詳細は「[2 要素認証について](/articles/about-two-factor-authentication)」を参照してください。

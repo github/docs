@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/user-management/rebuilding-contributions-data
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Repositories
+  - User account
 ---
 
 Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are *not* retroactively linked when a user registers a new email address or creates a new account.

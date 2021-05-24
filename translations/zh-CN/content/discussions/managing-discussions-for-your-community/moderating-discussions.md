@@ -1,7 +1,7 @@
 ---
 title: 主持讨论
-intro: '您可以通过将评论标记为答案、锁定或解锁讨论以及将问题转化为讨论来促进健康的协作。 以及编辑或删除与社区行为准则不一致的评论、讨论和类别。'
-permissions: 对仓库具有分类权限的人可以主持仓库中的讨论。
+intro: 您可以通过将评论标记为答案、锁定或解锁讨论以及将问题转化为讨论来促进健康的协作。 以及编辑或删除与社区行为准则不一致的评论、讨论和类别。
+permissions: People with triage access to a repository can moderate discussions in the repository.
 versions:
   free-pro-team: '*'
 ---

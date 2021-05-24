@@ -8,6 +8,6 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 

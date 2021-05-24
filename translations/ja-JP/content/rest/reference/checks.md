@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 Checks API を使用すると、リポジトリ内のコード変更に対して強力なチェックを実行する GitHub App を構築できます。 継続的インテグレーション、コードの構文チェック、コードのスキャンサービスを実行し、コミットについて詳細なフィードバックを行うアプリを作成できます。 詳しい情報については、「[Checks API を使ってみる](/rest/guides/getting-started-with-the-checks-api)」および「[Checks API で CI テストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)」を参照してください。

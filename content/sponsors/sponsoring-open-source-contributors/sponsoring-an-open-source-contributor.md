@@ -9,10 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'Sponsors payments'
+  - Open Source
+  - Sponsors payments
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

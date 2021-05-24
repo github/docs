@@ -1,15 +1,15 @@
 ---
 title: Comentar en una propuesta cuando se le agrega una etiqueta
-intro: Puedes utilizar las {% data variables.product.prodname_actions %} para comentar automáticamente en las propuestas cuando se les aplica una etiqueta específica.
+intro: 'Puedes utilizar las {% data variables.product.prodname_actions %} para comentar automáticamente en las propuestas cuando se les aplica una etiqueta específica.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Flujos de trabajo'
-  - 'Administración de proyectos'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
 2. {% data reusables.actions.make-workflow-file %}
 3. Copia el siguiente contenido de YAML en tu archivo de flujo de trabajo.
 
-    {% raw %}
     ```yaml{:copy}
     name: Add comment
     on:
@@ -39,16 +38,18 @@ En el tutorial, primero harás un archivo de flujo de trabajo que utilice la [ac
     jobs:
       add-comment:
         if: github.event.label.name == 'help-wanted'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write{% endif %}
         steps:
           - name: Add comment
             uses: peter-evans/create-or-update-comment@v1
             with:
-              issue-number: ${{ github.event.issue.number }}
+              issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
               body: |
                 This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
-    {% endraw %}
+
 4. Personaliza los parámetros en tu archivo de flujo de trabajo:
    - Reemplaza a `help-wanted` en `if: github.event.label.name == 'help-wanted'` con la etiqueta sobre la cual quieres actuar. Si quieres actuar sobre más de una etiqueta, separa las condiciones con `||`. Por ejemplo, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` comentará cada que se agreguen las etiquetas `bug` o `fix me` a una propuesta.
    - Cambia el valor de `body` al comentario que quieras agregar. El lenguaje de marcado enriquecido de GitHub es compatible. Para obtener más información sobre el lenguaje de marcado, consulta la sección "[Sintaxis básica de escritura y formato](/github/writing-on-github/basic-writing-and-formatting-syntax)".

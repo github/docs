@@ -4,7 +4,7 @@ intro: 'Si una solicitud de cambios contiene cambios a las dependencias, puedes 
 versions:
   free-pro-team: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->

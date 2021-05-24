@@ -6,8 +6,14 @@ redirect_from:
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Clustering
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Monitoring
+  - Performance
 ---
 
 ### Comprobación manual del estado de la agrupación

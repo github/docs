@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub.com, GitHub Enterprise Server y la información que subas a cualquiera de los productos puede estar sujeta a las regulaciones de control de comercio, incluso bajo las Regulaciones sobre Exportación de la Administracción de los Estados Unidos (EAR). Regulaciones de Administración de Exportación (las EAR).

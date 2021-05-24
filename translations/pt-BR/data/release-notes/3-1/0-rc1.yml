@@ -1,0 +1,130 @@
+---
+date: '2021-05-06'
+release_candidate: true
+intro: If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+sections:
+  features:
+    - 
+      heading: GitHub Advanced Security Secret Scanning
+      notes:
+        - |
+          [Secret Scanning](https://github.com/features/security) is now generally available on {% data variables.product.prodname_ghe_server %} 3.1+. Scan public and private repositories for committed credentials, find secrets, and notify the secret provider or admin the moment they are committed into a repository.
+
+          This release includes several improvements from the beta of Secret Scanning on {% data variables.product.prodname_ghe_server %}:
+
+          - Expanded our [pattern coverage](/enterprise-server@3.1/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-private-repositories) from 24 partners to 37
+          - Added an [API](/rest/reference/secret-scanning) and [webhooks](/developers/webhooks-and-events/webhook-events-and-payloads#secret_scanning_alert)
+          - Added [notifications for commit authors](https://github.blog/changelog/2021-03-05-secret-scanning-notifications-for-commit-authors-on-private-repositories/) when they commit secrets
+          - Updated the index view to made it easy to triage secrets in bulk
+          - Reduced the false positive rate on many patterns
+
+          Administrators using {% data variables.product.prodname_GH_advanced_security %} can [enable and configure](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) {% data variables.product.prodname_GH_advanced_security %} secret scanning. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on {% data variables.product.prodname_GH_advanced_security %} secret scanning.
+    - 
+      heading: GitHub Advanced Security billing improvements
+      notes:
+        - |
+          This release includes several improvements to {% data variables.product.prodname_GH_advanced_security %} billing in {% data variables.product.prodname_ghe_server %}:
+
+          - {% data variables.product.prodname_GH_advanced_security %} customers can now view their active committer count and the remaining number of unused committer seats on their organization or enterprise account’s Billing page. If Advanced Security is purchased for an enterprise, administrators can also view the active committer seats which are being used by other organizations within their enterprise. For more information, see "[About GitHub Advanced Security licensing](/enterprise-server@3.1/admin/advanced-security/about-licensing-for-github-advanced-security)" and "[Viewing your GitHub Advanced Security usage](/enterprise-server@3.1/admin/advanced-security/viewing-your-github-advanced-security-usage)."
+          - GitHub Advanced Security customers can now view their active committer count for any Advanced Security enabled repositories on their organization or enterprise account's Billing page. These changes help billing administrators track their usage against how many committer licenses they purchased. For more information see "[Managing security and analysis settings for your organization](/enterprise-server@3.1/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+    - 
+      heading: Dependabot improvements
+      notes:
+        - |
+          This release includes improvements to Dependabot alerts in {% data variables.product.prodname_ghe_server %}:
+
+          - Users with Dependabot alerts enabled can see which of their repositories are impacted by a given vulnerability by navigating to its entry in the [GitHub Advisory Database](https://github.com/advisories). This feature is available in public beta. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+          - When a vulnerability is added to GitHub Advisory Database, you will no longer receive [email and web notifications](https://github.com/notifications) for Dependabot alerts on low and moderate severity vulnerabilities. These alerts are still accessible from the repository's Security tab. For more information, see [Viewing and updating vulnerable dependencies in your repository](/enterprise-server@3.1/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository).
+          - 'You can now give people instructions on how to responsibly report security vulnerabilities in your project by adding a `SECURITY.md` file to your repository's `root`, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's security policy. For more information, see "[Adding a security policy to your repository](/enterprise-server@3.1/code-security/getting-started/adding-a-security-policy-to-your-repository)."'
+    - 
+      heading: GitHub Actions Workflow Visualization beta
+      notes:
+        - |
+
+          GitHub Actions can now generate a visual graph of your workflow on every run. With workflow visualization, you can:
+          - View and understand complex workflows
+          - Track progress of workflows in real-time
+          - Troubleshoot runs quickly by easily accessing logs and jobs metadata
+          - Monitor progress of deployment jobs and easily access deployment targets
+
+          For more information, see "[Using the visualization graph](/actions/managing-workflow-runs/using-the-visualization-graph)."
+    - 
+      heading: OAuth 2.0 Device Authorization Grant
+      notes:
+        - |
+          [OAuth 2.0 Device Authorization Grant](https://github.com/login/device) allows any CLI client or developer tool to authenticate using a secondary system with a browser.
+
+          Administrators using [OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow) and [GitHub Apps](/developers/apps/authorizing-oauth-apps#device-flow) can [enable and configure](/enterprise-server@3.1/admin/configuration/configuring-secret-scanning-for-your-appliance) OAuth 2.0 Device Authorization Flow, in addition to the existing Web Application Flow. You can review the [updated minimum requirements for your platform](/enterprise-server@3.1/admin/installation/setting-up-a-github-enterprise-server-instance) before you enable OAuth 2.0 Device Authorization Flow.
+    - 
+      heading: Merge automático de pull request
+      notes:
+        - |
+          With auto-merge, pull requests can be set to merge automatically when all merge requirements have been satisfied. This saves users from needing to constantly check the state of their pull requests just to merge them. Auto-merge can be enabled by a user with permission to merge and on pull requests that have unsatisfied merge requirements. For more information, see "[Automatically merging a pull request](/enterprise-server@3.1/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+    - 
+      heading: Custom notifications
+      notes:
+        - |
+          You can customize the types of notifications you want to receive from individual repositories. For more information, see "[Configuring notifications](/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+  changes:
+    - 
+      heading: Alterações na administração
+      notes:
+        - By precomputing checksums, the amount of time a repository is under the lock has reduced dramatically, allowing more write operations to succeed immediately and improving monorepo performance.
+        - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than GitHub Actions. Previously, such users had to use the separate CodeQL runner, which will continue to be available. For more information, see "[About CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
+        - GitHub Actions now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.
+        - Check annotations older than four months will be archived.
+    - 
+      heading: Alterações de segurança
+      notes:
+        - 'Display of Code Scanning results on a pull request without submitting with a pull request ID is no longer supported. For more information, see "[Configuring code scanning](/enterprise-server@3.1/code-security/secure-coding/configuring-code-scanning#scanning-pull-requests)" and "[Configuring CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/configuring-codeql-code-scanning-in-your-ci-system#scanning-pull-requests).'
+        - SARIF upload support increased to a maximum of 5000 results per upload.
+    - 
+      heading: Alterações de desenvolvedor
+      notes:
+        - You can specify multiple callback URLs while configuring a GitHub App. This can be used in services with multiple domains or subdomains. GitHub will always deny authorization if the callback URL from the request is not in the authorization callback URL list.
+        - The GitHub App file permission has been updated to allow an app developer to specify up to 10 files for read-only or read-write access that their app can request access to.
+        - CodeQL now supports more [libraries and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) for a variety of languages ([C++](https://github.com/github/codeql/tree/main/cpp), [JavaScript](https://github.com/github/codeql/tree/main/javascript), [Python](https://github.com/github/codeql/tree/main/python),[Java](https://github.com/github/codeql/tree/main/java), [Go](https://github.com/github/codeql-go/tree/main)). The CodeQL engine can now detect more sources of untrusted user data, which improves the quality and depth of the code scanning alerts. For more information, see "[About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)."
+        - When configuring a GitHub App, the authorization callback URL is a required field. Now, we allow the developer to specify multiple callback URLs. This can be used in services with multiple domains or subdomains. GitHub will always deny authorization if the callback URL from the request is not in the authorization callback URL list.
+        - 'Delete an entire directory of files, including subdirectories, from your web browser. For more information, see "[Deleting a file or directory](/enterprise-server@3.1/github/managing-files-in-a-repository/deleting-files-in-a-repository#deleting-a-directory)."'
+        - 'Include multiple words after the `#` in an issue, discussion, or pull request comment to further narrow your search.'
+        - 'When you’re writing an issue, pull request, or discussion comment the list syntax for bullets, numbers, and tasks autocompletes after you press `return` or `enter`.'
+    - 
+      heading: Alterações de API
+      notes:
+        - The code scanning API allows users to upload data about static analysis security testing results, or export data about alerts. For more information, see the [code scanning API reference](https://docs.github.com/en/rest/reference/code-scanning).
+        - The [GitHub Apps API](https://docs.github.com/rest/reference/apps) for managing installations has now graduated from an API preview to a generally available API. The [preview header](https://docs.github.com/rest/overview/api-previews) is no longer required to access these endpoints.
+  known_issues:
+    - The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - 'A scheduled cleanup job can cause performance to degrade on an instance with a very large `check_annotations` table.'
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - As regras personalizadas de firewall não são mantidas durante uma atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+  deprecations:
+    - 
+      heading: Deprecation of GitHub Enterprise Server 2.20
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.20 was discontinued on March 2, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+    - 
+      heading: Deprecation of GitHub Enterprise Server 2.21
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 2.21 will be discontinued on June 9, 2021**. That means that no patch releases will be made, even for critical security issues, after this date. For better performance, improved security, and new features, [upgrade to the newest version of {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.1/admin/enterprise-management/upgrading-github-enterprise-server) as soon as possible.'
+    - 
+      heading: Obsolescência de Eventos de Webhook de legado do aplicativo GitHub
+      notes:
+        - 'Começando com {% data variables.product.prodname_ghe_server %} 2.21.0, dois eventos legados de webhook relacionados a aplicativos GitHub foram descontinuados e serão removidos em {% data variables.product.prodname_ghe_server %} 3.2.0. Os eventos obsoletos `integration_installation` e `integration_installation_repositories` têm eventos equivalentes que serão compatíveis. Mais informações estão disponíveis no [post do blogue de anúncio de obsolescência](https://developer.github.com/changes/2020-04-15-replacing-the-installation-and-installation-repositories-events/).'
+    - 
+      heading: Obsolescência do ponto de extremidade de legado dos aplicativos GitHub
+      notes:
+        - Começando com {% data variables.product.prodname_ghe_server %} 2.21, o ponto de extremidade do legado dos aplicativos GitHub para a criação de tokens de acesso de instalação foi suspenso e será removido em {% data variables.product.prodname_ghe_server %} 3.2.0. Mais informações estão disponíveis no [post do blogue de anúncio de depreciação](https://developer.github.com/changes/2020-04-15-replacing-create-installation-access-token-endpoint/).
+    - 
+      heading: Obsolescência da API do aplicativo OAuth
+      notes:
+        - 'O GitHub não é compatível mais com os pontos de extremidade do aplicativo OAuth que contêm `access_token` como um parâmetro de caminho. Nós introduzimos novos pontos de extremidade que permitem que você gerencie, com segurança, tokens para aplicativos OAuth movendo `access_token` para o texto da solicitação. Embora obsoleto, os pontos de extremidade ainda podem ser acessados nesta versão. Queremos remover esses pontos de extremidade em {% data variables.product.prodname_ghe_server %} 3.4. Para obter mais informações, consulte [post do blogue de anúncio de depreciação](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).'
+    - 
+      heading: Deprecation of GitHub Actions short SHA support
+      notes:
+        - 'GitHub Actions will remove support for referencing actions using the shortened version of a git commit SHA. This may cause some workflows in your repository to break. To fix these workflows, you will need to update the action reference to use the full commit SHA. For more information, see "[Security hardening for GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions)."'
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.1 requires at least [GitHub Enterprise Backup Utilities 3.1.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.1/admin/configuration/configuring-backups-on-your-appliance).'

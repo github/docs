@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Adjusting image caching

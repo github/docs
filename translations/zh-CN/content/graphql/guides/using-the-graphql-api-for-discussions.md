@@ -1,6 +1,6 @@
 ---
 title: 使用 GraphQL API for Discussions
-intro: '了解如何使用 GitHub Discussions GraphQL API。'
+intro: 了解如何使用 GitHub Discussions GraphQL API。
 versions:
   free-pro-team: '*'
 ---
@@ -1081,4 +1081,4 @@ mutation {
 
 ## 搜索
 
-讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 更多信息请参阅“[查询](/graphql/reference/queries#searchresultitemconnection)”。
+讨论可从顶层`搜索`字段返回。 要搜索讨论，请将`类型`指定为 `DISCUSSION`。 `SearchResultItemConnect` 类型有一个 `discussionCount` 字段来报告返回的讨论数。`讨论`类型已添加到 `SearchResultItem` 并集。 For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."

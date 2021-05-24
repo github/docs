@@ -8,7 +8,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About the *dependabot.yml* file
@@ -164,7 +164,7 @@ updates:
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-Use the `allow` option to customize which dependencies are updated. This has no impact on security updates for vulnerable dependencies. You can use the following options:
+Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
 - `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
 - `dependency-type`—use to allow updates for dependencies of specific types.
@@ -445,12 +445,12 @@ updates:
 
 #### `rebase-strategy`
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects conflicts. Use `rebase-strategy` to disable this behavior.
+By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
 
 Available rebase strategies
 
 - `disabled` to disable automatic rebasing.
-- `auto` to use the default behavior and rebase open pull requests when conflicts are detected.
+- `auto` to use the default behavior and rebase open pull requests when changes are detected.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -473,11 +473,11 @@ To allow {% data variables.product.prodname_dependabot %} to access a private pa
 
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution).
 
-{% raw %}
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
 # when updating dependency versions for this ecosystem
 
+{% raw %}
 version: 2
 registries:
   maven-github:
@@ -493,11 +493,11 @@ updates:
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     registries:
-    - maven-github
+      - maven-github
     schedule:
       interval: "monthly"
-```
 {% endraw %}
+```
 
 #### `reviewers`
 
@@ -716,7 +716,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/docker-registry/dockerhub"
     registries:
-    - dockerhub # Allow version updates for dependencies in this registry
+      - dockerhub # Allow version updates for dependencies in this registry
     schedule:
       interval: "monthly"
 ```
@@ -730,6 +730,7 @@ You use the following options to specify access settings. Registry settings must
 | `url`                                                                                                  | The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, `https://` is assumed. {% data variables.product.prodname_dependabot %} adds or ignores trailing slashes as required.                                                   |
 | `사용자 이름`                                                                                               | The username that {% data variables.product.prodname_dependabot %} uses to access the registry.                                                                                                                                                                                 |
 | `암호`                                                                                                   | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)." |
+| `키`                                                                                                    | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access key for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)."     |
 | `토큰`                                                                                                   | A reference to a {% data variables.product.prodname_dependabot %} secret containing an access token for this registry. For more information, see "[Managing encrypted secrets for Dependabot](/github/administering-a-repository/managing-encrypted-secrets-for-dependabot)."   |
 | `replaces-base`                                                                                        | For registries with `type: python-index`, if the boolean value is `true`, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default `https://pypi.org/simple`).                                                     |
 
@@ -766,6 +767,19 @@ registries:
 ```
 {% endraw %}
 
+The `docker-registry` type can also be used to pull from Amazon ECR using static AWS credentials.
+
+{% raw %}
+```yaml
+registries:
+  ecr-docker:
+    type: docker-registry
+    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
+    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
+    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
+```
+{% endraw %}
+
 #### `git`
 
 The `git` type supports username and password.
@@ -778,6 +792,20 @@ registries:
     url: https://github.com
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `hex-organization`
+
+The `hex-organization` type supports organization and key.
+
+{% raw %}
+```yaml
+registries:
+  github-hex-org:
+    type: hex-organization
+    organization: github
+    key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
 {% endraw %}
 

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Du das Hinzufügen eines untergeordneten Teams anforderst, wird an die Betreuer dieses Teams eine Anfrage gesendet. Sobald ein Betreuer dieses Teams Deiner Anfrage zustimmt, wird das Team innerhalb der Hierarchie Deiner Organisation unter Deinem Team eingeordnet.

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -18,7 +18,7 @@ topics:
 4. Elige una de las siguientes opciones:
     - Para crear un nuevo hito, haz clic en **Nuevo hito**. ![Botón Nuevo hito](/assets/images/help/repository/new-milestone.png)
     - Para editar un hito, haz clic en **Editar** junto al hito que deseas editar. ![Opción Editar hito](/assets/images/help/repository/edit-milestone.png)
-5. Escribe el título, la descripción y los demás cambios del hito, y luego haz clic en **Create milestone** (Crear hito) o **Save changes** (Guardar cambios).
+5. Escribe el título, la descripción y los demás cambios del hito, y luego haz clic en **Create milestone** (Crear hito) o **Save changes** (Guardar cambios). Los hitos interpretarán la sintaxis del lenguaje de marcado. Para obtener más información sobre la sintaxis de marcado, consulta la sección "[Sintaxis de marcado y formateado básica](/github/writing-on-github/basic-writing-and-formatting-syntax)".
 
 ### Eliminar hitos
 

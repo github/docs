@@ -6,10 +6,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors
 versions:
   free-pro-team: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'Open Source'
-  - 'Fundamentals'
+  - Open Source
+  - Fundamentals
 ---
 
 ### About {% data variables.product.prodname_sponsors %}

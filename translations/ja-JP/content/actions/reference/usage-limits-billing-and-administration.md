@@ -1,5 +1,5 @@
 ---
-title: '使用制限、支払い、管理'
+title: 使用制限、支払い、管理
 intro: '{% data variables.product.prodname_actions %} ワークフローには使用制限があります。 使用料は、リポジトリの無料の時間とストレージの量を超えるリポジトリに適用されます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 支払い
+  - Billing
 ---
 
 {% data reusables.actions.enterprise-beta %}

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About {% data variables.large_files.product_name_short %} objects in archives

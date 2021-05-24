@@ -10,13 +10,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. 在左侧边栏中，单击 **Installed {% data variables.product.prodname_github_app %}s（安装的 GitHub 应用程序）**。 ![组织设置边栏中安装的 {% data variables.product.prodname_github_app %}选项卡](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. 在您要审查的 {% data variables.product.prodname_github_app %} 旁边，单击 **Configure（配置）**。 ![配置按钮](/assets/images/help/organizations/configure-installed-integration-button.png)
 6. 审查 {% data variables.product.prodname_github_app %} 的权限和仓库访问权限。 ![授予 {% data variables.product.prodname_github_app %}所有仓库或特定仓库访问权限的选项](/assets/images/help/organizations/toggle-integration-repo-access.png)

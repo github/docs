@@ -3,14 +3,14 @@ title: 外部のコラボレータを Organization のリポジトリに追加�
 intro: '*外部のコラボレータ*は、Organization の明示的なメンバーではありませんが、Organization の 1 つ以上のリポジトリに読み取り、書き込み、あるいは管理権限を持っている人です。'
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
-  - github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} 外部コラボレーターをリポジトリに追加できます。ただし、Organization のオーナーがコラボレーターの招待を禁じていない場合に限ります。 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。

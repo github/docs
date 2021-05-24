@@ -11,8 +11,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 보안
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 ### Table of Contents
 
@@ -30,6 +32,8 @@ topics:
     {% link_in_list /uploading-a-sarif-file-to-github %}
     {% link_in_list /sarif-support-for-code-scanning %}
 {% link_in_list /running-code-scanning-in-your-ci-system %}
-    {% link_in_list /configuring-code-scanning-in-your-ci-system %}
-    {% link_in_list /configuring-the-codeql-action-for-compiled-languages %}
-    {% link_in_list /managing-alerts-from-code-scanning %}
+    {% link_in_list /about-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /running-codeql-cli-in-your-ci-system %}
+    {% link_in_list /running-codeql-runner-in-your-ci-system %}
+    {% link_in_list /configuring-codeql-runner-in-your-ci-system %}
+    {% link_in_list /troubleshooting-codeql-runner-in-your-ci-system %}

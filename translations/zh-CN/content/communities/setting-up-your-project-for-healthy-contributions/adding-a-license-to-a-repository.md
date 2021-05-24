@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 如果在仓库中包含可检测的许可，仓库的访问者将会在仓库页面顶部看到它。 要阅读整个许可文件，请单击许可名称。

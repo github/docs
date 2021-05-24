@@ -1,0 +1,23 @@
+summary {
+  outline: none;
+}
+
+.markdown-body {
+  summary {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: inline-block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

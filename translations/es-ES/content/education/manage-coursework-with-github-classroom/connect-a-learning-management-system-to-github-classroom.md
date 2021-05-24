@@ -1,6 +1,6 @@
 ---
 title: Conectar un sistema de administración de aprendizaje a GitHub Classroom
-intro: Puedes configurar un sistema de administración de aprendizaje (LMS) que cumpla con LTI para conectarte a {% data variables.product.prodname_classroom %} y que puedas importar un registro de alumno para tu aula.
+intro: 'Puedes configurar un sistema de administración de aprendizaje (LMS) que cumpla con LTI para conectarte a {% data variables.product.prodname_classroom %} y que puedas importar un registro de alumno para tu aula.'
 versions:
   free-pro-team: '*'
 redirect_from:

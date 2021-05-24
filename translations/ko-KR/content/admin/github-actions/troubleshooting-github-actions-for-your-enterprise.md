@@ -5,7 +5,7 @@ permissions: 'Site administrators can troubleshoot {% data variables.product.pro
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 엔터프라이즈
+  - Enterprise
 ---
 
 ### Configuring self-hosted runners when using a self-signed certificate for {% data variables.product.prodname_ghe_server %}

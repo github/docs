@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Webhook events for {% data variables.product.prodname_discussions %} are currently in beta and subject to change.
+**Nota:** Los eventos de webhook para los {% data variables.product.prodname_discussions %} se encuentran actualmente en beta y están sujetos a cambios.
 
 {% endnote %}

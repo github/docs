@@ -6,8 +6,10 @@ product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   enterprise-server: '2.22'
 topics:
-  - segurança
+  - Security
 ---
+
+<!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
 
@@ -17,7 +19,7 @@ SARIF (Formato de Intercâmbio de Resultados de Análise Estática) é um [OASIS
 
 Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para obter mais informações, consulte "[Enviar um arquivo SARIF para o {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)". Para obter mais informações sobre o esquema SARIF 2.1.0 JSON, consulte [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json).
 
-Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
+Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)" ou "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
 {% data variables.product.prodname_dotcom %} usa propriedades no arquivo SARIF para exibir alertas. Por exemplo, `shortDescription` e `fullDescription` aparecem na parte superior de um alerta de {% data variables.product.prodname_code_scanning %}. O `local` permite que {% data variables.product.prodname_dotcom %} mostre anotações no seu arquivo de código. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 

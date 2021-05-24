@@ -1,6 +1,6 @@
 ---
 title: Referencia
-intro: 'Documentación de referencia para crear flujos de trabajo utilizando autenticación y ejecutores hospedados en Github.'
+intro: Documentación de referencia para crear flujos de trabajo utilizando autenticación y ejecutores hospedados en Github.
 redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
 versions:

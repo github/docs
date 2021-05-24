@@ -9,6 +9,7 @@ intro: Los webhooks ofrecen una manera de enviar las notificaciones a un servido
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

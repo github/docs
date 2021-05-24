@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: Los propietarios de la organización pueden limitar las interacciones en la misma.
+permissions: Organization owners can limit interactions in an organization.
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Acerca de los límites de interacción temporales
@@ -28,9 +28,9 @@ Los propietarios de la organización también pueden bloquear a los usuarios por
 
 ### Limitar las interacciones en tu organización
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. Enla barra lateral de configuración de la organización, da clic en **Configuración de moderación**. !["Configuración de moderación" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-moderation-settings.png)
 1. Debajo de "Configuración de moderación", da clic en **Límites de interacción**. !["Límites de interacción" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}

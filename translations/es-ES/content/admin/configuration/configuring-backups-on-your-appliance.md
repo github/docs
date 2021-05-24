@@ -1,5 +1,6 @@
 ---
 title: Configurar copias de seguridad en tu aparato
+shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -15,8 +16,12 @@ redirect_from:
 intro: 'Como parte de un plan de recuperación ante desastres, puedes proteger los datos de producción en {% data variables.product.product_location %} configurando copias de seguridad automáticas.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Backups
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
 ---
 
 ### Acerca de {% data variables.product.prodname_enterprise_backup_utilities %}

@@ -10,6 +10,10 @@ Cuando creas una solicitud de extracción desde un repositorio bifurcado al repo
 
 Los flujos de trabajo no se ejecutan en repositorios bifurcados por defecto. Debes habilitar las Acciones de GitHub en la pestaña **Actions (Acciones)** del repositorio bifurcado.
 
+{% if currentVersion == "free-pro-team@latest"%}
+Cuando un colaborador de primera vez emite una solicitud de cambios a un repositorio púb lico, un mantenedor con acceso de escritura debe aprobar los flujos de trabajo que se estpen ejecutando en la solicitud de cambios. Para obtener más información, consulta la sección "[Aprobar flujos de trabajo desde bifurcaciones públicas](/actions/managing-workflow-runs/approving-workflow-runs-from-public-forks)".
+{% endif %}
+
 {% data reusables.actions.forked-secrets %} Los permisos para el `GITHUB_TOKEN` en los repositorios bifurcados son de solo lectura. Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 {% note %}

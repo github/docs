@@ -7,8 +7,12 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.

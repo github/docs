@@ -6,8 +6,10 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Fundamentals
 ---
 
 ### Ajustar el almacenamiento en caché de las imágenes

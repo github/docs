@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -40,9 +40,8 @@ After changing your organization's name:
 
 ### Changing your organization's name
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Near the bottom of the settings page, under "Rename organization", click **Rename Organization**. ![Rename organization button](/assets/images/help/settings/settings-rename-organization.png)
 
 ### 더 읽을거리

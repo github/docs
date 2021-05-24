@@ -5,14 +5,14 @@ intro: 'Aprende sobre los conceptos centrales y sobre los diversos componentes d
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
-  - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
+  - /actions/getting-started-with-github-actions/core-concepts-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
 type: overview
 topics:
-  - Fundamentos
+  - Fundamentals
 ---
 
 {% data reusables.actions.enterprise-beta %}

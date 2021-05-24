@@ -30,6 +30,7 @@ sections:
     - Jupyter Notebook rendering in the web UI may fail if the notebook includes non-ASCII UTF-8 characters.
     - reStructuredText (RST) rendering in the web UI may fail and instead display raw RST markup text.
     - Old builds of Pages are not cleaned up, which could fill up the user disk (`/data/user/`).
+    - When deleting a branch after merging a pull request, an error message appears although the branch deletion succeeds.
     - |
       Log rotation may fail to signal services to transition to new log files, leading to older log files continuing to be used, and eventual root disk space exhaustion.
       To remedy and/or prevent this issue, run the following commands in the [administrative shell](https://docs.github.com/en/enterprise-server/admin/configuration/accessing-the-administrative-shell-ssh) (SSH), or contact [GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com/) for assistance:

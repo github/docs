@@ -23,7 +23,7 @@ Para crear un encabezado, agrega uno a seis símbolos `#` antes del encabezado d
 
 ### Estilo de texto
 
-Puedes indicar énfasis con texto en negrita, cursiva o tachado.
+Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
 
 | Estilo                       | Sintaxis          | Atajo del teclado   | Ejemplo                                         | Resultado                                     |
 | ---------------------------- | ----------------- | ------------------- | ----------------------------------------------- | --------------------------------------------- |
@@ -204,6 +204,10 @@ Para ver los adjuntos de contenido, debes tener una {% data variables.product.pr
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
 Para obtener más información sobre el desarrollo de una {% data variables.product.prodname_github_app %} que utilice adjuntos de contenido, consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments)".
+
+### Cargar activos
+
+Puedes cargar activos como imágenes si las arrastras y sueltas, las seleccionas de un buscador de archivos o si las pegas. Puedes cargar activos a las propuestas, solicitudes de cambios, comentarios y archivos `.md` en tu repositorio.
 
 ### Usar emojis
 

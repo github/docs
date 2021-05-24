@@ -1,3 +1,10 @@
+// Largely overwritten in tables.scss
+.markdown-body table {
+  display: table;
+  table-layout: fixed;
+  line-height: 1.5;
+}
+
 .markdown-body table {
   border-collapse: collapse;
   position: relative;
@@ -38,6 +45,14 @@
     box-shadow: 0 3px 0 0 var(--color-auto-gray-4);
     padding: 12px 8px;
     border: 0px;
+  }
+
+  th[align="center"] {
+    text-align: center;
+  }
+
+  th[align="right"] {
+    text-align: right;
   }
 
   th:first-child,

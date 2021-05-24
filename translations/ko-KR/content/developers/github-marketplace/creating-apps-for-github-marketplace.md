@@ -5,6 +5,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - 마켓플레이스
+  - Marketplace
 ---
 

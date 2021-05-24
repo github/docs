@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 If your account uses a paid {% data variables.product.prodname_dotcom %} product, you can directly contact {% data variables.contact.github_support %}. If your account uses {% data variables.product.prodname_free_user %} for user accounts and organizations, you can contact {% data variables.contact.contact_support %} to report account, security, and abuse issues. For more information, see "[About GitHub Support](/github/working-with-github-support/about-github-support)."

@@ -5,7 +5,7 @@ permissions: 'Site administrators can enable {% data variables.product.prodname_
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 ### Требования

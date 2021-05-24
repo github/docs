@@ -14,7 +14,7 @@
       >
       {{ allVersions[permalink.pageVersion].versionTitle }}</a>
       {% endfor %}
-      <a class="f6 no-underline color-text-tertiary pt-1" href="/enterprise-server-releases">See all Enterprise releases</a>
+      {% include all-enterprise-releases-link %}
     </div>
   </details>
 {% endif %}

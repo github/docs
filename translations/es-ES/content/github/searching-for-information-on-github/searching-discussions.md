@@ -4,7 +4,7 @@ intro: 'Puedes buscar debates en {% data variables.product.product_name %} y red
 versions:
   free-pro-team: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 {% data reusables.discussions.beta %}

@@ -1,6 +1,6 @@
 ---
 title: 将标签与 AE 托管的运行器一起使用
-intro: 您可以使用标签以基于其特性来组织 {% data variables.actions.hosted_runner %}。
+intro: '您可以使用标签以基于其特性来组织 {% data variables.actions.hosted_runner %}。'
 versions:
   github-ae: '*'
 ---

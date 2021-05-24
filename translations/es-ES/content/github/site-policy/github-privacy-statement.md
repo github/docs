@@ -1,7 +1,7 @@
 ---
 title: Declaración de Privacidad de GitHub
 redirect_from:
-  - /privacidad/
+  - /privacy/
   - /privacy-policy/
   - /privacy-statement/
   - /github-privacy-policy/
@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Fecha de entrada en vigor: 19 de diciembre de 2020
@@ -64,7 +64,7 @@ Necesitamos cierta información básica al momento de creación de la cuenta. Cu
 ##### Información de Pago
 Si te registras para una Cuenta paga, envías fondos a través del Programa de patrocinadores de GitHub o compras una aplicación en el Mercado GitHub, recopilamos tu nombre completo y la información de la tarjeta de crédito o la información de PayPal. Ten en cuenta que GitHub no procesa ni almacena tu información de tarjeta de crédito o información de PayPal, pero sí lo hace nuestro procesador de pago subcontratado.
 
-Si detallas y vendes una aplicación en el [Mercado GitHub](https://github.com/marketplace), te solicitamos la información de tu banco. Si recabas fondos a través del [Programa de Patrocinadores de GitHub](https://github.com/sponsors), necesitamos algo de [información adicional](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) mediante el proceso de registro para que participes y recibas los fondos a través de estos servicios y para propósitos de cumplimiento.
+Si detallas y vendes una aplicación en el [Mercado GitHub](https://github.com/marketplace), te solicitamos la información de tu banco. Si recabas fondos a través del [Programa de Patrocinadores de GitHub](https://github.com/sponsors), necesitamos algo de [información adicional](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) mediante el proceso de registro para que participes y recibas los fondos a través de estos servicios y para propósitos de cumplimiento.
 
 ##### Información de perfil
 Puedes decidir proporcionarnos más información para tu Perfil de cuenta, como tu nombre completo, un avatar que puede incluir una fotografía, tu biografía, tu ubicación, tu empresa y una URL a un sitio web de terceros. Esta información puede incluir Información personal del usuario. Ten en cuenta que tu información de perfil puede ser visible para otros Usuarios de nuestro Servicio.

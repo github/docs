@@ -6,8 +6,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - веб-перехватчики
-  - events
+  - Webhooks
+  - Events
 ---
 
 ### Table of Contents

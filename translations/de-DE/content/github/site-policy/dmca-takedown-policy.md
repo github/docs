@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Willkommen bei GitHubs Übersicht zum Digital Millennium Copyright Act, allgemein bekannt als "DMCA". Diese Seite ist nicht als eine umfassende Anleitung zu diesem Abkommen gedacht. Wenn Du jedoch eine DMCA-Benachrichtigung erhalten hast, die sich auf Inhalte bezieht, die Sie auf GitHub gepostet haben, oder wenn Du ein Rechtsträger bist, der eine solche Benachrichtigung herausgeben möchte, wird diese Seite hoffentlich dazu beitragen, das Gesetz sowie unsere Richtlinien zur Einhaltung des Gesetzes ein wenig zu veranschaulichen.

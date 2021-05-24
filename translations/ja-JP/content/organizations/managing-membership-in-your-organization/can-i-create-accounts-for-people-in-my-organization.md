@@ -1,6 +1,6 @@
 ---
 title: 私の Organization に所属する人のためにアカウントを作成できますか?
-intro: '作成した Organization にユーザを追加することはできますが、個人のアカウントを代理で作成することはできません。'
+intro: 作成した Organization にユーザを追加することはできますが、個人のアカウントを代理で作成することはできません。
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization/
   - /articles/can-i-create-accounts-for-people-in-my-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization にアクセスするには個人アカウントでログインする必要があるため、各 Team メンバーは個人アカウントが必要です。 Organization に追加したい人のユーザ名があれば、その人を Team に追加できます。

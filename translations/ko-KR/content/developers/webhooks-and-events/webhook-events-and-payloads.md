@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - webhooks
+  - Webhooks
 ---
 
 
@@ -61,7 +61,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 #### Example delivery
 
 ```shell
-> POST /payload HTTP/1.1
+> POST /payload HTTP/2
 
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
@@ -200,7 +200,9 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 Webhook events are triggered based on the specificity of the domain you register. For example, if you register a subdomain (`https://subdomain.example.com`) then only URLs for the subdomain trigger this event. If you register a domain (`https://example.com`) then URLs for domain and all subdomains trigger this event. See "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" to create a new content attachment.
 
-Only {% data variables.product.prodname_github_app %}s can receive this event. {% data variables.product.prodname_github_app %}s must have the `content_references` `write` permission to subscribe to this event.
+#### Availability
+
+- {% data variables.product.prodname_github_app %}s with the `content_references:write` permission
 
 #### Webhook payload example
 
@@ -1010,12 +1012,6 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {% endnote %}
 
-{% tip %}
-
-**Note**: The webhook payload example following the table differs significantly from the Events API payload described in the table. Among other differences, the webhook payload includes both `sender` and `pusher` objects. Sender and pusher are the same user who initiated the `push` event, but the `sender` object contains more detail.
-
-{% endtip %}
-
 #### Availability
 
 - Repository webhooks
@@ -1206,7 +1202,7 @@ Activity related to a security advisory. A security advisory provides informatio
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+You can only create a sponsorship webhook on {% data variables.product.prodname_dotcom %}. For more information, see "[Configuring webhooks for events in your sponsored account](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
 
 #### Availability
 

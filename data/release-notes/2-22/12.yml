@@ -1,0 +1,21 @@
+date: '2021-04-28'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - During upgrades, the process would pause indefinitely after `cleanup nomad job`.
+    - 'Failing `ghe-cluster-failover` with the error message `Trilogy::Error: trilogy_connect`.'
+    - '`ghe-cluster-status-mysql` showed warnings about failovers as errors.'
+    - Setup script running on MySQL replication may have caused unnecessary database reseeding during database failover.
+    - '`config-apply` could take longer than necessary due to `rake db:migrate` being called unnecessarily.'
+    - Orchestrator could have failed over to a MySQL replica which was not replicating from primary during seeding phase when primary could not be connected.
+    - Organizations or projects with errors blocked migration and could not be excluded.
+    - Customers with more than three storage hosts were unable to restore to their disaster-recovery cluster due to the fullest disks being selected instead of empty nodes.
+  changes:
+    - Preflight checks allow all AWS instance types by default.
+  known_issues:
+    - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user.
+    - Custom firewall rules are not maintained during an upgrade.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository where the file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
