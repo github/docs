@@ -1,17 +1,17 @@
 const languageCodes = Object.keys(require('../lib/languages'))
 
-var codes = {
+const codes = {
   da: 'da',
   en: 'en',
   es: 'es',
   ja: 'ja',
   pt: 'pt',
-  zh: 'cn',
+  zh: 'cn'
 }
 
-function convertLanguageCode(language) {
-  var code = language.substring(0,2);
-  return codes[code] || code;
+function convertLanguageCode (language) {
+  const code = language.substring(0, 2)
+  return codes[code] || code
 }
 
 module.exports = function detectLanguage (req, res, next) {
@@ -21,9 +21,8 @@ module.exports = function detectLanguage (req, res, next) {
   const firstPartOfPath = req.path.split('/')[1]
 
   req.language = languageCodes.includes(firstPartOfPath) ? firstPartOfPath : 'en'
-  
   // Detecting browser language by user preference
-  const browserLanguage = req.headers["accept-language"].split(",")[0]
+  const browserLanguage = req.headers['accept-language'].split(',')[0]
   req.userLanguage = convertLanguageCode(browserLanguage)
 
   return next()
