@@ -25,8 +25,6 @@ module.exports = function detectLanguage (req, res, next) {
   // Detecting browser language by user preference
   const browserLanguage = req.headers["accept-language"].split(",")[0]
   req.userLanguage = convertLanguageCode(browserLanguage)
-  console.log(req.userLanguage)
-  console.log(req.language)
 
   return next()
 }
