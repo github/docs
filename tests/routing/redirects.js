@@ -20,7 +20,7 @@ describe('redirects', () => {
 
   test('page.redirects is an array', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
+      relativePath: 'github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
@@ -78,7 +78,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -127,7 +127,7 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop'
+      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
       expect(res.headers.location).toBe(expected)
     })
   })
@@ -248,7 +248,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
       expect(redirectRes.statusCode).toBe(200)
-      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
+      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -300,8 +300,14 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/quickstart/set-up-git`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
+
+    test('no product redirects to GitHub.com product on the latest version', async () => {
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(userArticle)
+    })
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
@@ -335,7 +341,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/learning-about-github/access-permissions-on-github`
     const redirectFromPath = '/articles/what-are-the-different-access-permissions'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
@@ -365,7 +371,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
