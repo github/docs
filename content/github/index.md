@@ -32,7 +32,6 @@ children:
   - /managing-large-files
   - /customizing-your-github-workflow
   - /extending-github
-  - /finding-talent-with-github-jobs
   - /working-with-github-support
   - /understanding-how-github-uses-and-protects-your-data
   - /site-policy
