@@ -1,5 +1,14 @@
-const { all, supported, latest } = require('../../lib/enterprise-server-releases')
+const semver = require('semver')
+const { all, latest, firstReleaseNote } = require('../../lib/enterprise-server-releases')
 const { sortReleasesByDate, sortPatchKeys, renderPatchNotes, getAllReleases } = require('../../lib/release-notes-utils')
+
+// Display all GHES release notes, regardless of deprecation status,
+// starting with the first release notes in 2.20
+const supported = all.filter(release => {
+    return semver.gte(
+      semver.coerce(release), semver.coerce(firstReleaseNote)
+    ) && release !== '11.10.340'
+  })
 
 module.exports = async function releaseNotesContext (req, res, next) {
   // The `/release-notes` sub-path
