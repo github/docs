@@ -4,7 +4,7 @@ intro: You can change the name of a branch in a repository.
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=3.1'
+  enterprise-server: '>=3.2'
 topics:
   - Repositories
 redirect_from:
