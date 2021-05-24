@@ -3,7 +3,7 @@
 
 <div class="d-flex">
   <article class="min-width-0 flex-1">
-    <div class="d-flex flex-items-center flex-justify-between bg-white text-bold px-5 py-2">
+    <div class="d-flex flex-items-center flex-justify-between color-bg-primary px-5 py-2">
       <div></div>
       <h1 class="f4 py-3 m-0">{{ currentVersionObject.planTitle }} release notes</h1>
       <div></div>
@@ -11,11 +11,11 @@
 
     <div class="markdown-body">
       {% for patch in releaseNotes %}
-        <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
-          <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
+        <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.date }}" id="{{ patch.date }}">
+          <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.date }}">
             <div class="d-flex flex-items-center">
               <h2 class="border-bottom-0 m-0 p-0">
-                {{ currentVersionObject.versionTitle }} {{ patch.version }}
+                {{ patch.title }}
               </h2>
 
               {% if patch.release_candidate %}
@@ -27,19 +27,15 @@
               </button>
             </div>
 
-            <p class="color-text-secondary mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+            <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {% data ui.release_notes.banner_text %}</p>
           </header>
 
           <div class="container-xl px-3">
             <div class="mt-3">{{ patch.intro }}</div>
 
             {% for section in patch.sections %}
-              <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
-                <div class="col-12 col-xl-3 mb-5">
-                  {% include release-notes-category-label %}
-                </div>
-
-                <ul class="col-12 col-xl-9 release-notes-list">
+              <div class="release-notes-section-{{ section[0] }} py-6 mx-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                <ul class="col-12 release-notes-list">
                   {% for note in section[1] %}
                     <li class="release-notes-list-item {% if note.heading %}list-style-none{% endif %}">
                       {% if note.heading %}
@@ -86,12 +82,11 @@
               </summary>
               <ul class="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
                 {% for patch in release.patches %}
-                  <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.version }}">
+                  <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.date }}">
                     <a
-                      href="#{{ patch.version }}"
+                      href="#{{ patch.date }}"
                       class="d-flex flex-items-center flex-justify-between">
-                      {{ patch.version }}
-                      <span class="color-text-tertiary text-mono text-small text-normal">{{ patch.date | date: "%B %d, %Y" }}</span>
+                      {{ patch.friendlyDate }}
                     </a>
                   </li>
                 {% endfor %}
