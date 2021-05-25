@@ -94,6 +94,7 @@ Turn on the credential helper so that Git will save your password in memory for 
   $ git config --global credential.helper 'cache --timeout=3600'
   # Set the cache to timeout after 1 hour (setting is in seconds)
   ```
+For more options for storing your credentials on Linux, see [Section 7.14 Git Tools - Credential Storage](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage) in Git Pro by Scott Chacon and Ben Straub.
 
 {% endlinux %}
 
