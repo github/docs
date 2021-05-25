@@ -9,7 +9,7 @@ const fs = require('fs').promises
 const path = require('path')
 const rank = require('./rank')
 const validateRecords = require('./validate-records')
-const { compress } = require('./compress')
+const { compress } = require('../../lib/search/compress')
 
 module.exports = class LunrIndex {
   constructor (name, records) {
@@ -76,7 +76,7 @@ module.exports = class LunrIndex {
       .then(JSON.stringify)
       .then(compress)
       .then(content => fs.writeFile(
-        path.posix.join(__dirname, 'indexes', `${this.name}-records.json.br`),
+        path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}-records.json.br`),
         content
         // Do not set to 'utf8'
       ))
@@ -86,7 +86,7 @@ module.exports = class LunrIndex {
       .then(JSON.stringify)
       .then(compress)
       .then(content => fs.writeFile(
-        path.posix.join(__dirname, 'indexes', `${this.name}.json.br`),
+        path.posix.join(__dirname, '../../lib/search/indexes', `${this.name}.json.br`),
         content
         // Do not set to 'utf8'
       ))
