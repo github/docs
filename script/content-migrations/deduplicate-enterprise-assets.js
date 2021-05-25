@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
-const jimp = require('jimp')
+const jimp = require('jimp') // this is an optional dependency, install with `npm i --include=optional`
 
 // iterate through enterprise images from most recent to oldest
 // check if the image in the /assets/enterprise/... directory
