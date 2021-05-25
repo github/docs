@@ -15,7 +15,7 @@ jest.mock('../../lib/get-link-data')
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath: 'github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+  relativePath: 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
   basePath: path.join(__dirname, '../../content'),
   languageCode: 'en'
 }
@@ -80,7 +80,7 @@ describe('Page class', () => {
       const context = {
         page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+        currentPath: '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
@@ -104,7 +104,7 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
+        currentPath: '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       await page.render(context)
@@ -138,7 +138,7 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
+        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
@@ -257,7 +257,7 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      const expectedPath = 'github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+      const expectedPath = 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
       expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${expectedPath}`)
       expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/${expectedPath}`)
     })
