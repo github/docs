@@ -104,6 +104,8 @@ Lob | Lob Test API Key | lob_test_api_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Mailgun | Mailgun API Key | mailgun_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 npm | npm Access Token | npm_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
