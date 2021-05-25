@@ -24,11 +24,11 @@ GitHub announced the following plans and pricing changes:
 
 ### How can I upgrade my plan?
 
-To upgrade your user account's plan, see "[Upgrading your personal account's subscription](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+To upgrade your user account's plan, see "[Upgrading your personal account's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[Upgrading your organization's subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
 
 ### How can I downgrade my plan?
 
-To downgrade your user account's plan, see "[Downgrading your user account's subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+To downgrade your user account's plan, see "[Downgrading your user account's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-user-accounts-subscription)." To downgrade your organization's plan, see "[Downgrading your organization's subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ### If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
 - Required reviewers in private repositories
@@ -64,11 +64,11 @@ For details on the differences for each GitHub Free product, see "[{% data varia
 
 ### How can I get more Actions minutes if I need more than allocated in the GitHub Team plan?
 
-Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see "[Managing your spending limit for GitHub Actions](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+Most small teams use fewer than 3,000 Actions minutes/month, but some teams might use more. If your team needs additional minutes for private repositories, you can increase your spending limit for GitHub Actions. Actions minutes and Packages storage are still free for your public repositories. For more information, see "[Managing your spending limit for GitHub Actions](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 
 ### How do the seat limit changes affect me?
 
-Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
 
 ### Is anything changing for teams on the GitHub Team for Open Source plan?
 
