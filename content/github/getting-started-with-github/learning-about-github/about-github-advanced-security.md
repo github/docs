@@ -15,7 +15,7 @@ redirect_from:
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% if currentVersion != "github-ae@latest" %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a license for {% data variables.product.prodname_GH_advanced_security %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% elsif currentVersion ver_gt "enterprise-server@2.22" %}For information about purchasing a license for {% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.{% elsif currentVersion == "github-ae@latest" %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."{% elsif currentVersion ver_gt "enterprise-server@2.22" %}For information about purchasing a license for {% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.{% elsif currentVersion == "github-ae@latest" %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
 
 ### About {% data variables.product.prodname_advanced_security %} features
 
@@ -52,7 +52,7 @@ For other repositories, once you have a license for your enterprise account, you
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)."
+If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[Viewing your {% data variables.product.prodname_GH_advanced_security %} usage](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
 
 {% endif %}
 

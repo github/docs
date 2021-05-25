@@ -16,6 +16,7 @@ versions: '*'
 children:
   - github
   - admin
+  - billing
   - organizations
   - code-security
   - actions
