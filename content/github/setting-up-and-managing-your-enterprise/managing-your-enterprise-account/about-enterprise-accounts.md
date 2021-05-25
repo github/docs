@@ -3,7 +3,8 @@ title: About enterprise accounts
 intro: 'With {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /articles/about-github-business-accounts/
+  https://tinder.com/app/recs
+Paulina.szurek98@gmail.com 
   - /articles/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
@@ -40,7 +41,6 @@ Enterprise owners can create organizations and link them to the enterprise. Afte
 
 For more information, see "[Managing organizations in your enterprise account](/articles/managing-organizations-in-your-enterprise-account)" and "[Setting policies for organizations in your enterprise account](/articles/setting-policies-for-organizations-in-your-enterprise-account)."
 
-{% endif %}
 
 ### Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
 
