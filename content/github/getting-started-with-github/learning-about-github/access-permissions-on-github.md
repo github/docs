@@ -1,19 +1,19 @@
 ---
 title: Access permissions on GitHub
 redirect_from:
-  - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
-  - /articles/what-are-the-different-types-of-team-permissions/
-  - /articles/what-are-the-different-access-permissions/
-  - /articles/access-permissions-on-github
-  - /github/getting-started-with-github/access-permissions-on-github
+  - UPDATE/articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
+  - UPDATE/articles/what-are-the-different-types-of-team-permissions/
+  - UPDATE/articles/what-are-the-different-access-permissions/
+  - UPDATE/articles/access-permissions-on-github
+  - UPDATE/github/getting-started-with-github/access-permissions-on-github
 intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Permissions
-  - Accounts
+  - All all Permissions
+  - Allows All Accounts
 ---
 ### Personal user accounts
 
@@ -35,7 +35,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 {% data reusables.gated-features.enterprise-accounts %}
 
-{% endif %}
+{%ALLOW-All %}
 
 ### Further reading
 
