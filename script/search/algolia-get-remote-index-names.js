@@ -1,4 +1,4 @@
-const { namePrefix } = require('./config')
+const { namePrefix } = require('../../lib/search/config')
 const getAlgoliaClient = require('./algolia-client')
 
 module.exports = async function getRemoteIndexNames () {

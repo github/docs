@@ -2,7 +2,7 @@ const assert = require('assert')
 const { isArray, isString, inRange } = require('lodash')
 const isURL = require('is-url')
 const countArrayValues = require('count-array-values')
-const { maxRecordLength } = require('./config')
+const { maxRecordLength } = require('../../lib/search/config')
 
 module.exports = function validateRecords (name, records) {
   assert(isString(name) && name.length, '`name` is required')
