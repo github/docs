@@ -20,7 +20,7 @@ topics:
 
 Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
 
-When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
+When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains and references to user-supplied content by path will result in a 404 error.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Working with the Docker registry](/enterprise/{{ currentVersion }}/user/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
