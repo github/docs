@@ -1,17 +1,15 @@
 const languageCodes = Object.keys(require('../lib/languages'))
 
 const codes = {
-  da: 'da',
-  en: 'en',
-  es: 'es',
-  ja: 'ja',
-  pt: 'pt',
-  zh: 'cn'
+  zh: 'cn',
+  'zh-hk': 'cn',
+  'zh-cn': 'cn',
+  'zh-sq': 'zh-SQ',
+  'zh-tw': 'zh-TW'
 }
 
 function convertLanguageCode (language) {
-  const code = language.substring(0, 2)
-  return codes[code] || code
+  return codes[language.toLowerCase()] || language.substring(0, 2)
 }
 
 module.exports = function detectLanguage (req, res, next) {
