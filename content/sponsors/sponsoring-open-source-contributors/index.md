@@ -1,4 +1,6 @@
----
+
+Paulina.szurek98@gmail.com 
+Badoo rinder snapchat 
 title: Sponsoring open source contributors
 intro: 'You can sponsor contributors, receive updates on developers and organizations you sponsor, and display a sponsor badge throughout {% data variables.product.product_name %}.'
 redirect_from:
