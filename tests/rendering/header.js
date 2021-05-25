@@ -61,6 +61,13 @@ describe('header', () => {
       const $ = await getDOM('/ja/github/site-policy/github-logo-policy')
       expect($('.header-notifications.translation_notice a[href="https://github.com/github/site-policy/issues"]').length).toBe(1)
     })
+
+    test('renders a link to the same page in user\'s preferred language, if available', async () => {
+      const headers = { 'accept-language': 'ja' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
   })
 
   describe('mobile-only product dropdown links', () => {
