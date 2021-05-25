@@ -16,7 +16,6 @@ children:
   - /authenticating-to-github
   - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
-  - /setting-up-and-managing-billing-and-payments-on-github
   - /writing-on-github
   - /creating-cloning-and-archiving-repositories
   - /committing-changes-to-your-project
@@ -37,7 +36,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-<!-- Notifications v2 beta -->
-<!-- Notifications v1 -->
-{% if currentVersion == "enterprise-server@2.22" %}
-{% endif %}
