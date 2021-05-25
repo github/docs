@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import Link from 'next/link'
-import { format } from 'date-fns'
+import dayjs from 'dayjs'
 
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink, useProductLandingContext } from 'components/context/ProductLandingContext'
@@ -61,7 +61,7 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
   return (
     <>
       <div className="featured-links-heading mb-4 d-flex flex-items-baseline">
-        <h3 className="f4 text-normal text-mono text-uppercase color-text-secondary">{title}</h3>
+        <h3 className="f4 text-normal text-mono text-uppercase">{title}</h3>
         {viewAllHref && (
           <Link href={viewAllHref}>
             <a className="ml-4">
@@ -93,9 +93,9 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
                   {link.date && (
                     <time
                       className="tooltipped tooltipped-n color-text-tertiary text-mono mt-1"
-                      aria-label={format(new Date(link.date), 'PPP')}
+                      aria-label={dayjs(link.date).format('LLL')}
                     >
-                      {format(new Date(link.date), 'MMMM dd')}
+                      {dayjs(link.date).format('MMMM DD')}
                     </time>
                   )}
                 </a>

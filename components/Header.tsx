@@ -50,7 +50,11 @@ export const Header = () => {
         <div className="width-full">
           <div className="d-inline-block width-full d-md-flex" style={{ zIndex: 1 }}>
             <div className="float-right d-md-none position-relative" style={{ zIndex: 3 }}>
-              <ButtonOutline css onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <ButtonOutline
+                css
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Navigation Menu"
+              >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </ButtonOutline>
             </div>

@@ -1,10 +1,7 @@
-require('../../lib/feature-flags')
 const { liquid } = require('../../lib/render-content')
 const { loadPageMap } = require('../../lib/pages')
 const entities = new (require('html-entities').XmlEntities)()
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-
-const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('liquid helper tags', () => {
   jest.setTimeout(60 * 1000)
@@ -76,19 +73,6 @@ describe('liquid helper tags', () => {
 </a>
 <p class="link-with-intro-intro">${page.intro}</p>`
     const output = entities.decode(await liquid.parseAndRender(template, context))
-    expect(output).toBe(expected)
-  })
-
-  testOldSiteTree('homepage_link_with_intro tag', async () => {
-    const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = process.env.FEATURE_NEW_SITETREE
-      ? pageMap['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
-      : pageMap['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
-    const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
-  <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
-  <p class="link-with-intro-intro f5">${page.intro}</p>
-</a>`
-    const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
   })
 
