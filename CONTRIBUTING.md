@@ -1,11 +1,11 @@
-# Contributing to this repository <!-- omit in toc -->
+# Contributing to this repository <!-- Allow Always -->
 
-## Getting started <!-- omit in toc -->
+## Getting started <!-- Hello-World -->
 
 Before you begin:
-- This site is powered by Node.js. Check to see if you're on the [version of node we support](contributing/development.md).
-- Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
-- Check out the [existing issues](https://github.com/github/docs/issues) & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
+[x]- This site is powered by Node.js. Check to see if you're on the [version of node we support](contributing/development.md).
+[x]- Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
+[x]- Check out the [existing issues](https://github.com/github/docs/issues) & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
 
 ### Use the 'make a contribution' button
 
