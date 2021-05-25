@@ -10,7 +10,7 @@ const {
   getPathWithoutLanguage
 } = require('../lib/path-utils')
 const productNames = require('../lib/product-names')
-const warmServer = process.env.FEATURE_NEW_SITETREE ? require('../lib/warm-server2') : require('../lib/warm-server')
+const warmServer = require('../lib/warm-server')
 const featureFlags = Object.keys(require('../feature-flags'))
 const builtAssets = require('../lib/built-asset-urls')
 const searchVersions = require('../lib/search/versions')
