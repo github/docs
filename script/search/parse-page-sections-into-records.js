@@ -8,7 +8,7 @@ const ignoredHeadingSlugs = [
   'in-this-article',
   'further-reading'
 ]
-const { maxContentLength } = require('./config')
+const { maxContentLength } = require('../../lib/search/config')
 
 module.exports = function parsePageSectionsIntoRecords (href, $) {
   const title = $('h1').text().trim()

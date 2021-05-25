@@ -3,12 +3,12 @@ const path = require('path')
 const mkdirp = require('mkdirp').sync
 const rimraf = require('rimraf').sync
 const chalk = require('chalk')
-const languages = require('../languages')
+const languages = require('../../lib/languages')
 const buildRecords = require('./build-records')
 const findIndexablePages = require('./find-indexable-pages')
 const cacheDir = path.join(process.cwd(), './.search-cache')
-const allVersions = require('../all-versions')
-const { namePrefix } = require('./config')
+const allVersions = require('../../lib/all-versions')
+const { namePrefix } = require('../../lib/search/config')
 
 // Algolia
 const getRemoteIndexNames = require('./algolia-get-remote-index-names')
@@ -96,7 +96,7 @@ module.exports = async function syncSearchIndexes (opts = {}) {
   const remoteIndexNames = process.env.AIRGAP
     ? await getLunrIndexNames()
     : await getRemoteIndexNames()
-  const cachedIndexNamesFile = path.join(__dirname, './cached-index-names.json')
+  const cachedIndexNamesFile = path.join(__dirname, '../../lib/search/cached-index-names.json')
   fs.writeFileSync(
     cachedIndexNamesFile,
     JSON.stringify(remoteIndexNames, null, 2)
