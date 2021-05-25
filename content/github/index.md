@@ -19,8 +19,7 @@ children:
   - /writing-on-github
   - /creating-cloning-and-archiving-repositories
   - /committing-changes-to-your-project
-  - /collaborating-with-issues-and-pull-requests
-  - /managing-your-work-on-github
+  - /collaborating-with-pull-requests
   - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /administering-a-repository
