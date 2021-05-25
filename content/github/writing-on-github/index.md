@@ -5,6 +5,7 @@ redirect_from:
   - /articles/github-flavored-markdown/
   - /articles/writing-on-github/
   - /categories/writing-on-github
+intro: 'You can structure the information shared on GitHub with various formatting options.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
