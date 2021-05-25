@@ -30,7 +30,6 @@ helpers.post = route => request('post', route)
 
 helpers.getDOM = async function (route, customHeaders) {
   const res = await helpers.get(route, { followRedirects: true }, customHeaders)
-  
   const $ = cheerio.load((res.text || ''), { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
