@@ -27,8 +27,8 @@ You can create webhooks that subscribe to the events listed on this page. Each w
 Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
 
 Key | Type | Description
-----|------|-------------
-`action` | `string` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event.
+---- | ------ | -------------
+`action` | `string` | La mayoría de las cargas útiles de webhook contienen una propiedad de "acción" que contiene la actividad específica que desencadenó el evento.
 {% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
 {% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
 {% data reusables.webhooks.org_desc %}
