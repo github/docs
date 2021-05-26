@@ -23,7 +23,7 @@ module.exports = async function genericToc (req, res, next) {
   const currentTocType = tocTypes[req.context.page.documentType]
 
   // Find the part of the site tree that corresponds to the current path.
-  const treePage = findPageInSiteTree(req.context.currentProductTree, req.path)
+  const treePage = findPageInSiteTree(req.context.currentProductTree, req.context.currentEnglishTree, req.path)
 
   // Conditionally run getTocItems() recursively.
   let isRecursive
