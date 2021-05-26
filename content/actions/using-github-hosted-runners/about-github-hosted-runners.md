@@ -135,6 +135,6 @@ Actions that run in Docker containers have static directories under the `/github
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Further reading
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 
 {% endif %}
