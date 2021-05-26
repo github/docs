@@ -34,7 +34,7 @@ Starring a repository is a simple two-step process.
 {% data reusables.repositories.navigate-to-repo %}
 1. In the top-right corner of the page, click **Star**.
 ![Starring a repository](/assets/images/help/stars/starring-a-repository.png)
-3. Optionally, to unstar a previously starred repository, click **Unstar**.
+1. Optionally, to unstar a previously starred repository, click **Unstar**.
 ![Untarring a repository](/assets/images/help/stars/unstarring-a-repository.png)
 
 ### Searching stars
@@ -42,7 +42,7 @@ Starring a repository is a simple two-step process.
 You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
 
 1. Go to your {% data variables.explore.your_stars_page %}.
-2. Use the search bar to find your starred repositories or topics by their name.
+1. Use the search bar to find your starred repositories or topics by their name.
 ![Searching through stars](/assets/images/help/stars/stars_search_bar.png)
 
 The search bar only searches based on the name of a repository or topic, and not on any other qualifiers (such as the size of the repository or when it was last updated).
@@ -52,10 +52,12 @@ The search bar only searches based on the name of a repository or topic, and not
 You can use sorting or filtering to customize how you see starred repositories and topics on your stars page.
 
 1. Go to your {% data variables.explore.your_stars_page %}.
-1. In the upper-right corner of your {% data variables.explore.your_stars_page %}, you can sort your starred repositories and topics by recently starred, recently active, and most stars.
+1. To sort stars, select the **Sort** drop-down menu, then select **Recently starred**, **Recently active**, or **Most stars**.
 ![Sorting stars](/assets/images/help/stars/stars_sort_menu.png)
-2. To filter your list of starred repositories based on their language, click on the desired language under ** Filter by languages**.
+1. To filter your list of stars based on their language, click on the desired language under **Filter by languages**.
 ![Filter stars by language](/assets/images/help/stars/stars_filter_language.png)
+1. To filter your list of stars based on repository or topic, click on the desired option above **Filter by languages**.
+![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
 
 ### Further reading
 
