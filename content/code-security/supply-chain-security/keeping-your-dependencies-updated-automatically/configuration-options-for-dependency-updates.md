@@ -920,6 +920,20 @@ registries:
 ```
 {% endraw %}
 
+#### `terraform-registry`
+
+The `terraform-registry` type supports token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_TOKEN}}
+```
+{% endraw %}
+
 #### `rubygems-server`
 
 The `rubygems-server` type supports username and password, or token.
