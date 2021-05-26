@@ -19,7 +19,7 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, languages, currentLanguage } = useMainContext()
+  const { relativePath, allVersions, data, languages, currentLanguage, userLanguage, currentPathWithoutLanguage } = useMainContext()
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
@@ -39,9 +39,16 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: t('notices.localization_in_progress'),
       })
+    } 
+  } else {
+    if (languages[userLanguage]?.wip === false && userLanguage !== 'en') {
+      translationNotices.push({
+        type: NotificationType.TRANSLATION,
+        content: 
+          `This article is also available in your language of choice. Click <a href="/${userLanguage}${currentPathWithoutLanguage}">here</a>`
+      })
     }
   }
-
   const releaseNotices: Array<Notif> = []
   if (currentVersion === 'github-ae@latest') {
     releaseNotices.push({

@@ -78,7 +78,9 @@ export type MainContextT = {
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentPathWithoutLanguage: string
   currentLanguage: string
+  userLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
   currentProductTree?: CurrentProductTree
@@ -123,6 +125,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
@@ -144,6 +147,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
+    userLanguage: req.context.userLanguage || '',
     languages: Object.fromEntries(
       Object.entries(req.context.languages).map(([key, entry]: any) => {
         return [
@@ -153,6 +157,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
             nativeName: entry.nativeName || '',
             code: entry.code,
             hreflang: entry.hreflang,
+            wip: entry.wip || false,
           },
         ]
       })
