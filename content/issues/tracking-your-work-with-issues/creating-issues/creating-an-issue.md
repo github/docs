@@ -53,4 +53,4 @@ If you're using a project board to track and prioritize your work, you can conve
 {% data reusables.repositories.submit-new-issue %}
 ### Further reading
 
-- "[Creating a permanent link to a code snippet](/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet)"
+- "[Writing on GitHub](/github/writing-on-github)"
