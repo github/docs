@@ -76,3 +76,6 @@ After your pull request has been reviewed, it can be [merged into the repository
 - "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)"
 - "[Changing the base branch of a pull request](/articles/changing-the-base-branch-of-a-pull-request)"
 - "[Adding issues and pull requests to a project board from the sidebar](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)"
+- "[About automation for issues and pull requests with query parameters](/issues/tracking-your-work-with-issues/creating-issues/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+- "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/managing-issues/assigning-issues-and-pull-requests-to-other-github-users)"
+- "[Writing on GitHub](/github/writing-on-github)"
