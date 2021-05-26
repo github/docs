@@ -126,11 +126,31 @@ For a list of REST API endpoints you can use to get high-level information about
 
 ### Authenticating as an installation
 
-Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. These installation access tokens are used by {% data variables.product.prodname_github_app %}s to authenticate.
+Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. Ensure that you have already installed your GitHub App to at least one repository; it is impossible to create an installation token without a single installation. These installation access tokens are used by {% data variables.product.prodname_github_app %}s to authenticate. For more information, see "[Installing GitHub Apps](/developers/apps/managing-github-apps/installing-github-apps)."
 
 By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
 
-To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
+To list the installations for an authenticated app, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
+
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
+```shell
+$ curl -i -X POST \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.machine-man-preview+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% else %}
+```shell
+$ curl -i -X POST \
+-H "Authorization: Bearer YOUR_JWT" \
+-H "Accept: application/vnd.github.v3+json" \
+{% data variables.product.api_url_pre %}/app/installations
+```
+{% endif %}
+
+The response will include a list of installations where each installation's `id` can be used for creating an installation access token. For more information about the response format, see "[List installations for the authenticated app](/rest/reference/apps#list-installations-for-the-authenticated-app)."
+
+To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request and replace `:installation_id` with the installation's `id`:
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
