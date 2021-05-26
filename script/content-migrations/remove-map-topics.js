@@ -6,7 +6,7 @@ const walk = require('walk-sync')
 const stripHtmlComments = require('strip-html-comments')
 const languages = require('../../lib/languages')
 const frontmatter = require('../../lib/read-frontmatter')
-const addRedirectToFrontmatter = require('../../lib/redirects/add-redirect-to-frontmatter')
+const addRedirectToFrontmatter = require('../helpers/add-redirect-to-frontmatter')
 
 const relativeRefRegex = /\/[a-zA-Z0-9-]+/g
 const linkString = /{% [^}]*?link.*? \/(.*?) ?%}/m

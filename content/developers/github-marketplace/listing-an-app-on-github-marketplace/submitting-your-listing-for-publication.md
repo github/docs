@@ -16,7 +16,7 @@ Once your app listing meets the {% data variables.product.prodname_marketplace %
   
   ![Overview option for the marketplace draft listing](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. To submit your your completed app listing, click **Request review**.
+2. To submit your your completed app listing, click **Request publish**.
 
   !["Publish your app to Marketplace" checklist with submission button at the bottom](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 
