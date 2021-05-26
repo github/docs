@@ -2,17 +2,15 @@ const revalidator = require('revalidator')
 const schema = require('../helpers/schemas/site-tree-schema')
 const latestEnterpriseRelease = require('../../lib/enterprise-server-releases').latest
 const { loadSiteTree } = require('../../lib/page-data')
-const loadData = require('../../lib/site-data')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('siteTree', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  let siteTree, siteData
+  let siteTree
   beforeAll(async (done) => {
     siteTree = await loadSiteTree()
-    siteData = await loadData()
     done()
   })
 
