@@ -16,7 +16,7 @@
   $ export CR_PAT=YOUR_TOKEN
   ```
 3. 使用您的容器类型的 CLI 登录到
-`ghcr.io` 上的 {% data variables.product.prodname_github_container_registry %} 服务。
+`ghcr.io` 上的 {% data variables.product.prodname_container_registry %} 服务。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin

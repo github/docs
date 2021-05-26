@@ -51,7 +51,8 @@ indexFiles
       data.externalProducts = englishHomepageData.externalProducts
     }
 
-    const linkItems = content.match(linksArray) || []
+    const linkItems = content.match(linksArray)
+    if (!linkItems) return
 
     // Turn the `{% link /<link> %}` list into an array of /<link> items
     if (documentType === 'product' || documentType === 'mapTopic') {

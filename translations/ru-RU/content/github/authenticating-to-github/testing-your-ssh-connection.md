@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 Before testing your SSH connection, you should have:

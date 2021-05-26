@@ -1,12 +1,15 @@
 import { createContext, useContext } from 'react'
+import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 
 type ProductT = {
   external: boolean
   href: string
   id: string
   name: string
+  versions?: Array<string>
 }
 
 type LanguageItem = {
@@ -20,6 +23,38 @@ type LanguageItem = {
 type VersionItem = {
   version: string
   versionTitle: string
+}
+
+type Article = {
+  href: string
+  title: string
+  shortTitle?: string
+  hidden?: boolean
+}
+type ProductSiteTree = {
+  title: string
+  href: string
+  external?: boolean
+  categories?: Record<
+    string,
+    Article & {
+      standalone?: boolean
+      articles?: Record<string, Article>
+      maptopics?: Record<string, Article & { articles?: Record<string, Article> }>
+    }
+  >
+}
+
+export type SiteTreePage = {
+  page: {
+    hidden?: boolean
+    documentType: 'article' | 'mapTopic'
+    title: string
+  }
+  renderedShortTitle?: string
+  renderedFullTitle: string
+  href: string
+  childPages: Array<SiteTreePage>
 }
 
 type DataT = {
@@ -45,7 +80,12 @@ type EnterpriseServerReleases = {
   nextDeprecationDate: string
 }
 export type MainContextT = {
-  breadcrumbs: Record<string, BreadcrumbT>
+  breadcrumbs: {
+    product: BreadcrumbT
+    category?: BreadcrumbT
+    maptopic?: BreadcrumbT
+    article?: BreadcrumbT
+  }
   builtAssets: { main: { css: string; js: string } }
   expose: string
   activeProducts: Array<ProductT>
@@ -60,6 +100,19 @@ export type MainContextT = {
   currentLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
+  productSiteTree?: ProductSiteTree
+  productSiteTreeNew?: SiteTreePage
+  featureFlags: FeatureFlags
+  pageHidden: boolean
+  pagePermalinks?: Array<{
+    languageCode: string
+    relativePath: string
+    title: string
+    pageVersionTitle: string
+    pageVersion: string
+    href: string
+  }>
+  enterpriseServerVersions: Array<string>
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -83,8 +136,20 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
-    relativePath: req.context.page.relativePath,
-    enterpriseServerReleases: req.context.enterpriseServerReleases,
+    relativePath: req.context.page?.relativePath,
+    pagePermalinks: req.context.page?.permalinks.map((obj: any) =>
+      pick(obj, [
+        'title',
+        'pageVersionTitle',
+        'pageVersion',
+        'href',
+        'relativePath',
+        'languageCode',
+      ])
+    ),
+    pageHidden: req.context.page.hidden || false,
+    enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
+    enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     languages: Object.fromEntries(
       Object.entries(req.context.languages).map(([key, entry]: any) => {
@@ -100,6 +165,20 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
+    // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
+    productSiteTree: !req.context.FEATURE_NEW_SITETREE
+      ? JSON.parse(
+          JSON.stringify(
+            req.context.siteTree[req.context.currentLanguage][req.context.currentVersion].products[
+              req.context.currentProduct
+            ]
+          )
+        )
+      : null,
+    productSiteTreeNew: req.context.FEATURE_NEW_SITETREE ? req.context.siteTree : null,
+    featureFlags: {
+      FEATURE_NEW_SITETREE: req.context.FEATURE_NEW_SITETREE || false,
+    },
   }
 }
 

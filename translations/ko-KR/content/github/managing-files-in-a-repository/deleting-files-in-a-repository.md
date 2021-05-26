@@ -26,7 +26,7 @@ If the file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_
 
 1. Browse to the file in your repository that you want to delete.
 2. At the top of the file, click
-{% octicon "trashcan" aria-label="The trashcan icon" %}.
+{% octicon "trash" aria-label="The trash icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

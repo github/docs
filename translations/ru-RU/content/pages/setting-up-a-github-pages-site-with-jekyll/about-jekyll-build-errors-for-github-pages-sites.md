@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 ### About Jekyll build errors

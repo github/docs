@@ -1,1 +1,1 @@
-If you created your key with a different name, or if you are adding an existing key that has a different name, replace *id_ed25519* in the command with the name of your private key file.
+キーを別の名前で作成したか、別の名前を持つ既存のキーを追加しようとしている場合は、コマンド内の*id_ed25519*を秘密鍵ファイルの名前で置き換えてください。

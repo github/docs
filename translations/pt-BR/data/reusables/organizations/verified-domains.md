@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Verified domains** (Domínios verificados). ![Botão de domínios verificados](/assets/images/help/organizations/verified-domains-button.png)
+1. In the left sidebar, click **Verified & approved domains**. !["Verified & approved domains" tab](/assets/images/help/organizations/verified-domains-button.png)
