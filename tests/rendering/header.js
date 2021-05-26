@@ -68,6 +68,25 @@ describe('header', () => {
       expect($('.header-notifications.translation_notice').length).toBe(1)
       expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
     })
+
+    test('renders a link to the same page if user\'s preferred language is Chinese - PRC', async () => {
+      const headers = { 'accept-language': 'zh-CN' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/cn"]').length).toBe(1)
+    })
+
+    test('does not render a link when user\s preferred language is Chinese - Taiwan', async () => {
+      const headers = { 'accept-language': 'zh-TW' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
+
+    test('does not render a link when user\s preferred language is English', async () => {
+      const headers = { 'accept-language': 'en' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
   })
 
   describe('mobile-only product dropdown links', () => {
