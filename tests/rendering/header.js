@@ -76,13 +76,13 @@ describe('header', () => {
       expect($('.header-notifications a[href*="/cn"]').length).toBe(1)
     })
 
-    test('does not render a link when user\s preferred language is Chinese - Taiwan', async () => {
+    test('does not render a link when user\'s preferred language is Chinese - Taiwan', async () => {
       const headers = { 'accept-language': 'zh-TW' }
       const $ = await getDOM('/en', headers)
       expect($('.header-notifications').length).toBe(0)
     })
 
-    test('does not render a link when user\s preferred language is English', async () => {
+    test('does not render a link when user\'s preferred language is English', async () => {
       const headers = { 'accept-language': 'en' }
       const $ = await getDOM('/en', headers)
       expect($('.header-notifications').length).toBe(0)
