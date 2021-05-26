@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 La autenticación de dos factores (2FA) ofrece una autenticación básica para los miembros de la organización. Al activar la 2FA, los administradores de la organización limitan la probabilidad de que la cuenta de {% data variables.product.product_name %} de un miembro se vea comprometida. Para obtener más información, consulta "[Acerca de la autenticación de dos factores](/articles/about-two-factor-authentication)".

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - ssh
+  - SSH
 ---
 
 ### Determinar dónde se ha usado la clave

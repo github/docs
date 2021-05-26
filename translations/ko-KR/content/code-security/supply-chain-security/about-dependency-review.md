@@ -4,7 +4,7 @@ intro: 'Dependency review lets you catch vulnerable dependencies before you intr
 versions:
   free-pro-team: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 {% note %}

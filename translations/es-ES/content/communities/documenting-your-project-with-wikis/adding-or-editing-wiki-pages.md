@@ -14,7 +14,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 ### Agregar páginas wiki

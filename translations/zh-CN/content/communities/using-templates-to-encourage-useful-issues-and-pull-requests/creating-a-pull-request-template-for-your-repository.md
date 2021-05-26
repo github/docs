@@ -1,6 +1,6 @@
 ---
 title: 为仓库创建拉取请求模板
-intro: '将拉取请求模板添加到仓库后，项目贡献者会自动在拉取请求正文中看到模板的内容。'
+intro: 将拉取请求模板添加到仓库后，项目贡献者会自动在拉取请求正文中看到模板的内容。
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
   - /github/building-a-strong-community/creating-a-pull-request-template-for-your-repository
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 更多信息请参阅“[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。

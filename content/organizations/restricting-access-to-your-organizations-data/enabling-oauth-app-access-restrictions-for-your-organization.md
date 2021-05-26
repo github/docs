@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

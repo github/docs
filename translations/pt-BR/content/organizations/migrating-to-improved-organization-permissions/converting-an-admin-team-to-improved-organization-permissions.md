@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Você pode impedir os integrantes das equipes de administradores legadas de criar repositórios criando uma equipe para esses integrantes, garantindo que a equipe tenha acesso necessário aos repositórios da organização e, em seguida, excluindo a equipe de administradores legada.

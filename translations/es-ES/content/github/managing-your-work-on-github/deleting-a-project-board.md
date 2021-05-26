@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 {% tip %}

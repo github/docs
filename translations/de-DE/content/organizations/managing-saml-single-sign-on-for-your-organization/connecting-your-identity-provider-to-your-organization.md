@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Vor der [Aktivierung von SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in Ihrer {% data variables.product.product_name %}-Organisation müssen Sie Ihren Identity Provider (IdP) mit Ihrer Organisation verbinden.

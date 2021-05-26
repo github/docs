@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los propietarios de las organizaciones pueden administrar las direcciones IP permitidas en las mismas.
@@ -26,9 +26,8 @@ También puedes configurar las direcciones IP permitidas para las organizaciones
 
 ### Agregar una dirección IP permitida
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
@@ -36,18 +35,16 @@ También puedes configurar las direcciones IP permitidas para las organizaciones
 
 ### Habilitar direcciones IP permitidas
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 3. En "IP allow list" (Lista de permisos de IP), seleccione **Enable IP allow list** (Habilitar lista de permisos de IP). ![Realizar una marca de verificación para permitir direcciones IP](/assets/images/help/security/enable-ip-allowlist-organization-checkbox.png)
 4. Haz clic en **Save ** (guardar).
 
 ### Editar una dirección IP permitida
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
@@ -56,9 +53,8 @@ También puedes configurar las direcciones IP permitidas para las organizaciones
 
 ### Eliminar una dirección IP permitida
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}

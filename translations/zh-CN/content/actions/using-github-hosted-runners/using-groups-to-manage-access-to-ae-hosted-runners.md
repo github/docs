@@ -1,6 +1,6 @@
 ---
 title: 使用组来管理访问 AE 托管的运行器
-intro: 您可以使用策略来限制对已添加到组织或企业的 {% data variables.actions.hosted_runner %} 的访问。
+intro: '您可以使用策略来限制对已添加到组织或企业的 {% data variables.actions.hosted_runner %} 的访问。'
 versions:
   github-ae: '*'
 ---

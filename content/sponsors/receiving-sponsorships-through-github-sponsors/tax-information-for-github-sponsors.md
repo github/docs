@@ -6,10 +6,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/tax-information-for-sponsored-developers
 versions:
   free-pro-team: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'Open Source'
-  - 'Sponsors payments'
+  - Open Source
+  - Sponsors payments
 ---
 
 If you are a taxpayer in the United States, you must submit a W-9 before you can receive payments. If you are a taxpayer in any other region besides the United States, you must submit a W-8BEN before you can receive payments. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-tax-information)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.

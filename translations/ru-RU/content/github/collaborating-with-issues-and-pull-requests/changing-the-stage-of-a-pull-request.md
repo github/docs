@@ -10,12 +10,20 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 ### Marking a pull request as ready for review
 
 {% data reusables.pull_requests.mark-ready-review %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% tip %}
+
+**Tip**: You can also mark a pull request as ready for review using the {% data variables.product.prodname_cli %}. For more information, see "[`gh pr ready`](https://cli.github.com/manual/gh_pr_ready)" in the {% data variables.product.prodname_cli %} documentation.
+
+{% endtip %}
+{% endif %}
 
 {% data reusables.repositories.sidebar-pr %}
 2. In the "Pull requests" list, click the pull request you'd like to mark as ready for review.

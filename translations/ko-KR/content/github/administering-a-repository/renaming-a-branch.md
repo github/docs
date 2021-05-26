@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.2'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About renaming branches
@@ -16,6 +16,8 @@ You can rename a branch in a repository on {% data variables.product.product_loc
 When you rename a branch on {% data variables.product.product_location %}, any URLs that contain the old branch name are automatically redirected to the equivalent URL for the renamed branch. Branch protection policies are also updated, as well as the base branch for open pull requests (including those for forks) and draft releases. After the rename is complete, {% data variables.product.prodname_dotcom %} provides instructions on the repository's home page directing contributors to update their local Git environments.
 
 Although file URLs are automatically redirected, raw file URLs are not redirected. Also, {% data variables.product.prodname_dotcom %} does not perform any redirects if users perform a `git pull` for the previous branch name.
+
+{% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the banch name is deprecated and suggesting that users migrate to the new branch name.
 
 ### Renaming a branch
 
@@ -35,4 +37,10 @@ From the local clone of the repository on a computer, run the following commands
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
 $ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
+$ git remote set-head origin -a
+```
+
+Optionally, run the following command to remove tracking references to the old branch name.
+```
+$ git remote prune origin
 ```

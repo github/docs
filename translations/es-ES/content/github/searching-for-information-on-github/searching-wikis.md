@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 Puedes buscar wikis globalmente a través de todos los {% data variables.product.product_name %}, o buscar wikis dentro de un repositorio u organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".

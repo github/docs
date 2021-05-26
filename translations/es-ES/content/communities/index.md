@@ -1,5 +1,5 @@
 ---
-title: Building communities
+title: Crear comunidades
 intro: 'Más allá de que tu proyecto sea de código abierto o privado, puedes generar un entorno saludable y eficaz para la colaboración.'
 redirect_from:
   - /categories/building-a-strong-community
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 {% link_with_intro /setting-up-your-project-for-healthy-contributions %}

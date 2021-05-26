@@ -10,6 +10,6 @@ redirect_from:
 versions:
   enterprise-server: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 

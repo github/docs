@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Para conservar el acceso a los bot y a las cuentas de servicio, los administradores de la organización pueden [habilitar](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), pero **no** [implementar](/articles/enforcing-saml-single-sign-on-for-your-organization) el inicio de sesión único de SAML para sus organizaciones. Si debes implementar el inicio de sesión único de SAML para tu organización, puedes crear una identidad externa para el bot o la cuenta de servicio con tu proveedor de identidad (IdP).

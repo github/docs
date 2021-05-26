@@ -10,7 +10,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - pages
+  - Pages
 ---
 
 リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトにテーマを追加するため、テーマ選択画面を使用できます。
@@ -21,7 +21,7 @@ topics:
 
 テーマ選択画面の動作は、リポジトリがパブリックかプライベートかにより異なります。
   - {% data variables.product.prodname_pages %} がリポジトリに対して既に有効である場合、テーマ選択画面は、現在の公開元にテーマを追加します。
-  - If your repository is public and {% data variables.product.prodname_pages %} is disabled for your repository, using the theme chooser will enable {% data variables.product.prodname_pages %} and configure the default branch as your publishing source.
+  - リポジトリがパブリックで、{% data variables.product.prodname_pages %} がリポジトリに対して無効である場合、テーマ選択画面を使用することで {% data variables.product.prodname_pages %} が有効となり、デフォルトブランチを公開元として設定します。
   - リポジトリがプライベートで、{% data variables.product.prodname_pages %}がリポジトリに対して無効である場合、テーマ選択画面を使用する前に、公開元を設定して {% data variables.product.prodname_pages %} を有効にする必要があります。
 
 公開元に関する詳しい情報については、「[{% data variables.product.prodname_pages %} について](/articles/about-github-pages#publishing-sources-for-github-pages-sites)」を参照してください。

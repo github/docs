@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 {% for operation in currentRestOperations %}
@@ -24,14 +24,14 @@ Los eventos se optimizan para el sondeo con el encabezado "ETag". Si no se han d
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 
@@ -56,7 +56,7 @@ Para obtener un canal en formato de Atom, debes especificar el tipo `application
 #### Respuesta
 
 ```shell
-Status: 200 OK
+HTTP/2 200
 ```
 
 ```xml
@@ -122,14 +122,14 @@ Las notificaciones se optimizan para el sondeo con el encabezado `Last-Modified`
 ``` shell
 # Add authentication to your requests
 $ curl -I {% data variables.product.api_url_pre %}/notifications
-HTTP/1.1 200 OK
+HTTP/2 200
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
 $ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > X-Poll-Interval: 60
 ```
 

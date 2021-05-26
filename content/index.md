@@ -16,6 +16,7 @@ versions: '*'
 children:
   - github
   - admin
+  - billing
   - organizations
   - code-security
   - actions
@@ -24,7 +25,9 @@ children:
   - rest
   - graphql
   - insights
+  - issues
   - discussions
+  - codespaces
   - sponsors
   - communities
   - pages

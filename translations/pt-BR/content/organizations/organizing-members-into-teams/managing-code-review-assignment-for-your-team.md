@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Os mantenedores de equipe e os proprietários da organização podem configurar atribuições de revisão de código.

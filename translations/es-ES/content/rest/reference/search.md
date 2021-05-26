@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.

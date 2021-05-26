@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 ### Creating a footer

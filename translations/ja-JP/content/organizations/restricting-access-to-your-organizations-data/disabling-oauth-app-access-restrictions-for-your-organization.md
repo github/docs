@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% danger %}
@@ -18,9 +18,8 @@ topics:
 
 {% enddanger %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. [**Remove restrictions**] をクリックします。 ![[Remove restrictions] ボタン](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
 6. サードパーティアプリケーション制限の無効化に関する情報を確認したら、[**Yes, remove application restrictions**] (はい、アプリケーション制限を削除します) をクリックします。 ![[Remove confirmation] ボタン](/assets/images/help/settings/settings-third-party-confirm-disable.png)

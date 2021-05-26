@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /about-oauth-app-access-restrictions %}

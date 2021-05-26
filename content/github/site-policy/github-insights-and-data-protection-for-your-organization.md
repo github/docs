@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 For the avoidance of doubt, none of the foregoing information should be considered legal advice provided by {% data variables.product.prodname_dotcom %}. You are responsible for securing your own legal analysis of the information provided herein and for your compliance with privacy and data protection laws. It is up to you whether to use {% data variables.product.prodname_insights %} to process your employees’ and users’ data, and if you do so, you are solely responsible for conducting such processing in compliance with applicable law.

@@ -6,8 +6,12 @@ redirect_from:
   - /enterprise/admin/configuration/validating-your-domain-settings
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Networking
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

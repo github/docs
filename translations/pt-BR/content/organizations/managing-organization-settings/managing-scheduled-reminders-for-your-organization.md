@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Sobre lembretes agendados para pull requests
@@ -19,9 +19,8 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Criar um lembrete agendado para uma organização
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 {% data reusables.reminders.create-reminder %}
 
 ### Gerenciar um lembrete agendado para uma organização
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Os proprietários da organização podem agendar um lembrete para uma ou mais eq
 {% data reusables.reminders.update-buttons %}
 
 ### Excluir um lembrete agendado para uma organização
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

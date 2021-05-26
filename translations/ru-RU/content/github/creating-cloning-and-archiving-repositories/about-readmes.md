@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About READMEs
@@ -42,9 +42,21 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 {% endif %}
 
+### Auto-generated table of contents for README files
+
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.product_name %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="The unordered list icon" %}  menu icon at the top left of the rendered page.
+
+![README with automatically generated TOC](/assets/images/help/repository/readme-automatic-toc.png)
+
+The auto-generated table of contents is enabled by default for all Markdown files in a repository, but you can disable this feature for your repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. Under "Features", deselect **Table of contents**. ![Automatic TOC setting for repositories](/assets/images/help/repository/readme-automatic-toc-setting.png)
+
 ### Section links in README files and blob pages
 
-Many projects use a table of contents at the start of a README to direct users to different sections of the file. {% data reusables.repositories.section-links %}
+{% data reusables.repositories.section-links %}
 
 ### Relative links and image paths in README files
 

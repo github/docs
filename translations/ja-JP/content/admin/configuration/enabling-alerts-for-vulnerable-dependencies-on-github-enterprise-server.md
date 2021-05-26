@@ -5,11 +5,13 @@ redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: '接続された {% data variables.product.prodname_ghe_cloud %} Organization または Enterprise アカウントの所有者でもある {% data variables.product.prodname_ghe_server %} のサイト管理者は、{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} セキュリティ{% endif %}アラートを有効にできます。'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - enterprise
+  - Enterprise
+  - Security
 ---
 
 ### {% data variables.product.prodname_ghe_server %} 上の脆弱性のある依存関係に対するアラートについて

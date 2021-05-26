@@ -1,7 +1,7 @@
 ---
 title: Basisberechtigungen für eine Organisation festlegen
-intro: Du kannst Basisberechtigungen für die Repositorys festlegen, die einer Organisation gehören.
-permissions: Organisationsinhaber können Basisberechtigungen für eine Organisation festlegen.
+intro: 'Du kannst Basisberechtigungen für die Repositorys festlegen, die einer Organisation gehören.'
+permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über Basisberechtigungen für eine Organisation
@@ -23,9 +23,8 @@ Wenn jemand mit Administratorberechtigungen auf die Repositorys einer Organisati
 
 ### Basisberechtigungen festlegen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Wähle unter „Base permissions" (Basisberechtigungen) das Dropdownmenü, um neue Basisberechtigungen auszuwählen. ![Neue Berechtigungsstufe aus der Dropdownliste der Basisberechtigungen auswählen](/assets/images/help/organizations/base-permissions-drop-down.png)
 6. Überprüfen Sie die Änderungen. Klicke zur Bestätigung auf **Change default permission to PERMISSION** (Ändere die Basisberechtigungen in BERECHTIGUNG). ![Überprüfen und Bestätigen der Änderung der Basisberechtigungen](/assets/images/help/organizations/base-permissions-confirm.png)

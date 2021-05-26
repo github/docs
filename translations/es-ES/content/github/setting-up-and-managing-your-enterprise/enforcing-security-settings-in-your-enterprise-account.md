@@ -12,7 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Requerir autenticación de dos factores para las organizaciones en tu cuenta de empresa

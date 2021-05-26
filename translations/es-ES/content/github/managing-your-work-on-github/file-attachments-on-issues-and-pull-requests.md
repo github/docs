@@ -1,6 +1,6 @@
 ---
 title: Adjuntos de archivos en propuestas y solicitudes de extracción
-intro: 'Cuando abres una propuesta o actualizas una solicitud de extracción, puedes usar los adjuntos de propuestas para cargar imágenes de las características propuestas o capturas de pantalla de errores.'
+intro: You can convey information by attaching a variety of file types to your issues and pull requests.
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -9,12 +9,12 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 {% warning %}
 
-**Advertencia:** Si agregas una imagen a una solicitud de extracción o un comentario sobre una propuesta, cualquier usuario podrá ver la URL de la imagen anonimizada sin autenticación, aun si la solicitud de extracción se encuentra en un repositorio privado{% if enterpriseServerVersions contains currentVersion %} o si el modo privado se encuentra habilitado{% endif %}. Para mantener las imágenes confidenciales en privado, limítalas a una red privada o a un servidor que requiera de autenticación. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información sobre las URL anonimozadas, consulta la sección "[Acerca de las URL de imagen anonimizadas](/articles/about-anonymized-image-urls)".{% endif %}
+**Warning:** If you add an image {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %} or video {% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized URLs](/github/authenticating-to-github/about-anonymized-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -28,17 +28,11 @@ Para adjuntar un archivo a una propuesta o una conversación de una solicitud de
 
 {% endtip %}
 
-El tamaño máximo de los archivos es de 25 MB y el tamaño máximo de las imágenes es de 10 MB.
-{% if currentVersion == "free-pro-team@latest" %}
-Los videos pueden tener un tamaño de hasta 100 MB si el repositorio pertenece a un usuario u organización que tenga un plan de pago de GitHub.
-
-{% note %}
-
-**Nota:** La compatibilidad con adjuntos de video se encuentra actualmente en beta y está sujeto a cambios.
-
-{% endnote %}
-
-{% endif %}
+The maximum file size is:
+- 10MB for images and gifs{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% endif %}
+- 25MB for all other files
 
 Archivos compatibles:
 
@@ -49,7 +43,7 @@ Archivos compatibles:
 * Documentos de Microsoft Word (*.docx*), Powerpoint (*.pptx*) y Excel (*.xlsx*)
 * Archivos de texto (*.txt*)
 * PDF (*.pdf*)
-* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" %}
+* ZIP (*.zip*, *.gz*){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 * Video (*.mp4*, *.mov*){% endif %}
 
 ![GIF animados adjuntos](/assets/images/help/pull_requests/dragging_images.gif)

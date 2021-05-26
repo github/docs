@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Además de cambiar la ubicación del archivo, también puedes [actualizar los contenidos de tu archivo](/articles/editing-files-in-your-repository), o [darle un nuevo nombre](/articles/renaming-a-file) en la misma confirmación.

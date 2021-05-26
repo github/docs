@@ -6,11 +6,11 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/managing-your-sponsorship
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Contacting sponsors'
-  - 'Privacy'
-  - 'Open Source'
+  - Contacting sponsors
+  - Privacy
+  - Open Source
 ---
 
 {% data reusables.sponsors.org-sponsors-release-phase %}

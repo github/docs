@@ -12,7 +12,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -35,10 +35,11 @@ You can manage the security and analysis features for your {% if currentVersion 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**.
-{% endif %} {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available seats in your {% data variables.product.prodname_GH_advanced_security %} license.
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. The control for "
+{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %}
+  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
 **Note:** If you disable
 
@@ -46,11 +47,11 @@ You can manage the security and analysis features for your {% if currentVersion 
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
 4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. Before you can enable "
-{% data variables.product.prodname_secret_scanning %}" for your repository, you need to enable {% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.
    ![Enable or disable {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 

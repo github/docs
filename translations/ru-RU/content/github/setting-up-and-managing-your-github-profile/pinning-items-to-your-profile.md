@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - profiles
+  - Profiles
 ---
 
 You can pin a public repository if you own the repository or you've made contributions to the repository. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"

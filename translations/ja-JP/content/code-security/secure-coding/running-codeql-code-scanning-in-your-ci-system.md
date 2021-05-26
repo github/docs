@@ -11,7 +11,7 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 <!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->

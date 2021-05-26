@@ -20,7 +20,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 ### Subir de categoría la suscripción de tu cuenta personal
@@ -28,11 +28,9 @@ topics:
 Puedes mejorar tu cuenta personal desde {% data variables.product.prodname_free_user %} a {% data variables.product.prodname_pro %} para obtener herramientas avanzadas de revisión de código en repositorios privados. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-4. Junto a "
-{% data variables.product.prodname_free_user %}", da clic en **Mejorar**.
-  ![Botón para actualizar](/assets/images/help/billing/settings_billing_user_upgrade.png)
+{% data reusables.user_settings.billing_plans %}
+1. Next to "Current plan", click **Upgrade**. ![Botón para actualizar](/assets/images/help/billing/settings_billing_user_upgrade.png)
+2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}
@@ -44,11 +42,9 @@ Puedes mejorar a tu organización desde {% data variables.product.prodname_free_
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %}
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
@@ -67,11 +63,9 @@ Si quisieras utilizar una cuenta empresarial con {% data variables.product.prodn
 
 Si quisieras que usuarios adicionales tengan acceso a los repositorios privados de {% data variables.product.prodname_team %} en tu organización, puedes comprar más plazas en cualquier momento.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -80,10 +74,9 @@ Si quisieras que usuarios adicionales tengan acceso a los repositorios privados 
 
 {% data reusables.dotcom_billing.switch-legacy-billing %}Para obtener más información, consulta "[Acerca de los precios por usuario](/articles/about-per-user-pricing)".
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. A la derecha de tu nombre de plan, utiliza el menú desplegable de **Editar** y selecciona **Editar plan**. ![Menú desplegable de editar](/assets/images/help/billing/per-user-upgrade-button.png)
 6. A la derecha de "Herramientas avanzadas para equipos", da clic en **Mejorar ahora**. ![Botón de mejorar ahora](/assets/images/help/billing/per-user-upgrade-now-button.png)
 {% data reusables.dotcom_billing.choose_org_plan %}

@@ -9,11 +9,13 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
-  - propuestas
-  - notifications
-  - cuentas
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
 ---
+
+### Crear un repositorio
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -29,7 +31,7 @@ Puedes almacenar varios proyectos en los repositorios de {% data variables.produ
 
 {% note %}
 
-**Nota:** Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](http://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
+**Nota:** Puedes crear repositorios públicos para un proyecto de código abierto. Cuando crees un repositorio público, asegúrate de incluir un [archivo de licencia](https://choosealicense.com/) que determine cómo deseas que se comparta tu proyecto con otros usuarios. {% data reusables.open-source.open-source-guide-repositories %}{% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
 

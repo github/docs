@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 无需所有成员使用 SAML SSO，即可在组织中将其启用。 在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。 一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
@@ -20,9 +20,8 @@ topics:
 
 在组织中实施 SAML SSO 之前，请确保已设置身份提供程序 (IdP)。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. 在“SAML single sign-on”（SAML 单点登录）下，选择 **Enable SAML authentication（启用 SAML 身份验证）**。 ![用于启用 SAML SSO 的复选框](/assets/images/help/saml/saml_enable.png)
 

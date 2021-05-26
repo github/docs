@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
@@ -20,10 +20,9 @@ topics:
 
 ### Actualizar la tarjeta de crédito de tu organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. Escribe la información nueva de tu tarjeta de crédito en el formulario seguro. ![Formulario de información de tarjeta de crédito](/assets/images/help/settings/creditcard-billing-form.png)
-1. Haz clic en **Update credit card** (Actualizar tarjeta de crédito) o **Save credit card** (Guardar tarjeta de crédito).
+1. Under "Payment method", click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
+{% data reusables.dotcom_billing.enter-payment-info %}

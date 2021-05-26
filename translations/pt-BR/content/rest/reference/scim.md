@@ -5,7 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - api
+  - API
 ---
 
 ### Provisionamento de SCIM para Organizações

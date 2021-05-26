@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 

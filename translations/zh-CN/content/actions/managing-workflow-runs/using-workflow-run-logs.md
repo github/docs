@@ -1,6 +1,6 @@
 ---
 title: 使用工作流程运行日志
-intro: '您可以查看、搜索和下载工作流程运行中每个作业的日志。'
+intro: 您可以查看、搜索和下载工作流程运行中每个作业的日志。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -107,3 +107,31 @@ versions:
 1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) 删除日志后，**Delete all logs（删除所有日志）**按钮将被删除，以表明工作流程运行中未剩下任何日志文件。
 {% endif %}
+
+### 使用 {% data variables.product.prodname_cli %} 查看日志
+
+{% data reusables.actions.actions-cli %}
+
+要查看特定作业的日志，请使用 `run view` 子命令。 将 `run-id` 替换为您想要查看其日志的运行的 ID。 {% data variables.product.prodname_cli %} 将返回一个交互式菜单，供您从运行中选择作业。 如果您没有指定 `run-id`，{% data variables.product.prodname_cli %} 将返回一个交互式菜单，让您选择最近的运行，然后返回另一个交互式菜单，让您从运行中选择作业。
+
+```shell
+gh run view <em>run-id</em> --log
+```
+
+您也可以使用 `--bob` 标记来指定作业 ID。 将 `job-id` 替换为您想要查看其日志的作业的 ID。
+
+```shell
+gh run view --job <em>job-id</em> --log
+```
+
+您可以使用 `grep` 来搜索日志。 例如，此命令将返回所有包含单词 `error` 的日志条目。
+
+```shell
+gh run view --job <em>job-id</em> --log | grep error
+```
+
+要过滤日志中任何失败的步骤，请使用 `--log-fail` 而不是 `--log`。
+
+```shell
+gh run view --job <em>job-id</em> --log-failed
+```

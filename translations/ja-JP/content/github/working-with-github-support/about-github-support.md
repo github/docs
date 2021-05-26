@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 ### {% data variables.contact.github_support %}について
@@ -25,9 +25,9 @@ topics:
 
 ### {% data variables.contact.github_support %}への連絡
 
-You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}.
+{% data variables.contact.community_support_forum %} を使用して、トピックの閲覧、質問、ソリューションの共有、{% data variables.contact.community_support %} との直接やり取りができます。
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
+アカウント、セキュリティ、不正使用の問題の報告、または有料アカウントのサポートを受けるには、{% data variables.contact.contact_support_portal %}にアクセスしてください。 {% data variables.product.prodname_dotcom_the_website %} にユーザアカウントを持たない {% data variables.product.prodname_ghe_server %} の管理者の場合は、{% data variables.contact.contact_enterprise_portal %} にアクセスしてください。
 
 ### プライベートリポジトリへの{% data variables.contact.github_support %}の一時的なアクセスの許可
 

@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization のオーナーは、Organization に対する許可 IP アドレスを管理できます。
@@ -26,9 +26,8 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ### 許可 IP アドレスを追加する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
@@ -36,18 +35,16 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ### 許可 IP アドレスを有効化する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 3. [IP allow list] で、「**Enable IP allow list**」を選択します。 ![IP アドレスを許可するチェックボックス](/assets/images/help/security/enable-ip-allowlist-organization-checkbox.png)
 4. [**Save**] をクリックします。
 
 ### 許可 IP アドレスを編集する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
@@ -56,9 +53,8 @@ Enterprise アカウントで Organization に対して許可される IP アド
 
 ### 許可 IP アドレスを削除する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}

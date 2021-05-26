@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 ---
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
@@ -53,7 +53,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 
    **Advertencia**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -85,7 +85,7 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
 
    **Advertencia**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 

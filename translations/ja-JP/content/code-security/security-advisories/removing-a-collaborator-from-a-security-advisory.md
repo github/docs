@@ -1,12 +1,12 @@
 ---
 title: セキュリティアドバイザリからコラボレータを削除する
-intro: 'セキュリティアドバイザリからコラボレータを削除すると、そのコラボレータはセキュリティアドバイザリのディスカッションとメタデータへの読み取りおよび書き込みアクセス権を失います。'
+intro: セキュリティアドバイザリからコラボレータを削除すると、そのコラボレータはセキュリティアドバイザリのディスカッションとメタデータへの読み取りおよび書き込みアクセス権を失います。
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
 versions:
   free-pro-team: '*'
 topics:
-  - セキュリティ
+  - Security
 ---
 
 セキュリティアドバイザリの管理者権限を持つユーザは、セキュリティアドバイザリからコラボレータを削除できます。

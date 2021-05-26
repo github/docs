@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -32,7 +32,7 @@ User | License dates | Counted days | Cost
 @prodocat | January 7 - January 15 | 25 | $31.45
 @monalisa | January 1 - January 7,<br>January 15 - January 31 | 31 | $39
 
-Your enterprise can include one or more instances. {% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
 
 You can see your current usage in your [Azure account portal](https://portal.azure.com).
 

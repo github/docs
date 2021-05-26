@@ -1,5 +1,5 @@
 ---
-title: '¿Por qué Git me pregunta siempre mi contraseña?'
+title: ¿Por qué Git me pregunta siempre mi contraseña?
 intro: 'Si Git te solicita el nombre de usuario y la contraseña cada vez que tratas de interactuar con GitHub, probablemente estás usando la URL del clon HTTPS para tu repositorio.'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password

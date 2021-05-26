@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CircleCI'
-  - 'Migration'
-  - 'CI'
-  - 'CD'
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}

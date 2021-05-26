@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
@@ -28,8 +28,9 @@ No entregamos facturas u órdenes de compra de respaldo a cuentas personales. En
 ### Actualizar el método de pago de tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ### Actualizar el método de pago de tu organización
@@ -38,9 +39,10 @@ No entregamos facturas u órdenes de compra de respaldo a cuentas personales. En
 
 Si tu organización está fuera de los EE. UU. o si estás usando una cuenta corriente corporativa para pagar {% data variables.product.product_name %}, PayPal puede ser un método de pago útil.
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
+1. If your account has an existing credit card that you want to update, click **New Card**. ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

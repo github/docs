@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion == "free-pro-team@latest" %}convidá-los{% else %}add{% endif %} para a organização nesse período de tempo.

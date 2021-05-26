@@ -1,66 +1,30 @@
-const product = {
+const childPage = {
+  type: 'object',
   properties: {
     href: {
       type: 'string',
       required: true
     },
-    title: {
-      type: 'string',
-      required: true
-    },
-    categories: {
-      type: 'object'
+    page: {
+      type: 'object',
+      required: true,
+      properties: {
+        title: {
+          type: 'string',
+          required: true
+        },
+        relativePath: {
+          type: 'string',
+          required: true
+        },
+        permalinks: {
+          type: 'array',
+          required: true,
+          minItems: 1
+        }
+      }
     }
   }
 }
 
-const category = {
-  properties: {
-    href: {
-      type: 'string',
-      required: true
-    },
-    title: {
-      type: 'string',
-      required: true
-    },
-    maptopics: {
-      type: 'object'
-    }
-  }
-}
-
-const maptopic = {
-  properties: {
-    href: {
-      type: 'string',
-      required: true
-    },
-    title: {
-      type: 'string',
-      required: true
-    },
-    articles: {
-      type: 'object'
-    }
-  }
-}
-
-const article = {
-  properties: {
-    href: {
-      type: 'string',
-      required: true
-    },
-    title: {
-      type: 'string',
-      required: true
-    },
-    linkTag: {
-      type: 'string',
-      required: true
-    }
-  }
-}
-
-module.exports = { product, category, maptopic, article }
+module.exports = { childPage }

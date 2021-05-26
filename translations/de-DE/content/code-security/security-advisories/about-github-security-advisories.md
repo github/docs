@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - sicherheit
+  - Security
 ---
 
 {% data reusables.repositories.security-advisory-admin-permissions %}

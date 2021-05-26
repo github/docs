@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data variables.product.product_name %} admite representar archivos de mapa geoJSON y topoJSON dentro de repositorios {% data variables.product.product_name %}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Después, navega hasta la ruta del archivo geoJSON en GitHub.com.

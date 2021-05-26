@@ -1,7 +1,7 @@
 ---
 title: Administrar aulas
-intro: Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.
-permissions: Los propietarios de las organizaciones pueden administrar las aulas de éstas.
+intro: 'Puedes crear y administrar un aula para cada curso que impartes utilizando {% data variables.product.prodname_classroom %}.'
+permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
 redirect_from:

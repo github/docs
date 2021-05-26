@@ -2,8 +2,8 @@
 
 // [start-readme]
 //
-// This script remove all stale Heroku staging apps that outlasted the closure
-// of their corresponding pull requests.
+// This script removes all stale Heroku staging apps that outlasted the closure
+// of their corresponding pull requests, or correspond to spammy pull requests.
 //
 // [end-readme]
 
@@ -12,7 +12,7 @@ require('dotenv').config()
 const { chain } = require('lodash')
 const chalk = require('chalk')
 const Heroku = require('heroku-client')
-const { Octokit } = require('@octokit/rest')
+const getOctokit = require('./helpers/github')
 
 // Check for required Heroku API token
 if (!process.env.HEROKU_API_TOKEN) {
@@ -26,7 +26,8 @@ if (!process.env.GITHUB_TOKEN) {
 }
 
 const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+// This helper uses the `GITHUB_TOKEN` implicitly
+const octokit = getOctokit()
 
 const protectedAppNames = ['help-docs', 'help-docs-deployer']
 

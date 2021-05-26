@@ -1,10 +1,10 @@
 ---
 title: 了解安全警报
-intro: '您可以在一个地方查看、筛选和排序组织或团队拥有的仓库的安全警报。'
+intro: 您可以在一个地方查看、筛选和排序组织或团队拥有的仓库的安全警报。
 product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
-  github-ae: 'next'
+  github-ae: next
 ---
 
 {% data reusables.security-center.beta %}

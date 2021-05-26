@@ -47,17 +47,17 @@ jobs:
         dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
 ```
 {% endraw %}
 
@@ -84,14 +84,14 @@ jobs:
         dotnet: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup dotnet ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-        dotnet-version: ${{ matrix.dotnet-version }}
-    # You can test your matrix by printing the current dotnet version
-    - name: Display dotnet version
-      run: dotnet --version
+      - uses: actions/checkout@v2
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      # You can test your matrix by printing the current dotnet version
+      - name: Display dotnet version
+        run: dotnet --version
 ```
 {% endraw %}
 
@@ -102,7 +102,7 @@ Puedes configurar tu job para que utilice una versión específica de .NET, tal 
 {% raw %}
 ```yaml
     - name: Setup .NET 3.x
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v1
       with:
         # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '3.x' 
@@ -118,7 +118,7 @@ Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} cuenta
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.7.2
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -139,7 +139,7 @@ Para obtener más información, consulta la sección "[Almacenar las dependencia
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.7.2
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - uses: actions/cache@v2
@@ -171,7 +171,7 @@ Puedes usar los mismos comandos que usas de forma local para construir y probar 
 steps:
 - uses: actions/checkout@v2
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1.7.2
+  uses: actions/setup-dotnet@v1
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -204,22 +204,22 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
-      - uses: actions/checkout@v2
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Test with dotnet
-        run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
-      - name: Upload dotnet test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: dotnet-results-${{ matrix.dotnet-version }}
-          path: TestResults-${{ matrix.dotnet-version }}
-        # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+        - uses: actions/checkout@v2
+        - name: Setup dotnet
+          uses: actions/setup-dotnet@v1
+          with:
+            dotnet-version: ${{ matrix.dotnet-version }}
+        - name: Install dependencies
+          run: dotnet restore
+        - name: Test with dotnet
+          run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+        - name: Upload dotnet test results
+          uses: actions/upload-artifact@v2
+          with:
+            name: dotnet-results-${{ matrix.dotnet-version }}
+            path: TestResults-${{ matrix.dotnet-version }}
+          # Use always() to always run this step to publish test results when there are test failures
+          if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -227,7 +227,6 @@ jobs:
 
 Puedes configurar tu flujo de trabajo para publicar tu paquete de Dotnet a un registro de paquetes cuando pasen tus pruebas de IC. Puedes utilizar secretos de los repositorios para almacenar cualquier token o credenciales que se necesiten para publicar tu binario. El siguiente ejemplo crea y publica un paquete en el {% data variables.product.prodname_registry %} utilizando `dotnet core cli`.
 
-{% raw %}
 ```yaml
 name: Upload dotnet package
 
@@ -237,19 +236,21 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-dotnet@v1
-    with:
-        dotnet-version: '3.1.x' # SDK Version to use.
-        source-url: https://nuget.pkg.github.com/<owner>/index.json
-    env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - run: dotnet build --configuration Release <my project>
-    - name: Create the package
-    run: dotnet pack --configuration Release <my project>
-    - name: Publish the package to GPR
-    run: dotnet nuget push <my project>/bin/Release/*.nupkg
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/<owner>/index.json
+        env:
+          NUGET_AUTH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
+      - run: dotnet build --configuration Release <my project>
+      - name: Create the package
+        run: dotnet pack --configuration Release <my project>
+      - name: Publish the package to GPR
+        run: dotnet nuget push <my project>/bin/Release/*.nupkg
 ```
-{% endraw %}

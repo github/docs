@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 {% data reusables.profile.access_profile %}

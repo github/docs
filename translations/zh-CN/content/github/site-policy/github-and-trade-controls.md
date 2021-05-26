@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 GitHub.com、GitHub Enterprise Server 以及您上传至其中任一产品的信息都需遵守贸易管制法规，包括美国出口管理条例（Export Administration Regulations，EAR）。 出口管理条例 (EAR)。

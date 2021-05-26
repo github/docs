@@ -15,8 +15,10 @@ redirect_from:
   - /enterprise/admin/enterprise-management/upgrading-github-enterprise-server
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Upgrades
 ---
 
 ### Preparing to upgrade
@@ -31,31 +33,7 @@ topics:
 
   {% endnote %}
 
-{% if currentVersion ver_gt "enterprise-server@2.20" and currentVersion ver_lt "enterprise-server@3.2" %}
-
-### About minimum requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later
-
-Before upgrading to {% data variables.product.prodname_ghe_server %} 3.0 or later, review the hardware resources you've provisioned for your instance. {% data variables.product.prodname_ghe_server %} 3.0 introduces new features such as {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %}, and requires more resources than versions 2.22 and earlier. For more information, see the [{% data variables.product.prodname_ghe_server %} 3.0 release notes](/enterprise-server@3.0/admin/release-notes).
-
-Increased requirements for {% data variables.product.prodname_ghe_server %} 3.0 and later are **bold** in the following table.
-
-| User licenses                  |                           vCPUs |                                  Memory |                        Attached storage | Root storage |
-|:------------------------------ | -------------------------------:| ---------------------------------------:| ---------------------------------------:| ------------:|
-| Trial, demo, or 10 light users |   **4**<br/>_Up from 2_ |   **32 GB**<br/>_Up from 16 GB_ | **150 GB**<br/>_Up from 100 GB_ |       200 GB |
-| 10 to 3,000                    |   **8**<br/>_Up from 4_ |   **48 GB**<br/>_Up from 32 GB_ | **300 GB**<br/>_Up from 250 GB_ |       200 GB |
-| 3,000 to 5000                  |  **12**<br/>_Up from 8_ |                                   64 GB |                                  500 GB |       200 GB |
-| 5,000 to 8000                  | **16**<br/>_Up from 12_ |                                   96 GB |                                  750 GB |       200 GB |
-| 8,000 to 10,000+               | **20**<br/>_Up from 16_ | **160 GB**<br/>_Up from 128 GB_ |                                 1000 GB |       200 GB |
-
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-
-For more information about hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."
-
-{% endif %}
-
-{% data reusables.enterprise_installation.about-adjusting-resources %}
-
-{% endif %}
+{% data reusables.enterprise_installation.upgrade-hardware-requirements %}
 
 ### Taking a snapshot
 
@@ -81,7 +59,7 @@ There are two types of snapshots:
 | Hyper-V               | VM              | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disk            | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM              | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
-| XenServer             | VM              | <https://support.citrix.com/article/CTX122978>                                                                                                                                                         |
+| XenServer             | VM              | <https://docs.citrix.com/en-us/xencenter/current-release/vms-snapshots.html>                                                                                                                           |
 
 ### Upgrading with a hotpatch
 
@@ -89,7 +67,12 @@ There are two types of snapshots:
 
 {% note %}
 
-**Note**: Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+**{% if currentVersion ver_gt "enterprise-server@2.22" %}Notes{% else %}Note{% endif %}**:
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+
+- {% endif %}Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 

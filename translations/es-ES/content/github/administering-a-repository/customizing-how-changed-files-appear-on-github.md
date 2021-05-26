@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Usa un archivo *.gitattributes* para marcar los archivos que coincidan con un "patrón" determinado con los atributos específicos. Un archivo *.gitattributes* usa las mismas reglas para coincidir como archivo _.gitignore_. Para obtener más información, consulta [FORMATO DE PATRONES](https://www.git-scm.com/docs/gitignore#_pattern_format) en la documentación de Git.

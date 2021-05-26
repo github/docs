@@ -1,6 +1,6 @@
 ---
 title: REST API 入门指南
-intro: '从身份验证和一些端点示例开始，了解使用 REST API 的基础。'
+intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -53,11 +53,10 @@ $ curl https://api.github.com/users/defunkt
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57
@@ -217,7 +216,7 @@ $ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的私有仓库。 虽然博客 {% if currentversion != "github-ae@latest" %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
+在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的私有仓库。 虽然博客 {% if currentVersion != "github-ae@latest" %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
 
 生成的仓库可在 `https://github.com/<your_username>/blog` 上找到。 要在您拥有的组织下创建仓库，只需将 API 方法从 `/user/repos` 更改为 `/orgs/<org_name>/repos`。
 
@@ -226,7 +225,7 @@ $ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
-> HTTP/1.1 404 Not Found
+> HTTP/2 404
 
 > {
 >    "message": "Not Found"
@@ -267,7 +266,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 
 > ...
 > Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
@@ -291,7 +290,7 @@ $         "labels": ["design"] \
 $       }' \
 $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
-> HTTP/1.1 201 Created
+> HTTP/2 201
 > Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
@@ -341,7 +340,7 @@ JSON 响应的 `Location` 响应标头和 `url` 字段为我们提供了一些�
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 ```
 
@@ -351,7 +350,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 ```
 
 `304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入您的[速率限制][rate-limiting]。

@@ -5,13 +5,15 @@ intro: '{% if currentVersion == "github-ae@latest" %}您的 {% data variables.pr
 versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - 企业
+  - Enterprise
+  - Upgrades
 ---
 
-{% data variables.product.product_name %} 正在不断改进，通过主要和次要版本引入新功能和漏洞补丁。 {% if currentversion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
+{% data variables.product.product_name %} 正在不断改进，通过主要和次要版本引入新功能和漏洞补丁。 {% if currentVersion == "github-ae@latest" %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
-主要版本包括新功能和功能升级，通常{% if currentVersion == "github-ae@latest" %}每几个星期或几个月{% else %}每季度{% endif %}进行一次。 {% if currentversion == "github-ae@latest" %}{% data variables.product.company_short %} 会将您的企业升级到最新的主要版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
+主要版本包括新功能和功能升级，通常{% if currentVersion == "github-ae@latest" %}每几个星期或几个月{% else %}每季度{% endif %}进行一次。 {% if currentVersion == "github-ae@latest" %}{% data variables.product.company_short %} 会将您的企业升级到最新的主要版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 

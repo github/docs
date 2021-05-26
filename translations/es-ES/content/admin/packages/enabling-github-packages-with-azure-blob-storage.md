@@ -4,7 +4,7 @@ intro: 'Configura el {% data variables.product.prodname_registry %} con Azure Bl
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 {% warning %}

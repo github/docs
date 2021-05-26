@@ -10,15 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los propietarios pueden configurar permisos para eliminar o transferir repositorios en una organización.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Dentro de "Repository deletion and transfer" (Eliminación o transferencia de repositorios), selecciona o deselecciona **Allow members to delete or transfer repositories for this organization (Permitir que los miembros puedan eliminar o transferir repositorios para esta organización)**. ![Casilla de verificación para permitir que los miembros eliminen repositorios](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
 6. Haz clic en **Save ** (guardar).

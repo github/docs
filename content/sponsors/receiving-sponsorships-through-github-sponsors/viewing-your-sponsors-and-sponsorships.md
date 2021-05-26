@@ -6,10 +6,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'Analytics'
+  - Open Source
+  - Analytics
 ---
 
 ### About sponsors and sponsorships

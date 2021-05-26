@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About management of the default branch name

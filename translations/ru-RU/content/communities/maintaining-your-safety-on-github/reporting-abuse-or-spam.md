@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.

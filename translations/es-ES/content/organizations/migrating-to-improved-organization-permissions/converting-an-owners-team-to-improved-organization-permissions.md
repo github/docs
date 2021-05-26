@@ -10,8 +10,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Tienes algunas opciones para convertir tu equipo de Propietarios heredado:

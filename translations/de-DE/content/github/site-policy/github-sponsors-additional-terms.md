@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Ihre Teilnahme am GitHub-Sponsorenprogramm (das "Programm") unterliegt den [GitHub-Nutzungsbedingungen](/github/site-policy/github-terms-of-service) (der „Vereinbarung“) sowie den nachfolgenden zusätzlichen Bedingungen („zusätzliche Bedingungen“). Jede Nutzung des GitHub-Sponsorenprogramms, die gegen die Vereinbarung verstößt, stellt ebenfalls einen Verstoß gegen diese zusätzlichen Bedingungen dar. Bei allen großgeschriebenen Begriffen, die hier verwendet, aber nicht nachfolgend definiert werden, gelten die Bedeutungen aus der Vereinbarung. Diese zusätzlichen Bedingungen für das GitHub-Sponsorenprogramm beschreiben das Verhältnis zwischen GitHub und Ihnen, dem „gesponserten Entwickler“, in Bezug auf das Programm. Die zusätzlichen Bedingungen gelten ab dem Datum, an dem Sie sie annehmen („Datum des Inkrafttretens“).

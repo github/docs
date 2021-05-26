@@ -5,6 +5,6 @@ mapTopic: true
 versions:
   enterprise-server: '>=2.22'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 

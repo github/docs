@@ -6,11 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
 permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
-type: 'how_to'
+type: how_to
 topics:
-  - 'Open Source'
-  - 'Organizations'
-  - 'Sponsors profile'
+  - Open Source
+  - Organizations
+  - Sponsors profile
 ---
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.

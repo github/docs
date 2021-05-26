@@ -19,13 +19,15 @@ children:
   - organizations
   - code-security
   - actions
-  - пакеты
+  - packages
   - developers
   - rest
   - graphql
   - insights
   - discussions
-  - сообщества
+  - codespaces
+  - sponsors
+  - communities
   - pages
   - education
   - desktop
@@ -48,7 +50,7 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: 'CodeQL'
+    name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
 ---

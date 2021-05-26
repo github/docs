@@ -7,7 +7,7 @@ permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
-  - сообщество
+  - Community
 ---
 
 ### About temporary interaction limits

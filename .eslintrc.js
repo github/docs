@@ -5,7 +5,7 @@ module.exports = {
     es2020: true,
     node: true
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   extends: [
     'eslint:recommended',
     'standard'
@@ -14,6 +14,7 @@ module.exports = {
     ecmaVersion: 11
   },
   rules: {
+    'import/no-extraneous-dependencies': ['error']
   },
   overrides: [
     {

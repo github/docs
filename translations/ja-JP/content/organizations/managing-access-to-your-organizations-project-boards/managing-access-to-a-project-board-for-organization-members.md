@@ -1,6 +1,6 @@
 ---
 title: Organization メンバーのプロジェクトボードへのアクセスを管理する
-intro: 'Organization のオーナーまたはプロジェクトボード管理者は、Organization のすべてのメンバーについて、プロジェクトボードのデフォルトの権限レベルを設定できます。'
+intro: Organization のオーナーまたはプロジェクトボード管理者は、Organization のすべてのメンバーについて、プロジェクトボードのデフォルトの権限レベルを設定できます。
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-a-project-board-for-organization-members
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 デフォルトでは、Organization のメンバーはその Organization のプロジェクトボードに対する書き込みアクセスを持ちます。ただし、Organization のオーナーまたはプロジェクトボード管理者が、特定のプロジェクトボードに異なる権限を設定している場合は例外です。

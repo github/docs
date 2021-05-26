@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 By default, all organization members can create repositories. If you restrict [repository creation permissions](/articles/restricting-repository-creation-in-your-organization) to organization owners, and your organization was created under the legacy organization permissions structure, members of legacy admin teams will still be able to create repositories.
@@ -39,8 +39,8 @@ For more information, see "[Repository permission levels for an organization](/a
 
 ### Migrating a single admin team
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. In the team description box, click **Migrate team**.
   ![Migrate team button](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

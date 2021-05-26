@@ -8,9 +8,13 @@ h4 {
 }
 
 // all h3 headers that are links should be blue-500
-// except those on each product's toc
 h3 a {
   color: var(--color-auto-blue-5);
+}
+
+// ... except those on each product's toc
+.product-landing h3 a {
+  color: var(--color-auto-gray-9);
 }
 
 .markdown-body {

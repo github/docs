@@ -1,6 +1,6 @@
 ---
 title: Segredos criptografados
-intro: Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.
+intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -29,15 +29,9 @@ Para segredos armazenados no nível do ambiente, você pode habilitar os revisor
 
 #### Nomear os seus segredos
 
-As regras a seguir aplicam-se aos nomes dos segredos:
+{% data reusables.codespaces.secrets-naming %}. Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}um segredo criado a nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
 
-* Os nomes dos segredos podem conter apenas caracteres alfanuméricos (`[a-z]`, `[A-Z]`, `[0-9]`) or sublinhado (`_`). Não são permitidos espaços.
-* Os nomes dos segredos não devem começar com o prefixo `GITHUB_`.
-* Os nomes dos segredos não devem começar com um número.
-* Nomes dos segredos não diferenciam maiúsculas de minúsculas.
-* Os nomes dos segredos devem ser únicos no nível em que são criados. Por exemplo, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}um segredo criado a nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
-
-  Se existir um segredo com o mesmo nome em vários níveis, o segredo no nível inferior tem prioridade. Por exemplo, se um segredo no nível de organização tiver o mesmo nome que um segredo no nível de repositório, o segredo no nível de repositório terá prioridade.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Da mesma forma, se uma organização, repositório, e ambiente tiverem um segredo com o mesmo nome, o segredo do ambiente terá prioridade.{% endif %}
+  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Da mesma forma, se uma organização, repositório e o ambiente tiverem um segredo com o mesmo nome, o segredo ambiental terá prioridade.{% endif %}
 
 Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou Git blobs.
 
@@ -83,7 +77,8 @@ Se o seu repositório {% if currentVersion == "free-pro-team@latest" or currentV
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" }
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+
 ### Criar segredos criptografados para um ambiente
 
 {% data reusables.github-actions.permissions-statement-secrets-environment %}
@@ -125,7 +120,11 @@ Você pode verificar quais políticas de acesso são aplicadas a um segredo na s
 
 ### Usando segredos encriptados em um fluxo de trabalho
 
-{% data reusables.actions.forked-secrets %}
+{% note %}
+
+**Observação:** {% data reusables.actions.forked-secrets %}
+
+{% endnote %}
 
 Para fornecer uma ação com um segredo como uma entrada ou variável de ambiente, você pode usar o contexto de `segredos` para acessar os segredos que você criou no seu repositório. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" e "[Sintaxe do fluxo de trabalho para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 

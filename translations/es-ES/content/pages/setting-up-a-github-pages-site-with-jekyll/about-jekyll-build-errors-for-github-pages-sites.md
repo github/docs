@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Acerca de los errores de compilación de Jekyll

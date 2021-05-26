@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Al cancelar una app, tu suscripción se mantiene activa hasta el final de tu ciclo de facturación actual. La cancelación entra en vigencia en tu siguiente fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
@@ -20,16 +20,14 @@ Cuando cancelas una prueba gratis de un plan pago, tu suscripción se cancela in
 ### Cancelar una app en tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
 ### Cancelar una prueba gratis para una app en tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
@@ -37,11 +35,10 @@ Cuando cancelas una prueba gratis de un plan pago, tu suscripción se cancela in
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.cancel-app-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
 
@@ -49,10 +46,9 @@ Cuando cancelas una prueba gratis de un plan pago, tu suscripción se cancela in
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}

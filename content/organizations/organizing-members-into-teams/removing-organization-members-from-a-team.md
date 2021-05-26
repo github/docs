@@ -10,14 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Select the person or people you'd like to remove.
   ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)

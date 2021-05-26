@@ -2,11 +2,10 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
-const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
   mode: 'development',
-  devtool: 'source-map', // this prevents webpack from using eval
+  devtool: process.env.NODE_ENV === 'development' ? 'eval' : 'source-map', // no 'eval' outside of development
   entry: './javascripts/index.js',
   output: {
     filename: 'index.js',
@@ -17,18 +16,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [
-          path.resolve(__dirname, 'react')
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: reactBabelOptions
-        }
-      },
-      {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components|react)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {

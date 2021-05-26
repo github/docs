@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 要保留对自动程序和服务帐户的访问权限，组织可以对组织[启用](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)但**不**[实施](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML 单点登录。 如果需要对组织实施 SAML 单点登录，您可以通过身份提供程序 (IdP) 为自动程序或服务帐户创建外部身份。

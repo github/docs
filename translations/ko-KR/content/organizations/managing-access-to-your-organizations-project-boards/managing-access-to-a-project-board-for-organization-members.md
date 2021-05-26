@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 By default, organization members have write access to their organization's project boards unless organization owners or project board admins set different permissions for specific project boards.

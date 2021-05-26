@@ -34,7 +34,7 @@
                 <div id="homepages" class="position-md-absolute nav-desktop-productDropdown p-md-4 left-md-n4 top-md-6" style="z-index: 6;">
                   {% for product in activeProducts %}
                   <a href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{{ product.href }}"
-                      class="d-block py-2
+                      {% if product.external %}target="_blank"{% endif %} class="d-block py-2
                       {% if product.id == currentProduct %}color-text-link text-underline active{% elsif product.id == currentProduct.id %}color-text-link text-underline active{% else %}Link--primary no-underline{% endif %}">
                       {{ product.name }}
                       {% if product.external %}
@@ -70,7 +70,7 @@
                       {% unless languages[languageVariant.code].wip %}
                         <a
                           href="{{ languageVariant.href }}"
-                          class="d-block py-2 no-underline {% if currentPath == languageVariant.href %}active Link--secondary{% else %}Link--primary{% endif %}"
+                          class="d-block py-2 no-underline {% if currentPath == languageVariant.href %}active {% else %}Link--primary{% endif %}"
                           style="white-space: nowrap"
                         >
                           {% if languages[languageVariant.code].nativeName %}

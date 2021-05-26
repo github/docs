@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 permissions: Organization owners can reinstate a former member of an organization.
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About member reinstatement

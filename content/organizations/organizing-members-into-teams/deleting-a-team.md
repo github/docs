@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -19,8 +19,8 @@ topics:
 
 {% endtip %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Select the team or teams you'd like to delete.
   ![List of teams with two teams selected](/assets/images/help/teams/list-of-teams-selected.png)

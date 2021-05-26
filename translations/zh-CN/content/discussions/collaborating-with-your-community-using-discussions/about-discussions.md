@@ -1,6 +1,6 @@
 ---
 title: 关于讨论
-intro: 使用讨论来提问和回答问题、共享信息、发布公告以及进行或参与有关 {% data variables.product.product_name %} 上项目的对话。
+intro: '使用讨论来提问和回答问题、共享信息、发布公告以及进行或参与有关 {% data variables.product.product_name %} 上项目的对话。'
 versions:
   free-pro-team: '*'
 ---

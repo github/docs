@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 {% link_in_list /about-team-discussions %}

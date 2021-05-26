@@ -1,6 +1,6 @@
 ---
 title: Utilizar la API de GraphQL para los debates
-intro: 'Aprende cómo utilizar la API de GraphQL para los debates de GitHub.'
+intro: Aprende cómo utilizar la API de GraphQL para los debates de GitHub.
 versions:
   free-pro-team: '*'
 ---
@@ -1081,4 +1081,4 @@ Campos de tipo de retorno:
 
 ## Buscar
 
-El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. Para obtener más información, consulta la sección ["Consultas](/graphql/reference/queries#searchresultitemconnection)".
+El debate puede devolverse desde el campo `search` de nivel superio. Para buscar un debate, especifica el `type` como `DISCUSSION`. El tipo `SearchResultItemConnection` tiene un campo de `discussionCount` para reportar la cantidad de debates devueltos y el tipo `Discussion` se agrega a la unión `SearchResultItem`. For more information, see "[Queries](/graphql/reference/queries#searchresultitemconnection)" and "[Searching discussions](/github/searching-for-information-on-github/searching-discussions)."

@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 在您的 {% data variables.product.product_name %} 组织中[启用 SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) 之前，需要将身份提供程序 (IdP) 连接到您的组织。

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -34,11 +34,10 @@ envían y reciben como JSON.
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
@@ -127,7 +126,7 @@ Autenticarse con credenciales inválidas regresará el mensaje `401 Unauthorized
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -u foo:bar
-> HTTP/1.1 401 Unauthorized
+> HTTP/2 401
 
 > {
 >   "message": "Bad credentials",
@@ -140,7 +139,7 @@ Después de detectar varias solicitudes con credenciales inválidas dentro de un
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
 -u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}"
@@ -182,7 +181,7 @@ Existen tres posibles tipos de errores de cliente en los llamados a la API que r
 
 1. Enviar un JSON inválido dará como resultado una respuesta de tipo `400 Bad Request`.
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 35
        
         {"message":"Problems parsing JSON"}
@@ -190,14 +189,14 @@ Existen tres posibles tipos de errores de cliente en los llamados a la API que r
 2. Enviar el tipo incorrecto de valores de JSON dará como resultado una respuesta de tipo `400 Bad
 Request`.
    
-        HTTP/1.1 400 Bad Request
+        HTTP/2 400
         Content-Length: 40
        
         {"message":"Body should be a JSON object"}
 
 3. Enviar campos inválidos dará como resultado una respuesta de tipo `422 Unprocessable Entity`.
    
-        HTTP/1.1 422 Unprocessable Entity
+        HTTP/2 422
         Content-Length: 149
        
         {
@@ -329,9 +328,8 @@ Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu 
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 56
 > X-RateLimit-Reset: 1372700873
@@ -353,9 +351,8 @@ new Date(1372700873 * 1000)
 Si excedes el límite de tasa, se regresará una respuesta de error:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> Status: 403 Forbidden
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 0
 > X-RateLimit-Reset: 1377013266
@@ -374,9 +371,8 @@ Si tu aplicación de OAuth necesita hacer llamados no autenticados con un límit
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> Status: 200 OK
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4966
 > X-RateLimit-Reset: 1372700873
@@ -401,7 +397,7 @@ El abuso de límite de tasa no pretende interferir con el uso legítimo de la AP
 Si tu aplicación activa este límite de tasa, recibirás una respuesta informativa:
 
 ```shell
-> HTTP/1.1 403 Forbidden
+> HTTP/2 403
 > Content-Type: application/json; charset=utf-8
 > Connection: close
 
@@ -454,32 +450,29 @@ La mayoría de las respuestas regresan un encabezado de `ETag`. Muchas de las re
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 200 OK
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Status: 304 Not Modified
 > Vary: Accept, Authorization, Cookie
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4996
@@ -494,7 +487,7 @@ Aquí hay una solicitud de ejemplo que se envió desde una consulta de buscador 
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
-HTTP/1.1 302 Found
+HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
@@ -503,7 +496,7 @@ Así se ve una solicitud de prevuelo de CORS:
 
 ```shell
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
-HTTP/1.1 204 No Content
+HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE

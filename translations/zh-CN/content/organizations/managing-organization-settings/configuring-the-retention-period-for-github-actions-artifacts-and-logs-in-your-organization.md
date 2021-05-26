@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.23'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.about-artifact-log-retention %}

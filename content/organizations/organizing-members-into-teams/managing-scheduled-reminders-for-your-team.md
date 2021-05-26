@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### About scheduled reminders for teams
@@ -20,8 +20,8 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Creating a scheduled reminder for a team
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.create-reminder %}
 
 ### Managing a scheduled reminder for a team
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.update-buttons %}
 
 ### Deleting a scheduled reminder for a team
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

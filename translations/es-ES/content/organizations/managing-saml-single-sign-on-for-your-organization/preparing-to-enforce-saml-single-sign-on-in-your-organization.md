@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Cuando [aplicas el inicio de sesión único de SAML](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) en tu organización, los miembros que no se han autenticado por medio de tu proveedor de identidad (IdP) serán eliminados de la organización y recibirán un correo electrónico informándoles acerca de la eliminación.

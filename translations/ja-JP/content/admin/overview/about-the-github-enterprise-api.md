@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - enterprise
+  - Enterprise
 ---
 
 API を使用すると、さまざまなタスクを自動化できます。 例えば、

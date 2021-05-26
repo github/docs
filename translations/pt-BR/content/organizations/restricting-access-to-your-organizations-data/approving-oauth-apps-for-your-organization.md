@@ -8,15 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Quando as restrições de acesso do {% data variables.product.prodname_oauth_app %} são habilitadas, os integrantes da organização devem [solicitar aprovação](/articles/requesting-organization-approval-for-oauth-apps) de um proprietário da organização para que eles possam autorizar um {% data variables.product.prodname_oauth_app %} que tenha acesso aos recursos da organização.
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Ao lado do aplicativo que deseja aprovar, clique em **Review** (Revisar). ![Link de solicitação de revisão](/assets/images/help/settings/settings-third-party-approve-review.png)
 6. Depois que revisar as informações sobre o aplicativo solicitado, clique em **Grant access** (Conceder acesso). ![Botão Grant access (Conceder acesso)](/assets/images/help/settings/settings-third-party-approve-grant.png)

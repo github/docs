@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 ### Was ist eine Verletzung der GitHub-Markenrichtlinie?

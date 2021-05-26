@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 チームメンテナと Organization のオーナーは、コードレビューの割り当てを設定できます。

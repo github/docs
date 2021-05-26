@@ -1,7 +1,6 @@
 ---
 title: GitHub Insights y la protección de datos para tu organización
 intro: '{% data variables.product.prodname_insights %} analiza tus datos de {% data variables.product.prodname_ghe_server %}. Estos datos podrían incluir datos personales de individuos en tu organización quienes podrían tener derecho a entender cómo se utilizan éstos.'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
   - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
@@ -10,11 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
-
-Para obtener más información acerca de las condiciones normativas de {% data variables.product.prodname_insights %}, consulta tu contrato de suscripción de {% data variables.product.prodname_ghe_one %}.
 
 Para evitar las dudas, ninguna información anterior deberá considerarse como asesoría legal proporcionada por {% data variables.product.prodname_dotcom %}. Eres responsable de asegurar tu propio análisis legal de la información aquí proporcionada y de dar cumplimiento a las leyes de protección de privacidad y datos. Dependerá de ti si quieres utilizar {% data variables.product.prodname_insights %} para procesar los datos de tus usuarios y empleados, y si lo haces, serás el único responsable para ejecutar dicho procesamiento en cumplimiento con las leyes aplicables.
 

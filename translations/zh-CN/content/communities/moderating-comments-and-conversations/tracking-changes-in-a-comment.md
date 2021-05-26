@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 ### 查看评论的编辑历史记录详细信息

@@ -11,7 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Borrar la rama utilizada para una solicitud de extracción

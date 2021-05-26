@@ -4,7 +4,7 @@ intro: 'Para ofrecer planes de pago para tu app o para incluir una insgnia de ma
 versions:
   free-pro-team: '*'
 topics:
-  - marketplace
+  - Marketplace
 ---
 
 La verificación del publicador garantiza que {% data variables.product.prodname_dotcom %} tiene una forma de contactarte, que habilitas la autenticación bifactorial para tu organización y que el dominio de tu organización se verificó.
@@ -15,15 +15,15 @@ Para ofrecer planes de pago para tu app, esta debe pertenecer a una organizació
 
 ### Solicitar la verificación de publicador
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 1. En la barra lateral izquierda, haz clic en **Developer settings** (Parámetros del desarrollador). ![La opción de configuración de desarrollador en la barra lateral de ajustes de la organización](/assets/images/marketplace/developer-settings-in-org-settings.png)
 1. Debajo de "Ajustes de desarrollador", da clic en **Verificación del publicador**. ![Opción de verificación del publicador en la barra lateral de ajustes de la organización](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Debajo de "Verificación del publicador", completa la información de la lista de verificación:
    - Asegúrate de que tu información de perfil básica está presente y es correcta. También, asegúrate de que hayas incluido la mejor dirección de correo electrónico para recibir soporte y actualizaciones de {% data variables.product.company_short %}.
    - Asegúrate de que se encuentre habilitada la autenticación bifactorial para tu organización. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".
-   - Emite un dominio verificado y asegúrate que se muestre la insignia de "Verificado" en el perfil de página de tu organización. Para la información relacionada, consulta la sección "[Verificar el dominio de tu organización](/organizations/managing-organization-settings/verifying-your-organizations-domain)".
+   - Emite un dominio verificado y asegúrate que se muestre la insignia de "Verificado" en el perfil de página de tu organización. For related information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
   ![Lista de verificación para la verificación del publicador](/assets/images/marketplace/publisher-verification-checklist.png)
 

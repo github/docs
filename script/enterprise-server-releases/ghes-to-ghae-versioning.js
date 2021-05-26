@@ -27,20 +27,22 @@ program
   .option('-t, --translations', 'Run the script on content and data in translations too.')
   .parse(process.argv)
 
-if (!program.ghesRelease) {
+const { ghesRelease, products, translations } = program.opts()
+
+if (!ghesRelease) {
   console.error('Must provide an Enterprise Server release number!')
   process.exit(1)
 }
 
-console.log(`✅ Adding AE versioning based on GHES ${program.ghesRelease} versioning`)
+console.log(`✅ Adding AE versioning based on GHES ${ghesRelease} versioning`)
 
-if (program.products) {
-  console.log(`✅ Running on the following products: ${program.products}`)
+if (products) {
+  console.log(`✅ Running on the following products: ${products}`)
 } else {
   console.log('✅ Running on all products')
 }
 
-if (program.translations) {
+if (translations) {
   console.log('✅ Running on both English and translated content and data\n')
 } else {
   console.log('✅ Running on English content and data\n')
@@ -59,8 +61,8 @@ const englishContentFiles = walkContent(contentPath)
 const englishDataFiles = walkData(dataPath)
 
 function walkContent (dirPath) {
-  const products = program.products || ['']
-  return products.map(product => {
+  const productArray = products || ['']
+  return productArray.map(product => {
     dirPath = path.join(contentPath, product)
     return walk(dirPath, { includeBasePath: true, directories: false })
       .filter(file => file.includes('/content/'))
@@ -76,7 +78,7 @@ function walkData (dirPath) {
 }
 
 let allContentFiles, allDataFiles
-if (program.translations) {
+if (translations) {
   const translatedContentFiles = walkContent(translationsPath)
   const translatedDataFiles = walkData(translationsPath)
   allContentFiles = englishContentFiles.concat(translatedContentFiles)
@@ -113,7 +115,7 @@ allContentFiles
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
 
     // Return early if the current page frontmatter does not apply to either GHAE or the given GHES release
-    if (!(data.versions['github-ae'] || versionSatisfiesRange(program.ghesRelease, data.versions['enterprise-server']))) return
+    if (!(data.versions['github-ae'] || versionSatisfiesRange(ghesRelease, data.versions['enterprise-server']))) return
 
     const conditionalsToUpdate = getConditionalsToUpdate(content)
     if (!conditionalsToUpdate.length) return
@@ -181,5 +183,5 @@ function doesReleaseSatisfyConditional (enterpriseServerMatch) {
   // Example range: >2.21
   const range = `${semverOperator}${number}`
 
-  return versionSatisfiesRange(program.ghesRelease, range)
+  return versionSatisfiesRange(ghesRelease, range)
 }

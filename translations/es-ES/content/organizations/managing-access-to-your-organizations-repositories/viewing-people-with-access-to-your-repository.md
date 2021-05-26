@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Los administradores pueden utilizar esta información para ayudar a personas externas, reunir datos de cumplimiento y otras verificaciones generales de seguridad.

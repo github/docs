@@ -1,7 +1,7 @@
 ---
 title: Acerca de las notificaciones por correo electrónico para las inserciones en tu repositorio
 intro: Puedes elegir enviar notificaciones por correo electrónico automáticamente a una dirección en específico cuando alguien suba información a tu repositorio.
-permissions: Las personas con permisos administrativos en un repositorio pueden habilitar notificaciones de correo electrónico para las cargas a tu repositorio.
+permissions: People with admin permissions in a repository can enable email notifications for pushes to your repository.
 redirect_from:
   - /articles/managing-notifications-for-pushes-to-a-repository/
   - /articles/receiving-email-notifications-for-pushes-to-a-repository/
@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.notifications.outbound_email_tip %}

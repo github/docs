@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -26,7 +26,7 @@ De manera alterna, puedes habilitar {% data variables.product.prodname_actions %
 
 {% note %}
 
-**Nota:** Tal vez no pueds administrar estas configuraciones si tu organización tiene una política de anulación o si la administra una cuenta empresarial que tiene dicha configuración. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21"%}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**Nota:** Tal vez no pueds administrar estas configuraciones si tu organización tiene una política de anulación o si la administra una cuenta empresarial que tiene dicha configuración. Para obtener más información, consulta la sección "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" o {% if currentVersion == "free-pro-team@latest" %}"[Requerir politicas de las {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)".{% elsif currentVersion ver_gt "enterprise-server@2.21"%}"[Requerir políticas de las {% data variables.product.prodname_actions %} para tu empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".{% endif %}
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar 
 
 {% note %}
 
-**Nota:** Tal vez no pueds administrar estas configuraciones si tu organización tiene una política de anulación o si la administra una cuenta empresarial que tiene dicha configuración. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% elsif currentVersion ver_gt "enterprise-server@2.21" %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+**Nota:** Tal vez no pueds administrar estas configuraciones si tu organización tiene una política de anulación o si la administra una cuenta empresarial que tiene dicha configuración. Para obtener más información, consulta la sección "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" o {% if currentVersion == "free-pro-team@latest" %}"[Requerir politicas de las {% data variables.product.prodname_actions %} en tu cuenta empresarial](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)".{% elsif currentVersion ver_gt "enterprise-server@2.21" %}"[Requerir políticas de las {% data variables.product.prodname_actions %} para tu empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".
 
 {% endif %}
 
@@ -81,4 +81,22 @@ Puedes inhabilitar todos los flujos de trabajo para un repositorio o configurar 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### Configurar los permisos del `GITHUB_TOKEN` para tu repositorio
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+También pueden configurarse los permisos predeterminados en los ajustes de la organización. Si el predeterminado más restringido se seleccionó en la configuración de la organización, la misma opción se autoselecciona en tu configuración de repositorio y la opción permisiva se inhabilita.
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### Configuring the default `GITHUB_TOKEN` permissions
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.settings-sidebar-actions %}
+1. Debajo de **Permisos del flujo de trabajo**, elige si quieres que el `GITHUB_TOKEN` tenga permisos de lectura y escritura para todos los alcances o solo acceso de lectura para el alcance `contents`. ![Configurar los permisos del GITHUB_TOKEN para este repositorio](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+1. Da clic en **Guardar** para aplicar la configuración.
 {% endif %}

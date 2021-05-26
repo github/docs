@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.

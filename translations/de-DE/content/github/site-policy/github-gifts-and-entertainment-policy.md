@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHub ist sich bewusst, dass unser Geschäft auf positiven und transparenten Beziehungen basiert. Während informelle Interaktionen und der Austausch von Geschenken Teil der Entwicklung dieser Beziehungen sein können und sogar in einigen Ländern als üblich angesehen werden können, müssen wir sicherstellen, dass wir die Anti-Korruptionsgesetze befolgen. Wir sind gesetzlich verpflichtet, uns nach ethischen Grundsätzen zu verhalten, auch indem wir solche Interaktionen nicht dazu nutzen, einen besonderen Vorteil zu schaffen oder ein Geschäft zu beeinflussen.

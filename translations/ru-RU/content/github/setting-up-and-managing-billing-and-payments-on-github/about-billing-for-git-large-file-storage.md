@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 ### About billing for {% data variables.large_files.product_name_long %}

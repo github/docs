@@ -1,6 +1,6 @@
 ---
 title: GraphQLでの呼び出しの作成
-intro: 'GraphQL APIの認証方法を学び、クエリとミューテーションの作成と実行方法を学んでください。'
+intro: GraphQL APIの認証方法を学び、クエリとミューテーションの作成と実行方法を学んでください。
 redirect_from:
   - /v4/guides/forming-calls
   - /graphql/guides/forming-calls
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### GraphQLでの認証

@@ -10,7 +10,7 @@ const {
   getPathWithoutLanguage
 } = require('../lib/path-utils')
 const productNames = require('../lib/product-names')
-const warmServer = process.env.FEATURE_NEW_SITETREE ? require('../lib/warm-server2') : require('../lib/warm-server')
+const warmServer = require('../lib/warm-server')
 const featureFlags = Object.keys(require('../feature-flags'))
 const builtAssets = require('../lib/built-asset-urls')
 const searchVersions = require('../lib/search/versions')
@@ -51,6 +51,7 @@ module.exports = async function contextualize (req, res, next) {
   req.context.siteTree = siteTree
   req.context.pages = pageMap
 
+  // TODO we should create new data directories for these example files instead of using variable files
   if (productMap[req.context.currentProduct]) {
     req.context.productCodeExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_code_examples`]
     req.context.productCommunityExamples = req.context.site.data.variables[`${productMap[req.context.currentProduct].id}_community_examples`]

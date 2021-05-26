@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ボットおよびサービスアカウントへのアクセスを維持するために、Organization の管理者はその Organization に対して SAML シングルサインオンを[有効化](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)することはできますが、[強制](/articles/enforcing-saml-single-sign-on-for-your-organization)することは**できません**。 Organization に対して SAML シングルサインオンを強制する必要がある場合は、アイデンティティプロバイダ (IdP) を利用してボットまたはサービスアカウントに外部アイデンティティを作成する方法があります。

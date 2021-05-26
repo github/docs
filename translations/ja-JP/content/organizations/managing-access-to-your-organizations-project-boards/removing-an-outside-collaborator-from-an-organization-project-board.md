@@ -1,6 +1,6 @@
 ---
 title: 外部コラボレーターを Organization プロジェクトボードから削除する
-intro: 'Organization のオーナーあるいはプロジェクトボードの管理者は、外部コラボレーターのプロジェクトボードへのアクセスを削除できます。'
+intro: Organization のオーナーあるいはプロジェクトボードの管理者は、外部コラボレーターのプロジェクトボードへのアクセスを削除できます。
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-project-board
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.profile.access_profile %}

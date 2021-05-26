@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 마켓플레이스
+  - Marketplace
 ---
 
 Once your app listing meets the {% data variables.product.prodname_marketplace %} requirements, you can submit your app. For an overview of the app listing requirements, see "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."

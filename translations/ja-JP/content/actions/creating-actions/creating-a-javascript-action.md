@@ -13,7 +13,7 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - Action 開発
+  - Action development
   - JavaScript
 ---
 
@@ -159,11 +159,11 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 挨拶した時間。
 
-##
+## 使用例
 
-使用例: アクション/ハローワールドjavascript-action@v1.1
-:
-  誰が挨拶する:'モナ・ザ・オクトキャット'
+uses: actions/hello-world-javascript-action@v1.1
+with:
+  who-to-greet: 'Mona the Octocat'
 ```
 
 ### アクションの GitHub へのコミットとタグ、プッシュ
@@ -215,21 +215,21 @@ git push --follow-tags
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-オン
-  hello_world_job: [push]
+on: [push]
 
-ジョブ:  :  :
-    実行: ubuntu-最新の
-    名: こんにちは
-    ステップを言う仕事:
-    - 名前: こんにちは世界アクションステップ
-      id: こんにちは
-      使用: アクション/hello-world-javascript-action@v1.1
-      :
-        誰が挨拶: 'モナ・ザ・オクトキャット'
-    # 'hello' ステップからの出力を使用
-    - 名前
-      : echo{{ steps.hello.outputs.time }}
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # `hello`ステップからの出力を使用する
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

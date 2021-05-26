@@ -6,7 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 Wenn Dein Konto ein kostenpflichtiges {% data variables.product.prodname_dotcom %}-Produkt verwendet, kannst Du Dich direkt an {% data variables.contact.github_support %} wenden. Wenn Dein Konto {% data variables.product.prodname_free_user %} für Benutzerkonten und Organisationen verwendet, kannst Du {% data variables.contact.contact_support %} kontaktieren, um Probleme mit Konten, Sicherheit und Missbrauch zu melden. Weitere Informationen findest Du unter „[Über GitHub Support](/github/working-with-github-support/about-github-support)."

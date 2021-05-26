@@ -6,8 +6,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de los recordatorios programados para las solicitudes de extracción
@@ -19,9 +19,8 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Crear un recordatorio programado para una organización
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 {% data reusables.reminders.create-reminder %}
 
 ### Administrar un recordatorio programado para una organización
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ Los propietarios de la organización pueden programar un recordatorio para uno m
 {% data reusables.reminders.update-buttons %}
 
 ### Borrar un recordatorio programado para una organización
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

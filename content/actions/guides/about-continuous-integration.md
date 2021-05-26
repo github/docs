@@ -11,10 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'overview'
+type: overview
 topics:
-  - 'CI'
-  - 'CD'
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -48,6 +48,7 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 For a definition of common terms, see "[Core concepts for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)."
 
 ### Supported languages
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
 
 {% data variables.product.product_name %} offers CI workflow templates for a variety of languages and frameworks.
 
@@ -56,7 +57,7 @@ Browse the complete list of CI workflow templates offered by {% data variables.p
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 ### Skipping workflow runs
 
-If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
+If you want to temporarily prevent a workflow from being triggered, you can add a skip instruction to the commit message. Workflows that would otherwise be triggered `on: push` or `on: pull_request`, won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 
 * `[skip ci]`
 * `[ci skip]`
@@ -89,5 +90,5 @@ For more information, see "[Configuring a workflow](/articles/configuring-a-work
 
 - "[Setting up continuous integration using {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}

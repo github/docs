@@ -1,13 +1,13 @@
 ---
 title: Code security
 shortTitle: Code security
-intro: 'Learn how to keep the code stored in your repositories secure.'
+intro: Learn how to keep the code stored in your repositories secure.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 보안
+  - Security
 ---
 
 {% link_with_intro /getting-started %}

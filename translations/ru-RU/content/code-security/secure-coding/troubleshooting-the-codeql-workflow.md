@@ -11,8 +11,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - безопасность
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
@@ -33,19 +35,22 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:
+    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions:
+        security-events: write
+        actions: read{% endif %}
       ...
       strategy:
         fail-fast: false
         matrix:
           language: ['csharp', 'cpp', 'javascript']
 
+      steps:
       ...
-
-      - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
-        with:
-          languages: {% raw %}${{ matrix.language }}{% endraw %}
+        - name: Initialize {% data variables.product.prodname_codeql %}
+          uses: github/codeql-action/init@v1
+          with:
+            languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
   For more information about editing the workflow, see "[Configuring code scanning](/code-security/secure-coding/configuring-code-scanning)."
@@ -150,29 +155,29 @@ commit for best results.
 Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
 
 ```yaml
-      with:
-        # We must fetch at least the immediate parents so that if this is
-        # a pull request then we can checkout the head.
-        fetch-depth: 2
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 2
 
-    # If this run was triggered by a pull request event, then checkout
-    # the head of the pull request instead of the merge commit.
-    - run: git checkout HEAD^2
-      if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
+      - run: git checkout HEAD^2
+        if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
 The revised `steps` section of the workflow will look like this:
 
 ```yaml
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
-    - name: Initialize {% data variables.product.prodname_codeql %}
-      uses: github/codeql-action/init@v1
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
 
-    ...
+      ...
 ```
 
 For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)."

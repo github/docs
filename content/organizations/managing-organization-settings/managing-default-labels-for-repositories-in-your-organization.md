@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization owners can manage default labels for repositories in the organization.

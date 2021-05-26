@@ -1,7 +1,7 @@
 ---
 title: Crear una propuesta
 intro: 'Las propuestas se pueden usar para hacer un seguimiento de los errores, mejoras u otras solicitudes.'
-permissions: Las personas con permisos de lectura pueden crear una propuesta en un repositorio en donde las propuestas se hayan habilitado.
+permissions: People with read permissions can create an issue in a repository where issues are enabled.
 redirect_from:
   - /articles/creating-an-issue
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Puedes abrir una nueva propuesta basada en el código a partir de una solicitud de extracción existente. Para obtener más información, consulta la sección "[Abrir una propuesta desde el código](/github/managing-your-work-on-github/opening-an-issue-from-code)".

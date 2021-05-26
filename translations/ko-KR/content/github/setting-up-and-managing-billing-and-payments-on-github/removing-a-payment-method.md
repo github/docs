@@ -10,7 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 If you're paying for your {% data variables.product.product_name %} subscription with a coupon, and you aren't using your payment method for any [other paid features or products](/articles/about-billing-on-github) on {% data variables.product.product_name %}, you can remove your credit card or PayPal information.
@@ -26,8 +26,8 @@ If you're paying for your {% data variables.product.product_name %} subscription
 ### Removing your personal account's payment method
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}
 
@@ -35,10 +35,9 @@ If you're paying for your {% data variables.product.product_name %} subscription
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.remove-payment-method %}
 {% data reusables.dotcom_billing.remove_payment_info %}

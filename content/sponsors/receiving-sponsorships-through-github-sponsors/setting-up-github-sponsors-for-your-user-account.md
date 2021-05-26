@@ -7,10 +7,10 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account
 versions:
   free-pro-team: '*'
-type: 'how_to'
+type: how_to
 topics:
-  - 'User account'
-  - 'Sponsors profile'
+  - User account
+  - Sponsors profile
 ---
 
 ### Joining {% data variables.product.prodname_sponsors %}

@@ -12,8 +12,12 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - корпоративный
+  - Enterprise
+  - Fundamentals
+  - Maintenance
+  - Upgrades
 ---
 
 ### About maintenance mode

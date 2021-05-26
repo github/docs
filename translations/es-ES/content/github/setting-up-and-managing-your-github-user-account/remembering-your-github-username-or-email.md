@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - cuentas
-  - notifications
+  - Accounts
+  - Notifications
 ---
 
 {% mac %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."

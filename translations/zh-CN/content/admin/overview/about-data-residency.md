@@ -1,8 +1,12 @@
 ---
 title: 关于数据保存
-intro: 您可以选择 {% data variables.product.product_name %} 为您的企业存储所有客户数据的地理位置。
+intro: '您可以选择 {% data variables.product.product_name %} 为您的企业存储所有客户数据的地理位置。'
 versions:
   github-ae: '*'
+type: overview
+topics:
+  - Enterprise
+  - Fundamentals
 ---
 
 {% data reusables.github-ae.github-ae-enables-you %} 您可以选择为 {% data variables.product.product_location %} 存储所有客户数据的地理位置，企业成员可以从世界任何地方访问 {% data variables.product.product_name %}。

@@ -9,12 +9,12 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - 仓库
+  - Repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
 
-### 管理警报
+### Managing {% data variables.product.prodname_secret_scanning %} alerts
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -49,3 +49,11 @@ topics:
 
 - 对于受到威胁的 {% data variables.product.prodname_dotcom %} 个人访问令牌，请删除该令牌，创建新令牌，然后更新使用旧令牌的任何服务。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
 - 对于所有其他密码，请先确认提交到 {% data variables.product.product_name %} 的密码是有效的。 如果有效，请创建新密码，更新使用旧密码的任何服务，然后删除旧密码。
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts
+
+When a new secret is detected, {% data variables.product.prodname_dotcom %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts, or are the author of the commit that contains the secret and are not ignoring the repository.
+
+For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+{% endif %}

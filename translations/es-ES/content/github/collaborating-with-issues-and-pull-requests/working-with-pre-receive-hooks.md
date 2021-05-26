@@ -1,6 +1,6 @@
 ---
 title: Trabajar con ganchos de pre-recepción
-intro: 'Los *ganchos de pre-recepción* hacen cumplir las reglas para las contribuciones antes de que las confirmaciones se puedan subir a un repositorio.'
+intro: Los *ganchos de pre-recepción* hacen cumplir las reglas para las contribuciones antes de que las confirmaciones se puedan subir a un repositorio.
 redirect_from:
   - /articles/working-with-pre-receive-hooks
 versions:
