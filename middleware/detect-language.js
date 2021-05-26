@@ -9,7 +9,8 @@ const codes = {
 }
 
 function convertLanguageCode (language) {
-  return codes[language.toLowerCase()] || language.substring(0, 2)
+  const languageLowerCase = language.toLowerCase()
+  return codes[languageLowerCase] || languageLowerCase.substring(0, 2)
 }
 
 module.exports = function detectLanguage (req, res, next) {
@@ -19,7 +20,7 @@ module.exports = function detectLanguage (req, res, next) {
   const firstPartOfPath = req.path.split('/')[1]
 
   req.language = languageCodes.includes(firstPartOfPath) ? firstPartOfPath : 'en'
-  // Detecting browser language by user preference
+  // Detecting browser language by user preference + value
   if (req.headers['accept-language']) {
     const browserLanguage = req.headers['accept-language'].split(',')[0]
     req.userLanguage = convertLanguageCode(browserLanguage)
