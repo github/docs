@@ -38,7 +38,7 @@ You may grant a Developer Product authorization to use, access, and disclose the
 
 ### 3. Git LFS Support
 
-If you enable Git Large File Storage ("Git LFS") on your Account, you'll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. Your Account comes with a certain amount of bandwidth and storage for use with Git LFS, which can be found in the [Git LFS documentation](/github/managing-large-files/about-storage-and-bandwidth-usage). Git LFS bandwidth and storage usage is displayed within your [account settings](https://github.com/settings/billing). If you want to use Git LFS beyond your allotted bandwidth and storage, then you may [purchase additional data packs](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage).
+If you enable Git Large File Storage ("Git LFS") on your Account, you'll be able to fetch, modify, and push large files just as you would expect with any file that Git manages. Your Account comes with a certain amount of bandwidth and storage for use with Git LFS, which can be found in the [Git LFS documentation](/github/managing-large-files/about-storage-and-bandwidth-usage). Git LFS bandwidth and storage usage is displayed within your [account settings](https://github.com/settings/billing). If you want to use Git LFS beyond your allotted bandwidth and storage, then you may [purchase additional data packs](/billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage).
 
 ### 4. Pages
 
