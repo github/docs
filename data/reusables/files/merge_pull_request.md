@@ -1,1 +1,1 @@
-1. Merge all of the commits into the base branch by clicking **Merge pull request**. For more information, see "[Merging a Pull Request](/github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)".
+1. Click **Merge pull request** For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)."
