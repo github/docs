@@ -293,3 +293,13 @@
   href: peaceiris/actions-gh-pages
   tags:
     - publishing
+- title: Deploying a React app to GitHub Pages
+  description: GitHub Action to publish a React app to GitHub Pages. Build includes running unit tests and publishing test and code coverage result.
+  languages: JavaScript
+  href: https://github.com/ClydeDz/github-actions-demo
+  tags:
+    - react
+    - build
+    - test
+    - code coverage
+    - workflow
