@@ -1,6 +1,6 @@
 ---
 title: Manage classrooms
-intro: 'You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.'
+intro: You can create and manage a classroom for each course that you teach using {% data variables.product.prodname_classroom %}.
 permissions: Organization owners can manage a classroom for an organization.
 versions:
   free-pro-team: '*'
@@ -8,6 +8,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/archive-a-classroom
   - /education/manage-coursework-with-github-classroom/manage-classrooms
 ---
+
 ### About classrooms
 
 {% data reusables.classroom.about-classrooms %}
@@ -45,7 +46,7 @@ You must authorize the OAuth app for {% data variables.product.prodname_classroo
   !["New classroom" button](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-After you create a classroom, you can begin creating assignments for students. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+After you create a classroom, you can begin creating assignments for students. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
 
 ### Creating a roster for your classroom
 
@@ -58,10 +59,8 @@ If your course already has a roster, you can update the students on the roster o
 {% data reusables.classroom.click-students %}
 1. To connect {% data variables.product.prodname_classroom %} to your LMS and import a roster, click {% octicon "mortar-board" aria-label="The mortar board icon" %} **Import from a learning management system** and follow the instructions. For more information, see "[Connect a learning management system to {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/connect-a-learning-management-system-to-github-classroom)."
     !["Import from a learning management system" button](/assets/images/help/classroom/click-import-from-a-learning-management-system-button.png)
-1. Provide the student identifiers for your roster.
-    - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
-    - To create a roster manually, type your student identifiers.
-      ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
+1. To create a roster manually, type your student identifiers. Optionally, click **Upload a CSV or text file** to upload a file containing the identifiers.
+    ![Text field for typing student identifiers and "Upload a CSV or text file" button](/assets/images/help/classroom/type-or-upload-student-identifiers.png)
 1. Click **Create roster**.
   !["Create roster" button](/assets/images/help/classroom/click-create-roster-button.png)
 
