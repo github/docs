@@ -57,7 +57,7 @@ If you know your {% data variables.product.product_name %} password but don't ha
 
 You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 
-{% data reusables.two_fa.username-password %}
+1. Type your username and password to prompt authentication. If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
 2. Under "Having Problems?", click **Can't access your two factor device or valid recovery codes?**
   ![Link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
 3. Click **I understand, get started** to request a reset of your authentication settings.
