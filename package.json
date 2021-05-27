@@ -37,7 +37,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.2.6",
-    "flat": "^5.0.0",
+    "flat": "^5.0.2",
     "github-slugger": "^1.2.1",
     "got": "^9.6.0",
     "gray-matter": "^4.0.1",
