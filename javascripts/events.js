@@ -46,12 +46,14 @@ export function sendEvent ({
   experiment_name,
   experiment_variation,
   experiment_success,
-  clipboard_operation
+  clipboard_operation,
+  preference_name,
+  preference_value
 }) {
   const body = {
     _csrf: getCsrf(),
 
-    type, // One of page, exit, link, search, navigate, survey, experiment
+    type, // One of page, exit, link, search, navigate, survey, experiment, preference
 
     context: {
       // Primitives
@@ -77,7 +79,10 @@ export function sendEvent ({
 
       // Location information
       timezone: new Date().getTimezoneOffset() / -60,
-      user_language: navigator.language
+      user_language: navigator.language,
+
+      // Preference information
+      application_preference: Cookies.get('toolPreferred')
     },
 
     // Page event
@@ -112,7 +117,11 @@ export function sendEvent ({
     experiment_success,
 
     // Clipboard event
-    clipboard_operation
+    clipboard_operation,
+
+    // Preference event
+    preference_name,
+    preference_value
   }
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
   navigator.sendBeacon('/events', blob)
@@ -230,4 +239,5 @@ export default function initializeEvents () {
   // experiment event in ./experiment.js
   // search event in ./search.js
   // redirect event in middleware/record-redirect.js
+  // preference event in ./display-tool-specific-content.js
 }

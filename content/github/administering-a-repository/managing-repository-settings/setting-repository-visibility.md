@@ -20,6 +20,20 @@ Organization owners can restrict the ability to change repository visibility to 
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+{% warning %}
+
+**Warning:** Changes to the visibility of a large repository or repository network may affect data integrity. Visibility changes can also have unintended effects on forks. {% data variables.product.company_short %} recommends the following before changing the visibility of a repository network.
+
+- Wait for a period of reduced activity on {% data variables.product.product_location %}.
+
+- Contact your {% if enterpriseServerVersions contains currentVersion %}site administrator{% elsif currentVersion == "github-ae@latest" %}enterprise owner{% endif %} before proceeding. Your {% if enterpriseServerVersions contains currentVersion %}site administrator{% elsif currentVersion == "github-ae@latest" %}enterprise owner{% endif %} can contact {% data variables.contact.contact_ent_support %} for further guidance.
+
+{% endwarning %}
+
+{% endif %}
+
 #### Making a repository private
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 * {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
