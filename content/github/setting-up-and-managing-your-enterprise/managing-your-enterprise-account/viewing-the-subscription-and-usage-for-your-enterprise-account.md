@@ -37,8 +37,8 @@ For more information about managing billing managers, see "[Inviting people to m
 
 ### Further reading
 
-- "[About billing for GitHub Actions](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions)"
-- "[About billing for Git Large File Storage](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage)"
-- "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)"
+- "[About billing for GitHub Actions](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions)"
+- "[About billing for Git Large File Storage](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+- "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)"
 
 {% endif %}
