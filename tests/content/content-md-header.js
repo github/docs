@@ -35,7 +35,7 @@ describe('Check H2 header start in markdown content and reusables files', () => 
         const match = fileContents.match(re)
         const firstHeader = (match) ? match[0].split(' ')[0] : null
         const errorMessage = 'Found the wrong header:' + match
-        expect(['##', null], errorMessage).toContain(firstHeader)
+        expect(['#', '##', null], errorMessage).toContain(firstHeader)
       }
     )
   })

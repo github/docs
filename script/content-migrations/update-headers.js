@@ -11,13 +11,17 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 
+const re = /^#.*\n/gm
+
 async function updateMdHeaders (dir) {
   walk(dir, { includeBasePath: true, directories: false })
     .filter(file => !file.endsWith('README.md'))
     .forEach(file => {
       fs.readFile(file, 'utf8', (err, data) => {
         if (err) return console.error(err)
-
+        const matchHeader = data.match(re)
+        const firstHeader = (matchHeader) ? matchHeader[0].split(' ')[0] : null
+        if (firstHeader === '##' || firstHeader === '#') return
         const result = data
           .replace(/^### /gm, '## ')
           .replace(/^#### /gm, '### ')
