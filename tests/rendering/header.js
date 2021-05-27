@@ -87,12 +87,25 @@ describe('header', () => {
       const $ = await getDOM('/en', headers)
       expect($('.header-notifications').length).toBe(0)
     })
+
+    test('renders a link to the same page in user\'s preferred language from multiple, if available', async () => {
+      const headers = { 'accept-language': 'ja, *;q=0.9' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders a link to the same page in user\'s preferred language with weights, if available', async () => {
+      const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
   })
 
   describe('mobile-only product dropdown links', () => {
     test('include github and admin, and emphasize the current product', async () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
-
       const github = $('#homepages a.active[href="/en/github"]')
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub.com')
@@ -106,7 +119,6 @@ describe('header', () => {
 
     test('point to homepages in the current page\'s language', async () => {
       const $ = await getDOM('/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests')
-
       expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
     })
