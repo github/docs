@@ -66,7 +66,7 @@ We recommend reviewing the following caveats before you change the visibility of
 * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."
 * The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
 
-For information about improving repository security, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)."{% endif %}
+For information about improving repository security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."{% endif %}
 
 {% endif %}
 

@@ -29,7 +29,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
 
-For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)."
+For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}
