@@ -56,7 +56,7 @@ You can use sorting or filtering to customize how you see starred repositories a
 ![Sorting stars](/assets/images/help/stars/stars_sort_menu.png)
 1. To filter your list of stars based on their language, click on the desired language under **Filter by languages**.
 ![Filter stars by language](/assets/images/help/stars/stars_filter_language.png)
-1. To filter your list of stars based on repository or topic, click on the desired option above **Filter by languages**.
+1. To filter your list of stars based on repository or topic, click on the desired option.
 ![Filter stars by topic](/assets/images/help/stars/stars_filter_topic.png)
 
 ### Further reading
