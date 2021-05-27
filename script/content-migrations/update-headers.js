@@ -21,6 +21,15 @@ async function updateMdHeaders (dir) {
         if (err) return console.error(err)
         const matchHeader = data.match(re)
         let firstHeader = (matchHeader) ? matchHeader[0].split(' ')[0] : null
+        if (firstHeader) {
+          for (let index = 1; index < matchHeader.length; index++) {
+            const nextHeader = matchHeader[index].split(' ')[0]
+            if (nextHeader.length < firstHeader.length && nextHeader.length >= 3) {
+              console.log(file)
+              break
+            }
+          }
+        }
         if (file.includes('data/reusables/')) {
           if (!file.endsWith('data/reusables/actions/actions-group-concurrency.md') && !file.endsWith('data/reusables/github-actions/actions-on-examples.md')) {
             firstHeader = 'reusable-' + firstHeader
