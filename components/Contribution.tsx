@@ -20,7 +20,11 @@ export const Contribution = () => {
       </a>
       <p className="color-text-secondary f6 mt-2">
         {t`or`}{' '}
-        <a href="https://github.com/github/docs/blob/main/CONTRIBUTING.md" target="_blank">
+        <a
+          href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
+          target="_blank"
+          rel="noopener"
+        >
           {t`to_guidelines`}
         </a>
       </p>

@@ -6,7 +6,9 @@ redirect_from:
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
+  - Clustering
   - Enterprise
 ---
 

@@ -19,9 +19,8 @@ topics:
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### 为组织创建预定提醒
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.add-reminder %}
@@ -43,9 +42,8 @@ topics:
 {% data reusables.reminders.create-reminder %}
 
 ### 管理组织的预定提醒
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.edit-existing %}
@@ -53,9 +51,8 @@ topics:
 {% data reusables.reminders.update-buttons %}
 
 ### 删除组织的预定提醒
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/organizations/scheduled-reminders-org.png)
 {% data reusables.reminders.delete %}

@@ -11,6 +11,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% link_in_list /about-github-hosted-runners %}
+{% link_in_list /customizing-github-hosted-runners %}
 {% link_in_list /about-ae-hosted-runners %}
 {% link_in_list /adding-ae-hosted-runners %}
 {% link_in_list /using-ae-hosted-runners-in-a-workflow %}

@@ -16,6 +16,10 @@ export type CodeExample = {
   href: string
   tags: Array<string>
 }
+export type Product = {
+  title: string
+  href: string
+}
 
 export type ProductLandingContextT = {
   title: string
@@ -23,6 +27,7 @@ export type ProductLandingContextT = {
   shortTitle: string
   intro: string
   beta_product: boolean
+  product: Product
   // primaryAction: LinkButtonT
   // secondaryAction?: LinkButtonT
   introLinks: {
@@ -65,7 +70,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 }
 
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
-  const { currentCategory, currentPath, data } = req.context
+  const productTree = req.context.currentProductTree
   return {
     ...pick(req.context.page, [
       'title',
@@ -76,11 +81,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'product_video',
       'changelog',
     ]),
-    whatsNewChangelog: req.context.whatsNewChangelog,
-    changelogUrl: req.context.changelogUrl,
-
+    product: {
+      href: productTree.href,
+      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+    },
+    whatsNewChangelog: req.context.whatsNewChangelog || [],
+    changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
-
     productCommunityExamples: req.context.productCommunityExamples || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
@@ -90,11 +97,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: Object.fromEntries(
-      Object.entries(req.context.page.introLinks || {}).filter(([key, val]) => !!val)
-    ),
+    introLinks: {
+      quickstart: productTree.page.introLinks.quickstart,
+      reference: productTree.page.introLinks.reference,
+      overview: productTree.page.introLinks.overview,
+    },
 
-    guideCards: (req.context.featuredLinks.guideCards || []).map((link: any) => {
+    guideCards: (req.context.featuredLinks ? (req.context.featuredLinks.guideCards || []) : []).map((link: any) => {
       return {
         href: link.href,
         title: link.title,
@@ -103,14 +112,14 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       }
     }),
 
-    featuredArticles: Object.entries(req.context.featuredLinks)
+    featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
         return key === 'guides' || key === 'popular'
       })
       .map(([key, links]: any) => {
         return {
           label: req.context.site.data.ui.toc[key],
-          viewAllHref: key === 'guides' && !currentCategory ? `${currentPath}/${key}` : '',
+          viewAllHref: key === 'guides' && !req.context.currentCategory ? `${req.context.currentPath}/${key}` : '',
           articles: links.map((link: any) => {
             return {
               hideIntro: key === 'popular',
@@ -121,6 +130,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
             }
           }),
         }
-      }),
+      }
+    ),
   }
 }

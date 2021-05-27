@@ -1,12 +1,15 @@
 import { createContext, useContext } from 'react'
+import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from 'components/Breadcrumbs'
+import type { FeatureFlags } from 'components/hooks/useFeatureFlags'
 
 type ProductT = {
   external: boolean
   href: string
   id: string
   name: string
+  versions?: Array<string>
 }
 
 type LanguageItem = {
@@ -20,6 +23,19 @@ type LanguageItem = {
 type VersionItem = {
   version: string
   versionTitle: string
+}
+
+export type CurrentProductTree = {
+  page: {
+    hidden?: boolean
+    documentType: 'article' | 'mapTopic'
+    title: string
+    shortTitle: string
+  }
+  renderedShortTitle?: string
+  renderedFullTitle: string
+  href: string
+  childPages: Array<CurrentProductTree>
 }
 
 type DataT = {
@@ -45,7 +61,12 @@ type EnterpriseServerReleases = {
   nextDeprecationDate: string
 }
 export type MainContextT = {
-  breadcrumbs: Record<string, BreadcrumbT>
+  breadcrumbs: {
+    product: BreadcrumbT
+    category?: BreadcrumbT
+    maptopic?: BreadcrumbT
+    article?: BreadcrumbT
+  }
   builtAssets: { main: { css: string; js: string } }
   expose: string
   activeProducts: Array<ProductT>
@@ -60,6 +81,25 @@ export type MainContextT = {
   currentLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
+  currentProductTree?: CurrentProductTree
+  featureFlags: FeatureFlags
+  page: {
+    languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
+    topics: Array<string>
+    fullTitle?: string
+    introPlainText?: string
+    hidden: boolean
+    permalinks?: Array<{
+      languageCode: string
+      relativePath: string
+      title: string
+      pageVersionTitle: string
+      pageVersion: string
+      href: string
+    }>
+  }
+
+  enterpriseServerVersions: Array<string>
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
@@ -83,8 +123,26 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
-    relativePath: req.context.page.relativePath,
-    enterpriseServerReleases: req.context.enterpriseServerReleases,
+    relativePath: req.context.page?.relativePath,
+    page: {
+      languageVariants: req.context.page.languageVariants,
+      fullTitle: req.context.page.fullTitle,
+      topics: req.context.page.topics || [],
+      introPlainText: req.context.page?.introPlainText,
+      permalinks: req.context.page?.permalinks.map((obj: any) =>
+        pick(obj, [
+          'title',
+          'pageVersionTitle',
+          'pageVersion',
+          'href',
+          'relativePath',
+          'languageCode',
+        ])
+      ),
+      hidden: req.context.page.hidden || false,
+    },
+    enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
+    enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     languages: Object.fromEntries(
       Object.entries(req.context.languages).map(([key, entry]: any) => {
@@ -100,6 +158,9 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
+    // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
+    currentProductTree: JSON.parse(JSON.stringify(req.context.currentProductTree)),
+    featureFlags: {},
   }
 }
 

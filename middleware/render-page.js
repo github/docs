@@ -26,16 +26,6 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
-const renderWithNext = FEATURE_NEXTJS
-  ? [
-      '/en/rest',
-      '/en/sponsors',
-      '/ja/sponsors',
-      '/en/discussions',
-      '/en/actions'
-    ]
-  : []
-
 function modifyOutput (req, text) {
   return addColorMode(req, addCsrf(req, text))
 }
@@ -101,9 +91,9 @@ module.exports = async function renderPage (req, res, next) {
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
   // Should the current path be rendered by NextJS?
-  const isNextJsRequest = renderWithNext.includes(req.path)
+  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
 
-  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
+  if (isCacheable && !isRequestingJsonForDebugging && !renderWithNextjs) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -174,7 +164,7 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  if (FEATURE_NEXTJS && isNextJsRequest) {
+  if (renderWithNextjs) {
     nextHandleRequest(req, res)
   } else {
     // currentLayout is added to the context object in middleware/contextualizers/layouts

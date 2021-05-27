@@ -22,6 +22,12 @@ topics:
 
 您可以直接在 {% data variables.product.product_name %} 上编辑 wikis，也可在本地编辑 wiki 文件。 默认情况下，只有能够写入仓库的人才可更改 wikis，但您可以允许 {% data variables.product.product_location %} 上的每个人参与{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}仓库中的 wiki。 更多信息请参阅“[更改 wikis 的访问权限](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)”。
 
+{% note %}
+
+**注意：** 搜索引擎不会对维基的内容编制索引。 要通过搜索引擎对内容编制索引，您可以在公共仓库中使用 [{% data variables.product.prodname_pages %}](/pages) 。
+
+{% endnote %}
+
 ### 延伸阅读
 
 - "[添加或编辑 wiki 页面](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"

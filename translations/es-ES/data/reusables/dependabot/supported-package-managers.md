@@ -11,7 +11,7 @@ La siguiente tabla muestra, para cada administrador de paquetes:
 | Composer                   | `composer`       | v1, v2                          |           **✓**           |       **✓**        |                            |
 | Docker                     | `docker`         | v1                              |           **✓**           |       **✓**        |                            |
 | Hex                        | `mix`            | v1                              |                           |       **✓**        |                            |
-| elm-package                | `elm`            | v0.18, v0.19                    |           **✓**           |       **✓**        |                            |
+| elm-package                | `elm`            | v0.19                           |           **✓**           |       **✓**        |                            |
 | submódulo de git           | `gitsubmodule`   | N/A (sin versión)               |           **✓**           |       **✓**        |                            |
 | GitHub Actions             | `github-actions` | N/A (sin versión)               |           **✓**           |       **✓**        |                            |
 | Módulos de Go              | `gomod`          | v1                              |           **✓**           |       **✓**        |           **✓**            |

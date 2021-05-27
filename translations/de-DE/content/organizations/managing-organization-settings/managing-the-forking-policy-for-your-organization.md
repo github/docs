@@ -21,9 +21,8 @@ If you allow forking of private{% if currentVersion == "free-pro-team@latest" or
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Wähle unter „Repository forking" (Forken eines Repositorys) die Option **Allow forking of private repositories** (das Forken von privaten Repositorys zulassen) oder die Option **Allow forking of private and internal repositories** (Forking von privaten und internen Repositorys zulassen). ![Kontrollkästchen, um das Forking in der Organisation zu erlauben oder zu verbieten](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. Klicke auf **Save** (Speichern).

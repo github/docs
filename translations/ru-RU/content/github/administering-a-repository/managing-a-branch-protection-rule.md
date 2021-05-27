@@ -22,7 +22,7 @@ versions:
   github-ae: '*'
 permissions: People with admin permissions to a repository can manage branch protection rules.
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### About branch protection rules

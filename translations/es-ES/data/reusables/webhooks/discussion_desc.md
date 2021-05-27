@@ -1,1 +1,1 @@
-`discussion` | `object` | The [`discussion`](/graphql/guides/using-the-graphql-api-for-discussions#discussion) resource.
+`discussion` | `object` | El recurso [`discussion`](/graphql/guides/using-the-graphql-api-for-discussions#discussion).

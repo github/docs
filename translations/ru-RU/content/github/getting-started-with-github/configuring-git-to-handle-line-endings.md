@@ -15,7 +15,7 @@ versions:
 
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 
-When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in OS X.
+When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
 
 You can configure Git to handle line endings automatically so you can collaborate effectively with people who use different operating systems.
 
@@ -25,11 +25,11 @@ The `git config core.autocrlf` command is used to change how Git handles line en
 
 {% mac %}
 
-On OS X, you simply pass `input` to the configuration. Например:
+On macOS, you simply pass `input` to the configuration. Например:
 
 ```shell
 $ git config --global core.autocrlf input
-# Configure Git to ensure line endings in files you checkout are correct for OS X
+# Configure Git to ensure line endings in files you checkout are correct for macOS
 ```
 
 {% endmac %}

@@ -6,7 +6,9 @@ redirect_from:
   - /enterprise/admin/enterprise-management/about-cluster-nodes
 versions:
   enterprise-server: '*'
+type: overview
 topics:
+  - Clustering
   - Enterprise
 ---
 

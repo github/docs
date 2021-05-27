@@ -1,1 +1,1 @@
-You can replace the default badge on your OAuth App by uploading your own logo image and customizing the background.
+独自のロゴ画像をアップロードし、背景をカスタマイズすることによって、OAuth Appのデフォルトのバッジを置き換えられます。
