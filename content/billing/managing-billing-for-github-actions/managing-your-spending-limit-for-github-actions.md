@@ -4,6 +4,7 @@ intro: 'You can set a spending limit for {% data variables.product.prodname_acti
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions
 versions:
   free-pro-team: '*'
 type: how_to
