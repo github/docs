@@ -166,6 +166,8 @@ Stripe | Stripe Live API Restricted Key | stripe_live_restricted_key{% endif %}
 Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
 Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
