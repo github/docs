@@ -3,6 +3,8 @@ title: About securing your repository
 intro: '{% data variables.product.product_name %} provides a number of ways that you can help keep your repository secure.'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
+  - /articles/securing-your-repository
+  - /github/administering-a-repository/securing-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
