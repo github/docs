@@ -16,6 +16,7 @@ children:
   - /fork-a-repo
   - /github-flow
   - /be-social
+  - /communicating-on-github
   - /github-glossary
   - /git-cheatsheet
   - /git-and-github-learning-resources
