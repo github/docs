@@ -60,10 +60,11 @@ helpfulness:
   feedback: Thank you! Your feedback has been submitted.
 contribution_cta:
   title: Help us make these docs great!
-  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-  button: Make a contribution
+  body: All GitHub docs are open source. See something that's wrong or unclear? Open 
+  an issue: an issue
   or: Or,
-  to_guidelines: learn how to contribute.
+  to_guidelines: learn how to contribute and submit a pull request.
+  button: Make a contribution
 products:
   graphql:
     reference:
