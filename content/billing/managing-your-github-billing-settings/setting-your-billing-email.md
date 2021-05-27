@@ -9,6 +9,7 @@ redirect_from:
   - /articles/setting-your-organization-s-billing-email/
   - /articles/setting-your-billing-email
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/setting-your-billing-email
 versions:
   free-pro-team: '*'
 type: how_to

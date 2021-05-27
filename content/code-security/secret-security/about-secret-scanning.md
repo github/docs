@@ -77,5 +77,5 @@ To monitor results from {% data variables.product.prodname_secret_scanning %} ac
 
 ### Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[Keeping your account and data secure](/github/authenticating-to-github/keeping-your-account-and-data-secure)"
