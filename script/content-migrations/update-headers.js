@@ -20,14 +20,48 @@ async function updateMdHeaders (dir) {
       fs.readFile(file, 'utf8', (err, data) => {
         if (err) return console.error(err)
         const matchHeader = data.match(re)
-        const firstHeader = (matchHeader) ? matchHeader[0].split(' ')[0] : null
-        if (firstHeader === '##' || firstHeader === '#') return
-        const result = data
-          .replace(/^### /gm, '## ')
-          .replace(/^#### /gm, '### ')
-          .replace(/^##### /gm, '#### ')
-          .replace(/^###### /gm, '##### ')
-
+        let firstHeader = (matchHeader) ? matchHeader[0].split(' ')[0] : null
+        if (file.includes('data/reusables/')) {
+          if (!file.endsWith('data/reusables/actions/actions-group-concurrency.md') && !file.endsWith('data/reusables/github-actions/actions-on-examples.md')) {
+            firstHeader = 'reusable-' + firstHeader
+          }
+        }
+        let result
+        switch (firstHeader) {
+          case '#':
+            return
+          case '##':
+            return
+          case '###':
+            result = data
+              .replace(/^### /gm, '## ')
+              .replace(/^#### /gm, '### ')
+              .replace(/^##### /gm, '#### ')
+              .replace(/^###### /gm, '##### ')
+            break
+          case '####':
+            result = data
+              .replace(/^#### /gm, '## ')
+              .replace(/^##### /gm, '### ')
+              .replace(/^###### /gm, '#### ')
+            break
+          case 'reusable-####':
+            result = data
+              .replace(/^#### /gm, '### ')
+              .replace(/^##### /gm, '#### ')
+            break
+          case 'reusable-#####':
+            result = data
+              .replace(/^##### /gm, '#### ')
+            break
+          case '#####':
+            result = data
+              .replace(/^##### /gm, '### ')
+              .replace(/^###### /gm, '#### ')
+            break
+          default:
+            return
+        }
         fs.writeFile(file, result, 'utf8', function (err) {
           if (err) return console.log(err)
         })
