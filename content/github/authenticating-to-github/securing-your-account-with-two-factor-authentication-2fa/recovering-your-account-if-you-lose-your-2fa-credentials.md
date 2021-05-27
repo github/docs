@@ -46,7 +46,8 @@ If you configured two-factor authentication using a security key, you can use yo
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Authenticating with a verified device, SSH token, or personal access token
-If you lose access to the two-factor authentication credentials and don't have your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+
+If you know your {% data variables.product.product_name %} password but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -56,7 +57,7 @@ If you lose access to the two-factor authentication credentials and don't have y
 
 You can use your two-factor authentication credentials or two-factor authentication recovery codes to regain access to your account anytime during the 3-5 day waiting period.
 
-{% data reusables.two_fa.username-password %}
+1. Type your username and password to prompt authentication. If you do not know your {% data variables.product.product_name %} password, you will not be able to generate a one-time password.
 2. Under "Having Problems?", click **Can't access your two factor device or valid recovery codes?**
   ![Link if you don't have your 2fa device or recovery codes](/assets/images/help/2fa/no-access-link.png)
 3. Click **I understand, get started** to request a reset of your authentication settings.
