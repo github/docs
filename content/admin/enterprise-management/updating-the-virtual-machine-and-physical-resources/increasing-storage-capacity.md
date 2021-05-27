@@ -22,7 +22,7 @@ As more users join {% data variables.product.product_location %}, you may need t
 
 {% note %}
 
-**Note:** Before resizing the user storage volume, put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Note:** Before resizing any storage volume, put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
@@ -56,6 +56,12 @@ As more users join {% data variables.product.product_location %}, you may need t
 
 ### Increasing the root partition size using an existing appliance
 
+{% warning %}
+
+**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+{% endwarning %}
+
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
 2. Run the `parted` command to format the disk:
   ```shell
@@ -63,13 +69,16 @@ As more users join {% data variables.product.product_location %}, you may need t
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected.
+3. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Shut down the appliance:
+4. As the root user, using a text editor of your choice, edit the _/etc/fstab_ file, changing the UUID for the `/` mount point to the UUID of the new root drive. You can obtain the UUID of the new root drive with the command `sudo lsblk -f`.
+5. Shut down the appliance:
   ```shell
   $ sudo poweroff
   ```
-5. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
-6. Start the appliance.
+6. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
+7. Start the appliance.
+8. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."

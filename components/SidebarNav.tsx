@@ -4,17 +4,14 @@ import { LinkExternalIcon, MarkGithubIcon } from '@primer/octicons-react'
 import { useTranslation } from './hooks/useTranslation'
 import { useMainContext } from './context/MainContext'
 import { ProductSiteTree } from './product/ProductSiteTree'
-import { ProductSiteTreeNew } from './product/ProductSiteTreeNew'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
-import { useFeatureFlags } from './hooks/useFeatureFlags'
 
 type Props = {}
 export const SidebarNav = (props: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { error, relativePath } = useMainContext()
-  const { FEATURE_NEW_SITETREE } = useFeatureFlags()
   const { t } = useTranslation('header')
 
   return (
@@ -44,7 +41,7 @@ export const SidebarNav = (props: Props) => {
           </ul>
         ) : (
           <ul className="sidebar-products">
-            {FEATURE_NEW_SITETREE ? <ProductSiteTreeNew /> : <ProductSiteTree />}
+            <ProductSiteTree />
           </ul>
         )}
       </nav>
