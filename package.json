@@ -61,7 +61,7 @@
     "querystring": "^0.2.0",
     "readline-sync": "^1.4.10",
     "resolve-url-loader": "^3.1.2",
-    "rimraf": "^3.0.0",
+    "rimraf": "^3.0.2",
     "sass": "^1.32.11",
     "sass-loader": "^9.0.2",
     "search-with-your-keyboard": "1.1.0",
