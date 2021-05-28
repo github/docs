@@ -27,3 +27,4 @@ if (!message || !message.length) {
 exec(`git reset $(git merge-base ${base} HEAD)`)
 exec('git add -A')
 exec(`git commit -m "${message}"`)
+ 
