@@ -45,7 +45,7 @@
     "html-entities": "^1.4.0",
     "html-truncate": "^1.2.2",
     "imurmurhash": "^0.1.4",
-    "instantsearch.js": "^4.21.0",
+    "instantsearch.js": "^4.22.0",
     "is-url": "^1.2.4",
     "js-cookie": "^2.2.1",
     "js-yaml": "^3.14.0",
