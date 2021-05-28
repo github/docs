@@ -955,6 +955,6 @@ registries:
   terraform-example:
     type: terraform-registry
     url: https://terraform.example.com
-    token: ${{secrets.MY_TERRAFORM_TOKEN}}
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
