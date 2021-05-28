@@ -11,7 +11,7 @@
 // content and/or content strategy team for review.
 
 module.exports = [
-  '2fa',
+  '2FA',
   'Action development',
   'Actions',
   'Administrator',
