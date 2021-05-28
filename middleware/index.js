@@ -122,6 +122,7 @@ module.exports = function (app) {
   app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))
   app.use(asyncMiddleware(instrument('./contextualizers/early-access-breadcrumbs')))
+  app.use(asyncMiddleware(instrument('./contextualizers/features')))
 
   app.use(asyncMiddleware(instrument('./dev-toc')))
   app.use(asyncMiddleware(instrument('./featured-links')))
