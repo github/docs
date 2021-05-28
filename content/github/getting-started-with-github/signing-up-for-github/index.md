@@ -1,6 +1,6 @@
 ---
 title: Signing up for GitHub
-intro: ''
+intro: 'Sign up with your Email to Get started with setting up a new {% data variables.product.prodname_dotcom %} account.'
 redirect_from:
   - /articles/signing-up-for-github
 versions:
