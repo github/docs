@@ -947,7 +947,7 @@ registries:
 
 #### `terraform-registry`
 
-The `terraform-registry` type supports token.
+The `terraform-registry` type supports a token.
 
 {% raw %}
 ```yaml
