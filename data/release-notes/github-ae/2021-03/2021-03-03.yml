@@ -1,6 +1,7 @@
 date: '2021-03-03'
 friendlyDate: 'March 3, 2021'
 title: 'Week of March 3, 2021'
+currentWeek: false
 sections:
   features:
     - heading: 'GitHub Actions beta'
