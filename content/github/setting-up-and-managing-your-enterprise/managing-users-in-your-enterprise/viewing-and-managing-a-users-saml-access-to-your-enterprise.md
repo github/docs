@@ -35,7 +35,7 @@ When you enable SAML single sign-on for your enterprise account, each enterprise
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-sso-identity %}
+{% data reusables.saml.view-sso-identity %} 
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
