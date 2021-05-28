@@ -9,7 +9,7 @@ import '@primer/css/index.scss'
 
 import { defaultThemeProps } from 'components/lib/getThemeProps'
 
-type MyAppProps = AppProps & { csrfToken: string, themeProps: typeof defaultThemeProps }
+type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
 const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
   return (
     <>
@@ -43,9 +43,10 @@ const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
+  const appProps = await App.getInitialProps(appContext)
+  const req: any = ctx.req
 
-  return { ...appProps, themeProps: getThemeProps(ctx.req), csrfToken: (ctx.req as any).csrfToken() }
+  return { ...appProps, themeProps: getThemeProps(req), csrfToken: req?.csrfToken?.() || '' }
 }
 
 const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {

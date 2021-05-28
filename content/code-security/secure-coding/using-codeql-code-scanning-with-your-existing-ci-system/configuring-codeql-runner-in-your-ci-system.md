@@ -137,16 +137,19 @@ Initializes the {% data variables.product.prodname_codeql_runner %} and creates 
 | Flag | Required | Input value |
 | ---- |:--------:| ----------- |
 | `--repository` | ✓ | Name of the repository to initialize. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | `--languages` | | Comma-separated list of languages to analyze. By default, the {% data variables.product.prodname_codeql_runner %} detects and analyzes all supported languages in the repository. |
-| `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. |
+| `--queries` | | Comma-separated list of additional queries to run, in addition to the default suite of security queries. This overrides the `queries` setting in the custom configuration file. |
 | `--config-file` | | Path to custom configuration file. |
 | `--codeql-path` | | Path to a copy of the {% data variables.product.prodname_codeql %} CLI executable to use. By default, the {% data variables.product.prodname_codeql_runner %} downloads a copy. |
 | `--temp-dir` | | Directory where temporary files are stored. The default is `./codeql-runner`. |
 | `--tools-dir` | | Directory where {% data variables.product.prodname_codeql %} tools and other files are stored between runs. The default is a subdirectory of the home directory. |
-| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
+| <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory. | 
 | `--debug` | | None. Prints more verbose output. |
+| <nobr>`--trace-process-name`</nobr> | | Advanced, Windows only. Name of the process where a Windows tracer of this process is injected. |
+| <nobr>`--trace-process-level`</nobr> | | Advanced, Windows only. Number of levels up of the parent process where a Windows tracer of this process is injected. |
 | `-h`, `--help` | | None. Displays help for the command. |
 
 #### `autobuild`
@@ -158,7 +161,7 @@ Attempts to build the code for the compiled languages C/C++, C#, and Java. For t
 | `--language` | | The language to build. By default, the {% data variables.product.prodname_codeql_runner %} builds the compiled language with the most files. |
 | <nobr>`--temp-dir`</nobr> | | Directory where temporary files are stored. The default is `./codeql-runner`. |
 | `--debug` | | None. Prints more verbose output. |
-| `-h`, `--help` | | None. Displays help for the command. |
+| <nobr> `-h`, `--help`</nobr> | | None. Displays help for the command. |
 
 #### `analyze`
 
@@ -169,8 +172,9 @@ Analyzes the code in the {% data variables.product.prodname_codeql %} databases 
 | `--repository` | ✓ | Name of the repository to analyze. |
 | `--commit` | ✓ | SHA of the commit to analyze. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference to analyze, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
 | `--no-upload` | | None. Stops the {% data variables.product.prodname_codeql_runner %} from uploading the results to {% data variables.product.product_name %}. |
 | `--output-dir` | | Directory where the output SARIF files are stored. The default is in the directory of temporary files. |
@@ -198,8 +202,9 @@ Uploads SARIF files to {% data variables.product.product_name %}.
 | `--repository` | ✓ | Name of the repository that was analyzed. |
 | `--commit` | ✓ | SHA of the commit that was analyzed. In Git and in Azure DevOps, this corresponds to the value of `git rev-parse HEAD`. In Jenkins, this corresponds to `$GIT_COMMIT`. |
 | `--ref` | ✓ | Name of the reference that was analyzed, for example `refs/heads/main` or `refs/pull/42/merge`. In Git or in Jenkins, this corresponds to the value of `git symbolic-ref HEAD`. In Azure DevOps, this corresponds to `$(Build.SourceBranch)`. |
-| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |
-| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |
+| `--github-url` | ✓ | URL of the {% data variables.product.prodname_dotcom %} instance where your repository is hosted. |{% if currentVersion ver_lt "enterprise-server@3.1" %}
+| `--github-auth` | ✓ | A {% data variables.product.prodname_github_apps %} token or personal access token. |{% else %}
+| <nobr>`--github-auth-stdin`</nobr> | ✓ | Read the {% data variables.product.prodname_github_apps %} token or personal access token from standard input. |{% endif %}
 | <nobr>`--checkout-path`</nobr> | | The path to the checkout of your repository. The default is the current working directory.  |
 | `--debug` | | None. Prints more verbose output. |
 | `-h`, `--help` | | None. Displays help for the command. |
