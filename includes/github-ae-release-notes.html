@@ -26,8 +26,12 @@
                 Print
               </button>
             </div>
-
-            <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {% data ui.release_notes.banner_text %}</p>
+            {% if patch.currentWeek %}
+            {% assign bannerText = site.data.ui.release_notes.banner_text_current %}
+            {% else %}
+            {% assign bannerText = site.data.ui.release_notes.banner_text_past | append: " " | append: patch.friendlyDate | append: "." %}
+            {% endif %}
+            <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {{ bannerText }}</p>
           </header>
 
           <div class="container-xl px-3">
