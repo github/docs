@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-intro: 'Quickly Find and get started working with the resource available on {% data variables.product.prodname_dotcom %}.'
+intro: 'Quickly Find and get started working with the resources available on {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
