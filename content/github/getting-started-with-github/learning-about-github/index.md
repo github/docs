@@ -1,7 +1,6 @@
 ---
 title: Learning about GitHub
-intro: 'Learn more about the features and products of {% data variables.product.prodname_dotcom %} that integrates into your software management
-process and helps to collaborate with other people.'
+intro: 'Learn more about the features and products of {% data variables.product.prodname_dotcom %} that integrates into your software management process and helps to collaborate with other people.'
 redirect_from:
   - /articles/learning-about-github
 versions:
