@@ -8,4 +8,4 @@
 
 source script/check-for-node
 
-npm install
+npm install  
