@@ -30,7 +30,7 @@
     <div class="markdown-body">
       {% for patch in releaseNotes %}
         <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.version }}" id="{{ patch.version }}">
-          <header class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
+          <header style="z-index: 1;" class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.version }}">
             <div class="d-flex flex-items-center">
               <h2 class="border-bottom-0 m-0 p-0">
                 {{ currentVersionObject.versionTitle }}.{{ patch.patchVersion }}

@@ -4,6 +4,7 @@ intro: 'If you want to use {% data variables.product.prodname_actions %} beyond 
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
 versions:
   free-pro-team: '*'
 type: overview
