@@ -24,6 +24,8 @@ You can provide feedback about auto-merge by [contacting us](https://support.git
 
 ### Enabling auto-merge
 
+{% data reusables.pull_requests.auto-merge-requires-branch-protection %}
+
 People with write permissions to a repository can enable auto-merge for a pull request.
 
 {% data reusables.repositories.navigate-to-repo %}
