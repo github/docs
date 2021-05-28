@@ -1,7 +1,7 @@
 ---
-title: Issues and Projects
-shortTitle: Issues and Projects
-intro: Use issues and projects to manage your work on {% data variables.product.prodname_dotcom %}
+title: Issues and projects
+shortTitle: Issues and projects
+intro: Use issues and projects to manage your work on {% data variables.product.prodname_dotcom %}.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -149,7 +149,7 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 ### Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}{% if currentVersion != "github-ae@latest" %}
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"

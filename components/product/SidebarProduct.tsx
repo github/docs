@@ -11,7 +11,7 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 //   hierarchy of the current page. If an item's URL is also the same as the current URL, the item
 //   also gets an `is-current-page` class.
 //  -->
-export const ProductSiteTree = () => {
+export const SidebarProduct = () => {
   const router = useRouter()
   const { currentProductTree: currentProductTree } = useMainContext()
 
@@ -20,14 +20,16 @@ export const ProductSiteTree = () => {
   }
 
   const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
+  const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   return (
     <>
       <AllProductsLink />
+
       {!currentProductTree.page.hidden && (
         <>
           <li title="" className="sidebar-product mb-2">
             <Link href={currentProductTree.href}>
-              <a className="pl-4 pr-5 pb-1 f4">{productTitle}</a>
+              <a className="pl-4 pr-5 pb-1 f4 color-text-primary">{productTitle}</a>
             </Link>
           </li>
 
@@ -37,10 +39,11 @@ export const ProductSiteTree = () => {
                 const isStandaloneCategory = childPage.page.documentType === 'article'
 
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-                const isActive = router.asPath.includes(childPage.href)
-                const isCurrent = router.asPath === childPage.href
+                const isActive = routePath.includes(childPage.href)
+                const isCurrent = routePath === childPage.href
                 return (
                   <li
+                    key={childPage.href + i}
                     className={cx(
                       'sidebar-category py-1',
                       isActive && 'active',
@@ -50,21 +53,19 @@ export const ProductSiteTree = () => {
                   >
                     {isStandaloneCategory ? (
                       <Link href={childPage.href}>
-                        <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">
+                        <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary">
                           {childTitle}
                         </a>
                       </Link>
                     ) : (
                       <details
-                        className={cx(
-                          'dropdown-withArrow details details-reset',
-                          router.asPath.includes(childPage.href) || i < 3 ? 'open' : ''
-                        )}
+                        className={cx('dropdown-withArrow details details-reset')}
+                        open={routePath.includes(childPage.href) || i < 3}
                       >
                         <summary>
                           <div className="d-flex flex-justify-between">
                             <Link href={childPage.href}>
-                              <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3">
+                              <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary">
                                 {childTitle}
                               </a>
                             </Link>
@@ -87,19 +88,20 @@ export const ProductSiteTree = () => {
                             )}
                           </div>
                         </summary>
-                        {router.asPath.includes(childPage.href) || i < 3 ? (
+                        {routePath.includes(childPage.href) || i < 3 ? (
                           <>
                             {/* <!-- some categories have maptopics with child articles --> */}
                             {childPage.childPages[0].page.documentType === 'mapTopic' ? (
                               <ul className="sidebar-topics list-style-none position-relative">
-                                {childPage.childPages.map((grandchildPage) => {
+                                {childPage.childPages.map((grandchildPage, i) => {
                                   const grandchildTitle =
                                     grandchildPage.renderedShortTitle ||
                                     grandchildPage.renderedFullTitle
-                                  const isActive = router.asPath.includes(grandchildPage.href)
-                                  const isCurrent = router.asPath === grandchildPage.href
+                                  const isActive = routePath.includes(grandchildPage.href)
+                                  const isCurrent = routePath === grandchildPage.href
                                   return (
                                     <li
+                                      key={childPage.href + i}
                                       className={cx(
                                         'sidebar-maptopic',
                                         isActive && 'active',
@@ -107,7 +109,7 @@ export const ProductSiteTree = () => {
                                       )}
                                     >
                                       <Link href={grandchildPage.href}>
-                                        <a className="pl-4 pr-5 py-2">{grandchildTitle}</a>
+                                        <a className="pl-4 pr-5 py-2 color-text-primary">{grandchildTitle}</a>
                                       </Link>
                                       <ul className="sidebar-articles my-2">
                                         {grandchildPage.childPages.map(
@@ -116,13 +118,13 @@ export const ProductSiteTree = () => {
                                               greatgrandchildPage.renderedShortTitle ||
                                               greatgrandchildPage.renderedFullTitle
                                             const isLast = i === arr.length - 1
-                                            const isActive = router.asPath.includes(
+                                            const isActive = routePath.includes(
                                               greatgrandchildPage.href
                                             )
-                                            const isCurrent =
-                                              router.asPath === greatgrandchildPage.href
+                                            const isCurrent = routePath === greatgrandchildPage.href
                                             return (
                                               <li
+                                                key={greatgrandchildPage.href + i}
                                                 className={cx(
                                                   'sidebar-article',
                                                   isActive && 'active',
@@ -132,7 +134,7 @@ export const ProductSiteTree = () => {
                                                 <Link href={greatgrandchildPage.href}>
                                                   <a
                                                     className={cx(
-                                                      'pl-6 pr-5 py-1',
+                                                      'pl-6 pr-5 py-1 color-text-primary',
                                                       isLast && 'pb-2'
                                                     )}
                                                   >
@@ -156,10 +158,11 @@ export const ProductSiteTree = () => {
                                     grandchildPage.renderedShortTitle ||
                                     grandchildPage.renderedFullTitle
                                   const isLast = i === arr.length - 1
-                                  const isActive = router.asPath.includes(grandchildPage.href)
-                                  const isCurrent = router.asPath === grandchildPage.href
+                                  const isActive = routePath.includes(grandchildPage.href)
+                                  const isCurrent = routePath === grandchildPage.href
                                   return (
                                     <li
+                                      key={grandchildPage.href + i}
                                       className={cx(
                                         'sidebar-article',
                                         isActive && 'active',
@@ -167,7 +170,7 @@ export const ProductSiteTree = () => {
                                       )}
                                     >
                                       <Link href={grandchildPage.href}>
-                                        <a className={cx('pl-6 pr-5 py-1', isLast && 'pb-2')}>
+                                        <a className={cx('pl-6 pr-5 py-1 color-text-primary', isLast && 'pb-2')}>
                                           {grandchildTitle}
                                         </a>
                                       </Link>
