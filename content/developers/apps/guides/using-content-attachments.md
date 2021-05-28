@@ -68,7 +68,7 @@ The `body` parameter can contain markdown:
 
     ```shell
     curl -X POST \
-      https://api.github.com/Codertocat/Hello-World/content_references/17/attachments \
+      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
       -H 'Accept: application/vnd.github.corsair-preview+json' \
       -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
       -d '{
@@ -160,7 +160,7 @@ To create a Probot App, follow these steps:
         await context.github.request({
           method: 'POST',
           headers: { accept: 'application/vnd.github.corsair-preview+json' },
-          url: `/${context.payload.repository.full_name}/content_references/${context.payload.content_reference.id}/attachments`,
+          url: `/repos/${context.payload.repository.full_name}/content_references/${context.payload.content_reference.id}/attachments`,
           // Parameters
           title: '[A-1234] Error found in core/models.py file',
           body: 'You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\nself.save()'

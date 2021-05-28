@@ -112,7 +112,7 @@ In addition to managing organization-level settings, organization owners have ad
 | Make a repository a template (see "[Creating a template repository](/articles/creating-a-template-repository)") | | | | | **X** |
 | Change a repository's settings | | | | | **X** |
 | Manage team and collaborator access to the repository | | | | | **X** |
-| Edit the repository's default branch | | | | | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+| Edit the repository's default branch | | | | | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | Rename the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | | | **X** |
 | Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |{% endif %}
 | Manage webhooks and deploy keys | | | | | **X** |{% if currentVersion == "free-pro-team@latest" %}
