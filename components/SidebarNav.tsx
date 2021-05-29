@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { LinkExternalIcon, MarkGithubIcon } from '@primer/octicons-react'
 import { useTranslation } from './hooks/useTranslation'
 import { useMainContext } from './context/MainContext'
-import { ProductSiteTree } from './product/ProductSiteTree'
+import { SidebarProduct } from './product/SidebarProduct'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
 
@@ -41,7 +41,7 @@ export const SidebarNav = (props: Props) => {
           </ul>
         ) : (
           <ul className="sidebar-products">
-            <ProductSiteTree />
+            <SidebarProduct />
           </ul>
         )}
       </nav>
