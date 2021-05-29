@@ -1,5 +1,6 @@
 ---
 title: Visualizing repository data with graphs
+intro: You can visualize data effectively using graphs.
 redirect_from:
   - /categories/44/articles/
   - /categories/graphs-and-contributions/
