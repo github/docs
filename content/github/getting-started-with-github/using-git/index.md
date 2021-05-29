@@ -1,6 +1,6 @@
 ---
 title: Using Git
-intro: ''
+intro: 'Learn about tools and terminologies used in Git to manage workflows of your remote repositories from a local machine.'
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands
