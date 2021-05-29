@@ -1,5 +1,5 @@
 ---
-title: Keyboard shortcuts
+title: Keyboardis shortcuts
 intro: 'Nearly every page on {% data variables.product.product_name %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
@@ -38,7 +38,7 @@ Below is a list of some of the available keyboard shortcuts.
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)."{% if currentVersion == "free-pro-team@latest" %}
 |<kbd>g</kbd> <kbd>g</kbd> | Go to the **Discussions** tab. For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
 
-### Source code editing
+### Source code editing-$$$
 
 | Keyboard shortcut | Description
 |-----------|------------
