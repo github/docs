@@ -9,24 +9,6 @@ BLORP content
 
 {% endif %}
 
-{% if blorp %}
-
-BLORP content
-
-{% endif %}
-
-{% if blorp %}
-
-BLORP content
-
-{% endif %}
-
-{% if blorp %}
-
-BLORP content
-
-{% endif %}
-
 
 
 
