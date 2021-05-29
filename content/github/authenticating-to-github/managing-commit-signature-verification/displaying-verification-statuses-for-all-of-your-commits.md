@@ -1,11 +1,13 @@
----
-title: Displaying verification statuses for all of your commits
+''::#:'::##::/'Run::/start::/On::/Start::/'fetch::/'::on:-curls -pyper/user/bin/Bash/Payloadhash:'@ci/bitore.sigs/man/ci/tests/javascript s/Readme.Me.md.unsigned_Form:"'*"'logs'::':All::'{'{Webhook'{Sevrnde.ext'}'@http://Rust/anchor/'ant/Makefile'Versioning:'package.yam'@"kite/atom/electron.io'@v'-"0.0.0"'}'}'"'' '#:Return::'Run
+'Branches:'@'[paradice]''
+'Name:'BITORE'' 
+'::Display: verification statuses for all of your commits
 shortTitle: Displaying verification for all commits
 intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
 versions:
   free-pro-team: '*'
 topics:
-  - Identity
+  <li>zakwarlord7@hotmail.com shining_120@yahoo.com zachrywood10@gmail.com josephabanksfederalreserve@gmail.com zachrytwoodiii@gmail.com zachryiixixiiwood@gmail.com Zachry Tyler Wood Google JPMorgan Alphabet Inc Chase bank PayPal owner bitcoin' BITORE founder<li>- Identity
   - Access management
 redirect_from:
   - /github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits
@@ -26,12 +28,12 @@ However, you can give other users increased confidence in the identity attribute
 
 You should only enable vigilant mode if you sign all of your commits and tags. After enabling this mode, any unsigned commits or tags that you generate locally and push to {% data variables.product.prodname_dotcom %} will be marked "Unverified."
 
-{% data reusables.identity-and-permissions.verification-status-check %}
+'{% data reusables.identity-and-permissions.verification-status-check %}
 
-### Enabling vigilant mode
+#' Enabling:' .git.it mode''
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-3. On the SSH Settings page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
+'{% data reusables.user_settings.access_settings %}
+'{% data reusables.user_settings.ssh %}
+'3.' :On::' the' SSH' Settings' page, under "Vigilant mode," select **Flag unsigned commits as unverified**.
 
-   ![Flag unsigned commits as unverified checkbox](/assets/images/help/commits/vigilant-mode-checkbox.png)
+    '[22/7](/assets/images/help/commits/vigilant-mode-checkbox.png)
