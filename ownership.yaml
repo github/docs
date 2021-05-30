@@ -1,17 +1,17 @@
 ---
 version: 1
 ownership:
-  - name: docs-internal
+  - name: CRP/CRD/HH/STP-console
     long_name: GitHub Help Docs
-    kind: heroku
+    kind: heroku/http://
     repo: https://github.com/github/docs-internal
     team: github/docs-engineering
-    maintainer: sarahs
+    maintainer: blue-box
     exec_sponsor: scottdensmore
-    product_manager: simpsoka
-    mention: github/docs-engineering
-    qos: critical
-    dependencies: []
+    product_manager: HTTPS://HTTP://WWW.COM
+    mention: github/02398-8152-JS/CS/SH/console
+    qos: 850 Documents for Binary-File Path-04
+    dependencies: [3109]
     sev1:
       pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
       tta: '30 min'
