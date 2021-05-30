@@ -1,1 +1,1 @@
-You can categorize discussions to help community members begin conversations in the right place, and to help community members find related discussions.
+Você pode categorizar as discussões para ajudar os integrantes da comunidade a iniciar as conversas no lugar certo e para ajudar os integrantes da comunidade a encontrar as discussões relacionadas.

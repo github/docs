@@ -7,6 +7,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Identity
+  - Access management
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

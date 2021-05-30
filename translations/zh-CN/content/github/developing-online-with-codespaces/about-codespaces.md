@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -38,6 +40,8 @@ versions:
 
 {% data reusables.codespaces.about-personalization %} 更多信息请参阅“[个性化您帐户的 {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)”。
 
+您可以配置设置以添加加密密码、启用 GPG 验证以及允许代码空间访问其他仓库。 更多信息请参阅“[管理 {% data variables.product.prodname_codespaces %} 的加密密码](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)”、“[管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)”以及“[管理 {% data variables.product.prodname_codespaces %} 的访问权限和设置](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)”。
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}
@@ -54,4 +58,4 @@ versions:
 
 如果在使用 {% data variables.product.prodname_codespaces %} 时遇到问题，请参阅“[代码空间故障排除](/github/developing-online-with-codespaces/troubleshooting-your-codespace)”。
 
-如果您仍需帮助或有关于 {% data variables.product.prodname_codespaces %} 的反馈，请使用[社区论坛](https://github.community/c/codespaces-beta/45)。
+如果您仍需帮助或对 {% data variables.product.prodname_codespaces %} 有反馈，请使用 [Codespaces 反馈](https://github.com/github/feedback/discussions/categories/codespaces-feedback)。

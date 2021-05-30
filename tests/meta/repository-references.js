@@ -1,5 +1,5 @@
 const walkSync = require('walk-sync')
-const fs = require('fs').promises
+const readFileAsync = require('../../lib/readfile-async')
 
 const REPO_REGEXP = /\/\/github\.com\/github\/(?!docs[/'"\n])([\w-.]+)/gi
 
@@ -31,15 +31,27 @@ const ALLOW_LIST = new Set([
   'rest-api-description',
   'smimesign',
   'tweetsodium',
-  'choosealicense.com'
+  'choosealicense.com',
+  'renaming',
+  'localization-support',
+  'docs',
+  'securitylab'
 ])
 
-describe('check for repository references', () => {
+describe('check if a GitHub-owned private repository is referenced', () => {
+  // This tests exists to make sure we don't reference private GitHub owned repositories
+  // in our open-source repository. If this is failing, and the repo is public,
+  // feel free to add it to the list above. Or if the feature requires referencing an
+  // internal repo, add the feature to the ignore list below.
+
   const filenames = walkSync(process.cwd(), {
     directories: false,
     ignore: [
       '.algolia-cache',
       '.git',
+      '.github/actions-scripts/enterprise-server-issue-templates/*.md',
+      '.github/review-template.md',
+      '.next',
       'dist',
       'node_modules',
       'translations',
@@ -50,12 +62,18 @@ describe('check for repository references', () => {
       'lib/excluded-links.js',
       'content/early-access',
       'data/early-access',
-      'data/release-notes' // These include links to internal issues in Liquid comments
+      'data/release-notes', // These include links to internal issues in Liquid comments.
+      '**/*.png', // Do not check images or font files.
+      '**/*.jpg', // We could just put all of assets/* here, but that would prevent any
+      '**/*.gif', // READMEs or other text-based files from being checked.
+      '**/*.pdf',
+      '**/*.ico',
+      '**/*.woff'
     ]
   })
 
   test.each(filenames)('in file %s', async (filename) => {
-    const file = await fs.readFile(filename, 'utf8')
+    const file = await readFileAsync(filename, 'utf8')
     const matches = Array.from(file.matchAll(REPO_REGEXP))
       .map(([, repoName]) => repoName)
       .filter(repoName => !ALLOW_LIST.has(repoName))

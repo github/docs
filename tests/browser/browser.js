@@ -1,6 +1,7 @@
 /* global page, browser */
 const sleep = require('await-sleep')
-const querystring = require('querystring')
+const { latest } = require('../../lib/enterprise-server-releases')
+const languages = require('../../lib/languages')
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -11,7 +12,7 @@ describe('homepage', () => {
   })
 })
 
-describe('algolia browser search', () => {
+describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
   it('works on the homepage', async () => {
@@ -41,85 +42,46 @@ describe('algolia browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to algolia for Enterprise Server', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+  it('sends the correct data to search for Enterprise Server', async () => {
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-2.22-ja')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('2.22')
+        expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
     })
 
     await newPage.click('#search-input-container input[type="search"]')
     await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.waitForSelector('.search-result')
   })
 
-  it('sends the correct data to algolia for GHAE', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+  it('sends the correct data to search for GHAE', async () => {
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-ghae-en')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('ghae')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
 
     await newPage.click('#search-input-container input[type="search"]')
     await newPage.type('#search-input-container input[type="search"]', 'test')
-  })
-
-  it('removes `algolia-query` query param after page load', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme')
-
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
-
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-  })
-
-  it('does not remove hash when removing `algolia-query` query', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme#some-header')
-
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
-
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-    expect(location.hash).toBe('#some-header')
+    await newPage.waitForSelector('.search-result')
   })
 })
 
@@ -165,13 +127,6 @@ describe('csrf meta', () => {
     await page.waitForSelector('meta[name="csrf-token"]')
   })
 })
-
-async function getLocationObject (page) {
-  const location = await page.evaluate(() => {
-    return Promise.resolve(JSON.stringify(window.location, null, 2))
-  })
-  return JSON.parse(location)
-}
 
 describe('platform specific content', () => {
   // from tests/javascripts/user-agent.js
@@ -247,5 +202,126 @@ describe('platform specific content', () => {
         await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
       }
     }
+  })
+})
+
+describe('card filters', () => {
+  it('loads correctly', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownNoResult = await page.$('.js-filter-card-no-results:not(.d-none)')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    expect(shownCards.length).toBe(maxCards)
+    expect(shownNoResult).toBeNull()
+  })
+
+  it('filters cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'issues')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const showMoreClasses = await page.$eval('.js-filter-card-show-more', btn => Object.values(btn.classList))
+    expect(showMoreClasses).toContain('d-none')
+    expect(shownCards.length).toBeGreaterThan(1)
+  })
+
+  it('works with select input', async () => {
+    await page.goto('http://localhost:4001/en/actions/guides')
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
+  it('works with select input on an Enterprise version', async () => {
+    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
+  it('shows more cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    await page.click('.js-filter-card-show-more')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(maxCards * 2)
+  })
+
+  it('displays no result message', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'this should not work')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(0)
+    const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
+    expect(noResultsClasses).not.toContain('d-none')
+  })
+})
+
+describe('language banner', () => {
+  it('directs user to the English version of the article', async () => {
+    const wipLanguageKey = Object.keys(languages).find(key => languages[key].wip)
+
+    // This kinda sucks, but if we don't have a WIP language, we currently can't
+    // run a reliable test. But hey, on the bright side, if we don't have a WIP
+    // language then this code will never run anyway!
+    if (wipLanguageKey) {
+      const res = await page.goto(`http://localhost:4001/${wipLanguageKey}/actions`)
+      expect(res.ok()).toBe(true)
+      const href = await page.$eval('a#to-english-doc', el => el.href)
+      expect(href.endsWith('/en/actions')).toBe(true)
+    }
+  })
+})
+
+// The Explorer in the iFrame will not be accessible on localhost, but we can still
+// test the query param handling
+describe('GraphQL Explorer', () => {
+  it('preserves query strings on the Explorer page without opening search', async () => {
+    const queryString = `query {
+  viewer {
+    foo
+  }
+}`
+    // Encoded as: query%20%7B%0A%20%20viewer%20%7B%0A%20%20%20%20foo%0A%20%20%7D%0A%7D
+    const encodedString = encodeURIComponent(queryString)
+    const explorerUrl = 'http://localhost:4001/en/graphql/overview/explorer'
+
+    await page.goto(`${explorerUrl}?query=${encodedString}`)
+
+    // On non-Explorer pages, query params handled by search JS get form-encoded using `+` instead of `%20`.
+    // So on these pages, the following test will be false; but on the Explorer page, it should be true.
+    expect(page.url().endsWith(encodedString)).toBe(true)
+
+    // On non-Explorer pages, query params handled by search JS will populate in the search box and the `js-open`
+    // class is added. On these pages, the following test will NOT be null; but on the Explorer page, it should be null.
+    await page.waitForSelector('#search-results-container')
+    const searchResult = await page.$('#search-results-container.js-open')
+    expect(searchResult).toBeNull()
+  })
+})
+
+describe('nextjs query param', () => {
+  jest.setTimeout(60 * 1000)
+
+  it('conditionally renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
+    const flagVal = require('../../feature-flags.json').FEATURE_NEXTJS
+    await page.goto('http://localhost:4001/en/sponsors?nextjs=')
+    const nextWrapper = await page.$('#__next')
+    flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
+  })
+
+  it('does not render through nextjs pipeline when nextjs query param is missing', async () => {
+    await page.goto('http://localhost:4001/en/sponsors')
+    const nextWrapper = await page.$('#__next')
+    expect(nextWrapper).toBeNull()
   })
 })

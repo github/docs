@@ -7,13 +7,15 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 ### About cloning a repository
 
 You can clone a repository from {% data variables.product.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.product.product_location %} to your local machine.
 
-Cloning a repository pulls down a full copy of all the repository data that {% data variables.product.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.product.product_location %}, or pull other people's changes from {% data variables.product.product_location %}. For more information, see "[Using common Git commands](/github/using-git/using-common-git-commands)".
+Cloning a repository pulls down a full copy of all the repository data that {% data variables.product.product_location %} has at that point in time, including all versions of every file and folder for the project. You can push your changes to the remote repository on {% data variables.product.product_location %}, or pull other people's changes from {% data variables.product.product_location %}. For more information, see "[Using Git](/github/getting-started-with-github/using-git)".
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 

@@ -4,11 +4,14 @@ redirect_from:
   - /articles/github-marketplace-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **参与 GITHUB 的 MARKETPLACE 计划必须遵守这些条款和条件（以下简称“协议”）。 注册参与 MARKETPLACE 计划或单击下面的“I ACCEPT（我接受）”，即表示您确认自己理解本协议，并接受其所有条款和条件。  如果您代表公司或其他法律实体签订本协议，则表示您拥有让该实体受本协议约束的法律权限，在这种情况下，“您”即表示您所代表的实体。**
 
-Effective Date: January 1, 2021
+生效日期：2021 年 1 月 1 日。
 
 ### 1.  定义
 
@@ -169,7 +172,7 @@ GitHub 可能：阻止该产品推介在 Marketplace 上展示；从 Marketplace
 
 **10.3** GitHub 在 (a) 您违反了本协议的任何规定或 (b) 法律要求 GitHub 终止协议时可随时终止本协议。
 
-**10.4** 开发者终止的影响。 在收到开发者的四十五 (45) 天提前书面终止通知后，将被禁止开发者通过 Marketplace 吸收新客户。 在 Marketplace 中终止并删除开发者产品时，将向您支付任何未付款项。 If termination is initiated as a result of a GitHub modification to these terms (Section 11), the terms in effect immediately prior to such modification shall govern for the duration of the 45-day notice period until the date of actual termination.
+**10.4** 开发者终止的影响。 在收到开发者的四十五 (45) 天提前书面终止通知后，将被禁止开发者通过 Marketplace 吸收新客户。 在 Marketplace 中终止并删除开发者产品时，将向您支付任何未付款项。 如果终止是因 GitHub 修改这些条款（第 11 条）而发起的，则在此类修改之前有效的条款适用于 45 天通知期至实际终止之日的期间。
 
 **10.5** 第 2、3、4、5、8、9 以及 第12-18 条规定的义务在本协议到期或终止后仍然有效。
 

@@ -1,7 +1,7 @@
 ---
 title: Basics of setting up GitHub Classroom
 shortTitle: '{% data variables.product.prodname_classroom %} basics'
-intro: Learn how to set up your classroom, manage assignments, and configure time-saving automation.
+intro: 'Learn how to set up your classroom, manage assignments, and configure time-saving automation.'
 versions:
   free-pro-team: '*'
 ---
@@ -30,4 +30,4 @@ For more information about teaching with {% data variables.product.prodname_clas
 
 ### 더 읽을거리
 
-- "[Teach and learn with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"
+- "[Explore the benefits of teaching and learning with {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education)"

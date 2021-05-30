@@ -1,31 +1,37 @@
 ---
-title: Building and testing Ruby
-intro: You can create a continuous integration (CI) workflow to build and test your Ruby project.
+title: Rubyでのビルドとテスト
+intro: Rubyプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Ruby
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
-This guide shows you how to create a continuous integration (CI) workflow that builds and tests a Ruby application. If your CI tests pass, you may want to deploy your code or publish a gem.
+このガイドでは、Rubyアプリケーションのビルドとテストを行う継続的インテグレーション（CI）ワークフローの作成方法を紹介します。 CIテストにパスしたなら、コードをデプロイしたりgemを公開したりすることになるでしょう。
 
 ### 必要な環境
 
-We recommend that you have a basic understanding of Ruby, YAML, workflow configuration options, and how to create a workflow file. 詳しい情報については、以下を参照してください。
+Ruby、YAML、ワークフローの設定オプションと、ワークフローファイルの作成方法についての基本的な知識を持っておくことをおすすめします。 詳しい情報については、以下を参照してください。
 
-- [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
-- [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
+- [{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)
+- [20分のRuby](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-### Starting with the Ruby workflow template
+### Rubyワークフローテンプレートを使い始める
 
-{% data variables.product.prodname_dotcom %} provides a Ruby workflow template that will work for most Ruby projects. For more information, see the [Ruby workflow template](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %}は、ほとんどのRubyプロジェクトで使えるRubyのワークフローテンプレートを提供しています。 詳しい情報については[Rubyワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)を参照してください。
 
-手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
+手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。 The workflow shown below assumes that the default branch for your repository is `main`.
 
 {% raw %}
 ```yaml
@@ -33,9 +39,9 @@ name: Ruby
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -43,28 +49,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 
-### Specifying the Ruby version
+### Rubyのバージョンの指定
 
-The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information see, the [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+Rubyのバージョンを指定する最も簡単な方法は、GitHub上でRuby Organizationが提供している`ruby/setup-ruby`アクションを使うことです。 このアクションは、ワークフロー中の各ジョブの実行時に、`PATH`にサポートされているRubyのバージョンを追加します。 詳しい情報については[`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)を参照してください。
 
-Using either Ruby's `ruby/setup-ruby` action or GitHub's `actions/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
+Ruby の `ruby/setup-ruby` アクションの使用は、GitHub Actions で Ruby を使用する際に推奨されている方法です。これは、そうすることで Ruby のさまざまなランナーやバージョン間で一貫した振る舞いが保証されるためです。
 
-The `setup-ruby` action takes a Ruby version as an input and configures that version on the runner.
+`setup-ruby`アクションはRubyのバージョンを入力として取り、ランナー上でそのバージョンを設定します。
 
 {% raw %}
 ```yaml
@@ -78,11 +81,11 @@ steps:
 ```
 {% endraw %}
 
-Alternatively, you can check a `.ruby-version` file  into the root of your repository and `setup-ruby` will use the version defined in that file.
+あるいは、リポジトリのルートに`.ruby-version`ファイルをチェックインすれば、このファイルで定義されたバージョンを`setup-ruby`が使います。
 
-### Testing with multiple versions of Ruby
+### 複数のバージョンの Ruby でのテスト
 
-You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
+複数バージョンのRubyでワークフローを実行するように、マトリクス戦略を追加できます。 たとえば、バージョン2.7、2.6、2.5の最新のパッチリリースでコードをテストできます。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のパッチリリースにマッチします。
 
 {% raw %}
 ```yaml
@@ -92,9 +95,9 @@ strategy:
 ```
 {% endraw %}
 
-Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "Workflow syntax for GitHub Actions" and "Context and expression syntax for GitHub Actions."
+`ruby-version`配列で指定されたRubyの各バージョンに対して、同じステップを実行するジョブが作成されます。 現在のジョブのバージョンにアクセスするのには、{% raw %}`${{ matrix.ruby-version }}`{% endraw %}コンテキストが使われます。 マトリクス戦略とコンテキストに関する詳しい情報については、「GitHub Actionsのワークフロー構文」及び「GitHub Actionsのコンテキスト及び式構文」を参照してください。
 
-The full updated workflow with a matrix strategy could look like this:
+マトリクス戦略を持つ更新された完全なワークフローは、以下のようになるでしょう。
 
 {% raw %}
 ```yaml
@@ -102,9 +105,9 @@ name: Ruby CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -116,24 +119,21 @@ jobs:
         ruby-version: [2.7.x, 2.6.x, 2.5.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby ${{ matrix.ruby-version }}
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-    - name: Install dependencies
-      run: bundle install
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 
-### Installing dependencies with Bundler
+### Bundlerでの依存関係のインストール
 
-The `setup-ruby` action will automatically install bundler for you. The version is determined by your `gemfile.lock` file. If no version is present in your lockfile, then the latest compatible version will be installed.
+`setup-ruby` アクションは自動的にbundlerをインストールします。 バージョンは、`gemfile.lock`ファイルで決定されます。 ロックファイルにバージョンがなければ、互換性のある最新のバージョンがインストールされます。
 
 {% raw %}
 ```yaml
@@ -148,9 +148,9 @@ steps:
 
 #### 依存関係のキャッシング
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`setup-ruby`は実行間でのgemのキャッシュを自動的に処理する方法を提供します。
 
-To enable caching, set the following.
+キャッシングを有効にするには、以下の設定をしてください。
 
 {% raw %}
 ```yaml
@@ -161,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by Actions and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
+これで、gemを`vendor/cache`にインストールするようbundlerが設定されます。 ワークフローの実行が成功するたびに、このフォルダーはアクションによってキャッシュされ、それ以降のワークフローの実行の際に再ダウンロードされます。 キャッシュのキーとしては、gemfile.lockのハッシュとRubyのバージョンが使われます。 新しいgemをインストールしたり、バージョンを変更したりすると、キャッシュは無効になり、bundlerは新しくインストールを行います。
 
-**Caching without setup-ruby**
+**setup-rubyを使わないキャッシング**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+キャッシュをさらに制御するには、{% data variables.product.prodname_dotcom %}ホストランナーを使っているなら、`actions/cache`アクションを直接使うことができます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 {% raw %}
 ```yaml
@@ -183,7 +183,7 @@ steps:
 ```
 {% endraw %}
 
-If you're using a matrix build, you will want to include the matrix variables in your cache key. For example, if you have a matrix strategy for different ruby versions (`matrix.ruby-version`) and different operating systems (`matrix.os`), your workflow steps might look like this:
+マトリクスビルドを使っているなら、キャッシュのキーにマトリクスの変数を含めたくなるでしょう。 たとえば様々なRubyのバージョン(`matrix.ruby-version`) と、様々なオペレーティングシステム(`matrix.os`)のマトリクス戦略を持っているなら、ワークフローのステップは以下のようになるでしょう。
 
 {% raw %}
 ```yaml
@@ -201,9 +201,9 @@ steps:
 ```
 {% endraw %}
 
-### Matrix testing your code
+### コードのマトリクステスト
 
-The following example matrix tests all stable releases and head versions of MRI, JRuby and TruffleRuby on Ubuntu and macOS.
+以下の例のマトリクスは、すべての安定リリースとヘッドバージョンのMRI、JRuby、TruffleRubyをUbuntu及びmacOSでテストします。
 
 {% raw %}
 ```yaml
@@ -211,9 +211,9 @@ name: Matrix Testing
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -225,18 +225,18 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: ${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: bundle install
-    - run: bundle exec rake
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - run: bundle install
+      - run: bundle exec rake
 ```
 {% endraw %}
 
-### Linting your code
+### コードの文法チェック
 
-The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
+以下の例は`rubocop`をインストールし、それを使ってすべてのファイルの文法チェックを行います。 詳しい情報については[ Rubocop](https://github.com/rubocop-hq/rubocop)を参照してください。 特定の文法チェックルールを決めるために、[ Rubocopを設定](https://docs.rubocop.org/rubocop/configuration.html)できます。
 
 {% raw %}
 ```yaml
@@ -248,23 +248,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - run: bundle install
-    - name: Rubocop
-      run: rubocop
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: bundle install
+      - name: Rubocop
+        run: rubocop
 ```
 {% endraw %}
 
-### Publishing Gems
+### gemの公開
 
-You can configure your workflow to publish your Ruby package to any package registry you'd like when your CI tests pass.
+CIテストにパスしたなら、Rubyパッケージを任意のパッケージレジストリに公開するようにワークフローを設定できます。
 
-パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 The following example creates and publishes a package to `GitHub Package Registry` and `RubyGems`.
+パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 以下の例は、パッケージを作成して`GitHub Package Registry`及び`RubyGems`に公開します。
 
-{% raw %}
 ```yaml
 
 name: Ruby Gem
@@ -272,47 +271,48 @@ name: Ruby Gem
 on:
   # Manually publish
   workflow_dispatch:
-  # Alternatively, publish whenever changes are merged to the default branch.
+  # Alternatively, publish whenever changes are merged to the `main` branch.
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - run: bundle install
+    steps:{% raw %}
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.6
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: bundle install
 
-    - name: Publish to GPR
-      run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
-        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
-      env:
-        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
-        OWNER: ${{ github.repository_owner }}
+      - name: Publish to GPR
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+        env:
+          GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+          OWNER: ${{ github.repository_owner }}
 
-    - name: Publish to RubyGems
-      run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
-        gem push *.gem
-      env:
-        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+      - name: Publish to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
+        env:
+          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"{% endraw %}
 ```
-{% endraw %}
-

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_mobile %} se encuentra disponible como una app tanto de Android como de iOS. {% data variables.product.prodname_mobile %} se encuentra generalmente disponible para los usuarios de {% data variables.product.prodname_dotcom_the_website %} y está en beta público para {% data variables.product.prodname_ghe_server %} 3.0+.

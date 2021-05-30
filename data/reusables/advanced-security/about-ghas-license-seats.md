@@ -1,0 +1,1 @@
+Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts, or seats, that can use these features. Periodically you should check that your use is within your license capacity.

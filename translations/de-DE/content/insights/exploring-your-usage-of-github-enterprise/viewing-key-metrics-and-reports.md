@@ -1,7 +1,6 @@
 ---
 title: Viewing key metrics and reports
 intro: You can view and filter key metrics and reports to help you understand and improve your software delivery process through data.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can view key metrics and reports.'

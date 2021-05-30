@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Events
 ---
 
 
@@ -152,19 +154,19 @@ A commit was added to the pull request's `HEAD` branch.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 이름            | 유형                 | 설명                                                                                                                                                              |
-| ------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sha`         | `문자열`              | The SHA of the commit in the pull request.                                                                                                                      |
-| `node_id`     | `문자열`              | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                                       |
-| `url`         | `문자열`              | The REST API URL to retrieve the commit.                                                                                                                        |
-| `html_url`    | `문자열`              | The HTML URL of the commit.                                                                                                                                     |
-| `저자`          | `개체`               | The person who authored the commit.                                                                                                                             |
-| `커밋한 사람`      | `개체`               | The person who committed the commit on behalf of the author.                                                                                                    |
-| `트리`          | `개체`               | The Git tree of the commit.                                                                                                                                     |
-| `message`     | `문자열`              | The commit message.                                                                                                                                             |
-| `parents`     | `array of objects` | A list of parent commits.                                                                                                                                       |
-| `verfication` | `개체`               | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#signature-verification-object)." |
-| `event`       | `문자열`              | The event value is `"committed"`.                                                                                                                               |
+| 이름         | 유형                 | 설명                                                                                                                                             |
+| ---------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`      | `문자열`              | The SHA of the commit in the pull request.                                                                                                     |
+| `node_id`  | `문자열`              | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                      |
+| `url`      | `문자열`              | The REST API URL to retrieve the commit.                                                                                                       |
+| `html_url` | `문자열`              | The HTML URL of the commit.                                                                                                                    |
+| `저자`       | `개체`               | The person who authored the commit.                                                                                                            |
+| `커밋한 사람`   | `개체`               | The person who committed the commit on behalf of the author.                                                                                   |
+| `트리`       | `개체`               | The Git tree of the commit.                                                                                                                    |
+| `message`  | `문자열`              | The commit message.                                                                                                                            |
+| `parents`  | `array of objects` | A list of parent commits.                                                                                                                      |
+| `인증`       | `개체`               | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#get-a-commit)." |
+| `event`    | `문자열`              | The event value is `"committed"`.                                                                                                              |
 
 ### connected
 
@@ -718,7 +720,7 @@ Someone unsubscribed from receiving notifications for an issue or pull request.
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
 
-An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/articles/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
+An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).
 
 #### Availability
 

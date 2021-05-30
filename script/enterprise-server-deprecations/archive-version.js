@@ -3,18 +3,18 @@
 const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process')
-const server = require('../server')
+const app = require('../../lib/app')
 const port = '4001'
 const host = `http://localhost:${port}`
 const scrape = require('website-scraper')
 const program = require('commander')
 const rimraf = require('rimraf').sync
-const mkdirp = require('mkdirp').sync
 const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
 const loadRedirects = require('../../lib/redirects/precompile')
 const { loadPageMap } = require('../../lib/pages')
+const remoteImageStoreBaseURL = 'https://githubdocs.azureedge.net/github-images'
 
 // [start-readme]
 //
@@ -30,8 +30,8 @@ program
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .parse(process.argv)
 
-const pathToArchivalRepo = program.pathToArchivalRepo
-const dryRun = program.dryRun
+const pathToArchivalRepo = program.opts().pathToArchivalRepo
+const dryRun = program.opts().dryRun
 
 main()
 
@@ -47,21 +47,42 @@ class RewriteAssetPathsPlugin {
       process.stdout.write('.')
 
       // Only operate on HTML files
-      if (!resource.isHtml()) return
+      if (!resource.isHtml() && !resource.isCss()) return
 
       // Get the text contents of the resource
       const text = resource.getText()
+      let newBody = ''
 
-      // Rewrite asset paths. Example:
-      // ../../javascripts/index.js -> /enterprise/2.17/javascripts/index.js
-      const newBody = text.replace(
-        /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets|node_modules)/g,
-        (match, attribute, basepath) => {
-          const replaced = path.join('/enterprise', this.version, basepath)
-          const returnValue = `${attribute}="${replaced}`
-          return returnValue
-        }
-      )
+      // Rewrite HTML asset paths. Example:
+      // ../assets/images/foo/bar.png ->
+      // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
+      if (resource.isHtml()) {
+        newBody = text.replace(
+          /(?<attribute>src|href)="(?:\.\.\/)*(?<basepath>dist|javascripts|stylesheets|assets\/fonts|assets\/images|node_modules)/g,
+          (match, attribute, basepath) => {
+            let replaced = path.join('/enterprise', this.version, basepath)
+            if (basepath === 'assets/images') {
+              replaced = remoteImageStoreBaseURL + replaced
+            }
+            const returnValue = `${attribute}="${replaced}`
+            return returnValue
+          }
+        )
+      }
+
+      // Rewrite CSS asset paths. Example
+      // url("../assets/fonts/alliance/alliance-no-1-regular.woff") ->
+      // url("https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/fonts/alliance/alliance-no-1-regular.woff")
+      if (resource.isCss()) {
+        newBody = text.replace(
+          /(?<attribute>url)\("(?:\.\.\/)*(?<basepath>assets\/fonts|assets\/images)/g,
+          (match, attribute, basepath) => {
+            const replaced = path.join(`${remoteImageStoreBaseURL}/enterprise`, this.version, basepath)
+            const returnValue = `${attribute}("${replaced}`
+            return returnValue
+          }
+        )
+      }
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
 
@@ -75,7 +96,8 @@ class RewriteAssetPathsPlugin {
 async function main () {
   if (!pathToArchivalRepo) {
     console.log(`Please specify a path to a local checkout of ${archivalRepoUrl}`)
-    console.log(`Example: script/archive-enterprise-version.js ../${archivalRepoName}`)
+    const scriptPath = path.relative(process.cwd(), __filename)
+    console.log(`Example: ${scriptPath} -p ../${archivalRepoName}`)
     process.exit()
   }
 
@@ -133,7 +155,7 @@ async function main () {
     plugins: [new RewriteAssetPathsPlugin(version, tempDirectory)]
   }
 
-  server.listen(port, async () => {
+  app.listen(port, async () => {
     console.log(`started server on ${host}`)
 
     await scrape(scraperOptions).catch(err => {
@@ -150,7 +172,7 @@ async function main () {
     console.log(`\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`)
 
     // create redirect html files to preserve frontmatter redirects
-    await createRedirectPages(permalinksPerVersion, pageMap, finalDirectory)
+    await createRedirectsFile(permalinksPerVersion, pageMap, finalDirectory)
 
     console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
 
@@ -158,9 +180,11 @@ async function main () {
   })
 }
 
-async function createRedirectPages (permalinks, pageMap, finalDirectory) {
+async function createRedirectsFile (permalinks, pageMap, finalDirectory) {
   const pagesPerVersion = permalinks.map(permalink => pageMap[permalink])
   const redirects = await loadRedirects(pagesPerVersion, pageMap)
+
+  const redirectsPerVersion = {}
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
     // remove any liquid variables that sneak in
@@ -170,31 +194,8 @@ async function createRedirectPages (permalinks, pageMap, finalDirectory) {
     // ignore any old paths that are not in this version
     if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
 
-    const fullPath = path.join(finalDirectory, oldPath)
-    const filename = `${fullPath}/index.html`
-    const html = getRedirectHtml(newPath)
-
-    mkdirp(fullPath)
-    fs.writeFileSync(filename, html)
+    redirectsPerVersion[oldPath] = newPath
   })
 
-  console.log('done creating redirect files!\n')
-}
-
-// redirect html files already exist in <=2.12 because these versions were deprecated on the old static site
-function getRedirectHtml (newPath) {
-  return `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-<link rel="canonical" href="${newPath}">
-<meta http-equiv="refresh" content="0; url=${newPath}">
-</head>
-<body>
-<h1>Redirecting...</h1>
-<a href="${newPath}">Click here if you are not redirected.</a>
-<script>location='${newPath}'</script>
-</body>
-</html>`
+  fs.writeFileSync(path.posix.join(finalDirectory, 'redirects.json'), JSON.stringify(redirectsPerVersion, null, 2))
 }

@@ -5,6 +5,9 @@ redirect_from:
   - /articles/github-username-policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Os nomes das contas do GitHub são fornecidos pela ordem de chegada e são destinados ao uso imediato e ativo.

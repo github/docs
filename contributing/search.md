@@ -1,17 +1,5 @@
 # Search
 
-## Table of contents
-- [Overview](#overview)
-- [Production deploys](#production-deploys)
-- [Manual sync from a checkout](#manual-sync-from-a-checkout)
-  - [Build without sync (dry run)](#build-without-sync-dry-run)
-  - [Build and sync](#build-and-sync)
-- [Label-triggered Actions workflow](#label-triggered-actions-workflow)
-- [Files](#files)
-  - [GitHub Actions workflow files](#github-actions-workflow-files)
-  - [Code files](#code-files)
-
-
 ## Overview
 
 This site's search functionality is powered by [Algolia](https://www.algolia.com), a third-party service.
@@ -23,6 +11,29 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 ![search-screenshot](https://user-images.githubusercontent.com/2289/65067899-68bd1c80-d93c-11e9-93ec-f57293e56113.png)
 
 ---
+
+## How to search
+
+The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
+You can also query our search endpoint directly at: 
+`https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
+ 
+- The VERSION can be any numbered GitHub Enterprise Server version (e.g., `2.22`, `3.0`), GitHub AE (`ghae`), or the Free pro team plan (`dotcom`).
+- The LANGUAGE CODE can be: `cn`, `de`, `en`, `es`, `ja`, or `pt`.
+- TOPIC can be any topics in [the allowed list of topics](/data/allowed-topics.js). The values in the `topics` attribute are **not** case sensitive, so filtering on `GitHub actions` or `github actions` will return the same result. **Note:** Currently, the topics filter only works for the dotcom version in the English language. We plan to expand this search query to other languages and versions in the future.
+- Any search QUERY you'd like.
+
+For example, to filter on the topic `ssh` and the query `passphrases`, you'd use this search query:
+
+https://docs.github.com/search?version=dotcom&language=en&filters=topics:ssh&query=passphrases
+
+To filter for the topics `oauth apps` and `github apps` and the query `install`, you'd use this search query:
+
+https://docs.github.com/search?version=dotcom&language=en&filters=topics:'oauth apps'+AND+topics:'github apps'&query=install
+
+### Using the topics search filter
+
+Using the attribute `topics` in your query will only return results that have the matching topic value. The `topics` attribute is configured as a [`filter only` facet in Algolia](https://www.algolia.com/doc/guides/managing-results/refine-results/filtering/). When the topic contains spaces, you must use quotes. For Algolia, [here](https://www.algolia.com/doc/api-reference/api-parameters/filters/#handle-attributes-with-spaces) is an example for filters containing spaces. Algolia also requires [boolean operators](https://www.algolia.com/doc/api-reference/api-parameters/filters) to combine more than one filter. 
 
 ## Production deploys
 
@@ -90,10 +101,10 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ### Code files
 
-- [javascripts/search.js](javascripts/search.js) - The browser-side code that enables search using Algolia's [InstantSearch.js](https://github.com/algolia/instantsearch.js/) library.
-- [lib/algolia/client.js](lib/algolia/client.js) - A thin wrapper around the [algoliasearch](https://ghub.io/algoliasearch) Node.js module for interacting with the Algolia API.
-- [lib/algolia/search-index.js](lib/algolia/search-index.js) - A class for generating structured search data from repository content and syncing it with the remote Algolia service. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
-- [script/sync-algolia-search-indices.js](script/sync-algolia-search-indices.js) - The script used by the Actions workflow to update search indices on our Algolia account. This can also be [run in the development environment](#development).
+- [javascripts/search.js](javascripts/search.js) - The browser-side code that enables search.
+- [lib/search/algolia-client.js](lib/search/algolia-client.js) - A thin wrapper around the [algoliasearch](https://ghub.io/algoliasearch) Node.js module for interacting with the Algolia API.
+- [lib/search/algolia-search-index.js](lib/search/algolia-search-index.js) - A class for generating structured search data from repository content and syncing it with the remote Algolia service. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
+- [script/sync-search-indices.js](script/sync-search-indices.js) - The script used by the Actions workflow to update search indices on our Algolia account. This can also be [run in the development environment](#development).
 - [tests/algolia-search.js](tests/algolia-search.js) - Tests!
 
 ## Indices
@@ -122,7 +133,7 @@ Each record represents a section of a page. Sections are derived by splitting up
 ```js
 {
   objectID: '/en/actions/creating-actions/about-actions#about-actions',
-  url: 'https://help.github.com/en/actions/creating-actions/about-actions#about-actions',
+  url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',
   slug: 'about-actions',
   breadcrumbs: 'GitHub Actions / Creating actions / About actions',
   heading: 'About actions',
@@ -136,4 +147,4 @@ Each record represents a section of a page. Sections are derived by splitting up
 - It's not strictly necessary to set an `objectID` as Algolia will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
 - Algolia has typo tolerance. Try spelling something wrong and see what you get!
 - Algolia has lots of controls for customizing each index, so we can add weights to certain attributes and create rules like "title is more important than body", etc. But it works pretty well as-is without any configuration.
-- Algolia has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default but we have it enabled in our browser client. This and many other settings can be configured in Algolia.com web interface. The settings in the web interface can be overridden by the InstantSearch.js client. See [javascripts/search.js]([javascripts/search.js).
+- Algolia has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default but we have it enabled in our browser client. This and many other settings can be configured in Algolia.com web interface. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.js]([middleware/search.js).

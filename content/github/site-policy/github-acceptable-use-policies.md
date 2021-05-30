@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-acceptable-use-policies
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content you can post, conduct on the service, and other limitations. In short, be excellent to each other._
@@ -28,7 +31,9 @@ Under no circumstances will Users upload, post, host, execute, or transmit any C
 
 - is or contains false, inaccurate, or intentionally deceptive information that is likely to adversely affect the public interest (including health, safety, election integrity, and civic participation);
 
-- contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system); or
+- contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system); 
+
+- shares unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys, including extension of a free license beyond its trial period; or
 
 - infringes any proprietary right of any party, including patent, trademark, trade secret, copyright, right of publicity, or other right.
 

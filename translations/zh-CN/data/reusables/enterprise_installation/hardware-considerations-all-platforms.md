@@ -1,5 +1,5 @@
-- [最低要求](#minimum-requirements)
-- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)
+- [最低要求](#minimum-requirements){% if currentVersion == "enterprise-server@2.22" %}
+- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222){% endif %}
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)
 
@@ -7,20 +7,7 @@
 
 建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
 
-{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} If you enable the beta for {% data variables.product.prodname_actions %}, review the following requirements and recommendations.
-
-- 您必须为 {% data variables.product.prodname_actions %} 工作流程配置至少一个运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
-- 您必须配置外部 Blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
-- You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
-
-    | 每分钟最大作业数 | Additional vCPUs | Additional memory |
-    |:-------- | ----------------:| -----------------:|
-    | 轻型测试     |                4 |           30.5 GB |
-    | 25       |                8 |             61 GB |
-    | 35       |               16 |            122 GB |
-    | 100      |               32 |            244 GB |
-
-{% endif %}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 #### 存储器
 
@@ -28,9 +15,9 @@
 
 您的实例需要一个独立于根磁盘的持久数据磁盘。 更多信息请参阅“[系统概述](/enterprise/admin/guides/installation/system-overview)”。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-如果您在 {% data variables.product.prodname_ghe_server %} 2.22 中启用 {% data variables.product.prodname_actions %} 的测试版，则需要配置外部 blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
+要配置{% if currentVersion == "enterprise-server@2.22" %} {% endif %}{% data variables.product.prodname_actions %}测试版，您必须提供外部 Blob 存储。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server##external-storage-requirements)”。
 
 {% endif %}
 
@@ -38,7 +25,13 @@
 
 #### CPU 和内存
 
-{% data variables.product.prodname_ghe_server %} 需要更多的 CPU 和内存资源，取决于用户活动、自动化和集成的水平。
+{% data variables.product.prodname_ghe_server %} 需要的 CPU 和内存资源取决于用户的活动水平、自动化和集成。
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+如果您对 {% data variables.product.prodname_ghe_server %} 实例的{% if currentVersion == "enterprise-server@2.22" %}已启用{% else %}计划启用{% endif %} {% data variables.product.prodname_actions %} 测试版，可能需要为实例提供附加的 CPU 和内存资源。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 的 {% data variables.product.prodname_actions %} 使用入门](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)”。
+
+{% endif %}
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
@@ -47,5 +40,7 @@
 **警告：** 我们建议用户配置 web 挂钩事件来通知外部系统有关 {% data variables.product.prodname_ghe_server %} 上的活动。 自动检查更改或 _轮询_将对实例的性能和可扩展性产生不利影响。 更多信息请参阅“[关于 web 挂钩](/github/extending-github/about-webhooks)”。
 
 {% endwarning %}
+
+有关监控 {% data variables.product.prodname_ghe_server %} 容量和性能的更多信息，请参阅“[监控您的设备](/admin/enterprise-management/monitoring-your-appliance)”。
 
 您可以增加实例的 CPU 或内存资源。 更多信息请参阅“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。

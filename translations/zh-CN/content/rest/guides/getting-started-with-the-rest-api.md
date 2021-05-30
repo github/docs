@@ -1,6 +1,6 @@
 ---
 title: REST API 入门指南
-intro: '从身份验证和一些端点示例开始，了解使用 REST API 的基础。'
+intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -51,11 +53,10 @@ $ curl https://api.github.com/users/defunkt
 ```shell
 $ curl -i https://api.github.com/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
 > X-RateLimit-Remaining: 57
@@ -168,7 +169,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 同样，我们可以查看[经身份验证用户的仓库][user repos api]：
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
@@ -186,8 +187,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 
 从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
 
-* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共仓库。
-* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共和私有仓库。
+{% if currentVersion != "github-ae@latest" %}
+* 具有 `public_repo` [作用域][scopes]的令牌返回的响应包含我们在 github.com 上有权查看的所有公共仓库。{% endif %}
+* 具有 `repo` [作用域][scopes]的令牌返回的响应包含我们在{% data variables.product.product_location %} 上有权查看的所有{% if currentVersion != "github-ae@latest" %}公共{% else %}内部{% endif %}和私有仓库。
 
 如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对仓库的访问权限类型来过滤返回的仓库。 这样，我们可以只获取直接拥有的仓库、组织仓库或用户通过团队进行协作的仓库。
 
@@ -204,7 +206,7 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 我们需要 `POST` 一些包含详细信息和配置选项的JSON。
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     -d '{ \
         "name": "blog", \
         "auto_init": true, \
@@ -214,7 +216,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
     {% data variables.product.api_url_pre %}/user/repos
 ```
 
-在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新仓库。 尽管博客将会公开，但我们将仓库设为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
+在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新的私有仓库。 虽然博客 {% if currentVersion != "github-ae@latest" %}将是公开的{% else %}可供所有企业成员访问{% endif %}，但我们已经将仓库设置为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
 
 生成的仓库可在 `https://github.com/<your_username>/blog` 上找到。 要在您拥有的组织下创建仓库，只需将 API 方法从 `/user/repos` 更改为 `/orgs/<org_name>/repos`。
 
@@ -223,7 +225,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
-> HTTP/1.1 404 Not Found
+> HTTP/2 404
 
 > {
 >    "message": "Not Found"
@@ -239,7 +241,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 与 github.com 一样，API 为经过身份验证的用户提供了一些查看议题的方法。 要 [查看您的所有议题][get issues api]，请调用 `GET /issues`：
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/issues
 ```
 
@@ -247,7 +249,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 /orgs/<org>/issues`：
 
 ```shell
-$ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+$ curl -i -H "Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}" \
     {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
@@ -264,7 +266,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 
 > ...
 > Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
@@ -280,7 +282,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 要创建议题，我们需要进行身份验证，因此我们将在标头中传递 OAuth 令牌。 此外，我们还将 JSON 正文中的标题、正文和标签传递到要在其中创建议题的仓库下的 `/issues` 路径：
 
 ```shell
-$ curl -i -H 'Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4' \
+$ curl -i -H 'Authorization: token {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}ghp_16C7e42F292c6912E7710c838347Ae178B4a{% else %}5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4{% endif %}' \
 $    -d '{ \
 $         "title": "New logo", \
 $         "body": "We should have one", \
@@ -288,7 +290,7 @@ $         "labels": ["design"] \
 $       }' \
 $    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
-> HTTP/1.1 201 Created
+> HTTP/2 201
 > Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
@@ -338,7 +340,7 @@ JSON 响应的 `Location` 响应标头和 `url` 字段为我们提供了一些�
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 200 OK
+> HTTP/2 200
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 ```
 
@@ -348,7 +350,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
 $    {% data variables.product.api_url_pre %}/users/defunkt
 
-> HTTP/1.1 304 Not Modified
+> HTTP/2 304
 ```
 
 `304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入您的[速率限制][rate-limiting]。

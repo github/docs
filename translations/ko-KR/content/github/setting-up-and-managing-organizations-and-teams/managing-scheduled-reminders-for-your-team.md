@@ -5,6 +5,9 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests
 versions:
   free-pro-team: '*'
+topics:
+  - organizations
+  - teams
 ---
 
 ### About scheduled reminders for teams
@@ -12,6 +15,8 @@ versions:
 {% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Team maintainers and organization owners can set scheduled reminders for any pull requests that a team has been requested to review. Before you can create a scheduled reminder for your team, an organization owner must authorize your Slack workspace. For more information, see "[Managing scheduled reminders for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)."
+
+{% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### Creating a scheduled reminder for a team
 {% data reusables.profile.access_profile %}

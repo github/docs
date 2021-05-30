@@ -1,1 +1,1 @@
-1. Klicke unter „Billing overview“ (Abrechnungsübersicht) auf **Change to yearly billing** (In jährliche Abrechnung ändern) oder **Change to monthly billing** (In monatliche Abrechnung ändern). ![Schaltfläche zum Ändern des Plans in der Abrechnungsübersicht](/assets/images/help/billing/change-plan-duration-link.png)
+1. Under "Current monthly bill" or "Current yearly bill", click **Switch to yearly billing** or **Switch to monthly billing**. ![Schaltfläche zum Ändern des Plans in der Abrechnungsübersicht](/assets/images/help/billing/change-plan-duration-link.png)

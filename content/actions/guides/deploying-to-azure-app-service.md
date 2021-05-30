@@ -5,10 +5,17 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CD
+  - Containers
+  - Azure App Service
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
@@ -54,7 +61,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 3. Configure an Azure publish profile and create an `AZURE_WEBAPP_PUBLISH_PROFILE` secret.
 
-   Generate your Azure deployment credentials using a publish profile. For more information, see "[Generate deployment credentials](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)" in the Azure documentation. 
+   Generate your Azure deployment credentials using a publish profile. For more information, see "[Generate deployment credentials](https://docs.microsoft.com/en-us/azure/app-service/deploy-github-actions?tabs=applevel#generate-deployment-credentials)" in the Azure documentation.
 
    In your {% data variables.product.prodname_dotcom %} repository, create a secret named `AZURE_WEBAPP_PUBLISH_PROFILE` that contains the contents of the publish profile. For more information on creating secrets, see "[Encrypted secrets](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
 

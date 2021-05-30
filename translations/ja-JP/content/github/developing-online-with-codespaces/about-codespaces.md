@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/about-github-codespaces
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% note %}
@@ -38,6 +40,8 @@ versions:
 
 {% data reusables.codespaces.about-personalization %} 詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)」を参照してください。
 
+You can configure settings to add encrypted secrets, enable GPG verification, and allow codespaces to access other repositories. For more information, see "[Managing encrypted secrets for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces)", "[Managing GPG verification for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-gpg-verification-for-codespaces)", and "[Managing access and security for {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces)."
+
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
 {% data reusables.codespaces.beta-functionality-limited %}
@@ -54,4 +58,4 @@ versions:
 
 {% data variables.product.prodname_codespaces %} の使用時に問題が発生した場合は、「[codespace のトラブルシューティング](/github/developing-online-with-codespaces/troubleshooting-your-codespace)」を参照してください。
 
-さらにサポートをご希望の場合、または {% data variables.product.prodname_codespaces %} に関するフィードバックがある場合は、[コミュニティフォーラム](https://github.community/c/codespaces-beta/45)をご使用ください。
+If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Codespaces Feedback](https://github.com/github/feedback/discussions/categories/codespaces-feedback) discussion.

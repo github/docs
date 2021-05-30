@@ -2,6 +2,9 @@
 title: GitHub Government Takedown Policy
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 #### What is this?

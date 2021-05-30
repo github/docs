@@ -11,10 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 Anyone with write permission to a repository can set up continuous integration (CI) using {% data variables.product.prodname_actions %}.
 

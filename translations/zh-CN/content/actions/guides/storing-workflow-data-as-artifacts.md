@@ -11,10 +11,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 关于工作流程构件
 
@@ -78,7 +83,7 @@ versions:
 
 工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 它还会上传 `code-coverage.html` 报告作为另一个构件。
 
-```yaml
+```yaml{:copy}
 name: Node CI
 
 on: [push]
@@ -108,12 +113,12 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### 配置自定义构件保留期
 
 您可以为工作流程创建的单个构件自定义保留期。 使用工作流程创建新构件时，可以同时使用 `retention-days` with the `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的构件设置 5 天的自定义保留期：
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -182,7 +187,7 @@ jobs:
 
 此工作流程示例中执行的完整数学运算为 `(3 + 7) x 9 = 90`。
 
-```yaml
+```yaml{:copy}
 name: Share data between jobs
 
 on: [push]
@@ -237,7 +242,7 @@ jobs:
 ```
 
 工作流程运行运行将会存档它生成的任何构件。 有关下载存档的构件的更多信息，请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)

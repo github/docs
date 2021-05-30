@@ -4,12 +4,15 @@ const fs = require('fs')
 const path = require('path')
 const program = require('commander')
 const allVersions = require('../../lib/all-versions')
+const getOperations = require('../rest/utils/get-operations')
 const dereferencedDir = 'lib/rest/static/dereferenced'
 const decoratedDir = 'lib/rest/static/decorated'
 
 // [start-readme]
 //
-// This script creates new static openAPI files for a new version and modifies the info.version.
+// This script first copies the dereferenced schema from the previous GHES version for the new one.
+// It then replaces references to the previous version's docs URL (e.g., enterprise-server@3.0) with the new version (e.g., enterprise-server@3.1).
+// Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
 //
 // [end-readme]
 
@@ -19,8 +22,8 @@ program
   .option('-o, --oldVersion <version>', 'The existing version to copy the REST files from. Must be in <plan@release> format.')
   .parse(process.argv)
 
-const newVersion = program.newVersion
-const oldVersion = program.oldVersion
+const newVersion = program.opts().newVersion
+const oldVersion = program.opts().oldVersion
 
 if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
@@ -32,48 +35,43 @@ if (!(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).
   process.exit(1)
 }
 
-const oldDereferencedFilename = `${allVersions[oldVersion].openApiVersionName}.deref.json`
-const newDereferencedFilename = `${allVersions[newVersion].openApiVersionName}.deref.json`
-const oldDecoratedFilename = `${allVersions[oldVersion].openApiVersionName}.json`
-const newDecoratedFilename = `${allVersions[newVersion].openApiVersionName}.json`
+main()
 
-const oldDereferencedFile = path.join(dereferencedDir, oldDereferencedFilename)
-const newDereferencedFile = path.join(dereferencedDir, newDereferencedFilename)
-const oldDecoratedFile = path.join(decoratedDir, oldDecoratedFilename)
-const newDecoratedFile = path.join(decoratedDir, newDecoratedFilename)
+async function main () {
+  const oldDereferencedFilename = `${allVersions[oldVersion].openApiVersionName}.deref.json`
+  const newDereferencedFilename = `${allVersions[newVersion].openApiVersionName}.deref.json`
+  const newDecoratedFilename = `${allVersions[newVersion].openApiVersionName}.json`
 
-// check that the old files exist
-if (!fs.existsSync(oldDereferencedFile)) {
-  console.log(`Error! Can't find ${oldDereferencedFile} for ${oldVersion}.`)
-  process.exit(1)
+  const oldDereferencedFile = path.join(dereferencedDir, oldDereferencedFilename)
+  const newDereferencedFile = path.join(dereferencedDir, newDereferencedFilename)
+  const newDecoratedFile = path.join(decoratedDir, newDecoratedFilename)
+
+  // check that the old files exist
+  if (!fs.existsSync(oldDereferencedFile)) {
+    console.log(`Error! Can't find ${oldDereferencedFile} for ${oldVersion}.`)
+    process.exit(1)
+  }
+
+  const oldDereferencedContent = fs.readFileSync(oldDereferencedFile, 'utf8')
+
+  // Replace old version with new version
+  // (ex: enterprise-server@3.0 -> enterprise-server@3.1)
+  const regexOldVersion = new RegExp(oldVersion, 'gi')
+  const newDereferenceContent = oldDereferencedContent.replace(regexOldVersion, newVersion)
+
+  // Write processed dereferenced schema to disk
+  fs.writeFileSync(newDereferencedFile, newDereferenceContent)
+  console.log(`Created ${newDereferencedFile}.`)
+
+  const dereferencedSchema = require(path.join(process.cwd(), newDereferencedFile))
+
+  // Store all operations in an array of operation objects
+  const operations = await getOperations(dereferencedSchema)
+
+  // Process each operation asynchronously
+  await Promise.all(operations.map(operation => operation.process()))
+
+  // Write processed operations to disk
+  fs.writeFileSync(newDecoratedFile, JSON.stringify(operations, null, 2))
+  console.log(`Done! Created ${newDecoratedFile}.`)
 }
-
-if (!fs.existsSync(oldDecoratedFile)) {
-  console.log(`Error! Can't find ${oldDecoratedFile} for ${oldVersion}.`)
-  process.exit(1)
-}
-
-// copy the files
-fs.copyFileSync(oldDereferencedFile, newDereferencedFile)
-fs.copyFileSync(oldDecoratedFile, newDecoratedFile)
-
-// check that it worked
-if (!fs.existsSync(newDereferencedFile)) {
-  console.log(`Error! Can't find ${newDereferencedFile} for ${oldVersion}.`)
-  process.exit(1)
-}
-
-if (!fs.existsSync(newDecoratedFile)) {
-  console.log(`Error! Can't find ${newDecoratedFile} for ${oldVersion}.`)
-  process.exit(1)
-}
-
-// set the info.version to development mode
-const derefFilepath = path.join(process.cwd(), newDereferencedFile)
-const derefSchema = require(derefFilepath)
-console.log(derefSchema.info.version)
-derefSchema.info.version = `Copy of ${oldVersion} !!DEVELOPMENT MODE - DO NOT MERGE!!`
-fs.writeFileSync(derefFilepath, JSON.stringify(derefSchema, null, 2))
-
-// print success message
-console.log(`Done! Created ${newDereferencedFile} and ${newDecoratedFile}.`)

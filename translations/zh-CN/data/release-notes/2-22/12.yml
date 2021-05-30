@@ -1,0 +1,22 @@
+---
+date: '2021-04-28'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - 在升级过程中，进程将在 `cleanup nomad job` 之后无限期暂停。
+    - '`ghe-cluster-failover` 失败，出现错误消息 `Trilogy::Error: trilogy_connect`。'
+    - '`ghe-cluster-status-mysql` 将有关故障转移的警告显示为错误。'
+    - 在 MySQL 副本上运行的安装脚本可能导致数据库故障转移期间不必要的数据库重新播种。
+    - '由于不必要地调用 `rake db:migrate`，`config-apply` 可能需要更长的时间。'
+    - Orchestrator 可能已故障转移到 MySQL 副本，当主数据库无法连接时，它无法在播种阶段从主数据库复制。
+    - 出现错误的组织或项目阻止了迁移，无法排除。
+    - 由于选择了最完整的磁盘而不是空节点，存储主机超过三个的客户无法恢复到其灾难恢复集群。
+  changes:
+    - 默认情况下，预运行检查允许所有 AWS 实例类型。
+  known_issues:
+    - 在新建的没有任何用户的 GitHub Enterprise Server 上，攻击者可以创建第一个管理员用户。
+    - 自定义防火墙规则在升级期间不会保持。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - 对 GitHub Connect 启用“用户可以搜索 GitHub.com”后，私有和内部仓库中的议题不包括在 GitHub.com 搜索结果中。

@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Pull requests
 ---
 
 ### About reviewing pull requests
@@ -36,9 +38,11 @@ If the pull request contains changes to dependencies you can use the dependency 
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
 ### Marking a file as viewed
@@ -65,5 +69,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ### 더 읽을거리
 
-- "[About required reviews for pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
 - "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

@@ -1,7 +1,7 @@
 ---
 title: 管理仓库中讨论的类别
 intro: 您可以对仓库中的讨论进行分类，以组织社区成员的对话，也可为每个类别选择格式。
-permissions: 仓库管理员以及对仓库具有写入或更大访问权限的人员可以在仓库中启用讨论。
+permissions: Repository administrators and people with write or greater access to a repository can enable discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,9 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
-每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。{% data reusables.discussions.repository-category-limit %}
-
-更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
+每个类别必须具有唯一的名称和表情符号配对，并可以附有说明其用途的详细说明。 类别帮助维护者组织如何提交对话，并可自定义，以帮助区分问答或更多开放式对话的类别。 {% data reusables.discussions.repository-category-limit %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)”。
 
 ### 默认类别
 

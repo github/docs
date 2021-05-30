@@ -33,3 +33,7 @@ When you merge a pull request that contains a security update, the corresponding
 ### 互換性スコアについて
 
 {% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a vulnerability could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
+
+### About notifications for {% data variables.product.prodname_dependabot %} security updates
+
+You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} security updates. 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。

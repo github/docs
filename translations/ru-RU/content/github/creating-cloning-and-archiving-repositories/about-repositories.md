@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 You can own repositories individually, or you can share ownership of repositories with other people in an organization.
@@ -23,8 +25,8 @@ Each person and organization can own unlimited repositories and invite an unlimi
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."
-- {% data reusables.discussions.you-can-use-discussions %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 - You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[About project boards](/github/managing-your-work-on-github/about-project-boards)."
 
@@ -37,5 +39,5 @@ You can use repositories to manage your work and collaborate with others.
 - "[Managing your work on {% data variables.product.prodname_dotcom %}](/categories/managing-your-work-on-github/)"
 - "[Administering a repository](/categories/administering-a-repository)"
 - "[Visualizing repository data with graphs](/categories/visualizing-repository-data-with-graphs/)"
-- "[About wikis](/articles/about-wikis)"
+- "[About wikis](/communities/documenting-your-project-with-wikis/about-wikis)"
 - "[{% data variables.product.prodname_dotcom %} glossary](/articles/github-glossary)"

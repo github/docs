@@ -1,12 +1,16 @@
 # Order is important. The LAST matching pattern has the MOST precedence.
 # gitignore style patterns are used, not globs.
-# https://help.github.com/articles/about-codeowners
+# https://docs.github.com/articles/about-codeowners
 # https://git-scm.com/docs/gitignore
 
 # Engineering
 *.js @github/docs-engineering
+*.ts @github/docs-engineering
+*.tsx @github/docs-engineering
 /.github/ @github/docs-engineering
 /script/ @github/docs-engineering
+/includes/ @github/docs-engineering
+/layouts/ @github/docs-engineering
 app.json @github/docs-engineering
 Dockerfile @github/docs-engineering
 package-lock.json @github/docs-engineering
