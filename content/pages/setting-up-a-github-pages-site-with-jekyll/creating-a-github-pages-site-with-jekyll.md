@@ -83,6 +83,14 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
 
+   Make any necessary edits to the `_config.yml` file (needed for relative paths when the [repo is hosted in subdirectory](https://docs.github.com/en/github/getting-started-with-github/using-git/splitting-a-subfolder-out-into-a-new-repository)):
+   
+```yml
+domain: my-site.github.io       # if you want to force HTTPS, put down the domain without the http: e.g. example.com
+url: https://my-site.github.io  # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /REPOSITORY-NAME/      # place folder name if site is served in subfolder
+```
+
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
 11. From the command line, run `bundle update`.
