@@ -119,7 +119,7 @@ steps:
     with:
       path: ~/.m2
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-      restore-keys: ${{ runner.os }}-m2
+      restore-keys: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
 ```
