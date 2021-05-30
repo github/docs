@@ -36,7 +36,7 @@ By default, the restrictions of a branch protection rule don't apply to people w
 {% data reusables.pull_requests.you-can-auto-merge %}
 
 ### About branch protection settings
-
+ 
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
