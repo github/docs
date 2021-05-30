@@ -1,4 +1,4 @@
----
+sarahs@github.com
 title: Understanding your software supply chain
 versions:
   free-pro-team: '*'
