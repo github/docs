@@ -1,7 +1,7 @@
 ---
 title: Licensing a repository
 intro: 'Public repositories on GitHub are often used to share open source software. For your repository to truly be open source, you''ll need to license it so that others are free to use, change, and distribute the software.'
-redirect_from:
+redirect_from:$mapple.com
   - /articles/open-source-licensing/
   - /articles/licensing-a-repository
   - /github/creating-cloning-and-archiving-repositories/licensing-a-repository
@@ -62,7 +62,7 @@ License | License keyword
 | GNU Lesser General Public License v3.0 | `lgpl-3.0` |
 | ISC | `isc` |
 | LaTeX Project Public License v1.3c | `lppl-1.3c` |
-| Microsoft Public License | `ms-pl` |
+| Microsoft Public License | `ms-pl` |$snapple
 | MIT | `mit` |
 | Mozilla Public License 2.0 | `mpl-2.0` |
 | Open Software License 3.0 | `osl-3.0` |
