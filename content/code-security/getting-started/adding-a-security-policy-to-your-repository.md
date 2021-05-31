@@ -54,6 +54,6 @@ By making security reporting instructions clearly available, you make it easy fo
 
 ### Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

@@ -1,6 +1,11 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
+export type TocItem = {
+  fullPath: string
+  title: string
+  intro?: string
+}
 export type FeaturedLink = {
   title: string
   href: string
@@ -19,15 +24,6 @@ export type CodeExample = {
 export type Product = {
   title: string
   href: string
-  categories: Record<
-    string,
-    {
-      href: string
-      title: string
-      standalone?: boolean
-      articles?: Record<string, { href: string; title: string; shortTitle?: string }>
-    }
-  >
 }
 
 export type ProductLandingContextT = {
@@ -37,19 +33,12 @@ export type ProductLandingContextT = {
   intro: string
   beta_product: boolean
   product: Product
-  // primaryAction: LinkButtonT
-  // secondaryAction?: LinkButtonT
   introLinks: {
     quickstart?: string
     reference?: string
     overview?: string
-  }
+  } | null
   product_video?: string
-  // featuredLinks?: {
-  //   guides: Array<FeaturedLink>
-  //   popular: Array<FeaturedLink>
-  //   guideCards: Array<FeaturedLink>
-  // }
   guideCards: Array<FeaturedLink>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
@@ -62,6 +51,7 @@ export type ProductLandingContextT = {
   changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
+  tocItems: Array<TocItem>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -79,14 +69,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 }
 
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
-  const {
-    currentCategory,
-    currentPath,
-    siteTree,
-    currentLanguage,
-    currentVersion,
-    currentProduct,
-  } = req.context
+  const productTree = req.context.currentProductTree
   return {
     ...pick(req.context.page, [
       'title',
@@ -97,14 +80,13 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'product_video',
       'changelog',
     ]),
-    product: JSON.parse(
-      JSON.stringify(siteTree[currentLanguage][currentVersion].products[currentProduct])
-    ),
-    whatsNewChangelog: req.context.whatsNewChangelog,
-    changelogUrl: req.context.changelogUrl,
-
+    product: {
+      href: productTree.href,
+      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+    },
+    whatsNewChangelog: req.context.whatsNewChangelog || [],
+    changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
-
     productCommunityExamples: req.context.productCommunityExamples || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
@@ -114,27 +96,38 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: Object.fromEntries(
-      Object.entries(req.context.page.introLinks || {}).filter(([key, val]) => !!val)
+    introLinks: productTree.page.introLinks
+      ? {
+          quickstart: productTree.page.introLinks.quickstart,
+          reference: productTree.page.introLinks.reference,
+          overview: productTree.page.introLinks.overview,
+        }
+      : null,
+
+    guideCards: (req.context.featuredLinks ? req.context.featuredLinks.guideCards || [] : []).map(
+      (link: any) => {
+        return {
+          href: link.href,
+          title: link.title,
+          intro: link.intro,
+          authors: link.page.authors || [],
+        }
+      }
     ),
 
-    guideCards: (req.context.featuredLinks.guideCards || []).map((link: any) => {
-      return {
-        href: link.href,
-        title: link.title,
-        intro: link.intro,
-        authors: link.page.authors || [],
-      }
-    }),
+    tocItems: req.context.tocItems || [],
 
-    featuredArticles: Object.entries(req.context.featuredLinks)
+    featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
         return key === 'guides' || key === 'popular'
       })
       .map(([key, links]: any) => {
         return {
           label: req.context.site.data.ui.toc[key],
-          viewAllHref: key === 'guides' && !currentCategory ? `${currentPath}/${key}` : '',
+          viewAllHref:
+            key === 'guides' && !req.context.currentCategory
+              ? `${req.context.currentPath}/${key}`
+              : '',
           articles: links.map((link: any) => {
             return {
               hideIntro: key === 'popular',

@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
 You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. You can also add a security key.
 
@@ -31,6 +31,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 - [1Password](https://support.1password.com/one-time-passwords/)
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
+- [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
 
 {% tip %}
 

@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { Grid } from '@primer/components'
 
 import {
   MainContextT,
@@ -12,7 +13,6 @@ import {
   ProductLandingContext,
   useProductLandingContext,
 } from 'components/context/ProductLandingContext'
-import { getThemeProps } from 'components/lib/getThemeProps'
 
 import { LandingHero } from 'components/landing/LandingHero'
 import { FeaturedArticles } from 'components/landing/FeaturedArticles'
@@ -22,9 +22,9 @@ import { CommunityExamples } from 'components/landing/CommunityExamples'
 import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useFeatureFlags } from 'components/hooks/useFeatureFlags'
-import { AllArticlesProduct } from 'components/landing/AllArticlesProduct'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
+import { TableOfContents } from 'components/landing/TableOfContents'
+import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
 
 type Props = {
   mainContext: MainContextT
@@ -34,22 +34,20 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
   return (
     <MainContext.Provider value={mainContext}>
       <ProductLandingContext.Provider value={productLandingContext}>
-        <ProductPageInner />
+        {mainContext.currentLayoutName === 'product-landing' ? (
+          <ProductLanding />
+        ) : (
+          <TocProductLanding />
+        )}
       </ProductLandingContext.Provider>
     </MainContext.Provider>
   )
 }
 
-const ProductPageInner = () => {
-  const {
-    title,
-    guideCards,
-    productUserExamples,
-    productCommunityExamples,
-    productCodeExamples,
-  } = useProductLandingContext()
+const ProductLanding = () => {
+  const { title, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
+    useProductLandingContext()
   const { t } = useTranslation('product_landing')
-  const { FEATURE_NEW_SITETREE } = useFeatureFlags()
 
   return (
     <DefaultLayout>
@@ -88,8 +86,36 @@ const ProductPageInner = () => {
       )}
 
       <LandingSection sectionLink="all-docs" title={`All ${title} Docs`}>
-        {FEATURE_NEW_SITETREE ? <ProductArticlesList /> : <AllArticlesProduct />}
+        <ProductArticlesList />
       </LandingSection>
+    </DefaultLayout>
+  )
+}
+
+const TocProductLanding = () => {
+  const { title, introPlainText, tocItems } = useProductLandingContext()
+  return (
+    <DefaultLayout>
+      <Grid
+        className="container-xl px-3 px-md-6 my-4 my-lg-4 container-xl "
+        gridTemplateColumns="minmax(500px, 720px) minmax(220px, 1fr)"
+        gridTemplateRows="auto 1fr"
+        gridGap={16}
+      >
+        <div>
+          <h1 className="my-4">{title}</h1>
+          <div className="lead-mktg">
+            <p>{introPlainText}</p>
+          </div>
+
+          <div className="mt-7">
+            <TableOfContents items={tocItems} />
+          </div>
+        </div>
+        <div>
+          <ArticleVersionPicker />
+        </div>
+      </Grid>
     </DefaultLayout>
   )
 }
@@ -101,7 +127,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      themeProps: getThemeProps(req),
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
     },

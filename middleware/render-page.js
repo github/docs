@@ -26,16 +26,6 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
-const renderWithNext = FEATURE_NEXTJS
-  ? [
-      '/en/rest',
-      '/en/sponsors',
-      '/ja/sponsors',
-      '/en/discussions',
-      '/en/actions'
-    ]
-  : []
-
 function modifyOutput (req, text) {
   return addColorMode(req, addCsrf(req, text))
 }
@@ -94,16 +84,37 @@ module.exports = async function renderPage (req, res, next) {
   }
   const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
 
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
-
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
   // Should the current path be rendered by NextJS?
-  const isNextJsRequest = renderWithNext.includes(req.path)
+  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
 
-  if (isCacheable && !isRequestingJsonForDebugging && !(FEATURE_NEXTJS && isNextJsRequest)) {
+  // Is in an airgapped session?
+  const isAirgapped = Boolean(req.cookies.AIRGAP)
+
+  // Is the request for the GraphQL Explorer page?
+  const isGraphQLExplorer = req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
+
+  // Serve from the cache if possible
+  const isCacheable = (
+    // Skip for CI
+    !process.env.CI &&
+    // Skip for tests
+    process.env.NODE_ENV !== 'test' &&
+    // Skip for HTTP methods other than GET
+    req.method === 'GET' &&
+    // Skip for JSON debugging info requests
+    !isRequestingJsonForDebugging &&
+    // Skip for NextJS rendering
+    !renderWithNextjs &&
+    // Skip for airgapped sessions
+    !isAirgapped &&
+    // Skip for the GraphQL Explorer page
+    !isGraphQLExplorer
+  )
+
+  if (isCacheable) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -174,19 +185,20 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
-  if (FEATURE_NEXTJS && isNextJsRequest) {
-    nextHandleRequest(req, res)
-  } else {
-    // currentLayout is added to the context object in middleware/contextualizers/layouts
-    const output = await liquid.parseAndRender(req.context.currentLayout, context)
+  // Hand rendering over to NextJS when appropriate
+  if (renderWithNextjs) {
+    return nextHandleRequest(req, res)
+  }
 
-    // First, send the response so the user isn't waiting
-    // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-    res.send(modifyOutput(req, output))
+  // currentLayout is added to the context object in middleware/contextualizers/layouts
+  const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
-    // Finally, save output to cache for the next time around
-    if (isCacheable) {
-      await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
-    }
+  // First, send the response so the user isn't waiting
+  // NOTE: Do NOT `return` here as we still need to cache the response afterward!
+  res.send(modifyOutput(req, output))
+
+  // Finally, save output to cache for the next time around
+  if (isCacheable) {
+    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
   }
 }

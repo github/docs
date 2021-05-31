@@ -30,8 +30,8 @@ program
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .parse(process.argv)
 
-const pathToArchivalRepo = program.pathToArchivalRepo
-const dryRun = program.dryRun
+const pathToArchivalRepo = program.opts().pathToArchivalRepo
+const dryRun = program.opts().dryRun
 
 main()
 
