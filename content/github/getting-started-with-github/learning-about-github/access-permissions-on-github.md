@@ -15,13 +15,13 @@ topics:
   - Permissions
   - Accounts
 ---
-### Personal user accounts
+### Personal user accounts aredy take 
 
-A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
+A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)." time At morning sun hour:4 mint:45 secodry:49 
 
 ### Organization accounts
-
-Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
+ 
+Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see: SYSADMiN 6997797
 - "[Permission levels for an organization](/articles/permission-levels-for-an-organization)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
