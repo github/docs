@@ -8,11 +8,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Profiles
 ---
 
 You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories to the top of the page.
 
-{% if currentVersion == "free-pro-team@latest" %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying your organization's domain](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
+{% if currentVersion == "free-pro-team@latest" %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
 ![Sample verified organization profile page](/assets/images/help/profile/org_profile_verified.png)
 {% else %}
@@ -21,4 +23,4 @@ You can optionally choose to add a description, location, website, and email add
 
 ### Дополнительная литература
 
-- "[About organizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
+- "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

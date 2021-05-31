@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-sponsors-additional-terms
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 Ihre Teilnahme am GitHub-Sponsorenprogramm (das "Programm") unterliegt den [GitHub-Nutzungsbedingungen](/github/site-policy/github-terms-of-service) (der „Vereinbarung“) sowie den nachfolgenden zusätzlichen Bedingungen („zusätzliche Bedingungen“). Jede Nutzung des GitHub-Sponsorenprogramms, die gegen die Vereinbarung verstößt, stellt ebenfalls einen Verstoß gegen diese zusätzlichen Bedingungen dar. Bei allen großgeschriebenen Begriffen, die hier verwendet, aber nicht nachfolgend definiert werden, gelten die Bedeutungen aus der Vereinbarung. Diese zusätzlichen Bedingungen für das GitHub-Sponsorenprogramm beschreiben das Verhältnis zwischen GitHub und Ihnen, dem „gesponserten Entwickler“, in Bezug auf das Programm. Die zusätzlichen Bedingungen gelten ab dem Datum, an dem Sie sie annehmen („Datum des Inkrafttretens“).
@@ -118,7 +121,7 @@ Während der Laufzeit überweist Ihnen GitHub alle Gesponserte-Entwickler-Bezahl
 
 - Bei neu erstellten Gesponserter-Entwickler-Konten überweist GitHub Ihnen alle Gesponserter-Entwickler-Bezahlungen, die Sie innerhalb von 90 Tagen nach der Erstellung Ihres Gesponserter-Entwickler-Kontos erhalten haben, vorbehaltlich der folgenden Variablen. Die darauf folgenden Zahlungen werden gemäß diesem Abschnitt innerhalb von 30 Tagen nach Monatsende überwiesen.
 
-- Falls Sie über Stripe Connect bezahlt werden, wird am 22. des Monats das am Ende des vorherigen Monats vorhandene Guthaben gezahlt, unabhängig von der Höhe des Guthabens.
+- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors.
 
 - Falls die Zahlungen über ACH oder elektronisch überwiesen werden, erhalten Sie diese am 3. Donnerstag des Monats. GitHub führt für jeden Monat, in dem Ihr Guthaben 100 USD erreicht, eine Auszahlung an Sie durch. Beiträge aus dem GitHub Sponsors Matching Fund werden nicht für diesen Schwellenwert angerechnet. Wenn Ihr Guthaben am Ende des Monats unter 100 US-Dollar liegt, wird das Guthaben bis zum nächsten Mal, wenn Ihr Guthaben am Ende des Monats über dem Schwellenwert liegt, gutgeschrieben. Wenn Sie GitHub Sponsors verlassen, wird GitHub eine Auszahlung für Ihren Restbetrag ausstellen, auch wenn der Restbetrag unter 100 US-Dollar liegt.
 
@@ -135,6 +138,22 @@ Sie sind dafür verantwortlich, ggf. die Bedingungen für Rückerstattungen an I
 
 #### 4.7. 4.7 Angeforderte Zahlungsinformationen
 Damit wir Sie bezahlen können, müssen Sie uns Ihre vollständigen und korrekten Finanz-, Steuer- und Bankdaten bereitstellen, um die wir Sie bitten (beispielsweise durch die Erstellung oder Einrichtung eines Kontos oder anderweitig). Wir benachrichtigen Sie über irgendein Kommunikationsmittel über Änderungen hinsichtlich der erforderlichen Informationen. Wenn Sie diese Informationen nicht korrekt bereitstellen (oder pflegen), können wir (a) entsprechende Bankgebühren von Ihrer Gesponserter-Entwickler-Bezahlung abziehen und (b) diese zusätzlichen Bedingungen kündigen, wodurch Ihnen möglicherweise alle Beträge, die GitHub Ihnen schuldet, entgehen.
+
+#### 4.8. Stripe Connect
+
+If you are paid through Stripe Connect, the following additional terms apply to your usage of GitHub Sponsors:
+
+**Full service agreement**
+
+_Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
+
+Payment processing services for Sponsored Developer Accounts on GitHub Sponsors are provided by Stripe and are subject to the [Stripe Connected Account Agreement](https://stripe.com/connect-account/legal/full), which includes the [Stripe Terms of Service](https://stripe.com/legal) (collectively, the “Stripe Services Agreement”). By agreeing to these terms or continuing to operate as a Sponsored Developer Account on GitHub Sponsors, you agree to be bound by the Stripe Services Agreement, as the same may be modified by Stripe from time to time. As a condition of GitHub enabling payment processing services through Stripe, you agree to provide GitHub accurate and complete information about you and your business, and you authorize GitHub to share it and transaction information related to your use of the payment processing services provided by Stripe.
+
+**Recipient service agreement**
+
+_Applies to Sponsored Developer Accounts in all other countries._
+
+We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recipient Agreement](https://stripe.com/connect-account/legal/recipient) applies to your receipt of such payouts. To receive payouts from GitHub Sponsors, you must provide us accurate and complete information about you and your business, and you authorize us to share it and transaction information related to your payout with Stripe.
 
 ### 5.  Zusicherungen und Gewährleistungen, Haftungseinschränkung, Entschädigung
 

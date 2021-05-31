@@ -8,7 +8,10 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   free-pro-team: '*'
+type: how_to
 ---
+
+{% data reusables.actions.ae-beta %}
 
 Você deve aceitar os termos de serviço para publicar ações em {% data variables.product.prodname_marketplace %}.
 

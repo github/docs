@@ -1,0 +1,1 @@
+1. Next to the app you want to upgrade, use the **Edit** drop-down and click **Change plan**. ![Menú desplegable de editar en la sección de compras de Marketplace para tu configuración de facturación en tu cuenta personal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

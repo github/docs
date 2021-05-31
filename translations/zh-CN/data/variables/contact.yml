@@ -1,7 +1,7 @@
 ---
 contact_ent_support: '[GitHub Enterprise 支持](https://enterprise.githubsupport.com/hc/en-us) 或 [GitHub 高级支持](https://premium.githubsupport.com)'
 contact_support: >-
-  {% if currentVersion == "free-pro-team@latest" %}[GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com){% else %}your site administrator{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[GitHub 支持](https://support.github.com/contact) 或 [GitHub 高级支持](https://premium.githubsupport.com){% else %}您的站点管理员{% endif %}
 report_abuse: >-
   {% if currentVersion == "free-pro-team@latest" %}[报告滥用](https://github.com/contact/report-abuse){% endif %}
 report_content: >-
@@ -22,11 +22,14 @@ premium_support: 'GitHub 高级支持'
 enterprise_portal: 'GitHub Enterprise 支持门户'
 contact_enterprise_portal: '[GitHub Enterprise 支持门户](https://enterprise.githubsupport.com/hc/en-us)'
 #Azure support (GitHub AE) portal
-ae_azure_portal: 'Azure Support portal'
-contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
-#GitHub Support portal (for dotcom)
+ae_azure_portal: 'Azure 支持门户'
+contact_ae_portal: '[Azure 支持门户](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+#GitHub Support portal (for dotcom - this sends users to a contact form)
 support_portal: 'GitHub 支持门户'
 contact_support_portal: '[GitHub 支持门户](https://support.github.com/contact)'
+#GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'GitHub 支持门户'
+contact_landing_page_portal: '[GitHub 支持门户](https://support.github.com/)'
 #The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
 community_support: 'GitHub Community Support'
 #The GitHub Community forum

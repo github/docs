@@ -1,7 +1,7 @@
 ---
 title: ワークフローテンプレートを使用して継続的インテグレーションを設定する
 shortTitle: テンプレートを使用した CI の設定
-intro: 使用したい言語とツールに一致するワークフローテンプレートを使用して、プロジェクトに継続的インテグレーションを設定することができます。
+intro: 使用したい言語とツールにマッチするワークフローテンプレートを使用して、プロジェクトに継続的インテグレーションを設定することができます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
@@ -11,10 +11,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
+  - CI
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 リポジトリへの書き込み権限があるユーザなら誰でも {% data variables.product.prodname_actions %} を使用して継続的インテグレーション (CI) を設定することができます。
 
@@ -22,7 +28,7 @@ CIを設定すると、必要に応じてワークフローをカスタマイズ
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 使用したい言語とツールに一致するテンプレートを探し、[**Set up this workflow**] をクリックします。 ![[Setup workflow] ボタン](/assets/images/help/repository/setup-workflow-button.png)
+1. 使用したい言語とツールにマッチするテンプレートを探し、[**Set up this workflow**] をクリックします。 ![[Setup workflow] ボタン](/assets/images/help/repository/setup-workflow-button.png)
 5. [**Start commit**] をクリックします。 ![[Start commit]ボタン](/assets/images/help/repository/start-commit.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

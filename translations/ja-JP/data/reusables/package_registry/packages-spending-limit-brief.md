@@ -1,1 +1,1 @@
-If you are a monthly-billed customer, your account will have a default spending limit of $0, which prevents additional usage of storage or data transfer after you reach the included amounts. If you pay your account by invoice, your account will have an unlimited default spending limit.
+月額料金のお客様の場合、デフォルトではアカウントの料金の上限は$0になっており、含まれている量に達した後に追加でストレージやデータ転送が利用されないようになっています。 請求書でアカウントの支払いを行う場合、アカウントのデフォルトの支払い制限は無制限になります。

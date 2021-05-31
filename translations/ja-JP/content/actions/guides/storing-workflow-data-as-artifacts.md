@@ -1,7 +1,7 @@
 ---
-title: ワークフロー データをアーティファクトとして保存する
-shortTitle: ワークフロー アーティファクトを保存する
-intro: アーティファクトを使うと、ワークフローが完了したときに、そのワークフローのジョブとストアデータの間でデータを共有することができます。
+title: ワークフロー データを成果物として保存する
+shortTitle: ワークフローの成果物を保存する
+intro: 成果物を使うと、ワークフロー内のジョブ間でデータを共有し、ワークフローが完了したときに、そのワークフローのデータを保存できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
@@ -11,14 +11,19 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Workflows
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### ワークフローの成果物について
 
-成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 アーティファクトとは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、成果物を使ってワークフローの実行が終了した後、ビルドとテストの出力を保存しておけます。
+成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 成果物とは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、ワークフローの実行が終了した後、成果物を使ってビルドとテストの出力を保存しておけます。
 
 {% data reusables.github-actions.artifact-log-retention-statement %} プルリクエストの保持期間は、ユーザが新しいコミットをプルリクエストにプッシュするたびに再開されます。
 
@@ -27,7 +32,7 @@ versions:
 - ログファイルとコアダンプ
 - テスト結果、エラー、スクリーンショット
 - バイナリあるいは圧縮されたファイル
-- ストレステストのパフォーマンス出力およびコード網羅率の結果
+- ストレステストのパフォーマンス出力およびコードカバレッジの結果
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -54,13 +59,13 @@ versions:
 
 継続的インテグレーション（CI）ワークフローを作成して、コードのビルドやテストを行えます。 {% data variables.product.prodname_actions %} を使用して CI を実行する方法の詳細については、「[継続的インテグレーションについて](/articles/about-continuous-integration)」を参照してください。
 
-コードのビルドおよびテストを出力すると多くの場合、エラーのデバッグに使用できるファイルと、デプロイできる本番コードが生成されます。 リポジトリにプッシュされるコードをビルドしてテストし、成功または失敗のステータスをレポートするワークフローを構成することができます。 デプロイメントに使用するビルドおよびテスト出力をアップロードし、失敗したテストまたはクラッシュをデバッグしてテストスイートの範囲を確認できます。
+コードのビルドおよびテストからの出力によって、多くの場合、エラーのデバッグに使用できるファイルと、デプロイできる本番コードが生成されます。 リポジトリにプッシュされるコードをビルドしてテストし、成功または失敗のステータスをレポートするワークフローを構成することができます。 デプロイメントに使用するビルドおよびテスト出力をアップロードし、失敗したテストまたはクラッシュをデバッグしてテストスイートのカバレッジを確認できます。
 
-成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリー、または複数のファイルまたはディレクトリーを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 アーティファクトの名前を指定することをお勧めしますが、名前を指定しない場合は、 `アーティファクト` が既定の名前として使用されます。 構文の詳細については、 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
+成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリ、あるいは複数のファイルまたはディレクトリを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 成果物の名前を指定することをおすすめしますが、名前を指定しない場合は、 `artifact` がデフォルトの名前として使用されます。 構文の詳細については、 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) アクション{% else %} `actions/upload-artifact` アクション{% endif %}を参照してください。
 
 #### サンプル
 
-たとえば、リポジトリあるいはWebアプリケーションにはCSSやJavaScriptに変換しなければならないSASSやTypeScriptが含まれているかもしれません。 ビルド構成が`dist`ディレクトリにコンパイル後のファイルを出力すると仮定すると、テストがすべて正常に完了した場合、`dist`ディレクトリにあるファイルがWebアプリケーションにデプロイされます。
+たとえば、リポジトリあるいはWebアプリケーションにはCSSやJavaScriptに変換しなければならないSASSやTypeScriptが含まれているかもしれません。 ビルド構成が`dist`ディレクトリにコンパイル後のファイルを出力すると仮定すると、テストがすべて正常に完了した場合、`dist`ディレクトリにあるファイルがWebアプリケーションサーバーにデプロイされます。
 
 ```
 |-- hello-world (repository)
@@ -74,46 +79,46 @@ versions:
 |   
 ```
 
-この例では、srcディレクトリにコードを`builds`して、`tests`ディレクトリでテストを実行するNode.jsプロジェクトのワークフローを作成しています。 実行中の`npm test`が、`code-coverage.html`という名前で、`output/test/`ディレクトリに保存されるコード網羅率レポートを生成すると想定できます。
+この例では、srcディレクトリにコードを`builds`して、`tests`ディレクトリでテストを実行するNode.jsプロジェクトのワークフローを作成しています。 実行中の`npm test`が、`code-coverage.html`という名前で、`output/test/`ディレクトリに保存されるコードカバレッジレポートを生成すると想定できます。
 
-ワークフローは、 `dist` ディレクトリにプロダクション アーティファクトをアップロードしますが、マークダウン ファイルは除きます。 また、 `の code-coverage.html` レポートを別のアーティファクトとしてアップロードします。
+このワークフローは `dist` ディレクトリにプロダクションの成果物をアップロードしますが、Markdownファイルはその対象外です。 また、 `code-coverage.html`レポートは別の成果物としてアップロードされます。
 
-```yaml
-名前: ノード CI
+```yaml{:copy}
+name: Node CI
 
-: [push]
+on: [push]
 
-ジョブ:
+jobs:
   build_and_test:
-    実行: ubuntu-最新
-    ステップ:
-      - 名前: チェックアウト リポジトリ
-        使用: アクション/checkout@v2
-      - 名前: npm インストール、ビルド、テスト
-        実行: |
-          npm のインストール
-          npm 実行ビルド --if-present
-          npm テスト
-      - 名前: アーカイブ制作アーティファクト
-        使用: アクション/アップロードartifact@v2
-        :
-          名: dist-マークダウンなし
-          パス: |
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm test
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
             dist
             !dist/**/*.md
-      - 名前: アーカイブ コード カバレッジ結果
-        使用: アクション/アップロードartifact@v2
-        と共に:
-          名: コード カバレッジ レポート
-          パス: output/test/code-coverage.html
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: output/test/code-coverage.html
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### カスタムアーティファクトの保持期間を設定する
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+### カスタムの成果物の保持期間を設定する
 
 ワークフローによって作成された個々のアーティファクトのカスタム保存期間を定義できます。 ワークフローを使用して新しいアーティファクトを作成する場合、`upload-artifact` アクションで `retention-days` を使用できます。 この例は、`my-artifact` という名前のアーティファクトに 5 日間のカスタム保存期間を設定する方法を示しています。
 
-```
+```yaml{:copy}
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:
@@ -129,7 +134,7 @@ versions:
 
 ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/rest/reference/actions#artifacts)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローの成果物を削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[Artifacts REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 
@@ -137,23 +142,24 @@ versions:
 
 {% note %}
 
-**注意:** 同じワークフロー実行中にアップロードされたワークフロー内のアーティファクトのみをダウンロードできます。
+**ノート:** ダウンロードできるのは、同じワークフロー実行中にアップロードされたワークフロー内の成果物のみです。
 
 {% endnote %}
 
-個々の成果物をダウンロードする成果物の名前を指定します。 名前を指定せずにアーティファクトをアップロードした場合、デフォルト名はアーティファクト</code>`されます。</p>
-
-<pre><code class="yaml">- 名前: 使用
-  単一のアーティファクトをダウンロード: アクション/ダウンロードartifact@v2
-  と共に:
-    名: my-artifact
-`</pre>
-
-また、名前を指定しないことで、ワークフロー実行のすべての成果物をダウンロードすることもできます。 これは、多数のアーティファクトを扱っている場合に便利です。
+個々の成果物をダウンロードするには、成果物の名前を指定します。 名前を指定せずに成果物をアップロードした場合、デフォルトで名前は`artifact`になります。
 
 ```yaml
-- 名前: 使用
-  すべてのワークフロー実行アーティファクトをダウンロード: アクション/ダウンロードartifact@v2
+- name: Download a single artifact
+  uses: actions/download-artifact@v2
+  with:
+    name: my-artifact
+```
+
+また、名前を指定しないことで、ワークフロー実行のすべての成果物をダウンロードすることもできます。 これは、多数の成果物を扱っている場合に便利です。
+
+```yaml
+- name: Download all workflow run artifacts
+  uses: actions/download-artifact@v2
 ```
 
 ワークフロー実行のすべての成果物をダウンロードすると、各成果物のディレクトリーがその名前を使用して作成されます。
@@ -164,16 +170,16 @@ versions:
 
 `upload-artifact`アクションと`download-artifact`アクションを使うと、ワークフローのジョブ間でデータを共有できます。 以下のワークフローの例では、同じワークフローのジョブ間でデータを受け渡す方法を説明しています。 詳しい情報については、 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
 
-前のジョブのアーティファクトに依存するジョブは、前のジョブが正常に完了するまで待つ必要があります。 このワークフローは、`needs`キーワードを使用して`job_1`、`job_2`、`job_3`を順次実行することができます。 たとえば、`job_2`には`needs: job_1`構文を使用する`job_1`が必要です。
+前のジョブの成果物に依存するジョブは、前のジョブが正常に完了するまで待つ必要があります。 このワークフローは、`needs`キーワードを使用して`job_1`、`job_2`、`job_3`を順次実行することができます。 たとえば、`job_2`は`needs: job_1`構文を使って`job_1`を必要とすることができます。
 
 ジョブ1は、以下のステップを実行します。
 - 数式の計算を実行し、その結果を`math-homework.txt`というテキストファイルに保存します。
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+- `upload-artifact` アクションを使って、`math-homework.txt` ファイルを `homework` という成果物名でアップロードします。
 
 ジョブ2は、前のジョブの結果を利用して、次の処理を実行します。
 - 前のジョブでアップロードされた`homework`成果物をダウンロードします。 デフォルトでは、`download-artifact`アクションは、ステップが実行されているワークスペースディレクトリに成果物をダウンロードします。 入力パラメータの`path`を使って、別のダウンロードディレクトリを指定することもできます。
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- `math-homework.txt`ファイルをアップロードします。 This upload overwrites the previously uploaded artifact because they share the same name.
+- `math-homework.txt` ファイル中の値を読み取り、数式の計算を実行して、結果を `math-homework.txt` に再度保存し、その内容を上書きします。
+- `math-homework.txt`ファイルをアップロードします。 このアップロードでは、同じ名前を共有しているため、以前にアップロードされた成果物を上書きします。
 
 ジョブ3は、前のジョブでアップロードされた結果を表示して、次の処理を実行します。
 - `homework`成果物をダウンロードします。
@@ -181,71 +187,71 @@ versions:
 
 このワークフロー例で実行される完全な数式は、`(3 + 7) x 9 = 90`です。
 
-```yaml
-名前:
+```yaml{:copy}
+name: Share data between jobs
 
-ジョブ間でデータを共有: [push]
+on: [push]
 
-ジョブ:
+jobs:
   job_1:
-    名: 3 と 7
-    実行を追加: ubuntu 最新
-    ステップ:
-      - シェル: バッシュ
-        実行: |
+    name: Add 3 and 7
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
           expr 3 + 7 > math-homework.txt
-      - 名前: ジョブ1の数学の結果をアップロード
-        使用: アクション/アップロードartifact@v2
-        使用:
-          名: 宿題
-          パス: math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: homework
+          path: math-homework.txt
 
   job_2:
-    名: job_1
-    の
-    ニーズ: job_1 実行: windows-最新
-    ステップ:
-      - 名前: ジョブ1
-        の数学結果をダウンロード使用: アクション/ダウンロードartifact@v2
-
-        
-      
-          :
-          値='cat math-homework.txt'
-          は、数学-homework.txt
-      $value 9 > - 名前:ジョブ2
-        の数学の結果をアップロード使用:アクション/アップロードartifact@v2
-        :
-          名:宿題
-          パス:数学-宿題.txt
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          expr $value \* 9 > math-homework.txt
+      - name: Upload math result for job 2
+        uses: actions/upload-artifact@v2
+        with:
+          name: homework
+          path: math-homework.txt
 
   job_3:
-    名 結果
-    表示:のニーズを表示する:job_2
-    実行:macOS最新
-    ステップ:
-      - 名前:ジョブ2の数学の結果をダウンロード
-        使用:アクション/ダウンロードartifact@v2
-        :
-          名:宿題
-      - 名前:シェル
-        最終結果を印刷する:バッシュ
-        実行: |
-          値='cat数学宿題.txt'
-          エコー 結果は $value
+    name: Display results
+    needs: job_2
+    runs-on: macOS-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v2
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          echo The result is $value
 ```
 
-The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+ワークフローの実行により、生成された成果物がアーカイブされます。 アーカイブされた成果物のダウンロードの詳細については、「[ワークフローの成果物をダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 {% else %}
-![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+![ジョブ間でデータを受け渡して計算を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 参考リンク
 
-- /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
+- [{% data variables.product.prodname_actions %}の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)
 
 {% endif %}

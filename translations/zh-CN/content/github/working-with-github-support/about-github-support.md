@@ -5,6 +5,8 @@ redirect_from:
   - /articles/about-github-support
 versions:
   free-pro-team: '*'
+topics:
+  - Jobs
 ---
 
 ### 关于 {% data variables.contact.github_support %}
@@ -23,9 +25,9 @@ versions:
 
 ### 联系 {% data variables.contact.github_support %}
 
-{% data variables.product.prodname_free_user %} 用户和组织帐户可以使用 {% data variables.contact.community_support_forum %} 浏览主题、提出问题、分享解决方案以及直接与 {% data variables.contact.community_support %} 交互。 您还可以联系 {% data variables.contact.contact_support %} 以报告帐户、安全和滥用问题。
+您可以使用 {% data variables.contact.community_support_forum %} 浏览主题、提出问题、分享解决方案以及直接与 {% data variables.contact.community_support %} 交互。
 
-在付费帐户上，您可以联系 {% data variables.contact.contact_support %}，并根据您的计划，联系 {% data variables.contact.premium_support %} 或 {% data variables.contact.contact_ent_support %}。 有关联系 {% data variables.contact.premium_support %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.contact.premium_support %}](/articles/about-github-premium-support-for-github-enterprise-cloud)”或“[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)”。
+要报告帐户、安全和滥用问题，或获得付费帐户的辅助支持，请访问 {% data variables.contact.contact_support_portal %}。 如果您是 {% data variables.product.prodname_ghe_server %} 的管理员，但在 {% data variables.product.prodname_dotcom_the_website %} 上没有用户帐户，请访问 {% data variables.contact.contact_enterprise_portal %}。
 
 ### 授予 {% data variables.contact.github_support %} 临时访问私有仓库的权限
 

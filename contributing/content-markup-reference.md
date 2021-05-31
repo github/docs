@@ -16,7 +16,7 @@
 
 [Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown used across GitHub.
 
-This site's Markdown rendering is powered by the [`/lib/render-content`](/lib/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
+This site's Markdown rendering is powered by [`/lib/render-content`](/lib/render-content), which is in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
 
 ## Callout tags
 
@@ -98,10 +98,44 @@ These instructions are pertinent to Windows users.
 {% endlinux %}
 ```
 
-You can define a default platform in the frontmatter, see the [content README](../content/README.md#defaultplatform).
+You can define a default platform in the frontmatter. For more information, see the [content README](../content/README.md#defaultplatform).
+
+## Tool tags
+
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+
+### Usage
+
+```
+{% webui %}
+
+These instructions are pertinent to GitHub UI users.
+
+{% endwebui %}
+```
+
+```
+{% cli %}
+
+These instructions are pertinent to GitHub CLI users.
+
+{% endcli %}
+```
+
+```
+{% desktop %}
+
+ These instructions are pertinent to GitHub Desktop.
+
+{% enddesktop %}
+```
+
+Unlike [operating system tags](#operating-system-tags), which will automatically add tabs to select the operating system at the top of the article, you must add `{% include tool-switcher %}` wherever you want to display tabs to select the tool. This allows you to display the tabs at the top of the article or immediately before a relevant section.
+
+You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ## Reusable and variable strings of text
 
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
-For longer strings, we use [reusables](), and for shorter strings, we use [variables](). See each linked README for usage instructions.
+For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).

@@ -5,6 +5,8 @@ redirect_from:
   - /articles/changing-your-sponsorship-tiers
 versions:
   free-pro-team: '*'
+topics:
+  - sponsors
 ---
 
 ### 关于赞助等级
@@ -22,7 +24,7 @@ versions:
 {% data reusables.sponsors.save-tier-draft %}
 {% data reusables.sponsors.review-and-publish-tier %}
 
-### Editing or retiring a tier
+### 编辑或撤销等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}

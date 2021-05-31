@@ -22,6 +22,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - pages
 ---
 
 ### About Jekyll
@@ -38,7 +40,7 @@ You can configure most Jekyll settings, such as your site's theme and plugins, b
 
 Some configuration settings cannot be changed for {% data variables.product.prodname_pages %} sites.
 
-```
+```yaml
 lsi: false
 safe: true
 source: [your repo's top level directory]
@@ -92,9 +94,9 @@ You can download or create Jekyll plugins to extend the functionality of Jekyll 
 - [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
 - [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
-You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation. For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your *_config.yml* file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
 
-For usage information for a specific plugin, see the plugin's documentation.
+For a list of supported plugins, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.  For usage information for a specific plugin, see the plugin's documentation.
 
 {% tip %}
 
@@ -112,7 +114,7 @@ By default, code blocks on your site will be highlighted by Jekyll. Jekyll uses 
 
 If you want to use another highlighter, such as `highlight.js`, you must disable Jekyll's syntax highlighting by updating your project's *_config.yml* file.
 
-```
+```yaml
 kramdown:
   syntax_highlighter_opts:
     disable : true

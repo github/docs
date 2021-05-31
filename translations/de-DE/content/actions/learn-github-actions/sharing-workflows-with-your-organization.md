@@ -7,10 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Übersicht
 
@@ -18,24 +21,24 @@ If you need to share workflows and other {% data variables.product.prodname_acti
 
 ### Erstellen einer Workflowvorlage
 
-Workflowvorlagen können von Benutzern mit Schreibzugriff auf die `.github` Repository der Organisation erstellt werden. Die Vorlagen können dann von Organisationsmitgliedern verwendet werden, die über die Berechtigung zum Erstellen von Workflows verfügen. Workflowvorlagen können verwendet werden, um neue Workflows in öffentlichen Repositorys einer Organisation zu erstellen. Um Vorlagen zum Erstellen von Workflows in privaten Repositorys zu verwenden, muss die Organisation Teil eines Unternehmens- oder GitHub One-Plans sein.
+Workflowvorlagen können von Benutzern mit Schreibzugriff auf die `.github` Repository der Organisation erstellt werden. Die Vorlagen können dann von Organisationsmitgliedern verwendet werden, die über die Berechtigung zum Erstellen von Workflows verfügen. Workflow templates can be used to create new workflows in an organizations' public repositories; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
 
 In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Metadatendatei erstellt werden. Die Metadatendatei beschreibt, wie die Vorlage benutzern beim Erstellen eines neuen Workflows angezeigt wird.
 
 1. Wenn es noch nicht vorhanden ist, erstellen Sie ein neues öffentliches Repository mit dem Namen `.github` in Ihrer Organisation.
-1. Erstellen Sie ein Verzeichnis mit dem Namen `Workflowvorlagen`.
-1. Erstellen Sie Ihre neue Workflowdatei im `Workflow-Vorlagen` Verzeichnis.
+2. Erstellen Sie ein Verzeichnis mit dem Namen `Workflowvorlagen`.
+3. Erstellen Sie Ihre neue Workflowdatei im `Workflow-Vorlagen` Verzeichnis.
 
    Wenn Sie auf den Standardzweig eines Repositorys verweisen müssen, können Sie den `$default-branch` Platzhalter verwenden. Wenn ein Workflow mit Ihrer Vorlage erstellt wird, wird der Platzhalter automatisch durch den Namen der Standardverzweigung des Repositorys ersetzt.
 
    Diese Datei mit dem Namen `octo-organization-ci.yml` veranschaulicht beispielsweise einen grundlegenden Workflow.
 
    ```yaml
-   Name: Octo Organization CI
+   name: Octo Organization CI
 
    on:
      push:
-       branch: [ $default-branch ]
+       branches: [ $default-branch ]
      pull_request:
        branches: [ $default-branch ]
 
@@ -44,12 +47,12 @@ In diesem Verfahren wird veranschaulicht, wie eine Workflowvorlage und eine Meta
        runs-on: ubuntu-latest
 
        steps:
-       - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
 
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
-1. Erstellen Sie eine Metadatendatei im `Workflow-Vorlagen` Verzeichnis. Die Metadatendatei muss denselben Namen wie die Workflowdatei haben, aber anstelle der Erweiterung `.yml` muss sie mit `.properties.json`angehängt werden. Diese Datei mit dem Namen `octo-organization-ci.properties.json enthält` beispielsweise die Metadaten für eine Workflowdatei mit dem Namen `octo-organization-ci.yml`:
+4. Erstellen Sie eine Metadatendatei im `Workflow-Vorlagen` Verzeichnis. Die Metadatendatei muss denselben Namen wie die Workflowdatei haben, aber anstelle der Erweiterung `.yml` muss sie mit `.properties.json`angehängt werden. Diese Datei mit dem Namen `octo-organization-ci.properties.json enthält` beispielsweise die Metadaten für eine Workflowdatei mit dem Namen `octo-organization-ci.yml`:
    ```yaml
    •
        "Name": "Octo Organization Workflow",
@@ -75,7 +78,7 @@ Um eine weitere Workflowvorlage hinzuzufügen, fügen Sie Ihre Dateien `Workflow
 
 ![Workflow-Vorlagendateien](/assets/images/help/images/workflow-template-files.png)
 
-### Verwenden einer Workflowvorlage
+### Using a workflow template from your organization
 
 In diesem Verfahren wird veranschaulicht, wie ein Mitglied Ihrer Organisation eine Workflowvorlage finden und verwenden kann, um einen neuen Workflow zu erstellen. Die Workflowvorlagen einer Organisation können von jedem Benutzer verwendet werden, der Mitglied der Organisation ist.
 

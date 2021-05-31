@@ -14,5 +14,7 @@ product: '{% data reusables.gated-features.pages %}'
 mapTopic: true
 versions:
   free-pro-team: '*'
+topics:
+  - pages
 ---
 

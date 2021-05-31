@@ -4,6 +4,9 @@ redirect_from:
   - /articles/github-registered-developer-agreement
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 GitHub 很荣幸看到众多开发者融入我们的平台。 我们受宠若惊，希望为你们创造更好的体验。  GitHub 的开发者计划（以下简称“计划”）可帮助我们与您建立联系、分享信息、比以往更好地支持您的创作。 在计划下，GitHub 与开发者社区之间形成了特殊的关系，因此需要一套特殊的条款。 欢迎阅读注册开发者协议（以下简称“协议”）。
@@ -86,7 +89,7 @@ GitHub 很荣幸看到众多开发者融入我们的平台。 我们受宠若惊
 
 13. **专有权利**
 
-  您同意，GitHub 及其许可人拥有以下内容的所有权利、所有权和权益：API、预发布材料以及所有其他 GitHub 产品和服务；有关其配置和组合的所有信息和数据；以及对上述任何内容的所有修改和派生作品。 You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
+  您同意，GitHub 及其许可人拥有以下内容的所有权利、所有权和权益：API、预发布材料以及所有其他 GitHub 产品和服务；有关其配置和组合的所有信息和数据；以及对上述任何内容的所有修改和派生作品。 您同意，不得删除、更改、覆盖或混淆我们在 API、预发布材料或任何其他 GitHub 产品和服务上放置或嵌入的任何版权或其他专有权声明。
 
 14. **政府用户**
 

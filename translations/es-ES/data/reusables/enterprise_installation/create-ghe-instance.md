@@ -1,0 +1,1 @@
+Para crear la instancia, deberás importar la imagen del {% data variables.product.prodname_ghe_server %} a tu máquina virtual y adjuntar un volumen de almacenamiento adicional para los datos de tu instancia. Para obtener más información, consulta "[Consideraciones relativas al hardware](#hardware-considerations)."

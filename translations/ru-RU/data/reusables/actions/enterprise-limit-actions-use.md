@@ -1,0 +1,1 @@
+After you enable {% data variables.product.prodname_github_connect %}, you can use policies to restrict which public actions can be used in repositories in your enterprise. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."

@@ -29,13 +29,13 @@ You can use {% data variables.product.prodname_discussions %} to discuss big pic
 
 Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
 
-{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 ### Following contributing guidelines
 
 Before you open a discussion, check to see if the repository has contributing guidelines. The CONTRIBUTING file includes information about how the repository maintainer would like you to contribute ideas to the project.
 
-For more information, see "[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+For more information, see "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)."
 
 ### Next steps
 
@@ -43,7 +43,7 @@ To continue learning about {% data variables.product.prodname_discussions %} and
 
 ### Further reading
 
-- "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Moderating comments and conversations](/articles/moderating-comments-and-conversations)"
+- "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"
+- "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
 - "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

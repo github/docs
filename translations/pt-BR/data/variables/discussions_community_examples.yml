@@ -2,37 +2,37 @@
 - 
   #Images and descriptions are pulled directly from the repo
   repo: vercel/next.js
-  description: The React Framework
+  description: O quadro de trabalho de React
 - 
   repo: gatsbyjs/gatsby
-  description: Build blazing fast, modern apps and websites with React
+  description: Criar aplicativos e sites modernos e incrivelmente rápidos com React
 - 
   repo: nodejs/node
-  description: Node.js JavaScript runtime ✨🐢🚀✨
+  description: Tempo de execução do JavaScript para Node.js ✨🐢🚀✨
 - 
   repo: tailwindlabs/tailwindcss
-  description: A utility-first CSS framework for rapid UI development.
+  description: Uma estrutura CSS utility-first para desenvolvimento rápido de interface de usuário.
 - 
   repo: laravel/framework
-  description: Laravel is a web application framework with expressive, elegant syntax.
+  description: Laravel é um framework de aplicações web com sintaxe expressiva, elegante.
 - 
   repo: prisma/prisma
-  description: Modern database access (ORM alternative) for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB & SQLite
+  description: Acesso moderno ao banco de dados (alternativa ao ORM) para Node.js & TypeScript ├PostgreSQL, MySQL, MariaDB e SQLite
 - 
   repo: dotnet/csharplang
-  description: 'The official repo for the design of the C# programming language'
+  description: 'O repositório oficial para o design da linguagem de programação C#'
 - 
   repo: home-assistant/frontend
   description: '🍭 Frontend for Home Assistant'
 - 
   repo: jspsych/jsPsych
-  description: A JavaScript library for creating and running behavioral experiments in a web browser
+  description: Uma biblioteca JavaScript para criar e executar experimentos comportamentais em um navegador web
 - 
   repo: adonisjs/core
-  description: '🚀 The Node.js Framework highly focused on developer ergonomics, stability and confidence'
+  description: '🚀 A estrutura de Node.js altamente focada em ergonomia dos desenvolvedores, estabilidade e confiança'
 - 
   repo: ImageMagick/ImageMagick
   description: '🧙‍♂️ ImageMagick 7'
 - 
   repo: react-hook-form/react-hook-form
-  description: '📋 React Hooks for forms validation (Web + React Native)'
+  description: '📋 Hooks de React para validação de formas (Web + React Native)'

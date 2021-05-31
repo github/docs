@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -69,14 +71,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 [搜索提交](/rest/reference/search)。
 
 **自定义媒体类型：** `cloak-preview` **公布日期：** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-### 用户阻止
-
-用户可以[阻止其他用户](/rest/reference/users#blocking)。 组织也可以[阻止用户](/rest/reference/orgs#blocking)。
-
-**自定义媒体类型：** `giant-sentry-fist-preview` **公布日期：** [2011-05-31](https://github.com/blog/862-block-the-bullies) **更新日期 1：** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **更新日期 2：** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page)
-{% endif %}
 
 ### 仓库主题
 
@@ -154,7 +148,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `antiope-preview` **公布日期：** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == enterpriseServerVersions contains currentVersion %}
 
 ### 对仓库的匿名 Git 访问
 

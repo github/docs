@@ -1,0 +1,3 @@
+Puedes crear hasta diez niveles de patrocinio que podrán escoger los patrocinadores. Cada nivel tiene sus propias cantidades de pago mensual o de una sola ocasión en dólares estadounidenses y beneficios, tales como recibir el acceso tempran a versiones nuevas o que se te mencione en el README del proyecto. Adicionalmente, puedes elegir habilitar los niveles para las cantidades personalizadas (mensuales y de única ocasión).
+
+Una vez que hayas publicado un nivel, no podrás editar el precio de este. En vez de eso, deberás retirar el nivel y crear uno nuevo. Los patrocinadores existentes seguirán en el nivel que se retiró hasta que cambian su nivel de patrocinio, cancelen su patrocinio, o venza su periodo de patrocinio de una sola ocasión.

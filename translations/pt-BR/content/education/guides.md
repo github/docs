@@ -12,8 +12,8 @@ Professores, estudantes e pesquisadores podem usar ferramentas de {% data variab
 
 - [Cadastre-se para uma nova conta de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/signing-up-for-a-new-github-account)
 - [Git e início rápido de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/quickstart)
-- [Solicitar um desconto de educador ou pesquisador](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)
-- [Aplicar ao pacote de desenvolvedor de aluno](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)
+- [Solicitar um desconto de educador ou pesquisador](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)
+- [Aplicar ao pacote de desenvolvedor de aluno](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)
 
 ### Execute um curso de desenvolvimento software com {% data variables.product.company_short %}
 
@@ -32,7 +32,7 @@ Administrar uma sala de aula, atribuir e revisar o trabalho de seus alunos e ens
 Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use as mesmas ferramentas dos profissionais.
 
 - [Git e recursos de aprendizagem de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/git-and-github-learning-resources)
-- [Use {% data variables.product.prodname_dotcom %} para o seu trabalho na escola](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)
+- [Use {% data variables.product.prodname_dotcom %} para o seu trabalho na escola](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)
 - [Experimente {% data variables.product.prodname_desktop %}](/desktop)
 - [Experimente {% data variables.product.prodname_cli %}](/github/getting-started-with-github/github-cli)
 
@@ -41,5 +41,5 @@ Incorpore {% data variables.product.prodname_dotcom %} na sua educação e use a
 Participe da comunidade, receba treinamento de {% data variables.product.company_short %}, e aprenda ou ensine novas habilidades.
 
 - [{% data variables.product.prodname_education_community %}](https://education.github.community)
-- [Sobre Especialistas de campus](/education/teach-and-learn-with-github-education/about-campus-experts)
-- [Sobre Consultores de campus](/education/teach-and-learn-with-github-education/about-campus-advisors)
+- [Sobre Especialistas de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
+- [Sobre Consultores de campus](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

@@ -1,6 +1,6 @@
 ---
 title: 关于讨论
-intro: 使用讨论来提问和回答问题、共享信息、发布公告以及进行或参与有关 {% data variables.product.product_name %} 上项目的对话。
+intro: '使用讨论来提问和回答问题、共享信息、发布公告以及进行或参与有关 {% data variables.product.product_name %} 上项目的对话。'
 versions:
   free-pro-team: '*'
 ---
@@ -19,7 +19,7 @@ versions:
 
 您不需要像关闭议题或拉取请求那样结束讨论。
 
-如果仓库管理员或项目维护者支持存储库的讨论，则访问仓库的任何人都可以创建和参与仓库的讨论。 仓库管理员和项目维护者可以管理仓库中的讨论和讨论类别，并固定讨论以提高讨论的可见性。 主持人和协作者可以将评论标记为答案、锁定讨论并将议题转换为讨论。 更多信息请参阅“[组织的仓库权限级别](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)”。
+如果仓库管理员或项目维护者支持存储库的讨论，则访问仓库的任何人都可以创建和参与仓库的讨论。 仓库管理员和项目维护者可以管理仓库中的讨论和讨论类别，并固定讨论以提高讨论的可见性。 主持人和协作者可以将评论标记为答案、锁定讨论并将议题转换为讨论。 更多信息请参阅“[组织的仓库权限级别](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization)”。
 
 有关管理仓库讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)”。
 
@@ -50,5 +50,5 @@ versions:
 - “[关于 {% data variables.product.prodname_dotcom %} 上的书写和格式化](/github/writing-on-github/about-writing-and-formatting-on-github)”
 - "[搜索讨论](/github/searching-for-information-on-github/searching-discussions)"
 - "[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[调解评论和对话](/github/building-a-strong-community/moderating-comments-and-conversations)"
-- “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/github/building-a-strong-community/maintaining-your-safety-on-github)”
+- "[调解评论和对话](/communities/moderating-comments-and-conversations)"
+- “[在 {% data variables.product.prodname_dotcom %} 上维护您的安全](/communities/maintaining-your-safety-on-github)”

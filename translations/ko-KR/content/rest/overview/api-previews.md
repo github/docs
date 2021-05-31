@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 
@@ -69,14 +71,6 @@ Manage [projects](/rest/reference/projects).
 [Search commits](/rest/reference/search).
 
 **Custom media type:** `cloak-preview` **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-### User blocking
-
-Users can [block other users](/rest/reference/users#blocking). Organizations can [block users](/rest/reference/orgs#blocking), too.
-
-**Custom media type:** `giant-sentry-fist-preview` **Announced:** [2011-05-31](https://github.com/blog/862-block-the-bullies) **Update 1:** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **Update 2:** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page)
-{% endif %}
 
 ### Repository topics
 
@@ -154,7 +148,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 **Custom media type:** `antiope-preview` **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == enterpriseServerVersions contains currentVersion %}
 
 ### Anonymous Git access to repositories
 

@@ -1,15 +1,23 @@
 ---
-title: 从 CircleCI 迁移到 GitHub 操作
-intro: 'GitHub 操作和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub 操作相对简单。'
+title: 从 CircleCI 迁移到 GitHub Actions
+intro: GitHub Actions 和 CircleCI 在配置上具有若干相似之处，这使得迁移到 GitHub Actions 相对简单。
 redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CircleCI
+  - Migration
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 简介
 
@@ -27,7 +35,9 @@ CircleCI 和 {% data variables.product.prodname_actions %} 都允许您创建能
 从 CircleCI 迁移时，考虑以下差异：
 
 - CircleCI 的自动测试并行性根据用户指定的规则或历史计时信息自动对测试进行分组。 此功能未内置于 {% data variables.product.prodname_actions %}。
-- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+- 在 Docker 容器中执行的操作对权限问题很敏感，因为容器具有不同的用户映射。 您可以通过在 *Dockerfile* 中不使用 `USER` 指令来避免这些问题。 {% if currentVersion == "github-ae@latest" %}有关如何确定 {% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}有关 {% data variables.product.product_name %} 托管的运行器上 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+{% endif %}
 
 ### 迁移工作流程和作业
 
@@ -50,9 +60,17 @@ CircleCI 提供一套具有共同依赖项的预建映像。 这些映像的 `US
 
 建议在迁移到 {% data variables.product.prodname_actions %} 时不使用 CircleCI 的预建映像。 在许多情况下，您可以使用操作来安装需要的附加依赖项。
 
-有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+{% if currentVersion == "github-ae@latest" %}
+有关 Docker 文件系统的更多信息，请参阅“[Docker 容器文件系统](/actions/using-github-hosted-runners/about-ae-hosted-runners#docker-container-filesystem)”。
+有关如何确定
 
-有关 {% data variables.product.prodname_dotcom %} 托管的虚拟环境中可用的工具和软件包的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% data variables.actions.hosted_runner %} 已安装所需软件的说明，请参阅“[创建自定义映像](/actions/using-github-hosted-runners/creating-custom-images)”。
+{% else %}
+有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
+有关
+
+{% data variables.product.prodname_dotcom %} 托管的虚拟环境中可用的工具和软件包的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
+{% endif %}
 
 ### 使用变量和密码
 
@@ -101,7 +119,7 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% data variables.product.prodname_actions %} 没有 CircleCI 的 Docker 层缓存（或 DLC）的等效项。
 
@@ -257,24 +275,24 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
-    # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
-    - name: Setup file system permissions
-      run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
+      # This Docker file changes sets USER to circleci instead of using the default user, so we need to update file permissions for this image to work on GH Actions.
+      # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
+      - name: Setup file system permissions
+        run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 </td>
@@ -411,35 +429,37 @@ jobs:
           POSTGRES_DB: ruby25
           POSTGRES_PASSWORD: ""
         ports:
-        - 5432:5432
+          - 5432:5432
         # Add a health check
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Ruby
-      uses: eregon/use-ruby-action@master
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: vendor/bundle
-        key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
-    - name: Install postgres headers
-      run: sudo apt-get install libpq-dev
-    - name: Install dependencies
-      run: bundle install --path vendor/bundle
-    - name: Setup environment configuration
-      run: cp .sample.env .env
-    - name: Setup database
-      run: bundle exec rake db:setup
-    - name: Run tests
-      run: bundle exec rake
-    - name: Install appraisal
-      run: bundle exec appraisal install
-    - name: Run appraisal
-      run: bundle exec appraisal rake
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: eregon/use-ruby-action@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+      - name: Install postgres headers
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+      - name: Install dependencies
+        run: bundle install --path vendor/bundle
+      - name: Setup environment configuration
+        run: cp .sample.env .env
+      - name: Setup database
+        run: bundle exec rake db:setup
+      - name: Run tests
+        run: bundle exec rake
+      - name: Install appraisal
+        run: bundle exec appraisal install
+      - name: Run appraisal
+        run: bundle exec appraisal rake
 ```
 {% endraw %}
 </td>
