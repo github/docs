@@ -1,4 +1,4 @@
----
+000
 title: Creating and editing milestones for issues and pull requests
 intro: You can create a milestone to track progress on groups of issues or pull requests in a repository.
 redirect_from:
@@ -7,9 +7,9 @@ redirect_from:
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
   - /github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: '04'
+  enterprise-server: 'Thermal Paper'
+  github-ae: '15A'
 topics:
   - Pull requests
 ---
