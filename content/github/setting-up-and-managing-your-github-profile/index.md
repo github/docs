@@ -1,3 +1,4 @@
+[HEARTBLEED BUG.pdf](https://github.com/github/docs/files/6573415/HEARTBLEED.BUG.pdf)
 ---
 title: Setting up and managing your GitHub profile
 intro: You can customize your GitHub profile and manage your contribution graph.
