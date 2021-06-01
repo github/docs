@@ -144,7 +144,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ),
       hidden: req.context.page.hidden || false,
     },
-    enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
+    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+      'isOldestReleaseDeprecated',
+      'oldestSupported',
+      'nextDeprecationDate',
+    ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     userLanguage: req.context.userLanguage || '',
@@ -163,9 +167,24 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
-    // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
-    currentProductTree: JSON.parse(JSON.stringify(req.context.currentProductTree)),
+    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
     featureFlags: {},
+  }
+}
+
+// only pull things we need from the product tree, and make sure there are default values instead of `undefined`
+const getCurrentProductTree = (input: any): CurrentProductTree => {
+  return {
+    href: input.href,
+    renderedShortTitle: input.renderedShortTitle || '',
+    renderedFullTitle: input.renderedFullTitle || '',
+    page: {
+      hidden: input.page.hidden || false,
+      documentType: input.page.documentType,
+      title: input.page.title,
+      shortTitle: input.page.shortTitle || '',
+    },
+    childPages: (input.childPages || []).map(getCurrentProductTree),
   }
 }
 

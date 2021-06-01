@@ -1,0 +1,104 @@
+{% assign product = siteTree[currentLanguage][currentVersion].products[currentProduct] %}
+{% assign currentVersionObject = allVersions[currentVersion] %}
+
+<div class="d-flex">
+  <article class="min-width-0 flex-1">
+    <div class="d-flex flex-items-center flex-justify-between color-bg-primary px-5 py-2">
+      <div></div>
+      <h1 class="f4 py-3 m-0">{{ currentVersionObject.planTitle }} release notes</h1>
+      <div></div>
+    </div>
+
+    <div class="markdown-body">
+      {% for patch in releaseNotes %}
+        <div class="js-release-notes-patch mb-10 color-bg-secondary pb-6 border-bottom border-top" data-version="{{ patch.date }}" id="{{ patch.date }}">
+          <header style="z-index: 1;" class="container-xl position-sticky top-0 color-bg-secondary border-bottom px-3 pt-4 pb-2 js-release-notes-patch-heading" data-version="{{ patch.date }}">
+            <div class="d-flex flex-items-center">
+              <h2 class="border-bottom-0 m-0 p-0">
+                {{ patch.title }}
+              </h2>
+
+              {% if patch.release_candidate %}
+                <span class="IssueLabel color-bg-warning-inverse color-text-inverse ml-3" style="white-space: pre">Release Candidate</span>
+              {% endif %}
+
+              <button class="js-print btn-link ml-3 text-small text-bold">
+                Print
+              </button>
+            </div>
+            {% if patch.currentWeek %}
+            {% assign bannerText = site.data.ui.release_notes.banner_text_current %}
+            {% else %}
+            {% assign bannerText = site.data.ui.release_notes.banner_text_past | append: " " | append: patch.friendlyDate | append: "." %}
+            {% endif %}
+            <p class="color-text-secondary mt-1">{{ patch.friendlyDate }} - {{ bannerText }}</p>
+          </header>
+
+          <div class="container-xl px-3">
+            <div class="mt-3">{{ patch.intro }}</div>
+
+            {% for section in patch.sections %}
+              <div class="release-notes-section-{{ section[0] }} py-6 mx-6 d-block d-xl-flex gutter-xl flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                <ul class="col-12 release-notes-list">
+                  {% for note in section[1] %}
+                    <li class="release-notes-list-item {% if note.heading %}list-style-none{% endif %}">
+                      {% if note.heading %}
+                        {% assign slug = note.heading | slugify %}
+
+                        <h4 id="{{ slug }}" class="release-notes-section-heading text-uppercase text-bold">
+                          <a href="#{{ slug }}" class="text-inherit">{{ note.heading }}</a>
+                        </h4>
+
+                        <ul class="pl-0 pb-4 mt-2 release-notes-list">
+                          {% for subNote in note.notes %}
+                            <li class="release-notes-list-item">{{ subNote }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% else %}
+                        {{ note }}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </article>
+
+  <aside
+    class="markdown-body position-sticky top-0 d-none d-md-block border-left no-print color-bg-primary flex-shrink-0"
+    style="width: 260px; height: 100vh;"
+  >
+    <nav class="height-full overflow-auto">
+      <ul class="list-style-none pl-0 text-bold">
+        {% for release in releases %}
+          <li class="border-bottom">
+            <details class="my-0 details-reset release-notes-version-picker" aria-current="page" open>
+              <summary class="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+                {{ release.version }}
+                <div class="d-flex">
+                  <span class="color-text-tertiary text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
+                  {% octicon "chevron-down" %}
+                </div>
+              </summary>
+              <ul class="color-bg-tertiary border-top list-style-none py-4 px-0 my-0">
+                {% for patch in release.patches %}
+                  <li class="js-release-notes-patch-link px-3 my-0 py-1" data-version="{{ patch.date }}">
+                    <a
+                      href="#{{ patch.date }}"
+                      class="d-flex flex-items-center flex-justify-between">
+                      {{ patch.friendlyDate }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+</div>
