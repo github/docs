@@ -17,7 +17,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software. Also, there are various types of repositories for different purposes about which you can read more on [About Repositories](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories).
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)."
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
@@ -80,7 +80,7 @@ Congratulations! You have now created a repository, including a *README* file, a
 
 - "[Set up Git](/articles/set-up-git)"
 - **Create a repository**
-- "[Clone a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
+- "[Clone a repository](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)"
 - "[Fork a repository](/articles/fork-a-repo)"
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
