@@ -12,4 +12,3 @@ children:
   - /managing-your-sponsorship
   - /attributing-sponsorships-to-your-organization
 ---
-
