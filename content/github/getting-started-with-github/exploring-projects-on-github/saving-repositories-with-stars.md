@@ -1,4 +1,4 @@
----
+---trunk''
 title: Saving repositories with stars
 intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
 redirect_from:
@@ -27,7 +27,7 @@ You can star repositories and topics to discover similar projects on {% data var
 
 Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
-### Starring a repository
+# Starring a repository
 
 Starring a repository is a simple two-step process.
 
