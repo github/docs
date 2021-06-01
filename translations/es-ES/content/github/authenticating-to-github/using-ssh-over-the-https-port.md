@@ -11,7 +11,7 @@ topics:
 
 {% tip %}
 
-**Usuarios de GitHub Enterprise**: Actualmente, no se puede acceder a GitHub Enterprise por SSH a través del puerto HTTPS.
+**Usuarios de {% data variables.product.prodname_ghe_server %}**: Actualmente no hay compatibilidad para acceder a {% data variables.product.prodname_ghe_server %} por SSH mediante el puerto HTTPS.
 
 {% endtip %}
 

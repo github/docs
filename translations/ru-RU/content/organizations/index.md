@@ -11,8 +11,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_with_intro /collaborating-with-groups-in-organizations %}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{currentLanguage}}" data-color-mode="auto" data-dark-theme="dark_dimmed">
+<html lang="{{currentLanguage}}" data-color-mode="$COLORMODE$" data-dark-theme="$DARKTHEME$" data-light-theme="$LIGHTTHEME$">
   {% include head %}
 
   <body class="d-lg-flex">
@@ -131,7 +131,7 @@
       {% endif %}
 
       {% if featuredLinks.guideCards %}
-        <div class="bg-guides-gradient py-6">
+        <div class="color-bg-tertiary py-6">
           <div class="container-xl px-3 px-md-6 my-6">
             <h2 class="font-mktg h1 mb-2" id="guides-2"><a href="#guides-2">Guides</a></h2>
 
@@ -148,22 +148,12 @@
       {% endif %}
 
       <div class="container-xl px-3 px-md-6 mt-6">
-        {% if FEATURE_NEW_SITETREE %}
         {% if page.documentType == "category" %}
           {% include category-articles-list %}
         {% endif %}
         {% if page.documentType == "product" %}
           {% include product-articles-list %}
         {% endif %}
-        {% endif %}
-
-        {% unless FEATURE_NEW_SITETREE %}
-        {% if currentCategory %}
-          {% include all-articles-category %}
-        {% else %}
-          {% include all-articles-product %}
-        {% endif %}
-        {% endunless %}
       </div>
 
       {% include support-section %}

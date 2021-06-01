@@ -49,4 +49,4 @@ Wenn der Zugriff eines Teams auf ein Projektboard von einem übergeordneten Team
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Klicke oberhalb der Unterhaltungen des Teams auf {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projekte). ![Registerkarte mit Team-Repositorys](/assets/images/help/organizations/team-project-board-button.png)
-5. Um die Berechtigungsstufen für ein Projektboard anzupassen, benutze das Dropdownmenü rechts neben dem anzupassenden Projektboard. Um ein Projektboard zu entfernen, klicke **{% octicon "trashcan" aria-label="The trashcan icon" %}**. ![Mülleimer-Schaltfläche zum Entfernen eines Projektboards aus dem Team](/assets/images/help/organizations/trash-button.png)
+5. Um die Berechtigungsstufen für ein Projektboard anzupassen, benutze das Dropdownmenü rechts neben dem anzupassenden Projektboard. Um ein Projektboard zu entfernen, klicke **{% octicon "trash" aria-label="The trash icon" %}**. ![Mülleimer-Schaltfläche zum Entfernen eines Projektboards aus dem Team](/assets/images/help/organizations/trash-button.png)

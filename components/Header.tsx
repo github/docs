@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import cx from 'classnames'
-import { css } from 'styled-components'
 import { useRouter } from 'next/router'
 import { ChevronDownIcon, MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
 import { ButtonOutline } from '@primer/components'
@@ -11,13 +10,18 @@ import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/HeaderNotifications'
 import { MobileProductDropdown } from 'components/MobileProductDropdown'
 import { useTranslation } from 'components/hooks/useTranslation'
+import { HomepageVersionPicker } from 'components/landing/HomepageVersionPicker'
 
 export const Header = () => {
   const router = useRouter()
-  const { currentProduct, relativePath, error } = useMainContext()
+  const { currentProduct, relativePath, currentLayoutName, error } = useMainContext()
   const { t } = useTranslation(['header', 'homepage'])
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const showVersionPicker =
+    relativePath === 'index.md' ||
+    currentLayoutName === 'product-landing' ||
+    currentLayoutName === 'product-sublanding'
 
   return (
     <div className="border-bottom color-border-secondary no-print">
@@ -46,7 +50,11 @@ export const Header = () => {
         <div className="width-full">
           <div className="d-inline-block width-full d-md-flex" style={{ zIndex: 1 }}>
             <div className="float-right d-md-none position-relative" style={{ zIndex: 3 }}>
-              <ButtonOutline css onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <ButtonOutline
+                css
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Navigation Menu"
+              >
                 {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
               </ButtonOutline>
             </div>
@@ -81,10 +89,10 @@ export const Header = () => {
                   </details>
                 </div>
 
-                {/* <!-- Versions picker that only appears in the header on landing pages --> */}
-                {/* {% include header-version-switcher %} */}
-
                 <div className="d-md-inline-block">
+                  {/* <!-- Versions picker that only appears in the header on landing pages --> */}
+                  {showVersionPicker && <HomepageVersionPicker />}
+
                   {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
                   <div className="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
                     <LanguagePicker />

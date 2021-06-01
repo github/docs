@@ -53,7 +53,7 @@ When creating a group, you must choose a policy that defines which repositories 
 
    **Warnung**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 
@@ -85,7 +85,7 @@ When creating a group, you must choose a policy that defines which organizations
 
    **Warnung**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 

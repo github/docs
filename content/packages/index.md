@@ -20,7 +20,7 @@ featuredLinks:
     - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
-  label: 'packages'
+  label: packages
   prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
@@ -31,10 +31,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
-
 <!--This section is needed to determine the order of the left sidebar for now-->
-<!-- {% link_with_intro /quickstart %}  -->
-<!-- {% link_with_intro /learn-github-packages %} -->
-<!-- {% link_with_intro /working-with-a-github-packages-registry %} -->
-<!-- {% link_with_intro /managing-github-packages-using-github-actions-workflows %} -->

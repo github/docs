@@ -21,7 +21,7 @@ describe('header', () => {
   describe('language links', () => {
     test('lead to the same page in a different language', async () => {
       const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
-      expect($('#languages-selector a[href="/ja/github/administering-a-repository/managing-a-branch-protection-rule"]').length).toBe(1)
+      expect($('#languages-selector a[href="/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule"]').length).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {

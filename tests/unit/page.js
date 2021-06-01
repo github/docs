@@ -15,7 +15,7 @@ jest.mock('../../lib/get-link-data')
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
+  relativePath: 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
   basePath: path.join(__dirname, '../../content'),
   languageCode: 'en'
 }
@@ -23,7 +23,7 @@ const opts = {
 describe('Page class', () => {
   test('preserves file path info', async () => {
     const page = await Page.init(opts)
-    expect(page.relativePath).toBe('github/collaborating-with-issues-and-pull-requests/about-branches.md')
+    expect(page.relativePath).toBe(opts.relativePath)
     expect(page.fullPath.includes(page.relativePath)).toBe(true)
   })
 
@@ -37,7 +37,7 @@ describe('Page class', () => {
   })
 
   describe('showMiniToc page property', () => {
-    let article, articleWithFM, tocPage, mapTopic
+    let article, articleWithFM, tocPage
 
     beforeAll(async () => {
       article = await Page.init({
@@ -58,13 +58,6 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-
-      mapTopic = await Page.init({
-        mapTopic: true,
-        relativePath: article.relativePath,
-        basePath: article.basePath,
-        languageCode: article.languageCode
-      })
     })
 
     test('is true by default on articles', () => {
@@ -75,12 +68,9 @@ describe('Page class', () => {
       expect(articleWithFM.showMiniToc).toBe(false)
     })
 
+    // products, categories, and map topics have index.md pages
     test('is undefined by default on index.md pages', () => {
       expect(tocPage.showMiniToc).toBeUndefined()
-    })
-
-    test('is undefined by default on map topics', () => {
-      expect(mapTopic.showMiniToc).toBeUndefined()
     })
   })
 
@@ -90,7 +80,7 @@ describe('Page class', () => {
       const context = {
         page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
+        currentPath: '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
@@ -114,7 +104,7 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
+        currentPath: '/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       await page.render(context)
@@ -125,7 +115,7 @@ describe('Page class', () => {
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
       const page = await Page.init({
-        relativePath: 'admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md',
+        relativePath: 'admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/migrating-from-github-enterprise-1110x-to-2123.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
@@ -148,7 +138,7 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-branches`,
+        currentPath: `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches`,
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
@@ -267,8 +257,9 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en/github/collaborating-with-issues-and-pull-requests/about-branches')
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/github/collaborating-with-issues-and-pull-requests/about-branches`)
+      const expectedPath = 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${expectedPath}`)
+      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/${expectedPath}`)
     })
 
     test('homepage permalinks', async () => {
@@ -283,11 +274,12 @@ describe('Page class', () => {
 
     test('permalinks for dotcom-only pages', async () => {
       const page = await Page.init({
-        relativePath: 'github/getting-started-with-github/signing-up-for-a-new-github-account.md',
+        relativePath: 'github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en/github/getting-started-with-github/signing-up-for-a-new-github-account')
+      const expectedPath = '/en/github/getting-started-with-github/signing-up-for-github/signing-up-for-a-new-github-account'
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(expectedPath)
       expect(page.permalinks.length).toBe(1)
     })
 
@@ -315,11 +307,12 @@ describe('Page class', () => {
 
     test('permalinks for non-GitHub.com products with Enterprise versions', async () => {
       const page = await Page.init({
-        relativePath: '/insights/installing-and-configuring-github-insights/about-github-insights.md',
+        relativePath: '/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
+      const expectedPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/installing-and-updating-github-insights/about-github-insights`
+      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`).href).toBe(expectedPath)
       const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
       expect(pageVersions.length).toBeGreaterThan(1)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
@@ -500,7 +493,7 @@ describe('Page class', () => {
     // Note this test will go out of date when we deprecate 2.20
     test('pages that apply to newer enterprise versions', async () => {
       const page = await Page.init({
-        relativePath: 'github/administering-a-repository/comparing-releases.md',
+        relativePath: 'github/administering-a-repository/releasing-projects-on-github/comparing-releases.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })

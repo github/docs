@@ -37,26 +37,28 @@
   // as the browsers are still working on supporting that combination
 }
 
-.sidebar-maptopic {
-  .sidebar-article {
-    position: relative;
+.sidebar-article {
+  position: relative;
 
+  &::before {
+    content: "";
+    position: absolute;
+    left: $spacer-4;
+    height: 100%;
+    border-left: 1px solid var(--color-text-primary);
+    width: 1px;
+    top: 0;
+  }
+
+  &.active {
     &::before {
-      content: "";
-      position: absolute;
-      left: $spacer-4;
-      height: 100%;
-      border-left: 1px solid var(--color-text-primary);
-      width: 1px;
-      top: 0;
-    }
-
-    &.active {
-      &::before {
-        border-left: 3px solid var(--color-text-primary);
-      }
+      border-left: 3px solid var(--color-text-primary);
     }
   }
+}
+
+.is-current-page > a {
+  font-weight: bolder;
 }
 
 // only display child lists of active elements in sidebar

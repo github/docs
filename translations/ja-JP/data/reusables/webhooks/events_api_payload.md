@@ -1,1 +1,1 @@
-The [event object](#event-object-common-properties) includes properties that are common for all events. Each event object includes a `payload` property and the value is unique to each event type. The `payload` object for this event is described below.
+[イベントオブジェクト](#event-object-common-properties)には、すべてのイベントに共通のプロパティが含まれます。 それぞれのイベントオブジェクトには`payload`プロパティが含まれ、その値はそれぞれのイベントタイプに固有です。 このイベントの`payload`は以下に示します。

@@ -4,7 +4,7 @@ intro: 'If a pull request contains changes to dependencies, you can view a summa
 versions:
   free-pro-team: '*'
 topics:
-  - pull requests
+  - Pull requests
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Sign up for the dependency review beta" and "Reviewing dependency changes in a pull request".-->

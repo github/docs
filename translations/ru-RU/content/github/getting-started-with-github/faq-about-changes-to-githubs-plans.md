@@ -4,7 +4,7 @@ intro: 'As of April 14, 2020, GitHub announced that all of the core GitHub featu
 versions:
   free-pro-team: '*'
 topics:
-  - github
+  - GitHub
 ---
 
 ### What plans and pricing changes did GitHub announce on April 14?

@@ -13062,6 +13062,11 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
   ): URI!
 
   """
+  The user that has claimed the data attributed to this mannequin.
+  """
+  claimant: User
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -36570,6 +36575,16 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryOwne
   The user's public profile bio as HTML.
   """
   bioHTML: HTML!
+
+  """
+  Could this user receive email notifications, if the organization had notification restrictions enabled?
+  """
+  canReceiveOrganizationEmailsWhenNotificationsRestricted(
+    """
+    The login of the organization to check.
+    """
+    login: String!
+  ): Boolean!
 
   """
   A list of commit comments made by this user.

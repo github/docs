@@ -46,9 +46,8 @@ Debes autenticarte con tu organización utilizando el SSO de SAML y el IdP compa
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
@@ -59,9 +58,8 @@ Debes autenticarte con tu organización utilizando el SSO de SAML y el IdP compa
 
 {% data reusables.identity-and-permissions.team-sync-okta-requirements %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-okta %}
@@ -72,8 +70,7 @@ Debes autenticarte con tu organización utilizando el SSO de SAML y el IdP compa
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Dentro de "Team synchronization" (Sincronización de equipo), haz clic en **Disable team synchronization (Inhabilitar la sincronización de equipo)**. ![Inhabilita la sincronización de equipo](/assets/images/help/teams/disable-team-synchronization.png)
