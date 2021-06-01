@@ -1,3 +1,4 @@
+![Windows-App](https://user-images.githubusercontent.com/78428236/120391027-a94f0a80-c358-11eb-9ae3-fab0101e5be2.png)
 ---
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
