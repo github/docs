@@ -101,6 +101,19 @@ describe('header', () => {
       expect($('.header-notifications.translation_notice').length).toBe(1)
       expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
     })
+
+    test('renders a link to the user\'s 2nd preferred language if 1st is not available', async () => {
+      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
+      expect($('.header-notifications a[href*="/ja"]').length).toBe(1)
+    })
+
+    test('renders no notices if no language preference is available', async () => {
+      const headers = { 'accept-language': 'zh-TW,zh;q=0.9,zh-SG *;q=0.8' }
+      const $ = await getDOM('/en', headers)
+      expect($('.header-notifications').length).toBe(0)
+    })
   })
 
   describe('mobile-only product dropdown links', () => {

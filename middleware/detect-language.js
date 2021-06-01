@@ -1,16 +1,35 @@
 const languageCodes = Object.keys(require('../lib/languages'))
+const parser = require('accept-language-parser')
 
-const codes = {
-  zh: 'cn',
-  'zh-hk': 'cn',
-  'zh-cn': 'cn',
-  'zh-sq': 'zh-SQ',
-  'zh-tw': 'zh-TW'
+const chineseRegions = ['CN', 'HK']
+
+function translationExists (language) {
+  if (language.code === 'zh') {
+    return chineseRegions.includes(language.region)
+  }
+  return languageCodes.includes(language.code)
 }
 
-function convertLanguageCode (language) {
-  const languageLowerCase = language.toLowerCase()
-  return codes[languageLowerCase] || languageLowerCase.substring(0, 2)
+function getLanguageCode (language) {
+  return language.code === 'zh' && chineseRegions.includes(language.region) ? 'cn' : language.code
+}
+
+function getUserLanguage (browserLanguages) {
+  try {
+    let userLanguage = getLanguageCode(browserLanguages[0])
+    let numTopPreferences = 1
+    for (let lang = 0; lang < browserLanguages.length; lang++) {
+      // If language has multiple regions, Chrome adds the non-region language to list
+      if (lang > 0 && browserLanguages[lang].code !== browserLanguages[lang - 1].code) numTopPreferences++
+      if (translationExists(browserLanguages[lang]) && numTopPreferences < 3) {
+        userLanguage = getLanguageCode(browserLanguages[lang])
+        break
+      }
+    }
+    return userLanguage
+  } catch {
+    return undefined
+  }
 }
 
 module.exports = function detectLanguage (req, res, next) {
@@ -21,14 +40,7 @@ module.exports = function detectLanguage (req, res, next) {
 
   req.language = languageCodes.includes(firstPartOfPath) ? firstPartOfPath : 'en'
   // Detecting browser language by user preference
-  if (req.headers['accept-language']) {
-    const browserLanguage = req.headers['accept-language'].split(/\s*[,;]\s*/, 1)[0]
-    try {
-      req.userLanguage = convertLanguageCode(browserLanguage)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
+  const browserLanguages = parser.parse(req.headers['accept-language'])
+  req.userLanguage = getUserLanguage(browserLanguages)
   return next()
 }
