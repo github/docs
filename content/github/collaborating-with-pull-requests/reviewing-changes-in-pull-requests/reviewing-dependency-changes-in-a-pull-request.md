@@ -3,8 +3,13 @@ title: Reviewing dependency changes in a pull request
 intro: 'If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies.'
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Pull requests
+  - Dependency review
+  - Advanced Security
+  - Vulnerabilities
+  - Dependencies
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request
   - /github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request

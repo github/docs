@@ -7,8 +7,15 @@ redirect_from:
   - /code-security/supply-chain-security/customizing-dependency-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
+  - Security updates
   - Repositories
+  - Dependencies
+  - Pull requests
+  - Vulnerabilities
 ---
 ### About customizing dependency updates
 
