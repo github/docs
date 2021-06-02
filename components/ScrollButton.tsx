@@ -45,17 +45,6 @@ export const ScrollButton = () => {
       >
         <ChevronUpIcon />
       </button>
-      <style jsx>{`
-        .opacity-0 {
-          opacity: 0;
-        }
-        .opacity-100 {
-          opacity: 1;
-        }
-        .transition-200 {
-          transition: 200ms;
-        }
-      `}</style>
     </div>
   )
 }
