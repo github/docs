@@ -6,8 +6,13 @@ redirect_from:
   - /code-security/supply-chain-security/about-managing-vulnerable-dependencies
 versions:
   free-pro-team: '*'
+type: overview
 topics:
-  - Security
+  - Dependabot
+  - Vulnerabilities
+  - Repositories
+  - Dependencies
+  - Pull requests
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Managing vulnerabilities in your project’s dependencies ".-->
 

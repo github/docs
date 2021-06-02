@@ -8,8 +8,13 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
 ### About the *dependabot.yml* file
 
@@ -942,5 +947,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
