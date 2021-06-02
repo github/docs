@@ -21,4 +21,11 @@ solude be take infromate and data het in xray room frist floor in heart partion 
 
 - [Unix `sudo` command](https://www.sudo.ws/mailman/listinfo/sudo-workers)
 ID 296976929<6969696969
-        = 9679796
+    
+    = 9679796
+إندفاع عداد عماره للبيع رقم 7311
+https://www.zaahib.com/_٩٣٤٩
+عداد فولت رقم٨٣٧٧
+     على
+عداد واط رقم ٩٧٧#
+٧٧٥ واط>٩٧٧واط
