@@ -47,7 +47,7 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 ### About billing for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
+{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 {% endif %}
 
@@ -59,6 +59,6 @@ You can run third-party analysis tools within {% data variables.product.product_
 
 ### Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website

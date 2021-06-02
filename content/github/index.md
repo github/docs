@@ -16,12 +16,10 @@ children:
   - /authenticating-to-github
   - /managing-subscriptions-and-notifications-on-github
   - /setting-up-and-managing-your-enterprise
-  - /setting-up-and-managing-billing-and-payments-on-github
   - /writing-on-github
   - /creating-cloning-and-archiving-repositories
   - /committing-changes-to-your-project
-  - /collaborating-with-issues-and-pull-requests
-  - /managing-your-work-on-github
+  - /collaborating-with-pull-requests
   - /searching-for-information-on-github
   - /importing-your-projects-to-github
   - /administering-a-repository
@@ -37,7 +35,3 @@ children:
   - /site-policy
   - /site-policy-deprecated
 ---
-<!-- Notifications v2 beta -->
-<!-- Notifications v1 -->
-{% if currentVersion == "enterprise-server@2.22" %}
-{% endif %}
