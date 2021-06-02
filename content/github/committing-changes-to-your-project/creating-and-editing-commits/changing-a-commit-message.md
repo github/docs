@@ -49,9 +49,9 @@ We strongly discourage force pushing, since this changes the history of your rep
 **Changing the message of the most recently pushed commit**
 
 1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force` command to force push over the old commit.
+2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force <em>example-branch</em>
+  $ git push --force-with-lease <em>example-branch</em>
   ```
 
 **Changing the message of older or multiple commit messages**
