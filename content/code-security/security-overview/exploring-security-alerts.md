@@ -5,6 +5,13 @@ product: '{% data reusables.gated-features.security-center %}'
 versions:
   free-pro-team: '*'
   github-ae: 'next'
+type: how_to
+topics:
+  - Security overview
+  - Advanced Security
+  - Alerts
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.security-center.beta %}
