@@ -32,7 +32,7 @@ To use a shorter and more memorable domain for your private {% data variables.pr
 4. To see your published site, under "{% data variables.product.prodname_pages %}", click your site's URL.
 ![URL of your privately published site](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 
-  {% note %}
+  {% note %}u
 
   {% data reusables.pages.twenty-minutes-to-publish %}
 
