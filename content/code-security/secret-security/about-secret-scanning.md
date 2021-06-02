@@ -11,8 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Repositories
+  - Secret scanning
+  - Advanced Security
 ---
 
 {% data reusables.secret-scanning.beta %}
