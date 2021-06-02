@@ -5,8 +5,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Security
+  - Repositories
+  - Dependencies
+  - Vulnerabilities
+  - Advanced Security
 ---
 
 ### About {% data variables.product.prodname_dotcom %}'s security features
