@@ -16,12 +16,12 @@ export const ProductArticlesList = () => {
 
   return (
     <div className="d-flex gutter flex-wrap">
-      {currentProductTree.childPages.map((childPage) => {
+      {currentProductTree.childPages.map((childPage, i) => {
         if (childPage.page.documentType === 'article') {
           return null
         }
 
-        return <ArticleList key={childPage.href} page={childPage} />
+        return <ArticleList key={childPage.href + i} page={childPage} />
       })}
     </div>
   )
@@ -45,14 +45,18 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
           }
 
           return (
-            <li className={cx('mb-3', index >= maxArticles ? 'd-none' : null)}>
+            <li
+              key={grandchildPage.href + index}
+              className={cx('mb-3', index >= maxArticles ? 'd-none' : null)}
+            >
               <Link href={grandchildPage.href}>
                 <a>{grandchildPage.page.title}</a>
               </Link>
               {grandchildPage.page.documentType === 'mapTopic' ? (
-              <small className="color-text-secondary d-inline-block">
-                &nbsp;&bull; {page.childPages.length} articles
-              </small>) : null}
+                <small className="color-text-secondary d-inline-block">
+                  &nbsp;&bull; {page.childPages.length} articles
+                </small>
+              ) : null}
             </li>
           )
         })}

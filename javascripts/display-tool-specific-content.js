@@ -1,3 +1,7 @@
+import Cookies from 'js-cookie'
+
+import { sendEvent } from './events'
+
 const supportedTools = ['cli', 'desktop', 'webui']
 const detectedTools = new Set()
 
@@ -18,6 +22,16 @@ export default function displayToolSpecificContent () {
       event.preventDefault()
       showContentForTool(event.target.dataset.tool)
       findToolSpecificContent(event.target.dataset.tool)
+
+      // Save this preference as a cookie.
+      Cookies.set('toolPreferred', event.target.dataset.tool, { sameSite: 'strict', secure: true })
+
+      // Send event data
+      sendEvent({
+        type: 'preference',
+        preference_name: 'application',
+        preference_value: event.target.dataset.tool
+      })
     })
   })
 }
@@ -73,6 +87,8 @@ function detectTools (el) {
 }
 
 function getDefaultTool () {
+  const cookieValue = Cookies.get('toolPreferred')
+  if (cookieValue) return cookieValue
   const el = document.querySelector('[data-default-tool]')
   if (el) return el.dataset.defaultTool
 }

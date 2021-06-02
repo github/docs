@@ -1,6 +1,11 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
+export type TocItem = {
+  fullPath: string
+  title: string
+  intro?: string
+}
 export type FeaturedLink = {
   title: string
   href: string
@@ -28,19 +33,12 @@ export type ProductLandingContextT = {
   intro: string
   beta_product: boolean
   product: Product
-  // primaryAction: LinkButtonT
-  // secondaryAction?: LinkButtonT
   introLinks: {
     quickstart?: string
     reference?: string
     overview?: string
-  }
+  } | null
   product_video?: string
-  // featuredLinks?: {
-  //   guides: Array<FeaturedLink>
-  //   popular: Array<FeaturedLink>
-  //   guideCards: Array<FeaturedLink>
-  // }
   guideCards: Array<FeaturedLink>
   productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
@@ -53,6 +51,7 @@ export type ProductLandingContextT = {
   changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
+  tocItems: Array<TocItem>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -97,20 +96,26 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: {
-      quickstart: productTree.page.introLinks.quickstart,
-      reference: productTree.page.introLinks.reference,
-      overview: productTree.page.introLinks.overview,
-    },
+    introLinks: productTree.page.introLinks
+      ? {
+          quickstart: productTree.page.introLinks.quickstart,
+          reference: productTree.page.introLinks.reference,
+          overview: productTree.page.introLinks.overview,
+        }
+      : null,
 
-    guideCards: (req.context.featuredLinks ? (req.context.featuredLinks.guideCards || []) : []).map((link: any) => {
-      return {
-        href: link.href,
-        title: link.title,
-        intro: link.intro,
-        authors: link.page.authors || [],
+    guideCards: (req.context.featuredLinks ? req.context.featuredLinks.guideCards || [] : []).map(
+      (link: any) => {
+        return {
+          href: link.href,
+          title: link.title,
+          intro: link.intro,
+          authors: link.page.authors || [],
+        }
       }
-    }),
+    ),
+
+    tocItems: req.context.tocItems || [],
 
     featuredArticles: Object.entries(req.context.featuredLinks || [])
       .filter(([key]) => {
@@ -119,7 +124,10 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       .map(([key, links]: any) => {
         return {
           label: req.context.site.data.ui.toc[key],
-          viewAllHref: key === 'guides' && !req.context.currentCategory ? `${req.context.currentPath}/${key}` : '',
+          viewAllHref:
+            key === 'guides' && !req.context.currentCategory
+              ? `${req.context.currentPath}/${key}`
+              : '',
           articles: links.map((link: any) => {
             return {
               hideIntro: key === 'popular',
@@ -130,7 +138,6 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
             }
           }),
         }
-      }
-    ),
+      }),
   }
 }

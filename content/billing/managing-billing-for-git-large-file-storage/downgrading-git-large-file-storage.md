@@ -7,6 +7,7 @@ redirect_from:
   - /articles/downgrading-storage-and-bandwidth-for-an-organization/
   - /articles/downgrading-git-large-file-storage
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
 versions:
   free-pro-team: '*'
 type: how_to
