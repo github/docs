@@ -73,8 +73,8 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
 | `RUNNER_OS` | The operating system of the runner executing the job. Possible values are `Linux`, `Windows`, or `macOS`.
-| `RUNNER_TEMP` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners.
-{% if currentVersion != "github-ae@latest" %}| `RUNNER_TOOL_CACHE` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".{% endif %}
+| `RUNNER_TEMP` | The path to a temporary directory on the runner. This directory is emptied after each job completes.
+{% if currentVersion != "github-ae@latest" %}| `RUNNER_TOOL_CACHE` | The path to the directory containing preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".{% endif %}
 
 {% tip %}
 
