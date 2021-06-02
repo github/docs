@@ -38,6 +38,7 @@ export const DefaultLayout = (props: Props) => {
         {page.languageVariants.map((languageVariant) => {
           return (
             <link
+              key={languageVariant.href}
               rel="alternate"
               hrefLang={languageVariant.hreflang}
               href={`https://docs.github.com${languageVariant.href}`}

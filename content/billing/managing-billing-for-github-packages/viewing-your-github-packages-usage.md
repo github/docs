@@ -4,6 +4,7 @@ intro: 'You can view details of your usage of storage and data transfer for {% d
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-packages-usage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/viewing-your-github-packages-usage
 versions:
   free-pro-team: '*'
 type: how_to
