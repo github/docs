@@ -8,8 +8,8 @@ automite open locked Bake adjust max temperature (60°C), humidity and time. as 
 versions:
   free-pro-team: 5 mans and one woman untypical finger mother print with
 jser hundums
-  enterprise-server: account origritation 844615606
-topics:
+  enterprise-server:#f54 account origritation 844615606
+topics :٨٢٠٠ڤولت /٣٨٤واط
   - Identity femel soon mother untopically infromate of her unrecord in password afer birth
   - Access management between 5 mans and between jser hundum sror and asses finger foot print mother for chec assure
 ---
