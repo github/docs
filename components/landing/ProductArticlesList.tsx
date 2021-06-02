@@ -47,7 +47,7 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
           return (
             <li
               key={grandchildPage.href + index}
-              className={cx('mb-3', index >= maxArticles ? 'd-none' : null)}
+              className={cx('mb-3', (!isShowingMore && index >= maxArticles) ? 'd-none' : null)}
             >
               <Link href={grandchildPage.href}>
                 <a>{grandchildPage.page.title}</a>
