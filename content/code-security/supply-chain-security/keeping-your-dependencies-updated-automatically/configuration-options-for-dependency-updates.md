@@ -944,3 +944,17 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 {% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
+```
+{% endraw %}
