@@ -1,7 +1,7 @@
 ---
 title: Managing code scanning alerts for your repository
 shortTitle: Managing alerts
-intro: 'From the security view, you can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
+intro: 'From the security view, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -13,8 +13,10 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
 topics:
-  - 보안
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -60,7 +62,7 @@ You need write permission to view a summary of all the alerts for a repository o
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning)" and "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
-If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have {% if currentVersion == "enterprise-server@2.22" %}closed{% else %}dismissed{% endif %}.
+If you have write permission for a repository, you can view fixed alerts by viewing the summary of alerts and clicking **Closed**. For more information, see "[Viewing the alerts for a repository](#viewing-the-alerts-for-a-repository)." The "Closed" list shows fixed alerts and alerts that users have dismissed.
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
@@ -69,14 +71,6 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" d
 {% else %}
 ![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-### Closing an alert
-
-Closing an alert is a way to resolve an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %}
-
-{% else %}
 
 ### Dismissing or deleting alerts
 
@@ -101,20 +95,9 @@ When you delete an alert:
 
 To dismiss or delete alerts:
 
-{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-{% if currentVersion == "enterprise-server@2.22" %}
-{% data reusables.code-scanning.click-alert-in-list %}
-1. Select the **Close** drop-down menu and click a reason for closing the alert.    
-   ![Choosing reason for closing the alert via the Close drop-down](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
-
 1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
@@ -144,8 +127,6 @@ To dismiss or delete alerts:
 #### Dismissing multiple alerts at once
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
-
-{% endif %}
 
 ### 더 읽을거리
 

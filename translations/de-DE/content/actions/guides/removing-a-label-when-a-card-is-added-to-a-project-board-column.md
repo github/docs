@@ -1,15 +1,15 @@
 ---
 title: Removing a label when a card is added to a project board column
-intro: You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.
+intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a project board.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Workflows'
-  - 'Project management'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,7 +30,6 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 3. {% data reusables.actions.make-workflow-file %}
 4. Copy the following YAML contents into your workflow file.
 
-    {% raw %}
     ```yaml{:copy}
     name: Remove labels
     on:
@@ -40,14 +39,18 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
     jobs:
       remove_labels:
         if: github.event.project_card.column_id == '12345678'
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - name: remove labels
             uses: andymckay/labeler@master
             with:
               remove-labels: "needs review"
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 5. Customize the parameters in your workflow file:
    - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 

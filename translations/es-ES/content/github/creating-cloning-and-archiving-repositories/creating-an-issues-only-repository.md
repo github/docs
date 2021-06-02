@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 1. Crea un repositorio **privado** para alojar el código fuente de tu proyecto.

@@ -6,10 +6,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'CI'
-  - 'Ruby'
+  - CI
+  - Ruby
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -31,7 +31,7 @@ Recomendamos que você tenha um entendimento básico do Ruby, YAML, das opções
 
 {% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho do Ruby que funcionará para a maioria dos projetos do Ruby. Para obter mais informações, consulte o [modelo do workflow do Ruby](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
+Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório. O fluxo de trabalho mostrado abaixo pressupõe que o branch padrão para o seu repositório é `principal`.
 
 {% raw %}
 ```yaml
@@ -39,9 +39,9 @@ name: Ruby
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -49,15 +49,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - name: Install dependencies
-      run: bundle install
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 
@@ -105,9 +105,9 @@ name: Ruby CI
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -119,15 +119,15 @@ jobs:
         ruby-version: [2.7.x, 2.6.x, 2.5.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby ${{ matrix.ruby-version }}
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-    - name: Install dependencies
-      run: bundle install
-    - name: Run tests
-      run: bundle exec rake
+      - uses: actions/checkout@v2
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
 ```
 {% endraw %}
 
@@ -211,9 +211,9 @@ name: Matrix Testing
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -225,12 +225,12 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: ${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: bundle install
-    - run: bundle exec rake
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+      - run: bundle install
+      - run: bundle exec rake
 ```
 {% endraw %}
 
@@ -248,13 +248,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - run: bundle install
-    - name: Rubocop
-      run: rubocop
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: bundle install
+      - name: Rubocop
+        run: rubocop
 ```
 {% endraw %}
 
@@ -264,7 +264,6 @@ Você pode configurar o seu fluxo de trabalho para publicar o seu pacote do Ruby
 
 Você pode armazenar qualquer token de acesso ou credenciais necessárias para publicar seu pacote usando segredos do repositório. O exemplo a seguir cria e publica um pacote no `Registro de Pacote do GitHub` e `RubyGems`.
 
-{% raw %}
 ```yaml
 
 name: Ruby Gem
@@ -272,46 +271,48 @@ name: Ruby Gem
 on:
   # Manually publish
   workflow_dispatch:
-  # Alternatively, publish whenever changes are merged to the default branch.
+  # Alternatively, publish whenever changes are merged to the `main` branch.
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
     name: Build + Publish
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.6
-    - run: bundle install
+    steps:{% raw %}
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.6
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: bundle install
 
-    - name: Publish to GPR
-      run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
-        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
-      env:
-        GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
-        OWNER: ${{ github.repository_owner }}
+      - name: Publish to GPR
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+        env:
+          GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
+          OWNER: ${{ github.repository_owner }}
 
-    - name: Publish to RubyGems
-      run: |
-        mkdir -p $HOME/.gem
-        touch $HOME/.gem/credentials
-        chmod 0600 $HOME/.gem/credentials
-        printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
-        gem build *.gemspec
-        gem push *.gem
-      env:
-        GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+      - name: Publish to RubyGems
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
+          gem build *.gemspec
+          gem push *.gem
+        env:
+          GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"{% endraw %}
 ```
-{% endraw %}

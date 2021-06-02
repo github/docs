@@ -1,6 +1,6 @@
 ---
 title: Organization のプロジェクトボードに対する個々のアクセスを管理する
-intro: 'Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。'
+intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% note %}

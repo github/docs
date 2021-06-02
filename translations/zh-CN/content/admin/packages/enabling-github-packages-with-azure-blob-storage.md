@@ -4,7 +4,7 @@ intro: '以 Azure Blob 存储作为外部存储设置 {% data variables.product.
 versions:
   enterprise-server: '>=3.0'
 topics:
-  - 企业
+  - Enterprise
 ---
 
 {% warning %}

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - solicitudes de extracción
+  - Pull requests
 ---
 
 Cualquier persona con permisos de escritura en un repositorio puede asignar propuestas y solicitudes de extracción.

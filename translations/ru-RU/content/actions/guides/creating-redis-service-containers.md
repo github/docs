@@ -13,7 +13,7 @@ versions:
 type: tutorial
 topics:
   - Containers
-  - Докер
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}

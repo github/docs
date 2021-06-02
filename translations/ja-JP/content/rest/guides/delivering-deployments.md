@@ -1,6 +1,6 @@
 ---
 title: デプロイメントを配信する
-intro: 'Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。'
+intro: Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
  
   

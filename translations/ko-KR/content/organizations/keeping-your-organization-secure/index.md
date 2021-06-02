@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% link_in_list /viewing-whether-users-in-your-organization-have-2fa-enabled %}
@@ -19,6 +19,6 @@ topics:
 {% link_in_list /requiring-two-factor-authentication-in-your-organization %}
 {% link_in_list /managing-security-and-analysis-settings-for-your-organization %}
 {% link_in_list /managing-allowed-ip-addresses-for-your-organization %}
-{% link_in_list /restricting-email-notifications-to-an-approved-domain %}
+{% link_in_list /restricting-email-notifications-for-your-organization %}
 {% link_in_list /reviewing-the-audit-log-for-your-organization %}
 {% link_in_list /reviewing-your-organizations-installed-integrations %}

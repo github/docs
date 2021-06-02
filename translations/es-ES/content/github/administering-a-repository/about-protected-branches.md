@@ -20,7 +20,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de las reglas de protección de rama
@@ -46,6 +46,8 @@ Para cada regla de protección de rama, puedes elegir habilitar o inhabilitar la
 - [Restringir quiénes pueden subir a las ramas coincidentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir las subidas forzadas](#allow-force-pushes)
 - [Permitir el borrado](#allow-deletions)
+
+Para obtener más información sobre cómo configurar la protección de ramas, consulta la sección "[Administrar la regla de protección de ramas](/github/administering-a-repository/managing-a-branch-protection-rule)".
 
 #### Requerir revisiones de solicitudes de cambio antes de fusionarlas
 
@@ -100,7 +102,15 @@ Cuando habilitas el requerir el firmado de confirmaciones en una rama, los colab
 
 {% note %}
 
+{% if currentVersion == "free-pro-team@latest" %}
+**Notas:**
+
+* Si habilitaste el modo vigilante, el cual indica que tus confirmaciones siempre se firmarán, cualquier confirmación que {% data variables.product.prodname_dotcom %} identifique como "Verificada parcialmente" se permitirá en aquellas ramas que requieran confirmaciones firmadas. Para obtener más información sobre el modo vigilante, consulta la sección "[Mostrar los estados de verificación para todas tus confirmaciones](/github/authenticating-to-github/displaying-verification-statuses-for-all-of-your-commits)".
+* Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, este necesitará rebasar dicha confirmación para incluir una firma verificada y luego subir forzadamente la confirmación reescrita a esta.
+
+{% else %}
 **Nota:** Si un colaborador sube una confirmación sin firmar a una rama que requiere firmas de confirmación, éste necesitará rebasar la confirmación para incluir una firma verificada y luego subir forzadamente la confirmación re-escrita a la rama.
+{% endif %}
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Verwaltung erlaubter IP-Adressen für Deine Organisation
-intro: Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.
+intro: 'Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.'
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organisationsinhaber können erlaubte IP-Adressen für eine Organisation verwalten.
@@ -26,9 +26,8 @@ Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-
 
 ### Eine zulässige IP-Adresse hinzufügen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
@@ -36,18 +35,16 @@ Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-
 
 ### Zulässige IP-Adressen aktivieren
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 3. Wähle unter „IP allow list“ (Liste der zulässigen IP-Adressen) **Enable IP allow list** (Liste der zulässigen IP-Adressen aktivieren) aus. ![Kontrollkästchen, um IP-Adressen zuzulassen](/assets/images/help/security/enable-ip-allowlist-organization-checkbox.png)
 4. Klicke auf **Save** (Speichern).
 
 ### Eine zulässige IP-Adresse bearbeiten
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
@@ -56,9 +53,8 @@ Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-
 
 ### Eine zulässige IP-Adresse löschen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 {% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}

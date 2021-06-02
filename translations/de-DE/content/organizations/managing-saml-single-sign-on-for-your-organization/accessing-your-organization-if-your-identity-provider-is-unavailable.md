@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Administratoren von Organisationen können [einen ihrer heruntergeladenen oder gespeicherten Wiederherstellungscodes](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes) verwenden, um Single-Sign-On zu umgehen. Möglicherweise hast Du diese in einem Passwort-Manager wie [LastPass](https://lastpass.com/), [1Password](https://1password.com/) oder [Keeper](https://keepersecurity.com/) gespeichert.

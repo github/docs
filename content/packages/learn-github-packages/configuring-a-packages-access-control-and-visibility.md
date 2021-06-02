@@ -13,7 +13,7 @@ versions:
 
 Packages with granular permissions are scoped to a personal user or organization account. You can change the access control and visibility of a package separately from the repository that it is connected (or linked) to.
 
-Currently, only the {% data variables.product.prodname_capitalized_container_registry %} offers granular permissions for your container image packages.
+Currently, only the {% data variables.product.prodname_container_registry %} offers granular permissions for your container image packages.
 
 For more information about permissions for repository-scoped packages, packages-related scopes for PATs, or managing permissions for your actions workflows, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)."
 

@@ -1,1 +1,1 @@
-You can transfer ownership of a GitHub App to another user or organization.
+GitHub Appの所有権は、他のユーザもしくはOrganizationに移譲できます。

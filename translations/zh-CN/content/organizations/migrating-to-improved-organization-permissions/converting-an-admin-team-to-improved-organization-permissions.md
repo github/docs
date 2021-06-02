@@ -1,6 +1,6 @@
 ---
 title: 将管理员团队转换为改进的组织权限
-intro: '如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 旧管理员团队的成员在其团队被迁移到改进的组织权限模型之前，自动保留创建仓库的权限。'
+intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 旧管理员团队的成员在其团队被迁移到改进的组织权限模型之前，自动保留创建仓库的权限。
 redirect_from:
   - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions/
   - /articles/converting-an-admin-team-to-improved-organization-permissions
@@ -9,8 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 要删除旧管理员团队成员创建仓库的权限，请为这些成员创建新团队，确保该团队对组织仓库具有必要的权限，然后删除旧管理员团队。

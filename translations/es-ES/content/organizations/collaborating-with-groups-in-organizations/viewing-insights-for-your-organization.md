@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Todos los miembros de una organización pueden ver información de la organización. Para obtener más información, consulta "[Niveles de permisos para una organización](/articles/permission-levels-for-an-organization)".

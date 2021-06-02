@@ -6,8 +6,13 @@ redirect_from:
   - /enterprise/admin/overview/system-overview
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - 企业
+  - Enterprise
+  - Fundamentals
+  - Infrastructure
+  - Security
+  - Storage
 ---
 
 ### 存储架构

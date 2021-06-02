@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - búsqueda de github
+  - GitHub search
 ---
 
 {% tip %}

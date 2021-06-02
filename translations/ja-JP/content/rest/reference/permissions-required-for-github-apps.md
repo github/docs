@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 ### {% data variables.product.prodname_github_app %}の権限について
@@ -32,7 +32,7 @@ GitHub Appは、デフォルトで`Read-only`メタデータ権限を持ちま�
 - [`POST /markdown/raw`](/rest/reference/markdown#render-a-markdown-document-in-raw-mode)
 - [`GET /meta`](/rest/reference/meta#meta)
 - [`GET /organizations`](/rest/reference/orgs#list-organizations)
-- [`GET /orgs/:org`](/rest/reference/orgs#get-an-organization)
+- [`GET /orgs/:org`](/rest/reference/orgs#list-organizations)
 - [`GET /orgs/:org/projects`](/rest/reference/projects#list-organization-projects)
 - [`GET /orgs/:org/repos`](/rest/reference/repos#list-organization-repositories)
 - [`GET /rate_limit`](/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user)
@@ -120,6 +120,9 @@ _検索_
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id`](/rest/reference/actions#get-a-workflow-run) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`POST /repos/:owner/:repo/actions/runs/:run_id/approve`](/rest/reference/actions#approve-a-workflow-run-for-a-fork-pull-request) (:write)
+{% endif %}
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/artifacts`](/rest/reference/actions#list-workflow-run-artifacts) (:read)
 - [`POST /repos/:owner/:repo/actions/runs/:run_id/cancel`](/rest/reference/actions#cancel-a-workflow-run) (:write)
 - [`GET /repos/:owner/:repo/actions/runs/:run_id/jobs`](/rest/reference/actions#list-jobs-for-a-workflow-run) (:read)
@@ -159,6 +162,9 @@ _検索_
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
 - [`DELETE /repos/:owner/:repo/interaction-limits`](/rest/reference/interactions#remove-interaction-restrictions-for-a-repository) (:write)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
 {% endif %}
 - [`PUT /repos/:owner/:repo/topics`](/rest/reference/repos#replace-all-repository-topics) (:write)
 - [`POST /repos/:owner/:repo/transfer`](/rest/reference/repos#transfer-a-repository) (:write)
@@ -678,6 +684,9 @@ _Team_
 - [`POST /repos/:owner/:repo/pages/builds`](/rest/reference/repos#request-a-github-pages-build) (:write)
 - [`GET /repos/:owner/:repo/pages/builds/:build_id`](/rest/reference/repos#get-github-pages-build) (:read)
 - [`GET /repos/:owner/:repo/pages/builds/latest`](/rest/reference/repos#get-latest-pages-build) (:read)
+{% if currentVersion == "free-pro-team@latest" %}
+- [`GET /repos/:owner/:repo/pages/health`](/rest/reference/repos#get-a-dns-health-check-for-github-pages) (:write)
+{% endif %}
 
 ### "pull requests"に対する権限
 
@@ -766,6 +775,10 @@ _レビュー_
 - [`DELETE /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id`](/rest/reference/pulls#delete-a-pending-review-for-a-pull-request) (:write)
 - [`GET /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/comments`](/rest/reference/pulls#list-comments-for-a-pull-request-review) (:read)
 - [`PUT /repos/:owner/:repo/pulls/:pull_number/reviews/:review_id/dismissals`](/rest/reference/pulls#dismiss-a-review-for-a-pull-request) (:write)
+
+### "profile"に対する権限
+
+- [`PATCH /user`](/rest/reference/users#update-the-authenticated-user) (:write)
 
 ### "repository hooks"に対する権限
 

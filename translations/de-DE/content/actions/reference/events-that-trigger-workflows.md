@@ -1,5 +1,5 @@
 ---
-title: Ereignisse, die Workflows auslösen
+title: 'Ereignisse, die Workflows auslösen'
 intro: 'Sie können konfigurieren, dass Ihre Workflows zu einem geplanten Zeitpunkt ausgeführt werden oder dann, wenn eine bestimmte Aktivität auf {% data variables.product.product_name %} stattfindet oder ein Ereignis außerhalb von {% data variables.product.product_name %} auftritt.'
 product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 4
@@ -19,7 +19,7 @@ versions:
 
 ### Configuring workflow events
 
-You can configure workflows to run for one or more events using the `on` workflow syntax. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)."
+You can configure workflows to run for one or more events using the `on` workflow syntax. Weitere Informationen finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)“.
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -135,9 +135,9 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Hello ${{ github.event.inputs.name }}!"
-        echo "- in{{ github.event.inputs.home }}!"
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in{{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -175,18 +175,18 @@ Führt den Workflow aus, wenn das Ereignis `check_run` eintritt. {% data reusabl
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Nutzlast des Webhook-Ereignisses                   | Aktivitätstypen                                                                              | `GITHUB_SHA`                      | `GITHUB_REF`    |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------- | --------------- |
-| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Letzter Commit im Standard-Branch | Standard-Branch |
+| Nutzlast des Webhook-Ereignisses                   | Aktivitätstypen                                               | `GITHUB_SHA`                      | `GITHUB_REF`    |
+| -------------------------------------------------- | ------------------------------------------------------------- | --------------------------------- | --------------- |
+| [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed` | Letzter Commit im Standard-Branch | Standard-Branch |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Sie können einen Workflow beispielsweise ausführen, wenn ein Prüflauf erneut angefordert wurde (`rerequested`) oder eine Aktion angefordert hat (`requested_action`).
+For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
 ```yaml
 on:
   check_run:
-    types: [rerequested, requested_action]
+    types: [rerequested, completed]
 ```
 
 #### `check_suite`
@@ -480,7 +480,7 @@ Sie können einen Workflow beispielsweise ausführen, wenn ein Projektticket ge�
 ```yaml
 on:
   project_card:
-    types: [opened, deleted]
+    types: [created, deleted]
 ```
 
 #### `project_column`
@@ -676,6 +676,12 @@ on:
   release:
     types: [published]
 ```
+
+{% note %}
+
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+
+{% endnote %}
 
 #### `Status`
 

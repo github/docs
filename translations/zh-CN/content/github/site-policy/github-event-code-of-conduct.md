@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 GitHub 活动是旨在加强技术社区的交往和协作的社区活动。

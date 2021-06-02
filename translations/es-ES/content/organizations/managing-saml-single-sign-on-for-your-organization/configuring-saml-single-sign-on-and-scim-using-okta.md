@@ -4,12 +4,12 @@ intro: 'Puedes utilizar el inicio de sesión único (SSO) del Lenguaje de Marcad
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Los propietarios de las organizaciones pueden configurar el SSO de SAML y SCIM utilizando Okta para su organización.
+permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 ### Acerca de SAML y SCIM con Okta

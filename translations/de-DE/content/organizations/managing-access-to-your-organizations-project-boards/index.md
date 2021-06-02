@@ -10,13 +10,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /project-board-permissions-for-an-organization
+  - /managing-access-to-a-project-board-for-organization-members
+  - /managing-team-access-to-an-organization-project-board
+  - /managing-an-individuals-access-to-an-organization-project-board
+  - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
+  - /removing-an-outside-collaborator-from-an-organization-project-board
 ---
 
-{% link_in_list /project-board-permissions-for-an-organization %}
-{% link_in_list /managing-access-to-a-project-board-for-organization-members %}
-{% link_in_list /managing-team-access-to-an-organization-project-board %}
-{% link_in_list /managing-an-individuals-access-to-an-organization-project-board %}
-{% link_in_list /adding-an-outside-collaborator-to-a-project-board-in-your-organization %}
-{% link_in_list /removing-an-outside-collaborator-from-an-organization-project-board %}

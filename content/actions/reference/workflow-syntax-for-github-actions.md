@@ -401,7 +401,7 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/stale@v3
+      - uses: actions/stale@v3
 ```
 {% endif %}
 
@@ -434,7 +434,7 @@ The URL can be an expression and can use any context except for the `secrets` co
 ```yaml
 environment:
   name: production_environment
-  url: ${{ steps.step_name.outputs.url_output }}
+  url: ${{ steps.step_id.outputs.url_output }}
 ```
 {% endraw %}
 {% endif %}
@@ -695,11 +695,11 @@ jobs:
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_capitalized_container_registry %}
+##### Example using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_capitalized_container_registry %}.
+A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -725,7 +725,9 @@ jobs:
 
 #### Example using action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally.
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+
+Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 {% raw %}
 ```yaml
@@ -737,7 +739,7 @@ jobs:
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
@@ -1019,7 +1021,7 @@ You can create a matrix to run workflows on more than one runner operating syste
 runs-on: ${{ matrix.os }}
 strategy:
   matrix:
-    os: [ubuntu-16.04, ubuntu-18.04]
+    os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
   - uses: actions/setup-node@v2
@@ -1363,7 +1365,7 @@ Path patterns must match the whole path, and start from the repository's root.
 | `docs/*`  | All files within the root of the `docs` directory, at the root of the repository. | `docs/README.md`<br/><br/>`docs/file.txt` |
 | `docs/**` | Any files in the `/docs` directory at the root of the repository. | `docs/README.md`<br/><br/>`docs/mona/octocat.txt` |
 | `docs/**/*.md` | A file with a `.md` suffix anywhere in the `docs` directory. | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`
-| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
+| `'**/docs/**'`   | Any files in a `docs` directory anywhere in the repository. | `docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`
 | `'**/README.md'` | A README.md file anywhere in the repository. | `README.md`<br/><br/>`js/README.md`
 | `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
 | `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | `my-post.md`<br/><br/>`path/their-post.md` |

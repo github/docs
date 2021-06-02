@@ -26,6 +26,7 @@ versions:
 {% link_in_list /manually-running-a-workflow %}
 {% link_in_list /re-running-a-workflow %}
 {% link_in_list /canceling-a-workflow %}
+{% link_in_list /approving-workflow-runs-from-public-forks %}
 {% link_in_list /reviewing-deployments %}
 {% link_in_list /disabling-and-enabling-a-workflow %}
 {% link_in_list /deleting-a-workflow-run %}

@@ -1,7 +1,7 @@
 ---
 title: ウィキでプロジェクトを文書化する
 shortTitle: Using wikis
-intro: 'ウィキを使用してプロジェクトに関する具体的な長文形式の情報を共有できます。'
+intro: ウィキを使用してプロジェクトに関する具体的な長文形式の情報を共有できます。
 redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
@@ -13,13 +13,14 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
+children:
+  - /about-wikis
+  - /adding-or-editing-wiki-pages
+  - /creating-a-footer-or-sidebar-for-your-wiki
+  - /editing-wiki-content
+  - /viewing-a-wikis-history-of-changes
+  - /changing-access-permissions-for-wikis
+  - /disabling-wikis
 ---
 
-{% link_in_list /about-wikis %}
-{% link_in_list /adding-or-editing-wiki-pages %}
-{% link_in_list /creating-a-footer-or-sidebar-for-your-wiki %}
-{% link_in_list /editing-wiki-content %}
-{% link_in_list /viewing-a-wikis-history-of-changes %}
-{% link_in_list /changing-access-permissions-for-wikis %}
-{% link_in_list /disabling-wikis %}

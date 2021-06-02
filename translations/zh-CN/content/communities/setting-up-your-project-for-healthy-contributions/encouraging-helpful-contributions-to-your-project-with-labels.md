@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 您可以将 `good first issue` 标签应用到公共仓库中的议题，以便人们在按标签搜索时查找它们。 有关按标签搜索的更多信息，请参阅“[搜索议题和拉取请求](/articles/searching-issues-and-pull-requests/#search-by-label)”。

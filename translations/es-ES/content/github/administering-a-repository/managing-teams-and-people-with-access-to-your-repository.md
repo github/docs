@@ -1,13 +1,13 @@
 ---
 title: Gestionar equipos y personas con acceso a tu repositorio
 intro: Puedes ver a todo aquél que ha accedido a tu repositorio y ajustar los permisos.
-permissions: Los administradores de repositorio pueden administrar equipos y personas con acceso a ellos.
+permissions: Repository administrators can manage teams and people with access to a repository.
 redirect_from:
   - /github/administering-a-repository/managing-people-and-teams-with-access-to-your-repository
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de gestionar el acceso a tu repositorio
@@ -48,7 +48,7 @@ Para obtener más información acerca de los niveles de permiso en los repositor
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. Debajo de "Administrar acceso", encuentra al equipo o persona de quien quieras eliminar el acceso y da clic{% octicon "trashcan" aria-label="The trashcan icon" %}. ![Icono de papelera para eliminar el acceso](/assets/images/help/repository/manage-access-remove.png)
+4. Debajo de "Administrar acceso", encuentra al equipo o persona de quien quieras eliminar el acceso y da clic{% octicon "trash" aria-label="The trash icon" %}. ![icono de cesto de basura para eliminar el acceso](/assets/images/help/repository/manage-access-remove.png)
 
 ### Leer más
 

@@ -1,7 +1,7 @@
 ---
 title: 参与讨论
-intro: 您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。
-permissions: 对仓库具有读取权限的人可以参与仓库中的讨论。
+intro: '您可以在仓库的论坛中与社区和维护者交流 {% data variables.product.product_name %} 上的项目。'
+permissions: People with read permissions to a repository can participate in discussions in the repository.
 versions:
   free-pro-team: '*'
 ---
@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.discussions.about-discussions %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-除了开始或查看讨论之外，您还可以对讨论作者的原始评论做出响应。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。 有关反应的更多信息，请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的对话](/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github#reacting-to-ideas-in-comments)”。
+除了开始或查看讨论之外，您还可以对讨论作者的原始评论做出响应。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
 
 您可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 更多信息请参阅“[保持您在 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。
 

@@ -5,6 +5,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 

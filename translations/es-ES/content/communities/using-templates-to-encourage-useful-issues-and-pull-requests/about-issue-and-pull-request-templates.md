@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - comunidad
+  - Community
 ---
 
 Una vez que creas las plantillas de propuestas y solicitudes de extracción en tu repositorio, los colaboradores pueden usar las plantillas para abrir propuestas o describir los cambios propuestos en sus solicitudes de extracción de acuerdo con las pautas de contribución del repositorio. Para obtener más información sobre cómo agregar pautas de contribución a un repositorio, consulta "[Configurar pautas para los colaboradores de repositorios](/articles/setting-guidelines-for-repository-contributors)".

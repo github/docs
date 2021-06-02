@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Sua participação no Programa GitHub Sponsors (o "Programa") está sujeita aos [Termos de Serviço do GitHub](/github/site-policy/github-terms-of-service) (o "Contrato"), assim como aos seguintes termos adicionais ("Termos Adicionais"). Qualquer uso do Programa GitHub Sponsors que viole o Acordo também será uma violação destes Termos Adicionais. Quaisquer termos que iniciem em letra maiúscula, mas que não estejam definidos abaixo, têm os significados no Contrato. Esses Termos Adicionais para o Programa GitHub Sponsors descrevem a relação entre o GitHub e você, "Desenvolvedor Patrocinado", no Programa. Os Termos Adicionais têm efeito a partir da data que você os aceita ("Início da Vigência").
@@ -121,7 +121,7 @@ Durante a vigência, o GitHub enviará a você todos os Pagamentos para Desenvol
 
 - Para Contas de Desenvolvedor Patrocinado recém-criadas, o GitHub remeterá a você todos os Pagamentos de Desenvolvedor Patrocinado recebidos em um determinado mês dentro de 90 dias após a criação de sua Conta de Desenvolvedor Patrocinado, sujeito às variáveis abaixo. Os pagamentos subsequentes serão novamente enviados no prazo de 30 dias após o encerramento desse mês, de acordo com esta seção.
 
-- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors.
+- Se você for pago pelo Stripe Connect, você receberá pagamentos no dia 22 de cada mês pelo saldo acumulado desde o último pagamento, independentemente do montante do saldo. As datas de início dos pagamentos variam de país para país e podem mudar de mês para mês, em razão de feriados, fins de semana e outros fatores.
 
 - Se você for receber por meio de transferência ACH ou transferência eletrônica, você receberá pagamentos na terceira quinta-feira do mês. O GitHub emitirá um pagamento para você em qualquer mês que seu saldo atingir US$ 100. Contribuições do Fundo Correspondentes para Patrocinadores do GitHub não contam para esse limite. Se o seu saldo ficar abaixo de US$ 100 no fim do mês, ele será acumulado até que ultrapasse o limite no fim do mês. Se você deixar o GitHub Sponsors, o GitHub emitirá um pagamento a partir do seu saldo restante, mesmo que o saldo esteja abaixo de US$ 100.
 
@@ -141,9 +141,9 @@ Para ser pago, você deverá fornecer as informações financeiras, tributárias
 
 #### 4.8. Stripe Connect
 
-If you are paid through Stripe Connect, the following additional terms apply to your usage of GitHub Sponsors:
+Se você é pago pelo do Stripe Connect, aplicam-se os seguintes termos adicionais ao seu uso do GitHub Sponsors:
 
-**Full service agreement**
+**Contrato de Serviço Completo**
 
 _Applies to Sponsored Developer Accounts registered in Australia, Austria, Belgium, Canada, Denmark, Estonia, Finland, France, Germany, Greece, Hong Kong, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States._
 

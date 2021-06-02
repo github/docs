@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - api
+  - API
 ---
 
 拉取请求 API 允许您列出、查看、编辑、创建甚至合并拉取请求。 可以通过[议题评论 API](/rest/reference/issues#comments) 管理对拉取请求的评论。

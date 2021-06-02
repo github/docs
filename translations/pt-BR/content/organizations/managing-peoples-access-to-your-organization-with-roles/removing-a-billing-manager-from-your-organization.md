@@ -7,9 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
-  - cobrança
+  - Organizations
+  - Teams
+  - Billing
 ---
 
 {% warning %}
@@ -18,8 +18,7 @@ topics:
 
 {% endwarning %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-5. Na lista Billing managers (Gerentes de cobrança), clique em {% octicon "x" aria-label="X symbol" %} ao lado do nome do usuário que deseja remover. ![Remover gerente de cobrança](/assets/images/help/billing/settings_billing_managers_remove_manager.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. In the "Billing managers" list under "Billing management", next to the name of the person you want to remove, click **Remove**. ![Remover gerente de cobrança](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

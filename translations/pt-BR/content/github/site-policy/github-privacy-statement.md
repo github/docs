@@ -10,8 +10,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 Data de vigência: 19 de dezembro de 2020
@@ -64,7 +64,7 @@ Solicitaremos algumas informações básicas no momento de criação da conta. Q
 ##### Informações de pagamento
 Se você fizer um registro de Conta paga conosco, enviar fundos pelo Programa de Patrocinadores do GitHub ou comprar um aplicativo no GitHub Marketplace, coletaremos seu nome completo, endereço e informações do PayPal ou do cartão de crédito. Observe que o GitHub não processa ou armazena suas informações de cartão de crédito ou do PayPal, mas nosso processador de pagamento de terceiros o fará.
 
-Se você listar e vender um aplicativo no [GitHub Marketplace](https://github.com/marketplace), precisaremos das suas informações bancárias. Se você angariar fundos pelo [Programa de Patrocinadores do GitHub](https://github.com/sponsors), solicitaremos algumas [informações adicionais](/github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer#submitting-your-bank-information) no processo de registro para você participar e receber fundos através desses serviços e para fins de compliance.
+Se você listar e vender um aplicativo no [GitHub Marketplace](https://github.com/marketplace), precisaremos das suas informações bancárias. Se você angariar fundos pelo [Programa de Patrocinadores do GitHub](https://github.com/sponsors), solicitaremos algumas [informações adicionais](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) no processo de registro para você participar e receber fundos por esses serviços e para fins de conformidade.
 
 ##### Informações do perfil
 Você pode optar por nos enviar mais informações para o perfil da sua Conta, como nome completo, avatar com foto, biografia, localidade, empresa e URL para um site de terceiros. Essas informações podem incluir Informações Pessoais de Usuário. Observe que as suas informações de perfil podem ficar visíveis para outros Usuários do nosso Serviço.

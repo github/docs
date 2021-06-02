@@ -1,13 +1,13 @@
 ---
 title: GitHub Enterprise Cloud の GitHub Premium Support について
-intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_ghe_cloud %} および {% data variables.product.prodname_ghe_one %} のお客様のための有料の補足的なサポートです。'
+intro: '{% data variables.contact.premium_support %} は、{% data variables.product.prodname_ghe_cloud %} のお客様のための有料の補足的なサポートです。'
 redirect_from:
   - /articles/about-github-premium-support
   - /articles/about-github-premium-support-for-github-enterprise-cloud
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 {% note %}
@@ -56,7 +56,7 @@ topics:
 
 ### サポートチケットの解決とクローズ
 
-{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
+{% data variables.contact.premium_support %} は、説明、推奨対応、使用方法、または回避策を提供した後、解決済みのチケットを検討する場合があります。
 
 カスタムあるいはサポートされていないプラグイン、モジュール、カスタムコードを使っている場合、{% data variables.contact.premium_support %} は問題の解決を試みるに当たってサポートされていないプラグイン、モジュール、コードの削除をお願いすることがあります。 サポートされていないプラグイン、モジュール、カスタムコードが削除されたことで問題が修正された場合、{% data variables.contact.premium_support %}はチケットが解決されたと見なすことがあります。
 

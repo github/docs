@@ -24,7 +24,7 @@ program
   .option('-u, --unlink', 'remove the symlinks')
   .parse(process.argv)
 
-const { pathToEarlyAccessRepo, unlink } = program
+const { pathToEarlyAccessRepo, unlink } = program.opts()
 
 if (!pathToEarlyAccessRepo && !unlink) {
   throw new Error('Must provide either `--path-to-early-access-repo <PATH>` or `--unlink`')

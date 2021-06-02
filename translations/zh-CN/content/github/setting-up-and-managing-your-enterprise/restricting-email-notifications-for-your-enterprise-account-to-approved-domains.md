@@ -4,9 +4,9 @@ intro: 通过将有关企业帐户所拥有组织中活动的电子邮件通知�
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
-permissions: 企业所有者可以限制企业帐户的电子邮件通知。
+permissions: Enterprise owners can restrict email notifications for an enterprise account.
 topics:
-  - 企业
+  - Enterprise
 ---
 
 ### 关于企业帐户的电子邮件限制

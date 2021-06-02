@@ -10,8 +10,8 @@ versions:
   github-ae: '*'
 type: tutorial
 topics:
-  - パッケージ化
-  - 公開
+  - Packaging
+  - Publishing
   - Docker
 ---
 
@@ -37,7 +37,7 @@ topics:
 
 - 「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」
 - 「[ワークフローでの認証](/actions/reference/authentication-in-a-workflow)」
-- [{% data variables.product.prodname_registry %}で利用するためのDockerの設定](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)
+- "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"
 
 ### イメージの設定について
 
@@ -98,7 +98,6 @@ jobs:
 * `registry`: `docker.pkg.github.com`に設定しなければなりません。
 * `repository`: `OWNER/REPOSITORY/IMAGE_NAME`というフォーマットで設定しなければなりません。 たとえば、`http://github.com/octo-org/octo-repo`にある{% data variables.product.prodname_dotcom %}上に保存される`octo-image`という名前のイメージでは、`repository`オプションは`octo-org/octo-repo/octo-image`に設定しなければなりません。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -107,21 +106,23 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 
 ```
-{% endraw %}
 
 {% data reusables.github-actions.docker-tag-with-ref %}
 
@@ -131,7 +132,6 @@ jobs:
 
 以下のワークフローの例では、以前のセクション（「[Docker Hubへのイメージの公開](#publishing-images-to-docker-hub)」及び「[{% data variables.product.prodname_registry %}へのイメージの公開](#publishing-images-to-github-packages)」）での`build-push-action`ステップを使い、両方のレジストリにプッシュを行う1つのワークフローを作成します。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Docker image
 on:
@@ -140,26 +140,28 @@ on:
 jobs:
   push_to_registries:
     name: Push Docker image to multiple registries
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+    permissions:
+      packages: write
+      contents: read{% endif %}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
+          password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
           repository: my-docker-hub-namespace/my-docker-hub-repository
           tag_with_ref: true
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: {% raw %}${{ github.actor }}{% endraw %}
+          password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           registry: docker.pkg.github.com
           repository: my-org/my-repo/my-image
           tag_with_ref: true
 ```
-{% endraw %}
 
 上のワークフローの例は、{% data variables.product.prodname_dotcom %}リポジトリをチェックアウトし、`build-push-action`アクションを2回使ってDockerイメージをビルドしてDocker Hubと{% data variables.product.prodname_registry %}にプッシュします。 どちらのステップでも、このワークフローは`build-push-action`のオプションの[`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref)を、構築されたDockerイメージをワークフローイベントのGit参照で自動的にタグ付けするように設定します。 このワークフローは{% data variables.product.prodname_dotcom %}リリースの公開で起動されるので、どちらのレジストリの参照も、そのリリースのGitタグになります。

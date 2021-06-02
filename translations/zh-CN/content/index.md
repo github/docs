@@ -15,20 +15,22 @@ featuredLinks:
 versions: '*'
 children:
   - github
-  - 管理员
-  - 组织
+  - admin
+  - organizations
   - code-security
-  - 操作
-  - 包
+  - actions
+  - packages
   - developers
   - rest
   - graphql
   - insights
-  - 讨论
-  - 社区
-  - 页面
-  - 教育版
-  - 电脑版
+  - discussions
+  - codespaces
+  - sponsors
+  - communities
+  - pages
+  - education
+  - desktop
   - early-access
 externalProducts:
   cli:
@@ -48,7 +50,7 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: 'CodeQL'
+    name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
 ---

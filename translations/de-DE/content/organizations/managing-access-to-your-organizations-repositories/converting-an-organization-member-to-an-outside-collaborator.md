@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} Organisationsmitglieder in externe Mitarbeiter umwandeln.

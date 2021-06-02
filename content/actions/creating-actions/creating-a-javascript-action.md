@@ -31,6 +31,8 @@ Once you complete this project, you should understand how to build your own Java
 
 {% data reusables.github-actions.pure-javascript %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Prerequisites
 
 Before you begin, you'll need to download Node.js and create a GitHub repository.
@@ -227,14 +229,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-javascript-action@v1.1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Hello world action step
+        id: hello
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 

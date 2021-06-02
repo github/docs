@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca de la administración de accesos e identidades para tu cuenta empresarial

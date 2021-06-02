@@ -1,6 +1,6 @@
 ---
 title: Acerca de los debates
-intro: Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.
+intro: 'Utiliza los debates para preguntar y responder preguntas, compartir información, hacer anuncios y moderar o participar en una conversación sobre un proyecto en {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
 ---

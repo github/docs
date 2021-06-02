@@ -4,8 +4,8 @@ intro: Puedes invitar a alguien para administrar los repositorios que pertenezca
 versions:
   free-pro-team: '*'
 topics:
-  - cuentas
-  - repositories
+  - Accounts
+  - Repositories
 ---
 
 ### Acerca de los sucesores

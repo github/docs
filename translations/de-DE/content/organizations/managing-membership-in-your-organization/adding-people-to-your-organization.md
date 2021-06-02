@@ -7,7 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Organization owners can add people to an organization.'
+permissions: Organization owners can add people to an organization.
 ---
 
 {% if currentVersion != "github-ae@latest" %}

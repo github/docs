@@ -1,6 +1,6 @@
 ---
 title: Organization の名前を変更する
-intro: 'プロジェクトや企業の名前が変更になった場合、Organization の名前を更新して一致させることができます。'
+intro: プロジェクトや企業の名前が変更になった場合、Organization の名前を更新して一致させることができます。
 redirect_from:
   - /articles/what-happens-when-i-change-my-organization-s-name/
   - /articles/renaming-an-organization
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% tip %}
@@ -40,9 +40,8 @@ Organization の名前を変更したら、次のようになります:
 
 ### Organization の名前を変更する
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. 設定ページの末尾近くにある [Rename organization] の下の [**Rename Organization**] をクリックします。 ![[Rename organization] ボタン](/assets/images/help/settings/settings-rename-organization.png)
 
 ### 参考リンク

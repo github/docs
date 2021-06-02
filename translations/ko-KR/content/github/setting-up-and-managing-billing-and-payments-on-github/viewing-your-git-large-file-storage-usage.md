@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 결제
+  - Billing
 ---
 
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
@@ -16,19 +16,16 @@ topics:
 ### Viewing storage and bandwidth usage for a personal account
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ### Viewing storage and bandwidth usage for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ### 더 읽을거리

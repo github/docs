@@ -7,8 +7,12 @@ redirect_from:
 intro: 'Los administradores del sitio pueden promover cualquier cuenta de usuarios normales a un administrador del sitio, así como degradar a otros administradores del sitio a usuarios normales.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Access management
+  - Accounts
+  - User account
+  - Enterprise
 ---
 
 {% tip %}

@@ -1,6 +1,6 @@
 ---
 title: SAML Single Sign-On für Deine Organisation aktivieren und testen
-intro: Inhaber und Administratoren von Organisationen können SAML Single-Sign-On aktivieren, um eine zusätzliche Sicherheitsebene für die Organisation zu schaffen.
+intro: 'Inhaber und Administratoren von Organisationen können SAML Single-Sign-On aktivieren, um eine zusätzliche Sicherheitsebene für die Organisation zu schaffen.'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Du kannst SAML SSO in Deiner Organisation aktivieren, ohne die Verwendung für alle Mitglieder vorzuschreiben. Wenn Du SAML SSO für Deine Organisation aktivierst, aber nicht erzwingst, förderst Du die Annahme dieser Funktion. Sobald die Mehrheit der Organisationsmitglieder SAML SSO verwendet, kannst Du die Nutzung in Deiner Organisation vorschreiben.
@@ -20,9 +20,8 @@ Wenn Du SAML SSO aktivierst, aber nicht erzwingst, können Organisationsmitglied
 
 Bevor Du SAML SSO in Deiner Organisation erzwingst, stelle sicher, dass Du den Identitätsanbieter (IdP Identity Provider) eingerichtet hast. Weitere Informationen findest Du unter „[Auf die Erzwingung von SAML Single Sign-On in Deiner Organisation vorbereiten](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization).“
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Wähle unter „SAML single sign-on“ (SAML Single Sign-On) **Enable SAML authentication** (SAML-Authentifizierung aktivieren) aus. ![Kontrollkästchen zum Aktivieren von SAML SSO](/assets/images/help/saml/saml_enable.png)
 

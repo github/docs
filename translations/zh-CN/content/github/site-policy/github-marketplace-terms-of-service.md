@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 欢迎使用 GitHub Marketplace ("Marketplace")！ 我们很高兴在这里与您邂逅。 在访问或使用 GitHub Marketplace 之前，请仔细阅读这些服务条款（“Marketplace 条款”）。 GitHub Marketplace 是一个供您选择（免费或付费）可用于 GitHub.com 帐户的开发者应用程序或操作（“开发者产品”）的平台。 尽管开发者产品由 GitHub, Inc.（"GitHub"、“我们”）提供，但可能由 GitHub 或第三方软件提供商开发和维护。 选择或使用开发者产品需遵守这些 Marketplace 条款，需支付任何适用的费用，可能还需要遵守该开发者产品的第三方许可者（“产品提供者”）规定的其他条款。

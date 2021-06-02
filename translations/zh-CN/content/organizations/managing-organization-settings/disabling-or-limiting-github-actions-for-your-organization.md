@@ -1,6 +1,6 @@
 ---
 title: 禁用或限制组织的 GitHub Actions
-intro: '组织所有者可禁用、启用和限制组织的 GitHub Actions。'
+intro: 组织所有者可禁用、启用和限制组织的 GitHub Actions。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
   github-ae: '*'
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -27,9 +27,8 @@ topics:
 
 ### 管理组织的 {% data variables.product.prodname_actions %} 权限
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Local and third-party Actions（本地和第三方操作）**下，选择一个选项。 ![启用、禁用或限制此组织的操作](/assets/images/help/repository/enable-org-actions.png)
 1. 单击 **Save（保存）**。
@@ -50,9 +49,8 @@ topics:
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Policies（策略）**下，选择一个选项。 ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
 1. 单击 **Save（保存）**。
@@ -61,9 +59,8 @@ topics:
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。 ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. 单击 **Save（保存）**。
@@ -77,9 +74,27 @@ topics:
 
 #### 为组织配置私有复刻策略
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 {% data reusables.github-actions.private-repository-forks-configure %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+### 为您的组织设置 `GITHUB_TOKENN` 的权限
+
+{% data reusables.github-actions.workflow-permissions-intro %}
+
+您可以在组织或仓库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果您在组织设置中选择受限制的选项为默认值，则在您的组织内仓库的设置中，自动选择相同的选项，允许选项也会被禁用。 如果您的组织属于 {% data variables.product.prodname_enterprise %} 帐户，并且在企业设置中选择了更受限制的默认值，则您将无法在组织设置中选择更宽松的默认值。
+
+{% data reusables.github-actions.workflow-permissions-modifying %}
+
+#### 配置默认 `GITHUB_TOKENN` 权限
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
+1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此组织设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-organization.png)
+1. 单击 **Save（保存）**以应用设置。
 {% endif %}

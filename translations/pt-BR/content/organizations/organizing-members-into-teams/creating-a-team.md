@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Apenas os proprietários e mantenedores de uma equipe principal podem criar uma nova equipe secundária sob a principal. Os proprietários também podem restringir as permissões de criação para todas as equipes em uma organização. Para obter mais informações, consulte "[Configurar permissões de criação de equipes na organização](/articles/setting-team-creation-permissions-in-your-organization)".

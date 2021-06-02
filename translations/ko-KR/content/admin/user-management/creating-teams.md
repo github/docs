@@ -5,8 +5,12 @@ redirect_from:
   - /enterprise/admin/user-management/creating-teams
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Access management
+  - Enterprise
+  - Teams
+  - User account
 ---
 
 Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Permission levels for an organization repository](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".

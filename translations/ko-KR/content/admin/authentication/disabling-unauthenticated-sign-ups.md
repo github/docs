@@ -7,8 +7,11 @@ redirect_from:
 intro: 'If you''re using built-in authentication, you can block unauthenticated people from being able to create an account.'
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - 엔터프라이즈
+  - Accounts
+  - Authentication
+  - Enterprise
 ---
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

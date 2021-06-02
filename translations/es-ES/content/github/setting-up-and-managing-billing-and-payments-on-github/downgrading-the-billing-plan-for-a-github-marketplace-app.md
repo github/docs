@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Cuando bajas de categoría una app, tu suscripción permanece activa hasta el final de tu ciclo de facturación actual. El cambio entra en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
@@ -18,7 +18,7 @@ Cuando bajas de categoría una app, tu suscripción permanece activa hasta el fi
 ### Bajar de categoría una app para tu cuenta personal
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
@@ -28,10 +28,9 @@ Cuando bajas de categoría una app, tu suscripción permanece activa hasta el fi
 
 {% data reusables.marketplace.marketplace-org-perms %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 **Versão curta:** _hospedamos uma ampla variedade de projetos colaborativos de todo o mundo, e essa colaboração só funciona quando todos os nossos usuários conseguem trabalhar juntos de boa fé. Ao usar o Serviço, você deve estar de acordo com nossas Políticas de Uso Aceitável, que inclui algumas restrições sobre o conteúdo que você pode publicar, conduta no serviço e outras limitações. Em resumo, sejam excelentes uns com os outros._

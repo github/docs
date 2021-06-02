@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 ¡Bienvenido al programa de investigación de GitHub (el "Programa")! Para participar, necesitaremos que accedas a un conjunto especial de términos, el acuerdo del programa de investigación de GitHub ("Acuerdo").

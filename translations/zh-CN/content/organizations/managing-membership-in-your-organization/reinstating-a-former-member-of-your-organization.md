@@ -8,10 +8,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 组织所有者可以恢复组织的前成员。
+permissions: Organization owners can reinstate a former member of an organization.
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 ### 关于成员恢复

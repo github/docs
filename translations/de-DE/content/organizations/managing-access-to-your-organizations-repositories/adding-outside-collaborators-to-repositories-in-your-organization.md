@@ -3,14 +3,14 @@ title: Externe Mitarbeiter zu Organisations-Repositorys hinzufügen
 intro: 'Ein *externer Mitarbeiter* ist eine Person, die nicht explizit Mitglied Deiner Organisation ist, aber Lese-, Schreib- oder Administratorberechtigungen für mindestens ein Repository in Deiner Organisation besitzt.'
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
-  - github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} externe Mitarbeiter zu einem Repository hinzufügen, es sei denn, ein Organisationsinhaber hat die Möglichkeit zum Einladen von Mitarbeitern eingeschränkt. Weitere Informationen findest Du unter „[Berechtigungen zum Hinzufügen von externen Mitarbeitern festlegen](/articles/setting-permissions-for-adding-outside-collaborators)."

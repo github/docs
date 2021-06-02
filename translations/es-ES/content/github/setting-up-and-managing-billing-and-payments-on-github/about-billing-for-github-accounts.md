@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 Para obtener más información sobre los productos disponibles para tu cuenta, consulta los productos de"[{% data variables.product.product_name %}](/articles/github-s-products)". Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} no ofrece productos personalizados ni suscripciones.

@@ -24,7 +24,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - páginas
+  - Pages
 ---
 
 ### Acerca de Jekyll
@@ -56,7 +56,7 @@ kramdown:
 
 De manera predeterminada, Jekyll no compila archivos o carpetas que:
 - están situados en una carpeta denominada `/node_modules` o `/vendor`
-- start with `_`, `.`, or `#`
+- comienza con `_`, `.`, o `#`
 - termina con `~`
 - están excluidos por el parámetro `exclude` en tu archivo de configuración
 

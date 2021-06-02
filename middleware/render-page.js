@@ -7,8 +7,9 @@ const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
 const RedisAccessor = require('../lib/redis-accessor')
 const { isConnectionDropped } = require('./halt-on-dropped-connection')
+const { nextHandleRequest } = require('./next')
 
-const { HEROKU_RELEASE_VERSION } = process.env
+const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
 const pageCacheDatabaseNumber = 1
 const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
 
@@ -25,8 +26,32 @@ const pageCache = new RedisAccessor({
 // a list of query params that *do* alter the rendered page, and therefore should be cached separately
 const cacheableQueries = ['learn']
 
+function modifyOutput (req, text) {
+  return addColorMode(req, addCsrf(req, text))
+}
+
 function addCsrf (req, text) {
   return text.replace('$CSRFTOKEN$', req.csrfToken())
+}
+
+function addColorMode (req, text) {
+  let colorMode = 'auto'
+  let darkTheme = 'dark'
+  let lightTheme = 'light'
+
+  try {
+    const cookieValue = JSON.parse(decodeURIComponent(req.cookies.color_mode))
+    colorMode = encodeURIComponent(cookieValue.color_mode) || colorMode
+    darkTheme = encodeURIComponent(cookieValue.dark_theme.name) || darkTheme
+    lightTheme = encodeURIComponent(cookieValue.light_theme.name) || lightTheme
+  } catch (e) {
+    // do nothing
+  }
+
+  return text
+    .replace('$COLORMODE$', colorMode)
+    .replace('$DARKTHEME$', darkTheme)
+    .replace('$LIGHTTHEME$', lightTheme)
 }
 
 module.exports = async function renderPage (req, res, next) {
@@ -38,7 +63,7 @@ module.exports = async function renderPage (req, res, next) {
       console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
     }
     return res.status(404).send(
-      addCsrf(
+      modifyOutput(
         req,
         await liquid.parseAndRender(layouts['error-404'], req.context)
       )
@@ -59,13 +84,37 @@ module.exports = async function renderPage (req, res, next) {
   }
   const originalUrl = pathname + ([...searchParams].length > 0 ? `?${searchParams}` : '')
 
-  // Serve from the cache if possible (skip during tests)
-  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
-
   // Is the request for JSON debugging info?
   const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
 
-  if (isCacheable && !isRequestingJsonForDebugging) {
+  // Should the current path be rendered by NextJS?
+  const renderWithNextjs = 'nextjs' in req.query && FEATURE_NEXTJS
+
+  // Is in an airgapped session?
+  const isAirgapped = Boolean(req.cookies.AIRGAP)
+
+  // Is the request for the GraphQL Explorer page?
+  const isGraphQLExplorer = req.context.currentPathWithoutLanguage === '/graphql/overview/explorer'
+
+  // Serve from the cache if possible
+  const isCacheable = (
+    // Skip for CI
+    !process.env.CI &&
+    // Skip for tests
+    process.env.NODE_ENV !== 'test' &&
+    // Skip for HTTP methods other than GET
+    req.method === 'GET' &&
+    // Skip for JSON debugging info requests
+    !isRequestingJsonForDebugging &&
+    // Skip for NextJS rendering
+    !renderWithNextjs &&
+    // Skip for airgapped sessions
+    !isAirgapped &&
+    // Skip for the GraphQL Explorer page
+    !isGraphQLExplorer
+  )
+
+  if (isCacheable) {
     // Stop processing if the connection was already dropped
     if (isConnectionDropped(req, res)) return
 
@@ -76,7 +125,7 @@ module.exports = async function renderPage (req, res, next) {
 
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(addCsrf(req, cachedHtml))
+      return res.send(modifyOutput(req, cachedHtml))
     }
   }
 
@@ -136,12 +185,17 @@ module.exports = async function renderPage (req, res, next) {
     }
   }
 
+  // Hand rendering over to NextJS when appropriate
+  if (renderWithNextjs) {
+    return nextHandleRequest(req, res)
+  }
+
   // currentLayout is added to the context object in middleware/contextualizers/layouts
   const output = await liquid.parseAndRender(req.context.currentLayout, context)
 
   // First, send the response so the user isn't waiting
   // NOTE: Do NOT `return` here as we still need to cache the response afterward!
-  res.send(addCsrf(req, output))
+  res.send(modifyOutput(req, output))
 
   // Finally, save output to cache for the next time around
   if (isCacheable) {

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.

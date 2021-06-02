@@ -1,13 +1,13 @@
 ---
 title: 阻止用户访问您的个人帐户
-intro: '您可以阻止用户以拒绝他们访问您的活动和仓库，以及阻止他们向您发送通知。'
+intro: 您可以阻止用户以拒绝他们访问您的活动和仓库，以及阻止他们向您发送通知。
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
   - /github/building-a-strong-community/blocking-a-user-from-your-personal-account
 versions:
   free-pro-team: '*'
 topics:
-  - 社区
+  - Community
 ---
 
 ### 关于阻止用户

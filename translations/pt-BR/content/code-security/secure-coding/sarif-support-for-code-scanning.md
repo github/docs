@@ -3,6 +3,7 @@ title: Suporte SARIF para a varredura de código
 shortTitle: Suporte SARIF
 intro: 'Para exibir os resultados de uma ferramenta de análise estática de terceiros no seu repositório no {% data variables.product.prodname_dotcom %}, você precisará dos resultados armazenados em um arquivo SARIF que seja compatível com um subconjunto específico do esquema SARIF 2.1.0 JSON para varredura de código. Se você usar o mecanismo de análise estática padrão do {% data variables.product.prodname_codeql %}, os resultados aparecerão automaticamente no seu repositório no {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning
@@ -11,8 +12,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - segurança
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -22,7 +25,15 @@ SARIF (Formato de Intercâmbio de Resultados de Análise Estática) é um [OASIS
 
 Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para fazer o upload de um arquivo SARIF a partir de um mecanismo de análise de código estático de terceiros, você deverá garantir que os arquivos carregados usem a versão SARIF 2.1.0. Para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF para o {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)". Para obter mais informações sobre o esquema SARIF 2.1.0 JSON, consulte [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Schemata/sarif-schema-2.1.0.json).
 
-Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" ou "[Executar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/code-security/secure-coding/running-codeql-code-scanning-in-your-ci-system)".
+Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFingerprints` será calculado quando você fizer o upload do arquivo SARIF usando {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" ou "[Executar {% data variables.product.prodname_codeql_runner %} no seu sistema CI](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)".
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
+Se você estiver usando o {% data variables.product.prodname_codeql_cli %}, especifique a versão do SARIF a ser usada. Para obter mais informações, consulte "[Executar {% data variables.product.prodname_codeql_cli %} no seu sistema CI](/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github)".{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+You can upload multiple SARIF files for the same tool and commit, and analyze each file using {% data variables.product.prodname_code_scanning %}. You can indicate a "category" for each analysis by specifying a `runAutomationDetails.id` in each file. Only SARIF files with the same category will overwrite each other. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
+
+{% endif %}
 
 {% data variables.product.prodname_dotcom %} usa propriedades no arquivo SARIF para exibir alertas. Por exemplo, `shortDescription` e `fullDescription` aparecem na parte superior de um alerta de {% data variables.product.prodname_code_scanning %}. O `local` permite que {% data variables.product.prodname_dotcom %} mostre anotações no seu arquivo de código. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
@@ -122,6 +133,45 @@ Um local dentro de um artefato de programação, como, por exemplo, um arquivo n
 | `region.endLine`       | **Requerido.** O número da linha do último caractere na região.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `region.endColumn`     | **Obrigatório.** O número da coluna do caractere após o final da região.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
+{% if currentVersion == "free-pro-team@latest" %}
+#### `runAutomationDetails` object
+
+The `runAutomationDetails` object contains information that specifies the identity of a run.
+
+{% note %}
+
+**Note:** `runAutomationDetails` is a SARIF v2.1.0 object. If you're using the {% data variables.product.prodname_codeql_cli %}, you can specify the version of SARIF to use. The equivalent object to `runAutomationDetails` is `<run>.automationId` for SARIF v1 and `<run>.automationLogicalId` for SARIF v2.
+
+{% endnote %}
+
+| Nome | Descrição                                                                                                                                                                                                                             |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id` | **Optional.** A string that identifies the category of the analysis and the run ID. Use if you want to upload multiple SARIF files for the same tool and commit, but performed on different languages or different parts of the code. |
+
+The use of the `runAutomationDetails` object is optional.
+
+The `id` field can include an analysis category and a run ID. We don't use the run ID part of the `id` field, but we store it.
+
+Use the category to distinguish between multiple analyses for the same tool or commit, but performed on different languages or different parts of the code. Use the run ID to identify the specific run of the analysis, such as the date the analysis was run.
+
+`id` is interpreted as `category/run-id`. If the `id` contains no forward slash (`/`), then the entire string is the `run_id` and the `category` is empty. Otherwise, `category` is everything in the string until the last forward slash, and `run_id` is everything after.
+
+| `id`                         | categoria         | `run_id`              |
+| ---------------------------- | ----------------- | --------------------- |
+| my-analysis/tool1/2021-02-01 | my-analysis/tool1 | 2021-02-01            |
+| my-analysis/tool1/           | my-analysis/tool1 | _no `run-id`_         |
+| my-analysis for tool1        | _no category_     | my-analysis for tool1 |
+
+- The run with an `id` of "my-analysis/tool1/2021-02-01" belongs to the category "my-analysis/tool1". Presumably, this is the run from February 2, 2021.
+- The run with an `id` of "my-analysis/tool1/" belongs to the category "my-analysis/tool1" but is not distinguished from other runs in that category.
+- The run whose `id` is "my-analysis for tool1 " has a unique identifier but cannot be inferred to belong to any category.
+
+For more information about the `runAutomationDetails` object and the `id` field, see [runAutomationDetails object](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012479) in the OASIS documentation.
+
+Note that the rest of the supported fields are ignored.
+
+{% endif %}
+
 ### Exemplos de arquivos de saída SARIF
 
 Estes exemplos de arquivos de saída SARIF mostram as propriedades compatíveis e os valores de exemplo.
@@ -129,7 +179,6 @@ Estes exemplos de arquivos de saída SARIF mostram as propriedades compatíveis 
 #### Exemplo com as propriedades mínimas necessárias
 
 Este arquivo de saída SARIF tem exemplo de valores para mostrar as propriedades mínimas necessárias para que os resultados de {% data variables.product.prodname_code_scanning %} funcionem conforme esperado. Se você remover qualquer propriedade ou não incluir valores, esses dados não serão exibidos corretamente e não serão sincronizados em {% data variables.product.prodname_dotcom %}.
-
 
 ```json
 {
@@ -181,6 +230,260 @@ Este arquivo de saída SARIF tem exemplo de valores para mostrar as propriedades
 
 Este arquivo de saída SARIF tem valores de exemplo para mostrar todas as propriedades do SARIF compatíveis com {% data variables.product.prodname_code_scanning %}.
 
+{% if currentVersion == "free-pro-team@latest" %}
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Tool Name",
+          "semanticVersion": "2.0.0",
+          "rules": [
+            {
+              "id": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
+              "name": "js/unused-local-variable",
+              "shortDescription": {
+                "text": "Unused variable, import, function or class"
+              },
+              "fullDescription": {
+                "text": "Unused variables, imports, functions or classes may be a symptom of a bug and should be examined carefully."
+              },
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "maintainability"
+                ],
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
+              "name": "js/inconsistent-use-of-new",
+              "shortDescription": {
+                "text": "Inconsistent use of 'new'"
+              },
+              "fullDescription": {
+                "text": "If a function is intended to be a constructor, it should always be invoked with 'new'. Otherwise, it should always be invoked as a normal function, that is, without 'new'."
+              },
+              "properties": {
+                "tags": [
+                  "reliability",
+                  "correctness",
+                  "language-features"
+                ],
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "R01"
+            }
+          ]
+        }
+      },
+      "automationDetails": { 
+        "id": "my-category/"
+      },
+      "results": [
+        {
+          "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused variable foo."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "main.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 7,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "39fa2ee980eb94b0:1",
+            "primaryLocationStartColumnFingerprint": "4"
+          }
+        },
+        {
+          "ruleId": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Function resolvingPromise is sometimes invoked as a constructor (for example [here](1)), and sometimes as a normal function (for example [here](2))."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/promises.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "5061c3315a741b7d:1",
+            "primaryLocationStartColumnFingerprint": "7"
+          },
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ParseObject.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2281,
+                  "startColumn": 33,
+                  "endColumn": 55
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LiveQueryClient.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 166
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "R01",
+          "message": {
+            "text": "Specifying both [ruleIndex](1) and [ruleID](2) might lead to inconsistencies."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 10,
+                  "endLine": 55,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 1,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 10,
+                  "endColumn": 18
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "full.sarif"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 10,
+                  "endColumn": 21
+                }
+              },
+              "message": {
+                "text": "here"
+              }
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "startLine": 11,
+                            "endLine": 29,
+                            "startColumn": 10,
+                            "endColumn": 18
+                          },
+                          "artifactLocation": {
+                            "uriBaseId": "%SRCROOT%",
+                            "uri": "full.sarif"
+                          }
+                        },
+                        "message": {
+                          "text": "Rule has index 0"
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "region": {
+                            "endColumn": 47,
+                            "startColumn": 12,
+                            "startLine": 12
+                          },
+                          "artifactLocation": {
+                            "uriBaseId": "%SRCROOT%",
+                            "uri": "full.sarif"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "ABC:2"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
+```
+{% else %}
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
@@ -430,3 +733,4 @@ Este arquivo de saída SARIF tem valores de exemplo para mostrar todas as propri
   ]
 }
 ```
+{% endif %}

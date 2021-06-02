@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - empresa
+  - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 Cuando se produce una subida, cada script se ejecuta en un entorno aislado y puede realizar verificaciones en el contenido que se subió. Los scripts provocarán la aceptación de la subida si el estado de salida es 0, o rechazado si el estado de salida no es cero.

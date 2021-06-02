@@ -1,6 +1,6 @@
 ---
 title: Usar etiquetas com executores hospedados de AE
-intro: Você pode usar etiquetas para organizar seus {% data variables.actions.hosted_runner %}s com base em suas características.
+intro: 'Você pode usar etiquetas para organizar seus {% data variables.actions.hosted_runner %}s com base em suas características.'
 versions:
   github-ae: '*'
 ---

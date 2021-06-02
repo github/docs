@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 GitHubは、贈収賄の禁止を含む、倫理的な商慣行を誓約しています。 [トランスペアレンシー・インターナショナル](https://www.transparency.org/what-is-corruption#costs-of-corruption)が説明するように、贈収賄は以下のような問題を引き起こします。

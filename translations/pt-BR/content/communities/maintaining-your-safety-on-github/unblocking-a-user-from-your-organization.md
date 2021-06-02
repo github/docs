@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - comunidade
+  - Community
 ---
 
 O desbloqueio de um usuário da organização permite que ele continue contribuindo para os repositórios da organização.
@@ -28,9 +28,9 @@ Se você tiver selecionado uma duração para o bloqueio do usuário, ele será 
 
 ### Desbloquear usuários nas configurações da organização
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
 5. Em "Blocked users" (Usuários bloqueados), clique em **Unblock** (Desbloquear) próximo ao usuário que deseja desbloquear. ![Botão Unblock user (Desbloquear usuário)](/assets/images/help/organizations/org-unblock-user-button.png)
 

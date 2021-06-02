@@ -1,6 +1,6 @@
 ---
 title: Organization での SAML シングルサインオンの強制を準備する
-intro: 'Organization で SAML シングルサインオンを強制する前に、Organization のメンバーシップを検証し、アイデンティティプロバイダへの接続文字列を設定する必要があります。'
+intro: Organization で SAML シングルサインオンを強制する前に、Organization のメンバーシップを検証し、アイデンティティプロバイダへの接続文字列を設定する必要があります。
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organization で [SAML シングルサインオンを強制](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)すると、アイデンティティプロバイダ (IdP) を介して認証していないメンバーは Organization から削除され、削除について知らせるメールが届きます。

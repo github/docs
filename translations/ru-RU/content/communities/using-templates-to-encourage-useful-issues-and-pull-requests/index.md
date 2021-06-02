@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - сообщество
+  - Community
 ---
 
 {% link_in_list /about-issue-and-pull-request-templates %}

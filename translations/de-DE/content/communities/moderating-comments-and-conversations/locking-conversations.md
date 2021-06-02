@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - community
+  - Community
 ---
 
 It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. Wenn Du eine Unterhaltung sperrst, kannst Du auch einen Grund dafür angeben, der dann öffentlich sichtbar ist.
@@ -32,7 +32,7 @@ Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu such
 
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/communities/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- „[Störende Kommentare verwalten](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/communities/maintaining-your-safety-on-github)"
 - „[Missbrauch oder Spam melden](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)“
 - „[Interaktionen in Deinem Repository einschränken](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

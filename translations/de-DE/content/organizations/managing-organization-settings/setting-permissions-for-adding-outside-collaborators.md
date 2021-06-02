@@ -11,17 +11,16 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organisationsinhaber und Mitglieder mit Administratorberechtigungen für ein Repository können externe Mitarbeiter einladen, an dem Repository zu arbeiten. Du kannst das Recht, externe Mitarbeiter einzuladen, auf ausschließlich Organisationsinhaber einschränken.
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox.png){% endif %}

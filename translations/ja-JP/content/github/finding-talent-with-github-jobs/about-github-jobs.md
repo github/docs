@@ -7,7 +7,7 @@ intro: '{% data variables.product.prodname_jobs %}にジョブをポストして
 versions:
   free-pro-team: '*'
 topics:
-  - jobs
+  - Jobs
 ---
 
 ジョブをポストする前に、{% data variables.product.prodname_dotcom %}アカウントを作成し、メールアドレスを確認してください。 詳しい情報については[新しい{% data variables.product.prodname_dotcom %}アカウントのサインアップ](/articles/signing-up-for-a-new-github-account)及び[メールアドレスの検証](/articles/verifying-your-email-address)を参照してください。

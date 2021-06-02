@@ -10,8 +10,8 @@ redirect_from:
   - /admin/user-management/creating-organizations
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch
 topics:
-  - 组织
-  - 团队
+  - Organizations
+  - Teams
 ---
 
 从头开始创建新组织时，它没有任何与之关联的仓库。 有关为组织添加仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”和“[转让仓库](/articles/transferring-a-repository)”。

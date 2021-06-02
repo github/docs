@@ -6,8 +6,11 @@ redirect_from:
   - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
+type: overview
 topics:
-  - корпоративный
+  - Enterprise
+  - Policies
+  - Pre-receive hooks
 ---
 
 When a push occurs, each script runs in an isolated environment and can perform checks on the content of the push. The scripts will cause the push to be accepted if the exit status is 0, or rejected if the exit status is non-zero.

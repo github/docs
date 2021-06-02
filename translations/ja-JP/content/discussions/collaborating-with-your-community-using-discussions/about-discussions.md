@@ -1,6 +1,6 @@
 ---
 title: ディスカッションについて
-intro: ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。
+intro: 'ディスカッションでは、質問、質問への回答、情報の共有、発表、{% data variables.product.product_name %} 上のプロジェクトについて会話を実施したり参加したりすることができます。'
 versions:
   free-pro-team: '*'
 ---

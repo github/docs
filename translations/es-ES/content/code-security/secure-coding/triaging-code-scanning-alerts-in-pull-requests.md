@@ -3,7 +3,7 @@ title: Clasificar las alertas del escaneo de código en las solicitudes de cambi
 shortTitle: Clasificar las alertas en las solicitudes de cambios
 intro: 'Cuando el {% data variables.product.prodname_code_scanning %} identifica un problema en una solicitud de extracción, puedes revisar el código que se ha resaltado y resolver la alerta.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'Si tienes permiso de lectura en un repositorio, puedes ver las anotaciones en las solicitudes de cambios. Con los permisos de escritura, puedes ver la información detallada y resolver las alertas del {% data variables.product.prodname_code_scanning %} para el repositorio en cuestión.'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests
 versions:
@@ -11,8 +11,10 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - seguridad
+  - Security
 ---
+
+<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -20,7 +22,7 @@ topics:
 
 En los repositorios donde se configura el {% data variables.product.prodname_code_scanning %} como una verificación de solicitudes de cambios, éste verificará el código en dicha solicitud. Predeterminadamente, esto se limita a solicitudes de cambios que apuntan a la rama predeterminada, pero puedes cambiar esta configuración dentro de {% data variables.product.prodname_actions %} o en un sistema de IC/EC de terceros. Si el fusionar los cambios puede introducir alertas nuevas de {% data variables.product.prodname_code_scanning %} a la rama destino, éstas se reportarán como resultados de verificación en la solicitud de cambios. Las alertas también se muestran como anotaciones en la pestaña de **Archivos que cambiaron** de la solicitud de cambios. Si tienes permisos de escritura para el repositorio, puedes ver cualquier alerta del {% data variables.product.prodname_code_scanning %} existente en la pestaña de **Seguridad**. Para obtener más información sobre las alertas de los repositorios, consulta la sección "[Administrar las alertas del {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)".
 
-Si el {% data variables.product.prodname_code_scanning %} presenta cualquier resultado con una severidad de `error`, la verificación fallará y el error se reportará en los resultados de la verificación. Si todos los resultados que encuentra el {% data variables.product.prodname_code_scanning %} tienen severidades menores, las alertas se tratarán como advertencias o notificaciones y la verificación será exitosa. Si tu solicitud de cambios apunta a una rama protegida que utiliza el {% data variables.product.prodname_code_scanning %} y el propietario del repositorio configuró las verificaciones de estado requeridas, entonces debes ya sea arreglar o {% if currentVersion == "enterprise-server@2.22" %}cerrar{% else %}descartar{% endif %} todas las alertas de error antes de que se pueda fusionar la solicitud de cambios. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
+Si el {% data variables.product.prodname_code_scanning %} presenta cualquier resultado con una severidad de `error`, la verificación fallará y el error se reportará en los resultados de la verificación. Si todos los resultados que encuentra el {% data variables.product.prodname_code_scanning %} tienen severidades menores, las alertas se tratarán como advertencias o notificaciones y la verificación será exitosa. Si tu solicitud de cambios apunta a una rama protegida que utiliza el {% data variables.product.prodname_code_scanning %} y el propietario del repositorio configuró las verificaciones de estado requeridas, entonces debes ya sea arreglar o descartar todas las alertas de error antes de que se pueda fusionar la solicitud de cambios. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".
 
 ![Verificación fallida del {% data variables.product.prodname_code_scanning %} en una solicitud de cambios](/assets/images/help/repository/code-scanning-check-failure.png)
 
@@ -44,17 +46,9 @@ En la vista detallada de una alerta, algunas herramientas del {% data variables.
 
 ![Descripción de alerta y enlace para mostrar más información](/assets/images/help/repository/code-scanning-pr-alert.png)
 
-### {% if currentVersion == "enterprise-server@2.22" %}Resolver{% else %}Arreglar{% endif %} una alerta en tu solicitud de cambios
+### Arreglar una alerta en tu solicitud de cambios
 
 Cualquiera con acceso de subida a una solicitud de cambios puede arreglar una alerta del {% data variables.product.prodname_code_scanning %}, la cual se identifique en dicha solicitud. Si confirmas cambios en la solicitud de extracción, esto activará una ejecución nueva de las verificaciones de dicha solicitud. Si tus cambios arreglan el problema, la alerta se cierra y la anotación se elimina.
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-Si no crees que alguna alerta deba arreglarse, los usuarios con permisos de escritura pueden cerrarla manualmente. {% data reusables.code-scanning.close-alert-examples %} El botón de **Cerrar** se encuentra disponible en las anotaciones y en la vista de alertas si tienes permisos de escritura en el repositorio.
-
-{% data reusables.code-scanning.false-positive-fix-codeql %}
-
-{% else %}
 
 ### Descartar una alerta en tu solicitud de cambios
 
@@ -67,5 +61,3 @@ Una forma alterna de cerrar una alerta es descartarla. Puedes descartar una aler
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
 Para obtener más información acerca de descartar alertas, consulta la sección "[Administrar alertas del {% data variables.product.prodname_code_scanning %} para tu repositorio](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)".
-
-{% endif %}

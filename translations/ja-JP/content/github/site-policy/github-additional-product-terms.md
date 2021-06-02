@@ -3,8 +3,8 @@ title: GitHub追加製品の利用規約
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 このバージョンの発効日: 2021 年 2 月 22 日

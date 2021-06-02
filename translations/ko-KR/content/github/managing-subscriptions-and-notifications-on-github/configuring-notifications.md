@@ -18,7 +18,7 @@ versions:
   enterprise-server: '>=2.21'
   github-ae: '*'
 topics:
-  - notifications
+  - Notifications
 ---
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -58,7 +58,7 @@ In addition, you can receive and triage notifications on your mobile device with
 
 #### Benefits of using an email client for notifications
 
-One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
+One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 5 months on {% data variables.product.prodname_dotcom %} unless you've marked them as **Saved**. **Saved** notifications are kept indefinitely. For more information about your inbox's retention policy, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notification-retention-policy)."
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
@@ -69,15 +69,16 @@ Email notifications also allow flexibility with the types of notifications you r
 When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)."
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
 #### Configuring notifications
 {% endif %}
 You can configure notifications for a repository on the repository page, or on your watching page.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 #### About custom notifications
-{% data reusables.notifications-v2.custom-notifications-beta %}
-You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (
+{% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository.
 {% endif %} For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
 
 #### Participating in conversations
@@ -159,19 +160,22 @@ If "Automatically watch repositories" is disabled, then you will not automatical
 
 ### Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) {% else %}new releases{% endif %}, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option.
-{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_lt "enterprise-server@3.1" %}
   ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options.png)
-{% endif %}
-{% if currentVersion == "free-pro-team@latest" %}
+{% elsif currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
    ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
-{% data reusables.notifications-v2.custom-notifications-beta %}
+
 The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
 
+{% if currentVersion == "free-pro-team@latest" %}
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2-dotcom.png)
+{% else %}
    ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+{% endif %}
 
 If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
 

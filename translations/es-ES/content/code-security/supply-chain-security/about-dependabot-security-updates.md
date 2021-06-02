@@ -8,7 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - seguridad
+  - Security
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->

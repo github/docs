@@ -8,8 +8,12 @@ redirect_from:
 versions:
   enterprise-server: '*'
   github-ae: '*'
+type: how_to
 topics:
-  - empresa
+  - Auditing
+  - Enterprise
+  - Git
+  - Logging
 ---
 
 Las entradas de registro de subida muestran:

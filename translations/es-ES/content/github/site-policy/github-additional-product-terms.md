@@ -3,8 +3,8 @@ title: Términos adicionales de los productos de GitHub
 versions:
   free-pro-team: '*'
 topics:
-  - política
-  - legal
+  - Policy
+  - Legal
 ---
 
 Fecha de entrada en vigencia de la versión: 22 de febrero de 2021

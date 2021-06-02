@@ -17,7 +17,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de las transferencias de repositorios

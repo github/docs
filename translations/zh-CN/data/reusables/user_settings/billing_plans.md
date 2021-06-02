@@ -1,1 +1,1 @@
-1. In your user settings sidebar, click **Billing & plans**. ![Billing & plans settings](/assets/images/help/settings/settings-sidebar-billing-plans.png)
+1. 在用户设置侧边栏中，单击 **Billing & plans（帐单与计划）**。 ![帐单与计划设置](/assets/images/help/settings/settings-sidebar-billing-plans.png)

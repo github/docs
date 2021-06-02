@@ -18,7 +18,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 ### Downgrading your {% data variables.product.product_name %} subscription
@@ -30,9 +30,8 @@ When you downgrade your user account or organization's subscription, pricing and
 If you downgrade your user account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-4. Use the **Edit** drop-down and click **Downgrade to Free**. ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
+{% data reusables.user_settings.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**. ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
 5. Read the information about the features your user account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**. ![Continue with downgrade button](/assets/images/help/billing/continue-with-downgrade.png)
 
 If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
@@ -45,12 +44,10 @@ If you downgrade your organization from {% data variables.product.prodname_team 
 
 If you downgrade your organization from {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}, the account will lose access to advanced security, compliance, and deployment controls. {% data reusables.gated-features.more-info %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-6. Use the **Edit** drop-down and click the downgrade option you want. ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want. ![Downgrade button](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
 ### Downgrading an organization's subscription with legacy per-repository pricing
@@ -59,10 +56,9 @@ If you downgrade your organization from {% data variables.product.prodname_ghe_c
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[Switching your organization from per-repository to per-user pricing](/github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)."
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
 5. Under "Subscriptions", select the "Edit" drop-down, and click **Edit plan**. ![Edit Plan dropdown](/assets/images/help/billing/edit-plan-dropdown.png)
 1. Under "Billing/Plans",  next to the plan you want to change, click **Downgrade**. ![Downgrade button](/assets/images/help/billing/downgrade-plan-option-button.png)
 1. Enter the reason you're downgrading your account, then click **Downgrade plan**. ![Text box for downgrade reason and downgrade button](/assets/images/help/billing/downgrade-plan-button.png)
@@ -74,12 +70,10 @@ To reduce the number of paid seats your organization uses, you can remove member
 - "[Converting an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-6. Use the **Edit** drop-down and click **Remove seats**. ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+1. Under "Current plan", use the **Edit** drop-down and click **Remove seats**. ![remove seats dropdown](/assets/images/help/billing/remove-seats-dropdown.png)
 1. Under "Remove seats", select the number of seats you'd like to downgrade to. ![remove seats option](/assets/images/help/billing/remove-seats-amount.png)
 1. Review the information about your new payment on your next billing date, then click **Remove seats**. ![remove seats button](/assets/images/help/billing/remove-seats-button.png)
 

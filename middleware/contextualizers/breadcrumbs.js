@@ -22,7 +22,13 @@ module.exports = async function breadcrumbs (req, res, next) {
 
 async function createBreadcrumb (pageArray, context) {
   // Find each page in the siteTree's array of child pages that starts with the requested path.
-  const childPage = pageArray.find(page => context.currentPath.startsWith(page.href))
+  let childPage = pageArray.find(page => context.currentPath.startsWith(page.href))
+
+  // Fall back to English if needed
+  if (!childPage) {
+    childPage = pageArray.find(page => context.currentPath.startsWith(page.href.replace(`/${context.currentLanguage}`, '/en')))
+    if (!childPage) return
+  }
 
   context.breadcrumbs.push({
     documentType: childPage.page.documentType,

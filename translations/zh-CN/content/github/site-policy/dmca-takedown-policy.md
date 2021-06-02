@@ -9,8 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 欢迎阅读 GitHub 的《千禧年数字版权法案》（通常称为 "DMCA"）指南。 本页面并非该法案的综合入门读物。 但是，如果您收到针对您在 GitHub 上所发布内容的 DMCA 删除通知，或者您是要发出此类通知的权利持有者，此页面将有助于您了解该法案以及我们遵守该法案的政策。

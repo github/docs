@@ -4,14 +4,16 @@ intro: 'Después de generar un archivo de migración, puedes importar los datos 
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
-  - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
+  - /enterprise/admin/migrations/reviewing-migration-conflicts
   - /enterprise/admin/migrations/resolving-migration-conflicts-or-setting-up-custom-mappings
   - /enterprise/admin/guides/migrations/preparing-the-migrated-data-for-import-to-github-enterprise/
   - /enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise
 versions:
   enterprise-server: '*'
+type: how_to
 topics:
-  - empresa
+  - Enterprise
+  - Migration
 ---
 
 ### Preparar los datos migrados para importarlos a {% data variables.product.prodname_ghe_server %}

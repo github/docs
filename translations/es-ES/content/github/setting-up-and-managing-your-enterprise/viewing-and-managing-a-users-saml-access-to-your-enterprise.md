@@ -1,7 +1,7 @@
 ---
 title: Visualizar y administrar el acceso de SAML de un usuario a tu empresa
 intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la empresa, sesiones activas y credenciales autorizadas.'
-permissions: Los propietarios de empresa pueden ver y administrar el acceso de SAML para los miembros en las organizaciones.
+permissions: Enterprise owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - empresa
+  - Enterprise
 ---
 
 ### Acerca del acceso de SAML a tu cuenta empresarial
@@ -19,6 +19,15 @@ Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial,
 ### Visualizar y revocar una identidad vinculada
 
 {% data reusables.saml.about-linked-identities %}
+
+{% warning %}
+
+**Warning:** For organizations using SCIM:
+- Revoking a linked user identity on {% data variables.product.product_name %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
+- An admin must revoke a linked identity through the identity provider.
+- To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's docs.
+
+{% endwarning %}
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

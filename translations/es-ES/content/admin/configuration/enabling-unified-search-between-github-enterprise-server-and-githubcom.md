@@ -7,11 +7,13 @@ redirect_from:
   - /enterprise/admin/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-githubcom/
   - /enterprise/admin/installation/enabling-unified-search-between-github-enterprise-server-and-githubcom
   - /enterprise/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom
-permissions: 'Los administradores de sitio para {% data variables.product.prodname_ghe_server %} que también sean dueños de la cuenta organizacional o empresarial conectada de {% data variables.product.prodname_ghe_cloud %} pueden habilitar la búsqueda unificada entre {% data variables.product.prodname_ghe_server %} y {% data variables.product.prodname_dotcom_the_website %}.'
+permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable unified search between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   enterprise-server: '*'
 topics:
-  - empresa
+  - Enterprise
+  - GitHub Connect
+  - GitHub search
 ---
 
 Cuando habilitas la búsqueda unificada, los usuarios pueden ver los resultados de la búsqueda desde contenido público y privado en {% data variables.product.prodname_dotcom_the_website %} cuando buscan desde {% data variables.product.product_location_enterprise %}.

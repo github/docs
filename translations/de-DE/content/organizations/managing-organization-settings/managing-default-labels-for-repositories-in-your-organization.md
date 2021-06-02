@@ -1,6 +1,6 @@
 ---
 title: Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten
-intro: Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.
+intro: 'Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.'
 redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/managing-default-labels-for-repositories-in-your-organization
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.20'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Organisationsinhaber können die Standardkennzeichnungen für Repositorys in der Organisation verwalten.
@@ -19,9 +19,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung erstellen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -35,9 +34,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung bearbeiten
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
@@ -51,9 +49,8 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 
 ### Eine Standardkennzeichnung löschen
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}

@@ -1,6 +1,6 @@
 ---
 title: Eine Organisation von Grund auf neu erstellen
-intro: Erstelle eine Organisation, um fein abgestufte Zugriffsberechtigungen für Repositorys anzuwenden.
+intro: 'Erstelle eine Organisation, um fein abgestufte Zugriffsberechtigungen für Repositorys anzuwenden.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,8 +10,8 @@ redirect_from:
   - /admin/user-management/creating-organizations
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 Wenn Du eine Organisation von Grund auf neu erstellst, sind mit ihr keine Repositorys verknüpft. Weitere Informationen zum Hinzufügen von Repositorys zu einer Organisation findest Du unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“ und „[Ein Repository übertragen](/articles/transferring-a-repository).“

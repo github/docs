@@ -5,13 +5,13 @@ product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
   - /github/working-with-github-pages/creating-a-github-pages-site-with-jekyll
-permissions: 'Pessoas com permissões de administrador para um repositório podem criar um site do {% data variables.product.prodname_pages %} com o Jekyll.'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 {% data reusables.pages.org-owners-can-restrict-pages-creation %}
@@ -87,7 +87,12 @@ Antes de poder usar o Jekyll para criar um site do {% data variables.product.pro
 10. Salve e feche o Gemfile.
 11. Na linha de comando, execute `atualização do pacote`.
 11. Como alternativa, teste seu site localmente. Para obter mais informações, consulte "[Testar seu site do {% data variables.product.prodname_pages %} localmente com o Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)".
-12. Adicione seu repositório {% data variables.product.product_name %} como um remoto, substituindo {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta proprietária do repositório{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
+12. Add and commit your work.
+```shell
+git add .
+git commit -m 'Initial GitHub pages site with Jekyll'
+```
+14. Adicione seu repositório {% data variables.product.product_name %} como um remoto, substituindo {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ pelo nome de host da sua empresa,{% endif %} _USUÁRIO_ pela conta proprietária do repositório{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} e _REPOSITÓRIO_ pelo nome do repositório.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

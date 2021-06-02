@@ -14,7 +14,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - выставление счетов
+  - Billing
 ---
 
 Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
@@ -28,8 +28,8 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 ### Adding information to your personal account's receipts
 
 {% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.user_settings.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ### Adding information to your organization's receipts
@@ -40,9 +40,9 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endnote %}
 
-{% data reusables.profile.access_profile %}
+
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.billing %}
-{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.billing_plans %}
+{% data reusables.user_settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

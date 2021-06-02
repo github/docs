@@ -1,4 +1,4 @@
 1. アカウントのスポンサーシップダッシュボードに移動します。
-   - If you're sponsoring a user account, under the user's name, click **Sponsoring**. ![スポンサーをするボタン](/assets/images/help/profile/sponsoring-button.png)
-   -  If you're sponsoring an organization, to the right of the organization's name, click **Sponsoring**. ![スポンサーをするボタン](/assets/images/help/sponsors/org-sponsoring-button.png)
-1. Optionally, to manage a sponsorship on behalf of an organization, on the right side of the page, use the **Sponsoring as** drop-down menu, and click the organization. ![Drop-down menu to choose the account you're sponsoring as](/assets/images/help/sponsors/sponsoring-as-drop-down-menu.png)
+   - ユーザアカウントをスポンサーする場合は、ユーザ名の下で**Sponsorring（スポンサー）**をクリックしてください。 ![スポンサーをするボタン](/assets/images/help/profile/sponsoring-button.png)
+   -  Organizationをスポンサーする場合には、Organization名の右で**Sponsoring（スポンサー）**をクリックしてください。 ![スポンサーをするボタン](/assets/images/help/sponsors/org-sponsoring-button.png)
+1. あるいは、Organizationの代わりにスポンサーシップを管理するには、ページの右側で**Sponsoring as（スポンサーを行う）**ドロップダウンメニューを使い、そのOrganizationをクリックしてください。 ![スポンサーとしてのアカウントを選択するドロップダウンメニュー](/assets/images/help/sponsors/sponsoring-as-drop-down-menu.png)

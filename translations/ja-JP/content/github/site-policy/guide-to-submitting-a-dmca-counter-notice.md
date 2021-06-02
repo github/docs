@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - policy
-  - legal
+  - Policy
+  - Legal
 ---
 
 このガイドでは、DMCA テイクダウンリクエストに対する異議申し立て通知を処理するために GitHub が必要とする情報について説明します。 DMCA とは何かや、GitHub が DMCA テイクダウンリクエストをどのように処理するかなど、一般的な質問については [DMCA テイクダウンポリシー](/articles/dmca-takedown-policy)をご覧ください。

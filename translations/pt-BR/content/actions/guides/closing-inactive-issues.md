@@ -1,15 +1,15 @@
 ---
 title: Fechar problemas inativos
-intro: Você pode usar {% data variables.product.prodname_actions %} para comentar ou fechar problemas que ficaram inativos por um determinado período de tempo.
+intro: 'Você pode usar {% data variables.product.prodname_actions %} para comentar ou fechar problemas que ficaram inativos por um determinado período de tempo.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Fluxos de trabalho'
-  - 'Gerenciamento de projeto'
+  - Workflows
+  - Project management
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,6 @@ No tutorial, primeiro você vai fazer um arquivo de fluxo de trabalho que usa a 
 2. {% data reusables.actions.make-workflow-file %}
 3. Copie o seguinte conteúdo YAML para o arquivo do fluxo de trabalho.
 
-    {% raw %}
     ```yaml{:copy}
     name: Close inactive issues
     on:
@@ -38,7 +37,10 @@ No tutorial, primeiro você vai fazer um arquivo de fluxo de trabalho que usa a 
 
     jobs:
       close-issues:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          issues: write
+          pull-requests: write{% endif %}
         steps:
           - uses: actions/stale@v3
             with:
@@ -49,9 +51,9 @@ No tutorial, primeiro você vai fazer um arquivo de fluxo de trabalho que usa a 
               close-issue-message: "This issue was closed because it has been inactive for 14 days since being marked as stale."
               days-before-pr-stale: -1
               days-before-pr-close: -1
-              repo-token: ${{ secrets.GITHUB_TOKEN }}
+              repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
-    {% endraw %}
+
 4. Personalize os parâmetros no seu arquivo do fluxo de trabalho:
    - Altere o valor de `on.schagen` para ditar quando você deseja que este fluxo de trabalho seja executado. No exemplo acima, o fluxo de trabalho será executado todos os dias à 1:30 UTC. Para obter mais informações sobre fluxos de trabalho agendados, consulte "[Eventos agendados](/actions/reference/events-that-trigger-workflows#scheduled-events)".
    - Altere o valor de `days-before-issue-stale` para o número de dias sem atividade antes da ação `actions/stale` etiquetar um problema. Se você nunca quiser que esta ação etiquete problemas, defina esse valor como `-1`.

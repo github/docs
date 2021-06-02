@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL-Service-Container erstellen
 shortTitle: PostgreSQL service containers
-intro: Du kannst einen PostgreSQL-Service-Container zur Verwendung in Deinem Workflow erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines PostgreSQL-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine laufen.
+intro: 'Du kannst einen PostgreSQL-Service-Container zur Verwendung in Deinem Workflow erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines PostgreSQL-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine laufen.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
@@ -10,10 +10,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
   github-ae: '*'
-type: 'tutorial'
+type: tutorial
 topics:
-  - 'Containers'
-  - 'Docker'
+  - Containers
+  - Docker
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,7 +22,7 @@ topics:
 
 ### Einführung
 
-Diese Anleitung zeigt Dir Workflow-Beispiele, die einen Service-Container mit dem `postgres`-Bild vom Docker-Hub konfigurieren. Der Workflow führt ein Skript aus, um einen PostgreSQL-Client zu erstellen und den Client mit Daten zu füllen. Um zu testen, ob der Workflow den PostgreSQL-Client erstellt und mit Daten füllt, gibt das Skript die Daten des Clients in der Konsole aus.
+Diese Anleitung zeigt Dir Workflow-Beispiele, die einen Service-Container mit dem `postgres`-Bild vom Docker-Hub konfigurieren. The workflow runs a script that connects to the PostgreSQL service, creates a table, and then populates it with data. To test that the workflow creates and populates the PostgreSQL table, the script prints the data from the table to the console.
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -47,23 +47,23 @@ name: PostgreSQL service example
 on: push
 
 jobs:
-  # Label des Container-Jobs
+  # Label of the container job
   container-job:
-    # Container muessen auf Linux-basierten Betriebssystemen laufen
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Docker-Hub-Image, welches `container-job` in
-    container: node:10.18-jessie ausfuehrt
+    # Docker Hub image that `container-job` executes in
+    container: node:10.18-jessie
 
-    # Service-Containers, der mit Diensten von `container-job`
-    laufen soll:
-      # Label fuer den Zugrieff auf den Service-Container
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
       postgres:
-        # Docker-Hub-Image
+        # Docker Hub image
         image: postgres
-        # Das Passwort fuer Postgres bereitstellen
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # health checks (Gesundheitstests) so einstellen, dass sie warten, bis Postgres gestarted ist
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -71,20 +71,20 @@ jobs:
           --health-retries 5
 
     steps:
-      # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI-Tests starten
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Fuehrt eine saubere Installation aller Abhaengigkeiten in der Datei `package.json` durch
-      # Weitere Information findest Du unter https://docs.npmjs.com/cli/ci.html
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # Startet ein Skript, das einen PostgreSQL-Client erzeugt, 
-        # Den Client mit Daten befuellt, und Daten abruft
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
         run: node client.js
-        # Umgebungsvariable, die vom Skript `client.js` benutzt wird, um einen neuen PostgreSQL-Client zu erzeugen.
+        # Environment variables used by the `client.js` script to create a new PostgreSQL table.
         env:
           # Der Name des Hosts fuer die Kommunikation mit dem PostgreSQL-Servicecontainer
           POSTGRES_HOST: postgres
@@ -131,18 +131,18 @@ jobs:
 
 ```yaml{:copy}
 steps:
-  # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI-Tests starten
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
     uses: actions/checkout@v2
 
-  # Fuehrt eine saubere Installation aller Anhängigkeiten in der Datei `package.json` durch
-  # Weitere Informationen findest Du unter https://docs.npmjs.com/cli/ci.html
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # Startet ein Skript, das einen PostgreSQL-Client erzeugt,
-    # den Client mit Daten befuellt und Daten abruft
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data.
     run: node client.js
     # Environment variable used by the `client.js` script to create
     # a new PostgreSQL client.
@@ -169,21 +169,21 @@ name: PostgreSQL Service Example
 on: push
 
 jobs:
-  # Label des Runner-Jobs
+  # Label of the runner job
   runner-job:
-    # Du musst fuer Service-Container oder Container-Jobs eine Linux-Umgebung verwenden
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # Service-Container zum Betrieb mit `runner-job`
+    # Service containers to run with `runner-job`
     services:
-      # Label fuer den Zugriff auf den Service-Container
+      # Label used to access the service container
       postgres:
-        # Docker-Hub-Image
+        # Docker Hub image
         image: postgres
-        # Das Passwort fuer Postgres bereitstellen
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # Health checks einstellen, dass sie warten, bis Postgres gestarted ist
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -194,21 +194,21 @@ jobs:
           - 5432:5432
 
     steps:
-      # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI tests laufen
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Fuehrt eine saubere Installation aller Abhaengigkeiten in der Datei `package.json` durch
-      # Weitere Information finsest Du unter https://docs.npmjs.com/cli/ci.html
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # Startet ein Skript, das einen PostgreSQL-Client erzeugt,
-        # den client mit Daten befuellt und Daten abruft
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data
         run: node client.js
-        # Umgebungsvariable, die das Skript `client.js` benutzt, um
-        # einen neuen PostgreSQL-Client zu erzeugen.
+        # Environment variables used by the `client.js` script to create
+        # a new PostgreSQL table.
         env:
           # Der Hostname fuer die Kommunikation mit dem PostgreSQL-Service-Container
           POSTGRES_HOST: localhost
@@ -258,21 +258,21 @@ jobs:
 
 ```yaml{:copy}
 steps:
-  # Laedt eine Kopie des Codes in Dein Repository herunter, bevor CI-Tests starten
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
     uses: actions/checkout@v2
 
-  # Fuehrt eine saubere Installation aller Anhängigkeiten in der Datei `package.json` durch
-  # Weitere Informationen findest Du unter https://docs.npmjs.com/cli/ci.html
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # Startet ein Skript, das einen PostgreSQL-Client erzeugt,
-    # den Client mit Daten befuellt und Daten abruft
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
     run: node client.js
-    # Environment variable used by the `client.js` script to create
-    # a new PostgreSQL client.
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
       # Der Hostname zur Kommunikation with the PostgreSQL-Service-Container
       POSTGRES_HOST: localhost
@@ -286,9 +286,9 @@ steps:
 
 ### Den PostgreSQL-Service-Container testen
 
-Du kannst Deinen Workflow mit dem folgenden Skript testen, das einen PostgreSQL-Client erstellt und eine neue Tabelle mit Platzhalter-Daten hinzufügt. Das Skript gibt dann die im PostgreSQL-Client gespeicherten Werte auf dem Terminal aus. Dein Skript kann jede beliebige Sprache verwenden, aber in diesem Beispiel wird Node.js mit dem npm-Modul `pg` genutzt. Weitere Informationen findest Du unter [npm-Modul pg](https://www.npmjs.com/package/pg).
+You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. Dein Skript kann jede beliebige Sprache verwenden, aber in diesem Beispiel wird Node.js mit dem npm-Modul `pg` genutzt. Weitere Informationen findest Du unter [npm-Modul pg](https://www.npmjs.com/package/pg).
 
-Du kannst *client.js* anpassen, um alle PostgreSQL-Vorgänge einzuschließen, die für Deinen Workflow erforderlich sind. In diesem Beispiel erstellt das Skript die Instanz des PostgreSQL-Clients, erstellt eine Tabelle, fügt Platzhalter-Daten hinzu und ruft dann die Daten ab.
+Du kannst *client.js* anpassen, um alle PostgreSQL-Vorgänge einzuschließen, die für Deinen Workflow erforderlich sind. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
 
 {% data reusables.github-actions.service-container-add-script %}
 
@@ -324,11 +324,11 @@ pgclient.query('SELECT * FROM student', (err, res) => {
 });
 ```
 
-Das Skript erstellt einen neuen PostgreSQL-`Client`, der einen `host`- und einen `port`-Parameter akzeptiert. Das Skript verwendet die Umgebungsvariablen `POSTGRES_HOST` und `POSTGRES_PORT`, um die IP-Adresse und den Port des Clients festzulegen. Wenn `host` Und `port` nicht definiert sind, ist der Standard-Host `localhost` und der Standard-Port 5432.
+The script creates a new connection to the PostgreSQL service, and uses the `POSTGRES_HOST` and `POSTGRES_PORT` environment variables to specify the PostgreSQL service IP address and port. Wenn `host` Und `port` nicht definiert sind, ist der Standard-Host `localhost` und der Standard-Port 5432.
 
-Das Skript erstellt eine Tabelle und füllt sie mit Platzhalterdaten auf. Um zu testen, ob die PostgreSQL-Datenbank die Daten enthält, gibt das Skript den Inhalt der Tabelle in das Konsolenprotokoll aus.
+Das Skript erstellt eine Tabelle und füllt sie mit Platzhalterdaten auf. To test that the `postgres` database contains the data, the script prints the contents of the table to the console log.
 
-Wenn Du diesen Workflow ausführst, solltest Du im Schritt „Mit PostgreSQL verbinden“ die folgende Ausgabe sehen, welche zeigt, dass Du den PostgreSQL-Client erstellt und Daten hinzugefügt hast:
+When you run this workflow, you should see the following output in the "Connect to PostgreSQL" step, which confirms that you successfully created the PostgreSQL table and added data:
 
 ```
 null [ { id: 1,

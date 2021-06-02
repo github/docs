@@ -1,19 +1,20 @@
 ---
 title: Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
-intro: Organisationen können mehr als einen Organisationsinhaber haben, um Inhaberlücken zu vermeiden.
+intro: 'Organisationen können mehr als einen Organisationsinhaber haben, um Inhaberlücken zu vermeiden.'
 redirect_from:
   - /articles/changing-a-person-s-role-to-owner
   - /articles/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/changing-a-persons-role-to-owner
   - /github/setting-up-and-managing-organizations-and-teams/managing-ownership-continuity-for-your-organization
-permissions: Organisationsinhaber können jedes Mitglied einer Organisation zum Organisationsinhaber befördern.
+  - /github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization
+permissions: Organization owners can promote any member of an organization to an organization owner.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organisationen
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
@@ -21,6 +22,12 @@ topics:
 {% data reusables.organizations.org-ownership-recommendation %}
 
 Organisationsinhaber haben vollen administrativen Zugriff auf die Organisation. {% data reusables.organizations.new-org-permissions-more-info %}
+
+{% note %}
+
+**Note**: As an organization owner, you can change the role of other organization members and owners. You can't change your own role.
+
+{% endnote %}
 
 ### Einen Organisationsinhaber ernennen
 

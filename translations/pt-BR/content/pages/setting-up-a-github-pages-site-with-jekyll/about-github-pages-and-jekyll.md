@@ -24,7 +24,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - Páginas
+  - Pages
 ---
 
 ### Sobre o Jekyll
@@ -56,7 +56,7 @@ kramdown:
 
 Por padrão, o Jekyll não cria arquivos nem pastas que:
 - estão localizadas em uma pasta chamada `/node_modules` ou `/vendor`
-- start with `_`, `.`, or `#`
+- comece com `_`, `.` ou `#`
 - terminam com `~`
 - são excluídos pela configuração `exclude` em seu arquivo de configuração
 

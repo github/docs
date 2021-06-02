@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 1. Si eres el único miembro con privilegios de *propietario*, otorga el rol de propietario a otro miembro de la organización. Para obtener más información, consulta "[Designar a un propietario de la organización](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)".

@@ -11,7 +11,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
 topics:
-  - Seiten
+  - Pages
 ---
 
 ### _CNAME_-Fehler

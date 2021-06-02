@@ -20,7 +20,7 @@ homepage:
   version_picker: 版本
 toc:
   getting_started: 入门指南
-  popular_articles: 热门
+  popular: 热门
   guides: 指南
   whats_new: 新增内容
 pages:
@@ -54,14 +54,6 @@ contribution_cta:
   button: 做出贡献
   or: 或,
   to_guidelines: 了解如何参与。
-enterprise_releases_list:
-  title: Enterprise Server 发行版
-  currently_supported: 当前支持
-  currently_supported_message: 请参阅 <a href="https://github.com/enterprise">GitHub Enterprise</a> 以获取最新版本的信息。
-  deprecated: 已废弃
-  deprecated_message: '这些文档仍然可用，但不再维护：'
-  deprecated_developer: 在 developer.github.com 上已废弃
-  deprecated_developer_message: '这些文档在旧<a href="https://developer.github.com">开发者站点</a>上仍然可用，但不再维护：'
 products:
   graphql:
     reference:
@@ -127,19 +119,36 @@ footer:
       press: 新闻
       shop: 商店
 product_landing:
-  quick_start: 快速入门
-  reference_guides: 参考指南
+  quickstart: 快速入门
+  reference: 参考
   overview: 概览
+  guides: 指南
+  code_examples: 代码示例
+  search_code_examples: 搜索代码示例
+  show_more: 显示更多
+  explore_people_and_projects: 探索人员和项目
+  sorry: 抱歉，找不到结果
+  no_example: 看起来我们没有适合您的过滤器的示例。
+  try_another: 请尝试另一个过滤器或添加您的代码示例。
+  no_result: 抱歉，没有与过滤条件匹配的指南。
+  learn: 了解如何添加代码示例
+  communities_using_discussions: 使用讨论的社区
+  add_your_community: 添加您的社区
+  sponsor_community: GitHub Sponsors 社区
+  supported_releases: 支持的版本
+  release_notes_for: 发行说明
+  upgrade_from: 升级自
+  browse_all_docs: 浏览所有文档
+  explore_release_notes: 浏览发行说明
 product_sublanding:
   start: 开始
   start_path: 开始路径
-  learning_paths: '{{ allProducts[currentProduct].name }} 学习路径'
+  learning_paths: '{{ productMap[currentProduct].name }} 学习路径'
   learning_paths_desc: 学习路径是一系列帮助您掌握特定主题的指南。
-  guides: '{{ allProducts[currentProduct].name }} 指南'
+  guides: '{{ productMap[currentProduct].name }} 指南'
   more_guides: 更多指南
   load_more: 加载更多指南
-  all_guides: '所有 {{ allProducts[currentProduct].name }} 指南'
-  no_result: 抱歉，没有与过滤条件匹配的指南。
+  all_guides: '所有 {{ productMap[currentProduct].name }} 指南'
   filters:
     type: 类型
     topic: 主题
@@ -154,3 +163,10 @@ learning_track_nav:
   prevGuide: 上一个指南
   nextGuide: 下一个指南
 contributor_callout: 这篇文章的参与者和维护者是
+toggle_images:
+  off: 图像已关闭，点击显示
+  on: 图像已打开，点击隐藏
+  hide_single: 隐藏图像
+  show_single: 显示图像
+scroll_button:
+  scroll_to_top: 滚动到顶部

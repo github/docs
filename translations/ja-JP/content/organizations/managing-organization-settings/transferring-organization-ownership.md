@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 1. もしあなたが *owner* の権限を持つ唯一のメンバーである場合、他の Organization メンバーにオーナーロールを付与します。 詳細は「[Organizationのオーナーの指名](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)」を参照してください。

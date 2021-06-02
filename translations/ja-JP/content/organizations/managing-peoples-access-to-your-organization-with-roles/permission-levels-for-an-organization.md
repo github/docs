@@ -10,8 +10,8 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
 ### Organization の権限レベル
@@ -43,7 +43,7 @@ Organization のメンバーは、*owner (オーナー)*{% if currentVersion == 
 | Organization 参加ログにアクセスする                                                                                                                                                                                                                                                               | **X** |       |           |
 | Organization のプロフィールページを変更する (詳細は「[Organization のプロフィールについて](/articles/about-your-organization-s-profile)」を参照)                                                                                                                                                                         | **X** |       |           |
 | Organization のドメインを検証する (詳細は「[Organization のドメインを検証する](/articles/verifying-your-organization-s-domain)」を参照)                                                                                                                                                                            | **X** |       |           |
-| メール通知を検証済みドメインに制限する（詳細は、「[メール通知を承認済みドメインに制限する](/organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain)」を参照してください）                                                                                                                       | **X** |       |           |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)" for details)                                        | **X** |       |           |
 | **すべての Team** を削除する                                                                                                                                                                                                                                                                    | **X** |       |           |
 | すべてのリポジトリを含めて Organization のアカウントを削除する                                                                                                                                                                                                                                                 | **X** |       |           |
 | Team を作成する (詳細は「[Organization のチーム作成権限を設定する](/articles/setting-team-creation-permissions-in-your-organization)」を参照)                                                                                                                                                                    | **X** | **X** |           |
@@ -60,9 +60,9 @@ Organization のメンバーは、*owner (オーナー)*{% if currentVersion == 
 | Organization の Team ディスカッションを無効にする (詳細は「[Organization の Team ディスカッションを無効化する](/articles/disabling-team-discussions-for-your-organization)」を参照)                                                                                                                                          | **X** |       |           |
 | Organization dependency insights の可視性を管理する (詳細は「[Organization dependency insights の可視性を変更する](/articles/changing-the-visibility-of-your-organizations-dependency-insights)」を参照)                                                                                                         | **X** |       |           |
 | **すべての Team** で Team プロフィール画像を設定する (詳細は「[Team のプロフィール画像を設定する](/articles/setting-your-team-s-profile-picture)」を参照)                                                                                                                                                                      | **X** |       |           |
-| アカウントをスポンサーし、Organization のスポンサーシップを管理する（詳細は、「[オープンソースコントリビューターをスポンサーする](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)」を参照）                                                                                                   | **X** | **X** |           |
+| アカウントをスポンサーし、Organization のスポンサーシップを管理する（詳細は、「[オープンソースコントリビューターをスポンサーする](/sponsors/sponsoring-open-source-contributors)」を参照）                                                                                                                                                           | **X** | **X** |           |
 | スポンサーアカウントからのメール更新の管理（詳細は、「[Organization のスポンサーアカウントからの更新を管理する](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)」を参照）                                                                                                          | **X** |       |           |
-| スポンサーシップを別の Organization に関連付ける（詳細は、「[Organization へのスポンサーシップの関連付け](/github/supporting-the-open-source-community-with-github-sponsors/attributing-sponsorships-to-your-organization)」を参照してください）。                                                                                       | **X** |       |           |
+| スポンサーシップを別の Organization に関連付ける（詳細は、「[Organization へのスポンサーシップの関連付け](/sponsors/sponsoring-open-source-contributors/attributing-sponsorships-to-your-organization)」を参照してください）。                                                                                                           | **X** |       |           |
 | Organization 内のリポジトリからの {% data variables.product.prodname_pages %} サイトの公開を管理する（詳細は、「[Organization の {% data variables.product.prodname_pages %} サイトの公開を管理する](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)」を参照） | **X** |       |           |
 | Organization のセキュリティおよび分析設定を管理する (詳細は「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照)                                                                                           | **X** |       |           |
 | [SAML シングルサインオン](/articles/about-identity-and-access-management-with-saml-single-sign-on)を有効にして強制する                                                                                                                                                                                    | **X** |       |           |

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - facturación
+  - Billing
 ---
 
 {% data variables.product.product_name %} no puede emitir un reembolso si pagas una cuenta antes de aplicar un cupón. Tampoco podemos transferir un cupón canjeado o entregarte un cupón nuevo si lo aplicas a la cuenta equivocada. Confirma que estás aplicando el cupón a la cuenta correcta antes de canjear un cupón.

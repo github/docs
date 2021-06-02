@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - корпоративный
+  - Enterprise
 ---
 
 {% if currentVersion == "github-ae@latest" %}
@@ -26,13 +26,13 @@ For example, here are the costs for users with licenses on different dates.
 | User      | License dates                                           | Counted days | Cost   |
 | --------- | ------------------------------------------------------- | ------------ | ------ |
 | @octocat  | January 1 - January 31                                  | 31           | $39    |
-| @robocat  | February 1 - February 28                                | 29           | $35.23 |
+| @robocat  | February 1 - February 28                                | 28           | $35.23 |
 | @devtocat | January 15 - January 31                                 | 17           | $21.39 |
 | @doctocat | January 1 - January 15                                  | 31           | $39    |
 | @prodocat | January 7 - January 15                                  | 25           | $31.45 |
 | @monalisa | January 1 - January 7,<br>January 15 - January 31 | 31           | $39    |
 
-Your enterprise can include one or more instances. {% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
+{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
 
 You can see your current usage in your [Azure account portal](https://portal.azure.com).
 

@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - repositories
+  - Repositories
 ---
 
 ### Acerca de {% data variables.product.prodname_dependabot_version_updates %} para las acciones

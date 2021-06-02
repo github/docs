@@ -1,7 +1,6 @@
 ---
 title: 组织的 GitHub Insights 和数据保护
 intro: '{% data variables.product.prodname_insights %} 会分析您的 {% data variables.product.prodname_ghe_server %} 数据。 这些数据可能包括贵组织中有权了解如何使用个人数据之人的个人数据。'
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
   - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
@@ -10,11 +9,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
-
-有关 {% data variables.product.prodname_insights %} 管制条款的更多信息，请参阅您的 {% data variables.product.prodname_ghe_one %} 订阅协议。
 
 为了避免产生疑问，上述任何信息都不应被视为 {% data variables.product.prodname_dotcom %} 提供的法律建议。 您有责任对这里提供的信息进行法律分析，并遵守隐私和数据保护法律。 是否使用 {% data variables.product.prodname_insights %} 来处理您的员工和用户的数据，完全由您决定，如果您选择处理，则要自行负责按照适用的法律进行处理。
 

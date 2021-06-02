@@ -1,6 +1,6 @@
 ---
 title: Team ディスカッションの作成
-intro: 'Organization のメンバーであれば誰でも _public_ Team ディスカッションのポストを作成できます。 _private_ Team ディスカッションのポストを作成するには、Team のメンバーか Organization のオーナーでなければなりません。'
+intro: Organization のメンバーであれば誰でも _public_ Team ディスカッションのポストを作成できます。 _private_ Team ディスカッションのポストを作成するには、Team のメンバーか Organization のオーナーでなければなりません。
 redirect_from:
   - /articles/creating-a-team-discussion
   - /github/building-a-strong-community/creating-a-team-discussion
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 topics:
-  - コミュニティ
+  - Community
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 詳細は「[Team ディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions)」を参照してください。

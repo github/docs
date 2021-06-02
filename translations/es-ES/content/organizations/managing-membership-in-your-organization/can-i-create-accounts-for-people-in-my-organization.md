@@ -1,5 +1,5 @@
 ---
-title: '¿Puedo crear cuentas para personas en mi organización?'
+title: ¿Puedo crear cuentas para personas en mi organización?
 intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas de usuario personales en nombre de otra persona.'
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization/
@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - organizations
-  - equipos
+  - Organizations
+  - Teams
 ---
 
 Dado que accedes a una organización iniciando sesión mediante tu cuenta personal, cada uno de los miembros del equipo necesita una cuenta personal. Una vez que tienes los nombres de usuario de cada persona que deseas agregar a tu organización, puedes agregarlos a los equipos.

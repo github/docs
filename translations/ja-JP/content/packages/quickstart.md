@@ -71,7 +71,10 @@ versions:
 
       publish-gpr:
         needs: build
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-latest{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+        permissions:
+          packages: write
+          contents: read{% endif %}
         steps:
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v1
@@ -95,7 +98,7 @@ versions:
 
 ### 公開したパッケージを表示する
 
-パッケージはリポジトリレベルで公開されます。 リポジトリ内のすべてのパッケージを表示し、特定のパッケージを検索できます。
+公開したすべてのパッケージは、見ることができます。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -104,14 +107,14 @@ versions:
 
 ### 公開したパッケージをインストールする
 
-これでパッケージを公開できたので、プロジェクト全体で依存関係として利用できます。 詳しい情報については、「[{% data variables.product.prodname_registry %} で利用するために npm を設定する](/packages/guides/configuring-npm-for-use-with-github-packages#installing-a-package)」を参照してください。
+これでパッケージを公開できたので、プロジェクト全体で依存関係として利用できます。 詳しい情報については「[npmレジストリの利用](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)」を参照してください。
 
 ### 次のステップ
 
-ここで追加した基本的なワークフローは、リポジトリ内に新しいリリースが作成されるたびに実行されます。 ただし、これは {% data variables.product.prodname_registry %} でできることの一部にすぎません。 単一のワークフローで複数のレジストリにパッケージを公開する、ワークフローをトリガーしてマージされたプルリクエストなどさまざまなイベントで実行する、コンテナを管理するなど、いろいろなことができます。
+ここで追加した基本的なワークフローは、リポジトリ内に新しいリリースが作成されるたびに実行されます。 ただしこれは、{% data variables.product.prodname_registry %}でできることの手始めにすぎません。 単一のワークフローで複数のレジストリにパッケージを公開する、ワークフローをトリガーしてマージされたプルリクエストなどさまざまなイベントで実行する、コンテナを管理するなど、いろいろなことができます。
 
 {% data variables.product.prodname_registry %}と{% data variables.product.prodname_actions %}を組み合わせることで、プリケーション開発プロセスのほぼすべての要素を自動化するために役立ちます。 始める準備はできましたか？ 以下は、{% data variables.product.prodname_registry %}および{% data variables.product.prodname_actions %}で次のステップへ進むために役立つリソースです。
 
 - GitHub Packagesについての詳細なチュートリアル、「[{% data variables.product.prodname_registry %}を学ぶ](/packages/learn-github-packages)」
 - GitHub Actionsの詳細なチュートリアル、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」
-- 特定の使用例とサンプルについては、「[ガイド](/packages/guides)」
+- 特定のユースケースと例のための「[{% data variables.product.prodname_registry %}レジストリの利用](/packages/working-with-a-github-packages-registry)」

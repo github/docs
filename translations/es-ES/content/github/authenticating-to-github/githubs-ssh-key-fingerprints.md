@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - identidad
-  - administración de accesos
+  - Identity
+  - Access management
 ---
 
 Estas son las huellas dactilares de la llave pública de {% data variables.product.prodname_dotcom %}:

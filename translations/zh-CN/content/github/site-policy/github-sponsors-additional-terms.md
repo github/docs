@@ -5,8 +5,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 topics:
-  - 政策
-  - 法律
+  - Policy
+  - Legal
 ---
 
 参与 GitHub 赞助计划（以下简称“计划”）须遵守 [GitHub 服务条款](/github/site-policy/github-terms-of-service)（以下简称“协议”）和以下附加条款（以下简称“附加条款”）。 使用 GitHub 赞助计划时，违反协议也构成违反这些附加条款。 在本文使用的任何大写术语中，未在下面定义的术语采用“协议”中的含义。 GitHub 赞助计划的这些附加条款阐述了 GitHub 与您（本计划的“被赞助开发者”）之间的关系。 附加条款自您接受之日（“生效日期”）起生效。
