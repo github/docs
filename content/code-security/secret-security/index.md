@@ -8,6 +8,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
+  - Secret scanning
+  - Advanced Security
   - Repositories
 children:
   - /about-secret-scanning
