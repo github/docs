@@ -90,7 +90,7 @@ By default, only alerts with the severity level of `error` will cause a pull req
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure. 
-![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+![Check failure setting](/assets/images/help/repository/test-code-scanning-check-failure-setting.png)
 {% endif %}
 
 #### Avoiding unnecessary scans of pull requests
