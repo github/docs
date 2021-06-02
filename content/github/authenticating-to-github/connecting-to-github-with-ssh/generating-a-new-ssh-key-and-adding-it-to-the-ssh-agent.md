@@ -164,6 +164,8 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
+4. {% data reusables.command_line.kill_ssh_agent %} 
+
 {% endwindows %}
 
 {% linux %}
@@ -182,6 +184,8 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
+
+4. {% data reusables.command_line.kill_ssh_agent %}
 
 {% endlinux %}
 
