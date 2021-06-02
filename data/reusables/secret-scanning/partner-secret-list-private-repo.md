@@ -104,6 +104,8 @@ Lob | Lob Test API Key | lob_test_api_key{% endif %}
 Mailchimp | Mailchimp API Key | mailchimp_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Mailgun | Mailgun API Key | mailgun_api_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+MessageBird | MessageBird API Key | messagebird_api_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 npm | npm Access Token | npm_access_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
@@ -162,6 +164,10 @@ Stripe | Stripe Test API Secret Key | stripe_test_secret_key{% endif %}
 Stripe | Stripe Live API Restricted Key | stripe_live_restricted_key{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 Stripe | Stripe Test API Restricted Key | stripe_test_restricted_key{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Stripe | Stripe Webhook Signing Secret | stripe_webhook_signing_secret{% endif %}
+{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+Telegram | Telegram Bot Token | telegram_bot_token{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id{% endif %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@next" %}

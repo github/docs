@@ -31,6 +31,8 @@ Once you complete this project, you should understand how to build your own Java
 
 {% data reusables.github-actions.pure-javascript %}
 
+{% data reusables.github-actions.context-injection-warning %}
+
 ### Prerequisites
 
 Before you begin, you'll need to download Node.js and create a GitHub repository.
