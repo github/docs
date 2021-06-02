@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { Grid } from '@primer/components'
 
 import {
   MainContextT,
@@ -22,6 +23,8 @@ import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
+import { TableOfContents } from 'components/landing/TableOfContents'
+import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
 
 type Props = {
   mainContext: MainContextT
@@ -31,13 +34,17 @@ const ProductPage = ({ mainContext, productLandingContext }: Props) => {
   return (
     <MainContext.Provider value={mainContext}>
       <ProductLandingContext.Provider value={productLandingContext}>
-        <ProductPageInner />
+        {mainContext.currentLayoutName === 'product-landing' ? (
+          <ProductLanding />
+        ) : (
+          <TocProductLanding />
+        )}
       </ProductLandingContext.Provider>
     </MainContext.Provider>
   )
 }
 
-const ProductPageInner = () => {
+const ProductLanding = () => {
   const { title, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
     useProductLandingContext()
   const { t } = useTranslation('product_landing')
@@ -81,6 +88,34 @@ const ProductPageInner = () => {
       <LandingSection sectionLink="all-docs" title={`All ${title} Docs`}>
         <ProductArticlesList />
       </LandingSection>
+    </DefaultLayout>
+  )
+}
+
+const TocProductLanding = () => {
+  const { title, introPlainText, tocItems } = useProductLandingContext()
+  return (
+    <DefaultLayout>
+      <Grid
+        className="container-xl px-3 px-md-6 my-4 my-lg-4 container-xl "
+        gridTemplateColumns="minmax(500px, 720px) minmax(220px, 1fr)"
+        gridTemplateRows="auto 1fr"
+        gridGap={16}
+      >
+        <div>
+          <h1 className="my-4">{title}</h1>
+          <div className="lead-mktg">
+            <p>{introPlainText}</p>
+          </div>
+
+          <div className="mt-7">
+            <TableOfContents items={tocItems} />
+          </div>
+        </div>
+        <div>
+          <ArticleVersionPicker />
+        </div>
+      </Grid>
     </DefaultLayout>
   )
 }
