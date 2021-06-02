@@ -11,6 +11,7 @@ export const GuideCards = () => {
   const router = useRouter()
   const { currentCategory } = useMainContext()
   const { guideCards } = useProductLandingContext()
+  const routePath = `/${router.asPath.split('?')[0]}` // remove query string
 
   if (!guideCards) {
     return null
@@ -25,7 +26,7 @@ export const GuideCards = () => {
       </div>
 
       {!currentCategory && (
-        <Link href={`${router.asPath}/guides`}>
+        <Link href={`${routePath}/guides`}>
           <a className="btn btn-outline float-right">
             Explore guides <ArrowRightIcon />
           </a>

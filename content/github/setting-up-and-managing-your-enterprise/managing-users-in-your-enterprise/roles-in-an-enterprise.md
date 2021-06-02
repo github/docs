@@ -26,7 +26,7 @@ For more information about adding people to your enterprise, see "{% if currentV
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 - Managing administrators
-- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" %} in{% endif %} the enterprise
+- {% if currentVersion == "free-pro-team@latest" %}Adding and removing {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Managing{% endif %} organizations {% if currentVersion == "free-pro-team@latest" %}to and from {% elsif currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} in{% endif %} the enterprise
 - Managing enterprise settings
 - Enforcing policy across organizations
 {% if currentVersion == "free-pro-team@latest" %}- Managing billing settings{% endif %}

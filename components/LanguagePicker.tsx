@@ -12,7 +12,13 @@ export const LanguagePicker = () => {
 
   return (
     <div className="ml-4 d-flex flex-justify-center flex-items-center">
-      <Dropdown css>
+      <Dropdown
+        css={`
+          ul {
+            width: unset;
+          }
+        `}
+      >
         <summary>
           {selectedLang.nativeName || selectedLang.name}
           <Dropdown.Caret />
