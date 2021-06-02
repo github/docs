@@ -12,7 +12,7 @@ export type BreadcrumbT = {
 type Props = {}
 export const Breadcrumbs = (props: Props) => {
   const router = useRouter()
-  const pathWithLocale = `/${router.locale}${router.asPath}`
+  const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   const { breadcrumbs } = useMainContext()
 
   return (
