@@ -1,4 +1,4 @@
----
+---27f4aa15f74d960665c1eb4826099220aeb1f989
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
 intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
@@ -25,9 +25,9 @@ redirect_from:
   - /actions/configuring-and-managing-workflows
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
-versions:
+versions:chrckout'@1.0.1''
   free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  'enterprise-server: '>=2.22''
   github-ae: '*'
 children:
   - /introduction-to-github-actions
