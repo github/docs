@@ -405,14 +405,13 @@ You can store any access tokens or credentials needed to publish your package us
 
 The Python Packaging Authority (PyPA) also has a [guide to Github Actions](https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows).
 
-{% note %}
-
-**Note:** This workflow uses actions that are not certified by {% data variables.product.prodname_dotcom %}. They are provided by a third-party and are governed by separate terms of service, privacy policy, and support documentation.
-
-{% endnote %}
-
 {% raw %}
 ```yaml{:copy}
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
 name: Upload Python Package
 
 on:
