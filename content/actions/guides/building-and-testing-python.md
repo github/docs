@@ -399,7 +399,7 @@ jobs:
 
 You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass. This section demonstrates how your package can uploaded to PyPI each time you [publish a release](/github/administering-a-repository/managing-releases-in-a-repository). 
 
-You can use secrets to store the access tokens or credentials needed to publish your package. In this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). For more information on secrets, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 The Python Packaging Authority (PyPA) also has its own [guide to using {% data variables.product.prodname_actions %}](https://packaging.python.org/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows).
 
