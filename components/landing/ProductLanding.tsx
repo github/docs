@@ -12,8 +12,13 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
 
 export const ProductLanding = () => {
-  const { shortTitle, guideCards, productUserExamples, productCommunityExamples, productCodeExamples } =
-    useProductLandingContext()
+  const {
+    shortTitle,
+    guideCards,
+    productUserExamples,
+    productCommunityExamples,
+    productCodeExamples,
+  } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
 
   return (

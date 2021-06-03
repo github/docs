@@ -1,7 +1,7 @@
 import cx from 'classnames'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMainContext } from './context/MainContext'
+import { Link } from 'components/Link'
 
 export type BreadcrumbT = {
   title: string
@@ -28,16 +28,16 @@ export const Breadcrumbs = (props: Props) => {
             {breadcrumb.title}
           </span>
         ) : (
-          <Link key={title} href={breadcrumb.href}>
-            <a
-              title={title}
-              className={cx(
-                'd-inline-block',
-                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-              )}
-            >
-              {breadcrumb.title}
-            </a>
+          <Link
+            key={title}
+            href={breadcrumb.href}
+            title={title}
+            className={cx(
+              'd-inline-block',
+              pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+            )}
+          >
+            {breadcrumb.title}
           </Link>
         )
       })}

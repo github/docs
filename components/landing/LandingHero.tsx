@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import cx from 'classnames'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMainContext } from 'components/context/MainContext'
 
+import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
@@ -107,8 +107,8 @@ export const FullLink = ({ href, children, className }: Props) => {
     currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
   }${href}`
   return (
-    <Link href={fullyQualifiedHref}>
-      <a className={className}>{children}</a>
+    <Link href={fullyQualifiedHref} className={className}>
+      {children}
     </Link>
   )
 }
