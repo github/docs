@@ -429,8 +429,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install build
       - name: Build package
-        run: |
-          python -m build
+        run: python -m build
       - name: Publish DEV package
         if: "github.event.release.prerelease"
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
