@@ -430,15 +430,7 @@ jobs:
           pip install build
       - name: Build package
         run: python -m build
-      - name: Publish DEV package
-        if: "github.event.release.prerelease"
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-        with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository_url: https://test.pypi.org/legacy/
       - name: Publish package
-        if: "!github.event.release.prerelease"
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
           user: __token__
