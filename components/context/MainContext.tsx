@@ -67,7 +67,7 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
+  builtAssets: { main: { js: string } }
   expose: string
   activeProducts: Array<ProductT>
   currentProduct: ProductT
@@ -105,7 +105,7 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
+    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
