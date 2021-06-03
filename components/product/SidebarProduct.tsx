@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import cx from 'classnames'
 import { useDetails, Details } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
+import { Link } from 'components/Link'
 import { CurrentProductTree, useMainContext } from 'components/context/MainContext'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
@@ -24,8 +24,11 @@ export const SidebarProduct = () => {
       {!currentProductTree.page.hidden && (
         <>
           <li title="" className="sidebar-product mb-2">
-            <Link href={currentProductTree.href}>
-              <a className="pl-4 pr-5 pb-1 f4 color-text-primary no-underline">{productTitle}</a>
+            <Link
+              href={currentProductTree.href}
+              className="pl-4 pr-5 pb-1 f4 color-text-primary no-underline"
+            >
+              {productTitle}
             </Link>
           </li>
 
@@ -48,10 +51,11 @@ export const SidebarProduct = () => {
                     )}
                   >
                     {isStandaloneCategory ? (
-                      <Link href={childPage.href}>
-                        <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline">
-                          {childTitle}
-                        </a>
+                      <Link
+                        href={childPage.href}
+                        className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline"
+                      >
+                        {childTitle}
                       </Link>
                     ) : (
                       <CollapsibleSection
@@ -86,10 +90,11 @@ const CollapsibleSection = (props: SectionProps) => {
     <Details {...getDetailsProps()} className="details-reset">
       <summary>
         <div className="d-flex flex-justify-between">
-          <Link href={page.href}>
-            <a className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline">
-              {title}
-            </a>
+          <Link
+            href={page.href}
+            className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline"
+          >
+            {title}
           </Link>
           {page.childPages.length > 0 && (
             <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
@@ -114,8 +119,11 @@ const CollapsibleSection = (props: SectionProps) => {
                   isCurrent && 'is-current-page'
                 )}
               >
-                <Link href={childPage.href}>
-                  <a className="pl-4 pr-5 py-2 color-text-primary no-underline">{childTitle}</a>
+                <Link
+                  href={childPage.href}
+                  className="pl-4 pr-5 py-2 color-text-primary no-underline"
+                >
+                  {childTitle}
                 </Link>
                 <ul className="sidebar-articles my-2">
                   {childPage.childPages.map((grandchildPage, i, arr) => {
@@ -133,15 +141,14 @@ const CollapsibleSection = (props: SectionProps) => {
                           isCurrent && 'is-current-page'
                         )}
                       >
-                        <Link href={grandchildPage.href}>
-                          <a
-                            className={cx(
-                              'pl-6 pr-5 py-1 color-text-primary no-underline',
-                              isLast && 'pb-2'
-                            )}
-                          >
-                            {grandchildTitle}
-                          </a>
+                        <Link
+                          href={grandchildPage.href}
+                          className={cx(
+                            'pl-6 pr-5 py-1 color-text-primary no-underline',
+                            isLast && 'pb-2'
+                          )}
+                        >
+                          {grandchildTitle}
                         </Link>
                       </li>
                     )
@@ -168,10 +175,11 @@ const CollapsibleSection = (props: SectionProps) => {
                   isCurrent && 'is-current-page'
                 )}
               >
-                <Link href={childPage.href}>
-                  <a className={cx('pl-6 pr-5 py-1 color-text-primary no-underline', isLast && 'pb-2')}>
-                    {childTitle}
-                  </a>
+                <Link
+                  href={childPage.href}
+                  className={cx('pl-6 pr-5 py-1 color-text-primary no-underline', isLast && 'pb-2')}
+                >
+                  {childTitle}
                 </Link>
               </li>
             )
