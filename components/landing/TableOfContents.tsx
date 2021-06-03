@@ -9,7 +9,11 @@ export const TableOfContents = (props: { items?: Array<TocItem> }) => {
 
   return (
     <div>
-      {(props.items || []).map(({ fullPath: href, title, intro }) => {
+      {(props.items || []).map((obj) => {
+        if (!obj) {
+          return null
+        }
+        const { fullPath: href, title, intro } = obj
         const isActive = router.pathname === href
         return (
           <div key={href} className={cx('mb-5', isActive && 'color-auto-gray-4')}>
