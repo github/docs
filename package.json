@@ -25,7 +25,7 @@
     "@primer/css": "^16.3.0",
     "@primer/octicons": "^13.0.0",
     "@primer/octicons-react": "^13.0.0",
-    "ajv": "^6.12.3",
+    "ajv": "^8.3.0",
     "algoliasearch": "^3.35.1",
     "assert": "^2.0.0",
     "babel-loader": "^8.1.0",
