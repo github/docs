@@ -22,7 +22,7 @@
     "@graphql-inspector/core": "^2.3.0",
     "@graphql-tools/load": "^6.2.5",
     "@primer/components": "^28.0.1",
-    "@primer/css": "^16.2.0",
+    "@primer/css": "^16.3.0",
     "@primer/octicons": "^13.0.0",
     "@primer/octicons-react": "^13.0.0",
     "ajv": "^6.11.0",
