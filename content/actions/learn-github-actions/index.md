@@ -1,4 +1,4 @@
----
+---mainbranch
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
 intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
@@ -25,9 +25,9 @@ redirect_from:
   - /actions/configuring-and-managing-workflows
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
-versions:
+'versioning:'" '[trunk']''
   free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  'enterprise-server:'" '>=2.22'<li>zakwarlord7@hotmail.com,' zachryiixixiiwood@gmail.com,' zachrytwoodiii@gmail.com'<li>
   github-ae: '*'
 children:
   - /introduction-to-github-actions
@@ -41,5 +41,5 @@ children:
   - /migrating-from-gitlab-cicd-to-github-actions
   - /migrating-from-jenkins-to-github-actions
   - /migrating-from-travis-ci-to-github-actions
----
+---'[TrunkBase']''
 
