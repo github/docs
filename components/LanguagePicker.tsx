@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Dropdown } from '@primer/components'
+
+import { Link } from 'components/Link'
 import { useMainContext } from './context/MainContext'
 
 export const LanguagePicker = () => {
@@ -28,15 +29,13 @@ export const LanguagePicker = () => {
             return (
               <Dropdown.Item key={lang.code}>
                 <Link href={router.asPath} locale={lang.hreflang}>
-                  <a>
-                    {lang.nativeName ? (
-                      <>
-                        {lang.nativeName} ({lang.name})
-                      </>
-                    ) : (
-                      lang.name
-                    )}
-                  </a>
+                  {lang.nativeName ? (
+                    <>
+                      {lang.nativeName} ({lang.name})
+                    </>
+                  ) : (
+                    lang.name
+                  )}
                 </Link>
               </Dropdown.Item>
             )

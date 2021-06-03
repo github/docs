@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
+import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 
@@ -11,7 +11,7 @@ export const GuideCards = () => {
   const router = useRouter()
   const { currentCategory } = useMainContext()
   const { guideCards } = useProductLandingContext()
-  const routePath = `/${router.asPath.split('?')[0]}` // remove query string
+  const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
 
   if (!guideCards) {
     return null
@@ -26,10 +26,8 @@ export const GuideCards = () => {
       </div>
 
       {!currentCategory && (
-        <Link href={`${routePath}/guides`}>
-          <a className="btn btn-outline float-right">
-            Explore guides <ArrowRightIcon />
-          </a>
+        <Link href={`${routePath}/guides`} className="btn btn-outline float-right">
+          Explore guides <ArrowRightIcon />
         </Link>
       )}
     </div>
