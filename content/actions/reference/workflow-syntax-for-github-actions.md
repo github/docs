@@ -518,7 +518,7 @@ env:
 jobs:
   job1:
     env:
-      URL: ${{ env.URL }}/api
+      API: ${{ env.URL }}/api
 ```
 
 This would lead to a `Unrecognized named-value: 'env'.` error.
