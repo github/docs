@@ -8,8 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Alerts
+  - Notifications
+  - Vulnerabilities
+  - Dependencies
+  - Repositories
 ---
 <!--For this article in earlier GHES versions, see /content/github/managing-security-vulnerabilities-->
 

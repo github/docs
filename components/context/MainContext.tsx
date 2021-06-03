@@ -84,6 +84,7 @@ export type MainContextT = {
   currentProductTree?: CurrentProductTree
   featureFlags: FeatureFlags
   page: {
+    documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     fullTitle?: string
@@ -126,6 +127,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
+      documentType: req.context.page.documentType,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
