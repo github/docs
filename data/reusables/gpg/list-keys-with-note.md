@@ -1,5 +1,5 @@
 
-1. Use the `gpg --list-secret-keys --keyid-format=long` command to list long form of GPG keys for which you have both a public and private key. A private key is required for signing commits or tags.
+1. Use the `gpg --list-secret-keys --keyid-format=long` command to list the long form of the GPG keys for which you have both a public and private key. A private key is required for signing commits or tags.
   ```shell
   $ gpg --list-secret-keys --keyid-format=long
 ```
