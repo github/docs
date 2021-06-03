@@ -1,7 +1,6 @@
 ---
 title: Getting started with Git
-intro: '
-Git is a distributed Version Control System(VCS). Get started setting up Git to manage and control all your {% data variables.product.prodname_dotcom %} project workflows locally.'
+intro: 'Set up Git, a distributed version control system, to manage your {% data variables.product.product_name %} repositories from your computer.'
 redirect_from:
   - /articles/getting-started-with-git-and-github
   - /github/using-git/getting-started-with-git-and-github
@@ -23,4 +22,3 @@ children:
   - /configuring-git-to-handle-line-endings
   - /ignoring-files
 ---
-

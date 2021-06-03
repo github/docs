@@ -1,6 +1,6 @@
 ---
 title: Using Git
-intro: 'Learn about tools and terminologies used in Git to manage workflows of your remote repositories from a local machine.'
+intro: 'Use Git to manage your {% data variables.product.product_name %} repositories from your computer.'
 redirect_from:
   - /articles/using-common-git-commands
   - /github/using-git/using-common-git-commands
@@ -23,4 +23,3 @@ children:
   - /using-git-rebase-on-the-command-line
   - /resolving-merge-conflicts-after-a-git-rebase
 ---
-
