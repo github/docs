@@ -30,3 +30,4 @@ export default function () {
     node.innerHTML = node.innerHTML.replace(oldText, newText)
   })
 }
+تعديل جهات رموز  لوحة الكتابه 
