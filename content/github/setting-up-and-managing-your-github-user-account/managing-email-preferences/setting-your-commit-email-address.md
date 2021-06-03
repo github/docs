@@ -1,4 +1,4 @@
----
+---PAYMENT.PAYOUTSBATCH.SUCCESS'@zachryiixixiiwood@gmail.com@PayPal.com
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
 redirect_from:
