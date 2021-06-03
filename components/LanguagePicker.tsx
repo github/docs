@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Dropdown } from '@primer/components'
+
+import { Link } from 'components/Link'
 import { useMainContext } from './context/MainContext'
 
 export const LanguagePicker = () => {
@@ -12,7 +13,13 @@ export const LanguagePicker = () => {
 
   return (
     <div className="ml-4 d-flex flex-justify-center flex-items-center">
-      <Dropdown css>
+      <Dropdown
+        css={`
+          ul {
+            width: unset;
+          }
+        `}
+      >
         <summary>
           {selectedLang.nativeName || selectedLang.name}
           <Dropdown.Caret />
@@ -22,15 +29,13 @@ export const LanguagePicker = () => {
             return (
               <Dropdown.Item key={lang.code}>
                 <Link href={router.asPath} locale={lang.hreflang}>
-                  <a>
-                    {lang.nativeName ? (
-                      <>
-                        {lang.nativeName} ({lang.name})
-                      </>
-                    ) : (
-                      lang.name
-                    )}
-                  </a>
+                  {lang.nativeName ? (
+                    <>
+                      {lang.nativeName} ({lang.name})
+                    </>
+                  ) : (
+                    lang.name
+                  )}
                 </Link>
               </Dropdown.Item>
             )

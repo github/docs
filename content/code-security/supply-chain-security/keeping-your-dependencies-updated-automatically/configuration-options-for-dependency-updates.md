@@ -298,7 +298,7 @@ Dependencies ignored by using the `@dependabot ignore` command are stored centra
 
 You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 ##### Specifying dependencies and versions to ignore
 
