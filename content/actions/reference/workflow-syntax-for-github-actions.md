@@ -505,6 +505,26 @@ jobs:
       FIRST_NAME: Mona
 ```
 
+{% note %}
+
+**Note:** In `jobs.<job_id>.env` you can not reuse `.env` variables defined for the entire workflow. You would either need to hardcode the variable, extract it into [`env`](#env) or nest it in [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+
+**Example:**
+
+```yaml
+env:
+  URL: production.com
+
+jobs:
+  job1:
+    env:
+      URL: ${{ env.URL }}/api
+```
+
+This would lead to a `Unrecognized named-value: 'env'.` error.
+
+{% endnote %}
+
 ### `jobs.<job_id>.defaults`
 
 A `map` of default settings that will apply to all steps in the job. You can also set default settings for the entire workflow. For more information, see [`defaults`](#defaults).
