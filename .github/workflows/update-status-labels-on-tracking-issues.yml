@@ -17,11 +17,11 @@ jobs:
             const repo = context.payload.repository.name
 
             const allStatusLabels = [
-              'Status: GREEN',
-              'Status: GREY',
-              'Status: YELLOW',
-              'Status: BLACK',
-              'Status: RED'
+              'green',
+              'grey',
+              'yellow',
+              'black',
+              'red'
             ];
 
             const currentLabels = await github.issues.listLabelsOnIssue({
@@ -33,7 +33,7 @@ jobs:
             const newLabels = currentLabels.data.filter( label => allStatusLabels.includes(label.name) === false)
 
             allStatusLabels.forEach( label => {
-              if(context.payload.comment.body.includes(label)) {
+              if(context.payload.comment.body.toLowerCase().includes(`status: ${label}`)) {
                 newLabels.push(label)
               }
             });

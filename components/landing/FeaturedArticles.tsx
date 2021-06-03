@@ -78,7 +78,7 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
               <Link href={link.href}>
                 <a className="link-with-intro Bump-link--hover no-underline d-block py-3">
                   <h4 className="link-with-intro-title">
-                    {link.title}
+                    <span dangerouslySetInnerHTML={{ __html: link.title }} />
                     <span className="Bump-link-symbol">→</span>
                   </h4>
                   {!link.hideIntro && link.intro && (
@@ -87,7 +87,7 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
                       maxLines={2}
                       className="link-with-intro-intro color-text-secondary mb-0 mt-1"
                     >
-                      {link.intro}
+                      <span dangerouslySetInnerHTML={{ __html: link.intro }} />
                     </TruncateLines>
                   )}
                   {link.date && (
