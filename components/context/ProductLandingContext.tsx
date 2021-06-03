@@ -70,8 +70,9 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
+  const page = req.context.page
   return {
-    ...pick(req.context.page, [
+    ...pick(page, [
       'title',
       'shortTitle',
       'introPlainText',
@@ -96,11 +97,11 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: productTree.page.introLinks
+    introLinks: page.introLinks
       ? {
-          quickstart: productTree.page.introLinks.quickstart,
-          reference: productTree.page.introLinks.reference,
-          overview: productTree.page.introLinks.overview,
+          quickstart: page.introLinks.quickstart,
+          reference: page.introLinks.reference,
+          overview: page.introLinks.overview,
         }
       : null,
 
