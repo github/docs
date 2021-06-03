@@ -413,7 +413,7 @@ name: Upload Python Package
 
 on:
   release:
-    types: [released, prereleased]
+    types: [published]
 
 jobs:
   deploy:
