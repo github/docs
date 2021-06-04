@@ -3,22 +3,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import * as languages from 'lib/languages'
-import * as searchVersions from 'lib/search/versions'
-import * as nonEnterpriseDefaultVersion from 'lib/non-enterprise-default-version'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export default function Custom404 (props : any) {
   const router = useRouter()
   const { currentVersion, isEnterprise } = useVersion()
-  const expose = JSON.stringify({
-    searchOptions: {
-      languages: Object.keys(languages),
-      versions: searchVersions,
-      nonEnterpriseDefaultVersion
-    }
-  })
+
   const contribution_href = router.locale
     ? `https://github.com/github/docs/edit/main/content/`
     : 'https://github.com/github/docs'
@@ -27,9 +18,6 @@ export default function Custom404 (props : any) {
     <div className="d-lg-flex error-404">
       <Head>
         <title>Ooops!</title>
-        <link rel="stylesheet" href={props.cssPathUrl} />
-        <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
-        <script src={props.jsPathUrl} />
       </Head>
       <div className="sidebar d-none d-lg-block color-bg-tertiary position-sticky top-0 overflow-y-auto root">
         <div

@@ -3,9 +3,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import * as languages from 'lib/languages'
-import * as searchVersions from 'lib/search/versions'
-import * as nonEnterpriseDefaultVersion from 'lib/non-enterprise-default-version'
 import { useVersion } from 'components/hooks/useVersion'
 
 export default function Custom500(props : any) {
@@ -15,21 +12,10 @@ export default function Custom500(props : any) {
   ? `https://github.com/github/docs/edit/main/content/`
   : 'https://github.com/github/docs'
 
-  const expose = JSON.stringify({
-    searchOptions: {
-      languages: Object.keys(languages),
-      versions: searchVersions,
-      nonEnterpriseDefaultVersion
-    }
-  })
-
   return (
     <div>
       <Head>
         <title>GitHub Documentation</title>
-        <link rel="stylesheet" href={props.cssPathUrl} />
-        <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
-        <script src={props.jsPathUrl} />
       </Head>
       <div className="border-bottom color-border-secondary no-print">
         <header className="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full">
