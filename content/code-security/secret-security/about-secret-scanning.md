@@ -11,8 +11,10 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Repositories
+  - Secret scanning
+  - Advanced Security
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -47,6 +49,8 @@ When {% data variables.product.prodname_secret_scanning %} detects a set of cred
 
 If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for {% if currentVersion == "free-pro-team@latest" %} private{% endif %} repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_secret_scanning_caps %} is not available for user-owned private repositories.{% endif %} For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}You can also define custom {% data variables.product.prodname_secret_scanning %} patterns that only apply to your repository or organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."{% endif %}
+
 When you push commits to a{% if currentVersion == "free-pro-team@latest" %} private{% endif %} repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of the commits for secrets.
 
 When {% data variables.product.prodname_secret_scanning %} detects a secret in a{% if currentVersion == "free-pro-team@latest" %} private{% endif %} repository, {% data variables.product.prodname_dotcom %} generates an alert.
@@ -69,11 +73,13 @@ To monitor results from {% data variables.product.prodname_secret_scanning %} ac
 
 {% data reusables.secret-scanning.partner-secret-list-private-repo %}
 
+{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **Note:** {% data variables.product.prodname_secret_scanning_caps %} does not currently allow you to define your own patterns for detecting secrets.
 
 {% endnote %}
+{% endif %}
 
 ### Further reading
 

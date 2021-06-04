@@ -67,7 +67,7 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
+  builtAssets: { main: { js: string } }
   expose: string
   activeProducts: Array<ProductT>
   currentProduct: ProductT
@@ -84,6 +84,7 @@ export type MainContextT = {
   currentProductTree?: CurrentProductTree
   featureFlags: FeatureFlags
   page: {
+    documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     fullTitle?: string
@@ -104,7 +105,7 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
+    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
@@ -126,6 +127,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
+      documentType: req.context.page.documentType,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,

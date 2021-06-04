@@ -13,8 +13,12 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository
   - /code-security/secure-coding/managing-code-scanning-alerts-for-your-repository
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Alerts
+  - Repositories
 ---
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
