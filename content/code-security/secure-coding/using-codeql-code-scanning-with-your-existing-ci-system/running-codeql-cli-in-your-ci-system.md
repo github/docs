@@ -7,9 +7,17 @@ miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
-  github-ae: next
+  github-ae: 'next'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
+  - Repositories
+  - Pull requests
+  - Integration
+  - CI
+  - SARIF
 redirect_from:
   - /code-security/secure-coding/running-codeql-cli-in-your-ci-system
 ---
