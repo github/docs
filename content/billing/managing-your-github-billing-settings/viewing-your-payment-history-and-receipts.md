@@ -8,6 +8,7 @@ redirect_from:
   - /articles/downloading-receipts-for-organizations/
   - /articles/viewing-your-payment-history-and-receipts
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 versions:
   free-pro-team: '*'
 type: how_to

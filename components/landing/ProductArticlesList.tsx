@@ -1,9 +1,10 @@
-import Link from 'next/link'
-
 import cx from 'classnames'
 import { useState } from 'react'
+
 import { ChevronUpIcon } from '@primer/octicons-react'
+
 import { CurrentProductTree, useMainContext } from 'components/context/MainContext'
+import { Link } from 'components/Link'
 
 const maxArticles = 10
 
@@ -16,12 +17,12 @@ export const ProductArticlesList = () => {
 
   return (
     <div className="d-flex gutter flex-wrap">
-      {currentProductTree.childPages.map((childPage) => {
+      {currentProductTree.childPages.map((childPage, i) => {
         if (childPage.page.documentType === 'article') {
           return null
         }
 
-        return <ArticleList key={childPage.href} page={childPage} />
+        return <ArticleList key={childPage.href + i} page={childPage} />
       })}
     </div>
   )
@@ -33,9 +34,7 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h4 className="mb-3">
-        <Link href={page.href}>
-          <a>{page.page.title}</a>
-        </Link>
+        <Link href={page.href}>{page.page.title}</Link>
       </h4>
 
       <ul className="list-style-none">
@@ -45,14 +44,16 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
           }
 
           return (
-            <li className={cx('mb-3', index >= maxArticles ? 'd-none' : null)}>
-              <Link href={grandchildPage.href}>
-                <a>{grandchildPage.page.title}</a>
-              </Link>
+            <li
+              key={grandchildPage.href + index}
+              className={cx('mb-3', !isShowingMore && index >= maxArticles ? 'd-none' : null)}
+            >
+              <Link href={grandchildPage.href}>{grandchildPage.page.title}</Link>
               {grandchildPage.page.documentType === 'mapTopic' ? (
-              <small className="color-text-secondary d-inline-block">
-                &nbsp;&bull; {page.childPages.length} articles
-              </small>) : null}
+                <small className="color-text-secondary d-inline-block">
+                  &nbsp;&bull; {page.childPages.length} articles
+                </small>
+              ) : null}
             </li>
           )
         })}

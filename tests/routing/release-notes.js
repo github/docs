@@ -1,6 +1,6 @@
 const { get } = require('../helpers/supertest')
 
-describe('enterprise release notes', () => {
+describe('release notes', () => {
   jest.setTimeout(60 * 1000)
 
   beforeAll(async () => {
@@ -16,9 +16,13 @@ describe('enterprise release notes', () => {
     expect(res.headers.location).toBe('https://enterprise.github.com/releases/2.19.0/notes')
   })
 
-  // We can't write this test until we have real release notes
   it('renders the release-notes layout if this version\'s release notes are in this repo', async () => {
     const res = await get('/en/enterprise-server@2.22/admin/release-notes')
+    expect(res.statusCode).toBe(200)
+  })
+
+  it('renders the release-notes layout for GitHub AE', async () => {
+    const res = await get('/en/github-ae@latest/admin/release-notes')
     expect(res.statusCode).toBe(200)
   })
 })

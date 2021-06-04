@@ -24,7 +24,6 @@ export const DefaultLayout = (props: Props) => {
           <title>{page.fullTitle}</title>
         ) : null}
 
-        <link rel="stylesheet" href={builtAssets.main.css} />
         <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
         <script src={builtAssets.main.js} />
 
@@ -38,6 +37,7 @@ export const DefaultLayout = (props: Props) => {
         {page.languageVariants.map((languageVariant) => {
           return (
             <link
+              key={languageVariant.href}
               rel="alternate"
               hrefLang={languageVariant.hreflang}
               href={`https://docs.github.com${languageVariant.href}`}
