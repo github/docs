@@ -90,7 +90,6 @@ domain: my-site.github.io       # if you want to force HTTPS, specify the domain
 url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
 baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
 ```
-
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
 11. From the command line, run `bundle update`.
