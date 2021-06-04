@@ -48,7 +48,10 @@ module.exports = async function genericToc (req, res, next) {
 }
 
 async function getTocItems (pagesArray, context, isRecursive, renderIntros) {
-  return await Promise.all(pagesArray.map(async (child) => {
+  return (await Promise.all(pagesArray.map(async (child) => {
+    // Do not include hidden child items on a TOC page
+    if (child.page.hidden) return
+
     return {
       title: child.renderedFullTitle,
       fullPath: child.href,
@@ -56,5 +59,6 @@ async function getTocItems (pagesArray, context, isRecursive, renderIntros) {
       intro: renderIntros ? await child.page.renderProp('intro', context, { unwrap: true }) : null,
       childTocItems: isRecursive && child.childPages ? getTocItems(child.childPages, context, isRecursive, renderIntros) : null
     }
-  }))
+  })))
+    .filter(Boolean)
 }
