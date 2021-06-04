@@ -117,7 +117,6 @@ module.exports = function (app) {
   app.use(instrument('./contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument('./contextualizers/whats-new-changelog')))
   app.use(instrument('./contextualizers/layout'))
-  app.use(asyncMiddleware(instrument('./contextualizers/render-tree-titles')))
   app.use(instrument('./contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument('./contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument('./contextualizers/breadcrumbs')))
