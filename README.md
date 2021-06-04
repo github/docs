@@ -1,13 +1,12 @@
 # docs
 The open-source repo for docs.github.com
-ڤولت٣٠٦ / واط
-٤٠٤واط- / ٣٠٦
 
- ٨٤١- واط/٣٠٣
+306volt / 97 Battary
+ 
+306volt / 54 battary
 
-٨٤٧-واط /٣٠٦
+306 volt/ 39 battary
 
- ٨٧٧ واط/ ٣٠٦-
+306 volt / 95 battry
 
-٣٠٦/- واط ٨٥٨
 
