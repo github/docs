@@ -235,7 +235,7 @@ export default function initializeEvents () {
   initClipboardEvent()
   initNavigateEvent()
   // print event in ./print.js
-  // survey event in ./helpfulness.js
+  // survey event in ./survey.js
   // experiment event in ./experiment.js
   // search event in ./search.js
   // redirect event in middleware/record-redirect.js
