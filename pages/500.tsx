@@ -56,11 +56,6 @@ export default function Custom500(props : any) {
             <div className="d-inline-block width-full d-md-flex" style={{ zIndex: 1 }}>
               <div className="float-right d-md-none position-relative" style={{ zIndex: 3 }}>
                 <div className="d-md-inline-block">
-                  <div id="search-input-container" aria-hidden="true">
-                    <div role="search" className="ais-SearchBox-form">
-                      <input className="ais-SearchBox-input" type="search" placeholder="Search topics, products..." />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -74,46 +69,11 @@ export default function Custom500(props : any) {
             It looks like something went wrong.
             We track these errors automatically, but if the problem persists please feel free to contact us.
           </div>
-          <pre><code>{props.errorStack}</code></pre>
         </article>
       </div>
       
       <section className="mt-lg-9 py-7 px-3 px-md-6 no-print color-bg-tertiary">
         <div className="container-xl gutter-lg-spacious clearfix">
-          <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
-            <div className="js-helpfulness f5">
-              <h2 data-help-start data-help-yes data-help-no className="mb-1 f4">
-                Did this doc help you?
-              </h2>
-              <p className="f6">
-                <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
-              </p>
-              <p className="radio-group" data-help-start data-help-yes data-help-no>
-                <input
-                  hidden
-                  id="helpfulness-yes"
-                  type="radio"
-                  name="helpfulness-vote"
-                  value="Yes"
-                  aria-label="Yes"
-                />
-                <label className="btn x-radio-label mr-1" htmlFor="helpfulness-yes">
-                  <ThumbsupIcon size={24} className="color-text-tertiary" />
-                </label>
-                <input
-                  hidden
-                  id="helpfulness-no"
-                  type="radio"
-                  name="helpfulness-vote"
-                  value="No"
-                  aria-label="No"
-                />
-                <label className="btn x-radio-label" htmlFor="helpfulness-no">
-                  <ThumbsdownIcon size={24} className="color-text-tertiary" />
-                </label>
-              </p>
-            </div>
-          </div>
           <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
           <div className="f5 contribution">
             <h2 className="f4">Help us make these docs great!</h2>
@@ -197,19 +157,6 @@ export default function Custom500(props : any) {
           </ul>
         </div>
       </footer>
-    <style jsx>
-      {`
-        .ais-SearchBox-input {
-        line-height: 20px;
-        width: 100%;
-        padding: 10px 8px 10px 32px;
-        font-size: 16px;
-        background: var(--color-bg-primary) url("../../../assets/images/octicons/search.svg")
-          no-repeat 6px;
-        border: 1px solid var(--color-input-border);
-        }
-      `}
-    </style>
     </div>
   )
 }

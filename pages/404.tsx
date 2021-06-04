@@ -64,48 +64,11 @@ export default function Custom404 (props : any) {
             </div>
             <div className="col-lg-12 mt-6">
               <h3 className="mb-3">Need help?</h3>
-              <div id="search-input-container" aria-hidden="true">
-                <div role="search" className="ais-SearchBox-form">
-                  <input className="ais-SearchBox-input" placeholder="Search topics, products..." />
-                </div>
-              </div>
             </div>
           </article>
         </div>
         <section className="mt-lg-9 py-7 px-3 px-md-6 no-print color-bg-tertiary">
           <div className="container-xl gutter-lg-spacious clearfix">
-            <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
-              <h2 data-help-start data-help-yes data-help-no className="mb-1 f4">
-                Did this doc help you?
-              </h2>
-              <p className="f6">
-                <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
-              </p>
-              <p className="radio-group" data-help-start data-help-yes data-help-no>
-                <input
-                  hidden
-                  id="helpfulness-yes"
-                  type="radio"
-                  name="helpfulness-vote"
-                  value="Yes"
-                  aria-label="Yes"
-                />
-                <label className="btn x-radio-label mr-1" htmlFor="helpfulness-yes">
-                  <ThumbsupIcon size={24} className="color-text-tertiary" />
-                </label>
-                <input
-                  hidden
-                  id="helpfulness-no"
-                  type="radio"
-                  name="helpfulness-vote"
-                  value="No"
-                  aria-label="No"
-                />
-                <label className="btn x-radio-label" htmlFor="helpfulness-no">
-                  <ThumbsdownIcon size={24} className="color-text-tertiary" />
-                </label>
-              </p>
-            </div>
             <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
             <div className="f5 contribution">
               <h2 className="f4">Help us make these docs great!</h2>
@@ -190,24 +153,6 @@ export default function Custom404 (props : any) {
           </div>
         </footer>
       </main>
-      <style jsx>
-        {`
-          .root {
-            width: 280px;
-            height: 100vh;
-            flex-shrink: 0;
-          }
-          .ais-SearchBox-input {
-            line-height: 20px;
-            width: 100%;
-            padding: 10px 8px 10px 32px;
-            font-size: 16px;
-            background: var(--color-bg-primary) url("../../../assets/images/octicons/search.svg")
-              no-repeat 6px;
-            border: 1px solid var(--color-input-border);
-          }
-        `}
-      </style>
     </div>
   )
 }
