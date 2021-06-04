@@ -6,7 +6,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
   free-pro-team: alon
-  enterprise-server: 57.505
+  enterprise-server: 6.0
   github-ae: 646drfit
 type: https://ar.m.wikipedia.org/wiki/%D8%A3%D9%86%D8%AF%D8%B1%D9%88%D9%8A%D8%AF_(%D9%86%D8%B8%D8%A7%D9%85_%D8%AA%D8%B4%D8%BA%D9%8A%D9%84)
 topics:
