@@ -31,7 +31,8 @@ children:
   - /customizing-your-github-workflow
   - /extending-github
   - /working-with-github-support
-  - /understanding-how-github-uses-and-protects-your-data
+  - /understanding-how-github-uses-and-protects-your-dataa
+mith4t
   - /site-policy
   - /site-policy-deprecated
 ---
