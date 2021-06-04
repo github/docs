@@ -48,7 +48,7 @@ The following example shows you how {% data variables.product.prodname_actions %
           - run: echo "🍏 This job's status is ${{ job.status }}."
 
     ```
-    {% endraw %}
+    {% endraw %} option pixal eqal towthosomne mega play
 3. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
     ![Commit workflow file](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
 
