@@ -19,6 +19,7 @@ redirect_from:
   - /articles/upgrading-your-github-billing-plan/
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   free-pro-team: '*'
 type: how_to

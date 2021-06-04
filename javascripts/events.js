@@ -30,28 +30,31 @@ export function getUserEventsId () {
 export function sendEvent ({
   type,
   version = '1.0.0',
-  exit_render_duration,
-  exit_first_paint,
-  exit_dom_interactive,
-  exit_dom_complete,
-  exit_visit_duration,
-  exit_scroll_length,
-  link_url,
-  search_query,
-  search_context,
-  navigate_label,
-  survey_vote,
-  survey_comment,
-  survey_email,
-  experiment_name,
-  experiment_variation,
-  experiment_success,
-  clipboard_operation
+  // `= undefined` is a TypeScript hint.
+  exit_render_duration = undefined,
+  exit_first_paint = undefined,
+  exit_dom_interactive = undefined,
+  exit_dom_complete = undefined,
+  exit_visit_duration = undefined,
+  exit_scroll_length = undefined,
+  link_url = undefined,
+  search_query = undefined,
+  search_context = undefined,
+  navigate_label = undefined,
+  survey_vote = undefined,
+  survey_comment = undefined,
+  survey_email = undefined,
+  experiment_name = undefined,
+  experiment_variation = undefined,
+  experiment_success = undefined,
+  clipboard_operation = undefined,
+  preference_name = undefined,
+  preference_value = undefined
 }) {
   const body = {
     _csrf: getCsrf(),
 
-    type, // One of page, exit, link, search, navigate, survey, experiment
+    type, // One of page, exit, link, search, navigate, survey, experiment, preference
 
     context: {
       // Primitives
@@ -77,7 +80,10 @@ export function sendEvent ({
 
       // Location information
       timezone: new Date().getTimezoneOffset() / -60,
-      user_language: navigator.language
+      user_language: navigator.language,
+
+      // Preference information
+      application_preference: Cookies.get('toolPreferred')
     },
 
     // Page event
@@ -112,7 +118,11 @@ export function sendEvent ({
     experiment_success,
 
     // Clipboard event
-    clipboard_operation
+    clipboard_operation,
+
+    // Preference event
+    preference_name,
+    preference_value
   }
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
   navigator.sendBeacon('/events', blob)
@@ -226,8 +236,9 @@ export default function initializeEvents () {
   initClipboardEvent()
   initNavigateEvent()
   // print event in ./print.js
-  // survey event in ./helpfulness.js
+  // survey event in ./survey.js
   // experiment event in ./experiment.js
   // search event in ./search.js
   // redirect event in middleware/record-redirect.js
+  // preference event in ./display-tool-specific-content.js
 }

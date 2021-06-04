@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { LinkExternalIcon, MarkGithubIcon } from '@primer/octicons-react'
+
+import { Link } from 'components/Link'
 import { useTranslation } from './hooks/useTranslation'
 import { useMainContext } from './context/MainContext'
-import { ProductSiteTree } from './product/ProductSiteTree'
+import { SidebarProduct } from './product/SidebarProduct'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
 
@@ -22,15 +23,19 @@ export const SidebarNav = (props: Props) => {
         id="github-logo"
         role="banner"
       >
-        <Link href={`/${router.locale}`}>
-          <a className="color-text-primary" aria-hidden="true" tabIndex={-1}>
-            <MarkGithubIcon size={32} />
-          </a>
+        <Link
+          href={`/${router.locale}`}
+          className="color-text-primary"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <MarkGithubIcon size={32} />
         </Link>
-        <Link href={`/${router.locale}`}>
-          <a className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto">
-            {t('github_docs')}
-          </a>
+        <Link
+          href={`/${router.locale}`}
+          className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto"
+        >
+          {t('github_docs')}
         </Link>
       </div>
       <nav>
@@ -41,7 +46,7 @@ export const SidebarNav = (props: Props) => {
           </ul>
         ) : (
           <ul className="sidebar-products">
-            <ProductSiteTree />
+            <SidebarProduct />
           </ul>
         )}
       </nav>

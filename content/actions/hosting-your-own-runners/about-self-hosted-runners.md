@@ -77,8 +77,8 @@ The following operating systems are supported for the self-hosted runner applica
 
 #### Linux
 
-- Red Hat Enterprise Linux 7
-- CentOS 7
+- Red Hat Enterprise Linux 7 or later
+- CentOS 7 or later
 - Oracle Linux 7
 - Fedora 29 or later
 - Debian 9 or later
