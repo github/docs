@@ -4,6 +4,7 @@ intro: 'You can view details of your usage of minutes and storage for {% data va
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-actions-usage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/viewing-your-github-actions-usage
 versions:
   free-pro-team: '*'
 type: how_to

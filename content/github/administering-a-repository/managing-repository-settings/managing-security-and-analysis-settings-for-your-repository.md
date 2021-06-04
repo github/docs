@@ -12,7 +12,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Alerts
+  - Advanced Security
+  - Dependency graph
+  - Secret scanning
   - Repositories
 ---
 {% if currentVersion == "free-pro-team@latest" %}
@@ -104,5 +110,5 @@ Organization owners and repository administrators can only grant access to view 
 
 ### Further reading
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

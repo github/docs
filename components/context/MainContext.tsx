@@ -67,7 +67,7 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
+  builtAssets: { main: { js: string } }
   expose: string
   activeProducts: Array<ProductT>
   currentProduct: ProductT
@@ -84,6 +84,7 @@ export type MainContextT = {
   currentProductTree?: CurrentProductTree
   featureFlags: FeatureFlags
   page: {
+    documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     fullTitle?: string
@@ -104,7 +105,7 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
+    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
@@ -126,6 +127,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
+      documentType: req.context.page.documentType,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
@@ -141,7 +143,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ),
       hidden: req.context.page.hidden || false,
     },
-    enterpriseServerReleases: JSON.parse(JSON.stringify(req.context.enterpriseServerReleases)),
+    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+      'isOldestReleaseDeprecated',
+      'oldestSupported',
+      'nextDeprecationDate',
+    ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
     languages: Object.fromEntries(
@@ -158,9 +164,24 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
-    // this gets rid of some `undefined` values, which is necessary so next.js can serialize the data
-    currentProductTree: JSON.parse(JSON.stringify(req.context.currentProductTree)),
+    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
     featureFlags: {},
+  }
+}
+
+// only pull things we need from the product tree, and make sure there are default values instead of `undefined`
+const getCurrentProductTree = (input: any): CurrentProductTree => {
+  return {
+    href: input.href,
+    renderedShortTitle: input.renderedShortTitle || '',
+    renderedFullTitle: input.renderedFullTitle || '',
+    page: {
+      hidden: input.page.hidden || false,
+      documentType: input.page.documentType,
+      title: input.page.title,
+      shortTitle: input.page.shortTitle || '',
+    },
+    childPages: (input.childPages || []).map(getCurrentProductTree),
   }
 }
 
