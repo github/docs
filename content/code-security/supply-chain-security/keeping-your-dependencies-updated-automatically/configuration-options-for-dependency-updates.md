@@ -8,8 +8,13 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
 ### About the *dependabot.yml* file
 
@@ -293,7 +298,7 @@ Dependencies ignored by using the `@dependabot ignore` command are stored centra
 
 You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 ##### Specifying dependencies and versions to ignore
 
@@ -942,5 +947,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
