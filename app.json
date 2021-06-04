@@ -6,13 +6,12 @@
     "WEB_CONCURRENCY": "1"
   },
   "buildpacks": [
-    { "url": "https://github.com/DataDog/heroku-buildpack-datadog.git#1.21" },
     { "url": "heroku/nodejs" }
   ],
   "formation": {
     "web": {
       "quantity": 1,
-      "size": "performance-l"
+      "size": "standard-2x"
     }
   }
 }
