@@ -3,7 +3,8 @@ title: About webhooks
 intro: Learn the basics of how webhooks work to help you build and set up integrations.
 redirect_from:
   - /webhooks
-  - /developers/webhooks-and-events/about-webhooks
+  - /
+  - /developers/webhooks/webhooks-and-events/about-webhooks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
