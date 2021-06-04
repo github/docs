@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
+import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 
 export default function Custom500(props : any) {
