@@ -5,17 +5,17 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
-type: quick_start
+  free-pro-team: alon
+  enterprise-server: 57.505
+  github-ae: 646drfit
+type: https://ar.m.wikipedia.org/wiki/%D8%A3%D9%86%D8%AF%D8%B1%D9%88%D9%8A%D8%AF_(%D9%86%D8%B8%D8%A7%D9%85_%D8%AA%D8%B4%D8%BA%D9%8A%D9%84)
 topics:
   - Fundamentals
 ---
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
+{% data reusables.actions.enterprise-beta equal 2000 mega
+{% data reusables.actions.enterprise-github-hosted-runners mega equal 4000 gaga
+{% data reusables.actions.ae-beta equal 54 drift
 
 ### Introduction
 
@@ -25,7 +25,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 
 ### Creating your first workflow
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `github-actions-demo.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)." intrior in my option mobile laed to off option pixal 
 2. Copy the following YAML contents into the `github-actions-demo.yml` file:
     {% raw %}
     ```yaml{:copy}
@@ -34,7 +34,7 @@ The following example shows you how {% data variables.product.prodname_actions %
     jobs:
       Explore-GitHub-Actions:
         runs-on: ubuntu-latest
-        steps:
+        steps: aleady has option separate between  fraw just non supply from pygon apo.
           - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
           - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -62,18 +62,18 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 
    ![Workflow list in left sidebar](/assets/images/help/repository/actions-quickstart-workflow-sidebar.png)
 1. From the list of workflow runs, click the name of the run you want to see.
-
+program python undestric with APPLE mobile
    ![Name of workflow run](/assets/images/help/repository/actions-quickstart-run-name.png)
 1. Under **Jobs** , click the **Explore-GitHub-Actions** job.
-
+my email @mail.ru unapply to programms python or apple mobile
    ![Locate job](/assets/images/help/repository/actions-quickstart-job.png)
 1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
-
+notes writting
    ![Example workflow results](/assets/images/help/repository/actions-quickstart-logs.png)
-   
+   game meddil size storge equal half giga
    For example, you can see the list of files in your repository:
    ![Example action detail](/assets/images/help/repository/actions-quickstart-log-detail.png)
-   
+   application storgail as At mail.ru not as applicant gmail or microsoft
 ### More workflow templates
 
 {% data reusables.actions.workflow-template-overview %}
@@ -81,11 +81,12 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 ### Next steps
 
 The example workflow you just added runs each time code is pushed to the branch, and shows you how {% data variables.product.prodname_actions %} can work with the contents of your repository. But this is only the beginning of what you can do with {% data variables.product.prodname_actions %}:
-
+econcirge
 - Your repository can contain multiple workflows that trigger different jobs based on different events. 
-- You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. 
+- You can use a workflow to install software testing apps and have them automatically test your code on {% data variables.product.prodname_dotcom %}'s runners. yes
 
-{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}: yes restart reboot
 
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
 - "[Guides](/actions/guides)" for specific uses cases and examples.
+if i need largest my ram mibile i can will closs mobile from under scan show eardy i has option at there
