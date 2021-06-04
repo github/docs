@@ -6,9 +6,6 @@ import { MarkGithubIcon, GitPullRequestIcon, PeopleIcon, CommentDiscussionIcon, 
 import * as languages from 'lib/languages'
 import * as searchVersions from 'lib/search/versions'
 import * as nonEnterpriseDefaultVersion from 'lib/non-enterprise-default-version'
-import * as fs from 'fs'
-import * as path from 'path'
-import * as crypto from 'crypto'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
@@ -68,9 +65,9 @@ export default function Custom404 (props : any) {
             <div className="col-lg-12 mt-6">
               <h3 className="mb-3">Need help?</h3>
               <div id="search-input-container" aria-hidden="true">
-                <form role="search" className="ais-SearchBox-form">
-                  <input className="ais-SearchBox-input" type="search" placeholder="Search topics, products..." />
-                </form>
+                <div role="search" className="ais-SearchBox-form">
+                  <input className="ais-SearchBox-input" placeholder="Search topics, products..." />
+                </div>
               </div>
             </div>
           </article>
@@ -78,7 +75,6 @@ export default function Custom404 (props : any) {
         <section className="mt-lg-9 py-7 px-3 px-md-6 no-print color-bg-tertiary">
           <div className="container-xl gutter-lg-spacious clearfix">
             <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
-            <form className="js-helpfulness f5">
               <h2 data-help-start data-help-yes data-help-no className="mb-1 f4">
                 Did this doc help you?
               </h2>
@@ -109,49 +105,6 @@ export default function Custom404 (props : any) {
                   <ThumbsdownIcon size={24} className="color-text-tertiary" />
                 </label>
               </p>
-              <p className="color-text-secondary f6" hidden data-help-yes>
-                Want to learn about new docs features and updates? Sign up for updates!
-              </p>
-              <p className="color-text-secondary f6" hidden data-help-no>
-                We're continually improving our docs. We'd love to hear how we can do better.
-              </p>
-              <input type="text" className="d-none" name="helpfulness-token" aria-hidden="true" />
-              <p hidden data-help-no>
-                <label className="d-block mb-1 f6" htmlFor="helpfulness-comment">
-                  <span>Let us know what we can do better</span>
-                  <span className="text-normal color-text-tertiary float-right ml-1">Optional</span>
-                </label>
-                <textarea
-                  className="form-control input-sm width-full"
-                  name="helpfulness-comment"
-                  id="helpfulness-comment"
-                ></textarea>
-              </p>
-              <p>
-                <label className="d-block mb-1 f6" htmlFor="helpfulness-email" hidden data-help-no>
-                  Can we contact you if we have more questions?
-                  <span className="text-normal color-text-tertiary float-right ml-1">Optional</span>
-                </label>
-                <input
-                  type="email"
-                  className="form-control input-sm width-full"
-                  name="helpfulness-email"
-                  id="helpfulness-email"
-                  placeholder="email@example.com"
-                  hidden
-                  data-help-yes
-                  data-help-no
-                />
-              </p>
-              <p className="text-right" hidden data-help-yes data-help-no>
-                <button type="submit" className="btn btn-sm">
-                  Send
-                </button>
-              </p>
-              <p className="color-text-secondary f6" hidden data-help-end>
-                Thank you! Your feedback has been submitted.
-              </p>
-            </form>
             </div>
             <div className="col-12 col-lg-6 col-xl-4 mb-6 mb-xl-0 float-left">
             <div className="f5 contribution">
@@ -258,24 +211,3 @@ export default function Custom404 (props : any) {
     </div>
   )
 }
-
-export async function getStaticProps () {
-  function getContentHash (absFilePath: number | fs.PathLike) {
-    const buffer = fs.readFileSync(absFilePath)
-    const hash = crypto.createHash('md4')
-    hash.update(buffer)
-    return hash.digest('hex')
-  }
-  const cssPath = path.join(process.cwd(), './dist/index.css')
-  const jsPath = path.join(process.cwd(), './dist/index.js')
-  const cssPathUrl = `${cssPath}?hash=${getContentHash(cssPath)}`
-  const jsPathUrl = `${jsPath}?hash=${getContentHash(jsPath)}`
-
-  return {
-    props: {
-      cssPathUrl,
-      jsPathUrl
-    }
-  }
-}
-
