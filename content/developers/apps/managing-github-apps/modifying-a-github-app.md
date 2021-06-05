@@ -1,4 +1,4 @@
----
+One GitHub
 title: Modifying a GitHub App
 intro: '{% data reusables.shortdesc.modifying_github_apps %}'
 redirect_from:
