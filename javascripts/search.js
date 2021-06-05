@@ -15,8 +15,6 @@ let version
 let language
 
 export default function search () {
-  if (window.next) return
-
   // We don't want to mess with query params intended for the GraphQL Explorer
   isExplorerPage = Boolean(document.getElementById('graphiql'))
 
