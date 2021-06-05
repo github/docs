@@ -1,4 +1,5 @@
 ---
+https://app.site123.com/manager/login/login.php
 title: How does upgrading or downgrading affect the billing process?
 intro: 'When you upgrade the subscription for your personal account or organization, changes are applied immediately. When you downgrade your subscription, changes are applied at the end of your current billing cycle.'
 redirect_from:
@@ -6,8 +7,8 @@ redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
   - /github/setting-up-and-managing-billing-and-payments-on-github/how-does-upgrading-or-downgrading-affect-the-billing-process
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process
-versions:
-  free-pro-team: '*'
+versions:https://app.site123.com/manager/login/login.php
+  free-pro-team: '*'https://app.site123.com/manager/login/login.php
 type: how_to
 topics:
   - Fundamentals
@@ -15,6 +16,7 @@ topics:
   - Upgrades
   - User account
 ---
+https://app.site123.com/manager/login/login.php
 Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
 For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)" and "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
