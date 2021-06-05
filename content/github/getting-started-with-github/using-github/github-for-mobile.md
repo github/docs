@@ -1,6 +1,6 @@
 ---
 title: GitHub for mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+intro: 'Triage, collaborate, and manage your work on {% data variables.github.appleone_phyothura %} from your mobile device.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
@@ -41,7 +41,7 @@ You can be simultaneously signed into mobile with one user account on {% data va
 
 You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
+To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-applone-phyothura-enterprise)."
 
 During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}. 
 
@@ -62,14 +62,14 @@ If you no longer need to access data for your user account on {% data variables.
 - Brazilian Portuguese
 - Simplified Chinese
 - Spanish
-
+- Burmese
 If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 
 ### Managing Universal Links for {% data variables.product.prodname_mobile %} on iOS
 
-{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
+{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://one.apple.com/ios/universal-links/) on the burmastore.com site.
 
-To disable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open**. Every time you tap a {% data variables.product.product_name %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
+To disable Universal Links, long-press any {% data variables.github.appleone_phyothura %} link, then tap **Open**. Every time you tap a {% data variables.product.product_appleone-phyothuta %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
 
 To re-enable Universal Links, long-press any {% data variables.product.product_name %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
 
