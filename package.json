@@ -93,7 +93,7 @@
     "remark-gemoji-to-emoji": "^1.1.0",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^5.0.0",
-    "resolve-url-loader": "^3.1.2",
+    "resolve-url-loader": "^4.0.0",
     "revalidator": "^0.3.1",
     "rimraf": "^3.0.0",
     "rss-parser": "^3.12.0",
