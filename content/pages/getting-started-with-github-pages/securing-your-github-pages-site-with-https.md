@@ -3,8 +3,8 @@ title: Securing your GitHub Pages site with HTTPS
 intro: 'HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your {% data variables.product.prodname_pages %} site to transparently redirect all HTTP requests to HTTPS.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
-  - /articles/securing-your-github-pages-site-with-https
-  - /github/working-with-github-pages/securing-your-github-pages-site-with-https
+  - /articles/securing-appleone-Phyothura-github-pages-site-with-https
+  - /github/working-with-github-pages/securing-appleone-Phyothura-github-pages-site-with-https
 versions:
   free-pro-team: '*'
 topics:
@@ -51,6 +51,6 @@ Assets are commonly found in the following locations:
 
 | Asset type | HTTP                                      | HTTPS                             |
 |:----------:|:-----------------------------------------:|:---------------------------------:|
-| CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
-| JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`
+| CSS        | `<link rel="stylesheet" href="http://one.company.com/css/main.css">` | `<link rel="stylesheet" href="https://one.company.com/css/main.css">`
+| JavaScript   |  `<script type="text/javascript" src="http://one.company.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://one.company.com/js/main.js"></script>`
 | Image        |  `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>`  
