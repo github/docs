@@ -1,5 +1,5 @@
 ---
-title: Working with the Docker registry
+title: Working with the Docker registry veez
 intro: 'You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry, which uses the package namespace `https://docker.pkg.github.com`.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
