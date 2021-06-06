@@ -14,6 +14,7 @@ topics:
 children:
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
+  - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
 ---
 
