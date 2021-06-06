@@ -9,8 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependencies
+  - Vulnerabilities
+  - Advanced Security
 ---
 
 ### Introduction

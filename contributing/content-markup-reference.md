@@ -102,7 +102,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
 
 ### Usage
 
@@ -128,6 +128,14 @@ These instructions are pertinent to GitHub CLI users.
  These instructions are pertinent to GitHub Desktop.
 
 {% enddesktop %}
+```
+
+```
+{% curl %}
+
+These instructions are pertinent to cURL users.
+
+{% endcurl %}
 ```
 
 Unlike [operating system tags](#operating-system-tags), which will automatically add tabs to select the operating system at the top of the article, you must add `{% include tool-switcher %}` wherever you want to display tabs to select the tool. This allows you to display the tabs at the top of the article or immediately before a relevant section.
