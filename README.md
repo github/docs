@@ -1,12 +1,12 @@
 # docs
 The open-source repo for docs.github.com
 
-306volt / 97 Battary
+306volt / 97 nagtive
  
-306volt / 54 battary
+306volt / 54 ngative
 
-306 volt/ 39 battary
+306 volt/ 39 nagtive drft pull
 
-306 volt / 95 battry
+306 volt / 95 ngative drft pull
 
 
