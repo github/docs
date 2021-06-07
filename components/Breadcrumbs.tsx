@@ -27,19 +27,33 @@ export const Breadcrumbs = (props: Props) => {
           <span key={title} title={title}>
             {breadcrumb.title}
           </span>
-        ) : (
-          <Link
-            key={title}
-            href={breadcrumb.href}
-            title={title}
-            className={cx(
-              'd-inline-block',
-              pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-            )}
-          >
-            {breadcrumb.title}
-          </Link>
-        )
+          ) : pathWithLocale.includes('/guides') ? (
+            <span className='text-mono color-text-secondary text-uppercase'>
+              <Link
+                key={title}
+                href={breadcrumb.href}
+                title={title}
+                className={cx(
+                  'd-inline-block',
+                  pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+                )}
+              >
+                {breadcrumb.title}
+              </Link>
+            </span>
+          ) : (
+            <Link
+              key={title}
+              href={breadcrumb.href}
+              title={title}
+              className={cx(
+                'd-inline-block',
+                pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+              )}
+            >
+              {breadcrumb.title}
+            </Link>
+          )
       })}
     </nav>
   )
