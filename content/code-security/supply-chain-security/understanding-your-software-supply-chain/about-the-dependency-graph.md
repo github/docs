@@ -7,7 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: overview
 topics:
+  - Dependency graph
+  - Dependencies
   - Repositories
 ---
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
