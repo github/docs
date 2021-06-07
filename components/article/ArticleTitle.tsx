@@ -7,7 +7,7 @@ type Props = {
 export const ArticleTitle = ({ children }: Props) => {
   return (
     <div className="d-flex flex-items-baseline flex-justify-between">
-      <h1 className="my-4">{children}</h1>
+      <h1 className="my-4 border-bottom-0">{children}</h1>
       <div className="d-none d-lg-block ml-2">
         <Tooltip aria-label="Print this article" noDelay direction="n">
           <Link
