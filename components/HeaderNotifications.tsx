@@ -41,7 +41,7 @@ export const HeaderNotifications = () => {
       })
     } 
   } else {
-    if (languages[userLanguage]?.wip === false && userLanguage !== 'en') {
+    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: 
