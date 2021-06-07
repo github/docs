@@ -21,7 +21,7 @@ export const HomepageVersionPicker = () => {
 
   return (
     <div className="d-md-inline-block">
-      <div className="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+      <div className="border-top border-md-top-0 py-2 d-md-inline-block">
         <Dropdown
           css={`
             ul {
