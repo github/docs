@@ -55,7 +55,7 @@ After you finish reviewing a file, you can mark the file as viewed, and the file
 2. On the right of the header of the file you've finished reviewing, select **Viewed**.
   ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
 
-### Submitting your review
+### Submitting your review † 
 
 After you've finished reviewing all the files you want in the pull request, submit your review.
 
