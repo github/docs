@@ -11,6 +11,7 @@ import { HeaderNotifications } from 'components/HeaderNotifications'
 import { MobileProductDropdown } from 'components/MobileProductDropdown'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { HomepageVersionPicker } from 'components/landing/HomepageVersionPicker'
+import { Search } from 'components/Search'
 
 export const Header = () => {
   const router = useRouter()
@@ -79,7 +80,7 @@ export const Header = () => {
                       >
                         {/* <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
                     <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those --> */}
-                        {currentProduct.name}
+                        {currentProduct?.name}
                         <ChevronDownIcon size={24} className="arrow ml-md-1" />
                       </div>
                     </summary>
@@ -93,22 +94,16 @@ export const Header = () => {
                   {showVersionPicker && <HomepageVersionPicker />}
 
                   {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-                  <div className="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <div className="border-top border-md-top-0 py-2 d-md-inline-block">
                     <LanguagePicker />
                   </div>
 
                   {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-                  {relativePath !== 'index.md' && error !== '404'}
-                  <div
-                    className="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0"
-                    dangerouslySetInnerHTML={{
-                      __html: `
-                    <div id="search-input-container" aria-hidden="true"></div>
-                    <div id="search-results-container"></div>
-                    <div class="search-overlay-desktop"></div>
-                  `,
-                    }}
-                  />
+                  {relativePath !== 'index.md' && error !== '404' && (
+                    <div className="pt-3 pt-md-0 ml-md-3 d-md-inline-block border-top border-md-top-0">
+                      <Search />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
