@@ -5,11 +5,19 @@ import {
   MainContext,
   getMainContextFromRequest,
 } from 'components/context/MainContext'
+
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
   ProductLandingContext,
 } from 'components/context/ProductLandingContext'
+
+import {
+  getArticleContextFromRequest,
+  ArticleContextT,
+  ArticleContext,
+} from 'components/context/ArticleContext'
+import { ArticlePage } from 'components/article/ArticlePage'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
 import { TocLanding } from 'components/landing/TocLanding'
@@ -23,8 +31,14 @@ type Props = {
   mainContext: MainContextT
   productLandingContext: ProductLandingContextT
   tocLandingContext: TocLandingContextT
+  articleContext: ArticleContextT
 }
-const GlobalPage = ({ mainContext, productLandingContext, tocLandingContext }: Props) => {
+const GlobalPage = ({
+  mainContext,
+  productLandingContext,
+  tocLandingContext,
+  articleContext,
+}: Props) => {
   const { currentLayoutName, page, relativePath } = mainContext
 
   let content
@@ -49,7 +63,11 @@ const GlobalPage = ({ mainContext, productLandingContext, tocLandingContext }: P
       </TocLandingContext.Provider>
     )
   } else {
-    content = <p>article / fallback rendering</p>
+    content = (
+      <ArticleContext.Provider value={articleContext}>
+        <ArticlePage />
+      </ArticleContext.Provider>
+    )
   }
 
   return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
@@ -65,6 +83,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
+      articleContext: getArticleContextFromRequest(req),
     },
   }
 }
