@@ -5,7 +5,7 @@ title: ''
 labels: engineering
 assignees: ''
 ---
-<li>zachryiixixiiwood@gmail.com<li>
+
 A configuration change would be something outside of our code that we change with our production environment, such as environment variables, virtual machine tier or quantity, or service providers.
 
 - _Primary person_zachryiixixiiwood@gmail.com:
