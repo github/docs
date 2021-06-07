@@ -11,8 +11,7 @@ import { useVersion } from './hooks/useVersion'
 type Props = {}
 export const SidebarNav = (props: Props) => {
   const router = useRouter()
-  const { currentVersion } = useVersion()
-  const { error, relativePath } = useMainContext()
+  const { error, relativePath, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -41,7 +40,7 @@ export const SidebarNav = (props: Props) => {
       <nav>
         {error === '404' || relativePath === 'index.md' ? (
           <ul className="sidebar-products mt-4">
-            {currentVersion !== 'homepage' && <AllProductsLink />}
+            {!isHomepageVersion && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
         ) : (
@@ -67,12 +66,12 @@ export const SidebarNav = (props: Props) => {
 const SidebarHomepage = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { activeProducts } = useMainContext()
+  const { activeProducts, isHomepageVersion } = useMainContext()
 
   return (
     <>
       {activeProducts.map((product) => {
-        if (!product.versions?.includes(currentVersion) && currentVersion !== 'homepage') {
+        if (!product.versions?.includes(currentVersion) && !isHomepageVersion) {
           return null
         }
 
