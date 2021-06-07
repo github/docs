@@ -29,7 +29,7 @@ helpers.head = async function (route, opts = { followRedirects: false }) {
 helpers.post = route => request('post', route)
 
 helpers.getDOM = async function (route, headers) {
-  const res = await helpers.get(route, { followRedirects: true, headers: headers })
+  const res = await helpers.get(route, { followRedirects: true, headers })
   const $ = cheerio.load((res.text || ''), { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
