@@ -88,6 +88,7 @@ export type MainContextT = {
     documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
+    title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
@@ -130,6 +131,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
