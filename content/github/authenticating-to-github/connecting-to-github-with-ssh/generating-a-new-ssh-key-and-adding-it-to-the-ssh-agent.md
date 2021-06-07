@@ -101,7 +101,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
     * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup. 
 
       ```
-      Host *
+      Host github.com
         AddKeysToAgent yes
         UseKeychain yes
         IdentityFile ~/.ssh/id_ed25519
