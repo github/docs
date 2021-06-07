@@ -1,6 +1,6 @@
 ---
 title: Encrypted secrets
-intro: Verschlüsselte Geheimnisse ermöglichen es Ihnen, vertrauliche Informationen in Ihrem Repository oder Ihrer Organisation zu speichern.
+intro: 'Encrypted secrets allow you to store sensitive information in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or repository environments{% else %} or repository{% endif %}.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -9,25 +9,29 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.environments-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Informationen zu verschlüsselten Geheimnissen
 
-Geheimnisse sind verschlüsselte Umgebungsvariablen, die Sie in einem Repository oder einer Organisation erstellen. The secrets you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} verwendet eine [versiegelte Libsodium-Box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) um sicherzustellen, dass Geheimnisse verschlüsselt werden, bevor sie {% data variables.product.prodname_dotcom %} erreichen, und verschlüsselt bleiben, bis Du sie in einem Workflow verwendest.
+Secrets are encrypted environment variables that you create in an organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, repository, or repository environment{% else %} or repository{% endif %}. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
 
 {% data reusables.github-actions.secrets-org-level-overview %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
+{% endif %}
+
 #### Benennen Ihrer Geheimnisse
 
-Die folgenden Regeln gelten für geheime Namen:
+{% data reusables.codespaces.secrets-naming %}. For example, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}a secret created at the environment level must have a unique name in that environment, {% endif %}a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
-* Geheime Namen dürfen nur alphanumerische Zeichen (`[a-z]`, `[A-Z]`, `[0-9]`) oder Unterstriche (`_`) enthalten. Leerzeichen sind nicht zulässig.
-* Geheime Namen dürfen nicht mit dem `GITHUB_` -Präfix beginnen.
-* Geheime Namen dürfen nicht mit einer Zahl beginnen.
-* Geheime Namen müssen auf der Ebene eindeutig sein, auf der sie erstellt werden. Beispielsweise muss ein geheimer Schlüssel, der auf Organisationsebene erstellt wird, einen eindeutigen Namen auf dieser Ebene haben, und ein geheimer Schlüssel, der auf Repository-Ebene erstellt wird, muss einen eindeutigen Namen in diesem Repository haben. Wenn ein Geheimschlüssel auf Organisationsebene denselben Namen wie ein Geheimschlüssel auf Repository-Ebene hat, hat der geheime Schlüssel auf Repository-Ebene Vorrang.
+  {% data reusables.codespaces.secret-precedence %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.{% endif %}
 
 To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. Vermeide beispielsweise Geheimnisse zu erstellen, die JSON oder codierte Git-Blobs enthalten.
 
@@ -43,6 +47,10 @@ Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lese
 
 {% endwarning %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
+{% endif %}
+
 Sie können Geheimnisse auch mit der REST-API verwalten. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 #### Einschränken von Anmeldeinformationsberechtigungen
@@ -56,12 +64,34 @@ Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Bere
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Klicken Sie auf **Add a new secret** (Neues Geheimnis hinzufügen).
+1. Click **New repository secret**.
 1. Geben Sie einen Namen für Ihr Geheimnis in das Eingabefeld **Name** ein.
 1. Geben Sie den Wert für Ihr Geheimnis ein.
 1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
 
-Wenn Ihr Repository auf Geheimnisse der übergeordneten Organisation zugreifen kann, werden diese Geheimnisse auch auf dieser Seite aufgeführt.
+If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
+
+{% note %}
+
+**Note:** Users with collaborator access can use the REST API to manage secrets for a repository. For more information, see "[{% data variables.product.prodname_actions %} secrets API](/rest/reference/actions#secrets)."
+
+{% endnote %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+
+### Creating encrypted secrets for an environment
+
+{% data reusables.github-actions.permissions-statement-secrets-environment %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-environment %}
+1. Click on the environment that you want to add a secret to.
+1. Under **Environment secrets**, click **Add secret**.
+1. Geben Sie einen Namen für Ihr Geheimnis in das Eingabefeld **Name** ein.
+1. Geben Sie den Wert für Ihr Geheimnis ein.
+1. Klicken Sie auf **Add secret** (Geheimnis hinzufügen).
+{% endif %}
 
 ### Erstellen verschlüsselter Geheimnisse für eine Organisation
 
@@ -72,7 +102,7 @@ Beim Erstellen eines geheimen Schlüssels in einer Organisation können Sie eine
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. Klicken Sie auf **Neue geheime**.
+1. Click **New organization secret**.
 1. Geben Sie einen Namen für Ihr Geheimnis in das Eingabefeld **Name** ein.
 1. Geben Sie den **Value** für Ihr Geheimnis ein.
 1. Wählen Sie im **Repository-Zugriff** Dropdownliste eine Zugriffsrichtlinie aus.
@@ -90,7 +120,11 @@ Sie können überprüfen, welche Zugriffsrichtlinien auf einen geheimen Schlüss
 
 ### Verschlüsselte Geheimnisse in einem Workflow verwenden
 
-Mit Ausnahme von `GITHUB_TOKEN` werden Geheimnisse nicht an den Runner übergeben, wenn ein Workflow von einem geforkten Repository aus ausgelöst wird.
+{% note %}
+
+**Note:** {% data reusables.actions.forked-secrets %}
+
+{% endnote %}
 
 Um eine Aktion mit einem Geheimnis als Eingabe- oder Umgebungsvariable zu versehen, kannst Du den `secrets` Kontext verwenden, um auf Geheimnisse zuzugreifen, die Du in Deinem Repository erstellt hast. Weitere Informationen findest Du unter "[Kontext und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" und "[Workflow-Syntax für {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
@@ -150,7 +184,7 @@ steps:
 
 ### Einschränkungen für Geheimnisse
 
-Dein Workflow kann bis zu 100 Geheimnisse haben. Die Namen von Geheimnis-Umgebungsvariablen müssen Repository-weit eindeutig sein.
+You can store up to 1,000 secrets per organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}, 100 secrets per repository, and 100 secrets per environment{% else %} and 100 secrets per repository{% endif %}. A workflow may use up to 100 organization secrets and 100 repository secrets.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %} Additionally, a job referencing an environment may use up to 100 environment secrets.{% endif %}
 
 Geheimnisse sind auf 64 KB beschränkt. Um Geheimnisse zu verwenden, die größer als 64 KB sind, können Sie verschlüsselte Geheimnisse in Ihrem Repository speichern und die Passphrase zur Entschlüsselung als Geheimnis auf {% data variables.product.prodname_dotcom %} speichern. Sie können beispielsweise `gpg` verwenden, um Ihre Anmeldeinformationen lokal zu verschlüsseln, bevor Sie die Datei in Ihrem Repository auf {% data variables.product.prodname_dotcom %} einchecken. Weitere Informationen finden Sie auf der „[gpg-Manpage](https://www.gnupg.org/gph/de/manual/r1023.html)“.
 

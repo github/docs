@@ -13,9 +13,11 @@ A aba de alertas do {% data variables.product.prodname_dependabot %} do seu repo
 
 É possível habilitar atualizações de segurança automáticas para qualquer repositório que usa o {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
+{% data reusables.repositories.dependency-review %}
+
 ### Sobre atualizações para dependências vulneráveis no seu repositório
 
-O {% data variables.product.product_name %} gera {% data variables.product.prodname_dependabot_alerts %} quando detectamos vulnerabilidades que afetam o seu repositório. Para repositórios em que o {% data variables.product.prodname_dependabot_security_updates %} está ativado, quando {% data variables.product.product_name %} detecta uma dependência vulnerável, {% data variables.product.prodname_dependabot %} cria um pull request para corrigi-la. O pull request irá atualizar a dependência para a versão minimamente segura possível, o que é necessário para evitar a vulnerabilidade.
+{% data variables.product.product_name %} gera {% data variables.product.prodname_dependabot_alerts %} quando detectamos que sua base de código está usando dependências com vulnerabilidades conhecidas. Para repositórios em que {% data variables.product.prodname_dependabot_security_updates %} estão habilitados, quando {% data variables.product.product_name %} detecta uma dependência vulnerável no branch padrão, {% data variables.product.prodname_dependabot %} cria um pull request para corrigi-la. O pull request irá atualizar a dependência para a versão minimamente segura possível, o que é necessário para evitar a vulnerabilidade.
 
 ### Visualizar e atualizar dependências vulneráveis
 

@@ -1,0 +1,569 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: 'Se eliminará a `uploadUrlTemplate`. Utiliza `uploadUrl` en sustitución.'
+    reason: 'Se está eliminando a `uploadUrlTemplate` porque no es una URL estándar y agrega un paso extra al usuario.'
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: ContributionOrder.field
+    description: 'Se eliminará a `field`. Sólo hay compatibilidad par aun solo campo de orden.'
+    reason: 'Se eliminará a `field`.'
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Organization.pinnedRepositories
+    description: 'Se eliminará a `pinnedRepositories`. Utiliza ProfileOwner.pinnedItems en sustitución.'
+    reason: se eliminará a pinnedRepositories
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: RepositoryOwner.pinnedRepositories
+    description: 'Se eliminará a `pinnedRepositories`. Utiliza ProfileOwner.pinnedItems en sustitución.'
+    reason: se eliminará a pinnedRepositories
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: User.pinnedRepositories
+    description: 'Se eliminará a `pinnedRepositories`. Utiliza ProfileOwner.pinnedItems en sustitución.'
+    reason: se eliminará a pinnedRepositories
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: AssignedEvent.user
+    description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
+    reason: Los asignados ahora pueden ser maniquíes.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: EnterpriseBillingInfo.availableSeats
+    description: 'Se eliminará a `availableSeats`. Utiliza EnterpriseBillingInfo.totalAvailableLicenses en sustitución.'
+    reason: 'Se reemplazará a `availableSeats` con `totalAvailableLicenses` para proporcionar más claridad en el valor que se devuelva'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: BlakeWilliams
+  - 
+    location: EnterpriseBillingInfo.seats
+    description: 'Se eliminará a `seats`. Utiliza EnterpriseBillingInfo.totalLicenses en sustitución.'
+    reason: 'Se reemplazará a `seats` con `totalLicenses` para proporcionar más claridad en el valor que se devuelva'
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: BlakeWilliams
+  - 
+    location: UnassignedEvent.user
+    description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
+    reason: Los asignados ahora pueden ser maniquíes.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: Organization.registryPackages
+    description: 'Se eliminará a `registryPackages`. Utiliza el objeto `PackageOwner` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Organization.registryPackagesForQuery
+    description: 'Se eliminará a `registryPackagesForQuery`. Utiliza el objeto `PackageSearch` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.color
+    description: 'Se eliminará a `color`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.latestVersion
+    description: 'Se eliminará a `latestVersion`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.name
+    description: 'Se eliminará a `name`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.nameWithOwner
+    description: 'Se eliminará a `nameWithOwner`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileByGuid
+    description: 'Se eliminará a `packageFileByGuid`. Utiliza el objeto `Package`.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageFileBySha256
+    description: 'Se eliminará a `packageFileBySha256`. Utiliza el objeto `Package`.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.packageType
+    description: 'Se eliminará a `packageType`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.preReleaseVersions
+    description: 'Se eliminará a `preReleaseVersions`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.registryPackageType
+    description: 'Se eliminará a `registryPackageType`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.repository
+    description: 'Se eliminará a `repository`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.statistics
+    description: 'Se eliminará a `statistics`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.tags
+    description: 'Se eliminará a `tags`. Utiliza el objeto `Package`.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.topics
+    description: 'Se eliminará a `topics`. Utiliza el objeto `Package`.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.version
+    description: 'Se eliminará a `version`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionByPlatform
+    description: 'Se eliminará a `versionByPlatform`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionBySha256
+    description: 'Se eliminará a `versionBySha256`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versions
+    description: 'Se eliminará a `versions`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackage.versionsByMetadatum
+    description: 'Se eliminará a `versionsByMetadatum`. Utiliza el objeto `Package` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.dependencyType
+    description: 'Se eliminará a `dependencyType`. Utiliza el objeto `PackageDependency` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.name
+    description: 'Se eliminará a `name`. Utiliza el objeto `PackageDependency` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageDependency.version
+    description: 'Se eliminará a `version`. Utiliza el objeto `PackageDependency` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.guid
+    description: 'Se eliminará a `guid`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.md5
+    description: 'Se eliminará a `md5`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.metadataUrl
+    description: 'Se eliminará a `metadataUrl`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.name
+    description: 'Se eliminará a `name`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.packageVersion
+    description: 'Se eliminará a `packageVersion`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha1
+    description: 'Se eliminará a `sha1`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.sha256
+    description: 'Se eliminará a `sha256`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.size
+    description: 'Se eliminará a `size`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageFile.url
+    description: 'Se eliminará a `url`. Utiliza el objeto `PackageFile` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageOwner.registryPackages
+    description: 'Se eliminará a `registryPackages`. Utiliza el objeto `PackageOwner` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageSearch.registryPackagesForQuery
+    description: 'Se eliminará a `registryPackagesForQuery`. Utiliza el objeto `PackageSearch` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisMonth
+    description: 'Se eliminará a `downloadsThisMonth`. Utiliza el objeto `PackageStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisWeek
+    description: 'Se eliminará a `downloadsThisWeek`. Utiliza el objeto `PackageStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsThisYear
+    description: 'Se eliminará a `downloadsThisYear`. Utiliza el objeto `PackageStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsToday
+    description: 'Se eliminará a `downloadsToday`. Utiliza el objeto `PackageStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageStatistics.downloadsTotalCount
+    description: 'Se eliminará a `downloadsTotalCount`. Utiliza el objeto `PackageStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.name
+    description: 'Se eliminará a `name`. Utiliza el objeto `PackageTag` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageTag.version
+    description: 'Se eliminará a `version`. Utiliza el objeto `PackageTag` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.deleted
+    description: 'Se eliminará a `deleted`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.dependencies
+    description: 'Se eliminará a `dependencies`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.fileByName
+    description: 'Se eliminará a `fileByName`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.files
+    description: 'Se eliminará a `files`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.installationCommand
+    description: 'Se eliminará a `installationCommand`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.manifest
+    description: 'Se eliminará a `manifest`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.platform
+    description: 'Se eliminará a `platform`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.preRelease
+    description: 'Se eliminará a `preRelease`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readme
+    description: 'Se eliminará a `readme`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.readmeHtml
+    description: 'Se eliminará a `readmeHtml`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.registryPackage
+    description: 'Se eliminará a `registryPackages`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.release
+    description: 'Se eliminará a `release`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.sha256
+    description: 'Se eliminará a `sha256`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.size
+    description: 'Se eliminará a `size`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.statistics
+    description: 'Se eliminará a `statistics`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.summary
+    description: 'Se eliminará a `summary`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.updatedAt
+    description: 'Se eliminará a `updatedAt`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.version
+    description: 'Se eliminará a `version`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersion.viewerCanEdit
+    description: 'Se eliminará a `viewerCanEdit`. Utiliza el objeto `PackageVersion` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisMonth
+    description: 'Se eliminará a `downloadsThisMonth`. Utiliza el objeto `PackageVersionStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisWeek
+    description: 'Se eliminará a `downloadsThisWeek`. Utiliza el objeto `PackageVersionStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsThisYear
+    description: 'Se eliminará a `downloadsThisYear`. Utiliza el objeto `PackageVersionStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsToday
+    description: 'Se eliminará a `downloadsToday`. Utiliza el objeto `PackageVersionStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: RegistryPackageVersionStatistics.downloadsTotalCount
+    description: 'Se eliminará a `downloadsTotalCount`. Utiliza el objeto `PackageVersionStatistics` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Repository.registryPackages
+    description: 'Se eliminará a `registryPackages`. Utiliza el objeto `PackageOwner` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Repository.registryPackagesForQuery
+    description: 'Se eliminará a `registryPackagesForQuery`. Utiliza el objeto `PackageSearch` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Sponsorship.maintainer
+    description: 'Se eliminará a `maintainer`. Utiliza `Sponsorship.sponsorable` en sustitución.'
+    reason: 'Se eliminará a `Sponsorship.maintainer`.'
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: antn
+  - 
+    location: User.registryPackages
+    description: 'Se eliminará a `registryPackages`. Utiliza el objeto `PackageOwner` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: User.registryPackagesForQuery
+    description: 'Se eliminará a `registryPackagesForQuery`. Utiliza el objeto `PackageSearch` en sustitución.'
+    reason: Renombrar los campos y objetos de GitHub Packages.
+    date: '2020-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Issue.timeline
+    description: 'Se eliminará a `timeline`. Utiliza Issue.timelineItems en sustitución.'
+    reason: 'Se eliminará a `timeline`'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: PullRequest.timeline
+    description: 'Se eliminará a `timeline`. Utiliza PullRequest.timelineItems en sustitución.'
+    reason: 'Se eliminará a `timeline`'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea

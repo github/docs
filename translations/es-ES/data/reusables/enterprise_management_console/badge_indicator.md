@@ -1,0 +1,1 @@
+Un equipo que se encuentra [sincronizado a un grupo LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) se indica con una insignia de LDAP especial. La lista de miembros para un equipo de LDAP sincronizado únicamente se puede administrar desde el grupo LDAP al que está mapeado.

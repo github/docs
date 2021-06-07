@@ -1,5 +1,5 @@
 ---
 advanced_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[advanced search](https://github.com/search/advanced) page{% else %}advanced search page (`https://[hostname]/search/advanced`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[高度な検索(https://github.com/search/advanced)ページ{% else %}高度な件レ区ページ(`https://[hostname]/search/advanced`){% endif %}
 search_page_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search) page{% else %}search page (`https://[hostname]/search`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search)ページ{% else %}検索ページ(`https://[hostname]/search`){% endif %}

@@ -5,6 +5,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Webhooks
+  - Events
 ---
 
 ### Table of Contents

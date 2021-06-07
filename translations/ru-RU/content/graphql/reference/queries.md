@@ -3,10 +3,13 @@ title: Queries
 miniTocMaxHeadingLevel: 2
 redirect_from:
   - /v4/query
+  - /v4/reference/query
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### About queries

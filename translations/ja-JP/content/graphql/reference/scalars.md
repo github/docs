@@ -2,10 +2,13 @@
 title: スカラ
 redirect_from:
   - /v4/scalar
+  - /v4/reference/scalar
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### スカラについて

@@ -1,7 +1,7 @@
 const revalidator = require('revalidator')
 const allVersions = require('../../lib/all-versions')
 const { latest } = require('../../lib/enterprise-server-releases')
-const schema = require('../../lib/versions-schema')
+const schema = require('../helpers/schemas/versions-schema')
 const { getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
@@ -33,7 +33,7 @@ describe('versions middleware', () => {
     expect(currentVersion).toBe('homepage')
 
     currentVersion = await getJSON(`/en/${nonEnterpriseDefaultVersion}?json=currentVersion`)
-    expect(currentVersion).toBe(nonEnterpriseDefaultVersion)
+    expect(currentVersion).toBe('homepage')
 
     currentVersion = await getJSON(`/en/enterprise-server@${latest}?json=currentVersion`)
     expect(currentVersion).toBe(`enterprise-server@${latest}`)

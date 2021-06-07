@@ -3,14 +3,20 @@ title: Troubleshooting the CodeQL workflow
 shortTitle: Troubleshooting CodeQL
 intro: 'If you''re having problems with {% data variables.product.prodname_code_scanning %}, you can troubleshoot by using these tips for resolving issues.'
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
-  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '2.22'
+topics:
+  - Security
 ---
 
+<!--See /content/code-security/secure-coding for the latest version of this article -->
+
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
+
+### Producing detailed logs for debugging
+
+To produce more detailed logging output, you can enable step debug logging. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)."
 
 ### Automatic build for a compiled language fails
 
@@ -24,7 +30,10 @@ If an automatic build of code for a compiled language within your project fails,
 
   ```yaml
   jobs:
-    analyze:
+    analyze:{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
+      permissions:
+        security-events: write
+        actions: read{% endif %}
       ...
       strategy:
         fail-fast: false
@@ -83,17 +92,6 @@ For more information about specifying build steps, see "[Configuring the {% data
 
 The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository, however, sometimes this approach results in incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not complete since the `autobuild` step will only execute one of the commands. The solution is to replace the `autobuild` step with build steps which build all of the source code which you wish to analyze. For more information, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-### Error: "Server error"
-
-If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
-
-### Error: "Out of disk" or "Out of memory"
-On very large projects,
-
-{% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
-{% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
-
 ### The build takes too long
 
 If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time.
@@ -120,11 +118,50 @@ If you split your analysis into multiple workflows as described above, we still 
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Results differ between analysis platforms
+### Error: "Server error"
 
-If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
+If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
 
-On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)."
+### Error: "Out of disk" or "Out of memory"
 
-{% endif %}
+On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner. If you encounter this issue, try increasing the memory on the runner.
+
+### Warning: "git checkout HEAD^2 is no longer necessary"
+
+If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
+
+```
+Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer 
+necessary. Please remove this step as Code Scanning recommends analyzing the merge 
+commit for best results.
+```
+
+Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+
+```yaml
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 2
+
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
+      - run: git checkout HEAD^2
+        if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
+```
+
+The revised `steps` section of the workflow will look like this:
+
+```yaml
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
+      - name: Initialize {% data variables.product.prodname_codeql %}
+        uses: github/codeql-action/init@v1
+
+      ...
+```
+
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)."

@@ -2,15 +2,18 @@
 title: GitHub 附加产品条款
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
-版本生效日期：2020 年 11 月 13 日
+版本生效日期：2021 年 2 月 22 日
 
-创建帐户后，您有权访问许多不同的功能和产品，它们都是服务的一部分。 由于其中许多功能和产品具有不同的功能，因此可能需要特定于该功能或产品的附加条款和条件。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
+创建帐户后，您有权访问许多不同的功能和产品，它们都是服务的一部分。 由于其中许多功能和产品具有不同的功能，因此可能需要特定于该功能或产品的附加条款和条件。 下面，我们列出了这些功能和产品，以及适用于您使用它们的相应附加条款。
 
-Your use of the Service is subject to your applicable terms (the "Agreement"). By using additional products and features, you also agree to these Additional Product Terms. Any violation of the Additional Product Terms is a violation of the Agreement. Capitalized terms not defined in the Additional Product Terms will have the meaning given to them in the Agreement.
+使用服务须遵守适用的条款（“协议”）。 使用附加产品和功能即表示您也同意这些附加产品条款、 任何违反附加产品条款的行为都构成违反协议。 附加产品条款中未定义的大写术语，将采用协议中规定的含义。
 
-If you are using GitHub AE, then you may only access the following features and products: Third Party Integrations, Git LFS Support, Pages.
+如果您使用的是 GitHub AE，则只能访问以下功能和产品：第三方集成、Git LFS 支持、Pages。
 
 ### 1. Marketplace
 
@@ -39,37 +42,41 @@ If you are using GitHub AE, then you may only access the following features and 
 
 ### 4. 页面
 
-Each Account comes with access to the [GitHub Pages static hosting service](/github/working-with-github-pages/about-github-pages). 这种托管服务旨在为所有用户托管静态网页，但主要用作个人和组织项目的展示。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
+每个帐户都可以访问 [GitHub Pages 静态托管服务](/github/working-with-github-pages/about-github-pages)。 这种托管服务旨在为所有用户托管静态网页，但主要用作个人和组织项目的展示。
 
-GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途或其他禁止用途。 请参阅我们的 [GitHub Pages 指南](/github/working-with-github-pages/about-github-pages)了解更多信息。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
+GitHub Pages 并非旨在用于或允许用作免费的 Web 托管服务来运行您的在线业务、电子商务站点或主要针对促进商业交易或提供商业软件即服务 (SaaS) 的任何其他网站。 页面上允许一些货币化工作，如捐款按钮和筹款链接。
+
+#### a. 带宽和使用限制
+GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于某些高带宽用途。 请参阅我们的 [GitHub Pages 指南](/github/working-with-github-pages/about-github-pages)了解更多信息。
+
+#### b. 禁止使用
+GitHub Pages 的禁止用途包括
+- 非法或者我们的[服务条款](/github/site-policy/github-terms-of-service)、[可接受使用政策](/github/site-policy/github-acceptable-use-policies)或[社区指导方针](/github/site-policy/github-community-guidelines)禁止的内容或活动
+- 暴力或有威胁的内容或活动
+- 过多的自动批量活动（例如，垃圾邮件）
+- 危害 GitHub 用户或 GitHub 服务的活动
+- 快速致富计划
+- 性淫秽内容
+- 歪曲您的身份或站点目的的内容
+
+如果您对您的使用或预期使用是否属于这些类别有疑问，请联系 [GitHub 支持](https://support.github.com/contact)或 [GitHub 高级支持](https://premium.githubsupport.com/)。 GitHub 保留随时收回任何 GitHub 子域而不承担任何责任的权利。
 
 ### 5. Actions 和 Packages
 
 #### a. Actions 的使用
-GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). Your Actions compute usage is displayed within [your account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. 如果要超出自带空间使用 Actions，您可以[启用超限](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)。
+GitHub Actions 按用量计费。 [Actions 文档](/actions)包含详细信息，包括计算和存储量（取决于您的帐户计划）以及如何监控您的 Actions 分钟使用和设置使用限制。
 
-自带和付费空间的计算用量以分钟为单位计算，具体取决于您执行的 Actions 类型（例如 Linux、Windows、macOS）。 每个 Action 的作业或任务所用的时间将取整到最接近的分钟数。 要判断自带空间是否充足，可以用倍数乘以执行每个作业或任务所用的时间量（取整之前），具体取决于 Action 的类型。 超限分钟数按[规定的每分钟价格](https://github.com/features/actions)收费，具体取决于您执行的 Actions 类型。 Actions 和 Packages 共用存储空间，您的存储空间用量显示在您的[帐户设置](https://github.com/settings/billing)中。 For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
-
-对 Actions 和任何 Action 服务元素的使用，不得违反协议、[可接受使用政策](/github/site-policy/github-acceptable-use-policies)或 GitHub Actions [服务限制](/actions/reference/usage-limits-billing-and-administration/#usage-limits)。 此外，Actions 不得用于：
+对 Actions 和任何 Action 服务元素的使用，不得违反协议、[GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)或 [Actions 文档](/actions)规定的 GitHub Actions 服务限制。 此外，Actions 不得用于：
 - 密码破解;
 - 使用我们的服务器破坏、非授权访问或尝试非授权访问任何服务、设备、数据、帐户或网络（[GitHub 漏洞赏金计划](https://bounty.github.com)授权的活动除外）；
 - 出于商业目的，提供兜售 Actions 或任何 Actions 元素的独立或集成应用程序或服务；
 - 任何给我们的服务器带来负担的活动，如果这种负担与提供给用户的收益不成比例（例如，不要将 Action 用作内容交付网络或作为无服务器应用程序的一部分，但收益低负担也低的 Action 可能没问题）；或
 - 与使用 GitHub Actions 的仓库相关的软件项目创建、测试、部署或发布无关的任何其他活动。
 
-为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能会导致作业终止，或者您使用 GitHub Actions 的权限受限。
+为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能导致作业终止、使用 GitHub Actions 的权限受到限制，或者禁用以违反这些条款的方式运行 Actions 的仓库。
 
 #### b. Packages 的使用
-GitHub Packages 可用于下载、发布和管理内容包。 每个帐户计划都自带可用于 Packages 的带宽和存储空间，具体数量可查阅 [Packages 文档](/github/managing-packages-with-github-package-registry/about-github-package-registry)。 Actions 和 Packages 共用这两个服务功能之间的存储空间。 存储和带宽用量显示在您的[帐户设置](https://github.com/settings/billing)中，在达到自带空间的上限之前您会收到电子邮件通知。 如果要超出自带的带宽和存储空间使用 Packages，您可以[启用超限](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)。
-
-带宽用量根据仓库中通过 Packages 传出的数据量计算，但是通过 Actions 的包传输不会计入您的自带或付费数量。 Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [account plan](https://github.com/pricing).
-
-Actions 和 Packages 存储用量是这两个服务功能之间的共用量。 存储用量按一个月的加权平均数计算，不会每月重置。 Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [account plan](https://github.com/pricing).
-
-#### c. Actions 和 Packages 的付款与计费
-Actions 和 Packages 根据用量计费。 不能单独购买额外的 Actions 或 Packages 数量。  对于按月计费的客户，必须有记录在档的付款方式才能选择支付这些服务功能的额外数量。 除非您是按发票计费的客户，否则将根据您上个月的用量每月定期向您收费。 对于发票客户，必须在 GitHub 发票日期后的三十 (30) 天内支付费用。 对于预付服务功能超限费用的客户，未使用的预付分钟数不会结转到下一个计费期，也不会退款。
-
-您可以在[帐户设置](https://github.com/settings/billing/cost_management)中设置每月支出限额。 在达到自带空间上限和指定的付费额外数量支出限额之前，您会收到电子邮件通知。
+GitHub Packages 按用量计费。 [Packages 文档](/packages)包含详细信息，包括带宽和存储量（取决于您的帐户计划）以及如何监控您的 Packages 使用和设置使用限制。 Packages 带宽使用受 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)限制。
 
 ### 6. Learning Lab
 
@@ -81,7 +88,7 @@ Actions 和 Packages 根据用量计费。 不能单独购买额外的 Actions �
 
 ### 7. Connect
 
-In order to access GitHub Connect, Customer must have at least one (1) Account on GitHub.com and one (1) licensed instance of the Software. Customer's access to and use of github.com through Connect is governed by its Agreement applicable to its use of the Service. GitHub Connect 可用于执行自动化任务。 此外，多个用户可通过 GitHub Connect 导向某些操作。 Customer is responsible for actions that are performed on or through its Accounts. GitHub 可收集有关客户如何使用 GitHub Connect 的信息，以提供和改进功能。 By using GitHub Connect, Customer authorizes GitHub to collect protected data, which includes Private Repository data and User Personal Information (as defined in the GitHub Privacy Statement), from Customer’s Accounts. 客户还授权将识别实例信息通过 GitHub Connect 传输到 GitHub，这些信息受“GitHub 隐私声明”管辖。
+要访问 GitHub Connect，客户必须至少在 GitHub.com 上有一 (1) 个帐户以及一 (1) 个许可的软件实例。 客户通过 Connect 访问和使用 github.com 受适用的服务使用协议管辖。 GitHub Connect 可用于执行自动化任务。 此外，多个用户可通过 GitHub Connect 导向某些操作。 客户应对在其帐户上或通过其帐户执行的操作负责。 GitHub 可收集有关客户如何使用 GitHub Connect 的信息，以提供和改进功能。 只要使用 GitHub Connect，即表示客户授权 GitHub 从客户帐户收集受保护的数据，包括私人仓库数据和用户个人信息（如“GitHub 隐私声明”中定义）。 客户还授权将识别实例信息通过 GitHub Connect 传输到 GitHub，这些信息受“GitHub 隐私声明”管辖。
 
 ### 8. 赞助计划
 
@@ -89,7 +96,7 @@ In order to access GitHub Connect, Customer must have at least one (1) Account o
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. 如果您将 GitHub Advanced Security 用作 GitHub Enterprise Cloud 的一部分，GitHub Advanced Security 的许多功能（包括对私有仓库的自动化代码扫描）还需要使用 GitHub 操作。
+GitHub Advanced Security 按“唯一提交者”许可。 “唯一提交者”是 GitHub Enterprise、GitHub Enterprise Cloud、GitHub Enterprise Server 或 GitHub AE 的许可用户，他们在过去 90 天内向激活了 GitHub Advanced Security 功能的任意仓库提交过代码。 您必须为每个唯一提交者获取 GitHub Advanced Security 用户许可。 您只能在由您开发或为您开发的代码库上使用 GitHub Advanced Security。 如果您将 GitHub Advanced Security 用作 GitHub Enterprise Cloud 的一部分，GitHub Advanced Security 的许多功能（包括对私有仓库的自动化代码扫描）还需要使用 GitHub 操作。
 
 ### 10. Dependabot Preview
 
@@ -108,3 +115,13 @@ GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Co
 #### b. GitHub Advisory Database 的许可
 
 GitHub Advisory Database 的许可采用[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)原则。 有关署名条款，请参阅 <https://github.com/advisories> 上的 GitHub Advisory Database，或者所使用的单独 GitHub Advisory Database 记录（以 <https://github.com/advisories> 为前缀）。
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server 映像
+
+您可以下载用于 Linux 文件的 Microsoft SQL Server 标准版容器映像（“SQL Server 映像”）。 当您使用本软件的权利结束时，您必须卸载 SQL Server 映像。 Microsoft Corporation 可随时禁用 SQL Server 映像。
+
+#### b. 第三方组件
+
+软件包含第三方许可给 GitHub 的组件，其中包括其许可证需要 GitHub 为可用组件提供源代码的软件。 这些组件的源代码将在请求时提供。

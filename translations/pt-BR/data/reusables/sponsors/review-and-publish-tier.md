@@ -1,1 +1,1 @@
-1. Revise a sua camada e, em seguida, clique em **Publicar camada**. ![Botão Publicar camada](/assets/images/help/sponsors/publish-tier-button.png)
+1. Proofread your tier, then click **Publish _TYPE_ tier**. ![Publish monthly tier button](/assets/images/help/sponsors/publish-tier-button.png)

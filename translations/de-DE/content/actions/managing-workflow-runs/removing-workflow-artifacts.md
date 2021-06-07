@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Deleting an artifact
 
@@ -26,9 +28,15 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trashcan" aria-label="The trashcan icon" %} next to the artifact you want to remove. ![Dropdown-Menü zum Löschen von Artefakten](/assets/images/help/repository/actions-delete-artifact.png)
+1. Under **Artifacts**, click
+{% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![Dropdown-Menü zum Löschen von Artefakten](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
+    ![Dropdown-Menü zum Löschen von Artefakten](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Setting the retention period for an artifact
 
 Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."

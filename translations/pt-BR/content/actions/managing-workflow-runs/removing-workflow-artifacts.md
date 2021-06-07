@@ -5,10 +5,12 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Excluir um artefato
 
@@ -26,9 +28,15 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Em **Artefatos**, clique em {% octicon "trashcan" aria-label="The trashcan icon" %} ao lado do artefato que você deseja remover. ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
+1. Em **Artefatos**, clique em
+{% octicon "trash" aria-label="The trash icon" %} ao lado do artefato que você deseja remover.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
+ ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
+    ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Definir o período de retenção para um artefato
 
 Os períodos de retenção para artefatos e registros podem ser configurados no repositório, organização e no nível corporativo. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)".

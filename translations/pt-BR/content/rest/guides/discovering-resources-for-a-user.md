@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
  
@@ -22,7 +24,7 @@ Se você ainda não o fez, você deverá ler o guia ["Princípios básicos da au
 
 ### Descubra os repositórios que o seu aplicativo pode acessar para um usuário
 
-Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Coletivamente, estes são os repositórios em que o usuário tem acesso privilegiado: ou é um repositório privado em que o usuário tem acesso de leitura ou gravação ou é um repositório público em o usuário tem acesso de gravação.
+Além de ter seus próprios repositórios pessoais, um usuário pode ser um colaborador em repositórios pertencentes a outros usuários e organizações. Coletivamente, estes são os repositórios em que o usuário tem acesso privilegiado: é um repositório privado em que o usuário tem acesso de leitura ou gravação ou é um repositório {% if currentVersion ! "github-ae@latest" %}público{% else %}interno{% endif %} em que o usuário tem acesso de gravação.
 
 [Os escopos do OAuth][scopes] e as [políticas dos aplicativos da organização][oap] determinam quais desses repositórios o seu aplicativo pode acessar para um usuário. Use o fluxo de trabalho abaixo para descobrir esses repositórios.
 
@@ -87,11 +89,11 @@ client.organizations.each do |organization|
 end
 ```
 
-#### Não confie em organizações públicas
+#### Retorna todas as associações da organização do usuário
 
 Se você leu a documentação do princípio ao fim, é possível que você tenha notado um [método da API para listar as associações de organizações públicas de um usuário][list-public-orgs]. A maioria dos aplicativos deve evitar este método de API. Este método retorna apenas as associações de organizações públicas do usuário, não suas associações de organizações privadas.
 
-Como um aplicativo, de modo geral, você quer todas as organizações de usuários (públicas e privadas) que seu aplicativo está autorizado a acessar. O fluxo de trabalho acima fornecerá exatamente isso.
+Como um aplicativo, normalmente você quer todas as organizações do usuário que o seu aplicativo está autorizado a acessar. O fluxo de trabalho acima fornecerá exatamente isso.
 
 [basics-of-authentication]: /rest/guides/basics-of-authentication
 [list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user

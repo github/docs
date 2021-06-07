@@ -1,12 +1,20 @@
-{% assign sectionTitle = section.title | default: 'Misc' %}
-
-{% case sectionTitle %}
-  {% when "New Feature" %}
-    {% assign colors = "bg-orange text-white" %}
-  {% when "Bugs" %}
-    {% assign colors = "bg-purple text-white" %}
+{% case section[0] %}
+  {% when "features" %}
+    {% assign text = "Features" %}
+  {% when "bugs" %}
+    {% assign text = "Bug fixes" %}
+  {% when "known_issues" %}
+    {% assign text = "Known issues" %}
+  {% when "security_fixes" %}
+    {% assign text = "Security fixes" %}
+  {% when "changes" %}
+    {% assign text = "Changes" %}
+  {% when "deprecations" %}
+    {% assign text = "Deprecations" %}
+  {% when "backups" %}
+    {% assign text = "Backups" %}
   {% else %}
-    {% assign colors = "bg-blue text-white" %}
+    {% assign text = "INVALID SECTION" %}
 {% endcase %}
 
-<span class="{{ colors }} px-3 py-2 f5 text-uppercase text-mono">{{ sectionTitle }}</span>
+<span class="px-3 py-2 text-small text-bold text-uppercase text-mono color-text-inverse release-notes-section-label">{{ text }}</span>

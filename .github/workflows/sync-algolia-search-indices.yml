@@ -1,5 +1,9 @@
 name: Algolia
 
+# **What it does**: This updates our search indexes after each deployment.
+# **Why we have it**: We want our search indexes kept up to date.
+# **Who does it impact**: Anyone using search on docs.
+
 on:
   workflow_dispatch:
   push:
@@ -14,9 +18,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+      - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: cache node modules
         uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
@@ -24,8 +28,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: npm ci
+      - name: Install dependencies
         run: npm ci
+      - name: Run build scripts
+        run: npm run build
       - name: sync indices
         env:
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}

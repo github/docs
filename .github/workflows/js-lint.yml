@@ -1,13 +1,15 @@
 name: Lint JS
 
+# **What it does**: Lints our JavaScript to ensure the code matches the specified code style.
+# **Why we have it**: We want some level of consistency to our JavaScript.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
 on:
   workflow_dispatch:
   push:
     branches:
       - main
   pull_request:
-    branches-ignore:
-      - translations
 
 jobs:
   lint:
@@ -17,9 +19,9 @@ jobs:
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Get npm cache directory
         id: npm-cache
@@ -39,6 +41,3 @@ jobs:
 
       - name: Run linter
         run: npx eslint .
-
-      - name: Check dependencies
-        run: npm run check-deps

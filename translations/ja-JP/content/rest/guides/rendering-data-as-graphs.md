@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
  
 
@@ -232,7 +234,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
+すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼び出しましょう。
 
 ``` ruby
 repos.each do |repo|
@@ -241,7 +243,7 @@ repos.each do |repo|
 end
 ```
 
-From there, we'll cumulatively add each language found to a list of languages:
+そこから、見つかった各言語を言語のリストに次々に追加していきます。
 
 ``` ruby
 repo_langs.each do |lang, count|
@@ -264,7 +266,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+(D3ツリーマップの魔力をもっと詳しく知りたければ、[この簡単なチュートリアル][language API]を確認しましょう。)
 
 仕上げに、このJSON情報を同じERBテンプレートに渡します。
 

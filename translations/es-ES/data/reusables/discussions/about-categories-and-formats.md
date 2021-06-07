@@ -1,0 +1,1 @@
+Todos los debates deben crearse en una categoría y los administradores de repositorio y mantenedores definen las categorías de un repositorio. Las categorías pueden contener conversaciones abiertas o conversaciones con un formato de pregunta/respuesta.

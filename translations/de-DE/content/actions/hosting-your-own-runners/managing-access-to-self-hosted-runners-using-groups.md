@@ -6,10 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
 ---
 
+{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### About self-hosted runner groups
 
@@ -43,13 +47,13 @@ When creating a group, you must choose a policy that defines which repositories 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for repository access.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
 
    {% warning %}
 
    **Warnung**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 
@@ -75,13 +79,13 @@ When creating a group, you must choose a policy that defines which organizations
     ![Add runner group](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. Enter a name for your runner group, and assign a policy for organization access.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this.{% elsif currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
 
    {% warning %}
 
    **Warnung**
 
-   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
 
    Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
 
@@ -100,7 +104,7 @@ You can update the access policy of a runner group, or rename a runner group.
 
 New self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
-1. In the **Self-hosted runners** section of the settings page, locate the current group of the runner you want to move group and expand the list of group members. ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
+1. In the **Self-hosted runners** section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![View runner group members](/assets/images/help/settings/actions-org-runner-group-members.png)
 1. Select the checkbox next to the self-hosted runner, and then click **Move to group** to see the available destinations. ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 1. To move the runner, click on the destination group. ![Runner group member move](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 

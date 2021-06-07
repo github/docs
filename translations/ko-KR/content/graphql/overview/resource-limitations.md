@@ -7,6 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ## Node limit
@@ -117,7 +119,7 @@ These two examples show how to calculate the total nodes in a call.
 
                    = 22,060 total nodes</pre>
 
-### Rate limit
+## Rate limit
 
 The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
@@ -129,12 +131,6 @@ To accurately represent the server cost of a query, the GraphQL API v4 calculate
 * Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
 
 The GraphQL API v4 rate limit is **5,000 points per hour**.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-For {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 points per hour.
-
-{% endif %}
 
 Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API v4 and REST API v3 use different rate limits.
 

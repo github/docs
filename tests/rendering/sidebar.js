@@ -1,5 +1,5 @@
+require('../../lib/feature-flags')
 const { getDOM } = require('../helpers/supertest')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -16,7 +16,7 @@ describe('sidebar', () => {
 
   test('highlights active product on Enterprise pages', async () => {
     expect($enterprisePage('.sidebar li.sidebar-product').length).toBe(1)
-    expect($enterprisePage('.sidebar li.sidebar-product > a').text().trim()).toBe('Enterprise Administrators')
+    expect($enterprisePage('.sidebar li.sidebar-product > a').text().trim()).toBe('GitHub Enterprise')
   })
 
   test('highlights active product on GitHub pages', async () => {
@@ -24,14 +24,15 @@ describe('sidebar', () => {
     expect($githubPage('.sidebar li.sidebar-product > a').text().trim()).toBe('GitHub.com')
   })
 
-  test('includes links to external products like the CLI, Atom, and Electron', async () => {
+  test('includes links to external products like the CLI, Atom, Electron, and CodeQL', async () => {
     expect($homePage('.sidebar a[href="https://cli.github.com/manual"]')).toHaveLength(1)
     expect($homePage('.sidebar a[href="https://atom.io/docs"]')).toHaveLength(1)
     expect($homePage('.sidebar a[href="https://electronjs.org/docs"]')).toHaveLength(1)
+    expect($homePage('.sidebar a[href="https://codeql.github.com/docs"]')).toHaveLength(1)
   })
 
   test('adds an `is-current-page` class to the sidebar link to the current page', async () => {
-    const url = `/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings`
+    const url = '/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings'
     const $ = await getDOM(url)
     expect($('.sidebar .is-current-page').length).toBe(1)
     expect($('.sidebar .is-current-page a').attr('href')).toContain(url)

@@ -2,4 +2,4 @@
 
 カスタムあるいはサポートされていないプラグイン、モジュール、カスタムコードを使っている場合、{% data variables.contact.premium_support %} は問題の解決を試みるに当たってサポートされていないプラグイン、モジュール、コードの削除をお願いすることがあります。 サポートされていないプラグイン、モジュール、カスタムコードが削除されたことで問題が修正された場合、{% data variables.contact.premium_support %}はチケットが解決されたと見なすことがあります。
 
-{% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. 反応がなかったことによって{% data variables.contact.premium_support %}がチケットをクローズした場合、{% data variables.contact.premium_support %}にチケットをサイドオープンするようリクエストできます。
+{% data variables.contact.premium_support %}は、チケットがサポートのスコープ外の場合、あるいは複数回の連絡に対して回答がなかった場合、チケットをクローズすることがあります。 反応がなかったことによって{% data variables.contact.premium_support %}がチケットをクローズした場合、{% data variables.contact.premium_support %}にチケットをサイドオープンするようリクエストできます。

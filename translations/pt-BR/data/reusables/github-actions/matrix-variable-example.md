@@ -1,4 +1,4 @@
-In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
+Neste exemplo, as entradas da matriz de `node-version` são configuradas para usar valores diferentes para as variáveis de ambiente do `site` e dos `centros de dados`. Em seguida, a etapa de `Echo site details` usa {% raw %}`env: ${{ matrix.env }}`{% endraw %} para referir-se às variáveis personalizadas:
 
 {% raw %}
 ```yaml

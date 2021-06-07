@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, da clic en **Contenido reportado**. !["Contenido reportado" en la barra lateral de configuración del repositorio](/assets/images/help/repository/repo-settings-reported-content.png)

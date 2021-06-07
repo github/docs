@@ -20,8 +20,8 @@ program
   .option('-o, --oldVersion <version>', 'The version to copy the files from. Must be in <plan@release> format.')
   .parse(process.argv)
 
-const newVersion = program.newVersion
-const oldVersion = program.oldVersion
+const newVersion = program.opts().newVersion
+const oldVersion = program.opts().oldVersion
 
 if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
@@ -47,7 +47,7 @@ if (!fs.existsSync(newSchemaFile)) {
   process.exit(1)
 }
 
-// the other files are objects with vers3091iuions as keys, so we need to require them
+// the other files are objects with versions as keys, so we need to require them
 const previewsFile = path.join(graphqlStaticDir, 'previews.json')
 const changesFile = path.join(graphqlStaticDir, 'upcoming-changes.json')
 const objectsFile = path.join(graphqlStaticDir, 'prerendered-objects.json')
@@ -55,10 +55,15 @@ const objectsFile = path.join(graphqlStaticDir, 'prerendered-objects.json')
 const previews = require(previewsFile)
 const changes = require(changesFile)
 const objects = require(objectsFile)
+// The prerendered objects file for the "old version" contains hardcoded links with the old version number.
+// We need to update those links to include the new version to prevent a test from failing.
+const regexOldVersion = new RegExp(oldVersion, 'gi')
+const stringifiedObject = JSON.stringify(objects[oldVersionId])
+  .replace(regexOldVersion, newVersion)
 
 previews[newVersionId] = previews[oldVersionId]
 changes[newVersionId] = changes[oldVersionId]
-objects[newVersionId] = objects[oldVersionId]
+objects[newVersionId] = JSON.parse(stringifiedObject)
 
 // check that it worked
 if (!Object.keys(previews).includes(newVersionId)) {

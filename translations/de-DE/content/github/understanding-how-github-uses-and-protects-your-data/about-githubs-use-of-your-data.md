@@ -6,6 +6,9 @@ redirect_from:
 intro: '{% data variables.product.product_name %} verwendet die Daten Ihres Repositorys, um Sie mit relevanten Tools, Personen, Projekten und Informationen zu verknüpfen.'
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
  
 ### About {% data variables.product.product_name %}'s use of your data

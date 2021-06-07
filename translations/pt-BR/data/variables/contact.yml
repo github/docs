@@ -1,7 +1,7 @@
 ---
 contact_ent_support: '[Suporte do GitHub Enterprise](https://enterprise.githubsupport.com/hc/en-us) ou [Suporte do GitHub Premium](https://premium.githubsupport.com)'
 contact_support: >-
-  {% if currentVersion == "free-pro-team@latest" %}[GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com){% else %}your site administrator{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Suporte do GitHub](https://support.github.com/contact) ou [Suporte do GitHub Premium](https://premium.githubsupport.com){% else %}o administrador do site{% endif %}
 report_abuse: >-
   {% if currentVersion == "free-pro-team@latest" %}[RElatar abuso](https://github.com/contact/report-abuse){% endif %}
 report_content: >-
@@ -22,11 +22,14 @@ premium_support: 'Suporte do GitHub Premium'
 enterprise_portal: 'Portal de suporte do Enterprise GitHub'
 contact_enterprise_portal: '[Portal de suporte do Enterprise GitHub](https://enterprise.githubsupport.com/hc/en-us)'
 #Azure support (GitHub AE) portal
-ae_azure_portal: 'Azure Support portal'
-contact_ae_portal: '[Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
-#GitHub Support portal (for dotcom)
+ae_azure_portal: 'Portal de suporte do Azure'
+contact_ae_portal: '[Portal de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)'
+#GitHub Support portal (for dotcom - this sends users to a contact form)
 support_portal: 'Portal de suporte do GitHub'
 contact_support_portal: '[Portal de suporte do GitHub](https://support.github.com/contact)'
+#GitHub Support portal (this sends users to the Support landing page)
+landing_page_portal: 'Portal de suporte do GitHub'
+contact_landing_page_portal: '[Portal de suporte do GitHub](https://support.github.com/)'
 #The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
 community_support: 'Suporte à Comunidade GitHub'
 #The GitHub Community forum

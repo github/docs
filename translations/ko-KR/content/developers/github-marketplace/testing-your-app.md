@@ -1,19 +1,21 @@
 ---
 title: Testing your app
-intro: 'GitHub recommends testing your app with APIs and webhooks before submitting your listing to {% data variables.product.prodname_marketplace %} so you can provide an ideal experience for customers. Before the {% data variables.product.prodname_marketplace %} onboarding team approves your app, it must adequately handle the [billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
+intro: 'GitHub recommends testing your app with APIs and webhooks before submitting your listing to {% data variables.product.prodname_marketplace %} so you can provide an ideal experience for customers. Before an onboarding expert approves your app, it must adequately handle the billing flows.'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
   - /marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
 versions:
   free-pro-team: '*'
+topics:
+  - Marketplace
 ---
 
 
 
 ### Testing apps
 
-You can use a [draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) to simulate each of the [billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card.
+You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
 #### Using a development app with a draft listing to test changes
 

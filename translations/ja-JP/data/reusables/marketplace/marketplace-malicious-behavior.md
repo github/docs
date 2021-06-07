@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If you notice any spammy {% data variables.product.prodname_marketplace %} purchases or other malicious behavior, please complete the [report abuse](https://github.com/contact/report-abuse) form with more information on the user.
+**ノート:** スパムの{% data variables.product.prodname_marketplace %}での購入や、その他の悪意ある行為に気づいた場合は、[悪用報告](https://github.com/contact/report-abuse)フォームにそのユーザの詳しい情報を記入してください。
 
 {% endnote %}

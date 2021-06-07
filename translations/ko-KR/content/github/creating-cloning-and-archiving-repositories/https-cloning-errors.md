@@ -11,6 +11,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - Repositories
 ---
 
 Here's an example of an HTTPS error you might receive:
@@ -45,16 +47,16 @@ You can find the URL of the local repository by opening the command line and typ
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/github/reactivecocoa.git (fetch)
-> origin  https://github.com/github/reactivecocoa.git (push)
+> origin  https://github.com/ghost/reactivecocoa.git (fetch)
+> origin  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL
 
 $ git remote -v
 # Verify new remote URL
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 Alternatively, you can change the URL through our [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
@@ -71,10 +73,10 @@ When prompted for a username and password, make sure you use an account that has
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/getting-started-with-github/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
 
 {% endtip %}
 
 ### Use SSH instead
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[Which remote URL should I use?](/articles/which-remote-url-should-i-use)"
+If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[About remote repositories](/github/getting-started-with-github/about-remote-repositories)."

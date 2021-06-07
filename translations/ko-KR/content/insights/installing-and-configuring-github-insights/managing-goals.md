@@ -1,7 +1,6 @@
 ---
 title: Managing goals
 intro: You can use goals to set targets for key metrics and measure success reaching those targets.
-product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
 permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'

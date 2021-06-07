@@ -5,16 +5,23 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - Action development
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### Introduction
 
 In this guide, you'll learn about the basic components needed to create and use a packaged composite run steps action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" and then "Goodbye",  or if you provide a custom name, it prints "Hello [who-to-greet]" and then "Goodbye". The action also maps a random number to the `random-number` output variable, and runs a script named `goodbye.sh`.
 
 Once you complete this project, you should understand how to build your own composite run steps action and test it in a workflow.
+
+{% data reusables.github-actions.context-injection-warning %}
 
 ### Prerequisites
 
@@ -31,7 +38,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
   ```
 
 2. In the `hello-world-composite-run-steps-action` repository, create a new file called `goodbye.sh`, and add the following example code:
-  
+
   ```bash
   echo "Goodbye"
   ```
@@ -64,12 +71,12 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
         required: true
         default: 'World'
     outputs:
-      random-number: 
+      random-number:
         description: "Random number"
         value: ${{ steps.random-number-generator.outputs.random-id }}
     runs:
       using: "composite"
-      steps: 
+      steps:
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
@@ -81,7 +88,7 @@ Before you begin, you'll create a {% data variables.product.product_name %} repo
     {% endraw %}
   This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. It also tells the runner how to execute the composite run steps action.
 
-  For more information about managing outputs, see "[`outputs` for a composite run steps](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions)". 
+  For more information about managing outputs, see "[`outputs` for a composite run steps](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions)".
 
   For more information about how to use `github.action_path`, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
@@ -116,13 +123,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-    - uses: actions/checkout@v2
-    - id: foo
-      uses: actions/hello-world-composite-run-steps-action@v1
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
-      shell: bash
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: actions/hello-world-composite-run-steps-action@v1
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
 ```
 {% endraw %}
 

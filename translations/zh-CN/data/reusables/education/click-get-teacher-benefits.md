@@ -1,0 +1,1 @@
+1. 在“Individuals（个人）”下，单击 **Get teacher benefits（获取教师优惠）**。 ![{% data variables.product.prodname_education %} 主页上的"Get teacher benefits（获取教师优惠）"](/assets/images/help/education/click-get-teacher-benefits.png)

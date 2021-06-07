@@ -7,14 +7,16 @@ const yaml = require('js-yaml')
 const { execSync } = require('child_process')
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
-const { getContents, listMatchingRefs } = require('../../lib/git-utils')
+const { getContents, listMatchingRefs } = require('../helpers/git-utils')
 const dataFilenames = require('./utils/data-filenames')
 const allVersions = require('../../lib/all-versions')
 const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
+const prerenderInputObjects = require('./utils/prerender-input-objects')
 const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
+const loadData = require('../../lib/site-data')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -36,12 +38,23 @@ const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-sc
 
 const versionsToBuild = Object.keys(allVersions)
 
+const currentLanguage = 'en'
+
 main()
 
 async function main () {
   const previewsJson = {}
   const upcomingChangesJson = {}
   const prerenderedObjects = {}
+  const prerenderedInputObjects = {}
+
+  const siteData = await loadData()
+
+  // create a bare minimum context for rendering the graphql-object.html layout
+  const context = {
+    currentLanguage,
+    site: siteData[currentLanguage].site
+  }
 
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
@@ -52,13 +65,13 @@ async function main () {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    const safeForPublicPreviews = yaml.safeLoad(await getRemoteRawContent(previewsPath, graphqlVersion))
+    const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
     updateFile(previewsPath, yaml.safeDump(safeForPublicPreviews))
     previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    const previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
+    const previousUpcomingChanges = yaml.load(fs.readFileSync(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
     upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
@@ -73,11 +86,19 @@ async function main () {
     const schemaJsonPerVersion = await processSchemas(safeForPublicSchema, safeForPublicPreviews)
     updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
 
+    // Add some version specific data to the context
+    context.graphql = { schemaForCurrentVersion: schemaJsonPerVersion }
+    context.currentVersion = version
+
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(context)
 
-    // 5. UPDATE CHANGELOG
+    // 5. PRERENDER INPUT OBJECTS HTML
+    // because the objects page is too big to render on page load
+    prerenderedInputObjects[graphqlVersion] = await prerenderInputObjects(context)
+
+    // 6. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
       // The Changelog is only build for free-pro-team@latest
       const changelogEntry = await createChangelogEntry(
@@ -85,7 +106,7 @@ async function main () {
         safeForPublicSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        yaml.safeLoad(safeForPublicChanges).upcoming_changes
+        yaml.load(safeForPublicChanges).upcoming_changes
       )
       if (changelogEntry) {
         prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
@@ -96,6 +117,7 @@ async function main () {
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
   updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+  updateStaticFile(prerenderedInputObjects, path.join(graphqlStaticDir, 'prerendered-input-objects.json'))
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')

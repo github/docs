@@ -6,6 +6,8 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
 versions:
   free-pro-team: '*'
+topics:
+  - codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
@@ -35,10 +37,10 @@ versions:
 ### 在 {% data variables.product.prodname_vscode %} 中打开代码空间
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
-2. 在 Codespaces（代码空间）下，单击您要在其中开发的代码空间。
+2. 在“Codespaces（代码空间）”下，单击您要在其中开发的代码空间。
 3. 单击 Connect to Codespace（连接到代码空间）图标。 ![{% data variables.product.prodname_vscode %} 中的连接到代码空间图标](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
 
 ### 在 {% data variables.product.prodname_vscode %} 中删除代码空间
 
-1. 在 Codespaces（代码空间）下，右键点击您要删除的代码空间。
+1. 在“Codespaces（代码空间）”下，右键点击您要删除的代码空间。
 2. 在下拉菜单中，单击 **Delete Codespace（删除代码空间）**。 ![在 {% data variables.product.prodname_dotcom %} 中删除代码空间](/assets/images/help/codespaces/delete-codespace-vscode.png)

@@ -2,10 +2,13 @@
 title: 入力オブジェクト
 redirect_from:
   - /v4/input_object
+  - /v4/reference/input_object
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### 入力オブジェクトについて
@@ -16,6 +19,5 @@ versions:
 
 詳しい情報については「[ミューテーションについて](/graphql/guides/forming-calls-with-graphql#about-mutations)」を参照してください。
 
-{% for item in graphql.schemaForCurrentVersion.inputObjects %}
-  {% include graphql-input-object %}
-{% endfor %}
+<!-- this page is pre-rendered by scripts because it's too big to load dynamically -->
+<!-- see lib/graphql/static/prerendered-input-objects.json -->

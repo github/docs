@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub Apps
 ---
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
@@ -28,7 +30,7 @@ To generate a private key:
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 {% data reusables.user-settings.modify_github_app %}
-5. In "Private keys," click **Generate a private key**. ![Generate private key](/assets/images/github-apps/github_apps_generate_private_keys.png)
+5. In "Private keys", click **Generate a private key**. ![Generate private key](/assets/images/github-apps/github_apps_generate_private_keys.png)
 6. You will see a private key in PEM format downloaded to your computer. Make sure to store this file because GitHub only stores the public portion of the key.
 
 {% note %}
@@ -75,8 +77,8 @@ private_key = OpenSSL::PKey::RSA.new(private_pem)
 
 # Generate the JWT
 payload = {
-  # issued at time
-  iat: Time.now.to_i,
+  # issued at time, 60 seconds in the past to allow for clock drift
+  iat: Time.now.to_i - 60,
   # JWT expiration time (10 minute maximum)
   exp: Time.now.to_i + (10 * 60),
   # {% data variables.product.prodname_github_app %}'s identifier
@@ -110,7 +112,7 @@ The example above uses the maximum expiration time of 10 minutes, after which th
 ```json
 {
   "message": "'Expiration' claim ('exp') must be a numeric value representing the future time at which the assertion expires.",
-  "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
+  "documentation_url": "{% data variables.product.doc_url_pre %}"
 }
 ```
 

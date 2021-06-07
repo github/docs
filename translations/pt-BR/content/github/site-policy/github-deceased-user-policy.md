@@ -2,6 +2,9 @@
 title: Política de Usuário Falecido do GitHub
 versions:
   free-pro-team: '*'
+topics:
+  - Policy
+  - Legal
 ---
 
 No caso de um usuário do GitHub falecer, podemos trabalhar com um indivíduo autorizado para determinar o que acontecerá com o conteúdo da conta.

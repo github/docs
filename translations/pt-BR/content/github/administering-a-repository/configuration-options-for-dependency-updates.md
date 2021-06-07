@@ -290,25 +290,26 @@ Você pode usar a opção `ignore` para personalizar quais dependências são at
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Personalizando as dependências para manter com "ignore"
+# Customizing the dependencies to maintain with `ignore`
 
-versão: 2
-atualizações:
+version: 2
+updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Para Express, ignore todas as atualizações para a versão 4 e 5
-        versões: ["4.x", "5.x"]
-        # Para Loadash, ignore todas as atualizações
-      - dependency-name: "loadash"
+        # For Express, ignore all updates for version 4 and 5
+        versions: ["4.x", "5.x"]
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-**Observação**: {% data variables.product.prodname_dependabot_version_updates %} não pode executar atualizações de versão para nenhuma dependência no manifesto que contém dependências do git privadas ou registros do git privados, mesmo que você adicione as dependências privadas à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)".
+**Observação**: {% data variables.product.prodname_dependabot %} só pode executar atualizações de versão no manifesto ou em arquivos de bloqueio se puder acessar todas as dependências do arquivo, ainda que você adicione dependências inacessíveis à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" e "[Solução de problemas de erros de {% data variables.product.prodname_dependabot %} ](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)".
+
 
 {% endnote %}
 

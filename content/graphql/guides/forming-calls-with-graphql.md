@@ -8,6 +8,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 ### Authenticating with GraphQL
@@ -26,9 +28,10 @@ The following scopes are recommended:
 
 {% endif %}
 
+
 ```
-user
-public_repo
+user{% if currentVersion != "github-ae@latest" %}
+public_repo{% endif %}
 repo
 repo_deployment
 repo:status
@@ -103,6 +106,7 @@ Mutations are structured like this:
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 The input object in this example is `MutationNameInput`, and the payload object is `MutationNamePayload`.
@@ -245,7 +249,7 @@ Looking at the composition line by line:
 
   The `labels` field has the type [`LabelConnection`](/graphql/reference/objects#labelconnection). As with the `issues` object, because `labels` is a connection, we must travel its edges to a connected node: the `label` object. At the node, we can specify the `label` object fields we want to return, in this case, `name`.
 
-You may notice that running this query on the Octocat's public `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
+You may notice that running this query on the Octocat's {% if currentVersion != "github-ae@latest" %}public{% endif %} `Hello-World` repository won't return many labels. Try running it on one of your own repositories that does use labels, and you'll likely see a difference.
 
 ### Example mutation
 

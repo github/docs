@@ -6,9 +6,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
-ユーザ API のリソースの多くには、現在認証されているユーザについての情報を取得するためのショートカットがあります。 If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.{% endif %}
+ユーザ API のリソースの多くには、現在認証されているユーザについての情報を取得するためのショートカットがあります。 リクエスト URL に `{username}` パラメータが含まれていない場合、レスポンスはログインしているユーザに対して行われます (リクエストで [認証情報](/rest/overview/resources-in-the-rest-api#authentication) を渡す必要があります)。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}ユーザが 2 要素認証を有効にしているかなど、その他の個人情報は、基本認証または `user` スコープ付きで OAuth 認証されている場合に含まれます。{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

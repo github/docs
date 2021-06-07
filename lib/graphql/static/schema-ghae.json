@@ -1303,6 +1303,40 @@
       ]
     },
     {
+      "name": "convertPullRequestToDraft",
+      "kind": "mutations",
+      "id": "convertpullrequesttodraft",
+      "href": "/graphql/reference/mutations#convertpullrequesttodraft",
+      "description": "<p>Converts a pull request to draft.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertPullRequestToDraftInput!",
+          "id": "convertpullrequesttodraftinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request that is now a draft.</p>"
+        }
+      ]
+    },
+    {
       "name": "createBranchProtectionRule",
       "kind": "mutations",
       "id": "createbranchprotectionrule",
@@ -1557,6 +1591,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#deploymentstatus",
           "description": "<p>The new deployment status.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createEnterpriseOrganization",
+      "kind": "mutations",
+      "id": "createenterpriseorganization",
+      "href": "/graphql/reference/mutations#createenterpriseorganization",
+      "description": "<p>Creates an organization as part of an enterprise account.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateEnterpriseOrganizationInput!",
+          "id": "createenterpriseorganizationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createenterpriseorganizationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise",
+          "description": "<p>The enterprise that owns the created organization.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization that was created.</p>"
         }
       ]
     },
@@ -2335,6 +2411,48 @@
       ]
     },
     {
+      "name": "disablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "disablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#disablepullrequestautomerge",
+      "description": "<p>Disable auto merge on the given pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DisablePullRequestAutoMergeInput!",
+          "id": "disablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto merge was disabled on.</p>"
+        }
+      ]
+    },
+    {
       "name": "dismissPullRequestReview",
       "kind": "mutations",
       "id": "dismisspullrequestreview",
@@ -2365,6 +2483,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreview",
           "description": "<p>The dismissed pull request review.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enablePullRequestAutoMerge",
+      "kind": "mutations",
+      "id": "enablepullrequestautomerge",
+      "href": "/graphql/reference/mutations#enablepullrequestautomerge",
+      "description": "<p>Enable the default auto-merge on a pull request.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "EnablePullRequestAutoMergeInput!",
+          "id": "enablepullrequestautomergeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "actor",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor",
+          "description": "<p>Identifies the actor who performed the event.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "pullRequest",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest",
+          "description": "<p>The pull request auto-merge was enabled on.</p>"
         }
       ]
     },
@@ -2786,25 +2946,6 @@
       "id": "pinissue",
       "href": "/graphql/reference/mutations#pinissue",
       "description": "<p>Pin an issue to a repository.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -3583,25 +3724,6 @@
       "id": "unpinissue",
       "href": "/graphql/reference/mutations#unpinissue",
       "description": "<p>Unpin a pinned issue from a repository.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -3813,7 +3935,7 @@
       "kind": "mutations",
       "id": "updateenterprisedefaultrepositorypermissionsetting",
       "href": "/graphql/reference/mutations#updateenterprisedefaultrepositorypermissionsetting",
-      "description": "<p>Sets the default repository permission for organizations in an enterprise.</p>",
+      "description": "<p>Sets the base repository permission for organizations in an enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -3838,7 +3960,7 @@
           "id": "enterprise",
           "kind": "objects",
           "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated default repository permission setting.</p>"
+          "description": "<p>The enterprise with the updated base repository permission setting.</p>"
         },
         {
           "name": "message",
@@ -3846,7 +3968,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the default repository permission setting.</p>"
+          "description": "<p>A message confirming the result of updating the base repository permission setting.</p>"
         }
       ]
     },
@@ -5450,6 +5572,279 @@
       ]
     },
     {
+      "name": "AutoMergeDisabledEvent",
+      "kind": "objects",
+      "id": "automergedisabledevent",
+      "href": "/graphql/reference/objects#automergedisabledevent",
+      "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "disabler",
+          "description": "<p>The user who disabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "reasonCode",
+          "description": "<p>The reason_code relating to why auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeEnabledEvent",
+      "kind": "objects",
+      "id": "automergeenabledevent",
+      "href": "/graphql/reference/objects#automergeenabledevent",
+      "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeRequest",
+      "kind": "objects",
+      "id": "automergerequest",
+      "href": "/graphql/reference/objects#automergerequest",
+      "description": "<p>Represents an auto-merge request for a pull request.</p>",
+      "fields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address of the author of this auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>The commit message of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>The commit title of the auto-merge request.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enabledAt",
+          "description": "<p>When was this auto-merge request was enabled.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabledBy",
+          "description": "<p>The actor who created the auto-merge request.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method of the auto-merge request.</p>",
+          "type": "PullRequestMergeMethod!",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that this auto-merge request is set against.</p>",
+          "type": "PullRequest!",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoRebaseEnabledEvent",
+      "kind": "objects",
+      "id": "autorebaseenabledevent",
+      "href": "/graphql/reference/objects#autorebaseenabledevent",
+      "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (rebase) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoSquashEnabledEvent",
+      "kind": "objects",
+      "id": "autosquashenabledevent",
+      "href": "/graphql/reference/objects#autosquashenabledevent",
+      "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (squash) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
       "name": "AutomaticBaseChangeFailedEvent",
       "kind": "objects",
       "id": "automaticbasechangefailedevent",
@@ -6518,6 +6913,145 @@
       ]
     },
     {
+      "name": "CVSS",
+      "kind": "objects",
+      "id": "cvss",
+      "href": "/graphql/reference/objects#cvss",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "fields": [
+        {
+          "name": "score",
+          "description": "<p>The CVSS score associated with this advisory.</p>",
+          "type": "Float!",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        },
+        {
+          "name": "vectorString",
+          "description": "<p>The CVSS vector string associated with this advisory.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CWE",
+      "kind": "objects",
+      "id": "cwe",
+      "href": "/graphql/reference/objects#cwe",
+      "description": "<p>A common weakness enumeration.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "cweId",
+          "description": "<p>The id of the CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A detailed description of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>ID of the object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this CWE.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CWEConnection",
+      "kind": "objects",
+      "id": "cweconnection",
+      "href": "/graphql/reference/objects#cweconnection",
+      "description": "<p>The connection type for CWE.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[CWEEdge]",
+          "id": "cweedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cweedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[CWE]",
+          "id": "cwe",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cwe"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "CWEEdge",
+      "kind": "objects",
+      "id": "cweedge",
+      "href": "/graphql/reference/objects#cweedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "CWE",
+          "id": "cwe",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cwe"
+        }
+      ]
+    },
+    {
       "name": "CheckAnnotation",
       "kind": "objects",
       "id": "checkannotation",
@@ -6719,6 +7253,11 @@
           "href": "/graphql/reference/interfaces#node"
         },
         {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -6822,6 +7361,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "name",
@@ -7529,7 +8098,7 @@
         },
         {
           "name": "associatedPullRequests",
-          "description": "<p>The pull requests associated with a commit.</p>",
+          "description": "<p>The merged Pull Request that introduced the commit to the repository. If the\ncommit is not present in the default branch, additionally returns open Pull\nRequests associated with the commit.</p>",
           "type": "PullRequestConnection",
           "id": "pullrequestconnection",
           "kind": "objects",
@@ -7825,7 +8394,7 @@
         },
         {
           "name": "committedViaWeb",
-          "description": "<p>Check if commited via GitHub web UI.</p>",
+          "description": "<p>Check if committed via GitHub web UI.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -7833,7 +8402,7 @@
         },
         {
           "name": "committer",
-          "description": "<p>Committership details of the commit.</p>",
+          "description": "<p>Committer details of the commit.</p>",
           "type": "GitActor",
           "id": "gitactor",
           "kind": "objects",
@@ -9254,6 +9823,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "contributionLevel",
+          "description": "<p>Indication of contributions, relative to other days. Can be used to indicate\nwhich color to represent this day on a calendar.</p>",
+          "type": "ContributionLevel!",
+          "id": "contributionlevel",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#contributionlevel"
         },
         {
           "name": "date",
@@ -14899,7 +15476,7 @@
       "fields": [
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -17883,6 +18460,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this issue is currently pinned to the repository issues list.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isReadByViewer",
           "description": "<p>Is this issue read by the viewer.</p>",
           "type": "Boolean",
@@ -20061,6 +20646,14 @@
           ]
         },
         {
+          "name": "claimant",
+          "description": "<p>The user that has claimed the data attributed to this mannequin.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -21044,7 +21637,7 @@
         },
         {
           "name": "progressPercentage",
-          "description": "<p>Indentifies the percentage complete for the milestone.</p>",
+          "description": "<p>Identifies the percentage complete for the milestone.</p>",
           "type": "Float!",
           "id": "float",
           "kind": "scalars",
@@ -25379,7 +25972,7 @@
         },
         {
           "name": "restoredIssueAssignmentsCount",
-          "description": "<p>The number of issue assignemnts for the restored member.</p>",
+          "description": "<p>The number of issue assignments for the restored member.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -26769,14 +27362,6 @@
           ]
         },
         {
-          "name": "isVerified",
-          "description": "<p>Whether the organization has verified its profile email and website, always false on Enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "itemShowcase",
           "description": "<p>Showcases a selection of repositories and gists that the profile owner has\neither curated or that have been selected automatically based on popularity.</p>",
           "type": "ProfileItemShowcase!",
@@ -27966,7 +28551,7 @@
         },
         {
           "name": "idpCertificate",
-          "description": "<p>The x509 certificate used by the Identity Provder to sign assertions and responses.</p>",
+          "description": "<p>The x509 certificate used by the Identity Provider to sign assertions and responses.</p>",
           "type": "X509Certificate",
           "id": "x509certificate",
           "kind": "scalars",
@@ -28608,25 +29193,6 @@
       "id": "pinnedissue",
       "href": "/graphql/reference/objects#pinnedissue",
       "description": "<p>A Pinned Issue is a issue pinned to a repository's index page.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "implements": [
         {
           "name": "Node",
@@ -28675,25 +29241,6 @@
       "id": "pinnedissueconnection",
       "href": "/graphql/reference/objects#pinnedissueconnection",
       "description": "<p>The connection type for PinnedIssue.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "fields": [
         {
           "name": "edges",
@@ -28735,25 +29282,6 @@
       "id": "pinnedissueedge",
       "href": "/graphql/reference/objects#pinnedissueedge",
       "description": "<p>An edge in a connection.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Pinned issues preview",
-        "description": "This preview adds support for pinned issues.",
-        "toggled_by": "elektra-preview",
-        "toggled_on": [
-          "Repository.pinnedIssues",
-          "PinnedIssue",
-          "PinnedIssueEdge",
-          "PinnedIssueConnection",
-          "Mutation.pinIssue",
-          "Mutation.unpinIssue"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.elektra-preview+json",
-        "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-      },
       "fields": [
         {
           "name": "cursor",
@@ -30357,6 +30885,14 @@
           "href": "/graphql/reference/enums#commentauthorassociation"
         },
         {
+          "name": "autoMergeRequest",
+          "description": "<p>Returns the auto-merge request object if one exists for this pull request.</p>",
+          "type": "AutoMergeRequest",
+          "id": "automergerequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#automergerequest"
+        },
+        {
           "name": "baseRef",
           "description": "<p>Identifies the base Ref associated with the pull request.</p>",
           "type": "Ref",
@@ -31713,6 +32249,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanDisableAutoMerge",
+          "description": "<p>Whether or not the viewer can disable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanEnableAutoMerge",
+          "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
           "type": "Boolean!",
@@ -31751,6 +32303,22 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerLatestReview",
+          "description": "<p>The latest review given from the viewer.</p>",
+          "type": "PullRequestReview",
+          "id": "pullrequestreview",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreview"
+        },
+        {
+          "name": "viewerLatestReviewRequest",
+          "description": "<p>The person who has requested the viewer for review on this pull request.</p>",
+          "type": "ReviewRequest",
+          "id": "reviewrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#reviewrequest"
         },
         {
           "name": "viewerMergeBodyText",
@@ -33744,6 +34312,39 @@
       ]
     },
     {
+      "name": "PullRequestTemplate",
+      "kind": "objects",
+      "id": "pullrequesttemplate",
+      "href": "/graphql/reference/objects#pullrequesttemplate",
+      "description": "<p>A repository pull request template.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "filename",
+          "description": "<p>The filename of the template.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository the template belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
       "name": "PullRequestTimelineConnection",
       "kind": "objects",
       "id": "pullrequesttimelineconnection",
@@ -34736,6 +35337,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "requiresCodeOwnerReviews",
+          "description": "<p>Are reviews from code owners required to update matching branches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiresLinearHistory",
           "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
@@ -34746,6 +35355,14 @@
         {
           "name": "requiresSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerAllowedToDismissReviews",
+          "description": "<p>Is the viewer allowed to dismiss reviews.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -34893,6 +35510,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isLatest",
+          "description": "<p>Whether or not the release is the latest releast.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isPrerelease",
           "description": "<p>Whether or not the release is a prerelease.</p>",
           "type": "Boolean!",
@@ -34977,6 +35602,14 @@
           ]
         },
         {
+          "name": "repository",
+          "description": "<p>The repository that the release belongs to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this issue.</p>",
           "type": "URI!",
@@ -35012,6 +35645,14 @@
           "id": "ref",
           "kind": "objects",
           "href": "/graphql/reference/objects#ref"
+        },
+        {
+          "name": "tagCommit",
+          "description": "<p>The tag commit for this release.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
         },
         {
           "name": "tagName",
@@ -38618,7 +39259,7 @@
         },
         {
           "name": "forkSourceName",
-          "description": "<p>The name of the root repository for this netork.</p>",
+          "description": "<p>The name of the root repository for this network.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -40047,7 +40688,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -40366,6 +41007,14 @@
           ]
         },
         {
+          "name": "latestRelease",
+          "description": "<p>Get the latest release for the repository if one exists.</p>",
+          "type": "Release",
+          "id": "release",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#release"
+        },
+        {
           "name": "licenseInfo",
           "description": "<p>The license associated with the repository.</p>",
           "type": "License",
@@ -40675,26 +41324,7 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ],
-          "isDeprecated": false,
-          "preview": {
-            "title": "Pinned issues preview",
-            "description": "This preview adds support for pinned issues.",
-            "toggled_by": "elektra-preview",
-            "toggled_on": [
-              "Repository.pinnedIssues",
-              "PinnedIssue",
-              "PinnedIssueEdge",
-              "PinnedIssueConnection",
-              "Mutation.pinIssue",
-              "Mutation.unpinIssue"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.elektra-preview+json",
-            "href": "/graphql/overview/schema-previews#pinned-issues-preview"
-          }
+          ]
         },
         {
           "name": "primaryLanguage",
@@ -40839,6 +41469,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "pullRequestTemplates",
+          "description": "<p>Returns a list of pull request templates associated to the repository.</p>",
+          "type": "[PullRequestTemplate!]",
+          "id": "pullrequesttemplate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequesttemplate"
         },
         {
           "name": "pullRequests",
@@ -42430,7 +43068,7 @@
         },
         {
           "name": "dismissedAt",
-          "description": "<p>When was the alert dimissed?.</p>",
+          "description": "<p>When was the alert dismissed?.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",
@@ -42462,7 +43100,7 @@
         },
         {
           "name": "securityVulnerability",
-          "description": "<p>The associated security vulnerablity.</p>",
+          "description": "<p>The associated security vulnerability.</p>",
           "type": "SecurityVulnerability",
           "id": "securityvulnerability",
           "kind": "objects",
@@ -43316,6 +43954,64 @@
       ],
       "fields": [
         {
+          "name": "cvss",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CVSS!",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        },
+        {
+          "name": "cwes",
+          "description": "<p>CWEs associated with this Advisory.</p>",
+          "type": "CWEConnection!",
+          "id": "cweconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cweconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "databaseId",
           "description": "<p>Identifies the primary key from the database.</p>",
           "type": "Int",
@@ -43346,6 +44042,14 @@
           "id": "securityadvisoryidentifier",
           "kind": "objects",
           "href": "/graphql/reference/objects#securityadvisoryidentifier"
+        },
+        {
+          "name": "notificationsPermalink",
+          "description": "<p>The permalink for the advisory's dependabot alerts page.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         },
         {
           "name": "origin",
@@ -43861,6 +44565,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "isOneTimePayment",
+          "description": "<p>Whether this sponsorship represents a one-time payment versus a recurring sponsorship.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "maintainer",
           "description": "<p>The entity that is being sponsored.</p>",
           "type": "User!",
@@ -43903,6 +44615,14 @@
           "id": "sponsorable",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#sponsorable"
+        },
+        {
+          "name": "tierSelectedAt",
+          "description": "<p>Identifies the date and time when the current tier was chosen for this sponsorship.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -44381,6 +45101,11 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "RequirableByPullRequest",
+          "id": "requirablebypullrequest",
+          "href": "/graphql/reference/interfaces#requirablebypullrequest"
         }
       ],
       "fields": [
@@ -44444,6 +45169,36 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "state",
@@ -48834,6 +49589,26 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "canReceiveOrganizationEmailsWhenNotificationsRestricted",
+          "description": "<p>Could this user receive email notifications, if the organization had notification restrictions enabled?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "login",
+              "description": "<p>The login of the organization to check.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "commitComments",
           "description": "<p>A list of commit comments made by this user.</p>",
           "type": "CommitCommentConnection!",
@@ -49250,6 +50025,14 @@
         {
           "name": "isEmployee",
           "description": "<p>Whether or not this user is a GitHub employee.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isGitHubStar",
+          "description": "<p>Whether or not this user is a member of the GitHub Stars Program.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -52734,7 +53517,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Identifies if the repository is private.</p>",
+          "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -53064,6 +53847,45 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "RequirableByPullRequest",
+      "kind": "interfaces",
+      "id": "requirablebypullrequest",
+      "href": "/graphql/reference/interfaces#requirablebypullrequest",
+      "description": "<p>Represents a type that can be required by a pull request for merging.</p>",
+      "fields": [
+        {
+          "name": "isRequired",
+          "description": "<p>Whether this is required to pass before merging for a specific pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "arguments": [
+            {
+              "name": "pullRequestId",
+              "description": "<p>The id of the pull request this is required for.</p>",
+              "type": {
+                "name": "ID",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "pullRequestNumber",
+              "description": "<p>The number of the pull request this is required for.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         }
       ]
     },
@@ -53562,6 +54384,10 @@
         {
           "name": "REQUESTED",
           "description": "<p>The check suite or run has been requested.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -53678,6 +54504,35 @@
         {
           "name": "OCCURRED_AT",
           "description": "<p>Order commit contributions by when they were made.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ContributionLevel",
+      "kind": "enums",
+      "id": "contributionlevel",
+      "href": "/graphql/reference/enums#contributionlevel",
+      "description": "<p>Varying levels of contributions from none to many.</p>",
+      "values": [
+        {
+          "name": "FIRST_QUARTILE",
+          "description": "<p>Lowest 25% of days of contributions.</p>"
+        },
+        {
+          "name": "FOURTH_QUARTILE",
+          "description": "<p>Highest 25% of days of contributions. More contributions than the third quartile.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>No contributions occurred.</p>"
+        },
+        {
+          "name": "SECOND_QUARTILE",
+          "description": "<p>Second lowest 25% of days of contributions. More contributions than the first quartile.</p>"
+        },
+        {
+          "name": "THIRD_QUARTILE",
+          "description": "<p>Second highest 25% of days of contributions. More contributions than second quartile, less than the fourth quartile.</p>"
         }
       ]
     },
@@ -53802,6 +54657,10 @@
         {
           "name": "SUCCESS",
           "description": "<p>The deployment was successful.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
         }
       ]
     },
@@ -54188,7 +55047,7 @@
         },
         {
           "name": "OCSP_ERROR",
-          "description": "<p>Valid siganture, though certificate revocation check failed.</p>"
+          "description": "<p>Valid signature, though certificate revocation check failed.</p>"
         },
         {
           "name": "OCSP_PENDING",
@@ -55370,6 +56229,22 @@
           "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
         },
         {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
           "name": "BASE_REF_CHANGED_EVENT",
           "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
         },
@@ -56042,6 +56917,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The check suite or run has been queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -57366,7 +58245,7 @@
       "kind": "unions",
       "id": "pullrequesttimelineitem",
       "href": "/graphql/reference/unions#pullrequesttimelineitem",
-      "description": "<p>An item in an pull request timeline.</p>",
+      "description": "<p>An item in a pull request timeline.</p>",
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -57551,6 +58430,26 @@
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
+        },
+        {
+          "name": "AutoMergeDisabledEvent",
+          "id": "automergedisabledevent",
+          "href": "/graphql/reference/objects#automergedisabledevent"
+        },
+        {
+          "name": "AutoMergeEnabledEvent",
+          "id": "automergeenabledevent",
+          "href": "/graphql/reference/objects#automergeenabledevent"
+        },
+        {
+          "name": "AutoRebaseEnabledEvent",
+          "id": "autorebaseenabledevent",
+          "href": "/graphql/reference/objects#autorebaseenabledevent"
+        },
+        {
+          "name": "AutoSquashEnabledEvent",
+          "id": "autosquashenabledevent",
+          "href": "/graphql/reference/objects#autosquashenabledevent"
         },
         {
           "name": "AutomaticBaseChangeFailedEvent",
@@ -57948,7 +58847,7 @@
       "kind": "unions",
       "id": "sponsor",
       "href": "/graphql/reference/unions#sponsor",
-      "description": "<p>Entites that can sponsor others via GitHub Sponsors.</p>",
+      "description": "<p>Entities that can sponsor others via GitHub Sponsors.</p>",
       "possibleTypes": [
         {
           "name": "Organization",
@@ -59227,6 +60126,32 @@
       ]
     },
     {
+      "name": "ConvertPullRequestToDraftInput",
+      "kind": "inputObjects",
+      "id": "convertpullrequesttodraftinput",
+      "href": "/graphql/reference/input-objects#convertpullrequesttodraftinput",
+      "description": "<p>Autogenerated input type of ConvertPullRequestToDraft.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to convert to draft.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CreateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "createbranchprotectionruleinput",
@@ -59760,6 +60685,64 @@
       ]
     },
     {
+      "name": "CreateEnterpriseOrganizationInput",
+      "kind": "inputObjects",
+      "id": "createenterpriseorganizationinput",
+      "href": "/graphql/reference/input-objects#createenterpriseorganizationinput",
+      "description": "<p>Autogenerated input type of CreateEnterpriseOrganization.</p>",
+      "inputFields": [
+        {
+          "name": "adminLogins",
+          "description": "<p>The logins for the administrators of the new organization.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "billingEmail",
+          "description": "<p>The email used for sending billing receipts.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise owning the new organization.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of the new organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "profileName",
+          "description": "<p>The profile name of the new organization.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CreateIpAllowListEntryInput",
       "kind": "inputObjects",
       "id": "createipallowlistentryinput",
@@ -60286,7 +61269,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visiblity of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -60717,6 +61700,32 @@
       ]
     },
     {
+      "name": "DisablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "disablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#disablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of DisablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to disable auto merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DismissPullRequestReviewInput",
       "kind": "inputObjects",
       "id": "dismisspullrequestreviewinput",
@@ -60837,6 +61846,64 @@
           "id": "diffside",
           "kind": "enums",
           "href": "/graphql/reference/enums#diffside"
+        }
+      ]
+    },
+    {
+      "name": "EnablePullRequestAutoMergeInput",
+      "kind": "inputObjects",
+      "id": "enablepullrequestautomergeinput",
+      "href": "/graphql/reference/input-objects#enablepullrequestautomergeinput",
+      "description": "<p>Autogenerated input type of EnablePullRequestAutoMerge.</p>",
+      "inputFields": [
+        {
+          "name": "authorEmail",
+          "description": "<p>The email address to associate with this merge.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitBody",
+          "description": "<p>Commit body to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "commitHeadline",
+          "description": "<p>Commit headline to use for the commit when the PR is mergable; if omitted, a default message will be used.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method to use. If omitted, defaults to 'MERGE'.</p>",
+          "type": "PullRequestMergeMethod",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>ID of the pull request to enable auto-merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -63251,7 +64318,7 @@
         },
         {
           "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the default repository permission setting.</p>",
+          "description": "<p>The ID of the enterprise on which to set the base repository permission setting.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63260,7 +64327,7 @@
         },
         {
           "name": "settingValue",
-          "description": "<p>The value for the default repository permission setting on the enterprise.</p>",
+          "description": "<p>The value for the base repository permission setting on the enterprise.</p>",
           "type": "EnterpriseDefaultRepositoryPermissionSettingValue!",
           "id": "enterprisedefaultrepositorypermissionsettingvalue",
           "kind": "enums",
@@ -64707,7 +65774,7 @@
         },
         {
           "name": "id",
-          "description": "<p>The Node ID of the team to update review assginments of.</p>",
+          "description": "<p>The Node ID of the team to update review assignments of.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64887,7 +65954,7 @@
       "kind": "scalars",
       "id": "precisedatetime",
       "href": "/graphql/reference/scalars#precisedatetime",
-      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precison.</p>"
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>"
     },
     {
       "name": "String",

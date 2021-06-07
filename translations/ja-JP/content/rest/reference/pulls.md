@@ -1,11 +1,13 @@
 ---
-title: Pulls
+title: Pull Request
 redirect_from:
   - /v3/pulls
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - API
 ---
 
 Pull Request API を使用すると、プルリクエストを一覧表示、編集、作成、マージできます。 プルリクエストのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
@@ -42,7 +44,7 @@ diff が破損している場合は、{% data variables.contact.contact_support 
 | `review_comments` | プルリクエストの [レビューコメント](/rest/reference/pulls#comments) の API ロケーション。                                            |
 | `review_comment`  | プルリクエストのリポジトリで、[レビューコメント](/rest/reference/pulls#comments)の API ロケーションを構築するための[URL テンプレート](/rest#hypermedia)。 |
 | `commits`         | プルリクエストの [コミット](#list-commits-on-a-pull-request) の API ロケーション。                                               |
-| `ステータス`           | プルリクエストの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
+| `statuses`        | プルリクエストの[コミットステータス](/rest/reference/repos#statuses)、すなわち`head` ブランチのステータスの API ロケーション。                       |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

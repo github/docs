@@ -7,10 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: how_to
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### 개요
 
@@ -18,13 +21,13 @@ If you need to share workflows and other {% data variables.product.prodname_acti
 
 ### Creating a workflow template
 
-Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows. Workflow templates can be used to create new workflows in an organizations' public repositories; to use templates to create workflows in private repositories, the organization must be part of an enterprise or GitHub One plan.
+Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows. Workflow templates can be used to create new workflows in an organizations' public repositories; to use templates to create workflows in private repositories, the organization must be part of an enterprise plan.
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the template is presented to users when they are creating a new workflow.
 
 1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-1. Create a directory named `workflow-templates`.
-1. Create your new workflow file inside the `workflow-templates` directory.
+2. Create a directory named `workflow-templates`.
+3. Create your new workflow file inside the `workflow-templates` directory.
 
    If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created using your template, the placeholder will be automatically replaced with the name of the repository's default branch.
 
@@ -44,12 +47,12 @@ This procedure demonstrates how to create a workflow template and metadata file.
        runs-on: ubuntu-latest
 
        steps:
-       - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
 
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
-1. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
    {
        "name": "Octo Organization Workflow",
@@ -75,7 +78,7 @@ To add another workflow template, add your files to the same `workflow-templates
 
 ![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template
+### Using a workflow template from your organization
 
 This procedure demonstrates how a member of your organization can find and use a workflow template to create a new workflow. An organization's workflow templates can be used by anyone who is a member of the organization.
 

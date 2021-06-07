@@ -1,0 +1,1 @@
+3. En la sección "Método de pago", dentro de tu método de pago, haz clic en **Remove (Eliminar)**. ![Botón para cambiar el plan del resumen de facturación](/assets/images/help/settings/remove_billing_info.png)

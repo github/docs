@@ -51,7 +51,7 @@ For more information, see “[Git Tools Submodules](https://git-scm.com/book/en/
 
 ### Preserving history
 
-SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/articles/about-git-rebase).
+SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/github/getting-started-with-github/about-git-rebase).
 
 {% tip %}
 

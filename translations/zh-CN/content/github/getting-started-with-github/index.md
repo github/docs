@@ -1,7 +1,7 @@
 ---
 title: 开始使用 GitHub
 shortTitle: 入门指南
-intro: '了解 {% data variables.product.prodname_dotcom %} 的产品，注册帐户，并探索 {% data variables.product.prodname_dotcom %} 社区。'
+intro: '了解如何开始构建、运输和维护具有 {% data variables.product.prodname_dotcom %} 的软件。 了解我们的产品，注册一个帐户，与世界上最大的发展社区建立联系。'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/
@@ -12,52 +12,43 @@ redirect_from:
   - /categories/53/articles/
   - /categories/setup/
   - /categories/getting-started-with-github
+  - /categories/19/articles/
+  - /categories/using-git
+  - /github/using-git
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+layout: product-landing
+introLinks:
+  quickstart: /github/getting-started-with-github/quickstart
+featuredLinks:
+  guides:
+    - /github/getting-started-with-github/githubs-products
+    - /github/getting-started-with-github/create-a-repo
+    - /github/getting-started-with-github/signing-up-for-a-new-github-account
+  popular:
+    - /github/getting-started-with-github/set-up-git
+    - /github/getting-started-with-github/github-glossary
+    - /github/getting-started-with-github/fork-a-repo
+    - /github/getting-started-with-github/keyboard-shortcuts
+    - /github/getting-started-with-github/saving-repositories-with-stars
+  guideCards:
+    - /github/getting-started-with-github/types-of-github-accounts
+    - /github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github
+    - /github/getting-started-with-github/troubleshooting-connectivity-problems
+topics:
+  - Pull requests
+  - Issues
+  - Notifications
+  - Accounts
+children:
+  - /quickstart
+  - /learning-about-github
+  - /signing-up-for-github
+  - /using-github
+  - /exploring-projects-on-github
+  - /getting-started-with-git
+  - /using-git
 ---
 
-
-### 目录
-
-{% topic_link_in_list /quickstart %}
-    {% link_in_list /set-up-git %}
-    {% link_in_list /create-a-repo %}
-    {% link_in_list /fork-a-repo %}
-    {% link_in_list /be-social %}
-{% topic_link_in_list /learning-about-github %}
-<!-- if currentVersion == "free-pro-team@latest" -->
-    {% link_in_list /githubs-products %}
-    {% link_in_list /exploring-early-access-releases-with-feature-preview %}
-<!-- endif -->
-    {% link_in_list /types-of-github-accounts %}
-<!-- if currentVersion == "free-pro-team@latest" -->
-    {% link_in_list /faq-about-changes-to-githubs-plans %}
-    {% link_in_list /github-cli %}
-    {% link_in_list /github-desktop %}
-    {% link_in_list /github-for-mobile %}
-<!-- endif -->
-    {% link_in_list /access-permissions-on-github %}
-    {% link_in_list /github-glossary %}
-    {% link_in_list /git-cheatsheet %}
-    {% link_in_list /git-and-github-learning-resources %}
-{% topic_link_in_list /signing-up-for-github %}
-<!-- if currentVersion == "free-pro-team@latest" -->
-    % link_in_list /signing-up-for-a-new-github-account %}
-    {% link_in_list /verifying-your-email-address %}
-<!-- endif -->
-    {% link_in_list /setting-up-a-trial-of-github-enterprise-cloud %}
-    {% link_in_list /setting-up-a-trial-of-github-enterprise-server %}
-{% topic_link_in_list /exploring-projects-on-github %}
-<!-- if currentVersion == "free-pro-team@latest" -->
-    {% link_in_list /finding-ways-to-contribute-to-open-source-on-github %}
-<!-- endif -->
-    {% link_in_list /saving-repositories-with-stars %}
-    {% link_in_list /following-people %}
-{% topic_link_in_list /using-github %}
-    {% link_in_list /supported-browsers %}
-<!-- if currentVersion == "free-pro-team@latest" -->
-    {% link_in_list /troubleshooting-connectivity-problems %}
-<!-- endif -->
-    {% link_in_list /keyboard-shortcuts %}

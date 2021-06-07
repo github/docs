@@ -9,6 +9,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
+topics:
+  - GitHub search
 ---
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
@@ -27,7 +29,8 @@ Due to the complexity of searching code, there are some restrictions on how sear
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
 - Only the first 500 KB of each file is searchable.{% endif %}
-- Only repositories with fewer than 500,000 files are searchable.
+- Only repositories with fewer than 500,000 files are searchable.{% if currentVersion == "free-pro-team@latest" %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
 - Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
 - At most, search results can show two fragments from the same file, but there may be more results within the file.
 - You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. The search will simply ignore these symbols.
@@ -63,8 +66,9 @@ You can use the `path` qualifier to search for source code that appears at a spe
 | <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in an <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>). |
 
 ### Search by language
+<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes. -->
 
-You can search for code based on what language it's written in.
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the \[github/linguist repository\]((https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier                  | Пример                                                                                                                                                                                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

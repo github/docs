@@ -7,16 +7,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
+type: tutorial
+topics:
+  - CI
+  - Python
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.ae-beta %}
 
 ### はじめに
 
 このガイドは、Pythonパッケージのビルド、テスト、公開の方法を紹介します。
 
-{% data variables.product.prodname_dotcom %}ホストランナーは、Python及びPyPyを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% if currentVersion == "github-ae@latest" %}{% data variables.actions.hosted_runner %} に必要なソフトウェアがインストールされていることを確認する方法については、「[カスタムイメージの作成](/actions/using-github-hosted-runners/creating-custom-images)」を参照してください。
+{% else %} {% data variables.product.prodname_dotcom %} ホストランナーには、Python および PyPy などのソフトウェアがプリインストールされたツールキャッシュがあります。 自分では何もインストールする必要がありません！ 最新のソフトウェアと、Python および PyPy のプリインストールされたバージョンの完全なリストについては、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。
+{% endif %}
 
 ### 必要な環境
 
@@ -31,12 +39,12 @@ Python、PyPy、pipの基本的な理解をしておくことをおすすめし�
 
 ### Pythonワークフローテンプレートでの開始
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については[Pythonのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については、「[Python のワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)」を参照してください。
 
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -50,25 +58,25 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # Python 構文エラーまたは未定義の名前がある場合はビルドを停止する
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zeroはすべてのエラーを警告として扱う。 GitHubのエディタの幅は127文字
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Test with pytest
+        run: |
+          pytest
 ```
 {% endraw %}
 
@@ -93,7 +101,7 @@ jobs:
 #### Pythonの複数バージョンの利用
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -109,23 +117,23 @@ jobs:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    # 現在の Python バージョンを印刷して、マトリックスをテストできます
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
 #### 　特定のバージョンのPythonの利用
 
-Pythonの特定バージョンを設定することができます。 たとえば3.8が利用できます。 あるいは、セマンティックバージョン構文を使い、最新のマイナーリリースを使うことができます。 以下の例では、Python 3の最新のマイナーリリースを使います。
+Pythonの特定バージョンを設定することができます。 たとえば3.8が利用できます。 あるいは、最新のマイナーリリースを取得するためにセマンティックバージョン構文を使うこともできます。 以下の例では、Python 3の最新のマイナーリリースを使います。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -136,17 +144,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v2
-      with:
-        # Semantic version range syntax or exact version of a Python version
-        python-version: '3.x'
-        # Optional - x64 or x86 architecture, defaults to x64
-        architecture: 'x64'
-    # You can test your matrix by printing the current Python version
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+          # Optional - x64 or x86 architecture, defaults to x64
+          architecture: 'x64'
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 ```
 {% endraw %}
 
@@ -157,7 +165,7 @@ jobs:
 実行したくないPythonの環境があるなら、ワークフロー中で`exclude`キーワードを使うこともできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -192,10 +200,10 @@ jobs:
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーを使用する場合、依存関係をキャッシュしてワークフローの実行を高速化することもできます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -212,7 +220,7 @@ steps:
 `pip`をアップデートした後、次の典型的なステップは*requirements.txt*からの依存関係のインストールです。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -228,12 +236,12 @@ steps:
 
 #### 依存関係のキャッシング
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% data variables.product.prodname_dotcom %} ホストランナーを使用する場合、一意のキーを使用してpipの依存関係をキャッシュし、[`cache`](https://github.com/marketplace/actions/cache)アクションを使用して将来のワークフローを実行するときに依存関係を復元できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
-ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については[Pythonのキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)を参照してください。
+ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については、「[Python のキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Setup Python
@@ -270,7 +278,7 @@ steps:
 以下の例では、`pytest`及び`pytest-cov`をインストールあるいはアップグレードします。 そしてテストが実行され、JUnit形式で出力が行われ、一方でコードカバレッジの結果がCoberturaに出力されます。 詳しい情報については[JUnit](https://junit.org/junit5/)及び[Cobertura](https://cobertura.github.io/cobertura/)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -294,7 +302,7 @@ steps:
 以下の例は、`flake8`をインストールもしくはアップグレードし、それを使ってすべてのファイルをlintします。 詳しい情報については[Flake8](http://flake8.pycqa.org/en/latest/)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 steps:
 - uses: actions/checkout@v2
 - name: Set up Python
@@ -317,7 +325,7 @@ steps:
 {% data variables.product.prodname_actions %}では、toxでテストを実行し、その処理を複数のジョブに分散できます。 toxを起動する際には、特定のバージョンを指定するのではなく、`-e py`オプションを使って`PATH`中のPythonのバージョンを選択しなければなりません。 詳しい情報については [tox](https://tox.readthedocs.io/en/latest/)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -351,7 +359,7 @@ jobs:
 以下の例は、`upload-artifact`アクションを使って`pytest`の実行によるテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Python package
 
 on: [push]
@@ -364,13 +372,13 @@ jobs:
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
-      steps:
+    steps:
       - uses: actions/checkout@v2
       - name: Setup Python # Set Python version
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      # pip と pytest をインストールする
+      # Install pip and pytest
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -382,7 +390,7 @@ jobs:
         with:
           name: pytest-results-${{ matrix.python-version }}
           path: junit/test-results-${{ matrix.python-version }}.xml
-        # テスト失敗時にテスト結果を公開するには、always() を使用して常にこのステップを実行する
+        # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
 ```
 {% endraw %}
@@ -391,10 +399,10 @@ jobs:
 
 CIテストにパスしたなら、Pythonパッケージを任意のパッケージレジストリに公開するようにワークフローを設定できます。
 
-パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 以下の例では、`twine`と`dist`を使ってパッケージを作成してPyPIに公開しています。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+パッケージを公開するのに必要なアクセストークンや認証情報は、シークレットを使って保存できます。 以下の例では、`twine`と`dist`を使ってパッケージを作成してPyPIに公開しています。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Upload Python Package
 
 on:
@@ -405,23 +413,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-    - name: Build and publish
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: |
-        python setup.py sdist bdist_wheel
-        twine upload dist/*
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
 ```
 {% endraw %}
 
-テンプレートワークフローに関する詳しい情報については[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)を参照してください。
+テンプレートワークフローに関する詳しい情報については、「[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)」を参照してください。
