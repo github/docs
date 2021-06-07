@@ -70,8 +70,9 @@ export type MainContextT = {
   builtAssets: { main: { js: string } }
   expose: string
   activeProducts: Array<ProductT>
-  currentProduct: ProductT
+  currentProduct?: ProductT
   currentLayoutName: string
+  isHomepageVersion: boolean
   data: DataT
   airGap?: boolean
   error: string
@@ -81,7 +82,7 @@ export type MainContextT = {
   currentLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree
+  currentProductTree?: CurrentProductTree | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
@@ -109,8 +110,9 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    currentProduct: req.context.productMap[req.context.currentProduct],
+    currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
+    isHomepageVersion: req.context.currentVersion === 'homepage',
     error: req.context.error || '',
     data: {
       ui: req.context.site.data.ui,
@@ -164,7 +166,9 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
-    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
+    currentProductTree: req.context.currentProductTree
+      ? getCurrentProductTree(req.context.currentProductTree)
+      : null,
     featureFlags: {},
   }
 }
