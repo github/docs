@@ -1,4 +1,20 @@
 ---
+new constructor:
+ 	
+public class AccountDaoImpl extends BaseDaoImpl<Account, String>
+  implements AccountDao {
+    public AccountDaoImpl(ConnectionSource connectionSource)
+      throws SQLException {
+        super(connectionSource, Account.class);
+    }
+    // NOTE: this constructor is needed under Android in 4.30
+    public AccountDaoImpl(ConnectionSource connectionSource,
+        DatabaseTableConfig<Account> tableConfig)
+      throws SQLException {
+        super(connectionSource, tableConfig);
+    }
+}
+
 title: About your organization dashboard
 intro: 'As an organization member, you can visit your organization''s dashboard throughout the day to stay updated on recent activity and keep track of issues and pull requests you''re working on or following in the organization.'
 redirect_from:
