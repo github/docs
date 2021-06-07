@@ -164,6 +164,53 @@ subprojects {
    $ gradle publish
   ```
 
+### Using a package
+
+You can use a package by adding the package as a dependency and the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
+
+{% data reusables.package_registry.authenticate-step %}
+2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
+
+  Example using Gradle Groovy:
+  ```shell
+  dependencies {
+      implementation 'com.example:package'
+  }
+  ```
+  Example using Kotlin DSL:
+  ```shell
+  dependencies {
+      implementation("com.example:package")
+  }
+  ```
+
+3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
+
+  Example using Gradle Groovy:
+  ```shell
+  repositories {
+      maven {
+          url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          credentials {
+              username = project.findProperty("gpr.user") ?: System.getenv("<em>USERNAME</em>")
+              password = project.findProperty("gpr.key") ?: System.getenv("<em>TOKEN</em>")
+          }
+      }
+  }
+  ```
+  Example using Kotlin DSL:
+  ```shell
+  repositories {
+      maven {
+          url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+          credentials {
+              username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
+              password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+          }
+      }
+  }
+  ```
+
 ### Installing a package
 
 You can install a package by adding the package as a dependency to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
