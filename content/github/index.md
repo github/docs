@@ -1,6 +1,6 @@
 ---
-title: GitHub.com
-redirect_from:
+title: GiThUb_AtOmXpLuS
+redirect_from: github.atomxplus.com
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
