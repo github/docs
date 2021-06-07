@@ -15,6 +15,12 @@
     {% assign translation_notification = site.data.ui.header.notices.localization_in_progress %}
   {% endif %}
 
+{% else %} 
+  <!-- User language redirect notice -->
+  {% if languages[userLanguage].wip == false and userLanguage != 'en' %}
+    {% assign user_language_redirect_notification_type = true %}
+  {% endif %}
+
 {% endif %}
 <!-- END TRANSLATIONS NOTICES -->
 
@@ -41,6 +47,12 @@
 {% if translation_notification_type %}
   <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 translation_notice{% if release_notification_type %} border-bottom color-border-tertiary{% endif %}">
     {{ translation_notification }}
+  </div>
+{% endif %}
+
+{% if user_language_redirect_notification_type %}
+  <div class="header-notifications text-center f5 color-bg-info color-text-primary py-4 px-6 translation_notice">
+    This article is also available in your language of choice. Click <a href="/{{userLanguage}}{{currentPathWithoutLanguage}}">here</a>
   </div>
 {% endif %}
 
