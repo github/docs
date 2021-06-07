@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import Link from 'next/link'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ChevronDownIcon, MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
 import { ButtonOutline } from '@primer/components'
 
+import { Link } from 'components/Link'
 import { useMainContext } from './context/MainContext'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/HeaderNotifications'
 import { MobileProductDropdown } from 'components/MobileProductDropdown'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { HomepageVersionPicker } from 'components/landing/HomepageVersionPicker'
+import { Search } from 'components/Search'
 
 export const Header = () => {
   const router = useRouter()
@@ -34,16 +35,15 @@ export const Header = () => {
           id="github-logo-mobile"
           role="banner"
         >
-          <Link href={`/${router.locale}`}>
-            <a aria-hidden="true" tabIndex={-1}>
-              <MarkGithubIcon size={32} className="color-icon-primary" />
-            </a>
+          <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
+            <MarkGithubIcon size={32} className="color-icon-primary" />
           </Link>
 
-          <Link href={`/${router.locale}`}>
-            <a className="h4-mktg color-text-primary no-underline no-wrap pl-2">
-              {t('github_docs')}
-            </a>
+          <Link
+            href={`/${router.locale}`}
+            className="h4-mktg color-text-primary no-underline no-wrap pl-2"
+          >
+            {t('github_docs')}
           </Link>
         </div>
 
@@ -80,7 +80,7 @@ export const Header = () => {
                       >
                         {/* <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
                     <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those --> */}
-                        {currentProduct.name}
+                        {currentProduct?.name}
                         <ChevronDownIcon size={24} className="arrow ml-md-1" />
                       </div>
                     </summary>
@@ -94,22 +94,16 @@ export const Header = () => {
                   {showVersionPicker && <HomepageVersionPicker />}
 
                   {/* <!-- Language picker - 'English', 'Japanese', etc --> */}
-                  <div className="border-top border-md-top-0 py-2 py-md-0 d-md-inline-block">
+                  <div className="border-top border-md-top-0 py-2 d-md-inline-block">
                     <LanguagePicker />
                   </div>
 
                   {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-                  {relativePath !== 'index.md' && error !== '404'}
-                  <div
-                    className="pt-3 pt-md-0 d-md-inline-block ml-md-3 border-top border-md-top-0"
-                    dangerouslySetInnerHTML={{
-                      __html: `
-                    <div id="search-input-container" aria-hidden="true"></div>
-                    <div id="search-results-container"></div>
-                    <div class="search-overlay-desktop"></div>
-                  `,
-                    }}
-                  />
+                  {relativePath !== 'index.md' && error !== '404' && (
+                    <div className="pt-3 pt-md-0 ml-md-3 d-md-inline-block border-top border-md-top-0">
+                      <Search />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

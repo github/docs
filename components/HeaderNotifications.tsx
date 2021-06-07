@@ -77,7 +77,7 @@ export const HeaderNotifications = () => {
   return (
     <>
       {allNotifications.map(({ type, content }, i) => {
-        const isLast = i !== allNotifications.length - 1
+        const isLast = i === allNotifications.length - 1
         return (
           <div
             className={cx(

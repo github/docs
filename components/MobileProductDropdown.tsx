@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
+import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 
 export const MobileProductDropdown = () => {
@@ -20,22 +20,19 @@ export const MobileProductDropdown = () => {
           <Link
             key={product.id}
             href={`${product.external ? '' : `/${router.locale}`}${product.href}`}
+            className={cx(
+              'd-block py-2',
+              product.id === currentProduct?.id
+                ? 'color-text-link text-underline active'
+                : 'Link--primary no-underline'
+            )}
           >
-            <a
-              className={cx(
-                'd-block py-2',
-                product.id === currentProduct.id
-                  ? 'color-text-link text-underline active'
-                  : 'Link--primary no-underline'
-              )}
-            >
-              {product.name}
-              {product.external && (
-                <span className="ml-1">
-                  <LinkExternalIcon size="small" />
-                </span>
-              )}
-            </a>
+            {product.name}
+            {product.external && (
+              <span className="ml-1">
+                <LinkExternalIcon size="small" />
+              </span>
+            )}
           </Link>
         )
       })}

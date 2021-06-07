@@ -9,8 +9,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Integration
+  - CI
+  - CodeQL
 children:
   - /about-codeql-code-scanning-in-your-ci-system
   - /running-codeql-cli-in-your-ci-system
