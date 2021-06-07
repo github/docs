@@ -21,9 +21,8 @@ jobs:
           script: |
             const owner = 'github'
             const originalRepo = 'docs-internal'
-            correctRepo = process.env.TEAM_ENGINEERING_REPO 
+            let correctRepo = process.env.TEAM_ENGINEERING_REPO 
 
-            let correctRepo;
             const correctRepoObject = await github.repos.get({
               owner: owner,
               repo: correctRepo
