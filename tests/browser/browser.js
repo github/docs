@@ -85,7 +85,7 @@ describe('browser search', () => {
   })
 })
 
-describe('helpfulness', () => {
+describe('survey', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
     await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
@@ -104,20 +104,20 @@ describe('helpfulness', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('.js-helpfulness [for=helpfulness-yes]')
+    await page.click('.js-survey [for=survey-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('.js-helpfulness [type="email"]')
+    await page.waitForSelector('.js-survey [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
+    await page.type('.js-survey [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('.js-helpfulness [type="submit"]')
+    await page.click('.js-survey [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('.js-helpfulness [data-help-end]')
+    await page.waitForSelector('.js-survey [data-help-end]')
   })
 })
 
@@ -314,13 +314,13 @@ describe('nextjs query param', () => {
 
   it('conditionally renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
     const flagVal = require('../../feature-flags.json').FEATURE_NEXTJS
-    await page.goto('http://localhost:4001/en/sponsors?nextjs=')
+    await page.goto('http://localhost:4001/en/actions?nextjs=')
     const nextWrapper = await page.$('#__next')
     flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
   })
 
   it('does not render through nextjs pipeline when nextjs query param is missing', async () => {
-    await page.goto('http://localhost:4001/en/sponsors')
+    await page.goto('http://localhost:4001/en/actions')
     const nextWrapper = await page.$('#__next')
     expect(nextWrapper).toBeNull()
   })

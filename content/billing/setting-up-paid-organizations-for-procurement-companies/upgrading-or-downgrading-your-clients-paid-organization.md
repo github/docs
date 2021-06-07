@@ -26,9 +26,7 @@ topics:
 
 ### Upgrading an organization's number of paid seats
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
 {% data reusables.dotcom_billing.number-of-seats %}
 {% data reusables.dotcom_billing.confirm-add-seats %}
@@ -37,8 +35,6 @@ After you add seats, the payment method on file for the organization will be cha
 
 ### Downgrading an organization's number of paid seats to free
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

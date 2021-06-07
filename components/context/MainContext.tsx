@@ -67,11 +67,12 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  builtAssets: { main: { css: string; js: string } }
+  builtAssets: { main: { js: string } }
   expose: string
   activeProducts: Array<ProductT>
-  currentProduct: ProductT
+  currentProduct?: ProductT
   currentLayoutName: string
+  isHomepageVersion: boolean
   data: DataT
   airGap?: boolean
   error: string
@@ -81,12 +82,13 @@ export type MainContextT = {
   currentLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree
+  currentProductTree?: CurrentProductTree | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
     languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
+    title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
@@ -105,12 +107,13 @@ export type MainContextT = {
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
-    builtAssets: req.context.builtAssets,
+    builtAssets: { main: { js: req.context.builtAssets.main.js } },
     expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
-    currentProduct: req.context.productMap[req.context.currentProduct],
+    currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
+    isHomepageVersion: req.context.currentVersion === 'homepage',
     error: req.context.error || '',
     data: {
       ui: req.context.site.data.ui,
@@ -128,6 +131,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     page: {
       languageVariants: req.context.page.languageVariants,
       documentType: req.context.page.documentType,
+      title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
@@ -164,7 +168,9 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       })
     ),
     allVersions: req.context.allVersions,
-    currentProductTree: getCurrentProductTree(req.context.currentProductTree),
+    currentProductTree: req.context.currentProductTree
+      ? getCurrentProductTree(req.context.currentProductTree)
+      : null,
     featureFlags: {},
   }
 }
