@@ -4,6 +4,12 @@ import pick from 'lodash/pick'
 export type ProductSubLandingContextT = {
   title: string,
   intro: string,
+  featuredTrack: {
+    trackName: string,
+    title: string,
+    description: string
+    guides?: Array<{ href: string; title: string; intro: string }>;
+  }
 }
 
 export const ProductSubLandingContext = createContext<ProductSubLandingContextT | null>(null)
@@ -23,10 +29,12 @@ export const useProductSubLandingContext = (): ProductSubLandingContextT => {
 export const getProductSubLandingContextFromRequest = (req: any): ProductSubLandingContextT => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
+  console.log(page.featuredTrack)
   return {
     ...pick(page, [
       'intro',
     ]),
-    title: req.context.productMap[req.context.currentProduct].name + ' guides'
+    title: req.context.productMap[req.context.currentProduct].name + ' guides',
+    featuredTrack: JSON.parse(JSON.stringify(page.featuredTrack))
   }
 }
