@@ -147,6 +147,16 @@
         "criticality": "breaking",
         "owner": "nplasterer"
       }
+    ],
+    "2021-06-21": [
+      {
+        "location": "PackageType.DOCKER",
+        "description": "<p><code>DOCKER</code> will be removed.</p>",
+        "reason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2021-06-21",
+        "criticality": "breaking",
+        "owner": "reybard"
+      }
     ]
   },
   "ghes-3.1": {
@@ -1390,6 +1400,16 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
+      }
+    ],
+    "2021-06-21": [
+      {
+        "location": "PackageType.DOCKER",
+        "description": "<p><code>DOCKER</code> will be removed.</p>",
+        "reason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+        "date": "2021-06-21",
+        "criticality": "breaking",
+        "owner": "reybard"
       }
     ]
   }
