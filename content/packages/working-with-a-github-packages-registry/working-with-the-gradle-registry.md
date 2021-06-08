@@ -166,7 +166,7 @@ subprojects {
 
 ### Using a package
 
-You can use a package by adding the package as a dependency and the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
+To use a package from {% data variables.product.prodname_registry %} without installing the package, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
