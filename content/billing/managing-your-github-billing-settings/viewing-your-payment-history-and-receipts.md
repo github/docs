@@ -29,8 +29,6 @@ topics:
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}

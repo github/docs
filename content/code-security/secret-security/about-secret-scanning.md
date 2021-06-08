@@ -22,7 +22,7 @@ topics:
 
 If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
 
-{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for any secrets. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Secret scanning](/developers/overview/secret-scanning)."
+{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for any secrets. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Secret scanning partner program](/developers/overview/secret-scanning-partner-program)."
 {% endif %}
 
 {% data reusables.secret-scanning.about-secret-scanning %}
@@ -32,7 +32,7 @@ If your project communicates with an external service, you might use a token or 
 
 {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories. When you push to a public repository, {% data variables.product.product_name %} scans the content of the commits for secrets. If you switch a private repository to public, {% data variables.product.product_name %} scans the entire repository for secrets.
 
-When {% data variables.product.prodname_secret_scanning %} detects a set of credentials, we notify the service provider who issued the secret. The service provider validates the credential and then decides whether they should revoke the secret, issue a new secret, or reach out to you directly, which will depend on the associated risks to you or the service provider. For an overview of how we work with token-issuing partners, see "[Secret scanning](/developers/overview/secret-scanning)."
+When {% data variables.product.prodname_secret_scanning %} detects a set of credentials, we notify the service provider who issued the secret. The service provider validates the credential and then decides whether they should revoke the secret, issue a new secret, or reach out to you directly, which will depend on the associated risks to you or the service provider. For an overview of how we work with token-issuing partners, see "[Secret scanning partner program](/developers/overview/secret-scanning-partner-program)."
 
 {% data variables.product.product_name %} currently scans public repositories for secrets issued by the following service providers.
 
