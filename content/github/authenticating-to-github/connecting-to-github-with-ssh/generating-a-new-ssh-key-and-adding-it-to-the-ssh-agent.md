@@ -170,23 +170,6 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 1. {% data reusables.command_line.start_ssh_agent %}
 
-  In some Linux environments, you need root access to run the command:
-  
-  ```
-  $ sudo -s -H
-  $ eval "$(ssh-agent -s)"
-  > Agent pid 59566
-  ```
-  However, for other such environments, a variant of the above command may be used. For example:
-  ```
-  $ exec ssh-agent bash
-  ```
-  or 
-  ```
-  $ exec ssh-agent zsh
-  ```
-  ```
-
 2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
