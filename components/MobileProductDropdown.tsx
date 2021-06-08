@@ -22,7 +22,7 @@ export const MobileProductDropdown = () => {
             href={`${product.external ? '' : `/${router.locale}`}${product.href}`}
             className={cx(
               'd-block py-2',
-              product.id === currentProduct.id
+              product.id === currentProduct?.id
                 ? 'color-text-link text-underline active'
                 : 'Link--primary no-underline'
             )}

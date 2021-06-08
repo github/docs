@@ -11,7 +11,7 @@ import sidebar from './sidebar'
 import wrapCodeTerms from './wrap-code-terms'
 import print from './print'
 import localization from './localization'
-import helpfulness from './helpfulness'
+import survey from './survey'
 import experiment from './experiment'
 import copyCode from './copy-code'
 import initializeEvents from './events'
@@ -44,6 +44,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   releaseNotes()
   initializeEvents()
   experiment()
-  helpfulness()
+  survey()
   toggleImages()
 })

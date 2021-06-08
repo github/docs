@@ -49,7 +49,7 @@ support:
   still_need_help: Still need help?
   contact_support: Contact support
   ask_community: Ask the GitHub community
-helpfulness:
+survey:
   able_to_find: Did this doc help you?
   yes: Yes
   no: No
