@@ -65,9 +65,7 @@ function LandingPage(props: LandingPageProps) {
                   </div>
                 </div>
 
-                <div className="mt-3">
-                  {SearchResults}
-                </div>
+                <div className="mt-3">{SearchResults}</div>
               </div>
             )
           }}
