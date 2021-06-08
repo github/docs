@@ -59,8 +59,8 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   function searchWithYourKeyboard(event: KeyboardEvent) {
     switch (event.key) {
       case '/':
-        // when the input is focused, `/` should have no special behavior
-        if ((event.target as HTMLInputElement)?.type === 'search') break
+        // when an input is focused, `/` should have no special behavior
+        if (['INPUT', 'TEXTAREA', 'SEARCH'].includes(document?.activeElement?.tagName || '')) break
         event.preventDefault() // prevent slash from being typed into input
         inputRef.current?.focus()
         break
