@@ -142,7 +142,7 @@ on:
       - '**.js'
 ```
 
-#### Example: Excluding paths
+#### Excluding paths
 
 You can exclude paths using two types of filters. You cannot use both of these filters for the same event in a workflow.
 - `paths-ignore` - Use the `paths-ignore` filter when you only need to exclude path names.
@@ -664,7 +664,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Example: Using action in the same repository as the workflow
+#### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -723,7 +723,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example: Using action inside a different private repository than the workflow
+#### Example: Using an action inside a different private repository than the workflow
 
 Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
@@ -1054,7 +1054,7 @@ strategy:
 ```
 {% endraw %}
 
-#### Example: Adding new combinations
+#### Example: Including new combinations
 
 You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 14 to build on multiple operating systems, but wanted one extra experimental job using node version 15 on Ubuntu, you can use `include` to specify that additional job.
 
@@ -1119,7 +1119,7 @@ strategy:
 
 Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
 
-#### Example: Preventing a failing matrix job from failing a workflow run
+#### Example: Preventing a specific failing matrix job from failing a workflow run
 
 You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
