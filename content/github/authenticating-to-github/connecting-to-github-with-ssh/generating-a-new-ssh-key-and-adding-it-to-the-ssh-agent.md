@@ -81,7 +81,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% mac %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 2. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
@@ -168,7 +168,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% linux %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
+{% data reusables.command_line.start_ssh_agent %}
 
 2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
