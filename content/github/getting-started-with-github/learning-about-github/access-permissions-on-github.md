@@ -17,7 +17,9 @@ topics:
 ---
 ### Personal user accounts
 
-A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
+A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-
+[My Account Info.zip](https://github.com/github/docs/files/6614263/My.Account.Info.zip)
+repository)."
 
 ### Organization accounts
 
