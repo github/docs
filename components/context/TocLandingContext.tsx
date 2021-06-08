@@ -10,6 +10,7 @@ export type TocLandingContextT = {
   title: string
   introPlainText: string
   tocItems: Array<TocItem>
+  variant?: 'compact' | 'expanded'
 }
 
 export const TocLandingContext = createContext<TocLandingContextT | null>(null)
@@ -28,6 +29,7 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
   return {
     title: req.context.page.title,
     introPlainText: req.context.page.introPlainText,
-    tocItems: req.context.tocItems || [],
+    tocItems: req.context.genericTocFlat || req.context.genericTocNested || [],
+    variant: req.context.genericTocFlat ? 'expanded' : 'compact',
   }
 }
