@@ -1,13 +1,33 @@
-import { Breadcrumbs } from "../Breadcrumbs"
-import { useProductSubLandingContext } from "components/context/ProductSubLandingContext"
-import { ArrowRightIcon, StarFillIcon } from "@primer/octicons-react"
+import { Breadcrumbs } from '../Breadcrumbs'
+import { useProductSubLandingContext } from 'components/context/ProductSubLandingContext'
+import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 
 export const SubLandingHero = () => {
   const { title, intro, featuredTrack } = useProductSubLandingContext()
-  // const guideItems = featuredTrack.guides?.map((guide) => 
-    
-  // )
-  console.log(featuredTrack)
+  const guideTypes = {
+    'overview': 'Overview',
+    'quick_start': 'Quickstart',
+    'tutorial': 'Tutorial',
+    'how_to': 'How-to guide',
+    'reference': 'Reference',
+  }
+
+  console.log(featuredTrack.guides)
+  const guideItems = featuredTrack.guides?.map((guide) => 
+    <li className="px-2 d-flex flex-shrink-0">
+      <a href={`${guide.href}?learn=${featuredTrack.trackName}`} className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline">
+        <div className="d-flex flex-justify-between flex-items-center">
+          <div className="circle color-bg-primary color-text-link border-gradient--pink-blue-dark d-inline-flex">
+            <span className="m-2 f2 lh-condensed-ultra text-center text-bold step-circle-text" style={{ width: '24px', height: '24px'}}>{featuredTrack.guides?.indexOf(guide)+1}</span>
+          </div>
+          <div className="color-text-tertiary h6 text-uppercase">{guideTypes[guide.page.type]}</div>
+        </div>
+        <h3 className="font-mktg h3-mktg my-4 color-text-primary">{guide.title}</h3>
+        <div className="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8">{guide.intro}</div>
+      </a>
+    </li>
+  )
+  // console.log(featuredTrack)
 
   return (
     <div>
@@ -38,18 +58,7 @@ export const SubLandingHero = () => {
             </a>}
           </div>
         </li>
-          <li className="px-2 d-flex flex-shrink-0">
-            <a href="{{ guide.href }}?learn={{ featuredTrack.trackName }}" className="d-inline-block Box p-5 color-bg-primary color-border-primary no-underline">
-              <div className="d-flex flex-justify-between flex-items-center">
-                <div className="circle color-bg-primary color-text-link border-gradient--pink-blue-dark d-inline-flex">
-                  <span className="m-2 f2 lh-condensed-ultra text-center text-bold step-circle-text"></span>
-                </div>
-                <div className="color-text-tertiary h6 text-uppercase"></div>
-              </div>
-              <h3 className="font-mktg h3-mktg my-4 color-text-primary"></h3>
-              <div className="lead-mktg color-text-secondary f5 my-4 truncate-overflow-8"></div>
-            </a>
-          </li>
+          {guideItems}
       </ul>
       <div className="position-absolute top-0 bottom-0 left-0 ml-3 pl-3 fade-background-left"></div>
       <div className="position-absolute top-0 bottom-0 right-0 mr-3 pr-3 fade-background-right"></div>
