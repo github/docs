@@ -1,6 +1,6 @@
 ---
 title: Managing subscriptions and notifications on GitHub
-intro: 'To get the updates about your workflows and activities on {% data variables.product.company_short %}, you can configure and manage all your Subscriptions.'
+intro: 'To get the updates about your workflows and activities on {% data variables.product.company_short %}, you can configure and manage all your subscriptions.'
 redirect_from:
   - /categories/76/articles/
   - /categories/notifications/
