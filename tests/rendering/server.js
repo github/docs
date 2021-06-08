@@ -251,6 +251,16 @@ describe('server', () => {
       const $ = await getDOM('/github/getting-started-with-github')
       expect($('h2#in-this-article').length).toBe(0)
     })
+
+    test('renders mini TOC with correct links when headings contain markup', async () => {
+      const $ = await getDOM('/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates')
+      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+    })
+
+    test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
+      const $ = await getDOM('/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates')
+      expect($('h2#in-this-article + ul li a[href="#package-ecosystem"]').length).toBe(1)
+    })
   })
 
   describe('image asset paths', () => {
