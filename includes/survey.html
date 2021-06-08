@@ -7,10 +7,12 @@
     class="mb-1 f4"
   >
     {% data ui.survey.able_to_find %}
+    <a
+      class="f6 text-normal ml-3 color-text-link"
+      href="/github/site-policy/github-privacy-statement"
+      target="_blank"
+    >{% data ui.survey.privacy_policy %}</a>
   </h2>
-  <p class="f6">
-    <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
-  </p>
   <p
     class="radio-group"
     data-help-start
@@ -52,12 +54,13 @@
     name="survey-token"
     aria-hidden="true"
   />
-  <p hidden data-help-no>
+  <p hidden data-help-yes data-help-no>
     <label
       class="d-block mb-1 f6"
       for="survey-comment"
     >
-      <span>{% data ui.survey.comment_label %}</span>
+      <span hidden data-help-yes>{% data ui.survey.comment_yes_label %}</span>
+      <span hidden data-help-no>{% data ui.survey.comment_no_label %}</span>
       <span class="text-normal color-text-tertiary float-right ml-1">
         {% data ui.survey.optional %}
       </span>
@@ -68,12 +71,10 @@
       id="survey-comment"
     ></textarea>
   </p>
-  <p>
+  <p hidden data-help-yes data-help-no>
     <label
       class="d-block mb-1 f6"
       for="survey-email"
-      hidden
-      data-help-no
     >
       {% data ui.survey.email_label %}
       <span class="text-normal color-text-tertiary float-right ml-1">
@@ -86,10 +87,8 @@
       name="survey-email"
       id="survey-email"
       placeholder="{% data ui.survey.email_placeholder %}"
-      hidden
-      data-help-yes
-      data-help-no
     />
+    <span class="f6 color-text-secondary">{% data ui.survey.not_support %}</span>
   </p>
   <p
     class="text-right"
