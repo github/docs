@@ -7,6 +7,8 @@ import React from 'react'
 import { GuideCards } from './GuideCards'
 import { LandingSection } from './LandingSection'
 import { Breadcrumbs } from 'components/Breadcrumbs'
+import { SubLandingSection } from 'components/landing/SubLandingSection'
+import { SubLandingHero } from 'components/landing/SubLandingHero'
 
 export const ProductSubLanding = () => {
   const {
@@ -15,9 +17,9 @@ export const ProductSubLanding = () => {
 
   return (
     <DefaultLayout>
-      <LandingSection className="pt-3">
-        <Breadcrumbs />
-      </LandingSection>
+      <SubLandingSection>
+        <SubLandingHero />
+      </SubLandingSection>
     </DefaultLayout>
   )
 }
