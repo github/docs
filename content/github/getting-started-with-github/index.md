@@ -44,6 +44,7 @@ topics:
   - Accounts
 children:
   - /quickstart
+  - /onboarding
   - /learning-about-github
   - /signing-up-for-github
   - /using-github
