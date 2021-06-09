@@ -73,3 +73,4 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Closing a pull request](/articles/closing-a-pull-request)"
 - "[Deleting unused branches](/articles/deleting-unused-branches)"
 - "[About pull request merges](/articles/about-pull-request-merges)"
+[![Lint JS](https://github.com/github/docs/actions/workflows/js-lint.yml/badge.svg?event=pull_request)](https://github.com/github/docs/actions/workflows/js-lint.yml)
