@@ -17,7 +17,7 @@ import {
 } from 'components/context/ProductSubLandingContext'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
-import { ProductSubLanding } from 'components/landing/ProductSubLanding'
+import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
 import { TocLanding } from 'components/landing/TocLanding'
 import {
   getTocLandingContextFromRequest,
