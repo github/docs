@@ -146,6 +146,11 @@ const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 //
 const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
+// Strings in Liquid will always evaluate true _because_ they are strings; instead use unquoted variables, like {% if foo %}.
+// - {% if "foo" %}
+// - {% unless "bar" %}
+const stringInLiquidRegex = /{% (?:if|ifver|elseif|unless) (?:"|').+?%}/g
+
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -156,6 +161,7 @@ const badEarlyAccessImageErrorText = 'Found article images/links leaking incorre
 const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
+const stringInLiquidErrorText = 'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -405,6 +411,12 @@ describe('lint markdown content', () => {
               expect(matches.length, errorMessage).toBe(0)
             }
           })
+        })
+
+        test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
+          const matches = (content.match(stringInLiquidRegex) || [])
+          const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
         })
 
         test('URLs must not contain a hard-coded language code', async () => {
@@ -664,6 +676,22 @@ describe('lint yaml content', () => {
           }
 
           const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
+
+        test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
+          const matches = []
+
+          for (const [key, content] of Object.entries(dictionary)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = (contentStr.match(stringInLiquidRegex) || [])
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            }
+          }
+
+          const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
         })
       }
