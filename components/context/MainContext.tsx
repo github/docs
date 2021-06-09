@@ -59,6 +59,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -154,6 +155,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
