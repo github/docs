@@ -13,3 +13,5 @@ children:
   - /attributing-sponsorships-to-your-organization
 ---
 
+Add picture it can help to 
+Understand
