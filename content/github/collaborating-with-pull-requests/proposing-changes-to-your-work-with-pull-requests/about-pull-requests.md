@@ -73,3 +73,17 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Closing a pull request](/articles/closing-a-pull-request)"
 - "[Deleting unused branches](/articles/deleting-unused-branches)"
 - "[About pull request merges](/articles/about-pull-request-merges)"
+$ curl -I https://api.github.com/users/octocat/orgs
+
+> HTTP/2 200
+> Server: nginx
+> Date: Fri, 12 Oct 2012 23:33:14 GMT
+> Content-Type: application/json; charset=utf-8
+> ETag: "a00049ba79152d03380c34652f2cb612"
+> X-GitHub-Media-Type: github.v3
+> X-RateLimit-Limit: 5000
+> X-RateLimit-Remaining: 4987
+> X-RateLimit-Reset: 1350085394
+> Content-Length: 5
+> Cache-Control: max-age=0, private, must-revalidate
+> X-Content-Type-Options: nosniff
