@@ -1,5 +1,5 @@
 ---
-title: Sudo mode
+title: Sudo mode 1212
 intro: '{% data variables.product.product_name %} asks you for your password before you can modify your email address, authorize third-party applications, or add new public keys, or initiate other *sudo-protected* actions.'
 redirect_from:
   - /articles/sudo-mode
@@ -18,3 +18,4 @@ After you've performed a sudo-protected action, you'll only be asked to re-authe
 ### Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
+K
