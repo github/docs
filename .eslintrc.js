@@ -31,9 +31,10 @@ module.exports = {
     },
     {
       files: [
-        '**/*.tsx',
-        '**/*.ts'
+        '**/*.tsx'
       ],
+      plugins: ['jsx-a11y'],
+      extends: ['plugin:jsx-a11y/recommended'],
       parser: '@typescript-eslint/parser',
       rules: {
         'camelcase': 'off',
