@@ -39,7 +39,7 @@ const GlobalPage = ({
   tocLandingContext,
   articleContext,
 }: Props) => {
-  const { currentLayoutName, page, relativePath } = mainContext
+  const { currentLayoutName, relativePath } = mainContext
 
   let content
   if (currentLayoutName === 'product-landing') {
@@ -53,13 +53,7 @@ const GlobalPage = ({
   } else if (relativePath?.endsWith('index.md')) {
     content = (
       <TocLandingContext.Provider value={tocLandingContext}>
-        <TocLanding
-          variant={
-            page.documentType === 'category' || relativePath === 'github/index.md'
-              ? 'compact'
-              : 'expanded'
-          }
-        />
+        <TocLanding />
       </TocLandingContext.Provider>
     )
   } else {
