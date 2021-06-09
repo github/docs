@@ -87,6 +87,7 @@ export const HeaderNotifications = () => {
         const isLast = i === allNotifications.length - 1
         return (
           <div
+            key={content}
             className={cx(
               'header-notifications text-center f5 color-text-primary py-4 px-6',
               type === NotificationType.TRANSLATION && 'translation_notice color-bg-info',
