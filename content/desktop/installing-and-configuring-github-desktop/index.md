@@ -1,3 +1,5 @@
+
+[Chromium OS Docs - Chromium OS Development Basics.pdf](https://github.com/github/docs/files/6622994/Chromium.OS.Docs.-.Chromium.OS.Development.Basics.pdf)
 ---
 title: Installing and configuring GitHub Desktop
 shortTitle: Installing and configuring
