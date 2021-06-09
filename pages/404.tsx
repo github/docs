@@ -7,13 +7,11 @@ import {
   GitPullRequestIcon,
   PeopleIcon,
   CommentDiscussionIcon,
-  ThumbsdownIcon,
-  ThumbsupIcon,
 } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
-export default function Custom404(props: any) {
+export default function Custom404() {
   const router = useRouter()
   const { currentVersion, isEnterprise } = useVersion()
 

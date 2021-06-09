@@ -255,13 +255,13 @@ if (!process.env.TEST_TRANSLATION) {
   learningTracksToLint = learningTracksTuples
 }
 
-function formatLinkError (message, links) {
+function formatLinkError(message, links) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-function getContent (content) {
+function getContent(content) {
   if (typeof content === 'string') return content
   if (typeof content.description === 'string') return content.description
   return null
@@ -420,7 +420,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(versionLinkRegEx) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (
               markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
               markdownRelPath.endsWith('all-releases.md')
@@ -438,7 +438,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(domainLinkRegex) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (markdownRelPath === 'content/admin/all-releases.md') {
               return false
             }

@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef, Children, ReactNode } from 'react'
-import cx from 'classnames'
+import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import debounce from 'lodash/debounce'
 import { useTranslation } from 'components/hooks/useTranslation'

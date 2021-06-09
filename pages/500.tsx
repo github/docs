@@ -10,7 +10,7 @@ import {
 } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 
-export default function Custom500(props: any) {
+export default function Custom500() {
   const router = useRouter()
   const { isEnterprise } = useVersion()
   const contribution_href = router.locale

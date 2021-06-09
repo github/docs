@@ -5,16 +5,20 @@ module.exports = {
     es2020: true,
     node: true
   },
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    '@typescript-eslint',
+  ],
   extends: [
     'eslint:recommended',
-    'standard'
+    'standard',
+    'prettier'
   ],
   parserOptions: {
     ecmaVersion: 11
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error']
+    'import/no-extraneous-dependencies': ['error'],
   },
   overrides: [
     {
@@ -24,6 +28,20 @@ module.exports = {
       env: {
         jest: true
       }
-    }
+    },
+    {
+      files: [
+        '**/*.tsx',
+        '**/*.ts'
+      ],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        'camelcase': 'off',
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-unused-vars': ['error'],
+      }
+    },
   ]
 }
