@@ -23,3 +23,25 @@ After you enable GPG verification, {% data variables.product.company_short %} wi
   ![Radio buttons to manage GPG verification](/assets/images/help/settings/codespaces-gpg-verification-radio-buttons.png) 
 1. If you chose "Selected repositories", select the drop-down menu, then click a repository you want enable GPG verification for. Repeat for all repositories you want to enable GPG verification for.
   !["Selected repositories" drop-down menu](/assets/images/help/settings/codespaces-gpg-verification-repository-drop-down.png) 
+steps:
+  - uses: actions/checkout@v2
+
+  - uses: actions/cache@v2
+    id: cache
+    with:
+      path: path/to/dependencies
+      key: ${{ runner.os }}-${{ hashfiles('**/lockfiles') }}
+
+  - name: install dependencies
+    if: steps.cache.outputs.cache-hit != 'true'
+    run: /install.sh
+github.com
+api.github.com
+*.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
