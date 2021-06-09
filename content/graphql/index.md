@@ -14,3 +14,4 @@ children:
   - /guides
 ---
 
+[![Lint JS](https://github.com/github/docs/actions/workflows/js-lint.yml/badge.svg?event=pull_request)](https://github.com/github/docs/actions/workflows/js-lint.yml)
