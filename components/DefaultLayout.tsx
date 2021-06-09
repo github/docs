@@ -45,7 +45,7 @@ export const DefaultLayout = (props: Props) => {
       </Head>
       <SidebarNav />
 
-      <main className="width-full">
+      <main className="flex-1 min-width-0">
         <Header />
         <DeprecationBanner />
 
