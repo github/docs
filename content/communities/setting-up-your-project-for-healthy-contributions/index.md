@@ -1,4 +1,6 @@
----
+--We rely on the community to let us know when an issue needs to be addressed. We do not actively monitor the site for offensive content. If you run into something or someone on the site that you find objectionable, here are some tools GitHub provides to help you take action immediately:
+
+
 title: Setting up your project for healthy contributions
 shortTitle: Healthy contributions
 intro: 'Repository maintainers can set contributing guidelines to help collaborators make meaningful, useful contributions to a project.'
