@@ -1,4 +1,5 @@
 export default function releaseNotes () {
+  if (window.next) return
   const patches = Array.from(document.querySelectorAll('.js-release-notes-patch'))
   if (patches.length === 0) return
 

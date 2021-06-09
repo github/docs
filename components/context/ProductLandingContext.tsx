@@ -52,6 +52,12 @@ export type ProductLandingContextT = {
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
+  releases: Array<{
+    version: string
+    firstPreviousRelease: string
+    secondPreviousRelease: string
+    patches: Array<{ date: string; version: string }>
+  }>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -70,8 +76,9 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 
 export const getProductLandingContextFromRequest = (req: any): ProductLandingContextT => {
   const productTree = req.context.currentProductTree
+  const page = req.context.page
   return {
-    ...pick(req.context.page, [
+    ...pick(page, [
       'title',
       'shortTitle',
       'introPlainText',
@@ -88,6 +95,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
+    releases: req.context.releases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
@@ -96,11 +104,11 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       })
     ),
 
-    introLinks: productTree.page.introLinks
+    introLinks: page.introLinks
       ? {
-          quickstart: productTree.page.introLinks.quickstart,
-          reference: productTree.page.introLinks.reference,
-          overview: productTree.page.introLinks.overview,
+          quickstart: page.introLinks.quickstart,
+          reference: page.introLinks.reference,
+          overview: page.introLinks.overview,
         }
       : null,
 

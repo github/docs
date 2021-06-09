@@ -283,7 +283,7 @@ You can create multiple tokens for a user/application/scope combination to creat
 
 This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
 
-There is a limit to the number of tokens that are issued per user/application/scope combination. If your application requests enough tokens to go over one of the limits, older tokens _with the same scope being requested_ will stop working.
+{% data reusables.apps.oauth-token-limit %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
