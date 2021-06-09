@@ -11,5 +11,5 @@ module.exports = async function processUpcomingChanges (upcomingChangesYml) {
     change.description = await renderContent(change.description)
   }
 
-  return groupBy(upcomingChanges, 'date')
+  return groupBy(upcomingChanges.reverse(), 'date')
 }
