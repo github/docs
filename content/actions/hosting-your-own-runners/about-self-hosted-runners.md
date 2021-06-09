@@ -166,3 +166,13 @@ Untrusted workflows running on your self-hosted runner poses significant securit
 * Escaping the machine's runner sandbox.
 * Exposing access to the machine's network environment.
 * Persisting unwanted or dangerous data on the machine.
+github.com
+api.github.com
+*.actions.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+codeload.github.com
+*.pkg.github.com
+pkg-cache.githubusercontent.com
+pkg-containers.githubusercontent.com
+pkg-containers-az.githubusercontent.com
