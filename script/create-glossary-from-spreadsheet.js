@@ -27,10 +27,10 @@ glossary.forEach(term => {
 
 fs.writeFileSync(
   path.join(__dirname, '../data/glossaries/internal.yml'),
-  yaml.safeDump(internal)
+  yaml.dump(internal)
 )
 
 fs.writeFileSync(
   path.join(__dirname, '../data/glossaries/external.yml'),
-  yaml.safeDump(external)
+  yaml.dump(external)
 )

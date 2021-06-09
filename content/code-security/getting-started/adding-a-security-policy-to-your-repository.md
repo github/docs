@@ -9,8 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: 'next'
+type: how_to
 topics:
-  - Security
+  - Security policies
+  - Vulnerabilities
+  - Repositories
+  - Health
 ---
 
 ### About security policies
