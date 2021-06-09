@@ -64,6 +64,12 @@ The creators of a community action have the option to use tags, branches, or SHA
 
 You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
 
+{% note %}
+
+Note: Be especially careful with community actions that require secrets as inputs! It's probably better to [use SHAs](#using-shas) in that case. Even if you trust the maintainer, a successor or new team member could be less trustworthy.
+
+{% endnote %}
+
 #### Using tags
 
 Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
