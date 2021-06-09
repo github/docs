@@ -183,6 +183,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
           </div>
         )}
       </div>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className={'search-overlay-desktop' + (!isStandalone && query ? ' js-open' : '')}
         onClick={closeSearch}
@@ -199,6 +200,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
             className={'ais-SearchBox-input' + (isStandalone || query ? ' js-open' : '')}
             type="search"
             placeholder={t`placeholder`}
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus={isStandalone}
             autoComplete="off"
             autoCorrect="off"

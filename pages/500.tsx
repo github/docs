@@ -31,12 +31,14 @@ export default function Custom500() {
             role="banner"
           >
             <Link href={`/${router.locale}`}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a aria-hidden="true" tabIndex={-1}>
                 <MarkGithubIcon size={32} className="color-icon-primary" />
               </a>
             </Link>
 
             <Link href={`/${router.locale}`}>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a className="h4-mktg color-text-primary no-underline no-wrap pl-2">GitHub Docs</a>
             </Link>
           </div>

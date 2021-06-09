@@ -74,10 +74,11 @@ const SidebarHomepage = () => {
           return null
         }
 
-        const href = `${!product.external ? `/${router.locale}` : ''}${product.versions?.includes(currentVersion)
-          ? `/${currentVersion}/${product.id}`
-          : product.href
-          }`
+        const href = `${!product.external ? `/${router.locale}` : ''}${
+          product.versions?.includes(currentVersion)
+            ? `/${currentVersion}/${product.id}`
+            : product.href
+        }`
 
         return (
           <li

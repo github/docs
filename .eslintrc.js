@@ -5,10 +5,7 @@ module.exports = {
     es2020: true,
     node: true
   },
-  parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  parser: '@babel/eslint-parser',
   extends: [
     'eslint:recommended',
     'standard',
@@ -18,7 +15,7 @@ module.exports = {
     ecmaVersion: 11
   },
   rules: {
-    'import/no-extraneous-dependencies': ['error'],
+    'import/no-extraneous-dependencies': ['error']
   },
   overrides: [
     {
@@ -33,7 +30,10 @@ module.exports = {
       files: [
         '**/*.tsx'
       ],
-      plugins: ['jsx-a11y'],
+      plugins: [
+        '@typescript-eslint',
+        'jsx-a11y'
+      ],
       extends: ['plugin:jsx-a11y/recommended'],
       parser: '@typescript-eslint/parser',
       rules: {

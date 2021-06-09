@@ -32,11 +32,13 @@ export default function Custom404() {
           role="banner"
         >
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="color-text-primary" aria-hidden="true" tabIndex={-1}>
               <MarkGithubIcon size={32} />
             </a>
           </Link>
           <Link href={`/${router.locale}`}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="h4-mktg color-text-primary no-underline no-wrap pl-2 flex-auto">
               GitHub Docs
             </a>
