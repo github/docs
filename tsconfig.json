@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules"],
   "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]

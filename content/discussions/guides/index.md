@@ -10,12 +10,3 @@ children:
   - /granting-higher-permissions-to-top-contributors
 ---
 {% data reusables.discussions.beta %}
-### Getting started with discussions
- <!--
- -->
-### Administering discussions
-<!--<!-- Commenting out what is only nice to have for discussions release
--->
-<!--
-### Discussions and open source projects
--->
