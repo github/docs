@@ -20,7 +20,7 @@ You can change your username to another username that is not currently in use.{%
 
 If the username is not eligible for release and you don't hold a trademark for the username, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+After changing your username, your old username becomes available for anyone else to claim (except yourself). Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
 {% data variables.product.product_name %} cannot set up redirects for:
 - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
