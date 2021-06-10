@@ -1,3 +1,4 @@
+import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 
 export type TocItem = {
@@ -26,10 +27,13 @@ export const useTocLandingContext = (): TocLandingContextT => {
 }
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
+  console.log(req.context.genericTocFlat, req.context.genericTocNested)
   return {
     title: req.context.page.title,
     introPlainText: req.context.page.introPlainText,
-    tocItems: req.context.genericTocFlat || req.context.genericTocNested || [],
+    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
+      pick(obj, ['fullPath', 'title', 'intro'])
+    ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
   }
 }
