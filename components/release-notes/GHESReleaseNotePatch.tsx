@@ -56,7 +56,7 @@ export function GHESReleaseNotePatch({
             </span>
           )}
 
-          {currentVersion.plan == 'enterprise-server' && (
+          {currentVersion.plan === 'enterprise-server' && (
             <Link
               href={`https://enterprise.github.com/releases/${patch.downloadVersion}/download`}
               className="ml-3 text-small text-bold"

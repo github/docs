@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       files: [
-        '**/*.tsx'
+        '**/*.tsx', '**/*.ts'
       ],
       plugins: [
         '@typescript-eslint',
