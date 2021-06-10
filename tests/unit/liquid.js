@@ -9,14 +9,14 @@ const template = `
 `
 
 const shortVersionsTemplate = `
- {% ifver fpt %} I am FPT {% endif %}
- {% ifver ghae %} I am GHAE {% endif %}
- {% ifver ghes %} I am GHES {% endif %}
- {% ifver ghes = 3.1 %} I am GHES = 3.1 {% endif %}
- {% ifver ghes > 3.1 %} I am GHES > 3.1 {% endif %}
- {% ifver ghes < 3.1 %} I am GHES < 3.1 {% endif %}
- {% ifver fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
- {% ifver ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
+ {% ifversion fpt %} I am FPT {% endif %}
+ {% ifversion ghae %} I am GHAE {% endif %}
+ {% ifversion ghes %} I am GHES {% endif %}
+ {% ifversion ghes = 3.1 %} I am GHES = 3.1 {% endif %}
+ {% ifversion ghes > 3.1 %} I am GHES > 3.1 {% endif %}
+ {% ifversion ghes < 3.1 %} I am GHES < 3.1 {% endif %}
+ {% ifversion fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
+ {% ifversion ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
 `
 
 describe('liquid template parser', () => {

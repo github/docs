@@ -149,7 +149,7 @@ const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 // Strings in Liquid will always evaluate true _because_ they are strings; instead use unquoted variables, like {% if foo %}.
 // - {% if "foo" %}
 // - {% unless "bar" %}
-const stringInLiquidRegex = /{% (?:if|ifver|elseif|unless) (?:"|').+?%}/g
+const stringInLiquidRegex = /{% (?:if|ifversion|elseif|unless) (?:"|').+?%}/g
 
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
