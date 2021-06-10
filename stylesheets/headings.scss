@@ -28,18 +28,13 @@ h2 a {
   }
   h2 {
     font-size: 1.25em;
+  }
+  #article-contents h2:not(.link-with-intro-title) {
+    padding-bottom: 0;
     border-bottom: none;
   }
   h3 {
     font-size: 1em;
-  }
-
-  h4 {
-    font-size: 0.875em;
-  }
-
-  h5 {
-    font-size: 0.85em;
   }
 }
 
