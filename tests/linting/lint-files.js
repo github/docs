@@ -151,6 +151,9 @@ const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 // - {% unless "bar" %}
 const stringInLiquidRegex = /{% (?:if|ifversion|elseif|unless) (?:"|').+?%}/g
 
+// {% if version ... %} should be {% ifversion ... %}
+const spaceInVersionTagRegex = /{% if version .+?%}/g
+
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -162,6 +165,7 @@ const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. 
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 const stringInLiquidErrorText = 'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
+const spaceInVersionTagErrorText = 'Found "if version" in Liquid markup. Use "ifversion" instead!'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -416,6 +420,12 @@ describe('lint markdown content', () => {
         test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
           const matches = (content.match(stringInLiquidRegex) || [])
           const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
+
+        test.only('does not contain Liquid statement with "if version"', async () => {
+          const matches = (content.match(spaceInVersionTagRegex) || [])
+          const errorMessage = formatLinkError(spaceInVersionTagErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
         })
 
@@ -692,6 +702,22 @@ describe('lint yaml content', () => {
           }
 
           const errorMessage = formatLinkError(stringInLiquidErrorText, matches)
+          expect(matches.length, errorMessage).toBe(0)
+        })
+
+        test.only('does not contain Liquid statement with "if version"', async () => {
+          const matches = []
+
+          for (const [key, content] of Object.entries(dictionary)) {
+            const contentStr = getContent(content)
+            if (!contentStr) continue
+            const valMatches = (contentStr.match(spaceInVersionTagRegex) || [])
+            if (valMatches.length > 0) {
+              matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
+            }
+          }
+
+          const errorMessage = formatLinkError(spaceInVersionTagErrorText, matches)
           expect(matches.length, errorMessage).toBe(0)
         })
       }
