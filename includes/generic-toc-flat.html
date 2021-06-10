@@ -1,6 +1,4 @@
-{% if tocItems %}
-
-{% for tocItem in tocItems %}
+{% for tocItem in genericTocFlat %}
 
 {% assign title = tocItem.title %}
 {% assign fullPath = tocItem.fullPath %}
@@ -8,5 +6,3 @@
 {% include liquid-tags/link-with-intro %}
 
 {% endfor %}
-
-{% endif %}

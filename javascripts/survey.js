@@ -27,7 +27,7 @@ function submitForm (form) {
     Array.from(formData.entries())
       .map(
         ([key, value]) => [
-          key.replace('helpfulness-', ''),
+          key.replace('survey-', ''),
           value || undefined // Convert empty strings to undefined
         ]
       )
@@ -45,10 +45,12 @@ function trackEvent ({ token, vote, email, comment }) {
   })
 }
 
-export default function helpfulness () {
-  const form = document.querySelector('.js-helpfulness')
-  const texts = Array.from(document.querySelectorAll('.js-helpfulness input, .js-helpfulness textarea'))
-  const votes = Array.from(document.querySelectorAll('.js-helpfulness [type=radio]'))
+export default function survey () {
+  if (window.next) return
+
+  const form = document.querySelector('.js-survey')
+  const texts = Array.from(document.querySelectorAll('.js-survey input, .js-survey textarea'))
+  const votes = Array.from(document.querySelectorAll('.js-survey [type=radio]'))
   if (!form || !texts.length || !votes.length) return
 
   form.addEventListener('submit', evt => {

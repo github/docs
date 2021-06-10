@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useTheme, ThemeProvider } from '@primer/components'
 import { getThemeProps } from 'components/lib/getThemeProps'
 
-import '@primer/css/index.scss'
+import '../stylesheets/index.scss'
 
 import { defaultThemeProps } from 'components/lib/getThemeProps'
 
