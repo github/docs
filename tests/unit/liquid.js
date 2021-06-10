@@ -9,14 +9,20 @@ const template = `
 `
 
 const shortVersionsTemplate = `
- {% ifversion fpt %} I am FPT {% endif %}
- {% ifversion ghae %} I am GHAE {% endif %}
- {% ifversion ghes %} I am GHES {% endif %}
- {% ifversion ghes = 3.1 %} I am GHES = 3.1 {% endif %}
- {% ifversion ghes > 3.1 %} I am GHES > 3.1 {% endif %}
- {% ifversion ghes < 3.1 %} I am GHES < 3.1 {% endif %}
- {% ifversion fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
- {% ifversion ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
+  {% ifversion fpt %} I am FPT {% endif %}
+  {% ifversion ghae %} I am GHAE {% endif %}
+  {% ifversion ghes %} I am GHES {% endif %}
+  {% ifversion ghes = 3.1 %} I am GHES = 3.1 {% endif %}
+  {% ifversion ghes > 3.1 %} I am GHES > 3.1 {% endif %}
+  {% ifversion ghes < 3.1 %} I am GHES < 3.1 {% endif %}
+  {% ifversion fpt or ghes < 3.0 %} I am FTP or GHES < 3.0 {% endif %}
+  {% ifversion ghes < 3.1 and ghes > 2.22 %} I am 3.0 only {% endif %}
+`
+
+const negativeVersionsTemplate = `
+  {% ifversion not ghae %} I am not GHAE {% endif %}
+  {% ifversion not ghes %} I am not GHES {% endif %}
+  {% ifversion ghes != 3.1 %} I am not GHES 3.1 {% endif %}
 `
 
 describe('liquid template parser', () => {
@@ -102,6 +108,42 @@ describe('liquid template parser', () => {
       await middleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am GHES I am GHES < 3.1 I am 3.0 only')
+    })
+
+    test('NOT statements work as expected on versions without numbered releases', async () => {
+      req.context = {
+        currentVersion: 'github-ae@latest',
+        page: {},
+        allVersions,
+        enterpriseServerReleases
+      }
+      await middleware(req, null, () => {})
+      const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHES I am not GHES 3.1')
+    })
+
+    test('NOT statements work as expected on versions with numbered releases', async () => {
+      req.context = {
+        currentVersion: 'enterprise-server@3.0',
+        page: {},
+        allVersions,
+        enterpriseServerReleases
+      }
+      await middleware(req, null, () => {})
+      const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHES 3.1')
+    })
+
+    test('The != operator works as expected', async () => {
+      req.context = {
+        currentVersion: 'enterprise-server@3.1',
+        page: {},
+        allVersions,
+        enterpriseServerReleases
+      }
+      await middleware(req, null, () => {})
+      const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE')
     })
   })
 })
