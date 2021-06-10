@@ -41,14 +41,13 @@ export const useProductSubLandingContext = (): ProductSubLandingContextT => {
 
 export const getProductSubLandingContextFromRequest = (req: any): ProductSubLandingContextT => {
   const page = req.context.page
-  console.log(page.includeGuides.length)
+
   return {
     ...pick(page, [
       'intro',
       'allTopics'
     ]),
-    title: req.context.productMap[req.context.currentProduct].name,
-    // https://github.com/vercel/next.js/issues/11993
+    title: req.context.productMap[req.context.currentProduct].name,    
     featuredTrack: page.featuredTrack === undefined ? null : JSON.parse(JSON.stringify(page.featuredTrack)),
     learningTracks: page.learningTracks === undefined ? null : JSON.parse(JSON.stringify(page.learningTracks)),
     includeGuides: page.includeGuides === undefined ? null : JSON.parse(JSON.stringify(page.includeGuides))

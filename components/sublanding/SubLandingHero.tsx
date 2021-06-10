@@ -47,7 +47,7 @@ export const SubLandingHero = () => {
               <span className="mr-2">
                 <ArrowRightIcon size={20} />
               </span>
-              Start path
+              {t(`start_path`)}
             </a>}
           </div>
         </li>

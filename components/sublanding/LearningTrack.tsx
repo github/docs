@@ -7,6 +7,7 @@ type Props = {
   track: FeaturedTrack
 }
 
+const MAX_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
   const guides = track.guides
   const [ visibleGuides, setVisibleGuides ] = useState(guides?.slice(0, 4))
@@ -47,13 +48,13 @@ export const LearningTrack = ({ track }: Props) => {
           <h5 className="flex-auto pr-2">{guide.title}</h5>
           <div className="color-text-tertiary h6 text-uppercase">{t('guide_types')[guide.page.type]}</div>
         </a>
-        {guides && guides?.indexOf(guide) == 3 ? (
+        {guides && guides?.indexOf(guide) + 1 == MAX_VISIBLE_GUIDES ? (
           <a 
             className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12 js-show-more-button"
             onClick={showAll}
           >
             <div className="position-absolute left-0 right-0 py-5 fade-background-bottom" style={{ bottom: '50px' }}></div>
-            <span>Show more guides</span>
+            <span>Show {guides?.length - MAX_VISIBLE_GUIDES} {t(`more_guides`)}</span>
           </a>
         ) : <div />}
       </div>
