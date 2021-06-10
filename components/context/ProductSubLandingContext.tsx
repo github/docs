@@ -1,24 +1,25 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
+import _ from 'lodash'
 
 export type FeaturedTrack = {
-  trackName: string,
-  title: string,
+  trackName: string
+  title: string
   description: string
-  guides?: Array<{ href: string; page: { type: string}; title: string; intro: string }>;
+  guides?: Array<{ href: string; page: { type: string }; title: string; intro: string }>
 }
 
 export type ArticleGuide = {
-  href: string,
-  title: string,
-  intro: string,
-  type: string,
+  href: string
+  title: string
+  intro: string
+  type: string
   topics: Array<string>
 }
 
 export type ProductSubLandingContextT = {
-  title: string,
-  intro: string,
+  title: string
+  intro: string
   featuredTrack?: FeaturedTrack
   learningTracks?: Array<FeaturedTrack>
   includeGuides?: Array<ArticleGuide>
@@ -43,13 +44,22 @@ export const getProductSubLandingContextFromRequest = (req: any): ProductSubLand
   const page = req.context.page
 
   return {
-    ...pick(page, [
-      'intro',
-      'allTopics'
-    ]),
-    title: req.context.productMap[req.context.currentProduct].name,    
-    featuredTrack: page.featuredTrack === undefined ? null : JSON.parse(JSON.stringify(page.featuredTrack)),
-    learningTracks: page.learningTracks === undefined ? null : JSON.parse(JSON.stringify(page.learningTracks)),
-    includeGuides: page.includeGuides === undefined ? null : JSON.parse(JSON.stringify(page.includeGuides))
+    ...pick(page, ['intro', 'allTopics']),
+    title: req.context.productMap[req.context.currentProduct].name,
+    featuredTrack: {
+      ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'guides']),
+      guides: (page.featuredTrack?.guides || []).map((guide: any) => {
+        return pick(guide, ['title', 'intro', 'href', 'page.type'])
+      }),
+    },
+    learningTracks: (page.learningTracks || []).map((track: any) => ({
+      ...pick(track, ['title', 'description', 'trackName', 'guides']),
+      guides: (track.guides || []).map((guide: any) => {
+        return pick(guide, ['title', 'intro', 'href', 'page.type'])
+      }),
+    })),
+    includeGuides: (page.includeGuides || []).map((guide: any) => {
+      return pick(guide, ['href', 'title', 'intro', 'type', 'topics'])
+    }),
   }
 }

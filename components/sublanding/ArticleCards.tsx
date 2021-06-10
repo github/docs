@@ -6,46 +6,56 @@ const MAX_ARTICLES = 9
 export const ArticleCards = () => {
   const { t } = useTranslation('product_sublanding')
   const guideTypes = t('guide_types')
-  const {
-    allTopics,
-    includeGuides,
-  } = useProductSubLandingContext()
+  const { allTopics, includeGuides } = useProductSubLandingContext()
 
   return (
     <div>
       <form className="mt-2 mb-5 d-flex d-flex">
         <div>
-          <label htmlFor="type" className="text-uppercase f6 color-text-secondary d-block">{t('filters.type')}</label>
-          <select className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown" name="type" aria-label="guide types">
+          <label htmlFor="type" className="text-uppercase f6 color-text-secondary d-block">
+            {t('filters.type')}
+          </label>
+          <select
+            className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown"
+            name="type"
+            aria-label="guide types"
+          >
             <option value="">{t('filters.all')}</option>
-              {Object.keys(guideTypes).map((key) => {
-                return (
-                  <option value={key}>{guideTypes[key]}</option>
-                )
-                })}
+            {Object.keys(guideTypes).map((key) => {
+              return <option value={key}>{guideTypes[key]}</option>
+            })}
           </select>
         </div>
         <div className="mx-4">
-          <label htmlFor="topic" className="text-uppercase f6 color-text-secondary d-block">{t('filters.topic')}</label>
-          <select className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown" name="topics" aria-label="guide topics">
+          <label htmlFor="topic" className="text-uppercase f6 color-text-secondary d-block">
+            {t('filters.topic')}
+          </label>
+          <select
+            className="form-select js-filter-card-filter-dropdown f4 text-bold border-0 rounded-0 border-top box-shadow-none pl-0 js-filter-card-filter-dropdown"
+            name="topics"
+            aria-label="guide topics"
+          >
             <option value="">{t('filters.all')}</option>
             {allTopics?.map((topic) => {
-              return (
-                <option value={topic}>{topic}</option>
-              )
+              return <option value={topic}>{topic}</option>
             })}
           </select>
         </div>
       </form>
       <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {(includeGuides || []).map((card, index) => {
-          return index + 1 > MAX_ARTICLES ? 
-            <ArticleCard card={card} type={guideTypes[card.type]} display={'d-none'}/>
-            : <ArticleCard card={card} type={guideTypes[card.type]} />
+          return index + 1 > MAX_ARTICLES ? (
+            <ArticleCard card={card} type={guideTypes[card.type]} display={'d-none'} />
+          ) : (
+            <ArticleCard card={card} type={guideTypes[card.type]} />
+          )
         })}
       </div>
       {includeGuides && includeGuides.length > MAX_ARTICLES && (
-        <button className="col-12 mt-5 text-center text-bold color-text-link btn-link js-filter-card-show-more" data-js-filter-card-max={MAX_ARTICLES}>
+        <button
+          className="col-12 mt-5 text-center text-bold color-text-link btn-link js-filter-card-show-more"
+          data-js-filter-card-max={MAX_ARTICLES}
+        >
           {t('load_more')}
         </button>
       )}

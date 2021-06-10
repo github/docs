@@ -23,7 +23,7 @@ export const ProductLanding = () => {
 
   return (
     <DefaultLayout>
-      <LandingSection className="pt-3" headerClassName="h1 mb-4">
+      <LandingSection className="pt-3">
         <LandingHero />
       </LandingSection>
 
@@ -32,19 +32,19 @@ export const ProductLanding = () => {
       </LandingSection>
 
       {productCodeExamples.length > 0 && (
-        <LandingSection title={t('code_examples')} className="my-6" headerClassName="h1 mb-4">
+        <LandingSection title={t('code_examples')} className="my-6">
           <CodeExamples />
         </LandingSection>
       )}
 
       {productCommunityExamples.length > 0 && (
-        <LandingSection title={t('communities_using_discussions')} className="my-6" headerClassName="h1 mb-4">
+        <LandingSection title={t('communities_using_discussions')} className="my-6">
           <CommunityExamples />
         </LandingSection>
       )}
 
       {productUserExamples.length > 0 && (
-        <LandingSection title={t('sponsor_community')} className="my-6" headerClassName="h1 mb-4">
+        <LandingSection title={t('sponsor_community')} className="my-6">
           <SponsorsExamples />
         </LandingSection>
       )}
@@ -55,13 +55,13 @@ export const ProductLanding = () => {
 
       {guideCards.length > 0 && (
         <div className="color-bg-tertiary py-6 my-8">
-          <LandingSection title={t('guides')} className="my-6" headerClassName="h1 mb-4">
+          <LandingSection title={t('guides')} className="my-6">
             <GuideCards />
           </LandingSection>
         </div>
       )}
 
-      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} Docs`} headerClassName="mb-4">
+      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} Docs`}>
         <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>
