@@ -8,8 +8,7 @@ import { SidebarProduct } from './product/SidebarProduct'
 import { AllProductsLink } from './product/AllProductsLink'
 import { useVersion } from './hooks/useVersion'
 
-type Props = {}
-export const SidebarNav = (props: Props) => {
+export const SidebarNav = () => {
   const router = useRouter()
   const { error, relativePath, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('header')
