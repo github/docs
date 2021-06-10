@@ -1,10 +1,10 @@
-import { FeaturedTrack } from "components/context/ProductSubLandingContext";
 import { useTranslation } from "components/hooks/useTranslation";
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { useState } from "react";
+import { FeaturedTrack } from "components/context/ProductSubLandingContext";
 
 type Props = {
-  track: FeaturedTrack,
+  track: FeaturedTrack
 }
 
 export const LearningTrack = ({ track }: Props) => {

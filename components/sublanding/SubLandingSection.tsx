@@ -6,9 +6,10 @@ type Props = {
   sectionLink?: string
   children?: React.ReactNode
   className?: string
+  description?: string
 }
 
-export const SubLandingSection = ({ title, children, className, sectionLink }: Props) => {
+export const SubLandingSection = ({ title, children, className, sectionLink, description }: Props) => {
   const { t } = useTranslation('product_sublanding')
 
   return (
@@ -16,9 +17,9 @@ export const SubLandingSection = ({ title, children, className, sectionLink }: P
       <h2 className="mb-3 font-mktg" id={sectionLink}>
         {sectionLink ? <a href={`#${sectionLink}`}>{title}</a> : title}
       </h2>
-      {sectionLink && <div
+      {description && <div
         className="lead-mktg color-text-secondary f4 description-text"
-        dangerouslySetInnerHTML={{ __html: t('learning_paths_desc') }}
+        dangerouslySetInnerHTML={{ __html: t(description) }}
       />}
       {children}
     </div>
