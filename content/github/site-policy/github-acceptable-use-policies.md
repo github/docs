@@ -54,6 +54,8 @@ While using the Service, under no circumstances will you:
 
 - [violate the privacy of any third party](https://docs.github.com/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy), such as by posting another person's personal information without consent.
 
+Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
+
 ### 4. Spam and Inauthentic Activity on GitHub
 Automated excessive bulk activity and coordinated inauthentic activity, such as spamming, are prohibited on GitHub. Prohibited activities include:
 * bulk distribution of promotions and advertising prohibited by GitHub terms and policies
