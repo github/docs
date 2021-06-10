@@ -14,7 +14,7 @@ export const Breadcrumbs = (props: Props) => {
   const router = useRouter()
   const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   const { breadcrumbs } = useMainContext()
-  console.log(pathWithLocale)
+
   return (
     <nav className="breadcrumbs f5" aria-label="Breadcrumb">
       {Object.values(breadcrumbs).map((breadcrumb) => {
