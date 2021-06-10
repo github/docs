@@ -40,8 +40,8 @@ export const ArticleCards = () => {
       <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {(includeGuides || []).map((card, index) => {
           return index + 1 > MAX_ARTICLES ? 
-            <ArticleCard card={card} display={'d-none'}/>
-            : <ArticleCard card={card} />
+            <ArticleCard card={card} type={guideTypes[card.type]} display={'d-none'}/>
+            : <ArticleCard card={card} type={guideTypes[card.type]} />
         })}
       </div>
       {includeGuides && includeGuides.length > MAX_ARTICLES && (
