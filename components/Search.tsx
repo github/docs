@@ -30,14 +30,11 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   const { currentVersion } = useVersion()
 
   // Figure out language and version for index
-  const { expose } = useMainContext()
-  const {
-    searchOptions: { languages, versions, nonEnterpriseDefaultVersion },
-  } = JSON.parse(expose)
+  const { languages, searchVersions, nonEnterpriseDefaultVersion } = useMainContext()
   const router = useRouter()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
-  const version = versions[currentVersion] || versions[nonEnterpriseDefaultVersion]
-  const language = (languages.includes(router.locale) && router.locale) || 'en'
+  const version = searchVersions[currentVersion] || searchVersions[nonEnterpriseDefaultVersion]
+  const language = (Object.keys(languages).includes(router.locale || '') && router.locale) || 'en'
 
   // If the user shows up with a query in the URL, go ahead and search for it
   useEffect(() => {
