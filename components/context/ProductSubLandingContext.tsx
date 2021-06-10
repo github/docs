@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
-import _ from 'lodash'
 
 export type FeaturedTrack = {
   trackName: string

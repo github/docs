@@ -9,7 +9,6 @@ type Props = {
 
 const MAX_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
-  // const guides = track?.guides
   const [visibleGuides, setVisibleGuides] = useState(track.guides?.slice(0, 4))
   const showAll = () => {
     setVisibleGuides(track.guides)
@@ -57,8 +56,8 @@ export const LearningTrack = ({ track }: Props) => {
                 {t('guide_types')[guide.page.type]}
               </div>
             </a>
-            {track.guides && track.guides?.indexOf(guide) + 1 == MAX_VISIBLE_GUIDES ? (
-              <a
+            {track.guides && track.guides?.indexOf(guide) + 1 === MAX_VISIBLE_GUIDES ? (
+              <button
                 className="Box-footer btn-link border-top-0 position-relative text-center text-bold color-text-link pt-1 pb-3 col-12 js-show-more-button"
                 onClick={showAll}
               >
@@ -69,7 +68,7 @@ export const LearningTrack = ({ track }: Props) => {
                 <span>
                   Show {track.guides?.length - MAX_VISIBLE_GUIDES} {t(`more_guides`)}
                 </span>
-              </a>
+              </button>
             ) : (
               <div />
             )}

@@ -26,21 +26,8 @@ export const Breadcrumbs = () => {
           <span key={title} title={title}>
             {breadcrumb.title}
           </span>
-          ) : pathWithLocale.includes('/guides') ? (
-            <span className='text-mono color-text-secondary text-uppercase'>
-              <Link
-                key={title}
-                href={breadcrumb.href}
-                title={title}
-                className={cx(
-                  'd-inline-block',
-                  pathWithLocale === breadcrumb.href && 'color-text-tertiary'
-                )}
-              >
-                {breadcrumb.title}
-              </Link>
-            </span>
-          ) : (
+        ) : pathWithLocale.includes('/guides') ? (
+          <span className="text-mono color-text-secondary text-uppercase">
             <Link
               key={title}
               href={breadcrumb.href}
@@ -52,7 +39,20 @@ export const Breadcrumbs = () => {
             >
               {breadcrumb.title}
             </Link>
-          )
+          </span>
+        ) : (
+          <Link
+            key={title}
+            href={breadcrumb.href}
+            title={title}
+            className={cx(
+              'd-inline-block',
+              pathWithLocale === breadcrumb.href && 'color-text-tertiary'
+            )}
+          >
+            {breadcrumb.title}
+          </Link>
+        )
       })}
     </nav>
   )
