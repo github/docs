@@ -226,6 +226,8 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
+Courtesy copies may be emailed to legal@support.github.com.
+
 Please make your requests as specific and narrow as possible, including the following information:
 
 - Full information about authority issuing the request for information
