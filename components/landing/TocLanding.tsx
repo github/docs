@@ -7,8 +7,7 @@ import { Breadcrumbs } from 'components/Breadcrumbs'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 
-type Props = {}
-export const TocLanding = (props: Props) => {
+export const TocLanding = () => {
   const { title, introPlainText, tocItems, variant } = useTocLandingContext()
   return (
     <DefaultLayout>

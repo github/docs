@@ -46,7 +46,7 @@ function trackEvent ({ token, vote, email, comment }) {
 }
 
 export default function survey () {
-  if (window.next) return
+  if (window.IS_NEXTJS_PAGE) return
 
   const form = document.querySelector('.js-survey')
   const texts = Array.from(document.querySelectorAll('.js-survey input, .js-survey textarea'))
