@@ -83,8 +83,8 @@ In addition to managing organization-level settings, organization owners have ad
 | [Lock conversations](/communities/moderating-comments-and-conversations/locking-conversations) | | | **X** | **X** | **X** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **X** | **X** | **X** |
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **X** | **X** | **X** |
-| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-| [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% endif %}
+| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
+| [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |
 | Submit reviews that affect a pull request's mergeability | | | **X** | **X** | **X** |
 | [Apply suggested changes](/articles/incorporating-feedback-in-your-pull-request) to pull requests | | | **X** | **X** | **X** |
 | Create [status checks](/articles/about-status-checks) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}

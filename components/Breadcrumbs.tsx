@@ -9,8 +9,7 @@ export type BreadcrumbT = {
   href?: string
 }
 
-type Props = {}
-export const Breadcrumbs = (props: Props) => {
+export const Breadcrumbs = () => {
   const router = useRouter()
   const pathWithLocale = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
   const { breadcrumbs } = useMainContext()
