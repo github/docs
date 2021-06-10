@@ -73,7 +73,7 @@ export const ArticleList = ({ title, viewAllHref, articles, maxLines = 2 }: Arti
       )}
 
       <ul className="list-style-none">
-        {articles.map((link, i) => {
+        {articles.map((link) => {
           return (
             <li key={link.href} className="border-top">
               <Link

@@ -8,7 +8,8 @@ module.exports = {
   parser: '@babel/eslint-parser',
   extends: [
     'eslint:recommended',
-    'standard'
+    'standard',
+    'prettier'
   ],
   parserOptions: {
     ecmaVersion: 11
@@ -24,6 +25,24 @@ module.exports = {
       env: {
         jest: true
       }
-    }
+    },
+    {
+      files: [
+        '**/*.tsx', '**/*.ts'
+      ],
+      plugins: [
+        '@typescript-eslint',
+        'jsx-a11y'
+      ],
+      extends: ['plugin:jsx-a11y/recommended'],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        'camelcase': 'off',
+        'no-unused-vars': 'off',
+        'no-undef': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-unused-vars': ['error'],
+      }
+    },
   ]
 }
