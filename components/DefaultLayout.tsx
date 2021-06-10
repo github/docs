@@ -11,7 +11,7 @@ import { useTranslation } from './hooks/useTranslation'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { builtAssets, expose, page, error, isHomepageVersion } = useMainContext()
+  const { builtAssets, page, error, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
@@ -22,7 +22,6 @@ export const DefaultLayout = (props: Props) => {
           <title>{page.fullTitle}</title>
         ) : null}
 
-        <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
         <script src={builtAssets.main.js} />
 
         {/* For Google and Bots */}
