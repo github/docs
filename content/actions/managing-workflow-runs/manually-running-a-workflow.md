@@ -53,7 +53,7 @@ You can also pass inputs as JSON by using standard input.
 echo '{"name":"mona", "greeting":"hello"}' | gh workflow run greet.yml --json
 ```
 
-To run a workflow on a branch other than the repository's default branch, use the `--ref` flag.
+To run a workflow from a branch other than the repository's default branch, use the `--ref` flag.
 
 ```shell
 gh workflow run <em>workflow</em> --ref <em>branch-name</em>
