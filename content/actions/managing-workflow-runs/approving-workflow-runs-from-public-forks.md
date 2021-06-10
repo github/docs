@@ -16,4 +16,4 @@ Maintainers with write access to the repository can use the following procedure 
 1. Inspect the proposed changes in the pull request and ensure that you are comfortable running your workflows on the pull request branch. You should be especially alert to any proposed changes in the `.github/workflows/` directory that affect workflow files.
 1. If you are comfortable with running workflows on the pull request branch, return to the {% octicon "comment-discussion" aria-label="The discussion icon" %} **Conversation** tab, and under "Workflow(s) awaiting approval", click **Approve and run**.
       
-    ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
+  ![Approve and run workflows](/assets/images/help/pull_requests/actions-approve-and-run-workflows-from-fork.png)
