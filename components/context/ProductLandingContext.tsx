@@ -48,7 +48,6 @@ export type ProductLandingContextT = {
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
   }>
-  changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
@@ -85,7 +84,6 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'beta_product',
       'intro',
       'product_video',
-      'changelog',
     ]),
     product: {
       href: productTree.href,
