@@ -1,5 +1,5 @@
 ---
-title: Creating a GitHub App from a manifest
+title: '{% if currentVersion == "enterprise-server@3.0" %}Creating a GitHub App from a manifest{% endif %}'
 intro: 'A GitHub App Manifest is a preconfigured GitHub App you can share with anyone who wants to use your app in their personal repositories. The manifest flow allows someone to quickly create, install, and start extending a GitHub App without needing to register the app or connect the registration to the hosted app code.'
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
@@ -12,6 +12,20 @@ topics:
   - GitHub Apps
 ---
 ### About GitHub App Manifests
+
+{% if currentVersion == "enterprise-server@3.0" %}
+foo
+{% endif %}
+
+{% if currentVersion != "github-ae@latest" %}
+bar
+{% elsif currentVersion == 'enterprise-server@2.22' %}
+heyo
+{% elsif currentVersion == 'enterprise-server@2.19' %}
+a thing
+{% else %}
+nothing to see
+{% endif %}
 
 When someone creates a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and retrieves the app's webhook secret, private key (PEM file), and GitHub App ID. The person who creates the app from the manifest will own the app and can choose to [edit the app's configuration settings](/apps/managing-github-apps/modifying-a-github-app/), delete it, or transfer it to another person on GitHub.
 
