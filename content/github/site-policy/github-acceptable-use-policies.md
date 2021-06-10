@@ -21,15 +21,15 @@ Under no circumstances will Users upload, post, host, execute, or transmit any C
 
 - is unlawful or promotes unlawful activities;
 
-- is or contains [sexually obscene content](https://docs.github.com/en/github/site-policy/github-community-guidelines#sexually-obscene-content);
+- is or contains [sexually obscene content](https://docs.github.com/github/site-policy/github-community-guidelines#sexually-obscene-content);
 
 - is libelous, defamatory, or fraudulent;
 
-- is [discriminatory or abusive](https://docs.github.com/en/github/site-policy/github-community-guidelines#hate-speech-and-discrimination) toward any individual or group;
+- is [discriminatory or abusive](https://docs.github.com/github/site-policy/github-community-guidelines#hate-speech-and-discrimination) toward any individual or group;
 
-- [gratuitously depicts or glorifies violence](https://docs.github.com/en/github/site-policy/github-community-guidelines#gratuitously-violent-content), including violent images;
+- [gratuitously depicts or glorifies violence](https://docs.github.com/github/site-policy/github-community-guidelines#gratuitously-violent-content), including violent images;
 
-- is or contains [false, inaccurate, or intentionally deceptive information](https://docs.github.com/en/github/site-policy/github-community-guidelines#misinformation-and-disinformation) that is likely to adversely affect the public interest (including health, safety, election integrity, and civic participation);
+- is or contains [false, inaccurate, or intentionally deceptive information](https://docs.github.com/github/site-policy/github-community-guidelines#misinformation-and-disinformation) that is likely to adversely affect the public interest (including health, safety, election integrity, and civic participation);
 
 - directly supports [unlawful active attack or malware campaigns](/github/site-policy/github-community-guidelines#active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
 
@@ -42,17 +42,17 @@ Please see our [Community Guidelines](/github/site-policy/github-community-guide
 ### 3. Conduct Restrictions
 While using the Service, under no circumstances will you:
 
-- [harass, abuse](https://docs.github.com/en/github/site-policy/github-community-guidelines#bullying-and-harassment), [threaten, or incite violence](https://docs.github.com/en/github/site-policy/github-community-guidelines#threats-of-violence) towards any individual or group, including our employees, officers, and agents, or other users;
+- [harass, abuse](https://docs.github.com/github/site-policy/github-community-guidelines#bullying-and-harassment), [threaten, or incite violence](https://docs.github.com/github/site-policy/github-community-guidelines#threats-of-violence) towards any individual or group, including our employees, officers, and agents, or other users;
 
-- post off-topic content, or interact with platform features, in a way that significantly or repeatedly [disrupts the experience of other users](https://docs.github.com/en/github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users);
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly [disrupts the experience of other users](https://docs.github.com/github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users);
 
-- use our servers for any form of [excessive automated bulk activity](https://docs.github.com/en/github/site-policy/github-acceptable-use-policies#4-spam-and-inauthentic-activity-on-github) (for example, spamming or cryptocurrency mining), to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes;
+- use our servers for any form of [excessive automated bulk activity](https://docs.github.com/github/site-policy/github-acceptable-use-policies#4-spam-and-inauthentic-activity-on-github) (for example, spamming or cryptocurrency mining), to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes;
 
 - use our servers to disrupt or to attempt to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network (unless authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 
-- [impersonate any person or entity](https://docs.github.com/en/github/site-policy/github-community-guidelines#impersonation), including any of our employees or representatives, including through false association with GitHub, or by fraudulently misrepresenting your identity or site's purpose; or
+- [impersonate any person or entity](https://docs.github.com/github/site-policy/github-community-guidelines#impersonation), including any of our employees or representatives, including through false association with GitHub, or by fraudulently misrepresenting your identity or site's purpose; or
 
-- [violate the privacy of any third party](https://docs.github.com/en/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy), such as by posting another person's personal information without consent.
+- [violate the privacy of any third party](https://docs.github.com/github/site-policy/github-community-guidelines#doxxing-and-invasion-of-privacy), such as by posting another person's personal information without consent.
 
 ### 4. Spam and Inauthentic Activity on GitHub
 Automated excessive bulk activity and coordinated inauthentic activity, such as spamming, are prohibited on GitHub. Prohibited activities include:
