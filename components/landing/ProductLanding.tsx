@@ -68,7 +68,7 @@ export const ProductLanding = () => {
         </div>
       )}
 
-      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} Docs`}>
+      <LandingSection sectionLink="all-docs" title={`All ${shortTitle} docs`}>
         <ProductArticlesList />
       </LandingSection>
     </DefaultLayout>
