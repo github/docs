@@ -9,7 +9,7 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export const SidebarProduct = () => {
   const router = useRouter()
-  const { currentProductTree: currentProductTree } = useMainContext()
+  const { currentProductTree } = useMainContext()
 
   if (!currentProductTree) {
     return null
@@ -158,7 +158,7 @@ const CollapsibleSection = (props: SectionProps) => {
             )
           })}
         </ul>
-      ) : page.childPages[0].page.documentType == 'article' ? (
+      ) : page.childPages[0].page.documentType === 'article' ? (
         <ul className="sidebar-articles list-style-none">
           {/* <!-- some categories have no maptopics, only articles --> */}
           {page.childPages.map((childPage, i, arr) => {
