@@ -8,19 +8,17 @@ import { SupportSection } from 'components/SupportSection'
 import { DeprecationBanner } from 'components/DeprecationBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from './hooks/useTranslation'
-import { useVersion } from './hooks/useVersion'
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
-  const { builtAssets, expose, page, error } = useMainContext()
-  const { currentVersion } = useVersion()
+  const { builtAssets, expose, page, error, isHomepageVersion } = useMainContext()
   const { t } = useTranslation('errors')
   return (
     <div className="d-lg-flex">
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
-        ) : currentVersion !== 'homepage' && page.fullTitle ? (
+        ) : !isHomepageVersion && page.fullTitle ? (
           <title>{page.fullTitle}</title>
         ) : null}
 
@@ -47,7 +45,7 @@ export const DefaultLayout = (props: Props) => {
       </Head>
       <SidebarNav />
 
-      <main className="width-full">
+      <main className="flex-1 min-width-0">
         <Header />
         <DeprecationBanner />
 

@@ -53,24 +53,27 @@ export const FeaturedArticles = () => {
 }
 
 type ArticleListProps = {
-  title: string
+  title?: string
   viewAllHref?: string
   articles: Array<FeaturedLink>
+  maxLines?: number
 }
-const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
+export const ArticleList = ({ title, viewAllHref, articles, maxLines = 2 }: ArticleListProps) => {
   return (
     <>
-      <div className="featured-links-heading mb-4 d-flex flex-items-baseline">
-        <h3 className="f4 text-normal text-mono text-uppercase">{title}</h3>
-        {viewAllHref && (
-          <Link href={viewAllHref} className="ml-4">
-            View all <ArrowRightIcon size={14} className="v-align-middle" />
-          </Link>
-        )}
-      </div>
+      {title && (
+        <div className="featured-links-heading mb-4 d-flex flex-items-baseline">
+          <h3 className="f4 text-normal text-mono text-uppercase">{title}</h3>
+          {viewAllHref && (
+            <Link href={viewAllHref} className="ml-4">
+              View all <ArrowRightIcon size={14} className="v-align-middle" />
+            </Link>
+          )}
+        </div>
+      )}
 
       <ul className="list-style-none">
-        {articles.map((link, i) => {
+        {articles.map((link) => {
           return (
             <li key={link.href} className="border-top">
               <Link
@@ -84,7 +87,7 @@ const ArticleList = ({ title, viewAllHref, articles }: ArticleListProps) => {
                 {!link.hideIntro && link.intro && (
                   <TruncateLines
                     as="p"
-                    maxLines={2}
+                    maxLines={maxLines}
                     className="link-with-intro-intro color-text-secondary mb-0 mt-1"
                   >
                     <span dangerouslySetInnerHTML={{ __html: link.intro }} />

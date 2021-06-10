@@ -30,25 +30,27 @@ export function getUserEventsId () {
 export function sendEvent ({
   type,
   version = '1.0.0',
-  exit_render_duration,
-  exit_first_paint,
-  exit_dom_interactive,
-  exit_dom_complete,
-  exit_visit_duration,
-  exit_scroll_length,
-  link_url,
-  search_query,
-  search_context,
-  navigate_label,
-  survey_vote,
-  survey_comment,
-  survey_email,
-  experiment_name,
-  experiment_variation,
-  experiment_success,
-  clipboard_operation,
-  preference_name,
-  preference_value
+  // `= undefined` is a TypeScript hint.
+  exit_render_duration = undefined,
+  exit_first_paint = undefined,
+  exit_dom_interactive = undefined,
+  exit_dom_complete = undefined,
+  exit_visit_duration = undefined,
+  exit_scroll_length = undefined,
+  link_url = undefined,
+  search_query = undefined,
+  search_context = undefined,
+  navigate_label = undefined,
+  survey_token = undefined, // Honeypot, doesn't exist in schema
+  survey_vote = undefined,
+  survey_comment = undefined,
+  survey_email = undefined,
+  experiment_name = undefined,
+  experiment_variation = undefined,
+  experiment_success = undefined,
+  clipboard_operation = undefined,
+  preference_name = undefined,
+  preference_value = undefined
 }) {
   const body = {
     _csrf: getCsrf(),
@@ -107,6 +109,7 @@ export function sendEvent ({
     navigate_label,
 
     // Survey event
+    survey_token, // Honeypot, doesn't exist in schema
     survey_vote,
     survey_comment,
     survey_email,
@@ -235,7 +238,7 @@ export default function initializeEvents () {
   initClipboardEvent()
   initNavigateEvent()
   // print event in ./print.js
-  // survey event in ./helpfulness.js
+  // survey event in ./survey.js
   // experiment event in ./experiment.js
   // search event in ./search.js
   // redirect event in middleware/record-redirect.js
