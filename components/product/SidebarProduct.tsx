@@ -9,7 +9,7 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export const SidebarProduct = () => {
   const router = useRouter()
-  const { currentProductTree: currentProductTree } = useMainContext()
+  const { currentProductTree } = useMainContext()
 
   if (!currentProductTree) {
     return null
@@ -17,6 +17,9 @@ export const SidebarProduct = () => {
 
   const productTitle = currentProductTree.renderedShortTitle || currentProductTree.renderedFullTitle
   const routePath = `/${router.locale}${router.asPath.split('?')[0]}` // remove query string
+  const hasExactCategory = currentProductTree.childPages.find(({ href }) =>
+    routePath.includes(href)
+  )
   return (
     <>
       <AllProductsLink />
@@ -40,6 +43,7 @@ export const SidebarProduct = () => {
                 const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
                 const isActive = routePath.includes(childPage.href)
                 const isCurrent = routePath === childPage.href
+                const defaultOpen = hasExactCategory ? isActive : i < 3
                 return (
                   <li
                     key={childPage.href + i}
@@ -59,7 +63,7 @@ export const SidebarProduct = () => {
                       </Link>
                     ) : (
                       <CollapsibleSection
-                        index={i}
+                        defaultOpen={defaultOpen}
                         routePath={routePath}
                         title={childTitle}
                         page={childPage}
@@ -77,15 +81,15 @@ export const SidebarProduct = () => {
 }
 
 type SectionProps = {
-  index: number
   routePath: string
   page: CurrentProductTree
   title: string
+  defaultOpen: boolean
 }
 const CollapsibleSection = (props: SectionProps) => {
-  const { routePath, index, title, page } = props
-  const isDefaultOpen = routePath.includes(page.href) || index < 3
-  const { getDetailsProps, open: isOpen } = useDetails({ defaultOpen: isDefaultOpen })
+  const { routePath, defaultOpen, title, page } = props
+  const { getDetailsProps, open: isOpen } = useDetails({ defaultOpen: defaultOpen })
+  const hideChildren = !defaultOpen
   return (
     <Details {...getDetailsProps()} className="details-reset">
       <summary>
@@ -96,96 +100,104 @@ const CollapsibleSection = (props: SectionProps) => {
           >
             {title}
           </Link>
-          {page.childPages.length > 0 && (
+          {!hideChildren && page.childPages.length > 0 && (
             <span style={{ marginTop: 7 }} className="flex-shrink-0 pr-3">
               <ChevronDownIcon className={cx('opacity-60', isOpen && 'rotate-180')} />
             </span>
           )}
         </div>
       </summary>
-      {/* <!-- some categories have maptopics with child articles --> */}
-      {page.childPages[0].page.documentType === 'mapTopic' ? (
-        <ul className="sidebar-topics list-style-none position-relative">
-          {page.childPages.map((childPage, i) => {
-            const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-            const isActive = routePath.includes(childPage.href)
-            const isCurrent = routePath === childPage.href
-            return (
-              <li
-                key={childPage.href + i}
-                className={cx(
-                  'sidebar-maptopic',
-                  isActive && 'active',
-                  isCurrent && 'is-current-page'
-                )}
-              >
-                <Link
-                  href={childPage.href}
-                  className="pl-4 pr-5 py-2 color-text-primary no-underline"
-                >
-                  {childTitle}
-                </Link>
-                <ul className="sidebar-articles my-2">
-                  {childPage.childPages.map((grandchildPage, i, arr) => {
-                    const grandchildTitle =
-                      grandchildPage.renderedShortTitle || grandchildPage.renderedFullTitle
-                    const isLast = i === arr.length - 1
-                    const isActive = routePath.includes(grandchildPage.href)
-                    const isCurrent = routePath === grandchildPage.href
-                    return (
-                      <li
-                        key={grandchildPage.href + i}
-                        className={cx(
-                          'sidebar-article',
-                          isActive && 'active',
-                          isCurrent && 'is-current-page'
-                        )}
-                      >
-                        <Link
-                          href={grandchildPage.href}
-                          className={cx(
-                            'pl-6 pr-5 py-1 color-text-primary no-underline',
-                            isLast && 'pb-2'
-                          )}
-                        >
-                          {grandchildTitle}
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </li>
-            )
-          })}
-        </ul>
-      ) : page.childPages[0].page.documentType == 'article' ? (
-        <ul className="sidebar-articles list-style-none">
-          {/* <!-- some categories have no maptopics, only articles --> */}
-          {page.childPages.map((childPage, i, arr) => {
-            const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
-            const isLast = i === arr.length - 1
-            const isActive = routePath.includes(childPage.href)
-            const isCurrent = routePath === childPage.href
-            return (
-              <li
-                key={childPage.href + i}
-                className={cx(
-                  'sidebar-article',
-                  isActive && 'active',
-                  isCurrent && 'is-current-page'
-                )}
-              >
-                <Link
-                  href={childPage.href}
-                  className={cx('pl-6 pr-5 py-1 color-text-primary no-underline', isLast && 'pb-2')}
-                >
-                  {childTitle}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-      ) : null}
+
+      {!hideChildren && (
+        <>
+          {/* <!-- some categories have maptopics with child articles --> */}
+          {page.childPages[0].page.documentType === 'mapTopic' ? (
+            <ul className="sidebar-topics list-style-none position-relative">
+              {page.childPages.map((childPage, i) => {
+                const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+                const isActive = routePath.includes(childPage.href)
+                const isCurrent = routePath === childPage.href
+                return (
+                  <li
+                    key={childPage.href + i}
+                    className={cx(
+                      'sidebar-maptopic',
+                      isActive && 'active',
+                      isCurrent && 'is-current-page'
+                    )}
+                  >
+                    <Link
+                      href={childPage.href}
+                      className="pl-4 pr-5 py-2 color-text-primary no-underline"
+                    >
+                      {childTitle}
+                    </Link>
+                    <ul className="sidebar-articles my-2">
+                      {childPage.childPages.map((grandchildPage, i, arr) => {
+                        const grandchildTitle =
+                          grandchildPage.renderedShortTitle || grandchildPage.renderedFullTitle
+                        const isLast = i === arr.length - 1
+                        const isActive = routePath.includes(grandchildPage.href)
+                        const isCurrent = routePath === grandchildPage.href
+                        return (
+                          <li
+                            key={grandchildPage.href + i}
+                            className={cx(
+                              'sidebar-article',
+                              isActive && 'active',
+                              isCurrent && 'is-current-page'
+                            )}
+                          >
+                            <Link
+                              href={grandchildPage.href}
+                              className={cx(
+                                'pl-6 pr-5 py-1 color-text-primary no-underline',
+                                isLast && 'pb-2'
+                              )}
+                            >
+                              {grandchildTitle}
+                            </Link>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : page.childPages[0].page.documentType === 'article' ? (
+            <ul className="sidebar-articles list-style-none">
+              {/* <!-- some categories have no maptopics, only articles --> */}
+              {page.childPages.map((childPage, i, arr) => {
+                const childTitle = childPage.renderedShortTitle || childPage.renderedFullTitle
+                const isLast = i === arr.length - 1
+                const isActive = routePath.includes(childPage.href)
+                const isCurrent = routePath === childPage.href
+                return (
+                  <li
+                    key={childPage.href + i}
+                    className={cx(
+                      'sidebar-article',
+                      isActive && 'active',
+                      isCurrent && 'is-current-page'
+                    )}
+                  >
+                    <Link
+                      href={childPage.href}
+                      className={cx(
+                        'pl-6 pr-5 py-1 color-text-primary no-underline',
+                        isLast && 'pb-2'
+                      )}
+                    >
+                      {childTitle}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : null}
+        </>
+      )}
     </Details>
   )
 }

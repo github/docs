@@ -1,0 +1,32 @@
+date: '2021-06-10'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - SVN 1.7 and older clients showed an error when using the `svn co` and `svn export` commands.
+    - Accessing a repository through the administrative shell using `ghe-repo <owner>/<reponame>` would hang.
+    - After upgrading, users experienced reduced availability during heavy usage, because services restarted too frequently. This would occur due to timeout mismatches between the nomad configuration and that of the internal services.
+    - In some instances, running `ghe-repl-status` after setting up GitHub Actions would produce an error and `ghe-actions-teardown` would fail.
+    - '`ghe-dbconsole` would return errors under some circumstances.'
+    - Import failures of organizations or repositories from non-GitHub sources could produce an `undefined method '[]' for nil:NilClass` error.
+    - GitHub profile names might have changed unintentionally when using SAML authentication, if the GitHub profile name did not match the value of the attribute mapped to the `Full name` field in the Management Console.
+    - Upgrading an instance that had previously ran a 2.13 release, but not a 2.14 release, resulted in a database migration error relating to the `AddRepositoryIdToCheckRuns` data transition.
+  changes:
+    - Users of the GraphQL API can query the public field `closingIssuesReferences` on the `PullRequest` object. This field retrieves issues that will be automatically closed when the related pull request is merged. This approach will also allow this data to be migrated in future, as part of a higher fidelity migration process.
+  known_issues:
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - |
+      After upgrading from 3.0.x to 3.1.x, in some cases GitHub Actions can fail with an error: `An unexpected error occurred when executing this workflow.` To workaround this problem, connect to the administrative shell (ssh) and run:
+      ```
+      ghe-actions-console -s actions -c "Queue-ServiceJob -JobId 4DB1F4CF-19FD-40E0-A253-91288813DE8B"`
+      ```
+
+      If that doesn't resolve the issue, run:
+      ```
+      ghe-actions-console -s actions -c "Set-FeatureFlag -FeatureName Microsoft.AzureDevOps.SigningService.SecureSigningKey -State Off"
+      ```

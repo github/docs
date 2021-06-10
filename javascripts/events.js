@@ -41,6 +41,7 @@ export function sendEvent ({
   search_query = undefined,
   search_context = undefined,
   navigate_label = undefined,
+  survey_token = undefined, // Honeypot, doesn't exist in schema
   survey_vote = undefined,
   survey_comment = undefined,
   survey_email = undefined,
@@ -108,6 +109,7 @@ export function sendEvent ({
     navigate_label,
 
     // Survey event
+    survey_token, // Honeypot, doesn't exist in schema
     survey_vote,
     survey_comment,
     survey_email,

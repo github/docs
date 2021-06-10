@@ -134,14 +134,14 @@ To list the installations for an authenticated app, include the JWT [generated a
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
 ```shell
-$ curl -i -X POST \
+$ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
 -H "Accept: application/vnd.github.machine-man-preview+json" \
 {% data variables.product.api_url_pre %}/app/installations
 ```
 {% else %}
 ```shell
-$ curl -i -X POST \
+$ curl -i -X GET \
 -H "Authorization: Bearer YOUR_JWT" \
 -H "Accept: application/vnd.github.v3+json" \
 {% data variables.product.api_url_pre %}/app/installations

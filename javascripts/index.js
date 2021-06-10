@@ -22,8 +22,10 @@ import releaseNotes from './release-notes'
 import showMore from './show-more'
 import airgapLinks from './airgap-links'
 import toggleImages from './toggle-images'
+import setNextEnv from './set-next-env'
 
 document.addEventListener('DOMContentLoaded', async () => {
+  setNextEnv()
   displayPlatformSpecificContent()
   displayToolSpecificContent()
   explorer()

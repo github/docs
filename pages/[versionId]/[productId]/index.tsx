@@ -5,6 +5,7 @@ import {
   MainContext,
   getMainContextFromRequest,
 } from 'components/context/MainContext'
+
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
@@ -15,6 +16,13 @@ import {
   ProductSubLandingContextT,
   ProductSubLandingContext,
 } from 'components/context/ProductSubLandingContext'
+
+import {
+  getArticleContextFromRequest,
+  ArticleContextT,
+  ArticleContext,
+} from 'components/context/ArticleContext'
+import { ArticlePage } from 'components/article/ArticlePage'
 
 import { ProductLanding } from 'components/landing/ProductLanding'
 import { ProductSubLanding } from 'components/sublanding/ProductSubLanding'
@@ -30,9 +38,16 @@ type Props = {
   productLandingContext: ProductLandingContextT
   productSubLandingContext: ProductSubLandingContextT
   tocLandingContext: TocLandingContextT
+  articleContext: ArticleContextT
 }
-const GlobalPage = ({ mainContext, productLandingContext, productSubLandingContext, tocLandingContext }: Props) => {
-  const { currentLayoutName, page, relativePath } = mainContext
+const GlobalPage = ({
+  mainContext,
+  productLandingContext,
+  productSubLandingContext,
+  tocLandingContext,
+  articleContext,
+}: Props) => {
+  const { currentLayoutName, relativePath } = mainContext
 
   let content
   if (currentLayoutName === 'product-landing') {
@@ -50,17 +65,15 @@ const GlobalPage = ({ mainContext, productLandingContext, productSubLandingConte
   } else if (relativePath?.endsWith('index.md')) {
     content = (
       <TocLandingContext.Provider value={tocLandingContext}>
-        <TocLanding
-          variant={
-            page.documentType === 'category' || relativePath === 'github/index.md'
-              ? 'compact'
-              : 'expanded'
-          }
-        />
+        <TocLanding />
       </TocLandingContext.Provider>
     )
   } else {
-    content = <p>article / fallback rendering</p>
+    content = (
+      <ArticleContext.Provider value={articleContext}>
+        <ArticlePage />
+      </ArticleContext.Provider>
+    )
   }
 
   return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
@@ -77,6 +90,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       productLandingContext: getProductLandingContextFromRequest(req),
       productSubLandingContext: getProductSubLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
+      articleContext: getArticleContextFromRequest(req),
     },
   }
 }

@@ -59,6 +59,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -68,7 +69,6 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   builtAssets: { main: { js: string } }
-  expose: string
   activeProducts: Array<ProductT>
   currentProduct?: ProductT
   currentLayoutName: string
@@ -79,7 +79,9 @@ export type MainContextT = {
   currentCategory?: string
   relativePath?: string
   enterpriseServerReleases: EnterpriseServerReleases
+  currentPathWithoutLanguage: string
   currentLanguage: string
+  userLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
   currentProductTree?: CurrentProductTree | null
@@ -103,12 +105,14 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
     builtAssets: { main: { js: req.context.builtAssets.main.js } },
-    expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
@@ -127,6 +131,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
@@ -151,9 +156,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
+    userLanguage: req.context.userLanguage || '',
     languages: Object.fromEntries(
       Object.entries(req.context.languages).map(([key, entry]: any) => {
         return [
@@ -163,6 +170,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
             nativeName: entry.nativeName || '',
             code: entry.code,
             hreflang: entry.hreflang,
+            wip: entry.wip || false,
           },
         ]
       })
@@ -172,6 +180,8 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
   }
 }
 

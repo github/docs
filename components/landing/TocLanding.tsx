@@ -7,11 +7,8 @@ import { Breadcrumbs } from 'components/Breadcrumbs'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 
-type Props = {
-  variant?: 'compact' | 'expanded'
-}
-export const TocLanding = ({ variant = 'expanded' }: Props) => {
-  const { title, introPlainText, tocItems } = useTocLandingContext()
+export const TocLanding = () => {
+  const { title, introPlainText, tocItems, variant } = useTocLandingContext()
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
