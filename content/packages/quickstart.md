@@ -86,13 +86,25 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+8. Configure publish scope to tell NPM which scope and registry to publish to. This can be acomplished by either
+   - using `.npmrc`
+      ```
+      @YOUR-USERNAME:registry=https://npm.pkg.github.com
+      ```
+   - or using the `publishConfig` key in `package.json`
+      ```json
+      "publishConfig": {
+        "@YOUR-USERNAME:registry": "https://npm.pkg.github.com"
+      }
+      ```
+  
+9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
     $ git add .github/workflows/release-package.yml
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-9.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
     
     To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 
