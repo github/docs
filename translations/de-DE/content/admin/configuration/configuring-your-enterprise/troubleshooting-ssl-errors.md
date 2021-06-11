@@ -18,6 +18,7 @@ topics:
   - Security
   - Troubleshooting
 ---
+
 ### Passphrase aus Ihrer Schlüsseldatei entfernen
 
 Wenn Sie über eine Linux-Maschine mit installiertem OpenSSL verfügen, können Sie Ihre Passphrase entfernen.

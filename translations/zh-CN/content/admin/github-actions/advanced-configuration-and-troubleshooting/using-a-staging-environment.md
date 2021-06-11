@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
 ---
+
 为 {% data variables.product.product_location %} 提供临时或测试环境会有用，这样您就可以在生产环境中实施更新或新功能之前进行测试。
 
 创建暂存环境的常见方法是使用生产实例的备份并将其恢复到暂存环境。

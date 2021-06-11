@@ -8,9 +8,15 @@ redirect_from:
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
+type: reference
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 ### *dependabot.yml* ファイルについて
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
@@ -283,22 +289,27 @@ updates:
 
 #### `ignore`
 
-{% data reusables.dependabot.warning-ignore-option %}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
-##### ignore の既存の設定を確認する
+Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
 
-設定ファイルに `ignore` オプションを追加する前に、セキュリティアップデートまたはバージョンアップデートのプルリクエストで `@dependabot ignore` コマンドのいずれかを以前に使用したことがあるかどうかを確認します。 {% data variables.product.prodname_dependabot %} は、各パッケージマネージャーのこれらの環境設定を一元的に保存し、この情報は `ignore` オプションによって上書きされます。 `@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)」をご覧ください。
+##### Creating `ignore` conditions from `@dependabot ignore`
 
-リポジトリで `"@dependabot ignore" in:comments` を検索して、リポジトリに設定が保存されているかどうかを確認できます。 検索結果でプルリクエストを確認する場合、無視された依存関係またはバージョンを設定ファイルで指定するかどうかを決めることができます。
+Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
+
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+
+`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/github/administering-a-repository/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
 
 ##### 無視する依存関係とバージョンを指定する
 
-{% data reusables.dependabot.default-dependencies-allow-ignore %}
-
 `ignore` オプションを使用して、更新する依存関係をカスタマイズできます。 `ignore` オプションは、次のオプションに対応しています。
 
-- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 Java の依存関係の場合、`dependency-name` 属性のフォーマットは `groupId:artifactId` です（`org.kohsuke:github-api` など）。
+- `dependency-name`: 名前が一致する依存関係の更新を無視するために使用し、必要に応じて `*` を使用して 0 文字以上の文字と一致させます。 For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).
 - `versions`: 特定のバージョンまたはバージョンの範囲を無視するために使用します。 範囲を定義する場合は、パッケージマネージャーの標準パターンを使用します（例: npm の場合は `^1.0.0`、Bundler の場合は `~> 2.0`）。
+- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: *` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+
+If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -317,11 +328,14 @@ updates:
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
+        # For AWS SDK, ignore all patch updates
+      - dependency-name: "aws-sdk"
+        update-types: ["version-update:semver-patch"]
 ```
 
 {% note %}
 
-**注釈**: 設定ファイルの `ignore` オプションにアクセス不可の依存関係を追加した場合でも、 ファイルの依存関係のすべてにアクセスできる場合には、{% data variables.product.prodname_dependabot %} は、マニフェストまたはロックされたファイルのみにバージョン更新を実行します。 詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)」および「[{% data variables.product.prodname_dependabot %} エラーのトラブルシューティング](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)」を参照してください。
+**注釈**: 設定ファイルの `ignore` オプションにアクセス不可の依存関係を追加した場合でも、 ファイルの依存関係のすべてにアクセスできる場合には、{% data variables.product.prodname_dependabot %} は、マニフェストまたはロックされたファイルのみにバージョン更新を実行します。 For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
 
 
 {% endnote %}
@@ -932,5 +946,19 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+{% endraw %}
+
+#### `terraform-registry`
+
+The `terraform-registry` type supports a token.
+
+{% raw %}
+```yaml
+registries:
+  terraform-example:
+    type: terraform-registry
+    url: https://terraform.example.com
+    token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}

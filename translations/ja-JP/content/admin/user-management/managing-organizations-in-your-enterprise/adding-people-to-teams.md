@@ -16,6 +16,7 @@ topics:
   - Teams
   - User account
 ---
+
 各Teamには、それぞれに定義された[Organizatinが所有するリポジトリへのアクセス権限](/articles/permission-levels-for-an-organization)があります。
 
 - オーナー権限を持つメンバーは、すべてのTeamから既存のOrganizationのメンバーを追加したり削除したりできます。
@@ -23,8 +24,8 @@ topics:
 
 ### チームのセットアップ
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

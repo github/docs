@@ -1,4 +1,4 @@
-1. En la sección de **Ejecutores auto-hospedados** de la página de configuración, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} junto al grupo de ejecución que quieras configurar, luego da clic en **Editar nombre y acceso a la [organización|repositorio]**. ![Administrar permisos del repositorio](/assets/images/help/settings/actions-runner-manage-permissions.png)
+1. En la sección de {% if currentVersion == "free-pro-team@latest" %}"ejecutores"{% else %}"ejecutores auto-hospedados"{% endif %} de la página de ajustes, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} junto al grupo de ejecutores que te gustaría configurar y luego en **Editar el nombre y acceso a la [organización|repositorio]**. ![Administrar permisos del repositorio](/assets/images/help/settings/actions-runner-manage-permissions.png)
 1. Modifica tus opciones de política o cambia el nombre del grupo ejecutor.
 
    {% warning %}

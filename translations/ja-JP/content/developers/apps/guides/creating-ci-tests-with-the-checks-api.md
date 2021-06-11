@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### はじめに
 
 このガイドでは、[GitHub App](/apps/) と [Checks API](/rest/reference/checks) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
@@ -282,9 +283,9 @@ end
 ```
 {% endif %}
 
-The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run) to update the check run that you already created.
+上記のコードは、[`update_check_run` Octokit メソッド](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:update_check_run)を使用して「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」API エンドポイントを呼び出し、既に作成したチェック実行を更新します。
 
-このコードがしていることを説明しましょう。 First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. このクイックスタートの[パート 2](#part-2-creating-the-octo-rubocop-ci-test)では、実際の CI テストを開始するコードを `***** RUN A CI TEST *****` の下に追加します。 今はこのセクションをプレースホルダーとして残しておきましょう。そうすると、続くコードが CI のプロセスを成功させ、すべてのテストに合格したことをシミュレートすることになります。 最後に、コードはチェック実行のステータスを再び `completed` に更新します。
+このコードがしていることを説明しましょう。 まず、チェック実行のステータスを `in_progress` に更新し、`started_at` の時刻を現在の時刻に暗黙的に設定します。 このクイックスタートの[パート 2](#part-2-creating-the-octo-rubocop-ci-test)では、実際の CI テストを開始するコードを `***** RUN A CI TEST *****` の下に追加します。 今はこのセクションをプレースホルダーとして残しておきましょう。そうすると、続くコードが CI のプロセスを成功させ、すべてのテストに合格したことをシミュレートすることになります。 最後に、コードはチェック実行のステータスを再び `completed` に更新します。
 
 「[チェック実行を更新する](/rest/reference/checks#update-a-check-run)」 ドキュメントに、`completed` のステータスを指定すると、`conclusion` と `completed_at` のパラメータが必須となることが書かれています。 `conclusion` はチェック実行の結果を要約するもので、`success`、`failure`、`neutral`、`cancelled`、`timed_out`、`action_required` のいずれかになります。 この結果 (conclusion) は `success` に、`completed_at` の時刻は現在の時刻に、ステータスは `completed` に設定します。
 

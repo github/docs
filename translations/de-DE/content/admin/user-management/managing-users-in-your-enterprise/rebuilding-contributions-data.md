@@ -13,6 +13,7 @@ topics:
   - Repositories
   - User account
 ---
+
 Wenn ein Commit per Push-Vorgang an {% data variables.product.prodname_enterprise %} übertragen wird, wird er mit einem Benutzerkonto verknüpft, sofern sie beide derselben E-Mail-Adresse zugeordnet sind. Vorhandene Commits werden jedoch *nicht* retroaktiv verknüpft, wenn ein Benutzer eine neue E-Mail-Adresse registriert oder ein neues Konto erstellt.
 
 1. Rufen Sie die Profilseite des Benutzers auf.

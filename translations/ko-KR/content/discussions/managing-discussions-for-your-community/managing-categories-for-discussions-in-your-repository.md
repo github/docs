@@ -12,14 +12,17 @@ versions:
 
 {% data reusables.discussions.about-discussions %} {% data reusables.discussions.about-categories-and-formats %}
 
+{% data reusables.discussions.about-announcement-format %}
+
 Each category must have a unique name and emoji pairing, and can be accompanied by a detailed description stating its purpose. Categories help maintainers organize how conversations are filed and are customizable to help distinguish categories that are Q&A or more open-ended conversations. {% data reusables.discussions.repository-category-limit %} For more information, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
 
 ### Default categories
 
-| 카테고리            | Purpose                                                              | 유형                    |
+| 카테고리            | Purpose                                                              | Format                |
 |:--------------- |:-------------------------------------------------------------------- |:--------------------- |
+| 📣 Announcements | Updates and news from project maintainers                            | Announcement          |
 | #️⃣ General     | Anything and everything relevant to the project                      | Open-ended discussion |
-| 💡Ideas          | Ideas to change or improve the project                               | Open-ended discussion |
+| 💡 Ideas         | Ideas to change or improve the project                               | Open-ended discussion |
 | 🙏 Q&A           | Questions for the community to answer, with a question/answer format | Question and Answer   |
 | 🙌 Show and tell | Creations, experiments, or tests relevant to the project             | Open-ended discussion |
 

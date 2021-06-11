@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ### 关于内容附件
@@ -48,7 +49,9 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
     "node_id": "MDE2OkNvbnRlbnRSZWZlcmVuY2UxNjA5",
     "reference": "errors.ai"
   },
-  "repository": {...},
+  "repository": {
+    "full_name": "Codertocat/Hello-World",
+  },
   "sender": {...},
   "installation": {
     "id": 371641,
@@ -57,7 +60,7 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 }
 ```
 
-**步骤 4.** 应用程序使用 `content_reference` `id`，以使用 REST API [创建内容附件](/rest/reference/apps#create-a-content-attachment)。 您还需要 `installation` `id` 以验证为 [GitHub 应用程序安装设施](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)。
+**步骤 4.** 应用程序使用 `content_reference` `id` 和 `repository` `full_name` 字段以使用 REST API [创建内容附件](/rest/reference/apps#create-a-content-attachment)。 您还需要 `installation` `id` 以验证为 [GitHub 应用程序安装设施](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)。
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -66,7 +69,7 @@ GitHub 应用程序可以注册将触发 `content_reference` 事件的域。 当
 
     ```shell
     curl -X POST \
-      https://api.github.com/content_references/1512/attachments \
+      https://api.github.com/repos/Codertocat/Hello-World/content_references/17/attachments \
       -H 'Accept: application/vnd.github.corsair-preview+json' \
       -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
       -d '{
@@ -158,7 +161,7 @@ curl -X "POST" "https://api.github.com/graphql" \
         await context.github.request({
           method: 'POST',
           headers: { accept: 'application/vnd.github.corsair-preview+json' },
-          url: `/content_references/${context.payload.content_reference.id}/attachments`,
+          url: `/repos/${context.payload.repository.full_name}/content_references/${context.payload.content_reference.id}/attachments`,
           // Parameters
           title: '[A-1234] Error found in core/models.py file',
           body: 'You have used an email that already exists for the user_email_uniq field.\n ## DETAILS:\n\nThe (email)=(Octocat@github.com) already exists.\n\n The error was found in core/models.py in get_or_create_user at line 62.\n\nself.save()'

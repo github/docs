@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 关于企业帐户的 {% data variables.product.prodname_actions %} 权限
 
 默认情况下，在企业帐户拥有的所有组织中启用 {% data variables.product.prodname_actions %}。 您可以选择对企业账户拥有的所有组织禁用 {% data variables.product.prodname_actions %}，或只对指定的组织启用。 您还可以限制公共操作的使用，以使人们只能使用您的组织中存在的本地操作。

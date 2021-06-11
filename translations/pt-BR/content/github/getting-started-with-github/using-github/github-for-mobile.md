@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-for-mobile
 ---
+
 {% data reusables.mobile.ghes-release-phase %}
 
 ### Sobre o {% data variables.product.prodname_mobile %}
@@ -41,7 +42,7 @@ Você pode estar conectado simultaneamente em um celular com uma conta de usuár
 
 Você precisa instalar {% data variables.product.prodname_mobile %} 1.4 ou superior no seu dispositivo para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}.
 
-Para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} deve ser a versão 3.0 ou superior, e o proprietário da empresa deverá habilitar o suporte móvel para a sua empresa. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/managing-github-for-mobile-for-your-enterprise)."
+Para usar {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} deve ser a versão 3.0 ou superior, e o proprietário da empresa deverá habilitar o suporte móvel para a sua empresa. Para obter mais informações, consulte {% if enterpriseServerVersions contains currentVersion %}"[Notas de versão](/enterprise-server/admin/release-notes)e {% endif %}"[Gerenciando {% data variables.product.prodname_mobile %} para sua empresa](/admin/configuration/managing-github-for-mobile-for-your-enterprise)".
 
 Durante o beta para {% data variables.product.prodname_mobile %} com {% data variables.product.prodname_ghe_server %}, você deve estar conectado com uma conta de usuário em {% data variables.product.prodname_dotcom_the_website %}.
 

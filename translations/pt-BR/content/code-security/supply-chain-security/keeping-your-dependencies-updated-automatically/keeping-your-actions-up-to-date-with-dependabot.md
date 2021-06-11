@@ -7,9 +7,14 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Actions
 ---
+
 ### Sobre {% data variables.product.prodname_dependabot_version_updates %} para ações
 
 Ações são frequentemente atualizadas com correções de bugs e novos recursos para tornar os processos automatizados mais confiáveis, mais rápidos e mais seguros. Quando você habilitar {% data variables.product.prodname_dependabot_version_updates %} para {% data variables.product.prodname_actions %}, o {% data variables.product.prodname_dependabot %} ajudará a garantir que referências a ações em um arquivo *workflow.yml* de um repositório são mantidas atualizadas. Para cada ação no arquivo, {% data variables.product.prodname_dependabot %} verifica a referência da ação (tipicamente, um número de versão ou identificador de commit associado à ação) em relação à versão mais recente. Se uma versão mais recente da ação estiver disponível, o {% data variables.product.prodname_dependabot %} enviará para você uma pull request que atualizará a referência no arquivo de fluxo de trabalho para a versão mais recente. Para obter mais informações sobre o {% data variables.product.prodname_dependabot_version_updates %}, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)". Para obter mais informações sobre a configuração dos fluxos de trabalho para {% data variables.product.prodname_actions %}, consulte "[Aprender {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".

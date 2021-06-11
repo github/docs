@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 有关与计费相关之升级和降级的更多信息，请参阅“[与 {% data variables.product.prodname_marketplace %} API 集成](/marketplace/integrating-with-the-github-marketplace-api/)”。
 
 ### 步骤 1. 定价计划更改事件
