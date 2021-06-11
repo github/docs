@@ -315,13 +315,17 @@ describe('nextjs query param', () => {
   it('conditionally renders through nextjs pipeline depending on FEATURE_NEXTJS value', async () => {
     const flagVal = require('../../feature-flags.json').FEATURE_NEXTJS
     await page.goto('http://localhost:4001/en/actions?nextjs=')
+    const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
     const nextWrapper = await page.$('#__next')
     flagVal === true ? expect(nextWrapper).toBeDefined() : expect(nextWrapper).toBeNull()
+    flagVal === true ? expect(IS_NEXTJS_PAGE).toBe(true) : expect(IS_NEXTJS_PAGE).toBe(false)
   })
 
   it('does not render through nextjs pipeline when nextjs query param is missing', async () => {
     await page.goto('http://localhost:4001/en/actions')
     const nextWrapper = await page.$('#__next')
+    const IS_NEXTJS_PAGE = await page.evaluate(() => window.IS_NEXTJS_PAGE)
     expect(nextWrapper).toBeNull()
+    expect(IS_NEXTJS_PAGE).toBe(false)
   })
 })
