@@ -11,8 +11,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 启用双重身份验证后，您在通过浏览器访问 {% data variables.product.product_name %} 时需要提供验证码。 如果使用其他方法访问 {% data variables.product.product_name %}，如 API 或命令行，则需要使用其他形式的身份验证。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”。
 
 ### 登录网站时提供 2FA 码

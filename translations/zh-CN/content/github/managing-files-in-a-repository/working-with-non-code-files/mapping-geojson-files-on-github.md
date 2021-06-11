@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
 
 单击右侧的纸张图标时，您还会看到在提交时对该文件的更改。

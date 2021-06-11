@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-user-provisioning-for-organizations-in-your-enterprise-account
 ---
+
 {% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
 {% data reusables.saml.about-user-provisioning-enterprise-account %}

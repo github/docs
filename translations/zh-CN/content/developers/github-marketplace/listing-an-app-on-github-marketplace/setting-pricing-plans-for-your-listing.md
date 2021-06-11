@@ -19,6 +19,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### 关于设置定价计划
 
 {% data variables.product.prodname_marketplace %} 提供几种不同类型的定价计划。 更多信息请参阅“[{% data variables.product.prodname_marketplace %} 的定价计划](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)”。

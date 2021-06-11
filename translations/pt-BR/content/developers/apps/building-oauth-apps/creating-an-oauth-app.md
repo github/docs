@@ -12,6 +12,7 @@ versions:
 topics:
   - OAuth Apps
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 

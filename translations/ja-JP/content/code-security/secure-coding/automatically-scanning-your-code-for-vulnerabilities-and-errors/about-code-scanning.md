@@ -10,9 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -46,7 +50,7 @@ topics:
 
 ### {% data variables.product.prodname_code_scanning %}の支払いについて
 
-{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用し、{% data variables.product.prodname_code_scanning %} ワークフローの実行ごとに {% data variables.product.prodname_actions %} に数分かかります。 詳しい情報については、[{% data variables.product.prodname_actions %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)を参照してください。
+{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用し、{% data variables.product.prodname_code_scanning %} ワークフローの実行ごとに {% data variables.product.prodname_actions %} に数分かかります。 詳しい情報については、「[{% data variables.product.prodname_actions %}の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 
 {% endif %}
 
@@ -58,6 +62,6 @@ You can run third-party analysis tools within {% data variables.product.product_
 
 ### 参考リンク
 
-- 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
+- 「[リポジトリをセキュアにする](/code-security/getting-started/securing-your-repository)」
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - OASIS 委員会 の Web サイトの「[OASIS Static Analysis Results Interchange Format (SARIF) 」TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

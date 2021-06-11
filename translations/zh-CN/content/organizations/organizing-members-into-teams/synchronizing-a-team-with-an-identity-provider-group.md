@@ -19,9 +19,9 @@ topics:
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% if currentVersion == "free proteam@latest" %}您可以将最多 5 个 IdP 组连接到 {% data variables.product.product_name %} 团队。{% elsif currentVersion == "github-ae@latest" %}您可以将 {% data variables.product.product_name %} 上的团队连接到一个 IdP 组。 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
+{% if currentversion == "free proteam@latest" %}您可以将最多 5 个 IdP 组连接到 {% data variables.product.product_name %} 团队。{% elsif currentVersion == "github-ae@latest" %}您可以将 {% data variables.product.product_name %} 上的团队连接到一个 IdP 组。 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
 
-{% if currentVersion == "free-proteam@latest" %}团队同步不支持超过 5000 个成员的 IdP 组。{% endif %}
+{% if currentversion == "free-proteam@latest" %}团队同步不支持超过 5000 个成员的 IdP 组。{% endif %}
 
 {% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 您不能在 {% data variables.product.product_name %} 上{% if currentVersion == "free-pro-team@latest" %}或使用 API{% endif %} 管理团队成员资格。
 
@@ -37,7 +37,7 @@ topics:
 
 要管理 {% data variables.product.prodname_dotcom %} 团队（包括连接到 IdP 组的团队）的仓库访问权限，您必须使用 {% data variables.product.product_name %} 进行更改。 更多信息请参阅“[关于团队](/articles/about-teams)”和“[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)”。
 
-{% if currentVersion == "free proteam@latest" %}您也可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
+{% if currentversion == "free proteam@latest" %}您也可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 已同步团队成员的要求
@@ -74,10 +74,10 @@ topics:
 
 ### 将 IdP 组连接到团队
 
-将 IdP 组连接到 {% data variables.product.product_name %} 团队时，组中的所有用户都会自动添加到团队中。 {% if currentVersion == "github-ae@latest" %}任何尚未成为父组织成员的用户也会添加到组织。{% endif %}
+将 IdP 组连接到 {% data variables.product.product_name %} 团队时，组中的所有用户都会自动添加到团队中。 {% if currentversion == "github-ae@latest" %}任何尚未成为父组织成员的用户也会添加到组织。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -87,10 +87,10 @@ topics:
 
 ### 断开 IdP 组与团队的连接
 
-如果您断开 IdP 组与 {% data variables.product.prodname_dotcom %} 团队的连接，则通过 IdP 组分配给 {% data variables.product.prodname_dotcom %} 团队的团队成员将从团队中删除。 {% if currentVersion == "github-ae@latest" %} 任何只是因为团队连接而成为父组织成员的用户也会从组织中删除。{% endif %}
+如果您断开 IdP 组与 {% data variables.product.prodname_dotcom %} 团队的连接，则通过 IdP 组分配给 {% data variables.product.prodname_dotcom %} 团队的团队成员将从团队中删除。 {% if currentversion == "github-ae@latest" %} 任何只是因为团队连接而成为父组织成员的用户也会从组织中删除。{% endif %}
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% if currentVersion == "free-pro-team@latest" %}

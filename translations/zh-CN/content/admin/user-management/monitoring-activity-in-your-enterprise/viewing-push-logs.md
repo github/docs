@@ -16,6 +16,7 @@ topics:
   - Git
   - Logging
 ---
+
 推送日志条目会显示：
 
 - 推送发起人
@@ -30,9 +31,7 @@ topics:
 
 1. 以站点管理员的身份登录 {% data variables.product.prodname_ghe_server %} 。
 1. 导航到仓库。
-1. 在仓库页面的右上角，单击
-{% octicon "rocket" aria-label="The rocket ship" %}。
-    ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. 在仓库页面右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 

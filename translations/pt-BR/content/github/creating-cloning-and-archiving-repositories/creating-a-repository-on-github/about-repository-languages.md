@@ -16,6 +16,7 @@ versions:
 topics:
   - Repositories
 ---
+
 {% data variables.product.product_name %} usa [Biblioteca Linguist](https://github.com/github/linguist) a de código aberto para
 determinar as linguagens de arquivo para destacar a sintaxe e estatísticas do repositório. As estatísticas da linguagem serão atualizadas após você fazer push de alterações no seu branch-padrão.
 

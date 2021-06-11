@@ -11,6 +11,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### リポジトリテンプレートついて
 
 リポジトリに対する読み取り権限があるユーザなら誰でも、テンプレートからリポジトリを作成できます。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)」を参照してください。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Wenn Du einen vorherigen Commit rückgängig machst, ist das Rückgängigmachen ebenfalls ein Commit. Der ursprüngliche Commit verbleibt ebenfalls im Verlauf des Repositorys.
 
 {% tip %}

@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-permissions-in-github-insights
 ---
+
 {% data reusables.github-insights.permissions-levels %}
 
 如果要向 {% data variables.product.prodname_enterprise %} 中不是站点管理员的人授予管理员权限，请联系 {% data variables.contact.github_support %}。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" %}“[提交事件单](/github/working-with-github-support/submitting-a-ticket)”。{% else %}“[连接 {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)”。{% endif %}

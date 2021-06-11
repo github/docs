@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
 ---
+
 ### 关于 Git 优选
 
 您可以在一个分支上优选提交在另一个分支上创建具有相同更改的提交副本。 如果将更改提交到错误的分支或想要对另一分支进行相同的更改，您可以优选提交将更改应用到另一个分支。 您也可以在准备创建或合并拉取请求之前使用优选来应用特定的更改。 例如，如果您向功能分支提交错误修复，则可优选包含错误修复的提交到项目的其他分支。

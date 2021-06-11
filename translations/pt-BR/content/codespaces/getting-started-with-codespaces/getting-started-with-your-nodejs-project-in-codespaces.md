@@ -1,7 +1,7 @@
 ---
 title: Primeiros passos com o seu projeto Node.js em Codedespaces
 shortTitle: Primeiros passos para o seu projeto Node.js
-intro: 'Get started with your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+intro: 'Comece com seu projeto JavaScript, Node.js ou TypeScript em {% data variables.product.prodname_codespaces %} criando um contêiner de desenvolvimento personalizado.'
 versions:
   free-pro-team: '*'
 type: tutorial
@@ -16,20 +16,20 @@ topics:
 
 ### Introdução
 
-This guide shows you how to set up your JavaScript, Node.js, or TypeScript project in {% data variables.product.prodname_codespaces %}. Ele irá apresentar a você um exemplo de abertura de seu projeto em um codespace e adicionar e modificar uma configuração de contêiner de desenvolvimento a partir de um modelo.
+Este guia mostra como configurar seu projeto JavaScript, Node.js ou TypeScript em {% data variables.product.prodname_codespaces %}. Ele irá apresentar a você um exemplo de abertura de seu projeto em um codespace e adicionar e modificar uma configuração de contêiner de desenvolvimento a partir de um modelo.
 
 #### Pré-requisitos
 
-- You should have an existing JavaScript, Node.js, or TypeScript project in a repository on {% data variables.product.prodname_dotcom_the_website %}. If you don't have a project, you can try this tutorial with the following example: https://github.com/microsoft/vscode-remote-try-node
-- You must have {% data variables.product.prodname_codespaces %} enabled for your organization.
+- Você deve ter um projeto existente de JavaScript, Node.js ou TypeScript em um repositório em {% data variables.product.prodname_dotcom_the_website %}. Se você não tiver um projeto, você poderá tentar este tutorial com o seguinte exemplo: https://github.com/microsoft/vscode-remote-try-node
+- Você precisa ter {% data variables.product.prodname_codespaces %} habilitado para a sua organização.
 
-### Step 1: Open your project in a codespace
+### Etapa 1: Abra o seu projeto em um codespace
 
-1. Navigate to your project's repository. Use the {% octicon "download" aria-label="The download icon" %} **Code** drop-down menu, and select **Open with Codespaces**. If you don’t see this option, your project isn’t available for {% data variables.product.prodname_codespaces %}.
+1. Acesse o repositório do seu projeto. Use o menu suspenso {% octicon "download" aria-label="The download icon" %} **Código** e selecione **Abrir com Codespaces**. Se você não vir esta opção, seu projeto não está disponível para {% data variables.product.prodname_codespaces %}.
 
   ![Botão de abrir com codespaces](/assets/images/help/codespaces/open-with-codespaces-button.png)
 
-2. To create a new codespace, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**. ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
+2. Para criar um novo codespace, clique em {% octicon "plus" aria-label="The plus icon" %} **Novo codespace**. ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
 Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. Por padrão, o contêiner para o seu código possui muitas linguagens e tempos de execução, incluindo Node.js, JavaScript, Typescript, nvm, npm e yarn. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
 
@@ -37,20 +37,20 @@ Você pode personalizar o seu codespace ajustando a quantidade de vCPUs e RAM, [
 
 {% data variables.product.prodname_codespaces %} usa um arquivo denominado `devcontainer.json` para armazenar configurações. Ao iniciar, {% data variables.product.prodname_codespaces %} usa o arquivo para instalar quaisquer ferramentas, dependências ou outro conjunto que possa ser necessário para o projeto. Para obter mais informações, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-### Step 2: Add a dev container to your codespace from a template
+### Etapa 2: Adicione um contêiner de desenvolvimento ao seu codespace a partir de um modelo
 
-The default codespaces container will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. By setting up a custom container you can customize the tools and scripts that run as part of codespace creation and ensure a fully reproducible environment for all {% data variables.product.prodname_codespaces %} users in your repository.
+O contêiner de codespaces padrão será compatível com a execução de projetos de Node.js como [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) fora da caixa. Ao configurar um contêiner personalizado, você poderá personalizar as ferramentas e scripts que são executados como parte da criação de código e garantir um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_codespaces %} no seu repositório.
 
-Para configurar seu projeto com um contêiner personalizado, você deverá usar um arquivo `devcontainer.json` para definir o ambiente. Em {% data variables.product.prodname_codespaces %}, você pode adicionar isto a partir de um modelo ou você pode criar o seu próprio. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+Para configurar seu projeto com um contêiner personalizado, você deverá usar um arquivo `devcontainer.json` para definir o ambiente. Em {% data variables.product.prodname_codespaces %}, você pode adicionar isto a partir de um modelo ou você pode criar o seu próprio. Para obter mais informações sobre contêineres de desenvolvimento, consulte "[Configurar codespaces para o seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...** !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
-3. For this example, click **Node.js**.  If you need additional features you can select any container that’s specific to Node or a combination of tools such as Node and MongoDB. ![Select Node option from the list](/assets/images/help/codespaces/add-node-prebuilt-container.png)
-4. Click the recommended version of Node.js. ![Node.js version selection](/assets/images/help/codespaces/add-node-version.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+1. Acesse a paleta de comandos (`shift comando P` / `shift control P`) e, em seguida, comece a digitar "dev container". Clique em **Codespaces: Adicionar arquivos de configuração de Contêiner do Desenvolvimento...** !["Codespaces: Adicionar arquivos de configuração de Contêiner de Desenvolvimento..." na paleta de comandos](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+3. Para este exemplo, clique em **Node.js**.  Se você precisar de funcionalidades adicionais, você poderá selecionar qualquer contêiner específico para o Node ou uma combinação de ferramentas como Node e MongoDB. ![Selecione a opção Node na lista](/assets/images/help/codespaces/add-node-prebuilt-container.png)
+4. Clique na versão recomendada do Node.js. ![Seleção de versão do Node.js](/assets/images/help/codespaces/add-node-version.png)
+5. Para reconstruir seu contêiner, acesse a paleta de comandos (`shift command P` / `shift control P`) e, em seguida, comece a digitar "recriar". Click **Codespaces: Rebuild Container**. ![Opção de reconstruir contêiner](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-#### Anatomy of your dev container
+#### Anatomia do seu contêiner de desenvolvimento
 
-Adding the Node.js dev container template adds a `.devcontainer` folder to the root of your project's repository with the following files:
+A adição do modelo de contêiner de desenvolvimento do Node.js adiciona uma pasta `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
 - `devcontainer.json`
 - arquivo Docker
@@ -91,18 +91,18 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 }
 ```
 
-- **Name** - You can name your dev container anything, this is just the default.
+- **Nome** - Você pode dar qualquer nome ao seu contêiner de desenvolvimento. Este é apenas o padrão.
 - **Build** - As propriedades de compilação.
-  - **dockerfile** - In the build object, dockerfile is a reference to the Dockerfile that was also added from the template.
+  - **Arquivo Docker** - No objeto de compilação, o arquivo Docker é uma referência ao arquivo Docker que também foi adicionado a partir do modelo.
   - **Args**
     - **Variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
-- **Settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
+- **Configurações** - Estas são configurações de {% data variables.product.prodname_vscode %} que você pode definir.
   - **Terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
-- **Extensions** - These are extensions included by default.
-  - **Dbaeumer.vscode-eslint** - ES lint is a great extension for linting, but for JavaScript there are a number of great Marketplace extensions you could also include.
+- **Extensões** - Estas são extensões incluídas por padrão.
+  - <**Dbaeumer.vscode-eslint** - ES lint é uma ótima extensão para linting, mas para o JavaScript, há uma série de ótimas extensões do Marketplace que você também pode incluir.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente.
-- **postCreateCommand** - If you want to run anything after you land in your codespace that’s not defined in the Dockerfile, you can do that here.
-- **remoteUser** - By default, you’re running as the vscode user, but you can optionally set this to root.
+- **postCreateCommand** - Se você quiser executar qualquer coisa depois de chegar ao seu codespace que não está definido no arquivo Docker, você poderá fazer isso aqui.
+- **remoteUser** - Por padrão, você está executando como usuário do vscode, mas, opcionalmente, você pode definir isso como root.
 
 ##### arquivo Docker
 
@@ -129,46 +129,46 @@ Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner
 
 Com o seu contêiner de desenvolvimento adicionado e um entendimento básico do que tudo faz, agora você pode fazer alterações para configurá-lo para o seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar o npm quando seu codespace for lançado e para fazer uma lista de portas dentro do contêiner disponível localmente.
 
-1. In the Explorer, select the `devcontainer.json` file from the tree to open it. You might have to exand the `.devcontainer` folder to see it.
+1. No Explorer, selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo. Você pode ter que sair da pasta `.devcontainer` para vê-la.
 
-  !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/devcontainers-options.png)
+  !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/devcontainers-options.png)
 
-2. Add the following lines to your `devcontainer.json` file after `extensions`:
+2. Adicione as seguintes linhas ao seu arquivo `devcontainer.json` após as `extensões`:
 
   ```json{:copy}
   "postCreateCommand": "npm install",
   "forwardPorts": [4000],
   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) in the {% data variables.product.prodname_vscode %} docs.
+  Para obter mais informações sobre as propriedades `devcontainer.json`, consulte a referência de [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) na documentação de {% data variables.product.prodname_vscode %}.
 
-3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**.
+3. Para reconstruir seu contêiner, acesse a paleta de comandos (`shift command P` / `shift control P`) e, em seguida, comece a digitar "recriar". Click **Codespaces: Rebuild Container**.
 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+  ![Opção de reconstruir contêiner](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-  Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
+  A reconstrução dentro do seu codespace garante que as suas alterações funcionem conforme o esperado antes de realizar o commit das alterações no repositório. Se algo falhar, você será colocado em um codespace com um contêiner de recuperação que você pode reconstruir para continuar ajustando o seu contêiner.
 
 
-### Step 4: Run your application
+### Etapa 4: Execute o seu aplicativo
 
-In the previous section, you used the `postCreateCommand` to installing a set of packages via npm. Agora você pode usar isso para executar nosso aplicativo com npm.
+Na seção anterior, você usou o `postCreateCommand` para instalar um conjunto de pacotes via npm. Agora você pode usar isso para executar nosso aplicativo com npm.
 
-1. Run your start command in the terminal with`npm start`.
+1. Execute seu comando inicial no terminal com`npm start`.
 
-  ![npm start in terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
+  ![início do npm no terminal](/assets/images/help/codespaces/codespaces-npmstart.png)
 
-2. When your project starts, you should see a toast in the bottom right corner with a prompt to connect to the port your project uses.
+2. Quando o seu projeto for iniciado, você deverá ver um alerta no canto inferior direito com uma instrução para conectar-se à porta que seu projeto usa.
 
-  ![Port forwarding toast](/assets/images/help/codespaces/codespaces-port-toast.png)
+  ![Notificação de encaminhamento de porta](/assets/images/help/codespaces/codespaces-port-toast.png)
 
-### Step 5: Commit your changes
+### Etapa 5: Faça commit das suas alterações
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
 ### Próximas etapas
 
-You should now be ready start developing your JavaScript project in {% data variables.product.prodname_codespaces %}. Aqui estão alguns recursos adicionais para cenários mais avançados.
+Agora você deve estar pronto para começar a desenvolver seu projeto JavaScript em {% data variables.product.prodname_codespaces %}. Aqui estão alguns recursos adicionais para cenários mais avançados.
 
-- [Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
-- [Managing GPG verification for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
+- [Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)
+- [Gerenciar a verificação de GPG para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/managing-gpg-verification-for-codespaces)
 - [Encaminhar portas no seu código](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

@@ -11,11 +11,12 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
 ---
+
 ### Sobre o {% data variables.product.prodname_GH_advanced_security %}
 
 {% data variables.product.prodname_dotcom %} tem muitas funcionalidades que ajudam você a melhorar e manter a qualidade do seu código. Alguns deles são incluídos em todos os planos{% if currentVersion != "github-ae@latest" %}, como o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Outras funcionalidades de segurança exigem uma licença de {% data variables.product.prodname_GH_advanced_security %} para ser executada em repositórios, além dos repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}.
 
-{% if currentVersion == "free-pro-team@latest" %}Para obter mais informações, consulte "[Sobre licenciamento para {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security)."{% elsif currentVersion ver_gt "enterprise-server@2. 2" %}Para obter informações sobre a compra de uma licença para {% data variables.product.prodname_GH_advanced_security %}, entre em contato com {% data variables.contact.contact_enterprise_sales %}. % elsif currentVersion == "github-ae@latest" %}Não há nenhuma cobrança para {% data variables.product.prodname_GH_advanced_security %} em {% data variables.product.prodname_ghe_managed %} durante a versão beta.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Para obter mais informações, consulte "[Sobre licenciamento para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."{% elsif currentVersion ver_gt "enterprise-server@2.22" %}Para informações sobre a compra de uma licença para {% data variables.product.prodname_GH_advanced_security %}, entre em contato {% data variables.contact.contact_enterprise_sales %}. {% elsif currentVersion == "github-ae@latest" %}Não há nenhuma cobrança para {% data variables.product.prodname_GH_advanced_security %} em {% data variables.product.prodname_ghe_managed %} durante a versão beta.{% endif %}
 
 ### Sobre as funcionalidades de {% data variables.product.prodname_advanced_security %}
 
@@ -29,14 +30,13 @@ Uma licença de {% data variables.product.prodname_GH_advanced_security %} forne
 - **Revisão de dependências** - Mostra o impacto total das alterações nas dependências e vê detalhes de qualquer versão vulnerável antes de realizar o merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
-Para obter informações sobre funcionalidades de {% data variables.product.prodname_advanced_security %} em desenvolvimento, consulte "[Plano de trabalho de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)". Para uma visão geral de todas as funcionalidades de segurança, consulte "[Sobre como proteger seu repositório](/github/administering-a-repository/about-securing-your-repository#setting-up-your-repository-securely)".
+Para obter informações sobre funcionalidades de {% data variables.product.prodname_advanced_security %} em desenvolvimento, consulte "[Plano de trabalho de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap)". Para uma visão geral de todas as funcionalidades de segurança, consulte "[ funcionalidades de segurança de{% data variables.product.prodname_dotcom %}](/code-security/getting-started/github-security-features)".
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ### Habilitar funcionalidades de {% data variables.product.prodname_advanced_security %} em {% data variables.product.product_name %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
-O administrador do site deve habilitar
-{% data variables.product.prodname_advanced_security %} para {% data variables.product.product_location %} antes de poder utilizar estas funcionalidades. Para obter mais informações, consulte "[Configurar funcionalidades avançadas de segurança](/admin/configuration/configuring-advanced-security-features)".
+O administrador do site deve habilitar {% data variables.product.prodname_advanced_security %} para {% data variables.product.product_location %} antes de poder utilizar essas funcionalidades. Para obter mais informações, consulte "[Configurar funcionalidades avançadas de segurança](/admin/configuration/configuring-advanced-security-features)".
 {% endif %}
 
 Após configurar o sistema, você poderá habilitar e desabilitar esses recursos no nível da organização ou repositório. Para mais informações, consulte "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" e "[Gerenciar as configurações de segurança e análise do seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
@@ -53,7 +53,7 @@ Para outros repositórios, uma vez que você tenha uma licença da conta corpora
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Se você tem uma conta corporativa, a utilização da licença para toda a empresa é exibida na página de licença corporativa. Para obter mais informações, consulte "[Visualizar o uso do seu {% data variables.product.prodname_GH_advanced_security %}](/github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage)".
+Se você tem uma conta corporativa, a utilização da licença para toda a empresa é exibida na página de licença corporativa. Para obter mais informações, consulte "[Visualizar o uso do seu {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 
 {% endif %}
 
