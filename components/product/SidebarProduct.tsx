@@ -4,7 +4,7 @@ import { useDetails, Details } from '@primer/components'
 import { ChevronDownIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { CurrentProductTree, useMainContext } from 'components/context/MainContext'
+import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export const SidebarProduct = () => {
@@ -82,7 +82,7 @@ export const SidebarProduct = () => {
 
 type SectionProps = {
   routePath: string
-  page: CurrentProductTree
+  page: ProductTreeNode
   title: string
   defaultOpen: boolean
 }
