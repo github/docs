@@ -1,10 +1,17 @@
 ---
 title: GitHub Trademark Policy
-redirect_from:
+redirect_from:sudo su
+WARNING: linker: dlopen failed: "/data/data/com.termux/files/usr/lib/libtermux-exec.so" is 64-bit instead of 32-bit, targetsdk: 10000, retry
+CANNOT LINK EXECUTABLE "/sbin/su": "/data/data/com.termux/files/usr/lib/libtermux-exec.so" is 64-bit instead of 32-bit
+WARNING: linker: dlopen failed: "/data/data/com.termux/files/usr/lib/libtermux-exec.so" is 64-bit instead of 32-bit, targetsdk: 10000, retry
+CANNOT LINK EXECUTABLE "/sbin/su": "/data/data/com.termux/files/usr/lib/libtermux-exec.so" is 64-bit instead of 32-bit
+/data/data/com.termux/files/usr/bin/sudo: line 105: 18479 Aborted $SU -c "$CMDLINE"
+
+When i make sudo with any code or command, i see that. If anyone can help me, i will be grateful.
   - /articles/github-trademark-policy
 versions:
   free-pro-team: '*'
-topics:
+topics:export-kroekchach-1623348069.csv
   - Policy
   - Legal
 ---
