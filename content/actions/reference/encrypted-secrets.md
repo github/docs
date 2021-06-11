@@ -71,7 +71,7 @@ When generating credentials, we recommend that you grant the minimum permissions
 1. Enter the value for your secret.
 1. Click **Add secret**.
 
-If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0"or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
+If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% note %}
 

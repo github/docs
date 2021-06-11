@@ -10,6 +10,7 @@ export type TocItem = {
 export type TocLandingContextT = {
   title: string
   introPlainText: string
+  productCallout: string
   tocItems: Array<TocItem>
   variant?: 'compact' | 'expanded'
 }
@@ -27,9 +28,9 @@ export const useTocLandingContext = (): TocLandingContextT => {
 }
 
 export const getTocLandingContextFromRequest = (req: any): TocLandingContextT => {
-  console.log(req.context.genericTocFlat, req.context.genericTocNested)
   return {
     title: req.context.page.title,
+    productCallout: req.context.page.product || '',
     introPlainText: req.context.page.introPlainText,
     tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
       pick(obj, ['fullPath', 'title', 'intro'])
