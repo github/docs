@@ -7,20 +7,37 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Sobre commits
 
 {% data reusables.commits.about-commits %} Você também pode adicionar um coautor em qualquer commit em que colaborar.
 
 {% data reusables.desktop.update-email-address %} Para obter mais informações, consulte ["Configurar o Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
 
-### 1. Escolher um branch e fazer alterações
+### Escolher um branch e fazer alterações
 
 1. [Crie um branch](/desktop/guides/contributing-to-projects/managing-branches) ou selecione um branch existente clicando em {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** (Branch atual) na barra de ferramentas. Em seguida, selecione o branch na lista.
 
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 2. Selecionar alterações para inclusão em um commit
+### Escolhendo como mostrar diffs
+
+Você pode alterar a maneira como os diffs são exibidos em {% data variables.product.prodname_desktop %} para atender às suas necessidades de revisão.
+
+Para mudar a forma como você vê os diffs, no canto superior direito da visão diff, clique em {% octicon "gear" aria-label="The Gear icon" %}.
+- Para alterar a forma como o diff inteiro é exibido, em "Exibição do diff", selecione  **Unificado** ou **Separado**. A visualização unificada mostra as alterações linearmente, enquanto a visualização separada mostra conteúdo antigo do lado esquerdo e novo conteúdo do lado direito.
+- Para ocultar as alterações de espaços em branco para que você possa se concentrar em alterações mais substantivas, selecione **Ocultar alterações de espaços em branco**.
+
+![Menu de opções do diff](/assets/images/help/desktop/diff-selection.png)
+
+Se você precisa ver mais do arquivo do que {% data variables.product.prodname_desktop %} mostra por padrão, você pode expandir o diff.
+- Para ver as próximas linhas acima ou abaixo das alterações destacadas, clique na seta acima ou abaixo dos números de linha.
+- Para ver o arquivo inteiro, clique com o botão direito do mouse na visualização do diff e clique em **Expandir todo o arquivo**.
+
+![Expandir visualização do diff](/assets/images/help/desktop/expand-diff-view.png)
+
+### Selecionar alterações para inclusão em um commit
 
 As alterações feitas nos arquivos via editor de texto e salvas no local também aparecerão no {% data variables.product.prodname_desktop %}.
 
@@ -41,20 +58,11 @@ As alterações feitas nos arquivos via editor de texto e salvas no local també
 
 Se um arquivo tiver várias alterações e você quiser incluir somente algumas no commit, será possível criar um commit parcial. O restante das alterações ficará intacto, de modo que você possa fazer outras modificações e commits. Essa opção permite fazer commits separados mais relevantes, como manter alterações de quebra de linha em um commit separado das alterações de código.
 
-{% note %}
-
-**Observação:** Dividir diff encontra-se atualmente na versão beta e está sujeito a alterações.
-
-{% endnote %}
-
-1. Para escolher como as alterações são exibidas, no canto superior direito do arquivo alterado, use {% octicon "gear" aria-label="The Gear icon" %} para selecionar **Unificado** ou **Dividido**.
-
-  ![Ícone de equipamento com diffs unificados e divididos](/assets/images/help/desktop/gear-diff-select.png)
-2. Para excluir linhas alteradas do seu commit, clique em uma ou mais linhas alteradas para que o azul desapareça. As linhas ainda em destaque em azul serão incluídas no commit.
+Para excluir linhas alteradas do seu commit, clique em uma ou mais linhas alteradas para que o azul desapareça. As linhas ainda em destaque em azul serão incluídas no commit.
 
   ![Linhas desmarcadas em um arquivo](/assets/images/help/desktop/partial-commit.png)
 
-### 3. Descartar alterações
+### Descartar alterações
 Se você tiver alterações não realizadas que não deseja manter, poderá descartar as alterações. Isso removerá as alterações dos arquivos no seu computador. Você pode descartar todas as alterações não realizadas em um ou mais arquivos ou pode descartar as linhas específicas que adicionou.
 
 As alterações descartadas são salvas em um arquivo datado na Lixeira. Você pode recuperar as alterações descartadas até que a lixeira seja esvaziada.
@@ -87,7 +95,7 @@ Para descartar um grupo de linhas alteradas, clique com o botão direito na barr
   ![Descartar um grupo de linhas adicionadas na caixa de diálogo de confirmação](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. Mensagem de commit e envio das alterações
+### Mensagem de commit e envio das alterações
 
 Ao concluir as alterações que você decidiu fazer no commit, escreva a mensagem do commit e envie as alterações. Se o commit envolveu trabalho em colaboração, será possível atribuí-lo a mais de um autor.
 

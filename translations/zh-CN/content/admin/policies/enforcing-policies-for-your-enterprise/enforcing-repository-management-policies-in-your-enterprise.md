@@ -35,6 +35,7 @@ topics:
   - Policies
   - Security
 ---
+
 ### 配置企业中新仓库的默认可见性
 
 每次有人在您的企业上创建新仓库时，此人必须选择仓库的可见性。 当您配置企业的默认可见性设置时，需要选择默认可见性。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”

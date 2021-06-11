@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于 {% data variables.product.prodname_desktop %} 中的标记
 
 {% data variables.product.prodname_desktop %} 可用于创建带注释的标记。 标记与提交相关，因此您可以使用标记在仓库的历史记录中标记单独的点，包括发行版的版本号。 有关发行版标记的更多信息，请参阅“[关于发行版](/github/administering-a-repository/about-releases)。”

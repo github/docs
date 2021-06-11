@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/stashing-changes
 ---
+
 ### 关于隐藏的更改
 
 要将更改应用到仓库，您必须保存文件，然后将更改提交到分支。 如果您保存了尚未准备好提交的更改，可以隐藏更改供以后使用。 当您隐藏更改时，更改会暂时从文件中删除，然后您可以选择恢复或丢弃更改。 使用 {% data variables.product.prodname_desktop %} 只能隐藏一组更改。 如果您使用 {% data variables.product.prodname_desktop %} 来隐藏更改，则所有未保存的更改都将被隐藏。 在隐藏分支上的更改后，您可以安全地更改分支或对当前分支进行其他更改。

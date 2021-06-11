@@ -10,9 +10,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: overview
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 ---
+
 <!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
@@ -46,7 +50,7 @@ Você pode visualizar e contribuir para as consultas do {% data variables.produc
 
 ### Sobre a cobrança do {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}, e cada execução de um fluxo de trabalho de {% data variables.product.prodname_code_scanning %} consome minutos para {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)".
+{% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}, e cada execução de um fluxo de trabalho de {% data variables.product.prodname_code_scanning %} consome minutos para {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 {% endif %}
 
@@ -58,6 +62,6 @@ Você pode executar ferramentas de análise de terceiros em {% data variables.pr
 
 ### Leia mais
 
-- "[Sobre proteger seu repositório](/github/administering-a-repository/about-securing-your-repository)"
+- "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [Formato de Intercâmbio de Resultados de Análise Estática OASIS (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) no site do Comitê OASIS

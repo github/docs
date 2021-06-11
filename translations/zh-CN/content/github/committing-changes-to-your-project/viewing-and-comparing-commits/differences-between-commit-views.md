@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 在 {% data variables.product.product_name %} 上，您可以按以下方式查看仓库的提交历史记录：
 
 - 直接导航到仓库的[提交页面](https://github.com/mozilla/rust/commits/master)

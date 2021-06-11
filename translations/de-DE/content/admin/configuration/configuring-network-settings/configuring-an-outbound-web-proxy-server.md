@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 Wenn ein Proxyserver für {% data variables.product.product_location %} aktiviert wird, werden ausgehende Nachrichten, die von {% data variables.product.prodname_ghe_server %} gesendet wurden, zunächst über den Proxyserver gesendet, sofern der Zielhost nicht als HTTP-Proxyausschluss hinzugefügt wurde. Zu den Typen ausgehender Nachrichten zählen ausgehende Webhooks, das Hochladen von Bundles und das Abrufen von veralteten Avataren. Die URL des Proxyservers ist das Protokoll, die Domain oder IP-Adresse plus die Portnummer, also beispielsweise `http://127.0.0.1:8123`.
 
 {% note %}

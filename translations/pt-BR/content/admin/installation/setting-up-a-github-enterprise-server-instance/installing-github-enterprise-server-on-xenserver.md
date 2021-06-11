@@ -10,6 +10,13 @@ versions:
 topics:
   - Enterprise
 ---
+
+{% note %}
+
+  **Note:** Support for {% data variables.product.prodname_ghe_server %} on XenServer will be discontinued in {% data variables.product.prodname_ghe_server %} 3.3. Para obter mais informações, consulte as observações sobre a versão [{% data variables.product.prodname_ghe_server %} 3.1](/admin/release-notes#3.1.0)
+
+{% endnote %}
+
 ### Pré-requisitos
 
 - {% data reusables.enterprise_installation.software-license %}

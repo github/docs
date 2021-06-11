@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% note %}
 
 Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.

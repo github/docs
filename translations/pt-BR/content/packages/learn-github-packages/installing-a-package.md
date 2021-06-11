@@ -26,7 +26,7 @@ Depois de encontrar um pacote, você pode ler a descrição e as instruções de
 
 Você pode instalar um pacote de {% data variables.product.prodname_registry %} usando qualquer {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}cliente de pacote compatível{% else %}tipo de pacote habilitado para a sua instância{% endif %}, seguindo as mesmas diretrizes gerais.
 
-1. Efetue a autenticação com {% data variables.product.prodname_registry %} usando as instruções para seu cliente de pacote. For more information, see "[Authenticating to GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
+1. Efetue a autenticação com {% data variables.product.prodname_registry %} usando as instruções para seu cliente de pacote. Para obter mais informações, consulte "[Efetuar a autenticação no GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)".
 2. Instale o pacote usando as instruções para seu cliente de pacote.
 
-For instructions specific to your package client, see "[Working with a {% data variables.product.prodname_registry %} registry](/packages/working-with-a-github-packages-registry)."
+Para obter instruções específicas para o seu cliente de pacotes, consulte "[Trabalhar com um registro de {% data variables.product.prodname_registry %}](/packages/working-with-a-github-packages-registry)".

@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% data variables.large_files.product_name_short %} の整合性チェックでは、プッシュで参照されたすべての {% data variables.large_files.product_name_short %} ファイルが正しくアップロードされていることを確認します。 そのチェックによりアップロードされていない参照ファイルが検出されると、エラー メッセージが表示されてプッシュはブロックされます。
 
 エラー メッセージを解決するには、ローカルの {% data variables.large_files.product_name_short %} クライアントを再インストールして、参照された {% data variables.large_files.product_name_short %} ファイルを今後正しくアップロードできるようにする必要があります。

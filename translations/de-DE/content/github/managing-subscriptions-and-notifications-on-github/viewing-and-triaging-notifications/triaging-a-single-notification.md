@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
 ---
+
 ### Sichern einer einzelnen Benachrichtigung
 
 Um eine einzelne Benachrichtigung zu für einen späteren Review zu sichern, klicke rechts neben der Benachrichtigung auf {% octicon "bookmark" aria-label="The bookmark icon" %}. Du kannst nur eine Benachrichtigung nach der Anderen sichern.

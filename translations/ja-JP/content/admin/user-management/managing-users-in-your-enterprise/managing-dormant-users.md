@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - Licensing
 ---
+
 「活動」には以下のことが含まれますが、以下に限定はされません:
 - {% data variables.product.product_name %} へのサインイン。
 - Issue やプルリクエストへのコメント。

@@ -11,6 +11,7 @@ topics:
   - Identity
   - Access management
 ---
+
 {% data variables.product.product_name %} では、新しい SSH キーを追加する、アプリケーションを認証する、Team メンバーを変更するといった重要なアクションを実行するとき、パスワードが要求されます。
 
 アカウントのセキュリティを保つために、パスワードを変更してから次のアクションを実行するようにしてください:

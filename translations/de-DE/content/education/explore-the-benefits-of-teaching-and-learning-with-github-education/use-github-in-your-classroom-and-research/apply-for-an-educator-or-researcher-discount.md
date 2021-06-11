@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Informationen zu Lehrer- und Forscherrabatten
 
 {% data reusables.education.about-github-education-link %}

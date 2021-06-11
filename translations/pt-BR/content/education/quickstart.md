@@ -82,6 +82,7 @@ Você criou uma sala de aula e está pronto para enriquecer seu curso com {% dat
 
 - Assista a alguns vídeos sobre {% data variables.product.prodname_classroom %}. Para obter mais informações, consulte "[Fundamentos da configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 - Gerencie suas salas de aula e administradores da sala de aula e crie uma lista de estudantes para sua sala de aula. Para obter mais informações, consulte "[Gerenciar salas de aula](/education/manage-coursework-with-github-classroom/manage-classrooms)".
+- Utilize o Git e a atividade inicial de {% data variables.product.company_short %} para dar aos alunos uma visão geral do Git e dos princípios básicos de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Use a atividade inicial do Git e {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)".
 - Crie uma atividade para alunos individualmente ou para equipes. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 - Escreva e implemente testes automatizados para dar feedback imediato aos alunos diretamente nos repositórios de atividade. Para obter mais informações, consulte "[Usar avaliação automática](/education/manage-coursework-with-github-classroom/use-autograding).
 - Participar de {% data variables.product.prodname_education_community_with_url %}.

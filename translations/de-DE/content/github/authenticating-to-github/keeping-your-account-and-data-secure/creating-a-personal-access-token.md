@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
 
 {% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
@@ -36,8 +37,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
    ![Token-Scopes auswählen](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. Klicke auf **Generate token** (Token erzeugen). ![Schaltfläche „Generate token“ (Token erzeugen)](/assets/images/help/settings/generate_token.png)
-8. Click
-{% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
+8. Klicke auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um das Token in die Zwischenablage zu kopieren. For security reasons, after you navigate off the page, you will not be able to see the token again.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
    {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
@@ -60,6 +60,8 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 Persönliche Zugriffstoken können nur für HTTPS-Git-Vorgänge verwendet werden. Wenn Ihr Repository eine SSH-Remote-URL verwendet, müssen Sie [das Remote-Repository von SSH auf HTTPS umstellen](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https).
 
 Wenn Sie nicht nach einem Benutzernamen und einem Passwort gefragt werden, wurden Ihre Anmeldeinformationen möglicherweise auf Ihrem Computer zwischengespeichert. Sie können [Ihre Anmeldeinformationen in der Keychain aktualisieren](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain), um das alte Passwort durch den Token zu ersetzen.
+
+Instead of manually entering your PAT for every HTTPS Git operation, you can cache your PAT with a Git client. Git will temporarily store your credentials in memory until an expiry interval has passed. You can also store the token in a plain text file that Git can read before every request. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 ### Weiterführende Informationen
 

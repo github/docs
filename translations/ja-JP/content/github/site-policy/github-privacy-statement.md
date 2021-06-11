@@ -64,23 +64,23 @@ Githubではお客様の個人情報をプライバシーステートメント�
 ##### Payment information
 有料でのアカウントにサインオンする場合や、GitHub Sponsors Programを通じて送金する場合、GitHub Marketplaceでアプリケーションを購入する場合、当社は、お客様のフルネーム、住所およびクレジットカード情報またはPayPal情報を収集します。 GitHubは、お客様のクレジットカード情報またはPaypal情報を処理または保管しませんが、第三者の支払処理者はこれを行うことにご留意ください。
 
-If you list and sell an application on [GitHub Marketplace](https://github.com/marketplace), we require your banking information. If you raise funds through the [GitHub Sponsors Program](https://github.com/sponsors), we require some [additional information](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) through the registration process for you to participate in and receive funds through those services and for compliance purposes.
+[GitHub Marketplace](https://github.com/marketplace) にアプリケーションを掲載しこれを販売する場合、当社は、お客様の銀行情報を要求します。 [GitHub Sponsors Program](https://github.com/sponsors)を通じて資金を調達する場合、当社は、利用者がサービスに参加して資金を受け取るため、および法令順守のため、登録処理を通じて利用者の[追加情報](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account#submitting-your-bank-information) を要求します。
 
-##### Profile information
+##### プロフィール情報
 お客様は、フルネーム、写真を含むアバター、経歴、位置情報、会社、第三者のウェブサイトへのURLなどのお客様のアカウントプロフィールの追加情報を当社に提供するかどうかを選択できます。 この情報には、ユーザの個人情報が含まれる可能性があります。 プロフィール情報は、当社のサービスを使用する他のユーザからも閲覧ができますのでご注意ください。
 
 #### サービスを使用することによってGitHubが収集する情報
 
-##### Transactional information
+##### トランザクション情報
 有料でのアカウントを持っている場合、[GitHub Marketplace](https://github.com/marketplace)に掲載したアプリケーションを販売した場合、または、[GitHub Sponsors Program](https://github.com/sponsors)を通じて資金を調達した場合、当社は、日付、時間や請求金額など、本サービス上でのお客様のトランザクションについての一定の情報を自動的に収集します。
 
-##### Usage information
+##### 利用情報
 お客様が当社のサービスまたはウェブサイトにアクセスしている場合、当社は、ほとんどのサービスが収集する情報を、お客様の同意が必要な場合はその同意を得て、自動的に収集します。 この収集する情報は、閲覧しているページ、参照したページ、IPアドレスおよびセッション情報ならびに。それぞれのリクエストの日付および時間などのお客様のサービス利用方法を含みます。 この情報は、アカウントを保有しているかどうかに関わらず、ウェブサイトのすべての訪問者から収集しています。 この情報には、ユーザ個人情報を含む可能性があります。
 
 ##### クッキー
 As further described below, we automatically collect information from cookies (such as cookie ID and settings) to keep you logged in, to remember your preferences, to identify you and your device and to analyze your use of our service.
 
-##### Device information
+##### デバイス情報
 当社は、IPアドレス、ブラウザまたはクライアントアプリケーション情報、言語設定、オペレーティングシステムとアプリケーションバージョン、デバイスの種類とID、デバイスのモデルとメーカーなど、お客様のデバイスについての一定の情報を収集することがあります。 この情報には、ユーザ個人情報を含む可能性があります。
 
 #### 当社から第三者から収集する情報

@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### {% data variables.product.prodname_marketplace %} 购买 web 挂钩有效负载
 
 Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[web 挂钩递送标头](/webhooks/event-payloads/#delivery-headers)”。 GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。

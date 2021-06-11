@@ -12,9 +12,16 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Alerts
+  - Advanced Security
+  - Dependency graph
+  - Secret scanning
   - Repositories
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 ### Habilitar ou desabilitar funcionalidades de segurança e análise para repositórios públicos
 
@@ -36,23 +43,18 @@ topics:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. The control for "
-{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %}
-  ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
+4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. O controle para "{% data variables.product.prodname_GH_advanced_security %}" fica desabilitado se a sua empresa não tiver licenças disponíveis para {% data variables.product.prodname_advanced_security %}.{% if currentVersion == "free-pro-team@latest" %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png){% else %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
   {% note %}
-**Observação:** Se você desabilitar
 
-  {% data variables.product.prodname_GH_advanced_security %}, {% if currentVersion == "free-pro-team@latest" %}dependência, {% endif %}{% data variables.product.prodname_secret_scanning %} e {% data variables.product.prodname_code_scanning %} estão desabilitados. Todos os fluxos de trabalho, uploads de SARIF, ou chamadas de API para {% data variables.product.prodname_code_scanning %} falharão.
+  **Nota:** Se você desabilitar {% data variables.product.prodname_GH_advanced_security %}, {% if currentVersion == "free-pro-team@latest" %}análise de dependência, {% endif %}{% data variables.product.prodname_secret_scanning %} e {% data variables.product.prodname_code_scanning %} ficarão desabilitados. Todos os fluxos de trabalho, uploads de SARIF, ou chamadas de API para {% data variables.product.prodname_code_scanning %} falharão.
   {% endnote %}
   {% endif %}
   {% if currentVersion == "enterprise-server@3.0" %}
 4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
   {% endif %}
   {% if currentVersion == "github-ae@latest" %}
-4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. Antes de poder habilitar"
-{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.
-   ![Habilite ou desabilite {% data variables.product.prodname_GH_advanced_security %} ou {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
+4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. Antes de poder habilitar "{% data variables.product.prodname_secret_scanning %}" no seu repositório, talvez seja necessário habilitar {% data variables.product.prodname_GH_advanced_security %}. ![Habilite ou desabilite {% data variables.product.prodname_GH_advanced_security %} ou {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 
 ### Conceder acesso aos alertas de segurança
@@ -92,8 +94,7 @@ Os proprietários da organização e os administradores do repositório só pode
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Em "Acesso aos alertas", à direita da pessoa ou da equipe cujo acesso você deseja remover, clique em
-{% octicon "x" aria-label="X symbol" %}.
+4. Em "Acesso aos alertas", à direita da pessoa ou da equipe cujo acesso você deseja remover, clique em {% octicon "x" aria-label="X symbol" %}.
    {% if currentVersion == "free-pro-team@latest" %}
    ![Botãi "x" para remover o acesso de alguém aos alertas de segurança do seu repositório](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
    {% endif %}
@@ -106,5 +107,5 @@ Os proprietários da organização e os administradores do repositório só pode
 
 ### Leia mais
 
-- "[Sobre proteger seu repositório](/github/administering-a-repository/about-securing-your-repository)"
+- "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"
 - "[Gerenciando configurações de segurança e análise para sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

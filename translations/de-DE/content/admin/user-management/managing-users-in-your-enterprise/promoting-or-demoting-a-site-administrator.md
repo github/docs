@@ -15,6 +15,7 @@ topics:
   - User account
   - Enterprise
 ---
+
 {% tip %}
 
 **Hinweis:** Wenn die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) und das Attribut `Administrators group` festgelegt ist, wenn [der LDAP-Zugriff für Benutzer konfiguriert wird](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), besitzen diese Benutzer automatisch Websiteadministratorzugriff auf Ihre Instanz. In diesem Fall ist es nicht möglich, Benutzer mit den folgenden Schritten manuell hochzustufen. Sie müssen sie zur Gruppe mit den LDAP-Administratoren hinzufügen.

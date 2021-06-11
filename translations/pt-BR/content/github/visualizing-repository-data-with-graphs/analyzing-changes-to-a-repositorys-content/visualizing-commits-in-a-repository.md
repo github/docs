@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 O gráfico superior mostra commits do ano inteiro, por semana.
 
 ![Gráfico anual de commits do repositório](/assets/images/help/graphs/repo_commit_activity_year_graph.png)

@@ -10,6 +10,6 @@ Enterprise アカウントのドメイン検証するには、ドメインホス
    ```shell
    dig _github-challenge-<em>ENTERPRISE-ACCOUNT</em>.<em>example.com</em> +nostats +nocomments +nocmd TXT
    ```
-1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
+1. TXTレコードがDNSに追加されたことを確認したら、上記のステップ1から4までに従い、Enterpriseアカウントの承認及び検証済みのドメインにアクセスしてください。
 {% data reusables.organizations.continue-verifying-domain %}
 1. 必要に応じて、Organization のプロフィールに「検証済み」バッジが表示されたら、ドメインホスティングサービスの DNS レコードから TXT エントリを削除します。 ![検証済みバッジ](/assets/images/help/organizations/verified-badge.png)

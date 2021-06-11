@@ -12,6 +12,7 @@ topics:
   - Identity
   - Access management
 ---
+
 Zum Hosten Ihrer Bilder verwendet {% data variables.product.product_name %} den [Open-Source-Projekt-Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 
 Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
