@@ -333,7 +333,7 @@ describe('lint markdown content', () => {
         }
       })
 
-      test.only('ifversion conditionals are valid in markdown', async () => {
+      test('ifversion conditionals are valid in markdown', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
       })
@@ -524,7 +524,7 @@ describe('lint yaml content', () => {
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
       })
 
-      test.only('ifversion conditionals are valid in yaml', async () => {
+      test('ifversion conditionals are valid in yaml', async () => {
         const errors = validateIfversionConditionals(ifversionConditionals)
         expect(errors.length, errors.join('\n')).toBe(0)
       })
