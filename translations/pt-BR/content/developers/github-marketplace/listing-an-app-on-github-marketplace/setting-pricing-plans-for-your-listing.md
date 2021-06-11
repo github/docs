@@ -19,6 +19,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### Sobre a configuração dos planos de preços
 
 {% data variables.product.prodname_marketplace %} oferece vários tipos diferentes de planos de preços. Para obter informações detalhadas, consulte "[Planos de preços para {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/pricing-plans-for-github-marketplace-apps)".

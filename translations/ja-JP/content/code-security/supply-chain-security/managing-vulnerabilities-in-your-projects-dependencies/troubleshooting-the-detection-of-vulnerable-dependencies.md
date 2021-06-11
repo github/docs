@@ -8,9 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Alerts
+  - Troubleshooting
+  - Errors
+  - Security updates
+  - Dependencies
+  - Vulnerabilities
+  - Dependency graph
+  - Alerts
+  - CVEs
+  - Repositories
 ---
+
 {% data variables.product.product_name %} によって報告された依存関係の検出結果は、他のツールから返される結果とは異なる場合があります。 これには理由があり、{% data variables.product.prodname_dotcom %} がプロジェクトの依存関係をどのように決定するかを理解しておくと便利です。
 
 ### 一部の依存関係がないように見えるのはなぜですか？

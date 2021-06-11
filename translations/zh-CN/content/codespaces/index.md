@@ -1,8 +1,8 @@
 ---
-title: GitHub Codespaces Documentation
+title: GitHub 代码空间文档
 beta_product: true
 shortTitle: GitHub Codespaces
-intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
+intro: 创建一个代码空间，在一个安全、可配置、专用的开发环境中开始开发，该环境可以按照您希望的方式和位置工作。
 introLinks:
   quickstart: /codespaces/quickstart
   overview: /codespaces/about-codespaces
@@ -39,5 +39,6 @@ children:
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
   - /codespaces-reference
+  - /guides
 ---
 

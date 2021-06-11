@@ -9,6 +9,13 @@ versions:
 topics:
   - Accounts
 ---
+
+{% warning %}
+
+Deprecation note: GitHub Jobs is now deprecated. The last date to post a job was May 19, 2021. The GitHub Jobs site will shut down entirely on August 19, 2021. For more information, see the [GitHub blog post](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/).
+
+{% endwarning %}
+
 Das [GitHub Jobs](https://jobs.github.com/)-Board ist eine tolle Möglichkeit, um im technischen Bereich eine Stelle zu finden. Du kannst die in Deinem GitHub-Dashboard eingestellten Stellenangebote ansehen.
 
 ![GitHub Jobs-Anzeigen im Dashboard](/assets/images/help/settings/jobs-ads-on-dashboard.png)

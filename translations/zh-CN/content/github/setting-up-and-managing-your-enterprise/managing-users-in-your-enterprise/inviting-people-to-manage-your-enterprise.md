@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 关于邀请人员管理企业帐户
 
 {% data reusables.enterprise-accounts.enterprise-administrators %} 更多信息请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)”。

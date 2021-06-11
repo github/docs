@@ -8,10 +8,14 @@ header:
     localization_complete: Wir veröffentlichen regelmäßig Aktualisierungen unserer Dokumentation, und die Übersetzung dieser Seite kann noch im Gange sein. Die neuesten Informationen findest Du in der <a id="to-english-doc" href="/en">englischsprachigen Dokumentation</a>. <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]=">Informieren Sie uns bitte</a>, falls auf dieser Seite ein Problem mit den Übersetzungen vorliegt.
     localization_in_progress: Hallo, Entdecker! An dieser Seite wird aktiv gearbeitet, oder sie wird noch übersetzt. Die neuesten und genauesten Informationen findest Du in unserer <a id="to-english-doc" href="/en">englischsprachigen Dokumentation</a>.
     early_access: '📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.'
-    ghes_release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
-    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server. {% data ui.header.notices.ghes_release_notes_use_latest %}'
+    release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
+    #GHES release notes
+    ghes_release_notes_upgrade_patch_only: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_release_only: '📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+    ghes_release_notes_upgrade_patch_and_release: '📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.'
+release_notes:
+  banner_text_current: These changes will roll out over the next one week.
+  banner_text_past: These changes rolled out to enterprises during the week of
 search:
   need_help: Benötigen Sie Hilfe?
   placeholder: Themen, Produkte suchen …
@@ -26,6 +30,7 @@ toc:
 pages:
   article_version: 'Artikelversion:'
   miniToc: Inhalt dieses Artikels
+  contributor_callout: This article is contributed and maintained by
 errors:
   oops: Hoppla!
   something_went_wrong: Leider ist ein Fehler aufgetreten.
@@ -35,19 +40,22 @@ support:
   still_need_help: Still need help?
   contact_support: Support kontaktieren
   ask_community: Ask the GitHub community
-helpfulness:
+survey:
   able_to_find: Did this doc help you?
   yes: true
   no: false
-  yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
-  email_placeholder: email@example.com
+  yes_feedback: We're continually improving our docs. We'd love to hear what we do well.
   no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
-  comment_label: Let us know what we can do better
+  comment_yes_label: Let us know what we do well
+  comment_no_label: Let us know what we can do better
   optional: Optional
   required: Erforderlich
+  email_placeholder: email@example.com
   email_label: Can we contact you if we have more questions?
   send: Send
-  feedback: Thank you! Your feedback has been submitted.
+  feedback: Thank you! We received your feedback.
+  not_support: If you need a reply, please contact support instead.
+  privacy_policy: Privacy policy
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
@@ -162,7 +170,6 @@ product_sublanding:
 learning_track_nav:
   prevGuide: Previous guide
   nextGuide: Next guide
-contributor_callout: This article is contributed and maintained by
 toggle_images:
   off: Images are off, click to show
   on: Images are on, click to hide

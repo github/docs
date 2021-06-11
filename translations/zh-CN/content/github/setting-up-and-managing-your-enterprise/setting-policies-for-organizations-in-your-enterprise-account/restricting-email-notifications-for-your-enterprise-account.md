@@ -1,6 +1,6 @@
 ---
 title: 限制企业帐户的电子邮件通知
-intro: You can prevent your enterprise's information from leaking into personal email accounts by restricting the domains where members can receive email notifications about activity in organizations owned by your enterprise account.
+intro: 您可以通过限制成员可以接收有关企业帐户所属组织活动的电子邮件通知的域，防止企业信息泄漏到个人电子邮件帐户。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -14,6 +14,7 @@ topics:
   - Notifications
   - Policy
 ---
+
 ### 关于企业帐户的电子邮件限制
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}

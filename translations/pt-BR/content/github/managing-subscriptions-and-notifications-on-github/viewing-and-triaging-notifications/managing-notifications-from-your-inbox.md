@@ -12,6 +12,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -119,8 +120,7 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:discussions`{% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-Para informações sobre a redução de ruído de notificações para
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
+Para informações sobre a redução de ruído de notificações para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
 {% endif %}
 
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
@@ -166,22 +166,18 @@ Por exemplo, para ver notificações da organização octo-org, use `org:octo-or
 ### Filtros personalizados de {% data variables.product.prodname_dependabot %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Se você usar
-{% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você poderá usar e salvar estes filtros personalizados:
+Se você usar {% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você pode usar e salvar esses filtros personalizados:
 - `is:repository_vulnerability_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}.
 - `reason:security_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %} e pull requests das atualizações de segurança.
 - `author:app/dependabot` para mostrar as notificações geradas por {% data variables.product.prodname_dependabot %}. Isto inclui {% data variables.product.prodname_dependabot_alerts %}, pull requests para atualizações de segurança e pull requests para atualizações de versão.
-Para mais informações sobre
 
-{% data variables.product.prodname_dependabot %}, consulte "[Sobre o gerenciamento de dependências vulneráveis](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
+Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre o gerenciamento de dependências vulneráveis](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)".
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-Se você usar
-{% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você pode usar e salvar o filtro personalizado `é:repository_vulnerability_alert` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}.
-Para mais informações sobre
+Se você usar {% data variables.product.prodname_dependabot %} para manter suas dependências atualizadas, você pode usar e salvar o filtro personalizado `is:repository_vulnerability_aler` para mostrar notificações para {% data variables.product.prodname_dependabot_alerts %}.
 
-{% data variables.product.prodname_dependabot %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+Para obter mais informações sobre {% data variables.product.prodname_dependabot %}, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 {% endif %}
 
 {% endif %}

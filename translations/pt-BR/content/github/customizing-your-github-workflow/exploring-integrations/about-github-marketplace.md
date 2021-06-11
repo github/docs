@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Você pode descobrir, navegar e instalar ferramentas gratuitas e pagas, incluindo {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s, e {% data variables.product.prodname_actions %} em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
 Ao comprar uma ferramenta paga, você pagará pela assinatura da sua ferramenta com as mesmas informações de cobrança usadas para pagar sua assinatura do {% data variables.product.product_name %} e receberá uma fatura na data regular da cobrança. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".

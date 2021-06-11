@@ -11,9 +11,10 @@ versions:
 topics:
   - SSH
 ---
+
 Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
 * [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
-* [Gerado uma nova chave SSH e adicionado-a ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* [Gerar uma nova chave SSH e adicioná-la ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)".
 
@@ -22,7 +23,7 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also add an SSH key using the {% data variables.product.prodname_cli %}. For more information, see "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" in the {% data variables.product.prodname_cli %} documentation.
+**Dica**: Você também pode adicionar uma chave SSH usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh ssh-key add`](https://cli.github.com/manual/gh_ssh-key_add)" na documentação de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}

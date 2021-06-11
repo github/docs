@@ -18,6 +18,7 @@ topics:
   - Accounts
   - Repositories
 ---
+
 ### Forks privater Repositorys löschen
 
 Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys gelöscht, seine lokalen Klone Deiner Repositorys behält er aber.
@@ -28,9 +29,7 @@ Beim Entfernen eines Mitarbeiters werden zwar dessen Forks privater Repositorys 
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.repositories.navigate-to-manage-access %}
-4. To the right of the collaborator you want to remove, click
-{% octicon "trash" aria-label="The trash icon" %}.
-  ![Schaltfläche „Remove collaborator" (Entfernen des Mitarbeiters)](/assets/images/help/repository/collaborator-remove.png)
+4. Klicke rechts neben dem Mitarbeiter, den Du entfernen möchtest, auf {% octicon "trash" aria-label="The trash icon" %}. ![Schaltfläche „Remove collaborator" (Entfernen des Mitarbeiters)](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. Klicke auf der linken Seitenleiste auf **Collaborators & teams** (Mitarbeiter und Teams). ![Registerkarte „Collaborators" (Mitarbeiter)](/assets/images/help/repository/repo-settings-collaborators.png)
 4. Klicke auf das **X** neben dem Mitarbeiter, den Du entfernen möchtest. ![Link „Remove“ (Entfernen)](/assets/images/help/organizations/Collaborator-Remove.png)

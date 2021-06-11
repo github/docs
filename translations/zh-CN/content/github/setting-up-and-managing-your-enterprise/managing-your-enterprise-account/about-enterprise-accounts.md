@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### 关于企业帐户
 
 企业帐户可用于管理多个 {% data variables.product.prodname_dotcom %} 组织和 {% data variables.product.prodname_ghe_server %} 实例。 您的企业帐户必须有操作点，如 {% data variables.product.prodname_dotcom %} 上的组织或个人帐户。 企业管理员可以管理设置和首选项，如：

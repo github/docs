@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于本地仓库
 {% data variables.product.prodname_dotcom %} 上的仓库是远程仓库。 您可以通过 {% data variables.product.prodname_desktop %} 克隆或复刻仓库以在计算机上创建本地仓库。
 
@@ -42,6 +43,14 @@ versions:
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
+
+### 为本地仓库创建别名
+您可以为本地仓库创建一个别名，以帮助在 {% data variables.product.prodname_desktop %} 中区分同名的仓库。 创建别名不影响在 {% data variables.product.prodname_dotcom %} 上的仓库名称。 在仓库列表中，别名以斜体显示。
+
+1. 在 {% data variables.product.prodname_desktop %} 左上角当前仓库名称右侧点击 {% octicon "triangle-down" aria-label="The triangle-down icon" %}。
+2. 右键单击要创建别名的仓库，然后单击 **Create Alias（创建别名）**。
+3. 为仓库输入别名。
+4. 单击 **Create Alias（创建别名）**。
 
 ### 延伸阅读
 - [关于远程仓库](/github/getting-started-with-github/about-remote-repositories)

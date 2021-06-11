@@ -7,7 +7,9 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Repositories
+  - Dependencies
+  - Vulnerabilities
 children:
   - /getting-started
   - /secret-security
@@ -15,5 +17,6 @@ children:
   - /security-advisories
   - /supply-chain-security
   - /security-overview
+  - /guides
 ---
 

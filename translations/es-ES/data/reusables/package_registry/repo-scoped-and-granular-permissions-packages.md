@@ -1,12 +1,12 @@
-Repository-scoped packages inherit their permissions and visibility from the repository that owns the package. The registries below use this type of permissions:
-- Docker registry (`docker.pkg.github.com`)
-- npm registry
-- RubyGems registry
-- Apache Maven registry
-- NuGet registry
+Los paquetes con alcance de repositorio heredan sus permisos y visibilidad desde el repositorio al que pertenece el paquete. Los registros siguientes utilizan este tipo de permisos:
+- Registro de Docker (`docker.pkg.github.com`)
+- Registro de npm
+- Registro de RubyGems
+- Registro de Apache maven
+- Registro de NuGet
 
 {% if currentVersion == "free-pro-team@latest" %}
-The Container registry (`ghcr.io`) offers granular permissions and visibility settings that can be customized for each package owned by a personal user or organization account.
+El registro del contenedor (`ghcr.io`) ofrece permisos granulares y configuraciones de visibilidad que se pueden personalizar para cada paquete que pertenezca a un usuario personal o a una cuenta de organización.
 {% endif %}
 
-For more information, see "[About permissions for GitHub Packages](/packages/learn-github-packages/about-permissions-for-github-packages)"{% if currentVersion == "free-pro-team@latest" %} or "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."{% endif %}.
+Para obtener más información, consulta la sección "[Acerca de los permisos para los Paquetes de GitHub](/packages/learn-github-packages/about-permissions-for-github-packages)"{% if currentVersion == "free-pro-team@latest" %} o "[Configurar la visibilidad y el control de accesos de un paquete](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".{% endif %}.

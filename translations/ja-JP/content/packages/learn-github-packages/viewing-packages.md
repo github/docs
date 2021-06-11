@@ -38,8 +38,8 @@ versions:
 
 自分が所属するOrganizationのリポジトリにあるパッケージを見つけて表示できます。
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 3. Organization 名の下で、 {% octicon "package" aria-label="The package icon" %} [**Packages**] をクリックします。
 {% data reusables.package_registry.navigate-to-packages %}
 

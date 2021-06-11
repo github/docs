@@ -7,8 +7,10 @@ redirect_from:
   - /github/managing-security-vulnerabilities/creating-a-security-advisory
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
-  - Security
+  - Security advisories
+  - Vulnerabilities
 ---
 
 Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Sicherheitshinweis erstellen.
