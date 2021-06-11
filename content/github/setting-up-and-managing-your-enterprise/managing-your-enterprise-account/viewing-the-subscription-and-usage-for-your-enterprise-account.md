@@ -34,7 +34,9 @@ For more information about managing billing managers, see "[Inviting people to m
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 1. Optionally, to view usage details for other features, in the left sidebar, click **Billing**.
   ![Billing tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-billing-tab.png)
+{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ### Further reading
 
 - "[About billing for GitHub Actions](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-billing-for-github-actions)"
