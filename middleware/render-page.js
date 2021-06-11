@@ -79,6 +79,7 @@ module.exports = async function renderPage (req, res, next) {
       )
     )
   }
+
   if (req.method === 'HEAD') {
     return res.status(200).end()
   }
@@ -143,6 +144,7 @@ module.exports = async function renderPage (req, res, next) {
 
   // collect URLs for variants of this page in all languages
   context.page.languageVariants = Page.getLanguageVariants(req.path)
+  
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
