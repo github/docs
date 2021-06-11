@@ -19,9 +19,9 @@ export const ArticleCard = ({ card, type, display }: Props) => {
         <p className="color-text-secondary my-3">{card.intro}</p>
         {card.topics.length > 0 && (
           <div>
-            {card.topics.map((topic, key) => {
+            {card.topics.map((topic) => {
               return (
-                <span key={key} className="IssueLabel bg-gradient--pink-blue color-text-inverse mr-1">
+                <span key={topic} className="IssueLabel bg-gradient--pink-blue color-text-inverse mr-1">
                   {topic}
                 </span>
               )
