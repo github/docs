@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Commits e pull requests que incluem documentos de prosa podem representar esses documentos com as exibições *source* (original) e *rendered* (renderizada).
 
 A exibição original mostra o texto bruto que foi inserido, enquanto a exibição renderizada mostra como o texto será exibido após a renderização no {% data variables.product.product_name %}. Por exemplo, há uma diferença na exibição do `**bold**` no Markdown e do **bold** in na visualização renderizada.

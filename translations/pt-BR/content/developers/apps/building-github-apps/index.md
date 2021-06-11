@@ -13,6 +13,7 @@ topics:
 children:
   - /creating-a-github-app
   - /setting-permissions-for-github-apps
+  - /managing-allowed-ip-addresses-for-a-github-app
   - /authenticating-with-github-apps
   - /identifying-and-authorizing-users-for-github-apps
   - /rate-limits-for-github-apps

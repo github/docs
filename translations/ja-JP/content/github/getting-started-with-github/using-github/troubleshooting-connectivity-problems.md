@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ほとんどの場合、接続問題は、ファイアウォール、プロキシサーバー、企業ネットワークや他のネットワークが {% data variables.product.prodname_dotcom %} をブロックする設定になっているために発生します。
 
 ### {% data variables.product.prodname_dotcom %} の IP アドレスを許可する

@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### Entender o ciclo de cobrança
 
 Os clientes podem escolher um ciclo de cobrança mensal ou anual quando ao comprar seu aplicativo. Todas as alterações que os clientes fazem no ciclo de cobrança e seleção de plano acionará um evento de `marketplace_purchase`. Você pode fazer referência à carga do webhook `marketplace_purchase` para ver qual ciclo de cobrança um cliente seleciona e quando começa a próxima data de cobrança (`effective_date`). Para obter mais informações sobre cargas de webhook, consulte "[eventos de Webhook para a API de {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)".

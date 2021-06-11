@@ -25,8 +25,8 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 
 ### Administrar el acceso de una persona a un repositorio de una organización
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Haz clic en **Members (Miembros)** o **Outside collaborators (Colaboradores externos)** para administrar las personas con diferentes tipos de acceso. ![Botón para invitar a miembros o colaboradores externos a una organización](/assets/images/help/organizations/select-outside-collaborators.png)
 5. A la derecha del nombre de la persona que desearías administrar, utiliza el menú desplegable {% octicon "gear" aria-label="The Settings gear" %}, y haz clic en **Manage (Administrar)**. ![Enlace de acceso al gerente](/assets/images/help/organizations/member-manage-access.png)

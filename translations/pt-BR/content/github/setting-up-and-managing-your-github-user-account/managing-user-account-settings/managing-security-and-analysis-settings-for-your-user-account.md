@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account
 ---
+
 ### Sobre a gestão de configurações de segurança e análise
 
 O {% data variables.product.prodname_dotcom %} pode ajudar a proteger seus repositórios. Este tópico diz como você pode gerenciar as funcionalidades de segurança e análise de todos os seus repositórios existentes ou novos.
@@ -18,7 +19,7 @@ Você ainda pode gerenciar os recursos de segurança e análise para repositóri
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-Para obter uma visão geral da segurança do repositório, consulte "[Sobre como proteger seu repositório](/github/administering-a-repository/about-securing-your-repository). "
+Para obter uma visão geral da segurança do repositório, consulte "[Proteger seu repositório](/code-security/getting-started/securing-your-repository). "
 
 ### Habilitar ou desabilitar recursos para repositórios existentes
 

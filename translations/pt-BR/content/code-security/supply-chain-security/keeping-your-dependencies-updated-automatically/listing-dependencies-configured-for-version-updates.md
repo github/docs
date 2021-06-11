@@ -6,9 +6,14 @@ redirect_from:
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
 ---
+
 ### Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 
 Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."

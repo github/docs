@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### 自動チケットシステムを使用する
 
 自動化されたサポートリクエストへの対応には最善を尽くしますが、問題解決のためには、自動化されたチケットシステムが提供する以上の情報が、通常必要になります。 可能な場合は、{% data variables.contact.enterprise_support %} がやりとりできる方もしくはマシンからサポートリクエストを出してください。 詳しい情報については[チケットのサブミットの準備](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)を参照してください。

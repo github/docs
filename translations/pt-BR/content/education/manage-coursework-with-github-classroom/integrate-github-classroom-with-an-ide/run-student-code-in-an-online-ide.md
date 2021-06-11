@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
   - /education/manage-coursework-with-github-classroom/run-student-code-in-an-online-ide
 ---
+
 ### Sobre o código do estudante e os IDEs on-line
 
 Se você configurar um ambiente de desenvolvimento integrado on-line (IDE) para uma atividade, você poderá executar o código dentro do IDE on-line. Você não precisa clonar o repositório da atividade no seu computador.

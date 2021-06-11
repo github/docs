@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
 ---
+
 ### Sobre os sucessores
 
 Recomendamos convidar outro usuário de {% data variables.product.company_short %} para ser seu sucessor e gerenciar seus repositórios propriedade do usuário se não puder fazê-lo. Como um sucessor, eles terão permissão para:

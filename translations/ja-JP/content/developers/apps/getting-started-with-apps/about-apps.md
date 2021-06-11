@@ -14,6 +14,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% data variables.product.prodname_dotcom %} のアプリケーションを使用すると、ワークフローを自動化し改善できます。 アプリケーションを構築して、ワークフローを改善できます。{% if currentVersion == "free-pro-team@latest" %} また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) でアプリケーションを共有または販売することも可能です。 {% data variables.product.prodname_marketplace %} にアプリを掲載する方法については、「[GitHub Marketplace を使ってみる](/marketplace/getting-started/)」を参照してください。{% endif %}
 
 {% data reusables.marketplace.github_apps_preferred %}。ただし、GitHub は {% data variables.product.prodname_oauth_app %} と {% data variables.product.prodname_github_apps %} の両方をサポートしています。 For information on choosing a type of app, see "[Differences between GitHub Apps and OAuth Apps](/developers/apps/differences-between-github-apps-and-oauth-apps)."

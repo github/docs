@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 我们已了解 [web 挂钩的基础知识][webhooks-overview]，现在我们来构建自己的 web 挂钩支持的集成。 在本教程中，我们将创建一个仓库 web 挂钩，它将负责根据仓库每天收到的议题数量列出仓库的受欢迎程度。
 
 创建 web 挂钩是一个两步过程。 首先需要设置 web 挂钩通过 {% data variables.product.product_name %} 实施的行为 - 它应该侦听哪些事件。 之后，您将设置服务器以接收和管理有效负载。

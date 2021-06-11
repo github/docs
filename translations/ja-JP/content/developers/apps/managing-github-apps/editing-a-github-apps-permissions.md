@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **注釈:** アカウントまたは Organization のオーナーが変更を承認するまで、更新した権限はインストールしたアプリケーションに反映されません。 [InstallationEvent webhook](/webhooks/event-payloads/#installation) を使用すると、ユーザがアプリケーションの新しい権限を受け入れた時に確認できます。 ただし[ユーザレベルの権限](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)は例外で、アカウントの所有者が変更を承認する必要はありません。

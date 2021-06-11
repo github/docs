@@ -40,7 +40,7 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4382" %}
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
@@ -98,7 +98,7 @@ You can set up required status checks to either be "loose" or "strict." The type
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4382" %}
 #### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.

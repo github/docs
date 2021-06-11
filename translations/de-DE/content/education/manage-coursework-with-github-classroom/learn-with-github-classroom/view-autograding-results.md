@@ -7,6 +7,7 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-students
   - /education/manage-coursework-with-github-classroom/view-autograding-results
 ---
+
 ### About autograding
 
 Your teacher can configure tests that automatically check your work when you push to an assignment repository on {% data variables.product.product_location %}.
