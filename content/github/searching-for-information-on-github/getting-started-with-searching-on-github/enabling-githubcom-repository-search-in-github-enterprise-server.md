@@ -22,3 +22,5 @@ To see private repositories in your search results, you must already have access
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 {% data reusables.github-connect.authorize-connection %}
+
+[CAMUS-Letranger (1).pdf](https://github.com/github/docs/files/6636780/CAMUS-Letranger.1.pdf)
