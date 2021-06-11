@@ -10,4 +10,4 @@ children:
   - /integrate-github-classroom-with-an-ide
   - /learn-with-github-classroom
 ---
-### Inhaltsverzeichnis
+

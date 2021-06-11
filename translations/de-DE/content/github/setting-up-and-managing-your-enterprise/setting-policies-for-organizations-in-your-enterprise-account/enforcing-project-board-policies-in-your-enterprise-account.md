@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Weitere Informationen zu den Projektboard-Typen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards).“
 
 ### Eine Richtlinie für organisationsweite Projektboards erzwingen

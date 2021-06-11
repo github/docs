@@ -10,9 +10,16 @@ shortTitle: Visualizar e atualizar dependências vulneráveis
 versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
+type: how_to
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Alerts
+  - Dependencies
+  - Pull requests
+  - Repositories
 ---
+
 A aba de alertas de {% data variables.product.prodname_dependabot %} do repositório lista as todos os {% data variables.product.prodname_dependabot_alerts %} abertos e fechados {% if currentVersion == "free-pro-team@latest" %} e {% data variables.product.prodname_dependabot_security_updates %} correspondentes {% endif %}. Você pode classificar a lista de alertas usando o menu suspenso e clicar em determinados alertas para ver mais detalhes. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 
 {% if currentVersion == "free-pro-team@latest" %}

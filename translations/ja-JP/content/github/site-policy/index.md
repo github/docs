@@ -16,7 +16,7 @@ children:
   - /global-privacy-practices
   - /github-insights-and-data-protection-for-your-organization
   - /github-sponsors-additional-terms
-  - /github-additional-product-terms
+  - /github-terms-for-additional-products-and-features
   - /github-logo-policy
   - /github-username-policy
   - /submitting-content-removal-requests
@@ -50,4 +50,4 @@ children:
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
 ---
-### 目次
+

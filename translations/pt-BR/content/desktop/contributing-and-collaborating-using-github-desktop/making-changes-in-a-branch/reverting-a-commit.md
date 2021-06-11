@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Ao reverter para um commit anterior, a reversão também passa a ser um commit. Além disso, o commit original fica no histórico do repositório.
 
 {% tip %}

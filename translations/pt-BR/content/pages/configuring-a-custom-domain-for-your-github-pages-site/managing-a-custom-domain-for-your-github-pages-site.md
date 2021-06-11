@@ -98,7 +98,7 @@ Ao usar um domínio apex, recomendamos que você configure o seu site de {% data
 
 Para configurar um subdomínio de `www` junto com o domínio apex, você deve primeiro configurar um domínio apex, que irá criar um `ALIAS`, `ANAME` ou registro `A` junto ao seu provedor DNS. Para obter mais informações, consulte "[Configurar um domínio apex](#configuring-an-apex-domain)".
 
-Depois de configurar o domínio apex, você deverá configurar um registro CNAME com seu provedor DNS.
+After you configure the apex domain, you must configure a CNAME record with your DNS provider.
 
 1. Acesse o provedor DNS e crie um registro `CNAME` que aponte `www.example.com` para o domínio padrão do seu site: `<user>.github.io` ou `<organization>.github.io`. Não inclua o nome do repositório. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 2. Para confirmar que o registro DNS foi configurado corretamente, use o comando `dig` substituindo _WWW.EXAMPLE.COM_ pela sua variante de subdomínio `www`.

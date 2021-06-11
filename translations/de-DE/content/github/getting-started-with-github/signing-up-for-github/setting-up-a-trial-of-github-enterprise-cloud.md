@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Informationen zu {% data variables.product.prodname_ghe_cloud %}-Testversionen
 
 Sie können eine 14-tägige Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} in einem neuen Organisationskonto zu testen. Während des Testzeitraums müssen Sie keine Zahlungsmethode angeben, sofern Sie Ihrer Organisation keine {% data variables.product.prodname_marketplace %}-Apps hinzufügen, die eine Zahlungsmethode vorschreiben. Weitere Informationen findest Du unter „<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}</a>.“

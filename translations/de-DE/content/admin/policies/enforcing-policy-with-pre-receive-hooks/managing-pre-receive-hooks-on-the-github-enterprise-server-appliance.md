@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 ### Pre-Receive-Hooks erstellen
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -45,9 +46,8 @@ topics:
 
 Ein Organisationsadministrator kann die Hook-Berechtigungen nur dann für eine Organisation konfigurieren, wenn der Websiteadministrator bei der Erstellung des Pre-Receive-Hooks die Option **Administrators can enable or disable this hook** (Administratoren können diesen Hook aktivieren oder deaktivieren) ausgewählt hat. Zum Konfigurieren von Pre-Receive-Hooks für ein Repository müssen Sie ein Organisationsadministrator oder -inhaber sein.
 
-{% data reusables.profile.enterprise_access_profile %}
 {% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
+{% data reusables.profile.org_settings %}
 4. Klicken Sie auf der linken Seitenleiste auf **Hooks**. ![Hooks-Seitenleiste](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. Klicken Sie neben dem Pre-Receive-Hook, den Sie konfigurieren möchten, auf das Dropdownmenü **Hook permissions** (Hook-Berechtigungen). Wählen Sie aus, ob der Pre-Receive-Hook aktiviert oder deaktiviert werden soll, oder legen Sie fest, dass er vom Repository-Administrator konfiguriert werden kann. ![„Hook permissions“ (Hook-Berechtigungen)](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 

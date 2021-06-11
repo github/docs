@@ -9,6 +9,7 @@ on:
     types:
       - opened
       - transferred
+      - reopened
 
 jobs:
   transfer_issue:

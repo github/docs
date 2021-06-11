@@ -51,8 +51,10 @@ Wenn Du einen neuen Codespace erstellst, klont {% data variables.product.prodnam
 * _install_
 * _bootstrap.sh_
 * _bootstrap_
+* _script/bootstrap_
 * _setup.sh_
 * _setup_
+* _script/setup_
 
 Wenn keine dieser Dateien gefunden wird, werden Dateien oder Ordner in `dotfiles`, die mit einem `.` beginnen, symbolisch zum `~`- or `$HOME`-Verzeichnis des Codespace verknüpft.
 

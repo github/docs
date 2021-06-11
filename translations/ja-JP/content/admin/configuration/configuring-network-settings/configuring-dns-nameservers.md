@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 指定するネームサーバは、{% data variables.product.product_location %}のホスト名を解決できなければなりません。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}

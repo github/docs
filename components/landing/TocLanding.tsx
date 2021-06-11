@@ -7,11 +7,8 @@ import { Breadcrumbs } from 'components/Breadcrumbs'
 import { useTocLandingContext } from 'components/context/TocLandingContext'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 
-type Props = {
-  variant?: 'compact' | 'expanded'
-}
-export const TocLanding = ({ variant = 'expanded' }: Props) => {
-  const { title, introPlainText, tocItems } = useTocLandingContext()
+export const TocLanding = () => {
+  const { title, introPlainText, tocItems, productCallout, variant } = useTocLandingContext()
   return (
     <DefaultLayout>
       <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
@@ -39,6 +36,10 @@ export const TocLanding = ({ variant = 'expanded' }: Props) => {
               <div className="lead-mktg">
                 <p>{introPlainText}</p>
               </div>
+
+              {productCallout && (
+                <div className="product-callout border rounded-1 mb-4 p-3 color-border-success color-bg-success" dangerouslySetInnerHTML={{__html: productCallout }} />
+              )}
             </div>
 
             <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0" />

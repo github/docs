@@ -14,6 +14,7 @@ topics:
   - Policies
   - Pre-receive hooks
 ---
+
 Veja exemplos de hooks pre-receive para o {% data variables.product.prodname_ghe_server %} no repositório  [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ### Gravar um script de hook pre-receive

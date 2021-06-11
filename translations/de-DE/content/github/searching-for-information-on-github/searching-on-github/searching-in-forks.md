@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Um Forks in die Ergebnisse von [Repository-Suchen](/articles/searching-for-repositories) einzuschließen, musst Du Deiner Abfrage `fork:true` oder `fork:only` hinzufügen.
 
 Bei [Codesuchen](/articles/searching-code) werden Forks nur indiziert, wenn für sie mehr Sterne vergeben wurden als für das dem Fork übergeordnete Repository. Code in Forks, die weniger Sterne als das übergeordnete Repository aufweisen, können nicht durchsucht werden. Wenn Du Forks mit mehr Sternen als das übergeordnete Repository in den Ergebnissen von Codesuchen aufnehmen möchtest, musst du Deiner Abfrage `fork:true` oder `fork:only` hinzufügen.

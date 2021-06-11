@@ -12,6 +12,7 @@ versions:
 topics:
   - Notifications
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
@@ -119,8 +120,7 @@ topics:
 - `is:discussions`{% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
--
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %} セキュリティアラート{% endif %}からの通知を減らす方法については、「[脆弱性のある依存関係の通知を設定する](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)」を参照してください。
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
 `is:` クエリを使用して、通知がトリアージされた方法を記述することもできます。
@@ -166,22 +166,18 @@ Organization ごとに通知をフィルタするには、`org:` クエリを使
 ### {% data variables.product.prodname_dependabot %}カスタムフィルタ
 
 {% if currentVersion == "free-pro-team@latest" %}
-ー
-{% data variables.product.prodname_dependabot %} を使用して依存関係を最新の状態に保つには、次のカスタムフィルタを使用して保存します。
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
 - `is:repository_vulnerability_alert` は {% data variables.product.prodname_dependabot_alerts %} の通知を表示します。
 - `reason:security_alert` は {% data variables.product.prodname_dependabot_alerts %} とセキュリティアップデートのプルリクエストの通知を表示します。
 - `author:app/dependabot` は {% data variables.product.prodname_dependabot %} によって生成された通知を表示します。 これには、{% data variables.product.prodname_dependabot_alerts %}、セキュリティアップデートのプルリクエスト、およびバージョン更新のプルリクエストが含まれます。
-ー
 
-{% data variables.product.prodname_dependabot %} の詳細については、「[脆弱性のある依存関係の管理について](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)」を参照してください。
+For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-ー
-{% data variables.product.prodname_dependabot %} を使用して依存関係を最新の状態に保つには、`is:repository_vulnerability_alert` カスタムフィルタを使用して保存し、{% data variables.product.prodname_dependabot_alerts %} の通知を表示できます。
-ー
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
 
-{% data variables.product.prodname_dependabot %} の詳細については、「[脆弱性のある依存関係のアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.prodname_dependabot %} に関する詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% endif %}

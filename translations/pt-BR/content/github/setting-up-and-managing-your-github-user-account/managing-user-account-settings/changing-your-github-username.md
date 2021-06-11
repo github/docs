@@ -14,6 +14,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Sobre alterações no nome de usuário
 
 Você pode alterar oseu nome de usuário para outro nome de usuário que não está atualmente em uso.{% if currentVersion == "free-pro-team@latest" %} Se o nome de usuário que você deseja não estiver disponível, você verá informações sobre se pode solicitar a liberação do nome de usuário ao digitar o nome de usuário desejado.

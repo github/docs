@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 コミットがデフォルトブランチにない場合、コミットを含むブランチが表示されます。 コミットがマージされていないプルリクエストの一部である場合は、リンクが表示されます。
 
 ![コミットブランチのラベル](/assets/images/help/commits/Commit-branch-label.png)

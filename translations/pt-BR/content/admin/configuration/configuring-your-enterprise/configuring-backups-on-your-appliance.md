@@ -1,6 +1,6 @@
 ---
 title: Configurar backups no appliance
-shortTitle: Configuring backups
+shortTitle: Configuração de backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores/
   - /enterprise/admin/articles/backup-and-recovery/
@@ -24,6 +24,7 @@ topics:
   - Fundamentals
   - Infrastructure
 ---
+
 ### Sobre o {% data variables.product.prodname_enterprise_backup_utilities %}
 
 O {% data variables.product.prodname_enterprise_backup_utilities %} é um sistema de backup a ser instalado em um host separado, que tira instantâneos de backup da {% data variables.product.product_location %} em intervalos regulares em uma conexão de rede SSH segura. É possível usar um instantâneo para voltar uma instância do {% data variables.product.prodname_ghe_server %} a um estado anterior do host de backup.

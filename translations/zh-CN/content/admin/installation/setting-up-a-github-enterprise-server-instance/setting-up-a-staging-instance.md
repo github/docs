@@ -12,6 +12,7 @@ topics:
   - Infrastructure
   - Upgrades
 ---
+
 {% tip %}
 
 **提示**：只要暂存实例未用于生产，您便可以重复使用现有的 {% data variables.product.prodname_enterprise %} 许可文件。

@@ -11,8 +11,8 @@ topics:
   - Teams
 ---
 
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.people %}
 4. Klicke auf der Registerkarte „People“ (Personen) auf **Pending invitation** (Ausstehende Einladung). ![Link zu ausstehender Einladung](/assets/images/help/organizations/pending-invitation-link.png)
 5. Klicke neben dem Benutzernamen oder der E-Mail-Adresse der Person, deren Einladung Du bearbeiten oder stornieren möchtest, auf **Edit invitation** (Einladung bearbeiten). ![Schaltfläche „Edit invitation“ (Einladung bearbeiten)](/assets/images/help/organizations/edit-invitation-button.png)

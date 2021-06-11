@@ -8,6 +8,7 @@ permissions: 'People with admin permissions in {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### About organization management
 
 When you add an organization to {% data variables.product.prodname_insights %}, repositories owned by that organization are included in metrics. You can choose to add all repositories or select specific repositories to add.

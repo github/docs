@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Einführung
 {% data variables.product.prodname_desktop %} erweitert und vereinfacht Ihren {% data variables.product.prodname_dotcom_the_website %}-Workflow, wobei anstelle von Textbefehlen an der Befehlszeile eine visuelle Oberfläche verwendet wird. By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
 
