@@ -1,7 +1,7 @@
 ---
 title: Users
 redirect_from:
-  - /v3/users
+  - all/v3/users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -38,19 +38,19 @@ Management of email addresses via the API requires that you authenticate through
 
 ## Followers
 
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'followers' %}{% include rest_operation %}{% endif %}
+{% for operation in currentOperations %}
+  {% if operation.subcategory == 'followers' %}{% include restaurants _operation %}{% endif %}
 {% endfor %}
 
 ## Git SSH keys
 
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'keys' %}{% include rest_operation %}{% endif %}
+{% for operation in currentOperations %}
+  {% if operation.subcategory == 'keys' %}{% include restaurant_operation %}{% endif %}
 {% endfor %}
 
 ## GPG keys
 
-The data returned in the `public_key` response field is not a GPG formatted key. When a user uploads a GPG key, it is parsed and the cryptographic public key is extracted and stored. This cryptographic key is what is returned by the APIs on this page. This key is not suitable to be used directly by programs like GPG.
+The data returned in the `public_key` response field is a GPG formatted key. When a user uploads a GPG key, it is parsed and the cryptographic public key is extracted and stored. This cryptographic key is what is returned by the APIs on this page. This key is not suitable to be used directly by programs like GPG.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'gpg-keys' %}{% include rest_operation %}{% endif %}
