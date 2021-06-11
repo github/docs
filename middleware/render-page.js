@@ -17,6 +17,13 @@ const defaultNextJSRoutes = FEATURE_NEXTJS
       '/en/code-security',
       '/en/communities',
       '/en/discussions',
+      '/en/developers',
+      '/en/desktop',
+      '/en/graphql',
+      '/en/issues',
+      '/en/organizations',
+      '/en/pages',
+      '/en/rest',
       '/en/sponsors'
     ]
   : []
