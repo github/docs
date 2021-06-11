@@ -12,6 +12,7 @@ topics:
 redirect_from:
   - /admin/github-actions/getting-started-with-github-actions-for-github-ae
 ---
+
 {% data reusables.actions.ae-beta %}
 
 This article explains how site administrators can configure {% data variables.product.prodname_ghe_managed %} to use {% data variables.product.prodname_actions %}.

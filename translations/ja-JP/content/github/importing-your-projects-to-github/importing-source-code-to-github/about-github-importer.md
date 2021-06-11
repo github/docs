@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 GitHub Importerは、コミットやリビジョン履歴を含めてソースコードリポジトリを素早くインポートしてくれます。
 
 ![リポジトリのインポートのgif](/assets/images/help/importer/github-importer.gif)

@@ -24,9 +24,9 @@ versions:
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with `GITHUB_TOKEN` in {% data variables.product.prodname_actions %}
+#### {% data variables.product.prodname_actions %}における`GITHUB_TOKEN`での認証
 
-Use the following command to authenticate to {% data variables.product.prodname_registry %} in a {% data variables.product.prodname_actions %} workflow using the `GITHUB_TOKEN` instead of hardcoding a token in a nuget.config file in the repository:
+リポジトリ内のnuget.configファイル内のハードコードされたトークンの代わりに`GITHUB_TOKEN`を使って{% data variables.product.prodname_actions %}ワークフロー内で{% data variables.product.prodname_registry %}の認証を受けるには、以下のコマンドを使ってください。
 
 ```shell
 dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB_TOKEN }}{% endraw %} --store-password-in-clear-text --name github "https://{% if currentVersion == "free-pro-team@latest" %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json"
@@ -231,7 +231,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 ### トラブルシューティング
 
-Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
+*.csproj*内の`RepositoryUrl`が期待されるリポジトリに設定されていない場合、NuGetパッケージのプッシュに失敗するかもしれません。
 
 ### 参考リンク
 

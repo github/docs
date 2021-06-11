@@ -16,7 +16,6 @@ children:
   - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
-  - /github-ae-release-notes
 ---
+
 如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
-### 目录

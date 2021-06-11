@@ -19,6 +19,7 @@ topics:
   - Enterprise
   - Identity
 ---
+
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
 ### 支持的 LDAP 服务

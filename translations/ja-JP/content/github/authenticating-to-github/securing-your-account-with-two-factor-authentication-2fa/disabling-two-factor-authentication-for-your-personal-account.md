@@ -8,8 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 アカウントを保護するために 2 要素認証 (2FA) を使用することを強くお勧めします。 2FA を無効化する必要がある場合も、できるだけ速やかに再有効化することをお勧めします。
 
 {% warning %}

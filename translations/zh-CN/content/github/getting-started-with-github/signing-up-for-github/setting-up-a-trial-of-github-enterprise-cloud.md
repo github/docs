@@ -10,6 +10,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### 关于 {% data variables.product.prodname_ghe_cloud %} 试用版
 
 您可以设置 14 天的试用版来评估新组织帐户上的 {% data variables.product.prodname_ghe_cloud %}。 在试用期间无需提供付款方式，除非您将 {% data variables.product.prodname_marketplace %} 应用程序添加到需要付款方式的组织。 更多信息请参阅“<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">关于 {% data variables.product.prodname_marketplace %} 的计费</a>”。

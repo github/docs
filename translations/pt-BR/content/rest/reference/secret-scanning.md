@@ -7,6 +7,6 @@ versions:
 
 {% data reusables.secret-scanning.api-beta %}
 
-A API de {% data variables.product.prodname_secret_scanning %} permite que você recupere e atualize os alertas de varredura de segredos de um repositório privado. Para obter mais informações sobre a verificação secreta de repositórios privados, consulte "[Proteger o seu repositório](/github/administering-a-repository/securing-your-repository). ".
+The {% data variables.product.prodname_secret_scanning %} API lets you retrieve and update secret scanning alerts from a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. For more information on secret scanning, see "[About secret scanning](/code-security/secret-security/about-secret-scanning)."
 
 {% include rest_operations_at_current_path %}

@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Sie können Wikis global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% data reusables.search.syntax_tips %}

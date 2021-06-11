@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. In a Finder window, navigate to the Applications folder. ![Applications folder in the Finder window](/assets/images/help/desktop/applications-folder.png)

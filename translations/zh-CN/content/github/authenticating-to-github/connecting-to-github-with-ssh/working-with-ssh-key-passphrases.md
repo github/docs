@@ -13,6 +13,7 @@ versions:
 topics:
   - SSH
 ---
+
 使用 SSH 密钥时，如果有人获得您计算机的访问权限，他们也可以使用该密钥访问每个系统。 要添加额外的安全层，可以向 SSH 密钥添加密码。 您可以使用 `ssh-agent` 安全地保存密码，从而不必重新输入。
 
 ### 添加或更改密码
@@ -104,7 +105,7 @@ unset env
 
 ### 在密钥链中保存密码
 
-On Mac OS X Leopard through OS X El Capitan, these default private key files are handled automatically:
+在 Mac OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
 
 - *.ssh/id_rsa*
 - *.ssh/identity*

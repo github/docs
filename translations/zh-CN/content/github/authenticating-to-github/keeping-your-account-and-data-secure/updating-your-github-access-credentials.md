@@ -14,13 +14,17 @@ topics:
   - Identity
   - Access management
 ---
+
 {% if currentVersion != "github-ae@latest" %}
 ### 请求新密码
 
 1. 要请求新密码，请访问 {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
 2. 输入与您的个人 {% data variables.product.product_name %} 帐户关联的电子邮件地址，然后单击 **Send password reset email（发送密码重置电子邮件）**。如果您已配置，该电子邮件将发送到备用电子邮件地址。 ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
-4. 单击电子邮件中的该链接后，系统将要求您输入新密码。 ![密码恢复框](/assets/images/help/settings/password_recovery_page.png)
+4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的 2FA 凭据或 2FA 恢复代码之一，然后单击 **Verify（验证）**。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
+5. 键入新密码，确认新密码，然后单击 **Change password（更改密码）**。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
+  {% if currentVersion == "free-pro-team@latest" %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  ![密码恢复框](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 

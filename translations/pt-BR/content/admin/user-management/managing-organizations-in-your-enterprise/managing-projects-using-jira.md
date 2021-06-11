@@ -15,6 +15,7 @@ topics:
   - Enterprise
   - Project management
 ---
+
 ### Conectar o Jira a uma organização de {% data variables.product.prodname_enterprise %}
 
 1. Entre na sua conta do {% data variables.product.prodname_enterprise %} em http[s]://[hostname]/login. Se já conectado, clique no logotipo de {% data variables.product.prodname_dotcom %} no canto superior esquerdo.

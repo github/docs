@@ -14,6 +14,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 在 {% data variables.product.prodname_marketplace %} 中上架应用程序的要求取决于您是要提供免费应用程序还是付费应用程序。

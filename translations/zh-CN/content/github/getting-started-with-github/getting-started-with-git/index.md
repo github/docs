@@ -1,6 +1,6 @@
 ---
 title: 开始使用 Git
-intro: ''
+intro: '设置 Git（一个分布式版本控制系统）以从计算机管理您的 {% data variables.product.product_name %} 仓库。'
 redirect_from:
   - /articles/getting-started-with-git-and-github
   - /github/using-git/getting-started-with-git-and-github

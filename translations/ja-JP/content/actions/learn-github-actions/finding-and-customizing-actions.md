@@ -112,10 +112,10 @@ outputs:
 ```
 
 {% if currentVersion == "github-ae@latest" %}
-### Using the actions included with {% data variables.product.prodname_ghe_managed %}
-By default, you can use most of the official
+### {% data variables.product.prodname_ghe_managed %} に含まれているアクションを使用する
+デフォルト設定では、
 
-{% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[Using actions in {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)."
+{% data variables.product.prodname_ghe_managed %} で公式の {% data variables.product.prodname_dotcom %} 作者のアクションのほとんどを使用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_managed %} でアクションを使用する](/admin/github-actions/using-actions-in-github-ae)」を参照してください。
 {% endif %}
 
 ### ワークフロー ファイルでアクションを使用するのと同じリポジトリ内のアクションの参照

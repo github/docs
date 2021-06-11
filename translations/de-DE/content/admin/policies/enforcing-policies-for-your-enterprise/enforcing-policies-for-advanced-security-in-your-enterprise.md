@@ -15,6 +15,7 @@ topics:
 redirect_from:
   - /admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise
 ---
+
 ### Informationen zu {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}

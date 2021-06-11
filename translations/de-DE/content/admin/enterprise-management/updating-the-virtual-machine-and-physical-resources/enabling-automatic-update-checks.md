@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
 Wenn ein Upgrade-Pakete für {% data variables.product.product_location %} automatisch heruntergeladen wird, wird in einer Meldung angezeigt, dass Sie ein Upgrade von {% data variables.product.prodname_ghe_server %} durchführen können. Pakete werden auf {% data variables.product.product_location %} in das Verzeichnis `/var/lib/ghe-updates` heruntergeladen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)“.
 
 Wenn für ein Upgrade ein Hotpatch verfügbar ist, wird die Datei `.hpkg` automatisch heruntergeladen. In der Managementkonsole können Sie festlegen, dass der Hotpatch sofort installiert wird. Alternativ können Sie festlegen, dass seine Installation für einen späteren Zeitpunkt geplant wird. Weitere Informationen finden Sie unter „[Upgrade mit einem Hotpatch](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)“.

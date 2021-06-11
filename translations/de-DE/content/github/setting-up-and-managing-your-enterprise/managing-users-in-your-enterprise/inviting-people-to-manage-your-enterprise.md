@@ -13,6 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Informationen zum Einladen von Personen zur Verwaltung Deines Enterprise-Kontos
 
 {% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).

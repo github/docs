@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### サポートされているエディタ
 
 {% data variables.product.prodname_desktop %} は、次のエディタをサポートしています。

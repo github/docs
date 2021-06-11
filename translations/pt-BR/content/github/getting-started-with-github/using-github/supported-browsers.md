@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Versão de suporte estendido do Firefox
 
 Fazemos o máximo possível para oferecer suporte à [Versão de suporte estendido](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) mais recente do Firefox. Versões mais antigas do Firefox podem desabilitar alguns recursos no {% data variables.product.product_name %} e exigir a versão mais recente do Firefox.

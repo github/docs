@@ -20,8 +20,8 @@ topics:
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
 ### 为团队创建预定提醒
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -44,8 +44,8 @@ topics:
 {% data reusables.reminders.create-reminder %}
 
 ### 管理团队的预定提醒
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -55,8 +55,8 @@ topics:
 {% data reusables.reminders.update-buttons %}
 
 ### Deleting a scheduled reminder for a team
-{% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
+{% data reusables.user_settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% data reusables.reminders.scheduled-reminders %}

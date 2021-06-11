@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 Erlernen von Fähigkeiten in den Bereichen öffentliches Reden, technisches Schreiben, Community Leadership und Softwareentwicklung als Campus Experts für {% data variables.product.prodname_dotcom %}.
 
 Weitere Informationen zu Schulungsprogrammen für Schüler, Studenten und Lehrer findest Du unter „[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)“ und „[Campus Advisors](https://education.github.com/teachers/advisors).“

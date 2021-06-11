@@ -16,7 +16,6 @@ children:
   - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
-  - /github-ae-release-notes
 ---
+
 Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
-### Índice
