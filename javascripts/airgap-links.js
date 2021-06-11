@@ -1,4 +1,6 @@
 export default function airgapLinks () {
+  if (window.IS_NEXTJS_PAGE) return
+
   // When in an airgapped environment,
   // show a tooltip on external links
   const { airgap } = JSON.parse(document.getElementById('expose').text)

@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { AppProps } from 'next/app'
+import App from 'next/app'
+import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { useTheme, ThemeProvider } from '@primer/components'
+import { defaultThemeProps, getThemeProps } from 'components/lib/getThemeProps'
 
-import '@primer/css/index.scss'
+import '../stylesheets/index.scss'
 
-import { defaultThemeProps } from 'components/lib/getThemeProps'
-
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+type MyAppProps = AppProps & { csrfToken: string; themeProps: typeof defaultThemeProps }
+const MyApp = ({ Component, pageProps, csrfToken, themeProps }: MyAppProps) => {
   return (
     <>
       <Head>
@@ -27,14 +28,23 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY"
         />
 
-        <meta name="csrf-token" content="$CSRFTOKEN$" />
+        <meta name="csrf-token" content={csrfToken} />
       </Head>
       <ThemeProvider>
-        <SetTheme themeProps={pageProps.themeProps} />
+        <SetTheme themeProps={themeProps} />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
   )
+}
+
+MyApp.getInitialProps = async (appContext: AppContext) => {
+  const { ctx } = appContext
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext)
+  const req: any = ctx.req
+
+  return { ...appProps, themeProps: getThemeProps(req), csrfToken: req?.csrfToken?.() || '' }
 }
 
 const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {
@@ -48,4 +58,4 @@ const SetTheme = ({ themeProps }: { themeProps: typeof defaultThemeProps }) => {
   return null
 }
 
-export default App
+export default MyApp

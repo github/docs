@@ -42,14 +42,12 @@ The default codespaces container comes with the latest Java version, package man
 To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
-  !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+{% data reusables.codespaces.command-palette-container %}
 3. For this example, click **Java**. In practice, you could select any container that’s specific to Java or a combination of tools such as Java and Azure Functions.
   ![Select Java option from the list](/assets/images/help/codespaces/add-java-prebuilt-container.png)
 4. Click the recommended version of Java.
   ![Java version selection](/assets/images/help/codespaces/add-java-version.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
 #### Anatomy of your dev container
 
@@ -163,9 +161,7 @@ With your dev container added and a basic understanding of what everything does,
 
   For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
 
-3. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 

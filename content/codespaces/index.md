@@ -28,6 +28,7 @@ redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
 layout: product-landing
+examples_source: data/product-examples/codespaces/code-examples.yml
 versions:
   free-pro-team: '*'
 children:

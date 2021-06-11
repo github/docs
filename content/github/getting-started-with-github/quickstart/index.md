@@ -1,6 +1,6 @@
 ---
 title: Quickstart
-intro: 'Quickly get started with common tasks on {% data variables.product.prodname_dotcom %}.'
+intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,8 +16,8 @@ children:
   - /fork-a-repo
   - /github-flow
   - /be-social
+  - /communicating-on-github
   - /github-glossary
   - /git-cheatsheet
   - /git-and-github-learning-resources
 ---
-

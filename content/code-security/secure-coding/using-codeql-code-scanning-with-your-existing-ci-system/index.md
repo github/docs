@@ -1,7 +1,7 @@
 ---
 title: Using CodeQL code scanning with your existing CI system
 shortTitle: CodeQL CI system support
-intro: 'The {% data variables.product.prodname_codeql_runner %} allows you to use your existing CI system to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}.'
+intro: 'You can run {% data variables.product.prodname_codeql %} analysis in your existing CI system and upload the results to {% data variables.product.product_name %} for display as {% data variables.product.prodname_code_scanning %} alerts.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system
@@ -9,8 +9,13 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
   github-ae: '*'
+type: how_to
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Integration
+  - CI
+  - CodeQL
 children:
   - /about-codeql-code-scanning-in-your-ci-system
   - /running-codeql-cli-in-your-ci-system

@@ -34,7 +34,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Get npm cache directory
         id: npm-cache

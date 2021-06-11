@@ -28,7 +28,7 @@ You can also use {% data variables.large_files.product_name_short %} with {% dat
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
-#### Pointer file format
+### Pointer file format
 
 {% data variables.large_files.product_name_short %}'s pointer file looks like this:
 

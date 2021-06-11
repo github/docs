@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
@@ -8,9 +7,6 @@ const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-ve
 const Page = require('../../lib/page')
 const { get } = require('../helpers/supertest')
 const versionSatisfiesRange = require('../../lib/version-satisfies-range')
-
-const testNewSiteTree = process.env.FEATURE_NEW_SITETREE ? test : test.skip
-const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -22,19 +18,9 @@ describe('redirects', () => {
     done()
   })
 
-  testOldSiteTree('page.redirects is an array', async () => {
+  test('page.redirects is an array', async () => {
     const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
-      basePath: path.join(__dirname, '../../content'),
-      languageCode: 'en'
-    })
-    page.buildRedirects()
-    expect(isPlainObject(page.redirects)).toBe(true)
-  })
-
-  testNewSiteTree('page.redirects is an array', async () => {
-    const page = await Page.init({
-      relativePath: 'github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
+      relativePath: 'github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
@@ -91,13 +77,7 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
-    testOldSiteTree('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
-      const res = await get(reqPath)
-      expect(res.statusCode).toBe(200)
-    })
-
-    testNewSiteTree('do not work on other paths that include "search"', async () => {
+    test('do not work on other paths that include "search"', async () => {
       const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-unified-search-between-github-enterprise-server-and-githubcom`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
@@ -144,14 +124,7 @@ describe('redirects', () => {
   })
 
   describe('localized redirects', () => {
-    testOldSiteTree('redirect_from for renamed pages', async () => {
-      const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
-      expect(res.statusCode).toBe(301)
-      const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop'
-      expect(res.headers.location).toBe(expected)
-    })
-
-    testNewSiteTree('redirect_from for renamed pages', async () => {
+    test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
       const expected = '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
@@ -270,16 +243,7 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
-    testOldSiteTree('admin/guides still redirects to admin in deep links on >=2.21', async () => {
-      const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
-      expect(res.statusCode).toBe(301)
-      const redirectRes = await get(res.headers.location)
-      expect(redirectRes.statusCode).toBe(200)
-      const expected = `/en/enterprise-server@${firstRestoredAdminGuides}/admin/enterprise-management/upgrading-github-enterprise-server`
-      expect(res.headers.location).toBe(expected)
-    })
-
-    testNewSiteTree('admin/guides still redirects to admin in deep links on >=2.21', async () => {
+    test('admin/guides still redirects to admin in deep links on >=2.21', async () => {
       const res = await get(`/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`)
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
@@ -336,10 +300,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = process.env.FEATURE_NEW_SITETREE
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/quickstart/set-up-git`
-      : `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
-
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/quickstart/set-up-git`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
@@ -380,9 +341,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = process.env.FEATURE_NEW_SITETREE
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/learning-about-github/access-permissions-on-github`
-      : `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/learning-about-github/access-permissions-on-github`
     const redirectFromPath = '/articles/what-are-the-different-access-permissions'
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
@@ -412,9 +371,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = process.env.FEATURE_NEW_SITETREE
-      ? '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
-      : '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+    const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

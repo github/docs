@@ -10,7 +10,8 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
 children:
   - /about-code-scanning
   - /triaging-code-scanning-alerts-in-pull-requests

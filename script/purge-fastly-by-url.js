@@ -25,9 +25,9 @@ program
   .option('-d, --dry-run', 'print URLs to be purged without actually purging')
   .parse(process.argv)
 
-const singleUrl = program.single
-const batchFile = program.batch
-const dryRun = program.dryRun
+const singleUrl = program.opts().single
+const batchFile = program.opts().batch
+const dryRun = program.opts().dryRun
 
 // verify CLI options
 if (!singleUrl && !batchFile) {

@@ -11,7 +11,9 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - CodeQL
 children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
   - /integrating-with-code-scanning

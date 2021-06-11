@@ -47,10 +47,10 @@ const languagesToSkip = Object.keys(require('../lib/languages'))
 const enterpriseReleasesToSkip = new RegExp(`${root}.+?[/@](${deprecated.join('|')})(/|$)`)
 
 const config = {
-  path: program.path || englishRoot,
+  path: program.opts().path || englishRoot,
   concurrency: 300,
   // If this is a dry run, turn off recursion.
-  recurse: !program.dryRun,
+  recurse: !program.opts().dryRun,
   silent: true,
   // The values in this array are treated as regexes.
   linksToSkip: [
@@ -86,7 +86,7 @@ async function main () {
     // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
     .map(link => { link.status = link.status || 'Invalid'; return link })
 
-  if (!program.doNotRetry) {
+  if (!program.opts().doNotRetry) {
     // Links to retry individually.
     const linksToRetry = brokenLinks
       .filter(link => retryStatusCodes.includes(link.status))

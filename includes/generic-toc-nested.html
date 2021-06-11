@@ -1,0 +1,19 @@
+<ul>
+{% for tocItem in genericTocNested %}
+
+{% assign title = tocItem.title %}
+{% assign fullPath = tocItem.fullPath %}
+
+<li>{% include liquid-tags/link %}
+  {% if tocItem.childTocItems %}
+  <ul>
+  {% for childItem in tocItem.childTocItems %}
+    {% assign title = childItem.title %}
+    {% assign fullPath = childItem.fullPath %}
+    <li>{% include liquid-tags/link %}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</li>
+{% endfor %}
+</ul>

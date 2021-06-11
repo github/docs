@@ -2,7 +2,6 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { EnvironmentPlugin, ProvidePlugin } = require('webpack')
-const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
   mode: 'development',
@@ -17,18 +16,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: [
-          path.resolve(__dirname, 'react')
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: reactBabelOptions
-        }
-      },
-      {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components|react)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {

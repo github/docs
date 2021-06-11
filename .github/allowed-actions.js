@@ -34,7 +34,6 @@ module.exports = [
   "peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43",
   "rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9",
   "rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e",
-  "rachmari/puppeteer-container@6d56d6e132a3df76cf60bc290a4282f7fbaed05e",
   "repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88",
   "repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d",
   "someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd",

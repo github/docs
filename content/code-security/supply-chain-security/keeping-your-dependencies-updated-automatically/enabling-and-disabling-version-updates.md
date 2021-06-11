@@ -7,8 +7,13 @@ redirect_from:
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
+  - Dependabot
+  - Version updates
   - Repositories
+  - Dependencies
+  - Pull requests
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
 

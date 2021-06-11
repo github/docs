@@ -45,16 +45,14 @@ The default codespaces container comes with the latest Python version, package m
 To set up your project with a custom container, you will need to use a `devcontainer.json` file to define the environment. In {% data variables.product.prodname_codespaces %} you can add this either from a template or you can create your own. For more information on dev containers, see "[Configuring Codespaces for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)." 
 
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
-  !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+{% data reusables.codespaces.command-palette-container %}
 2. For this example, click **Python 3**. If you need additional features you can select any container that’s specific to Python or a combination of tools such as Python 3 and PostgresSQL.
   ![Select Python option from the list](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 3. Click the recommended version of Python.
   ![Python version selection](/assets/images/help/codespaces/add-python-version.png)
 4. Accept the default option to add Node.js to your customization.
   ![Add Node.js selection](/assets/images/help/codespaces/add-nodejs-selection.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
 #### Anatomy of your dev container
 
@@ -180,9 +178,7 @@ With your dev container added and a basic understanding of what everything does,
   "postCreateCommand": "pip3 install --user -r requirements.txt",
   ```
 
-4. To rebuild your container and apply the devcontainer.json changes, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 

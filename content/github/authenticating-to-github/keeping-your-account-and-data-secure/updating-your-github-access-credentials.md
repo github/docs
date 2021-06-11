@@ -21,8 +21,11 @@ topics:
 2. Enter the email address associated with your personal {% data variables.product.product_name %} account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
   ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
 3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. After clicking on the link in your email, you'll be asked to enter a new password.
-  ![Password recovery box](/assets/images/help/settings/password_recovery_page.png)
+4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
+  ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
+5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
+  {% if currentVersion == "free-pro-team@latest" %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
+  ![Password recovery box](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
 
 {% tip %}
 

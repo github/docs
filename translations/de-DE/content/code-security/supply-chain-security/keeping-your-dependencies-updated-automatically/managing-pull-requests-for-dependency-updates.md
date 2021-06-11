@@ -6,8 +6,14 @@ redirect_from:
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Version updates
+  - Security updates
+  - Pull requests
+  - Dependencies
+  - Vulnerabilities
 ---
 ### About {% data variables.product.prodname_dependabot %} pull requests
 

@@ -20894,6 +20894,36 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   closedAt: DateTime
 
   """
+  List of issues that were may be closed by this pull request
+  """
+  closingIssuesReferences(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for issues returned from the connection
+    """
+    orderBy: IssueOrder
+  ): IssueConnection
+
+  """
   A list of comments associated with the pull request.
   """
   comments(

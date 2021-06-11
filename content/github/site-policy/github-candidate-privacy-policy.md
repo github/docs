@@ -46,7 +46,7 @@ We use the Candidate Personal Information for the following purposes:
  - To prepare and submit reports as required under local laws and regulations;
  - To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
  
- ### How do we share your Candidate Personal Information?
+### How do we share your Candidate Personal Information?
  
 GitHub will share your Candidate Personal Information with those who have a legitimate business need for it. Whenever we permit a third party to access your Candidate Personal Information, we will make sure the information is used in a manner consistent with this policy. Your Candidate Personal Information may be shared with our affiliates (such as Microsoft) and other third parties (such as vendors) for the following purposes:
 1. In order to carry out the uses of Candidate Personal Information described above;

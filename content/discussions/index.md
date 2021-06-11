@@ -24,6 +24,7 @@ featuredLinks:
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
 changelog:
   label: discussions
+examples_source: data/product-examples/discussions/community-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/IpBw2SJkFyk'
 layout: product-landing
 versions:
@@ -34,4 +35,3 @@ children:
   - /collaborating-with-your-community-using-discussions
   - /managing-discussions-for-your-community
 ---
-

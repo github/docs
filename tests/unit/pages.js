@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const path = require('path')
 const { loadPages, loadPageMap } = require('../../lib/pages')
 const languageCodes = Object.keys(require('../../lib/languages'))
@@ -10,8 +9,6 @@ const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
 const { chain, difference } = require('lodash')
 const checkIfNextVersionOnly = require('../../lib/check-if-next-version-only')
-
-const testOldSiteTree = process.env.FEATURE_NEW_SITETREE ? test.skip : test
 
 describe('pages module', () => {
   jest.setTimeout(60 * 1000)
@@ -47,7 +44,7 @@ describe('pages module', () => {
     // **TODO** fix duplicate redirects after new site tree feature flag is enabled
     // we can't put this in tests/redirects because duplicate routes have already been
     // overwritten during context.pages.redirects object assignment and can't be searched for
-    testOldSiteTree('redirect_from routes are unique across English pages', () => {
+    test.skip('redirect_from routes are unique across English pages', () => {
       const sourceRedirectFrom = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')

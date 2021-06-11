@@ -6,7 +6,7 @@ const path = require('path')
 const walk = require('walk-sync')
 const { execSync } = require('child_process')
 const matter = require('gray-matter')
-const addRedirectToFrontmatter = require('../lib/redirects/add-redirect-to-frontmatter')
+const addRedirectToFrontmatter = require('./helpers/add-redirect-to-frontmatter')
 const contentDir = path.join(__dirname, '../content')
 
 // [start-readme]

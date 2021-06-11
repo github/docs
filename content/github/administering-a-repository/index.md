@@ -14,5 +14,5 @@ children:
   - /configuring-pull-request-merges
   - /defining-the-mergeability-of-pull-requests
   - /releasing-projects-on-github
-  - /securing-your-repository
+  - /finding-information-in-a-repository
 ---

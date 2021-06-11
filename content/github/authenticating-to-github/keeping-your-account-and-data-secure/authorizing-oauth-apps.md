@@ -49,6 +49,8 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 
 {% endtip %}
 
+{% data reusables.apps.oauth-token-limit %}
+
 #### Types of requested data
 
 {% data variables.product.prodname_oauth_app %}s can request several types of data.

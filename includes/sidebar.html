@@ -15,11 +15,7 @@
     </ul>
     {% else %}
     <ul class="sidebar-products">
-      {% if FEATURE_NEW_SITETREE %}
       {% include sidebar-product %}
-      {% else %}
-      {% include sidebar-specific-product %}
-      {% endif %}
     </ul>
     {% endif %}
   </nav>

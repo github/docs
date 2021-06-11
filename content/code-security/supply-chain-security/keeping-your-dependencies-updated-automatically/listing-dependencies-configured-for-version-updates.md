@@ -6,8 +6,12 @@ redirect_from:
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
 ---
 ### Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}
 

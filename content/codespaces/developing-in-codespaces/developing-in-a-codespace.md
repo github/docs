@@ -47,6 +47,10 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 {% data reusables.codespaces.committing-link-to-procedure %} 
 
+#### Using the Command Palette
+
+The Command Palette allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the Command Palette in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-command-palette-in-codespaces)."
+
 ### Navigating to an existing codespace
 
 1. {% data reusables.codespaces.you-can-see-all-your-codespaces %}

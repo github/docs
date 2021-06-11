@@ -24,6 +24,7 @@ featuredLinks:
 changelog:
   label: actions
   prefix: 'GitHub Actions: '
+examples_source: data/product-examples/actions/code-examples.yml
 product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
@@ -47,4 +48,3 @@ children:
   - /hosting-your-own-runners
   - /reference
 ---
-

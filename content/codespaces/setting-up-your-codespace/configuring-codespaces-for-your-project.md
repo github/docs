@@ -77,8 +77,7 @@ Predefined container definitions include a common configuration for a particular
 
 Using a predefined configuration is a great idea if you need some additional extensibility. You can also start with a predefined configuration and amend it as needed for your project's setup. 
 
-1. To access the command palette, in the upper-left corner, select the Application Menu and click **Command Palette…** from the **View** menu, then start typing "Codespaces: Add Development Container Configuration Files...". Click **Codespaces: Add Development Container Configuration Files...**
-  !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+{% data reusables.codespaces.command-palette-container %}
 1. Click the definition you want to use.
   ![List of predefined container definitions](/assets/images/help/codespaces/predefined-container-definitions-list.png)
 1. Follow the prompts to customize your definition.
@@ -137,10 +136,9 @@ For more information about the available settings for `devcontainer.json`, see [
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 
-1. {% data reusables.codespaces.rebuild-command %}
-  !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/rebuild-container-command.png)
+{% data reusables.codespaces.rebuild-command %}
 1. {% data reusables.codespaces.recovery-mode %} Fix the errors in the configuration.
   ![Error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container. {% data reusables.codespaces.rebuild-command %}
+   - To apply the changes, rebuild your container. 

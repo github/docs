@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 type: how_to
 topics:
-  - 2fa
+  - 2FA
   - Enterprise
   - Organizations
   - Policies

@@ -10,9 +10,11 @@ const readFileAsync = require('../../lib/readfile-async')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
-const ghesReleaseNotesSchema = require('../helpers/schemas/release-notes-schema')
+const ghesReleaseNotesSchema = require('../helpers/schemas/ghes-release-notes-schema')
+const ghaeReleaseNotesSchema = require('../helpers/schemas/ghae-release-notes-schema')
 const learningTracksSchema = require('../helpers/schemas/learning-tracks-schema')
 const renderContent = require('../../lib/render-content')
+const getApplicableVersions = require('../../lib/get-applicable-versions')
 const { execSync } = require('child_process')
 const allVersions = Object.keys(require('../../lib/all-versions'))
 const enterpriseServerVersions = allVersions.filter(v => v.startsWith('enterprise-server@'))
@@ -22,7 +24,8 @@ const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
 const glossariesDir = path.join(rootDir, 'data/glossaries')
-const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes')
+const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
+const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
 const learningTracks = path.join(rootDir, 'data/learning-tracks')
 
 const languageCodes = Object.keys(languages)
@@ -171,7 +174,7 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint, ymlToLint, releaseNotesToLint, learningTracksToLint
+let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint
 
 if (!process.env.TEST_TRANSLATION) {
   // compile lists of all the files we want to lint
@@ -201,7 +204,12 @@ if (!process.env.TEST_TRANSLATION) {
   // GHES release notes
   const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
   const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  releaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+  ghesReleaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+
+  // GHAE release notes
+  const ghaeReleaseNotesYamlAbsPaths = walk(ghaeReleaseNotesDir, yamlWalkOptions).sort()
+  const ghaeReleaseNotesYamlRelPaths = ghaeReleaseNotesYamlAbsPaths.map(p => slash(path.relative(rootDir, p)))
+  ghaeReleaseNotesToLint = zip(ghaeReleaseNotesYamlRelPaths, ghaeReleaseNotesYamlAbsPaths)
 
   // Learning tracks
   const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
@@ -216,7 +224,7 @@ if (!process.env.TEST_TRANSLATION) {
 
   console.log(`Found ${changedFilesRelPaths.length} translated files.`)
 
-  const { mdRelPaths = [], ymlRelPaths = [], releaseNotesRelPaths = [], learningTracksRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
+  const { mdRelPaths = [], ymlRelPaths = [], ghesReleaseNotesRelPaths = [], ghaeReleaseNotesRelPaths = [], learningTracksRelPaths = [] } = groupBy(changedFilesRelPaths, (path) => {
     // separate the changed files to different groups
     if (path.endsWith('README.md')) {
       return 'throwAway'
@@ -224,8 +232,10 @@ if (!process.env.TEST_TRANSLATION) {
       return 'mdRelPaths'
     } else if (path.match(/\/data\/(variables|glossaries)\//i)) {
       return 'ymlRelPaths'
-    } else if (path.match(/\/data\/release-notes\//i)) {
-      return 'releaseNotesRelPaths'
+    } else if (path.match(/\/data\/release-notes\/enterprise-server/i)) {
+      return 'ghesReleaseNotesRelPaths'
+    } else if (path.match(/\/data\/release-notes\/github-ae/i)) {
+      return 'ghaeReleaseNotesRelPaths'
     } else if (path.match(/\data\/learning-tracks/)) {
       return 'learningTracksRelPaths'
     } else {
@@ -234,24 +244,25 @@ if (!process.env.TEST_TRANSLATION) {
     }
   })
 
-  const [mdTuples, ymlTuples, releaseNotesTuples, learningTracksTuples] = [mdRelPaths, ymlRelPaths, releaseNotesRelPaths, learningTracksRelPaths].map(relPaths => {
+  const [mdTuples, ymlTuples, ghesReleaseNotesTuples, ghaeReleaseNotesTuples, learningTracksTuples] = [mdRelPaths, ymlRelPaths, ghesReleaseNotesRelPaths, ghaeReleaseNotesRelPaths, learningTracksRelPaths].map(relPaths => {
     const absPaths = relPaths.map(p => path.join(rootDir, p))
     return zip(relPaths, absPaths)
   })
 
   mdToLint = mdTuples
   ymlToLint = ymlTuples
-  releaseNotesToLint = releaseNotesTuples
+  ghesReleaseNotesToLint = ghesReleaseNotesTuples
+  ghaeReleaseNotesToLint = ghaeReleaseNotesTuples
   learningTracksToLint = learningTracksTuples
 }
 
-function formatLinkError (message, links) {
+function formatLinkError(message, links) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }
 
 // Returns `content` if its a string, or `content.description` if it can.
 // Used for getting the nested `description` key in glossary files.
-function getContent (content) {
+function getContent(content) {
   if (typeof content === 'string') return content
   if (typeof content.description === 'string') return content.description
   return null
@@ -292,7 +303,7 @@ describe('lint markdown content', () => {
         yamlScheduledWorkflows = (await Promise.all(yamlScheduledWorkflows.map(async (snippet) => {
           // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
           const rendered = await renderContent.liquid.parseAndRender(snippet)
-          const parsed = yaml.safeLoad(rendered)
+          const parsed = yaml.load(rendered)
           return parsed.on.schedule
         })))
           .flat()
@@ -410,7 +421,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(versionLinkRegEx) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (
               markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
               markdownRelPath.endsWith('all-releases.md')
@@ -428,7 +439,7 @@ describe('lint markdown content', () => {
           const initialMatches = (content.match(domainLinkRegex) || [])
 
           // Filter out some very specific false positive matches
-          const matches = initialMatches.filter(match => {
+          const matches = initialMatches.filter(() => {
             if (markdownRelPath === 'content/admin/all-releases.md') {
               return false
             }
@@ -479,7 +490,7 @@ describe('lint yaml content', () => {
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
 
         isEarlyAccess = yamlRelPath.split('/').includes('early-access')
       })
@@ -661,22 +672,75 @@ describe('lint yaml content', () => {
   )
 })
 
-describe('lint release notes', () => {
-  if (releaseNotesToLint.length < 1) return
-  describe.each(releaseNotesToLint)(
+describe('lint GHES release notes', () => {
+  if (ghesReleaseNotesToLint.length < 1) return
+  describe.each(ghesReleaseNotesToLint)(
     '%s',
     (yamlRelPath, yamlAbsPath) => {
       let dictionary
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       })
 
       it('matches the schema', () => {
         const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
         const errorMessage = errors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
         expect(errors.length, errorMessage).toBe(0)
+      })
+
+      it('contains valid liquid', () => {
+        const { intro, sections } = dictionary
+        let toLint = { intro }
+        for (const key in sections) {
+          const section = sections[key]
+          const label = `sections.${key}`
+          section.forEach((part) => {
+            if (Array.isArray(part)) {
+              toLint = { ...toLint, ...{ [label]: section.join('\n') } }
+            } else {
+              for (const prop in section) {
+                toLint = { ...toLint, ...{ [`${label}.${prop}`]: section[prop] } }
+              }
+            }
+          })
+        }
+
+        for (const key in toLint) {
+          if (!toLint[key]) continue
+          expect(() => renderContent.liquid.parse(toLint[key]), `${key} contains invalid liquid`)
+            .not
+            .toThrow()
+        }
+      })
+    }
+  )
+})
+
+describe('lint GHAE release notes', () => {
+  if (ghaeReleaseNotesToLint.length < 1) return
+  const currentWeeksFound = []
+  describe.each(ghaeReleaseNotesToLint)(
+    '%s',
+    (yamlRelPath, yamlAbsPath) => {
+      let dictionary
+
+      beforeAll(async () => {
+        const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
+      })
+
+      it('matches the schema', () => {
+        const { errors } = revalidator.validate(dictionary, ghaeReleaseNotesSchema)
+        const errorMessage = errors.map(error => `- [${error.property}]: ${error.actual}, ${error.message}`).join('\n')
+        expect(errors.length, errorMessage).toBe(0)
+      })
+
+      it('does not have more than one yaml file with currentWeek set to true', () => {
+        if (dictionary.currentWeek) currentWeeksFound.push(yamlRelPath)
+        const errorMessage = `Found more than one file with currentWeek set to true: ${currentWeeksFound.join('\n')}`
+        expect(currentWeeksFound.length, errorMessage).not.toBeGreaterThan(1)
       })
 
       it('contains valid liquid', () => {
@@ -716,7 +780,7 @@ describe('lint learning tracks', () => {
 
       beforeAll(async () => {
         const fileContents = await readFileAsync(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
       })
 
       it('matches the schema', () => {
@@ -725,11 +789,20 @@ describe('lint learning tracks', () => {
         expect(errors.length, errorMessage).toBe(0)
       })
 
-      it('has one and only one featured track per version', async () => {
+      it('has one and only one featured track per supported version', async () => {
         const featuredTracks = {}
         const context = { enterpriseServerVersions }
 
-        await Promise.all(allVersions.map(async (version) => {
+        // Use the YAML filename to determine which product this refers to, and then peek
+        // inside the product TOC frontmatter to see which versions the product is available in.
+        const product = path.posix.basename(yamlRelPath, '.yml')
+        const productTocPath = path.posix.join('content', product, 'index.md')
+        const productContents = await readFileAsync(productTocPath, 'utf8')
+        const { data } = frontmatter(productContents)
+        const productVersions = getApplicableVersions(data.versions, productTocPath)
+
+        // For each of the product's versions, render the learning track data and look for a featured track.
+        await Promise.all(productVersions.map(async (version) => {
           const featuredTracksPerVersion = (await Promise.all(Object.values(dictionary).map(async (entry) => {
             if (!entry.featured_track) return
             context.currentVersion = version

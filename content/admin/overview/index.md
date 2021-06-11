@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 children:
   - /about-github-ae
+  - /about-upgrades-to-new-releases
   - /about-data-residency
   - /about-enterprise-accounts
   - /managing-your-github-enterprise-license
@@ -15,6 +16,5 @@ children:
   - /about-upgrades-to-new-releases
   - /system-overview
   - /about-the-github-enterprise-api
-  - /github-ae-release-notes
 ---
 For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

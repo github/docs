@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react'
 import cx from 'classnames'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMainContext } from 'components/context/MainContext'
 
+import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
@@ -11,6 +12,12 @@ export const LandingHero = () => {
   const { airGap } = useMainContext()
   const { product_video, shortTitle, beta_product, intro, introLinks } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
+  const [renderIFrame, setRenderIFrame] = useState(false)
+
+  // delay iFrame rendering so that dom ready happens sooner
+  useEffect(() => {
+    setRenderIFrame(true)
+  }, [])
 
   return (
     <header className="d-lg-flex gutter-lg mb-6">
@@ -73,7 +80,7 @@ export const LandingHero = () => {
               <iframe
                 title={`${shortTitle} Video`}
                 className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"
-                src={product_video}
+                src={renderIFrame ? product_video : ''}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -100,8 +107,8 @@ export const FullLink = ({ href, children, className }: Props) => {
     currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
   }${href}`
   return (
-    <Link href={fullyQualifiedHref}>
-      <a className={className}>{children}</a>
+    <Link href={fullyQualifiedHref} className={className}>
+      {children}
     </Link>
   )
 }

@@ -1,28 +1,45 @@
-const supportedTools = ['cli', 'desktop', 'webui']
-const detectedTools = new Set()
+import Cookies from 'js-cookie'
+
+import { sendEvent } from './events'
+
+const supportedTools = ['cli', 'desktop', 'webui', 'curl']
 
 export default function displayToolSpecificContent () {
-  let tool = getDefaultTool()
+  const toolElements = Array.from(document.querySelectorAll('.extended-markdown'))
+    .filter(el => supportedTools.some(tool => el.classList.contains(tool)))
 
-  if (!tool) tool = 'webui'
+  const detectedTools = toolElements
+    .flatMap(el => Array.from(el.classList).filter(className => supportedTools.includes(className)))
 
-  const toolsInContent = findToolSpecificContent(tool)
+  const tool = getDefaultTool(detectedTools)
 
-  hideSwitcherLinks(toolsInContent)
+  showToolSpecificContent(tool, toolElements)
 
-  showContentForTool(tool)
+  hideSwitcherLinks(detectedTools)
+
+  highlightTabForTool(tool)
 
   // configure links for switching tool content
   switcherLinks().forEach(link => {
     link.addEventListener('click', (event) => {
       event.preventDefault()
-      showContentForTool(event.target.dataset.tool)
-      findToolSpecificContent(event.target.dataset.tool)
+      highlightTabForTool(event.target.dataset.tool)
+      showToolSpecificContent(event.target.dataset.tool, toolElements)
+
+      // Save this preference as a cookie.
+      Cookies.set('toolPreferred', event.target.dataset.tool, { sameSite: 'strict', secure: true })
+
+      // Send event data
+      sendEvent({
+        type: 'preference',
+        preference_name: 'application',
+        preference_value: event.target.dataset.tool
+      })
     })
   })
 }
 
-function showContentForTool (tool) {
+function highlightTabForTool (tool) {
   // (de)activate switcher link appearances
   switcherLinks().forEach(link => {
     (link.dataset.tool === tool)
@@ -31,50 +48,45 @@ function showContentForTool (tool) {
   })
 }
 
-function findToolSpecificContent (tool) {
-  // find all tool-specific *block* elements and hide or show as appropriate
-  // example: {{ #cli }} block content {{/cli}}
-  Array.from(document.querySelectorAll('.extended-markdown'))
-    .filter(el => supportedTools.some(tool => el.classList.contains(tool)))
+function showToolSpecificContent (tool, toolElements) {
+  // show the content only for the highlighted tool
+  toolElements
+    .filter(el => supportedTools.some(tool => (el.classList.contains(tool))))
     .forEach(el => {
-      detectTools(el)
-      el.style.display = el.classList.contains(tool)
+      el.style.display = (el.classList.contains(tool))
         ? ''
         : 'none'
     })
-
-  // find all tool-specific *inline* elements and hide or show as appropriate
-  // example: <span class="tool-cli">inline content</span>
-  Array.from(document.querySelectorAll('.tool-cli, .tool-desktop, .tool-webui'))
-    .forEach(el => {
-      detectTools(el)
-      el.style.display = el.classList.contains('tool-' + tool)
-        ? ''
-        : 'none'
-    })
-
-  return Array.from(detectedTools)
 }
 
 // hide links for any tool-specific sections that are not present
-function hideSwitcherLinks (toolsInContent) {
+function hideSwitcherLinks (detectedTools) {
   Array.from(document.querySelectorAll('a.tool-switcher'))
     .forEach(link => {
-      if (toolsInContent.includes(link.dataset.tool)) return
+      if (detectedTools.includes(link.dataset.tool)) return
       link.style.display = 'none'
     })
 }
 
-function detectTools (el) {
-  el.classList.forEach(elClass => {
-    const value = elClass.replace(/tool-/, '')
-    if (supportedTools.includes(value)) detectedTools.add(value)
-  })
-}
+function getDefaultTool (detectedTools) {
+  // If the user selected a tool preference and the tool is present on this page
+  const cookieValue = Cookies.get('toolPreferred')
+  if (cookieValue && detectedTools.includes(cookieValue)) return cookieValue
 
-function getDefaultTool () {
-  const el = document.querySelector('[data-default-tool]')
-  if (el) return el.dataset.defaultTool
+  // If there is a default tool and the tool is present on this page
+  const defaultToolEl = document.querySelector('[data-default-tool]')
+  if (defaultToolEl && detectedTools.includes(defaultToolEl.dataset.defaultTool)) {
+    return defaultToolEl.dataset.defaultTool
+  }
+
+  // Default to webui if present (this is generally the case where we show UI/CLI/Desktop info)
+  if (detectedTools.includes('webui')) return 'webui'
+
+  // Default to cli if present (this is generally the case where we show curl/CLI info)
+  if (detectedTools.includes('cli')) return 'cli'
+
+  // Otherwise, just choose the first detected tool
+  return detectedTools[0]
 }
 
 function switcherLinks () {

@@ -7,8 +7,12 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Actions
 ---
 ### About {% data variables.product.prodname_dependabot_version_updates %} for actions
 

@@ -11,7 +11,9 @@ versions:
   enterprise-server: '>=3.0'
   github-ae: '*'
 topics:
-  - Security
+  - Advanced Security
+  - Code scanning
+  - Integration
 children:
   - /about-integration-with-code-scanning
   - /uploading-a-sarif-file-to-github

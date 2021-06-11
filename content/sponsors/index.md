@@ -9,6 +9,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors
 changelog:
   label: sponsors
+examples_source: data/product-examples/sponsors/user-examples.yml
 featuredLinks:
   guides:
     - /sponsors/sponsoring-open-source-contributors/managing-your-sponsorship

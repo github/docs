@@ -7,7 +7,7 @@ const slugger = new (require('github-slugger'))()
 const entities = new (require('html-entities').XmlEntities)()
 const frontmatter = require('../lib/read-frontmatter')
 const { execSync } = require('child_process')
-const addRedirectToFrontmatter = require('../lib/redirects/add-redirect-to-frontmatter')
+const addRedirectToFrontmatter = require('./helpers/add-redirect-to-frontmatter')
 
 const contentDir = path.join(process.cwd(), 'content')
 

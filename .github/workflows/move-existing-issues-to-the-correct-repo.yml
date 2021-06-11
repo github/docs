@@ -1,0 +1,76 @@
+name: Move existing issues to correct docs repo
+
+# **What it does**: Move all existing issues to the correct repo
+# **Why we have it**: We don't want engineering or content issues in the docs-internal repo
+# **Who does it impact**: GitHub staff.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  transfer_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - id: move_to_correct_repo
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        env:
+          TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
+          TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
+        with:
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          script: |
+            const owner = 'github'
+            const originalRepo = 'docs-internal'
+            let correctRepo = process.env.TEAM_ENGINEERING_REPO 
+
+            const correctRepoObject = await github.repos.get({
+              owner: owner,
+              repo: correctRepo
+            })
+
+            const allIssues = await github.paginate(github.issues.listForRepo, {
+              owner: owner,
+              repo: originalRepo,
+              per_page: 100,
+              labels: ['engineering']
+            })
+
+            for (const issue of allIssues) {
+              // Extra redundancy with this additional check to be safe
+              if (issue.labels.find(label => label.name === 'engineering')) {
+                // Transfer the issue to the correct repo
+                const issueNodeId = issue.node_id
+                const correctRepositoryNodeId = correctRepoObject.data.node_id
+                console.log(`Issue GraphQL Node ID: ${issueNodeId}`)
+                console.log(`Repository GraphQL Node ID: ${correctRepositoryNodeId}`)
+
+                const mutation = `mutation ($id: ID!, $repositoryId: ID!) {
+                  transferIssue(input: {
+                    issueId: $id,
+                    repositoryId: $repositoryId
+                  }) {
+                    issue {
+                      url,
+                      number
+                    }
+                  }
+                }`
+                
+                const variables = {
+                  id: issueNodeId,
+                  repositoryId: correctRepositoryNodeId
+                }
+                
+                const graph = await github.graphql(mutation, variables)
+                console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
+                
+                // Add the same labels to the new issue
+                const newIssueNumber = graph.transferIssue.issue.number
+                await github.issues.addLabels({
+                  owner: owner,
+                  repo: correctRepo,
+                  issue_number: newIssueNumber,
+                  labels: issue.labels.map(label => label.name),
+                })
+              }
+            }

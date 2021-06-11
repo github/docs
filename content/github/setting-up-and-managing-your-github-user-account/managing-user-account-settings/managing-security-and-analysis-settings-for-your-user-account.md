@@ -18,7 +18,7 @@ You can still manage the security and analysis features for individual repositor
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)."
+For an overview of repository-level security, see "[Securing your repository](/code-security/getting-started/securing-your-repository)."
 
 ### Enabling or disabling features for existing repositories
 

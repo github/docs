@@ -1,6 +1,6 @@
 ---
 title: Signing up for GitHub
-intro: ''
+intro: 'Start using {% data variables.product.prodname_dotcom %} for yourself or your team.'
 redirect_from:
   - /articles/signing-up-for-github
 versions:
@@ -15,4 +15,3 @@ children:
   - /setting-up-a-trial-of-github-enterprise-cloud
   - /setting-up-a-trial-of-github-enterprise-server
 ---
-
