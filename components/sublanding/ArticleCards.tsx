@@ -21,8 +21,8 @@ export const ArticleCards = () => {
             aria-label="guide types"
           >
             <option value="">{t('filters.all')}</option>
-            {Object.keys(guideTypes).map((key) => {
-              return <option value={key}>{guideTypes[key]}</option>
+            {Object.keys(guideTypes).map((key, index) => {
+              return <option key={index} value={key}>{guideTypes[key]}</option>
             })}
           </select>
         </div>
@@ -36,8 +36,8 @@ export const ArticleCards = () => {
             aria-label="guide topics"
           >
             <option value="">{t('filters.all')}</option>
-            {allTopics?.map((topic) => {
-              return <option value={topic}>{topic}</option>
+            {allTopics?.map((topic, index) => {
+              return <option key={index} value={topic}>{topic}</option>
             })}
           </select>
         </div>
@@ -45,9 +45,9 @@ export const ArticleCards = () => {
       <div className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8">
         {(includeGuides || []).map((card, index) => {
           return index + 1 > MAX_ARTICLES ? (
-            <ArticleCard card={card} type={guideTypes[card.type]} display={'d-none'} />
+            <ArticleCard key={index} card={card} type={guideTypes[card.type]} display={'d-none'} />
           ) : (
-            <ArticleCard card={card} type={guideTypes[card.type]} />
+            <ArticleCard key={index} card={card} type={guideTypes[card.type]} />
           )
         })}
       </div>
