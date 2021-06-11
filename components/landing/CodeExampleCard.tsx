@@ -29,7 +29,11 @@ export const CodeExampleCard = ({ example }: Props) => {
       </div>
       <footer className="border-top p-4 color-text-secondary d-flex flex-items-center">
         <RepoIcon className="flex-shrink-0" />
-        <TruncateLines as="span" maxLines={1} className="ml-2 text-mono text-small color-text-link line-break-anywhere">
+        <TruncateLines
+          as="span"
+          maxLines={1}
+          className="ml-2 text-mono text-small color-text-link line-break-anywhere"
+        >
           {example.href}
         </TruncateLines>
       </footer>
