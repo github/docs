@@ -17,6 +17,7 @@ topics:
   - Networking
   - Security
 ---
+
 ### 关于传输层安全
 
 当 {% data variables.product.prodname_ghe_server %} 首次启动时，会启用 TLS（替代了 SSL）并通过自签名证书进行配置。 由于自签名证书不受 Web 浏览器和 Git 客户端的信任，因此这些客户端将报告证书警告，直至您禁用 TLS 或上传由 Let's Encrypt 等可信颁发机构签名的证书。

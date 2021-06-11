@@ -14,6 +14,7 @@ topics:
   - Performance
   - Storage
 ---
+
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließen, müssen Sie die Größe Ihres Storage-Volumes anpassen. Informationen zur Storage-Größenanpassung finden Sie in der Dokumentation für Ihre Virtualisierungsplattform.
@@ -22,7 +23,7 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 
 {% note %}
 
-**Hinweis:** Versetzen Sie Ihre Instanz in den Wartungsmodus, bevor Sie die Größe des Benutzer-Storage-Volumes anpassen. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
+**Note:** Before resizing any storage volume, put your instance in maintenance mode. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
 
 {% endnote %}
 
@@ -56,6 +57,12 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 
 ### Größe der Root-Partition mit einer vorhandenen Appliance erhöhen
 
+{% warning %}
+
+**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
+
+{% endwarning %}
+
 1. Fügen Sie eine neue Disk an Ihre {% data variables.product.prodname_ghe_server %}-Appliance an.
 2. Führen Sie den Befehl `parted` aus, um die Disk zu formatieren:
   ```shell
@@ -63,13 +70,16 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-3. Führen Sie den Befehl `ghe-upgrade` aus, um auf der neu partitionierten Disk ein vollständiges, plattformspezifisches Paket zu installieren. Ein universelles Hotpach-Upgrade-Paket wie `github-enterprise-2.11.9.hpkg` funktioniert nicht erwartungsgemäß.
+3. Führen Sie den Befehl `ghe-upgrade` aus, um auf der neu partitionierten Disk ein vollständiges, plattformspezifisches Paket zu installieren. Ein universelles Hotpach-Upgrade-Paket wie `github-enterprise-2.11.9.hpkg` funktioniert nicht erwartungsgemäß. After the `ghe-upgrade` command completes, application services will automatically terminate.
+
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
   ```
-4. Fahren Sie die Appliance herunter:
+4. As the root user, using a text editor of your choice, edit the _/etc/fstab_ file, changing the UUID for the `/` mount point to the UUID of the new root drive. You can obtain the UUID of the new root drive with the command `sudo lsblk -f`.
+5. Fahren Sie die Appliance herunter:
   ```shell
   $ sudo poweroff
   ```
-5. Entfernen Sie auf dem Hypervisor die alte Root-Disk, und fügen Sie die neue Root-Disk am selben Ort als die alte Root-Disk an.
-6. Starten Sie die Appliance.
+6. Entfernen Sie auf dem Hypervisor die alte Root-Disk, und fügen Sie die neue Root-Disk am selben Ort als die alte Root-Disk an.
+7. Starten Sie die Appliance.
+8. Ensure system services are functioning correctly, then release maintenance mode. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.

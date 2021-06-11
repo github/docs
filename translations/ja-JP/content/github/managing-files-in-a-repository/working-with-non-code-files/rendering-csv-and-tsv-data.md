@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切り) 形式のファイルのレンダリングがサポートされています。
 
 ![レンダリングされた CSV のサンプル](/assets/images/help/repository/rendered_csv.png)

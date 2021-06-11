@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 ### {% data variables.product.prodname_marketplace %} purchase webhook payload
 
 Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.

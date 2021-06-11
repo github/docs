@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### 必需的合作作者信息
 
 向提交添加合作作者之前，您必须知道用于每个合作作者的适当电子邮件地址。 对于计为贡献的合作作者提交，必须使用与其 {% data variables.product.product_name %} 帐户相关联的电子邮件地址。

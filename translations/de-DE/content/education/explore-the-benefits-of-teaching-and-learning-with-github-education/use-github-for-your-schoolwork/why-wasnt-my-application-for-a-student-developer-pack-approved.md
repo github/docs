@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% tip %}
 
 **Tipp:** {% data reusables.education.about-github-education-link %}
@@ -41,7 +42,7 @@ Bei anderen Fragen oder Bedenken zur Domäne der Bildungseinrichtung solltest Du
 
 ### Akademische E-Mail-Adresse wird bereits verwendet
 
-Wenn Deine akademische E-Mail-Adresse bereits verwendet wurde, um ein {% data variables.product.prodname_student_pack %} für ein anderes {% data variables.product.prodname_dotcom %}-Konto anzufordern, kannst Du die akademische E-Mail-Adresse bis zum Ablauf des entsprechenden Rabatts nicht erneut verwenden, um Dich erfolgreich für ein anderes {% data variables.product.prodname_student_pack %} zu bewerben.
+If your academic email address was already used to request a {% data variables.product.prodname_student_pack %} for a different {% data variables.product.prodname_dotcom %} account, you cannot reuse the academic email address to successfully apply for another {% data variables.product.prodname_student_pack %}.
 
 {% note %}
 

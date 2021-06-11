@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
 ---
+
 <!--See /content/code-security/secure-coding for the latest version of this article -->
 
 {% data reusables.code-scanning.beta %}
@@ -21,8 +22,7 @@ redirect_from:
 You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/setting-up-code-scanning-for-a-repository)."
 
 {% data reusables.code-scanning.edit-workflow %}
-For general information about configuring
-{% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
 ### About autobuild for {% data variables.product.prodname_codeql %}
 

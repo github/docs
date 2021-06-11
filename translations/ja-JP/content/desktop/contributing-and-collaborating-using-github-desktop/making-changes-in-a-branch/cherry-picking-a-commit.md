@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
 ---
+
 ### About Git cherry-pick
 
 You can cherry-pick a commit on one branch to create a copy of the commit with the same changes on another branch. If you commit changes to the wrong branch or want to make the same changes to another branch, you can cherry-pick the commit to apply the changes to another branch. You can also use cherry-picking to apply specific changes before you are ready to create or merge a pull request. For example, if you commit a bug fix to a feature branch, you can cherry-pick the commit with the bug fix to other branches of your project.

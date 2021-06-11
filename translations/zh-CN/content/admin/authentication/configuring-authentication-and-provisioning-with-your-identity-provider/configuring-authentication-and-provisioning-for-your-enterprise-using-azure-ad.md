@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
 ---
+
 ### 关于使用 Azure AD 进行身份验证和用户预配
 
 Azure Active Directory (Azure AD) 是一项来自 Microsoft 的服务，它允许您集中管理用户帐户和 web 应用程序访问。 更多信息请参阅 Microsoft 文档中的[什么是 Azure Active Directory？](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)。

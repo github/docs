@@ -16,6 +16,7 @@ topics:
 redirect_from:
   - /admin/authentication/configuring-user-provisioning-for-your-enterprise
 ---
+
 ### About user provisioning for your enterprise
 
 {% data reusables.saml.ae-uses-saml-sso %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
@@ -52,9 +53,7 @@ You must have administrative access on your IdP to configure the application for
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. While signed into
-
-{% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
+1. While signed into {% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
   {% note %}
 
   **Hinweise**:

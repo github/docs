@@ -16,6 +16,7 @@ topics:
   - Git
   - Logging
 ---
+
 As entradas de log de push mostram o seguinte:
 
 - Quem iniciou o push;
@@ -30,9 +31,7 @@ As entradas de log de push mostram o seguinte:
 
 1. Efetue o login em {% data variables.product.prodname_ghe_server %} como administrador do site.
 1. Navegue até um repositório.
-1. No canto superior direito da página do repositório, clique em
-{% octicon "rocket" aria-label="The rocket ship" %}.
-    ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. No canto superior direito da página do repositório, clique em {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. Na barra lateral esquerda, clique em **Push Log** (Log de push). ![Guia de log de push](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 

@@ -17,16 +17,16 @@ versions:
 topics:
   - Repositories
 ---
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion ver_gt "github-ae@latest" %}
 
 ### 关于发行版管理
 
-{% if currentVersion == "free proteam@latest" %}
+{% if currentversion == "free proteam@latest" %}
 您也可以在 {% data variables.product.prodname_marketplace %} 中发布特定版本的操作。 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
 {% endif %}
-您可以选择是否
 
-将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
+您可以选择是否将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}

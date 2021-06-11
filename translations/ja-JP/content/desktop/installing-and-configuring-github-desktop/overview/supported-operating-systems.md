@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### サポートされているオペレーティングシステムについて
 
 {% data variables.product.prodname_desktop %} では、次のオペレーティングシステムがサポートされています。

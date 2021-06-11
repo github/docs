@@ -7,6 +7,7 @@ redirect_from:
 versions:
   enterprise-server: '*'
 ---
+
 ### 运行 {% data variables.product.prodname_insights %} 的要求
 
 {% data variables.product.prodname_insights %} 需要受支持的 {% data variables.product.prodname_ghe_server %} 版本。

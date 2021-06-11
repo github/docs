@@ -16,6 +16,7 @@ topics:
   - Monitoring
   - Performance
 ---
+
 ### Configurar um servidor externo `collectd`
 
 Se você ainda não configurou um servidor externo `collectd`, será preciso fazê-lo antes de ativar o encaminhamento `collectd` na {% data variables.product.product_location %}. Seu servidor `collectd` deve estar executando uma versão `collectd` 5.x ou superior.

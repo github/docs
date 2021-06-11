@@ -59,6 +59,7 @@ type EnterpriseServerReleases = {
   isOldestReleaseDeprecated: boolean
   oldestSupported: string
   nextDeprecationDate: string
+  supported: Array<string>
 }
 export type MainContextT = {
   breadcrumbs: {
@@ -68,7 +69,6 @@ export type MainContextT = {
     article?: BreadcrumbT
   }
   builtAssets: { main: { js: string } }
-  expose: string
   activeProducts: Array<ProductT>
   currentProduct?: ProductT
   currentLayoutName: string
@@ -105,12 +105,14 @@ export type MainContextT = {
   }
 
   enterpriseServerVersions: Array<string>
+
+  searchVersions: Record<string, string>
+  nonEnterpriseDefaultVersion: string
 }
 
 export const getMainContextFromRequest = (req: any): MainContextT => {
   return {
     builtAssets: { main: { js: req.context.builtAssets.main.js } },
-    expose: req.context.expose,
     breadcrumbs: req.context.breadcrumbs || {},
     activeProducts: req.context.activeProducts,
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
@@ -154,6 +156,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       'isOldestReleaseDeprecated',
       'oldestSupported',
       'nextDeprecationDate',
+      'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
@@ -177,6 +180,8 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
     featureFlags: {},
+    searchVersions: req.context.searchVersions,
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
   }
 }
 

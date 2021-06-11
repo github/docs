@@ -17,7 +17,7 @@ export const Survey = () => {
   const formRef = useRef<HTMLFormElement>(null)
 
   function vote(state: ViewState) {
-    return (evt: React.ChangeEvent<HTMLInputElement>) => {
+    return () => {
       trackEvent(getFormData())
       setState(state)
     }

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于支持的操作系统
 
 {% data variables.product.prodname_desktop %} 支持以下操作系统。

@@ -14,12 +14,14 @@ topics:
 redirect_from:
   - /admin/configuration/restricting-network-traffic-to-your-enterprise
 ---
+
 ### 关于 IP 允许列表
+
 默认情况下，授权用户可以从任何 IP 地址访问您的企业。 企业所有者可以通过为特定 IP 地址配置允许列表，来限制对企业帐户中组织拥有的资产的访问。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %} {% data reusables.identity-and-permissions.ip-allow-lists-enterprise %}
 
 您还可以为单个组织配置允许的 IP 地址。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
@@ -35,6 +37,10 @@ redirect_from:
 {% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
 {% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
+
+### 允许 {% data variables.product.prodname_github_apps %} 访问
+
+{% data reusables.identity-and-permissions.ip-allow-lists-githubapps-enterprise %}
 
 ### 启用允许的 IP 地址
 

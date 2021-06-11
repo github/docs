@@ -13,6 +13,7 @@ topics:
   - Organizations
   - User account
 ---
+
 {% if enterpriseServerVersions contains currentVersion %}
 Além disso, você pode impor a sua configuração padrão para todos os integrantes da organização na instância usando um utilitário de linha de comando. Por exemplo, se quiser que a visibilidade de todos os integrantes da organização seja pública, você pode definir o padrão como "pública" e aplicá-lo para todos os novos integrantes nas configurações de administrador, e depois usar o utilitário de linha de comando para aplicar a configuração "pública" a todos os outros integrantes.
 {% endif %}

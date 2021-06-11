@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. Weitere Informationen finden Sie unter „[Bei {% data variables.product.prodname_dotcom %} authentifizieren](/desktop/getting-started-with-github-desktop/authenticating-to-github)“.
 
 After you authenticate to {% data variables.product.prodname_dotcom %}, you can connect to remote repositories with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} caches your credentials (username and password or personal access token) and uses the credentials to authenticate for each connection to the remote repository.

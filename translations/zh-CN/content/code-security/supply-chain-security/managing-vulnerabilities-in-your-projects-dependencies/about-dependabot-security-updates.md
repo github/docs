@@ -8,9 +8,16 @@ redirect_from:
   - /code-security/supply-chain-security/about-dependabot-security-updates
 versions:
   free-pro-team: '*'
+type: overview
 topics:
-  - Security
+  - Dependabot
+  - Security updates
+  - Vulnerabilities
+  - Repositories
+  - Dependencies
+  - Pull requests
 ---
+
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
 ### 关于 {% data variables.product.prodname_dependabot_security_updates %}
