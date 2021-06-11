@@ -17,6 +17,7 @@ topics:
   - Logging
   - Security
 ---
+
 Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog é compatível (por exemplo, [Logstash](http://logstash.net/) e [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
 ### Habilitar o encaminhamento de logs
@@ -42,7 +43,6 @@ Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Solução de Problemas
-Se você tiver problemas com o encaminhamento de registro, entre em contato com
 
-{% data variables.contact.contact_ent_support %} e anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
+Em caso de problemas com o encaminhamento de logs, entre em contato com o {% data variables.contact.contact_ent_support %} e anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
 {% endif %}

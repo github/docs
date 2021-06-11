@@ -8,6 +8,7 @@ permissions: 'Organization owners in {% data variables.product.prodname_enterpri
 versions:
   enterprise-server: '*'
 ---
+
 ### 必要な環境
 
 - {% data variables.product.prodname_insights %}を含む{% data variables.product.prodname_enterprise %}のライセンスファイルを持っていなければなりません。 {% data variables.product.prodname_insights %}の購入後、更新されたライセンスファイルを[{% data variables.product.prodname_enterprise %} Webポータル](https://enterprise.github.com/download)でダウンロードできます。
@@ -28,8 +29,7 @@ versions:
 {% data variables.product.prodname_insights %}を{% data variables.product.prodname_enterprise %}に接続するには、{% data variables.product.prodname_enterprise %}上のOrganization内に{% data variables.product.prodname_github_app %}を作成しなければなりません。 インテグレーションが動作すると、{% data variables.product.prodname_enterprise %}上にアプリケーションのスラッグバージョンの名前が表示されます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. に接続したいOrganizationにアクセスしてください。
-{% data variables.product.prodname_insights %}.
+2. {% data variables.product.prodname_insights %}に接続したいOrganizationにアクセスしてください。
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. **New {% data variables.product.prodname_github_app %}（新規{% data variables.product.prodname_github_app %}）**をクリックしてください。 ![新規GitHub Appボタン](/assets/images/github-apps/github_apps_new.png)

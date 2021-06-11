@@ -1,6 +1,6 @@
 ---
 title: Restringir notificações de e-mail para a conta corporativa
-intro: You can prevent your enterprise's information from leaking into personal email accounts by restricting the domains where members can receive email notifications about activity in organizations owned by your enterprise account.
+intro: 'Você pode impedir que as informações da sua empresa se convertam em contas de e-mail pessoais, restringindo domínios em que os integrantes podem receber notificações por e-mail sobre a atividade em organizações pertencentes à sua conta corporativa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -14,6 +14,7 @@ topics:
   - Notifications
   - Policy
 ---
+
 ### Sobre restrições de e-mail para a sua conta corporativa
 
 {% data reusables.enterprise-accounts.email-restrictions-about %}

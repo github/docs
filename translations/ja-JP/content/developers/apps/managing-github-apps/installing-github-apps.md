@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% note %}
 
 **ノート:** {% data variables.product.prodname_github_app %}は、誰かがアプリケーションを選択したリポジトリにだけインストールした場合でも、アプリケーションが作成するすべてのリポジトリにアクセスできます。

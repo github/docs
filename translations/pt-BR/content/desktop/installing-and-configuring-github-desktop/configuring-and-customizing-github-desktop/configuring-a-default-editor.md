@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Editores compatíveis
 
 O {% data variables.product.prodname_desktop %} é compatível com os seguintes editores.

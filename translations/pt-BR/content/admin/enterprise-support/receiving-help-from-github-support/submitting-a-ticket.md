@@ -1,6 +1,6 @@
 ---
 title: Enviar um tíquete
-intro: 'Você pode enviar um tíquete de suporte usando {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} de {% data variables.enterprise.management_console %} ou{% endif %} o portal de suporte.'
+intro: 'You can submit a support ticket using {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the support portal{% elsif currentVersion == "github-ae@latest" %}{% data variables.contact.ae_azure_portal %}{% endif %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
   - /admin/enterprise-support/submitting-a-ticket
@@ -12,13 +12,19 @@ topics:
   - Enterprise
   - Support
 ---
+
 ### Como enviar um tíquete
+
+{% if currentVersion == "github-ae@latest" %}
+
+You can submit a ticket for support with {% data variables.product.prodname_ghe_managed %} from the {% data variables.contact.ae_azure_portal %}.
+
+{% endif %}
 
 Antes de enviar um ticket, reúna informações úteis sobre o {% data variables.contact.github_support %} e defina a melhor pessoa para fazer o contato. Para obter mais informações, consulte "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)".
 
 {% if enterpriseServerVersions contains currentVersion %}
-Após enviar a sua solicitação de suporte e informações opcionais de diagnóstico,
-{% data variables.contact.github_support %} poderá pedir que você baixe e compartilhe um pacote de suporte conosco. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
+Depois de enviar sua solicitação de suporte e as informações opcionais de diagnóstico, o {% data variables.contact.github_support %} pode solicitar que você baixe e compartilhe conosco um pacote de suporte. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
 
 ### Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
@@ -52,10 +58,24 @@ Após enviar a sua solicitação de suporte e informações opcionais de diagnó
 7. Clique em **Enviar**.
 
 {% endif %}
+
 {% if currentVersion == "github-ae@latest" %}
+
+### Pré-requisitos
+
+To submit a ticket for {% data variables.product.prodname_ghe_managed %} in the {% data variables.contact.ae_azure_portal %}, you must provide the ID for your {% data variables.product.prodname_ghe_managed %} subscription in Azure to your Customer Success Account Manager (CSAM) at Microsoft.
+
 ### Enviar um tíquete usando o {% data variables.contact.ae_azure_portal %}
 
-Os clientes comerciais podem enviar um pedido de suporte no {% data variables.contact.contact_ae_portal %}. Clientes do governo devem usar os [Portal do Azure para clientes do governo](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para obter mais informações, consulte [Criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) na documentação da Microsoft.
+Os clientes comerciais podem enviar um pedido de suporte no {% data variables.contact.contact_ae_portal %}. Clientes do governo devem usar os [Portal do Azure para clientes do governo](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft Docs.
+
+### Troubleshooting problems in the {% data variables.contact.ae_azure_portal %}
+
+{% data variables.product.company_short %} is unable to troubleshoot access and subscription issues in the Azure portal. For help with the Azure portal, contact your CSAM at Microsoft or review the following information.
+
+- If you cannot sign into the Azure portal, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) in the Microsoft Docs or [submit a request directly](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
+
+- If you can sign into the Azure portal but you cannot submit a ticket for {% data variables.product.prodname_ghe_managed %}, review the prerequisites for submitting a ticket. For more information, see "[Prerequisites](#prerequisites)".
 
 {% endif %}
 

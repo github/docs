@@ -25,7 +25,7 @@ type VersionItem = {
   versionTitle: string
 }
 
-export type CurrentProductTree = {
+export type ProductTreeNode = {
   page: {
     hidden?: boolean
     documentType: 'article' | 'mapTopic'
@@ -35,7 +35,7 @@ export type CurrentProductTree = {
   renderedShortTitle?: string
   renderedFullTitle: string
   href: string
-  childPages: Array<CurrentProductTree>
+  childPages: Array<ProductTreeNode>
 }
 
 type DataT = {
@@ -84,7 +84,7 @@ export type MainContextT = {
   userLanguage: string
   languages: Record<string, LanguageItem>
   allVersions: Record<string, VersionItem>
-  currentProductTree?: CurrentProductTree | null
+  currentProductTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
@@ -186,7 +186,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
 }
 
 // only pull things we need from the product tree, and make sure there are default values instead of `undefined`
-const getCurrentProductTree = (input: any): CurrentProductTree => {
+const getCurrentProductTree = (input: any): ProductTreeNode => {
   return {
     href: input.href,
     renderedShortTitle: input.renderedShortTitle || '',

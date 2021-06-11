@@ -18,6 +18,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### Sobre o {% data variables.product.prodname_github_connect %}
 
 Para habilitar o {% data variables.product.prodname_github_connect %}, você deve configurar a conexão na {% data variables.product.product_location_enterprise %} e na sua organização do {% data variables.product.prodname_ghe_cloud %}  ou na conta corporativa.
@@ -46,9 +47,7 @@ Habilitar o {% data variables.product.prodname_github_connect %} não permitirá
 Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 ### Habilitar o {% data variables.product.prodname_github_connect %}
 
-1. Fazer login em
-
-{% data variables.product.product_location_enterprise %} e {% data variables.product.prodname_dotcom_the_website %}.
+1. Entre na {% data variables.product.product_location_enterprise %} e no {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

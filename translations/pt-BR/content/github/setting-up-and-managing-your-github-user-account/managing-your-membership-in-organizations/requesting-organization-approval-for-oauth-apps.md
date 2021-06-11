@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### Solicitar aprovação da organização para um {% data variables.product.prodname_oauth_app %} que você já autorizou na sua conta pessoal
 
 {% data reusables.user_settings.access_settings %}

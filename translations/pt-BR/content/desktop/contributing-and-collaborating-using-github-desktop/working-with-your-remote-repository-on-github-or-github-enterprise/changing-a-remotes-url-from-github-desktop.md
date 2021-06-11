@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. No menu **Repository** (Repositório), clique em **Repository Settings...** (Configurações do repositório...). ![Opção de menu Repository Settings (Configurações do repositório)](/assets/images/help/desktop/repository-settings-mac.png)

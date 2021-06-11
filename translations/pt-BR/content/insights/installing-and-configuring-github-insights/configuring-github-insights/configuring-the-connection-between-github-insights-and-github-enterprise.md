@@ -7,10 +7,9 @@ versions:
 redirect_from:
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
 ---
+
 {% data reusables.github-insights.settings-tab %}
-2. Abaixo
-{% octicon "gear" aria-label="The gear icon" %} Configurações, clique em **Empresa**.
-  ![Aba Enterprise](/assets/images/help/insights/enterprise-tab.png)
+2. Em configurações do {% octicon "gear" aria-label="The gear icon" %}, clique em **Enterprise**. ![Aba Enterprise](/assets/images/help/insights/enterprise-tab.png)
 {% data reusables.github-insights.enterprise-api-url %}
 {% data reusables.github-insights.app-id %}
 {% data reusables.github-insights.client-id %}

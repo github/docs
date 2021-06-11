@@ -12,6 +12,7 @@ versions:
 topics:
   - Events
 ---
+
 Events APIは、GitHub上のアクティビティによってトリガーされる様々な種類のイベントを返します。 各イベントのレスポンスは共有プロパティを含むとともに、イベントの種類によって決まる固有の`payload`オブジェクトを持ちます。 [イベントオブジェクトの共通プロパティ](#event-object-common-properties)は、すべてのイベントが共有するプロパティを示すものであり、各イベントの種類にはそのイベントに固有の`payload`プロパティが示されています。
 
 {% if currentVersion == "free-pro-team@latest" %}

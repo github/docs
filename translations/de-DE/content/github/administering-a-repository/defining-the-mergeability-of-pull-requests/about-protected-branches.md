@@ -23,6 +23,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### About branch protection rules
 
 You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
@@ -40,6 +41,8 @@ By default, the restrictions of a branch protection rule don't apply to people w
 For each branch protection rule, you can choose to enable or disable the following settings.
 - [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
 - [Require status checks before merging](#require-status-checks-before-merging)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
 - [Include administrators](#include-administrators)
@@ -96,6 +99,12 @@ Du kannst die erforderlichen Statusprüfungen entweder als "loose" (locker) oder
 
 For troubleshooting information, see "[Troubleshooting required status checks](/github/administering-a-repository/troubleshooting-required-status-checks)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+#### Require conversation resolution before merging
+
+Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
+{% endif %}
+
 #### Require signed commits
 
 When you enable required commit signing on a branch, contributors {% if currentVersion == "free-pro-team@latest" %}and bots{% endif %} can only push commits that have been signed and verified to the branch. Weitere Informationen findest Du unter „[Über die Verifikation von Commit-Signaturen](/articles/about-commit-signature-verification)."
@@ -131,8 +140,7 @@ By default, protected branch rules do not apply to people with admin permissions
 #### Restrict who can push to matching branches
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can enable branch restrictions if your repository is owned by an organization using
-{% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
+You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
 When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
