@@ -7,14 +7,11 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/working-with-your-codespace
+children:
+  - /managing-encrypted-secrets-for-your-codespaces
+  - /managing-access-and-security-for-your-codespaces
+  - /reviewing-your-security-logs-for-codespaces
+  - /managing-gpg-verification-for-codespaces
 ---
 
 {% data reusables.codespaces.release-stage %}
-
-{% link_with_intro /managing-encrypted-secrets-for-your-codespaces %}
-
-{% link_with_intro /managing-access-and-security-for-your-codespaces %}
-
-{% link_with_intro /reviewing-your-security-logs-for-codespaces %}
-
-{% link_with_intro /managing-gpg-verification-for-codespaces %}

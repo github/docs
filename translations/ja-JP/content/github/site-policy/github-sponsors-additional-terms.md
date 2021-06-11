@@ -90,7 +90,7 @@ The matching period begins after GitHub accepts an individual Sponsored Develope
 #### 3.3. コンテンツの収益化
 本プログラムおよびサービスを通じて、GitHub は「スポンサード開発者コンテンツ」を収益化できるさまざまな選択肢を提供できます。 選択肢によっては、「スポンサード開発者アカウント」の設定を一部更新することが必要な場合もあります。 また、本プログラムが収益化の各選択肢をサポートする方法はさまざまです。 そうした選択肢の 1 つ以上を利用するため、該当する設定を変更する場合は、その選択肢に適用される条項に同意することになります。 収益化の選択肢によっては、GitHub やそのサービスプロバイダーに追加情報を提供したり、追加的な GitHub の条項またはサードパーティの条項に同意しなければならない場合があります。
 
-##### 3.3.1. Subscriptions.
+##### 3.3.1. プラン
 The Program provides you with the capability to offer Subscriptions. 「プラン」を提供する場合、セクション 4 の記載に従い、GitHub はあなたに「プランスポンサーシップ」を支払います。 You are responsible for determining the nature, content, and capabilities of your Subscription offer, subject to these Additional Terms and applicable GitHub Policies.
 
 ##### 3.3.2. Other Sponsorships.

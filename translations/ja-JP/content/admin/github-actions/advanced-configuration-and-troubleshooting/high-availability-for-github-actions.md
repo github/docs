@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /admin/github-actions/high-availability-for-github-actions
 ---
+
 ### {% data variables.product.prodname_actions %} データのレプリケーションまたは冗長性
 
 {% data reusables.actions.enterprise-storage-ha-backups %}

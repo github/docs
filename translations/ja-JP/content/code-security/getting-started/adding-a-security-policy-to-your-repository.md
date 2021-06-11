@@ -9,8 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: next
+type: how_to
 topics:
-  - Security
+  - Security policies
+  - Vulnerabilities
+  - Repositories
+  - Health
 ---
 
 ### セキュリティポリシーについて
@@ -52,6 +56,6 @@ By making security reporting instructions clearly available, you make it easy fo
 
 ### 参考リンク
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
+- "[Securing your repository](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
 - "[Setting up your project for healthy contributions](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

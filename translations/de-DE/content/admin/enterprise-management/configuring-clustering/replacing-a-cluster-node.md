@@ -13,6 +13,7 @@ topics:
   - Enterprise
   - Infrastructure
 ---
+
 {% warning %}
 
 **Warnung:** Zum Vermeiden von Konflikten muss der Ersatzknoten einen Hostnamen verwenden, der noch nicht im Cluster verwendet wurde.

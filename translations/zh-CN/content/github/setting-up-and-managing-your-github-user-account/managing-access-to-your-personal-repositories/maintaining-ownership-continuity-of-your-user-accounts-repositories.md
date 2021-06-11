@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories
 ---
+
 ### 关于继承者
 
 如果您无法管理您的用户拥有的仓库，建议邀请其他 {% data variables.product.company_short %} 用户作为继承者管理。 作为继承者，他们拥有以下权限：

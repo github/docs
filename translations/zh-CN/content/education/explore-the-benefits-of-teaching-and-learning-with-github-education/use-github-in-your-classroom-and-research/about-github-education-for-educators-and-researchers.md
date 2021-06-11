@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% data reusables.education.about-github-education-link %}
 
 ### 适用于教育者的 {% data variables.product.prodname_education %}

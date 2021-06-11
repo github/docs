@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre os contribuidores e equipes no {% data variables.product.prodname_insights %}
 
 Um colaborador em {% data variables.product.prodname_insights %} é uma entidade associada aos dados do {% data variables.product.prodname_enterprise %}. Você pode editar e ocultar contribuidores.

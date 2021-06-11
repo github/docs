@@ -9,6 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+
 ### Estrutura do diretório
 
 Cada *referência* ou instantâneo etiquetado de um commit em um projeto é organizado em subdiretórios específicos, como `trunk`, `branches` e `tags`. Por exemplo, um projeto do SVN com dois recursos em desenvolvimento pode ter esta aparência:

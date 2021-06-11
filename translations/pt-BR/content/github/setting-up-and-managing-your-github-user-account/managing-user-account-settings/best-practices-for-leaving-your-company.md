@@ -9,6 +9,7 @@ versions:
 topics:
   - Accounts
 ---
+
 Antes de sair da empresa, não se esqueça de atualizar as seguintes informações em sua conta de usuário:
 
 - Anule a confirmação do endereço de e-mail da sua empresa [excluindo-o nas configurações do e-mail](/articles/changing-your-primary-email-address). Você pode adicioná-lo novamente sem verificação para manter os commits associados vinculados à sua conta.

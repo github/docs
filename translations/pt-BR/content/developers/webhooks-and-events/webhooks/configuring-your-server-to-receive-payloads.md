@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 Agora que nosso webhook está pronto para enviar mensagens, vamos configurar um servidor do Sinatra básico para gerenciar as cargas recebidas.
 
 {% note %}

@@ -9,8 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.1'
   github-ae: next
+type: how_to
 topics:
-  - Security
+  - Security policies
+  - Vulnerabilities
+  - Repositories
+  - Health
 ---
 
 ### Sobre políticas de segurança
@@ -52,6 +56,6 @@ Ao disponibilizar claramente instruções de relatório de segurança, você tor
 
 ### Leia mais
 
-- "[Sobre como proteger o repositório](/github/administering-a-repository/about-securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
+- "[Protegendo o seu repositório](/code-security/getting-started/securing-your-repository)"{% if currentVersion != 'github-ae@next' %}
 - "[Configurar o projeto para contribuições saudáveis](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

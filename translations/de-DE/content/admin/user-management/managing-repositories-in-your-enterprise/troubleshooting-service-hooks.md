@@ -12,6 +12,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 ### Informationen zu Auslieferungen abrufen
 
 Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-Auslieferungen auf einem beliebigen Repository suchen.

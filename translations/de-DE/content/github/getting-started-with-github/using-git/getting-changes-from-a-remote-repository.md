@@ -11,6 +11,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 ### Options for getting changes
 
 Diese Befehle sind bei der Interaktion mit einem [Remote-Repository](/github/getting-started-with-github/about-remote-repositories) sehr hilfreich. Mit `clone` und `fetch` kannst Du Remote-Code von der Remote-URL eines Repositorys auf Deinen lokalen Computer herunterladen. Der Befehl `merge` dient zum Zusammenführen der Arbeit verschiedener Benutzer mit Deiner eigenen Arbeit, und `pull` ist eine Kombination aus `fetch` und `merge`.

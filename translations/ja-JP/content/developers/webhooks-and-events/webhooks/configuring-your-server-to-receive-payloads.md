@@ -11,6 +11,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
 
 {% note %}
