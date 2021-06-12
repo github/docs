@@ -22,7 +22,7 @@ topics:
 
 {% tip %}
 
-**Tip:** To clear your filter selection, click **Clear current search query, filters, and sorts**.
+**Tip:** To clear yyour filter selection, click **Clear current search query, filters, and sorts**.
 
 {% endtip %}
 
