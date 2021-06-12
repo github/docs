@@ -1,5 +1,3 @@
-import { Grid } from '@primer/components'
-
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'components/landing/TableOfContents'
 import { ArticleVersionPicker } from 'components/article/ArticleVersionPicker'
@@ -24,11 +22,7 @@ export const TocLanding = () => {
           </div>
         </div>
 
-        <Grid
-          gridTemplateColumns="minmax(500px, 720px) minmax(220px, 1fr)"
-          gridTemplateRows="auto 1fr"
-          gridGap={16}
-        >
+        <div className="article-grid-container">
           <div>
             <div className="mt-8">
               <ArticleTitle>{title}</ArticleTitle>
@@ -49,7 +43,7 @@ export const TocLanding = () => {
             </div>
           </div>
           <div></div>
-        </Grid>
+        </div>
       </div>
     </DefaultLayout>
   )
