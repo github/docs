@@ -1,6 +1,6 @@
 ---
 title: Comparing commits
-intro: You can compare the state of your repository across branches, tags, commits, and dates.
+intro: You can compare the state of your repository across branches, tags, commits, forks, and dates.
 redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
