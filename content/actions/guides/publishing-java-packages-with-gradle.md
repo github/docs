@@ -94,6 +94,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
       - name: Publish package
         run: gradle publish
         env:
@@ -160,6 +162,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
       - name: Publish package
         run: gradle publish
         env:
@@ -233,6 +237,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
       - name: Publish to the Maven Central Repository
         run: gradle publish
         env: {% raw %}
