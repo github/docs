@@ -1,5 +1,6 @@
 ---
 title: Comparing commits
+intro: You can compare the state of your repository across branches, tags, commits, and dates.
 redirect_from:
   - /articles/comparing-commits-across-time
   - /github/committing-changes-to-your-project/comparing-commits-across-time
@@ -9,7 +10,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-You can compare the state of your repository across branches, tags, commits, and dates. To compare different versions of your repository, append `/compare` to your repository's path.
+To compare different versions of your repository, append `/compare` to your repository's path.
 
 We'll demonstrate the power of Compare by looking at the compare page for [a fork of the Linguist repo](https://github.com/octocat/linguist), which is at [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master).
 
