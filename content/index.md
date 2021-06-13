@@ -32,21 +32,6 @@ children:
   - communities
   - pages
   - education
-  - desktop
-  - early-access
-externalProducts:
-  cli:
-    id: cli
-    name: GitHub CLI
-    href: 'https://cli.github.com/manual'
-    external: true
-  atom:
-    id: atom
-    name: Atom
-    href: 'https://atom.io/docs'
-    external: true
-  electron:
-    id: electron
     name: Electron
     href: 'https://electronjs.org/docs'
     external: true
