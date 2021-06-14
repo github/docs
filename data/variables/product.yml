@@ -122,7 +122,7 @@ prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
 
 # GitHub resources: blog, jobs, Learning Lab
-prodname_gcf: 'GitHub Community Support'
+prodname_gcf: 'GitHub Support Community'
 prodname_blog: 'the GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Learning Lab'

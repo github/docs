@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %} are individual tasks you can combine to create jobs and customize your workflow. You can create your own actions, and use and customize actions shared by the {% data variables.product.prodname_dotcom %} community. For more information, see “[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
