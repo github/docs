@@ -28,7 +28,7 @@ You can specify which branch you'd like to merge your changes into when you crea
 {% endtip %}
 {% endif %}
 
-### Changing the branch range and destination repository
+## Changing the branch range and destination repository
 
 By default, pull requests are based on the parent repository's default branch. For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
@@ -50,7 +50,7 @@ When you change any of the information in the branch range, the Commit and Files
 
 {% endtip %}
 
-### Creating the pull request
+## Creating the pull request
 
 {% tip %}
 
@@ -71,7 +71,7 @@ When you change any of the information in the branch range, the Commit and Files
 
 After your pull request has been reviewed, it can be [merged into the repository](/articles/merging-a-pull-request).
 
-### Further reading
+## Further reading
 
 - "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)"
 - "[Changing the base branch of a pull request](/articles/changing-the-base-branch-of-a-pull-request)"

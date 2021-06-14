@@ -25,7 +25,7 @@ As you're working on issues and pull requests, you can [track the progress of yo
 
 {% endtip %}
 
-### Further reading
+## Further reading
 
 - "[About milestones](/articles/about-milestones)"
 - "[Creating and editing milestones for issues and pull requests](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)"

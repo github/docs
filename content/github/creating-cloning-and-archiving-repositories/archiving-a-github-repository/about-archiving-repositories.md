@@ -27,5 +27,5 @@ When a repository is archived, its issues, pull requests, code, labels, mileston
 
 You can search for archived repositories. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."  
 
-### Further reading
+## Further reading
 - "[Archiving repositories](/articles/archiving-repositories)"

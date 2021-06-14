@@ -636,10 +636,10 @@ describe('extended Markdown', () => {
 
   test('renders platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('.extended-markdown.mac h3#using-textmate-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.windows h3#using-notepad-as-your-editor').length).toBe(1)
-    expect($('.extended-markdown.linux h3#using-textmate-as-your-editor').length).toBe(0)
-    expect($('.extended-markdown.linux h3#using-notepad-as-your-editor').length).toBe(0)
+    expect($('.extended-markdown.mac h2#using-textmate-as-your-editor').length).toBe(1)
+    expect($('.extended-markdown.windows h2#using-notepad-as-your-editor').length).toBe(1)
+    expect($('.extended-markdown.linux h2#using-textmate-as-your-editor').length).toBe(0)
+    expect($('.extended-markdown.linux h2#using-notepad-as-your-editor').length).toBe(0)
   })
 
   test('renders expected mini TOC headings in platform-specific content', async () => {

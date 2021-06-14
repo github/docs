@@ -11,7 +11,7 @@ versions:
 topics:
   - Accounts
 ---
-### About trials of {% data variables.product.prodname_ghe_server %}
+## About trials of {% data variables.product.prodname_ghe_server %}
 
 You can request a 45-day trial to evaluate {% data variables.product.prodname_ghe_server %}. Your trial will be installed as a virtual appliance, with options for on-premises or cloud deployment. For a list of supported visualization platforms, see "[Setting up a GitHub Enterprise Server instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
@@ -21,7 +21,7 @@ Trials are also available for {% data variables.product.prodname_ghe_cloud %}. F
 
 {% data reusables.products.which-product-to-use %}
 
-### Setting up your trial of {% data variables.product.prodname_ghe_server %}
+## Setting up your trial of {% data variables.product.prodname_ghe_server %}
 
 {% data variables.product.prodname_ghe_server %} is installed as a virtual appliance. Determine the best person in your organization to set up a virtual machine, and ask that person to submit a [trial request](https://enterprise.github.com/trial). You can begin your trial immediately after submitting a request.
 
@@ -29,7 +29,7 @@ To set up an account for the {% data variables.product.prodname_enterprise %} We
 
 To install {% data variables.product.prodname_ghe_server %}, download the necessary components and upload your license file. For more information, see the instructions for your chosen visualization platform in "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
-### Next steps
+## Next steps
 
 To get the most out of your trial, follow these steps:
 
@@ -52,12 +52,12 @@ To get the most out of your trial, follow these steps:
 
 {% data reusables.products.product-roadmap %}
 
-### Finishing your trial
+## Finishing your trial
 
 You can upgrade to full licenses in the [{% data variables.product.prodname_enterprise %} Web portal](https://enterprise.github.com/login) at any time during the trial period.
 
 If you haven't upgraded by the last day of your trial, you'll receive an email notifying you that your trial had ended. If you need more time to evaluate {% data variables.product.prodname_enterprise %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
 
-### Further reading
+## Further reading
 
 - "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/articles/setting-up-a-trial-of-github-enterprise-cloud)"

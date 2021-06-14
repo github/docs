@@ -14,7 +14,7 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 {% data reusables.actions.ae-beta %}
 
-### About the included setup actions and the runner tool cache
+## About the included setup actions and the runner tool cache
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
@@ -30,13 +30,13 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% endnote %}
 
-### Prerequisites
+## Prerequisites
 
 * Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
 * Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
 * Access to your self-hosted runner's file system to populate the tool cache folder.
 
-### Populating the tool cache for a self-hosted runner
+## Populating the tool cache for a self-hosted runner
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository that you can use to run a {% data variables.product.prodname_actions %} workflow.
 1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {% data variables.product.prodname_dotcom %}-hosted runner's tool cache.

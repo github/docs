@@ -39,6 +39,6 @@ If you'd like to match the commits in your repository to the authors' GitHub use
 
 You'll receive an email when the repository has been completely imported.
 
-### Further reading
+## Further reading
 
 - "[Updating commit author attribution with GitHub Importer](/articles/updating-commit-author-attribution-with-github-importer)"

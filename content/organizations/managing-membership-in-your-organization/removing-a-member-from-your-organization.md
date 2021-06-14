@@ -46,7 +46,7 @@ To help the person you're removing from your organization transition and help en
 
 {% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}
 
-### Revoking the user's membership
+## Revoking the user's membership
 
 {% data reusables.profile.access_org %}
 {% data reusables.user_settings.access_org %}
@@ -58,6 +58,6 @@ To help the person you're removing from your organization transition and help en
 6. Review the member or members who will be removed from the organization, then click **Remove members**.
   ![List of members who will be removed and Remove members button](/assets/images/help/teams/confirm-remove-members-bulk.png)
 
-### Further reading
+## Further reading
 
 - "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"

@@ -22,7 +22,7 @@ Referring sites and popular content are ordered by views and unique visitors. Fu
 
 ![Repository traffic graphs with tooltip](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
 
-### Accessing the traffic graph
+## Accessing the traffic graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

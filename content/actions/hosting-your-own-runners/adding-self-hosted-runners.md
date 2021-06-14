@@ -30,7 +30,7 @@ For more information, see "[About self-hosted runners](/github/automating-your-w
 
 {% endwarning %}
 
-### Adding a self-hosted runner to a repository
+## Adding a self-hosted runner to a repository
 
 You can add self-hosted runners to a single repository. To add a self-hosted runner to a user repository, you must be the repository owner. For an organization repository, you must be an organization owner or have admin access to the repository.
 
@@ -41,7 +41,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 {% data reusables.github-actions.self-hosted-runner-configure %}
 {% data reusables.github-actions.self-hosted-runner-check-installation-success %}
 
-### Adding a self-hosted runner to an organization
+## Adding a self-hosted runner to an organization
 
 You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. 
 
@@ -54,7 +54,7 @@ You can add self-hosted runners at the organization level, where they can be use
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
 
-### Adding a self-hosted runner to an enterprise
+## Adding a self-hosted runner to an enterprise
 
 You can add self-hosted runners to an enterprise, where they can be assigned to multiple organizations. The organization admins are then able to control which repositories can use it.
 
@@ -74,7 +74,7 @@ To add a self-hosted runner at the enterprise level of {% data variables.product
 
 {% data reusables.github-actions.self-hosted-runner-public-repo-access %}
 
-#### Making enterprise runners available to repositories
+### Making enterprise runners available to repositories
 
 By default, runners in an enterprise's "Default" self-hosted runner group are available to all organizations in the enterprise, but are not available to all repositories in each organization.
 

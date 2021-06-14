@@ -27,7 +27,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
-### Further reading
+## Further reading
 
 - "[About teams](/articles/about-teams)"
 - "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"

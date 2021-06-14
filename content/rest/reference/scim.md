@@ -6,6 +6,7 @@ versions:
   free-pro-team: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 ### SCIM Provisioning for Organizations

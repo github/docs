@@ -11,11 +11,11 @@ topics:
 
 {% data reusables.codespaces.release-stage %}
 
-### About the Command Palette
+## About the Command Palette
 
 The Command Palette is one of the focal features of {% data variables.product.prodname_vscode %} and is available for you to use in Codespaces. The Command Palette allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information on using the Command Palette, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the Visual Studio Code documentation.
 
-### Accessing the Command Palette
+## Accessing the Command Palette
 
 You can access the Command Palette in a number of ways.
 
@@ -27,13 +27,13 @@ You can access the Command Palette in a number of ways.
 
   ![The application menu](/assets/images/help/codespaces/codespaces-view-menu.png)
 
-### Commands for {% data variables.product.prodname_github_codespaces %}
+## Commands for {% data variables.product.prodname_github_codespaces %}
 
 To see all commands related to {% data variables.product.prodname_github_codespaces %} access the Command Palette, then start typing "Codespaces".
 
 ![A list of all commands that relate to Codespaces](/assets/images/help/codespaces/codespaces-commad-palette.png)
 
-#### Suspending or stopping a codespace
+### Suspending or stopping a codespace
 
 If you add a new secret, you'll have to stop and restart the codespace for it to apply your changes. 
 
@@ -41,13 +41,13 @@ To suspend or stop your codespace's container, access the Command Palette, then 
 
 ![Command to stop a codespace](/assets/images/help/codespaces/codespaces-stop.png)
 
-#### Adding a dev container from a template
+### Adding a dev container from a template
 
 To add a dev container from a template, access the Command Palette, then start typing "dev container". Select **Codespaces: Add Development Container Configuration Files...**
 
 ![Command to add a dev container](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
-#### Rebuilding a codespace
+### Rebuilding a codespace
 
 If you add a dev container or edit any of the configuration files (`devcontainer.json` and `Dockerfile`), you'll have to rebuild your codespace for it to apply your changes. 
 
@@ -55,7 +55,7 @@ To rebuild your container, access the Command Palette, then start typing "rebuil
 
 ![Command to rebuild a codespace](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-#### Codespaces logs
+### Codespaces logs
 
 You can use the Command Palette to access the codespace creation logs, or you can use it export all logs. 
 

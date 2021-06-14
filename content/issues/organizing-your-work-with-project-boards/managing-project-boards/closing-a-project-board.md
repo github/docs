@@ -23,7 +23,7 @@ If you reopen a project board, you have the option to *sync* automation, which u
 3. Click **Close**.
 ![Close item in the project board's drop-down menu](/assets/images/help/projects/close-project.png)
 
-### Further reading
+## Further reading
 
 - "[About project boards](/articles/about-project-boards)"
 - "[Deleting a project board](/articles/deleting-a-project-board)"

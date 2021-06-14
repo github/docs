@@ -13,7 +13,7 @@ versions:
 topics:
   - Pull requests
 ---
-### About issues
+## About issues
 
 You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs.
 
@@ -29,7 +29,7 @@ To stay updated on the most recent comments in an issue, you can watch an issue 
 
 To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-### Working with issues
+## Working with issues
 
 With issues, you can:
 - Track and prioritize your work using project boards. For more information, see "[Using project boards](/articles/about-project-boards)."

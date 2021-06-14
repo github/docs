@@ -22,7 +22,7 @@ topics:
   - Repositories
 ---
 {% if currentVersion == "free-pro-team@latest" %}
-### Enabling or disabling security and analysis features for public repositories
+## Enabling or disabling security and analysis features for public repositories
 
 You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
 
@@ -33,7 +33,7 @@ You can manage a subset of security and analysis features for public repositorie
   !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
 {% endif %}
 
-### Enabling or disabling security and analysis features{% if currentVersion == "free-pro-team@latest" %} for private repositories{% endif %}
+## Enabling or disabling security and analysis features{% if currentVersion == "free-pro-team@latest" %} for private repositories{% endif %}
 
 You can manage the security and analysis features for your {% if currentVersion == "free-pro-team@latest" %}private or internal {% endif %}repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}{% endif %}
 
@@ -60,7 +60,7 @@ You can manage the security and analysis features for your {% if currentVersion 
    ![Enable or disable {% data variables.product.prodname_GH_advanced_security %} or {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-ghas-secret-scanning-ghae.png)
   {% endif %}
 
-### Granting access to security alerts
+## Granting access to security alerts
 
 After you enable {% if currentVersion != "github-ae@latest" %}{% data variables.product.prodname_dependabot %} or {% endif %}{% data variables.product.prodname_secret_scanning %} alerts for a repository in an organization, organization owners and repository administrators can view the alerts by default. You can give additional teams and people access to the alerts for a repository.
 
@@ -92,7 +92,7 @@ Organization owners and repository administrators can only grant access to view 
    !["Save changes" button for changes to security alert settings](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-save-changes-ghae.png)
    {% endif %}
 
-### Removing access to security alerts
+## Removing access to security alerts
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -108,7 +108,7 @@ Organization owners and repository administrators can only grant access to view 
    !["x" button to remove someone's access to security alerts for your repository](/assets/images/enterprise/github-ae/repository/security-and-analysis-security-alerts-username-x-ghae.png)
    {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Securing your repository](/code-security/getting-started/securing-your-repository)"
 - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"

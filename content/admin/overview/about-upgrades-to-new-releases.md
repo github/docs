@@ -41,7 +41,7 @@ To upgrade your enterprise to a new release, see "[Release notes](/enterprise-se
 
 {% endif %}
 
-### Further reading
+## Further reading
 
 - [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
 {% if currentVersion == "github-ae@latest" %}

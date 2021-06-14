@@ -19,7 +19,7 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
 
-### About {% data variables.product.prodname_registry %}
+## About {% data variables.product.prodname_registry %}
 
 {% data variables.product.prodname_registry %} is a platform for hosting and managing packages, including containers and other dependencies. {% data variables.product.prodname_registry %} combines your source code and packages in one place to provide integrated permissions management{% if currentVersion != "github-ae@latest" %} and billing{% endif %}, so you can centralize your software development on {% data variables.product.product_name %}.
 
@@ -39,7 +39,7 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 You can view a package's README, as well as metadata such as licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/manage-packages/viewing-packages)."
 
-#### Overview of package permissions and visibility
+### Overview of package permissions and visibility
 
 |                    |        |
 |--------------------|--------------------|
@@ -49,17 +49,17 @@ You can view a package's README, as well as metadata such as licensing, download
 For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% if currentVersion == "free-pro-team@latest" %}
-### About billing for {% data variables.product.prodname_registry %}
+## About billing for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
 
 {% endif %}
 
-### Supported clients and formats
+## Supported clients and formats
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported clients or formats. -->
 
 {% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
-#### Support for package registries
+### Support for package registries
 
 | Language | Description | Package format | Package client |
 | --- | --- | --- | --- |
@@ -86,13 +86,13 @@ For more information about configuring your package client for use with {% data 
 {% if currentVersion == "free-pro-team@latest" %}
 For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)" and "[Working with the Docker registry](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)."
 {% endif %}
-### Authenticating to {% data variables.product.prodname_registry %}
+## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
 {% data reusables.package_registry.authenticate-packages-github-token %}
 
-### Managing packages
+## Managing packages
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can delete a package in the {% data variables.product.product_name %} user interface or using the REST API. For more information, see the "[{% data variables.product.prodname_registry %} API](/rest/reference/packages)."
@@ -114,7 +114,7 @@ When you use the GraphQL API to query and delete private packages, you must use 
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 
-### Contacting support
+## Contacting support
 
 {% if currentVersion == "free-pro-team@latest" %}
 If you have feedback or feature requests for {% data variables.product.prodname_registry %}, use the [feedback form for {% data variables.product.prodname_registry %}](https://support.github.com/contact/feedback?contact%5Bcategory%5D=github-packages).

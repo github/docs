@@ -31,6 +31,6 @@ Searching via the REST and GraphQL APIs does not include {% data variables.produ
 6. Optionally, under "Users can search private repositories on {% data variables.product.prodname_dotcom_the_website %}", use the drop-down menu and click **Enabled**.
     ![Enable private repositories search option in the search GitHub.com drop-down menu](/assets/images/enterprise/site-admin-settings/enable-private-search.png)
 
-### Further reading
+## Further reading
 
 - "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)"

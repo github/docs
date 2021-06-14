@@ -15,7 +15,7 @@ topics:
   - Pages
 ---
 
-### About Jekyll build errors
+## About Jekyll build errors
 
 Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
 - The person who pushed the changes hasn't verified their email address. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
@@ -34,7 +34,7 @@ If Jekyll does attempt to build your site and encounters an error, you will rece
 
 For more information about troubleshooting build errors, see "[Troubleshooting Jekyll build errors for {% data variables.product.prodname_pages %} sites](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
-### Viewing Jekyll build error messages
+## Viewing Jekyll build error messages
 
 We recommend testing your site locally, which allows you to see build error messages on the command line, and addressing any build failures before pushing changes to {% data variables.product.product_name %}. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
 

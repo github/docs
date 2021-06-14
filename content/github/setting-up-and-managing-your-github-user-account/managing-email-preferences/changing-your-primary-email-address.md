@@ -28,6 +28,6 @@ topics:
 6. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.product_name %}'s features. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[Managing email preferences](/articles/managing-email-preferences/)"

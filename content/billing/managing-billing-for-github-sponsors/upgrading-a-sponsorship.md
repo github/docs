@@ -15,11 +15,11 @@ topics:
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %} 
 
-### About sponsorship upgrades
+## About sponsorship upgrades
 
 When you upgrade your sponsorship tier, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
-### Upgrading a sponsorship
+## Upgrading a sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
