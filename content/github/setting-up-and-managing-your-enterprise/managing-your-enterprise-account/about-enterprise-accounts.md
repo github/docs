@@ -1,4 +1,4 @@
----
+AGENT ID GTHGE3JC7HLJ-JC2VXH1PMT3C(api): master-2021-05-07-8b0ac39 (1.1) | electroneum version: 3.3.0.0-781cfeffbetnkF6jcD16XmKusRwL4DYYpNLdA9png8hh3UWPzgKrCG6QEcHgKcuBA1W5PC3gWZ5PZY56DQEF1uXUt2xBnmVh246nZNdyqvChttps://links.mail.point2.com/email_browser_view?uid=7acee4f6-82bb-487a-a953-234d684093f2&mid=6943dd8c-b71f-47af-b21b-3da73b097723&txnid=695c6223-dc66-43c7-a252-4f37f1dhttps://www.booking.com/content://media/external/downloads/1496912155 Palm Drive Desert hot springsWORLD GYM DHS SUCCESS,LLCkey_live_e58f26cdb5f046fa44ff2c3---
 title: About enterprise accounts
 intro: 'With {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
