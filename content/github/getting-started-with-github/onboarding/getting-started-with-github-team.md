@@ -1,13 +1,13 @@
 ---
 title: Getting started with GitHub Team
-intro: 'With {{ site.data.variables.product.prodname_team }} groups of people can collaborate across many projects at the same time in an organization account.'
+intro: 'With {% data variables.product.prodname_team %} groups of people can collaborate across many projects at the same time in an organization account.'
 versions:
   free-pro-team: '*'
 ---
 
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
 
-## Part 1: Configuring your {{ data variables.product.product_name }} account
+## Part 1: Configuring your {% data variables.product.product_name %} account
 
 
 ### Creating an organization, choosing GitHub Team as the product
@@ -64,7 +64,7 @@ Organizations are shared accounts where businesses and open-source projects can 
 ### Community: Org-level community health files, moderation tools
 
 
-## Part 5: Customizing and automating your work on {{ data variables.product.product_name }}
+## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
 
@@ -80,7 +80,7 @@ Organizations are shared accounts where businesses and open-source projects can 
 ### Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
-## Part 6: Participating in {{ site.data.variables.product.prodname_dotcom }}'s community
+## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
 {% data reusables.getting-started.participating-in-community %}
 ### Contributing to open source projects
 {% data reusables.getting-started.open-source-projects %}
