@@ -3,10 +3,10 @@ export default function () {
   const PageTopBtn = document.getElementById('js-scroll-top')
   if (!PageTopBtn) return
 
-  PageTopBtn.addEventListener('click', (e) => {
+  PageTopBtn.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     })
   })
 
