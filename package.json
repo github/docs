@@ -13,6 +13,7 @@
     ".next/cache"
   ],
   "dependencies": {
+    "@hapi/accept": "^5.0.2",
     "@primer/components": "^28.0.4",
     "@primer/css": "^16.2.0",
     "@primer/octicons": "^14.1.0",

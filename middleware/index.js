@@ -54,6 +54,7 @@ module.exports = function (app) {
   app.use(require('compression')())
   app.use(require('./disable-caching-on-safari'))
   app.use(require('./set-fastly-surrogate-key'))
+  app.use(require('./catch-bad-accept-language'))
 
   // *** Config and context for redirects ***
   app.use(require('./req-utils')) // Must come before record-redirect and events
