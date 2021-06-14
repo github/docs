@@ -22,7 +22,7 @@ topics:
 {% endnote %}
 {% endif %}
 
-### About task lists
+## About task lists
 
 A task list is a set of tasks that each render on a separate line with a clickable checkbox. You can select or deselect the checkboxes to mark the tasks as complete or incomplete. 
 
@@ -32,7 +32,7 @@ You can use Markdown to create a task list in any comment on {% data variables.p
 You can view task list summary information in issue and pull request lists, when the task list is in the initial comment.
 {% else %}
 
-### About issue task lists
+## About issue task lists
 
 If you add a task list to the body of an issue, the list has added functionality.
 
