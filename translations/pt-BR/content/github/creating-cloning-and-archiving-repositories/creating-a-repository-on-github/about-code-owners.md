@@ -13,6 +13,7 @@ versions:
 topics:
   - Repositories
 ---
+
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
 
 As pessoas que você escolhe como proprietários do código devem ter permissões de gravação para o repositório. Quando o proprietário do código for uma equipe, essa equipe deverá ter permissões de gravação, mesmo se todos os membros individuais da equipe já tiverem permissões de gravação diretamente, ou por meio da associação à organização, ou por meio da associação a outra equipe.
@@ -26,8 +27,7 @@ Quando alguém com permissões de administrador ou proprietário tiver habilitad
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se uma equipe habilitou as atribuições de revisão de código, as aprovações individuais não vão atender ao requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre
-{% octicon "shield-lock" aria-label="The edit icon" %}.
+Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre o {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![Proprietário do código para um arquivo em um repositório](/assets/images/help/repository/code-owner-for-a-file.png)
 {% endif %}

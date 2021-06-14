@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 {% warning %}
 
 **Aviso:** {% if currentVersion ver_lt "enterprise-server@3.1" %} Beta de {% else %} Funcionalidades opcionais {% endif %} estão sujeitos a alterações.
@@ -21,8 +22,7 @@ topics:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Selecione o
-{% data variables.product.prodname_github_app %} para o qual você deseja habilitar {% if currentVersion ver_lt "enterprise-server@3.1" %} uma funcionalidade opcional de beta {% else %} {% endif %}.
+3. Selecione o {% data variables.product.prodname_github_app %} que você deseja habilitar {% if currentVersion ver_lt "enterprise-server@3.1" %} um recurso beta {% else %} opcional {% endif %}.
 {% data reusables.apps.optional_feature_activation %}
 
 ### Ativar {% if currentVersion ver_lt "enterprise-server@3.1" %} {% else %} funcionalidades opcionais de beta {% endif %} para {% data variables.product.prodname_oauth_app %}s

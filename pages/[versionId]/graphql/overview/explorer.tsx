@@ -32,6 +32,7 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
                 {airGap ? (
                   <p>GraphQL explorer is not available on this environment.</p>
                 ) : (
+                  /* eslint-disable-next-line jsx-a11y/iframe-has-title */
                   <iframe
                     id="graphiql"
                     className="graphql-explorer"

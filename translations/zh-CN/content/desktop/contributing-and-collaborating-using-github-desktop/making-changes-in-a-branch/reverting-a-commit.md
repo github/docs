@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 在还原到上一个提交时，还原本身也是提交。 原提交仍会保留在仓库的历史记录中。
 
 {% tip %}

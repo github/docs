@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% note %}
 
 **メモ:** Organization の代理でコミットを作成する機能は、現在パブリックベータであり、変更されることがあります。

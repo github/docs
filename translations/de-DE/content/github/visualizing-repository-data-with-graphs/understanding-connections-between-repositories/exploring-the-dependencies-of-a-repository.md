@@ -8,6 +8,7 @@ topics:
 redirect_from:
   - /github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository
 ---
+
 <!--See /content/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository for the latest version of this article -->
 
 ### Viewing the dependency graph
@@ -23,8 +24,7 @@ The dependency graph shows the dependencies of your repository. For information 
 #### Dependencies view
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
-{% data variables.product.prodname_dependabot_alerts %}.
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Abhängigkeitsdiagramm](/assets/images/help/graphs/dependencies_graph_server.png)
 

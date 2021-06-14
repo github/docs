@@ -70,9 +70,9 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with flake8
         run: |
-          # stop the build if there are Python syntax errors or undefined names
+          # Python 構文エラーまたは未定義の名前がある場合はビルドを停止する
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          # exit-zero はすべてのエラーを警告として扱う。 GitHub エディタの幅は 127 文字
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # python-version内のPyPyのバージョンが利用できる。
-      # For example, pypy2 and pypy3
+      # 例: pypy2 および pypy3
       matrix:
         python-version: [2.7, 3.5, 3.6, 3.7, 3.8]
 
@@ -122,7 +122,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      # You can test your matrix by printing the current Python version
+      # 現在の Python バージョンを印刷出力してマトリックスをテスト可能
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 ```
@@ -148,11 +148,11 @@ jobs:
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
-          # Semantic version range syntax or exact version of a Python version
+          # セマンティックバージョン範囲の構文または Python バージョンの正確なバージョン
           python-version: '3.x'
           # Optional - x64 or x86 architecture, defaults to x64
           architecture: 'x64'
-      # You can test your matrix by printing the current Python version
+      # 現在の Python バージョンを出力してマトリックスをテスト可能
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 ```
@@ -378,7 +378,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      # Install pip and pytest
+      # pip および pytest をインストールする
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -390,7 +390,7 @@ jobs:
         with:
           name: pytest-results-${{ matrix.python-version }}
           path: junit/test-results-${{ matrix.python-version }}.xml
-        # Use always() to always run this step to publish test results when there are test failures
+        # always() を使用して常にこのステップを実行し、テストが失敗したときにテスト結果を公開する
         if: ${{ always() }}
 ```
 {% endraw %}

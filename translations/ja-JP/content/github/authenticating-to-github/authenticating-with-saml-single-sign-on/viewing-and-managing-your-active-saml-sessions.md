@@ -9,6 +9,7 @@ versions:
 topics:
   - SSO
 ---
+
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 3. [Sessions] で、アクティブな SAML セッションを確認できます。 ![アクティブな SAML セッションのリスト](/assets/images/help/settings/saml-active-sessions.png)

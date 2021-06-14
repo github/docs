@@ -12,6 +12,7 @@ versions:
 topics:
   - Repositories
 ---
+
 上のグラフは、週ごとの年間のコミットを示しています。
 
 ![リポジトリコミット年グラフ](/assets/images/help/graphs/repo_commit_activity_year_graph.png)

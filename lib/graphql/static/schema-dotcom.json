@@ -2048,7 +2048,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -2106,7 +2106,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -14984,7 +14984,7 @@
               "Mutation.createDeployment"
             ],
             "owning_teams": [
-              "@github/ecosystem-api"
+              "@github/c2c-actions-service"
             ],
             "accept_header": "application/vnd.github.flash-preview+json",
             "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -70019,7 +70019,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -70118,7 +70118,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/ecosystem-api"
+          "@github/c2c-actions-service"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"

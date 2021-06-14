@@ -8,6 +8,7 @@ permissions: 'People with admin permissions to {% data variables.product.prodnam
 versions:
   enterprise-server: '*'
 ---
+
 ### 关于事件
 
 事件可为指标添加上下文。 例如，节假日或发布日可能会导致工作模式的变化，因此了解这些事件的发生时间可能会改变您对指标的评估。 您可以针对团队重组、新员工入职、团队范围变化以及任何可能影响团队工作的其他因素而创建事件。

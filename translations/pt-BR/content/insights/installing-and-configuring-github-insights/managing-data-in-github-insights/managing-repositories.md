@@ -9,6 +9,7 @@ miniTocMaxHeadingLevel: 4
 versions:
   enterprise-server: '*'
 ---
+
 ### Sobre o gerenciamento de repositório
 
 Para o {% data variables.product.prodname_insights %} incluir dados de um repositório no {% data variables.product.prodname_enterprise %}, é necessário adicionar a organização proprietária do repositório ao {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Gerenciar organizações](/github/installing-and-configuring-github-insights/managing-organizations)".

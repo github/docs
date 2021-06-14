@@ -8,8 +8,9 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 topics:
-  - 2fa
+  - 2FA
 ---
+
 {% data variables.product.product_name %} の場合、2 番目の認証の形式は、モバイルデバイス上のアプリケーションによって生成されるコード{% if currentVersion == "free-pro-team@latest" %}、またはテキストメッセージ (SMS) として送信されるコードになります{% endif %}。 2FA を有効化すると、{% data variables.product.product_name %}は誰かが {% data variables.product.product_name %}アカウントにサインインしようとすると認証コードを生成します。 誰かがアカウントサインインできるのは、パスワードを知っており、電話上の認証コードも利用できる場合のみです。
 
 {% data reusables.two_fa.after-2fa-add-security-key %}

@@ -11,6 +11,7 @@ versions:
 topics:
   - Marketplace
 ---
+
 Para obter mais informações sobre cancelamento e como está relacionado à cobrança, consulte "[Cobrança de clientes {% data variables.product.prodname_marketplace %}](/apps//marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace)".
 
 ### Etapa 1. Evento de cancelamento

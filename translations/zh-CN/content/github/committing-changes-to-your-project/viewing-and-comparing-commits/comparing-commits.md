@@ -9,6 +9,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 您可以在分支、标记、提交和日期之间比较仓库的状态。 要比较仓库的不同版本，请在仓库路径中附加 `/compare`。
 
 我们将通过查看 [Linguist 仓库复刻](https://github.com/octocat/linguist)的比较页面来展示比较视图的强大功能，该页面位于 [https://github.com/octocat/linguist/compare/master...octocat:master](https://github.com/octocat/linguist/compare/master...octocat:master)。

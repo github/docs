@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
 import { sendEvent } from './events'
 
@@ -24,7 +25,9 @@ export default function displayToolSpecificContent () {
     link.addEventListener('click', (event) => {
       event.preventDefault()
       highlightTabForTool(event.target.dataset.tool)
-      showToolSpecificContent(event.target.dataset.tool, toolElements)
+      preserveAnchorNodePosition(document, () => {
+        showToolSpecificContent(event.target.dataset.tool, toolElements)
+      })
 
       // Save this preference as a cookie.
       Cookies.set('toolPreferred', event.target.dataset.tool, { sameSite: 'strict', secure: true })

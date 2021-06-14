@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 O {% data variables.large_files.product_name_short %} está disponível para cada repositório do {% data variables.product.product_name %}, sua conta ou organização tendo ou não uma assinatura paga.
 
 ### Rastrear o uso de armazenamento e largura de banda
@@ -20,8 +21,7 @@ Por exemplo:
 - Se você baixar um arquivo de 500 MB que é rastreado com o LFS, serão usados 500 MB da largura de banda alocada do proprietário do repositório. Se um colaborador fizer push de uma alteração no arquivo e você fizer pull da nova versão no repositório local, serão usados outros 500 MB de largura de banda, totalizando 1 GB de uso total da largura de banda para esses dois downloads.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-Se
-{% data variables.large_files.product_name_long %} objetos de ({% data variables.large_files.product_name_short %}) estiverem incluídos nos arquivos do código-fonte do seu repositório, os downloads desses arquivos contarão para o uso de banda larga no repositório. Para obter mais informações, consulte "
+Se {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) os objetos forem incluídos nos arquivos de código-fonte para o seu repositório, os downloads desses arquivos contarão para o uso de largura de banda para o repositório. Para obter mais informações, consulte "
 [Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
 
 {% endif %}

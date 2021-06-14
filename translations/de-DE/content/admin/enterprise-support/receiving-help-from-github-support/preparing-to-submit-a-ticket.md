@@ -12,6 +12,7 @@ topics:
   - Enterprise
   - Support
 ---
+
 Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:
 
 - Sammle Informationen, die dem {% data variables.contact.github_support %} helfen können, das Problem zu verfolgen, zu priorisieren, zu reproduzieren oder zu untersuchen.

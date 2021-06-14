@@ -48,10 +48,15 @@ export type ProductLandingContextT = {
     viewAllHref?: string // If provided, adds a "View All ->" to the header
     articles: Array<FeaturedLink>
   }>
-  changelog: { label: string; prefix: string }
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
   tocItems: Array<TocItem>
+  releases: Array<{
+    version: string
+    firstPreviousRelease: string
+    secondPreviousRelease: string
+    patches: Array<{ date: string; version: string }>
+  }>
 }
 
 export const ProductLandingContext = createContext<ProductLandingContextT | null>(null)
@@ -79,7 +84,6 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'beta_product',
       'intro',
       'product_video',
-      'changelog',
     ]),
     product: {
       href: productTree.href,
@@ -89,6 +93,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     changelogUrl: req.context.changelogUrl || [],
     productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
+    releases: req.context.releases || [],
 
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({

@@ -15,6 +15,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 有关身份验证信息，请参阅“[使用 GitHub 应用程序进行身份验证](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
 ### 公共安装流程
@@ -23,7 +24,7 @@ topics:
 
 ### 私有安装流程
 
-私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或用户帐户（如果 GitHub 应用程序由个人帐户所有）可用。 Private{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}, or internal,{% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
+私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或用户帐户（如果 GitHub 应用程序由个人帐户所有）可用。 私有{% if currentVersion ver_lt "enterprise-server@3.2" or currentVersion == "github-ae@latest" %}或内部{% endif %} GitHub 应用程序只能安装在所有者的用户或组织帐户上。
 
 ### 更改 GitHub 应用程序的安装权限
 
@@ -34,5 +35,5 @@ topics:
 {% data reusables.user-settings.github_apps %}
 3. 选择要更改其安装权限选项的 GitHub 应用程序。 ![应用程序选择](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**. ![更改 GitHub 应用程序安装选项的按钮](/assets/images/github-apps/github_apps_make_public.png)
-6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private{% else %}internal{% endif %}**. ![确认更改安装选项的按钮](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. 根据 GitHub 应用程序的安装选项，单击 **Make public（设为公共）**或 **Make {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private（设为私有）{% else %}internal（设为内部）{% endif %}**。 ![更改 GitHub 应用程序安装选项的按钮](/assets/images/github-apps/github_apps_make_public.png)
+6. 根据 GitHub 应用程序的安装选项，单击 **Yes, make this GitHub App public（是，将此 GitHub 应用程序设为公共）**或 **Yes, make this GitHub App {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}private（是，将此 GitHub 应用程序设为私有）{% else %}internal（是，将此 GitHub 应用程序设为内部）{% endif %}**。 ![确认更改安装选项的按钮](/assets/images/github-apps/github_apps_confirm_installation_option.png)

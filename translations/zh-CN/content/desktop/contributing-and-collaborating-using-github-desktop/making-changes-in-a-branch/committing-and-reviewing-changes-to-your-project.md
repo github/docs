@@ -7,20 +7,37 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### 关于提交
 
 {% data reusables.commits.about-commits %} 您也可以在您协作的任何提交上添加一名合作作者。
 
 {% data reusables.desktop.update-email-address %} 更多信息请参阅“[为 GitHub Desktop 配置 Git](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)”。
 
-### 1. 选择一个分支并进行更改
+### 选择一个分支并进行更改
 
 1. [创建新分支](/desktop/guides/contributing-to-projects/managing-branches)，或者单击工具栏中的 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**并从列表中选择现有分支。
 
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
-### 2. 选择要包含在提交中的更改
+### 选择如何显示差异
+
+您可以更改差异在 {% data variables.product.prodname_desktop %} 中的显示方式，以适应您的审核需求。
+
+要更改您查看差异的方式，请单击差异视图右上角的 {% octicon "gear" aria-label="The Gear icon" %}。
+- 要更改整个差异的显示方式，在“Diff display（差异显示）”下选择 **Unified（统一）**或 **Split（分割）**。 统一视图线性显示变化，而分割视图则在左侧显示旧内容，在右侧显示新内容。
+- 要隐藏白空间更改，以便您可以专注于更实质性的更改，请选择 **Hide Whitespace Changes（隐藏白空间更改）**。
+
+![差异选项菜单](/assets/images/help/desktop/diff-selection.png)
+
+如果您需要查看的文件比默认情况下显示的 {% data variables.product.prodname_desktop %} 更多，则可以扩展差异。
+- 要查看突出显示的更改的上下几行，请单击行号上方或下方的箭头。
+- 要查看整个文件，请在差异视图中右键单击，然后单击 **Expand Whole File（扩展整个文件）**。
+
+![扩展差异视图](/assets/images/help/desktop/expand-diff-view.png)
+
+### 选择要包含在提交中的更改
 
 在文本编辑器中更改文件并本地保存后，您会在 {% data variables.product.prodname_desktop %} 中看到更改。
 
@@ -41,20 +58,11 @@ versions:
 
 如果一个文件包含多处更改，但只有部分更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
 
-{% note %}
-
-**注意：**拆分差异显示当前处于测试阶段，可能会更改。
-
-{% endnote %}
-
-1. 要选择更改的显示方式，请在已更改文件的右上角使用 {% octicon "gear" aria-label="The Gear icon" %} 选择**统一**或**拆分**。
-
-  ![包含统一和拆分差异的齿轮图标](/assets/images/help/desktop/gear-diff-select.png)
-2. 要从提交中排除更改的行，请单击一条或多条更改的行，以使蓝色消失。 仍以蓝色突出显示的行将包含在提交中。
+要从提交中排除更改的行，请单击一条或多条更改的行，以使蓝色消失。 仍以蓝色突出显示的行将包含在提交中。
 
   ![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
 
-### 3. 放弃更改
+### 放弃更改
 如果您有不想保留的未提交更改，可以放弃这些更改。 这将从计算机上的文件中删除更改。 您可以放弃一个或多个文件中所有未提交的更改，也可以丢弃添加的特定行。
 
 丢弃的更改保存在回收站中带日期的文件中。 在回收站清空之前，您可以恢复丢弃的更改。
@@ -87,7 +95,7 @@ versions:
   ![在确认对话框中丢弃一组添加的行](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
-### 4. 编写提交消息并推送更改
+### 编写提交消息并推送更改
 
 对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。 如果协作处理了某个提交，也可以将提交归于多个作者。
 

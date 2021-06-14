@@ -14,6 +14,7 @@ versions:
 topics:
   - Webhooks
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
@@ -163,8 +164,7 @@ Web 挂钩事件的独特属性与您使用[事件 API](/rest/reference/activity
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象
-对所有其他操作为{% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}空 {% endif %}。
+`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象对所有其他操作是 {% if currentVersion == "free-pro-team@latest" %}`github` {% elsif currentVersion ver_gt "enterprise-server@3.0" %}`github-enterprise` {% else %}空 {% endif %}。
 
 #### Web 挂钩有效负载示例
 

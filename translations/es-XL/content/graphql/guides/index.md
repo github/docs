@@ -16,5 +16,6 @@ children:
   - /migrating-from-rest-to-graphql
   - /using-the-explorer
   - /managing-enterprise-accounts
+  - /using-the-graphql-api-for-discussions
 ---
 

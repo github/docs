@@ -44,16 +44,14 @@ To set up your project with a custom container, you will need to use a `devconta
 ](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
 
 
-1. Access the command palette (`shift command P` / `shift control P`), then start typing "dev container". Click **Codespaces: Add Development Container Configuration Files...**
-  !["Codespaces: Add Development Container Configuration Files..." in the command palette](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+{% data reusables.codespaces.command-palette-container %}
 2. For this example, click **C# (.NET)**. If you need additional features you can select any container that’s specific to C# (.NET) or a combination of tools such as C# (.NET) and MS SQL.
   ![Select C# (.NET) option from the list](/assets/images/help/codespaces/add-dotnet-prebuilt-container.png)
 3. Click the recommended version of .NET.
   ![.NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
 4. Accept the default option to add Node.js to your customization.
   ![Add Node.js selection](/assets/images/help/codespaces/dotnet-options.png)
-5. To rebuild your container, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
 #### Anatomy of your dev container
 
@@ -190,9 +188,7 @@ With your dev container added and a basic understanding of what everything does,
   "postCreateCommand": "dotnet restore",
   ```
 
-4. To rebuild your container and apply the devcontainer.json changes, access the command palette (`shift command P` / `shift control P`), then start typing "rebuild". Click **Codespaces: Rebuild Container**. 
-
-  ![Rebuild container option](/assets/images/help/codespaces/codespaces-rebuild.png)
+{% data reusables.codespaces.rebuild-command %}
 
   Rebuilding inside your codespace ensures your changes work as expected before you commit the changes to the repository. If something does result in a failure, you’ll be placed in a codespace with a recovery container that you can rebuild from to keep adjusting your container.
 

@@ -7,5 +7,7 @@ children:
   - /about-billing-for-codespaces
   - /troubleshooting-your-codespace
   - /allowing-your-codespace-to-access-a-private-image-registry
+  - /using-the-command-palette-in-codespaces
 ---
+
 {% data reusables.codespaces.release-stage %}

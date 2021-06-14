@@ -23,6 +23,7 @@ versions:
 topics:
   - Repositories
 ---
+
 ### ブランチ保護ルールについて
 
 ブランチ保護ルールを作成することにより、コラボレータがリポジトリ内のブランチに変更をプッシュする前に、特定のワークフローまたは要件を適用できます。これには、プルリクエストのブランチへのマージが含まれます。
@@ -40,6 +41,8 @@ topics:
 ブランチ保護ルールごとに、次の設定を有効にするか無効にするかを選択できます。
 - [マージ前に Pull Request レビュー必須](#require-pull-request-reviews-before-merging)
 - [マージ前にステータスチェック必須](#require-status-checks-before-merging)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+- [Require conversation resolution before merging](#require-conversation-resolution-before-merging){% endif %}
 - [署名済みコミットの必須化](#require-signed-commits)
 - [直線状の履歴必須](#require-linear-history)
 - [管理者を含める](#include-administrators)
@@ -96,6 +99,12 @@ remote: error: Changes have been requested.
 
 トラブルシューティング情報については、「[必須ステータスチェックのトラブルシューティング](/github/administering-a-repository/troubleshooting-required-status-checks)」を参照してください。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+#### Require conversation resolution before merging
+
+Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
+{% endif %}
+
 #### 署名済みコミットの必須化
 
 ブランチで必須のコミット署名を有効にすると、コントリビュータ{% if currentVersion == "free-pro-team@latest" %}とボット{% endif %}は、ブランチに署名および検証されたコミットのみをプッシュできます。 詳細については、「[コミット署名の検証について](/articles/about-commit-signature-verification)」を参照してください。
@@ -131,8 +140,7 @@ remote: error: Changes have been requested.
 #### 一致するブランチにプッシュできるユーザを制限
 
 {% if currentVersion == "free-pro-team@latest" %}
-リポジトリが
-{% data variables.product.prodname_team %}または{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationにより所有されている場合、ブランチ制限を有効化できます。
+You can enable branch restrictions if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
 ブランチ制限を有効にすると、権限を与えられたユーザ、チーム、またはアプリのみが保護されたブランチにプッシュできます。 保護されたブランチの設定で、保護されたブランチへのプッシュアクセスを使用して、ユーザ、チーム、またはアプリを表示および編集できます。

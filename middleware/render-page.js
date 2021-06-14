@@ -13,8 +13,18 @@ const { HEROKU_RELEASE_VERSION, FEATURE_NEXTJS } = process.env
 
 const defaultNextJSRoutes = FEATURE_NEXTJS
   ? [
-      '/en/sponsors',
-      '/en/discussions'
+      '/en/billing',
+      '/en/code-security',
+      '/en/communities',
+      '/en/discussions',
+      '/en/developers',
+      '/en/desktop',
+      '/en/graphql',
+      '/en/issues',
+      '/en/organizations',
+      '/en/pages',
+      '/en/rest',
+      '/en/sponsors'
     ]
   : []
 const pageCacheDatabaseNumber = 1
