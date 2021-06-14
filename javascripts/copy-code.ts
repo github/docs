@@ -3,12 +3,13 @@ export default () => {
 
   if (!buttons) return
 
-  buttons.forEach(button =>
-    button.addEventListener('click', async evt => {
-      const text = button.dataset.clipboardText
+  buttons.forEach((button) =>
+    button.addEventListener('click', async () => {
+      const text = (button as HTMLElement).dataset.clipboardText
+      if (!text) return
       await navigator.clipboard.writeText(text)
 
-      const beforeTooltip = button.getAttribute('aria-label')
+      const beforeTooltip = button.getAttribute('aria-label') || ''
       button.setAttribute('aria-label', 'Copied!')
 
       setTimeout(() => {

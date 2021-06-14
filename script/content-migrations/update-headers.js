@@ -15,7 +15,7 @@ const re = /^#.*\n/gm
 
 async function updateMdHeaders (dir) {
   walk(dir, { includeBasePath: true, directories: false })
-    .filter(file => !file.endsWith('README.md'))
+    .filter(file => !file.endsWith('README.md') && !file.includes('content/rest/reference'))
     .forEach(file => {
       fs.readFile(file, 'utf8', (err, data) => {
         if (err) return console.error(err)

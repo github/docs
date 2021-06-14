@@ -1,5 +1,5 @@
 export default function () {
-  const linkToEnglish = document.querySelector('#to-english-doc')
+  const linkToEnglish = document.querySelector('#to-english-doc') as HTMLAnchorElement
 
   if (linkToEnglish) {
     const pathname = window.location.pathname.split('/')

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent } from '../javascripts/events'
+import { sendEvent, EventType } from '../javascripts/events'
 
 enum ViewState {
   START = 'START',
@@ -137,10 +137,10 @@ function trackEvent(formData: FormData | undefined) {
   if (!formData) return
   // Nota bene: convert empty strings to undefined
   return sendEvent({
-    type: 'survey',
-    survey_token: formData.get('survey-token') || undefined, // Honeypot
+    type: EventType.survey,
+    survey_token: (formData.get('survey-token') as string) || undefined, // Honeypot
     survey_vote: formData.get('survey-vote') === 'Y',
-    survey_comment: formData.get('survey-comment') || undefined,
-    survey_email: formData.get('survey-email') || undefined,
+    survey_comment: (formData.get('survey-comment') as string) || undefined,
+    survey_email: (formData.get('survey-email') as string) || undefined,
   })
 }

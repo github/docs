@@ -29,7 +29,7 @@ topics:
 
 We don't provide invoicing or support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can also [add extra information](/articles/adding-information-to-your-personal-account-s-receipts) to your receipts.
 
-### Updating your personal account's payment method
+## Updating your personal account's payment method
 
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
@@ -37,7 +37,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 ![Billing New Card button](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-### Updating your organization's payment method
+## Updating your organization's payment method
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

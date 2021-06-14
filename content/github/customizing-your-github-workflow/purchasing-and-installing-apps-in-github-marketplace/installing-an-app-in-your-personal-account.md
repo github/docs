@@ -13,7 +13,7 @@ If you choose a paid plan, you'll pay for your app subscription on your personal
 
 {% data reusables.marketplace.free-trials %}
 
-### Installing a {% data variables.product.prodname_github_app %} in your personal account
+## Installing a {% data variables.product.prodname_github_app %} in your personal account
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -27,7 +27,7 @@ If you choose a paid plan, you'll pay for your app subscription on your personal
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Installing an {% data variables.product.prodname_oauth_app %} in your personal account
+## Installing an {% data variables.product.prodname_oauth_app %} in your personal account
 
 {% data reusables.saml.saml-session-oauth %}
 
@@ -40,7 +40,7 @@ If you choose a paid plan, you'll pay for your app subscription on your personal
 {% data reusables.marketplace.complete-order-begin-installation %}
 8. Review the information about the app's access to your personal account and data, then click **Authorize application**.
 
-### Further reading
+## Further reading
 
 - "[Updating your personal account's payment method](/articles/updating-your-personal-account-s-payment-method)"
 - "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)"

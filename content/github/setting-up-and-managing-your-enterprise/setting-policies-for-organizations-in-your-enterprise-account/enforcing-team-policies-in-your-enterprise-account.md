@@ -13,7 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
-### Enforcing a policy for team discussions
+## Enforcing a policy for team discussions
 
 Across all organizations owned by your enterprise account, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)."
 

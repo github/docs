@@ -16,7 +16,7 @@ For information on how to use labels to route jobs to specific types of {% data 
 
 {% endnote %}
 
-### Viewing the labels for your {% data variables.actions.hosted_runner %}s
+## Viewing the labels for your {% data variables.actions.hosted_runner %}s
 {% data reusables.github-actions.hosted-runner-navigate-to-repo-org-enterprise %}
 {% data reusables.github-actions.hosted-runner-list %}
 {% data reusables.github-actions.hosted-runner-list-group %}

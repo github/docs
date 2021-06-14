@@ -11,7 +11,7 @@ versions:
 ---
 {% data variables.large_files.product_name_short %} is available for every repository on {% data variables.product.product_name %}, whether or not your account or organization has a paid subscription.
 
-### Tracking storage and bandwidth use
+## Tracking storage and bandwidth use
 
 When you commit and push a change to a file tracked with {% data variables.large_files.product_name_short %}, a new version of the entire file is pushed and the total file size is counted against the repository owner's storage limit. When you download a file tracked with {% data variables.large_files.product_name_short %}, the total file size is counted against the repository owner's bandwidth limit. {% data variables.large_files.product_name_short %} uploads do not count against the bandwidth limit.
 
@@ -31,15 +31,15 @@ If {% data variables.large_files.product_name_long %} ({% data variables.large_f
 
 {% endtip %}
 
-### Storage quota
+## Storage quota
 
 If you use more than {% data variables.large_files.initial_storage_quota %} of storage without purchasing a data pack, you can still clone repositories with large assets, but you will only retrieve the pointer files, and you will not be able to push new files back up. For more information about pointer files, see "[About {% data variables.large_files.product_name_long %}](/github/managing-large-files/about-git-large-file-storage#pointer-file-format)."
 
-### Bandwidth quota
+## Bandwidth quota
 
 If you use more than {% data variables.large_files.initial_bandwidth_quota %} of bandwidth per month without purchasing a data pack, {% data variables.large_files.product_name_short %} support is disabled on your account until the next month.
 
-### Further reading
+## Further reading
 
 - "[Viewing your {% data variables.large_files.product_name_long %} usage](/articles/viewing-your-git-large-file-storage-usage)"
 - "[Managing billing for {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"

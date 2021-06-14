@@ -16,11 +16,11 @@ topics:
 ---
 {% data reusables.sponsors.org-sponsors-release-phase %} 
 
-### About sponsorship downgrades
+## About sponsorship downgrades
 
 When you downgrade or cancel a sponsorship, the change will become effective on your next billing date. {% data reusables.sponsors.no-refunds %}
 
-### Downgrading a sponsorship
+## Downgrading a sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -28,7 +28,7 @@ When you downgrade or cancel a sponsorship, the change will become effective on 
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Canceling a sponsorship
+## Canceling a sponsorship
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}

@@ -13,10 +13,10 @@ topics:
 
 Capitalized terms used but not defined in these Acceptable Use Policies have the meanings assigned to them in our [Terms of Service](/articles/github-terms-of-service), [Corporate Terms of Service](/articles/github-corporate-terms-of-service), and [Privacy Statement](/articles/github-privacy-statement). For customers subject to the [Corporate Terms of Service](/articles/github-corporate-terms-of-service), "you" and "your" refer to "Customer" or "Users". "We", "us", "our" refer to "GitHub".
 
-### 1. Compliance with Laws and Regulations
+## 1. Compliance with Laws and Regulations
 You are responsible for using the Service in compliance with all applicable laws, regulations, and all of our Acceptable Use Policies. These policies may be updated from time to time and are provided below, as well as in our [Terms of Service](/articles/github-terms-of-service) and [Corporate Terms of Service](/articles/github-corporate-terms-of-service).
 
-### 2. Content Restrictions
+## 2. Content Restrictions
 Under no circumstances will Users upload, post, host, execute, or transmit any Content that:
 
 - is unlawful or promotes unlawful activities;
@@ -39,7 +39,7 @@ Under no circumstances will Users upload, post, host, execute, or transmit any C
 
 Please see our [Community Guidelines](/github/site-policy/github-community-guidelines#what-is-not-allowed) for more details.
 
-### 3. Conduct Restrictions
+## 3. Conduct Restrictions
 While using the Service, under no circumstances will you:
 
 - [harass, abuse](/github/site-policy/github-community-guidelines#bullying-and-harassment), [threaten, or incite violence](/github/site-policy/github-community-guidelines#threats-of-violence) towards any individual or group, including our employees, officers, and agents, or other users;
@@ -99,5 +99,5 @@ If you decide to post any promotional materials in your Account, you are solely 
 
 GitHub reserves the right to remove any Content in violation of this policy.
 
-### 10. User Protection
+## 10. User Protection
 You must not engage in activity that significantly harms other users. We will resolve disputes in favor of protecting users as a whole.

@@ -22,7 +22,7 @@ Apps on {% data variables.product.prodname_dotcom %} allow you to automate and i
 
 For a walkthrough of the process of building a {% data variables.product.prodname_github_app %}, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
 
-### About {% data variables.product.prodname_github_apps %}
+## About {% data variables.product.prodname_github_apps %}
 
 {% data variables.product.prodname_github_apps %} are first-class actors within GitHub. A {% data variables.product.prodname_github_app %} acts on its own behalf, taking actions via the API directly using its own identity, which means you don't need to maintain a bot or service account as a separate user.
 
@@ -49,7 +49,7 @@ Keep these ideas in mind when creating {% data variables.product.prodname_github
 
 To begin developing {% data variables.product.prodname_github_apps %}, start with "[Creating a {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)."{% if currentVersion == "free-pro-team@latest" %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[Creating {% data variables.product.prodname_github_apps %} from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
 
-### About {% data variables.product.prodname_oauth_app %}s
+## About {% data variables.product.prodname_oauth_app %}s
 
 OAuth2 is a protocol that lets external applications request authorization to private details in a user's {% data variables.product.prodname_dotcom %} account without accessing their password. This is preferred over Basic Authentication because tokens can be limited to specific types of data and can be revoked by users at any time.
 
@@ -71,7 +71,7 @@ Keep these ideas in mind when creating {% data variables.product.prodname_oauth_
 
 For more on {% data variables.product.prodname_oauth_app %}s, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
 
-### Personal access tokens
+## Personal access tokens
 
 A [personal access token](/articles/creating-a-personal-access-token-for-the-command-line/) is a string of characters that functions similarly to an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/) in that you can specify its permissions via [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A personal access token is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
 
@@ -85,7 +85,7 @@ Keep these ideas in mind when using personal access tokens:
 * Don't set up a script for your whole team or company to use.
 * Don't set up a shared user account to act as a bot user.
 
-### Determining which integration to build
+## Determining which integration to build
 
 Before you get started creating integrations, you need to determine the best way to access, authenticate, and interact with the {% data variables.product.prodname_dotcom %} APIs. The following image offers some questions to ask yourself when deciding whether to use personal access tokens, {% data variables.product.prodname_github_apps %}, or {% data variables.product.prodname_oauth_app %}s for your integration.
 
@@ -98,6 +98,6 @@ Consider these questions about how your integration needs to behave and what it 
 * Will it access everything that I can access, or do I want to limit its access?
 * Is it simple or complex? For example, personal access tokens are good for simple scripts and cURLs, whereas an {% data variables.product.prodname_oauth_app %} can handle more complex scripting.
 
-### Requesting support
+## Requesting support
 
 {% data reusables.support.help_resources %}

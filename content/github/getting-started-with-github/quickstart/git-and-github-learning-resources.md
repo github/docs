@@ -13,11 +13,11 @@ versions:
 authors:
   - GitHub
 ---
-### Using Git
+## Using Git
 
 Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can review the [Git command list](https://git-scm.com/docs) or [Git command lookup reference](http://gitref.org) while using the [Try Git](https://try.github.com) simulator.
 
-### Using {% data variables.product.product_name %}
+## Using {% data variables.product.product_name %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -29,29 +29,29 @@ Become better acquainted with {% data variables.product.product_name %} through 
 
 {% data reusables.support.ask-and-answer-forum %}
 
-#### Branches, forks, and pull requests
+### Branches, forks, and pull requests
 
 Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/articles/about-forks) and [pull requests](/articles/using-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
 
-#### Tune in
+### Tune in
 
 Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides channel](https://youtube.com/githubguides) offers tutorials about [pull requests](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=19), [forking](https://www.youtube.com/watch?v=5oJHRbqEofs), [rebase](https://www.youtube.com/watch?v=SxzjZtJwOgo&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=22), and [reset](https://www.youtube.com/watch?v=BKPjPMVB81g) functions. Each topic is covered in 5 minutes or less.
 
-### Training
+## Training
 
-#### Free courses
+### Free courses
 
 {% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://lab.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://lab.github.com/githubtraining/introduction-to-github); courses on programming languages and tools such as HTML, Python, and NodeJS; and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
-#### {% data variables.product.prodname_dotcom %}'s web-based educational programs
+### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
 {% data variables.product.prodname_dotcom %} offers live [trainings](https://services.github.com/#upcoming-events) with a hands-on, project-based approach for those who love the command line and those who don't.
 
-#### Training for your company
+### Training for your company
 
 {% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
 
-### Extras
+## Extras
 
 An interactive [online Git course](http://www.codeschool.com/courses/git-real) from [Code School](http://codeschool.com) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
 

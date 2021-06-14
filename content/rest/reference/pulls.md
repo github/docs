@@ -8,6 +8,7 @@ versions:
   github-ae: '*'
 topics:
   - API
+miniTocMaxHeadingLevel: 3
 ---
 
 The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).

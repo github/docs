@@ -22,7 +22,7 @@ topics:
 4. Under "Merge button", select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. If you select another merge method besides **Allow squash merging**, collaborators will be able to choose the type of merge commit when merging a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %}
 ![Pull request squashed commits](/assets/images/help/repository/pr-merge-squash.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request merges](/articles/about-pull-request-merges)"
 - "[Merging a pull request](/articles/merging-a-pull-request)"

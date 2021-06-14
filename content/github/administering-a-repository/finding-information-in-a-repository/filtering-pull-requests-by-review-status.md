@@ -27,7 +27,7 @@ You can filter a repository's list of pull requests to find:
 4. Choose a filter to find all of the pull requests with that filter's status.
   ![List of filters in the Reviews drop-down menu](/assets/images/help/pull_requests/pr-review-filters.png)
 
-### Further reading
+## Further reading
 
 - "[About pull request reviews](/articles/about-pull-request-reviews)"
 - "[Using search to filter issues and pull requests](/articles/using-search-to-filter-issues-and-pull-requests)"

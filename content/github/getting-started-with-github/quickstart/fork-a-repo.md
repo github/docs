@@ -16,11 +16,11 @@ topics:
   - Notifications
   - Accounts
 ---
-### About forks
+## About forks
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
-#### Propose changes to someone else's project
+### Propose changes to someone else's project
 
 For example, you can use forks to propose changes related to fixing a bug. Rather than logging an issue for a bug you've found, you can:
 
@@ -28,7 +28,7 @@ For example, you can use forks to propose changes related to fixing a bug. Rathe
 - Make the fix.
 - Submit a pull request to the project owner.
 
-#### Use someone else's project as a starting point for your own idea.
+### Use someone else's project as a starting point for your own idea.
 
 Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](http://opensource.org/about)" on the Open Source Initiative.
 
@@ -56,7 +56,7 @@ When creating your public repository from a fork of someone's project, make sure
 {% endtip %}
 {% endif %}
 
-### Fork an example repository
+## Fork an example repository
 
 Forking a repository is a simple two-step process. We've created a repository for you to practice with.
 
@@ -64,15 +64,15 @@ Forking a repository is a simple two-step process. We've created a repository fo
 2. In the top-right corner of the page, click **Fork**.
 ![Fork button](/assets/images/help/repository/fork_button.jpg)
 
-### Keep your fork synced
+## Keep your fork synced
 
 You might fork a project to propose changes to the upstream, or original, repository. In this case, it's good practice to regularly sync your fork with the upstream repository. To do this, you'll need to use Git on the command line. You can practice setting the upstream repository using the same [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository you just forked.
 
-#### Step 1: Set up Git
+### Step 1: Set up Git
 
 If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
-#### Step 2: Create a local clone of your fork
+### Step 2: Create a local clone of your fork
 
 Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository on your computer. Let's create a clone of your fork locally on your computer.
 
@@ -96,7 +96,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you don't have the
   ```
 Now, you have a local copy of your fork of the Spoon-Knife repository.
 
-#### Step 3: Configure Git to sync your fork with the original Spoon-Knife repository
+### Step 3: Configure Git to sync your fork with the original Spoon-Knife repository
 
 When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
@@ -131,21 +131,21 @@ When you fork a project in order to propose changes to the original repository, 
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/articles/syncing-a-fork)."
 
-#### Next steps
+### Next steps
 
 You can make any changes to a fork, including:
 
 - **Creating branches:** [*Branches*](/articles/creating-and-deleting-branches-within-your-repository/) allow you to build new features or test out ideas without putting your main project at risk.
 - **Opening pull requests:** If you are hoping to contribute back to the original repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/articles/about-pull-requests).
 
-### Find another repository to fork
+## Find another repository to fork
 Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
 {% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
-### Celebrate
+## Celebrate
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository. What do you want to do next?
 

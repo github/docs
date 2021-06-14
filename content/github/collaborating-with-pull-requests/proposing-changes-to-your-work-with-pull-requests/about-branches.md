@@ -13,7 +13,7 @@ versions:
 topics:
   - Pull requests
 ---
-### About branches
+## About branches
 
 Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
 
@@ -23,7 +23,7 @@ You can also use a branch to publish a {% data variables.product.prodname_pages 
 
 You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-### About the default branch
+## About the default branch
 
 {% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
@@ -37,7 +37,7 @@ By default, {% data variables.product.product_name %} names the default branch {
 
 {% endif %}
 
-### Working with branches
+## Working with branches
 
 Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the *head* branch) into another branch (the *base* branch). For more information, see "[About pull requests](/articles/about-pull-requests)."
 
@@ -58,7 +58,7 @@ In the next diagram, someone has merged the pull request for `feature1` into the
 Now when you merge the `feature2` pull request, it'll be merged into the `master` branch.
 {% endif %}
 
-### Working with protected branches
+## Working with protected branches
 
 Repository administrators can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
 
@@ -79,7 +79,7 @@ When a branch is protected:
 - If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. For more information, see "[Resolving a merge conflict on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)."{% endif %}
 
-### Further reading
+## Further reading
 
 - "[About pull requests](/articles/about-pull-requests)"
 - "[Branch](/articles/github-glossary/#branch)" in the {% data variables.product.prodname_dotcom %} glossary
