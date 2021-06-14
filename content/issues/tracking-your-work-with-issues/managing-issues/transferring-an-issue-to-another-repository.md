@@ -20,7 +20,7 @@ When you transfer an issue, comments and assignees are retained. The issue's lab
 
 People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 
-### Transferring an open issue to another repository
+## Transferring an open issue to another repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
@@ -32,7 +32,7 @@ People or teams who are mentioned in the issue will receive a notification letti
 6. Click **Transfer issue**.
 ![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
 
-### Further reading
+## Further reading
 
 - "[About issues](/articles/about-issues)"
 - "[Reviewing your security log](/articles/reviewing-your-security-log)"

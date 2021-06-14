@@ -14,7 +14,7 @@ topics:
   - Enterprise
   - Security
 ---
-### About alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
+## About alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.repositories.tracks-vulnerabilities %} For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
@@ -32,9 +32,9 @@ After connecting {% data variables.product.product_location %} to {% data variab
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-### Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
+## Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 {% else %}
-### Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
+## Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 {% endif %}
 
 Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location %}, you must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Connecting {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)."
@@ -69,7 +69,7 @@ $ ghe-dep-graph-enable
 {% endif %}
    ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 
-### Viewing vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
+## Viewing vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 
 You can view all vulnerabilities in {% data variables.product.product_location %} and manually sync vulnerability data from {% data variables.product.prodname_dotcom_the_website %} to update the list.
 

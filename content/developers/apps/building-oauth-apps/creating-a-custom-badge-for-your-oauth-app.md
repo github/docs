@@ -42,7 +42,7 @@ To create a custom badge:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Next steps
+## Next steps
 
 For more information about creating a Marketplace listing for this app, see "[Listing on GitHub Marketplace](/marketplace/listing-on-github-marketplace/)".
 

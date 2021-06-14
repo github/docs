@@ -13,7 +13,7 @@ versions:
 topics:
   - Enterprise
 ---
-### About enterprise accounts
+## About enterprise accounts
 
 An enterprise account allows you to manage multiple {% data variables.product.prodname_dotcom %} organizations and {% data variables.product.prodname_ghe_server %} instances. Your enterprise account must have a handle, like an organization or personal account on {% data variables.product.prodname_dotcom %}. Enterprise administrators can manage settings and preferences, like:
 
@@ -32,7 +32,7 @@ For more information about managing enterprise accounts using the GraphQL API, s
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Managing organizations linked to your enterprise account
+## Managing organizations linked to your enterprise account
 
 Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[About organizations](/articles/about-organizations)."
 
@@ -42,6 +42,6 @@ For more information, see "[Managing organizations in your enterprise account](/
 
 {% endif %}
 
-### Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
+## Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
 
 {% data reusables.enterprise-accounts.admin-managing-licenses %}

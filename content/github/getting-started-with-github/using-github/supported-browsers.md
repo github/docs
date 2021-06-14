@@ -11,10 +11,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-### Firefox Extended Support Release
+## Firefox Extended Support Release
 
 We do our best to support Firefox's latest [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR). Older versions of Firefox may disable some features on {% data variables.product.product_name %} and require the latest version of Firefox.
 
-### Beta and developer builds
+## Beta and developer builds
 
 You may encounter unexpected bugs in beta and developer builds of our supported browsers. If you encounter a bug on {% data variables.product.product_name %} in one of these unreleased builds, please verify that it also exists in the stable version of the same browser. If the bug only exists in the unstable version, consider reporting the bug to the browser developer.

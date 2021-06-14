@@ -16,7 +16,7 @@ topics:
 {% data reusables.mobile.ghes-release-phase %}
 {% endif %}
 
-### About your inbox
+## About your inbox
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
@@ -34,7 +34,7 @@ By default, your inbox will show read and unread notifications. To only see unre
 
   ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
-### Triaging options
+## Triaging options
 
 You have several options for triaging notifications from your inbox.
 
@@ -50,19 +50,19 @@ To see the available keyboard shortcuts, see "[Keyboard Shortcuts](/github/getti
 
 Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
 
-### Triaging multiple notifications at the same time
+## Triaging multiple notifications at the same time
 
 To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
 
 ![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
-### Default notification filters
+## Default notification filters
 
 By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
 
   ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
 
-### Customizing your inbox with custom filters
+## Customizing your inbox with custom filters
 
 You can add up to 15 of your own custom filters.
 
@@ -81,7 +81,7 @@ You can add up to 15 of your own custom filters.
 
 4. Click **Create**.
 
-### Custom filter limitations
+## Custom filter limitations
 
 Custom filters do not currently support:
   - Full text search in your inbox, including searching for pull request or issue titles.
@@ -90,7 +90,7 @@ Custom filters do not currently support:
   - Changing the default filters or their order.
   - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
-### Supported queries for custom filters
+## Supported queries for custom filters
 
 These are the types of filters that you can use:
   - Filter by repository with `repo:`
@@ -99,11 +99,11 @@ These are the types of filters that you can use:
   - Filter by notification author with `author:`
   - Filter by organization with `org:`{% endif %}
 
-#### Supported `repo:` queries
+### Supported `repo:` queries
 
 To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
 
-#### Supported `is:` queries
+### Supported `is:` queries
 
 To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
@@ -129,7 +129,7 @@ You can also use the `is:` query to describe how the notification was triaged.
 - `is:unread`
 - `is:read`
 
-#### Supported `reason:` queries
+### Supported `reason:` queries
 
 To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
 
@@ -149,11 +149,11 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### Supported `author:` queries
+### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
 
-#### Supported `org:` queries
+### Supported `org:` queries
 
 To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
@@ -162,7 +162,7 @@ For example, to see notifications from the octo-org organization, use `org:octo-
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_dependabot %} custom filters
+## {% data variables.product.prodname_dependabot %} custom filters
 
 {% if currentVersion == "free-pro-team@latest" %}
 If you use {% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:

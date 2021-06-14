@@ -11,13 +11,13 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/about-github-advanced-security
 ---
-### About {% data variables.product.prodname_GH_advanced_security %}
+## About {% data variables.product.prodname_GH_advanced_security %}
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% if currentVersion != "github-ae@latest" %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a license for {% data variables.product.prodname_GH_advanced_security %} to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About licensing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security)."{% elsif currentVersion ver_gt "enterprise-server@2.22" %}For information about purchasing a license for {% data variables.product.prodname_GH_advanced_security %}, contact {% data variables.contact.contact_enterprise_sales %}.{% elsif currentVersion == "github-ae@latest" %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
 
-### About {% data variables.product.prodname_advanced_security %} features
+## About {% data variables.product.prodname_advanced_security %} features
 
 A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
 
@@ -32,7 +32,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 For information about {% data variables.product.prodname_advanced_security %} features that are in development, see "[{% data variables.product.prodname_dotcom %} public roadmap](https://github.com/github/roadmap)." For an overview of all security features, see "[{% data variables.product.prodname_dotcom %} security features](/code-security/getting-started/github-security-features)."
 
 {% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}
+## Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.product_name %}
 
 {% if currentVersion ver_gt "enterprise-server@2.22" %}
 The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.product.product_location %} before you can use these features. For more information, see "[Configuring Advanced Security features](/admin/configuration/configuring-advanced-security-features)."
@@ -43,7 +43,7 @@ Once your system is set up, you can enable and disable these features at the org
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-### Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_dotcom_the_website %}
+## Enabling {% data variables.product.prodname_advanced_security %} features on {% data variables.product.prodname_dotcom_the_website %}
 
 For public repositories on {% data variables.product.prodname_dotcom_the_website %}, these features are permanently on and can only be disabled if you change the visibility of the project so that the code is no longer public.
 
@@ -58,13 +58,13 @@ If you have an enterprise account, license use for the entire enterprise is show
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### Further reading
+## Further reading
 
 - "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account)"
 
 {% elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}
 
-### Further reading
+## Further reading
 
 - "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 

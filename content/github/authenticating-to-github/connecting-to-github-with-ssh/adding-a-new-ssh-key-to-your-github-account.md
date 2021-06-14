@@ -123,7 +123,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 {% endlinux %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Further reading
+## Further reading
 
 - "[Authorizing an SSH key for use with SAML single sign-on](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}

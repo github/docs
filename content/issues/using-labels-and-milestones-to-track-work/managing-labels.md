@@ -26,13 +26,13 @@ versions:
 topics:
   - Pull requests
 ---
-### About labels
+## About labels
 
 You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% if currentVersion == "free-pro-team@latest" %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% if currentVersion == "free-pro-team@latest" %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
 Anyone with read access to a repository can view and search the repository’s labels. Anyone with triage access to a repository can apply/dismiss existing labels. To create, edit, apply, or delete a label, you must have write access to the repository.
 
-### About default labels
+## About default labels
 
 {% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
@@ -56,7 +56,7 @@ Issues with the `good first issue` label are used to populate the repository's `
 Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 
-### Creating a label
+## Creating a label
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -67,13 +67,13 @@ Organization owners can customize the default labels for repositories in their o
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.create-label %}
 
-### Applying a label
+## Applying a label
 
 1. Navigate to the {% if currentVersion == "free-pro-team@latest" %}issue, pull request, or discussion{% else %}issue or pull request{% endif %}.
 1. In the right sidebar, to the right of "Labels", click {% octicon "gear" aria-label="The gear icon" %}, then click a label.
   !["Labels" drop-down menu](/assets/images/help/issues/labels-drop-down.png)
 
-### Editing a label
+## Editing a label
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -84,7 +84,7 @@ Organization owners can customize the default labels for repositories in their o
 {% data reusables.project-management.label-color-randomizer %}
 {% data reusables.project-management.save-label %}
 
-### Deleting a label
+## Deleting a label
 
 Deleting a label will remove the label from issues and pull requests.
 
@@ -93,7 +93,7 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.labels %}
 {% data reusables.project-management.delete-label %}
 
-### Further reading
+## Further reading
 - "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 - "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - "[Encouraging helpful contributions to your project with labels](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

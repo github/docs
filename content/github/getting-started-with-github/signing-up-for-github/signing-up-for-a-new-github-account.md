@@ -15,7 +15,7 @@ For more information about account types and products, see "[Types of {% data va
 {% data reusables.accounts.create-account %}
 1. Follow the prompts to create your personal account or organization.
 
-### Next steps
+## Next steps
 
 - "[Verify your email address](/articles/verifying-your-email-address)"
 - "[Configure two-factor authentication](/articles/configuring-two-factor-authentication)"

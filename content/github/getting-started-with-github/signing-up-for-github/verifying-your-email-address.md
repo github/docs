@@ -11,7 +11,7 @@ versions:
 topics:
   - Accounts
 ---
-### About email verification
+## About email verification
 
 You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
 
@@ -37,7 +37,7 @@ If you do not verify your email address, you will not be able to:
 
 {% endwarning %}
 
-### Verifying your email address
+## Verifying your email address
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
@@ -46,13 +46,13 @@ If you do not verify your email address, you will not be able to:
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
   ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
-### Troubleshooting email verification
+## Troubleshooting email verification
 
-#### Unable to send verification email
+### Unable to send verification email
 
 {% data reusables.user_settings.no-verification-disposable-emails %}
 
-#### Error page after clicking verification link
+### Error page after clicking verification link
 
 The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
 
@@ -63,6 +63,6 @@ If you click on the link in the confirmation email within 24 hours and you are d
 3. {% data variables.product.signin_link %} to your personal {% data variables.product.prodname_dotcom %} account.
 4. Click on the verification link in the email we sent you.
 
-### Further reading
+## Further reading
 
 - "[Changing your primary email address](/articles/changing-your-primary-email-address)"

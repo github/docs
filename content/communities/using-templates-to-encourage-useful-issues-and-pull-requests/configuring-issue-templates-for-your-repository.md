@@ -21,7 +21,7 @@ topics:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-### Creating issue templates
+## Creating issue templates
 
 {% endif %}
 
@@ -46,7 +46,7 @@ topics:
 11. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Configuring the template chooser
+## Configuring the template chooser
 
 {% data reusables.repositories.issue-template-config %}
 
@@ -86,7 +86,7 @@ Your configuration file will customize the template chooser when the file is mer
 {% data reusables.files.propose_new_file %}
 {% endif %}
 
-### Further reading
+## Further reading
 
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)"

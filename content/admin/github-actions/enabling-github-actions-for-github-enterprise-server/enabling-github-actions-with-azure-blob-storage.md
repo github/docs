@@ -9,7 +9,7 @@ topics:
 redirect_from:
   - /admin/github-actions/enabling-github-actions-with-azure-blob-storage
 ---
-### Prerequisites
+## Prerequisites
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
@@ -26,7 +26,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
   For more information on Azure storage account types and performance tiers, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts).
 {% data reusables.actions.enterprise-common-prereqs %}
 
-### Enabling {% data variables.product.prodname_actions %} with Azure Blob storage
+## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

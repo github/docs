@@ -18,20 +18,20 @@ topics:
 ---
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 
-### Viewing storage and bandwidth usage for a personal account
+## Viewing storage and bandwidth usage for a personal account
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-### Viewing storage and bandwidth usage for an organization
+## Viewing storage and bandwidth usage for an organization
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.lfs-data %}
 
-### Further reading
+## Further reading
 
 - "[About storage and bandwidth usage](/articles/about-storage-and-bandwidth-usage)"
 - "[Upgrading {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage/)"

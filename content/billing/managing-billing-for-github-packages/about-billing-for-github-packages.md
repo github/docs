@@ -12,7 +12,7 @@ topics:
   - Packages
   - Spending limits
 ---
-### About billing for {% data variables.product.prodname_registry %}
+## About billing for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -64,7 +64,7 @@ Your {% data variables.product.prodname_registry %} usage shares your account's 
 
 {% data reusables.user_settings.context_switcher %}
 
-### About spending limits
+## About spending limits
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
