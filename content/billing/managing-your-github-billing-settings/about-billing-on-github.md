@@ -28,6 +28,17 @@ You must manage billing settings, payment method, and paid features and products
 
 For more information, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/articles/managing-your-github-billing-settings)."
 
+### Switching between settings for your different accounts
+
+If you're an organization or enterprise owner, you can switch between settings for your different accounts using the context switcher in your settings. 
+
+{% data reusables.user_settings.access_settings %}
+1. At the top of the page, to the right of your username, click **Switch to another account**.
+![Context switcher button](/assets/images/help/settings/context-switcher-button.png)
+1. Start typing the name of the account you want to switch to, then click the name of the account.
+![Context switcher menu](/assets/images/help/settings/context-switcher-menu.png)
+1. In the left sidebar, click **Billing & plans**. ![Billing & plans in the settings sidebar](/assets/images/help/organizations/billing-settings.png)
+
 ### Further reading
 
 - "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)"
