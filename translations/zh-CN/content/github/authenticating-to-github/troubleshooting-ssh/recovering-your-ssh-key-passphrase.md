@@ -13,9 +13,10 @@ versions:
 topics:
   - SSH
 ---
+
 {% mac %}
 
-If you [configured your SSH passphrase with the macOS keychain](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain), you may be able to recover it.
+如果您[使用 macOS 密钥链配置 SSH 密码](/articles/working-with-ssh-key-passphrases#saving-your-passphrase-in-the-keychain)，则能够恢复它。
 
 1. 在 Finder 中，搜索 **Keychain Access** 应用程序。 ![Spotlight 搜索栏](/assets/images/help/setup/keychain-access.png)
 2. 在 Keychain Access 中，搜索 **SSH**。

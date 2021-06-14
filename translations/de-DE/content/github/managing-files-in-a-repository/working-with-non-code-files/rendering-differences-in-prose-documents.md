@@ -10,6 +10,7 @@ versions:
 topics:
   - Repositories
 ---
+
 Commits und Pull Requests an Fließtextdokumenten unterstützen die Darstellung dieser Dokumente im *Quell-* und im *gerenderten* Format.
 
 In der Quellansicht wird der eingegebene Rohtext angezeigt. In der gerenderten Ansicht wird der Text dagegen so angezeigt, wie er gerendert auf {% data variables.product.product_name %} aussehen würde. Beispielsweise wird fett ausgezeichneter Text in der Quellansicht in Markdown `**fett**` dargestellt, in der gerenderten Ansicht dagegen als **fett**.

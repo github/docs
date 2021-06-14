@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 ### Informationen zu „Tags“ (Schlagworten) in {% data variables.product.prodname_desktop %}
 
 {% data variables.product.prodname_desktop %} ermöglicht Dir, kommentierte Tags zu erstellen. Tags are associated with commits, so you can use a tag to mark an individual point in your repository's history, including a version number for a release. Weitere Informationen zu Release-Tags findest Du unter „[Informationen zu Releases](/github/administering-a-repository/about-releases)“.

@@ -1,6 +1,6 @@
 ---
 title: GitHub CLI
-intro: 'O {% data variables.product.prodname_cli %} é uma ferramenta de linha de comando para usar recursos de {% data variables.product.product_name %} no seu computador.'
+intro: '{% data variables.product.prodname_cli %} é uma ferramenta de linha de comando que leva pull requests, problemas, {% data variables.product.prodname_actions %} e outras funcionalidades de {% data variables.product.product_name %} ao seu terminal para que você possa fazer todo o seu trabalho em um só lugar.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
@@ -10,16 +10,19 @@ topics:
 redirect_from:
   - /github/getting-started-with-github/github-cli
 ---
+
 ### Sobre o {% data variables.product.prodname_cli %}
 
 {% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.product_name %} a partir da linha de comando do seu computador. Quando você está trabalhando na linha de comando, você pode usar {% data variables.product.prodname_cli %} para economizar tempo e evitar mudar o contexto.
 
-Você pode usar os recursos de {% data variables.product.prodname_dotcom %} a seguir com {% data variables.product.prodname_cli %}.
+O {% data variables.product.prodname_cli %} inclui funcionalidades de {% data variables.product.prodname_dotcom %}, tais como:
 
 - Visualizar, criar, clonar e bifurcar repositórios
 - Criar, fechar e listar problemas e pull requests
 - Rever, fazer diff e merge de pull requests
-- Criar, editar, listar e visualizar gists
+- Executar, visualizar e listar fluxos de trabalho
+- Criar, listar, visualizar e excluir versões
+- Criar, editar, listar, visualizar e excluir gists
 
 Para mais informações sobre o que você pode fazer com {% data variables.product.prodname_cli %}, consulte o [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
 

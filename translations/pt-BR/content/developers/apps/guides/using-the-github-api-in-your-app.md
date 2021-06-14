@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 ---
+
 ### Introdução
 
 Este guia irá ajudá-lo a criar um aplicativo GitHub e executá-lo em um servidor. O aplicativo que você criar adicionará uma etiqueta a todos os novos problemas abertos no repositório onde o aplicativo está instalado.

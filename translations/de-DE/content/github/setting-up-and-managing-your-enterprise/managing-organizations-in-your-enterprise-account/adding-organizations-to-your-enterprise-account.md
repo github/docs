@@ -11,6 +11,7 @@ versions:
 topics:
   - Enterprise
 ---
+
 Enterprise-Inhaber können in den Einstellungen eines Enterprise-Kontos neue Organisationen erstellen.
 
 Um Deinem Enterprise-Konto eine Organisation hinzuzufügen, musst Du die Organisation in den Einstellungen des Enterprise-Kontos erstellen. If you want to transfer an existing organization to your enterprise account, contact your {% data variables.product.prodname_dotcom %} sales account representative.

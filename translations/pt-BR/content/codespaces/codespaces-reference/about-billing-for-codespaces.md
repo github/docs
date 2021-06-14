@@ -15,4 +15,4 @@ topics:
 
 {% data reusables.codespaces.about-billing-for-codespaces %}
 
-Updates on the billing model for Codespaces will be shared in an upcoming announcement.
+As atualizações do modelo de cobrança para codespaces serão compartilhadas em um próximo anúncio.

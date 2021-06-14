@@ -11,6 +11,7 @@ versions:
 topics:
   - Accounts
 ---
+
 ### ユーザーアカウントのリポジトリ権限レベルについて
 
 ユーザアカウントが所有するリポジトリのオーナーは 1 人です。 所有権の権限を別のユーザアカウントと共有することはできません。
@@ -32,7 +33,7 @@ topics:
 | {% if currentVersion == "free-pro-team@latest" %}コラボレータを招待{% else %}コラボレータを追加{% endif %}                                                                                                                  |                                                                                                                                                                                                                                                                                                   |
 | [個人リポジトリへのコラボレータの招待](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)                                                                            |                                                                                                                                                                                                                                                                                                   |
 | リポジトリの表示変更                                                                                                                                                                                                | 「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」 |{% if currentVersion == "free-pro-team@latest" %}
-| リポジトリとのインタラクションの制限                                                                                                                                                                                        | 「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」 |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" %}
+| リポジトリとのインタラクションの制限                                                                                                                                                                                        | 「[リポジトリでのインタラクションを制限する](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」 |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 | デフォルトブランチを含むブランチ名の変更                                                                                                                                                                                      | 「[ブランチ名を変更する](/github/administering-a-repository/renaming-a-branch)」 
 {% endif %}
 | 保護されたブランチで、レビューの承認がなくてもプルリクエストをマージする                                                                                                                                                                      | [保護されたブランチについて](/github/administering-a-repository/about-protected-branches)                                                                                                                                                                                                                      |

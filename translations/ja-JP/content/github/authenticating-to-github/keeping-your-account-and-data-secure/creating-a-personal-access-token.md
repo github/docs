@@ -15,6 +15,7 @@ topics:
   - Identity
   - Access management
 ---
+
 個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
 {% if currentVersion == "free-pro-team@latest" %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
@@ -36,7 +37,7 @@ topics:
    ![トークンスコープの選択](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
    {% endif %}
 7. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
-8. {% octicon "clippy" aria-label="The copy to clipboard icon" %} を使用して、トークンをクリップボードにコピーします。 セキュリティ上の理由から、ページから移動した後は、トークンを再度表示することはできません。
+8. {% octicon "clippy" aria-label="The copy to clipboard icon" %}をクリックしてトークンをクリップボードにコピーします。 セキュリティ上の理由から、ページから移動した後は、トークンを再度表示することはできません。
    {% if currentVersion == "free-pro-team@latest" %}
    ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens.png)
    {% elsif currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@next" %}
@@ -59,6 +60,8 @@ topics:
 個人アクセストークンは HTTPS Git 操作だけにしか使用できません。 SSH リモート URL を使用するリポジトリの場合、[リモートを SSH から HTTPS に切り替える](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-ssh-to-https)必要があります。
 
 ユーザ名とパスワードの入力を求められない場合、資格情報がコンピュータにキャッシュされている可能性があります。 古いパスワードをトークンに交換するよう[キーチェーンで資格情報を更新](/github/getting-started-with-github/updating-credentials-from-the-macos-keychain)できます。
+
+Instead of manually entering your PAT for every HTTPS Git operation, you can cache your PAT with a Git client. Git will temporarily store your credentials in memory until an expiry interval has passed. You can also store the token in a plain text file that Git can read before every request. 詳細は「[Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/getting-started-with-github/caching-your-github-credentials-in-git)」を参照してください。
 
 ### 参考リンク
 

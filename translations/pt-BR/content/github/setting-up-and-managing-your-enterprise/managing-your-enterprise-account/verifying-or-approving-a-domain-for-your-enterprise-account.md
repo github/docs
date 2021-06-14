@@ -1,6 +1,6 @@
 ---
-title: Verifying or approving a domain for your enterprise account
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm the identity of organizations owned by your enterprise account. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of organizations owned by your enterprise account.'
+title: Verificando ou aprovando um domínio para a sua conta corporativa
+intro: 'Você pode verificar a propriedade de domínios com {% data variables.product.company_short %} para confirmar a identidade de organizações pertencentes à sua conta corporativa. Você também pode aprovar domínios que {% data variables.product.company_short %} pode enviar notificações de e-mail para integrantes de organizações pertencentes à sua conta corporativa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
@@ -17,22 +17,23 @@ topics:
   - Organizations
   - Policy
 ---
+
 ### Sobre a verificação do domínio
 
 {% data reusables.enterprise-accounts.domains-about-verification %}
 
-### About domain approval
+### Sobre a aprovação de domínio
 
 {% data reusables.enterprise-accounts.domains-about-approval %}
 
-### Verifying a domain for your enterprise account
+### Verificando um domínio para a conta corporativa
 
 {% data reusables.enterprise-accounts.domains-verifying %}
 
-### Approving a domain for your enterprise account
+### Aprovando um domínio para a sua conta corporativa
 
 {% data reusables.enterprise-accounts.domains-approving %}
 
-### Removing an approved or verified domain
+### Removendo um domínio aprovado ou verificado
 
 {% data reusables.enterprise-accounts.domains-removing %}

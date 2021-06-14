@@ -9,9 +9,10 @@ versions:
 topics:
   - SSH
 ---
+
 {% tip %}
 
-**{% data variables.product.prodname_ghe_server %} users**: Accessing {% data variables.product.prodname_ghe_server %} via SSH over the HTTPS port is currently not supported.
+**Usuários de {% data variables.product.prodname_ghe_server %} **: Atualmente, não há compatibilidade para acessar {% data variables.product.prodname_ghe_server %} por meio de SSH na porta HTTPS.
 
 {% endtip %}
 

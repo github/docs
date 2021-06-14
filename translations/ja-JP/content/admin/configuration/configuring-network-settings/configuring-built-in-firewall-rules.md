@@ -15,6 +15,7 @@ topics:
   - Infrastructure
   - Networking
 ---
+
 ### {% data variables.product.product_location %}のファイアウォールについて
 
 {% data variables.product.prodname_ghe_server %} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しい情報についてはUbuntuのドキュメンテーションの"[UFW](https://help.ubuntu.com/community/UFW)"を参照してください。 {% data variables.product.prodname_ghe_server %} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。

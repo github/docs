@@ -74,6 +74,8 @@ module.exports = async function contextualize (req, res, next) {
     airgap: Boolean(process.env.AIRGAP || req.cookies.AIRGAP) || undefined
   })
   if (process.env.AIRGAP || req.cookies.AIRGAP) req.context.AIRGAP = true
+  req.context.searchVersions = searchVersions
+  req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
 
   return next()
 }

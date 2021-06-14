@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
 {% mac %}
 
 1. メニューバーで、[**{% data variables.product.prodname_desktop %}**] メニューを選択し、[**Install Command Line Tool**] をクリックします。 ![[{% data variables.product.prodname_desktop %}]ドロップダウンメニューの [Install Command Line Tool] オプション](/assets/images/help/desktop/mac-install-command-line-tool.png)

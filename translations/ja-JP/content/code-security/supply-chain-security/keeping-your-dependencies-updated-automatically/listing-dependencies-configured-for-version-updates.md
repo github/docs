@@ -6,9 +6,14 @@ redirect_from:
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
 versions:
   free-pro-team: '*'
+type: how_to
 topics:
   - Repositories
+  - Dependabot
+  - Version updates
+  - Dependencies
 ---
+
 ### {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
 
 バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。

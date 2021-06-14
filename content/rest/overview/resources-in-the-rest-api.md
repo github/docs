@@ -21,7 +21,7 @@ We encourage you to [explicitly request this version via the `Accept` header](/r
 
     Accept: application/vnd.github.v3+json
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
 

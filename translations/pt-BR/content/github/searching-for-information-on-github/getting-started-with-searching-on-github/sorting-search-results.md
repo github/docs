@@ -11,6 +11,7 @@ versions:
 topics:
   - GitHub search
 ---
+
 Use o menu Sort (Ordenar) para ordenar os resultados por relevância, número de estrelas, número de bifurcações e data da atualização dos itens.
 
   ![Menu com opções para ordenar os resultados da pesquisa](/assets/images/help/search/repo-search-sort.png)

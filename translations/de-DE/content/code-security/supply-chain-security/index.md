@@ -9,10 +9,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 topics:
-  - Security
+  - Dependabot
+  - Dependencies
+  - Repositories
 children:
   - /understanding-your-software-supply-chain
   - /keeping-your-dependencies-updated-automatically
   - /managing-vulnerabilities-in-your-projects-dependencies
 ---
-### Inhaltsverzeichnis
+
