@@ -37,6 +37,10 @@ Within conversations on {% data variables.product.product_name %}, references to
 | `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
 | `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
 
+{% if currentVersion == "free-pro-team@latest" %}
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
+{% endif %}
+
 ## Commit SHAs
 
 References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.

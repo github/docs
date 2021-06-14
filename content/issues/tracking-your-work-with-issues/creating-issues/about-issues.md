@@ -15,7 +15,7 @@ topics:
 ---
 ## About issues
 
-You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs.
+You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs. Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. For more information, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
